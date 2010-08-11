@@ -20,6 +20,7 @@
 
 -->
 
+            
 <page-set>
   <page>
     <name>overview</name>
@@ -178,12 +179,7 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>3</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/paginators/UIPaginatorEmpty.gtmpl </value>
+                <value>5</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -228,13 +224,18 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>paginatorTemplatePath</name>
+                <value>/exo:ecm/views/templates/Content List Viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>basePath</name>
                 <value>detail</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>5</value>
+                <value>3</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
