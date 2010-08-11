@@ -126,6 +126,10 @@
 	white-space: nowrap;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
+	color: #8F8F8F;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .TBIcon {
 	background: none;
 	margin-left: 0;
