@@ -139,6 +139,11 @@
                 <value>false</value>
                 <read-only>false</read-only>
               </preference>
+              <preference>
+                <name>showRssLink</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>              
             </preferences>
           </portlet>
           <title>Events</title>
@@ -191,7 +196,17 @@
                 <name>showReadmore</name>
                 <value>false</value>
                 <read-only>false</read-only>
-              </preference>              
+              </preference>
+              <preference>
+                <name>showDateCreated</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showRssLink</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>                                          
             </preferences>
           </portlet>
           <title>Products</title>
@@ -310,7 +325,12 @@
                 <name>showDateCreated</name>
                 <value>false</value>
                 <read-only>false</read-only>
-              </preference>              
+              </preference> 
+              <preference>
+                <name>showRssLink</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>                           
             </preferences>
           </portlet>
           <title>Documents</title>

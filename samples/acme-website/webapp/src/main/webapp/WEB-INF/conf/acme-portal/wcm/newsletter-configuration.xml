@@ -30,7 +30,6 @@
     <init-params>
       <values-param>
         <name>portalNames</name>
-        <!--value>classic</value-->
         <value>acme</value>
       </values-param>
       <object-param>
@@ -90,19 +89,19 @@
           </field>
         </object>
       </object-param>
-      <!-- 
+       
       <object-param>
-        <name>subscription1</name>
-        <description>subscription1</description>
+        <name>acme-trainings</name>
+        <description>acme trainings</description>
         <object type="org.exoplatform.services.wcm.newsletter.NewsletterSubscriptionConfig">
           <field name="name">
-            <string>checklist</string>
+            <string>acme-trainings</string>
           </field>
           <field name="title">
-            <string>Check-List</string>
+            <string>acme Trainings</string>
           </field>
           <field name="description">
-            <string>Weekly newsletter with general topics</string>
+            <string>Learn how to use your new Super Power</string>
           </field>
           <field name="categoryName">
             <string>general</string>
@@ -113,17 +112,17 @@
         </object>
       </object-param>
       <object-param>
-        <name>subscription3</name>
-        <description>subscription3</description>
+        <name>acme-newsletters</name>
+        <description>acme newsletters</description>
         <object type="org.exoplatform.services.wcm.newsletter.NewsletterSubscriptionConfig">
           <field name="name">
             <string>market</string>
           </field>
           <field name="title">
-            <string>The market</string>
+            <string>acme Newsletters</string>
           </field>
           <field name="description">
-            <string>What's on the market today ?</string>
+            <string>Learn more about our offers</string>
           </field>
           <field name="categoryName">
             <string>marketing</string>
@@ -133,7 +132,7 @@
           </field>
         </object>
       </object-param>
-       
+      <!-- 
       <object-param>
         <name>user1@gmail.com</name>
         <description>user1@gmail.com</description>
