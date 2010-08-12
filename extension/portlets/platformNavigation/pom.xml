@@ -5,10 +5,12 @@
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.extension</artifactId>
     <version>3.0.0-Beta02-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>	
   </parent>
 
   <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
   <packaging>war</packaging>
+
 
   <name>eXo Platform platform Navigation Portlet</name>
 	<dependencies>
