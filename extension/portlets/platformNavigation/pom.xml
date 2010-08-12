@@ -6,6 +6,7 @@
     <artifactId>exo.platform.extension</artifactId>
     <version>3.0.0-Beta02-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>	
+    <relativePath>../../pom.xml</relativePath>
   </parent>
 
   <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
