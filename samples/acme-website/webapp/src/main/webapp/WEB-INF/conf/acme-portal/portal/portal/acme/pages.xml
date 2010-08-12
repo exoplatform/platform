@@ -189,7 +189,7 @@
               </preference>
               <preference>
                 <name>showThumbnailsView</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
