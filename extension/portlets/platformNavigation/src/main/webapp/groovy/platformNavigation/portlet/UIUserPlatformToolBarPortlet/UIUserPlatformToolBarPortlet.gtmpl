@@ -84,7 +84,7 @@ void renderLink() {
 						<div class="MenuItem">
 							<div class="$clazz">						
 					
-				<a href="#" class="ChangeLanguageIcon">ChangeLanguage</a>
+				<a href="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" class="ChangeLanguageIcon">ChangeLanguage</a>
 			 						
 							</div>
 						</div>
