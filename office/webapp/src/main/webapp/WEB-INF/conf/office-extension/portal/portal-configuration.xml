@@ -81,7 +81,7 @@
                   <string>platform/web-contributors</string>
                 </value>
                 <value>
-                  <string>platform/developers</string>
+                  <string>developers</string>
                 </value>                
               </collection>
             </field>
