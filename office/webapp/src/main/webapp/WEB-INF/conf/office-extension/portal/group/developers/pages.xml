@@ -23,27 +23,26 @@
 <page-set>
   
     <page>
-      <page-id>group::developers::ide</page-id>
-      <owner-type>group</owner-type>
-      <owner-id>developers</owner-id>
       <name>ide</name>
       <title>eXo IDE</title>
       <access-permissions>*:/developers</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>
 	  <portlet-application>
-      <portlet>
-        <application-ref>dashboard</application-ref>
-        <portlet-ref>GadgetPortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>url</name>
-            <value>local://IDE</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>true</show-application-state>
+		  <portlet>
+			<application-ref>dashboard</application-ref>
+			<portlet-ref>GadgetPortlet</portlet-ref>
+			<preferences>
+			  <preference>
+				<name>url</name>
+				<value>local://IDE</value>
+				<read-only>false</read-only>
+			  </preference>
+			</preferences>
+		  </portlet>
+		  <title>eXo IDE</title>
+		  <access-permissions>*:/developers</access-permissions>
+		  <show-info-bar>false</show-info-bar>
+		  <show-application-state>false</show-application-state>
 	  </portlet-application>
     </page>
   </page-set>
