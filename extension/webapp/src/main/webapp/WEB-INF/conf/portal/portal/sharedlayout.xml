@@ -74,18 +74,16 @@
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
-		<!--
-		<container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
+	<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
-          <portlet-ref>UISpacePlatformToolBarPortlet</portlet-ref>
+          <application-ref>social-portlet</application-ref>
+          <portlet-ref>SpacesToolbarPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
-		-->
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
 		<container id="EditingPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		  <portlet-application>
         <portlet>
