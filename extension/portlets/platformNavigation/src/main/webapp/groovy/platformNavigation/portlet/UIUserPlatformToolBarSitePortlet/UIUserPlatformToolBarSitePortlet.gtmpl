@@ -1,0 +1,146 @@
+<%	
+	import org.exoplatform.portal.config.model.PageNavigation;
+	import org.exoplatform.portal.config.model.PageNode;
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.util.Util ;
+	import org.exoplatform.webui.organization.OrganizationUtils;
+	import org.gatein.common.text.EntityEncoder;
+	
+	def rcontext = _ctx.getRequestContext() ;
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+	jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+	
+	def portalURI = Util.getPortalRequestContext().getPortalURI();
+	void renderPortalNavigations() {
+			 
+			print """
+					<div style="position: absolute; display:none" class="MenuItemContainer">
+						<div class="SubBlock">
+			""";
+			
+			boolean isCurrent = false;
+			String clazz = "";
+			String href = "#";
+			 String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
+			for(int i = 0; i < uicomponent.getAllPortalNames().size(); i++) {
+				String portal = uicomponent.getAllPortalNames().get(i);
+ 				if(portal.equals(uicomponent.getCurrentPortal())) {
+					isCurrent = true;
+			 	} else isCurrent = false;
+				if(isCurrent) clazz = "class='ArrowIcon'";
+				else clazz = "";
+				href = uicomponent.getPortalURI(portal);
+                EntityEncoder entityEncoder = EntityEncoder.FULL;
+				portal = entityEncoder.encode(portal);
+				print """
+					<div class="MenuItem">
+						<div $clazz>
+							<a href="$href" class="ItemIcon SiteIcon">$portal</a>
+						</div>
+				""";
+						if(isCurrent) {
+							renderCurrentPortal();
+						}
+				print """
+					</div>
+				""";
+			}
+			 print """
+						<div class="MenuItem" >
+							<div class="">						
+					
+				<a href="$manageSiteURI" class="ManageSite">Manage Sites</a>
+			 						
+							</div>
+						</div>
+					""";	
+			print """
+					</div>
+				</div>
+			""";
+	}
+	
+	void renderCurrentPortal() {
+		navigation = uicomponent.getCurrentPortalNavigation();
+		nodes = navigation.getNodes();
+		print """
+			<div style="position: absolute; display:none" class="MenuItemContainer">
+				<div class="SubBlock">
+		""";
+		for(int i = 0; i < nodes.size(); i++) {
+			renderPageNode(nodes.get(i), i%2 == 0);
+		}
+		print """
+				</div>
+			</div>
+		""";
+	}
+	
+	void renderPageNode(PageNode node, boolean flag) {
+		PageNode selectedNode = uicomponent.getSelectedPageNode();
+		String tabStyleNavigation = "";
+		if(selectedNode != null && node.getUri() == selectedNode.getUri()) {			 
+				tabStyleNavigation = "SelectedItem";
+		}
+		
+		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
+		String clazz = "";
+		if(hasChild) clazz = "ArrowIcon";
+		String	href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+		String icon = node.getIcon();
+		if(icon == null) icon = "DefaultPageIcon";
+		boolean toolong = (node.resolvedLabel.length() > 60);
+		String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+		String title = "";
+		if(toolong) title = "title='$node.resolvedLabel'";
+		else title = "";
+        EntityEncoder entityEncoder = EntityEncoder.FULL;
+		label = entityEncoder.encode(label);
+		print """
+			<div class="MenuItem $tabStyleNavigation">
+				<div class="$clazz">
+		""";
+						if(node.pageReference != null) {
+								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+						} else {
+								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+						}
+		print """
+				</div>
+		""" ;
+		if(hasChild) {
+			print """
+				<div class="MenuItemContainer" style="position: absolute; display:none">			
+					<div class="SubBlock">
+			""" ;
+				for(int j = 0; j < node.getChildren().size(); j++) {
+					renderPageNode(node.getChildren().get(j), j%2 == 0);
+				}
+			print """
+					</div>
+				</div>
+			""" ;
+			
+		}
+		print """
+			</div>
+		""" ;			
+	}	
+%> 
+
+<div class="UIUserToolBarSitePortlet" id="$uicomponent.id" >
+	<div class="UIHorizontalTabs">
+			<div class="TabsContainer">
+				<div class="UITab NormalToolbarTab">
+					<div class="">
+								<a class="SitesIcon TBIcon" href="<%= portalURI + "portalnavigation" %>">
+										My Sites
+								</a>
+					</div>
+					<% renderPortalNavigations() %>
+				</div>
+			</div>
+	</div>		
+</div>	
