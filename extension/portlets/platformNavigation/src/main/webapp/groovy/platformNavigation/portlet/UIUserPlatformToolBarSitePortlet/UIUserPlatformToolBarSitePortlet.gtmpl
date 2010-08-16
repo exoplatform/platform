@@ -21,6 +21,7 @@
 			""";
 			
 			boolean isCurrent = false;
+			boolean hasPermission = uicomponent.hasCreatePortalPermission();
 			String clazz = "";
 			String href = "#";
 			 String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
@@ -47,8 +48,9 @@
 					</div>
 				""";
 			}
+			if(hasPermission){
 			 print """
-						<div class="MenuItem" >
+						<div class="MenuItem SiteIcon" >
 							<div class="">						
 					
 				<a href="$manageSiteURI" class="ManageSite">Manage Sites</a>
@@ -56,6 +58,7 @@
 							</div>
 						</div>
 					""";	
+					}
 			print """
 					</div>
 				</div>
