@@ -27,6 +27,8 @@
       <title>eXo IDE</title>
       <access-permissions>*:/developers</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>
+	  <container id="IDEContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>*:/developers</access-permissions>
 	  <portlet-application>
 		  <portlet>
 			<application-ref>dashboard</application-ref>
@@ -44,5 +46,6 @@
 		  <show-info-bar>false</show-info-bar>
 		  <show-application-state>false</show-application-state>
 	  </portlet-application>
+	  </container>
     </page>
   </page-set>
