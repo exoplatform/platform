@@ -19,12 +19,14 @@
 
 package org.exoplatform.platform.component;
 
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -42,11 +44,17 @@ import java.util.List;
 )
 public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication
 {
+	 private boolean hasCreatePortalPermission() throws Exception
+	   {
+	      UIPortalApplication portalApp = Util.getUIPortalApplication();
+	      UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
+	      return userACL.hasCreatePortalPermission();
+	   }  
 
    public UIUserPlatformToolBarSitePortlet() throws Exception
    {
    }
-
+ 
    public List<String> getAllPortalNames() throws Exception
    {
       UserPortalConfigService dataStorage = getApplicationComponent(UserPortalConfigService.class);
