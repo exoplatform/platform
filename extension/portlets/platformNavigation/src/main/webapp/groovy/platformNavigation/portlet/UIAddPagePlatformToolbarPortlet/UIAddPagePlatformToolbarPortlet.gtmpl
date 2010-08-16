@@ -34,22 +34,12 @@
 	<div class="UIHorizontalTabs">
 		<div class="TabsContainer" >
 			<div class="UITab NormalToolbarTab">
+			<% if(userCouldEditNavigation){ %>
 				<div class="">
-					<a class="EditorIcon TBIcon" href="#">add page</a>
+					<a class="AddPagesIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">Add Page</a>
 				</div>
-				<div class="MenuItemContainer" style="display:none;">
-					<div class="SubBlock">
-						<% if(userCouldEditNavigation){ %>
-							<div class="MenuItem">	
-								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">add Page</a>
-							</div>
-						<% } %>
-						
-					
-						
-						
-					</div>
-				</div>
+				<% } %>
+				
 			</div>
 		</div>
 	</div>
