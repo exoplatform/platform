@@ -1071,7 +1071,7 @@
         <preferences>
           <preference>
             <name>redirectPath</name>
-            <value>/ecmdemo/public/acme/contactus/confirmation</value>
+            <value>/portal/public/acme/contactus/confirmation</value>
           </preference>
           <preference>
             <name>mode</name>
