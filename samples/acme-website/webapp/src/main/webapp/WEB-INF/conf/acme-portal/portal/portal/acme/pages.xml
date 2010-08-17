@@ -380,7 +380,7 @@
               </preference>
               <preference>
                 <name>basePath</name>
-                <value>news</value>
+                <value>products</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
