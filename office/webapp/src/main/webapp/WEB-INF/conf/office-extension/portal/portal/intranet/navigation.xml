@@ -198,7 +198,7 @@
    </node>
     <node>
       <uri>documents</uri>
-      <name>Documents</name>
+      <name>documents</name>
       <label>#{portal.intranet.documents}</label>
       <page-reference>portal::intranet::documents</page-reference>
     </node>   

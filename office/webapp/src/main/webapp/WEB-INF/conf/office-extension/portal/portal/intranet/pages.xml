@@ -1070,7 +1070,7 @@
 -->
  <page>
     <name>documents</name>
-    <title>Documents</title>
+    <title>documents</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
@@ -1079,7 +1079,7 @@
         <portlet-ref>FileExplorerPortlet</portlet-ref>
         <preferences></preferences>
       </portlet>
-      <title>Documents</title>
+      <title>documents</title>
       <access-permissions>*:/platform/users</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
