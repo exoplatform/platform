@@ -77,6 +77,7 @@
 			
 	<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		<access-permissions>*:/platform/users</access-permissions>
+    <!-- 
 		<portlet-application>
 		<portlet>
             <application-ref>presentation</application-ref>
@@ -140,6 +141,7 @@
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
         </portlet-application>
+        -->
 				<!-- user activities portlet -->
 				<portlet-application>
 					<portlet>
