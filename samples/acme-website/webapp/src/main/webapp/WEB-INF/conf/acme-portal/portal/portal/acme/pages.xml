@@ -1169,6 +1169,7 @@
 
   <page>
     <name>newAccount</name>
+	<title>newAccount</title>
     <access-permissions>Everyone</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
