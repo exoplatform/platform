@@ -362,6 +362,9 @@
 <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-connector</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
 <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-search</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
  <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-webui</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
+<dependency><groupId>org.slf4j</groupId><artifactId>slf4j-jdk14</artifactId><version>${org.slf4j.version}</version><type>jar</type></dependency><!-- 1.5.6-->
+ 
+ 
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.common</artifactId>
