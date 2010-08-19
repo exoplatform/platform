@@ -88,9 +88,18 @@
     <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
 
+
+    <!-- ********************* -->
+    <!-- Build settings        -->
+    <!-- ********************* -->
+
     <!-- Because we are using parent 7 we have to downgrade assembly plugin to improve build perfs -->
     <!-- See http://jira.exoplatform.org/browse/PAR-103 -->
     <version.assembly.plugin>2.1</version.assembly.plugin>
+
+    <!-- maven-release-plugin -->
+    <arguments>-Prelease,pkg-tomcat -Dgatein.working.dir=target</arguments>
+
   </properties>
 
   <modules>
