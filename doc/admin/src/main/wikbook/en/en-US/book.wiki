@@ -6,7 +6,6 @@ h1. Introduction
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
-
 h1. Installation 
 
 {include:document=installation.wiki|syntax=confluence/1.0}

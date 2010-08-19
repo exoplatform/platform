@@ -1,7 +1,7 @@
 eXo Platform comes packaged as a deployable enterprise archive as per the Java EE specification and a configuration directory.
 
 h1. Runtime Considerations
-Exo Platform requires a purposive infrastructure for its deployment and is certified on the following products:
+eXo Platform requires a purposive infrastructure for its deployment and is certified on the following products:
 * Sun Java 6 Virtual Machine 
 * JBoss Application Server 5.1 
 * Oracle version 9 and 10, MySQL version 5 and DB2 version 9 
@@ -24,11 +24,13 @@ Currently, this guide provide instructions for :
 
 If your application server is not covered, please contact eXo Support.
 
-{caution}EAR distribution is not yet available{caution}
+{note}
+EAR distribution is not yet available
+{note}
 h2. JBoss 5.1 
-
+###############################??
 h2. JBoss EAP
-
+###############################?? 
 
 h1. Startup
 

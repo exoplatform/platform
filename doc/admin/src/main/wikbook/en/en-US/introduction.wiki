@@ -36,4 +36,16 @@ h1. Conventions used in this document
 
 
 ||Text / Icon type||Meaning ||
-|xxx|Txxx|
+|Courier New|The
+ *Courier New* font indicates file names, paths, variables, arguments, parameters, and configuration content |
+|<>|<> Angle brackets enclose a part of a file path or URL address that may vary from user to user (for example, *<Product installation folder>\bin*)|
+|( )|Brackets enclose arguments of a method|
+|{}|Curly brackets indicate that one of the enclosed values must be assigned to the current argument|
+|!Tips.png|This is a tip symbol. Tips and tricks|
+|!caution.png!|This is a caution symbol. You chould be careful|
+|!warning.png!|This is a warning symbol. You should be very careful|
+
+
+
+
+

@@ -10,27 +10,33 @@ Before deploying your system to production, you will want to remove these demos.
 
 h2. EAR distribution
 h3. Removing acme
+# stop the server {{shutdown.sh}}
+# delete  {{gatein-ecmdemo-extension.ear}} from {{server/default/deploy}}
+# delete database in {{root/server/default/data}}
+# restart
 h3. Removing office portal
-
+####################################?
 h2. Tomcat Bundle
 h3. Removing acme
 
 # stop the server {{shutdown.sh}}
-# delete acme-portal.war
-# delete exo.ecms.ext.acme.config.jar
+# delete {{acme-portal.war}}
+# delete {{exo.ecms.ext.acme.config.jar}}
 # delete {{gatein/data}}
 # restart
 
 h3. Removing office portal
 
 # stop the server {{shutdown.sh}}
-# delete office-portal.war
-# delete exo.platform.office.config.jar
+# delete {{office-portal.war}}
+# delete {{exo.platform.office.config.jar}}
 # delete {{gatein/data}}
 # restart
 
 {caution}office-portal is defined as the default portal. Make sure you define another portal as default when you remove office-portal{caution}
 
 h1. How to setup an Apache Frontend
+#########################################?
 
 h1. How to deploy a customization project
+#########################################?

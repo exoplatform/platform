@@ -1,14 +1,35 @@
 
 
 h1. When should you consider clustering ?
-
+############################
 
 h1. Preparing the cluster infrastructure
-
+h2. Shared file system
+The JCR server requires to share a portion of its state via the file system. The shared state are the JCR value storage and the JCR index. In order to properly cluster JCR, a shared file system needs to be setup among the cluster nodes.
+h2. Configuration setup
+The default configuration located in the jar file {{exo.portal.component.common-3.0.0-XYZ.jar}} under the path }}conf/configuration-jboss.xml}} must be copied and edited for clustering setup. The same file is used for the various cluster nodes, let's name it {{cluster.properties}}.
 
 h1. Configuring cluster mode
+h2. Replicated JCR configuration
+h3. Value storage configuration
+The property gatein.jcr.storage.data.dir must be updated with the path of the shared value storage directory root.
+h3. Index configuration
+The property {{gatein.jcr.index.data.dir}} must be updated with the part of the shared index directory root.
+h3. Filter class configuration
+The property {{gatein.jcr.changefilterclass}} must be changed to the value {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter.}}
+h3. Configuration type
+The property {{gatein.jcr.config.type}} must be changed to the value cluster.
+h2. Database configuration
+The cluster needs to use the same shared database configuration. This applies to the JCR datasource as well as the identity datasource. This setup is done at the JNDI level as the gatein datasource is bound by default under the java:jdbcjcr and java:jdbcidm JNDI binding.
+h2. Runtime configuration
+* The *all* configuration must be used, that is achieved with the configuration switch of JBoss AS.
+* The cluster setup requires the activation of the *cluster* profile. Note that we are talking about GateIn profile and not aboutAS profile notion. The system property *exo.profiles* needs to contain the cluster value.
+* GateIn needs to use the alternative configuration that was setup in the configuration setup section. The system property *exo.properties.url* must point to the location of the configuration
+{screen}
+run.sh -c all -Dexo.profiles=cluster -Dexo.properties.url=/cluster.properties
+{screen}
 
 h1. Managing a cluster
 
-
 h2. Using JBoss Farm deployment
+############################

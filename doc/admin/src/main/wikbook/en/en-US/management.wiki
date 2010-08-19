@@ -22,6 +22,7 @@ The following system properties must be added as virtual machine properties:
 | {{javax.management.builder.initial}}|{{org.jboss.system.server.jmx.MBeanServerBuilderImpl}} |
 
 h2. REST Interface
+##################################
 
 h1. Management Views Reference 
 
@@ -67,7 +68,7 @@ Picketink is the default implementation for te organization model. It uses its o
 
 h2. Content management view
 
-WCM provides a management view for 
+WCM provides a management view for:
 
 h3. WCM Composer
 
@@ -180,10 +181,14 @@ The JMX name of the application statistics MBean follows the template: {{exo:vie
 
 h2. Knowledge Management view
 {caution}TODO{caution}
-
+###################################
 h3. BBCodes
+###################################
 h3. Forum  Service
+###################################
 h3. Jobs
+###################################
 h3. Plugins
+###################################
 h3. Storage
- 
+###################################

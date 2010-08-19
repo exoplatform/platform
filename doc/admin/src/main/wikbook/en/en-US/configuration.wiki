@@ -26,11 +26,18 @@ By default, eXo Platform defines two datasources
 
 The file {{sample-confs/jboss/exo-ds.xml}} can be used to drop into the {{deploy/}} directory.
 
-
 h1. Filesystem Configuration
-h1. Connecting to an LDAP Directory
+#########################
+
+h1. Connecting to a LDAP Directory
+######################### 
 
 h1. Configuration of the Application Server
+#########################
 
 h1. JVM Settings Recommendations
+#########################
+
 h1. Connection Pools
+#########################
+
