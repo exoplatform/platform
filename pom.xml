@@ -35,7 +35,7 @@
     <org.exoplatform.jcr.version>1.12.3-GA</org.exoplatform.jcr.version>
     <org.exoplatform.jcr-services.version>1.12.3-GA</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.1.1-PLF</org.exoplatform.portal.version>
-    <org.exoplatform.cs.version>2.1.0-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.cs.version>2.1.0-CR01</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.1.0-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.1.0-CR01</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.1.0-CR01</org.exoplatform.social.version>
