@@ -271,12 +271,6 @@
          <type>jar</type>
       </dependency>
       <dependency>
-         <groupId>org.xcmis</groupId>
-         <artifactId>xcmis-sp-jcr-exo</artifactId>
-         <version>${org.xcmis.version}</version>
-         <type>jar</type>
-      </dependency>
-      <dependency>
          <groupId>org.exoplatform.ecms</groupId>
          <artifactId>exo-ecms-ext-xcmis-sp</artifactId>
          <version>${org.exoplatform.ecms.version}</version>
