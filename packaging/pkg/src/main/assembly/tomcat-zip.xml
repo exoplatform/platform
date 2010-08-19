@@ -10,7 +10,6 @@
       <fileSet>
          <directory>target/tomcat</directory>
          <outputDirectory></outputDirectory>
-         <useDefaultExcludes>true</useDefaultExcludes>
          <excludes>
             <exclude>**/*.sh</exclude>
          </excludes>
@@ -18,7 +17,6 @@
       <fileSet>
          <directory>target/tomcat</directory>
          <outputDirectory></outputDirectory>
-         <useDefaultExcludes>true</useDefaultExcludes>
          <includes>
             <include>**/*.sh</include>
          </includes>

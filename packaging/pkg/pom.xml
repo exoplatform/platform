@@ -164,8 +164,6 @@
          <version>${org.exoplatform.social.version}</version>
          <type>pom</type>
       </dependency>
-      
-   
       <!-- workflow dependencies -->
       
       <dependency>
@@ -363,7 +361,7 @@
 <dependency><groupId>org.exoplatform.portal</groupId><artifactId>exo.portal.starter.war</artifactId><version>${org.exoplatform.portal.version}</version><type>war</type></dependency><!-- 3.1.1-plf-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-connector</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
 <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-search</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
- <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-webui</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->   
+ <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-webui</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency><!-- 2.1.0-CR01-->
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.common</artifactId>
@@ -1168,6 +1166,7 @@
                         <configuration>
                            <descriptors>
                               <descriptor>src/main/assembly/tomcat-zip.xml</descriptor>
+                              <descriptor>src/main/assembly/chatserver-zip.xml</descriptor>
                            </descriptors>
                         </configuration>
                      </execution>
