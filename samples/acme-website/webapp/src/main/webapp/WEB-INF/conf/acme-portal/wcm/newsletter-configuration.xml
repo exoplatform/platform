@@ -164,28 +164,6 @@
       <description>XML Deployment Plugin</description>
       <init-params>
         <object-param>
-          <name>Demo newsletter for classic site</name>
-          <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
-            <field name="target">
-              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
-                <field name="repository">
-                  <string>repository</string>
-                </field>
-                <field name="workspace">
-                  <string>collaboration</string>
-                </field>
-                <field name="nodePath">
-                  <string>/sites content/live/classic/ApplicationData/NewsletterApplication/DefaultTemplates</string>
-                </field>
-              </object>
-            </field>
-            <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/newsletter/newsletterBasicTemplate.xml</string>
-            </field>
-          </object>
-        </object-param>
-        <object-param>
           <name>Demo newsletter for acme site</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
