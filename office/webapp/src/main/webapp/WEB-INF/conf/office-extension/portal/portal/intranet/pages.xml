@@ -204,8 +204,8 @@
       
   
   <page>
-    <name>newAccount</name>
-    <title>newAccount</title>
+    <name>Register</name>
+    <title>Register</title>
       <access-permissions>*:/platform/guests</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>   
     <portlet-application>

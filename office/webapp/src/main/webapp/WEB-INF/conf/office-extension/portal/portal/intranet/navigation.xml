@@ -163,11 +163,11 @@
       <page-reference>portal::intranet::searchResult</page-reference>
     </node>
 	 <node>
-      <uri>newAccount</uri>
-      <name>newAccount</name>
-      <label>#{portal.intranet.newAccount}</label>
+      <uri>Register</uri>
+      <name>Register</name>
+      <label>#{portal.intranet.register}</label>
       <visibility>HIDDEN</visibility>
-      <page-reference>portal::intranet::newAccount</page-reference>
+      <page-reference>portal::intranet::Register</page-reference>
     </node>
 	 <node>
       <uri>forum</uri>
