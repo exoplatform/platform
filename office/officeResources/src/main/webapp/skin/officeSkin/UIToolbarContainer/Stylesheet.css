@@ -56,6 +56,10 @@
 	float: none;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .UIAdminToolbarPortlet .UIHorizontalTabs .UITab {
+	background: url('background/ToolbarContainer.png') no-repeat right 5px;
+}
+
 .UIWorkingWorkspace .UIUserToolBarPortlet .UIHorizontalTabs .UITab {
 	background: none;
 }
@@ -240,7 +244,7 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarSitePortlet .UITab {
-	width: 60px !important;
+	width: 86px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIAddPagePlatformToolbarPortlet .UITab {
