@@ -77,7 +77,7 @@ h3. WCM Composer
 The WCM Composer is responsible for assembling the pages. It is a key component serving pages efficiently.
 The JMX name is {{exo:portal="portal",service=composer,view=portal,type=content}}
 
-* {{Cached}}: is the cache used ?
+* {{Cached}}: whether the cache is used or not
 * {{CachedEntries}} : how many nodes in the cache?
 * {{cleanTemplates()}} : clean all templates in the cache
 * {{setCached(cached)}} : enabled/disable caching in the composer

@@ -35,23 +35,28 @@ h1. Filesystem Configuration
 TODO
 {note}
 
+
 h1. Connecting to a LDAP Directory
 {note}
 TODO
 {note}
+
 
 h1. Configuration of the Application Server
 {note}
 TODO
 {note}
 
+
 h1. JVM Settings Recommendations
 {note}
 TODO
 {note}
 
+
 h1. Connection Pools
 {note}
 TODO
 {note}
+
 

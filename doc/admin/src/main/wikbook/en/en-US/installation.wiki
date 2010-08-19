@@ -10,7 +10,7 @@ For more details on the supported combinations, please refer to the [Supported P
 
 h1. Installing the Tomcat bundle
 The easiest way to install eXo Platform is simply to take the default bundle. 
-It's a ready-made packaging on top of Tomcat 6 application server. Hence, the instructions are as simple as copying the ##exoplatform-tomcat/## directory to your server
+It's a ready-made packaging on top of Tomcat 6 application server. Hence, the instructions are as simple as copying the {{exoplatform-tomcat/}} directory to your server
 
 	
 h1. Installing the EAR distribution 
@@ -98,7 +98,7 @@ Halting VM
 h1. Other options
 
 h2. Profiles
-By passing {{-Dexo.profiles=p1,p2,p3...}, you can enable modules.
+By passing {{-Dexo.profiles=p1,p2,p3...}}, you can enable modules.
 
 You can enable/disable some modules if you don't use them. 
 * {{collaboration}} : enables eXo Collaboration module
@@ -113,7 +113,7 @@ Additionnaly, you can use several predefined profiles :
 * {{all}} : everything including dms and workflow
 
 {note}Profiles are additive. You can combine them together to shape eXo platform to your needs. 
-e.g : -Dexo.profiles=default,cmis will take te default profile and add CMIS server{note}
+e.g : -Dexo.profiles=default,cmis will take the default profile and add CMIS server{note}
 
 
 
