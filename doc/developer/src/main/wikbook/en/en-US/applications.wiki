@@ -1,9 +1,132 @@
-h1. Applications integration
-* how to configure a portlet in pages.xml
-* how to confiure preferences
+
+h1. 1. Application integration
+
+To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located in {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
+
+Here is an example of a portlet configuration inside {{pages.xml}}:
 
 
-h1. Developing your own applications
-* Gadgets vs Portlet
-* Gadget quick start with IDE
-* Portlets Bridge
+{code}
+<portlet-application>
+<portlet>
+<application-ref>presentation</application-ref>
+  <portlet-ref>SingleContentViewer</portlet-ref>
+<preferences>
+<preference>
+<name>repository</name>
+<value>repository</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>workspace</name>
+<value>collaboration</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>nodeIdentifier</name>
+<value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowQuickEdit</name>
+<value>true</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowPrintAction</name>
+<value>false</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowTOC</name>
+<value>false</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowTags</name>
+<value>false</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowCategories</name>
+<value>false</value>
+<read-only>false</read-only>
+</preference>
+<preference>
+<name>ShowTitle</name>
+<value>false</value>
+<read-only>false</read-only>
+</preference>
+</preferences>
+</portlet>
+<title>Homepage</title>
+<access-permissions>Everyone</access-permissions>
+<show-info-bar>false</show-info-bar>
+<show-application-state>false</show-application-state>
+<show-application-mode>false</show-application-mode>
+</portlet-application>
+{code}
+
+Here are details about this configuration:
+|| XML tag name || Description || Example ||
+| {{application-ref}} | The name of the webapp that contains the portlet | |
+| {{portlet-ref}} | The name of the portlet | |
+| {{title}} | The title of the page, HTML speaking | |
+| {{access-permission}} | Who can access the portlet | \*:platform/users (membership:group) |
+| {{show-info-bar}} | Show the top bar with the portlet title | |
+| {{show-application-state}} | Show the collapse/expand icons | |
+| {{show-application-mode}} | Show the change portlet mode icon | |
+| {{preferences}} | Contains a list of {{preference}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. CF reference guide. | |
+
+
+
+h1. 2. Developing your own applications
+
+{note}Patrice: did you have anything more in mind for this part?{note}
+
+h2. 2.1. Gadget vs Portlet
+
+It is important to understand the distinction between Gadgets and Portlets. Portlets are user interface components that provide fragments of markup code from the server side. Gadgets on the other hand, generate dynamical web content on the client side. With Gadgets, small applications can be relatively quickly built and mashed up at the client side using light weight technologies based on Web Oriented Architecture (WOA) like REST or RSS instead of more involved server side technologies.
+
+Also see the GateIn reference guide:
+* [Portlet development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Portlet_development]
+* [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development]
+
+h2. 2.2. Gadget quick start with IDE
+
+The eXo IDE allows you to develop your gadget within the platform. If you are not yet familiar with Gadget development, you can learn how to get started at [http://code.google.com/apis/gadgets/docs/gs.html].
+
+
+h2. 2.3. Portlet Bridges
+
+A Portlet Bridge allows you to create a JSR-168 compliant portlet with very little change to your existing web application.
+
+For example, the JSF Bridge, allows you to transparently deployed your existing JSF Applications as Portlet Application or Web Application.
+
+[http://wiki.apache.org/myfaces/PortletBridge]
+
+
+
+
+
+
+
+The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks such as RichFaces and Seam.
+
+[http://jboss.org/portletbridge]
+
+
+
+
+
+
+
+
+[http://jboss.org/portletbridge/docs.html]
+
+*
+
+undefined:
+undefined:
+undefined:
+

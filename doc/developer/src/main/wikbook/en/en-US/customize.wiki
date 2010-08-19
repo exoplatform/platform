@@ -1,50 +1,223 @@
-h1. Creating your own portal
+When working with eXo, it is important you do not modify the eXo sources to ensure your compatibility with further upgrades and to simplify support.
 
-When working with eXo, you typically do not modify eXo binary files, but provide your own artefacts as a set of wars/jars/ears.
-That's important for your further upgrades and for support.
+In order to customize your portal, you need to create an extension project by providing your own artefacts as a set of wars/jars/ears.
 
-How to customize things if you can't  modify eXo ? Anwser : thank to extensions
 
-h2. Quickstart
+h1. Create Your Extension Project
 
-A custom extension contains typically two mandatory things : 
-* extension webapp : contains resources and kernel configurations 
-* extension activator jar : declares your webapp as a dependency of the portal container
 
-Point to a sample provided with package (talk about the maven archetype when it's ready).
+
+A custom extension contains typically two mandatory things :
+* extension webapp : contains resources and kernel configurations.
+* extension activator jar : declares your webapp as a dependency of the portal container.
+
+A sample extension package is provided here: [http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/]
+
+
 >> adapt gatein sample extension as a tutorial to illustrate overriding
 
+Once, you have modified the sample extension to build your own extension, use "maven clean install" to create the archive files.
+
+To deploy your extension in Tomcat, follow these steps:
+* Add the file {{sample-ext.war}} from {{sample/extension/war/target/}} to the {{tomcat/webapps}} directory.
+* Add the folder {{starter}} from {{starter/war/target/}} to the {{tomcat/webapps}} directory.
+* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
+{note}
+This can only work if the starter.war is the last war file to be loaded, so don't hesitate to rename it if your war files are loaded following to the alphabetic order.
+{note}
+* Add the jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
+* Add the jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
 
 
-h2. Graphic chart integration
+{note:title=Review by PL}Actually, the gatein sample extension will not be enough as it will not cover ECM. I suggest making our own sample. Jira task for it : [PLF-150@JIRA]
 
-one of the first stops in any web project is to integrate a graphic chart. This can be done entirely within your extension
+{note}
 
-h3. Page Layout
-Your portal will have a layout (2columns, banner-2columns, etc..), eXo will let you configure
-*  portal.xml
-* pages.xml
 
-h3. Styles and Javascript
+For JBoss deployment and more details, check the reference guide.
+
+
+h1. Portal, pages and menus structure
+
+You can create as many pages as you want in a portal. They can be visible by specific groups and/or users. This chapter describes how to define this structure.
+
+h2. Page Layout
+
+The configuration of a portal called "classic" is made under the directory {{/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic}} of your extension webapp.
+
+* *Portal:*
+
+The {{portal.xml}} file describes the layout and portlets common on all the pages of the portal.
+
+{code}<?xml version="1.0" encoding="ISO-8859-1"?>
+<portal-config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+  <portal-name>classic</portal-name>
+  <locale>en</locale>
+  <access-permissions>Everyone</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <properties>
+    <entry key="sessionAlive">onDemand</entry>
+  </properties>
+    
+     <portal-layout>
+      <portlet-application>
+      <portlet>
+        <application-ref>web</application-ref>
+        <portlet-ref>BannerPortlet</portlet-ref>
+        <preferences>
+          <preference>
+            <name>template</name>
+            <value>par:/groovy/groovy/webui/component/UIBannerPortlet.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
+      </portlet>
+      <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+
+      <portlet-application>
+      <portlet>
+       ...
+      </portlet>
+      </portlet-application>
+        
+      <portlet-application>
+      <portlet>
+        ...
+      </portlet>
+      </portlet-application>
+      
+      <page-body> </page-body>
+      
+     <portlet-application>
+       <portlet>
+         ...
+       </portlet>
+     </portlet-application>
+  </portal-layout>
+</portal-config>
+{code}
+
+
+As you can see, each portlet can be configured with a set of preferences, which will be further detailed.
+
+* *Pages:*
+
+The {{pages.xml}} file is used to describe the content of the pages of your portal. In other words, what will be inside the <page-body> tag of the {{portal.xml}} file above.
+Here is an example of the classic portal pages.xml.
+
+{code}
+<page>
+    <name>homepage</name>
+    <title>Home Page</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="ClassicBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+      <access-permissions>Everyone</access-permissions>
+      <container id="ClassicLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>Everyone</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>SingleContentViewer</portlet-ref>
+            <preferences>
+              <preference>
+                <name>repository</name>
+                <value>repository</value>
+                <read-only>false</read-only>
+              </preference>
+              ...
+              <preference>
+                <name>ShowTitle</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Introduce</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
+      </container>
+    </container>
+  </page>
+{code}
+
+{note}
+This section is meant to help you organize the layout and structure of your portal. Check out the "Working with applications" chapter to learn more about portlet configuration within the pages.xml file.
+{note}
+
+* *Navigation:*
+
+The {{navigation.xml}} is used to associate the links in your navigation (called page-node) with the pages of your portal.
+
+If the pattern #{} is used then the label of the link will be loaded from the portal resource bundle (link to the [ref guide about resource bundles|http://wiki.exoplatform.org/xwiki/bin/view/Portal/Internationalization+Configuration]
+
+
+{code}
+<?xml version="1.0" encoding="UTF-8"?>
+<node-navigation>
+<owner-type>portal</owner-type>
+<owner-id>classic</owner-id>
+<priority>1</priority>
+<page-nodes>
+<node>
+<uri>home</uri>
+<name>home</name>
+<label>#{portal.classic.home}</label>
+<page-reference>portal::classic::homepage</page-reference>
+</node>
+<node>
+<uri>webexplorer</uri>
+<name>webexplorer</name>
+<label>#{portal.classic.webexplorer}</label>
+<page-reference>portal::classic::webexplorer</page-reference>
+</node>
+</page-nodes>
+</node-navigation>
+{code}
+
+
+This navigation tree can have multiple views inside portlets such as the breadcrumbs that render the current view node, the site map or the menu portlets.
+
+{note}
+For top nodes, the uri and the name of your navigation nodes must have the same value. For the other nodes the uri is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' the name of the node (<name>fileexplorer</name>).
+{note}
+
+h2. Visibility of the pages
+
+You can easily set the visibility of certain pages and navigation to certain groups and users. Simply create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and the user you want:
+* sample-ext/portal/group/group-name/your files
+* sample-ext/portal/user/username/your files
+
+h1. Customize your portal
+
+One of the first steps in any web project is to integrate a graphic chart. This can be done entirely within your extension. For that you will need to customize the portal configuration.
+
+h2. Styles and Javascript
 
 * Introduce the globalstylehseet and how to configure it.
+{note}From Philippe: This is specific to WCM, shouldn't we define how to simply add a skin in GateIn ? Patrice WDYT ?
+{note}
 * how to insert your own javascript library
 
+In order to add a JavaScript library (for example JQuery), follow these steps:
+* Create the following folder if it doesn't exist : {{/war/src/main/webapp/WEB-INF/conf/script/groovy}}
+* Create a {{JavascriptScript.groovy}} file in this folder
+* Add the following line to the groovy file
 
-h2. Custom menu
+{code}
+JavascriptService.addJavascript("Name_Of_Library", "/path_to/java_script/JavaScript_Lib.js", ServletContext);
+{code}
 
-* introduce navigation.xml concepts
-* portal vs group vs user pages
-
-h2. Working with content
-
-* Content admin intro
-* document types
-* wcm templates
-* taxonomies
-
-
-
-
-
+For example:
+{code}
+JavascriptService.addJavascript("eXo.myproject.Jquery", "/javascript/eXo/myproject/jquery.js", ServletContext);
+{code}
 

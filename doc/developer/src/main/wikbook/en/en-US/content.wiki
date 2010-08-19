@@ -1,0 +1,61 @@
+
+
+h1. Content administration introduction
+
+{note}Patrice, what exactly did you have in mind for this part ?{note}
+
+
+
+h1. Document types
+
+Each document type is represented by a node type in the JCR. Therefore, to create a new document type, you have to add a new node type. There are two ways to do this: through XML configuration files, or through the Administration portlet.
+
+To learn how to use the administration portlet, take a look here:
+| (!) | need link to admin guide |
+
+Otherwise, you can create configure the file {{/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml}} in your extension.
+| (!) | Comment from Philippe: this part should go in the JCR part in the architecture primer. |
+
+{code}
+<nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName=""> <supertypes>
+<supertype>exo:article</supertype>
+</supertypes>
+<propertyDefinitions>
+<propertyDefinition name="text" requiredType="String" autoCreated="true" mandatory="true" onParentVersion="COPY"
+protected="false" multiple="false">
+<valueConstraints/>
+</propertyDefinition>
+<propertyDefinition name="date" requiredType="Date" autoCreated="false" mandatory="true" onParentVersion="COPY"
+protected="false" multiple="false">
+<valueConstraints/>
+</propertyDefinition>
+
+</propertyDefinitions>
+</nodeType>
+{code}
+
+By defining a supertype, you can reuse other node types and extend them with more properties (just like inheritance in Object Oriented Programming).
+
+
+h1. WCM templates
+
+| (!) | Comment from Philippe: this part should go in a part specific to WCM. |
+|     | Patrice, should this be similar to:
+[ECM Template Management|http://svn.exoplatform.org/projects/ecms/branches/2.1.x/docs/refguide/src/main/wikbook/en/en-US/DMS/ECM_Template_Management.wiki] ? |
+
+
+h1. Taxonomies
+
+A taxonomy, is a particular classification arranged in hierarchical structure. Taxonomy trees in the eXo Platform 3.0, will help organize your content into categories.
+| (!) | *Interesting?* |
+
+When you create a new taxonomy tree, you add a pre-configured {{exo:action}} ({{exo:scriptAction}} or {{exo:businessProcessAction}}) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree by a symlink of type {{exo:taxonomyLink}} that points to it. The physical storage location is in fact defined by a workspace name, a path and the current date and time.
+Once again, there are two ways to manage taxonomy trees. One is through the Administration portlet, and the second is by adding XML files.
+
+You can configure taxonomy trees by adding configuration files in the {{/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/}} directory. Create a new file called {{$taxonomyName-taxonomies-configuration.xml}}. For example, if the name of your taxonomy tree is acme, the file should be named {{acme-taxonomies-configuration.xml}}.
+
+You can take a look at the file here : http://svn.exoplatform.org/projects/platform/trunk/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml
+
+As you can see, the value-params allow you to define the repository, workspace, name of the tree and its JCR path. You can then configure permissions for each group of users in the portal as well as the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
+
+

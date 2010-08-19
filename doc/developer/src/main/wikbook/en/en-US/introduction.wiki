@@ -1,6 +1,3 @@
-This guide is to help developers perform their projects with eXo platform successfully. It introduces eXo architecture and give steps to make your own custom projects with it.
+eXo Platform 3.0 is comprised of eXo Core and Extended Services. eXo Core Services, which integrates the GateIn portal framework with eXo Content, eXo IDE and other tools, provides all the functionality expected of a portal, but enhanced with enterprise content management, gadget-based development and deployment with an IDE as a service.&nbsp; eXo Extended Services further enhance eXo Platform with user experience functionality, including eXo Collaboration, eXo Knowledge and eXo Social.
 
-_Target audience_: This is primarily designed for developers who need to build a custom portal based on eXo Platform.
-
-{note}This document is not a full reference; however, most common tasks are covered that is helpful to developers when they work with eXo.
-The full reference is available in the delivery package and is linked rather than replicated here.{note}
+This guide will introduce developers to the eXo architecture and guide them through the most common tasks they will need to face when working with eXo. It is a good entry point to the Reference Guide which provides complete overview of eXo Platform 3.0.

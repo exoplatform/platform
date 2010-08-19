@@ -1,35 +1,19 @@
-*********************************
-eXo Platform Build Instructions
-*********************************
 
 This guide is to help developers perform their projects with eXo Platform successfully. It introduces eXo architecture and give steps to make your own custom projects with it.
 
 This guide is primarily designed for developers who need to build a custom portal based on eXo Platform.
 
-{note}This document is not a full reference; however, most common tasks are covered that is helpful to developers when they work with eXo.
+{note}This document is not a full reference; however, most common tasks that are helpful to developers when they work with eXo are covered.
 The full reference is available in the delivery package and is linked rather than replicated here.{note}
 
 
--- Requirements --
+*Requirements:*
+* JDK (Java Development Kit) 6.0 
+* SVN 1.6+
+* Maven 2.2.1+
+* Tomcat 6.0.26 or JBoss 5.1.0
 
- * JDK (Java Development Kit) 6.0 
- * SVN 1.6+
- * Maven 2.2.1+
-   To configure your maven settings, follow the instructions on our wiki.
- * Tomcat 6.0.26 or JBoss 5.1.0
-   They are in a specific location, configure your maven settings.
-
--- Check out the source code --
-
-You can check out the eXo source code which is hosted in a Subversion repository at http://svn.exoplatform.org/projects. 
-Before you proceed, you need to install a command line [subversion client>http://subversion.apache.org/].
-
-Check out the source code into a new directory:
-{code}
-svn co http://svn.exoplatform.org/aliases/head exo-trunks
-{code}
-
--- Configure --
+*Environment:*
 
 Add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in global environment variables panel on Windows).
 
@@ -42,26 +26,18 @@ set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
 export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 {code}
 
-Save the file settings.xml to $HOME/.m2/settings.xml
+
+*Maven settings:*
+
+Save the file {{settings.xml}} in {{HOME/.m2/settings.xml}}
 http://wiki.exoplatform.org/xwiki/bin/download/Main/Building%20from%20sources/settings.xml
 
-Edit and change in the local-properties profile, the path of the directory where you added application servers (exo.projects.directory.dependencies must be the path of $APPLICATIONS&#95;DIRECTORY) and the name of each application server directory must be set in &#42;.version properties (exo.projects.app.tomcat.version, exo.projects.app.jboss.version, exo.projects.app.jonas.version).
+Edit and change the {{local-properties}} profile:
+* {{exo.projects.directory.dependencies}} contains the application servers, and openfire
+* each {{exo.projects.app.AS-NAME.version}} contains the name and version of the application servers
 
 Note: If you have an existing file settings.xml, you can merge them all together. You'll need at least
 - the local-properties profile to define properties used to build application servers distributions of our products 
 - the repository [http://repository.exoplatform.org/public] to download our dependencies
-
--- Build and assemble product --
-
-To build any product, in the root directory where you checked-out the code, just launch:
-
-{code}
-mvn install
-{code}
-
-This command can be launched from any subdirectory. 
-
-For Maven, it takes you a long time to download required dependencies for the first time. After that, you will just check one time per day if new SNAPSHOTs were built by our integration server (http://builder.exoplatform.org).
-
 
 
