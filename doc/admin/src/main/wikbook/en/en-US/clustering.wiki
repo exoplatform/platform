@@ -7,7 +7,7 @@ h1. Preparing the cluster infrastructure
 h2. Shared file system
 The JCR server requires to share a portion of its state via the file system. The shared state are the JCR value storage and the JCR index. In order to properly cluster JCR, a shared file system needs to be setup among the cluster nodes.
 h2. Configuration setup
-The default configuration located in the jar file {{exo.portal.component.common-3.0.0-XYZ.jar}} under the path }}conf/configuration-jboss.xml}} must be copied and edited for clustering setup. The same file is used for the various cluster nodes, let's name it {{cluster.properties}}.
+The default configuration located in the jar file {{exo.portal.component.common-3.X.Y-ZZZ.jar}} under the path }}conf/configuration-jboss.xml}} must be copied and edited for clustering setup. The same file is used for the various cluster nodes, let's name it {{cluster.properties}}.
 
 h1. Configuring cluster mode
 h2. Replicated JCR configuration
@@ -30,6 +30,11 @@ run.sh -c all -Dexo.profiles=cluster -Dexo.properties.url=/cluster.properties
 {screen}
 
 h1. Managing a cluster
+{note}
+TODO : HOW to start/stop a cluster, adding a new done
+{note}
 
 h2. Using JBoss Farm deployment
-############################
+{note}
+TODO
+{note}

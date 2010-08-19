@@ -1,23 +1,23 @@
 
 
-h1. Setup Wizzard
-
-As a convenience we provide a setup wizzard UI that will generate all system configuration. 
-But you can still make them by your own. The following paragraphs will detail manual configuration.
 
 h1. Principles of Configuration
 
 System configuration for eXo Platform is stored in a file named {{configuration.properties}}.
 The location of this file varies depending on the AS :
-* default bundle: {{$TOMCAT_HOME/conf/exo-configuration.properties}}
-* JBoss : {{$JBOSS_HOME/server/default/conf/exo-configuration.properties}}
+* default bundle: {{$TOMCAT_HOME/gatein/conf/configuration.properties}}
+* JBoss : {{$JBOSS_HOME/server/default/conf/configuration.properties}}
 
 h1. Database Configuration
 eXo Platform relies on the application server for its database access. 
 Therefore the database is configured at the application server level as a datasource. 
 That datasource is obtained by performing access to the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
-h2. JBoss 
+h2. Datasource Configuration for Tomcat 
+{note}
+TODO
+{note}
+h2. Datasource Configuration for JBoss 
 JBoss Application Server relies on deployment descriptors for its datasource management. 
 Datasources are bound in the enterprise naming context with a {{java:}} prefix.
 By default, eXo Platform defines two datasources 
@@ -26,18 +26,32 @@ By default, eXo Platform defines two datasources
 
 The file {{sample-confs/jboss/exo-ds.xml}} can be used to drop into the {{deploy/}} directory.
 
+{note}
+TODO
+{note}
+
 h1. Filesystem Configuration
-#########################
+{note}
+TODO
+{note}
 
 h1. Connecting to a LDAP Directory
-######################### 
+{note}
+TODO
+{note}
 
 h1. Configuration of the Application Server
-#########################
+{note}
+TODO
+{note}
 
 h1. JVM Settings Recommendations
-#########################
+{note}
+TODO
+{note}
 
 h1. Connection Pools
-#########################
+{note}
+TODO
+{note}
 

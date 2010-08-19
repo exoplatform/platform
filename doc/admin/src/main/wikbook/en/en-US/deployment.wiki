@@ -14,7 +14,12 @@ h3. Removing acme
 # delete  {{gatein-ecmdemo-extension.ear}} from {{server/default/deploy}}
 # delete database in {{root/server/default/data}}
 # restart
-h3. Removing office portal
+
+{note}
+TODO : edit names
+{note}
+
+h3. Removing acme intranet 
 ####################################?
 h2. Tomcat Bundle
 h3. Removing acme
@@ -25,6 +30,10 @@ h3. Removing acme
 # delete {{gatein/data}}
 # restart
 
+{note}
+TODO : edit file names
+{note}
+
 h3. Removing office portal
 
 # stop the server {{shutdown.sh}}
@@ -33,10 +42,17 @@ h3. Removing office portal
 # delete {{gatein/data}}
 # restart
 
-{caution}office-portal is defined as the default portal. Make sure you define another portal as default when you remove office-portal{caution}
+{note}
+TODO : edit names
+{note}
+
 
 h1. How to setup an Apache Frontend
-#########################################?
+{note}
+TODO
+{note}
 
-h1. How to deploy a customization project
-#########################################?
+h1. How to deploy your own project
+{note}
+TODO : edit names
+{note}

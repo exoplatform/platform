@@ -8,7 +8,7 @@ eXo Platform requires a purposive infrastructure for its deployment and is certi
 
 For more details on the supported combinations, please refer to the [Supported Platforms Matrix].
 
-h1. Installing the bundle
+h1. Installing the Tomcat bundle
 The easiest way to install eXo Platform is simply to take the default bundle. 
 It's a ready-made packaging on top of Tomcat 6 application server. Hence, the instructions are as simple as copying the ##exoplatform-tomcat/## directory to your server
 
@@ -28,22 +28,40 @@ If your application server is not covered, please contact eXo Support.
 EAR distribution is not yet available
 {note}
 h2. JBoss 5.1 
-###############################??
+{note}
+TODO
+{note}
 h2. JBoss EAP
-###############################?? 
+{note}
+TODO
+{note}
+
 
 h1. Startup
+
 
 eXo Platform leverages the Application Server on which it is deployed. 
 This means that to start and stop eXo Platform you just need to start and stop your application with the default commands.
 
 You can start eXo Platform deployed in JBoss using the standard JBoss command.
-h2. JBoss
+
+
+h2. Startup in Tomcat 
+* On Linux/Unix:       {screen}$TOMCAT_HOME/bin/gatein.sh{screen}
+* On Windows:          {screen}%TOMCAT_HOME%\\bin\\gatein.bat{screen}
+
+The server has started when you see the following message in your log/console:
+{screen}
+INFO: Server startup in 353590 ms
+{screen}
+
+When started you can access your eXo Portal using the following URL: [http://<your-server>:8080/portal]
+
+h2. Startup in JBoss
 * On Linux/Unix:       {screen}$JBOSS_HOME/bin/run.sh{screen}
 * On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
 
 The server has started when you see the following message in your log/console:
-
 {screen}
 15:06:02,877 INFO  \[Server] JBoss (MX MicroKernel) \[...] Started in 1m:05s:320ms
 {screen}
@@ -52,7 +70,18 @@ When started you can access your eXo Portal using the following URL: [http://<yo
 
 h1. Shutdown
 
-h2. JBoss
+h2. Shutdown Tomcat
+
+* On Linux/Unix :   {screen}$TOMCAT_HOME/bin/shutdown.sh{screen}
+* On Windows :      {screen}%TOMCAT_HOME%\\bin\\shutdown.bat {screen}
+
+The server has stopped when you see the following message in your log/console:
+
+{screen}
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+{screen}
+
+h2. Shutdown JBoss
 * On Linux/Unix :   {screen}$JBOSS_HOME/bin/shutdown.sh -S {screen}
 * On Windows :      {screen}%JBOSS_HOME%\\bin\\shutdown.bat -S {screen}
 
@@ -77,8 +106,6 @@ You can enable/disable some modules if you don't use them.
 * {{social}} : enables eXo 
 * {{dms}} : enables Document Management System addon in eXo Content
 * {{workflow}} : enables the Workflow addon in eXo Content
-* {{ide}} : enables the eXo Integrated Development Environment
-* {{cmis}} : enables CMIS server
 
 Additionnaly, you can use several predefined profiles : 
 * (none) : contains portal + WCM
@@ -91,5 +118,13 @@ e.g : -Dexo.profiles=default,cmis will take te default profile and add CMIS serv
 
 
 h2. JVM settings
+
+eXo Startup scripts come with basic JVM settings:
+{screen}
+-Xms256m -Xmx1024m -XX:MaxPermSize=256m 
+{screen}
+
+This is enough to start and run for a demo, but you will to adjust these values to your own needs for a production setup.
+
 Please refer to the JBoss Documentation for other options and configurations such as JVM configuration, remote debugging or running JBoss as a service on Windows.
 

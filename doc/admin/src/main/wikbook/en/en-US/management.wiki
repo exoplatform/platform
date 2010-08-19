@@ -22,7 +22,9 @@ The following system properties must be added as virtual machine properties:
 | {{javax.management.builder.initial}}|{{org.jboss.system.server.jmx.MBeanServerBuilderImpl}} |
 
 h2. REST Interface
-##################################
+{note}
+TODO
+{note}
 
 h1. Management Views Reference 
 
@@ -180,15 +182,26 @@ The JMX name of the application statistics MBean follows the template: {{exo:vie
 
 
 h2. Knowledge Management view
-{caution}TODO{caution}
-###################################
+{note}
+TODO
+{note}
 h3. BBCodes
-###################################
+{note}
+TODO
+{note}
 h3. Forum  Service
-###################################
+{note}
+TODO
+{note}
 h3. Jobs
-###################################
+{note}
+TODO
+{note}
 h3. Plugins
-###################################
+{note}
+TODO
+{note}
 h3. Storage
-###################################
+{note}
+TODO
+{note}
