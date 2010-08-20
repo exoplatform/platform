@@ -22,7 +22,7 @@
 @import url(UITabPaneDashboard/Stylesheet.css);
 @import url(UICLVFolderMode/Stylesheet.css);
 
-*, div, table, tr, td, img, form {
+*, div, table, th, tr, td, img, form {
 	padding: 0px; margin: 0px;
 	outline: none;
 	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;

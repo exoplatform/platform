@@ -56,9 +56,9 @@
 	float: none;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .UIAdminToolbarPortlet .UIHorizontalTabs .UITab {
+.UIWorkingWorkspace .UIToolbarContainer .UIAdminToolbarPortlet  .UIHorizontalTabs .UITab {
 	background: url('background/ToolbarContainer.png') no-repeat right 5px;
-}
+}	
 
 .UIWorkingWorkspace .UIUserToolBarPortlet .UIHorizontalTabs .UITab {
 	background: none;
@@ -243,12 +243,16 @@
 	width: 78px !important;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer #UISpacesToolBarPortlet .UITab {
+	width: 66px !important;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarSitePortlet .UITab {
 	width: 86px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIAddPagePlatformToolbarPortlet .UITab {
-	width: 95px !important;
+	width: 80px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIPeopleToolBarPortlet .UITab {
