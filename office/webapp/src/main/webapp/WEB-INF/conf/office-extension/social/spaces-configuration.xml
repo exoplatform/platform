@@ -36,9 +36,11 @@
         <name>space.apps</name>
         <value>DashboardPortlet:true</value>
         <value>SpaceSettingPortlet:false</value>
-        <value>MembersPortlet:true</value>
+		<value>MembersPortlet:true</value>
+        <value>CalendarPortlet:true</value>
 		<value>ForumPortlet:true</value>
 		<value>AnswersPortlet:true</value>
+		<value>FileExplorerPortlet:true</value>
       </values-param>
     </init-params>
   </component>
