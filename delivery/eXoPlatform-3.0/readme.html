@@ -1,0 +1,150 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head> 
+<body>
+<p>Thank you for downloading eXo Platform 3.0.</p>
+
+<p>eXo Platform 3.0 is comprised of eXo Core and Extended Services. eXo Core Services, which integrates the GateIn portal framework with eXo Content, eXo IDE and other tools, provides all the functionality expected of a portal, but enhanced with enterprise content management, gadget-based development and deployment with an IDE as a service.&nbsp; eXo Extended Services further enhance eXo Platform with user experience functionality, including eXo Collaboration, eXo Knowledge and eXo Social.</p>
+
+
+<p>Follow the installation procedure and start eXo Platform 3.0 now!</p>
+
+
+<h1>Installation Guide</h1>
+
+	<h2>System requirements</h2>
+	<ul>
+		<li>CPU: 2GHz</li>
+
+		<li>Memory: 2GB of RAM</li>
+		<li>Disk: 200MB</li>
+		<li>OS: Windows, Linux or MAC OS</li>
+		<li>Java 6 (Set the JAVA_HOME environment variable)</li>
+		<li>Browser: Firefox 3+ or Internet Explorer 7+</li>
+		<li>The eXo server will run on port 8080, make sure this port is not currently in use</li>
+	</ul>
+
+
+
+
+
+	<h2>How to start the Platform</h2>
+	<ul>
+		<li><em>PLF_HOME</em> is the location of the unzipped eXo Platform 3.0 server. It can be one of : 
+		<ul>
+		  <li>Tomcat server: <a href="bin/tomcat6-bundle">bin/tomcat6-bundle</a></li>
+		  <li>JBoss server: <a href="bin/jboss5-bundle">bin/jboss5-bundle</a></li>
+		</ul>
+		</li>
+
+		<li>On Windows: Open a DOS prompt command, go to <em>PLF_HOME/bin</em> directory and type the command:
+		<ul>
+			<li>Tomcat server: "gatein.bat run"</li>
+			<li>JBoss server: "run.bat"</li>
+		</ul>
+		</li>
+		<li>On Unix/Linux/MacOSX: Open a terminal, go to <em>PLF_HOME/bin</em> directory and type the command :
+		<ul>
+			<li>Tomcat server: "./gatein.sh run"</li>
+			<li>JBoss server: "run.sh"</li>
+		</ul>
+		</li>
+	</ul>
+
+
+
+<p>You may need to change the permission of all *.sh files in the /bin directory by using: "chmod +x *.sh".</p>
+
+
+
+<h2>How to access the Platform homepage</h2>
+	<ul>
+		<li>Wait for the server to start. You should see something like this on the console
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">INFO: Server startup in 353590 ms</pre>
+</div></div></li>
+
+		<li>Enter the following URL into your browser's address bar: <a href="http://localhost:8080/portal" class="external-link" rel="nofollow">http://localhost:8080/portal</a></li>
+	</ul>
+
+
+
+<h2>How to configure and start the chat server</h2>
+
+To use the instant messenging services, you'll need to start a separate chat server.
+	<ul>
+		<li>eXo Chat server is an <a href="http://en.wikipedia.org/wiki/XMPP" class="external-link" rel="nofollow">XMPP</a> engine powered by <a href="http://www.igniterealtime.org/projects/openfire/" class="external-link" rel="nofollow">Openfire</a>.</li>
+		<li>Learn more on <a href="http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat+Configuration" class="external-link" rel="nofollow"Chat Configuration</a>.</li>
+		<li>Start the chat server:&nbsp;
+		<ul>
+
+			<li>On Windows: Open a DOS prompt command, go to <a href="bin/chat-server/bin">bin/chat-server/bin</a> and type the command: "java -jar ../lib/startup.jar".</li>
+			<li>On Unix/Linux/MacOSX: Open a terminal, go to <a href="bin/chat-server/bin">bin/chat-server/bin</a> and type the command: "java -jar ../lib/startup.jar".</li>
+		</ul>
+		</li>
+	</ul>
+
+
+
+<h1>Getting Started</h1>
+
+<p>There are 3 sample portals included with eXo Platform:</p>
+<ul>
+	<li>The default Welcome portal is a single-page application with resources to help you explore and begin to use eXo Platform.  It also serves as a "blank portal" that can be customized for your own use.</li>
+	<li>From the Welcome portal, you can also access two sample implementations from a fictitious company, Acme Industries:
+	<ul>
+		<li>The <a href="docs/dev/samples/acme-website">Acme Website</a> shows how the powerful content management features of eXo Platform help build a better user experience for customer-facing web apps.</li>
+		<li>The <a href="docs/dev/samples/acme-intranet">Acme Social Intranet</a> demonstrates eXo Platform's capabilities within an enterprise collaboration environment.  It can be easily serve as the starting point for your own Social Intranet application.</li>
+
+	</ul>
+	</li>
+</ul>
+
+
+
+<h1>Going Further</h1>
+<ul>
+	<li><b>Developers</b>: learn how to build your own portal, gadgets, REST services or eXo-based applications in the <i><a href="docs/dev/index.html">Developer Documentation</i></a>
+	<li><b>Administrators</b>: learn how to install eXo Platform on a server in the <i>Administrator Guide</i>&nbsp;<a href="docs/admin/AdministratorsGuide/index.html">[html]</a>&nbsp;<a href="docs/admin/AdministratorsGuide/index.pdf">[pdf]</a></li>
+
+	<li><b>End Users</b>: learn more about using the features in the <i><a href="docs/user/index.html">User Manuals</a></i></li>
+</ul>
+
+
+<h1>External Resources</h1>
+<div>
+<table><tbody>
+<tr>
+<td> Support </td>
+<td> <a href="http://www.exoplatform.com/company/public/website/company/contact-us" class="external-link" rel="nofollow">http://support.exoplatform.com</a> </td>
+
+</tr>
+<tr>
+<td> Training </td>
+<td> <a href="http://www.exoplatform.com/company/public/website/services/development/development-training" class="external-link" rel="nofollow">http://www.exoplatform.com/company/public/website/services/development/development-training</a> </td>
+</tr>
+<tr>
+<td> Consulting </td>
+<td> <a href="http://www.exoplatform.com/company/public/website/services/development/development-consulting" class="external-link" rel="nofollow">http://www.exoplatform.com/company/public/website/services/development/development-consulting</a> </td>
+
+</tr>
+<tr>
+<td> Forum </td>
+<td> <a href="http://forum.exoplatform.org" class="external-link" rel="nofollow">http://forum.exoplatform.org</a> </td>
+</tr>
+<tr>
+<td> Corporate Website </td>
+<td> <a href="http://www.exoplatform.com" class="external-link" rel="nofollow">http://www.exoplatform.com</a> </td>
+
+</tr>
+<tr>
+<td> Blog </td>
+<td> <a href="http://blog.exoplatform.org" class="external-link" rel="nofollow">http://blog.exoplatform.org</a> </td>
+</tr>
+<tr>
+<td> Community JIRA </td>
+<td> <a href="http://jira.exoplatform.org" class="external-link" rel="nofollow">http://jira.exoplatform.org</a> </td>
+
+</tr>
+</tbody></table>
+</div>
+</body>
