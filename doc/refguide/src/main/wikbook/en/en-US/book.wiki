@@ -1,0 +1,18 @@
+
+h1. WCM
+
+{{{include:document=../../../../../target/ecms/wikbook/en/en-US/book.wiki}}}
+
+
+h1. CS
+
+{include:document=../../../../../target/cs/wikbook/en/en-US/book.wiki}
+
+
+h1. KS
+
+{include:document=../../../../../target/ks/wikbook/en/en-US/book.wiki}
+
+h1. Social
+
+{{{include:document=../../../../../target/social/wikbook/en/en-US/book.wiki}}}

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.doc</artifactId>
+    <version>3.0.0-CR01-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.doc.refguide</artifactId>
+  <packaging>jar</packaging>
+
+  <name>eXo Platform Reference Guide</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wikbook</groupId>
+      <artifactId>wikbook.docbkxstyle</artifactId>
+      <version>0.9.28</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-dependency-plugin</artifactId>
+         <executions>
+           <execution>
+             <id>unpack</id>
+             <phase>generate-sources</phase>
+             <goals>
+               <goal>unpack</goal>
+             </goals>
+             <configuration>
+               <artifactItems>
+                 <!-- ecms -->
+                 <!--artifactItem>
+                   <groupId>org.exoplatform.ecms</groupId>
+                   <artifactId>exo-ecms-docs-refguide</artifactId>
+                   <version>2.1.0-SNAPSHOT</version>
+                   <type>jar</type>
+                   <classifier>sources</classifier>
+                   <outputDirectory>${pom.basedir}/target/ecms/</outputDirectory>
+                   <includes>**/*.wiki,**/*.jpg,**/*.gif,**/*.png</includes>
+                 </artifactItem-->
+                 <!-- cs -->
+                 <artifactItem>
+                   <groupId>org.exoplatform.cs</groupId>
+                   <artifactId>exo.cs.docs.refguide</artifactId>
+                   <version>2.1.0-CR02-SNAPSHOT</version>
+                   <type>jar</type>
+                   <classifier>sources</classifier>
+                   <outputDirectory>${pom.basedir}/target/cs/</outputDirectory>
+                   <includes>**/*.wiki,**/*.jpg,**/*.gif,**/*.png</includes>
+                 </artifactItem>
+                 <!-- ks -->
+                 <artifactItem>
+                   <groupId>org.exoplatform.ks</groupId>
+                   <artifactId>exo.ks.docs.refguide</artifactId>
+                   <version>2.1.0-CR02-SNAPSHOT</version>
+                   <type>jar</type>
+                   <classifier>sources</classifier>
+                   <outputDirectory>${pom.basedir}/target/ks/</outputDirectory>
+                   <includes>**/*.wiki,**/*.jpg,**/*.gif,**/*.png</includes>
+                 </artifactItem>
+                 <!-- social -->
+                 <!--artifactItem>
+                   <groupId>org.exoplatform.social</groupId>
+                   <artifactId>exo.social.docs.refguide</artifactId>
+                   <version>1.1.0-CR02-SNAPSHOT</version>
+                   <type>jar</type>
+                   <classifier>sources</classifier>
+                   <outputDirectory>${pom.basedir}/target/social/</outputDirectory>
+                   <includes>**/*.wiki,**/*.jpg,**/*.gif,**/*.png</includes>
+                 </artifactItem-->
+               </artifactItems>
+             </configuration>
+           </execution>
+         </executions>
+       </plugin>
+
+       <!-- The wikbook maven plugin generates the docbook document from the wiki source -->
+      <plugin>
+         <groupId>org.wikbook</groupId>
+         <artifactId>wikbook.maven</artifactId>
+         <version>0.9.28</version>
+         <executions>
+           <execution>
+             <phase>prepare-package</phase>
+             <goals>
+               <goal>transform</goal>
+             </goals>
+           </execution>
+         </executions>
+         <configuration>
+           <sourceDirectory>${pom.basedir}/src/main/wikbook/en/en-US</sourceDirectory>
+           <sourceFileName>book.wiki</sourceFileName>
+           <destinationDirectory>${project.build.directory}/wikbook/src</destinationDirectory>
+           <destinationFileName>index.xml</destinationFileName>
+           <emitDoctype>true</emitDoctype>
+           <beforeBookBodyXML><![CDATA[<xi:include href="${pom.basedir}/src/main/wikbook/en/en-US/bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></beforeBookBodyXML>
+           <syntaxId>confluence/1.0</syntaxId>
+         </configuration>
+       </plugin>
+
+      <!-- Unpacks the docbook style resources for the docbkx plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <id>a</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeGroupIds>org.wikbook</includeGroupIds>
+              <includeArtifactIds>wikbook.docbkxstyle</includeArtifactIds>
+              <excludes>META-INF/**</excludes>
+              <outputDirectory>${project.build.directory}/wikbook/src/resources</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Dockbx plugin that generates content -->
+      <plugin>
+        <groupId>com.agilejava.docbkx</groupId>
+        <artifactId>docbkx-maven-plugin</artifactId>
+        <version>2.0.7</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-html</goal>
+              <goal>generate-pdf</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <sourceDirectory>${project.build.directory}/wikbook/src</sourceDirectory>
+              <targetDirectory>${project.build.directory}/wikbook/output</targetDirectory>
+
+              <!-- HTML -->
+              <htmlCustomization>${project.build.directory}/wikbook/src/resources/xsl/html.xsl</htmlCustomization>
+              <htmlStylesheet>css/html.css</htmlStylesheet>
+
+              <!-- PDF -->
+              <foCustomization>${project.build.directory}/wikbook/src/resources/xsl/fopdf.xsl</foCustomization>
+              <imgSrcPath>${pom.basedir}/src/main/wikbook/</imgSrcPath>
+              <admonGraphicsPath>${project.build.directory}/wikbook/src/resources/images/admons/</admonGraphicsPath>
+
+              <!-- Highlight source code -->
+              <highlightSource>1</highlightSource>
+
+              <!-- We need to support xinclude -->
+              <xincludeSupported>true</xincludeSupported>
+
+              <!--
+                |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
+                |  Callouts on imported text
+                -->
+              <useExtensions>1</useExtensions>
+              <calloutsExtension>1</calloutsExtension>
+
+              <!-- Copy the image for HTML-->
+              <postProcess>
+
+                <copy todir="${project.build.directory}/wikbook/output/images">
+                  <fileset dir="${pom.basedir}/src/main/wikbook/images">
+                    <include name="**" />
+                  </fileset>
+                </copy>
+                <copy todir="${project.build.directory}/wikbook/output">
+                  <fileset dir="${project.build.directory}/wikbook/src/resources">
+                    <include name="**/*.css" />
+                    <include name="**/*.png" />
+                    <include name="**/*.gif" />
+                    <include name="**/*.jpg" />
+                  </fileset>
+                </copy>
+
+              </postProcess>
+
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.docbook</groupId>
+            <artifactId>docbook-xml</artifactId>
+            <version>4.4</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+    </plugins>
+   </build>
+
+
+</project>

@@ -38,3 +38,11 @@ h2. Using JBoss Farm deployment
 {note}
 TODO
 {note}
+
+h1. References
+
+* http://docs.jboss.org/jbossclustering/cluster_guide/5.1/html/deployment.chapt.html#clustering-intro-farm
+* http://www.jboss.org/community/wiki/FarmDeploymentsinJBossAS5x
+* http://www.mastertheboss.com/en/jboss-server/221-jboss-farming-service-is-back.html
+* http://www.dba-oracle.com/oracle_tips_linux_nfs.htm
+* http://docs.jboss.org/jbossclustering/cluster_guide/5.1/html-single/index.html
