@@ -1,17 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-<parent>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.parent</artifactId>
-      <version>3.0.0-Beta02-SNAPSHOT</version>
-   </parent>
-   
-	<modelVersion>4.0.0</modelVersion>
-  	<artifactId>exo.platform.migration</artifactId>
-  	<packaging>jar</packaging>
- 	<name>eXo Platform Migration Tools</name>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.parent</artifactId>
+    <version>3.0.0-Beta02-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.migration</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform Migration Tools</name>
   <properties>
     <org.exoplatform.kernel.version>2.0.11</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.1.9</org.exoplatform.core.version>
@@ -20,7 +17,6 @@
     <org.exoplatform.pc.version>2.0.8</org.exoplatform.pc.version>
     <org.shindig.version>0.8.1-1-r719456</org.shindig.version>
   </properties>
-  
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
@@ -53,7 +49,6 @@
       <artifactId>exo.jcr.component.core</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
     </dependency>
-    
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
@@ -76,16 +71,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>org.exoplatform.ws</groupId>
-        <artifactId>exo.ws.rest.core</artifactId>
-        <version>${org.exoplatform.ws.version}</version>
-      </dependency>
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.rest.core</artifactId>
+      <version>${org.exoplatform.ws.version}</version>
+    </dependency>
     <dependency>
-        <groupId>org.exoplatform.ws</groupId>
-        <artifactId>exo.ws.frameworks.json</artifactId>
-        <version>${org.exoplatform.ws.version}</version>
-      </dependency>
-     
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.frameworks.json</artifactId>
+      <version>${org.exoplatform.ws.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -100,5 +94,4 @@
       </plugin>
     </plugins>
   </build>
-  
 </project>

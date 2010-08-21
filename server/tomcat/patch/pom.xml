@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
@@ -11,8 +11,8 @@
   <name>eXo Tomcat Server</name>
   <description>eXo Tomcat Server</description>
   <url>http://www.exoplatform.org</url>
-  <dependencies>
-    <!--dependency>
+  <dependencies/>
+  <!--dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.server.tomcat.patch</artifactId>
       <version>${org.exoplatform.portal.version}</version>
@@ -43,7 +43,6 @@
       <type>jar</type>
     </dependency>
     -->
-  </dependencies>
   <build>
     <resources>
       <resource>
@@ -76,4 +75,3 @@
     </plugins>
   </build>
 </project>
-

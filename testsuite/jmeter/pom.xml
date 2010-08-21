@@ -1,93 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
     <version>3.0.0-Beta02-SNAPSHOT</version>
   </parent>
-
   <artifactId>exo.platform.testsuite.jmeter</artifactId>
   <packaging>pom</packaging>
-
   <name>eXo Platform JMeter tests</name>
-  
   <build>
     <plugins>
       <plugin>
-				<groupId>org.apache.jmeter</groupId>
-				<artifactId>maven-jmeter-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-				    <execution>
-				        <id>jmeter-tests</id>
-				        <phase>verify</phase>
-				        <goals>
-				            <goal>jmeter</goal>
-				        </goals>
-				   </execution>
-				</executions>
-				<configuration>
-				    <reportDir>${project.build.directory}/jmeter-reports</reportDir>
-				    <jmeterUserProperties>
-				        <host>localhost</host>
-					<port>8080</port>
-					<threads>10</threads>
-					<rampup>1</rampup>
-					<duration>10</duration>
-				    </jmeterUserProperties>
-				</configuration>
-			</plugin>
-			<plugin>
-         <groupId>org.codehaus.mojo</groupId>
-         <artifactId>xml-maven-plugin</artifactId>
-         <version>1.0-beta-3</version>
-         <executions>
-           <execution>
-             <phase>verify</phase>
-             <goals>
-               <goal>transform</goal>
-             </goals>
-           </execution>
-         </executions>
-         <configuration>
-             <transformationSets>
-             <transformationSet>
-               <dir>target/jmeter-reports/</dir>
-               <!-- BASIC stylesheet>src/test_resources/jmeter-results-report_21.xsl</stylesheet -->
-               <stylesheet>src/test_resources/jmeter-results-detail-report_21.xsl</stylesheet>
-               <outputDir>target/site/jmeter-reports</outputDir>
-               <fileMappers>
-                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
-                 <targetExtension>html</targetExtension>
+        <groupId>org.apache.jmeter</groupId>
+        <artifactId>maven-jmeter-plugin</artifactId>
+        <version>1.0</version>
+        <configuration>
+          <reportDir>${project.build.directory}/jmeter-reports</reportDir>
+          <jmeterUserProperties>
+            <host>localhost</host>
+            <port>8080</port>
+            <threads>10</threads>
+            <rampup>1</rampup>
+            <duration>10</duration>
+          </jmeterUserProperties>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jmeter-tests</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jmeter</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+        <version>1.0-beta-3</version>
+        <configuration>
+          <transformationSets>
+            <transformationSet>
+              <dir>target/jmeter-reports/</dir>
+              <!-- BASIC stylesheet>src/test_resources/jmeter-results-report_21.xsl</stylesheet -->
+              <stylesheet>src/test_resources/jmeter-results-detail-report_21.xsl</stylesheet>
+              <outputDir>target/site/jmeter-reports</outputDir>
+              <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+                  <targetExtension>html</targetExtension>
                 </fileMapper>
-               </fileMappers>
-           </transformationSet>
+              </fileMappers>
+            </transformationSet>
           </transformationSets>
-       </configuration>
-    	</plugin>
-    	<!-- make sure the jmeter icons are copied to the site folder -->
-  		<plugin>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>transform</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- make sure the jmeter icons are copied to the site folder -->
+      <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-          <executions>
-           <execution>
-              <phase>verify</phase>
-              <configuration>
-                <tasks>
-                 <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/"></copy>
-                 <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/"></copy>
-                 <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/"></copy>
-                 <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/"></copy>
-                 <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/"></copy>
-               </tasks>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <configuration>
+              <tasks>
+                <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/"/>
+                <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/"/>
+                <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/"/>
+                <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/"/>
+                <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/"/>
+              </tasks>
             </configuration>
-          <goals>
-            <goal>run</goal>
-          </goals>
-         </execution>
-       </executions>
-   </plugin> 
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
-
 </project>

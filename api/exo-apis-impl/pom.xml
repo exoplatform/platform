@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
@@ -12,15 +12,15 @@
   <description>eXo Public APIs implementation</description>
   <dependencies>
     <dependency>
-    	<groupId>org.exoplatform.platform</groupId>
-    	<artifactId>exo-apis</artifactId>
-    	<version>${project.version}</version>
-    </dependency>    
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo-apis</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <dependency>
-    	<groupId>org.exoplatform.cs</groupId>
-    	<artifactId>exo.cs.eXoApplication.calendar.service</artifactId>
-    	<version>${org.exoplatform.cs.version}</version>
-    </dependency> 
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.eXoApplication.calendar.service</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.test.core</artifactId>
@@ -30,16 +30,15 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>${org.testng.version}</version>
       <classifier>jdk15</classifier>
+      <version>${org.testng.version}</version>
       <scope>test</scope>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.testing</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>test</scope>
-    </dependency>        
-   
+    </dependency>
   </dependencies>
 </project>

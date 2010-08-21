@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.extension</artifactId>
     <version>3.0.0-CR01-SNAPSHOT</version>
-    <relativePath>../../pom.xml</relativePath>	
+    <relativePath>../../pom.xml</relativePath>
   </parent>
-
   <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
   <packaging>war</packaging>
-
-
   <name>eXo Platform platform Navigation Portlet</name>
-	<dependencies>
-	   <dependency>
-			<groupId>org.exoplatform.portal</groupId>
-			<artifactId>exo.portal.component.web</artifactId>
-			<version>${org.exoplatform.portal.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.portal</groupId>
-			<artifactId>exo.portal.webui.portal</artifactId>
-			<version>${org.exoplatform.portal.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.exoplatform.social</groupId>
-			<artifactId>exo.social.component.core</artifactId>
-			<version>${org.exoplatform.social.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.web</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.portal</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.core</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>platformNavigation</finalName>
   </build>
-
 </project>
