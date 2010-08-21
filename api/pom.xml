@@ -8,8 +8,8 @@
   </parent>
   <artifactId>api</artifactId>
   <packaging>pom</packaging>
-  <name>eXo API Parent</name>
-  <description>eXo API Parent</description>
+  <name>eXo Platform - APIs Parent</name>
+  <description>eXo Platform - API Parent</description>
   <modules>
     <module>exo-apis</module>
     <module>exo-apis-impl</module>

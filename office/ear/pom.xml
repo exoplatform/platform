@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.office.ear</artifactId>
   <packaging>ear</packaging>
-  <name>eXo Platform Office Portal EAR</name>
+  <name>eXo Platform - Office Portal EAR</name>
   <build>
     <finalName>office-portal</finalName>
   </build>

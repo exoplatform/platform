@@ -8,6 +8,6 @@
   </parent>
   <artifactId>exo-apis</artifactId>
   <packaging>jar</packaging>
-  <name>eXo APIs</name>
+  <name>eXo Platform - APIs</name>
   <description>eXo Public APIs</description>
 </project>

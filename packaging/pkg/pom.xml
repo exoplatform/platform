@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.packaging.assembly</artifactId>
   <packaging>pom</packaging>
-  <name>eXo platform Packaging Assemblies</name>
+  <name>eXo Platform - Packaging Assemblies</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>

@@ -9,7 +9,7 @@
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.user</artifactId>
   <!--packaging>jar</packaging-->
-  <name>eXo Platform PDF User Manuals</name>
+  <name>eXo Platform - PDF User Manuals</name>
   <dependencies>
     <dependency>
       <groupId>com.artofsolving</groupId>

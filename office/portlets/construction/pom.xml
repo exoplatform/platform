@@ -9,7 +9,7 @@
   </parent>
   <artifactId>exo.platform.office.portlets.construction</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Office Under constraction Portlet</name>
+  <name>eXo Platform - Office Under construction Portlet</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>

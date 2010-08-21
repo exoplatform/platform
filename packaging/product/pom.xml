@@ -8,7 +8,7 @@
   </parent>
   <artifactId>platform.packaging.product</artifactId>
   <packaging>pom</packaging>
-  <name>eXo platform Packaging Product</name>
+  <name>eXo Platform - Packaging Product</name>
   <properties>
     <exobuild.name>platform</exobuild.name>
     <exobuild.type>product</exobuild.type>

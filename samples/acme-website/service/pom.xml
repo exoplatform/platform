@@ -8,5 +8,5 @@
   </parent>
   <artifactId>exo.platform.sample.acme-website.config</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Acme Website Config</name>
+  <name>eXo Platform - Acme Website Config</name>
 </project>

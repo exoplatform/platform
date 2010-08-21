@@ -9,7 +9,7 @@
   </parent>
   <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform platform Navigation Portlet</name>
+  <name>eXo Platform - Navigation Portlet</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>

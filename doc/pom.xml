@@ -9,7 +9,7 @@
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Docs</name>
+  <name>eXo Platform - Docs</name>
   <modules>
     <module>admin</module>
     <module>developer</module>

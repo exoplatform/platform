@@ -8,8 +8,7 @@
   </parent>
   <artifactId>exo.platform.server.tomcat.patch</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Tomcat Server</name>
-  <description>eXo Tomcat Server</description>
+  <name>eXo Platform - Tomcat Server Patch</name>
   <url>http://www.exoplatform.org</url>
   <dependencies/>
   <!--dependency>

@@ -9,7 +9,7 @@
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.web.eXoSkinMac</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Web Mac Skin</name>
+  <name>eXo Platform - Web Mac Skin</name>
   <build>
     <finalName>eXoSkinMac</finalName>
   </build>

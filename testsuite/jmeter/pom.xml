@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.testsuite.jmeter</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform JMeter tests</name>
+  <name>eXo Platform - JMeter tests</name>
   <build>
     <plugins>
       <plugin>

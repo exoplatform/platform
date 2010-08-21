@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.office.webapp</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Office Portal Webapp</name>
+  <name>eXo Platform - Office Portal Webapp</name>
   <build>
     <finalName>office-portal</finalName>
   </build>

@@ -9,7 +9,7 @@
   </parent>
   <artifactId>exo.platform.sample.acme-website</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform acme website</name>
+  <name>eXo Platform - Acme website</name>
   <modules>
     <module>service</module>
     <module>webapp</module>

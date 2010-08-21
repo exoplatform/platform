@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.server.tomcat</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Tomcat Server</name>
+  <name>eXo Platform - Tomcat Server</name>
   <modules>
     <module>patch</module>
   </modules>

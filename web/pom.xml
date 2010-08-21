@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.web</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Web</name>
+  <name>eXo Platform - Web</name>
   <modules>
     <module>eXoSkinMac</module>
     <module>eXoSkinVista</module>

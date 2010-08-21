@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.office</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Office Portal</name>
+  <name>eXo Platform - Office Portal</name>
   <modules>
     <module>webapp</module>
     <module>officeResources</module>

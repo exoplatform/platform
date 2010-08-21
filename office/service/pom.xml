@@ -8,5 +8,5 @@
   </parent>
   <artifactId>exo.platform.office.config</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Office Portal Config</name>
+  <name>eXo Platform - Office Portal Config</name>
 </project>

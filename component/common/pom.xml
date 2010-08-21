@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.component.common</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Common</name>
+  <name>eXo Platform - Common</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>

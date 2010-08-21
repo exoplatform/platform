@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.extension</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Extension</name>
+  <name>eXo Platform - Extension</name>
   <modules>
     <module>config</module>
     <module>webapp</module>

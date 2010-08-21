@@ -8,5 +8,5 @@
   </parent>
   <artifactId>exo.platform.extension.config</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Container Config</name>
+  <name>eXo Platform - Container Config</name>
 </project>

@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.migration</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Migration Tools</name>
+  <name>eXo Platform - Migration Tools</name>
   <properties>
     <org.exoplatform.kernel.version>2.0.11</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.1.9</org.exoplatform.core.version>

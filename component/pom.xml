@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.component</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Component</name>
+  <name>eXo Platform - Component</name>
   <modules>
     <module>gifbackport</module>
     <module>common</module>

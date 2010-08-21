@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.testsuite</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform Tests</name>
+  <name>eXo Platform - Tests</name>
   <modules>
     <module>jmeter</module>
   </modules>

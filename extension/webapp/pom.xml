@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.extension.webapp</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Extension Webapp</name>
+  <name>eXo Platform - Extension Webapp</name>
   <build>
     <finalName>platform-extension</finalName>
   </build>

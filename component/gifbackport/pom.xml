@@ -10,7 +10,7 @@
   <artifactId>exo.platform.component.gifbackport</artifactId>
   <version>3.0.0-CR01-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>eXo Platform Component javax.imageio GIF plugin backport</name>
+  <name>eXo Platform - Component javax.imageio GIF plugin backport</name>
   <description>eXo GIF plugin backport</description>
   <build>
     <resources>

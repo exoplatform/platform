@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.office.officeResources</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Office Portal Resources</name>
+  <name>eXo Platform - Office Portal Resources</name>
   <build>
     <finalName>officeResources</finalName>
   </build>

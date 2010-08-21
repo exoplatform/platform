@@ -9,7 +9,7 @@
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.refguide</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform Reference Guide</name>
+  <name>eXo Platform - Reference Guide</name>
   <dependencies>
     <dependency>
       <groupId>org.wikbook</groupId>

@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo-apis-impl</artifactId>
   <packaging>jar</packaging>
-  <name>eXo APIs implementation</name>
+  <name>eXo Platform - APIs implementation</name>
   <description>eXo Public APIs implementation</description>
   <dependencies>
     <dependency>

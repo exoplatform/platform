@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.delivery</artifactId>
   <packaging>pom</packaging>
-  <name>eXo platform Delivery</name>
+  <name>eXo Platform - Delivery</name>
   <build>
     <finalName>Platform-${project.version}</finalName>
     <plugins>

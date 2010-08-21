@@ -9,7 +9,7 @@
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.web.eXoSkinVista</artifactId>
   <packaging>war</packaging>
-  <name>eXo Platform Web Vista Skin</name>
+  <name>eXo Platform - Web Vista Skin</name>
   <build>
     <finalName>eXoSkinVista</finalName>
   </build>
