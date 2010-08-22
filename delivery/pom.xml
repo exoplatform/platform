@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Delivery</name>
   <build>
-    <finalName>Platform-${project.version}</finalName>
+    <finalName>eXoPlatform-${project.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
