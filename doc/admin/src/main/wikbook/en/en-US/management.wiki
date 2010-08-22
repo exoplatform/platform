@@ -22,9 +22,12 @@ The following system properties must be added as virtual machine properties:
 | {{javax.management.builder.initial}}|{{org.jboss.system.server.jmx.MBeanServerBuilderImpl}} |
 
 h2. REST Interface
-{note}
-TODO
-{note}
+
+The built-in REST Managment Provider of GateIn makes some of MBeans operations accessible as REST endpoints. Administrators could handle the system simply with a browser, no complex configuration needs to be performed.
+
+Only members of the group platform/administrators are given permissions to work on REST management. The authentication requires login/password of user's account.
+
+The base URL to access the REST endpoints is [http://localhost:8080/rest/managment], the last one is followed by the parameter parsed in managed resource 's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"), the full URL to access JMX 'getSkinList' method through REST request is [http://localhost:8080/rest/management/skinservice/getSkinList]
 
 h1. Management Views Reference 
 
