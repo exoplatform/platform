@@ -1,3 +1,5 @@
+package org.exoplatform.platform.component;
+
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
  *
@@ -14,7 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.platform.component;
+
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,23 +27,19 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.social.core.space.SpaceException;
-import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
-/**
- * {@link UISpaceToolBarPortlet} used as a portlet displaying spaces.<br />
- * @author <a href="mailto:hanhvq@gmail.com">hanhvq</a>
- * @since Oct 7, 2009
- */
-@ComponentConfig(
-                 lifecycle = UIApplicationLifecycle.class,
 
-                 template = "app:/groovy/platformNavigation/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet.gtmpl"
+@ComponentConfig(
+  lifecycle = UIApplicationLifecycle.class,
+ 
+	  template = "app:/groovy/platformNavigation/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet.gtmpl"
 )
 public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
 
@@ -54,20 +53,6 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
 
   private SpaceService spaceService = null;
   private String userId = null;
-
-  /**
-   * gets all user spaces
-   * @return
-   * @throws Exception
-   */
-  @SuppressWarnings("unused")
-  private List<Space> getAllUserSpaces() throws Exception {
-    SpaceService spaceService = getSpaceService();
-    String userId = getUserId();
-    List<Space> userSpaces = spaceService.getAccessibleSpaces(userId);
-    return SpaceUtils.getOrderedSpaces(userSpaces);
-  }
-
 
   public List<PageNavigation> getSpaceNavigations() throws Exception {
     String remoteUser = getUserId();
@@ -88,6 +73,7 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
       if (ownerId.startsWith("/spaces")) {
         navigationParts = ownerId.split("/");
         space = spaceService.getSpaceByUrl(navigationParts[2]);
+        if (space == null) navigationItr.remove();
         if (!navigationParts[1].equals("spaces") && !spaces.contains(space)) navigationItr.remove();
       } else { // not spaces navigation
         navigationItr.remove();
@@ -101,12 +87,15 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
 	 SpaceService spaceSrv = getSpaceService();
 	 String remoteUser = getUserId();
 	 String spaceUrl = spaceNode.getUri();
-     if (spaceUrl.contains("/")) {
-       spaceUrl = spaceUrl.split("/")[0];
-     }
+   if (spaceUrl.contains("/")) {
+     spaceUrl = spaceUrl.split("/")[0];
+   }
 
-     Space space = spaceSrv.getSpaceByUrl(spaceUrl);
+   Space space = spaceSrv.getSpaceByUrl(spaceUrl);
 
+   // space is deleted
+   if (space == null) return false;
+   
 	 if (spaceSrv.hasEditPermission(space, remoteUser)) return true;
 
 	 String appName = applicationNode.getName();
@@ -138,8 +127,21 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
    * @return userId
    */
   private String getUserId() {
-    if(userId == null)
+    if(userId == null) {
       userId = Util.getPortalRequestContext().getRemoteUser();
+    }
     return userId;
   }
+  public List<PageNavigation> getNavigations() throws Exception {
+	    List<PageNavigation> result = new ArrayList<PageNavigation>();
+	    UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+	    List<PageNavigation> navigations = uiPortalApp.getNavigations();
+	    
+		for (PageNavigation pageNavigation : navigations) {
+			if(pageNavigation.getOwnerType().equals("portal"))
+				result.add(pageNavigation);
+		  }
+	    return result;
+	  }
 }
+ 
