@@ -80,9 +80,9 @@
     <!-- ********************* -->
     <!-- Build settings        -->
     <!-- ********************* -->
-    <!-- Because we are using parent 7 we have to downgrade assembly plugin to improve build perfs -->
+    <!-- Slower than 2.1 version but we require some new features like classifier support in dependencySet ... -->
     <!-- See http://jira.exoplatform.org/browse/PAR-103 -->
-    <version.assembly.plugin>2.1</version.assembly.plugin>
+    <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
     <!-- maven-release-plugin -->
     <arguments>-Prelease,pkg-tomcat -Dgatein.working.dir=target</arguments>
   </properties>

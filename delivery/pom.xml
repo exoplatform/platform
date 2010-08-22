@@ -9,6 +9,22 @@
   <artifactId>exo.platform.delivery</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Delivery</name>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>exo.platform.packaging.assembly</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+      <classifier>tomcat</classifier>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>exo.platform.packaging.assembly</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+      <classifier>chatserver</classifier>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>eXoPlatform-${project.version}</finalName>
     <plugins>
@@ -16,7 +32,7 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
-            <id>tomcat-assembly</id>
+            <id>distribution</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
@@ -25,6 +41,7 @@
               <descriptors>
                 <descriptor>src/main/assembly/platform-distribution.xml</descriptor>
               </descriptors>
+              <appendAssemblyId>false</appendAssemblyId>
             </configuration>
           </execution>
         </executions>
