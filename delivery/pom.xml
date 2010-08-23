@@ -13,16 +13,16 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>exo.platform.packaging.assembly</artifactId>
+      <classifier>tomcat</classifier>
       <version>${project.version}</version>
       <type>zip</type>
-      <classifier>tomcat</classifier>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>exo.platform.packaging.assembly</artifactId>
+      <classifier>chatserver</classifier>
       <version>${project.version}</version>
       <type>zip</type>
-      <classifier>chatserver</classifier>
     </dependency>
   </dependencies>
   <build>
