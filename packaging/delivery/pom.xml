@@ -6,7 +6,7 @@
     <artifactId>exo.platform.parent</artifactId>
     <version>3.0.0-CR01-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.delivery</artifactId>
+  <artifactId>exo.platform.packaging.delivery</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Delivery</name>
   <profiles>
