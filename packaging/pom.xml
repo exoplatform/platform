@@ -13,5 +13,6 @@
     <module>module</module>
     <module>product</module>
     <module>pkg</module>
+    <module>delivery</module>
   </modules>
 </project>

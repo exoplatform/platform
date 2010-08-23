@@ -114,6 +114,5 @@
     <!-- module>migration</module-->
     <!-- leave at the end -->
     <module>packaging</module>
-    <module>delivery</module>
   </modules>
 </project>
