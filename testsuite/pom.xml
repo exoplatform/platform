@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.0.0-Beta02-SNAPSHOT</version>
+    <version>3.0.0-CR01-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.testsuite</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Tests</name>
   <modules>
-    <module>jmeter</module>
+    <module>perf</module>
   </modules>
 </project>

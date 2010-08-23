@@ -112,5 +112,6 @@
     <module>samples/acme-website</module>
     <module>migration</module>
     <module>packaging</module>
+    <module>testsuite</module>
   </modules>
 </project>
