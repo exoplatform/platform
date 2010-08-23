@@ -130,6 +130,12 @@
           </a>
         </div>
 		 <% } %>
+		 <% else { %>
+		 <a class="SocialSpacesIcon TBIcon" href="#">
+           
+          </a>
+        </div>
+		  <% } %>
         <% if (!spaceNavigations.isEmpty()) { %>
         <div style="display:none" class="MenuItemContainer">
         <% for(navigation in spaceNavigations) {
