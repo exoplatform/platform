@@ -1270,11 +1270,13 @@
                   <message>You must define the property exo.projects.app.tomcat.version to
                                     give the name of the directory where is stored tomcat</message>
                 </requireProperty>
+                <!-- DEACTIVATED : See http://jira.exoplatform.org/browse/PLF-258
                 <requireProperty>
                   <property>exo.projects.app.jboss.version</property>
                   <message>You must define the property exo.projects.app.jboss.version to give
                                     the name of the directory where is stored JBossAS</message>
                 </requireProperty>
+                -->
                 <requireFilesExist>
                   <files>
                     <file>${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}/</file>
@@ -1282,6 +1284,7 @@
                   <message>The following Tomcat directory doesn't exist :
                                     ${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}</message>
                 </requireFilesExist>
+                <!-- DEACTIVATED : See http://jira.exoplatform.org/browse/PLF-258
                 <requireFilesExist>
                   <files>
                     <file>${exo.projects.directory.dependencies}/${exo.projects.app.jboss.version}/</file>
@@ -1289,6 +1292,7 @@
                   <message>The following JBossAS directory doesn't exist :
                                     ${exo.projects.directory.dependencies}/${exo.projects.app.jboss.version}</message>
                 </requireFilesExist>
+                -->
               </rules>
               <fail>true</fail>
             </configuration>
