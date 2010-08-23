@@ -79,6 +79,9 @@ a {
 	background: url('background/BannerBg.jpg') no-repeat right top;
 	height: 50px;
 }
+.UIWorkingWorkspace #ACMEBanner {
+	margin:20px;
+}
 
 .TxtDarkBlue {color: #28175a;}
 .TxtGray {color: #484848;}
