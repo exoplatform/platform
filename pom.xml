@@ -84,7 +84,7 @@
     <!-- See http://jira.exoplatform.org/browse/PAR-103 -->
     <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
     <!-- maven-release-plugin -->
-    <arguments>-Prelease,pkg-tomcat -Dgatein.working.dir=target</arguments>
+    <arguments>-Prelease,ditrib -Dgatein.working.dir=target</arguments>
   </properties>
   <dependencyManagement>
     <dependencies>
