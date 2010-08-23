@@ -38,12 +38,13 @@ http://wiki-int.exoplatform.org/display/PLF/Building+Platform+3.0
    http://svn.exoplatform.org/projects/platform/trunk/
    
  - Go into the main folder, run
-   mvn clean install -Ppkg-tomcat,exo-private
+   mvn clean install -Pexo-private
    
  - Go into the folder /packaging/pkg/target/tomcat
    Here is your eXo Platform Tomcat distribution
 
-
+ - To build also documentations and archives used for distribution
+   mvn clean install -Pexo-private,distrib 
 
 * Known Issues
 --------------
