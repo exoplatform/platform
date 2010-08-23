@@ -128,14 +128,13 @@
           <a class="SocialSpacesIcon TBIcon" href="<%= spacesLink %>">
             <%=_ctx.appRes("UISpacesToolBarPortlet.label.Spaces")%>
           </a>
-        </div>
+       
 		 <% } %>
-		 <% else { %>
 		 <a class="SocialSpacesIcon TBIcon" href="#">
            
           </a>
-        </div>
-		  <% } %>
+		
+		  </div>
         <% if (!spaceNavigations.isEmpty()) { %>
         <div style="display:none" class="MenuItemContainer">
         <% for(navigation in spaceNavigations) {
