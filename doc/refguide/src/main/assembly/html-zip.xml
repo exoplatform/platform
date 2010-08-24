@@ -1,0 +1,19 @@
+<assembly>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+   <fileSet>
+    <directory>target/wikbook/output</directory>
+    <outputDirectory>org.exoplatform.platform</outputDirectory>
+    <includes>
+      <include>**</include>
+     </includes>
+    <excludes>
+      <exclude>**/*.fo</exclude>
+      <exclude>**/*.pdf</exclude>
+    </excludes>
+   </fileSet>
+  </fileSets>
+</assembly>

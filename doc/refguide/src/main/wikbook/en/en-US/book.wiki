@@ -1,18 +1,16 @@
 
-h1. WCM
+h1. eXo Content
 
-{{{include:document=../../../../../target/ecms/wikbook/en/en-US/book.wiki}}}
+[eXo Content Reference Guide|./org.exoplatform.ecms/exo-ecms-docs-refguide.html]
 
+h1. eXo Social
 
-h1. CS
+[eXo Social Reference Guide|./org.exoplatform.social/exo.social.docs.refguide.html]
 
-{include:document=../../../../../target/cs/wikbook/en/en-US/book.wiki}
+h1. eXo Collaboration
 
+[eXo Collaboration Reference Guide|./org.exoplatform.cs/exo.cs.docs.refguide.html]
 
-h1. KS
+h1. eXo Knowledge
 
-{include:document=../../../../../target/ks/wikbook/en/en-US/book.wiki}
-
-h1. Social
-
-{{{include:document=../../../../../target/social/wikbook/en/en-US/book.wiki}}}
+[eXo Knowledge Reference Guide|./org.exoplatform.ks/exo.ks.docs.refguide.html]
