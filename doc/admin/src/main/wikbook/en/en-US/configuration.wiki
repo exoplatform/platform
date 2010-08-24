@@ -59,4 +59,15 @@ h1. Connection Pools
 TODO
 {note}
 
+h1. WEBDAV Cache Control
+
+The embedded WEBDAV server lets you control the cache-control http header that it transmits to clients by mimetype.
+This is usefull to fine tune your website.
+
+The configuration property is : {{exo.webdav.cache-control}}
+{screen}
+exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
+{screen}
+
+The property expects a comma-separated list of key=pair values where keys are a list of mimetypes followed by the cache-control value to set.
 
