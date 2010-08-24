@@ -71,3 +71,20 @@ exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 
 The property expects a comma-separated list of key=pair values where keys are a list of mimetypes followed by the cache-control value to set.
 
+h1. Chat Server
+
+h2. Chat server configuration
+
+{note}TODO : from http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat%20Configuration explain how to change the hostname and port{note}
+
+h2. XMPPMessenger
+
+If you changed the hostname and port for the chat server, then you'll need to edit two properties :
+
+{screen}
+# IP or hostname for the eXo Chat XMPP server
+exo.chat.server=127.0.0.1
+
+# TCP port for where the eXo Chat server listens for XMPP calls
+exo.chat.port=5222
+{screen}
