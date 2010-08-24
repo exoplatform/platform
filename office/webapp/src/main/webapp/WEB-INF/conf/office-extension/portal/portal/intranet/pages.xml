@@ -179,7 +179,7 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
-
+<!--
 					<portlet-application>
 					<portlet>
 						<application-ref>construction</application-ref>
@@ -190,7 +190,7 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>      
 				   </portlet-application>
-			
+-->		
 			
 	
 			</container>
