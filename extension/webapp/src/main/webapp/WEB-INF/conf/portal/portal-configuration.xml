@@ -106,7 +106,7 @@
 	        <value-param>
 	          <name>default.portal</name>
 	          <description>The default portal for checking db is empty or not</description>
-	          <value>classic</value>
+	          <value>default</value>
 	        </value-param> 
 	        <value-param>
 	          <name>page.templates.location</name>
@@ -149,7 +149,7 @@
 	          <object type="org.exoplatform.portal.config.NewPortalConfig">
 	            <field  name="predefinedOwner">
 	              <collection type="java.util.HashSet">                
-	                <value><string>classic</string></value>	               
+	                <value><string>default</string></value>	               
 	              </collection>
 	            </field>
 	            <field name="ownerType"><string>portal</string></field>
