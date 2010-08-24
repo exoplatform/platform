@@ -14,5 +14,6 @@
     <module>admin</module>
     <module>developer</module>
     <module>refguide</module>
+    <module>user</module>
   </modules>
 </project>
