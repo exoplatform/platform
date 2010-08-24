@@ -1,7 +1,0 @@
-<div style="padding: 5px 5px 5px 5px; border: dashed 1px; border-color: rgb(240, 240, 240);" 
-	id="<%=uicomponent.getId();%>">
-	
-	<div style="background-color: #D8D8D8; -moz-border-radius: 8px 8px 8px 8px; border: 3px double #D8D8D8;">
-		<%=_ctx.appRes("underconstruction.title")%>
-	</div>
-</div>
