@@ -1,10 +1,8 @@
 
-This guide is to help developers perform their projects with eXo Platform successfully. It introduces eXo architecture and give steps to make your own custom projects with it.
+This guide will help developers use eXo Platform successfully for their projects. It introduces eXo architecture and gives step-by-step instructions for building your own custom portal based on eXo Platform.
 
-This guide is primarily designed for developers who need to build a custom portal based on eXo Platform.
-
-{note}This document is not a full reference; however, most common tasks that are helpful to developers when they work with eXo are covered.
-The full reference is available in the delivery package and is linked rather than replicated here.{note}
+{note}While this document covers the most common tasks used when developing on eXo Platform, it is not a complete reference document.
+The full Reference Guide is available in the delivery package and is linked rather than replicated here.{note}
 
 
 *Requirements:*
@@ -36,8 +34,8 @@ Edit and change the {{local-properties}} profile:
 * {{exo.projects.directory.dependencies}} contains the application servers, and openfire
 * each {{exo.projects.app.AS-NAME.version}} contains the name and version of the application servers
 
-Note: If you have an existing file settings.xml, you can merge them all together. You'll need at least
-- the local-properties profile to define properties used to build application servers distributions of our products 
-- the repository [http://repository.exoplatform.org/public] to download our dependencies
+Note: If you have an existing file settings.xml, you can merge them all together. At the minimum, you will need the following:
+- The local-properties profile, which defines the properties used to build application server distributions of our products 
+- The repository [http://repository.exoplatform.org/public] to download our dependencies
 
 

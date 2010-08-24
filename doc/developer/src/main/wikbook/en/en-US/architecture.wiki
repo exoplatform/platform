@@ -1,32 +1,29 @@
 h1. Architecture overview
 
-TODO :diagram
+TODO: diagram
 
 h1. Kernel
 
 !http://wiki.exoplatform.org/xwiki/bin/download/Main/Overall%20Architecture/dd5jc34r_129cmdcdkfx_b.png!
 
-The eXo Kernel is the basis for all eXo products and modules. It is the service management layer that takes care of the configuration and the execution of all the components.
-The main Kernel object is the eXo Container, a micro container responsible for gluing the services through dependency injection. It is in charge of loading services/components.
+All eXo services are built around the eXo Kernel, or the service management layer, which manages the configuration and the execution of all the components.
+The main Kernel object is the eXo Container, a micro-container that glues services together through dependency injection. The container is responsible for loading services/components.
 
-This chapter will introduce the concepts of Container and Service. It will give you an entry point to the basic configuration of Services.
+This chapter will introduce the concepts of Container and Services, and will give you a starting point for the basic configuration of Services.
 
 
 h2. Containers
 
-The eXo Kernel relies on Dependency injection. This means the life-cycle of a service (instantiating, opening and closing streams, disposing, etc.) is handled by a dependency provider (in this case the eXo Container) rather than the consumer. The consumer only need a reference to an implementation of the service that is needed which is given in the configuration.xml file that comes with every service. Read more at [http://en.wikipedia.org/wiki/Dependency_injection] .
+A container is always required in order to access a service, because the eXo Kernel relies on dependency injection. This means that the life-cycle of a service (instantiating, opening and closing streams, disposing, etc.) is handled by a dependency provider (i.e. the eXo Container) rather than the consumer. The consumer only needs a reference to an implementation of the requested service, which is provided in the configuration.xml file that comes with every service. You can read more about dependency injection here [http://en.wikipedia.org/wiki/Dependency_injection].
 
-Therefore, in order to access a service, you always need a container.
+There are different kind of containers such as RootContainer, PortalContainer or StandaloneContainer (link to reference guide). The Portal Container is created at the startup of the portal web application, and all services started by this container will run embedded in the portal.
 
-
-There are different kind of containers such as RootContainer, PortalContainer or StandaloneContainer (link to reference guide). The Portal Container is created at the startup of the portal web application and all services started by this container will run embedded in the portal.
-
-The ExoContainerContext class provides a static method that allows you to get the right container from anywhere.
+The ExoContainerContext class provides a static method that allows you to get the right container from any location.
 
 {code}
 ExoContainer myContainer = ExoContainerContext.getCurrentContainer()
 
-//Once you have your container you may access to any service registered in this container using
+//Once you have your container you may access any service registered in this container using
 
 MyService myService = (MyService) myContainer.getComponentInstance(MyService.class)
 
@@ -36,13 +33,13 @@ MyService myService = (MyService) myContainer.getComponentInstance(MyService.cla
 
 h2. Services
 
-Containers are used to have access to services. A service is a class that implements {{Runnable}}. Important characteristics of services are:
+Containers are used to gain access to services. A service is a class that implements {{Runnable}}. Important characteristics of services are:
 
-* Because of the Dependency Injection concept, you always separate the interface and implementation for a service.
-* Each service has to be implemented as a singleton, which means it is created only once - in one single instance.
-* A component = a service. A service doesn't have to be a large application that does big things. A service can be a little component that reads or transforms a document, therefore the term component is often used instead of service.
+* Because of the Dependency Injection concept, the interface and implementation for a service must always be separate.
+* Each service has to be implemented as a singleton, which means it is created only once - in a single instance.
+* A component = a service. A service doesn't have to be a large application that does big things. A service can be a little component that reads or transforms a document, in which case the term component is often used instead of service.
 
-For example in the lib/ folder, you find services for databases, caching, ldap and ftp:
+For example, in the lib/ folder, you can find services for databases, caching, ldap and ftp:
 
 * exo.core.component.database-x.y.z.jar
 * exo.kernel.component.cache-x.y.z.jar
@@ -64,7 +61,7 @@ A configuration file can specify several services, so there can be several servi
 You will note that a service is specified between the {{<component>}} tags. Each service has a key which matches the qualified java interface name (org.exoplatform.services.cache.CacheService). The specific implementation class of the CacheService is defined in the {{<type>}} tag.
 
 
-For example open the exo.kernel.component.cache-x.y.z.jar file and inside this jar open {{/conf/portal/configuration.xml}}. You will see:
+For example, open the exo.kernel.component.cache-x.y.z.jar file; inside this jar open {{/conf/portal/configuration.xml}}. You will see:
 
 {code}
 <?xml version="1.0" encoding="UTF8"?>
@@ -83,7 +80,7 @@ xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
 h3. Parameters
 
-You can provide your service with initial parameters that you define in the configuration file. There are different kind of parameters:
+You can provide initial parameters for your service by defining them in the configuration file. There are different kind of parameters:
 * value-param
 * properties-param
 * object-param
@@ -127,7 +124,7 @@ if(accessControlWorkspaceParam != null) md.setAccessControlWorkspace(accessContr
 {code}
 
 {note}
-In this case, the UserACL service has the same <key> and <type>. This corresponds to the special case of a single implementation service. The developer can consider there will not be more than one implementation of the service and decide not to create an interface.
+In this case, the UserACL service has the same <key> and <type>. This corresponds to the special case of a single implementation service. The developer may decide not to create an interface if there will not be more than one implementation of the service.
 {note}
 
 
@@ -158,7 +155,7 @@ For the object-param component, we can look at the LDAP service:
 </component>
 {code}
 
-An object-param is being used to create an object (actually a java bean) passed as a parameter to the service. This object-param is defined by a name, a description and exactly one object. The object tag defines the type of the object and the field tags paramaters for that object.
+An object-param is being used to create an object (which is actually a Java Bean) passed as a parameter to the service. This object-param is defined by a name, a description and exactly one object. The object tag defines the type of the object, while the field tags define parameters for that object.
 
 Let's see how the service accesses the object:
 
@@ -173,7 +170,7 @@ LDAPConnectionConfig config = (LDAPConnectionConfig) params.getObjectParam("ldap
 ...
 {code}
 
-The passed object is LDAPConnectionConfig which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your bean and calls all setters whose values are configured in the configuration file.
+The passed object is LDAPConnectionConfig, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your bean and calls all setters whose values are configured in the configuration file.
 
 {code}
 package org.exoplatform.services.ldap.impl;
@@ -197,9 +194,9 @@ Other possible parameter types are object-parameters, Collection, Map and Native
 
 h2. Overriding configurations (To be edited with GateIn conf loading sequence)
 
-When a Pico Container searches for services and its configurations, each configurable service may be reconfigured to override default values or set additional parameters. If the service is configured in two or more places the configuration override mechanism will be used.
+When a Pico Container searches for services and its configurations, each configurable service may be reconfigured to override default values or set additional parameters. If the service is configured in two or more places, the configuration override mechanism will be used.
 
-For the Portal Container, configurations are overloaded in the following lookup sequence :
+For the Portal Container, configurations are overloaded in the following lookup sequence:
 
 # Services default RootContainer configurations from JAR files {{/conf/configuration.xml}}
 # External RootContainer configuration, if will be found at {{$AS_HOME/exo-conf/configuration.xml}}
@@ -210,8 +207,8 @@ For the Portal Container, configurations are overloaded in the following lookup 
 
 h2. External plugins
 
-External plugins allows you to add configuration on the fly. If you define a new configuration, you will always replace the existing one. An external plugin allows you to add configuration without replacing previous configurations.
-That can be interesting if you adapt a service configuration for your project-specific needs (country, language, branch, project, etc.).
+External plugins allow you to add configurations on the fly. If you define a new configuration, you will always replace the existing one. An external plugin allows you to add a configuration without replacing previous ones.
+That can be useful if you adapt a service configuration for your project-specific needs (country, language, branch, project, etc.).
 
 Let's have a look at the configuration of the TaxonomyPlugin of the CategoriesService:
 
@@ -229,13 +226,13 @@ Let's have a look at the configuration of the TaxonomyPlugin of the CategoriesSe
 <external-component-plugins>
 {code}
 
-The {{<target-component>}} defines the service for which the plugin is defined. The configuration is injected by the container using a method that is defined in {{<set-method>}}. The method has exactly one argument of the type org.exoplatform.services.cms.categories.impl.TaxonomyPlugin.
+The {{<target-component>}} defines the service that is used by the plugin. The configuration is injected by the container using a method that is defined in {{<set-method>}}. The method has exactly one argument of the type org.exoplatform.services.cms.categories.impl.TaxonomyPlugin.
 
 
 The content of {{<init-params>}} corresponds to the structure of the TaxonomyPlugin object.
 
 
-h2. Kernel Ref Doc
+h2. Kernel Reference Doc
 
 [http://docs.jboss.com/gatein/portal/3.0.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Foundations.html#sect-Reference_Guide-Foundations-Extension_mechanism]
 
@@ -269,7 +266,7 @@ However, when creating an extension, you can simply register your extension to t
 
 
 
-For example, the {{configuration.xml}} file of the acme website is the following :
+For example, the {{configuration.xml}} file of the Acme Website is:
 
 {code}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -325,12 +322,12 @@ xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 h2. Extension mechanism
 
 
-The extension mechanism is a functionality that makes it possible to override portal resources in an almost plug-and-play fashion by just dropping in a .war archive with the resources, and configure its location in the portal's classpath. Therefore, customizations of the portal don't have to involve unpacking and repacking the original portal .war archives. Instead, you create your own .war archive with modified resources that override the resources in the original archive.
+The extension mechanism makes it possible to override portal resources in an almost plug-and-play fashion, by simply dropping in a .war archive with the resources and configuring its location in the portal's classpath. Customizations of the portal do not have to involve unpacking and repacking the original portal .war archives. Instead, you create your own .war archive with modified resources that override the resources in the original archive.
 
 
-A web archive packaged in such a way it can use the extension mechanism is called a portal extension.
+A portal extension is a web archive that is packaged in a way that allows the use of the extension mechanism.
 
-You have to do two things in order to configure your portal extension. The first one is to declare a PortalConfigOwner servlet context listener in the {{web.xml}} file of your web application.
+There are two steps in configuring your portal extension. First, you need to declare a PortalConfigOwner servlet context listener in the {{web.xml}} file of your web application.
 
 {code}
 <?xml version="1.0" encoding="ISO-8859-1" ?>
@@ -344,7 +341,7 @@ You have to do two things in order to configure your portal extension. The first
 </web-app>
 {code}
 
-The second is to add the name of your portal extension to the list of dependencies of the PortalContainerDefinition object, for all the portal containers that you want to give access to the extension.
+Second, add the name of your portal extension to the list of dependencies of the PortalContainerDefinition object, for all the portal containers that need to be able to access the extension.
 
 {code}
 <field name="dependencies">
@@ -365,13 +362,13 @@ The second is to add the name of your portal extension to the list of dependenci
 
 h1. Java Content Repository
 
-All data in the eXo Platform is stored in a Java Content Repository (JCR). JCR is Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Object Database. It is particularly useful for content management systems which require storage of objects associated with metadata. It also provides versioning, transactions, observations of changes in data, and import and export of data in XML. The data in a JCR is stored hierarchically in a tree of Nodes with associated Properties.
+All data in eXo Platform is stored in a Java Content Repository (JCR). JCR is a Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Object Database. It is particularly useful for content management systems, which require storage of objects associated with metadata. A JCR also provides versioning, transactions, observations of changes in data, and import and export of data in XML. The data in a JCR is stored hierarchically in a tree of Nodes with associated Properties.
 
 h2. Repositories and workspaces
 
 A content repository consists of one or more workspaces, each of which contains a tree of items.
 
-To access a repository's content at a component level in WCM :
+To access a repository's content at a component level in WCM:
 
 {code}
 import javax.jcr.Session;
@@ -388,9 +385,9 @@ SessionProvider sessionProvider = WCMCoreUtils.getSessionProvider();
 Session session = sessionProvider.getSession(workspace, manageableRepository);
 {code}
 
-h2. 3.2. Tree structure - Working with nodes and attributes
+h2. 3.2. Tree structure: working with nodes and attributes
 
-Every node must have only one primary node type. The primary node type defines the names, types and other characteristics of the properties and child nodes that a node is allowed (or required) to have. Every node has a special property called jcr:primaryType that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (i.e., more child nodes, properties and their respective names and types).
+Every node can only have one primary node type. The primary node type defines the names, types and other characteristics of the properties and child nodes that a node is allowed (or required) to have. Every node has a special property called jcr:primaryType that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (i.e., more child nodes, properties and their respective names and types).
 
 Data is stored in the Properties, which may hold simple values such as numbers and strings or binary data of arbitrary length.
 
