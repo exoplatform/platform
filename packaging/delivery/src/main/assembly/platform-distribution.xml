@@ -15,6 +15,9 @@
     </fileSet>
   </fileSets>
   <dependencySets>
+    <!-- ######## -->
+    <!-- BINARIES -->
+    <!-- ######## -->
     <!-- Tomcat Bundle -->
     <dependencySet>
       <!-- From -->
@@ -35,6 +38,21 @@
       </includes>
       <!-- To -->
       <outputDirectory>/bin/chat-server</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <!-- ############## -->
+    <!-- DOCUMENTATIONS -->
+    <!-- ############## -->
+    <!-- User documentations -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.user:zip</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/user/manuals</outputDirectory>
       <!-- Options -->
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>

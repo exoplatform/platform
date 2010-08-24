@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+    <artifactId>exo.platform.packaging</artifactId>
     <version>3.0.0-CR01-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.packaging.delivery</artifactId>
@@ -24,6 +24,12 @@
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.packaging.assembly</artifactId>
           <classifier>chatserver</classifier>
+          <version>${project.version}</version>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.user</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
