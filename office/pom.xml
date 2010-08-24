@@ -12,7 +12,6 @@
   <modules>
     <module>webapp</module>
     <module>officeResources</module>
-    <module>portlets/construction</module>
     <module>service</module>
     <module>ear</module>
   </modules>
