@@ -41,7 +41,7 @@
         </os>
       </activation>
       <properties>
-        <kill.exec>tskill</kill.exec>
+        <kill.exec>taskkill</kill.exec>
         <openoffice.directory>C:/Program Files/OpenOffice.org 3</openoffice.directory>
         <openoffice.bin.path>program</openoffice.bin.path>
         <openoffice.server.exec>soffice.exe</openoffice.server.exec>
