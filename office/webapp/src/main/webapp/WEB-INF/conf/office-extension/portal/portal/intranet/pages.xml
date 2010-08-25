@@ -22,7 +22,7 @@
   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
   xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
 
-  
+
   <page>
 		<name>homepage</name>
 		<title>Home Page</title>
@@ -32,7 +32,7 @@
 			<access-permissions>*:/platform/users</access-permissions>
 			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>*:/platform/users</access-permissions>
-				
+
 				<!-- My spaces gadget -->
 				<portlet-application>
 					<portlet>
@@ -69,15 +69,15 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
-			
-			
-	
+
+
+
 			</container>
-			
-			
+
+
 	<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		<access-permissions>*:/platform/users</access-permissions>
-    <!-- 
+    <!--
 		<portlet-application>
 		<portlet>
             <application-ref>presentation</application-ref>
@@ -154,11 +154,11 @@
 					<show-application-state>false</show-application-state>
 					<show-application-mode>false</show-application-mode>
 				</portlet-application>
-			
-			
-	
+
+
+
 			</container>
-			
+
 			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
 								<!-- upcoming Events gadget -->
@@ -188,26 +188,26 @@
 					<title>Profile</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>      
+					<show-application-state>true</show-application-state>
 				   </portlet-application>
--->		
-			
-	
+-->
+
+
 			</container>
-			
-			
-			
+
+
+
 		</container>
 
 	</page>
-  
-      
-  
+
+
+
   <page>
     <name>Register</name>
     <title>Register</title>
       <access-permissions>*:/platform/guests</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>   
+      <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
       <portlet>
         <application-ref>exoadmin</application-ref>
@@ -215,15 +215,15 @@
       </portlet>
       <title>Register Account</title>
       <access-permissions>*:/platform/guests</access-permissions>
-      <show-info-bar>false</show-info-bar>     
+      <show-info-bar>false</show-info-bar>
     </portlet-application>
-  </page>  
-  
+  </page>
+
     <page>
     <name>groupnavigation</name>
     <title>Group Navigation</title>
 	  <access-permissions>*:/platform/users</access-permissions>
-	  <edit-permission>*:/platform/administrators</edit-permission>    
+	  <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
       <portlet>
         <application-ref>exoadmin</application-ref>
@@ -234,12 +234,12 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
-  
+
   <page>
     <name>portalnavigation</name>
     <title>Portal Navigation</title>
 	  <access-permissions>*:/platform/users</access-permissions>
-	  <edit-permission>*:/platform/administrators</edit-permission>    
+	  <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
       <portlet>
         <application-ref>exoadmin</application-ref>
@@ -250,10 +250,10 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
-  
 
-  
-  
+
+
+
   <page>
     <name>people</name>
     <title>People Directory</title>
@@ -294,17 +294,10 @@
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>dashboard</application-ref>
-            <portlet-ref>GadgetPortlet</portlet-ref>
-            <preferences>
-              <preference>
-                <name>url</name>
-                <value>local://Activities</value>
-                <read-only>false</read-only>
-              </preference>
-            </preferences>
+            <application-ref>social-portlet</application-ref>
+            <portlet-ref>UserActivityStreamPortlet</portlet-ref>
           </portlet>
-          <title>Gadget Portlet</title>
+          <title>User Activity Stream</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>true</show-application-state>
@@ -747,7 +740,7 @@
       </container>
     </container>
   </page>
-  
+
   <page>
     <name>searchResult</name>
     <title>SearchResult</title>
@@ -811,7 +804,7 @@
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
     </portlet-application>
-  </page> 
+  </page>
     <page>
 		<name>welcome</name>
 		<title>welcome Page</title>
@@ -937,11 +930,11 @@
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
     </portlet-application>
-			
-	
+
+
 		</container>
-			
-			
+
+
 		</container>
 
 	</page>
@@ -967,7 +960,7 @@
     <title>Mail</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
-    
+
     <portlet-application>
       <portlet>
         <application-ref>mail</application-ref>
@@ -975,42 +968,42 @@
       </portlet>
       <title>Mail Portlet</title>
       <access-permissions>*:/platform/users</access-permissions>
-      <show-info-bar>false</show-info-bar>      
-    </portlet-application>  
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
   </page>
    <page>
     <name>calendar</name>
     <title>Calendar</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
-    
+
     <portlet-application>
       <portlet>
         <application-ref>calendar</application-ref>
         <portlet-ref>CalendarPortlet</portlet-ref>
-      </portlet>   
+      </portlet>
       <title>Calendar Portlet</title>
       <access-permissions>*:/platform/users</access-permissions>
-      <show-info-bar>false</show-info-bar>      
-    </portlet-application>  
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
   </page>
   <page>
     <name>contact</name>
     <title>Contact</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
-    
+
     <portlet-application>
     <portlet>
         <application-ref>contact</application-ref>
         <portlet-ref>ContactPortlet</portlet-ref>
-      </portlet>    
+      </portlet>
       <title>Contact Portlet</title>
       <access-permissions>*:/platform/users</access-permissions>
-      <show-info-bar>false</show-info-bar>      
-    </portlet-application>  
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
   </page>
-  <!-- 
+  <!--
    <page>
     <name>answers</name>
     <title>Answers</title>
@@ -1022,7 +1015,7 @@
         <portlet-ref>AnswersPortlet</portlet-ref>
       </portlet>
       <title>Answers Portlet</title>
-      <access-permissions>Everyone</access-permissions>      
+      <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
@@ -1039,12 +1032,12 @@
         <portlet-ref>FAQPortlet</portlet-ref>
       </portlet>
       <title>FAQ Portlet</title>
-      <access-permissions>Everyone</access-permissions>      
+      <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
     </portlet-application>
-  </page>  
+  </page>
   <page>
     <name>tour</name>
     <title>KS Tour</title>
@@ -1061,9 +1054,9 @@
             <read-only>false</read-only>
           </preference>
         </preferences>
-      </portlet>      
+      </portlet>
       <title>Tour</title>
-      <access-permissions>Everyone</access-permissions>      
+      <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
