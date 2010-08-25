@@ -135,16 +135,17 @@
                     <echo>Opening Open Office</echo>
                     <echo>Path : "${openoffice.server.exec.path}"</echo>
                     <exec failonerror="false" spawn="true" executable="${openoffice.server.exec.path}">
-                      <arg value="-nologo"/>
-                      <arg value="-headless"/>
-                      <arg value="-nofirststartwizard"/>
-                      <arg value='-accept="socket,host=localhost,port=${openoffice.server.port};urp;"'/>
+                      <arg line="-nologo"/>
+                      <arg line="-headless"/>
+                      <arg line="-nofirststartwizard"/>
+                      <arg line='-accept="socket,host=localhost,port=${openoffice.server.port};urp;"'/>
                       <!-- It is important to keep ' around line parameter to use " inside -->
                     </exec>
                     <echo>Waiting for Open Office</echo>
-                    <waitfor maxwait="10" maxwaitunit="second">
+                    <waitfor maxwait="180" maxwaitunit="second" timeoutproperty="openoffice.not.started">
                         <socket server="localhost" port="${openoffice.server.port}"/>
                     </waitfor>
+                    <echo>Startup timeout : ${openoffice.not.started}</echo>
                     <echo>Open Office headless is ready</echo>
                   </tasks>
                 </configuration>
@@ -159,7 +160,7 @@
                   <tasks>
                     <echo>Stopping Open Office</echo>
                     <exec failonerror="false" spawn="true" executable="${kill.exec}">
-                      <arg value="${openoffice.server.exec}"/>
+                      <arg line="${openoffice.server.exec}"/>
                     </exec>
                     <echo>Open Office is stopped</echo>
                   </tasks>
