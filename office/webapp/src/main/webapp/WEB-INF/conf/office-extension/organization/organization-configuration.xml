@@ -85,6 +85,61 @@
                 </value>
               </collection>
             </field>
+			      <field name="user">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>root</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>Root</string></field>
+                    <field name="lastName"><string>Root</string></field>
+                    <field name="email"><string>root@localhost</string></field>
+                    <field name="groups"><string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,</string></field>
+                  </object>
+                </value>
+                
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>john</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>John</string></field>
+                    <field name="lastName"><string>Smith</string></field>
+                    <field name="email"><string>john.smith@acme.exoplatform.com</string></field>
+                    <field name="groups"><string>*:/platform/administrators,*:/platform/web-contributors, *:/platform/users</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>mary</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>Mary</string></field>
+                    <field name="lastName"><string>Williams</string></field>
+                    <field name="email"><string>mary.williams@acme.exoplatform.com</string></field>
+                    <field name="groups"><string>member:/platform/users,editor:/platform/web-contributors,manager:/platform/web-contributors,publisher:/platform/web-contributors</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>james</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>James</string></field>
+                    <field name="lastName"><string>Davis</string></field>
+                    <field name="email"><string>james.davis@acme.exoplatform.com</string></field>
+                    <field name="groups"><string>member:/platform/users,redactor:/platform/web-contributors,author:/platform/web-contributors</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>demo</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>Jack</string></field>
+                    <field name="lastName"><string>Miller</string></field>
+                    <field name="email"><string>jack.miller@acme.exoplatform.com</string></field>
+                    <field name="groups"><string>member:/platform/users</string></field>
+                  </object>
+                </value>
+              </collection>
+            </field>
 
           
           </object>
