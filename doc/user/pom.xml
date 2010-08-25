@@ -142,10 +142,9 @@
                       <!-- It is important to keep ' around line parameter to use " inside -->
                     </exec>
                     <echo>Waiting for Open Office</echo>
-                    <waitfor maxwait="180" maxwaitunit="second" timeoutproperty="openoffice.not.started">
+                    <waitfor maxwait="180" maxwaitunit="second">
                         <socket server="localhost" port="${openoffice.server.port}"/>
                     </waitfor>
-                    <echo>Startup timeout : ${openoffice.not.started}</echo>
                     <echo>Open Office headless is ready</echo>
                   </tasks>
                 </configuration>
