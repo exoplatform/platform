@@ -1206,6 +1206,7 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.office.portlets.construction</artifactId><version>${project.version}</version><type>war</type></dependency>
   </dependencies>
   <!-- 2.1.0-SNAPSHOT-->
   <build>
