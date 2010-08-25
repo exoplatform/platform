@@ -1,56 +1,62 @@
-<% 
-	import javax.jcr.Node;
-	import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
-	import org.exoplatform.wcm.webui.clv.UICLVPortlet;
-	import org.exoplatform.wcm.webui.Utils;
-	import org.exoplatform.services.wcm.core.NodeLocation;
+<%
+  import javax.jcr.Node;
+  import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+  import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+  import org.exoplatform.wcm.webui.Utils;
+  import org.exoplatform.services.wcm.core.NodeLocation;
+%>
+<%
+	 if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+	 %>
+		<div>
+		</div>
+	 <%
+	 } else {
 %>
 <div id="$uicomponent.id" class="UICLVPresentation">
-	<%	
-		String header = uicomponent.getHeader();
+  
+  <%  
+    String header = uicomponent.getHeader();
     def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
     if (isShowHeader) {
-			%><div class="Header"><%= header %></div>		<%
-		}
-	%>
-	<div class="Caption">
-		<% 	
-			String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");		
-			if (uicomponent.getUIPageIterator().getAvailable() == 0) {
-				%>
-					<div style="height: 20px; text-align: center; font-size: 13px; background: white; padding: 10px; margin: 5px;">
-						<span><%= _ctx.appRes(uicomponent.getParent().getMessageKey()) %></span>
-					</div>
-				<%
-			} else {			
-				def currentPageData = uicomponent.getCurrentPageData();							
-				String labelReadMore = _ctx.appRes("UICLVPresentation.label.readmore");
-				String draftLabel = _ctx.appRes("UICLVPresentation.label.draft");
-				String editActionLabel = _ctx.appRes("UICLVPresentation.action.edit");
-				
-				for (viewNode in currentPageData) {
-					if(node.hasProperty("exo:title")) {%>
-						<%=node.getProperty("exo:title").getString()%>
-					<%}
-												
-				} //end for
-			} //end else	
-		%>
-		<div class="CaptionFunc">
-			<% 
-			  def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
-        if (isShowRefresh) { 
-					String link = uicomponent.event("Refresh");
-					%>				
-						<div class="CaptionRefresh">
-							<a href="$link">$labelRefreshAction</a>
-						</div>
-					<% 
-				}
-				if (uicomponent.showPaginator()) { 
-						uicomponent.renderChild(UICustomizeablePaginator.class)
-				} 
-			%>
-		</div>
-	</div>
+      %><div class="Header"><%= header %></div>    <%
+    }
+  %>
+  <div class="Caption">
+    <%   
+      String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");    
+      
+        def currentPageData = uicomponent.getCurrentPageData();              
+        String labelReadMore = _ctx.appRes("UICLVPresentation.label.readmore");
+        String draftLabel = _ctx.appRes("UICLVPresentation.label.draft");
+        String editActionLabel = _ctx.appRes("UICLVPresentation.action.edit");
+        
+        for (viewNode in currentPageData) {
+          if(node.hasProperty("exo:title")) {%>
+            <%=node.getProperty("exo:title").getString()%>
+          <%}
+                        
+        } //end for
+     
+    %>
+    <div class="CaptionFunc">
+      <%
+        def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
+        if (isShowRefresh) {
+          String link = uicomponent.event("Refresh");
+          %>        
+            <div class="CaptionRefresh">
+              <a href="$link">$labelRefreshAction</a>
+            </div>
+          <%
+        }
+        if (uicomponent.showPaginator()) {
+            uicomponent.renderChild(UICustomizeablePaginator.class)
+        }
+      %>
+    </div>
+  </div>
 </div>
+<%
+}
+%>
