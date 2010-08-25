@@ -38,7 +38,7 @@
 	white-space: nowrap;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a a:hover {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a:hover {
 	color: #92918f;
 	background-color: transparent;
 }
@@ -67,7 +67,7 @@
 /****************************/
 
 .UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer {	
-	border: none;
+	border: 1px solid transparent;
 	background: #20263f;
 	margin-top: 0;
 }
@@ -125,7 +125,7 @@
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a {
 	color: #FFD400;
 	font-weight: normal;
-	padding: 0 12px;
+	padding: 0 22px 0 12px;
 	display: block;
 	white-space: nowrap;
 }
@@ -219,6 +219,10 @@
 	background: url('background/ToolbarContainer.png') no-repeat 5px -603px;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ManageSite {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -697px;
+}
+
 .UIWorkingWorkspace .MenuItem .SiteIcon {
 	background: url('/officeResources/skin/officeSkin/UIToolbarContainer/background/ToolbarContainer.png') no-repeat 5px -455px;
 }
@@ -240,7 +244,7 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarGroupPortlet .UITab {
-	width: 78px !important;
+	width: 75px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer #UISpacesToolBarPortlet .UITab {
@@ -263,8 +267,16 @@
 	width: 88px !important;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .UIAdminToolbarPortlet .UITab {
+	width: 99px !important;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer #UISpacePlatformToolBarPortlet .UITab {
+	width: 66px !important;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab {
-	width: 100px !important;
+	width: auto !important;
 }
 
 /***************UIStarToolBarPortlet*****************/
