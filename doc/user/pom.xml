@@ -13,7 +13,7 @@
     <dependency>
       <groupId>com.artofsolving</groupId>
       <artifactId>jodconverter</artifactId>
-      <version>2.2.1</version>
+      <version>${version.jodconverter.plugin}</version>
     </dependency>
   </dependencies>
   <profiles>
@@ -126,7 +126,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>            
             <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.4</version>
             <executions>
               <execution>
                 <id>start-oo</id>
@@ -174,7 +173,6 @@
           <plugin>
             <groupId>com.artofsolving</groupId>
             <artifactId>jodconverter-maven-plugin</artifactId>
-            <version>2.2.1</version>
             <configuration>
               <sourceDirectory>${basedir}/src/main/resources</sourceDirectory>
               <outputDirectory>${basedir}/target</outputDirectory>

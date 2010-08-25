@@ -18,7 +18,6 @@
           <plugin>
             <groupId>org.apache.jmeter</groupId>
             <artifactId>maven-jmeter-plugin</artifactId>
-            <version>1.0</version>
             <configuration>
               <reportDir>${project.build.directory}/jmeter-reports</reportDir>
               <jmeterUserProperties>
@@ -42,7 +41,6 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>xml-maven-plugin</artifactId>
-            <version>1.0-beta-3</version>
             <configuration>
               <transformationSets>
                 <transformationSet>

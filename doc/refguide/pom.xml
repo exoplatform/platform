@@ -16,7 +16,7 @@
     <dependency>
       <groupId>org.wikbook</groupId>
       <artifactId>wikbook.docbkxstyle</artifactId>
-      <version>0.9.28</version>
+      <version>${version.wikbook.plugin}</version>
     </dependency>
   </dependencies>
   <profiles>
@@ -82,7 +82,6 @@
           <plugin>
             <groupId>org.wikbook</groupId>
             <artifactId>wikbook.maven</artifactId>
-            <version>0.9.28</version>
             <configuration>
               <sourceDirectory>${pom.basedir}/src/main/wikbook/en/en-US</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
@@ -106,7 +105,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
-            <version>2.1</version>
             <executions>
               <execution>
                 <id>a</id>
@@ -127,7 +125,6 @@
           <plugin>
             <groupId>com.agilejava.docbkx</groupId>
             <artifactId>docbkx-maven-plugin</artifactId>
-            <version>2.0.7</version>
             <executions>
               <execution>
                 <goals>
