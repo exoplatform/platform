@@ -42,7 +42,7 @@
                       <artifactId>exo-ecms-docs-refguide</artifactId>
                       <version>2.1.0-SNAPSHOT</version>
                       <type>zip</type>
-                      <outputDirectory>${pom.basedir}/target/wikbook/output/</outputDirectory>
+                      <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
                     </artifactItem>
                     <!-- cs -->
@@ -51,7 +51,7 @@
                       <artifactId>exo.cs.docs.refguide</artifactId>
                       <version>2.1.0-CR02-SNAPSHOT</version>
                       <type>zip</type>
-                      <outputDirectory>${pom.basedir}/target/wikbook/output/</outputDirectory>
+                      <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
                     </artifactItem>
                     <!-- ks -->
@@ -60,7 +60,7 @@
                       <artifactId>exo.ks.docs.refguide</artifactId>
                       <version>2.1.0-CR02-SNAPSHOT</version>
                       <type>zip</type>
-                      <outputDirectory>${pom.basedir}/target/wikbook/output/</outputDirectory>
+                      <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
                     </artifactItem>
                     <!-- social -->
@@ -69,7 +69,7 @@
 		    <artifactId>exo.social.docs.refguide</artifactId>
 		    <version>1.1.0-CR02-SNAPSHOT</version>
 		    <type>zip</type>
-		    <outputDirectory>${pom.basedir}/target/wikbook/output/</outputDirectory>
+		    <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
 		    <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
 		  </artifactItem>
                   </artifactItems>
@@ -83,12 +83,12 @@
             <groupId>org.wikbook</groupId>
             <artifactId>wikbook.maven</artifactId>
             <configuration>
-              <sourceDirectory>${pom.basedir}/src/main/wikbook/en/en-US</sourceDirectory>
+              <sourceDirectory>${project.basedir}/src/main/wikbook/en/en-US</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
               <destinationDirectory>${project.build.directory}/wikbook/src</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
               <emitDoctype>true</emitDoctype>
-              <beforeBookBodyXML>&lt;xi:include href=&quot;${pom.basedir}/src/main/wikbook/en/en-US/bookinfo.xml&quot;
+              <beforeBookBodyXML>&lt;xi:include href=&quot;${project.basedir}/src/main/wikbook/en/en-US/bookinfo.xml&quot;
                 xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; /&gt;</beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
@@ -140,7 +140,7 @@
                   <htmlStylesheet>css/html.css</htmlStylesheet>
                   <!-- PDF -->
                   <foCustomization>${project.build.directory}/wikbook/src/resources/xsl/fopdf.xsl</foCustomization>
-                  <imgSrcPath>${pom.basedir}/src/main/wikbook/</imgSrcPath>
+                  <imgSrcPath>${project.basedir}/src/main/wikbook/</imgSrcPath>
                   <admonGraphicsPath>${project.build.directory}/wikbook/src/resources/images/admons/</admonGraphicsPath>
                   <!-- Highlight source code -->
                   <highlightSource>1</highlightSource>
@@ -155,7 +155,7 @@
                   <!-- Copy the image for HTML-->
                   <postProcess>
                     <copy todir="${project.build.directory}/wikbook/output/images">
-                      <fileset dir="${pom.basedir}/src/main/wikbook/images">
+                      <fileset dir="${project.basedir}/src/main/wikbook/images">
                         <include name="**"/>
                       </fileset>
                     </copy>
