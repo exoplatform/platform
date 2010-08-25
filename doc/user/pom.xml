@@ -139,7 +139,7 @@
                       <arg line="-nologo"/>
                       <arg line="-headless"/>
                       <arg line="-nofirststartwizard"/>
-                      <arg line="-accept=&quot;socket,host=localhost,port=${openoffice.server.port};urp;&quot;"/>
+                      <arg line='-accept="socket,host=localhost,port=${openoffice.server.port};urp;"'/>
                     </exec>
                     <echo>Waiting for Open Office</echo>
                     <waitfor maxwait="10" maxwaitunit="second">
