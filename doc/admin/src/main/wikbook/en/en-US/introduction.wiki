@@ -1,16 +1,15 @@
 
 
-eXo solutions are a set of new and innovative products for your business. 
-They help your company to manage the important amount of information you are dealing with. 
+eXo Platform gives your middleware the user experience features to improve your portal-based applications.
 GateIn lets you aggregate applications and content for your employees through an innovative user friendly interface. 
-Combined with eXo Platform Enterprise Content Management, to manage your documents, and eXo Collaboration, to improve your collaborators' communication and organization, you will gain time and reactivity.
+Combined with the Enterprise Content Management and collaboration capabilities of eXo Platform, you can manage your documents and improve your communication and organization for your users.
 
 h1. Welcome to eXo Platform  
-eXo Platform  is a commercial and supported product based on eXo Open Source projects. Its packaging and testing has been focused around production readiness and improved administration tasks.
-eXo Platform has been designed to run on major applications servers, like JBoss AS, and relational database systems, like MySQL, and Oracle. 
-It also provides the best packaging for customers that need long-term support. In order to provide a product ready solution, eXo Platform upgradeability and stability has been particularly tested by eXo developers.
+eXo Platform  is a commercial and supported product based on eXo open source projects. Its packaging and testing is focused on production readiness and improved administration.
+eXo Platform has been designed to run on major applications servers, like JBoss AS, and relational database systems, like MySQL and Oracle. 
+It also provides the ideal packaging for customers that need long-term support. In order to provide a production-ready solution, eXo Platform is tested to ensure easy upgrades and maximum stability.
 
-The eXo Platform 3.0 release contains :
+The eXo Platform 3.0 release contains:
 * GateIn 3.1 
 * eXo Content 3.0 (WCM 2.1 + addons)
 * eXo Social 1.1
@@ -18,19 +17,19 @@ The eXo Platform 3.0 release contains :
 * eXo Knowledge 2.1
 * xCMIS 1.1
 * eXo IDE 1.0
-* Crash 1.0
+* CRaSH 1.0
 
 
-This guide has been designed to help you going through all necessary steps of eXo Platform administration and management. 
+This document will guide you through the most important tasks for eXo Platform administration and management. 
 At the end, you will be able to install, configure, migrate, and manage your eXo Platform system.
 
-h1. Who should read this guide ? 
-This guide describes how to start using eXo Platform, the following user profiles benefit from this guide:
+h1. Who should read this guide? 
+This guide describes how to get started with eXo Platform, specifically for the following user profiles:
 
-* _System Administrators_  who want to use, deploy and manage eXo Platform system in their work and business. 
-* _System Integrators_ who want to know more about eXo Platform and integrate it into their own projects. 
+* _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise. 
+* _System Integrators_ who want to know how to leverage eXo Platform in their customer projects. 
 
-We hope this guide will help you to get a better understanding of the eXo Platform and that you will feel encouraged trying out things on your own.
+a
 
 h1. Conventions used in this document  
 
@@ -41,7 +40,7 @@ h1. Conventions used in this document
 |( )|Brackets enclose arguments of a method|
 |{}|Curly brackets indicate that one of the enclosed values must be assigned to the current argument|
 |!Tips.png!|This is a tip symbol. Tips and tricks|
-|!caution.png!|This is a caution symbol. You chould be careful|
+|!caution.png!|This is a caution symbol. You should be careful|
 |!warning.png!|This is a warning symbol. You should be very careful|
 
 

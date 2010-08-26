@@ -4,14 +4,13 @@
 h1. Principles of Configuration
 
 System configuration for eXo Platform is stored in a file named {{configuration.properties}}.
-The location of this file varies depending on the AS :
+The location of this file varies, depending on the application server:
 * default bundle: {{$TOMCAT_HOME/gatein/conf/configuration.properties}}
 * JBoss : {{$JBOSS_HOME/server/default/conf/configuration.properties}}
 
 h1. Database Configuration
-eXo Platform relies on the application server for its database access. 
-Therefore the database is configured at the application server level as a datasource. 
-That datasource is obtained by performing access to the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
+eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
+That datasource is obtained by accessing the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
 h2. Datasource Configuration for Tomcat 
 {note}
@@ -20,11 +19,11 @@ TODO
 h2. Datasource Configuration for JBoss 
 JBoss Application Server relies on deployment descriptors for its datasource management. 
 Datasources are bound in the enterprise naming context with a {{java:}} prefix.
-By default, eXo Platform defines two datasources 
-* {{java:exojcr}} : for the Java Content Repository (JCR).
-* {{java:exoidm}} : for the organizational model.
+By default, eXo Platform defines two datasources: 
+* {{java:exojcr}} - for the Java Content Repository (JCR).
+* {{java:exoidm}} - for the organizational model.
 
-The file {{sample-confs/jboss/exo-ds.xml}} can be used to drop into the {{deploy/}} directory.
+The file {{sample-confs/jboss/exo-ds.xml}} can be dropped into the {{deploy/}} directory.
 
 {note}
 TODO
@@ -36,7 +35,7 @@ TODO
 {note}
 
 
-h1. Connecting to a LDAP Directory
+h1. Connecting to an LDAP Directory
 {note}
 TODO
 {note}
@@ -48,7 +47,7 @@ TODO
 {note}
 
 
-h1. JVM Settings Recommendations
+h1. Recommended JVM Settings
 {note}
 TODO
 {note}
@@ -59,27 +58,27 @@ h1. Connection Pools
 TODO
 {note}
 
-h1. WEBDAV Cache Control
+h1. WebDAV Cache Control
 
-The embedded WEBDAV server lets you control the cache-control http header that it transmits to clients by mimetype.
-This is usefull to fine tune your website.
+The embedded WebDAV server lets you control the cache-control http header that it transmits to clients by mimetype.
+This is useful for fine-tuning your website.
 
-The configuration property is : {{exo.webdav.cache-control}}
+The configuration property is: {{exo.webdav.cache-control}}
 {screen}
 exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 {screen}
 
-The property expects a comma-separated list of key=pair values where keys are a list of mimetypes followed by the cache-control value to set.
+The property expects a comma-separated list of key=pair values, where keys are a list of mimetypes followed by the cache-control value to set.
 
 h1. Chat Server
 
 h2. Chat server configuration
 
-{note}TODO : from http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat%20Configuration explain how to change the hostname and port{note}
+{note}TODO: from http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat%20Configuration explain how to change the hostname and port{note}
 
 h2. XMPPMessenger
 
-If you changed the hostname and port for the chat server, then you'll need to edit two properties :
+If you changed the hostname and port for the chat server, then you'll need to edit two properties:
 
 {screen}
 # IP or hostname for the eXo Chat XMPP server

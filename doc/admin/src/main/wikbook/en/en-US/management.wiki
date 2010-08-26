@@ -1,19 +1,19 @@
 
 h1. Management of eXo Platform 
-Management of the resources of a platform is a critical aspect when it comes to production. 
+Management of the resources of a platform is critical for production usage. 
 The eXo Platform product is exposed as a manageable set of resources that can be inspected at runtime to monitor and manage servers.
 
-When it comes to Java, the Java Management Extension (also known as JMX) is the de-facto standard to expose managed resources to the outer world.
+When it comes to Java, the Java Management Extension (also known as JMX) is the de-facto standard to expose managed resources externally.
 
 This chapter explains the various resources provided by the eXo Platform server, the management actions that can be performed, and how to obtain relevant metrics.
 
 h2. JMX Interface  
-The resource management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
+Resource management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
 
-In the runtime of JBoss AS, the MBeans  are registered by the eXo Kernel in the MBeanServer  that the application server creates and the MBeans  are directly viewable in the JMX console. 
-However we do advocate using a better JMX client such as the JConsole tool available since Java 5.
+In the runtime of JBoss AS, the MBeans are registered by the eXo Kernel in the MBeanServer, which the application server creates, and the MBeans are directly viewable in the JMX console. 
+However, we do advocate using a better JMX client such as the JConsole tool, available since Java 5.
 
-Although it is not the scope of this guide to explain how the JConsole can be connected to the JBoss application server we will give the required changes to perform. 
+Although it is not the scope of this guide to explain how the JConsole can be connected to the JBoss application server, we will provide the required changes that need to be performed. 
 The following system properties must be added as virtual machine properties:
 
 ||Property name||Property value||
@@ -23,13 +23,13 @@ The following system properties must be added as virtual machine properties:
 
 h2. REST Interface
 
-The built-in REST Managment Provider of GateIn makes some of MBeans operations accessible as REST endpoints. Administrators could handle the system simply with a browser, no complex configuration needs to be performed.
+The built-in REST Managment Provider of GateIn makes some of the MBeans operations accessible as REST endpoints. Administrators could handle the system simply with a browser; no complex configuration needs to be performed.
 
-Only members of the group platform/administrators are given permissions to work on REST management. The authentication requires login/password of user's account.
+Only members of the platform/administrators group are given permission to work on REST management. The authentication requires login/password of the user's account.
 
-The base URL to access the REST endpoints is [http://localhost:8080/rest/managment], the last one is followed by the parameter parsed in managed resource 's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"), the full URL to access JMX 'getSkinList' method through REST request is [http://localhost:8080/rest/management/skinservice/getSkinList]
+The base URL to access the REST endpoints is [http://localhost:8080/rest/managment], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through REST request is [http://localhost:8080/rest/management/skinservice/getSkinList]
 
-h1. Management Views Reference 
+h1. Management view
 
 
 h2. Kernel management view
@@ -37,11 +37,11 @@ h2. Kernel management view
 h3. PortalContainer
 
 PortalContainer manages all objects and configurations for a given portal. The JMX name is {{exo:container=portal,name="portal"}}
-* {{configurationXML}} : gives the effective runtime configuration calculated by the loading mechanism. URLs used to load parts are indicated to help 
-* {{registeredComponentNames}} : gets the list of all components registered
+* {{configurationXML}}: provides the effective runtime configuration calculated by the loading mechanism. URLs used to load parts are indicated to help.
+* {{registeredComponentNames}}: provides the list of all components registered.
 h2. Cache management view 
 
-Cache is an important aspect of a server infrastructure, which plays an essential role for performances.
+Cache is essential for improving the performance of a server infrastructure.
 
 h3. Cache management and statistics
 
@@ -53,23 +53,23 @@ The JMX name of each cache MBean uses the template {{exo:service=cache,name=Cach
 |{{HitCount}}|the number of times the cache was successfully queried|
 |{{MissCount}}|the number of times the cache was queried without success|
 |{{Size}}| gives the number of entries in the cache|
-|{{TimeToLive}}|attribute gives the maximum life time an entry is considered to be valid. A value of {{\-1}} means that the entries are never considered to become stale|
+|{{TimeToLive}}|attribute gives the maximum lifetime that an entry is considered valid. A value of {{\-1}} means that the entries will never become stale|
 
 ||Operation||Description||
 |{{clearCache()|evicts all the entries from the cache. It can be used to force a programmatic flush of the cache|
 
 h3. Cache service 
 
-The cache service manages the different caches, the JMX name is  {{exo:service=cachemanager}}.
+The cache service manages the different caches.  The JMX name is  {{exo:service=cachemanager}}.
 
 ||Operation||Description||
 |{{clearCaches()}}|force a programmatic flush of all the registered caches|
 
 h3. PicketLink Cache
 
-Picketink is the default implementation for te organization model. It uses its own cache JMX management interface under the name {{exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache}}.
-{{invalidateAll()}} : invalidate all caches
-{{invalidate(namespace)}} : invalidate a specific cache namespace
+Picketink is the default implementation for the organization model. It uses its own cache JMX management interface under the name {{exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache}}.
+{{invalidateAll()}}: invalidate all caches
+{{invalidate(namespace)}}: invalidates a specific cache namespace
 
 h2. Content management view
 
@@ -77,25 +77,25 @@ WCM provides a management view for:
 
 h3. WCM Composer
 
-The WCM Composer is responsible for assembling the pages. It is a key component serving pages efficiently.
+The WCM Composer is responsible for assembling the pages, and is key for serving pages efficiently.
 The JMX name is {{exo:portal="portal",service=composer,view=portal,type=content}}
 
 * {{Cached}}: whether the cache is used or not
-* {{CachedEntries}} : how many nodes in the cache?
-* {{cleanTemplates()}} : clean all templates in the cache
-* {{setCached(cached)}} : enabled/disable caching in the composer
+* {{CachedEntries}}: how many nodes are in the cache
+* {{cleanTemplates()}}: cleans all templates in the cache
+* {{setCached(cached)}}: enables/disables caching in the composer
 
 
 
 h2. Portlet Container management view 
 
-Portlet containers do provide a management view that consists mainly in statistic exposure. The JMX name of a portlet container follows the template :
+Portlet containers do provide a management view that consists mainly of statistic exposure. The JMX name of a portlet container follows this template:
 {{exo:application="Application",portlet="Portlet"}} where {{Application}} is the name of web application and {{Portlet}} is the portlet name in the web application.
 
 h3. Portlet Container statistics 
 
 Each portlet container has a corresponding managed resource that exposes statistics as attributes. 
-The Portlet lifecycle has several phases (named action, event, render and resource) which are particular operations that a portlet can execute, each of those operations is monitored.
+The Portlet lifecycle has several phases (named action, event, render and resource).  These are particular operations that a portlet can execute, and each is monitored.
 
 ||Attribute||Description ||
 |{{ActionCount}}, {{EventCount}}, {{RenderCount}} and {{ResourceCount}}|the number of executions of a particular portlet phase|
@@ -105,19 +105,19 @@ The Portlet lifecycle has several phases (named action, event, render and resour
 
 h2. Portal management view
 
-The portal management exposes the portal resources either for management or for statistic.
+The portal management exposes the portal resources either for management or for obtaining statistics.
 
 h3. Template statistics
 
 The template management exposes the various templates used by the portal and its components to render markup. 
-Various statistics are available per template and to get aggregated statistics such as the list of the slowest templates. 
-Most of the management operations operate on a single template; those operations take as argument the template identifier. 
+Various statistics are available for individual templates, as well as aggregated statistics, such as the list of the slowest templates. 
+Most of the management operations are performed on a single template; those operations take the template identifier as an argument. 
 The JMX name of the template statistics MBean follows the template:  {{exo:view=portal,service=statistic,type=template}}.
 
 ||Attribute||Description|| 
 |{{TemplateList}}|returns the list of the loaded templates|
 |{{SlowestTemplates}}|returns the list of the 10 slowest templates|
-|{{MostExecutedTemplates}}|returns the list of the 10 templates which are most used|
+|{{MostExecutedTemplates}}|returns the list of the 10 most used templates|
 |{{FastestTemplates}}|returns the list of the 10 fastest templates|
 
 ||Operation||Description||
@@ -128,7 +128,7 @@ The JMX name of the template statistics MBean follows the template:  {{exo:view=
 
 h3. Template management 
 
-The template management provides the capability to force the reload of a specified template. 
+Template management provides the capability to force the reload of a specified template. 
 The JMX name of the template management MBean follows the template {{exo:view=portal,service=management,type=template}}.
 
 
@@ -174,7 +174,7 @@ The JMX name of the application statistics MBean follows the template: {{exo:vie
 ||Attribute||Description ||
 |{{ApplicationList}}|returns the list of the loaded applications|
 |{{SlowestApplications}}|returns the list of the 10 slowest applications|
-|{{MostExecutedApplications}}|returns the list of the 10 applications which are the most executed|
+|{{MostExecutedApplications}}|returns the list of the 10 most executed applications|
 |{{FastestApplications}}|returns the list of the 10 fastest applications|
 
 ||Operation||Description||
