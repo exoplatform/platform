@@ -40,7 +40,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>
                       <artifactId>exo-ecms-docs-refguide</artifactId>
-                      <version>2.1.0-SNAPSHOT</version>
+                      <version>${org.exoplatform.ecms.version}</version>
                       <type>zip</type>
                       <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
@@ -49,7 +49,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.cs</groupId>
                       <artifactId>exo.cs.docs.refguide</artifactId>
-                      <version>2.1.0-CR02-SNAPSHOT</version>
+                      <version>${org.exoplatform.cs.version}</version>
                       <type>zip</type>
                       <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
@@ -58,7 +58,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.ks</groupId>
                       <artifactId>exo.ks.docs.refguide</artifactId>
-                      <version>2.1.0-CR02-SNAPSHOT</version>
+                      <version>${org.exoplatform.ks.version}</version>
                       <type>zip</type>
                       <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
                       <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
@@ -67,7 +67,7 @@
 		  <artifactItem>
 		    <groupId>org.exoplatform.social</groupId>
 		    <artifactId>exo.social.docs.refguide</artifactId>
-		    <version>1.1.0-CR02-SNAPSHOT</version>
+		    <version>${org.exoplatform.social.version}</version>
 		    <type>zip</type>
 		    <outputDirectory>${project.basedir}/target/wikbook/output/</outputDirectory>
 		    <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
