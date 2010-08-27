@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
-    <version>3.0.0-CR01-SNAPSHOT</version>
+    <version>3.0.0-CR01</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.admin</artifactId>
@@ -32,7 +32,7 @@
               <destinationDirectory>${project.build.directory}/wikbook/src</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
               <emitDoctype>true</emitDoctype>
-              <beforeBookBodyXML>&lt;xi:include href=&quot;${project.basedir}/src/main/wikbook/en/en-US/bookinfo.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; /&gt;</beforeBookBodyXML>
+              <beforeBookBodyXML>&lt;xi:include href="${project.basedir}/src/main/wikbook/en/en-US/bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /&gt;</beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
             <executions>
@@ -99,15 +99,15 @@
                   <postProcess>
                     <copy todir="${project.build.directory}/wikbook/output/images">
                       <fileset dir="${project.basedir}/src/main/wikbook/images">
-                        <include name="**"/>
+                        <include name="**" />
                       </fileset>
                     </copy>
                     <copy todir="${project.build.directory}/wikbook/output">
                       <fileset dir="${project.build.directory}/wikbook/src/resources">
-                        <include name="**/*.css"/>
-                        <include name="**/*.png"/>
-                        <include name="**/*.gif"/>
-                        <include name="**/*.jpg"/>
+                        <include name="**/*.css" />
+                        <include name="**/*.png" />
+                        <include name="**/*.gif" />
+                        <include name="**/*.jpg" />
                       </fileset>
                     </copy>
                   </postProcess>

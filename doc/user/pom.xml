@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
-    <version>3.0.0-CR01-SNAPSHOT</version>
+    <version>3.0.0-CR01</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.user</artifactId>
@@ -135,15 +135,15 @@
                     <echo>Opening Open Office</echo>
                     <echo>Path : "${openoffice.server.exec.path}"</echo>
                     <exec failonerror="false" spawn="true" executable="${openoffice.server.exec.path}">
-                      <arg line="-nologo"/>
-                      <arg line="-headless"/>
-                      <arg line="-nofirststartwizard"/>
-                      <arg line='-accept="socket,host=localhost,port=${openoffice.server.port};urp;"'/>
+                      <arg line="-nologo" />
+                      <arg line="-headless" />
+                      <arg line="-nofirststartwizard" />
+                      <arg line="-accept=&quot;socket,host=localhost,port=${openoffice.server.port};urp;&quot;" />
                       <!-- It is important to keep ' around line parameter to use " inside -->
                     </exec>
                     <echo>Waiting for Open Office</echo>
                     <waitfor maxwait="180" maxwaitunit="second">
-                        <socket server="localhost" port="${openoffice.server.port}"/>
+                        <socket server="localhost" port="${openoffice.server.port}" />
                     </waitfor>
                     <echo>Open Office headless is ready</echo>
                   </tasks>
@@ -159,7 +159,7 @@
                   <tasks>
                     <echo>Stopping Open Office</echo>
                     <exec failonerror="false" spawn="true" executable="${kill.exec}">
-                      <arg line="${openoffice.server.exec}"/>
+                      <arg line="${openoffice.server.exec}" />
                     </exec>
                     <echo>Open Office is stopped</echo>
                   </tasks>
