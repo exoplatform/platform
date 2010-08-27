@@ -87,10 +87,7 @@ function getModule(params)
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.office.config", "jar", module.version));
    module.office.webapp.deployName = "office-portal";
    module.office.officeResources =  new Project("org.exoplatform.platform", "exo.platform.office.officeResources", "war", module.version);
-   
-   module.office.portlets = {};
-   module.office.portlets.construction =  new Project("org.exoplatform.platform", "exo.platform.office.portlets.construction", "war", module.version);
-   
+      
    
    module.patch = {};
    module.patch.tomcat =
