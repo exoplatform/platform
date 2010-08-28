@@ -105,7 +105,7 @@
     <!-- Build settings        -->
     <!-- ********************* -->
     <!-- maven-release-plugin -->
-    <arguments>-Prelease,ditrib -Dgatein.working.dir=target</arguments>
+    <arguments>-Prelease,distrib -Dgatein.working.dir=target</arguments>
   </properties>
   <build>
     <pluginManagement>
