@@ -62,6 +62,9 @@
 								<value>
 									<string>.*\.jsp</string>
 								</value>
+                                <value>
+                                  <string>favicon\.ico</string>
+                                </value>                
 							</collection>
 						</field>
 					</object>
