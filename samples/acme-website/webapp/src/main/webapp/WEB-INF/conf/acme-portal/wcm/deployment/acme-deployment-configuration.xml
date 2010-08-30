@@ -56,10 +56,10 @@
             </field>
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Logo.xml</string>
-            </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+              </field>
+                <field name="cleanupPublication">
+                <boolean>true</boolean>
+              </field>
           </object>
         </object-param>
         <object-param>
@@ -82,9 +82,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Users.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
         </object-param>
         <object-param>
@@ -107,9 +107,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>               
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>               
           </object>
         </object-param>
         <object-param>
@@ -132,9 +132,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Searchbox.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
         </object-param>
         <object-param>
@@ -157,9 +157,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Navigation.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>               
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>               
           </object>
         </object-param>
         <object-param>
@@ -182,9 +182,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Footer.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>               
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>               
           </object>
         </object-param>
         <object-param>
@@ -207,9 +207,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Introduce.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>            
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>            
           </object>
         </object-param>
         <object-param>
@@ -232,9 +232,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetGreen.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>              
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>              
           </object>
         </object-param>
         <object-param>
@@ -257,9 +257,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetBlue.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>            
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>            
           </object>
         </object-param>
         <object-param>
@@ -282,9 +282,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Images.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>              
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>              
           </object>
         </object-param>
         <object-param>
@@ -307,9 +307,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/News.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
         </object-param>
         <object-param>
@@ -332,9 +332,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Events.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
         </object-param>
         <object-param>
@@ -357,9 +357,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/NewEvents.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
         </object-param>
         <!--  object-param>        
@@ -396,9 +396,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocWord.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>              
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>              
           </object>
         </object-param>
         <object-param>
@@ -421,9 +421,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocJpg.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>
           
         </object-param>
@@ -447,9 +447,9 @@
             <field name="sourcePath">
               <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocPdf.xml</string>
             </field>
-                 <field name="cleanupPublication">
-                  <boolean>true</boolean>
-                </field>             
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
           </object>  
         </object-param>
         <object-param>
