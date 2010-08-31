@@ -44,6 +44,7 @@
               <destinationDirectory>${wikbook.target}/src</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
               <beforeBookBodyXML>&lt;xi:include href=&quot;bookinfo.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; /&gt;</beforeBookBodyXML>
+              <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
           <!-- Unpacks the docbook style resources for the docbkx plugin -->
