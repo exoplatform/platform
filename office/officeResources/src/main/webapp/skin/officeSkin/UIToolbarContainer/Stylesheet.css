@@ -120,28 +120,26 @@
 	background-position: 95% center; /* orientation=rt */
 }
 
-
 /**********************************/
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
 	color: #FFD400;
 	font-weight: normal;
-	padding: 0 22px 0 12px;
+	padding: 0 12px;
 	display: block;
 	white-space: nowrap;
+	background: none;
+	margin-left: 0;
+	zoom: 1;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
 	color: #8F8F8F;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .TBIcon {
-	background: none;
-	margin-left: 0;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .SitesIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.ArrowIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
+	padding: 0 22px 0 12px;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .SocialPeopleToolBarIcon {
@@ -149,24 +147,16 @@
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .GroupIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.GroupIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
+	padding: 0 22px 0 12px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .EditorIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.EditorIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .SocialUserToolBarIcon {
-	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .AddPageIcon {
-	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */	
+	padding: 0 22px 0 12px;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .EditPageIcon {
@@ -223,10 +213,6 @@
 	background: url('background/ToolbarContainer.png') no-repeat 5px -697px;
 }
 
-.UIWorkingWorkspace .MenuItem .SiteIcon {
-	background: url('/officeResources/skin/officeSkin/UIToolbarContainer/background/ToolbarContainer.png') no-repeat 5px -455px;
-}
-
 .UIWorkingWorkspace .UIToolbarContainer .Name a {
 	background: url('background/UseIcon.gif') no-repeat left center; /* orientation=lt */
 	background: url('background/UseIcon.gif') no-repeat right center; /* orientation=rt */
@@ -235,47 +221,11 @@
 	color: #fff;
 }
 
-.UIWorkingWorkspace .UIAdminToolbarPortlet .UITab {
-	width: 100px !important;
-}
-
 .UIWorkingWorkspace .UIToolbarContainer .Name a:hover {
 	color: #9fc5ff;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarGroupPortlet .UITab {
-	width: 75px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer #UISpacesToolBarPortlet .UITab {
-	width: 66px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarSitePortlet .UITab {
-	width: 86px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIAddPagePlatformToolbarPortlet .UITab {
-	width: 80px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIPeopleToolBarPortlet .UITab {
-	width: 78px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarDashboardPortlet .UITab {
-	width: 88px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIAdminToolbarPortlet .UITab {
-	width: 99px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer #UISpacePlatformToolBarPortlet .UITab {
-	width: 66px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab {
+.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab {
 	width: auto !important;
 }
 
