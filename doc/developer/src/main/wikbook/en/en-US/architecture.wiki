@@ -16,7 +16,7 @@ h2. Containers
 
 A container is always required in order to access a service, because the eXo Kernel relies on dependency injection. This means that the life-cycle of a service (instantiating, opening and closing streams, disposing, etc.) is handled by a dependency provider (i.e. the eXo Container) rather than the consumer. The consumer only needs a reference to an implementation of the requested service, which is provided in the configuration.xml file that comes with every service. You can read more about dependency injection here [http://en.wikipedia.org/wiki/Dependency_injection].
 
-There are different kind of containers such as RootContainer, PortalContainer or StandaloneContainer (link to reference guide). The Portal Container is created at the startup of the portal web application, and all services started by this container will run embedded in the portal.
+There are different kind of containers such as RootContainer, PortalContainer or StandaloneContainer. The Portal Container is created at the startup of the portal web application, and all services started by this container will run embedded in the portal.
 
 The ExoContainerContext class provides a static method that allows you to get the right container from any location.
 
@@ -234,8 +234,7 @@ The content of {{<init-params>}} corresponds to the structure of the TaxonomyPlu
 
 h2. Kernel Reference Doc
 
-[http://docs.jboss.com/gatein/portal/3.0.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Foundations.html#sect-Reference_Guide-Foundations-Extension_mechanism]
-
+GateIn Kernel Reference Documentation: [http://docs.jboss.com/gatein/portal/3.0.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Foundations.html#sect-Reference_Guide-Foundations-Extension_mechanism]
 
 
 
@@ -245,9 +244,6 @@ h2. Kernel Reference Doc
 
 h1. Extensions
 
-{note}
-The following paragraphs are partly or entirely quoted from the GateIn documentation at JBoss.org
-{note}
 
 
 h2. Portal Container
@@ -399,8 +395,4 @@ include sample JCR data
 The JCR API provides methods to define node types and node properties, create or delete nodes, and add or delete properties to an existing node.
 
 
-h2. 3.3. Configuration
 
-h3. 3.3.1. Database configuration
-
-h3. 3.3.2. JCR repositories and workspaces configuration 
