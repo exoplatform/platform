@@ -230,6 +230,10 @@
 }
 
 /***************UIStarToolBarPortlet*****************/
+.UIWorkingWorkspace .UISiteAdminToolBar {
+	height: auto !important;
+}
+
 
 .UIWorkingWorkspace .UIStarToolBarPortlet {
 	background: url('background/GateinLogo.jpg') no-repeat 10px 6px; /* orientation=lt */
