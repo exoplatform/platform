@@ -36,7 +36,7 @@
 			<div class="UITab NormalToolbarTab">
 			<% if(userCouldEditPage){ %>
 				<div class="">
-					<a class="AddPagesIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">Add Page</a>
+					<a class="TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">Add Page</a>
 				</div>
 				<% } %>
 				

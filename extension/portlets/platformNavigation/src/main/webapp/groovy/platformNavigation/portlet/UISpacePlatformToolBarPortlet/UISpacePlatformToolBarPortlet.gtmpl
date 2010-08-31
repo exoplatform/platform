@@ -125,12 +125,12 @@
       <div class="UITab NormalToolbarTab">
         <div class="">
 		 <% if (renderSpacesLink()) { %>
-          <a class="SocialSpacesIcon TBIcon" href="<%= spacesLink %>">
+          <a class="TBIcon" href="<%= spacesLink %>">
             <%=_ctx.appRes("UISpacesToolBarPortlet.label.Spaces")%>
           </a>
        
 		 <% } %>
-		 <a class="SocialSpacesIcon TBIcon" href="#">
+		 <a class="TBIcon" href="#">
            
           </a>
 		

@@ -112,7 +112,7 @@ void renderLink() {
         <div class="TabsContainer" style="position: relative">
             <div class="UITab NormalToolbarTab">
                 <div class="">
-                            <a class="SocialUserToolBarIcon TBIcon" href="<%= accountSetting %>">
+                            <a class="ArrowIcon TBIcon" href="<%= accountSetting %>">
                                     <%=user.getFullName();%>
                             </a>
                 </div>

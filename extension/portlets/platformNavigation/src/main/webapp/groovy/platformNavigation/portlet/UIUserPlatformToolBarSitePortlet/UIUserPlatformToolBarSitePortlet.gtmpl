@@ -138,7 +138,7 @@
 			<div class="TabsContainer">
 				<div class="UITab NormalToolbarTab">
 					<div class="">
-								<a class="SitesIcon TBIcon" href="<%= portalURI + "portalnavigation" %>">
+								<a class="ArrowIcon TBIcon" href="<%= portalURI + "portalnavigation" %>">
 										My Sites
 								</a>
 					</div>
