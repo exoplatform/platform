@@ -172,5 +172,6 @@
     <module>migration</module>
     <module>packaging</module>
     <module>testsuite</module>
+    <module>assemblies</module>
   </modules>
 </project>

@@ -156,6 +156,13 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>exo.platform.assemblies</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>             
             <executions>
               <execution>
                 <phase>package</phase>
@@ -164,7 +171,7 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/html.xml</descriptor>
+                    <descriptor>wikbook-html-archive.xml</descriptor>
                   </descriptors>
                 </configuration>
               </execution>

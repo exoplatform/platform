@@ -1401,8 +1401,8 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/tomcat-zip.xml</descriptor>
-                    <descriptor>src/main/assembly/chatserver-zip.xml</descriptor>
+                    <descriptor>src/main/assembly/tomcat-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/chatserver-archive.xml</descriptor>
                   </descriptors>
                 </configuration>
               </execution>
