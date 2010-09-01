@@ -13,6 +13,7 @@
     <profile>
       <id>distrib</id>
       <dependencies>
+        <!-- TOMCAT distribution -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.packaging.assembly</artifactId>
@@ -20,6 +21,7 @@
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- CHAT server -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.packaging.assembly</artifactId>
@@ -27,11 +29,26 @@
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- User Docs -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
+        </dependency>
+        <!-- Admin Docs -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.admin</artifactId>
+          <version>${project.version}</version>
+          <classifier>html</classifier>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.admin</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
         </dependency>
       </dependencies>
       <build>
