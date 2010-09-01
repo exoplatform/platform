@@ -52,7 +52,7 @@
         <include>org.exoplatform.platform:exo.platform.doc.admin:zip:html</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/admin/AdministratorsGuide</outputDirectory>
+      <outputDirectory>/docs/admin/administrators-guide</outputDirectory>
       <!-- Options -->
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
@@ -73,7 +73,7 @@
         <include>org.exoplatform.platform:exo.platform.doc.developer:zip:html</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/DevelopersGuide</outputDirectory>
+      <outputDirectory>/docs/dev/developers-guide</outputDirectory>
       <!-- Options -->
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
@@ -84,7 +84,7 @@
         <include>org.exoplatform.platform:exo.platform.doc.developer:pdf</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/DevelopersGuide</outputDirectory>
+      <outputDirectory>/docs/dev/developers-guide</outputDirectory>
       <outputFileNameMapping>Platform-DevelopersGuide-${artifact.version}.pdf</outputFileNameMapping>
     </dependencySet>
     <!-- Reference Guides -->
@@ -94,7 +94,7 @@
         <include>org.exoplatform.platform:exo.platform.doc.refguide:zip:html</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <outputDirectory>/docs/dev/reference</outputDirectory>
       <!-- Options -->
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
@@ -105,7 +105,7 @@
         <include>org.exoplatform.ecms:exo-ecms-docs-refguide:pdf</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <outputDirectory>/docs/dev/reference</outputDirectory>
       <outputFileNameMapping>Content-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
     </dependencySet>
     <dependencySet>
@@ -114,7 +114,7 @@
         <include>org.exoplatform.cs:exo.cs.docs.refguide:pdf</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <outputDirectory>/docs/dev/reference</outputDirectory>
       <outputFileNameMapping>Collaboration-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
     </dependencySet>
     <dependencySet>
@@ -123,7 +123,7 @@
         <include>org.exoplatform.ks:exo.ks.docs.refguide:pdf</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <outputDirectory>/docs/dev/reference</outputDirectory>
       <outputFileNameMapping>Knowledge-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
     </dependencySet>
     <dependencySet>
@@ -132,7 +132,7 @@
         <include>org.exoplatform.social:exo.social.docs.refguide:pdf</include>
       </includes>
       <!-- To -->
-      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <outputDirectory>/docs/dev/reference</outputDirectory>
       <outputFileNameMapping>Social-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
     </dependencySet>
     <!-- User documentations -->
@@ -143,6 +143,21 @@
       </includes>
       <!-- To -->
       <outputDirectory>/docs/user/manuals</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <!-- ####### -->
+    <!-- SAMPLES -->
+    <!-- ####### -->
+    <!-- Reference Guides -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.sample.acme-website:zip:project-sources</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/samples/acme-website</outputDirectory>
       <!-- Options -->
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>

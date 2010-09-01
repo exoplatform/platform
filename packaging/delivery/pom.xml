@@ -100,6 +100,14 @@
           <version>${org.exoplatform.social.version}</version>
           <type>pdf</type>
         </dependency>
+        <!-- samples -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.sample.acme-website</artifactId>
+          <version>${project.version}</version>
+          <classifier>project-sources</classifier>
+          <type>zip</type>
+        </dependency>        
       </dependencies>
       <build>
         <finalName>eXoPlatform-${project.version}</finalName>
