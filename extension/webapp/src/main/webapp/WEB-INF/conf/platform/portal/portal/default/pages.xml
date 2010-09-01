@@ -28,7 +28,7 @@
   
     <page>
 		<name>welcome</name>
-		<title>welcome Page</title>
+		<title>Welcome to eXo Platform 3.0</title>
 		<access-permissions>Everyone</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="defaultwelcome" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
