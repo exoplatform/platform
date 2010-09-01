@@ -50,6 +50,20 @@
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
+        <!-- Dev Docs -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.developer.admin</artifactId>
+          <version>${project.version}</version>
+          <classifier>html</classifier>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.developer.admin</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
       </dependencies>
       <build>
         <finalName>eXoPlatform-${project.version}</finalName>

@@ -65,6 +65,26 @@
       <!-- To -->
       <outputDirectory>/docs/admin/AdministratorsGuide</outputDirectory>
     </dependencySet>
+    <!-- Developers documentations -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.developer:zip:html</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/DevelopersGuide</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.developer:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/DevelopersGuide</outputDirectory>
+    </dependencySet>
     <!-- User documentations -->
     <dependencySet>
       <!-- From -->
