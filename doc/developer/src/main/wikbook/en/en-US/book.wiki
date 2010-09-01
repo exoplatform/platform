@@ -8,7 +8,7 @@ h1. Introduction
 
 h1. Quick Start Guide
 
-{include:document=quickstart.wiki}
+{include:document=quickstart.wiki|syntax=confluence/1.0}
 
 h1. Architecture Primer 
 

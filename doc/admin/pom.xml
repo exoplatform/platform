@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.admin</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>eXo Platform - Administrator Guide</name>
   <dependencies>
     <dependency>
@@ -21,7 +21,7 @@
     <profile>
       <id>distrib</id>
       <properties>
-        <wikbook.source>${pom.basedir}/src/main/wikbook</wikbook.source>
+        <wikbook.source>${project.basedir}/src/main/wikbook</wikbook.source>
         <wikbook.target>${project.build.directory}/wikbook</wikbook.target>
       </properties>
       <build>
@@ -43,6 +43,7 @@
               <sourceFileName>book.wiki</sourceFileName>
               <destinationDirectory>${wikbook.target}/src</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
+              <emitDoctype>true</emitDoctype>
               <beforeBookBodyXML>&lt;xi:include href=&quot;bookinfo.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; /&gt;</beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
