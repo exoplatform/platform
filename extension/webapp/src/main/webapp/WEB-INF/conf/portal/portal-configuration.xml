@@ -40,14 +40,14 @@
     <type>org.exoplatform.portal.config.DataStorageImpl</type>
   </component>
 
-  <component>
+ <component>
     <key>org.exoplatform.portal.config.UserACL</key>
     <type>org.exoplatform.portal.config.UserACL</type>   
-    <init-params>	     
+    <init-params>      
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>root</value>	    
+        <value>root</value>     
       </value-param>
       
       <value-param>
@@ -65,35 +65,36 @@
       <value-param>
         <name>portal.creator.groups</name>
         <description>groups with membership type have permission to manage portal</description>
-        <value>*:/platform/administrators,*:/organization/management/executive-board</value>	    
+        <value>*:/platform/administrators,*:/organization/management/executive-board</value>      
       </value-param>
       
       <value-param>
         <name>navigation.creator.membership.type</name>
         <description>specific membership type have full permission with group navigation</description>
-        <value>manager</value>	    
+        <value>manager</value>      
       </value-param>
       <value-param>
         <name>guests.group</name>
         <description>guests group</description>
-        <value>/platform/guests</value>	    
+        <value>/platform/guests</value>     
       </value-param>     
-		<values-param>
-			<name>mandatory.groups</name>
-			<description>Groups that can not be deleted.</description>
-			<value>/platform/administrators</value>
-			<value>/platform/users</value>
-			<value>/platform/guests</value>
-		</values-param> 
-		<values-param>
-			<name>mandatory.mstypes</name>
-			<description>Membership type that can not be deleted.</description>
-			<value>member</value>			
-		</values-param>	                
-	  </init-params>   
+    <values-param>
+      <name>mandatory.groups</name>
+      <description>Groups that can not be deleted.</description>
+      <value>/platform/administrators</value>
+      <value>/platform/users</value>
+      <value>/platform/guests</value>
+    </values-param> 
+    <values-param>
+      <name>mandatory.mstypes</name>
+      <description>Membership type that can not be deleted.</description>
+      <value>member</value>     
+    </values-param>                 
+    </init-params>   
   </component>
-  
-  <component>
+
+
+ <component>
     <key>org.exoplatform.portal.config.UserPortalConfigService</key>
     <type>org.exoplatform.portal.config.UserPortalConfigService</type>
     <component-plugins>           
@@ -113,33 +114,34 @@
 	          <description>the path to the location that contains Page templates</description>
 	          <value>war:/conf/portal/template/pages</value>
 	        </value-param>
-					<object-param>
+			<object-param>
 	          <name>site.templates.location</name>
 	          <description>description</description>
 	          <object type="org.exoplatform.portal.config.SiteConfigTemplates">
-							<field name="location">
+				<field name="location">
 	              <string>war:/conf/portal</string>
 	            </field>
 	            <field name="portalTemplates">
 	              <collection type="java.util.HashSet">
-									<value>
+					<value>
 	                  <string>classic</string>
+	                  <!--string>default</string-->
 	                </value>
-								</collection>
+				</collection>
 	            </field>
 	            <field name="groupTemplates">
 	              <collection type="java.util.HashSet">
-									<value>
+					<value>
 	                  <string>group</string>
 	                </value>
-								</collection>
+				  </collection>
 	            </field>
 	            <field name="userTemplates">
 	              <collection type="java.util.HashSet">
 	                <value>
 	                  <string>user</string>
 	                </value>
-								</collection>
+				  </collection>
 	            </field>
 	          </object>
 	        </object-param>
@@ -153,7 +155,7 @@
 	              </collection>
 	            </field>
 	            <field name="ownerType"><string>portal</string></field>
-	            <field name="templateLocation"><string>war:/conf/portal/</string></field>
+	            <field name="templateLocation"><string>war:/conf/platform/portal</string></field>
 	          </object>
 	        </object-param> 
 	        <object-param>

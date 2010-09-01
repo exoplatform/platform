@@ -16,7 +16,6 @@
   
   <!-- default website -->
   <import>war:/conf/platform/portal/resource-bundle-configuration.xml</import>
-  <import>war:/conf/platform/portal/portal-configuration.xml</import>	
   <import>war:/conf/platform/wcm/deployment/default-deployment-configuration.xml</import>
  
 
