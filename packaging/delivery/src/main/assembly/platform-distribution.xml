@@ -85,6 +85,29 @@
       <!-- To -->
       <outputDirectory>/docs/dev/DevelopersGuide</outputDirectory>
     </dependencySet>
+    <!-- Reference Guides -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.refguide:zip:html</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/Reference</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.ecms:exo-ecms-docs-refguide:pdf</include>
+        <include>org.exoplatform.cs:exo.cs.docs.refguide:pdf</include>
+        <include>org.exoplatform.ks:exo.ks.docs.refguide:pdf</include>
+        <include>org.exoplatform.social:exo.social.docs.refguide:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/Reference</outputDirectory>
+    </dependencySet>
     <!-- User documentations -->
     <dependencySet>
       <!-- From -->

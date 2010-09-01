@@ -53,15 +53,51 @@
         <!-- Dev Docs -->
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.developer.admin</artifactId>
+          <artifactId>exo.platform.doc.developer</artifactId>
           <version>${project.version}</version>
           <classifier>html</classifier>
           <type>zip</type>
         </dependency>
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.developer.admin</artifactId>
+          <artifactId>exo.platform.doc.developer</artifactId>
           <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <!-- Ref Docs -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.refguide</artifactId>
+          <version>${project.version}</version>
+          <classifier>html</classifier>
+          <type>zip</type>
+        </dependency>
+        <!-- ecms -->
+        <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-docs-refguide</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <!-- cs -->
+        <dependency>
+          <groupId>org.exoplatform.cs</groupId>
+          <artifactId>exo.cs.docs.refguide</artifactId>
+          <version>${org.exoplatform.cs.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <!-- ks -->
+        <dependency>
+          <groupId>org.exoplatform.ks</groupId>
+          <artifactId>exo.ks.docs.refguide</artifactId>
+          <version>${org.exoplatform.ks.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <!-- social -->
+        <dependency>
+          <groupId>org.exoplatform.social</groupId>
+          <artifactId>exo.social.docs.refguide</artifactId>
+          <version>${org.exoplatform.social.version}</version>
           <type>pdf</type>
         </dependency>
       </dependencies>
