@@ -79,10 +79,7 @@ Here are the details about this configuration:
 | {{preferences}} | Contains a list of {{preference}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. CF reference guide. | |
 
 
-
 h1. 2. Developing your own applications
-
-{note}Patrice: did you have anything more in mind for this part?{note}
 
 h2. 2.1. Gadget vs Portlet
 
@@ -106,27 +103,9 @@ For example, the JSF Bridge allows you to transparently deploy your existing JSF
 [http://wiki.apache.org/myfaces/PortletBridge]
 
 
-
-
-
-
-
 The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks such as RichFaces and Seam.
-
-[http://jboss.org/portletbridge]
-
-
-
-
-
-
-
 
 [http://jboss.org/portletbridge/docs.html]
 
-*
 
-undefined:
-undefined:
-undefined:
 

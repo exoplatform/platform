@@ -12,8 +12,6 @@ A custom extension contains two mandatory items:
 A sample extension package is provided here: [http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/]
 
 
->> adapt gatein sample extension as a tutorial to illustrate overriding
-
 Once you have modified the sample extension to build your own, use "maven clean install" to create the archive files.
 
 To deploy your extension in Tomcat, follow these steps:
@@ -25,11 +23,6 @@ This will only work if the starter.war is the last war file to be loaded, so you
 {note}
 * Add the jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
 * Add the jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
-
-
-{note:title=Review by PL}Actually, the gatein sample extension will not be enough as it will not cover ECM. I suggest making our own sample. Jira task for it: [PLF-150@JIRA]
-
-{note}
 
 
 For JBoss deployment and more details, refer to the Reference Guide.
@@ -198,12 +191,6 @@ h1. Customize your portal
 
 One of the first steps in any web project is to integrate a graphic chart. This can be done entirely within your extension, by customizing the portal configuration.
 
-h2. Styles and JavaScript
-
-* Introduce the globalstylehseet and how to configure it.
-{note}From Philippe: This is specific to WCM, shouldn't we define how to simply add a skin in GateIn ? Patrice WDYT ?
-{note}
-* how to insert your own JavaScript library
 
 In order to add a JavaScript library (for example JQuery), follow these steps:
 * Create the following folder, if it does not already exist: {{/war/src/main/webapp/WEB-INF/conf/script/groovy}}
