@@ -1,6 +1,4 @@
 
-{important}This document is a work in progress and will get richer over time.{important}
-
 
 h1. Introduction
 
@@ -27,5 +25,7 @@ h1. Deployment
 
 {include:document=deployment.wiki|syntax=confluence/1.0}
 
-h1. Upgrade
-{include:document=upgrade.wiki|syntax=confluence/1.0}
+h1. Backup
+
+{include:document=backup.wiki|syntax=confluence/1.0}
+

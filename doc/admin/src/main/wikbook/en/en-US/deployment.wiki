@@ -6,14 +6,9 @@ h1. How to remove the sample applications
 eXo Platform comes with two sample portals that showcase the capabilities of the product. 
 Before deploying your system in production, you will want to remove these sample apps. 
 
-{caution}The instructions below assume that you are using the hsqldb embedded database configuration{caution}
+{caution}The instructions below assume that you are using the hsqldb embedded database configuration. {caution}
 
-h2. EAR distribution
-h3. Removing Acme Website
-h3. Removing Acme Social Intranet
-
-h2. Tomcat Bundle
-h3. Removing Acme Website
+h2. Removing Acme Website
 
 # Stop the server {{shutdown.sh}}
 # Delete acme-portal.war
@@ -21,15 +16,13 @@ h3. Removing Acme Website
 # Delete {{gatein/data}}
 # Restart
 
-h3. Removing Acme Social Intranet
+h2. Removing Acme Social Intranet
 
 # Stop the server {{shutdown.sh}}
 # Delete office-portal.war
 # Delete exo.platform.office.config.jar
 # Delete {{gatein/data}}
 # Restart
-
-{caution}office-portal is defined as the default portal. Make sure you define another portal as default when you remove office-portal{caution}
 
 h1. How to setup an Apache Frontend
 It may be necessary to use an HTTP server as a frontend for tomcat. For example, you may want to keep more then one application server on the same host, and/or you want to access these app servers with separate DNS names, without having to add a port to the URL.
@@ -150,4 +143,3 @@ h3. Apache Tomcat's AJP connector
         </VirtualHost>
 {code}
 
-h1. How to deploy a customized project

@@ -12,51 +12,39 @@ h1. Database Configuration
 eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
 That datasource is obtained by accessing the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
+By default, eXo Platform defines two datasources: 
+* {{java:exo-jcr}} - for the Java Content Repository (JCR).
+* {{java:exo-idm}} - for the organizational model.
+
+
+
+
 h2. Datasource Configuration for Tomcat 
 {note}
-TODO
+This should be already configured in the bundle : http://jira.exoplatform.org/browse/PLF-541
+http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html#JDBC_Data_Sources
+http://tomcat.apache.org/tomcat-5.5-doc/jndi-datasource-examples-howto.html
 {note}
+
 h2. Datasource Configuration for JBoss 
 JBoss Application Server relies on deployment descriptors for its datasource management. 
 Datasources are bound in the enterprise naming context with a {{java:}} prefix.
-By default, eXo Platform defines two datasources: 
-* {{java:exojcr}} - for the Java Content Repository (JCR).
-* {{java:exoidm}} - for the organizational model.
 
 The file {{sample-confs/jboss/exo-ds.xml}} can be dropped into the {{deploy/}} directory.
 
-{note}
-TODO
+
+h1. FileSystem pathes
+
+{note} TODO :
+http://jira.exoplatform.org/browse/PLF-544
+ must reduce the list of pathes to configure to this :
+gatein.data.dir=../gatein/data
+gatein.jcr.data.dir=${gatein.data.dir}/jcr
+gatein.jcr.storage.data.dir=${gatein.jcr.data.dir}/values
+gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/lucene
 {note}
 
-h1. Filesystem Configuration
-{note}
-TODO
-{note}
-
-
-h1. Connecting to an LDAP Directory
-{note}
-TODO
-{note}
-
-
-h1. Configuration of the Application Server
-{note}
-TODO
-{note}
-
-
-h1. Recommended JVM Settings
-{note}
-TODO
-{note}
-
-
-h1. Connection Pools
-{note}
-TODO
-{note}
+h1. Mail Server
 
 h1. WebDAV Cache Control
 

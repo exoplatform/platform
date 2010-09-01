@@ -1,43 +1,9 @@
 eXo Platform is packaged as a deployable enterprise archive, per the Java EE specification, and as a configuration directory.
 
-h1. Runtime Considerations
-eXo Platform requires a dedicated infrastructure for its deployment.  It is certified on the following products:
-* Sun Java 6 Virtual Machine 
-* JBoss Application Server 5.1 
-* Oracle version 9 and 10,
-* MySQL version 5
-* DB2 version 9 
-
-For more details on the supported combinations, please refer to the [Supported Platforms Matrix].
 
 h1. Installing the Tomcat bundle
 The easiest way to install eXo Platform is to take the default bundle. 
-This is a ready-made package on top of Tomcat 6 application server, so you simply need to copy the {{exoplatform-tomcat/}} directory to your server.
-
-	
-h1. Installing the EAR distribution 
-
-If you are already using another enterprise Java application server, eXo Platform is available as a set of Enterprise Archive (EAR) files.
-Although the EAR format is rather standardized, the Java EE specification leaves the details of deployment up to the each vendor.
-
-Currently, this guide provide instructions for:
-* JBoss AS 5.1 (community edition)
-* JBoss EAP
-
-If your application server is not listed here, please contact eXo Support for assistance.
-
-{note}
-EAR distribution is not yet available
-{note}
-h2. JBoss AS 5.1 
-{note}
-TODO
-{note}
-h2. JBoss EAP
-{note}
-TODO
-{note}
-
+This is a ready-made package on top of Tomcat 6 application server, so you simply need to copy the {{bin/tomcat6-bundle/}} directory to your server.
 
 h1. Startup
 
@@ -45,10 +11,6 @@ h1. Startup
 eXo Platform leverages the Application Server on which it is deployed. 
 This means, to start and stop eXo Platform, you only need to start and stop your application with the default commands.
 
-You can start eXo Platform deployed on JBoss using the standard JBoss command.
-
-
-h2. Startup in Tomcat 
 * On Linux/Unix:       {screen}$TOMCAT_HOME/bin/gatein.sh{screen}
 * On Windows:          {screen}%TOMCAT_HOME%\\bin\\gatein.bat{screen}
 
@@ -57,22 +19,8 @@ The server has started when you see the following message in your log/console:
 INFO: Server startup in 353590 ms
 {screen}
 
-When it has started, you can access your eXo Platform default portal using the following URL: [http://<your-server>:8080/portal]
-
-h2. Startup in JBoss
-* On Linux/Unix:       {screen}$JBOSS_HOME/bin/run.sh{screen}
-* On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
-
-The server has started when you see the following message in your log/console:
-{screen}
-15:06:02,877 INFO  \[Server] JBoss (MX MicroKernel) \[...] Started in 1m:05s:320ms
-{screen}
-
-When it has started, you can access your eXo Platform default portal using the following URL: [http://<your-server>:8080/portal]
-
 h1. Shutdown
 
-h2. Shutdown Tomcat
 
 * On Linux/Unix:   {screen}$TOMCAT_HOME/bin/shutdown.sh{screen}
 * On Windows:      {screen}%TOMCAT_HOME%\\bin\\shutdown.bat {screen}
@@ -81,18 +29,6 @@ The server has stopped when you see the following message in your log/console:
 
 {screen}
 INFO: Stopping Coyote HTTP/1.1 on http-8080
-{screen}
-
-h2. Shutdown JBoss
-* On Linux/Unix:   {screen}$JBOSS_HOME/bin/shutdown.sh -S {screen}
-* On Windows:      {screen}%JBOSS_HOME%\\bin\\shutdown.bat -S {screen}
-
-The server has stopped when you see the following message in your log/console:
-
-{screen}
-15:13:27,100 INFO  \[Server] Shutdown complete
-Shutdown complete
-Halting VM
 {screen}
 
 
@@ -110,12 +46,12 @@ You can enable/disable select modules if they are not in use.
 * {{workflow}}: enables the Workflow add-on within the eXo Content module
 
 Additionally, you can use several predefined profiles: 
-* (none): contains portal + WCM
-* {{default}}: contains portal + WCM + Collaboration + Knowledge + Social + IDE
+* (none): contains GateIn + WCM
+* {{default}}: contains GateIn + WCM + Collaboration + Knowledge + Social + IDE
 * {{all}}: all available modules, including DMS and Workflow
 
 {note}Profiles are pluggable, so you can combine them together to shape eXo Platform to your needs. 
-e.g : -Dexo.profiles=default,cmis will take the default profile and add CMIS server{note}
+e.g : {{-Dexo.profiles=default,cmis}} will take the default profile and add CMIS server{note}
 
 
 
@@ -127,6 +63,4 @@ eXo startup scripts come with the following basic JVM settings:
 {screen}
 
 This is enough to start and run a demo, but you will need to adjust these values for a production setup.
-
-Please refer to the JBoss Documentation for other options and configurations such as JVM configuration, remote debugging or running JBoss as a service on Windows.
 

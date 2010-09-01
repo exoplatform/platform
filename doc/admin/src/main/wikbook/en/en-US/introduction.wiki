@@ -10,14 +10,14 @@ eXo Platform has been designed to run on major applications servers, like JBoss 
 It also provides the ideal packaging for customers that need long-term support. In order to provide a production-ready solution, eXo Platform is tested to ensure easy upgrades and maximum stability.
 
 The eXo Platform 3.0 release contains:
-* GateIn 3.1 
-* eXo Content 3.0 (WCM 2.1 + addons)
-* eXo Social 1.1
-* eXo Collaboration 2.1
-* eXo Knowledge 2.1
-* xCMIS 1.1
-* eXo IDE 1.0
-* CRaSH 1.0
+* GateIn Portal
+* eXo Content 
+* eXo Social
+* eXo Collaboration 
+* eXo Knowledge
+* xCMIS
+* eXo IDE
+* CRaSH
 
 
 This document will guide you through the most important tasks for eXo Platform administration and management. 
@@ -29,7 +29,6 @@ This guide describes how to get started with eXo Platform, specifically for the 
 * _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise. 
 * _System Integrators_ who want to know how to leverage eXo Platform in their customer projects. 
 
-a
 
 h1. Conventions used in this document  
 
@@ -39,9 +38,6 @@ h1. Conventions used in this document
 |<>|<> Angle brackets enclose a part of a file path or URL address that may vary from user to user (for example, *<Product installation folder>\bin*)|
 |( )|Brackets enclose arguments of a method|
 |{}|Curly brackets indicate that one of the enclosed values must be assigned to the current argument|
-|!Tips.png!|This is a tip symbol. Tips and tricks|
-|!caution.png!|This is a caution symbol. You should be careful|
-|!warning.png!|This is a warning symbol. You should be very careful|
 
 
 

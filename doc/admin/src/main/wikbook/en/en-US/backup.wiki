@@ -1,0 +1,4 @@
+h1. How to backup eXo
+{note}
+TODO : explain how to backup an eXo instance. This involves backing up the databases and the filesystem for index and value storage
+{note}
