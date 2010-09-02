@@ -1003,67 +1003,8 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
-  <!--
-   <page>
-    <name>answers</name>
-    <title>Answers</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>faq</application-ref>
-        <portlet-ref>AnswersPortlet</portlet-ref>
-      </portlet>
-      <title>Answers Portlet</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
+ 
   <page>
-    <name>faq</name>
-    <title>FAQ</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>faq</application-ref>
-        <portlet-ref>FAQPortlet</portlet-ref>
-      </portlet>
-      <title>FAQ Portlet</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-  <page>
-    <name>tour</name>
-    <title>KS Tour</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>web</application-ref>
-        <portlet-ref>HomePagePortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>template</name>
-            <value>system:/templates/tour.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>Tour</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
--->
- <page>
     <name>documents</name>
     <title>documents</title>
     <access-permissions>*:/platform/users</access-permissions>
@@ -1072,7 +1013,100 @@
       <portlet>
         <application-ref>ecmexplorer</application-ref>
         <portlet-ref>FileExplorerPortlet</portlet-ref>
-        <preferences></preferences>
+        <preferences>
+          <preference>
+            <name>repository</name>
+            <value>repository</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>workspace</name>
+            <value></value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>path</name>
+            <value></value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>drive</name>
+            <value></value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>views</name>
+            <value></value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>allowCreateFolders</name>
+            <value></value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>categoryMandatoryWhenFileUpload</name>
+            <value>false</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>uploadFileSizeLimitMB</name>
+            <value>150</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>usecase</name>
+            <value>selection</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>driveName</name>
+            <value>Private</value>
+            <read-only>false</read-only>
+          </preference>
+
+          <preference>
+            <name>trashHomeNodePath</name>
+            <value>/Trash</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>trashRepository</name>
+            <value>repository</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>trashWorkspace</name>
+            <value>collaboration</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>editInNewWindow</name>
+            <value>false</value>
+            <read-only>false</read-only>
+          </preference>
+
+          <preference>
+            <name>showTopBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>showActionBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>showSideBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>showFilterBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
       </portlet>
       <title>documents</title>
       <access-permissions>*:/platform/users</access-permissions>
