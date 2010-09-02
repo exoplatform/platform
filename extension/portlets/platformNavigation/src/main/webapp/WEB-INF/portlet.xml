@@ -48,6 +48,30 @@
 			<short-title>UISpacePlatformToolBarPortlet</short-title>
 		</portlet-info>
 	</portlet>
+    <!-- PLF-488 : Simplified Shared layout -->
+    <portlet>
+		<description xml:lang="EN">PlatformNavigation Portlet</description>
+		<portlet-name>UIMySpacePlatformToolBarPortlet</portlet-name>
+		<display-name xml:lang="EN">UIMySpacePlatformToolBarPortlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<!-- must match the path to configuration file -->
+			<value>/WEB-INF/conf/portlet/UIMySpacePlatformToolBarPortlet/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.UIMySpacePlatformToolBarPortlet.UIMySpacePlatformToolBarPortlet</resource-bundle>
+		<portlet-info>
+			<title>UIMySpacePlatformToolBarPortlet</title>
+			<short-title>UIMySpacePlatformToolBarPortlet</short-title>
+		</portlet-info>
+	</portlet>
+    <!-- FIN PLF-488-->
 	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
