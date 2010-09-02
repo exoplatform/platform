@@ -147,20 +147,5 @@
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
     </dependencySet>
-    <!-- ####### -->
-    <!-- SAMPLES -->
-    <!-- ####### -->
-    <!-- Reference Guides -->
-    <dependencySet>
-      <!-- From -->
-      <includes>
-        <include>org.exoplatform.platform:exo.platform.sample.acme-website:zip:project-sources</include>
-      </includes>
-      <!-- To -->
-      <outputDirectory>/docs/dev/samples/acme-website</outputDirectory>
-      <!-- Options -->
-      <unpack>true</unpack>
-      <useDefaultExcludes>true</useDefaultExcludes>
-    </dependencySet>
   </dependencySets>
 </assembly>

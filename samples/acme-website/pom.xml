@@ -15,40 +15,4 @@
     <module>webapp</module>
     <module>ear</module>
   </modules>
-  <profiles>
-    <profile>
-      <id>distrib</id>
-      <build>
-        <plugins>
-          <!-- Attach sources to package them in distribution -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-                  <descriptorRefs>
-                    <descriptorRef>project-sources</descriptorRef>
-                  </descriptorRefs>
-                  <tarLongFileFormat>gnu</tarLongFileFormat>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>  
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
