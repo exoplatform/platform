@@ -9,28 +9,63 @@ The location of this file varies, depending on the application server:
 * JBoss : {{$JBOSS_HOME/server/default/conf/configuration.properties}}
 
 h1. Database Configuration
+
 eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
 That datasource is obtained by accessing the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
 By default, eXo Platform defines two datasources: 
-* {{java:exo-jcr}} - for the Java Content Repository (JCR).
-* {{java:exo-idm}} - for the organizational model.
+* {{exo-jcr}} - for the Java Content Repository (JCR).
+* {{exo-idm}} - for the organizational model.
+
+The tomcat bundle comes with the two datasources preconfigured as GlobalNamingContext Resources.
+
+Please refer to http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html for more details on JNDI resources binding in Tomcat.
 
 
+The configuration lives in 3 files :
+{screen}$TOMCAT_HOME/conf/server.xml{screen} :
 
+We declare the binding of datasources in the Global Naming Context : 
+{code:language=xml}
+   <!-- eXo JCR Datasource for portal -->
+   <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="10" maxWait="10000"
+               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+               url="jdbc:hsqldb:file:../gatein/data/portal/exo-jcr"/>
 
-h2. Datasource Configuration for Tomcat 
+    <!-- eXo IDM Datasource for portal -->                
+    <Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="10" maxWait="10000"
+               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+               url="jdbc:hsqldb:file:../gatein/data/portal/exo-idm"/>   
+{code}               
+               
+{screen}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{screen} :
+ 
+{code:language=xml}
+   <ResourceLink name="exo-jcr_portal"
+                global="exo-jcr_portal"
+                type="javax.sql.DataSource"/>        
+                
+    <ResourceLink name="exo-idm_portal"
+                global="exo-idm_portal"
+                type="javax.sql.DataSource"/>      
+{code}                  
+ 
+ We declare resource links that make our datasources accessible to the starter webapp which is used when starting eXo.
+ 
+{screen}$TOMCAT_HOME/gatein/conf/configuration{screen} :         
+{code}
+# JNDI name of the datasource that will be used by eXo JCR
+gatein.jcr.datasource.name=java:/comp/env/exojcr
+...
+# JNDI Name of the IDM datasource
+gatein.idm.datasource.name=java:/comp/env/exo-idm
+{code}               
+
 {note}
-This should be already configured in the bundle : http://jira.exoplatform.org/browse/PLF-541
-http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html#JDBC_Data_Sources
-http://tomcat.apache.org/tomcat-5.5-doc/jndi-datasource-examples-howto.html
+Note the name expected here is the prefix of the datasource. eXo will automatically append the portal container name ("_portal" by default).
 {note}
-
-h2. Datasource Configuration for JBoss 
-JBoss Application Server relies on deployment descriptors for its datasource management. 
-Datasources are bound in the enterprise naming context with a {{java:}} prefix.
-
-The file {{sample-confs/jboss/exo-ds.xml}} can be dropped into the {{deploy/}} directory.
 
 
 h1. FileSystem pathes
