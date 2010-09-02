@@ -6,10 +6,10 @@
     <artifactId>exo.platform.parent</artifactId>
     <version>3.0.0-CR02-SNAPSHOT</version>
   </parent>
-  <artifactId>api</artifactId>
+  <artifactId>exo.platform.api</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - APIs Parent</name>
-  <description>eXo Platform - API Parent</description>
+  <description>eXo Platform - APIs Parent</description>
   <modules>
     <module>exo-apis</module>
     <module>exo-apis-impl</module>

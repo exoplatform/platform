@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>api</artifactId>
+    <artifactId>exo.platform.api</artifactId>
     <version>3.0.0-CR02-SNAPSHOT</version>
   </parent>
-  <artifactId>exo-apis-impl</artifactId>
+  <artifactId>exo.platform.api.exo-apis-impl</artifactId>
   <packaging>jar</packaging>
   <name>eXo Platform - APIs implementation</name>
   <description>eXo Public APIs implementation</description>
@@ -20,6 +20,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.calendar.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
@@ -40,5 +41,11 @@
       <version>${org.exoplatform.commons.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${org.slf4j.slf4j-simple.version}</version>
+      <scope>test</scope>
+    </dependency>      
   </dependencies>
 </project>
