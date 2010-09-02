@@ -144,8 +144,6 @@
 		if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
 				tabStyleNavigation = "SelectedItem";
 		}
-		System.out.println("##########node.getUri()##########" +node.getUri());
-		System.out.println("###########selectedNode.getUri()##########"+selectedNode.getUri());
 		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
@@ -160,9 +158,6 @@
 		else title = "";
         EntityEncoder entityEncoder = EntityEncoder.FULL;
 		label = entityEncoder.encode(label);
-		System.out.println("############ node.resolvedLabel "+node.resolvedLabel);
-		System.out.println("#############href "+href);
-		System.out.println("###########label"+label);
 		print """
 			<div class="MenuItem $tabStyleNavigation">
 				<div class="$clazz">
