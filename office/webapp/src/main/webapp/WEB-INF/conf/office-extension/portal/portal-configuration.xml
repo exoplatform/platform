@@ -78,10 +78,7 @@
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">
                 <value>
-                  <string>platform/web-contributors</string>
-                </value>
-                <value>
-                  <string>developers</string>
+                  <string>/developers</string>
                 </value>                
               </collection>
             </field>
