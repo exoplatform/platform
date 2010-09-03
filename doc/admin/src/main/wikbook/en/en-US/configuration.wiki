@@ -17,44 +17,21 @@ By default, eXo Platform defines two datasources:
 * {{exo-jcr}} - for the Java Content Repository (JCR).
 * {{exo-idm}} - for the organizational model.
 
+h2. Tomcat Bundle
+
 The tomcat bundle comes with the two datasources preconfigured as GlobalNamingContext Resources.
 
 Please refer to http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html for more details on JNDI resources binding in Tomcat.
 
 
-The configuration lives in 3 files :
-{screen}$TOMCAT_HOME/conf/server.xml{screen} :
+The configuration lives in 3 files that you will want to edit in order to change the database.
 
-We declare the binding of datasources in the Global Naming Context : 
-{code:language=xml}
-   <!-- eXo JCR Datasource for portal -->
-   <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
-               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/portal/exo-jcr"/>
+h3. configuration.properties 
 
-    <!-- eXo IDM Datasource for portal -->                
-    <Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
-               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/portal/exo-idm"/>   
-{code}               
-               
-{screen}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{screen} :
- 
-{code:language=xml}
-   <ResourceLink name="exo-jcr_portal"
-                global="exo-jcr_portal"
-                type="javax.sql.DataSource"/>        
-                
-    <ResourceLink name="exo-idm_portal"
-                global="exo-idm_portal"
-                type="javax.sql.DataSource"/>      
-{code}                  
- 
- We declare resource links that make our datasources accessible to the starter webapp which is used when starting eXo.
- 
-{screen}$TOMCAT_HOME/gatein/conf/configuration{screen} :         
+{screen}$TOMCAT_HOME/gatein/conf/configuration.properties{screen}      
+
+Indicate to eXo the name of the datasources.
+
 {code}
 # JNDI name of the datasource that will be used by eXo JCR
 gatein.jcr.datasource.name=java:/comp/env/exojcr
@@ -63,23 +40,114 @@ gatein.jcr.datasource.name=java:/comp/env/exojcr
 gatein.idm.datasource.name=java:/comp/env/exo-idm
 {code}               
 
-{note}
-Note the name expected here is the prefix of the datasource. eXo will automatically append the portal container name ("_portal" by default).
-{note}
+eXo will automatically append the portal container name ("_portal" by default) to these values before it performs a JNDI lookup. 
+
+
+h3. server.xml
+
+{screen}$TOMCAT_HOME/conf/server.xml{screen}
+
+Declare the binding of the datasources in the GlobalNaming context : 
+
+{code:language=xml,title=test}
+<!-- eXo JCR Datasource for portal -->
+<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="10" maxWait="10000"
+               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"/>
+
+<!-- eXo IDM Datasource for portal -->                
+<Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="10" maxWait="10000"
+               username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-idm_portal"/>   
+{code}               
+ 
+h3. starter.xml        
+       
+{screen}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{screen}
+
+We declare resource links that make our datasources accessible to the starter webapp which is used when starting eXo.
+
+{code:language=xml}
+<ResourceLink name="exo-jcr_portal"
+                global="exo-jcr_portal"
+                type="javax.sql.DataSource"/>        
+                
+<ResourceLink name="exo-idm_portal"
+                global="exo-idm_portal"
+                type="javax.sql.DataSource"/>      
+{code}                  
+ 
 
 
 h1. FileSystem pathes
 
-{note} TODO :
-http://jira.exoplatform.org/browse/PLF-544
- must reduce the list of pathes to configure to this :
+
+eXo needs read/write access to several pathes in the local filesystem.
+
+{code}
 gatein.data.dir=../gatein/data
+
+# path for any JCR data 
 gatein.jcr.data.dir=${gatein.data.dir}/jcr
+
+# path for file data inserted in JCR
 gatein.jcr.storage.data.dir=${gatein.jcr.data.dir}/values
-gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/lucene
-{note}
+
+# path for the jcr index
+gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
+{code}
+
+
+The following table explains what goes in what path. The {{temporary?}} column indicates if the data is temporary or persistent.
+|| variable || content || temporary ||
+|| {{gatein.data.dir}} | jta transactional data | yes |
+|| {{gatein.jcr.data.dir}} | jcr swap data | yes |
+|| {{gatein.jcr.storage.data.dir}} | binary value storage for jcr | no |
+|| {{gatein.jcr.index.data.dir}} | lucene index for JCR | no |
+
+
+Each variable can be defined as an absolute or relative path.
+The default configuration combines them to obtain a compact tree : 
+{code}
+/gatein       # gatein.data.dir
+  /data
+    /hsql
+    /jcr      # gatein.jcr.data.dir
+      /index  # gatein.jcr.index.data.dir    
+      /swap
+      /values # gatein.jcr.storage.data.dir    
+    /jta      
+{code}
 
 h1. Mail Server
+
+eXo Platform requires an SMTP server in order to send emails such as notificaitons or password reminders.
+
+{code}
+gatein.email.smtp.username=
+gatein.email.smtp.password=
+gatein.email.smtp.host=smtp.gmail.com
+gatein.email.smtp.port=465
+gatein.email.smtp.starttls.enable=true
+gatein.email.smtp.auth=true
+gatein.email.smtp.socketFactory.port=465
+gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+{code}
+
+
+|| gatein.email.smtp.host || SMTP hostname |
+|| gatein.email.smtp.port || SMTP port |
+|| gatein.email.smtp.starttls.enable || true to enable secure (TLS) SMTP. See  RFC 3207 |
+|| gatein.email.smtp.auth || true to enable SMTP authentication |
+|| gatein.email.smtp.username || username to send for authentication |
+|| gatein.email.smtp.password || password to send for authentication |
+|| gatein.email.smtp.socketFactory.port || Specifies the port to connect to when using the specified socket factory	 |
+|| gatein.email.smtp.socketFactory.class || his class will be used to create SMTP sockets. |
+
+We use JavaMail API. 
+Find more details on http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html
 
 h1. WebDAV Cache Control
 
@@ -95,10 +163,6 @@ The property expects a comma-separated list of key=pair values, where keys are a
 
 h1. Chat Server
 
-h2. Chat server configuration
-
-{note}TODO: from http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat%20Configuration explain how to change the hostname and port{note}
-
 h2. XMPPMessenger
 
 If you changed the hostname and port for the chat server, then you'll need to edit two properties:
@@ -110,3 +174,91 @@ exo.chat.server=127.0.0.1
 # TCP port for where the eXo Chat server listens for XMPP calls
 exo.chat.port=5222
 {screen}
+
+h2. Chat server configuration
+
+The standalone Chat server is configured in the file {{$CHATSERVER/conf/openfire.xml}}.
+
+Configuration is based on properties expressed in an XML syntax. For example, to set property {{prop.name.is.blah=value}}, you would write this xml snippet :
+{code}
+<prop><name><is><blah>value</blah></is></name></prop>
+{code}
+
+
+Openfire has an extensive list of configuration properties. You can read a *list of all properties* on this page : http://www.igniterealtime.org/community/docs/DOC-1061
+
+The chat server is an openfire server bundled with plugins and configurations that allow connectivity to eXo Platform.
+
+
+|| Property || Description || default value ||
+||env.serverbaseURL || base url for all URLs below | http://localhost:8080/ |
+||env.restContextName || name of the rest context | rest |
+||provider.authorizedUser.name || username to authenticate against the HTTP REST service | root  |
+||provider.authorizedUser.password || password matching with provider.authorizeduser.name | password  |
+||exoAuthProvider.authenticationURL || URL to authenticate users | /organization/authenticate/ |
+||exoAuthProvider.authenticationMethod || HTTP method used to pass parameters | POST |
+||exoUserProvider.findUsersURL || URL to find all users | /organization/xml/user/find-all/  |
+||exoUserProvider.findUsersMethod || HTTP method for user/find-all| GET  |
+||exoUserProvider.getUsersURL || URL to retrieve a range of users | /organization/xml/user/view-range/ |
+||exoUserProvider.getUsersMethod || HTTP method for user/view-range | GET  |
+||exoUserProvider.usersCountURL || URL to count users | /organization/xml/user/count/  |
+||exoUserProvider.usersCountMethod || HTTP method for user/count | GET |
+||exoUserProvider.userInfoURL || URL to get user info | /organization/xml/user/info/  |
+||exoUserProvider.userInfoMethod || HTTP method for user/info | GET  |
+||exoGroupProvider.groupInfoURL || URL to get group info | /organization/xml/group/info/ |
+||exoGroupProvider.groupInfoMethod || HTTP method for info | GET  |
+||exoGroupProvider.getGroupsAllURL || URL to view all groups | /organization/xml/group/view-all/ |
+||exoGroupProvider.getGroupsAllMethod || HTTP method for group/view-all | GET |
+||exoGroupProvider.getGroupsRangeURL || URL to view a group range | /organization/xml/group/view-from-to/ |
+||exoGroupProvider.getGroupsRangeMethod || HTTP method for group/view-from-to | GET |
+||exoGroupProvider.getGroupsForUserURL || URL to get groups for a user | /organization/xml/group/groups-for-user/ |
+||exoGroupProvider.getGroupsForUserMethod || HTTP method for groups-for-user | GET |
+||exoGroupProvider.groupsCountURL || URL to count groups | organization/xml/group/count |
+||exoGroupProvider.groupsCountMethod  || HTTP method for group/count | GET |
+
+h3. Ports
+
+In order to run properly the chat server needs several ports to be opened in the firewall.
+
+|| Port || Type || Description ||
+| 5222\* | client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port. |
+| 9090 && 9091 | Admin Console (http) | The port used for respectively the unsecured and secured Openfire Admin Console access. |
+| 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities when behind a NAT. |
+
+
+\* it can be altered by the {{exo.chat.port}} property in {{configuration.properties}}.
+
+
+h1. JCR
+
+A set of properties control the behaviour of the JCR.
+
+{code}
+# Type of JCR configuration to use. Possible values are : 
+# local : local JBC configuration
+# cluster : cluster JBC configuration
+gatein.jcr.config.type=local
+
+# This is the filter used to notify changes in the jcr index
+# in cluster mode, use org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
+gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.DefaultChangesFilter
+
+# JCR cache configuration
+gatein.jcr.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/config.xml
+
+# JCR Locks configuration
+gatein.jcr.lock.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
+
+# JCR Index configuration
+gatein.jcr.index.cache.config=classpath:/conf/jcr/jbosscache/cluster/indexer-config.xml
+gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
+
+{code}
+
+|| gatein.jcr.config.type || use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} |
+|| gatein.jcr.index.changefilterclass || in cluster mode change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}} |
+|| gatein.jcr.cache.config  |JBoss Cache configuration for the JCR locks |
+|| gatein.jcr.index.cache.config | JBoss Cache Configuraiton for the JCR index |
+|| gatein.jcr.jgroups.config | JGroups configuration to use for cluster mode |
+
+Please refer to the JCR reference guide for the details of configuring these files.
