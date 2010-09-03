@@ -50,13 +50,13 @@
    <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/portal/exo-jcr"/>
+               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"/>
 
     <!-- eXo IDM Datasource for portal -->                
     <Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/portal/exo-idm"/>     
+               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-idm_portal"/>     
               
   </GlobalNamingResources>
 
