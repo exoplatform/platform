@@ -262,3 +262,13 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 || gatein.jcr.jgroups.config | JGroups configuration to use for cluster mode |
 
 Please refer to the JCR reference guide for the details of configuring these files.
+
+h1. Logging
+
+Logging in eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
+
+By default, logging is configured to:
+* log errors and warnings on the console
+* log info level statements in */gatein/logs/gatein-YYYY-MM-DD.log*
+
+In Tomcat, the logging is configured via the conf/logging.properties file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
