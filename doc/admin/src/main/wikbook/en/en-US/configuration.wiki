@@ -1,13 +1,11 @@
 
 
 
-h1. Principles of Configuration
+h1. Introduction
 
 System configuration for eXo Platform is stored in a file named {{configuration.properties}}.
-The location of this file varies, depending on the application server:
-* default bundle: {{$TOMCAT_HOME/gatein/conf/configuration.properties}}
-* JBoss : {{$JBOSS_HOME/server/default/conf/configuration.properties}}
 
+In the Tomcat bundle this file is located at {{$TOMCAT_HOME/gatein/conf/configuration.properties}}
 h1. Database Configuration
 
 eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
@@ -17,12 +15,8 @@ By default, eXo Platform defines two datasources:
 * {{exo-jcr}} - for the Java Content Repository (JCR).
 * {{exo-idm}} - for the organizational model.
 
-h2. Tomcat Bundle
-
 The tomcat bundle comes with the two datasources preconfigured as GlobalNamingContext Resources.
-
-Please refer to http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html for more details on JNDI resources binding in Tomcat.
-
+Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on JNDI resources binding in Tomcat.
 
 The configuration lives in 3 files that you will want to edit in order to change the database.
 
@@ -146,8 +140,8 @@ gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 || gatein.email.smtp.socketFactory.port || Specifies the port to connect to when using the specified socket factory	 |
 || gatein.email.smtp.socketFactory.class || his class will be used to create SMTP sockets. |
 
-We use JavaMail API. 
-Find more details on http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html
+More details con be found in the [JavaMail API documentation|http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html]. 
+
 
 h1. WebDAV Cache Control
 
@@ -185,9 +179,10 @@ Configuration is based on properties expressed in an XML syntax. For example, to
 {code}
 
 
-Openfire has an extensive list of configuration properties. You can read a *list of all properties* on this page : http://www.igniterealtime.org/community/docs/DOC-1061
+Openfire has an extensive list of configuration properties. Please read the list of all properties in [Openfire documentation | http://community.igniterealtime.org/docs/DOC-1061]
 
 The chat server is an openfire server bundled with plugins and configurations that allow connectivity to eXo Platform.
+The following properties are used to configure it.
 
 
 || Property || Description || default value ||
@@ -221,12 +216,20 @@ h3. Ports
 In order to run properly the chat server needs several ports to be opened in the firewall.
 
 || Port || Type || Description ||
-| 5222\* | client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port. |
+| 5222 (1) | client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with {{exo.chat.port}} property. |
 | 9090 && 9091 | Admin Console (http) | The port used for respectively the unsecured and secured Openfire Admin Console access. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities when behind a NAT. |
 
 
-\* it can be altered by the {{exo.chat.port}} property in {{configuration.properties}}.
+h1. Logging
+
+Logging in eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
+
+By default, logging is configured to:
+* log errors and warnings on the console
+* log info level statements in */gatein/logs/gatein-YYYY-MM-DD.log*
+
+In Tomcat, the logging is configured via the conf/logging.properties file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
 
 
 h1. JCR
@@ -255,7 +258,7 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 {code}
 
-|| gatein.jcr.config.type || use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} |
+|| gatein.jcr.config.type || use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} ||
 || gatein.jcr.index.changefilterclass || in cluster mode change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}} |
 || gatein.jcr.cache.config  |JBoss Cache configuration for the JCR locks |
 || gatein.jcr.index.cache.config | JBoss Cache Configuraiton for the JCR index |
@@ -263,12 +266,3 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 Please refer to the JCR reference guide for the details of configuring these files.
 
-h1. Logging
-
-Logging in eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
-
-By default, logging is configured to:
-* log errors and warnings on the console
-* log info level statements in */gatein/logs/gatein-YYYY-MM-DD.log*
-
-In Tomcat, the logging is configured via the conf/logging.properties file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
