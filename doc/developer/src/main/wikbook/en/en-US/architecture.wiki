@@ -1,13 +1,9 @@
 h1. Architecture overview
 
-TODO: diagram
-
 h1. Kernel
 
-!http://wiki.exoplatform.org/xwiki/bin/download/Main/Overall%20Architecture/dd5jc34r_129cmdcdkfx_b.png!
-
 All eXo services are built around the eXo Kernel, or the service management layer, which manages the configuration and the execution of all the components.
-The main Kernel object is the eXo Container, a micro-container that glues services together through dependency injection. The container is responsible for loading services/components.
+The main kernel object is the eXo Container, a micro-container that glues services together through dependency injection. The container is responsible for loading services/components.
 
 This chapter will introduce the concepts of Container and Services, and will give you a starting point for the basic configuration of Services.
 
@@ -16,35 +12,45 @@ h2. Containers
 
 A container is always required in order to access a service, because the eXo Kernel relies on dependency injection. This means that the life-cycle of a service (instantiating, opening and closing streams, disposing, etc.) is handled by a dependency provider (i.e. the eXo Container) rather than the consumer. The consumer only needs a reference to an implementation of the requested service, which is provided in the configuration.xml file that comes with every service. You can read more about dependency injection here [http://en.wikipedia.org/wiki/Dependency_injection].
 
-There are different kind of containers such as RootContainer, PortalContainer or StandaloneContainer. The Portal Container is created at the startup of the portal web application, and all services started by this container will run embedded in the portal.
+eXo has two several kinds of container, the {{RootContainer}} and the {{PortalContainer}}. 
+The RootContainer holds the lower level components. It is automatically started before the PortalContainer. You will rarely interact directly with it except to activate your own extension (more on this further).
+The PortalContainer is created at the startup of the portal web application (portal.war). All services started by this container will run embedded in the portal. It also gives access to the components of its parent RootContainer
 
-The ExoContainerContext class provides a static method that allows you to get the right container from any location.
+In your code, if you need to invoke a service of a container, you can use the {{ExoContainerContext}} helper from any location. The code below shows you a utility method that you can use to invoke any eXo service.
 
+{code:language=java}
+
+public class ExoUtils {
+
+  /**
+   * Get a service from the portal container
+   * @param type : component type
+   * @return the concrete instance retrieved in the container using the type as key
+   */
+  public <T>T getService(Class<T> type) {
+    return (T)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(type);
+  }
+  
+}
 {code}
-ExoContainer myContainer = ExoContainerContext.getCurrentContainer()
-
-//Once you have your container you may access any service registered in this container using
-
-MyService myService = (MyService) myContainer.getComponentInstance(MyService.class)
-
-//MyService.class is the name of the service interface.
+Then, invoking becomes as easy as :
+{code:language=java}
+  OrganizationService orgService = ExoUtils.getService(OrganizationService.class)
 {code}
-
 
 h2. Services
 
-Containers are used to gain access to services. A service is a class that implements {{Runnable}}. Important characteristics of services are:
+Containers are used to gain access to services.  Important characteristics of services are:
 
-* Because of the Dependency Injection concept, the interface and implementation for a service must always be separate.
-* Each service has to be implemented as a singleton, which means it is created only once - in a single instance.
+* Because of the Dependency Injection concept, the interface and implementation for a service are usually separate.
+* Each service has to be implemented as a singleton, which means it is created only once per portal container - in a single instance.
 * A component = a service. A service doesn't have to be a large application that does big things. A service can be a little component that reads or transforms a document, in which case the term component is often used instead of service.
 
-For example, in the lib/ folder, you can find services for databases, caching, ldap and ftp:
+For example, in the lib/ folder, you can find services for databases, caching, ldap :
 
 * exo.core.component.database-x.y.z.jar
 * exo.kernel.component.cache-x.y.z.jar
 * exo.core.component.organization.ldap-x.y.z.jar
-* exo.jcr.component.ftp-x.y.z.jar
 
 
 
@@ -52,29 +58,41 @@ For example, in the lib/ folder, you can find services for databases, caching, l
 h2. Service configuration
 
 
-To declare a service, you must add a configuration file in your classpath. The location of this file depends on which container you want your service to be declared in:
-* in {{/conf/configuration.xml}}, the services will be in the RootContainer.
-* in {{/conf/$PORTAL-NAME/configuration.xml}}, the services will be in the named portal container.
-
+To declare a service, you must add an xml configuration file in a specific your classpath. 
 A configuration file can specify several services, so there can be several services in one jar file.
 
-You will note that a service is specified between the {{<component>}} tags. Each service has a key which matches the qualified java interface name (org.exoplatform.services.cache.CacheService). The specific implementation class of the CacheService is defined in the {{<type>}} tag.
+h3. Kernel XML Schema
 
-
-For example, open the exo.kernel.component.cache-x.y.z.jar file; inside this jar open {{/conf/portal/configuration.xml}}. You will see:
-
-{code}
-<?xml version="1.0" encoding="UTF8"?>
+Containers configuration files must withe the kernel configuraiton grammar. Thus all configuration will contain an XSD declaration like this :
+{code:language=xml}
 <configuration
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
 xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
-<component>
-<key>com.laverdad.services.ArticleStatsService</key>
-<type>com.laverdad.services.ArticleStatsServiceImpl</type>
-</component>
 </configuration>
 {code}
+
+The {{kernel_1_1.xsd}} file mentionned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
+
+h3. Components
+
+The registration of a service within the container is done with the {{<component>}} element.
+For example, open the {{exo-ecms-core-services-x.y.z.jar}} file; inside this jar open {{/conf/portal/configuration.xml}}. You will see:
+
+{code:language=xml}
+  <component>
+    <type>org.exoplatform.services.deployment.ContentInitializerService</type>
+  </component>
+  <component>
+    <key>org.exoplatform.services.cms.CmsService</key>
+    <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
+  </component>	
+{code}
+
+Each component has a {{key}} which matches the qualified java interface name ({{org.exoplatform.services.cms.CmsService}}). 
+The specific implementation class of the component ({{CmsServiceImpl}}) is defined in the {{<type>}} tag.
+
+If a service does not have a separate interface, the {{<type>}} will be used as the key in the container. This is the case of {{ContentInitializerService}}. 
 
 
 
@@ -94,25 +112,24 @@ h3. Value-param
 You can use the value param to pass values to methods inside the service.
 
 
-{code}
+{code:language=xml}
 <component>
-<key>org.exoplatform.portal.config.UserACL</key>
-<type>org.exoplatform.portal.config.UserACL</type>
-<init-params>
-...
-<value-param>
-<name>access.control.workspace</name>
-<description>groups with memberships that have the right to access the User Control Workspace</description>
-<value>*:/platform/administrators,*:/organization/management/executive-board</value>
-</value-param>
-...
+  <key>org.exoplatform.portal.config.UserACL</key>
+  <type>org.exoplatform.portal.config.UserACL</type>
+  <init-params>
+    <value-param>
+      <name>access.control.workspace</name>
+      <description>groups with memberships that have the right to access the User Control Workspace</description>
+      <value>*:/platform/administrators,*:/organization/management/executive-board</value>
+    </value-param>
+  </init-params>
 </component>
 {code}
 
 
 The UserACL service accesses to the value-param in its constructor.
 
-{code}
+{code:language=java}
 package org.exoplatform.portal.config;
 public class UserACL {
 
@@ -127,31 +144,30 @@ if(accessControlWorkspaceParam != null) md.setAccessControlWorkspace(accessContr
 In this case, the UserACL service has the same <key> and <type>. This corresponds to the special case of a single implementation service. The developer may decide not to create an interface if there will not be more than one implementation of the service.
 {note}
 
-
 h3. Object-param
 
 For the object-param component, we can look at the LDAP service:
 
-{code}
+{code:language=xml}
 <component>
-<key>org.exoplatform.services.ldap.LDAPService</key>
-<type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
-<init-params>
-<object-param>
-<name>ldap.config</name>
-<description>Default ldap config</description>
-<object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">
-<field name="providerURL"><string>ldaps://10.0.0.3:636</string></field>
-<field name="rootdn"><string>CN=Administrator,CN=Users,DC=exoplatform,DC=org</string></field>
-<field name="password"><string>exo</string></field>
-<field name="version"><string>3</string></field>
-<field name="minConnection"><int>5</int></field>
-<field name="maxConnection"><int>10</int></field>
-<field name="referralMode"><string>ignore</string></field>
-<field name="serverName"><string>active.directory</string></field>
-</object>
-</object-param>
-</init-params>
+  <key>org.exoplatform.services.ldap.LDAPService</key>
+  <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
+  <init-params>
+    <object-param>
+      <name>ldap.config</name>
+      <description>Default ldap config</description>
+      <object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">
+        <field name="providerURL"><string>ldaps://10.0.0.3:636</string></field>
+        <field name="rootdn"><string>CN=Administrator,CN=Users,DC=exoplatform,DC=org</string></field>
+        <field name="password"><string>exo</string></field>
+        <field name="version"><string>3</string></field>
+        <field name="minConnection"><int>5</int></field>
+        <field name="maxConnection"><int>10</int></field>
+        <field name="referralMode"><string>ignore</string></field>
+        <field name="serverName"><string>active.directory</string></field>
+      </object>
+    </object-param>
+  </init-params>
 </component>
 {code}
 
@@ -159,214 +175,182 @@ An object-param is being used to create an object (which is actually a Java Bean
 
 Let's see how the service accesses the object:
 
-{code}
+{code:language=java}
 package org.exoplatform.services.ldap.impl;
 
 public class LDAPServiceImpl implements LDAPService {
-...
+// ...
 public LDAPServiceImpl(InitParams params) {
-LDAPConnectionConfig config = (LDAPConnectionConfig) params.getObjectParam("ldap.config")
-.getObject();
-...
+  LDAPConnectionConfig config = (LDAPConnectionConfig) params.getObjectParam("ldap.config").getObject();
+// ...
 {code}
 
 The passed object is LDAPConnectionConfig, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your bean and calls all setters whose values are configured in the configuration file.
 
-{code}
+{code:language=java}
 package org.exoplatform.services.ldap.impl;
 
 public class LDAPConnectionConfig {
-private String providerURL = "ldap://127.0.0.1:389";
-private String rootdn;
-private String password;
-private String version;
-private String authenticationType = "simple";
-private String serverName = "default";
-private int minConnection;
-private int maxConnection;
-private String referralMode = "follow";
-...
+  private String providerURL = "ldap://127.0.0.1:389";
+  private String rootdn;
+  private String password;
+  private String version;
+  private String authenticationType = "simple";
+  private String serverName = "default";
+  private int minConnection;
+  private int maxConnection;
+  private String referralMode = "follow";
+  // ...
 {code}
 
 h3. More parameter types
 
-Other possible parameter types are object-parameters, Collection, Map and Native Array. (links to reference guide)
+Other possible parameter types are object-parameters, Collection, Map and Native Array. See the exhaustive reference in the kernel reference guide.
 
-h2. Overriding configurations (To be edited with GateIn conf loading sequence)
+h2. Plugins
 
-When a Pico Container searches for services and its configurations, each configurable service may be reconfigured to override default values or set additional parameters. If the service is configured in two or more places, the configuration override mechanism will be used.
+Some components may want to offer some extensibility. For this, they use a plugin mechanism based on method injection.
+To offer an extension point for plugins, a component needs to provide a public method that takes an instance of {{org.exoplatform.container.xml.ComponentPlugin}} as parameter.
 
-For the Portal Container, configurations are overloaded in the following lookup sequence:
+Plugins allow you to provide structured configuration from outside the original declaration of the component. 
+This is the main way you will use to customize eXo Platform for your needs.
 
-# Services default RootContainer configurations from JAR files {{/conf/configuration.xml}}
-# External RootContainer configuration, if will be found at {{$AS_HOME/exo-conf/configuration.xml}}
-# Services default PortalContainer configurations from JAR files {{/conf/$PORTAL-NAME/configuration.xml}}
-# Web applications configurations from WAR files {{/WEB-INF/conf/configuration.xml}}
-# External configuration for services of the $PORTAL-NAME portal will be found at {{$AS_HOME/exo-conf/portal/$PORTAL_NAME/configuration.xml}} (since kernel 2.0.3)
+Let's have a look at the configuration of the {{TaxonomyPlugin}} of the {{TaxonomyService}}:
 
-
-h2. External plugins
-
-External plugins allow you to add configurations on the fly. If you define a new configuration, you will always replace the existing one. An external plugin allows you to add a configuration without replacing previous ones.
-That can be useful if you adapt a service configuration for your project-specific needs (country, language, branch, project, etc.).
-
-Let's have a look at the configuration of the TaxonomyPlugin of the CategoriesService:
-
-{code}
+{code:language=xml}
 <external-component-plugins>
-<target-component>org.exoplatform.services.cms.categories.CategoriesService</target-component>
-<component-plugin>
-<name>predefinedTaxonomyPlugin</name>
-<set-method>addTaxonomyPlugin</set-method>
-<type>org.exoplatform.services.cms.categories.impl.TaxonomyPlugin</type>
-<init-params>
-...
-</init-params>
-</component-plugin>
-<external-component-plugins>
-{code}
-
-The {{<target-component>}} defines the service that is used by the plugin. The configuration is injected by the container using a method that is defined in {{<set-method>}}. The method has exactly one argument of the type org.exoplatform.services.cms.categories.impl.TaxonomyPlugin.
-
-
-The content of {{<init-params>}} corresponds to the structure of the TaxonomyPlugin object.
-
-
-h2. Kernel Reference Doc
-
-GateIn Kernel Reference Documentation: [http://docs.jboss.com/gatein/portal/3.0.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Foundations.html#sect-Reference_Guide-Foundations-Extension_mechanism]
-
-
-
-
-
-
-
-h1. Extensions
-
-
-
-h2. Portal Container
-
-Each portal lives in an instance of PortalContainer. An instance of PortalContainer contains:
-
-* an associated ExoContainerContext, which contains information about the portal
-* a unified servlet context, for web-archive-relative resource loading
-* a unified classloader, for classpath based resource loading
-* methods for retrieving services
-
-The Unified servlet context, and the unified classloader are part of the extension mechanism and provide standard APIs (ServletContext, ClassLoader) with specific resource loading behaviors that you can configure with the _PortalContainerDefinitionPlugin_. (link to reference guide
-
-
-However, when creating an extension, you can simply register your extension to the default 'portal' container' by using the _PortalContainerDefinitionChangePlugin_ which saves you from dealing with dependencies_.\_
-
-
-
-For example, the {{configuration.xml}} file of the Acme Website is:
-
-{code}
-<?xml version="1.0" encoding="UTF-8"?>
-
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-<external-component-plugins>
-<!-- The full qualified name of the PortalContainerConfig -->
-<target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
-<component-plugin>
-
-<!-- The name of the plugin -->
-<name>Change PortalContainer Definitions</name>
-
-<!-- The name of the method to call on the PortalContainerConfig in order to register the changes on the PortalContainerDefinitions -->
-<set-method>registerChangePlugin</set-method>
-
-<!-- The full qualified name of the PortalContainerDefinitionChangePlugin -->
-<type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-
-<init-params>
-<value-param>
-<name>apply.default</name>
-<value>true</value>
-</value-param>
-<object-param>
-<name>change</name>
-<object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependenciesBefore">
-<!-- The list of name of the dependencies to add -->
-<field name="dependencies">
-<collection type="java.util.ArrayList">
-<value>
-<string>acme-portal</string>
-</value>
-</collection>
-</field>
-<!-- The name of the target dependency -->
-<field name="target">
-<string>platform-extension</string>
-</field>
-</object>
-</object-param>
-</init-params>
-</component-plugin>
+  <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
+  <component-plugin>
+    <name>predefinedTaxonomyPlugin</name>
+    <set-method>addTaxonomyPlugin</set-method>
+    <type>org.exoplatform.services.cms.taxonomy.impl.TaxonomyPlugin</type>
+    <init-params><!-- ... --></init-params>
+  </component-plugin>
 </external-component-plugins>
-</configuration>
 {code}
 
+The {{<target-component>}} defines the components that hosts the extension point.The configuration is injected by the container using a method that is defined in {{<set-method>}} ({{addTaxonomyPlugin()}}. The method accepts exactly one argument of the type {{org.exoplatform.services.cms.categories.impl.TaxonomyPlugin}}.
+
+The content of {{<init-params>}} corresponds to the structure of the {{TaxonomyPlugin}} object.
 
 
 
 
-h2. Extension mechanism
+h2. Configuration Loading Sequence
+
+The kernel startup follows a well defined sequence to load configuration. The objects are initialized in the container only after the whole loading sequence is done. Hence, by placing your configuration in an upper location of the sequence, you can override a component declaration by your own. You will typically do this when you want to provide your own implementation of a component, or declare custom init-params.
+
+{note}
+{{external-component-plugins}} declarations are additive, so it is NOT possible to override them.
+{note}
+
+The loading sequence involves loading successively configurations for the RootContainer then from the PortalContainers:
+# Services default RootContainer configurations from JAR files {{/conf/configuration.xml}}
+# External RootContainer configuration,  will be found at {{$exo.conf.dir/configuration.xml}}
+# Services default PortalContainer configurations from JAR files {{/conf/$PORTAL/configuration.xml}}
+# Web applications configurations from WAR files {{/WEB-INF/conf/configuration.xml}}
+# External configuration for services of the portal will be found at {{$exo.conf.dir/portal/$PORTAL/configuration.xml}}
+
+{note}
+* $exo.conf.dir is a system property, that points to a path in filesystem. It is passed to the JVM in the startup script like with -Dexo.conf.dir=gatein
+* $PORTAL is the name of the portal container. By default, there is only one and it is called 'portal'
+{note}
 
 
-The extension mechanism makes it possible to override portal resources in an almost plug-and-play fashion, by simply dropping in a .war archive with the resources and configuring its location in the portal's classpath. Customizations of the portal do not have to involve unpacking and repacking the original portal .war archives. Instead, you create your own .war archive with modified resources that override the resources in the original archive.
 
 
-A portal extension is a web archive that is packaged in a way that allows the use of the extension mechanism.
+h1. Gatein Extensions
 
-There are two steps in configuring your portal extension. First, you need to declare a PortalConfigOwner servlet context listener in the {{web.xml}} file of your web application.
+Gatein extensions are special war files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer.
+In order to create your own portal, you will effectively create a Gatein extension.
 
-{code}
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE web-app PUBLIC -//Sun Microsystems, Inc.//DTD Web Application 2.3//ENhttp://java.sun.com/dtd/web-app_2_3.dtd>
+The extension mechanism makes it possible to extend or even override portal resources in an almost plug-and-play fashion, by simply dropping in a .war archive with the resources and configuring its location in the portal's classpath. Customizing a portal do not involve unpacking and repacking the original portal .war archives. Instead, you create your own .war archive with your own configurations, and eventually modified resources that override the resources in the original archive.
+
+h2. The Default Portal Container
+
+eXo Platform comes with a preconfigured PortalContainer named "portal". This portal container configuration ties together the core and extended services stack.
+It is started from {{portal.war}} and naturally maps to the {{/portal}} uri.
+
+The gatein extensions mechanism lets you very easily extend the /portal context.
+This capacity is fundamental as it shields you from any changes we may want to do in portal.war. You do not need to fear of upgrades anymore as your extension war will be clearly separated from the portal war.
+
+To achieve this magical extensibility, the PortalContainer turns on two advanced features : 
+* a unified classloader : any classpath resource, such as xml configuration files, will be accessible as if it was inside the portal.war
+* a unified servlet context : any web ressource contained in your extension war will be  accessible from /portal/ uri
+
+The next paragraph explains what to do to make a simple extension for "portal" container.
+
+h2. Registering Your Extension
+
+
+First, you will want eXo to load the WEB-INF/conf/configuration.xml of your extension. For this, declare it as a {{PortalConfigOwner}} in web.xml :
+
+{code:language=xml}
 <web-app>
-<display-name>sample-ext</display-name>
-<listener>
-<listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
-</listener>
-...
+  <display-name>my-portal</display-name>
+  <listener>
+   <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
+  </listener>
+<!-- ... -->
 </web-app>
 {code}
 
-Second, add the name of your portal extension to the list of dependencies of the PortalContainerDefinition object, for all the portal containers that need to be able to access the extension.
+Then you need to register your extension by appending it to the list of _dependencies_ that already contribute to the portal container.
+This is done by an xml configuration liek this : 
+{code:language=xml}
 
+<external-component-plugins>
+  <target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
+  <component-plugin>
+    <name>Change PortalContainer Definitions</name>
+    <set-method>registerChangePlugin</set-method>
+    <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
+    <init-params>
+      <object-param>
+        <name>change</name>
+        <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
+          <field name="dependencies">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>my-portal</string>
+              </value>
+              <value>
+                <string>my-portal-resources</string>
+              </value>              
+            </collection>
+          </field>
+        </object>
+      </object-param> 
+      <value-param>
+        <name>apply.default</name>
+        <value>true</value>
+      </value-param>       
+    </init-params>
+  </component-plugin>
+</external-component-plugins>
 {code}
-<field name="dependencies">
-<collection type="java.util.ArrayList">
-<value>
-<string>eXoResources</string>
-</value>
-...
-<value>
-<string>eXoResources</string>
-</value>
-<value>
-<string>sample-ext</string>
-</value>
-</collection>
-</field>
-{code}
+
+
+We define a {{PortalContainerDefinitionChange$AddDependencies}} plugin to the {{PortalContainerConfig}}.
+The plugin declares a list of dependencies that are webapps. The {{apply.default=true}} indicates that your extension is acutally extending portal.war.
+
+
+
 
 h1. Java Content Repository
 
-All data in eXo Platform is stored in a Java Content Repository (JCR). JCR is a Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Object Database. It is particularly useful for content management systems, which require storage of objects associated with metadata. A JCR also provides versioning, transactions, observations of changes in data, and import and export of data in XML. The data in a JCR is stored hierarchically in a tree of Nodes with associated Properties.
+All data in eXo Platform is stored in a Java Content Repository (JCR). JCR is a Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Document database. It is particularly useful for content management systems, which require storage of objects associated with metadata. A JCR also provides versioning, transactions, observations of changes in data, and import and export of data in XML. The data in a JCR is stored hierarchically in a tree of Nodes with associated Properties.
+
+Also, the JCR is primarily used as an internal storage engine, eXo Content let's you manipulate JCR data directly in several places. 
+This quick intro will tell you how to quickly get your hands on it. 
 
 h2. Repositories and workspaces
 
 A content repository consists of one or more workspaces, each of which contains a tree of items.
 
-To access a repository's content at a component level in WCM:
+To access a repository's content at a component level :
 
-{code}
+{code:language=java}
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;

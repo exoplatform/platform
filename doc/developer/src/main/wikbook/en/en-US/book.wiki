@@ -1,16 +1,13 @@
 
-{important}This document is a work in progress and will continue to be added to over time.{important}
-
-
 h1. Introduction
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
-h1. Quick Start Guide
+h1. Setting Up Your Project
 
 {include:document=quickstart.wiki|syntax=confluence/1.0}
 
-h1. Architecture Primer 
+h1. eXo Architecture Primer 
 
 {include:document=architecture.wiki|syntax=confluence/1.0}
 

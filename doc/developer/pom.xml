@@ -8,13 +8,18 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.developer</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>eXo Platform - Developers Guide</name>
   <dependencies>
     <dependency>
       <groupId>org.wikbook</groupId>
       <artifactId>wikbook.docbkxstyle</artifactId>
       <version>${version.wikbook.plugin}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+      <version>${org.exoplatform.kernel.version}</version>
     </dependency>
   </dependencies>
   <profiles>
