@@ -198,7 +198,7 @@
     <div class="TabsContainer">
       <div class="UITab NormalToolbarTab">
         <div class="">
-			 <% if (renderSpacesLink()) { %>
+			
 			  <a class="TBIcon" href="<%= spacesLink %>">
 				<!--
 				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
@@ -207,7 +207,7 @@
 				My Spaces
 			  </a>
 
-			 <% } %>
+		
 			<a class="TBIcon" href="#"></a>
 
 		</div>
