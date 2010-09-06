@@ -12,7 +12,7 @@ System requirements
     * CPU: 2GHz
     * Memory: 2GB of RAM
     * Disk: 200MB
-    * OS: Windows, Linux or MAC OS
+    * OS: Windows, Linux or Mac OS X
     * Java 6 (Set the JAVA_HOME environment variable)
     * Browser: Firefox 3+ or Internet Explorer 7+
     * The eXo server will run on port 8080, make sure this port is not currently in use
@@ -23,7 +23,7 @@ How to start the Platform
 
     * PLF_HOME is the location of the unzipped eXo Platform 3.0 server. It refers to a Tomcat 6 bundle located at : bin/tomcat6-bundle
     * On Windows: Open a DOS prompt command, go to PLF_HOME/bin directory and type the command: "gatein.bat run"
-    * On Unix/Linux/MacOSX: Open a terminal, go to PLF_HOME/bin directory and type the command :"./gatein.sh run"
+    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME/bin directory and type the command :"./gatein.sh run"
 
 -----------------------------------
 How to access the Platform homepage
