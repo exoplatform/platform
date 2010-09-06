@@ -9,12 +9,10 @@
 <p>Follow the installation procedure and start eXo Platform 3.0 now!</p>
 
 
-<h1>Installation Guide</h1>
 
-	<h2>System requirements</h2>
+<h1>System requirements</h1>
 	<ul>
 		<li>CPU: 2GHz</li>
-
 		<li>Memory: 2GB of RAM</li>
 		<li>Disk: 200MB</li>
 		<li>OS: Windows, Linux or MAC OS</li>
@@ -23,40 +21,19 @@
 		<li>The eXo server will run on port 8080, make sure this port is not currently in use</li>
 	</ul>
 
-
-
-
-
-	<h2>How to start the Platform</h2>
+<h1>How to start the Platform</h1>
 	<ul>
-		<li><em>PLF_HOME</em> is the location of the unzipped eXo Platform 3.0 server. It can be one of : 
-		<ul>
-		  <li>Tomcat server: <a href="bin/tomcat6-bundle">bin/tomcat6-bundle</a></li>
-		  <li>JBoss server: <a href="bin/jboss5-bundle">bin/jboss5-bundle</a></li>
-		</ul>
+		<li><em>PLF_HOME</em> is the location of the unzipped eXo Platform 3.0 server. It refers to a Tomcat 6 bundle located at :  <a href="bin/tomcat6-bundle"><pre>bin/tomcat6-bundle</pre></a>
 		</li>
 
-		<li>On Windows: Open a DOS prompt command, go to <em>PLF_HOME/bin</em> directory and type the command:
-		<ul>
-			<li>Tomcat server: "gatein.bat run"</li>
-			<li>JBoss server: "run.bat"</li>
-		</ul>
+		<li>On Windows: Open a DOS prompt command, go to <em>PLF_HOME/bin</em> directory and type the command: <pre>gatein.bat run</pre>
 		</li>
-		<li>On Unix/Linux/MacOSX: Open a terminal, go to <em>PLF_HOME/bin</em> directory and type the command :
-		<ul>
-			<li>Tomcat server: "./gatein.sh run"</li>
-			<li>JBoss server: "run.sh"</li>
-		</ul>
+		<li>On Unix/Linux/MacOSX: Open a terminal, go to <em>PLF_HOME/bin</em> directory and type the command : <pre>./gatein.sh run</pre>
 		</li>
 	</ul>
 
 
-
-<p>You may need to change the permission of all *.sh files in the /bin directory by using: "chmod +x *.sh".</p>
-
-
-
-<h2>How to access the Platform homepage</h2>
+<h1>How to access the Platform homepage</h1>
 	<ul>
 		<li>Wait for the server to start. You should see something like this on the console
 <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
@@ -67,45 +44,26 @@
 	</ul>
 
 
-
-<h2>How to configure and start the chat server</h2>
-
-To use the instant messenging services, you'll need to start a separate chat server.
-	<ul>
-		<li>eXo Chat server is an <a href="http://en.wikipedia.org/wiki/XMPP" class="external-link" rel="nofollow">XMPP</a> engine powered by <a href="http://www.igniterealtime.org/projects/openfire/" class="external-link" rel="nofollow">Openfire</a>.</li>
-		<li>Learn more on <a href="http://wiki.exoplatform.org/xwiki/bin/view/CS/Chat+Configuration" class="external-link" rel="nofollow"Chat Configuration</a>.</li>
-		<li>Start the chat server:&nbsp;
-		<ul>
-
-			<li>On Windows: Open a DOS prompt command, go to <a href="bin/chat-server/bin">bin/chat-server/bin</a> and type the command: "java -jar ../lib/startup.jar".</li>
-			<li>On Unix/Linux/MacOSX: Open a terminal, go to <a href="bin/chat-server/bin">bin/chat-server/bin</a> and type the command: "java -jar ../lib/startup.jar".</li>
-		</ul>
-		</li>
-	</ul>
-
-
-
 <h1>Getting Started</h1>
 
-<p>There are 3 sample portals included with eXo Platform:</p>
+<p>There are 3 sample portals included with eXo Platform. We encourage you to play with them in order to discover the features that you can leverage in your own projects.</p>
 <ul>
 	<li>The default Welcome portal is a single-page application with resources to help you explore and begin to use eXo Platform.  It also serves as a "blank portal" that can be customized for your own use.</li>
 	<li>From the Welcome portal, you can also access two sample implementations from a fictitious company, Acme Industries:
 	<ul>
 		<li>The <a href="docs/dev/samples/acme-website">Acme Website</a> shows how the powerful content management features of eXo Platform help build a better user experience for customer-facing web apps.</li>
 		<li>The <a href="docs/dev/samples/acme-intranet">Acme Social Intranet</a> demonstrates eXo Platform's capabilities within an enterprise collaboration environment.  It can be easily serve as the starting point for your own Social Intranet application.</li>
-
 	</ul>
 	</li>
 </ul>
 
 
-
 <h1>Going Further</h1>
-<ul>
-	<li><b>Developers</b>: learn how to build your own portal, gadgets, REST services or eXo-based applications in the <i><a href="docs/dev/index.html">Developer Documentation</i></a>
-	<li><b>Administrators</b>: learn how to install eXo Platform on a server in the <i>Administrator Guide</i>&nbsp;<a href="docs/admin/AdministratorsGuide/index.html">[html]</a>&nbsp;<a href="docs/admin/AdministratorsGuide/index.pdf">[pdf]</a></li>
 
+Your next stop will depend on who you are: 
+<ul>
+	<li><b>Developers</b>: learn how to build your own portal, gadgets, REST services or eXo-based applications in the <i><a href="docs/dev/developers-guide/index.html">Developer Guide</i></a> and the <i><a href="docs/dev/reference/index.html">Reference Documentation</i></a></li>
+	<li><b>Administrators</b>: learn how to install eXo Platform on a server in the <i><a href="docs/admin/administrators-guide/index.html">Administrator Guide</a></i></li>
 	<li><b>End Users</b>: learn more about using the features in the <i><a href="docs/user/index.html">User Manuals</a></i></li>
 </ul>
 
