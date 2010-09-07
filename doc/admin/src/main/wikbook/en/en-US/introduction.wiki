@@ -1,4 +1,4 @@
-h1. Welcome to eXo Platform  
+h1. Welcome to eXo Platform
 
 eXo Platform 3.0, the user experience platform for Java, is comprised of Core and Extended Services.
 
@@ -15,8 +15,9 @@ eXo Platform 3.0, the user experience platform for Java, is comprised of Core an
 ** _eXo Collaboration_: easily add Mail, Chat, Calendar and Address Book services to portal-based web applications
 ** _eXo Knowledge_: adds Forum, Answers and FAQ functionality to portal-based apps, for collecting, organizing and sharing user knowledge
 
-eXo Platform is a fully supported and commercially licensed product based on eXo open source projects.  Designed for enterprise use, it has been packaged and tested to optimize production readiness and administration.
+eXo Platform is a fully supported and commercially licensed product based on eXo open source projects. Designed for enterprise use, it has been packaged and tested to optimize production readiness and administration.
 eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applications servers, and can be used with most relational database systems, including MySQL and Oracle. 
+
 
 
 
