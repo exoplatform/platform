@@ -33,7 +33,7 @@ First, switch the JCR to cluster mode:
 
 {code}
 gatein.jcr.config.type=cluster
-gatein.jcr.index.changefilterclass= org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
+gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
 {code}
 
 This will tell the JCR to enable automatic network replication and discovery between other cluster nodes.
@@ -75,10 +75,29 @@ EXO_PROFILES="-Dexo.profiles=default,cluster"
 {code}
 
 
-h2. Starting and stoping the cluster
+h1. Cluster management
 
+h2. Cluster initialization
+
+For the very first startup of your JCR cluster, you should only start a single node. This node will initialise the internal JCR database and create the system workspace. Once this first node is deinitely started, you can start the other nodes.
+
+{note}This contraint is only for the very first start. Once the initialization has been done, you can start odes in any order{note}
+
+
+h2. Starting and Stoping
 Nodes of the cluster will automatically try to join others at startup. Once they discover each other, they will synchronize their state.
 During the synchronization the node is not ready to serve requests.
 
 {note}How does an admin validate that teh cluster works properly ? Is there something noticeable on screen ?{note}
+
+
+
+h2. From local to cluster mode
+
+If you intend to migrate your production system from local (non cluster) mode to cluster, follow these steps :
+
+* Update the configuration to cluster mode as explained above on your main server
+* Use the same configuration on other cluster nodes
+* Move the index and value storage to the shared file system
+* Start the cluster
 
