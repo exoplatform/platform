@@ -1,11 +1,86 @@
 
+h1. eXo Configuration
+
+In eXo platform, the configuration lives in a folder whose location is controlled by a system property named {{exo.conf.dir}}. By default, the {{gatein.sh}} startup script sets this property as follows :
+{code}
+-Dexo.conf.dir.name=gatein/conf
+{code}
+
+So the  main entry point for the eXo Platform's configuration is {{/gatein/conf/}}. This directory contains the following files :
+* {{configuration.properties}} : the main *system configuration*
+* {{configuration.xml}} : contains the default *portal container* configuration
+* {{portal/portal/configuration.xml}} : the main *external customization* entry point for the default portal container.
 
 
-h1. Introduction
 
-System configuration for eXo Platform is stored in a file named {{configuration.properties}}.
+h2. Portal Containers, Customization and Configurations
 
-In the Tomcat bundle this file is located at {{$TOMCAT_HOME/gatein/conf/configuration.properties}}
+Let's stop and explain some parts of the eXo internals in order to understand the roles of these configuration files.
+
+eXo Platform kernel groups runtime components in _portal containers_.
+A portal container holds all components to run a portal instance. It serves portal pages under the servlet context for his name.
+
+The default portal container in eXo Platform is called simply "portal". This is why the default url for the samples is http://localhost:800/*portal*.
+
+The default portal container can be configured directly inside {{exo.conf.dir}}. 
+
+But eXo Platform is capable of running several portal instances simultaneously on the same server. 
+Each instance can be configured and customized independently via files located at : {{/gatein/conf/portal/$PORTAL{{{_}}}NAME}}, where $PORTAL{{{_}}}NAME is the name of the portal container.
+
+{note}
+The exact name of the configuration file can be altered. 
+Please refer to the section dedicated to _PortalContainerDefinition_  in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
+{note}
+
+Services that run inside a portal container are declared via xml configuration files like configuration.xml. Such files exists in jars, wars and below {{exo.conf.dir}}.
+
+XML configuration files also serve as the main way to customize the portal via the multiple plugins offered by eXo components.
+
+Additionally, xml files may contain variables that are populated via properties defined in configuration.properties.
+Hence, the configuration.properties serves as exposing some chosen variables that are necessary to configure eXo Platform in a server environment.
+
+
+h2. configuration.properties
+
+The system configuration is done mostly in {{configuration.properties}}. 
+In most cases, this should be the only file a system administrator will need to configure.
+
+In the Tomcat bundle, this file is located at {{/gatein/conf/configuration.properties}}
+
+
+h2. configuration.xml
+
+This file contains the builtin configuration for the "portal" portal container.
+
+In most cases, you should not need to change this file. 
+
+In case your project does not want to use "portal" as the default portal, this file can be used to to import another _PortalContainerDefinition_ into the root container.
+
+{note}
+Details on how to configure a new portal container are out of the scope of this book but is extensively covered in the kernel reference guide.
+{note}
+
+h2. portal/portal/configuration.xml
+
+This file is empty by default. This is where further customizations can be placed. Generally, custom configurations are provided by extension wars.
+But this file is the last loaded by the kernel. It has a higher priority over any other configuration file, including extensions. So it let's you override any internal component configuration.
+
+This may turn very handy for services or configurations that are not exposed in configuration.properties, but you'd like to tune anyway.
+
+For example, you could decide to change the default transaction timeout to 2 minutes with this piece of xml: 
+{code:xml}
+<component> 
+    <key>org.exoplatform.services.transaction.TransactionService</key> 
+    <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type> 
+    <init-params> 
+      <value-param> 
+        <name>timeout</name> 
+        <value>120</value> 
+      </value-param> 
+    </init-params> 
+  </component>
+{code}
+
 h1. Database Configuration
 
 eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
@@ -96,10 +171,10 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 
 The following table explains what goes in what path. The {{temporary?}} column indicates if the data is temporary or persistent.
 || variable || content || temporary ||
-|| {{gatein.data.dir}} | jta transactional data | yes |
-|| {{gatein.jcr.data.dir}} | jcr swap data | yes |
-|| {{gatein.jcr.storage.data.dir}} | binary value storage for jcr | no |
-|| {{gatein.jcr.index.data.dir}} | lucene index for JCR | no |
+|| {{gatein.data.dir}} || jta transactional data | yes |
+|| {{gatein.jcr.data.dir}} || jcr swap data | yes |
+|| {{gatein.jcr.storage.data.dir}} || binary value storage for jcr | no |
+|| {{gatein.jcr.index.data.dir}} || lucene index for JCR | no |
 
 
 Each variable can be defined as an absolute or relative path.
@@ -263,11 +338,11 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 {code}
 
-|| gatein.jcr.config.type || use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} ||
-|| gatein.jcr.index.changefilterclass || in cluster mode change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}} |
-|| gatein.jcr.cache.config  |JBoss Cache configuration for the JCR locks |
-|| gatein.jcr.index.cache.config | JBoss Cache Configuraiton for the JCR index |
-|| gatein.jcr.jgroups.config | JGroups configuration to use for cluster mode |
+|| {{gatein.jcr.config.type}} || use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} ||
+|| {{gatein.jcr.index.changefilterclass}} || in cluster mode change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}} |
+|| {{gatein.jcr.cache.config}}  |JBoss Cache configuration for the JCR locks |
+|| {{gatein.jcr.index.cache.config}} | JBoss Cache Configuraiton for the JCR index |
+|| {{gatein.jcr.jgroups.config}} | JGroups configuration to use for cluster mode |
 
 Please refer to the JCR reference guide for the details of configuring these files.
 
