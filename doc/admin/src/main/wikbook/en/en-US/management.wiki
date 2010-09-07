@@ -10,16 +10,11 @@ This chapter explains the various resources provided by the eXo Platform server,
 h2. JMX Interface  
 Resource management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
 
-In the runtime of JBoss AS, the MBeans are registered by the eXo Kernel in the MBeanServer, which the application server creates, and the MBeans are directly viewable in the JMX console. 
-However, we do advocate using a better JMX client such as the JConsole tool, available since Java 5.
+At runtime, the MBeans are registered by the eXo Kernel in the MBeanServer, which the application server creates, and the MBeans are directly viewable in the JMX console. 
+However, we do advocate using a better JMX client such as the JVisualVM, available since Java 6.
 
-Although it is not the scope of this guide to explain how the JConsole can be connected to the JBoss application server, we will provide the required changes that need to be performed. 
-The following system properties must be added as virtual machine properties:
+In order to enable JMX monitoring in Tomcat, you need to pass the following system property to the VM : {{-Dcom.sun.management.jmxremote}}
 
-||Property name||Property value||
-| {{com.sun.management.jmxremote}}|no value |
-| {{jboss.platform.mbeanserver}}|no value |
-| {{javax.management.builder.initial}}|{{org.jboss.system.server.jmx.MBeanServerBuilderImpl}} |
 
 h2. REST Interface
 

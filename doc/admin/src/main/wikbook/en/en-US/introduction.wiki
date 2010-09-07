@@ -6,7 +6,7 @@ Combined with the Enterprise Content Management and collaboration capabilities o
 
 h1. Welcome to eXo Platform  
 eXo Platform  is a commercial and supported product based on eXo open source projects. Its packaging and testing is focused on production readiness and improved administration.
-eXo Platform has been designed to run on major applications servers, like JBoss AS, and relational database systems, like MySQL and Oracle. 
+eXo Platform has been designed to run on major applications servers, and relational database systems, like MySQL and Oracle. 
 It also provides the ideal packaging for customers that need long-term support. In order to provide a production-ready solution, eXo Platform is tested to ensure easy upgrades and maximum stability.
 
 The eXo Platform 3.0 release contains:
