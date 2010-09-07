@@ -1213,8 +1213,16 @@
       <type>jar</type>
     </dependency>
     <!-- 1.1.1-->
+  <dependency>
+    <groupId>org.exoplatform.commons</groupId>
+    <artifactId>exo.platform.commons.webui.ext</artifactId>
+    <version>${org.exoplatform.commons.version}</version>
+    <type>jar</type>
+  </dependency><!-- 1.0.0-CR01-->
   </dependencies>
   <!-- 2.1.0-SNAPSHOT-->
+  
+  
   <build>
     <finalName>Platform-${project.version}</finalName>
     <plugins>
