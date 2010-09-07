@@ -1,43 +1,33 @@
-
-
-eXo Platform gives your middleware the user experience features to improve your portal-based applications.
-GateIn lets you aggregate applications and content for your employees through an innovative user friendly interface. 
-Combined with the Enterprise Content Management and collaboration capabilities of eXo Platform, you can manage your documents and improve your communication and organization for your users.
-
 h1. Welcome to eXo Platform  
+
+eXo Platform 3.0 is an enterprise portal platform comprised of eXo Core and Extended Services.
+
+* *Content Services*
+** _GateIn Portal_ : provides an intuitive interface and a powerful framework for developing portlets and other web-based solutions
+** _eXo Content_ : provides a set of services to extend portal-based applications with Enterprise Content Management (ECM) 
+*** _eXo WCM_ : provides web content management services
+*** _xCMIS_ : is an implementation of the full stack of Java-based CMIS services at the top of eXo WCM
+*** _eXo Workflow_ : provides and integrates BPM capabilities 
+** _eXo IDE_ : a online development environment that lets developers build, test and deploy client applications (such as gadgets and mashups) and REST-ful services online
+** _CRaSH_ : enables easy browsing of JCR tree, and serves as a shell for executing JCR operations
+* *Extended Services*
+** _eXo Social_ : provides a framework for developers to build gadgets that can display and mash-up activity information for contacts, social networks, applications and services
+** _eXo Collaboration_ : offers intuitive and powerful Mail, Chat, Calendar and Address Book applications and services
+** _eXo Knowledge_ : allow enterprise to collect, organize and publish knowledge using Forum, Answer and FAQ applications
+
+
 eXo Platform  is a commercial and supported product based on eXo open source projects. Its packaging and testing is focused on production readiness and improved administration.
 eXo Platform has been designed to run on major applications servers, and relational database systems, like MySQL and Oracle. 
 It also provides the ideal packaging for customers that need long-term support. In order to provide a production-ready solution, eXo Platform is tested to ensure easy upgrades and maximum stability.
 
-The eXo Platform 3.0 release contains:
-* GateIn Portal
-* eXo Content 
-* eXo Social
-* eXo Collaboration 
-* eXo Knowledge
-* xCMIS
-* eXo IDE
-* CRaSH
 
+
+h1. Who should read this guide? 
+
+This guide describes how to get started with eXo Platform, specifically for:
+* _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise. 
+* _Developers_ who want to know how to leverage eXo Platform in their customer projects. 
 
 This document will guide you through the most important tasks for eXo Platform administration and management. 
 At the end, you will be able to install, configure, migrate, and manage your eXo Platform system.
-
-h1. Who should read this guide? 
-This guide describes how to get started with eXo Platform, specifically for the following user profiles:
-
-* _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise. 
-* _System Integrators_ who want to know how to leverage eXo Platform in their customer projects. 
-
-
-h1. Conventions used in this document  
-
-
-||Text / Icon||Meaning ||
-|Courier New|The Courier New font indicates file names, paths, variables, arguments, parameters, and configuration content |
-|<>|<> Angle brackets enclose a part of a file path or URL address that may vary from user to user (for example, *<Product installation folder>\bin*)|
-|( )|Brackets enclose arguments of a method|
-|{}|Curly brackets indicate that one of the enclosed values must be assigned to the current argument|
-
-
 
