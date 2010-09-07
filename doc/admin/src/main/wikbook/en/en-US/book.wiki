@@ -25,7 +25,7 @@ h1. Deployment
 
 {include:document=deployment.wiki|syntax=confluence/1.0}
 
-h1. Backup
+h1. Backup and Recovery
 
 {include:document=backup.wiki|syntax=confluence/1.0}
 
