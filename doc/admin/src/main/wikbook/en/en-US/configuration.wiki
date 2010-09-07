@@ -185,31 +185,36 @@ The chat server is an openfire server bundled with plugins and configurations th
 The following properties are used to configure it.
 
 
-|| Property || Description || default value ||
-||env.serverbaseURL || base url for all URLs below | http://localhost:8080/ |
-||env.restContextName || name of the rest context | rest |
-||provider.authorizedUser.name || username to authenticate against the HTTP REST service | root  |
-||provider.authorizedUser.password || password matching with provider.authorizeduser.name | password  |
-||exoAuthProvider.authenticationURL || URL to authenticate users | /organization/authenticate/ |
-||exoAuthProvider.authenticationMethod || HTTP method used to pass parameters | POST |
-||exoUserProvider.findUsersURL || URL to find all users | /organization/xml/user/find-all/  |
-||exoUserProvider.findUsersMethod || HTTP method for user/find-all| GET  |
-||exoUserProvider.getUsersURL || URL to retrieve a range of users | /organization/xml/user/view-range/ |
-||exoUserProvider.getUsersMethod || HTTP method for user/view-range | GET  |
-||exoUserProvider.usersCountURL || URL to count users | /organization/xml/user/count/  |
-||exoUserProvider.usersCountMethod || HTTP method for user/count | GET |
-||exoUserProvider.userInfoURL || URL to get user info | /organization/xml/user/info/  |
-||exoUserProvider.userInfoMethod || HTTP method for user/info | GET  |
-||exoGroupProvider.groupInfoURL || URL to get group info | /organization/xml/group/info/ |
-||exoGroupProvider.groupInfoMethod || HTTP method for info | GET  |
-||exoGroupProvider.getGroupsAllURL || URL to view all groups | /organization/xml/group/view-all/ |
-||exoGroupProvider.getGroupsAllMethod || HTTP method for group/view-all | GET |
-||exoGroupProvider.getGroupsRangeURL || URL to view a group range | /organization/xml/group/view-from-to/ |
-||exoGroupProvider.getGroupsRangeMethod || HTTP method for group/view-from-to | GET |
-||exoGroupProvider.getGroupsForUserURL || URL to get groups for a user | /organization/xml/group/groups-for-user/ |
-||exoGroupProvider.getGroupsForUserMethod || HTTP method for groups-for-user | GET |
-||exoGroupProvider.groupsCountURL || URL to count groups | organization/xml/group/count |
-||exoGroupProvider.groupsCountMethod  || HTTP method for group/count | GET |
+|| Property || Description || Default value ||
+|| *env* ||
+|| serverbaseURL || base url for all URLs below | http://localhost:8080/ |
+|| restContextName || name of the rest context | rest |
+|| *provider* ||
+|| authorizedUser.name || username to authenticate against the HTTP REST service | root  |
+|| authorizedUser.password || password matching with provider.authorizeduser.name | password  |
+|| *eXoAuthProvider* ||
+|| authenticationURL || URL to authenticate users | /organization/authenticate/ |
+|| authenticationMethod || HTTP method used to pass parameters | POST |
+|| *eXoUserProvider* ||
+|| findUsersURL || URL to find all users | /organization/xml/user/find-all/  |
+|| findUsersMethod || HTTP method for user/find-all| GET  |
+|| getUsersURL || URL to retrieve a range of users | /organization/xml/user/view-range/ |
+|| getUsersMethod || HTTP method for user/view-range | GET  |
+|| usersCountURL || URL to count users | /organization/xml/user/count/  |
+|| usersCountMethod || HTTP method for user/count | GET |
+|| userInfoURL || URL to get user info | /organization/xml/user/info/  |
+|| userInfoMethod || HTTP method for user/info | GET  |
+|| *eXoGroupProvider* ||
+|| groupInfoURL || URL to get group info | /organization/xml/group/info/ |
+|| groupInfoMethod || HTTP method for info | GET  |
+|| getGroupsAllURL || URL to view all groups | /organization/xml/group/view-all/ |
+|| getGroupsAllMethod || HTTP method for group/view-all | GET |
+|| getGroupsRangeURL || URL to view a group range | /organization/xml/group/view-from-to/ |
+|| getGroupsRangeMethod || HTTP method for group/view-from-to | GET |
+|| getGroupsForUserURL || URL to get groups for a user | /organization/xml/group/groups-for-user/ |
+|| getGroupsForUserMethod || HTTP method for groups-for-user | GET |
+|| groupsCountURL || URL to count groups | organization/xml/group/count |
+|| groupsCountMethod  || HTTP method for group/count | GET |
 
 h3. Ports
 
