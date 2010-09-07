@@ -1,69 +1,40 @@
 
-h1. 1. Application integration
+h1. Application integration
 
 To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located in {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
 
 Here is an example of a portlet configuration inside {{pages.xml}}:
 
 
-{code}
+{code:language=xml}
 <portlet-application>
-<portlet>
-<application-ref>presentation</application-ref>
-  <portlet-ref>SingleContentViewer</portlet-ref>
-<preferences>
-<preference>
-<name>repository</name>
-<value>repository</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>workspace</name>
-<value>collaboration</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>nodeIdentifier</name>
-<value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowQuickEdit</name>
-<value>true</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowPrintAction</name>
-<value>false</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowTOC</name>
-<value>false</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowTags</name>
-<value>false</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowCategories</name>
-<value>false</value>
-<read-only>false</read-only>
-</preference>
-<preference>
-<name>ShowTitle</name>
-<value>false</value>
-<read-only>false</read-only>
-</preference>
-</preferences>
-</portlet>
-<title>Homepage</title>
-<access-permissions>Everyone</access-permissions>
-<show-info-bar>false</show-info-bar>
-<show-application-state>false</show-application-state>
-<show-application-mode>false</show-application-mode>
+  <portlet>
+    <application-ref>presentation</application-ref>
+    <portlet-ref>SingleContentViewer</portlet-ref>
+    <preferences>
+      <preference>
+        <name>repository</name>
+        <value>repository</value>
+        <read-only>false</read-only>
+      </preference>
+      <preference>
+        <name>workspace</name>
+        <value>collaboration</value>
+        <read-only>false</read-only>
+      </preference>
+      <preference>
+        <name>nodeIdentifier</name>
+        <value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+        <read-only>false</read-only>
+      </preference>
+      <!-- ... -->
+    </preferences>
+  </portlet>
+  <title>Homepage</title>
+  <access-permissions>Everyone</access-permissions>
+  <show-info-bar>false</show-info-bar>
+  <show-application-state>false</show-application-state>
+  <show-application-mode>false</show-application-mode>
 </portlet-application>
 {code}
 
@@ -79,9 +50,9 @@ Here are the details about this configuration:
 | {{preferences}} | Contains a list of {{preference}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. CF reference guide. | |
 
 
-h1. 2. Developing your own applications
+h1. Developing your own applications
 
-h2. 2.1. Gadget vs Portlet
+h2. Gadget vs Portlet
 
 It is important to understand the distinction between Gadgets and Portlets. Portlets are user interface components that provide fragments of markup code from the server-side, while gadgets generate dynamic web content on the client-side. With Gadgets, small applications can be built relatively quickly, and mashed up on the client-side using lightweight Web Oriented Architecture (WOA) technologies, like REST or RSS.
 
@@ -89,12 +60,12 @@ More information about developing gadgets and portlets can be found in the GateI
 * [Portlet development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Portlet_development]
 * [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development]
 
-h2. 2.2. Gadget development quick-start with IDE
+h2. Gadget development quick-start with IDE
 
 eXo Platform facilitates easy gadget development, via its powerful, web-based IDE. You can learn more about the basic principles of Gadget development at [http://code.google.com/apis/gadgets/docs/gs.html].
 
 
-h2. 2.3. Portlet Bridges
+h2. Portlet Bridges
 
 A Portlet Bridge allows you to create a JSR-168 compliant portlet with very little change to your existing web application.
 
