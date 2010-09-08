@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.0.0-CR02-SNAPSHOT</version>
+    <version>3.0.0-CR02</version>
   </parent>
   <artifactId>platform.packaging.module</artifactId>
   <packaging>pom</packaging>
