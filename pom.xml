@@ -168,7 +168,7 @@
     <module>server</module>
     <module>doc</module>
     <module>office</module>
-    <module>samples/acme-website</module>
+    <module>samples</module>
     <module>migration</module>
     <module>packaging</module>
     <module>testsuite</module>
