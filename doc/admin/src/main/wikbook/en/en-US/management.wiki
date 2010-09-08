@@ -140,13 +140,22 @@ h3. Skin management
 |{{reloadAll(skinId)}}|forces a reload of the specified skin and the operation {{reloadSkins()}} forces a reload of the loaded skins|
 
 
-h3. Token Store
-{caution} TODO{caution}
-GateIn uses an internal store for tokens.
+h3. Token Stores
 
-{{exo:portal="portal",service=TokenStore,name="memory-token"}}
-{{exo:portal="portal",service=TokenStore,name="jcr-token"}} 
-{{exo:portal="portal",service=TokenStore,name="gadget-token"}}
+GateIn uses several stores for tokens :
+* Memory Token Store : {{exo:portal="portal",service=TokenStore,name="memory-token"}}
+* JCR Token Store : {{exo:portal="portal",service=TokenStore,name="jcr-token"}} 
+* Gadget Token Store : {{exo:portal="portal",service=TokenStore,name="gadget-token"}}
+
+||Attribute||Description ||
+|{{Name}}|name of the store|
+|{{PeriodTime}}||
+|{{ValidityTime}}||
+
+||Operation||Description||
+|{{cleanExpiredTokens()}}|purge tokens that have expired|
+|{{size()}}|gthe number of tokens in the store|
+
 
 h3. Portal statistics
 
