@@ -54,7 +54,7 @@ This is the simplest example of a virtual host:
 {code}
 You can find more information about Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/]
 
-h2. Connection via HTTP protocol
+h2. Connection via HTTP protocol (Apache mod{{{_}}}proxy)
 
 With the _glue_ method, it is necessary to configure Apache HTTP daemon to work as *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
 For this type of connection, you will need to include the *mod{{{_}}}proxy* module in the HTTP demon configuratinon file.
