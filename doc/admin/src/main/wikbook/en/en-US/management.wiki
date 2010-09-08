@@ -109,11 +109,12 @@ Various statistics are available for individual templates, as well as aggregated
 Most of the management operations are performed on a single template; those operations take the template identifier as an argument. 
 The JMX name of the template statistics MBean follows the template:  {{exo:view=portal,service=statistic,type=template}}.
 
-||Attribute||Description|| 
-|{{TemplateList}}|returns the list of the loaded templates|
-|{{SlowestTemplates}}|returns the list of the 10 slowest templates|
-|{{MostExecutedTemplates}}|returns the list of the 10 most used templates|
-|{{FastestTemplates}}|returns the list of the 10 fastest templates|
+||Attribute||Description ||
+|{{TemplateList}}|the list of the templates loaded|
+|{{SlowestTemplates}}|the list of the 10 slowest templates|
+|{{MostExecutedTemplates}}|list of the 10 most used templates|
+|{{FastestTemplates}}|list of the 10 fastest templates|
+
 
 ||Operation||Description||
 |{{getAverageTime(templateId)}}|returns the average time spent in the specified template|
