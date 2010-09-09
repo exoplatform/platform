@@ -170,6 +170,32 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>jar</type>
     </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-jbpm-content</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency><!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-content-webui</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency><!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-content-plugin</artifactId>
+			<version>${org.exoplatform.ecms.version}</version>
+			<type>jar</type>
+		</dependency><!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>exo-ecms-ext-workflow-bp-content-publication</artifactId>
+			<version>${org.exoplatform.ecms.version}</version>
+			<type>jar</type>
+		</dependency><!-- 2.1.0-GA-SNAPSHOT-->
+
     <!-- main portal container config -->
     <!--dependency>
 		    <groupId>org.exoplatform.platform</groupId>

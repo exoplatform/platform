@@ -9,7 +9,8 @@ function getProduct(version) {
   product.codeRepo = "platform" ;//module in modules/portal/module.js
   product.serverPluginVersion = "${org.exoplatform.portal.version}"; // was project.version
   product.useWorkflow = true;
-  
+  product.useContentvalidation = true;
+
   // all WCM ext. have the same version number
   product.workflowVersion = "${org.exoplatform.ecms.version}" ;
   product.contentvalidationVersion = "${org.exoplatform.ecms.version}";
