@@ -139,8 +139,8 @@
               <value profiles="workflow,all">
                 <string>workflow</string>
               </value>
-              <value>
-                <string profiles="workflow,all">eXoWorkflowResources</string>
+              <value profiles="workflow,all">
+                <string>eXoWorkflowResources</string>
               </value>              
 
               <!-- SOCIAL -->
