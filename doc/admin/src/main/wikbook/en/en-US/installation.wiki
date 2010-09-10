@@ -87,8 +87,8 @@ You can enable/disable select modules if they are not in use.
 * {{social}}: enables eXo Social module
 * {{workflow}}: enables the Workflow add-on within the eXo Content module
 
-Additionally, you can use several predefined profiles: 
-* (none): contains GateIn + WCM
+Additionally, you can use these profiles: 
+* {{minimal}}: contains GateIn + WCM
 * {{default}}: contains all except workflow (gatein,ide,wcm,collaboration,social,knowledge)
 * {{all}}: all available modules
 
