@@ -8,6 +8,7 @@ package org.exoplatform.platform.component;
  * To change this template use File | Settings | File Templates.
  */
 
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -45,7 +46,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     private SpaceService spaceService = null;
     private String userId = null;
 
-    public List<PageNavigation> getSpaceNavigations() throws Exception {
+    public List<PageNavigation> getGroupNavigations() throws Exception {
         String remoteUser = getUserId();
         List<Space> spaces = getSpaceService().getAccessibleSpaces(remoteUser);
         UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
@@ -69,7 +70,14 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
             } else { // not spaces navigation
                 navigationItr.remove();
             }
+            
         }
+        for (PageNavigation navigation : allNavigations) {
+            if ((navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE) )&& (navigation.getOwnerId().indexOf("spaces")<0)){
+                navigations.add(PageNavigationUtils.filter(navigation, remoteUser));
+            }
+        }
+        
 
         return navigations;
     }
@@ -137,10 +145,19 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         }
         return result;
     }
+    
+  
+    	 private boolean hasPermission() throws Exception
+    	   {
+    	      UIPortalApplication portalApp = Util.getUIPortalApplication();
+    	      UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
+    	      return userACL.hasCreatePortalPermission();
+    	   }  
+    
 
     // --- Merging Group navigation PLF-488
 
-    public List<PageNavigation> getGroupNavigations() throws Exception {
+   /* public List<PageNavigation> getGroupNavigations() throws Exception {
         String remoteUser = Util.getPortalRequestContext().getRemoteUser();
         //List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
         List<PageNavigation> allNavigations = Util.getUIPortalApplication().getNavigations();
@@ -151,6 +168,6 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
             }
         }
         return navigations;
-    }
+    }*/
 
 }

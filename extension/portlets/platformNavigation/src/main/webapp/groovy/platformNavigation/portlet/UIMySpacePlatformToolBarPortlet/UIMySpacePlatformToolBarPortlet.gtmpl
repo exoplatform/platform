@@ -40,7 +40,9 @@
   jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
   def portalURI = Util.getPortalRequestContext().getPortalURI();
   def spacesLink = portalURI + "spaces";
-  def spaceNavigations = uicomponent.getSpaceNavigations();
+  def findSpacesLink = portalURI + "publicSpace";
+  boolean hasPermission = uicomponent.hasPermission();
+ 
 
   void renderSpacePageNavigation(PageNavigation navigation) {
     nodes = navigation.getNodes();
@@ -120,24 +122,35 @@
 
 	/** PLF-488 : construction de la navigation exoadmin:UserToolbarGroupPortlet dans la nouvelle portlet UIMySpace*/
 
-	 void renderGroupPageNavigation(PageNavigation navigation) {
-			nodes = navigation.getNodes() ;
-			if(nodes.size() < 1) return ;
-			String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
-			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(navigation.ownerId));
-			print """
-						<div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
-						<div class="SubBlock">
-							""" ;
-							for(int i = 0; i < nodes.size(); i++) {
-								renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
-							}
-							print """
-						</div>
-			""" ;
-	}
-
-
+	  void renderGroupPageNavigation(PageNavigation navigation) {
+            nodes = navigation.getNodes() ;
+            if(nodes.size() < 1) return ;
+            String navTitle = OrganizationUtils.getGroupLabel(navigation.ownerId);
+            String spacesNavigations= navigation.getOwnerId();
+            if(spacesNavigations.indexOf("spaces") > 0) {
+                        print """
+                        <div class="SubBlock">
+                            """ ;
+                            for(int i = 0; i < nodes.size(); i++) {
+                                renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
+                            }
+                            print """
+                        </div>
+            """ ;
+                    }
+                    else {
+            print """
+                        <div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
+                        <div class="SubBlock">
+                            """ ;
+                            for(int i = 0; i < nodes.size(); i++) {
+                                renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
+                            }
+                            print """
+                        </div>
+            """ ;
+            }
+    }
 	void renderPageNodeGroup(PageNode node, boolean flag) {
 		PageNode selectedNode = uicomponent.getSelectedPageNode();
 		String tabStyleNavigation = "";
@@ -199,7 +212,7 @@
       <div class="UITab NormalToolbarTab">
         <div class="">
 			
-			  <a class="TBIcon" href="<%= spacesLink %>">
+			  <a class="EditorIcon TBIcon" href="<%= spacesLink %>">
 				<!--
 				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
 				/** _ctx.appRes("UIMySpacesToolBarPortlet.label.myspaces")**/
@@ -218,8 +231,37 @@
 
 			<div style="display:none" class="MenuItemContainer">
 				<% for(navigation in groupNavigations) {
+				if (navigation.getOwnerId().indexOf("spaces")<0){  
+                	break;
+					}
 					renderGroupPageNavigation(navigation);
+					
+					
 				} %>
+				<% if (renderSpacesLink()) { %>
+				<div class="SubBlock">
+                       
+                            <div class="MenuItem">   
+                                <a class="FindPeopleIcon" href="<%= findSpacesLink %>">Find Spaces</a>
+                            </div>               
+                 </div>
+				<% } %>
+<% for(navigation in groupNavigations) {
+				if (navigation.getOwnerId().indexOf("spaces")<0){
+					renderGroupPageNavigation(navigation);
+					
+                	
+					}
+				} %>				
+			
+			<% if(hasPermission){ %>
+			<div class="SubBlock">
+                       
+                            <div class="MenuItem">   
+                                <a class="ManageSite" href="<%= portalURI + "groupnavigation" %>">Manage Groups</a>
+                            </div>               
+            </div>
+			<% } %>
 			</div>
 		<% } %>
 	   <!-- FIN -->

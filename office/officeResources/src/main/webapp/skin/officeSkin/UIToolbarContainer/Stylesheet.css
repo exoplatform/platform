@@ -193,6 +193,11 @@
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ToolBarNetworkIcon {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -481px;
+}
+
+
 .UIWorkingWorkspace .UIToolbarContainer .MenuItem .ToolBarProfileIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -421px;
 }

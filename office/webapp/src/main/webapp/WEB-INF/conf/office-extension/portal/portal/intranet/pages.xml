@@ -344,7 +344,7 @@
 
   <page>
     <name>myConnections</name>
-    <title>My Connections</title>
+    <title>My Network</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
     <container id="sociallayout" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">

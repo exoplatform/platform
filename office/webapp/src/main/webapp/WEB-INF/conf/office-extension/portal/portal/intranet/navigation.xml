@@ -44,7 +44,7 @@
    <node>
     <uri>activities</uri>
     <name>activities</name>
-    <label>#{portal.intranet.myprofile}</label>
+    <label>#{portal.intranet.activities}</label>
     <visibility>SYSTEM</visibility>
     <page-reference>portal::intranet::activities</page-reference>
    </node>
