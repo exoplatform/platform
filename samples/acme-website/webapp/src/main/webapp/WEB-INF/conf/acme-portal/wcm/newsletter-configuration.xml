@@ -30,7 +30,7 @@
     <init-params>
       <values-param>
         <name>portalNames</name>
-        <value>acme</value>
+        <value>website</value>
       </values-param>
       <object-param>
         <name>marketing</name>
@@ -176,7 +176,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/ApplicationData/NewsletterApplication/DefaultTemplates</string>
+                  <string>/sites content/live/website/ApplicationData/NewsletterApplication/DefaultTemplates</string>
                 </field>
               </object>
             </field>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <portal>
-    <acme>
+    <website>
       <overview>Giới thiệu</overview>
       <products>Sản phẩm</products>
       <events>Sự kiện</events>
@@ -14,7 +14,7 @@
       <newAccount>Đăng ký</newAccount>
       <groupnavigation>Quản lý thanh điều hướng cho nhóm</groupnavigation>
       <portalnavigation>Quản lý thanh điều hướng chung</portalnavigation>
-    </acme>
+    </website>
   </portal>
 </bundle>
 

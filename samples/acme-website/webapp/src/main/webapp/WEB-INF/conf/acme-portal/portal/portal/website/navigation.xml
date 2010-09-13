@@ -29,95 +29,95 @@
     <node>
       <uri>overview</uri>
       <name>overview</name>
-      <label>#{portal.acme.overview}</label>
+      <label>#{portal.website.overview}</label>
       <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::overview</page-reference>
+      <page-reference>portal::website::overview</page-reference>
     </node>
     
     <node>
       <uri>products</uri>
       <name>products</name>
-      <label>#{portal.acme.products}</label>
+      <label>#{portal.website.products}</label>
       <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::products</page-reference>
+      <page-reference>portal::website::products</page-reference>
     </node>
 
     <node>
       <uri>events</uri>
       <name>events</name>
-      <label>#{portal.acme.events}</label>
+      <label>#{portal.website.events}</label>
       <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::events</page-reference>
+      <page-reference>portal::website::events</page-reference>
     </node>
 
     <node>
       <uri>newsletters</uri>
       <name>newsletters</name>
-      <label>#{portal.acme.newsletters}</label>
+      <label>#{portal.website.newsletters}</label>
       <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::newsletters</page-reference>
+      <page-reference>portal::website::newsletters</page-reference>
     </node>
 
     <node>
       <uri>contactus</uri>
       <name>contactus</name>
-      <label>#{portal.acme.contactus}</label>
-      <page-reference>portal::acme::contactus</page-reference>
+      <label>#{portal.website.contactus}</label>
+      <page-reference>portal::website::contactus</page-reference>
       <node>
         <uri>contactus/confirmation</uri>
         <name>confirmation</name>
-        <label>#{portal.acme.confirmation}</label>
+        <label>#{portal.website.confirmation}</label>
         <visibility>HIDDEN</visibility>
-        <page-reference>portal::acme::confirmation</page-reference>
+        <page-reference>portal::website::confirmation</page-reference>
       </node>
     </node>
 
     <node>
       <uri>detail</uri>
       <name>detail</name>
-      <label>#{portal.acme.detail}</label>
+      <label>#{portal.website.detail}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::detail</page-reference>
+      <page-reference>portal::website::detail</page-reference>
     </node>
 
     <node>
       <uri>printviewer</uri>
       <name>printviewer</name>
-      <label>#{portal.acme.printviewer}</label>
+      <label>#{portal.website.printviewer}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::printviewer</page-reference>
+      <page-reference>portal::website::printviewer</page-reference>
     </node>
 
     <node>
       <uri>searchResult</uri>
       <name>searchResult</name>
-      <label>#{portal.acme.searchResult}</label>
+      <label>#{portal.website.searchResult}</label>
       <visibility>HIDDEN</visibility>
-      <page-reference>portal::acme::searchResult</page-reference>
+      <page-reference>portal::website::searchResult</page-reference>
     </node>
 
     <node>
       <uri>newAccount</uri>
       <name>newAccount</name>
-      <label>#{portal.acme.newAccount}</label>
+      <label>#{portal.website.newAccount}</label>
       <visibility>HIDDEN</visibility>
-      <page-reference>portal::acme::newAccount</page-reference>
+      <page-reference>portal::website::newAccount</page-reference>
     </node>
 
     <node>
       <uri>groupnavigation</uri>
       <name>groupnavigation</name>
-      <label>#{portal.acme.groupnavigation}</label>
+      <label>#{portal.website.groupnavigation}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::groupnavigation</page-reference>     
+      <page-reference>portal::website::groupnavigation</page-reference>     
     </node>
     
     <node>
       <uri>portalnavigation</uri>
       <name>portalnavigation</name>
-      <label>#{portal.acme.portalnavigation}</label>
+      <label>#{portal.website.portalnavigation}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::portalnavigation</page-reference>      
+      <page-reference>portal::website::portalnavigation</page-reference>      
     </node>
 
   </page-nodes>

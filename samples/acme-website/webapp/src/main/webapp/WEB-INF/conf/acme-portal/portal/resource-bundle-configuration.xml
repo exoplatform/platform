@@ -38,12 +38,12 @@
 			<init-params>
 				<values-param>
 					<name>init.resources</name>
-        			<value>locale.navigation.portal.acme</value>
+        			<value>locale.navigation.portal.website</value>
         			<value>locale.navigation.group.platform.web-contributors</value>
 				</values-param>
 				<values-param>
 					<name>portal.resource.names</name>
-			        <value>locale.navigation.portal.acme</value>
+			        <value>locale.navigation.portal.website</value>
         			<value>locale.navigation.group.platform.web-contributors</value>
 				</values-param>
 			</init-params>

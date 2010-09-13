@@ -24,7 +24,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
     xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
-  <portal-name>acme</portal-name>
+  <portal-name>website</portal-name>
   <locale>en</locale>
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/web-contributors</edit-permission>
@@ -54,7 +54,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Logo</value>
+                <value>/sites content/live/website/web contents/site artifacts/Logo</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -115,7 +115,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Signin</value>
+                <value>/sites content/live/website/web contents/site artifacts/Signin</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -176,7 +176,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Searchbox</value>
+                <value>/sites content/live/website/web contents/site artifacts/Searchbox</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -237,7 +237,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Navigation</value>
+            <value>/sites content/live/website/web contents/site artifacts/Navigation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -299,7 +299,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Footer</value>
+            <value>/sites content/live/website/web contents/site artifacts/Footer</value>
             <read-only>false</read-only>
           </preference>
           <preference>

@@ -50,12 +50,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Logo.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Logo.xml</string>
               </field>
                 <field name="cleanupPublication">
                 <boolean>true</boolean>
@@ -75,12 +75,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites content/live/website/web contents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Users.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Users.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -100,12 +100,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>              
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Signin.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -125,12 +125,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Searchbox.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Searchbox.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -150,12 +150,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Navigation.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Navigation.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -175,12 +175,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Footer.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Footer.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -200,12 +200,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Introduce.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Introduce.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -225,12 +225,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/css</string>
+                  <string>/sites content/live/website/css</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetGreen.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/StylesheetGreen.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -250,12 +250,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/css</string>
+                  <string>/sites content/live/website/css</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetBlue.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/StylesheetBlue.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -275,12 +275,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/medias/images</string>
+                  <string>/sites content/live/website/medias/images</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Images.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Images.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -300,12 +300,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites content/live/website/web contents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/News.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/News.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -325,12 +325,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites content/live/website/web contents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Events.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Events.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -350,12 +350,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents</string>
+                  <string>/sites content/live/website/web contents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/NewEvents.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/NewEvents.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -389,12 +389,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites content/live/website/documents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocWord.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/DocWord.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -414,12 +414,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites content/live/website/documents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocJpg.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/DocJpg.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -440,12 +440,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/documents</string>
+                  <string>/sites content/live/website/documents</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/DocPdf.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/DocPdf.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -465,12 +465,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/NewsletterHeader.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/NewsletterHeader.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -490,12 +490,12 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/website/web contents/site artifacts</string>
                 </field>
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Confirmation.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/website/Confirmation.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -520,10 +520,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/News1</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/News/News1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
+              <string>repository:collaboration:/sites content/live/website/categories/website</string>
             </field>
           </object>
         </object-param>
@@ -532,10 +532,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/News2</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/News/News2</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
+              <string>repository:collaboration:/sites content/live/website/categories/website</string>
             </field>
           </object>
         </object-param>
@@ -544,10 +544,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/News3</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/News/News3</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
+              <string>repository:collaboration:/sites content/live/website/categories/website</string>
             </field>
           </object>
         </object-param>
@@ -556,10 +556,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/News4</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/News/News4</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
+              <string>repository:collaboration:/sites content/live/website/categories/website</string>
             </field>
           </object>
         </object-param>
@@ -568,10 +568,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/News/News1</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/News/News1</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme/World</string>
+              <string>repository:collaboration:/sites content/live/website/categories/website/World</string>
             </field>
           </object>
         </object-param>
@@ -580,10 +580,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Products</string>
+              <string>repository:collaboration:/sites content/live/website/events/All/Products</string>
             </field>
           </object>
         </object-param>
@@ -592,10 +592,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/architecture-and-design-the-future-of-our-products</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/architecture-and-design-the-future-of-our-products</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Products</string>
+              <string>repository:collaboration:/sites content/live/website/events/All/Products</string>
             </field>
           </object>
         </object-param>
@@ -604,10 +604,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/mondial-expo-are-you-ready-for-the-future</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/mondial-expo-are-you-ready-for-the-future</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Releases</string>
+              <string>repository:collaboration:/sites content/live/website/events/All/Releases</string>
             </field>
           </object>
         </object-param>
@@ -616,10 +616,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All/Use Cases</string>
+              <string>repository:collaboration:/sites content/live/website/events/All/Use Cases</string>
             </field>
           </object>
         </object-param>
@@ -628,10 +628,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events/All</string>
+              <string>repository:collaboration:/sites content/live/website/events/All</string>
             </field>
           </object>
         </object-param>
@@ -640,10 +640,10 @@
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/NewEvents/architecture-and-design-the-future-of-our-products</string>
+              <string>repository:collaboration:/sites content/live/website/web contents/NewEvents/architecture-and-design-the-future-of-our-products</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/events</string>
+              <string>repository:collaboration:/sites content/live/website/events</string>
             </field>
           </object>
         </object-param>

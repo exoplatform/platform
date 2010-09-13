@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <portal>
-    <acme>
+    <website>
       <overview>Overview</overview>
       <products>Products</products>
       <events>Events</events>
@@ -14,6 +14,6 @@
       <newAccount>New Account</newAccount>
       <groupnavigation>Group Navigation</groupnavigation>
       <portalnavigation>Portal Navigation</portalnavigation>
-    </acme>
+    </website>
   </portal>
 </bundle>

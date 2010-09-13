@@ -48,7 +48,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+                <value>/sites content/live/website/web contents/site artifacts/Introduce</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -96,7 +96,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/Events</value>
+                <value>repository:collaboration:/sites content/live/website/web contents/Events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -159,7 +159,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/Users</value>
+                <value>repository:collaboration:/sites content/live/website/web contents/Users</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -169,7 +169,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>Login as an acme user</value>
+                <value>Login as an website user</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -225,7 +225,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/News</value>
+                <value>repository:collaboration:/sites content/live/website/web contents/News</value>
                 <read-only>false</read-only>
               </preference>
 			  <preference>
@@ -288,7 +288,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/documents</value>
+                <value>repository:collaboration:/sites content/live/website/documents</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -365,7 +365,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/categories/acme</value>
+                <value>repository:collaboration:/sites content/live/website/categories/website</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -438,7 +438,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/categories/acme</value>
+                <value>repository:collaboration:/sites content/live/website/categories/website</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -524,7 +524,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/events</value>
+                <value>repository:collaboration:/sites content/live/website/events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -594,7 +594,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/events</value>
+                <value>repository:collaboration:/sites content/live/website/events</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -812,7 +812,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Introduce</value>
+            <value>/sites content/live/website/web contents/site artifacts/Introduce</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -916,7 +916,7 @@
           </preference>
           <preference>
             <name>treeName</name>
-            <value>acme</value>
+            <value>website</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -1009,7 +1009,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/newsletter_header</value>
+            <value>/sites content/live/website/web contents/site artifacts/newsletter_header</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -1076,7 +1076,7 @@
         <preferences>
           <preference>
             <name>redirectPath</name>
-            <value>/portal/public/acme/contactus/confirmation</value>
+            <value>/portal/public/website/contactus/confirmation</value>
           </preference>
           <preference>
             <name>mode</name>
@@ -1096,7 +1096,7 @@
           </preference>
           <preference>
             <name>path</name>
-            <value>/sites content/live/acme/documents</value>
+            <value>/sites content/live/website/documents</value>
           </preference>
           <preference>
             <name>saveMessage</name>
@@ -1148,7 +1148,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/contact_form_confirmation</value>
+            <value>/sites content/live/website/web contents/site artifacts/contact_form_confirmation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
