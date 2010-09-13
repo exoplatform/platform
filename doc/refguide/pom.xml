@@ -1,215 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
     <version>3.0.0-GA-SNAPSHOT</version>
   </parent>
+
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.refguide</artifactId>
-  <packaging>pom</packaging>
-  <name>eXo Platform - Reference Guide</name>
-  <dependencies>
-    <dependency>
-      <groupId>org.wikbook</groupId>
-      <artifactId>wikbook.docbkxstyle</artifactId>
-      <version>${version.wikbook.plugin}</version>
-    </dependency>
-  </dependencies>
-  <profiles>
-    <profile>
-      <id>distrib</id>
-      <properties>
-        <wikbook.source>${project.basedir}/src/main/wikbook</wikbook.source>
-        <wikbook.target>${project.build.directory}/wikbook</wikbook.target>
-      </properties>
-      <build>
-        <plugins>
-          <!-- The wikbook maven plugin generates the docbook document from the wiki source -->
-          <plugin>
-            <groupId>org.wikbook</groupId>
-            <artifactId>wikbook.maven</artifactId>
-            <executions>
-              <execution>
-                <phase>prepare-package</phase>
-                <goals>
-                  <goal>transform</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <sourceDirectory>${wikbook.source}/en/en-US</sourceDirectory>
-              <sourceFileName>book.wiki</sourceFileName>
-              <destinationDirectory>${wikbook.target}/src</destinationDirectory>
-              <destinationFileName>index.xml</destinationFileName>
-              <emitDoctype>true</emitDoctype>
-              <beforeBookBodyXML>&lt;xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /&gt;</beforeBookBodyXML>
-              <syntaxId>confluence/1.0</syntaxId>
-            </configuration>
-          </plugin>
-          <!-- Unpacks the docbook style resources for the docbkx plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>unpack</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
-                <configuration>
-                  <artifactItems>
-                    <!-- ecms -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ecms</groupId>
-                      <artifactId>exo-ecms-docs-refguide</artifactId>
-                      <version>${org.exoplatform.ecms.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${wikbook.target}/output/html/</outputDirectory>
-                      <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
-                    </artifactItem>
-                    <!-- cs -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.cs</groupId>
-                      <artifactId>exo.cs.docs.refguide</artifactId>
-                      <version>${org.exoplatform.cs.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${wikbook.target}/output/html/</outputDirectory>
-                      <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
-                    </artifactItem>
-                    <!-- ks -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ks</groupId>
-                      <artifactId>exo.ks.docs.refguide</artifactId>
-                      <version>${org.exoplatform.ks.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${wikbook.target}/output/html/</outputDirectory>
-                      <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
-                    </artifactItem>
-                    <!-- social -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.social</groupId>
-                      <artifactId>exo.social.docs.refguide</artifactId>
-                      <version>${org.exoplatform.social.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>${wikbook.target}/output/html/</outputDirectory>
-                      <includes>**/*.html,**/*.css,**/*.jpg,**/*.gif,**/*.png</includes>
-                    </artifactItem>
-                  </artifactItems>
-                </configuration>
-              </execution>
-              <execution>
-                <id>a</id>
-                <phase>prepare-package</phase>
-                <goals>
-                  <goal>unpack-dependencies</goal>
-                </goals>
-                <configuration>
-                  <includeGroupIds>org.wikbook</includeGroupIds>
-                  <includeArtifactIds>wikbook.docbkxstyle</includeArtifactIds>
-                  <excludes>META-INF/**</excludes>
-                  <outputDirectory>${wikbook.target}/src/resources</outputDirectory>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- Dockbx plugin that generates content -->
-          <plugin>
-            <groupId>com.agilejava.docbkx</groupId>
-            <artifactId>docbkx-maven-plugin</artifactId>
-            <configuration>
-              <!-- Source -->
-              <sourceDirectory>${wikbook.target}/src</sourceDirectory>
-              <includes>index.xml</includes>
-              <!-- Highlight source code -->
-              <highlightSource>1</highlightSource>
-              <!-- We need to support xinclude -->
-              <xincludeSupported>true</xincludeSupported>
-              <!--
-               |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
-               |  Callouts on imported text
-               -->
-              <useExtensions>1</useExtensions>
-              <calloutsExtension>1</calloutsExtension>
-              <!-- Copy any docbook XML -->
-              <preProcess>
-                <copy todir="${wikbook.target}/src">
-                  <fileset dir="${wikbook.source}/en/en-US">
-                    <include name="**/*.xml" />
-                  </fileset>
-                </copy>
-              </preProcess>
-            </configuration>
-            <executions>
-              <execution>
-                <id>generate-html</id>
-                <goals>
-                  <goal>generate-html</goal>
-                </goals>
-                <phase>package</phase>
-                <configuration>
-                  <!-- Output -->
-                  <targetDirectory>${wikbook.target}/output/html</targetDirectory>
-                  <!-- Stylesheet -->
-                  <htmlCustomization>${wikbook.target}/src/resources/xsl/html.xsl</htmlCustomization>
-                  <htmlStylesheet>css/html.css</htmlStylesheet>
-                  <!-- Copy the image -->
-                  <postProcess>
-                    <copy todir="${wikbook.target}/output/html/images">
-                      <fileset dir="${wikbook.source}/images">
-                        <include name="**" />
-                      </fileset>
-                    </copy>
-                    <copy todir="${wikbook.target}/output/html">
-                      <fileset dir="${wikbook.target}/src/resources">
-                        <include name="**/*.css" />
-                        <include name="**/*.png" />
-                        <include name="**/*.gif" />
-                        <include name="**/*.jpg" />
-                      </fileset>
-                    </copy>
-                  </postProcess>
-                </configuration>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.docbook</groupId>
-                <artifactId>docbook-xml</artifactId>
-                <version>4.4</version>
-                <scope>runtime</scope>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <!-- Attach the HTML zip -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>             
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>wikbook-html-archive.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+   <name>eXo Platform :: Developer Documentation :: Reactor</name>
+   <packaging>pom</packaging>
+
+    <properties>
+     <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
+    </properties>
+
+   <modules>
+      <module>en</module>
+   </modules>
 </project>
+
