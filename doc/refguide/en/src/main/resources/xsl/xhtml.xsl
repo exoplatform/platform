@@ -15,6 +15,8 @@
 
   <xsl:include href="xhtml-common.xsl"/>
 
+  <xsl:param name="img.src.path">images/</xsl:param>
+
 <!--
 From: xhtml/chunk-common.xsl
 Reason: remove tables, truncate link text

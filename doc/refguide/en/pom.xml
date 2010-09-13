@@ -192,6 +192,20 @@
               </resources>              
             </configuration>            
           </execution>
+          <execution>
+            <id>copy-images</id>
+            <!-- here the phase you need -->
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>target/plf/resources/images</outputDirectory>
+              <resources>          
+                <resource><directory>target/org.exoplatform.ide.user/images</directory></resource>
+              </resources>              
+            </configuration>            
+          </execution>
         </executions>
       </plugin>
 
@@ -222,7 +236,7 @@
             <configuration>
                <sourceDirectory>target/plf/docbook/en-US</sourceDirectory>
                <sourceDocumentName>index.xml</sourceDocumentName>
-
+               <imagesDirectory>${pom.basedir}/target/plf/resources/images</imagesDirectory>
                <cssResource>
                   <directory>${pom.basedir}/target/plf/resources</directory>
                   <includes>
@@ -233,9 +247,9 @@
                   <directory>${pom.basedir}/target/plf/resources</directory>
                   <includes>
                      <include>background/**</include>
+                     <include>images/**</include>
                   </includes>
-               </imageResource>              
-
+               </imageResource>
                <formats>
                   <format>
                      <formatName>html</formatName>
