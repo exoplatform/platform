@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.admin</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jdocbook</packaging>
   <name>eXo Platform - Administrator Guide</name>
   <dependencies>
     <dependency>
@@ -32,7 +32,7 @@
             <artifactId>wikbook.maven</artifactId>
             <executions>
               <execution>
-                <phase>prepare-package</phase>
+                <phase>generate-sources</phase>
                 <goals>
                   <goal>transform</goal>
                 </goals>
@@ -55,7 +55,7 @@
             <executions>
               <execution>
                 <id>a</id>
-                <phase>prepare-package</phase>
+                <phase>generate-sources</phase>
                 <goals>
                   <goal>unpack-dependencies</goal>
                 </goals>
@@ -93,22 +93,28 @@
                     <include name="**/*.xml" />
                   </fileset>
                 </copy>
+                <!-- copy stylesheet resources -->
+                <copy todir="${wikbook.target}/src/resources">
+                  <fileset dir="src/main/resources">
+                    <include name="**" />
+                  </fileset>
+                </copy>
               </preProcess>
             </configuration>
             <executions>
-              <execution>
+              <!--execution>
                 <id>generate-html</id>
                 <goals>
                   <goal>generate-html</goal>
                 </goals>
                 <phase>package</phase>
                 <configuration>
-                  <!-- Output -->
+                  <!- Output ->
                   <targetDirectory>${wikbook.target}/output/html</targetDirectory>
-                  <!-- Stylesheet -->
-                  <htmlCustomization>${wikbook.target}/src/resources/xsl/html.xsl</htmlCustomization>
-                  <htmlStylesheet>css/html.css</htmlStylesheet>
-                  <!-- Copy the image -->
+                  <!- Stylesheet ->
+                  <htmlCustomization>${wikbook.target}/src/resources/xsl/xhtml.xsl</htmlCustomization>
+                  <htmlStylesheet>${wikbook.target}/src/resources/css/html.css</htmlStylesheet>
+                  <!- Copy the image ->
                   <postProcess>
                     <copy todir="${wikbook.target}/output/html/images">
                       <fileset dir="${wikbook.source}/images">
@@ -125,13 +131,13 @@
                     </copy>
                   </postProcess>
                 </configuration>
-              </execution>
+              </execution-->
               <execution>
                 <id>generate-pdf</id>
                 <goals>
                   <goal>generate-pdf</goal>
                 </goals>
-                <phase>package</phase>
+                <phase>generate-resources</phase>
                 <configuration>
                   <!-- Output -->
                   <targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
@@ -152,8 +158,75 @@
               </dependency>
             </dependencies>
           </plugin>
-          <!-- Attach the HTML zip -->
+
+
           <plugin>
+            <groupId>org.jboss.maven.plugins</groupId>
+            <artifactId>maven-jdocbook-plugin</artifactId>
+            <version>2.1.1</version>
+            <extensions>true</extensions>
+            <dependencies>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-docbook-xslt</artifactId>
+                  <version>1</version>
+               </dependency>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-jdocbook-style</artifactId>
+                  <version>1</version>
+                  <type>jdocbook-style</type>
+               </dependency>
+            </dependencies>
+            <!--executions>
+            <execution>
+                <id>generate-html</id>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+                <phase>package</phase>
+            </execution>
+            </executions-->
+            <configuration>
+               <sourceDirectory>${wikbook.target}/src</sourceDirectory>
+               <sourceDocumentName>index.xml</sourceDocumentName>
+
+               <cssResource>
+                  <directory>${wikbook.target}/src/resources</directory>
+                  <includes>
+                     <include>css/**</include>
+                  </includes>
+               </cssResource>
+               <imageResource>
+                  <directory>${wikbook.target}/src/resources</directory>
+                  <includes>
+                     <include>background/**</include>
+                     <include>images/**</include>
+                  </includes>
+               </imageResource>
+
+               <formats>
+                  <format>
+                     <formatName>html</formatName>
+                     <stylesheetResource>file:${basedir}/target/wikbook/src/resources/xsl/xhtml.xsl</stylesheetResource>
+                     <finalName>index.html</finalName>
+                  </format>
+               </formats>
+               
+               <options>
+                  <xincludeSupported>true</xincludeSupported>
+                  <xmlTransformerType>saxon</xmlTransformerType>
+                  <!-- needed for uri-resolvers; can be ommitted if using 'current' uri scheme -->
+                  <!--     could also locate the docbook dependency and inspect its version... -->
+                  <docbookVersion>1.74.0</docbookVersion>
+               </options>
+
+            </configuration>
+         </plugin>
+
+
+          <!-- Attach the HTML zip -->
+          <!--plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <dependencies>
@@ -176,9 +249,9 @@
                 </configuration>
               </execution>
             </executions>
-          </plugin>
+          </plugin-->
           <!-- Attach the PDF -->
-          <plugin>
+          <!--plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>build-helper-maven-plugin</artifactId>
             <executions>
@@ -198,7 +271,7 @@
                 </configuration>
               </execution>
             </executions>
-          </plugin>
+          </plugin-->
         </plugins>
       </build>
     </profile>
