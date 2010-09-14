@@ -212,7 +212,7 @@
                <formats>
                   <format>
                      <formatName>html</formatName>
-                     <stylesheetResource>file:${basedir}/target/wikbook/src/resources/xsl/xhtml.xsl</stylesheetResource>
+                     <stylesheetResource>file:${basedir}/src/main/resources/xsl/xhtml.xsl</stylesheetResource>
                      <finalName>index.html</finalName>
                   </format>
                </formats>
@@ -228,6 +228,31 @@
             </configuration>
          </plugin>
 
+         <!-- Attach the HTML zip -->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>exo.platform.assemblies</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>jdocbook-html-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
 
           <!-- Attach the HTML zip -->
           <!--plugin>
