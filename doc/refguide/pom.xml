@@ -1,17 +1,17 @@
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
-    
+
     This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
     published by the Free Software Foundation; either version 2.1 of
     the License, or (at your option) any later version.
-    
+
     This software is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
     Lesser General Public License for more details.
-    
+
     You should have received a copy of the GNU Lesser General Public
     License along with this software; if not, write to the Free
     Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
@@ -26,17 +26,268 @@
     <version>3.0.0-GA-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.platform</groupId>
-  <artifactId>exo.platform.doc.refguide</artifactId>
-   <name>eXo Platform :: Developer Documentation :: Reactor</name>
-   <packaging>pom</packaging>
 
-    <properties>
+    <artifactId>exo.platform.doc.refguide</artifactId>
+
+   <name>eXo Platform :: Developer Documentation :: Reference</name>
+   <packaging>jdocbook</packaging>
+
+   <properties>
      <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
-    </properties>
+   </properties>
 
-   <modules>
-      <module>en</module>
-   </modules>
+   <build>
+      <finalName>${project.parent.artifactId}_en-${version}</finalName>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>xml-maven-plugin</artifactId>
+            <!-- version>1.0-beta-2</version -->
+         </plugin>
+
+<!--
+1/
+ - download the ref guides of other products
+ - unpack them in /target
+-->
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <!-- TODO: 1) in jcr, publish a zip with the xml docbook files
+                               2) here, uncomment to get the zip of jcr and gatein
+                               3) in index.xml, remove manual links and xinclude jcr and gatein master.xml -->
+                    <!-- jcr -->
+                    <!--artifactItem>
+                      <groupId>org.exoplatform.jcr</groupId>
+                      <artifactId>reference-docs-en</artifactId>
+                      <version>${org.exoplatform.jcr.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem-->
+                    <!-- gatein -->
+                    <!--artifactItem>
+                      <groupId>org.gatein.doc</groupId>
+                      <artifactId>gatein-reference-guide-en</artifactId>
+                      <version>${org.exoplatform.portal.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem-->
+
+                    <!-- ecms -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ecms</groupId>
+                      <artifactId>exo-ecms-docs-refguide</artifactId>
+                      <version>${org.exoplatform.ecms.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- ecms cmis admin -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ecms</groupId>
+                      <artifactId>exo-ecms-ext-xcmis-admin-guide</artifactId>
+                      <version>${org.exoplatform.ecms.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- ecms cmis developer -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ecms</groupId>
+                      <artifactId>exo-ecms-ext-xcmis-developer-guide</artifactId>
+                      <version>${org.exoplatform.ecms.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- cs -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.cs</groupId>
+                      <artifactId>exo.cs.docs.refguide</artifactId>
+                      <version>${org.exoplatform.cs.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- ks -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ks</groupId>
+                      <artifactId>exo.ks.docs.refguide</artifactId>
+                      <version>${org.exoplatform.ks.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- social -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.social</groupId>
+                      <artifactId>exo.social.docs.refguide</artifactId>
+                      <version>${org.exoplatform.social.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- IDE user guide -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ide</groupId>
+                      <artifactId>exo-ide-user-guide</artifactId>
+                      <version>${org.exoplatform.ide.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- IDE admin guide -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.ide</groupId>
+                      <artifactId>exo-ide-admin-guide</artifactId>
+                      <version>${org.exoplatform.ide.version}</version>
+                      <type>zip</type>
+                      <outputDirectory>target/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+<!--
+2/
+ - move the xml, xsl, css and images from src/main/ to target/plf/
+-->
+
+       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.3</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>target/plf</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-images</id>
+            <!-- here the phase you need -->
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>target/plf/resources/images</outputDirectory>
+              <resources>
+                <resource><directory>target/org.exoplatform.ide.user/images</directory></resource>
+                <resource><directory>target/org.exoplatform.xcmis.admin/images</directory></resource>
+                <resource><directory>target/org.exoplatform.social/images</directory></resource>
+                <resource><directory>target/org.exoplatform.ecms/images</directory></resource>
+                <resource><directory>target/org.exoplatform.ks/images</directory></resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+<!--
+3/
+ - process all the xml files (plf + other products) from target/
+ - in the end, generate the html
+-->
+
+         <plugin>
+            <groupId>org.jboss.maven.plugins</groupId>
+            <artifactId>maven-jdocbook-plugin</artifactId>
+            <version>2.1.1</version>
+            <extensions>true</extensions>
+            <dependencies>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-docbook-xslt</artifactId>
+                  <version>${org.exoplatform.doc-style.version}</version>
+               </dependency>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-jdocbook-style</artifactId>
+                  <version>${org.exoplatform.doc-style.version}</version>
+                  <type>jdocbook-style</type>
+               </dependency>
+            </dependencies>
+            <configuration>
+               <sourceDirectory>target/plf/docbook/en-US</sourceDirectory>
+               <sourceDocumentName>index.xml</sourceDocumentName>
+               <imagesDirectory>${pom.basedir}/target/plf/resources/images</imagesDirectory>
+               <cssResource>
+                  <directory>${pom.basedir}/target/plf/resources</directory>
+                  <includes>
+                     <include>css/**</include>
+                  </includes>
+               </cssResource>
+               <imageResource>
+                  <directory>${pom.basedir}/target/plf/resources</directory>
+                  <includes>
+                     <include>background/**</include>
+                     <include>images/**</include>
+                  </includes>
+               </imageResource>
+               <formats>
+                  <format>
+                     <formatName>html</formatName>
+                     <stylesheetResource>file:${basedir}/target/plf/resources/xsl/xhtml.xsl</stylesheetResource>
+                     <finalName>index.html</finalName>
+                  </format>
+                  <!--format>
+                     <formatName>html_single</formatName>
+                     <stylesheetResource>classpath:/xslt/org/exojcr/xhtml-single.xsl</stylesheetResource>
+                     <finalName>index.html</finalName>
+                  </format-->
+                  <!--format>
+                     <formatName>pdf</formatName>
+                     <stylesheetResource>classpath://xslt/org/exojcr/pdf.xsl</stylesheetResource>
+                     <finalName>index.pdf</finalName>
+                  </format-->
+                  <!-- format>
+                     <formatName>eclipse</formatName>
+                     <stylesheetResource>classpath:/xslt/org/exojcr/eclipse.xsl</stylesheetResource>
+                     <finalName>index.html</finalName>
+                  </format -->
+               </formats>
+
+               <options>
+                  <xincludeSupported>true</xincludeSupported>
+                  <xmlTransformerType>saxon</xmlTransformerType>
+                  <!-- needed for uri-resolvers; can be ommitted if using 'current' uri scheme -->
+                  <!--     could also locate the docbook dependency and inspect its version... -->
+                  <docbookVersion>1.74.0</docbookVersion>
+               </options>
+
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
 </project>
-
