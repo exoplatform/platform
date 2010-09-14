@@ -11,9 +11,11 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   
-  <xsl:import href="http://docbook.sourceforge.net/release/xsl/1.75.1/xhtml/chunk.xsl"/>
+  <xsl:import href="http://docbook.sourceforge.net/release/xsl/1.74.0/xhtml/chunk.xsl"/>
 
   <xsl:include href="xhtml-common.xsl"/>
+
+  <xsl:param name="img.src.path">images/</xsl:param>
 
 <!--
 From: xhtml/chunk-common.xsl

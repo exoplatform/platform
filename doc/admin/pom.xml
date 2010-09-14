@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.admin</artifactId>
-  <packaging>jdocbook</packaging>
+  <packaging>pom</packaging>
   <name>eXo Platform - Administrator Guide</name>
   <dependencies>
     <dependency>
@@ -158,13 +158,26 @@
               </dependency>
             </dependencies>
           </plugin>
-
-
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
             <version>2.1.1</version>
-            <extensions>true</extensions>
+            <executions>
+              <execution>
+                <id>jdocbook-resources</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>resources</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>jdocbook-generate</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+              </execution>
+            </executions>
             <dependencies>
                <dependency>
                   <groupId>org.exoplatform.doc</groupId>
@@ -178,15 +191,6 @@
                   <type>jdocbook-style</type>
                </dependency>
             </dependencies>
-            <!--executions>
-            <execution>
-                <id>generate-html</id>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-                <phase>package</phase>
-            </execution>
-            </executions-->
             <configuration>
                <sourceDirectory>${wikbook.target}/src</sourceDirectory>
                <sourceDocumentName>index.xml</sourceDocumentName>

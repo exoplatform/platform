@@ -4,9 +4,19 @@ body {
 	font-size:12px;
 	height:100%;
 	margin:0 auto;
-	overflow-x:hidden;
+	overflow-x:auto;
 	padding:0px;
-        max-width: 860px;
+    max-width: 860px;
+}
+
+.chapter > .section {
+ color: black;
+ text-decoration: none; 
+}
+
+.chapter > .section a {
+ color: black;
+ font-size: 0.9em;
 }
 
 /* ClearFix */	
@@ -92,22 +102,43 @@ visibility: hidden;
 	border-bottom: 1px solid #ececec;
 }
 
-h1{
+/* ##################### TOC ################### */
+
+h4 {
 	font-size: 14px;
-	margin: 4px 0px;
 }
 
-h2{
+h3 {
 	font-size: 16px;
 }
 
-h3{
+h2, .title a {
 	font-size: 18px;
+    text-decoration: none;
 }
 
-h4{
+h1 {
 	font-size: 20px;
+	margin: 4px 0px;
+    text-decoration: none;
 }
+
+.toc .book a {
+	font-size: 20px;
+	margin: 4px 0px;
+    text-decoration: none;
+}
+
+.toc .chapter a {
+	font-size: 18px;
+    text-decoration: none;
+}
+
+.toc a:hover { text-decoration: underline; }
+
+/** **/
+
+/** **/
 
 .BlueText{
 	color:#314572;
@@ -164,7 +195,7 @@ a{
 
 a:hover{
 	color: #e47b00;
-	text-decoration: underline;
+/*	text-decoration: underline;*/
 }
 
 ul{
@@ -210,10 +241,11 @@ td{
 	border-top: 1px solid #e1e1e1;
 }
 
-.TextForm{
+.TextForm, .programlistingco, .screen {
 	background: #f3f5e9;
 	padding: 0px 12px;
 	border: 1px solid #cccccc;
+    overflow-x: auto;
 }
 
 .footer{
@@ -225,3 +257,5 @@ td{
 hr {
  display: none;
 }
+
+

@@ -11,8 +11,8 @@ h1. Startup
 eXo Platform leverages the application server on which it is deployed. 
 This means, to start and stop eXo Platform, you only need to start and stop your application with the default commands.
 
-* On Linux and OS X:   {screen}$TOMCAT_HOME/bin/gatein.sh{screen}
-* On Windows:          {screen}%TOMCAT_HOME%\\bin\\gatein.bat{screen}
+* On Linux and OS X:   {screen}$TOMCAT_HOME/bin/gatein.sh run{screen}
+* On Windows:          {screen}%TOMCAT_HOME%\\bin\\gatein.bat run{screen}
 
 The server has started when you see the following message in your log/console:
 {screen}
