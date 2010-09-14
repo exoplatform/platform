@@ -1,0 +1,67 @@
+
+eXo Platform 3.0 comes with a set of APIs to help you build your own applications from eXo services.
+
+h2. APIs
+
+h3. Platform APIs
+h4. Java APIs
+* *[Portlet API|http://localhost:8080/docs/refguide/html/gatein/chap-Reference_Guide-Portlet_development.html#sect-Reference_Guide-Portlet_Primer-JSR_168_and_JSR_286_overview] (JSR 168 and JSR 286)*: A Java standard that defines how to write portlets. This is the way to develop Java applications that are integrated into eXo Platform.
+* *[WSRP 1.0|http://localhost:8080/docs/refguide/html/gatein/wsrp.html] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
+* *[JAX-RS|http://localhost:8080/docs/refguide/html/jcr/ch-introduction-to-rest.html] (JSR 311)*: A standard API that provides support for creating REST-like services.
+* *[JCR|http://localhost:8080/docs/refguide/html/jcr/index.html] (JSR 170)*: A standard API that provides access to a content repository.
+* *[JCR Service Extensions|http://localhost:8080/docs/refguide/html/jcr/ch-jcr-extensions.html]*: A set of APIs that provide extended functionalities for the JCR such as observation, permissions, and access to a repository
+* *[Java EE 5|http://www.oracle.com/technetwork/java/javaee/overview/index.html]*: eXo Platform supports the Java EE 5 APIs, so you can develop applications using this standard.
+* *[Cache|http://localhost:8080/docs/refguide/html/jcr/ch-cache.html]*: An API used for data caching.
+* *[Event and Listener|http://localhost:8080/docs/refguide/html/jcr/ch-understanding-listeners-service.html]*: An API for listening and sending events within eXo Platform.
+* *[Organization|http://localhost:8080/docs/refguide/html/jcr/ch-organization-service.html]*: An API and SPI for accessing user, group and membership information.
+* *[Portal Container Definition|http://localhost:8080/docs/refguide/html/jcr/ch-how-to-extend-my-gatein-instance.html#d0e16935]*: This API is used to configure your portal.
+* *[Request Life Cycle|http://localhost:8080/docs/refguide/html/jcr/ch-kernel-container-configuration.html#d0e12473]*: This API provides information about the request status when developing an application.
+* *[Taxonomy|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e5581]*: An API that allows you to organize your content.
+* *[Link Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e6620]*: An API that provides a way to manage links when developing WCM features.
+* *[Publication Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7052]*: An API that provides different ways to manage the publication of content when developing WCM features.
+* *[WCM Composer|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7233]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
+* *[Template WCM|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e9411]*: An API to provide views and dialogs to node types (system or document).
+* *[XML Configuration|http://localhost:8080/docs/refguide/html/jcr/ch-services-wiring.html]*: A set of DTD for configuring the platform.
+
+h4. JavaScript APIs
+* *[OpenSocial 0.8 Gadget Specification|http://www.opensocial.org/Technical-Resources/opensocial-spec-v08/opensocial-reference08]*: A standard that defines how to write gadgets and provide APIs. Gadgets are particularly useful for integrating external applications into eXo Platform.
+
+h4. Web Services
+* *[CMIS|http://localhost:8080/docs/refguide/html/bk03.html]*: A standard API that gives access to the content repository via REST and SOAP Web services.
+* *[FTP|http://localhost:8080/docs/refguide/html/jcr/ch-ftp.html]*: A standard protocol for exchanging documents.
+* OpenSocial 0.8 REST Protocol: A standard API for accessing the social graph and activity streams.
+* [WebDAV|http://localhost:8080/docs/refguide/html/jcr/ch-webdav.html]: A standard protocol for exchanging document over HTTP.
+
+h3. Provisional APIs
+h4. Java APIs
+* UI Extensions: An API to plug new actions into the eXo Platform UI.
+** [FileExplorer Toolbar|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5374]
+** [ECM Admin|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5374]
+** [Activity Sharing|http://localhost:8080/docs/refguide/html/bk07ch04.html#d0e18807]
+
+h2. Definitions of API Levels
+
+APIs vary according to level of maturity. It is important to understand the eXo's general approach to API change management.
+
+The different levels of APIs are described in the following table:
+|| API Level || Test Suite || Clients || Documentation || Support || Compatibility X.Y.Z(+1) || Compatibility X.Y(+1)
+|*Platform API*| (/) | (/) | (/) | (/) | (/) | (/) |
+|*Provisional API*| (/) | (/) | (/) | (/) | (/) | (x) |
+|*Experimental API*| (/) | (x) | (/) | Best effort | Best effort | (x) |
+|*Unsupported API*| (x) | (x) | (x) | (x) | (x) | (x) |
+
+*Test Suite*: A suite of tests that can be run against the API to detect changes.
+*Clients*: The API has been used successfully by at least 2 different teams, using API Documentation only.
+*Documentation*: The API has a clean JavaDoc and reference documentation.
+*Support*: The eXo Support team provides help on the code that uses this API, and fixes any reported bugs.
+*Compatibility X.Y.Z(+1)*: The compatibility between maintenance versions (X.Y.Z and X.Y.Z+1) is guaranteed. If a change appears between X.Y and X.Y+1, the eXo Support team will help by upgrading the code.
+*Compatibility X.Y(+1)*: The compatibility between minor versions (X.Y and X.Y+1) is guaranteed. If a change appears between X and X+1, the eXo Support team will help by upgrading the code.
+*Best Effort*: We will provide assistance, but eXo cannot guarantee any specific result.
+
+
+h4. Using Provisional or Experimental APIs
+These APIs are provided to give an "early look" at what will be available in upcoming versions of the eXo Platform. These APIs are not final, but they can be used to start developing your application.
+
+*Provisional APIs* are APIs close to being frozen, but that need a last look from users. They can be used by third-party developers for their own apps, with the knowledge that only a limited compatibility guarantee is offered.
+
+*Experimental APIs* are APIs that are likely to change. They are published in order to get feedback from the community. These APIs have been tested successfully, but have not yet had enough feedback from developers.
