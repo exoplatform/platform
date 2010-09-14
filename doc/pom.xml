@@ -15,6 +15,5 @@
     <module>developer</module>
     <module>refguide</module>
     <module>user</module>
-    <module>bundle</module>
   </modules>
 </project>
