@@ -13,9 +13,6 @@
     <profile>
       <id>distrib</id>
       <dependencies>
-        <!-- @@@@@@@@ -->
-        <!-- Products -->
-        <!-- @@@@@@@@ -->
         <!-- Tomcat server -->
         <dependency>
           <groupId>${project.groupId}</groupId>
@@ -31,112 +28,6 @@
           <classifier>chatserver</classifier>
           <version>${project.version}</version>
           <type>zip</type>
-        </dependency>
-        <!-- @@@@@@@@@@@@@@ -->
-        <!-- Documentations -->
-        <!-- @@@@@@@@@@@@@@ -->
-        <!-- User Docs -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user</artifactId>
-          <version>${project.version}</version>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>org.gatein.doc</groupId>
-          <artifactId>gatein-user-guide-en</artifactId>
-          <version>${org.exoplatform.portal.version}</version>
-          <type>jdocbook</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-user-guide</artifactId>
-          <version>${org.exoplatform.ide.version}</version>
-          <type>pdf</type>
-        </dependency>        
-        <!-- Admin Docs -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.admin</artifactId>
-          <version>${project.version}</version>
-          <classifier>html</classifier>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.admin</artifactId>
-          <version>${project.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.xcmis</groupId>
-          <artifactId>xcmis-admin-guide</artifactId>
-          <version>${org.xcmis.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.ide</groupId>
-          <artifactId>exo-ide-admin-guide</artifactId>
-          <version>${org.exoplatform.ide.version}</version>
-          <type>pdf</type>
-        </dependency>        
-        <!-- Dev Docs -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.developer</artifactId>
-          <version>${project.version}</version>
-          <classifier>html</classifier>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.developer</artifactId>
-          <version>${project.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <!-- Ref Docs -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.refguide</artifactId>
-          <version>${project.version}</version>
-          <classifier>html</classifier>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.ecms</groupId>
-          <artifactId>exo-ecms-docs-refguide</artifactId>
-          <version>${org.exoplatform.ecms.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.cs</groupId>
-          <artifactId>exo.cs.docs.refguide</artifactId>
-          <version>${org.exoplatform.cs.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.ks</groupId>
-          <artifactId>exo.ks.docs.refguide</artifactId>
-          <version>${org.exoplatform.ks.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.social</groupId>
-          <artifactId>exo.social.docs.refguide</artifactId>
-          <version>${org.exoplatform.social.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>reference-docs-en</artifactId>
-          <version>${org.exoplatform.jcr.version}</version>
-          <type>jdocbook</type>
-        </dependency>
-        <dependency>
-          <groupId>org.gatein.doc</groupId>
-          <artifactId>gatein-reference-guide-en</artifactId>
-          <version>${org.exoplatform.portal.version}</version>
-          <type>jdocbook</type>
         </dependency>
       </dependencies>
       <build>
