@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.developer</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>eXo Platform - Developers Guide</name>
   <dependencies>
     <dependency>
@@ -37,7 +37,7 @@
             <artifactId>wikbook.maven</artifactId>
             <executions>
               <execution>
-                <phase>prepare-package</phase>
+                <phase>generate-sources</phase>
                 <goals>
                   <goal>transform</goal>
                 </goals>
@@ -60,7 +60,7 @@
             <executions>
               <execution>
                 <id>a</id>
-                <phase>prepare-package</phase>
+                <phase>generate-sources</phase>
                 <goals>
                   <goal>unpack-dependencies</goal>
                 </goals>
@@ -93,50 +93,26 @@
               <calloutsExtension>1</calloutsExtension>
               <!-- Copy any docbook XML -->
               <preProcess>
-                <copy todir="${wikbook.target}/src">
+                  <copy todir="${wikbook.target}/src">
                   <fileset dir="${wikbook.source}/en/en-US">
                     <include name="**/*.xml" />
+                  </fileset>
+                </copy>
+                <!-- copy stylesheet resources -->
+                <copy todir="${wikbook.target}/src/resources">
+                  <fileset dir="src/main/resources">
+                    <include name="**" />
                   </fileset>
                 </copy>
               </preProcess>
             </configuration>
             <executions>
               <execution>
-                <id>generate-html</id>
-                <goals>
-                  <goal>generate-html</goal>
-                </goals>
-                <phase>package</phase>
-                <configuration>
-                  <!-- Output -->
-                  <targetDirectory>${wikbook.target}/output/html</targetDirectory>
-                  <!-- Stylesheet -->
-                  <htmlCustomization>${wikbook.target}/src/resources/xsl/html.xsl</htmlCustomization>
-                  <htmlStylesheet>css/html.css</htmlStylesheet>
-                  <!-- Copy the image -->
-                  <postProcess>
-                    <copy todir="${wikbook.target}/output/html/images">
-                      <fileset dir="${wikbook.source}/images">
-                        <include name="**" />
-                      </fileset>
-                    </copy>
-                    <copy todir="${wikbook.target}/output/html">
-                      <fileset dir="${wikbook.target}/src/resources">
-                        <include name="**/*.css" />
-                        <include name="**/*.png" />
-                        <include name="**/*.gif" />
-                        <include name="**/*.jpg" />
-                      </fileset>
-                    </copy>
-                  </postProcess>
-                </configuration>
-              </execution>
-              <execution>
                 <id>generate-pdf</id>
                 <goals>
                   <goal>generate-pdf</goal>
                 </goals>
-                <phase>package</phase>
+                <phase>generate-resources</phase>
                 <configuration>
                   <!-- Output -->
                   <targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
@@ -157,7 +133,104 @@
               </dependency>
             </dependencies>
           </plugin>
+          
+          <plugin>
+            <groupId>org.jboss.maven.plugins</groupId>
+            <artifactId>maven-jdocbook-plugin</artifactId>
+            <version>2.1.1</version>
+            <executions>
+              <execution>
+                <id>jdocbook-resources</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>resources</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>jdocbook-generate</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+              </execution>
+            </executions>
+            <dependencies>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-docbook-xslt</artifactId>
+                  <version>1</version>
+               </dependency>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-jdocbook-style</artifactId>
+                  <version>1</version>
+                  <type>jdocbook-style</type>
+               </dependency>
+            </dependencies>
+            <configuration>
+               <sourceDirectory>${wikbook.target}/src</sourceDirectory>
+               <sourceDocumentName>index.xml</sourceDocumentName>
+
+               <cssResource>
+                  <directory>${wikbook.target}/src/resources</directory>
+                  <includes>
+                     <include>css/**</include>
+                  </includes>
+               </cssResource>
+               <imageResource>
+                  <directory>${wikbook.target}/src/resources</directory>
+                  <includes>
+                     <include>background/**</include>
+                     <include>images/**</include>
+                  </includes>
+               </imageResource>
+
+               <formats>
+                  <format>
+                     <formatName>html</formatName>
+                     <stylesheetResource>file:${basedir}/src/main/resources/xsl/xhtml.xsl</stylesheetResource>
+                     <finalName>index.html</finalName>
+                  </format>
+               </formats>
+               
+               <options>
+                  <xincludeSupported>true</xincludeSupported>
+                  <xmlTransformerType>saxon</xmlTransformerType>
+                  <!-- needed for uri-resolvers; can be ommitted if using 'current' uri scheme -->
+                  <!--     could also locate the docbook dependency and inspect its version... -->
+                  <docbookVersion>1.74.0</docbookVersion>
+               </options>
+
+            </configuration>
+          </plugin>
+
           <!-- Attach the HTML zip -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>exo.platform.assemblies</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>jdocbook-html-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          
+          <!-- Attach the HTML zip
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
@@ -182,7 +255,7 @@
               </execution>
             </executions>
           </plugin>
-          <!-- Attach the PDF -->
+          <!- Attach the PDF ->
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>build-helper-maven-plugin</artifactId>
@@ -204,6 +277,7 @@
               </execution>
             </executions>
           </plugin>
+           -->
         </plugins>
       </build>
     </profile>
