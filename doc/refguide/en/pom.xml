@@ -203,6 +203,10 @@
               <outputDirectory>target/plf/resources/images</outputDirectory>
               <resources>          
                 <resource><directory>target/org.exoplatform.ide.user/images</directory></resource>
+                <resource><directory>target/org.exoplatform.xcmis.admin/images</directory></resource>
+                <resource><directory>target/org.exoplatform.social/images</directory></resource>
+                <resource><directory>target/org.exoplatform.ecms/images</directory></resource>
+                <resource><directory>target/org.exoplatform.ks/images</directory></resource>
               </resources>              
             </configuration>            
           </execution>
