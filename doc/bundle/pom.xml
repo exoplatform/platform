@@ -3,18 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+    <artifactId>exo.platform.doc</artifactId>
     <version>3.0.0-GA-SNAPSHOT</version>
   </parent>
-  <groupId>org.exoplatform.platform</groupId>
-  <artifactId>exo.platform.doc</artifactId>
+  <artifactId>exo.platform.doc.bundle</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Docs</name>
-  <modules>
-    <module>admin</module>
-    <module>developer</module>
-    <module>refguide</module>
-    <module>user</module>
-    <module>bundle</module>
-  </modules>
+  <name>eXo Platform - Documentations Bundle</name>
 </project>
