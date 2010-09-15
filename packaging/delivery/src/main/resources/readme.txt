@@ -51,8 +51,8 @@ Going Further
 -------------
 Your next stop will depend on who you are:
 
-    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Documentation : docs/dev/index.html
-    * Administrators: learn how to install eXo Platform on a server in the Administrator Guide : docs/admin/administrators-guide/index.html
+    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [docs/developer/html/index.html] and the Reference Documentation [docs/refguide/html/index.html]    
+   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide : docs/admin/html/index.html
     * End Users: learn more about using the features in the User Manuals docs/user/index.html
 
 ------------------
