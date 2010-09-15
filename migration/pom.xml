@@ -10,10 +10,10 @@
   <packaging>jar</packaging>
   <name>eXo Platform - Migration Tools</name>
   <properties>
-    <org.exoplatform.kernel.version>2.2.4-GA</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.3.4-GA</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.1.4-GA</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.12.4-GA</org.exoplatform.jcr.version>
+    <org.exoplatform.kernel.version>2.0.11</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.1.9</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>1.3.7</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.10.8</org.exoplatform.jcr.version>
     <org.exoplatform.pc.version>2.0.8</org.exoplatform.pc.version>
     <org.shindig.version>0.8.1-1-r719456</org.shindig.version>
   </properties>
