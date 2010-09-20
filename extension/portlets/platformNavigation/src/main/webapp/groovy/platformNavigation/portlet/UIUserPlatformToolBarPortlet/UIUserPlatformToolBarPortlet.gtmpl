@@ -82,9 +82,9 @@ void renderLink() {
 								<a href="$accountSetting" class="AccountSettingIcon">My Account</a>				
 							</div>
 						</div>       
-						<div class="MenuItem">
+						<div class="MenuItem" onclick="$changeLanguageAction">
 							<div class="$clazz">						
-								<a href="$changeLanguageAction" class="ChangeLanguageIcon">Change Language</a>
+								<a href="#" class="ChangeLanguageIcon">Change Language</a>
 							</div>
 						</div>						
 						<div class="MenuItem" onclick="eXo.portal.logout();">
