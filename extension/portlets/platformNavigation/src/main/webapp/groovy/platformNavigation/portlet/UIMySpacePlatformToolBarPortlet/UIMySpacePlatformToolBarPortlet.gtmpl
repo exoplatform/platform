@@ -217,7 +217,7 @@
 				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
 				/** _ctx.appRes("UIMySpacesToolBarPortlet.label.myspaces")**/
 				-->
-				My Spaces
+				 <%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%>
 			  </a>
 
 		
@@ -242,7 +242,7 @@
 				<div class="SubBlock">
                        
                             <div class="MenuItem">   
-                                <a class="FindPeopleIcon" href="<%= findSpacesLink %>">Find Spaces</a>
+                                <a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
                             </div>               
                  </div>
 				<% } %>
@@ -258,7 +258,7 @@
 			<div class="SubBlock">
                        
                             <div class="MenuItem">   
-                                <a class="ManageSite" href="<%= portalURI + "groupnavigation" %>">Manage Groups</a>
+                                <a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.manage")%></a>
                             </div>               
             </div>
 			<% } %>

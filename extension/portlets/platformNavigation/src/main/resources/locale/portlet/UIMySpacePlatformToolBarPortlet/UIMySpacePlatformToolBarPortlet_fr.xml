@@ -2,10 +2,10 @@
 <bundle>
 	<UIMySpacePlatformToolBarPortlet>
 		<label>
-          My Spaces
+            Mes espaces
         </label>
-		<find>Find spaces
+		<find>Trouver des espaces
 		</find>
-		<manage>Manage groups</manage>
+		<manage>Gestion des groupes</manage>
 	</UIMySpacePlatformToolBarPortlet>
 </bundle>
