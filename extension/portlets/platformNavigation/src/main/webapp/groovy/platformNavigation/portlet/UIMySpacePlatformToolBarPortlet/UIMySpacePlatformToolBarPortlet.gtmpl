@@ -211,8 +211,17 @@
     <div class="TabsContainer">
       <div class="UITab NormalToolbarTab">
         <div class="">
-			
+		<%
+			if (renderSpacesLink()) {
+		%>
 			  <a class="EditorIcon TBIcon" href="<%= spacesLink %>">
+		
+		        <%                } 
+				else            {
+				%>
+				<a class="EditorIcon TBIcon" href="#">
+				 <%            }
+                 %>
 				<!--
 				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
 				/** _ctx.appRes("UIMySpacesToolBarPortlet.label.myspaces")**/

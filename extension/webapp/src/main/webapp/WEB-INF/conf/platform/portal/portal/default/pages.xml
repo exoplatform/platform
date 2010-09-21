@@ -96,6 +96,21 @@
 		</container>
 
 	</page>
+	<page>
+    <name>groupnavigation</name>
+    <title>Group Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>GroupNavigationPortlet</portlet-ref>
+      </portlet>
+      <title>Group Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
 	
 
 

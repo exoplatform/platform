@@ -30,5 +30,12 @@
       <label>#{portal.default.welcome}</label>
       <page-reference>portal::default::welcome</page-reference>
     </node>
+	<node>
+	    <uri>groupnavigation</uri>
+	    <name>groupnavigation</name>
+	    <label>#{portal.default.groupnavigation}</label>
+      <visibility>SYSTEM</visibility>
+	    <page-reference>portal::default::groupnavigation</page-reference>
+	</node>
   </page-nodes>
   </node-navigation>
