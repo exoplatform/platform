@@ -30,7 +30,6 @@
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
 	padding: 0 24px 0 35px; /* orientation=lt */
 	padding: 0 35px 0 24px; /* orientation=rt */
-	font-family: "Lucida Sans";
 	font-size: 12px;
 	color: #8f8f8f;
 	display: block;
@@ -130,6 +129,7 @@
 	background: none;
 	margin-left: 0;
 	zoom: 1;
+	_display:inline-block;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {

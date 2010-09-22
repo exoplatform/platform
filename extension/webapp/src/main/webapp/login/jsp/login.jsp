@@ -131,20 +131,20 @@
 			}
 
 			.UILogin .LoginContent .LoginButton .LeftButton {
-			  line-height: 25px;
+			 
 			  padding-left: 11px;
 			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') no-repeat left -242px;
 				float: left;
 			}
 
 			.UILogin .LoginContent .LoginButton .RightButton {
-			  line-height: 25px;
+			
 			  padding-right: 11px;
 			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') no-repeat right bottom;
 			}
 
 			.UILogin .LoginContent .LoginButton .MiddleButton {
-			  height: 25px; 
+			 
 			  line-height: 25px; 
 			  background: url('/platform-extension/login/jsp/images/LoginBackground.gif') center bottom;
 			}
