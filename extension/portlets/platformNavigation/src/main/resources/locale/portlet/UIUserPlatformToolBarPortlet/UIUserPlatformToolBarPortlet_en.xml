@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
-	<UIUserToolBarSpacesPortlet>
-		<title>spaces</title>
-	</UIUserToolBarSpacesPortlet>
+	<UIUserPlatformToolBarPortlet>
+		<label>
+		<activities>My Activities</activities>
+		<profile>My Profile</profile>
+		<network>My Network</network>
+		<find>Find People</find>
+		<account>My Account</account>
+		<language>Change Language</language>
+		<logout>Logout</logout>
+		
+		
+		
+		
+		
+		
+		</label>
+	</UIUserPlatformToolBarPortlet>
 </bundle>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
 	<UIUserPlatformToolBarSitePortlet>
-		<title>Mes sites</title>
+		<title>Mes Sites</title>
 		<manage>Gestion des sites</manage>
 	</UIUserPlatformToolBarSitePortlet>
 </bundle>

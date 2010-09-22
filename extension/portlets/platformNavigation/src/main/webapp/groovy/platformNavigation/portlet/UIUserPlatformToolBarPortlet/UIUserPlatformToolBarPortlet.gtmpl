@@ -14,8 +14,13 @@ def user = uicomponent.getUser();
 
 void renderLink() {
 		def portalURI = Util.getPortalRequestContext().getPortalURI();
-		def labelActivities = _ctx.appRes("UIUserToolBarPortlet.label.activities");
-		def labelProfile = _ctx.appRes("UIUserToolBarPortlet.label.profile");
+		def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
+		def labelProfile = _ctx.appRes("UIUserPlatformToolBarPortlet.label.profile");
+		def labelnetwork = _ctx.appRes("UIUserPlatformToolBarPortlet.label.network");
+		def labelpeople = _ctx.appRes("UIUserPlatformToolBarPortlet.label.find");
+		def labelaccount = _ctx.appRes("UIUserPlatformToolBarPortlet.label.account");
+		def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
+		def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
 		def remoteUser = Util.getPortalRequestContext().getRemoteUser();
 		def activitiesLink = portalURI + "activities";
 		def profileLink = portalURI + "profile/" + remoteUser;
@@ -42,7 +47,7 @@ void renderLink() {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$profileLink" class="ToolBarProfileIcon">My Profile</a>
+											<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
 										</div>
 									</div>
 								""";
@@ -50,7 +55,7 @@ void renderLink() {
 							print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$activitiesLink" class="ToolBarActivityIcon">My Activities</a>
+											<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
 										</div>
 									</div>
 								""";
@@ -58,7 +63,7 @@ void renderLink() {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$connectionLink" class="ToolBarNetworkIcon">My Network</a>
+											<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
 										</div>
 									</div>
 								""";
@@ -66,7 +71,7 @@ void renderLink() {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$directoryLink" class="FindPeopleIcon">Find People</a>
+											<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
 										</div>
 									</div>
 								""";
@@ -79,17 +84,17 @@ void renderLink() {
        			print """
 						<div class="MenuItem">
 							<div class="$clazz">						
-								<a href="$accountSetting" class="AccountSettingIcon">My Account</a>				
+								<a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>				
 							</div>
 						</div>       
 						<div class="MenuItem" onclick="$changeLanguageAction">
 							<div class="$clazz">						
-								<a href="#" class="ChangeLanguageIcon">Change Language</a>
+								<a href="#" class="ChangeLanguageIcon">$labellanguage</a>
 							</div>
 						</div>						
 						<div class="MenuItem" onclick="eXo.portal.logout();">
 							<div class="$clazz">								
-								<a href="#" class="LogoutIcon">Logout</a> 						
+								<a href="#" class="LogoutIcon">$labellogout</a> 						
 							</div>
 						</div>
 				""";				

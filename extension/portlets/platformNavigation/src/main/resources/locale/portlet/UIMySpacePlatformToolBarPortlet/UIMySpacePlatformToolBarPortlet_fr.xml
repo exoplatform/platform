@@ -2,9 +2,9 @@
 <bundle>
 	<UIMySpacePlatformToolBarPortlet>
 		<label>
-            Mes espaces
+            Mes Espaces
         </label>
-		<find>Trouver des espaces
+		<find>Trouver des Espaces
 		</find>
 		<manage>Gestion des groupes</manage>
 	</UIMySpacePlatformToolBarPortlet>
