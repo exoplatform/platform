@@ -37,7 +37,6 @@ This guide is a complete reference for customization points, and available APIs,
 <!-- Social -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.social/exo.social.docs.refguide.xml"/>
 
-<!-- IDE user and admin guides -->
+<!-- IDE user guide -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.ide.user/index.xml"/>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.ide.admin/index.xml"/>
 </set>

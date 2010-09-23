@@ -138,15 +138,6 @@
                       <outputDirectory>target/</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- IDE admin guide -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-admin-guide</artifactId>
-                      <version>${org.exoplatform.ide.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>target/</outputDirectory>
-                      <includes>**</includes>
-                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
