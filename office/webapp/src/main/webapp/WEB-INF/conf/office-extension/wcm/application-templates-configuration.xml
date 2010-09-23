@@ -44,11 +44,11 @@
         </value-param>
        
         <object-param>
-          <name>jira.notification.list.viewer</name>
+          <name>announcement.list.viewer</name>
           <description>Default folder list viewer groovy template with Big Image</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
             <field name="templateName">
-              <string>jiraNotification.gtmpl</string>
+              <string>announcement.gtmpl</string>
             </field>
             <field name="category">
               <string>list-by-folder</string>

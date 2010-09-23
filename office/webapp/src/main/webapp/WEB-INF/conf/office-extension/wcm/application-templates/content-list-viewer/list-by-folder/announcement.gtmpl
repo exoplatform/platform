@@ -1,0 +1,143 @@
+<%
+
+
+	/**
+	 	* Created by The eXo Platform SAS
+	 	* Author : eXoPlatform
+	 	* khemais.menzli@exoplatform.com
+	 	* Aug 27, 2010
+	*/
+ 
+	import javax.jcr.Node;
+
+	import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+	import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+	import org.exoplatform.wcm.webui.Utils;
+	import org.exoplatform.services.wcm.core.NodeLocation;
+  
+  
+  
+%>
+<%
+	 if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+	 %>
+		
+	 <%
+	 } else {
+	 
+%>
+<div id="$uicomponent.id" class="UICLVPresentation">
+  
+  <%  
+    String header = uicomponent.getHeader();
+    def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
+    if (isShowHeader) {
+      %><div class="Header"><%= header %></div>    <%
+    }
+  %>
+  <div class="Caption">
+    <%   
+		String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");    
+      
+        def currentPageData = uicomponent.getCurrentPageData();              
+        String labelReadMore = _ctx.appRes("UICLVPresentation.label.readmore");
+        String draftLabel = _ctx.appRes("UICLVPresentation.label.draft");
+        String editActionLabel = _ctx.appRes("UICLVPresentation.action.edit");
+        def html = "";
+		def count = 0;
+		def itemName = "";
+		def isShowTitle = "";
+		def isShowLink = "";
+		def itemLink = "";
+        for (viewNode in currentPageData) {
+			itemName = viewNode.getName();
+			if (viewNode != null && viewNode.isNodeType("nt:frozenNode")) {
+			    String nodeUUID = viewNode.getProperty("jcr:frozenUuid").getString();
+			    itemName = viewNode.getSession().getNodeByUUID(nodeUUID).getName();
+			}
+			def itemDateCreated = uicomponent.getCreatedDate(viewNode);
+			isShowTitle = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE);
+			isShowLink = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK);
+			def isShowSumary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY);
+			def isShowCreatedDate = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREATED) && itemDateCreated != null;
+			itemLink = uicomponent.getURL(viewNode);
+			html = viewNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();
+			 
+			 if (count == 0) {
+			 %>
+			  <div> 				
+					<%
+					if (isShowTitle) {
+						if (isShowLink) {
+							%><a class="TitleContentHotNews" href="<%=itemLink%>"><%=itemName%></a><%
+						} else {
+							%><%=itemName%><%
+						} 
+					}
+					
+					
+					if (isShowSumary) {
+						%><div><%=html%></div><%
+					} 
+													
+					if (isShowCreatedDate) {
+						%><div style="color: red;"><%=itemDateCreated%></div><%
+					}
+					
+					%>				
+			  </div>
+			 <%
+			 count = 1;
+			 } else {
+			 %>
+			 
+			  <div> 				
+					<%
+					if (isShowTitle) {
+						if (isShowLink) {
+							%><a class="TitleContentHotNews" href="<%=itemLink%>"><%=itemName%></a><%
+						} else {
+							%><%=itemName%><%
+						} 
+					}
+					
+					
+					if (isShowSumary) {
+						%><div><%=html%></div><%
+					} 
+													
+					if (isShowCreatedDate) {
+						%><div style="color: red;"><%=itemDateCreated%></div><%
+					}
+					
+					%>				
+			  </div>
+			 <%
+			  count = 0;
+			 }
+			
+                        
+        } //end for
+     
+    %>
+    <div class="CaptionFunc">
+      <%
+        def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
+        if (isShowRefresh) {
+          String link = uicomponent.event("Refresh");
+          %>        
+            <div class="CaptionRefresh">
+              <a href="$link">$labelRefreshAction</a>
+            </div>
+          <%
+        }
+        if (uicomponent.showPaginator()) {
+            uicomponent.renderChild(UICustomizeablePaginator.class)
+        }
+      %>
+    </div>
+  </div>
+</div>
+<%
+}
+%>
