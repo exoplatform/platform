@@ -107,7 +107,8 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-gadget-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-netvibes-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-groovy-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion));
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion)).
+        addDependency(new Project("org.apache.commons", "commons-compress", "jar", "1.0"));
    module.ide.webapp.deployName = "IDE";
    
     // acme website
