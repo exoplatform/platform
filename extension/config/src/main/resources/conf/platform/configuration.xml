@@ -13,7 +13,11 @@
         <name>default.rest.context</name>
         <value>rest</value>
       </value-param>
-      <!-- The name of the default securty realm -->
+      <value-param>
+        <name>ignore.unregistered.webapp</name>
+        <value>true</value>
+      </value-param>       
+      <!-- The name of the default security realm -->
       <value-param>
         <name>default.realm.name</name>
         <value>gatein-domain</value> <!-- TODO : use a variable -->
