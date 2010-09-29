@@ -1115,4 +1115,69 @@
       <show-application-mode>false</show-application-mode>
     </portlet-application>
   </page>
+  
+     <page>
+    <name>detail</name>
+    <title>Detail</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>presentation</application-ref>
+        <portlet-ref>SingleContentViewer</portlet-ref>
+        <preferences>
+          <preference>
+            <name>repository</name>
+            <value>repository</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>workspace</name>
+            <value>collaboration</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>nodeIdentifier</name>
+            <value>/sites content/live/intranet/web contents/site artifacts/Welcome</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowPrintAction</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowTitle</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowDate</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ShowOptionBar</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ContextEnable</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>ParameterName</name>
+            <value>content-id</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
+      </portlet>
+      <title>Detail</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
 </page-set>

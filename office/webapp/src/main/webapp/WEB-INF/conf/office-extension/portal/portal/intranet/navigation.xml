@@ -201,6 +201,13 @@
       <name>documents</name>
       <label>#{portal.intranet.documents}</label>
       <page-reference>portal::intranet::documents</page-reference>
-    </node>   
+    </node>  
+ <node>
+      <uri>detail</uri>
+      <name>detail</name>
+      <label>#{portal.intranet.detail}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::intranet::detail</page-reference>
+    </node>	
   </page-nodes>
   </node-navigation>
