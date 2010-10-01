@@ -88,33 +88,41 @@
                 <value>repository:collaboration:/sites content/live/intranet/web contents/site artifacts/announcements</value>
                 <read-only>false</read-only>
               </preference>
-              <preference>
+             <preference>
                 <name>orderType</name>
                 <value>ASC</value>
                 <read-only>false</read-only>
               </preference>
-              <preference>
-                <name>header</name>
-                <value>Last Project News</value>
-                <read-only>false</read-only>
-              </preference>
+             
               <preference>
                 <name>formViewTemplatePath</name>
                 <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/announcement.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
+              
+             
               <preference>
                 <name>basePath</name>
-                <value>parameterizedviewer</value>
+                <value>detail</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>5</value>
+                <value>100</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showTitle</name>
+                <value>false</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>showDateCreated</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showHeader</name>
                 <value>false</value>
                 <read-only>false</read-only>
               </preference>
@@ -124,15 +132,10 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
-                <name>showReadmore</name>
+                <name>showRssLink</name>
                 <value>false</value>
                 <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>showThumbnailsView</name>
-                <value>false</value>
-                <read-only>false</read-only>
-              </preference>
+              </preference>     
             </preferences>
          </portlet>
           <title>Announcement</title>
