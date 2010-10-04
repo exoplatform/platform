@@ -34,8 +34,8 @@
           </initializer>
           <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
-              <property name="jbosscache-configuration" value="conf/jcr/jbosscache/${gatein.jcr.config.type}/config.xml" />
-              <property name="jgroups-configuration" value="jar:/conf/jcr/jbosscache/cluster/udp-mux.xml" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
               <property name="jgroups-multiplexer-stack" value="true" />
               <property name="jbosscache-cluster-name" value="jcr-${container.name.suffix}-dev-monit" />
             </properties>
@@ -44,20 +44,29 @@
             <properties>
               <property name="index-dir" value="${gatein.jcr.index.data.dir}/dev-monit${container.name.suffix}"/>
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
-              <property name="jbosscache-configuration" value="conf/jcr/jbosscache/cluster/indexer-config.xml" />
-              <property name="jgroups-configuration" value="jar:/conf/jcr/jbosscache/cluster/udp-mux.xml" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
               <property name="jgroups-multiplexer-stack" value="true" />
               <property name="jbosscache-cluster-name" value="jcrindexer-${container.name.suffix}-dev-monit" />
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-          <lock-manager>
-            <time-out>15m</time-out><!-- 15min -->
-            <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-              <properties>
-                <property name="path" value="../temp/lock/dev-monit${container.name.suffix}"/>
-              </properties>
-            </persister>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcrlock-${container.name.suffix}-dev-monit" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlock_devmonit" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+            </properties>
           </lock-manager>
         </workspace>
       </workspaces>
