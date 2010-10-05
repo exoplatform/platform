@@ -77,10 +77,15 @@ a {
 /* Banner */
 .UIWorkingWorkspace #OfficeBanner {
 	background: url('background/BannerBg.jpg') no-repeat right top;
-	height: 50px;
 }
+
 .UIWorkingWorkspace #ACMEBanner {
 	margin:20px;
+}
+
+.UIWorkingWorkspace .UINavigationPortlet {
+	line-height: 14px;
+	margin-top: 17px;
 }
 
 .TxtDarkBlue {color: #28175a;}
