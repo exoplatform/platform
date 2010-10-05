@@ -112,3 +112,8 @@ a {
 .UIGadgetPortlet .gadgets-gadget {
 	width: 100%;
 }
+
+/**/
+.UIWorkingWorkspace .UIHomePagePortlet {
+	margin:0 auto;
+}
