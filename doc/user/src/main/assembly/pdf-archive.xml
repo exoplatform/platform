@@ -7,11 +7,15 @@
   <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
-      <directory>target</directory>
+      <directory>target/openoffice</directory>
       <outputDirectory></outputDirectory>
       <includes>
         <include>*.pdf</include>
       </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory></outputDirectory>
     </fileSet>
   </fileSets>
 </assembly>

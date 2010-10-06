@@ -175,8 +175,8 @@
             <groupId>com.artofsolving</groupId>
             <artifactId>jodconverter-maven-plugin</artifactId>
             <configuration>
-              <sourceDirectory>${basedir}/src/main/resources</sourceDirectory>
-              <outputDirectory>${basedir}/target</outputDirectory>
+              <sourceDirectory>${basedir}/src/main/odt</sourceDirectory>
+              <outputDirectory>${basedir}/target/openoffice</outputDirectory>
               <include>**/*.odt</include>
               <outputFormat>pdf</outputFormat>
               <port>${openoffice.server.port}</port>
