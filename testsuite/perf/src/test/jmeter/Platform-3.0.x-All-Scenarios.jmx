@@ -15,25 +15,26 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">${__P(expLoopCount,1)}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(expRampUpPeriod,1)}</stringProp>
         <longProp name="ThreadGroup.start_time">1286182347000</longProp>
         <longProp name="ThreadGroup.end_time">1286182347000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="TestPlan.comments">We have to increase COUNTER before run the test plan</stringProp>
+        <stringProp name="TestPlan.comments">start by command line: jmeter -n -t Platform-3.0.x-All-Scenarios_2.jmx -q Platform-3.0.x-All.properties</stringProp>
       </ThreadGroup>
       <hashTree>
         <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
-          <stringProp name="CounterConfig.start">90</stringProp>
-          <stringProp name="CounterConfig.end">1000000</stringProp>
+          <stringProp name="CounterConfig.start">${__P(expCountStart,${__time(MMddHHmm,CurrentDateTime)})}</stringProp>
+          <stringProp name="CounterConfig.end">12312359</stringProp>
           <stringProp name="CounterConfig.incr">1</stringProp>
           <stringProp name="CounterConfig.name">UNIQUENUMBER</stringProp>
           <stringProp name="CounterConfig.format"></stringProp>
           <boolProp name="CounterConfig.per_user">false</boolProp>
+          <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
         </CounterConfig>
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1000.Public scenario" enabled="true">
@@ -96,7 +97,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -992,39 +993,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>true</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>true</xml>
-                    <fieldNames>false</fieldNames>
-                    <responseHeaders>true</responseHeaders>
-                    <requestHeaders>true</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                  </value>
-                </objProp>
-                <stringProp name="filename">Platform-3.0.x-1000.Z.00.jtl</stringProp>
-              </ResultCollector>
-              <hashTree/>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -1057,7 +1026,7 @@
               </ResultCollector>
               <hashTree/>
             </hashTree>
-            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
               <boolProp name="ResultCollector.error_logging">false</boolProp>
               <objProp>
                 <name>saveConfig</name>
@@ -1150,7 +1119,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -1364,7 +1333,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -1458,7 +1427,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -1672,7 +1641,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                 <boolProp name="ResultCollector.error_logging">false</boolProp>
                 <objProp>
                   <name>saveConfig</name>
@@ -1706,7 +1675,7 @@
               <hashTree/>
             </hashTree>
           </hashTree>
-          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
             <stringProp name="FileSaver.filename">Platform-3.0.x-1000.Public-scenario</stringProp>
             <boolProp name="FileSaver.errorsonly">false</boolProp>
             <boolProp name="FileSaver.skipautonumber">false</boolProp>
@@ -1714,7 +1683,7 @@
             <boolProp name="FileSaver.successonly">false</boolProp>
           </ResultSaver>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -1744,6 +1713,70 @@
               </value>
             </objProp>
             <stringProp name="filename">Platform-3.0.x-1000.Z.00.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="1000.Public-scenario-Result-Table-All" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">1000.Public-scenario-Result-Table-All.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="1000.Public-scenario-Result-Table-Error" enabled="true">
+            <boolProp name="ResultCollector.error_logging">true</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">1000.Public-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -1806,7 +1839,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -1912,7 +1945,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -1998,7 +2031,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2097,7 +2130,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2191,7 +2224,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2285,7 +2318,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2379,7 +2412,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2473,7 +2506,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2567,7 +2600,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2661,7 +2694,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2755,7 +2788,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2841,7 +2874,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -2935,7 +2968,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3029,7 +3062,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3123,7 +3156,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3240,7 +3273,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3326,7 +3359,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3450,7 +3483,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3536,7 +3569,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3637,7 +3670,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3728,7 +3761,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3834,7 +3867,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -3920,7 +3953,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4014,7 +4047,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4108,7 +4141,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4202,7 +4235,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4296,7 +4329,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4390,7 +4423,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4484,7 +4517,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4578,7 +4611,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4672,7 +4705,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4766,7 +4799,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4860,7 +4893,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -4954,7 +4987,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5040,7 +5073,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5161,7 +5194,7 @@
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5251,7 +5284,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5357,7 +5390,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5447,7 +5480,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5533,7 +5566,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5683,7 +5716,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5833,7 +5866,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -5983,7 +6016,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6098,7 +6131,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6248,7 +6281,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6398,7 +6431,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6513,7 +6546,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6628,7 +6661,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6743,7 +6776,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6858,7 +6891,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -6956,7 +6989,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7084,7 +7117,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7182,7 +7215,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7294,7 +7327,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7384,7 +7417,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7588,7 +7621,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7694,7 +7727,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7800,7 +7833,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -7906,7 +7939,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8015,7 +8048,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8101,7 +8134,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8212,7 +8245,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8247,7 +8280,7 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
             <stringProp name="FileSaver.filename">Platform-3.0.x-2000.Private-scenario</stringProp>
             <boolProp name="FileSaver.errorsonly">false</boolProp>
             <boolProp name="FileSaver.skipautonumber">false</boolProp>
@@ -8255,7 +8288,7 @@
             <boolProp name="FileSaver.successonly">false</boolProp>
           </ResultSaver>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -8285,6 +8318,70 @@
               </value>
             </objProp>
             <stringProp name="filename">Platform-3.0.x-2000.Z.00.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="2000.Private-scenario-Result-Table-All" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">2000.Private-scenario-Result-Table-All.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="2000.Private-scenario-Result-Table-Error" enabled="true">
+            <boolProp name="ResultCollector.error_logging">true</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">2000.Private-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -8347,7 +8444,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8464,7 +8561,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8588,7 +8685,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8674,7 +8771,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8775,7 +8872,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8866,7 +8963,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -8983,7 +9080,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9089,7 +9186,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9179,7 +9276,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9265,7 +9362,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9415,7 +9512,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9565,7 +9662,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9715,7 +9812,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -9865,7 +9962,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10015,7 +10112,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10130,7 +10227,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10245,7 +10342,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10360,7 +10457,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10475,7 +10572,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10603,7 +10700,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10718,7 +10815,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10816,7 +10913,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -10914,7 +11011,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11026,7 +11123,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11116,7 +11213,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11320,7 +11417,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11426,7 +11523,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11532,7 +11629,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11638,7 +11735,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11672,7 +11769,7 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+            <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
               <stringProp name="FileSaver.filename">Platform-3.0.x-3000.Admin-scenario</stringProp>
               <boolProp name="FileSaver.errorsonly">false</boolProp>
               <boolProp name="FileSaver.skipautonumber">false</boolProp>
@@ -11740,7 +11837,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -11824,6 +11921,7 @@
                       <stringProp name="Argument.name">ajaxRequest</stringProp>
                       <stringProp name="Argument.value">true</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -11880,7 +11978,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12021,7 +12119,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12072,21 +12170,21 @@
                     <elementProp name="groupName" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">groupName</stringProp>
-                      <stringProp name="Argument.value">GroupCreatedByJmeter${UNIQUENUMBER}</stringProp>
+                      <stringProp name="Argument.value">GroupByJmeter${UNIQUENUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="label" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">label</stringProp>
-                      <stringProp name="Argument.value">GroupCreatedByJmeterLabel${UNIQUENUMBER}</stringProp>
+                      <stringProp name="Argument.value">Group Label${UNIQUENUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="description" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">description</stringProp>
-                      <stringProp name="Argument.value">GroupCreatedByJmeter Description ${UNIQUENUMBER}</stringProp>
+                      <stringProp name="Argument.value">Group Description ${UNIQUENUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -12153,7 +12251,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12184,6 +12282,15 @@
                   </objProp>
                   <stringProp name="filename">Platform-3.0.x-3400.A.01.jtl</stringProp>
                 </ResultCollector>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion The page exists after commit" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-246068071">class=&quot;Selected&quot;\&gt;Group Label${UNIQUENUMBER}\&lt;/a\&gt;</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
             </hashTree>
@@ -12247,7 +12354,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12364,7 +12471,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12395,6 +12502,15 @@
                   </objProp>
                   <stringProp name="filename">Platform-3.0.x-3500.B.01.jtl</stringProp>
                 </ResultCollector>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion Screen for inserting new page information appeared" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1591388529">\&lt;tr\&gt;\n[ \t]+\&lt;td[ \t]+class=&quot;FieldLabel&quot;\&gt;Node[ \t]+Name:[ \t]+\&lt;/td\&gt;\n[ \t]+\&lt;td[ \t]+class=&quot;FieldComponent&quot;\&gt;\&lt;input[ \t]+name=&apos;pageName&apos;[ \t]+type=&apos;text&apos;[ \t]+id=&apos;pageName&apos;/\&gt;[ \t]+\*\&lt;/td\&gt;\n[ \t]+\&lt;/tr\&gt;</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
             </hashTree>
@@ -12496,7 +12612,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12614,7 +12730,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12663,6 +12779,17 @@
                   <stringProp name="RegexExtractor.default">${TARGETID1}</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1643987249">[0-9]+</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">TARGETID</stringProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="/cometd/cometd" enabled="true">
@@ -12738,7 +12865,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12824,7 +12951,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -12915,7 +13042,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13039,7 +13166,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13125,7 +13252,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13270,7 +13397,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13376,7 +13503,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13462,7 +13589,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13493,6 +13620,15 @@
                   </objProp>
                   <stringProp name="filename">Platform-3.0.x-3500.I.02.jtl</stringProp>
                 </ResultCollector>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="950008675">\&lt;a class=&quot;ItemIcon DefaultPageIcon&quot; href=&quot;/portal/private/default/welcome/PagesCreatedByJmeter${UNIQUENUMBER}&quot; \&gt;PagesCreatedByJmeterDisplayName${UNIQUENUMBER}\&lt;/a\&gt;</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
             </hashTree>
@@ -13571,7 +13707,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13657,7 +13793,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+                <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
                   <boolProp name="ResultCollector.error_logging">false</boolProp>
                   <objProp>
                     <name>saveConfig</name>
@@ -13692,7 +13828,7 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="true">
+          <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file" enabled="false">
             <stringProp name="FileSaver.filename">Platform-3.0.x-3000.Admin-scenario</stringProp>
             <boolProp name="FileSaver.errorsonly">false</boolProp>
             <boolProp name="FileSaver.skipautonumber">false</boolProp>
@@ -13700,7 +13836,7 @@
             <boolProp name="FileSaver.successonly">false</boolProp>
           </ResultSaver>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -13730,6 +13866,70 @@
               </value>
             </objProp>
             <stringProp name="filename">Platform-3.0.x-3000.Z.99.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="3000.Admin-scenario-Result-Table-All" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">3000.Admin-scenario-Result-Table-All.jtl</stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="3000.Admin-scenario-Result-Table-Error" enabled="true">
+            <boolProp name="ResultCollector.error_logging">true</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename">3000.Admin-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -13768,12 +13968,17 @@
             </elementProp>
             <elementProp name="Server" elementType="Argument">
               <stringProp name="Argument.name">Server</stringProp>
-              <stringProp name="Argument.value">localhost</stringProp>
+              <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="Port" elementType="Argument">
               <stringProp name="Argument.name">Port</stringProp>
-              <stringProp name="Argument.value">8080</stringProp>
+              <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="CurrentDateTime" elementType="Argument">
+              <stringProp name="Argument.name">CurrentDateTime</stringProp>
+              <stringProp name="Argument.value"></stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
