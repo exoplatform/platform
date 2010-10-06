@@ -6,7 +6,6 @@
     <artifactId>exo.platform.doc</artifactId>
     <version>3.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.admin</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Administrator Guide</name>
@@ -102,36 +101,6 @@
               </preProcess>
             </configuration>
             <executions>
-              <!--execution>
-                <id>generate-html</id>
-                <goals>
-                  <goal>generate-html</goal>
-                </goals>
-                <phase>package</phase>
-                <configuration>
-                  <!- Output ->
-                  <targetDirectory>${wikbook.target}/output/html</targetDirectory>
-                  <!- Stylesheet ->
-                  <htmlCustomization>${wikbook.target}/src/resources/xsl/xhtml.xsl</htmlCustomization>
-                  <htmlStylesheet>${wikbook.target}/src/resources/css/html.css</htmlStylesheet>
-                  <!- Copy the image ->
-                  <postProcess>
-                    <copy todir="${wikbook.target}/output/html/images">
-                      <fileset dir="${wikbook.source}/images">
-                        <include name="**" />
-                      </fileset>
-                    </copy>
-                    <copy todir="${wikbook.target}/output/html">
-                      <fileset dir="${wikbook.target}/src/resources">
-                        <include name="**/*.css" />
-                        <include name="**/*.png" />
-                        <include name="**/*.gif" />
-                        <include name="**/*.jpg" />
-                      </fileset>
-                    </copy>
-                  </postProcess>
-                </configuration>
-              </execution-->
               <execution>
                 <id>generate-pdf</id>
                 <goals>
@@ -227,9 +196,7 @@
 
             </configuration>
          </plugin>
-
-         <!-- Attach the HTML zip -->
-         <plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <dependencies>
@@ -247,60 +214,12 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>jdocbook-html-archive.xml</descriptor>
+                    <descriptor>jdocbook-html-wikbook-pdf-archive.xml</descriptor>
                   </descriptors>
                 </configuration>
               </execution>
             </executions>
-          </plugin>
-
-          <!-- Attach the HTML zip -->
-          <!--plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>             
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>wikbook-html-archive.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin-->
-          <!-- Attach the PDF -->
-          <!--plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-artifacts</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>attach-artifact</goal>
-                </goals>
-                <configuration>
-                  <artifacts>
-                    <artifact>
-                      <file>target/wikbook/output/pdf/index.pdf</file>
-                      <type>pdf</type>
-                    </artifact>
-                  </artifacts>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin-->
+          </plugin>          
         </plugins>
       </build>
     </profile>

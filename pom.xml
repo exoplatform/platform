@@ -80,7 +80,7 @@
     <!-- ***************************************************** -->
     <!-- Plugin versions (waiting for an upgrade in exo parent -->
     <!-- ***************************************************** -->
-    <version.antrun.plugin>1.4</version.antrun.plugin>
+    <version.antrun.plugin>1.5</version.antrun.plugin>
     <!-- Slower than 2.1 version but we require some new features like classifier support in dependencySet ... -->
     <!-- See http://jira.exoplatform.org/browse/PAR-103 -->
     <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>

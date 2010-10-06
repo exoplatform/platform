@@ -31,5 +31,26 @@
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
     </dependencySet>
+    <!-- Documentation -->
+    <dependencySet>
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.bundle:war</include>
+      </includes>
+      <outputDirectory>/docs</outputDirectory>
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+      <excludes>
+        <exclude>META-INF</exclude>
+        <exclude>WEB-INF</exclude>
+      </excludes>
+    </dependencySet>
+    <dependencySet>
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.bundle:war</include>
+      </includes>
+      <outputDirectory>/bin/tomcat6-bundle/webapps/docs</outputDirectory>
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
   </dependencySets>
 </assembly>

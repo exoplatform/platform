@@ -229,55 +229,6 @@
               </execution>
             </executions>
           </plugin>
-          
-          <!-- Attach the HTML zip
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>             
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>wikbook-html-archive.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!- Attach the PDF ->
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-artifacts</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>attach-artifact</goal>
-                </goals>
-                <configuration>
-                  <artifacts>
-                    <artifact>
-                      <file>target/wikbook/output/pdf/index.pdf</file>
-                      <type>pdf</type>
-                    </artifact>
-                  </artifacts>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-           -->
         </plugins>
       </build>
     </profile>
