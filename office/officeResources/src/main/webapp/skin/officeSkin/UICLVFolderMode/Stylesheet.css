@@ -27,3 +27,8 @@
 	margin: 0 !important;
 	background: none !important;
 }
+
+
+.UICLVFolderMode .EdittingToolBarContainer {
+	width: 100px;
+}
