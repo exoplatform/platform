@@ -139,7 +139,7 @@
                       <arg line="-nologo" />
                       <arg line="-headless" />
                       <arg line="-nofirststartwizard" />
-                      <arg line="-accept=&quot;socket,host=localhost,port=${openoffice.server.port};urp;&quot;" />
+                      <arg line="-accept='socket,host=localhost,port=${openoffice.server.port};urp;'" />
                       <!-- It is important to keep ' around line parameter to use " inside -->
                     </exec>
                     <echo>Waiting for Open Office</echo>
