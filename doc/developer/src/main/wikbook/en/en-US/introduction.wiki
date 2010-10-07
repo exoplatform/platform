@@ -6,7 +6,7 @@ eXo Platform 3.0, the user experience platform for Java, is comprised of Core an
 ** _GateIn Portal_: a powerful framework for developing portlets and other web-based user interfaces
 ** _eXo Content_: extends portal-based applications with Enterprise Content Management (ECM) capabilities
 *** _eXo WCM_: web content management services
-*** _xCMIS_: an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services on top of eXo WCM
+*** _eXo CMIS_: an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services on top of eXo WCM
 *** _eXo Workflow_: integrated BPM (business process management) capabilities 
 ** _eXo IDE_: an intuitive web-based development environment that allows developers to build, test and deploy client applications (such as gadgets and mashups) and REST-ful services online
 ** _CRaSH_: enables easy browsing of JCR trees, and serves as a shell for executing JCR operations
