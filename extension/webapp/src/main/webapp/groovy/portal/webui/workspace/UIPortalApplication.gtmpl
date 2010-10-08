@@ -1,0 +1,137 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%
+  import org.exoplatform.portal.application.PortalRequestContext ;
+	import org.exoplatform.webui.core.UIComponent;
+	import java.util.Iterator;
+	import org.exoplatform.portal.webui.portal.UIPortal ;
+	import org.exoplatform.portal.config.model.PortalProperties ;
+		
+  def rcontext = _ctx.getRequestContext() ;
+  String docBase =  rcontext.getRequestContextPath() ;  
+  String skin = uicomponent.getSkin();
+  def portalSkins = uicomponent.getPortalSkins() ;
+  def portletSkins = uicomponent.getPortletSkins() ;
+  def scriptsPaths = uicomponent.getJavascriptURLs();
+  def lang = uicomponent.getLocale().getLanguage();
+  def title = rcontext.getTitle();
+  def metaInformation = rcontext.getMetaInformation();
+%>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir">
+  <head id="head">
+    <title><%=title%></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <%
+    	if(metaInformation!= null) {
+	    	Iterator<String> keys = metaInformation.keySet().iterator();
+	    	while(keys.hasNext()) {
+	    		String metaName = keys.next();
+	    		String metaContent = metaInformation.get(metaName);
+	  %>
+	   	<meta name="<%=metaName%>" content="<%=metaContent%>" />
+	  <% } } %>
+	  
+    <link rel="shortcut icon" type="image/x-icon"  href="/platform-extension/favicon.ico" />
+    <%for(skinConfig in portalSkins) {
+    def url = skinConfig.createURL();
+    url.setOrientation(orientation);
+    %>
+      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$url" />
+    <%}%>
+    <%for(portletSkin in portletSkins) {
+    def url = portletSkin.createURL();
+    url.setOrientation(orientation);
+    %>
+      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$url" />
+    <%}%>
+     <script type="text/javascript">
+     // This variable must be used only to initialize other variables otherwise
+     // please use eXo.env.portal.context or eXo.env.portal.context instead
+     // Those 2 last variables cannot be used to initialize variables because 
+     // we cannot be sure that they will be initialized before initializing your script
+      var currentContext = '<%=docBase%>' ;
+    </script>   
+    <%if(org.exoplatform.commons.utils.PropertyManager.isDevelopping()) {
+        for(path in scriptsPaths) { %>
+          <script type="text/javascript" src="<%=path%>"></script>
+    	<%}%>
+          <script type="text/javascript">
+            eXo.developing = true ;
+          </script>
+			
+    <%} else {%>
+        <script type="text/javascript" src="<%=docBase%>/javascript/merged.js"></script>
+    <%}%>
+    <script type="text/javascript">
+      eXo.env.portal.context = "<%=docBase%>" ;
+      <%if(rcontext.getAccessPath() == 0) {%>eXo.env.portal.accessMode = "public" ;<%}
+      else
+      {%>eXo.env.portal.accessMode = "private" ;<%}%>
+      eXo.env.portal.portalName = "<%=rcontext.getPortalOwner()%>" ;
+      eXo.env.server.context = "<%=docBase%>" ;
+      eXo.env.server.portalBaseURL = "<%=rcontext.getRequest().getRequestURI()%>" ;
+      eXo.env.client.skin = "$skin" ;
+      <% 
+        UIPortal portal = uicomponent.findFirstComponentOfType(UIPortal.class);
+        String sessionAliveLevel = (portal == null ? null : portal.sessionAlive) ;
+        boolean canKeepState = sessionAliveLevel == null ? false : !sessionAliveLevel.equals(PortalProperties.SESSION_NEVER) ;
+      %>
+      eXo.portal.portalMode = <%= uicomponent.getModeState() %>;
+      eXo.session.level = "$sessionAliveLevel";
+      eXo.session.canKeepState = $canKeepState;
+      eXo.session.isOpen = $uicomponent.isSessionOpen ;
+      eXo.session.itvTime = ${((PortalRequestContext)rcontext).getRequest().getSession().getMaxInactiveInterval()} ;
+    </script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/i18n/I18NMessage.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/i18n/MessageResource_<%=lang%>.js"></script>
+
+    <% 
+     def headerElements = rcontext.getExtraMarkupHeadersAsStrings();
+     if (headerElements != null) 
+     {
+       for (element in headerElements)
+       { %>
+        <%=element%>  
+    <% }
+     }     
+    %>
+  </head>
+
+  <body style="height: 100%;">
+    <% 
+      /*Hide All Popup Menu when click on document*/
+      rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.DOMUtil.hideElements');
+      //rcontext.getJavascriptManager().addOnResizeJavascript('eXo.core.UIMaskLayer.resizeMaskLayer');
+    %>
+ 
+	<div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%;">
+    	
+		<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
+      <div class="LoadingContainer">
+        <div class="CenterLoadingContainer">
+          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
+          <div class="LoadingProgressBar"><span></span></div>
+          
+          <div class="UIAction"> 
+				    <table class="ActionContainer">
+					    <tr>
+					    	<td>
+						      <div onclick="javascript:ajaxAbort();" class="ActionButton LightBlueStyle">
+						        <div class="ButtonLeft">
+						          <div class="ButtonRight">
+						            <div class="ButtonMiddle">
+						              <a href="javascript:void(0);"><%=_ctx.appRes("UIPortalApplication.label.Abort")%></a>
+						            </div>
+						          </div>
+						        </div>
+						      </div>
+						    </td>
+				      </tr>
+				 	  </table>
+					</div>
+          
+        </div>
+      </div>
+	  </div>
