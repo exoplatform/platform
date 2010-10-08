@@ -228,10 +228,6 @@
 				-->
 				 <%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%>
 			  </a>
-
-		
-			<a class="TBIcon" href="#"></a>
-
 		</div>
 
 	  <!-- Merge exoadmin:  navigation-->

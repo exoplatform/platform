@@ -246,3 +246,8 @@
 	width: 64px;
 	height: 31px;
 }
+
+.UIToolbarContainer .SpacesToolbarPortletTDContainer {
+	position:relative;
+	z-index:3;
+}
