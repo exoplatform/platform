@@ -105,7 +105,7 @@
                     <field name="firstName"><string>John</string></field>
                     <field name="lastName"><string>Smith</string></field>
                     <field name="email"><string>john.smith@acme.exoplatform.com</string></field>
-                    <field name="groups"><string>*:/platform/administrators,*:/platform/web-contributors, *:/platform/users</string></field>
+                    <field name="groups"><string>*:/platform/administrators,*:/platform/web-contributors, *:/platform/users,member:/developers</string></field>
                   </object>
                 </value>
                 <value>
