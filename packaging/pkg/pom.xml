@@ -1240,6 +1240,18 @@
       <version>1.1.1</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.eXoApplication.mail.service</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jcrom</groupId>
+      <artifactId>jcrom</artifactId>
+      <version>${org.jcrom.version}</version>
+      <type>jar</type>
+    </dependency>
   </dependencies>
   <!-- 1.1.1-->
   <!-- 2.1.0-SNAPSHOT-->
