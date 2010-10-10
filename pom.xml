@@ -13,9 +13,9 @@
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
   <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/platform/branches/3.0.x</url>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.1_REL</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.1_REL</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/platform/branches/3.0.1_REL</url>
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
