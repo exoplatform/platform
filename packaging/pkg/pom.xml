@@ -47,6 +47,7 @@
       <type>js</type>
     </dependency>
     <!-- PLATFORM -->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.server.tomcat.patch</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.1-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.module</artifactId>
@@ -1252,6 +1253,7 @@
       <version>${org.jcrom.version}</version>
       <type>jar</type>
     </dependency>
+ <dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.component.common</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.1-SNAPSHOT-->
   </dependencies>
   <!-- 1.1.1-->
   <!-- 2.1.0-SNAPSHOT-->
