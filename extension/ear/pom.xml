@@ -46,6 +46,10 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>javax.activation</groupId>
           <artifactId>activation</artifactId>
         </exclusion>
@@ -64,6 +68,22 @@
         <exclusion>
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.component.common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.frameworks.json</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -101,6 +121,14 @@
         <exclusion>
           <groupId>org.exoplatform.kernel</groupId>
           <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.container</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -172,6 +200,10 @@
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
           <artifactId>exo.jcr.component.webdav</artifactId>
         </exclusion>
         <exclusion>
@@ -186,6 +218,10 @@
           <groupId>commons-dbcp</groupId>
           <artifactId>commons-dbcp</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -194,6 +230,10 @@
       <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.database</artifactId>
@@ -217,6 +257,18 @@
         <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.xml-processing</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.webdav</artifactId>
         </exclusion>
         <exclusion>
           <groupId>commons-fileupload</groupId>
@@ -243,8 +295,32 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
+          <groupId>javax.annotation</groupId>
+          <artifactId>jsr250-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.security.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.webdav</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
         </exclusion>
         <exclusion>
           <groupId>commons-fileupload</groupId>
@@ -272,6 +348,14 @@
           <groupId>org.codehaus.groovy</groupId>
           <artifactId>groovy-all</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.container</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <!-- xCMIS dependencies -->
@@ -296,6 +380,20 @@
       <artifactId>xcmis-restatom</artifactId>
       <version>${org.xcmis.version}</version>
       <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.annotation</groupId>
+          <artifactId>jsr250-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.xcmis</groupId>
@@ -313,6 +411,12 @@
       <groupId>org.xcmis</groupId>
       <artifactId>xcmis-search-parser-cmis</artifactId>
       <version>${org.xcmis.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
+      </exclusions>
       <type>jar</type>
     </dependency>
     <dependency>
@@ -328,6 +432,10 @@
         <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.document</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
         </exclusion>
         <exclusion>
           <groupId>commons-io</groupId>
@@ -377,6 +485,10 @@
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.apache.pdfbox</groupId>
+          <artifactId>pdfbox</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -385,6 +497,10 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>jar</type>
       <exclusions>
+        <exclusion>
+          <groupId>org.apache.pdfbox</groupId>
+          <artifactId>pdfbox</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.database</artifactId>
@@ -408,6 +524,14 @@
         <exclusion>
           <groupId>org.exoplatform.core</groupId>
           <artifactId>exo.core.component.xml-processing</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.core</artifactId>
         </exclusion>
         <exclusion>
           <groupId>dom4j</groupId>
@@ -491,7 +615,7 @@
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.ecms</groupId>
-          <artifactId>exo-ecms-component-core-services</artifactId>
+          <artifactId>exo-ecms-core-services</artifactId>
         </exclusion>
         <exclusion>
           <groupId>javax.activation</groupId>
@@ -551,6 +675,12 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all-minimal</artifactId>
+      <version>1.5.4</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
       <groupId>org.apache.abdera</groupId>
       <artifactId>abdera-client</artifactId>
       <version>0.4.0-incubating</version>
@@ -583,6 +713,12 @@
       <artifactId>abdera-i18n</artifactId>
       <version>0.4.0-incubating</version>
       <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-activation_1.0.2_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.abdera</groupId>
@@ -593,6 +729,10 @@
         <exclusion>
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.woodstox</groupId>
+          <artifactId>wstx-asl</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.apache.geronimo.specs</groupId>
@@ -666,6 +806,14 @@
           <groupId>javax.activation</groupId>
           <artifactId>activation</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>stax</groupId>
+          <artifactId>stax-api</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -690,6 +838,10 @@
           <groupId>xom</groupId>
           <artifactId>xom</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -699,8 +851,8 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
-          <groupId>jakarta-regexp</groupId>
-          <artifactId>jakarta-regexp</artifactId>
+          <groupId>org.apache.lucene</groupId>
+          <artifactId>lucene-core</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
