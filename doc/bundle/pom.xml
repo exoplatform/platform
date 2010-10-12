@@ -17,21 +17,18 @@
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.admin</artifactId>
           <version>${project.version}</version>
-          <classifier>jdocbook-html-wikbook-pdf</classifier>
           <type>zip</type>
         </dependency>
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.developer</artifactId>
           <version>${project.version}</version>
-          <classifier>jdocbook-html</classifier>
           <type>zip</type>
         </dependency>
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.refguide</artifactId>
           <version>${project.version}</version>
-          <classifier>jdocbook-html</classifier>
           <type>zip</type>
         </dependency>
         <dependency>
@@ -70,15 +67,15 @@
                     <dependencyfilesets prefix="prjdeps." />
                     <mkdir dir="${project.build.directory}/work/admin" />
                     <unzip dest="${project.build.directory}/work/admin">
-                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.admin:zip:jdocbook-html-wikbook-pdf" />
+                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.admin:zip" />
                     </unzip>
                     <mkdir dir="${project.build.directory}/work/developer" />
                     <unzip dest="${project.build.directory}/work/developer">
-                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.developer:zip:jdocbook-html" />
+                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.developer:zip" />
                     </unzip>
                     <mkdir dir="${project.build.directory}/work/refguide" />
                     <unzip dest="${project.build.directory}/work/refguide">
-                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.refguide:zip:jdocbook-html" />
+                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.refguide:zip" />
                     </unzip>
                     <mkdir dir="${project.build.directory}/work/refguide/html/gatein" />
                     <unzip dest="${project.build.directory}/work/refguide/html/gatein">

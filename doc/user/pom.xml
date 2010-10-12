@@ -203,7 +203,7 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/pdf-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
                   </descriptors>
                   <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
