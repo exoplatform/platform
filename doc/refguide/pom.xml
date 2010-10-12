@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2009 eXo Platform SAS.
+    Copyright (C) 2010 eXo Platform SAS.
 
     This is free software; you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License as
@@ -129,15 +129,6 @@
                       <outputDirectory>target/</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
-                    <!-- IDE user guide -->
-                    <artifactItem>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-user-guide</artifactId>
-                      <version>${org.exoplatform.ide.version}</version>
-                      <type>zip</type>
-                      <outputDirectory>target/</outputDirectory>
-                      <includes>**</includes>
-                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
@@ -177,9 +168,6 @@
                 <configuration>
                   <outputDirectory>target/plf/resources/images</outputDirectory>
                   <resources>
-                    <resource>
-                      <directory>target/org.exoplatform.ide.user/images</directory>
-                    </resource>
                     <resource>
                       <directory>target/org.exoplatform.xcmis.admin/images</directory>
                     </resource>
@@ -225,7 +213,6 @@
             <configuration>
               <sourceDirectory>target/plf/docbook/en-US</sourceDirectory>
               <sourceDocumentName>index.xml</sourceDocumentName>
-              <imagesDirectory>${pom.basedir}/target/plf/resources/images</imagesDirectory>
               <cssResource>
                 <directory>${pom.basedir}/target/plf/resources</directory>
                 <includes>
@@ -289,13 +276,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>
             <executions>
               <execution>
                 <phase>package</phase>
@@ -304,8 +284,9 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>jdocbook-html-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
                   </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
               </execution>
             </executions>

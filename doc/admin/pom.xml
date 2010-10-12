@@ -200,11 +200,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <dependencies>
-              <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>exo.platform.assemblies</artifactId>
-                <version>${project.version}</version>
-              </dependency>
             </dependencies>
             <executions>
               <execution>
@@ -214,8 +209,9 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>jdocbook-html-wikbook-pdf-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
                   </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
               </execution>
             </executions>

@@ -7,7 +7,7 @@
     Author: Tammy Fox <tfox@redhat.com>
     Author: Andy Fitzsimon <afitzsim@redhat.com>
     Author: Mark Newton <mark.newton@jboss.org>
-    Author: Pete Muir    
+    Author: Pete Muir
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -16,13 +16,13 @@
                 exclude-result-prefixes="#default">
 
    <xsl:import href="common.xsl" />
-  
+
   <!-- Ignore image scaling in html version -->
   <xsl:param name="ignore.image.scaling" select="1"/>
-  
+
   <xsl:param name="generate.legalnotice.link" select="1"/>
   <xsl:param name="generate.revhistory.link" select="0"/>
-  
+
   <!-- This is needed to generate the correct xhtml-strict DOCTYPE on the front page.
       We can't use indentation as the algorithm inserts linebreaks into the markup
       created for callouts. This means that callouts appear on different lines than
@@ -40,12 +40,12 @@
   <xsl:param name="docLinkText" select="'Community Documentation'"/-->
 
    <xsl:param name="graphicsize.extension">0</xsl:param>
-   
+
    <!-- Placement of titles -->
    <xsl:param name="formal.title.placement">
       figure after example before equation before table before procedure before
    </xsl:param>
-   
+
    <!-- Callouts -->
    <!-- Place callout marks at this column in annotated areas. The algorithm using this number doesn't
         know about highlighted code with extra span elements so we need to pad each line at the start
@@ -54,7 +54,7 @@
         them using CSS so that they all appear in a column on the right. -->
    <xsl:param name="callout.defaultcolumn">15</xsl:param>
    <xsl:param name="callout.icon.size">17px</xsl:param>
-      
+
   <!-- Admonitions -->
   <xsl:param name="admon.style" select="''"/>
 
@@ -70,7 +70,7 @@
       code highlighting routine. This causes the callouts to appear on different lines from the code they relate to. -->
   <xsl:param name="chunker.output.indent" select="'no'"/>
 
-  <xsl:param name="html.stylesheet" select="'css/exo.css'"/>
+  <xsl:param name="html.stylesheet" select="'css/html.css'"/>
   <xsl:param name="html.stylesheet.type" select="'text/css'"/>
   <xsl:param name="html.cleanup" select="1"/>
   <xsl:param name="html.ext" select="'.html'"/>
@@ -106,8 +106,8 @@
          <xsl:apply-imports/>
       </xsl:otherwise>
       </xsl:choose>
-      
-   </xsl:template>     
+
+   </xsl:template>
 
 <!-- TOC -->
 <xsl:param name="generate.toc">
@@ -136,7 +136,7 @@ part toc
 <xsl:param name="ulink.target"/>
 <xsl:param name="table.cell.border.style"/>
 
-<!-- BUGBUG TODO 
+<!-- BUGBUG TODO
 
 	There is a bug where inserting elements in to the body level
 	of xhtml will add xmlns="" to the tag. This is invalid xhtml.
@@ -144,7 +144,7 @@ part toc
 		xmlns="http://www.w3.org/1999/xhtml"
 	to the outer most tag. This gets stripped by the parser, resulting
 	in valid xhtml ... go figure.
-  
+
     This sounds like the system used by the stylesheets to process
     DocBook 5 docs by stripping out the XML namespace before processing
     the node set as normal: http://lists.oasis-open.org/archives/docbook-apps/200701/msg00184.html
@@ -463,11 +463,11 @@ Version: 1.74.0
 </xsl:template>
 
   <xsl:template match="programlisting[@role='XML']|programlisting[@role='JAVA']|programlisting[@role='XHTML']|programlisting[@role='JSP']|programlisting[@role='CSS']">
-    
+
     <xsl:variable name="role">
       <xsl:value-of select="s:toUpperCase(string(@role))" xmlns:s="java:java.lang.String"/>
     </xsl:variable>
-    
+
     <xsl:variable name="factory" select="rf:instance()"/>
     <xsl:variable name="hiliter" select="rf:getRenderer($factory, string($role))"/>
 
@@ -478,7 +478,7 @@ Version: 1.74.0
               <xsl:choose>
                 <xsl:when test="self::text()">
                   <xsl:variable name="child.content" select="."/>
-          
+
                   <xsl:value-of select="jhr:highlight($hiliter, $role, string($child.content), 'UTF-8', true())"
             xmlns:jhr="com.uwyn.jhighlight.renderer.Renderer" disable-output-escaping="yes"/>
           </xsl:when>
@@ -514,7 +514,7 @@ Version: 1.74.0
           </xsl:otherwise>
         </xsl:choose>
       </pre>
-    
+
   </xsl:template>
 
 </xsl:stylesheet>
