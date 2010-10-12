@@ -1264,6 +1264,7 @@
       <version>${org.jcrom.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-parser</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency>
   </dependencies>
   <!-- 1.1.1-->
   <!-- 2.1.0-SNAPSHOT-->
