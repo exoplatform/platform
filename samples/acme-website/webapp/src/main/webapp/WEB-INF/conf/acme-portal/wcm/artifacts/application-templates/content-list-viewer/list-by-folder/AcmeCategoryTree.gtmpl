@@ -1,0 +1,46 @@
+<%
+public void renderCategories(def categories) {
+    for (category in categories) {
+      def categoryURL = category.getUrl();
+      def categoryTitle = category.getTitle();
+      def cssStyle = "CategoryLabel";
+      def margin = 16 * category.getDepth() + "px";
+      
+      if (category.getDepth()>0) cssStyle = "SubCategory";
+      if (category.isSelected()) cssStyle += " CategorySelected";
+      %>
+      <a class="$cssStyle" style="margin-left: $margin" href="$categoryURL" title="$categoryTitle">$categoryTitle</a>
+      <%
+      if (category.hasChilds()) renderCategories(category.getChilds());
+    }
+}
+%>
+
+<style>
+.CategorySelected {
+  color: #3366CC !important;
+}
+
+.SimpleHorizontal {
+  padding-bottom:10px;
+}
+
+</style>
+
+<div id="$uicomponent.id" class="SimpleVerticalHierachy">
+  <div class="CategoriesContainer">
+    <div class="TitleBarL">
+      <div class="TitleBarR">
+        <div class="TitleBarM">
+          <%= uicomponent.getHeader() %>
+        </div>
+      </div>
+    </div>
+    <div class="NewContent">
+      <%
+      def categories = uicomponent.getCategories();
+      renderCategories(categories);
+      %>
+    </div>
+  </div>
+</div>

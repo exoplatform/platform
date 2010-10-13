@@ -1,0 +1,176 @@
+<%
+	/**
+	 * Created by The eXo Platform SAS
+	 * Author : eXoPlatform
+	 *          chuong.phan@exoplatform.com, phan.le.thanh.chuong@gmail.com
+	 * Jun 28, 2009  
+	 */
+ 
+	import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+
+	import org.exoplatform.services.wcm.core.NodeLocation;
+	import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+	import org.exoplatform.wcm.webui.Utils;
+
+%>
+<div class="UICLVHotNews" id="$uicomponent.id"> 
+ 	<%
+		def header = uicomponent.getHeader();
+		def rssLink = uicomponent.getRssLink();
+		def isShowRssLink = uicomponent.isShowRssLink();
+	  def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;	  	
+		%>
+	  <div class="TopBoxHeader">
+			<%	
+		  if (isShowHeader) {
+				%>
+					<div class="TitleBarL">
+						<div class="TitleBarR">
+							<div class="TitleBarM">$header</div>
+						</div>
+					</div>
+				<%
+			}
+			if (isShowRssLink) {
+				%><a class="RssIcon" href="$rssLink" target="_newrss"><%= _ctx.appRes("UICLVPresentation.label.rssFeed") %></a><%
+			}
+			%>
+			<div class="ClearBoth"><span></span></div>
+		</div>		
+		
+			<div class="CaptionItem">
+				<% 
+					if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+						%>
+							<div style="height: 20px; text-align: center; font-size: 13px; background: white; padding: 10px; margin: 5px;">
+								<%= _ctx.appRes("UICLVConfig.label.content-not-found") %>
+							</div>
+						<%
+					} else {
+						def count = 0;
+						def currentPageData = uicomponent.getCurrentPageData();
+						for (viewNode in currentPageData) {
+							if(!Utils.isViewable(viewNode)) continue;
+						
+							def isShowTitle = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE);
+							def isShowDate = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREATED);
+							def isShowLink = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK);
+							def isShowReadmore = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_READMORE);
+							
+				    	def itemName = viewNode.getName();
+							def itemLink = uicomponent.getURL(viewNode);			
+
+							def itemSummary = uicomponent.getSummary(viewNode);
+							def itemTitle = uicomponent.getTitle(viewNode);
+							def itemDateCreated = uicomponent.getCreatedDate(viewNode);
+							def imgSrc = uicomponent.getIllustrativeImage(viewNode);
+
+							
+							
+							def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY) && itemSummary != null;
+							def isShowImage = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION) && imgSrc != null;
+							if (imgSrc == null) 
+								imgSrc = "/eXoWCMResources/skin/DefaultSkin/content-list-viewer-portlet/list-contents/UICLVHotNews/background/IIlustrationImages.jpg";
+							if (itemTitle != null && itemTitle.trim().length() != 0)
+								itemName = itemTitle;
+							
+							if(count == 0) { 
+							  count = 1;
+							  %>
+							  <%=uicomponent.addQuickEditDiv("HotNews", viewNode)%>							  
+								 
+										
+									<%
+										if (isShowImage) {
+											%><a class="ImageHotNews" href="$itemLink"><img width="200" alt="$imgSrc" src="$imgSrc" /></a><%
+										} 
+										%>
+										<div class="ContentHotNews">
+											<% 
+												if (isShowTitle) {
+													if (isShowLink) {
+														%><a class="TitleContentHotNews" href="$itemLink"><%= itemName %></a><%
+													} else {
+														%><%= itemName %><%
+													} 
+												}
+
+												if (isShowSummary) {
+													%><div class="Summary">$itemSummary</div><%
+												} 
+										
+												if (isShowDate) {
+													%><div class="Date">$itemDateCreated</div><%
+												}
+											%>
+										</div>
+										<div class="ClearRight"><span></span></div>
+									</div>
+									<%if (isShowReadmore) {
+										  %><div class="ReadLink"><a href="$itemLink"><%= _ctx.appRes("UICLVPresentation.label.readmore") %></a></div><%
+										}%>
+								<%
+							} else {
+								%>																
+								<%=uicomponent.addQuickEditDiv("NormalNews", viewNode)%>	
+									<%
+										if (isShowImage) {
+											%><a class="ImageNormalNews" href="$itemLink"><img width="120" alt="$imgSrc" src="$imgSrc" /></a><%
+										} 
+										%>
+										<div class="ContentNormalNews">
+											<% 
+												if (isShowTitle) {
+													%>
+														<div>
+															<%
+																if (isShowLink) {
+																	%><a class="TitleContentNormalNews" href="$itemLink"><%= itemName %></a><%
+																} else {
+																		%><%= itemName %><%
+																} 
+															%>
+														</div>
+													<%
+												}
+											
+												if (isShowSummary) {
+													%><div class="Summary">$itemSummary</div><%
+												} 
+												
+												if (isShowDate) {
+													%><div class="Date"><%=itemDateCreated%></div><%
+												} 
+											%>
+										</div>
+										<div style="clear: both;"><span></span></div>
+									</div>
+									<% if (isShowReadmore) {
+											  %><div class="ReadLink"><a href="$itemLink"><%= _ctx.appRes("UICLVPresentation.label.readmore") %></a></div>
+										<% } %>
+								<%
+							} // End is else
+						} // End for loop
+					} // End if
+				%>
+				<!-- </div> -->
+				</div>
+				<div class="CaptionFunc">
+					<% 
+						  String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");
+						  def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
+				      if (isShowRefresh) { 
+
+							%>				
+								<div class="CaptionRefresh">
+									<a href="<%=uicomponent.event("Refresh")%>"><%= _ctx.appRes("UICLVPresentation.action.refresh") %></a>
+								</div>
+							<% 
+						}
+						if (uicomponent.showPaginator()) { 
+							uicomponent.renderChild(UICustomizeablePaginator.class);
+						} 
+					%>
+					<div style="clear:left"><span></span></div>
+				</div>
+</div>

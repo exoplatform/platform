@@ -349,8 +349,8 @@
   </page>
 
   <page>
-    <name>products</name>
-    <title>Products</title>
+    <name>news</name>
+    <title>News</title>
     <access-permissions>Everyone</access-permissions>
     <edit-permission>editor:/platform/web-contributors</edit-permission>
     <container id="ACMEBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
@@ -380,12 +380,12 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/CategoryTree.gtmpl</value>
+                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/AcmeCategoryTree.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>basePath</name>
-                <value>products</value>
+                <value>news</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -458,7 +458,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/AcmeBigHotNewsTemplateCLV.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -472,8 +472,13 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>showTitle</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>showDateCreated</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -510,8 +515,8 @@
   </page>
 
   <page>
-    <name>events</name>
-    <title>Events</title>
+    <name>products</name>
+    <title>Products</title>
     <access-permissions>Everyone</access-permissions>
     <edit-permission>editor:/platform/web-contributors</edit-permission>
     <container id="ACMEBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
@@ -544,7 +549,7 @@
               </preference>
               <preference>
                 <name>basePath</name>
-                <value>events</value>
+                <value>products</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -619,7 +624,7 @@
               </preference>
               <preference>
                 <name>basePath</name>
-                <value>events</value>
+                <value>products</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
