@@ -599,7 +599,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/events</value>
+                <value>repository:collaboration:/sites content/live/acme/events/All</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -614,7 +614,12 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>EVENTS</value>
+                <value></value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>paginatorTemplatePath</name>
+                <value>/exo:ecm/views/templates/Content List Viewer/paginators/UIPaginatorEmpty.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -629,12 +634,12 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>5</value>
+                <value>6</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>showDateCreated</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
