@@ -22,7 +22,7 @@
         <longProp name="ThreadGroup.start_time">1286182347000</longProp>
         <longProp name="ThreadGroup.end_time">1286182347000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(expDuration,300)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(expDuration,3600)}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <stringProp name="TestPlan.comments">start by command line: jmeter -n -t Platform-3.0.x-All-Scenarios.jmx -q Platform-3.0.x-All.properties</stringProp>
       </ThreadGroup>
@@ -41,13 +41,15 @@
           <stringProp name="TestPlan.comments">http://${Server}:${Port}/portal/public/acme</stringProp>
         </GenericController>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1100.Goto the Acme Home page in the public mode" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1100.  ++Goto the Acme Home page in the public mode" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1100./portal/public/acme" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1110.  +/portal/public/acme" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/public/acme" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1110./portal/public/acme" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -130,11 +132,11 @@
               </ResultCollector>
               <hashTree/>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1100./portal/rest/bundle/getBundle" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1120.  +/portal/rest/bundle/getBundle" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/bundle/getBundle" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/bundle/getBundle" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="key" elementType="HTTPArgument">
@@ -203,7 +205,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -257,7 +259,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -319,7 +321,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -381,7 +383,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -443,7 +445,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -505,7 +507,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -567,7 +569,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -629,7 +631,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -691,7 +693,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -753,7 +755,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -815,7 +817,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -877,7 +879,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -931,7 +933,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -1059,13 +1061,15 @@
             </ResultCollector>
             <hashTree/>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1200.Goto the Products in the public mode" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1200.  ++Goto the Products in the public mode" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1200./portal/public/acme/products" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1210.  +/portal/public/acme/products" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200./portal/public/acme/products" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1210./portal/public/acme/products" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1152,11 +1156,11 @@
               </ResultCollector>
               <hashTree/>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1200./portal/rest/bundle/getBundle" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1220.  +/portal/rest/bundle/getBundle" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200./portal/rest/bundle/getBundle" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1220./portal/rest/bundle/getBundle" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="key" elementType="HTTPArgument">
@@ -1225,7 +1229,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1220./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1279,7 +1283,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1220./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1367,13 +1371,15 @@
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1300.Goto the Events in the public mode" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1300.  ++Goto the Events in the public mode" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1300./portal/public/acme/events" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1310.  +/portal/public/acme/events" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1300./portal/public/acme/events" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1310./portal/public/acme/events" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1460,11 +1466,11 @@
               </ResultCollector>
               <hashTree/>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1300./portal/rest/bundle/getBundle" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1320.  +/portal/rest/bundle/getBundle" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1300./portal/rest/bundle/getBundle" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1320./portal/rest/bundle/getBundle" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="key" elementType="HTTPArgument">
@@ -1533,7 +1539,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1300./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1320./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1587,7 +1593,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1300./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1320./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1715,7 +1721,7 @@
             <stringProp name="filename">Platform-3.0.x-1000.Z.00.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="1000.Public-scenario-Result-Table-All" enabled="true">
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="1000.Public-scenario-Result-Table-All" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -1779,7 +1785,7 @@
             <stringProp name="filename">${ReportFilePrefix}-1000.Public-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -1809,6 +1815,7 @@
               </value>
             </objProp>
             <stringProp name="filename">${ReportFilePrefix}-1000.Public-scenario-Summary-Report.jtl</stringProp>
+            <boolProp name="useGroupName">true</boolProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -1816,13 +1823,15 @@
           <stringProp name="TestPlan.comments">start page: http://${Server}:${Port}/portal/public/intranet</stringProp>
         </GenericController>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2100.Sign in by authenticated users" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100.  ++Sign in by authenticated users" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/public/acme" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2110.  +/portal/public/acme" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/public/acme" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110./portal/public/acme" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -1905,11 +1914,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/rest/bundle/getBundle" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2120.  +/portal/rest/bundle/getBundle" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/bundle/getBundle" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2120./portal/rest/bundle/getBundle" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="key" elementType="HTTPArgument">
@@ -2010,7 +2019,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2120./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -2097,11 +2106,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2130.  +/portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2195,7 +2204,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2289,7 +2298,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2383,7 +2392,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2477,7 +2486,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2571,7 +2580,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2665,7 +2674,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2759,7 +2768,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -2853,7 +2862,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -2939,7 +2948,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -3033,7 +3042,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -3127,7 +3136,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2130./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -3222,11 +3231,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/public/acme" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2140.  +/portal/public/acme" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/public/acme" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./portal/public/acme" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -3338,7 +3347,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/LightBlueStyle.gif" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/LightBlueStyle.gif" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -3425,11 +3434,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/login" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2150.  +/portal/login" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/login" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2150./portal/login" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -3548,7 +3557,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/private/acme" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2150./portal/private/acme" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -3634,7 +3643,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/private/j_security_check" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2150./portal/private/j_security_check" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="j_username" elementType="HTTPArgument">
@@ -3736,11 +3745,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/private/acme" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2160.  +/portal/private/acme" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/private/acme" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2160./portal/private/acme" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -3827,11 +3836,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2100./portal/rest/bundle/getBundle" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2170.  +/portal/rest/bundle/getBundle" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/bundle/getBundle" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/bundle/getBundle" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="key" elementType="HTTPArgument">
@@ -3932,7 +3941,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./ecmdemo/rest-ecmdemo/jcr/repository/collaboration/sites%20content/live/acme/web%20contents/site%20artifacts/Navigation/medias/images/CenterHilineButton.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -4018,7 +4027,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/399bab8d7f00000100b9f67ad86098b2" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4112,7 +4121,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/399b457f7f00000100345f89c483ce70" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4206,7 +4215,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5bfb8a577f00010101fabefcaa3ae7a9" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4300,7 +4309,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/399ad2f67f00000100aa37a00ca310ba" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4394,7 +4403,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5bf7299a7f000101006cf38522626e42" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4488,7 +4497,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5babc0977f00010101776c88bb722b4f" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4582,7 +4591,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5bfdb1b17f000101002dc79059f4987b" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4676,7 +4685,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/399bf3647f000001006d8fc6717e5411" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4770,7 +4779,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5b7c30597f000101018fcc5a8b151c06" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4864,7 +4873,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5b7ae97d7f000101012d10540c755819" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -4958,7 +4967,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/images/repository/collaboration/5b7bae7e7f000101008351fdc6c9f899" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="param" elementType="HTTPArgument">
@@ -5052,7 +5061,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2170./portal/rest/jcr/repository/collaboration/sites%20content/live/acme/medias/images/GlobalImages/BgPageBody.gif" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -5140,13 +5149,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2200.Goto the Intranet in the private mode" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2200.  ++Goto the Intranet in the private mode" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2200./portal/private/intranet/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2210.  +/portal/private/intranet/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/private/intranet/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/private/intranet/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -5202,7 +5213,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - MySpaces SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">MySpacesSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(MySpaces\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(MySpaces\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxMySpacesSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -5211,7 +5222,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - Tasks SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">TasksSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Tasks\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Tasks\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxTasksSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -5220,7 +5231,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - Events SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">EventsSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Events\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Events\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxEventsSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -5259,7 +5270,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/xmpp/loadJsResourceBundle/en/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/xmpp/loadJsResourceBundle/en/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -5349,7 +5360,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -5455,7 +5466,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/xmpp/getprevstatus/demo" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/xmpp/getprevstatus/demo" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -5545,7 +5556,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/xmpp/logout/demo/Unavailable" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/xmpp/logout/demo/Unavailable" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -5631,7 +5642,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -5781,7 +5792,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -5931,7 +5942,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -6081,7 +6092,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -6196,7 +6207,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -6346,7 +6357,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -6496,7 +6507,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -6611,7 +6622,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -6726,7 +6737,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -6841,7 +6852,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -6956,7 +6967,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/private/cs/calendar/getissues/20101004/Event/10" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/private/cs/calendar/getissues/20101004/Event/10" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rnd" elementType="HTTPArgument">
@@ -7054,7 +7065,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -7182,7 +7193,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/private/cs/calendar/getissues/20101004/Task/10" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/private/cs/calendar/getissues/20101004/Task/10" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rnd" elementType="HTTPArgument">
@@ -7280,7 +7291,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./social/social/rpc?st=${MySpacesSecureToken}" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./social/social/rpc?st=MySpacesSecureToken" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
@@ -7392,7 +7403,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./portal/rest/private/cs/calendar/getcalendars/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/private/cs/calendar/getcalendars/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -7482,7 +7493,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./eXoGadgetServer/gadgets/makeRequest" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./eXoGadgetServer/gadgets/makeRequest" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="url" elementType="HTTPArgument">
@@ -7686,7 +7697,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7792,7 +7803,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7898,7 +7909,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2200./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8006,13 +8017,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2300.Sign out" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2300.  ++Sign out" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2300./portal/private/intranet/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2310.  +/portal/private/intranet/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2300./portal/private/intranet/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./portal/private/intranet/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -8113,7 +8126,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2300./portal/public/intranet/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./portal/public/intranet/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -8200,11 +8213,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2300./cometd/cometd" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2320.  +/cometd/cometd" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2300./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2320./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8352,7 +8365,7 @@
             <stringProp name="filename">Platform-3.0.x-2000.Z.00.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="2000.Private-scenario-Result-Table-All" enabled="true">
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="2000.Private-scenario-Result-Table-All" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -8416,7 +8429,7 @@
             <stringProp name="filename">${ReportFilePrefix}-2000.Private-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -8431,7 +8444,7 @@
                 <threadName>true</threadName>
                 <dataType>true</dataType>
                 <encoding>false</encoding>
-                <assertions>true</assertions>
+                <assertions>false</assertions>
                 <subresults>true</subresults>
                 <responseData>false</responseData>
                 <samplerData>false</samplerData>
@@ -8446,6 +8459,7 @@
               </value>
             </objProp>
             <stringProp name="filename">${ReportFilePrefix}-2000.Private-scenario-Summary-Report.jtl</stringProp>
+            <boolProp name="useGroupName">true</boolProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -8453,13 +8467,15 @@
           <stringProp name="TestPlan.comments">start page: http://${Server}:${Port}/portal/public/intranet/</stringProp>
         </GenericController>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3100.Login by the user has administration role" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3100.  ++Login by the user has administration role" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3100./portal/public/intranet" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3110.  +/portal/public/intranet" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/public/intranet" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3110./portal/public/intranet" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -8542,11 +8558,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3100./portal/public/intranet" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3120.  +/portal/public/intranet" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/public/intranet" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3120./portal/public/intranet" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -8659,11 +8675,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3100./portal/login" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3130.  +/portal/login" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/login" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3130./portal/login" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -8782,7 +8798,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/private/intranet" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3130./portal/private/intranet" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -8868,7 +8884,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/private/j_security_check" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3130./portal/private/j_security_check" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="j_username" elementType="HTTPArgument">
@@ -8970,11 +8986,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3100./portal/private/intranet" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3140.  +/portal/private/intranet" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/private/intranet" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/private/intranet" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -9062,7 +9078,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - MySpaces SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">MySpacesSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(MySpaces\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(MySpaces\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxMySpacesSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -9071,7 +9087,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - Tasks SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">TasksSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Tasks\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Tasks\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxTasksSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -9080,14 +9096,14 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor - Events SecureToken" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">EventsSecureToken</stringProp>
-                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Events\.xml).*(&quot;secureToken&quot;:&quot;)(.*)(&quot;,&quot;categories&quot;)</stringProp>
+                  <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Events\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
                   <stringProp name="RegexExtractor.template">$4$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxEventsSecureTokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/xmpp/loadJsResourceBundle/en/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/xmpp/loadJsResourceBundle/en/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -9177,7 +9193,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9283,7 +9299,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/xmpp/getprevstatus/root" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/xmpp/getprevstatus/root" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -9373,7 +9389,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/xmpp/logout/root/Unavailable" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/xmpp/logout/root/Unavailable" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -9459,7 +9475,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -9609,7 +9625,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -9759,7 +9775,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -9909,7 +9925,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -10059,7 +10075,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/ifr" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/ifr" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="container" elementType="HTTPArgument">
@@ -10209,7 +10225,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10324,7 +10340,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10439,7 +10455,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10554,7 +10570,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10669,7 +10685,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10797,7 +10813,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/concat" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/concat" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -10912,7 +10928,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/private/cs/calendar/getissues/20101004/Event/10" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/private/cs/calendar/getissues/20101004/Event/10" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rnd" elementType="HTTPArgument">
@@ -11010,7 +11026,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/private/cs/calendar/getissues/20101004/Task/10" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/private/cs/calendar/getissues/20101004/Task/10" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="rnd" elementType="HTTPArgument">
@@ -11108,7 +11124,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./social/social/rpc?st=${MySpacesSecureToken}" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./social/social/rpc?st=MySpacesSecureToken" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
@@ -11220,7 +11236,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./portal/rest/private/cs/calendar/getcalendars/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./portal/rest/private/cs/calendar/getcalendars/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -11310,7 +11326,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./eXoGadgetServer/gadgets/makeRequest" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./eXoGadgetServer/gadgets/makeRequest" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="url" elementType="HTTPArgument">
@@ -11514,7 +11530,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -11620,7 +11636,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -11726,7 +11742,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -11842,13 +11858,15 @@
             </ResultSaver>
             <hashTree/>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3200.Goto the Community Management page" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3200.  ++Goto the Community Management page" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3200./portal/private/intranet/organization/management" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3210.  +/portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3200./portal/private/intranet/organization/management" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -11858,7 +11876,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol">http</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet/organization/management</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -11945,13 +11963,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3300.Goto the Group Management page" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3300.  ++Goto the Group Management page" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3300./portal/private/intranet/organization/management" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3310.  +/portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3300./portal/private/intranet/organization/management" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -12004,7 +12024,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol">http</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet/organization/management</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -12038,7 +12058,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/organization/management</stringProp>
+                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -12086,13 +12106,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3400.Create a new group" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3400.  ++Create a new group" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3400./portal/private/intranet/organization/management" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3410.  +/portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3400./portal/private/intranet/organization/management" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3410./portal/private/intranet/${OrgOrAdmin}/management" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -12145,7 +12167,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol">http</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet/organization/management</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -12179,7 +12201,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/organization/management</stringProp>
+                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -12226,11 +12248,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3400./portal/private/intranet/organization/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3420.  +/portal/private/intranet/${OrgOrAdmin}/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3400./portal/private/intranet/organization/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3420./portal/private/intranet/${OrgOrAdmin}/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -12269,7 +12291,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol">http</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet/organization/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/${OrgOrAdmin}/management?portal:componentId=${portalComponentId}&amp;portal:type=action&amp;uicomponent=UIGroupForm&amp;ajaxRequest=true</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -12319,7 +12341,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/organization/management</stringProp>
+                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
@@ -12368,13 +12390,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3500.Create a page by wizard (Select a page having Sitemap portlet)" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500.  ++Create a page by wizard (Select a page having Sitemap portlet)" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3510.  +/portal/private/default/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3510./portal/private/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -12414,7 +12438,7 @@
                     </elementProp>
                     <elementProp name="Referer" elementType="Header">
                       <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/organization/management</stringProp>
+                      <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet/${OrgOrAdmin}/management</stringProp>
                     </elementProp>
                     <elementProp name="Accept-Encoding" elementType="Header">
                       <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -12461,11 +12485,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3520.  +/portal/private/default/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3520./portal/private/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -12587,11 +12611,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/?portal:componentId=UIWizardPageSetInfo&amp;ajaxRequest=true" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3530.  +/portal/private/default/?portal:componentId=UIWizardPageSetInfo&amp;ajaxRequest=true" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/?portal:componentId=UIWizardPageSetInfo&amp;ajaxRequest=true" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3530./portal/private/default/?portal:componentId=UIWizardPageSetInfo&amp;ajaxRequest=true" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -12719,11 +12743,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/?portal:componentId=UIWizardPageSelectLayoutForm&amp;ajaxRequest=true" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3540.  +/portal/private/default/?portal:componentId=UIWizardPageSelectLayoutForm&amp;ajaxRequest=true" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/?portal:componentId=UIWizardPageSelectLayoutForm&amp;ajaxRequest=true" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3540./portal/private/default/?portal:componentId=UIWizardPageSelectLayoutForm&amp;ajaxRequest=true" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -12860,12 +12884,12 @@
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                   <boolProp name="Assertion.assume_success">false</boolProp>
                   <intProp name="Assertion.test_type">2</intProp>
-                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Assertion.scope">all</stringProp>
                   <stringProp name="Scope.variable">TARGETID</stringProp>
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3540./cometd/cometd" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -12971,7 +12995,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./eXoGadgets/skin/DefaultSkin/portletIcons/rssAggregator.png" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3540./eXoGadgets/skin/DefaultSkin/portletIcons/rssAggregator.png" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -13058,11 +13082,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./gatein/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3550.  +/gatein/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./gatein/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3550./gatein/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -13149,11 +13173,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3560.  +/portal/private/default/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3560./portal/private/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -13272,7 +13296,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./web/skin/DefaultSkin/portletIcons/IFramePortlet.png" enabled="false">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3560./web/skin/DefaultSkin/portletIcons/IFramePortlet.png" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -13359,11 +13383,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3570.  +/portal/private/default/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3570./portal/private/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -13504,11 +13528,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3500./portal/private/default/" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3580.  +/portal/private/default/" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3580./portal/private/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -13609,7 +13633,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3500./portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3580./portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -13706,13 +13730,15 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3600.Sign out" enabled="true"/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3600.  ++Sign out" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3600./portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3610.  +/portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3600./portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3610./portal/private/default/welcome/PagesCreatedByJmeter" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -13813,7 +13839,7 @@
                 </ResultCollector>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3600./portal/public/default/" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3610./portal/public/default/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -13941,38 +13967,6 @@
             <stringProp name="filename">Platform-3.0.x-3000.Z.99.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="3000.Admin-scenario-Result-Table-All" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>true</xml>
-                <fieldNames>false</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-              </value>
-            </objProp>
-            <stringProp name="filename">${ReportFilePrefix}-3000.Admin-scenario-Result-Table-All.jtl</stringProp>
-          </ResultCollector>
-          <hashTree/>
           <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="3000.Admin-scenario-Result-Table-Error" enabled="true">
             <boolProp name="ResultCollector.error_logging">true</boolProp>
             <objProp>
@@ -14005,7 +13999,7 @@
             <stringProp name="filename">${ReportFilePrefix}-3000.Admin-scenario-Result-Table-Error.jtl</stringProp>
           </ResultCollector>
           <hashTree/>
-          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>
@@ -14020,7 +14014,7 @@
                 <threadName>true</threadName>
                 <dataType>true</dataType>
                 <encoding>false</encoding>
-                <assertions>true</assertions>
+                <assertions>false</assertions>
                 <subresults>true</subresults>
                 <responseData>false</responseData>
                 <samplerData>false</samplerData>
@@ -14035,6 +14029,7 @@
               </value>
             </objProp>
             <stringProp name="filename">${ReportFilePrefix}-3000.Admin-scenario-Summary-Report.jtl</stringProp>
+            <boolProp name="useGroupName">true</boolProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
@@ -14073,7 +14068,7 @@
             </elementProp>
             <elementProp name="Server" elementType="Argument">
               <stringProp name="Argument.name">Server</stringProp>
-              <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
+              <stringProp name="Argument.value">${__P(expServer,192.168.3.2)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="Port" elementType="Argument">
@@ -14093,11 +14088,112 @@
             </elementProp>
             <elementProp name="ReportFilePrefix" elementType="Argument">
               <stringProp name="Argument.name">ReportFilePrefix</stringProp>
-              <stringProp name="Argument.value">${__P(expReportFilePrefix,Platform 3.0.x)}</stringProp>
+              <stringProp name="Argument.value">${__P(expReportFilePrefix,Platform-3.0.x-${__time(MMddHHmm)}}-)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="OrgOrAdmin" elementType="Argument">
+              <stringProp name="Argument.name">OrgOrAdmin</stringProp>
+              <stringProp name="Argument.value">${__P(expOrgOrAdmin,organization)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
         </Arguments>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>false</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>false</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename">${ReportFilePrefix}-9999.Summary-Report.jtl</stringProp>
+          <boolProp name="useGroupName">true</boolProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>false</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename">${ReportFilePrefix}-9999.Aggregate-Report.jtl</stringProp>
+        </ResultCollector>
         <hashTree/>
       </hashTree>
     </hashTree>
