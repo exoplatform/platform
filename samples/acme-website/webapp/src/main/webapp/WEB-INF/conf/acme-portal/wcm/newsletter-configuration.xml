@@ -33,11 +33,12 @@
         <value>acme</value>
       </values-param>
       <object-param>
-        <name>general</name>
-        <description>general</description>
+		<!-- Add "a-" in order to display this category first of all -->
+        <name>a-general</name>
+        <description>a-general</description>
         <object type="org.exoplatform.services.wcm.newsletter.NewsletterCategoryConfig">
           <field name="name">
-            <string>general</string>
+            <string>a-general</string>
           </field>
           <field name="title">
             <string>General</string>
@@ -64,7 +65,7 @@
             <string>Learn more about our offers</string>
           </field>
           <field name="categoryName">
-            <string>general</string>
+            <string>a-general</string>
           </field>
           <field name="redactor">
             <string>*:/platform/web-contributors</string>
@@ -85,7 +86,7 @@
             <string>Learn how to use your new Super Powers</string>
           </field>
           <field name="categoryName">
-            <string>general</string>
+            <string>a-general</string>
           </field>
           <field name="redactor">
             <string>*:/platform/web-contributors</string>
@@ -93,11 +94,11 @@
         </object>
       </object-param>
       <object-param>
-        <name>corporate</name>
-        <description>corporate</description>
+        <name>b-corporate</name>
+        <description>b-corporate</description>
         <object type="org.exoplatform.services.wcm.newsletter.NewsletterCategoryConfig">
           <field name="name">
-            <string>corporate</string>
+            <string>b-corporate</string>
           </field>
           <field name="title">
             <string>Corporate</string>
@@ -124,7 +125,7 @@
             <string>Monthly newsletter about our financial results and forecasts</string>
           </field>
           <field name="categoryName">
-            <string>corporate</string>
+            <string>b-corporate</string>
           </field>
           <field name="redactor">
             <string>*:/platform/web-contributors</string>
