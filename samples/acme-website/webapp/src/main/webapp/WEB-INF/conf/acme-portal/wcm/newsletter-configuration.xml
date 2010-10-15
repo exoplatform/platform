@@ -64,7 +64,7 @@
             <string>Learn more about our offers</string>
           </field>
           <field name="categoryName">
-            <string>marketing</string>
+            <string>general</string>
           </field>
           <field name="redactor">
             <string>*:/platform/web-contributors</string>
