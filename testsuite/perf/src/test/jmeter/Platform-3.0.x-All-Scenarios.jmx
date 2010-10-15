@@ -2,7 +2,7 @@
 <jmeterTestPlan version="1.2" properties="2.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Platform 3.0.x" enabled="true">
-      <stringProp name="TestPlan.comments">http://wiki-int.exoplatform.org/display/exoTesting/Platform+3.0.x+Jmeter+Scenarios+and+Scripts (3.0.0-perf-anon-plf-3.0.0-GA-perf-packaging20101004)</stringProp>
+      <stringProp name="TestPlan.comments">Please add HTTP Cookie manager first, currently it has been removed because of Jmeter plugin for maven does not support</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -15,14 +15,14 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(expRampUpPeriod,1)}</stringProp>
         <longProp name="ThreadGroup.start_time">1286182347000</longProp>
         <longProp name="ThreadGroup.end_time">1286182347000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(expDuration,3600)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(expDuration,10)}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <stringProp name="TestPlan.comments">start by command line: jmeter -n -t Platform-3.0.x-All-Scenarios.jmx -q Platform-3.0.x-All.properties</stringProp>
       </ThreadGroup>
@@ -14033,12 +14033,6 @@
           </ResultCollector>
           <hashTree/>
         </hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies"/>
-          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
-          <stringProp name="CookieManager.policy">rfc2109</stringProp>
-        </CookieManager>
-        <hashTree/>
         <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
           <boolProp name="clearEachIteration">false</boolProp>
           <boolProp name="useExpires">false</boolProp>
