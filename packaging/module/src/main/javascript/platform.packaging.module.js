@@ -79,11 +79,6 @@ function getModule(params)
    // platform commons
    module.component = {};
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version);
-  
-  //spaceAppListner
-  
-   module.component.spaceAppListner = new Project("org.exoplatform.platform", "exo.platform.component.spaceAppListner", "jar", module.version);
-   
 
 
    // office portal
