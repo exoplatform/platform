@@ -12,6 +12,5 @@
   <modules>
     <module>gifbackport</module>
     <module>common</module>
-	<module>spaceAppListner</module>
   </modules>
 </project>
