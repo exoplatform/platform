@@ -57,6 +57,7 @@ function getProduct(version) {
   product.addDependencies(platform.office.webapp);
   product.addDependencies(platform.office.officeResources);
   product.addDependencies(platform.extension.portlets.platformNavigation);
+  product.addDependencies(platform.component.spaceAppListner);
   
   // crash
   product.addDependencies(platform.crash.webapp);
