@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+  
+   <external-component-plugins>
+   	<target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>    
+
+      <component-plugin> 
+        <name>manage.drive.plugin</name>
+        <set-method>setManageDrivePlugin</set-method>
+        <type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+        <description>Nothing</description>
+        <init-params>
+          <object-param>        
+            <name>User's Share</name>
+            <description>Document managements</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Shared Users Space</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/users</string></field>
+              <field  name="homePath"><string>/Users</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>simple-view</string>
+              </field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+														<field name="allowNodeTypesOnTree"><string>*</string></field> 
+            </object>
+          </object-param> 
+          <object-param>        
+            <name>Private</name>
+            <description>Private drive</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Private</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>${userId}</string></field>
+              <field  name="homePath"><string>/Users/${userId}/Private</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>Timeline-View-document</string>
+              </field>
+              <field  name="viewPreferences"><boolean>true</boolean></field>
+              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>true</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param>                                                                                  
+          <object-param>        
+            <name>Public</name>
+            <description>Public drive</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Public</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/users</string></field>
+              <field  name="homePath"><string>/Users/${userId}/Public</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>simple-view, admin-view</string>
+              </field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param>
+          <object-param>        
+            <name>DMS Administration</name>
+            <description>DMS system data area</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>DMS Administration</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>dms-system</string></field>
+              <field  name="permissions"><string>*:/platform/administrators</string></field>
+              <field  name="homePath"><string>/</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>icon-view, simple-view, admin-view, cover-flow</string>
+              </field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param>
+          
+          <object-param>        
+            <name>DMS Trash</name>
+            <description>DMS trash area</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Trash</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/administrators</string></field>
+              <field  name="homePath"><string>/Trash</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>icon-view, simple-view, cover-flow</string>
+              </field>
+              <field  name="viewPreferences"><boolean>true</boolean></field>
+              <field  name="viewNonDocument"><boolean>true</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param>
+          
+          <object-param>        
+            <name>Group's Share</name>
+            <description>Document managements</description>
+            <object type="org.exoplatform.services.cms.drives.DriveData">
+              <field  name="name"><string>Shared Groups Space</string></field>
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="permissions"><string>*:/platform/users</string></field>
+              <field  name="homePath"><string>/Groups</string></field>
+              <field  name="icon"><string></string></field>
+              <field  name="views">
+                <string>simple-view</string>
+              </field>
+              <field  name="viewPreferences"><boolean>false</boolean></field>
+              <field  name="viewNonDocument"><boolean>false</boolean></field>
+              <field  name="viewSideBar"><boolean>true</boolean></field>
+              <field  name="showHiddenNode"><boolean>false</boolean></field>
+              <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
+              <field name="allowNodeTypesOnTree"><string>*</string></field>       
+            </object>
+          </object-param> 
+          
+        </init-params>  
+      </component-plugin> 
+
+   </external-component-plugins>
+</configuration>

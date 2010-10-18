@@ -1056,7 +1056,7 @@
           </preference>
           <preference>
             <name>usecase</name>
-            <value>selection</value>
+            <value>jailed</value>
             <read-only>false</read-only>
           </preference>
           <preference>
