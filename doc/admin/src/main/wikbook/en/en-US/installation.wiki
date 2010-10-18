@@ -132,6 +132,38 @@ h2. Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.x
    </category>
 {code}
 
+h2. Configure your datasources
+
+You have to configure how you access your database through datasources.
+The files where you can edit these properties are:
+* configuration.properties
+* gatein-ds.xml
+
+*configuration.properties:*
+
+The variable {{gatein.data.dir}} is set in the run.conf properties, so you can comment this line.
+{noformat}
+#gatein.data.dir=../gatein/data
+{noformat}
+
+The datasource names are generated differently in Tomcat and in Jboss. In Jboss, rename them like:
+{code}
+gatein.jcr.datasource.name=java:exo-jcr
+...
+gatein.idm.datasource.name=java:exo-idm
+{code}
+
+*gatein-ds.xml:*
+
+The name of the datasources in the previous file must match the name defined in gatein-ds.xml:
+* rename the datasources {{gatein-...}} into {{exo-...}}
+* change the connection url
+{code:xml}
+      <jndi-name>exo-idm_portal</jndi-name>
+      <connection-url>jdbc:hsqldb:${gatein.data.dir}/hsql/exo-idm_portal</connection-url>
+{code}
+Do the same for the datasource {{exo-jcr}}.
+
 h2. Startup
 
 * On Linux and OS X:   {screen}$JBOSS_HOME/bin/run.sh{screen}
