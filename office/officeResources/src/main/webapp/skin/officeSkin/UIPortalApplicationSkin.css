@@ -30,7 +30,7 @@
 }
 
 body {
-	background: white;
+	background: white !important;
 	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 }
