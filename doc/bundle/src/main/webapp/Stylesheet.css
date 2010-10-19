@@ -1,0 +1,108 @@
+body {
+	background:transparent url(background/BannerRepeat.gif) repeat-x top;
+	font-family:Lucida Sans;
+	font-size:12px;
+	height:100%;
+	margin:0px;
+	overflow-x:hidden;
+	padding:0 20px;
+}
+
+/* ClearFix */	
+.ClearFix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.ClearFix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .ClearFix {height: 1%;}
+.ClearFix {display: block;}
+/* End hide from IE-mac */ 
+
+
+/*######################### Banner #############################*/
+
+
+.Banner2{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left top;
+	height: 125px;
+}
+
+h1 {
+ font-weight: normal;
+ padding-left: 8px;
+}
+
+h2 {
+ margin: 10px 0 0 10px;
+}
+
+a, .LightBlueText{
+	color:#6180ff;
+}
+
+.LightOrangeText{
+	color:#fbad18;
+}
+
+.footer{
+	padding: 8px 0px;
+	text-align: right;
+	color: #898989;
+    width: 932px;
+}
+
+ul{
+	padding-left: 20px;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+ul li{
+	color:#6180ff;
+	font-size:12px;
+	font-weight:normal;
+	list-style:square outside none;
+}
+
+ul ul {
+  margin-top: 2px;
+}
+
+.Doc {
+	background: #f3f3f3;
+	-webkit-border-radius:5px;
+	-moz-border-radius: 5px;
+	padding:12px;
+	margin-left: 8px;
+    width: 932px;
+}
+
+.Doc .Admin{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -435px;
+	width: 307px;
+	height: 180px;
+	float: left;
+	margin-right: 5px;
+}
+
+.Doc .Dev{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -615px;
+	width: 307px;
+	height: 180px;
+	float: left;
+	margin-right: 5px;
+}
+
+.Doc .User{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -795px;
+	width: 307px;
+	height: 180px;
+	float: left;
+}
+
