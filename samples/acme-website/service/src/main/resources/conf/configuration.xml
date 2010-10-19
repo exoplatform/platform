@@ -19,7 +19,7 @@
 				</value-param>
 				<object-param>
 					<name>change</name>
-					<object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependenciesBefore">
+					<object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
 						<!-- The list of name of the dependencies to add -->
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
@@ -27,11 +27,7 @@
 									<string>acme-portal</string>
 								</value>
 							</collection>
-						</field>
-						<!-- The name of the target dependency -->
-						<field name="target">
-							<string>platform-extension</string>
-						</field>						
+						</field>					
 					</object>
 				</object-param>				
 			</init-params>
