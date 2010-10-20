@@ -206,3 +206,5 @@ For example:
 JavascriptService.addJavascript("eXo.myproject.Jquery", "/javascript/eXo/myproject/jquery.js", ServletContext);
 {code}
 
+h1. How to create custom look and feel
+{include:document="customize/How_to_create_custom_look_and_feel.wiki"}
