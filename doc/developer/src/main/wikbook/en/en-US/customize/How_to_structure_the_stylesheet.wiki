@@ -1,0 +1,154 @@
+h2. Overview
+The complete skinning of a page can be decomposed into three main parts:
+
+*Portal Skin*
+
+The portal skin contains the  styles for html tags (ex div,th,td...) and the portal UI (including the toobar). This should include all the UI components except for the window decorators and portlet specific styles.
+
+*Window Styles*
+
+The CSS styles associated with the porlet window decorators. The window decorators contain
+the control buttons and borders surrounding each portlet. Individual portlets can have their
+own window decorator selected, or be rendered without one.
+
+!window_decoration.jpg!
+
+*Portlet Skins*
+
+The portlet skins effect how portlets are rendered on the page. There are two main ways this can be affected:
+
+- Portlet Specification CSS Classes
+The [portlet specification|http://jcp.org/en/jsr/detail?id=286] defines a set of css classes that should be available to portlets.
+Platform provides these classes as part of the portal skin. This allows each portal skin
+to define its own look and feel for these default values.
+
+- Portlet Skins
+Platform provides a means for portlet CSS files to be loaded based on the current portal
+skin. This allows a portlet to provide different CSS styles to better match the current portal
+look and feel. 
+
+{note}
+The window decorators and the default portlet specification CSS classes should be
+considered separate types of skinning components, but they need to be included
+as part of the overall portal skin. The portal skin must include these component´s
+CSS classes or they will not be displayed correctly.
+A portlet skin doesn't need  to be  included as part of  the portal skin and can be
+included within the portlets web application.
+{note}
+
+h2. Best practices to customize a skin
+The skin folder structure must be prepared as soon as you start the design. Follow these conventions and best practices to ease the integration of your design in Platform.
+
+h3. How to name files and folder?*
+
+The id and class names are named after the WebUI components name and portlets name with the 'UI-'as prefix. The same rule is applied for folder that contains the components and portlets. It will help you find and edit the correct files easily. ie: 
+UI portlet will be named like:
+UIFooterPortlet, UIBannerPortlet,etc
+UI component will be named like:
+UIToolbarContainer, UIVerticalTab, etc
+
+h3. The folder structure*
+
+*Portal skin*
+The portal skin will appear as a single link to a CSS file. This link will contain contents from all
+the portal skin classes merged into one file. This allows the portal skin to be transfered more
+quickly as a single file instead of many smaller files included with every page render.
+
+* *The general folder structure for portal skin:*
+
+{{/webapp/skin/NameOfPortalSkin/portal}}
+
+ie: 
+
+{{/webapp/skin/DefaultSkin/portal}}
+
+* *The main entry CSS file:*
+
+The main entry CSS file hould be placed right in the main portal skin folder.The file is the main entry point to the CSS class definitions for the skin: 
+
+{{/webapp/skin/NameOfPortalSkin/Stylesheet.css}} 
+
+ie : 
+
+{{/webapp/skin/SkinBlue/Stylesheet.css}}
+
+* *The folder structure for WebUI components:* 
+
+{{/webapp/skin/SkinBlue/webui/component/YourUIComponentName}}
+
+ie:  
+
+{{/webapp/skin/SkinBlue/webui/component/UIToolbarContainer}}
+
+* *Window decorator CSS is put in:*
+
+{{webapp/skin/PortletThemes/Stylesheet.css}}
+
+* *Where to put images for portal skin?*
+
+The images for portal skin should be put in the background foler right in the Portal skin folder and for each UI component.
+
+ie:
+
+ {{/webapp/skin/SkinBlue/webui/component/UIProfileUser/SkinBlue/background}}
+
+In summary, the folder structure for a new portal skin should be:
+
+webapp
+- skin
+-- NameOfPortalSkin
+--- stylesheet.css
+--- webui 
+---- component
+----- UIComponentName
+------ NameOfPortalSkin.css
+------ NameOfPortalSkin
+------- background
+
+ie:
+
+webapp
+- skin
+-- DefaultSkin
+--- stylesheet.css
+--- webui
+---- UISpaceSearch
+----- DefaultSkin.css
+----- DefaultSkin
+------ background
+
+*Portlet skin*
+
+Each portlet on a page may contribute its own style. The link to the portlet skin will only appear
+on  the page  if  that portlet  is  loaded on  the current page. A page may contain many portlet
+skin CSS links or none. The link ID will be named like {portletAppName}{PortletName}. For example: ContentPortlet in {{content.war}}, will give {{id="contentContentPortlet"}}
+
+* *The general folder structure for portlet skin:* 
+
+{{/webapp/skin/portlet/webui/component/YourUIPortletName}}
+
+and for groovy skin: {{/webapp/groovy/portlet/webui/component/YourUIPortletName/}}
+
+ie:  
+
+{{/webapp/skin/portlet/webui/component/UIBannerPortlet}}
+
+{{/webapp/groovy/portlet/webui/component/UIBannerPortlet}}
+
+* *Portlet images folder:*
+
+{{/webapp/skin/portlet/YourUIPortletName/PortalSkinName/background}}
+
+ie: 
+
+{{/webapp/skin/portlet/UIBannerPortlet/BlueSkin/background}}
+
+* *Portlet themes*
+
+Main entry css:{{/webapp/skin/PortletThemes/Stylesheet.css}}
+
+{{/webapp/skin/PortletThemes/background}}
+
+{{/webapp/skin/PortletThemes/icons}}
+
+
