@@ -20,7 +20,7 @@
       <!-- The name of the default security realm -->
       <value-param>
         <name>default.realm.name</name>
-		<value>gatein-domain</value> 
+		<value>${exo.security.domain}</value> 
       </value-param>
       <object-param>
         <name>default.portal.definition</name>

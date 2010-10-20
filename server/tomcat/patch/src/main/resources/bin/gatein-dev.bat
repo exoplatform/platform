@@ -27,7 +27,7 @@ cd %BIN_DIR%
 rem Sets some variables
 set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
 set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
-set EXO_OPTS=-Dexo.product.developing=true -Dexo.conf.dir.name=gatein\conf
+set EXO_OPTS=-Dexo.product.developing=true -Dexo.conf.dir.name=gatein\conf -Dexo.security.domain=gatein-domain
 set EXO_CONFIG_OPTS=-Dorg.exoplatform.container.configuration.debug
 set REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n
 set EXO_PROFILES=-Dexo.profiles=default
