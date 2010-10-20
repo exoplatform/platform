@@ -119,8 +119,6 @@ REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspen
 EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
 JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
 {code}
-- You can use another implementation of SAX by changing the class names in the {noformat}EXO_XML{noformat} variable, for example: {{com.sun.xml.internal.stream.XMLOutputFactoryImpl}}
-- To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} in the {noformat}JAVA_OPTS{noformat} variable
 
 On *Windows*, at these lines at the end of {{jboss-root/bin/run.conf.bat}}:
 {code}
@@ -131,6 +129,10 @@ set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,su
 set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
 set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
+
+*Adapt to your needs:*
+- You can use another implementation of SAX by changing the class names in the {noformat}EXO_XML{noformat} variable, for example: {{com.sun.xml.internal.stream.XMLOutputFactoryImpl}}
+- To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} in the {noformat}JAVA_OPTS{noformat} variable
 
 h2. Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.xml}}
 {code:xml}
