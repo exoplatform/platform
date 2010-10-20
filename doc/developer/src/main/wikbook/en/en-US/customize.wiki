@@ -207,11 +207,12 @@ JavascriptService.addJavascript("eXo.myproject.Jquery", "/javascript/eXo/myproje
 {code}
 
 h1. Add/remove languages
-All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Information of each language consists of key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ file with keys specified in the _locale-config.xml_ file.
+All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Information of each language consists of key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ files with keys specified in the _locale-config.xml_ file.
+
 All languages defined in the _locale-config.xml_ file will be listed in the *Interface Language Settings*. 
 
 h2. Add a new language
-To add a new language, you need to add the desired language node in the _locale-config.xml_ file, then create a new _resource bundle_ file containing the suffix name as key of the added node.
+To add a new language, you need to add the desired language node in the _locale-config.xml_ file. Next, you will create a new _resource bundle_ file containing the suffix name as key of the added node.
 
 For example, to add Italian, do as follows:
 
@@ -225,17 +226,18 @@ For example, to add Italian, do as follows:
 </locale-config>
 {code}
 
-*Step 2:* Create a new _.properties_ file as *webui_en.properties* in the portal.war/WEB-INF/classes/locale/portal folder. 
+*Step 2:* Create a new _resource bundle_ as *{{{webui_it.properties}}}* in the _myextension.war/WEB-INF/classes/locale/portal_ folder. 
 
 {note}
-This step is necessary because the Resource Bundle Service of the portal will find keys and values in the _resource bundle_ file of each corresponding language. 
+This step is necessary because the Resource Bundle Service of the portal will find keys and values in the _resource bundle_ of each corresponding language. 
 {note}
 
 *Step 3:* Restart the server.
 
-To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, you will see the added Italian as shown:
+To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, you will see Italian as shown:
 
 !example_addItalian.png!
+
 *Illustration 1: Italian display on Interface Language Setting*
 
 h2. Remove languages
@@ -261,10 +263,11 @@ It is recommended to do this step to delete unnecessary data in the application.
  
 *Step 3:* Restart the server.
 
-To check if the removed language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, French as shown on Illustration 1 has not existed on the Interface Language Setting window. 
+To check if the removed language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, French as shown in the *Illustration 1* has not existed on the *Interface Language Setting* window. 
 
 !example_removeFrench.png!
+
 *Illustration 2: Interface Language Setting without French*
-=======
+
 h1. How to create custom look and feel
 {include:document="customize/How_to_create_custom_look_and_feel.wiki"}

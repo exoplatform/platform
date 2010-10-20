@@ -2,7 +2,7 @@ GateIn 3.1 provides support for skinning the entire User Interface (UI) of porta
 
 h2. Select skins within the configuration files
 The default skin can be set in the portal configuration files. The skin configured as default is used by GateIn as the administrator starts/restarts the server.
-To change the default skin, add a skin tag to the _portal.war/WEB-INF/conf/portal/portal/classic/portal.xml_ configuration file.
+To change the default skin, add a skin tag to the _myextension.war/WEB-INF/conf/portal/portal/classic/portal.xml_ configuration file.
 To change the skin to MySkin, do as follows:
 
 {code}
