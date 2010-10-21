@@ -14,13 +14,13 @@ h4. Java APIs
 * *[Cache|http://localhost:8080/docs/refguide/html/jcr/ch-cache.html]*: An API used for data caching.
 * *[Event and Listener|http://localhost:8080/docs/refguide/html/jcr/ch-understanding-listeners-service.html]*: An API for listening and sending events within eXo Platform.
 * *[Organization|http://localhost:8080/docs/refguide/html/jcr/ch-organization-service.html]*: An API and SPI for accessing user, group and membership information.
-* *[Portal Container Definition|http://localhost:8080/docs/refguide/html/jcr/ch-how-to-extend-my-gatein-instance.html#d0e16935]*: This API is used to configure your portal.
-* *[Request Life Cycle|http://localhost:8080/docs/refguide/html/jcr/ch-kernel-container-configuration.html#d0e12473]*: This API provides information about the request status when developing an application.
-* *[Taxonomy|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e5581]*: An API that allows you to organize your content.
-* *[Link Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e6620]*: An API that provides a way to manage links when developing WCM features.
-* *[Publication Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7052]*: An API that provides different ways to manage the publication of content when developing WCM features.
-* *[WCM Composer|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7233]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
-* *[Template WCM|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e9411]*: An API to provide views and dialogs to node types (system or document).
+* *[Portal Container Definition|http://localhost:8080/docs/refguide/html/jcr/ch-how-to-extend-my-gatein-instance.html#d0e16962]*: This API is used to configure your portal.
+* *[Request Life Cycle|http://localhost:8080/docs/refguide/html/jcr/ch-kernel-container-configuration.html#d0e12486]*: This API provides information about the request status when developing an application.
+* *[Taxonomy|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e5652]*: An API that allows you to organize your content.
+* *[Link Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e6688]*: An API that provides a way to manage links when developing WCM features.
+* *[Publication Management|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7122]*: An API that provides different ways to manage the publication of content when developing WCM features.
+* *[WCM Composer|http://localhost:8080/docs/refguide/html/bk02ch06.html#d0e7303]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
+* *[Template WCM|http://localhost:8080/docs/refguide/html/bk02ch03.html]*: An API to provide views and dialogs to node types (system or document).
 * *[XML Configuration|http://localhost:8080/docs/refguide/html/jcr/ch-services-wiring.html]*: A set of DTD for configuring the platform.
 
 h4. JavaScript APIs
@@ -35,9 +35,9 @@ h4. Web Services
 h3. Provisional APIs
 h4. Java APIs
 * UI Extensions: An API to plug new actions into the eXo Platform UI.
-** [FileExplorer Toolbar|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5374]
-** [ECM Admin|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5374]
-** [Activity Sharing|http://localhost:8080/docs/refguide/html/bk07ch04.html#d0e18807]
+** [FileExplorer Toolbar|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5445]
+** [ECM Admin|http://localhost:8080/docs/refguide/html/bk02ch05.html#d0e5445]
+** [Activity Sharing|http://localhost:8080/docs/refguide/html/bk07ch03.html#d0e27049]
 
 h2. Definitions of API Levels
 
