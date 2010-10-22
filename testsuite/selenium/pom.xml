@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>exo.platform.testsuite</artifactId>
+    <groupId>org.exoplatform.platform</groupId>
+    <version>3.0.1-SNAPSHOT</version>
+  </parent>
+<!--
+   <parent>
+      <groupId>org.exoplatform.test</groupId>
+      <artifactId>TO_CHANGE.parent</artifactId>
+      <version>0.9.1</version>
+  </parent>
+-->
+  <groupId>org.exoplatform.test</groupId>
+  <artifactId>selenium</artifactId>
+  <version>0.9.1</version>
+  <packaging>jar</packaging>
+  <name>Selenium Sniff Test for selenium</name>
+  <description>Automated UI tests for selenium</description>
+
+  <properties>
+    <org.selenium.server.version>1.0.1</org.selenium.server.version>
+    <org.selenium.maven-plugin.version>1.0.1</org.selenium.maven-plugin.version>
+    <org.exoplatform.selegen.version>0.9.1-SNAPSHOT</org.exoplatform.selegen.version>
+
+    <!-- configuration values for Selegen -->
+    <selenium.port>8444</selenium.port><!-- 4444 (selenium RC default) is used by JBoss -->
+    <selenium.browser>firefox</selenium.browser>
+    <selenium.timeout>10000</selenium.timeout>
+    <selenium.speed>300</selenium.speed>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.utils.selegen</groupId>
+      <artifactId>selegen-core</artifactId>
+      <version>${org.exoplatform.selegen.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+      <artifactId>selenium-java-client-driver</artifactId>
+      <version>${org.selenium.server.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium.server</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>${org.selenium.server.version}</version>
+    </dependency>
+
+    <!-- eXo User Extensions -->
+    <dependency>
+      <groupId>org.exoplatform.utils.selegen</groupId>
+      <artifactId>user-extension</artifactId>
+      <version>${org.exoplatform.selegen.version}</version>
+      <type>js</type>
+    </dependency>
+    
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>selenium</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>add-test-source</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>add-test-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>${project.build.directory}/generated/test</source>
+                  </sources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          
+          <!-- get the user-extension attached with selegen -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeTypes>js</includeTypes>
+              <stripVersion>true</stripVersion>
+              <outputDirectory>${project.build.directory}/selenium</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+          
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>generate-test-sources</phase>
+                <goals>
+                  <goal>java</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <mainClass>org.exoplatform.selenium.SeleniumTestCaseGenerator</mainClass>
+              <arguments>
+                <argument>${project.basedir}/src/suite</argument>
+                <argument>${project.build.directory}/generated/test</argument>
+              </arguments>
+            </configuration>
+          </plugin>
+          
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>selenium-maven-plugin</artifactId>
+            <version>${org.selenium.maven-plugin.version}</version>
+            <executions>
+              <execution>
+                <phase>pre-integration-test</phase>
+                <goals>
+                  <goal>start-server</goal>
+                </goals>
+                <configuration>
+                  <background>true</background>
+                  <logFile>${project.build.directory}/server.log</logFile>
+                  <logOutput>true</logOutput>
+                  <userExtensions>${project.build.directory}/selenium/user-extension.js</userExtensions>
+                  <port>${selenium.port}</port>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>integration-test</phase>
+                <goals>
+                  <goal>test</goal>
+                </goals>
+                <configuration>
+                  <skip>false</skip>
+                  <includes><include>**/selenium/Test_*.java</include></includes>
+                  <systemProperties>
+                    <property>
+                      <name>selenium.port</name>
+                      <value>${selenium.port}</value>
+                    </property>
+                    <property>
+                      <name>selenium.browser</name>
+                      <value>${selenium.browser}</value>
+                    </property>
+                    <property>
+                      <name>selenium.speed</name>
+                      <value>${selenium.speed}</value>
+                    </property>
+                    <property>
+                      <name>selenium.timeout</name>
+                      <value>${selenium.timeout}</value>
+                    </property>
+                  </systemProperties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-report-plugin</artifactId>
+			<version>2.5</version>
+			<executions>
+				<execution>
+					<phase>post-integration-test</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+					<configuration>
+						<skip>false</skip>
+						<outputName>SeleniumReport-${maven.build.timestamp}</outputName>
+						<outputDirectory>${basedir}/target/tests.exoplatform.org</outputDirectory>
+					</configuration>
+				</execution>
+			</executions>
+		  </plugin>
+		  
+        </plugins>
+      </build>
+
+    </profile>
+  </profiles>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-report-plugin</artifactId>
+			<version>2.5</version>
+			<configuration>
+				<skip>false</skip>
+				<outputName>SeleniumReport-${maven.build.timestamp}</outputName>
+				<outputDirectory>${basedir}/target/tests.exoplatform.org</outputDirectory>		
+			</configuration>
+		</plugin>
+	</plugins>
+  </reporting>
+  
+  
+</project>
