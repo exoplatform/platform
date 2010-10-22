@@ -30,7 +30,7 @@ look and feel.
 {note}
 The window decorators and the default portlet specification CSS classes should be
 considered separate types of skinning components, but they need to be included
-as part of the overall portal skin. The portal skin must include these component´s
+as part of the overall portal skin. The portal skin must include these component's
 CSS classes or they will not be displayed correctly.
 A portlet skin doesn't need  to be  included as part of  the portal skin and can be
 included within the portlets web application.

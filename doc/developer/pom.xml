@@ -193,7 +193,7 @@
                     <directory>${wikbook.target}/plf-doc/resources</directory>
                     <includes>
                       <include>background/**</include>
-                      <include>images/**</include>
+                      <include>images/*</include>
                     </includes>
                   </imageResource>
                 </configuration>
@@ -217,7 +217,7 @@
                     <directory>${wikbook.target}/ide-doc/resources</directory>
                     <includes>
                       <include>background/**</include>
-                      <include>images/**</include>
+                      <include>images/*</include>
                     </includes>
                   </imageResource>
                 </configuration>
@@ -291,6 +291,10 @@
                   <formatName>html</formatName>
                   <stylesheetResource>file:${project.basedir}/src/main/resources/xsl/xhtml.xsl</stylesheetResource>
                   <finalName>index.html</finalName>
+                </format>
+                <format>
+                  <formatName>pdf</formatName>
+                  <finalName>index.pdf</finalName>
                 </format>
               </formats>
               <options>
