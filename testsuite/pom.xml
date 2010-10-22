@@ -11,5 +11,6 @@
   <name>eXo Platform - Tests</name>
   <modules>
     <module>perf</module>
+    <module>selenium</module>
   </modules>
 </project>
