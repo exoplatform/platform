@@ -114,3 +114,7 @@ a {
 .UIWorkingWorkspace .UIHomePagePortlet {
 	margin:0 auto;
 }
+
+.UIWorkingWorkspace .UIPresentationContainer a:hover {
+	text-decoration: none;
+}
