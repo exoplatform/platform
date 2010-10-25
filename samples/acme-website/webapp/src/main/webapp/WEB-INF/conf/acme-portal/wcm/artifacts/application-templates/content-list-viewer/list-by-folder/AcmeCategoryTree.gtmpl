@@ -29,18 +29,28 @@ public void renderCategories(def categories) {
 
 <div id="$uicomponent.id" class="SimpleVerticalHierachy">
   <div class="CategoriesContainer">
-    <div class="TitleBarL">
-      <div class="TitleBarR">
-        <div class="TitleBarM">
-          <%= uicomponent.getHeader() %>
-        </div>
-      </div>
-    </div>
-    <div class="NewContent">
-      <%
-      def categories = uicomponent.getCategories();
-      renderCategories(categories);
-      %>
-    </div>
+	<div class="TL">
+		<div class="TR">
+		  <div class="TC"><span></span></div>
+		</div>
+	  </div>
+	  <div class="ML">
+		<div class="MR">
+		  <div class="MC">
+			<div class="Txt"><%= uicomponent.getHeader() %> </div>
+			<div class="NewContent">
+			  <%
+			  def categories = uicomponent.getCategories();
+			  renderCategories(categories);
+			  %>
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div class="BL">
+	  <div class="BR">
+		<div class="BC"><span></span></div>
+	  </div>
+	</div>
   </div>
 </div>
