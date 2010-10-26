@@ -19,12 +19,12 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.0.1</version>
   </parent>
   <artifactId>exo.platform.doc.developer</artifactId>
   <packaging>pom</packaging>
@@ -106,40 +106,40 @@
                 </goals>
                 <configuration>
                   <target>
-                    <dependencyfilesets prefix="prjdeps."/>
+                    <dependencyfilesets prefix="prjdeps." />
                       <!-- Unpack docbokk style from wikbook for PLF developer guide -->
-                    <mkdir dir="${wikbook.target}/plf-doc/resources"/>
+                    <mkdir dir="${wikbook.target}/plf-doc/resources" />
                     <unzip dest="${wikbook.target}/plf-doc/resources">
-                      <fileset refid="prjdeps.org.wikbook:wikbook.docbkxstyle:jar"/>
+                      <fileset refid="prjdeps.org.wikbook:wikbook.docbkxstyle:jar" />
                       <patternset>
-                        <exclude name="**/META-INF/**"/>
+                        <exclude name="**/META-INF/**" />
                       </patternset>
                     </unzip>
                       <!-- Unpack docbokk style from wikbook for IDE developer guide -->
-                    <mkdir dir="${wikbook.target}/ide-doc/resources"/>
+                    <mkdir dir="${wikbook.target}/ide-doc/resources" />
                     <unzip dest="${wikbook.target}/ide-doc/resources">
-                      <fileset refid="prjdeps.org.wikbook:wikbook.docbkxstyle:jar"/>
+                      <fileset refid="prjdeps.org.wikbook:wikbook.docbkxstyle:jar" />
                       <patternset>
-                        <exclude name="**/META-INF/**"/>
+                        <exclude name="**/META-INF/**" />
                       </patternset>
                     </unzip>
                       <!-- Unpack docbook files for IDE developer guide -->
-                    <mkdir dir="${wikbook.target}/ide-doc"/>
+                    <mkdir dir="${wikbook.target}/ide-doc" />
                     <unzip dest="${wikbook.target}/ide-doc">
-                      <fileset refid="prjdeps.org.exoplatform.ide:exo-ide-user-guide:zip"/>
+                      <fileset refid="prjdeps.org.exoplatform.ide:exo-ide-user-guide:zip" />
                       <patternset>
-                        <exclude name="**/images/**"/>
+                        <exclude name="**/images/**" />
                       </patternset>
-                      <mapper type="regexp" from="^org.exoplatform.ide.user/(.*)$" to="\1"/>
+                      <mapper type="regexp" from="^org.exoplatform.ide.user/(.*)$" to="\1" />
                     </unzip>
                       <!-- Unpack images for IDE developer guide -->
-                    <mkdir dir="${wikbook.target}/ide-doc/resources"/>
+                    <mkdir dir="${wikbook.target}/ide-doc/resources" />
                     <unzip dest="${wikbook.target}/ide-doc/resources">
-                      <fileset refid="prjdeps.org.exoplatform.ide:exo-ide-user-guide:zip"/>
+                      <fileset refid="prjdeps.org.exoplatform.ide:exo-ide-user-guide:zip" />
                       <patternset>
-                        <include name="**/images/**"/>
+                        <include name="**/images/**" />
                       </patternset>
-                      <mapper type="regexp" from="^org.exoplatform.ide.user/(.*)$" to="\1"/>
+                      <mapper type="regexp" from="^org.exoplatform.ide.user/(.*)$" to="\1" />
                     </unzip>
                   </target>
                 </configuration>
@@ -164,7 +164,7 @@
               <destinationDirectory>${wikbook.target}/plf-doc</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
               <emitDoctype>true</emitDoctype>
-              <beforeBookBodyXML>&lt;xi:include href=&quot;bookinfo.xml&quot; xmlns:xi=&quot;http://www.w3.org/2001/XInclude&quot; /&gt;</beforeBookBodyXML>
+              <beforeBookBodyXML>&lt;xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /&gt;</beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
