@@ -167,7 +167,6 @@
 	              	<value><string>/platform/administrators</string></value>
 	              	<value><string>/platform/users</string></value>
 	              	<value><string>/platform/guests</string></value>
-	              	<value><string>/organization/management/executive-board</string></value>	              
 	              </collection>
 	            </field>
 	            <field  name="ownerType"><string>group</string></field>
