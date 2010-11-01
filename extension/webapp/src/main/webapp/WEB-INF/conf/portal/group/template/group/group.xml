@@ -69,6 +69,15 @@
  		<page-body>
  		</page-body>
 
+	<portlet-application>
+	   <portlet>
+         <application-ref>chatbar</application-ref>
+         <portlet-ref>ChatBarPortlet</portlet-ref>
+       </portlet>
+       <access-permissions>*:/platform/users</access-permissions>
+       <show-info-bar>false</show-info-bar>      
+    </portlet-application>
+	 
     <portlet-application>
       <portlet>
         <application-ref>presentation</application-ref>
