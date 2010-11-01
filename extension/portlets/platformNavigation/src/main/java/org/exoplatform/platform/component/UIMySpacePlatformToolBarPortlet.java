@@ -144,7 +144,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
           return true;
         }
       }
-      return true;
+      return false;
     }
 
 }
