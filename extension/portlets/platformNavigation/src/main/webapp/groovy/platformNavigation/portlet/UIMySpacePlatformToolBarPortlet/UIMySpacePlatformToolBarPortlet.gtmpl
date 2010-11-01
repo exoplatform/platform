@@ -41,7 +41,7 @@
   def portalURI = Util.getPortalRequestContext().getPortalURI();
   def spacesLink = portalURI + "spaces";
   def findSpacesLink = portalURI + "publicSpace";
-  boolean hasPermission = uicomponent.hasPermission();
+  boolean hasPermission = uicomponent.hasPermission(groupNavigations);
  
 
   void renderSpacePageNavigation(PageNavigation navigation) {

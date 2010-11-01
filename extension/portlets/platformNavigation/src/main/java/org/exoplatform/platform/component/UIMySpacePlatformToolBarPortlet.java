@@ -136,26 +136,15 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         return result;
     }
 
-    public boolean hasPermission() throws Exception {
+    public boolean hasPermission(List<PageNavigation> groupNavigationsList) throws Exception {
       UIPortalApplication portalApp = Util.getUIPortalApplication();
       UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
-      return userACL.hasCreatePortalPermission();
-    }  
-    
-
-    // --- Merging Group navigation PLF-488
-
-   /* public List<PageNavigation> getGroupNavigations() throws Exception {
-        String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-        //List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
-        List<PageNavigation> allNavigations = Util.getUIPortalApplication().getNavigations();
-        List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-        for (PageNavigation navigation : allNavigations) {
-            if (navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) {
-                navigations.add(PageNavigationUtils.filter(navigation, remoteUser));
-            }
+      for (PageNavigation pageNavigation : groupNavigationsList) {
+        if(userACL.hasEditPermission(pageNavigation)){
+          return true;
         }
-        return navigations;
-    }*/
+      }
+      return true;
+    }
 
 }
