@@ -104,3 +104,6 @@ In configuration.properties:
     * comment out the variable gatein.data.dir
     * change the value of jcr and idm datasource name to java:exo-jcr and java:exo-idm respectively
 
+Configure SSO (needed for IDE gadget)
+    * in $jboss.server.home.dir/deploy/jbossweb.sar/server.xml uncomment line:
+      <Valve className="org.apache.catalina.authenticator.SingleSignOn" /> 
