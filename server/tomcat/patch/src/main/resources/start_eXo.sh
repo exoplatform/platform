@@ -18,19 +18,24 @@
 # 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 #
 
-#Production Script to launch GateIn
-#See gatein-dev.sh for development starup
-
 # Computes the absolute path of eXo
 cd `dirname "$0"`
 
-# Sets some variables
-LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
-SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
-EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
-#EXO_PROFILES="-Dexo.profiles=default"
-JAVA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_PROFILES"
-export JAVA_OPTS
+echo Starting eXo ...
 
-# Launches the server
-exec "$PRGDIR"./catalina.sh "$@"
+cd ./bin
+
+if [ "$1" = "" ] ; then 
+	EXO_PROFILES="-Dexo.profiles=default"
+else
+	EXO_PROFILES="-Dexo.profiles=$1"
+fi
+
+
+echo eXo is launched with the $EXO_PROFILES option as profile
+
+if [ -r ./gatein.sh ]; then
+	exec ./gatein.sh run
+else
+	echo gatein.sh is missing.
+fi
