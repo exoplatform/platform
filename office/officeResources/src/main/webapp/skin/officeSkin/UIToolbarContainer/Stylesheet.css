@@ -179,7 +179,7 @@
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .AccountSettingIcon {
+.UIWorkingWorkspace .UIToolbarContainer .MenuItem .AccountSettingIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
