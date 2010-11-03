@@ -66,6 +66,36 @@
                     <field  name="description"><string>validator membership type</string></field>
                   </object>
                 </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>editor</string></field>
+                    <field name="description"><string>editor membership type</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>redactor</string></field>
+                    <field name="description"><string>redactor membership type</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>webdesigner</string></field>
+                    <field name="description"><string>webdesigner membership type</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>author</string></field>
+                    <field name="description"><string>author membership type</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>publisher</string></field>
+                    <field name="description"><string>publisher membership type</string></field>
+                  </object>
+                </value>
               </collection>
             </field>
 
@@ -102,74 +132,78 @@
                     <field  name="description"><string>the /platform/guests group</string></field>
                     <field  name="label"><string>Guests</string></field>
                   </object>
-                </value>   
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                    <field name="name"><string>web-contributors</string></field>
+                    <field name="parentId"><string>/platform</string></field>
+                    <field name="description"><string>the /platform/web-contributors group</string></field>
+                    <field name="label"><string>Web Contributors</string></field>
+                  </object>
+                </value>
               </collection>
             </field>
 
-            <field  name="user">
+            <field name="user">
               <collection type="java.util.ArrayList">
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>root</string></field>
-                    <field  name="password"><string>gtn</string></field>
-                    <field  name="firstName"><string>Root</string></field>
-                    <field  name="lastName"><string>Root</string></field>
-                    <field  name="email"><string>root@localhost</string></field>
-                    <field  name="groups">
-                      <string>
-                      	manager:/platform/administrators,member:/platform/users,
-                      	
-                      </string>
-                    </field>
+                    <field name="userName"><string>root</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>Root</string></field>
+                    <field name="lastName"><string>Root</string></field>
+                    <field name="email"><string>root@localhost</string></field>
+                    <field name="groups"><string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,</string></field>
                   </object>
                 </value>
                 
                 <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">            
-					<field name="userName"><string>john</string></field>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>john</string></field>
                     <field name="password"><string>gtn</string></field>
                     <field name="firstName"><string>John</string></field>
-                    <field name="lastName"><string>Smith</string></field>
-                    <field name="email"><string>john.smith@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>
-                      	member:/platform/administrators,member:/platform/users,
-                      
-                      </string>
-                    </field>
+                    <field name="lastName"><string>Anthony</string></field>
+                    <field name="email"><string>john@localhost</string></field>
+                    <field name="groups"><string>*:/platform/administrators,*:/platform/web-contributors, *:/platform/users</string></field>
                   </object>
-                </value>                                                        
+                </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                  <field name="userName"><string>mary</string></field>
+                    <field name="userName"><string>mary</string></field>
                     <field name="password"><string>gtn</string></field>
                     <field name="firstName"><string>Mary</string></field>
-                    <field name="lastName"><string>Williams</string></field>
-                    <field name="email"><string>mary.williams@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>member:/platform/users</string>
-                    </field>
+                    <field name="lastName"><string>Kelly</string></field>
+                    <field name="email"><string>mary@localhost</string></field>
+                    <field name="groups"><string>member:/platform/users,editor:/platform/web-contributors,manager:/platform/web-contributors,publisher:/platform/web-contributors</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field name="userName"><string>james</string></field>
+                    <field name="password"><string>gtn</string></field>
+                    <field name="firstName"><string>James</string></field>
+                    <field name="lastName"><string>Anderson</string></field>
+                    <field name="email"><string>james@localhost</string></field>
+                    <field name="groups"><string>member:/platform/users,redactor:/platform/web-contributors,author:/platform/web-contributors</string></field>
                   </object>
                 </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field name="userName"><string>demo</string></field>
                     <field name="password"><string>gtn</string></field>
-                    <field name="firstName"><string>Jack</string></field>
-                    <field name="lastName"><string>Miller</string></field>
-                    <field name="email"><string>jack.miller@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>member:/platform/guests,member:/platform/users</string>
-                    </field>
+                    <field name="firstName"><string>Demo</string></field>
+                    <field name="lastName"><string>Demo</string></field>
+                    <field name="email"><string>demo@localhost</string></field>
+                    <field name="groups"><string>member:/platform/users</string></field>
                   </object>
-                </value>                       
+                </value>
               </collection>
             </field>
           </object>
         </object-param>
       </init-params>
     </component-plugin>
-           
+
     <component-plugin>
       <name>new.user.event.listener</name>
       <set-method>addListenerPlugin</set-method>
