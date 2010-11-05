@@ -34,8 +34,8 @@
     <org.exoplatform.ecms.version>2.1.2-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.1.2-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.commons.version>1.0.2-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.gwtframework.version>1.0.1-SNAPSHOT</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.0.1-SNAPSHOT</org.exoplatform.ide.version>
+    <org.exoplatform.gwtframework.version>1.0.2-SNAPSHOT</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.0.2-SNAPSHOT</org.exoplatform.ide.version>
     <org.xcmis.version>1.1.1-SNAPSHOT</org.xcmis.version>
     <org.crsh.version>1.0.0-beta12</org.crsh.version>
     <org.exoplatform.exopackage.version>1.1.0</org.exoplatform.exopackage.version>
