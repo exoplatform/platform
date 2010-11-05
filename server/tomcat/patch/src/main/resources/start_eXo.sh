@@ -34,6 +34,8 @@ fi
 
 echo eXo is launched with the $EXO_PROFILES option as profile
 
+export EXO_PROFILES
+
 if [ -r ./gatein.sh ]; then
 	exec ./gatein.sh run
 else
