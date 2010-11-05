@@ -8,7 +8,7 @@
   </parent>
   <artifactId>exo.platform.packaging.assembly</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Packaging Assemblies</name>
+  <name>eXo Platform - Packaging Assembly</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>
@@ -47,6 +47,7 @@
       <type>js</type>
     </dependency>
     <!-- PLATFORM -->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.server.tomcat.patch</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.1-SNAPSHOT--> 
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.module</artifactId>
@@ -170,6 +171,34 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-jbpm-content</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    <!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-content-webui</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    <!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-content-plugin</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    <!-- 2.1.0-GA-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-ext-workflow-bp-content-publication</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    
     <!-- main portal container config -->
     <!--dependency>
 		    <groupId>org.exoplatform.platform</groupId>
@@ -1212,7 +1241,30 @@
       <version>1.1.1</version>
       <type>jar</type>
     </dependency>
+ <dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.component.common</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.1-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.office.config</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.office.webapp</artifactId><version>${project.version}</version><type>war</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.sample.acme-website.webapp</artifactId><version>${project.version}</version><type>war</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.office.officeResources</artifactId><version>${project.version}</version><type>war</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.extension.portlets.platformNavigation</artifactId><version>${project.version}</version><type>war</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.extension.config</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.sample.acme-website.config</artifactId><version>${project.version}</version><type>jar</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.platform</groupId><artifactId>exo.platform.extension.webapp</artifactId><version>${project.version}</version><type>war</type></dependency><!-- 3.0.2-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.cs</groupId><artifactId>exo.cs.eXoApplication.calendar.service</artifactId><version>${org.exoplatform.cs.version}</version><type>jar</type></dependency><!-- 2.1.2-SNAPSHOT-->
     <!-- 1.1.1-->
+    <dependency>
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.eXoApplication.mail.service</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jcrom</groupId>
+      <artifactId>jcrom</artifactId>
+      <version>${org.jcrom.version}</version>
+      <type>jar</type>
+    </dependency>
+
   </dependencies>
   <!-- 2.1.0-SNAPSHOT-->
   <build>
