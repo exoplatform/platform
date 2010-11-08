@@ -31,9 +31,9 @@
 <style type="text/css">
 .PinToolbarContainer{
 	background: url('/officeResources/skin/toolbarPin/pin.png') no-repeat;
-	margin-top:3px;
-	width:40px;
-	height:40px;
+	height: 25px;
+	margin: 6px 0 0 12px;
+	width: 31px;
 	cursor: hand;
 }
 </style>
@@ -64,7 +64,7 @@
 		}
 		else{
 			element.style.background = "url('/officeResources/skin/toolbarPin/unpin.png') no-repeat";
-			document.getElementById('$parentId').setAttribute('style', 'position:fixed;min-width:980px;width:1350px');
+			document.getElementById('$parentId').setAttribute('style', 'position:fixed;min-width:980px;width:100%');
 			//show the empty div
 			var EmptyDiv =document.getElementById('EmptyDivID');
 			if (null == EmptyDiv){
