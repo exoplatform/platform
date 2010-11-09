@@ -21,8 +21,8 @@
 -->
 
 <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-	<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl" id="PlatformAdminToolbarContainer">
-		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl" id="UIToolbarContainer">
+	<container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
+		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
 			<access-permissions>*:/platform/users</access-permissions>
 
 			<!--
@@ -37,8 +37,6 @@
 		  </portlet-application>
 		</container>
 		-->		
-			<container id="PinToolbarContainer" template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
-			</container>
 			<container id="UserToolBarSitePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<portlet-application>
 					<portlet>

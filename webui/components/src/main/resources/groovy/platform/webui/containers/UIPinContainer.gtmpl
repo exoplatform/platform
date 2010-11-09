@@ -1,8 +1,6 @@
 <%
 	import org.exoplatform.commons.utils.ExpressionUtil;
 	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-
-	String actionLink = uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned())) - "javascript:";
 %>
 <style type="text/css">
 	.PinToolbarContainer {
@@ -13,8 +11,10 @@
 	}
 </style>
 <div id="<%=uicomponent.getId()%>">
-	<div class="PinToolbarContainer FloatLeft" onclick="<%=actionLink%>">
-		<img src="<%=uicomponent.isPinned() ? "/officeResources/skin/toolbarPin/unpin.png":"/officeResources/skin/toolbarPin/pin.png"%>"/>
+	<div class="PinToolbarContainer FloatLeft">
+		<a href="<%=uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned()))%>">
+			<img src="<%=uicomponent.isPinned() ? "/officeResources/skin/toolbarPin/unpin.png":"/officeResources/skin/toolbarPin/pin.png"%>"/>
+		</a>
 	</div>
 
 	<script type="text/javascript">
