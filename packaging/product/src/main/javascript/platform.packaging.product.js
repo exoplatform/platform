@@ -100,6 +100,7 @@ function getProduct(version) {
   product.addDependencies(cs.web.csResources); // csResources.war
   product.addDependencies(cs.web.webservice); // exo.cs.web.webservice-2.0.0-SNAPSHOT.jar
   product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
+  product.addDependencies(new Project("org.exoplatform.cs", "exo.cs.ext.social-integration", "jar", cs.version));
 
   /* KS */
   
@@ -111,7 +112,7 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
   product.addDependencies(ks.web.ksResources); // ksResources.war
   product.addDependencies(ks.extension.webapp); // ks-extension.war
-  
+  product.addDependencies(new Project("org.exoplatform.ks", "exo.ks.ext.social-integration", "jar", ks.version));
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
   
 
