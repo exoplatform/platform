@@ -21,11 +21,11 @@
 -->
 
 <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-	<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
-	  <access-permissions>*:/platform/users</access-permissions>
+	<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl" id="PlatformAdminToolbarContainer">
+		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl" id="UIToolbarContainer">
+			<access-permissions>*:/platform/users</access-permissions>
 
-
-		<!--
+			<!--
 		<container id="StarToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		  <portlet-application>
         <portlet>
@@ -37,31 +37,31 @@
 		  </portlet-application>
 		</container>
 		-->		
-		<container id="PinToolbarContainer" template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
-		</container>
-		<container id="UserToolBarSitePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-        <portlet>
-          <application-ref>platformNavigation</application-ref>
-          <portlet-ref>UIUserPlatformToolBarSitePortlet</portlet-ref>
-        </portlet>
-	      <access-permissions>*:/platform/users</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
+			<container id="PinToolbarContainer" template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
+			</container>
+			<container id="UserToolBarSitePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIUserPlatformToolBarSitePortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 
-		<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-			<portlet>
-			  <application-ref>platformNavigation</application-ref>
-			  <portlet-ref>UIMySpacePlatformToolBarPortlet</portlet-ref>
-			</portlet>
-			<access-permissions>Everyone</access-permissions>
-			<show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
+			<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIMySpacePlatformToolBarPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>Everyone</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 
-		<!--
+			<!--
 		<container id="UserToolBarGroupPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		  <portlet-application>
         <portlet>
@@ -73,29 +73,29 @@
 		  </portlet-application>
 		</container>
 		-->
-		<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-        <portlet>
-          <application-ref>exoadmin</application-ref>
-          <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
-        </portlet>
-	      <access-permissions>*:/platform/users</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
-		<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-        <portlet>
-          <application-ref>presentation</application-ref>
-          <portlet-ref>WCMAdminToolbarPortlet</portlet-ref>
-        </portlet>
-	      <access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
+			<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>exoadmin</application-ref>
+						<portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
+			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>presentation</application-ref>
+						<portlet-ref>WCMAdminToolbarPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 
 
-	<!--
+			<!--
 	<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <portlet-application>
         <portlet>
@@ -108,26 +108,27 @@
     </container>
 	-->
 
-		<container id="EditingPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-        <portlet>
-          <application-ref>presentation</application-ref>
-          <portlet-ref>EditingPortlet</portlet-ref>
-        </portlet>
-	      <access-permissions>*:/platform/administrators; *:/platform/web-contributors</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
-		</container>
+			<container id="EditingPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>presentation</application-ref>
+						<portlet-ref>EditingPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/administrators; *:/platform/web-contributors</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 
-		<container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		  <portlet-application>
-        <portlet>
-          <application-ref>platformNavigation</application-ref>
-          <portlet-ref>UIUserPlatformToolBarPortlet</portlet-ref>
-        </portlet>
-	      <access-permissions>*:/platform/users</access-permissions>
-		    <show-info-bar>false</show-info-bar>
-		  </portlet-application>
+			<container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIUserPlatformToolBarPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 		</container>
 
 
