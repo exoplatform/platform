@@ -56,6 +56,11 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.webui.components</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.product</artifactId>
       <version>${project.version}</version>
       <type>js</type>
