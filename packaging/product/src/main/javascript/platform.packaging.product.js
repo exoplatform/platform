@@ -79,6 +79,7 @@ function getProduct(version) {
   product.addDependencies(dms.portlet.ecmbrowsecontent);
   product.addDependencies(dms.gadgets);
 
+  product.addDependencies(wcm.core.war);
   product.addDependencies(wcm.extension.war);
   product.addDependencies(wcm.portlet.webpresentation);
   product.addDependencies(wcm.portlet.websearches); 

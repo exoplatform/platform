@@ -119,6 +119,9 @@
                 <string>ecmadmin</string>
               </value>
               <value>
+                <string>ecm-wcm-core</string>
+              </value>
+              <value>
                 <string>ecm-wcm-extension</string>
               </value>
               <value>
