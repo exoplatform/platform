@@ -374,6 +374,12 @@
       <version>${org.exoplatform.commons.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.webui.ext</artifactId>
+      <version>${org.exoplatform.commons.social.version}</version>
+      <type>jar</type>
+    </dependency>
     <!-- 3.0.0-Beta01-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.social</groupId>
@@ -1264,7 +1270,6 @@
       <version>${org.jcrom.version}</version>
       <type>jar</type>
     </dependency>
-    <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-parser</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency>
 
   </dependencies>
   <!-- 2.1.0-SNAPSHOT-->
