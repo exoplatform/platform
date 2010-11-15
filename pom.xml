@@ -81,8 +81,7 @@
     <org.gatein.shindig.version>1.0-r790473-Patch04</org.gatein.shindig.version>
     <org.testng.version>5.10</org.testng.version>
     <asm.version>1.5.3</asm.version>
-    <org.slf4j.version>1.5.6</org.slf4j.version>
-    <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
+    <org.slf4j.version>1.5.8</org.slf4j.version>
     <org.jcrom.version>1.2</org.jcrom.version>
     <!-- ***************************************************** -->
     <!-- Plugin versions (waiting for an upgrade in exo parent -->
