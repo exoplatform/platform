@@ -2,7 +2,7 @@
 <jmeterTestPlan version="1.2" properties="2.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF-SocialTest-3.0.x" enabled="true">
-      <stringProp name="TestPlan.comments">rev61547 Please add HTTP Cookie manager</stringProp>
+      <stringProp name="TestPlan.comments">Please add cookies manager before run</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -12,7 +12,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="VUser" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
@@ -19595,19 +19595,25 @@
               <message>true</message>
               <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>false</encoding>
+              <encoding>true</encoding>
               <assertions>true</assertions>
               <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
               <fieldNames>true</fieldNames>
               <responseHeaders>true</responseHeaders>
               <requestHeaders>true</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
             </value>
           </objProp>
           <stringProp name="filename">${ReportFilePrefix}-9999-ResultsTree-Error.jtl</stringProp>
@@ -19627,19 +19633,25 @@
               <message>true</message>
               <threadName>true</threadName>
               <dataType>true</dataType>
-              <encoding>false</encoding>
+              <encoding>true</encoding>
               <assertions>true</assertions>
               <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
               <xml>true</xml>
-              <fieldNames>false</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
               <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
             </value>
           </objProp>
           <stringProp name="filename">${ReportFilePrefix}-9999.View-Results-in-Table.jtl</stringProp>
@@ -19660,19 +19672,25 @@
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>false</assertions>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
             <xml>true</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
           </value>
         </objProp>
         <stringProp name="filename">${ReportFilePrefix}-9999.Admin-scenario-Summary-Report.jtl</stringProp>
@@ -19694,19 +19712,25 @@
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>false</encoding>
+            <encoding>true</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
             <xml>true</xml>
-            <fieldNames>false</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
           </value>
         </objProp>
         <stringProp name="filename">${ReportFilePrefix}-9999.Aggregate-Report.jtl</stringProp>
@@ -19727,24 +19751,28 @@
             <message>true</message>
             <threadName>true</threadName>
             <dataType>true</dataType>
-            <encoding>false</encoding>
+            <encoding>true</encoding>
             <assertions>true</assertions>
             <subresults>true</subresults>
             <responseData>true</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>false</fieldNames>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
             <responseHeaders>true</responseHeaders>
             <requestHeaders>true</requestHeaders>
             <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
             <assertionsResultsToSave>0</assertionsResultsToSave>
             <bytes>true</bytes>
             <url>true</url>
             <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename"></stringProp>
+        <stringProp name="filename">${ReportFilePrefix}-9999.ViewResultsTree.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
