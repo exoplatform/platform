@@ -1041,7 +1041,7 @@
           </preference>
           <preference>
             <name>allowCreateFolders</name>
-            <value></value>
+            <value>true</value>
             <read-only>false</read-only>
           </preference>
           <preference>

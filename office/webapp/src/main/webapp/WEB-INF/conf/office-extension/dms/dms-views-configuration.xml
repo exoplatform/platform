@@ -35,7 +35,7 @@
 		        <description>View configuration for System workspace</description>
 		        <object type="org.exoplatform.services.cms.views.ViewConfig">		          
 		          <field name="name"><string>Timeline-View-document</string></field>
-		          <field name="permissions"><string>*:/platform/administrators</string></field>
+		          <field name="permissions"><string>*:/platform/users</string></field>
 		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
 		          <field name="tabList">
                 <collection type="java.util.ArrayList">
@@ -44,7 +44,7 @@
                       <field name="tabName"><string>Actions</string></field>
                       <field name="buttons">
                       	<string>
-                      		addCategory; editDocument; upload; addSymLink
+                      		taggingDocument; upload; addFolder
                       	</string>
                       </field>
                     </object>
