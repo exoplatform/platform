@@ -93,12 +93,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[contains(text(),'2')]</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[contains(text(),'2')]</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +108,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[contains(text(),'3')]</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[contains(text(),'3')]</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- click Content</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,12 +152,22 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- choose By Content</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput' and @value='ManualViewerMode']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
+	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput' and @value='ManualViewerMode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
 	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput' and @value='ManualViewerMode']</td>
 	<td></td>
 </tr>
@@ -172,6 +187,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- General Drivers</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>Generaldrives_</td>
 	<td></td>
@@ -179,6 +199,11 @@
 <tr>
 	<td>click</td>
 	<td>Generaldrives_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Sites Management</td>
 	<td></td>
 </tr>
 <tr>
@@ -192,6 +217,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- acme</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>Generaldrives_ManagedSites__acme</td>
 	<td></td>
@@ -202,6 +232,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- document</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>Generaldrives_ManagedSites__acme_documents</td>
 	<td></td>
@@ -209,6 +244,11 @@
 <tr>
 	<td>click</td>
 	<td>Generaldrives_ManagedSites__acme_documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Choose Offices.jpg</td>
 	<td></td>
 </tr>
 <tr>
@@ -227,6 +267,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- verify Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIContentBrowsePanelMulti']/div[3]/div[3]/table/tbody/tr/td/a[1]/div/div/div</td>
 	<td></td>
@@ -234,6 +294,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIContentBrowsePanelMulti']/div[3]/div[3]/table/tbody/tr/td/a[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save 2</td>
 	<td></td>
 </tr>
 <tr>
@@ -247,6 +312,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- click Ok in popup</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
@@ -254,6 +324,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- click close</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,6 +342,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- save to finish create page</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
 	<td></td>
@@ -274,6 +354,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -441,7 +526,6 @@
 	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

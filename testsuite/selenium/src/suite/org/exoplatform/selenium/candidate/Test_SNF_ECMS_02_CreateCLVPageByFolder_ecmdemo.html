@@ -133,27 +133,47 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='Contents/ContentListViewerPortlet']</td>
+	<td>//div[text()='Content List']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div[@id='Contents/ContentListViewerPortlet']</td>
+	<td>//div[text()='Content List']</td>
 	<td>//div[@id='UIPagePreview']/div[@class='UIPage']//div[@class='UIComponentBlock']</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//a[@title='Edit Portlet']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//a[@title='Edit Portlet']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//a[@title='Edit Portlet']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- check By Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>//input[@name='UICLVConfigDisplayModeFormRadioBoxInput']</td>
 	<td></td>
 </tr>
 <tr>
@@ -168,32 +188,42 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>20000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Select folder</td>
+	<td>-- Select folder : General Drivers</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>Generaldrives_</td>
+	<td>//div[@id='LeftWorkspace']/div[1]/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Generaldrives_</td>
+	<td>//div[@id='LeftWorkspace']/div[1]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Sites Management</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>Generaldrives_ManagedSites_</td>
+	<td>//a[text()='Sites Management']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Generaldrives_ManagedSites_</td>
+	<td>//a[text()='Sites Management']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Sites acme</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,14 +237,34 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Choose Document</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[5]/td/a</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[5]/td/a</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- verify value in Folder paht</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>UICLVConfigItemPathFormStringInput</td>
+	<td>documents</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>UICLVConfigItemPathFormStringInput</td>
+	<td>documents</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -224,6 +274,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Press OK in popup</td>
 	<td></td>
 </tr>
 <tr>
@@ -248,7 +303,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Go to &quot;ASnfEcms02&quot; pages</td>
+	<td>Go to &quot;ASnfEcms02&quot; pages : Save </td>
 	<td></td>
 </tr>
 <tr>
@@ -298,7 +353,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Search and delete page</td>
+	<td>-- Search and delete page: go to Page manage</td>
 	<td></td>
 </tr>
 <tr>
@@ -446,7 +501,6 @@
 	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
