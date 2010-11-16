@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_ECMS_76_ManageScript_ecmdemo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_76_ManageScript_ecmdemo</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/acme/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- go to sites Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sites Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to Advanced Configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Scripts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Manage Scripts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>scriptContent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>scriptContent</td>
+	<td>/*<br /> * Copyright (C) 2003-2007 eXo Platform SAS.<br /> *<br /> * This program is free software; you can redistribute it and/or<br /> * modify it under the terms of the GNU Affero General Public License<br /> * as published by the Free Software Foundation; either version 3<br /> * of the License, or (at your option) any later version.<br /> *<br /> * This program is distributed in the hope that it will be useful,<br /> * but WITHOUT ANY WARRANTY; without even the implied warranty of<br /> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&nbsp;&nbsp;See the<br /> * GNU General Public License for more details.<br /> *<br /> * You should have received a copy of the GNU General Public License<br /> * along with this program; if not, see&lt;http://www.gnu.org/licenses/&gt;.<br /> */<br /><br />import java.util.Map;<br /><br />import javax.jcr.Property;<br />import javax.jcr.Node ;<br />import javax.jcr.NodeIterator;<br />import javax.jcr.PathNotFoundException;<br />import javax.jcr.Session;<br /><br />import org.exoplatform.services.cms.scripts.CmsScript;<br />import org.exoplatform.services.document.DocumentReaderService;<br />import org.exoplatform.services.jcr.RepositoryService;<br /><br />/*<br />* Will need to get The MailService when it has been moved to exo-platform<br />*/<br />public class TransformBinaryChildrenToTextScript implements CmsScript {<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;private DocumentReaderService readerService_;<br />&nbsp;&nbsp;private RepositoryService repositoryService_ ;<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;public TransformBinaryChildrenToTextScript(RepositoryService repositoryService, DocumentReaderService readerService) {&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;repositoryService_ = repositoryService ;<br />&nbsp;&nbsp;&nbsp;&nbsp;readerService_ = readerService;<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;public void execute(Object context) {<br />&nbsp;&nbsp;&nbsp;&nbsp;Map variables = (Map) context;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;String srcWorkspace = (String)context.get(&quot;srcWorkspace&quot;) ;<br />&nbsp;&nbsp;&nbsp;&nbsp;String srcPath = (String)variables.get(&quot;srcPath&quot;) ;<br />&nbsp;&nbsp;&nbsp;&nbsp;Node folderNode = null ;<br />&nbsp;&nbsp;&nbsp;&nbsp;Session session = null ;<br />&nbsp;&nbsp;&nbsp;&nbsp;try {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session = repositoryService_.getRepository().getSystemSession(srcWorkspace);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folderNode = (Node) session.getItem(srcPath);<br />&nbsp;&nbsp;&nbsp;&nbsp;} catch(Exception e) {}<br />&nbsp;&nbsp;&nbsp;&nbsp;try {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NodeIterator iter = folderNode.getNodes();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(iter.hasNext()) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node childNode = iter.nextNode();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&quot;nt:file&quot;.equals(childNode.getPrimaryNodeType().getName())) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node content = childNode.getNode(&quot;jcr:content&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Property mime = content.getProperty(&quot;jcr:mimeType&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!mime.getString().startsWith(&quot;text&quot;)) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String text = readerService_.getContentAsText(mime.getString(), content<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.getProperty(&quot;jcr:data&quot;).getStream());<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node file = null;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file = folderNode.getNode(childNode.getName() + &quot;.txt&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (PathNotFoundException e) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file = folderNode.addNode(childNode.getName() + &quot;.txt&quot;, &quot;nt:file&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node contentNode = file.addNode(&quot;jcr:content&quot;, &quot;nt:resource&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentNode.setProperty(&quot;jcr:encoding&quot;, &quot;UTF-8&quot;);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentNode.setProperty(&quot;jcr:mimeType&quot;, &quot;text/html&quot;);&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentNode.setProperty(&quot;jcr:data&quot;, text);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentNode.setProperty(&quot;jcr:lastModified&quot;, new GregorianCalendar());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;folderNode.save();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.save();<br />&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(session !=null) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.logout();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;<br />&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;public void setParams(String[] params) {}<br /><br />}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>scriptName</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Edit Script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[10]/td[4]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[10]/td[4]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotChecked</td>
+	<td>enableVersion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>enableVersion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Need verify action after change, Save or not</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[10]/td[4]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[10]/td[4]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>enableVersion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete Script</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[10]/td[4]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[10]/td[4]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Do you really want to delete?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>test.groovy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>test.groovy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

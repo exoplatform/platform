@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_ECMS_20_PCLVConfiguration_ecmdemo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_20_PCLVConfiguration_ecmdemo</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/acme/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Open configuration form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=News</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=News</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>EditingOptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>EditingOptions</td>
+	<td>label=Edit</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Content Detail Preferences</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- show title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowTitleConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>UISCVShowTitleConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- show date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowDateConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>UISCVShowDateConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- show Option Bar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowOptionBarConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>UISCVShowOptionBarConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Configuration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowTitleConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>UISCVShowTitleConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowDateConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>UISCVShowDateConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UISCVShowOptionBarConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>UISCVShowOptionBarConfigurationCheckBox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>EditingOptions</td>
+	<td>label=Published</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

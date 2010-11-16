@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_ECMS_55_ManagePermission_ecmdemo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_55_ManagePermission_ecmdemo</td></tr>
+</thead><tbody>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/public/acme/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to site Explorer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sites Explorer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open Private driver</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to Detail View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to System tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add permission for node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Choose folder Picture to set permission</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Pictures</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Pictures</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--go to Info tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=View Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=View Permissions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Select membership']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Select membership']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=platform</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=platform</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=exact:*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=exact:*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>read</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>add_node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>set_property</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Edit Permission</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[2]/td[6]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[2]/td[6]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIPermissionForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete permission</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[2]/td[6]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[2]/td[6]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Do you want to remove this permission?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

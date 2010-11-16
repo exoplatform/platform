@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_ECMS_68_ManageTaxonomy_ecmdemo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_68_ManageTaxonomy_ecmdemo</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/acme/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- go to sites Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sites Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to Ontologies</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to Manage Taxonomy trees</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Taxonomy Trees</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Manage Taxonomy Trees</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Add taxonomy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Taxonomy Tree</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Taxonomy Tree</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>TaxoTreeName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>TaxoTreeName</td>
+	<td>test1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>TaxoTreeWorkspace</td>
+	<td>label=collaboration</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>TaxoTreeWorkspace</td>
+	<td>label=collaboration</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//option[@value='collaboration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='collaboration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Select Home path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Add Path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Add Path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='AddRootNode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='AddRootNode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Set permission for taxonomy tree node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Select everyone']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Select everyone']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>add_node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>set_property</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>remove</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIPermissionTreeForm']/div[2]/div/div/table/tbody/tr/td/div[4]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIPermissionTreeForm']/div[2]/div/div/table/tbody/tr/td/div[4]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Register an action for this tree</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>actionName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>actionName</td>
+	<td>action</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>lifecycle</td>
+	<td>label=node_added</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>targetWorkspace</td>
+	<td>label=collaboration</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>targetWorkspace</td>
+	<td>label=collaboration</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIActionForm']/div[2]/table/tbody/tr[8]/td[2]/table/tbody/tr/td[2]/a[1]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIActionForm']/div[2]/table/tbody/tr[8]/td[2]/table/tbody/tr/td[2]/a[1]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='AddRootNode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='AddRootNode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Create the first child node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>taxonomyName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>taxonomyName</td>
+	<td>child 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Create the second child node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Add']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>taxonomyName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>taxonomyName</td>
+	<td>child 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--View 2 child nodes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Copy child 1 to child 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Copy']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Copy']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[2]/td[2]/div/img[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[2]/td[2]/div/img[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--View Child 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[3]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[3]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--verify child 1 in child 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;UITaxonomyTreeCreateChild&quot;]/div[2]/div/div/div/div/div[3]/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id=&quot;UITaxonomyTreeCreateChild&quot;]/div[2]/div/div/div/div/div[3]/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to test taxonomy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Cut child 2 to child 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[2]/td[2]/div/img[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[2]/td[2]/div/img[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Paste']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Paste']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--View child 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify child 2 in child 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id=&quot;UITaxonomyTreeCreateChild&quot;]/div[2]/div/div/div/div/div[2]/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@id=&quot;UITaxonomyTreeCreateChild&quot;]/div[2]/div/div/div/div/div[2]/div/div/a/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete child 2 in child 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Do you really want to delete ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--close the form to add taxonomy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div[2]/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div[2]/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Edit taxonomy tree</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[5]/td[5]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[5]/td[5]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[4]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']/div[4]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>lifecycle</td>
+	<td>label=User Action</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>lifecycle</td>
+	<td>label=User Action</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//option[@value='read']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='read']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div[2]/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div[2]/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete Taxonomy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[5]/td[5]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[5]/td[5]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
