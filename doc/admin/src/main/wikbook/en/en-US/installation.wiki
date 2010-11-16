@@ -11,8 +11,8 @@ h2. Startup
 eXo Platform leverages the application server on which it is deployed. 
 This means, to start and stop eXo Platform, you only need to start and stop your application with the default commands.
 
-* On Linux and OS X:   {screen}$TOMCAT_HOME/bin/gatein.sh run{screen}
-* On Windows:          {screen}%TOMCAT_HOME%\\bin\\gatein.bat run{screen}
+* On Linux and OS X:   {screen}$TOMCAT_HOME/start_eXo.sh{screen}
+* On Windows:          {screen}%TOMCAT_HOME%\\start_eXo.bat{screen}
 
 The server has started when you see the following message in your log/console:
 {screen}
@@ -21,8 +21,8 @@ INFO: Server startup in 353590 ms
 
 h2. Shutdown
 
-* On Linux and OS X: {screen}$TOMCAT_HOME/bin/shutdown.sh{screen}
-* On Windows:        {screen}%TOMCAT_HOME%\\bin\\shutdown.bat {screen}
+* On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
+* On Windows:        {screen}%TOMCAT_HOME%\\stop_eXo.bat {screen}
 
 The server has stopped when you see the following message in your log/console:
 
@@ -34,15 +34,15 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 h2. Startup scripts
 
 eXo comes with several builtin startup scripts :
-* gatein.sh : start eXo on Linux and OS X 
-* gatein.bat : start eXo on Windows
-* gatein-dev.sh : start eXo on Linux and OS X in developer mode 
-* gatein-dev.bat : start eXo on Windows in developer mode 
+* {{start{{{_}}}eXo.sh}} : start eXo on Linux and OS X 
+* {{start{{{_}}}eXo.bat}} : start eXo on Windows
+* bin/gatein-dev.sh : start eXo on Linux and OS X in developer mode 
+* bin/gatein-dev.bat : start eXo on Windows in developer mode 
 
 
 h3. Normal Mode
 
-The normal mode starts with the following JVM options :
+{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options :
 {screen}
 -Xms256m 
 -Xmx1024m 
@@ -62,7 +62,7 @@ This is enough to start and run a demo, but you will need to adjust these values
 
 h3. Developer mode
 
-The developer mode scripts add a few more options.
+{{gatein-dev}} scripts launch eXo in developer mode with a few more JVM options.
 {screen}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
 -Dcom.sun.management.jmxremote 
@@ -78,8 +78,6 @@ The developer mode scripts add a few more options.
 
 
 h1. Installing the JBoss EARs
-
-{note}Since eXo Platform 3.0.1{note}
 
 We provide EARs packages to deploy in your existing JBoss application server. They are located in the folder {{bin/jboss5-eap-ears/}}.
 
@@ -170,19 +168,26 @@ INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shut
 
 h1. eXo Profiles
 
-By passing {{-Dexo.profiles=p1,p2,p3...}}, you can enable modules.
 
-You can enable/disable select modules if they are not in use. 
-* {{collaboration}}: enables eXo Collaboration module
-* {{knowledge}}: enables eXo Knowledge module
-* {{social}}: enables eXo Social module
-* {{workflow}}: enables the Workflow add-on within the eXo Content module
+eXo comes with different runtime profile, that you can use if you want to customize what modules you want to enable/disable in you eXo instance.
 
-Additionally, you can use these profiles: 
-* {{minimal}}: contains GateIn + WCM
-* {{default}}: contains all except workflow (gatein,ide,wcm,collaboration,social,knowledge)
-* {{all}}: all available modules
+{{start{{{_}}}eXo}} commands accept a comma-separated list of profiles.  The following profiles are supported : 
 
-{note}Profiles are pluggable, so you can combine them together to shape eXo Platform to your needs. 
-e.g : {{-Dexo.profiles=default,workflow}} will take the default profile and workflow{note}
+|| Profile || Description ||
+|| {{collaboration}} | enables eXo Collaboration module |
+|| {{knowledge}} | enables eXo Knowledge module |
+|| {{social}} | enables eXo Social module |
+|| {{workflow}} | enables the Workflow add-on within the eXo Content module |
+
+Additionally, you can use these composite profiles: 
+|| Profile || Description ||
+|| {{minimal}} | contains GateIn + WCM  |
+|| {{default}} | contains all except workflow (gatein,ide,wcm,collaboration,social,knowledge)  |
+|| {{all}} | all available modules  |
+
+For example : 
+{screen}
+./start_eXo.sh default,workflow #  start all modules including workflow
+./start_eXo.sh collaboration,knowledge #  start exo with gatein,wcm, collaboration and knowledge enabled
+./start_eXo.sh minimal,social # start with social, gatein and wcm{screen}
 

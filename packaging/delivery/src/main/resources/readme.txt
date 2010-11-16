@@ -22,8 +22,8 @@ How to start the Platform
 -------------------------
 
     * PLF_HOME is the location of the unzipped eXo Platform 3.0 server. It refers to a Tomcat 6 bundle located at : bin/tomcat6-bundle
-    * On Windows: Open a DOS prompt command, go to PLF_HOME/bin directory and type the command: "gatein.bat run"
-    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME/bin directory and type the command :"./gatein.sh run"
+    * On Windows: Open a DOS prompt command, go to PLF_HOME directory and type the command: "start_eXo.bat run"
+    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME directory and type the command :"./start_eXo.sh run"
 
 -----------------------------------
 How to access the Platform homepage
