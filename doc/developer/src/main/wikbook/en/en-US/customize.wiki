@@ -151,7 +151,7 @@ The {{navigation.xml}} is used to associate the links in your navigation (called
 If the pattern #{} is used then the label of the link will be loaded from the portal resource bundle (link to the [ref guide about resource bundles|http://wiki.exoplatform.org/xwiki/bin/view/Portal/Internationalization+Configuration]
 
 
-{code}
+{code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
 <node-navigation>
 <owner-type>portal</owner-type>

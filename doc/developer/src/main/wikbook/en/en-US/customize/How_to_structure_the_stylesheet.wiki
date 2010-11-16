@@ -30,7 +30,7 @@ look and feel.
 {note}
 The window decorators and the default portlet specification CSS classes should be
 considered separate types of skinning components, but they need to be included
-as part of the overall portal skin. The portal skin must include these component´s
+as part of the overall portal skin. The portal skin must include these component s
 CSS classes or they will not be displayed correctly.
 A portlet skin doesn't need  to be  included as part of  the portal skin and can be
 included within the portlets web application.
@@ -39,7 +39,7 @@ included within the portlets web application.
 h2. Best practices to customize a skin
 The skin folder structure must be prepared as soon as you start the design. Follow these conventions and best practices to ease the integration of your design in Platform.
 
-h3. How to name files and folder?*
+h3. How to name files and folder?
 
 The id and class names are named after the WebUI components name and portlets name with the 'UI-'as prefix. The same rule is applied for folder that contains the components and portlets. It will help you find and edit the correct files easily. ie: 
 UI portlet will be named like:
@@ -47,7 +47,7 @@ UIFooterPortlet, UIBannerPortlet,etc
 UI component will be named like:
 UIToolbarContainer, UIVerticalTab, etc
 
-h3. The folder structure*
+h3. The folder structure 
 
 *Portal skin*
 The portal skin will appear as a single link to a CSS file. This link will contain contents from all
