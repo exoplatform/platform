@@ -60,10 +60,10 @@
                             <!-- WARNING: the mapping is expressed with regular expressions -->
 							<collection type="java.util.ArrayList" item-type="java.lang.String">
 								<value>
-									<string>.*\.jsp</string>
+									<string>.*/.*\.jsp</string>
 								</value>
                                 <value>
-                                  <string>favicon\.ico</string>
+                                  <string>.*/favicon\.ico</string>
                                 </value>                
 							</collection>
 						</field>
