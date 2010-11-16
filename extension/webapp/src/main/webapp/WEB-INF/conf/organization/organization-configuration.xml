@@ -114,7 +114,7 @@
                     <field  name="name"><string>administrators</string></field>
                     <field  name="parentId"><string>/platform</string></field>
                     <field  name="description"><string>the /platform/administrators group</string></field>
-                    <field  name="label"><string>Administrators</string></field>
+                    <field  name="label"><string>Administrator</string></field>
                   </object>
                 </value>
                 <value>
@@ -122,7 +122,7 @@
                     <field  name="name"><string>users</string></field>
                     <field  name="parentId"><string>/platform</string></field>
                     <field  name="description"><string>the /platform/users group</string></field>
-                    <field  name="label"><string>Users</string></field>
+                    <field  name="label"><string>Visitors</string></field>
                   </object>
                 </value>
                 <value>
@@ -138,7 +138,7 @@
                     <field name="name"><string>web-contributors</string></field>
                     <field name="parentId"><string>/platform</string></field>
                     <field name="description"><string>the /platform/web-contributors group</string></field>
-                    <field name="label"><string>Web Contributors</string></field>
+                    <field name="label"><string>Content Manager</string></field>
                   </object>
                 </value>
               </collection>

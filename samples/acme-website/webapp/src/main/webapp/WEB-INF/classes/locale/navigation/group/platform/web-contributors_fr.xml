@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Explorateur de sites</siteExplorer>
-    <wcmAdmin>Administration des sites</wcmAdmin>
-    <newslettermanager>Gestion des newsletters</newslettermanager>
-    <formgenerator>Générateur de formulaires</formgenerator>
-		<workflowcontroller>Contrôleur des processus d'affaires</workflowcontroller>
-		<workflowAdministration>Administration des Processus Métiers</workflowAdministration>
+    <siteExplorer>Explorateur de Contenu</siteExplorer>
+    <wcmAdmin>Administration de Contenu</wcmAdmin>
+    <newslettermanager>Newsletters</newslettermanager>
+    <formgenerator>Forumulaires</formgenerator>
+		<workflowcontroller>Centre de Workflow</workflowcontroller>
+		<workflowAdministration>Administration de Workflow</workflowAdministration>
   </administration>
 </bundle>
 

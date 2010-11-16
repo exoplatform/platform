@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <administration>
-    <siteExplorer>Sites Explorer</siteExplorer>
-    <wcmAdmin>Sites Administration</wcmAdmin>
-    <newslettermanager>Newsletter Manager</newslettermanager>
-    <formgenerator>Form Generator</formgenerator>
-		<workflowcontroller>Business Process Controller</workflowcontroller>
-		<workflowAdministration>Business Process Admin</workflowAdministration>
+    <siteExplorer>Content Explorer</siteExplorer>
+    <wcmAdmin>Content Administration</wcmAdmin>
+    <newslettermanager>Newsletters</newslettermanager>
+    <formgenerator>Form Builder</formgenerator>
+	<workflowcontroller>Workflow Center</workflowcontroller>
+	<workflowAdministration>Workflow Administration</workflowAdministration>
   </administration>
 </bundle>
 
