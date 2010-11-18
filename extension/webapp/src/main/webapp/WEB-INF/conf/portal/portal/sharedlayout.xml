@@ -22,6 +22,7 @@
 
 <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 	<container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
+		<access-permissions>*:/platform/users</access-permissions>
 		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
 			<access-permissions>*:/platform/users</access-permissions>
 
