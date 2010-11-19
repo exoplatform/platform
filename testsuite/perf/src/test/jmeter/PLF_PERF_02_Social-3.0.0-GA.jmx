@@ -561,7 +561,7 @@
                 </ResultAction>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -1404,7 +1404,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -1487,7 +1487,7 @@
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -1561,7 +1561,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -3835,7 +3835,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -3918,7 +3918,7 @@
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -5639,7 +5639,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -5713,7 +5713,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -5787,7 +5787,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -5935,7 +5935,7 @@
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6009,7 +6009,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6199,7 +6199,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6273,7 +6273,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6347,7 +6347,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6421,7 +6421,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6495,7 +6495,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6623,7 +6623,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -6697,7 +6697,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7076,7 +7076,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7150,7 +7150,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7282,7 +7282,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7356,7 +7356,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7430,7 +7430,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7504,7 +7504,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7632,7 +7632,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7706,7 +7706,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -7780,7 +7780,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8622,7 +8622,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8696,7 +8696,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8828,7 +8828,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8902,7 +8902,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -8976,7 +8976,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9050,7 +9050,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9124,7 +9124,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9198,7 +9198,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9272,7 +9272,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2410./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9673,7 +9673,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9747,7 +9747,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9879,7 +9879,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -9953,7 +9953,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10027,7 +10027,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10101,7 +10101,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10175,7 +10175,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10249,7 +10249,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10323,7 +10323,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2510./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10643,11 +10643,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2620.  +/cometd/cometd" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2620.  +/cometd/cometd" enabled="false">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2620./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2620./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -10721,7 +10721,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2620./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2620./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -11420,7 +11420,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -11503,7 +11503,7 @@
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13235,7 +13235,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13309,7 +13309,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13383,7 +13383,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13633,7 +13633,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13707,7 +13707,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13839,7 +13839,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13913,7 +13913,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -13987,7 +13987,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14061,7 +14061,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14135,7 +14135,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14209,7 +14209,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14283,7 +14283,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3210./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14412,11 +14412,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3220.  +/cometd/cometd" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3220.  +/cometd/cometd" enabled="false">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3220./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3220./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14490,7 +14490,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3220./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3220./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -14956,7 +14956,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15030,7 +15030,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15162,7 +15162,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15236,7 +15236,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15310,7 +15310,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15384,7 +15384,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15458,7 +15458,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15532,7 +15532,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -15606,7 +15606,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3230./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16070,7 +16070,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16144,7 +16144,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16276,7 +16276,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16350,7 +16350,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16424,7 +16424,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16498,7 +16498,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16572,7 +16572,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16646,7 +16646,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -16774,7 +16774,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3310./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17005,7 +17005,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17079,7 +17079,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17269,7 +17269,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17343,7 +17343,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17417,7 +17417,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17491,7 +17491,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17565,7 +17565,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17639,7 +17639,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -17713,7 +17713,7 @@
                 </HeaderManager>
                 <hashTree/>
               </hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3320./cometd/cometd" enabled="false">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="message" elementType="HTTPArgument">
@@ -18083,7 +18083,7 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree-3000-ResultsTree-Error" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree-3000-ResultsTree-Error" enabled="false">
           <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -18115,7 +18115,7 @@
           <stringProp name="filename">${ReportFilePrefix}-9999-ResultsTree-Error.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -18149,7 +18149,7 @@
           <stringProp name="TestPlan.comments">	</stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -18182,7 +18182,7 @@
           <boolProp name="useGroupName">true</boolProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -18216,7 +18216,7 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -18368,6 +18368,12 @@
         <boolProp name="CounterConfig.per_user">false</boolProp>
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
       </CounterConfig>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <stringProp name="CookieManager.policy">rfc2109</stringProp>
+      </CookieManager>
       <hashTree/>
     </hashTree>
   </hashTree>
