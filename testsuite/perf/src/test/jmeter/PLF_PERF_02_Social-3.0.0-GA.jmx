@@ -18369,6 +18369,12 @@
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
       </CounterConfig>
       <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <stringProp name="CookieManager.policy">rfc2109</stringProp>
+      </CookieManager>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
