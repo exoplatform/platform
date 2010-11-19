@@ -222,7 +222,7 @@ You do not need to specify the DefaultTheme in the gatein-resources.xml file.
 
 h3. Create new portlet skins
 Portlets often require additional styles that may not be defined by the portal skin. GateIn 3.1 defines additional stylesheets for each portlet and will append the corresponding link tags to the head.
-The ID attribute of <link> element will be in the form \{portletAppName\}\{PortletName\}. For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
+The ID attribute of <link> element will be in the form {{portletAppName}}\{{PortletName}}. For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
 To define a new CSS file to be included whenever a portlet is available on a portal page, the following fragment needs to be added in the _gatein-resources.xml_ file.
 
 {code}
