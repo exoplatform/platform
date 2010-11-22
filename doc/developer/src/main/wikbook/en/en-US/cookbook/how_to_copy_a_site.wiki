@@ -64,28 +64,17 @@ If you want to reuse one of non predefined templates here, you'll have simply to
 
 h2. Step 5:  How to copy a Taxonomy Tree
 
-By importing the whole site, as described in part 1, you 'll have the Taxonomy tree already imported too, The default location the site's Taxonomy is in a sub-folder named "categories". So, no need to export/import them because this step is automatically done. But the Taxonomy tree definition still isn't fully imported in the new server. And what we have to do now, is simply importing it by:
-* Open "DMS Administration" Drive, in the new Server
-
-{warning:title=Original Use Case}
-Because of ECMS-1694, we cannot add Symlink by interface, so we 'll have to do it manually
-{warning}
-* Go to {{dms-system:/exo:ecm/exo:taxonomyTrees/definition/\{taxonomy{{{_}}}name\}}}", and import [this file|How to copy a site^export_taxonomy_definition.xml], but before importing we have to do some modification on it:
-
-{code}
-<acme exo:name="acme" exo:uuid="126fd7d8c0a8021d0042e1da8aee2a87" exo:workspace="collaboration"><!--...--></acme>
-{code}
-
-The modifications are:
-* {{acme}} : Change the element name with the taxonomy Tree name, and do same thing for the property "exo:name".
-* {{exo:workspace}} : is the workspace of the original root Taxonomy Tree node
-* {{exo:uuid}} : is the jcr:uuid of the original root Taxonomy Tree node. Follow this picture to know how to copy it:
-
-!how_to_copy_a_site/export_acme_taxonomy_definition_jcr_uuid.png!
-
-{note}
-In some cases, you have to disconnect/or restart server to see modifications made. (To clean caches)
-{note}
+By importing the whole site, as described in part 1, you 'll have the Taxonomy tree already imported too, The default location the site's Taxonomy is in a sub-folder named "categories". So, no need to export/import them because this step is automatically done. But the Taxonomy tree definition still not fully imported in the new server. And what we have to do now, is simply adding this Taxonomy Tree definition by following those steps:
+* Open "DMS Administration" Drive, in the *new Server*
+* Go to "dms-system:/exo:ecm/exo:taxonomyTrees/definition/".
+* Add a Symlink to the "Taxonomy Tree Root Node", in this case it's "collaboration:/sites content/live/acme/categories/acme"
+!how_to_copy_a_site/select_TaxonomyTree_rootNode.png!
+* The name of the symlink will be "acme"
+!how_to_copy_a_site/select_TaxonomyTree_rootNode2.png!
+* The symlink will be generated as picture shows
+!how_to_copy_a_site/select_TaxonomyTree_rootNode3.png!
+* In some cases, you have to disconnect/or restart server to see modifications made. (To clean caches)
+!how_to_copy_a_site/TaxonomyTree_added_successfully.png!
 
 h2. Step 6:  How to copy Metadata templates
 
@@ -113,7 +102,7 @@ h2. Step 8 :  How to copy scripts
 h2. Step 9 :  How to copy drives configurations
 
 * Open "DMS Administration" Drive, in the new Server
-* Go to "/exo:ecm/exo:drives/\{query_name\}"
+* Go to "/exo:ecm/exo:drives/\{drive_name\}"
 * Export it and re-import it in the same location in the new server
 
 h2. Step 10 :  How to copy Gadgets
