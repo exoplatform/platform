@@ -15,14 +15,14 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">3</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,2)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,5)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(expRampUpPeriod,25)}</stringProp>
         <longProp name="ThreadGroup.start_time">1290047883000</longProp>
         <longProp name="ThreadGroup.end_time">1290047883000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(expDuration,3600)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(expDuration,3000)}</stringProp>
         <stringProp name="ThreadGroup.delay">2</stringProp>
       </ThreadGroup>
       <hashTree>
@@ -30,8 +30,8 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${Server}</stringProp>
+          <stringProp name="HTTPSampler.port">${Port}</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -12687,7 +12687,7 @@
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Extract activitiesPortalComponentId" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
-                  <stringProp name="RegexExtractor.regex">\&lt;div class=&quot;CloseButton&quot; title=&quot;Close Window&quot; onclick=&quot;javascript:ajaxGet\(&apos;/portal/private/intranet/activities\?portal:componentId=([a-zA-Z0-9\-]+)&amp;amp;portal:type=action&amp;amp;uicomponent=UIPopupWindow&amp;</stringProp>
+                  <stringProp name="RegexExtractor.regex">\&lt;div class=&quot;CloseButton&quot; title=&quot;Close Window&quot; onclick=&quot;javascript:ajaxGet\(&apos;/portal/private/intranet/activities\?portal:componentId=([a-zA-Z0-9\-]+)&amp;amp.*=UIPopupWindow</stringProp>
                   <stringProp name="RegexExtractor.template">$1$</stringProp>
                   <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -13531,11 +13531,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2220.   +/portal/private/intranet?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2220.   +/portal/private/intranet/activities?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2220./portal/private/intranet?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2220./portal/private/intranet/activities?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -13560,7 +13560,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet?portal:componentId=${activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/activities?portal:componentId=${activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -13845,11 +13845,11 @@
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2230.   +/portal/private/intranet?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2230.   +/portal/private/intranet/activities?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
               <boolProp name="TransactionController.parent">false</boolProp>
             </TransactionController>
             <hashTree>
-              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2230./portal/private/intranet?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
+              <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2230./portal/private/intranet/activities?portal:componentId= {activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="formOp" elementType="HTTPArgument">
@@ -13874,7 +13874,7 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                <stringProp name="HTTPSampler.path">/portal/private/intranet?portal:componentId=${activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true</stringProp>
+                <stringProp name="HTTPSampler.path">/portal/private/intranet/activities?portal:componentId=${activitiesPortalComponentId}&amp;portal:type=action&amp;uicomponent=UIComposer&amp;ajaxRequest=true</stringProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -28936,11 +28936,11 @@
           <elementProp name="Server" elementType="Argument">
             <stringProp name="Argument.name">Server</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">${__P(Server,localhost)}</stringProp>
+            <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(Port,8080)}</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="CurrentDateTime" elementType="Argument">
@@ -29024,6 +29024,7 @@
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
+        <stringProp name="TestPlan.comments">118.70.153.69</stringProp>
       </Arguments>
       <hashTree/>
       <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="SpecialRequestCounter" enabled="true">
