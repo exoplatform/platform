@@ -22,7 +22,7 @@
         <longProp name="ThreadGroup.start_time">1290047883000</longProp>
         <longProp name="ThreadGroup.end_time">1290047883000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(expDuration,3000)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${__P(expDuration,3600)}</stringProp>
         <stringProp name="ThreadGroup.delay">2</stringProp>
       </ThreadGroup>
       <hashTree>
