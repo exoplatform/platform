@@ -121,7 +121,7 @@
               </preference>
               <preference>
                 <name>showTitle</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -136,7 +136,7 @@
               </preference>
               <preference>
                 <name>showLink</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -569,7 +569,7 @@
               </preference>
               <preference>
                 <name>contextualFolder</name>
-                <value>contextualDisable</value>
+                <value>contextualEnable</value>
                 <read-only>false</read-only>
               </preference>      
               <preference>
@@ -581,7 +581,7 @@
                 <name>showClvBy</name>
                 <value>folder-id</value>
                 <read-only>false</read-only>
-              </preference>      
+              </preference>     
             </preferences>
           </portlet>
           <title>Events</title>
@@ -629,7 +629,7 @@
               </preference>
               <preference>
                 <name>basePath</name>
-                <value>products</value>
+                <value>detail</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
