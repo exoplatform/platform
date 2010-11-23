@@ -1321,7 +1321,7 @@
 		<title>newAccount</title>
 		<access-permissions>Everyone</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
-		<container id="Register" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+		<container id="Register_Page" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 			<access-permissions>*:/platform/guests</access-permissions>
 			<container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" width="550px">
 				<access-permissions>*:/platform/guests</access-permissions>

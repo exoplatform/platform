@@ -208,84 +208,82 @@
     <title>Register</title>
       <access-permissions>*:/platform/guests</access-permissions>
       <edit-permission>*:/platform/administrators</edit-permission>
-   <container id="Register" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-   <access-permissions>*:/platform/guests</access-permissions>
-   <container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-    <access-permissions>*:/platform/guests</access-permissions>
-
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>RegisterPortlet</portlet-ref>
-      </portlet>
-      <title>Register Account</title>
-      <access-permissions>*:/platform/guests</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
- 
-   </container>
-   <container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-    <access-permissions>*:/platform/guests</access-permissions>
-  <portlet-application>
-      <portlet>
-        <application-ref>presentation</application-ref>
-        <portlet-ref>SingleContentViewer</portlet-ref>
-        <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>workspace</name>
-            <value>collaboration</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>nodeIdentifier</name>
-            <value>/sites content/live/intranet/web contents/site artifacts/LinkHome</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowQuickEdit</name>
-            <value>true</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowPrintAction</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTOC</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTags</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowCategories</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTitle</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>LinkHomePage</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
- </container>
- </container>
+	   <container id="Register_Page" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+	   <access-permissions>*:/platform/guests</access-permissions>
+	   <container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>*:/platform/guests</access-permissions>
+		<portlet-application>
+		  <portlet>
+			<application-ref>exoadmin</application-ref>
+			<portlet-ref>RegisterPortlet</portlet-ref>
+		  </portlet>
+		  <title>Register Account</title>
+		  <access-permissions>*:/platform/guests</access-permissions>
+		  <show-info-bar>false</show-info-bar>
+		</portlet-application>
+	   </container>
+	   <container id="Register_Login" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>*:/platform/guests</access-permissions>
+		  <portlet-application>
+			  <portlet>
+				<application-ref>presentation</application-ref>
+				<portlet-ref>SingleContentViewer</portlet-ref>
+				<preferences>
+				  <preference>
+					<name>repository</name>
+					<value>repository</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>workspace</name>
+					<value>collaboration</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>nodeIdentifier</name>
+					<value>/sites content/live/intranet/web contents/site artifacts/LinkHome</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowQuickEdit</name>
+					<value>true</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowPrintAction</name>
+					<value>false</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowTOC</name>
+					<value>false</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowTags</name>
+					<value>false</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowCategories</name>
+					<value>false</value>
+					<read-only>false</read-only>
+				  </preference>
+				  <preference>
+					<name>ShowTitle</name>
+					<value>false</value>
+					<read-only>false</read-only>
+				  </preference>
+				</preferences>
+			  </portlet>
+			  <title>LinkHomePage</title>
+			  <access-permissions>Everyone</access-permissions>
+			  <show-info-bar>false</show-info-bar>
+			  <show-application-state>false</show-application-state>
+			  <show-application-mode>false</show-application-mode>
+			</portlet-application>
+		 </container>
+	 </container>
   </page>
 
     <page>
