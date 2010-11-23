@@ -48,6 +48,12 @@
           <object type="org.exoplatform.services.organization.OrganizationConfig">
             <field  name="membershipType">
               <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+                    <field name="type"><string>*</string></field>
+                    <field name="description"><string>Any membership type</string></field>
+                  </object>
+                </value>
               	<value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
                     <field  name="type"><string>manager</string></field>
