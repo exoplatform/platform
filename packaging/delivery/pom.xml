@@ -29,6 +29,14 @@
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- JBoss EAP EARs -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.packaging.assembly</artifactId>
+          <classifier>ears</classifier>
+          <version>${project.version}</version>
+          <type>zip</type>
+        </dependency>
         <!-- Documentation -->
         <dependency>
           <groupId>${project.groupId}</groupId>

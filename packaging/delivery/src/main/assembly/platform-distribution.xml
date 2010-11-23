@@ -31,6 +31,15 @@
       <unpack>true</unpack>
       <useDefaultExcludes>true</useDefaultExcludes>
     </dependencySet>
+    <!-- JBoss EAP EARs -->
+    <dependencySet>
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.packaging.assembly:zip:ears</include>
+      </includes>
+      <outputDirectory>/bin/jboss5-eap-ears</outputDirectory>
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
     <!-- Documentation -->
     <dependencySet>
       <includes>
