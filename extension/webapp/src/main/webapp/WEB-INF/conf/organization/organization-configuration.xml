@@ -35,7 +35,7 @@
         <value-param>
           <name>checkDatabaseAlgorithm</name>
           <description>check database</description>
-          <value>entry</value>
+          <value>empty</value>
         </value-param>      
         <value-param>
           <name>printInformation</name>
