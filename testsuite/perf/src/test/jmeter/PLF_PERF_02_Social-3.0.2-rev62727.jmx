@@ -6835,7 +6835,7 @@
                     <elementProp name="rnd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rnd</stringProp>
-                      <stringProp name="Argument.value">1290136245743</stringProp>
+                      <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -6901,7 +6901,7 @@
                     <elementProp name="rnd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rnd</stringProp>
-                      <stringProp name="Argument.value">1290136245765</stringProp>
+                      <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -16849,6 +16849,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;1&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -16922,6 +16923,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;9&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -17936,30 +17938,35 @@
                       <stringProp name="Argument.name">formOp</stringProp>
                       <stringProp name="Argument.value">Search</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="Search" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">Search</stringProp>
                       <stringProp name="Argument.value">Virtual</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="position" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">position</stringProp>
                       <stringProp name="Argument.value">position</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="skills" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">skills</stringProp>
                       <stringProp name="Argument.value">skills</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="gender" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">gender</stringProp>
                       <stringProp name="Argument.value">Gender</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20187,12 +20194,14 @@
                       <stringProp name="Argument.name">j_username</stringProp>
                       <stringProp name="Argument.value">VUser${UNIQUENUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="j_password" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">j_password</stringProp>
                       <stringProp name="Argument.value">rememberme-468521836</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20454,6 +20463,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;id&quot;:0}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20527,6 +20537,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;1&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20658,6 +20669,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/message&quot;,&quot;exoId&quot;:&quot;VUser${UNIQUENUMBER}&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;2&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20731,6 +20743,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/groupchat&quot;,&quot;exoId&quot;:&quot;VUser${UNIQUENUMBER}&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;3&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -20804,6 +20817,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/presence&quot;,&quot;exoId&quot;:&quot;VUser${UNIQUENUMBER}&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;4&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -29046,6 +29060,38 @@
         <boolProp name="CounterConfig.per_user">false</boolProp>
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
       </CounterConfig>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
       <hashTree/>
     </hashTree>
   </hashTree>
