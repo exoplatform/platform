@@ -86,7 +86,7 @@
                         <div class="HotNewsMainContent">  
                         <%
                           if (isShowImage) {
-                            %><a class="ImageHotNews" href="$itemLink"><img width="103" alt="$imgSrc" src="$imgSrc" /></a><%
+                            %><a class="ImageHotNews" href="$itemLink"><img width="101" alt="$imgSrc" src="$imgSrc" /></a><%
                           }
                           %>
                           <div class="ContentHotNews">
