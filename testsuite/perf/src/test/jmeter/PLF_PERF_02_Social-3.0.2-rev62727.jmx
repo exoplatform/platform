@@ -12225,7 +12225,7 @@
                     <elementProp name="rnd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rnd</stringProp>
-                      <stringProp name="Argument.value">1290136410285</stringProp>
+                      <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -12349,7 +12349,7 @@
                     <elementProp name="rnd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rnd</stringProp>
-                      <stringProp name="Argument.value">1290136410338</stringProp>
+                      <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -12684,7 +12684,7 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Extract activitiesPortalComponentId" enabled="true">
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Extract activitiesPortalComponentId" enabled="false">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
                   <stringProp name="RegexExtractor.regex">\&lt;div class=&quot;CloseButton&quot; title=&quot;Close Window&quot; onclick=&quot;javascript:ajaxGet\(&apos;/portal/private/intranet/activities\?portal:componentId=([a-zA-Z0-9\-]+)&amp;amp.*=UIPopupWindow</stringProp>
@@ -12692,6 +12692,24 @@
                   <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
+                <hashTree/>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Extract activitiesPortalComponentId" enabled="true">
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
+                  <stringProp name="RegexExtractor.regex">javascript:eXo\.webui\.UIForm\.submitForm\(&apos;([^#]+)#UIComposer&apos;,&apos;PostMessage&apos;,true\);</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="76988945">xxxactivitiesPortalComponentIdxxx</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">6</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2210./portal/rest/xmpp/loadJsResourceBundle/en/" enabled="true">
@@ -14889,6 +14907,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;id&quot;:0}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -14962,6 +14981,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/connect&quot;,&quot;connectionType&quot;:&quot;long-polling&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;1&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15093,6 +15113,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/presence&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;4&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15166,6 +15187,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/message&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;2&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15239,6 +15261,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/roster&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;5&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15312,6 +15335,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/fullnameExchange&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;8&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15385,6 +15409,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/FileExchange&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;7&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15458,6 +15483,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/subscription&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;6&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -15531,6 +15557,7 @@
                       <stringProp name="Argument.name">message</stringProp>
                       <stringProp name="Argument.value">[{&quot;channel&quot;:&quot;/meta/unsubscribe&quot;,&quot;subscription&quot;:&quot;/eXo/Application/Chat/groupchat&quot;,&quot;exoId&quot;:&quot;mary&quot;,&quot;exoToken&quot;:&quot;${exotoken}&quot;,&quot;clientId&quot;:&quot;${chatClientId}&quot;,&quot;id&quot;:&quot;3&quot;}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -28950,11 +28977,11 @@
           <elementProp name="Server" elementType="Argument">
             <stringProp name="Argument.name">Server</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
+            <stringProp name="Argument.value">${__P(expServer,118.70.153.69)}</stringProp>
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,9090)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="CurrentDateTime" elementType="Argument">
@@ -29060,6 +29087,38 @@
         <boolProp name="CounterConfig.per_user">false</boolProp>
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
       </CounterConfig>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">true</boolProp>
