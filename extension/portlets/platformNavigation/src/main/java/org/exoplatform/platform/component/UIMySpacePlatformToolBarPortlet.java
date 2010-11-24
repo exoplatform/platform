@@ -9,6 +9,7 @@ package org.exoplatform.platform.component;
  */
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +21,8 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
@@ -35,7 +38,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
 
     private SpaceService spaceService = null;
+    private OrganizationService organizationService = null;
     private String userId = null;
+    private boolean groupNavigationPermitted = false;
     
     
     /**
@@ -48,6 +53,16 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         spaceService = getApplicationComponent(SpaceService.class);
       } catch (Exception exception) {
         // spaceService should be "null" because the Social profile isn't activated
+      }
+      organizationService = getApplicationComponent(OrganizationService.class);
+      UserACL userACL = getApplicationComponent(UserACL.class);
+      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+      for (Object object : memberships) {
+        Membership membership = (Membership) object;
+        if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
+          groupNavigationPermitted = true;
+          break;
+        }
       }
     }
 
@@ -136,15 +151,8 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         return result;
     }
 
-    public boolean hasPermission(List<PageNavigation> groupNavigationsList) throws Exception {
-      UIPortalApplication portalApp = Util.getUIPortalApplication();
-      UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
-      for (PageNavigation pageNavigation : groupNavigationsList) {
-        if(userACL.hasEditPermission(pageNavigation)){
-          return true;
-        }
-      }
-      return false;
+    public boolean hasPermission() throws Exception {
+      return groupNavigationPermitted;
     }
 
 }
