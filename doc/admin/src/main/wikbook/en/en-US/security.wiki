@@ -1,10 +1,8 @@
-eXo portal relies on Java standards (JAAS) for propagating the user identity and roles from the directory to the different applications deployed on the server.
+eXo Platform relies on JAAS for propagating the user identity and roles from the directory to the different applications deployed on the server.
 
-h1. Where is it used
-JAAS is mainly used to authenticate users to "eXo Portal" interface and to the JCR
+The security domain (aka JAAS realm) will be used by all eXo apps and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl]
 
-h1. Where is it declared
-h2. Kernel configuration files:
+h1. How to configure the JAAS security Domain ?
 A new entry has been added in configuration.properties file named "exo.security.domain"
 {code}
 # Realm name
@@ -36,13 +34,13 @@ In this example of file we find this declaration:
       <security-domain>${portal.container.realm}</security-domain>
 ...
 </repository-service>
+{code}
 {note}
 Example of Kernel variables usage:  http://community.jboss.org/wiki/Portalcontainers#How_to_avoid_duplicating_configuration_files_just_to_rename_a_simple_value_
 {note}
-{code}
-h2. Main Portal & Rest Web applications:
+h1. Main Portal & Rest Web applications:
 In the Main Portal Web application ("portal.war" for PLF), you should declare in the web.xml file the realm name:
-{code:xml}
+{code:xml|title=portal.war!WEB-INF/web.xml}
 	<login-config>
 		<auth-method>FORM</auth-method> 
 		<realm-name>gatein-domain</realm-name> 
@@ -51,8 +49,8 @@ In the Main Portal Web application ("portal.war" for PLF), you should declare in
 		</form-login-config>
 	</login-config>
 {code}
-And in the Rest Web application, as follow:
-{code:xml}
+rest.war also needs to be modified to provide properly secured REST services.
+{code:xml|title=rest.war!WEB-INF/web.xml}
 	<login-config>
 		<auth-method>BASIC</auth-method> 
 		<realm-name>gatein-domain</realm-name> 		
