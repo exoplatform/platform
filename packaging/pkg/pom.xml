@@ -707,12 +707,12 @@
       <type>jar</type>
     </dependency>
     <!-- 1.12.3-GA-SNAPSHOT-->
-    <dependency>
+    <!--dependency>
       <groupId>org.fontbox</groupId>
       <artifactId>fontbox</artifactId>
       <version>${org.fontbox.version}</version>
       <type>jar</type>
-    </dependency>
+    </dependency-->
     <!-- 0.1.0-->
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
