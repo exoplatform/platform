@@ -16,7 +16,8 @@ h1. Management
 
 {include:document=management.wiki|syntax=confluence/1.0}
 
-h1. Security
+h1. Authentication
+h2. Configuring JAAS
 
 {include:document=security.wiki|syntax=confluence/1.0}
 

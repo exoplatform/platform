@@ -8,25 +8,13 @@ A new entry has been added in configuration.properties file named "exo.security.
 # Realm name
 exo.security.domain=gatein-domain
 {code}
-This variable is declared in the configuration of the "PortalContainerConfig"
-{code:xml}
-  <component>
-    <type>org.exoplatform.container.definition.PortalContainerConfig</type>
-	...
-      <!-- The name of the default security realm -->
-      <value-param>
-        <name>default.realm.name</name>
-		<value>${exo.security.domain}</value> 
-      </value-param>
-	...
-  </component>
-{code}
+
 {note}
 The kernel will use this initParam to set a new variable named "portal.container.realm": This is a protected variable name and thus it should not be used in configuration.propeties but only in configuration files scoped to a portal container (such as "jar:/conf/portal/configuration.xml", "war:/conf/configuration.xml...) to refer to the name of the realm of the current portal container
 {note}
 
 The configuration of a repository is defined in an XML file. In this file is declared some repository parameters with the set of its workspaces.
-Service configuration may be placed in in the PLF extension web application _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
+Service configuration may be placed in the PLF extension web application _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
 In this example of file we find this declaration:
 {code:xml}
 <repository-service default-repository="repository">
@@ -35,10 +23,7 @@ In this example of file we find this declaration:
 ...
 </repository-service>
 {code}
-{note}
-Example of Kernel variables usage:  http://community.jboss.org/wiki/Portalcontainers#How_to_avoid_duplicating_configuration_files_just_to_rename_a_simple_value_
-{note}
-h1. Main Portal & Rest Web applications:
+
 In the Main Portal Web application ("portal.war" for PLF), you should declare in the web.xml file the realm name:
 {code:xml|title=portal.war!WEB-INF/web.xml}
 	<login-config>
@@ -49,6 +34,7 @@ In the Main Portal Web application ("portal.war" for PLF), you should declare in
 		</form-login-config>
 	</login-config>
 {code}
+
 rest.war also needs to be modified to provide properly secured REST services.
 {code:xml|title=rest.war!WEB-INF/web.xml}
 	<login-config>
