@@ -1,6 +1,6 @@
-h2. How to structure the stylesheet?
+h2. Structure stylesheet
 {include:document="How_to_structure_the_stylesheet.wiki"}
-h2. How to configure you skin in Gatein?
+h2. Configure skin in Gatein
 {include:document="Configure_GateIn_skin.wiki"}
-h2. How to configure your skin in WCM?
+h2. Configure skin in WCM
 {include:document="How_to_config_skin_in_WCM.wiki"}
