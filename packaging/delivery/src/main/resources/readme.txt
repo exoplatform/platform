@@ -17,6 +17,14 @@ System requirements
     * Browser: Firefox 3+ or Internet Explorer 7+
     * The eXo server will run on port 8080, make sure this port is not currently in use
 
+----------------------------
+How to start the Chat server
+----------------------------
+
+    * The Chat server is located in bin/chat-server
+    * On Windows: Open a DOS prompt command, go to bin/chat-server/bin and type the command: "run.bat"
+    * On Linux/Mac OS X: Open a terminal, go to bin/chat-server/bin and type the command: "run.sh"
+
 -------------------------
 How to start the Platform
 -------------------------
