@@ -106,7 +106,7 @@
     <!-- Build settings        -->
     <!-- ********************* -->
     <!-- maven-release-plugin -->
-    <arguments>-Prelease,distrib -Dgatein.working.dir=target</arguments>
+    <arguments>-Prelease,distrib -Dgatein.working.dir=target -Dmaven.wagon.provider.http=httpclient</arguments>
   </properties>
   <build>
     <pluginManagement>
