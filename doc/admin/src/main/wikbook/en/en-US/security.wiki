@@ -1,33 +1,94 @@
-eXo Platform relies on JAAS for propagating the user identity and roles from the directory to the different applications deployed on the server.
 
-The security domain (aka JAAS realm) will be used by all eXo apps and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl]
+h2. Changing the JAAS realm
 
-h1. How to configure the JAAS security Domain ?
-A new entry has been added in configuration.properties file named "exo.security.domain"
+eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
+
+The JAAS realm will be used by all eXo apps and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl]
+
+By default, Platform uses a JAAS realm named "gatein-domain". If your IT operations rules require you to use another JAAS realm, you will need to modify several files so that eXo can work on your JAAS realm.
+
+
+Since the security configuration is highly dependent of the app server we'll cover each application sever separately. 
+
+
+
+h3. Tomcat
+
+In the Tomcat bundle, the jaas configuration is controled by this $TOMCAT_HOME/conf/jaas.conf :
+{code:title=conf/jaas.conf}
+gatein-domain {
+  org.exoplatform.web.security.PortalLoginModule required;
+  org.exoplatform.services.security.jaas.SharedStateLoginModule required;
+  org.exoplatform.services.security.j2ee.TomcatLoginModule required; 
+};
+{code}
+
+Replace gatein-domain by your own domain name.
+{tip}
+Learn more about the syntax in the [JAAS tutorial |http://download.oracle.com/javase/1.4.2/docs/guide/security/jaas/tutorials/LoginConfigFile.html].
+Read more about realms in tomcat in the [Tomcat Realm Howto|http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html] {tip}
+
+h3. JBoss
+
+For JBoss, you need to edit the default jaas security domain in {{02portal.war!WEB-INF/jboss-web.xml}}
+
+{code:xml|02portal.war!WEB-INF/jboss-web.xml}
+<jboss-web>
+  <security-domain>java:/jaas/gatein-domain</security-domain>
+</jboss-web>
+{code}
+
+Additionnaly, you need to edit the {{application-policy}} to match the {{security-domain}} in {{gatein.ear!META-INF/gatein-jboss-beans.xml}}.
+
+{code:xml|title=gatein.ear!META-INF/gatein-jboss-beans.xml}
+<deployment xmlns="urn:jboss:bean-deployer:2.0">
+
+  <application-policy xmlns="urn:jboss:security-beans:1.0" name="gatein-domain">
+    <authentication>
+      <login-module code="org.exoplatform.web.security.PortalLoginModule" flag="required">
+        <module-option name="portalContainerName">portal</module-option>
+        <module-option name="realmName">gatein-domain</module-option>
+      </login-module>
+      <login-module code="org.exoplatform.services.security.jaas.SharedStateLoginModule" flag="required">
+        <module-option name="portalContainerName">portal</module-option>
+        <module-option name="realmName">gatein-domain</module-option>
+      </login-module>
+      <login-module code="org.exoplatform.services.security.j2ee.JbossLoginModule" flag="required">
+        <module-option name="portalContainerName">portal</module-option>
+        <module-option name="realmName">gatein-domain</module-option>
+      </login-module>
+    </authentication>
+  </application-policy>
+  
+</deployment> 
+{code}
+
+{tip}
+Read More about JBoss security configuration in [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service]
+{tip}
+
+
+h3. Common Changes
+Finally, there are some common changes to do on both app servers.
+
+h4. configuration.properties
+First, edit the change it need to change the  JAAS realm to fit your own security contraints, 
+LInside configuration.properties, identifythe entry named "exo.security.domain"
 {code}
 # Realm name
 exo.security.domain=gatein-domain
 {code}
 
 {note}
-The kernel will use this initParam to set a new variable named "portal.container.realm": This is a protected variable name and thus it should not be used in configuration.propeties but only in configuration files scoped to a portal container (such as "jar:/conf/portal/configuration.xml", "war:/conf/configuration.xml...) to refer to the name of the realm of the current portal container
+Internally, eXo will use this setting to set a new variable named "portal.container.realm" that is then used in kernel configuration files such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
 {note}
 
-The configuration of a repository is defined in an XML file. In this file is declared some repository parameters with the set of its workspaces.
-Service configuration may be placed in the PLF extension web application _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
-In this example of file we find this declaration:
-{code:xml}
-<repository-service default-repository="repository">
-...
-      <security-domain>${portal.container.realm}</security-domain>
-...
-</repository-service>
-{code}
 
-In the Main Portal Web application ("portal.war" for PLF), you should declare in the web.xml file the realm name:
+h4. portal.war
+Inside {{portal.war}}, you should declare in the web.xml file the realm name:
 {code:xml|title=portal.war!WEB-INF/web.xml}
-	<login-config>
-		<auth-method>FORM</auth-method> 
+<login-config>
+  <auth-method>FORM</auth-method> 
 		<realm-name>gatein-domain</realm-name> 
 		<form-login-config>
 		...
@@ -35,10 +96,16 @@ In the Main Portal Web application ("portal.war" for PLF), you should declare in
 	</login-config>
 {code}
 
-rest.war also needs to be modified to provide properly secured REST services.
+h4. rest.war
+{{rest.war}} also needs to be modified to provide properly secured REST services.
 {code:xml|title=rest.war!WEB-INF/web.xml}
-	<login-config>
-		<auth-method>BASIC</auth-method> 
-		<realm-name>gatein-domain</realm-name> 		
-	</login-config>
+<login-config>
+  <auth-method>BASIC</auth-method> 
+  <realm-name>gatein-domain</realm-name> 		
+</login-config>
 {code}
+
+{note}This change is very important as it allows to secure the downlaod of files via WEBDAV.{note}
+
+
+
