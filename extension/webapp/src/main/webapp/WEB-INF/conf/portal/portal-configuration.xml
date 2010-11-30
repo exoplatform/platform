@@ -292,7 +292,7 @@
               <int>5000</int>
             </field>
             <field name="liveTime">
-              <long>60000</long>
+              <long>600</long>
             </field>
           </object>
         </object-param>
@@ -312,8 +312,11 @@
               <string>MOPSessionManager</string>
             </field>
             <field name="expirationTimeout">
-              <long>60000</long>
+              <long>600000</long>
             </field>
+            <field name="maxNodes">
+             <int>5000</int>
+            </field> 
             <field name="distributed">
               <boolean>true</boolean>
             </field>
