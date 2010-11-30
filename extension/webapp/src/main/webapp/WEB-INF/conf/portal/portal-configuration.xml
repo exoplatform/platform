@@ -47,7 +47,7 @@
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>root</value>     
+        <value>${exo.super.user}</value>     
       </value-param>
       
       <value-param>
