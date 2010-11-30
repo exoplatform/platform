@@ -88,7 +88,7 @@
 						<application-ref>presentation</application-ref>
 						<portlet-ref>WCMAdminToolbarPortlet</portlet-ref>
 					</portlet>
-					<access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
+					<access-permissions>*:/platform/users; editor:/platform/web-contributors</access-permissions>
 					<show-info-bar>false</show-info-bar>
 				</portlet-application>
 			</container>
