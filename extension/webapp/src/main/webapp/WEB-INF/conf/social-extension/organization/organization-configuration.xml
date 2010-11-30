@@ -21,209 +21,61 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
-    <component-plugin>
-      <name>init.service.listener</name>
-      <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
-      <description>this listener populate organization data for the first launch</description>
-      <init-params>
-        <value-param>
-          <name>checkDatabaseAlgorithm</name>
-          <description>check database</description>
-          <value>entry</value>
-        </value-param>
-        <value-param>
-          <name>printInformation</name>
-          <description>Print information init database</description>
-          <value>false</value>
-        </value-param>
-        <object-param>
-          <name>configuration</name>
-          <description>description</description>
-          <object type="org.exoplatform.services.organization.OrganizationConfig">
-            <field  name="membershipType">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
-                    <field  name="type"><string>manager</string></field>
-                    <field  name="description"><string>manager membership type</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
-                    <field  name="type"><string>member</string></field>
-                    <field  name="description"><string>member membership type</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
-                    <field  name="type"><string>validator</string></field>
-                    <field  name="description"><string>validator membership type</string></field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-
-            <field  name="group">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>platform</string></field>
-                    <field  name="parentId"><string></string></field>
-                    <field  name="description"><string>the /platform group</string></field>
-                    <field  name="label"><string>Platform</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>administrators</string></field>
-                    <field  name="parentId"><string>/platform</string></field>
-                    <field  name="description"><string>the /platform/administrators group</string></field>
-                    <field  name="label"><string>Administrators</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>users</string></field>
-                    <field  name="parentId"><string>/platform</string></field>
-                    <field  name="description"><string>the /platform/users group</string></field>
-                    <field  name="label"><string>Users</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>guests</string></field>
-                    <field  name="parentId"><string>/platform</string></field>
-                    <field  name="description"><string>the /platform/guests group</string></field>
-                    <field  name="label"><string>Guests</string></field>
-                  </object>
-                </value>
-               
-              
-              
-                
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>spaces</string></field>
-                    <field  name="parentId"><string></string></field>
-                    <field  name="description"><string>the /spaces group</string></field>
-                    <field  name="label"><string>Spaces</string></field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-
-            <field  name="user">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>root</string></field>
-                    <field  name="password"><string>gtn</string></field>
-                    <field  name="firstName"><string>Root</string></field>
-                    <field  name="lastName"><string>Root</string></field>
-                    <field  name="email"><string>root@localhost</string></field>
-                    <field  name="groups">
-                      <string>
-                        manager:/platform/administrators,member:/platform/users,
-                       
-                      </string>
-                    </field>
-                  </object>
-                </value>
-
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field name="userName"><string>john</string></field>
-                    <field name="password"><string>gtn</string></field>
-                    <field name="firstName"><string>John</string></field>
-                    <field name="lastName"><string>Smith</string></field>
-                    <field name="email"><string>john.smith@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>
-                        member:/platform/administrators,member:/platform/users,
-                        
-                      </string>
-                    </field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                  <field name="userName"><string>mary</string></field>
-                    <field name="password"><string>gtn</string></field>
-                    <field name="firstName"><string>Mary</string></field>
-                    <field name="lastName"><string>Williams</string></field>
-                    <field name="email"><string>mary.williams@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>member:/platform/users</string>
-                    </field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field name="userName"><string>demo</string></field>
-                    <field name="password"><string>gtn</string></field>
-                    <field name="firstName"><string>Jack</string></field>
-                    <field name="lastName"><string>Miller</string></field>
-                    <field name="email"><string>jack.miller@acme.exoplatform.com</string></field>
-                    <field  name="groups">
-                      <string>member:/platform/guests,member:/platform/users</string>
-                    </field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
-      </init-params>
-    </component-plugin>
-
-    <component-plugin>
-      <name>new.user.event.listener</name>
-      <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.services.organization.impl.NewUserEventListener</type>
-      <description>this listener assign group and membership to a new created user</description>
-      <init-params>
-        <object-param>
-          <name>configuration</name>
-          <description>description</description>
-          <object type="org.exoplatform.services.organization.impl.NewUserConfig">
-            <field  name="group">
-              <collection type="java.util.ArrayList">
-                <value>
-                  <object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
-                    <field  name="groupId"><string>/platform/users</string></field>
-                    <field  name="membership"><string>member</string></field>
-                  </object>
-                </value>
-              </collection>
-            </field>
-            <field  name="ignoredUser">
-              <collection type="java.util.HashSet">
-                <value><string>root</string></value>
-                <value><string>john</string></value>
-                <value><string>mary</string></value>
-                <value><string>demo</string></value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
-      </init-params>
-    </component-plugin>
-
-
-    <component-plugin>
-      <name>MembershipUpdateListener</name>
-      <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.services.organization.impl.MembershipUpdateListener</type>
-    </component-plugin>
-
-    <component-plugin>
-      <name>SocialGroupEventListenerImpl</name>
-      <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.social.core.space.impl.SocialGroupEventListenerImpl</type>
-    </component-plugin>
-
-  </external-component-plugins>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>init.service.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
+			<description>this listener populate organization data for the first launch</description>
+			<init-params>
+				<value-param>
+					<name>checkDatabaseAlgorithm</name>
+					<description>check database</description>
+					<value>entry</value>
+				</value-param>
+				<value-param>
+					<name>printInformation</name>
+					<description>Print information init database</description>
+					<value>false</value>
+				</value-param>
+				<object-param>
+					<name>configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.services.organization.OrganizationConfig">
+						<field  name="group">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+										<field  name="name">
+											<string>spaces</string>
+										</field>
+										<field  name="parentId">
+											<string/>
+										</field>
+										<field  name="description">
+											<string>the /spaces group</string>
+										</field>
+										<field  name="label">
+											<string>Spaces</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<name>MembershipUpdateListener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.organization.impl.MembershipUpdateListener</type>
+		</component-plugin>
+		<component-plugin>
+			<name>SocialGroupEventListenerImpl</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.social.core.space.impl.SocialGroupEventListenerImpl</type>
+		</component-plugin>
+	</external-component-plugins>
 </configuration>
