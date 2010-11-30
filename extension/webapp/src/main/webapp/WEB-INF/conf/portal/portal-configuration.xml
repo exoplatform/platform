@@ -275,6 +275,29 @@
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.cache.CacheService</target-component>
+    <component-plugin>
+      <name>addExoCacheConfig</name>
+      <set-method>addExoCacheConfig</set-method>
+      <type>org.exoplatform.services.cache.ExoCacheConfigPlugin</type>
+      <description>add Exo Cache Config</description>
+      <init-params>
+        <object-param>
+          <name>cache.config.MOPSessionManager</name>
+          <description>The JBoss Cache configuration for the MOP session Manager</description>
+          <object type="org.exoplatform.services.cache.ExoCacheConfig">
+            <field name="name">
+              <string>MOPSessionManager</string>
+            </field>
+            <field name="maxSize">
+              <int>5000</int>
+            </field>
+            <field name="liveTime">
+              <long>600</long>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
     <component-plugin profiles="cluster">
       <name>addExoCacheConfig</name>
       <set-method>addExoCacheConfig</set-method>
