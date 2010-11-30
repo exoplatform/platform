@@ -346,3 +346,13 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 Please refer to the JCR reference guide for the details of configuring these files.
 
+h1. Users configurations
+
+h2. Super User configuration
+
+In eXo platform 3, we have defined the user "root" as super admin by default.
+You could override this configuration, by modifying the system property named {{exo.super.user}} defined in configuration.properties.
+
+h2. eXo Platform default users list definition
+
+In eXo Platform, the default users list (omit Super Admin user) are defined in "Acme WebSite" & "Office Intranet" extensions. So by deleting those extensions, the users "John", "demo", "james" and "mary" will not be created.
