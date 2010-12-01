@@ -36,8 +36,7 @@
 	<import>war:/conf/office-extension/dms/dms-views-configuration.xml</import>
 	<import>war:/conf/office-extension/common/common-configuration.xml</import>
 
-
-
+	<import>war:/conf/office-extension/ks/ks-configuration.xml</import>
 
 	<!--<import>war:/conf/office-extension/web/web-inf-extension-configuration.xml</import>-->
 </configuration>
