@@ -15,7 +15,7 @@
   <properties>
     <org.selenium.server.version>1.0.1</org.selenium.server.version>
     <org.selenium.maven-plugin.version>1.0.1</org.selenium.maven-plugin.version>
-    <org.exoplatform.selegen.version>0.9.1-SNAPSHOT</org.exoplatform.selegen.version>
+    <org.exoplatform.selegen.version>0.9.1</org.exoplatform.selegen.version>
 
     <!-- configuration values for Selegen -->
     <selenium.port>8444</selenium.port><!-- 4444 (selenium RC default) is used by JBoss -->
