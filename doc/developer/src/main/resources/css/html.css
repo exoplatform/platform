@@ -133,6 +133,10 @@ h1 {
     text-decoration: none;
 }
 
+.toc a {
+  text-decoration: none;
+}
+
 .toc a:hover { text-decoration: underline; }
 
 /** **/
@@ -187,7 +191,6 @@ h1 {
 
 a{
 	color: #314572;
-	text-decoration: none;
 	font-size: 12px;
 	font-weight: normal;
 }
@@ -222,14 +225,15 @@ ul li ul li ul{
 	padding-left: 16px;
 }
 
+.section table {
+ border-collapse: collapse;
+}
 
 th{
 	background:#FFCC66;
-	border-right:1px solid #E1E1E1;
 	color:#22579F;
 	font-size:14px;
-	padding:0 0 4px 7px;
-	text-align:left;
+	text-align:center;
 	width:33%;
 }
 
@@ -333,7 +337,7 @@ hr {
 
 .chapter .note .title{
 	float:left;
-	padding:17px 10px 0px 42px;
+	padding:5px 10px 0px 42px;
 	font-size: 14px;
 	margin: 0px;
 	font-weight: normal;
@@ -358,15 +362,41 @@ hr {
 
 .chapter .warning{
 	border: 1px solid #ababab;
-	background: #d2d1d1 url(../background/WarningIcon.png) no-repeat 5px 5px;
+	background: #d2d1d1 url(../background/WarningIcon.png) no-repeat 5px 7px;
 	padding:8px 10px 8px 3px;
-	margin: 4px 0px;
+	margin: 4px 0;
+}
+
+.chapter .warning .title{
+	float:left;
+	padding:0 10px 0 38px;
+	font-size: 14px;
+	margin: 0;
+	font-weight: normal;
+}
+
+.chapter .warning p{
+	border-left:1px solid #A3A3A3;
+	margin:2px 0 2px 100px;
+	padding-left: 10px;
+	*padding: 0 0 12px 12px;
+}
+
+.chapter .warning p a{
+	padding: 6px 0;
+	display: block;
+}
+
+.chapter .warning .title a{
+	font-size: 14px;
+	font-weight: normal;
 }
 
 
 .docnav a{
 	border:1px solid #c8c8c8;
 	padding:5px 14px;
+    text-decoration: none;
 }
 
 .chapter .itemizedlist ul li ul li{
