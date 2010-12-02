@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="2.1">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_PERF_04_SocialRead" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_PERF_04_SocialRead-3.0.x" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -11,15 +11,166 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="MySpacesSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">MySpacesSecureToken</stringProp>
+            <stringProp name="Argument.value">xMySpacesSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TasksSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">TasksSecureToken</stringProp>
+            <stringProp name="Argument.value">xTasksSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EventsSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">EventsSecureToken</stringProp>
+            <stringProp name="Argument.value">xEventsSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UNIQUENUMBER" elementType="Argument">
+            <stringProp name="Argument.name">UNIQUENUMBER</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Server" elementType="Argument">
+            <stringProp name="Argument.name">Server</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
+          </elementProp>
+          <elementProp name="Port" elementType="Argument">
+            <stringProp name="Argument.name">Port</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CurrentDateTime" elementType="Argument">
+            <stringProp name="Argument.name">CurrentDateTime</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="portalComponentId" elementType="Argument">
+            <stringProp name="Argument.name">portalComponentId</stringProp>
+            <stringProp name="Argument.value">xxxportalComponentIdxxx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ReportFilePrefix" elementType="Argument">
+            <stringProp name="Argument.name">ReportFilePrefix</stringProp>
+            <stringProp name="Argument.value">${__P(expReportFilePrefix,./tmp/${__time(MMddHHmm)}/PLF-SocialRead-3.0.x-)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OrgOrAdmin" elementType="Argument">
+            <stringProp name="Argument.name">OrgOrAdmin</stringProp>
+            <stringProp name="Argument.value">${__P(expOrgOrAdmin,administration)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CurrentDate" elementType="Argument">
+            <stringProp name="Argument.name">CurrentDate</stringProp>
+            <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="mySpacesJsonnocache" elementType="Argument">
+            <stringProp name="Argument.name">mySpacesJsonnocache</stringProp>
+            <stringProp name="Argument.value">xmySpacesJsonnocachex</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="intranetPeopleComponentId" elementType="Argument">
+            <stringProp name="Argument.name">intranetPeopleComponentId</stringProp>
+            <stringProp name="Argument.value">xintranetPeopleComponentIdx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="foundUserObjectId" elementType="Argument">
+            <stringProp name="Argument.name">foundUserObjectId</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="portalSpacesComponentId" elementType="Argument">
+            <stringProp name="Argument.name">portalSpacesComponentId</stringProp>
+            <stringProp name="Argument.value">xportalSpacesComponentIdx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParamUIManageMySpaces" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParamUIManageMySpaces</stringProp>
+            <stringProp name="Argument.value">UIManageMySpaces</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParamUISpaceSearch" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParamUISpaceSearch</stringProp>
+            <stringProp name="Argument.value">UISpaceSearch</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParam" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParam</stringProp>
+            <stringProp name="Argument.value">UISpaceSearch</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CONNECT_TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">CONNECT_TIMEOUT</stringProp>
+            <stringProp name="Argument.value">${__P(expConnectTimeOut,150000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RESPONSE_TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">RESPONSE_TIMEOUT</stringProp>
+            <stringProp name="Argument.value">${__P(expResponseTimeOut,500000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="newStaffPage" elementType="Argument">
+            <stringProp name="Argument.name">newStaffPage</stringProp>
+            <stringProp name="Argument.value">/portal/private/intranet/administration/newStaff</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="newStaffPageTitle" elementType="Argument">
+            <stringProp name="Argument.name">newStaffPageTitle</stringProp>
+            <stringProp name="Argument.value">Add new Users</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ThinkTime" elementType="Argument">
+            <stringProp name="Argument.name">ThinkTime</stringProp>
+            <stringProp name="Argument.value">${__P(thinktime,3000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ThreadCount" elementType="Argument">
+            <stringProp name="Argument.name">ThreadCount</stringProp>
+            <stringProp name="Argument.value">${__P(thread,3)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RampUp" elementType="Argument">
+            <stringProp name="Argument.name">RampUp</stringProp>
+            <stringProp name="Argument.value">${__P(rampup,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoginUserId" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserId</stringProp>
+            <stringProp name="Argument.value">bench.user</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoginUserPassword" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserPassword</stringProp>
+            <stringProp name="Argument.value">exo</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoopCount" elementType="Argument">
+            <stringProp name="Argument.name">LoopCount</stringProp>
+            <stringProp name="Argument.value">${__P(loopcount,2)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Duration" elementType="Argument">
+            <stringProp name="Argument.name">Duration</stringProp>
+            <stringProp name="Argument.value">${__P(duration,3600)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">magellanic.testlab.exoplatform.vn</stringProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="VUser" enabled="true">
         <stringProp name="TestPlan.comments">recorded with rev 63445</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">${LoopCount}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,2)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(expRampUpPeriod,25)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${ThreadCount}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RampUp}</stringProp>
         <longProp name="ThreadGroup.start_time">1291201138000</longProp>
         <longProp name="ThreadGroup.end_time">1291201138000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
@@ -109,14 +260,14 @@
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">root</stringProp>
+                    <stringProp name="Argument.value">${LoginUserId}${LoginUserSequence}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">gtn</stringProp>
+                    <stringProp name="Argument.value">${LoginUserPassword}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -293,6 +444,10 @@
               <intProp name="Assertion.test_type">6</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${ThinkTime}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
           </hashTree>
           <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -352,7 +507,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/root)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -362,7 +517,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/root</stringProp>
+            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1036,7 +1191,7 @@
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Tasks gadgets content (/eXoGadgetServer/gadgets/concat)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Tasks gadgets content text/javascript (/eXoGadgetServer/gadgets/concat)" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -1202,7 +1357,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Tasks gadgets content (/eXoGadgetServer/gadgets/concat)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Tasks gadgets content text/css (/eXoGadgetServer/gadgets/concat)" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -1285,7 +1440,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load MySpaces gadgets content (/eXoGadgetServer/gadgets/concat)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load MySpaces gadgets content text/css (/eXoGadgetServer/gadgets/concat)" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="rewriteMime" elementType="HTTPArgument">
@@ -1515,7 +1670,7 @@
                 <elementProp name="rnd" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">rnd</stringProp>
-                  <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
+                  <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER1}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -1581,7 +1736,7 @@
                 <elementProp name="rnd" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">rnd</stringProp>
-                  <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER}</stringProp>
+                  <stringProp name="Argument.value">${UNIQUEREQUESTNUMBER2}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -1720,7 +1875,7 @@
                 <elementProp name="url" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">true</boolProp>
                   <stringProp name="Argument.name">url</stringProp>
-                  <stringProp name="Argument.value">http://${Server}:${Port}/rest/portal/social/spaces/mySpaces/show.json?nocache=${UNIQUEREQUESTNUMBER}</stringProp>
+                  <stringProp name="Argument.value">http://${Server}:${Port}/rest/portal/social/spaces/mySpaces/show.json?nocache=${UNIQUEREQUESTNUMBER3}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -2033,6 +2188,7 @@
                   <stringProp name="Argument.name">objectId</stringProp>
                   <stringProp name="Argument.value">MY_STATUS</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
                 <elementProp name="ajaxRequest" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -2223,7 +2379,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/root)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2233,7 +2389,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/root</stringProp>
+            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2389,11 +2545,11 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="7000.  ++Goto /portal/private/intranet/connections/myConnections/john " enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="7000.  ++Goto /portal/private/intranet/connections/myConnections/${LoginUserId} " enabled="true">
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7100/portal/private/intranet/connections/myConnections/john" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7100/portal/private/intranet/connections/myConnections/${LoginUserId}" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2403,7 +2559,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/john</stringProp>
+            <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/${LoginUserId}${LoginUserSequence}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2501,7 +2657,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/root)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2511,7 +2667,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/root</stringProp>
+            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2672,7 +2828,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/root)" enabled="true">
+          <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
@@ -2682,7 +2838,7 @@
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/root</stringProp>
+            <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2767,148 +2923,22 @@
             <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename">${ReportFilePrefix}-9999.Admin-scenario-Summary-Report.jtl</stringProp>
+        <stringProp name="filename">${ReportFilePrefix}-9999.Summary-Report.jtl</stringProp>
         <boolProp name="useGroupName">true</boolProp>
         <stringProp name="TestPlan.comments">	</stringProp>
       </ResultCollector>
       <hashTree/>
-      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager - Keep for iterations" enabled="true">
         <collectionProp name="CookieManager.cookies"/>
         <boolProp name="CookieManager.clearEachIteration">false</boolProp>
         <stringProp name="CookieManager.policy">rfc2109</stringProp>
       </CookieManager>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="MySpacesSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">MySpacesSecureToken</stringProp>
-            <stringProp name="Argument.value">xMySpacesSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TasksSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">TasksSecureToken</stringProp>
-            <stringProp name="Argument.value">xTasksSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="EventsSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">EventsSecureToken</stringProp>
-            <stringProp name="Argument.value">xEventsSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="UNIQUENUMBER" elementType="Argument">
-            <stringProp name="Argument.name">UNIQUENUMBER</stringProp>
-            <stringProp name="Argument.value">0</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Server" elementType="Argument">
-            <stringProp name="Argument.name">Server</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">${__P(expServer,localhost)}</stringProp>
-          </elementProp>
-          <elementProp name="Port" elementType="Argument">
-            <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CurrentDateTime" elementType="Argument">
-            <stringProp name="Argument.name">CurrentDateTime</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="portalComponentId" elementType="Argument">
-            <stringProp name="Argument.name">portalComponentId</stringProp>
-            <stringProp name="Argument.value">xxxportalComponentIdxxx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ReportFilePrefix" elementType="Argument">
-            <stringProp name="Argument.name">ReportFilePrefix</stringProp>
-            <stringProp name="Argument.value">${__P(expReportFilePrefix,./tmp/${__time(MMddHHmm)}/PLF-SocialRead-3.0.x-)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="OrgOrAdmin" elementType="Argument">
-            <stringProp name="Argument.name">OrgOrAdmin</stringProp>
-            <stringProp name="Argument.value">${__P(expOrgOrAdmin,administration)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CurrentDate" elementType="Argument">
-            <stringProp name="Argument.name">CurrentDate</stringProp>
-            <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="mySpacesJsonnocache" elementType="Argument">
-            <stringProp name="Argument.name">mySpacesJsonnocache</stringProp>
-            <stringProp name="Argument.value">xmySpacesJsonnocachex</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="intranetPeopleComponentId" elementType="Argument">
-            <stringProp name="Argument.name">intranetPeopleComponentId</stringProp>
-            <stringProp name="Argument.value">xintranetPeopleComponentIdx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="foundUserObjectId" elementType="Argument">
-            <stringProp name="Argument.name">foundUserObjectId</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="portalSpacesComponentId" elementType="Argument">
-            <stringProp name="Argument.name">portalSpacesComponentId</stringProp>
-            <stringProp name="Argument.value">xportalSpacesComponentIdx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParamUIManageMySpaces" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParamUIManageMySpaces</stringProp>
-            <stringProp name="Argument.value">UIManageMySpaces</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParamUISpaceSearch" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParamUISpaceSearch</stringProp>
-            <stringProp name="Argument.value">UISpaceSearch</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParam" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParam</stringProp>
-            <stringProp name="Argument.value">UISpaceSearch</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CONNECT_TIMEOUT" elementType="Argument">
-            <stringProp name="Argument.name">CONNECT_TIMEOUT</stringProp>
-            <stringProp name="Argument.value">${__P(expConnectTimeOut,150000)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="RESPONSE_TIMEOUT" elementType="Argument">
-            <stringProp name="Argument.name">RESPONSE_TIMEOUT</stringProp>
-            <stringProp name="Argument.value">${__P(expResponseTimeOut,500000)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="newStaffPage" elementType="Argument">
-            <stringProp name="Argument.name">newStaffPage</stringProp>
-            <stringProp name="Argument.value">/portal/private/intranet/administration/newStaff</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="newStaffPageTitle" elementType="Argument">
-            <stringProp name="Argument.name">newStaffPageTitle</stringProp>
-            <stringProp name="Argument.value">Add new Users</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-        <stringProp name="TestPlan.comments">magellanic.testlab.exoplatform.vn</stringProp>
-      </Arguments>
       <hashTree/>
       <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
         <stringProp name="CounterConfig.start">${__P(expCountStart,${__time(MMddHHmmss,CurrentDateTime)})}</stringProp>
         <stringProp name="CounterConfig.end">1231235900</stringProp>
         <stringProp name="CounterConfig.incr">1</stringProp>
         <stringProp name="CounterConfig.name">UNIQUENUMBER</stringProp>
-        <stringProp name="CounterConfig.format"></stringProp>
-        <boolProp name="CounterConfig.per_user">false</boolProp>
-        <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
-      </CounterConfig>
-      <hashTree/>
-      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="SpecialRequestCounter" enabled="true">
-        <stringProp name="CounterConfig.start">${__time(MMddHHmmss)}</stringProp>
-        <stringProp name="CounterConfig.end">1231235900</stringProp>
-        <stringProp name="CounterConfig.incr">10</stringProp>
-        <stringProp name="CounterConfig.name">UNIQUEREQUESTNUMBER</stringProp>
         <stringProp name="CounterConfig.format"></stringProp>
         <boolProp name="CounterConfig.per_user">false</boolProp>
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
@@ -2945,6 +2975,42 @@
         </objProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable 1" enabled="true">
+        <stringProp name="maximumValue">1231235900</stringProp>
+        <stringProp name="minimumValue">${__time(MMddHHmmss)}</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">UNIQUEREQUESTNUMBER1</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable 2" enabled="true">
+        <stringProp name="maximumValue">1231235900</stringProp>
+        <stringProp name="minimumValue">${__time(MMddHHmmss)}</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">UNIQUEREQUESTNUMBER2</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable 3" enabled="true">
+        <stringProp name="maximumValue">1231235900</stringProp>
+        <stringProp name="minimumValue">${__time(MMddHHmmss)}</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">UNIQUEREQUESTNUMBER3</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="LoginUserSequence" enabled="true">
+        <stringProp name="CounterConfig.start">0</stringProp>
+        <stringProp name="CounterConfig.end">${ThreadCount}</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">LoginUserSequence</stringProp>
+        <stringProp name="CounterConfig.format"></stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
       <hashTree/>
     </hashTree>
   </hashTree>
