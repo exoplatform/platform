@@ -11,17 +11,8 @@ This guide is a complete reference for customization points, and available APIs,
    <!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bookinfo.xml"/-->
 
 <!-- GateIn and JCR -->
-<!-- uncomment for PLF 3.0.1 when JCR publishes docbook source in maven repo -->
-   <!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.gatein/master.xml"/-->
-   <!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.gatein/master.xml"/-->
-   <book>
-     <bookinfo>
-        <title>eXo Platform 3.0 - Core Services</title>
-     </bookinfo>
-     <para><ulink url="./jcr/index.html"><citetitle>eXo Platform 3.0 - Core Foundations Reference Guide</citetitle></ulink></para>
-     <para><ulink url="./gatein/index.html"><citetitle>eXo Platform 3.0 - GateIn Reference Guide</citetitle></ulink></para>
-   </book>
-
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../docbook/en-US/master.xml"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.gatein.doc/master.xml"/>
 <!-- WCM -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.ecms/exo-ecms-docs-refguide.xml"/>
 <!-- xCMIS developer and admin guides -->

@@ -54,27 +54,25 @@
                 </goals>
                 <configuration>
                   <artifactItems>
-                    <!-- TODO: 1) in jcr, publish a zip with the xml docbook files
-                                   2) here, uncomment to get the zip of jcr and gatein
-                                   3) in index.xml, remove manual links and xinclude jcr and gatein master.xml -->
                     <!-- jcr -->
-                    <!--artifactItem>
+                    <artifactItem>
                           <groupId>org.exoplatform.jcr</groupId>
                           <artifactId>reference-docs-en</artifactId>
                           <version>${org.exoplatform.jcr.version}</version>
-                          <type>zip</type>
+                          <type>jar</type>
+                          <classifier>sources</classifier>
                           <outputDirectory>target/</outputDirectory>
                           <includes>**</includes>
-                        </artifactItem-->
+                        </artifactItem>
                     <!-- gatein -->
-                    <!--artifactItem>
+                    <artifactItem>
                           <groupId>org.gatein.doc</groupId>
                           <artifactId>gatein-reference-guide-en</artifactId>
                           <version>${org.exoplatform.portal.version}</version>
                           <type>zip</type>
                           <outputDirectory>target/</outputDirectory>
                           <includes>**</includes>
-                        </artifactItem-->
+                        </artifactItem>
                     <!-- ecms -->
                     <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>

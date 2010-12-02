@@ -37,7 +37,7 @@
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
-        <dependency>
+        <!--dependency>
           <groupId>org.gatein.doc</groupId>
           <artifactId>gatein-reference-guide-en</artifactId>
           <version>${org.exoplatform.portal.version}</version>
@@ -48,7 +48,7 @@
           <artifactId>reference-docs-en</artifactId>
           <version>${org.exoplatform.jcr.version}</version>
           <type>jdocbook</type>
-        </dependency>
+        </dependency-->
       </dependencies>
       <build>
         <plugins>
@@ -77,7 +77,7 @@
                     <unzip dest="${project.build.directory}/work/refguide">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.refguide:zip" />
                     </unzip>
-                    <mkdir dir="${project.build.directory}/work/refguide/html/gatein" />
+                    <!--mkdir dir="${project.build.directory}/work/refguide/html/gatein" />
                     <unzip dest="${project.build.directory}/work/refguide/html/gatein">
                       <fileset refid="prjdeps.org.gatein.doc:gatein-reference-guide-en:jdocbook" />
                       <patternset>
@@ -92,7 +92,7 @@
                         <include name="html/" />
                       </patternset>
                       <mapper type="regexp" from="^html/(.*)$" to="\1" />
-                    </unzip>                    
+                    </unzip-->                    
                     <mkdir dir="${project.build.directory}/work/user" />
                     <unzip dest="${project.build.directory}/work/user">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.user:zip" />
