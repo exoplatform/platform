@@ -65,7 +65,7 @@
 					<property name="usecase" value="jailed"/>
 					<property name="driveName" value="{modifiedGroupId}"/>
 					<property name="repository" value="repository"/>
-					<property name="showSideBar" value="false"/>
+					<property name="showSideBar" value="true"/>
 				</properties-param>
 			</init-params>
 		</component-plugin>
