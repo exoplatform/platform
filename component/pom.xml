@@ -12,5 +12,6 @@
   <modules>
     <module>gifbackport</module>
     <module>common</module>
+	<module>listeners</module>
   </modules>
 </project>

@@ -1259,6 +1259,12 @@
     </dependency><!-- 3.0.1-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.listeners</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency><!-- 3.0.2-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.office.config</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
