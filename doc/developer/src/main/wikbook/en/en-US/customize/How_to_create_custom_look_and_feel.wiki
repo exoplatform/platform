@@ -4,3 +4,5 @@ h2. Configure skin in Gatein
 {include:document="Configure_GateIn_skin.wiki"}
 h2. Configure skin in WCM
 {include:document="How_to_config_skin_in_WCM.wiki"}
+h2. Create and apply Global style sheet
+{include:document="Globalstylesheet.wiki"}

@@ -1,0 +1,112 @@
+Global style sheet can be defined as the shared style sheet which will be applied to your entire site or a set of pages, depending on your definition. When you want to make changes for your site, you only need to create a new global style sheet, or edit the existing global style sheet.
+
+Global style sheets of eXo Platform are put into the CSS folder to manage the style sheet of your desired site. This section aims at showing you how to create and apply your own global style sheet by *Content Explorer* and by configuration. 
+
+h2. Create and apply the global style sheet by Content Explorer
+
+Do as follows:
+
+*Step 1:* Select *My Spaces → Content Explorer → Sites Management*.
+
+*Step 2:* Select one site node in the *Sites Management* pane, for example *acme*, and then select the CSS folder.
+
+!CreateNewGlobalStylesheet.png!
+
+*Illustration 1: Sites Management
+
+*Step 3:* Click *Add Document* to open the form to create the new global style sheet.
+
+!CreateGlobalStylesheetForm.png!
+
+*Illustration 2: Form to create the new global style sheet*
+
+*Step 4:* Enter the name of global style sheet into the *Name* field, for example *GlobalStylesheet_Organge*.
+
+*Step 5:* Set the value as "True" to activate your global style sheet for your site in the *Active* field. "True" is set by default. If you select "False", your newly created global style will be disabled.
+
+*Step 6:* Input one positive integer into the *Priority* field, for example "10". 
+
+{note}
+The successful application of your newly created global style sheet depends on values in both *Active* and *Priority* fields. If "True" is set in many global styles sheets, the system will automatically render all global style sheets in the CSS folder in the descending order and get the style sheet with the highest priority. Thus, after selecting "True", you need to pay attention to the priority level so that the selected priority of your style sheet is higher than those of other global style sheets in the CSS folder.
+{note}
+
+*Step 7:* Define your styles in the *CSS data* field. In this step, you can directly enter your styles into this field, or copy and paste your styles from your favorite text editors into this field. You only need to define your desired styles related to position of text, navigation bar, administration bar, text colors, background color and more.
+
+For example, you can define your styles with the following information:
+
+!cssdata.png!
+
+*Step 8:* Click the *Save as Draft* button to save your newly created global style sheet. You will see your global style sheet in the *Sites Management* pane.
+
+!GlobalStylesheet_org.png! 
+
+
+If you want to edit your newly created global style sheet or pre-defined global style sheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form and start changing values in fields, including Activate, Priority and CSS data, except the name of global style sheet. However, you can change the name of global style sheets by right-clicking your global style sheets in the left pane, then select *Rename*.
+
+
+h2. Create and apply the global style sheet by configuration 
+
+After creating your desired global style sheet as mentioned above, your global style sheet can be initialized automatically when the application is started by doing as follows:
+
+*Step 1:* Select *System* and click *Export Node* to export your newly created global style sheet.
+
+!ExportImportGlobalStylesheet.png!
+
+*Step 2:* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all style sheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
+
+*Step 3:* Add the code below to the file where all global style sheets will be initialized for your site, such as *acme-deployment-configuration.xml* in the folder "/acme-website/WEB-INF/conf/acme-portal/wcm/deployment/".
+
+{code:xml}
+   <object-param>
+          <name>ACME Stylesheet Green data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="repository">
+                  <string>repository</string>
+                </field>
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/css</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetOrange.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>              
+          </object>
+        </object-param>
+{code}
+
+*Step 4:* Save the file where you have added the code in *Step 3* and clean data created in the previous start-up.
+
+*Step 5:* Initialize the eXo Platform application. After running successfully, you will find your global style sheet in the CSS folder of the relevant site.
+
+
+h2. Check display of global style sheets
+
+To check if your global style sheet is activated or not, simply select and set the value as "True" for global style sheets by turns.
+
+For example, to see differences when applying *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange*, do as follows:
+
+*Step 1:* Activate the *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange* by turns.
+
+*Step 2:* Click *My Sites* on the administration bar and select the relevant site, for example "acme". 
+
+If you activate *GlobalStylesheet_Blue*, your site will be displayed as below:
+
+!DisplayGlobalStyleBlue.png!
+
+*Illustration 3: The "acme" site when applying GlobalStylesheet_Blue*
+
+If you activate "GlobalStylesheet_Orange", your site will be displayed in such a different way: 
+
+!DisplayGlobalStyleOrange.png!
+
+*Illustration 4: The "acme" site when applying GlobalStylesheet_Orange"
