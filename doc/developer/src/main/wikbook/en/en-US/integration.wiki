@@ -146,7 +146,8 @@ The _exo.platform.services.organization_ package has five main components: user,
 
 h1. LDAP Integration
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.
-The configuration is done in _ldap-configuration.xml_ file, and this part will explain the numerous parameters which it contains.
+
+The configuration is done in *{{ldap-configuration.xml}}* file, and this part will explain the numerous parameters which it contains.
 
 h2. Connection Settings
 Firstly, start by connection settings which will tell eXo how to connect to your directory server. These settings are very close to [JNDI API|http://java.sun.com/products/jndi] context parameters. This configuration is activated by the init-param _ldap.config_ of service _LDAPServiceImpl_.
