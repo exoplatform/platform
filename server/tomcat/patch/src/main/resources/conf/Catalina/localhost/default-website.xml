@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -20,13 +19,4 @@
 
 -->
 
-<node-navigation
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
-  <priority>1</priority>
-  <page-nodes>
-
-	
-  </page-nodes>
-</node-navigation>
+<Context path="/default-website" docBase="default-website" debug="0" reloadable="true" crossContext="true"/>

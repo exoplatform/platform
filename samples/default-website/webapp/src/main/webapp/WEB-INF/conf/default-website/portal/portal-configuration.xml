@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<external-component-plugins> 
+		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component> 
+		<component-plugin>
+			<name>default.portal.config.user.listener</name>
+			<set-method>initListener</set-method>
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
+				<value-param>
+					<name>default.portal</name>
+					<description>The default portal for checking db is empty or not</description>
+					<value>default</value>
+				</value-param>
+				<object-param>
+					<name>portal.configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.portal.config.NewPortalConfig">
+						<field  name="predefinedOwner">
+							<collection type="java.util.HashSet">                
+								<value>
+									<string>default</string>
+								</value>	               
+							</collection>
+						</field>
+						<field name="ownerType">
+							<string>portal</string>
+						</field>
+						<field name="templateLocation">
+							<string>war:/conf/default-website/portal</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

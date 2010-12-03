@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Samples</name>
   <modules>
+    <module>default-website</module>
     <module>acme-website</module>
     <module>blank</module>
   </modules>

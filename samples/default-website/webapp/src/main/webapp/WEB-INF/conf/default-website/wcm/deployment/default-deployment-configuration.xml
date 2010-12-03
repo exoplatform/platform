@@ -19,16 +19,13 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <configuration
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
   <component>
     <type>org.exoplatform.services.deployment.WCMContentInitializerService</type>
   </component>
-
   <external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
@@ -37,8 +34,7 @@
       <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
       <description>XML Deployment Plugin</description>
       <init-params>
-    
-		 <object-param>
+        <object-param>
           <name>default Welcome Data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -56,22 +52,14 @@
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/platform/wcm/artifacts/site-resources/default/Welcome.xml</string>
+              <string>war:/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml</string>
             </field>
             <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>
+               <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
-		
-       
-    
-       
-
-       
-
       </init-params>
     </component-plugin>
   </external-component-plugins>
-
 </configuration>

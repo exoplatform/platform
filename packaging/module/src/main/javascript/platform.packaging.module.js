@@ -121,6 +121,14 @@ function getModule(params)
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
    module.sample.acme.webapp.deployName = "acme-website";
    
+    // default website
+   module.sample.defaultWebsite = {};
+   
+   module.sample.defaultWebsite.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.default-website.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.default-website.config", "jar", module.version));
+   module.sample.defaultWebsite.webapp.deployName = "default-website";
+   
+    // Crash
    module.crash = {};
    module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
    module.crash.webapp.deployName = "crash";

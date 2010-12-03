@@ -61,6 +61,9 @@ function getProduct(version) {
   // crash
   product.addDependencies(platform.crash.webapp);
   
+  // default website
+  product.addDependencies(platform.sample.defaultWebsite.webapp);
+
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
   

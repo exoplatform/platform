@@ -1277,6 +1277,12 @@
     </dependency><!-- 3.0.2-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.default-website.webapp</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency><!-- 3.0.2-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.office.officeResources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
@@ -1296,6 +1302,12 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.config</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency><!-- 3.0.2-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.default-website.config</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
     </dependency><!-- 3.0.2-SNAPSHOT-->
@@ -1579,6 +1591,12 @@
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.sample.default-website.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+				<artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.office.ear</artifactId>
 				  <version>${project.version}</version>
 				  <type>ear</type>
@@ -1736,6 +1754,12 @@
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.sample.acme-website.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+				<artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.sample.default-website.ear</artifactId>
 				  <version>${project.version}</version>
 				  <type>ear</type>
 				</artifactItem>
