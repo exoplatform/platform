@@ -22,7 +22,7 @@ The built-in REST Managment Provider of GateIn makes some of the MBeans operatio
 
 Only members of the platform/administrators group are given permission to work on REST management. The authentication requires login/password of the user's account.
 
-The base URL to access the REST endpoints is [http://localhost:8080/rest/managment], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through REST request is [http://localhost:8080/rest/management/skinservice/getSkinList]
+The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through REST request is [http://localhost:8080/rest/management/skinservice/getSkinList]
 
 h1. Management view
 
@@ -187,29 +187,3 @@ The JMX name of the application statistics MBean follows the template: {{exo:vie
 |{{getExecutionCount(applicationId)}}|returns the number of times the specified application has been executed|
 |{{getMinTime(applicationId)}}|returns the minimum time spent in the specified  application|
 |{{getMaxTime(applicationId)}}|returns the maximum time spent in the specified  application|
-
-
-h2. Knowledge Management view
-{note}
-TODO
-{note}
-h3. BBCodes
-{note}
-TODO
-{note}
-h3. Forum  Service
-{note}
-TODO
-{note}
-h3. Jobs
-{note}
-TODO
-{note}
-h3. Plugins
-{note}
-TODO
-{note}
-h3. Storage
-{note}
-TODO
-{note}
