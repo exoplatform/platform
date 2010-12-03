@@ -318,7 +318,7 @@
 	      </value-param>
 	      <value-param>
 	        <name>views</name>
-	        <value>Timeline-View-document</value>
+	        <value>Timeline-View-document, icon-view, cover-flow, slide-show</value>
 	      </value-param>
 	      <value-param>
 	        <name>viewPreferences</name>
