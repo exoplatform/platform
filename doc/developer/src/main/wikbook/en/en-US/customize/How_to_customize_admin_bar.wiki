@@ -1,0 +1,117 @@
+h2. Change the color scheme
+The color of current administrator bar is dark blue and yellow. However, you can change the color to match your brand colors. Read below to find out how.
+
+The administrator bar:
+
+!admin_bar.png!
+
+*The administrator bar with default colors*
+
+The style of admin bar is defined in the *stylesheet.css* located in {{src/main/webapp/skin/officeSkin/UIToolbarContainer}}
+
+You can modify this file to customize the administrator bar. Look at the example below: 
+
+!modified_admin_bar.png!
+
+*Customized administrator bar*
+
+the stylesheet.css:
+
+{code}
+/*toolbar background color*/
+.UIWorkingWorkspace .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
+	background: #20263f;	
+	height: 31px;
+	border: none;
+}
+
+/*toolbar text color*/
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
+	color: white;
+	font-weight: normal;
+	padding: 0 12px;
+	display: block;
+	white-space: nowrap;
+	background: none;
+	margin-left: 0;
+	zoom: 1;
+}
+/*toolbar text color when hover*/
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
+	color: #8F8F8F;
+}
+
+/*background color of drop-down menu*/
+.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer {	
+	border: 1px solid transparent;
+	background: #20263f;
+	margin-top: 0;
+}
+
+/*background color and border color of drop-down menu*/
+UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {	
+	border-top: 1px solid #414760;
+	border-bottom: none;
+	background: #20263f;
+	opacity: 1;
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
+}
+
+/*text color of menu items*/
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
+	padding: 0 24px 0 35px; /* orientation=lt */
+	padding: 0 35px 0 24px; /* orientation=rt */
+	font-family: "Lucida Sans";
+	font-size: 12px;
+	color: white;
+	display: block;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+/*text color of menu items when hover*/
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a:hover {
+	color: #92918f;
+	background-color: transparent;
+}
+
+/*color of title bar text and background in drop-down menu*/
+.UIWorkingWorkspace .UIToolbarContainer .TitleBar {
+	color: #20263f;
+	background: #92a9b9;
+	font-weight: bold;
+	padding: 0px 5px;
+}
+
+{code}
+
+h2. Add/remove portlets on the administrator bar
+
+!admin_bar_portlets.png!
+
+*Portlets on administrator bar* 
+
+In the illustration above, each circle presents a portlet defined in *sharedlayout.xml*
+
+We could override the whole *sharedlayout.xml* by adding it into an extension {{custom-extension/WEB-INF/conf/portal/portal/sharedlayout.xml}}, for example. 
+
+The sharedlayout.xml defines the current displayed portlets on the administrator bar. For instance, if you want to remove the Dashboard on the administrator bar, you should remove the following part in the {{custom-extension/WEB-INF/conf/portal/portal/sharedlayout.xml}}
+
+{code}
+...
+   <container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
+         <portlet>
+            <application-ref>exoadmin</application-ref>
+            <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
+         </portlet>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
+  </container>
+...
+{code}
+.
+
