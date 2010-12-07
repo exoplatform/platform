@@ -36,7 +36,7 @@
       <init-params>
         <value-param>
           <name>portletName</name>
-          <value>Content List Viewer</value>
+          <value>content-list-viewer</value>
         </value-param>
         <value-param>
           <name>portlet.template.path</name>
@@ -51,7 +51,7 @@
               <string>jiraNotification.gtmpl</string>
             </field>
             <field name="category">
-              <string>list-by-folder</string>
+              <string>list</string>
             </field>
           </object>
         </object-param>

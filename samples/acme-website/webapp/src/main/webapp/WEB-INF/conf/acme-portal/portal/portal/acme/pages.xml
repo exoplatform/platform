@@ -106,7 +106,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/TwoColumnsCLVTemplate.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -174,7 +174,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -245,12 +245,12 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -303,7 +303,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/DocumentsTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/DocumentsTemplate.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -380,7 +380,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/AcmeCategoryTree.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/navigation/AcmeCategoryTree.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -458,7 +458,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/AcmeBigHotNewsTemplateCLV.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmeBigHotNewsTemplateCLV.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -544,7 +544,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/CategoryList.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/navigation/CategoryList.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -619,12 +619,12 @@
               </preference>
               <preference>
                 <name>paginatorTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/OneColumnCLVTemplate.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
