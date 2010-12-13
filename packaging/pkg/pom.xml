@@ -861,13 +861,13 @@
       <type>war</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
-    <dependency>
-      <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>exo-ecms-core-ext</artifactId>
-      <version>${org.exoplatform.ecms.version}</version>
-      <type>jar</type>
-    </dependency>
-    <!-- 2.1.0-SNAPSHOT-->
+  <dependency>
+    <groupId>org.exoplatform.commons</groupId>
+    <artifactId>exo.platform.commons.webui.ext</artifactId>
+    <version>${org.exoplatform.commons.version}</version>
+   <scope>provided</scope>
+  </dependency>
+
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-resources-wcm</artifactId>
