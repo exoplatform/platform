@@ -6,5 +6,5 @@ h2. Configure skin in WCM
 {include:document="How_to_config_skin_in_WCM.wiki"}
 h2. Create and apply Global style sheet
 {include:document="Globalstylesheet.wiki"}
-h2. How to customize the administration bar
+h2. How to customize the Admin bar
 {include:document="How_to_customize_admin_bar.wiki"}

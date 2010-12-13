@@ -259,19 +259,19 @@ hr {
 /* ======================= Chapter ===========================*/
 
 .chapter .titlepage h2 , .titlepage .title a{
-	font-size: 24px;
+	font-size: 28px;
 	font-weight: bold;
 	color: #22579f;
 }
 
 .chapter .section .titlepage h2 , .section .titlepage .title a{
-	font-size: 20px;
+	font-size: 26px;
 	font-weight: bold;
 	color: #22579f;
 }
 
 .chapter .section .titlepage h3 a{
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: bold;
 	color: #22579f;
 }
