@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.component</artifactId>
-		<version>3.0.2-SNAPSHOT</version>
+		<version>3.0.2</version>
 	</parent>
 	<groupId>org.exoplatform.platform</groupId>
 	<artifactId>exo.platform.component.listeners</artifactId>
-	<version>3.0.2-SNAPSHOT</version>
+	<version>3.0.2</version>
 	<packaging>jar</packaging>
 	<name>eXo Platform - Component Listeners</name>
 	<description>Component Listeners Implementation</description>

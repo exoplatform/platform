@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
 	<artifactId>exo.platform.sample</artifactId>
-    <version>3.0.2-SNAPSHOT</version>
+    <version>3.0.2</version>
   </parent>
   <artifactId>exo.platform.sample.default-website</artifactId>
   <packaging>pom</packaging>
