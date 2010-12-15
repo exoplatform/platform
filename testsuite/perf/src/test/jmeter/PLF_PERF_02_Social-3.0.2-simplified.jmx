@@ -6,23 +6,160 @@
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments"/>
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="ThreadCount" elementType="Argument">
+            <stringProp name="Argument.name">ThreadCount</stringProp>
+            <stringProp name="Argument.value">${__P(expThreadCount,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoopCount" elementType="Argument">
+            <stringProp name="Argument.name">LoopCount</stringProp>
+            <stringProp name="Argument.value">${__P(expLoopCount,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Duration" elementType="Argument">
+            <stringProp name="Argument.name">Duration</stringProp>
+            <stringProp name="Argument.value">${__P(expDuration,3600)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Server" elementType="Argument">
+            <stringProp name="Argument.name">Server</stringProp>
+            <stringProp name="Argument.value">${__P(expHost,magellanic.testlab.exoplatform.vn)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Port" elementType="Argument">
+            <stringProp name="Argument.name">Port</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RampUpPeriod" elementType="Argument">
+            <stringProp name="Argument.name">RampUpPeriod</stringProp>
+            <stringProp name="Argument.value">${__P(expRampup,10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="MySpacesSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">MySpacesSecureToken</stringProp>
+            <stringProp name="Argument.value">xMySpacesSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TasksSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">TasksSecureToken</stringProp>
+            <stringProp name="Argument.value">xTasksSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="EventsSecureToken" elementType="Argument">
+            <stringProp name="Argument.name">EventsSecureToken</stringProp>
+            <stringProp name="Argument.value">xEventsSecureTokenx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UNIQUENUMBER" elementType="Argument">
+            <stringProp name="Argument.name">UNIQUENUMBER</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CurrentDateTime" elementType="Argument">
+            <stringProp name="Argument.name">CurrentDateTime</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="portalComponentId" elementType="Argument">
+            <stringProp name="Argument.name">portalComponentId</stringProp>
+            <stringProp name="Argument.value">xxxportalComponentIdxxx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ReportFilePrefix" elementType="Argument">
+            <stringProp name="Argument.name">ReportFilePrefix</stringProp>
+            <stringProp name="Argument.value">${__P(expReportFilePrefix,./tmp/${__time(MMddHHmm)}/PLF-SocialTest-3.0.x-)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OrgOrAdmin" elementType="Argument">
+            <stringProp name="Argument.name">OrgOrAdmin</stringProp>
+            <stringProp name="Argument.value">${__P(expOrgOrAdmin,administration)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CurrentDate" elementType="Argument">
+            <stringProp name="Argument.name">CurrentDate</stringProp>
+            <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="mySpacesJsonnocache" elementType="Argument">
+            <stringProp name="Argument.name">mySpacesJsonnocache</stringProp>
+            <stringProp name="Argument.value">xmySpacesJsonnocachex</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="intranetPeopleComponentId" elementType="Argument">
+            <stringProp name="Argument.name">intranetPeopleComponentId</stringProp>
+            <stringProp name="Argument.value">xintranetPeopleComponentIdx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="foundUserObjectId" elementType="Argument">
+            <stringProp name="Argument.name">foundUserObjectId</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="portalSpacesComponentId" elementType="Argument">
+            <stringProp name="Argument.name">portalSpacesComponentId</stringProp>
+            <stringProp name="Argument.value">xportalSpacesComponentIdx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParamUIManageMySpaces" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParamUIManageMySpaces</stringProp>
+            <stringProp name="Argument.value">UIManageMySpaces</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParamUISpaceSearch" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParamUISpaceSearch</stringProp>
+            <stringProp name="Argument.value">UISpaceSearch</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uicomponentParam" elementType="Argument">
+            <stringProp name="Argument.name">uicomponentParam</stringProp>
+            <stringProp name="Argument.value">UISpaceSearch</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CONNECT_TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">CONNECT_TIMEOUT</stringProp>
+            <stringProp name="Argument.value">${__P(expConnectTimeOut,150000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RESPONSE_TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">RESPONSE_TIMEOUT</stringProp>
+            <stringProp name="Argument.value">${__P(expResponseTimeOut,500000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="newStaffPage" elementType="Argument">
+            <stringProp name="Argument.name">newStaffPage</stringProp>
+            <stringProp name="Argument.value">/portal/private/intranet/administration/newStaff</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="newStaffPageTitle" elementType="Argument">
+            <stringProp name="Argument.name">newStaffPageTitle</stringProp>
+            <stringProp name="Argument.value">Add new Users</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+        <stringProp name="TestPlan.comments">magellanic.testlab.exoplatform.vn</stringProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="VUser" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">3</stringProp>
+          <stringProp name="LoopController.loops">${LoopCount}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(expThreadCount,2)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(expRampUpPeriod,25)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${ThreadCount}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RampUpPeriod}</stringProp>
         <longProp name="ThreadGroup.start_time">1290047883000</longProp>
         <longProp name="ThreadGroup.end_time">1290047883000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${__P(expDuration,3600)}</stringProp>
+        <stringProp name="ThreadGroup.duration">${Duration}</stringProp>
         <stringProp name="ThreadGroup.delay">2</stringProp>
       </ThreadGroup>
       <hashTree>
@@ -338,6 +475,15 @@
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Regular Expression Extractor - SecureToken***" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">SecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.template"></stringProp>
+                <stringProp name="RegexExtractor.default">${MySpacesSecureToken}-${TasksSecureToken}-${EventsSecureToken}</stringProp>
+                <stringProp name="RegexExtractor.match_number"></stringProp>
+              </RegexExtractor>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - Must return &quot;New Staff&quot; link***" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-1948710155">\&lt;a class=&quot;ItemIcon DefaultPageIcon&quot; href=&quot;${newStaffPage}&quot; \&gt;${newStaffPageTitle}\&lt;/a\&gt;</stringProp>
@@ -359,6 +505,17 @@
               <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop the thread if user can not login***" enabled="true">
                 <intProp name="OnError.action">1</intProp>
               </ResultAction>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion SecureToken***" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-548476140">MySpacesSecureToken.*TasksSecureToken.*EventsSecureToken</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">SecureToken</stringProp>
+              </ResponseAssertion>
               <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login load intranet homepage" enabled="true"/>
@@ -2604,22 +2761,18 @@
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop the thread if can the intranet can not be shown***" enabled="true">
-                <intProp name="OnError.action">1</intProp>
-              </ResultAction>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion MySpacesSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion MySpacesSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1186075113">MySpacesSecureToken</stringProp>
+                  <stringProp name="-94375066">MySpacesSecureTokenResult</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                 <boolProp name="Assertion.assume_success">false</boolProp>
                 <intProp name="Assertion.test_type">6</intProp>
                 <stringProp name="Assertion.scope">variable</stringProp>
-                <stringProp name="Scope.variable">MySpacesSecureToken</stringProp>
+                <stringProp name="Scope.variable">MySpacesSecureTokenResult</stringProp>
               </ResponseAssertion>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion TasksSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion TasksSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="1667648628">TasksSecureToken</stringProp>
                 </collectionProp>
@@ -2630,7 +2783,7 @@
                 <stringProp name="Scope.variable">TasksSecureToken</stringProp>
               </ResponseAssertion>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion EventsSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion EventsSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="2000850377">EventsSecureToken</stringProp>
                 </collectionProp>
@@ -2640,6 +2793,30 @@
                 <stringProp name="Assertion.scope">variable</stringProp>
                 <stringProp name="Scope.variable">EventsSecureToken</stringProp>
               </ResponseAssertion>
+              <hashTree/>
+              <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop the thread if can the intranet can not be shown***" enabled="true">
+                <intProp name="OnError.action">1</intProp>
+              </ResultAction>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion SecureToken***" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-548476140">MySpacesSecureToken.*TasksSecureToken.*EventsSecureToken</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">SecureToken</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Regular Expression Extractor - SecureToken***" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">SecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.template"></stringProp>
+                <stringProp name="RegexExtractor.default">${MySpacesSecureToken}-${TasksSecureToken}-${EventsSecureToken}</stringProp>
+                <stringProp name="RegexExtractor.match_number"></stringProp>
+              </RegexExtractor>
               <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login load intranet homepage" enabled="true"/>
@@ -5564,7 +5741,7 @@
                 <intProp name="Assertion.test_type">2</intProp>
               </ResponseAssertion>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - EventsSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - EventsSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-2134749149">^default</stringProp>
                 </collectionProp>
@@ -5575,7 +5752,7 @@
                 <stringProp name="Scope.variable">EventsSecureToken</stringProp>
               </ResponseAssertion>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - TasksSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - TasksSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-2134749149">^default</stringProp>
                 </collectionProp>
@@ -5586,7 +5763,7 @@
                 <stringProp name="Scope.variable">TasksSecureToken</stringProp>
               </ResponseAssertion>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - MySpacesSecureToken***" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion - MySpacesSecureToken***" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-2134749149">^default</stringProp>
                 </collectionProp>
@@ -5609,6 +5786,26 @@
               <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop the thread if new user are not created***" enabled="true">
                 <intProp name="OnError.action">1</intProp>
               </ResultAction>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion SecureToken***" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-548476140">MySpacesSecureToken.*TasksSecureToken.*EventsSecureToken</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">SecureToken</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="--Regular Expression Extractor - SecureToken***" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">SecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.template"></stringProp>
+                <stringProp name="RegexExtractor.default">${MySpacesSecureToken}-${TasksSecureToken}-${EventsSecureToken}</stringProp>
+                <stringProp name="RegexExtractor.match_number"></stringProp>
+              </RegexExtractor>
               <hashTree/>
             </hashTree>
             <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3140.Goto intranet (/portal/private/intranet)" enabled="true">
@@ -7855,122 +8052,6 @@
         <stringProp name="CookieManager.policy">rfc2109</stringProp>
       </CookieManager>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="MySpacesSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">MySpacesSecureToken</stringProp>
-            <stringProp name="Argument.value">xMySpacesSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TasksSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">TasksSecureToken</stringProp>
-            <stringProp name="Argument.value">xTasksSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="EventsSecureToken" elementType="Argument">
-            <stringProp name="Argument.name">EventsSecureToken</stringProp>
-            <stringProp name="Argument.value">xEventsSecureTokenx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="UNIQUENUMBER" elementType="Argument">
-            <stringProp name="Argument.name">UNIQUENUMBER</stringProp>
-            <stringProp name="Argument.value">0</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="Server" elementType="Argument">
-            <stringProp name="Argument.name">Server</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">${__P(expServer,magellanic.testlab.exoplatform.vn)}</stringProp>
-          </elementProp>
-          <elementProp name="Port" elementType="Argument">
-            <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CurrentDateTime" elementType="Argument">
-            <stringProp name="Argument.name">CurrentDateTime</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="portalComponentId" elementType="Argument">
-            <stringProp name="Argument.name">portalComponentId</stringProp>
-            <stringProp name="Argument.value">xxxportalComponentIdxxx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ReportFilePrefix" elementType="Argument">
-            <stringProp name="Argument.name">ReportFilePrefix</stringProp>
-            <stringProp name="Argument.value">${__P(expReportFilePrefix,~/tmp/${__time(MMddHHmm)}/PLF-SocialTest-3.0.x-)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="OrgOrAdmin" elementType="Argument">
-            <stringProp name="Argument.name">OrgOrAdmin</stringProp>
-            <stringProp name="Argument.value">${__P(expOrgOrAdmin,administration)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CurrentDate" elementType="Argument">
-            <stringProp name="Argument.name">CurrentDate</stringProp>
-            <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="mySpacesJsonnocache" elementType="Argument">
-            <stringProp name="Argument.name">mySpacesJsonnocache</stringProp>
-            <stringProp name="Argument.value">xmySpacesJsonnocachex</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="intranetPeopleComponentId" elementType="Argument">
-            <stringProp name="Argument.name">intranetPeopleComponentId</stringProp>
-            <stringProp name="Argument.value">xintranetPeopleComponentIdx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="foundUserObjectId" elementType="Argument">
-            <stringProp name="Argument.name">foundUserObjectId</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="portalSpacesComponentId" elementType="Argument">
-            <stringProp name="Argument.name">portalSpacesComponentId</stringProp>
-            <stringProp name="Argument.value">xportalSpacesComponentIdx</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParamUIManageMySpaces" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParamUIManageMySpaces</stringProp>
-            <stringProp name="Argument.value">UIManageMySpaces</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParamUISpaceSearch" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParamUISpaceSearch</stringProp>
-            <stringProp name="Argument.value">UISpaceSearch</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="uicomponentParam" elementType="Argument">
-            <stringProp name="Argument.name">uicomponentParam</stringProp>
-            <stringProp name="Argument.value">UISpaceSearch</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="CONNECT_TIMEOUT" elementType="Argument">
-            <stringProp name="Argument.name">CONNECT_TIMEOUT</stringProp>
-            <stringProp name="Argument.value">${__P(expConnectTimeOut,150000)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="RESPONSE_TIMEOUT" elementType="Argument">
-            <stringProp name="Argument.name">RESPONSE_TIMEOUT</stringProp>
-            <stringProp name="Argument.value">${__P(expResponseTimeOut,500000)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="newStaffPage" elementType="Argument">
-            <stringProp name="Argument.name">newStaffPage</stringProp>
-            <stringProp name="Argument.value">/portal/private/intranet/administration/newStaff</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="newStaffPageTitle" elementType="Argument">
-            <stringProp name="Argument.name">newStaffPageTitle</stringProp>
-            <stringProp name="Argument.value">Add new Users</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-        <stringProp name="TestPlan.comments">magellanic.testlab.exoplatform.vn</stringProp>
-      </Arguments>
-      <hashTree/>
       <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="SpecialRequestCounter" enabled="true">
         <stringProp name="CounterConfig.start">${__time(MMddHHmmss)}</stringProp>
         <stringProp name="CounterConfig.end">1231235900</stringProp>
@@ -7990,6 +8071,38 @@
         <boolProp name="CounterConfig.per_user">false</boolProp>
         <stringProp name="TestPlan.comments">Default value is current datetime</stringProp>
       </CounterConfig>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
       <hashTree/>
     </hashTree>
   </hashTree>
