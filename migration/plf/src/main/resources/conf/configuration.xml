@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<component>
+		<type>org.exoplatform.platform.migration.rest.UserProfileImporterREST</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.rest.UserPortalConfigurationConvertorREST</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.plf.rest.MarshallConfigurationREST</type>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>application.registry.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.handlers.impl.ApplicationRegistryHandler</type>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
