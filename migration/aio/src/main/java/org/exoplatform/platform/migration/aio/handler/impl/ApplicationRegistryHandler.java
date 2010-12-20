@@ -26,6 +26,7 @@ import org.exoplatform.container.xml.ComponentPlugin;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 
 /**
@@ -57,7 +58,7 @@ public class ApplicationRegistryHandler extends ComponentHandler {
         List<ApplicationCategory> applicationCategories = applicationRegistryService.getApplicationCategories();
         for (ApplicationCategory applicationCategory : applicationCategories) {
           ObjectParameter objectParameter = new ObjectParameter();
-          String[] appTypes = { "portlet", "eXoGadget" };
+          String[] appTypes = { Constants.APP_TYPE_PORTLET, Constants.APP_TYPE_GADGET };
           applicationCategory.setApplications(applicationRegistryService.getApplications(applicationCategory, appTypes));
           objectParameter.setDescription(applicationCategory.getDescription());
           objectParameter.setName(applicationCategory.getName());

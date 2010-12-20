@@ -33,6 +33,7 @@ import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
@@ -50,26 +51,19 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
  * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15 juil. 2010
  */
 public class OrganizationServiceHandler extends ComponentHandler {
-  final private static String PROFILES_FOLDER_NAME = "profiles/";
-
-  final private static String USERS_FOLDER_NAME = "users/";
 
   private OrganizationService organizationService;
-
-  private static final String MAX_USERS_IN_FILE_PARAM_NAME = "max-users-per-file";
-
-  private static final int DEFAULT_MAX_USERS_IN_FILE_PARAM_NAME = 100;
 
   private int maxUsersPerFile = 0;
 
   public OrganizationServiceHandler(InitParams initParams) {
-    ValueParam valueParam = initParams.getValueParam(MAX_USERS_IN_FILE_PARAM_NAME);
+    ValueParam valueParam = initParams.getValueParam(Constants.MAX_USERS_IN_FILE_PARAM_NAME);
     if (valueParam == null || valueParam.getValue().length() == 0) {
-      throw new IllegalStateException(MAX_USERS_IN_FILE_PARAM_NAME + " init param is missing");
+      throw new IllegalStateException(Constants.MAX_USERS_IN_FILE_PARAM_NAME + " init param is missing");
     }
     maxUsersPerFile = Integer.parseInt(valueParam.getValue());
     if (maxUsersPerFile == 0) {
-      maxUsersPerFile = DEFAULT_MAX_USERS_IN_FILE_PARAM_NAME;
+      maxUsersPerFile = Constants.DEFAULT_MAX_USERS_IN_FILE_PARAM_NAME;
     }
     super.setTargetComponentName(OrganizationService.class.getName());
   }
@@ -245,7 +239,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
         if (userProfile != null && userProfile.getUserInfoMap() != null && !userProfile.getUserInfoMap().isEmpty()) {
           xstream_.alias("user-profile", userProfile.getClass());
           String xml = xstream_.toXML(userProfile);
-          zos.putNextEntry(new ZipEntry(PROFILES_FOLDER_NAME + userProfile.getUserName() + "_profile.xml"));
+          zos.putNextEntry(new ZipEntry(Constants.PROFILES_FOLDER_NAME + userProfile.getUserName() + Constants.PROFILE_FILE_SUFFIX));
           zos.write(xml.getBytes());
           zos.closeEntry();
         }
@@ -263,7 +257,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
         if (user != null) {
           xstream_.alias("user", user.getClass());
           String xml = xstream_.toXML(user);
-          zos.putNextEntry(new ZipEntry(USERS_FOLDER_NAME + user.getUserName() + "_user.xml"));
+          zos.putNextEntry(new ZipEntry(Constants.USERS_FOLDER_NAME + user.getUserName() + Constants.USER_FILE_SUFFIX));
           zos.write(xml.getBytes());
           zos.closeEntry();
         }

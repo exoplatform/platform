@@ -33,6 +33,7 @@ import org.exoplatform.platform.migration.common.aio.object.PortalConfig;
 import org.exoplatform.platform.migration.common.aio.object.PortletPreferences;
 import org.exoplatform.platform.migration.common.aio.object.Page.PageSet;
 import org.exoplatform.platform.migration.common.aio.object.PortletPreferences.PortletPreferencesSet;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.plf.object.Portlet;
 import org.exoplatform.platform.migration.plf.object.Preference;
 import org.exoplatform.portal.config.model.ModelObject;
@@ -46,25 +47,13 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 
 @Path("/userPortalConfigurationConvertor")
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
-
-  final private static String PORTAL_FILE_NAME = "portal.xml";
-
-  final private static String PAGES_FILE_NAME = "pages.xml";
-
-  final private static String NAVIGATION_FILE_NAME = "navigation.xml";
-
-  final private static String GADGET_FILE_NAME = "gadgets.xml";
-
-  final private static String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
-
   final private static Map<String, Class<?>> unmarshelledObjectTypes = new HashMap<String, Class<?>>();
-
   static {
-    unmarshelledObjectTypes.put(PORTAL_FILE_NAME, PortalConfig.class);
-    unmarshelledObjectTypes.put(PAGES_FILE_NAME, PageSet.class);
-    unmarshelledObjectTypes.put(NAVIGATION_FILE_NAME, PageNavigation.class);
-    unmarshelledObjectTypes.put(GADGET_FILE_NAME, Gadgets.class);
-    unmarshelledObjectTypes.put(PORTLET_PREFERENCES_FILE_NAME, PortletPreferencesSet.class);
+    unmarshelledObjectTypes.put(Constants.PORTAL_FILE_NAME, PortalConfig.class);
+    unmarshelledObjectTypes.put(Constants.PAGES_FILE_NAME, PageSet.class);
+    unmarshelledObjectTypes.put(Constants.NAVIGATION_FILE_NAME, PageNavigation.class);
+    unmarshelledObjectTypes.put(Constants.GADGET_FILE_NAME, Gadgets.class);
+    unmarshelledObjectTypes.put(Constants.PORTLET_PREFERENCES_FILE_NAME, PortletPreferencesSet.class);
   }
 
   @GET
@@ -124,21 +113,21 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
           Map<String, Object> ownerObjects = ownerEntry.getValue();
 
           // pages.xml & portlet-preferences.xml conversion
-          PageSet pageSet = (PageSet) ownerObjects.get(PAGES_FILE_NAME);
-          PortletPreferencesSet portletPreferencesSet = (PortletPreferencesSet) ownerObjects.get(PORTLET_PREFERENCES_FILE_NAME);
+          PageSet pageSet = (PageSet) ownerObjects.get(Constants.PAGES_FILE_NAME);
+          PortletPreferencesSet portletPreferencesSet = (PortletPreferencesSet) ownerObjects.get(Constants.PORTLET_PREFERENCES_FILE_NAME);
           org.exoplatform.platform.migration.plf.object.Page.PageSet convertedPageSet = convertPageSet(pageSet, portletPreferencesSet);
-          putEntry(zos, portalConfigForlder + PAGES_FILE_NAME, convertedPageSet);
+          putEntry(zos, portalConfigForlder + Constants.PAGES_FILE_NAME, convertedPageSet);
 
           // portal.xml conversion
           if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-            PortalConfig portalConfig = (PortalConfig) ownerObjects.get(PORTAL_FILE_NAME);
+            PortalConfig portalConfig = (PortalConfig) ownerObjects.get(Constants.PORTAL_FILE_NAME);
             org.exoplatform.platform.migration.plf.object.PortalConfig convertedPortalConfig = convertPortalConfig(portalConfig, portletPreferencesSet);
-            putEntry(zos, portalConfigForlder + PORTAL_FILE_NAME, convertedPortalConfig);
+            putEntry(zos, portalConfigForlder + Constants.PORTAL_FILE_NAME, convertedPortalConfig);
           }
           {
-            PageNavigation pageNavigation = (PageNavigation) ownerObjects.get(NAVIGATION_FILE_NAME);
+            PageNavigation pageNavigation = (PageNavigation) ownerObjects.get(Constants.NAVIGATION_FILE_NAME);
             org.exoplatform.portal.config.model.PageNavigation convertedPageNavigation = convertNavigation(pageNavigation);
-            putEntry(zos, portalConfigForlder + NAVIGATION_FILE_NAME, convertedPageNavigation);
+            putEntry(zos, portalConfigForlder + Constants.NAVIGATION_FILE_NAME, convertedPageNavigation);
           }
           // {
           // Gadgets gadgets = (Gadgets) ownerObjects.get(GADGET_FILE_NAME);
@@ -251,7 +240,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         convertedApplication.setHeight(application.getHeight());
         convertedApplication.setIcon(application.getIcon());
         convertedApplication.setId(application.getId());
-        if(application.getProperties() != null && application.getProperties().size() > 0) {
+        if (application.getProperties() != null && application.getProperties().size() > 0) {
           convertedApplication.setProperties(application.getProperties());
         }
         convertedApplication.setShowApplicationMode(application.isShowApplicationMode());

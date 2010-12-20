@@ -81,7 +81,7 @@ public class UserProfileImporterREST implements ResourceContainer {
         if (user != null) {
           user.setLastLoginTime(userImported.getLastLoginTime());
           user.setCreatedDate(userImported.getCreatedDate());
-          organizationService.getUserHandler().saveUser(user, true);
+          organizationService.getUserHandler().saveUser(user, false);
         } else {
           // TODO log WARNING
         }

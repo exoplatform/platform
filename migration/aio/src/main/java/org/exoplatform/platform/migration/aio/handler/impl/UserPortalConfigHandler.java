@@ -26,6 +26,7 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
@@ -42,15 +43,6 @@ import org.exoplatform.portal.config.model.Page.PageSet;
  * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15 juil. 2010
  */
 public class UserPortalConfigHandler extends ComponentHandler {
-  final private static String PORTAL_FILE_NAME = "portal.xml";
-
-  final private static String PAGES_FILE_NAME = "pages.xml";
-
-  final private static String NAVIGATION_FILE_NAME = "navigation.xml";
-
-  final private static String GADGET_FILE_NAME = "gadgets.xml";
-
-  final private static String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
 
   public UserPortalConfigHandler(InitParams initParams) {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
@@ -83,20 +75,20 @@ public class UserPortalConfigHandler extends ComponentHandler {
     try {
       DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
       Query<PageNavigation> pageNavigationQuery = new Query<PageNavigation>(null, null, PageNavigation.class);
-      List<PageNavigation> findedPageNavigations = (List<PageNavigation>) dataStorage.find(pageNavigationQuery).getAll();
+      List<PageNavigation> findedPageNavigations = dataStorage.find(pageNavigationQuery).getAll();
       for (PageNavigation pageNavigation : findedPageNavigations) {
         String ownerType = pageNavigation.getOwnerType();
         String ownerId = pageNavigation.getOwnerId();
         String portalConfigForlder = ownerType + "/" + ownerId + "/";
         if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PORTAL_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PORTAL_FILE_NAME));
           PortalConfig portalConfig = dataStorage.getPortalConfig(ownerId);
           byte[] bytes = toXML(portalConfig);
           zos.write(bytes);
           zos.closeEntry();
         }
         {/* Pages marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PAGES_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PAGES_FILE_NAME));
           Query<Page> portalConfigQuery = new Query<Page>(ownerType, ownerId, Page.class);
           List<Page> findedPages = dataStorage.find(portalConfigQuery).getAll();
           PageSet pageSet = new PageSet();
@@ -106,13 +98,13 @@ public class UserPortalConfigHandler extends ComponentHandler {
           zos.closeEntry();
         }
         {/* Navigation marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + NAVIGATION_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.NAVIGATION_FILE_NAME));
           byte[] bytes = toXML(pageNavigation);
           zos.write(bytes);
           zos.closeEntry();
         }
         {/* PortletPreferences marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PORTLET_PREFERENCES_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PORTLET_PREFERENCES_FILE_NAME));
           Query<PortletPreferences> portletPreferencesQuery = new Query<PortletPreferences>(ownerType, ownerId, PortletPreferences.class);
           List<PortletPreferences> findedPortletPreferences = dataStorage.find(portletPreferencesQuery).getAll();
           PortletPreferencesSet portletPreferencesSet = new PortletPreferencesSet();
@@ -124,7 +116,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
         {/* Gadgets marshalling */
           Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
           if (gadgets != null && gadgets.getChildren() != null && gadgets.getChildren().size() > 0) {
-            zos.putNextEntry(new ZipEntry(portalConfigForlder + GADGET_FILE_NAME));
+            zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.GADGET_FILE_NAME));
             byte[] bytes = toXML(gadgets);
             zos.write(bytes);
             zos.closeEntry();

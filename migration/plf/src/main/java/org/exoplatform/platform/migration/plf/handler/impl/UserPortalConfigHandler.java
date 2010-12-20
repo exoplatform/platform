@@ -26,6 +26,7 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -36,11 +37,6 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
 
 public class UserPortalConfigHandler extends ComponentHandler {
-  final private static String PORTAL_FILE_NAME = "portal.xml";
-
-  final private static String PAGES_FILE_NAME = "pages.xml";
-
-  final private static String NAVIGATION_FILE_NAME = "navigation.xml";
 
   public UserPortalConfigHandler(InitParams initParams) {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
@@ -79,14 +75,14 @@ public class UserPortalConfigHandler extends ComponentHandler {
         String ownerId = pageNavigation.getOwnerId();
         String portalConfigForlder = ownerType + "/" + ownerId + "/";
         if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PORTAL_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PORTAL_FILE_NAME));
           PortalConfig portalConfig = dataStorage.getPortalConfig(ownerId);
           byte[] bytes = toXML(portalConfig);
           zos.write(bytes);
           zos.closeEntry();
         }
         {/* Pages marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PAGES_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PAGES_FILE_NAME));
           Query<Page> portalConfigQuery = new Query<Page>(ownerType, ownerId, Page.class);
           LazyList<Page> findedPages = (LazyList<Page>) dataStorage.find(portalConfigQuery).getAll();
           PageSet pageSet = new PageSet();
@@ -97,7 +93,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
           zos.closeEntry();
         }
         {/* Navigation marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + NAVIGATION_FILE_NAME));
+          zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.NAVIGATION_FILE_NAME));
           byte[] bytes = toXML(pageNavigation);
           zos.write(bytes);
           zos.closeEntry();

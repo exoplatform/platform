@@ -36,6 +36,7 @@ import org.exoplatform.container.xml.ComponentPlugin;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler.Entry;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler.EntryType;
@@ -45,21 +46,8 @@ import org.jibx.runtime.IMarshallingContext;
 import org.jibx.runtime.JiBXException;
 
 public class MarshallConfigurationService {
+
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
-
-  final public static String CLASS_URI_TEMPLE = "containersConfiguration";
-
-  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "getComponentConfiguration";
-
-  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "ComponentsList";
-
-  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "exportContainerComponents";
-
-  final public static String CONTAINER_ID_PARAM_NAME = "containerId";
-
-  final public static String COMONENT_KEY_PARAM_NAME = "componentKey";
-
-  final public static String ROOT_CONTAINER = "root";
 
   public void addHandler(ComponentHandler componentHandler) {
     handlersMap.put(componentHandler.getTargetComponentName(), componentHandler);
@@ -67,21 +55,21 @@ public class MarshallConfigurationService {
 
   public String generateHTMLContainersList() throws Exception {
     StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
-    urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
-    urlSuffixBuffer.append(GET_CONTAINERS_METHOD_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.GET_CONTAINERS_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
-    urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
+    urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);
     urlSuffixBuffer.append("=");
     String componentsListURLSuffix = urlSuffixBuffer.toString();
 
     urlSuffixBuffer.delete(0, urlSuffixBuffer.length());
     urlSuffixBuffer.append("<a href='/portal/rest/");
-    urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
-    urlSuffixBuffer.append(GET_CONTAINER_CONFIGURATION_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.GET_CONTAINER_CONFIGURATION_URI_TEMPLE);
     urlSuffixBuffer.append("?");
-    urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
+    urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);
     urlSuffixBuffer.append("=");
     String exportComponentsURLSuffix = urlSuffixBuffer.toString();
 
@@ -137,7 +125,7 @@ public class MarshallConfigurationService {
 
   public String generateHTMLComponentsList(String containerId) throws Exception {
     ExoContainer container = null;
-    if (containerId == null || containerId.equalsIgnoreCase(ROOT_CONTAINER)) {
+    if (containerId == null || containerId.equalsIgnoreCase(Constants.ROOT_CONTAINER)) {
       container = ExoContainerContext.getTopContainer();
     } else {
       container = ExoContainerContext.getContainerByName(containerId);
@@ -149,17 +137,16 @@ public class MarshallConfigurationService {
     Collection<?> components = ((ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class)).getComponents();
 
     responseStringBuffer.append("<html xmlns='http://www.w3.org/1999/xhtml'><body xmlns='http://www.w3.org/1999/xhtml'>");
-
     StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
-    urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
-    urlSuffixBuffer.append(GET_COMPONENT_METHOD_URI_TEMPLE);
+    urlSuffixBuffer.append(Constants.GET_COMPONENT_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
-    urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
+    urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);
     urlSuffixBuffer.append("=");
     urlSuffixBuffer.append(containerName);
     urlSuffixBuffer.append("&");
-    urlSuffixBuffer.append(COMONENT_KEY_PARAM_NAME);
+    urlSuffixBuffer.append(Constants.COMONENT_KEY_PARAM_NAME);
     urlSuffixBuffer.append("=");
     String urlSuffix = urlSuffixBuffer.toString();
     for (Object component : components) {
@@ -205,11 +192,10 @@ public class MarshallConfigurationService {
   public Entry getAllComponentsConfiguration(String containerId) throws Exception {
     ExoContainer container = ExoContainerContext.getContainerByName(containerId);
     ConfigurationManager configurationManager = (ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class);
-    Collection components = configurationManager.getConfiguration().getComponents();
+    Collection<Component> components = configurationManager.getConfiguration().getComponents();
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     ZipOutputStream zos = new ZipOutputStream(out);
-    for (Object object : components) {
-      Component component = (Component) object;
+    for (Component component : components) {
       Entry entry = getComponentConfiguration(containerId, component.getKey());
       zos.putNextEntry(new ZipEntry(component.getKey() + entry.getType()));
       zos.write(entry.getContent());
@@ -226,13 +212,13 @@ public class MarshallConfigurationService {
       for (Object containerLifecyclePlugin : containerLifecyclePlugins) {
         configuration.addContainerLifecyclePlugin(containerLifecyclePlugin);
       }
-      zos.putNextEntry(new ZipEntry("LifecyclePlugins.xml"));
+      zos.putNextEntry(new ZipEntry(Constants.LIFECYCLE_PLUGINS_XML_FILE_NAME));
       byte[] bytes = toXML(configuration);
       zos.write(bytes);
       zos.closeEntry();
     }
     zos.close();
-    Entry entry = new Entry("ExoContainer_Configuration_" + containerId);
+    Entry entry = new Entry(Constants.CONTAINER_FILE_PREFIX + containerId);
     entry.setType(EntryType.ZIP);
     entry.setContent(out.toByteArray());
     return entry;
@@ -243,7 +229,7 @@ public class MarshallConfigurationService {
     IBindingFactory bfact = BindingDirectory.getFactory(Configuration.class);
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
-    mctx.marshalDocument(initParams, "UTF-8", false, out);
+    mctx.marshalDocument(initParams, Constants.UTF_8, false, out);
     return out.size();
   }
 
@@ -253,7 +239,7 @@ public class MarshallConfigurationService {
       IBindingFactory bfact = BindingDirectory.getFactory(obj.getClass());
       IMarshallingContext mctx = bfact.createMarshallingContext();
       mctx.setIndent(2);
-      mctx.marshalDocument(obj, "UTF-8", null, out);
+      mctx.marshalDocument(obj, Constants.UTF_8, null, out);
       return out.toByteArray();
     } catch (Exception ie) {
       throw ie;

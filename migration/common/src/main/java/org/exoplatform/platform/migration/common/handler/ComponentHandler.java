@@ -21,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.container.xml.Component;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
@@ -29,8 +30,6 @@ import org.jibx.runtime.IMarshallingContext;
  * Created by The eXo Platform SAS Author : haikel.thamri@exoplatform.com 15 juil. 2010
  */
 public abstract class ComponentHandler extends BaseComponentPlugin {
-
-  final protected static String KERNEL_CONFIGURATION_1_1_URI = "<configuration xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd\" xmlns=\"http://www.exoplaform.org/xml/ns/kernel_1_1.xsd\">";
 
   private String targetComponentName;
 
@@ -66,7 +65,7 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
       mctx.marshalDocument(obj, "UTF-8", null, out);
       String outConf = new String(out.toByteArray());
       String regex = "<field name=\"([a-z|A-Z]*)\"/>";
-      outConf = outConf.replace("<configuration>", KERNEL_CONFIGURATION_1_1_URI).replaceAll(regex, "");
+      outConf = outConf.replace("<configuration>", Constants.KERNEL_CONFIGURATION_1_1_URI).replaceAll(regex, "");
       return outConf.getBytes();
     } catch (Exception ie) {
       throw ie;

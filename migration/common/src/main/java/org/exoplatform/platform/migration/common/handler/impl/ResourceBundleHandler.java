@@ -24,12 +24,12 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValuesParam;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleData;
@@ -71,7 +71,7 @@ public class ResourceBundleHandler extends ComponentHandler {
     for (ResourceBundleData rsrcBundleData : dataList) {
       resourcesNames.add(rsrcBundleData.getName());
       String resourceBundleName = rsrcBundleData.getName().replaceAll("\\.", "/");
-      zos.putNextEntry(new ZipEntry(resourceBundleName + "_" + rsrcBundleData.getLanguage() + ".properties"));
+      zos.putNextEntry(new ZipEntry(resourceBundleName + "_" + rsrcBundleData.getLanguage() + Constants.RESURCE_BUNDLE_FILE_PROPERTIES));
       zos.write(rsrcBundleData.getData().getBytes());
       zos.closeEntry();
     }
