@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.platform.migration.common.handler.impl;
+package org.exoplatform.platform.migration.plf.handler.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
     try {
       DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
       Query<PageNavigation> pageNavigationQuery = new Query<PageNavigation>(null, null, PageNavigation.class);
-      List<PageNavigation> findedPageNavigations = (List<PageNavigation>)dataStorage.find(pageNavigationQuery).getAll();
+      List<PageNavigation> findedPageNavigations = (List<PageNavigation>) dataStorage.find(pageNavigationQuery).getAll();
       for (PageNavigation pageNavigation : findedPageNavigations) {
         String ownerType = pageNavigation.getOwnerType();
         String ownerId = pageNavigation.getOwnerId();
@@ -120,15 +120,6 @@ public class UserPortalConfigHandler extends ComponentHandler {
           zos.write(bytes);
           zos.closeEntry();
         }
-//        {/* Gadgets marshalling */
-//          Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
-//          if (gadgets != null && gadgets.getChildren() != null && gadgets.getChildren().size() > 0) {
-//            zos.putNextEntry(new ZipEntry(portalConfigForlder + GADGET_FILE_NAME));
-//            byte[] bytes = toXML(gadgets);
-//            zos.write(bytes);
-//            zos.closeEntry();
-//          }
-//        }
       }
     } catch (Exception ie) {
       throw ie;

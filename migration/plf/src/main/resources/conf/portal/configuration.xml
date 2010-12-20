@@ -16,5 +16,10 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.plf.handler.impl.ApplicationRegistryHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>portal.configuration.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.plf.handler.impl.UserPortalConfigHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>

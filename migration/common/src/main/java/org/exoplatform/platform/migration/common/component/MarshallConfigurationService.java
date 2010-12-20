@@ -47,13 +47,13 @@ import org.jibx.runtime.JiBXException;
 public class MarshallConfigurationService {
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
 
-  final public static String CLASS_URI_TEMPLE = "/containersConfiguration/";
+  final public static String CLASS_URI_TEMPLE = "containersConfiguration";
 
-  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "/getComponentConfiguration/";
+  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "getComponentConfiguration";
 
-  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "/ComponentsList/";
+  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "ComponentsList";
 
-  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "/exportContainerComponents/";
+  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "exportContainerComponents";
 
   final public static String CONTAINER_ID_PARAM_NAME = "containerId";
 
@@ -66,8 +66,9 @@ public class MarshallConfigurationService {
   }
 
   public String generateHTMLContainersList() throws Exception {
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest");
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
     urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(GET_CONTAINERS_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
@@ -75,8 +76,9 @@ public class MarshallConfigurationService {
     String componentsListURLSuffix = urlSuffixBuffer.toString();
 
     urlSuffixBuffer.delete(0, urlSuffixBuffer.length());
-    urlSuffixBuffer.append("<a href='/portal/rest");
+    urlSuffixBuffer.append("<a href='/portal/rest/");
     urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(GET_CONTAINER_CONFIGURATION_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
@@ -148,8 +150,9 @@ public class MarshallConfigurationService {
 
     responseStringBuffer.append("<html xmlns='http://www.w3.org/1999/xhtml'><body xmlns='http://www.w3.org/1999/xhtml'>");
 
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest");
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
     urlSuffixBuffer.append(CLASS_URI_TEMPLE);
+    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(GET_COMPONENT_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(CONTAINER_ID_PARAM_NAME);
