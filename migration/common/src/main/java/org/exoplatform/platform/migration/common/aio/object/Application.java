@@ -18,36 +18,28 @@ package org.exoplatform.platform.migration.common.aio.object;
 
 import org.exoplatform.portal.config.model.Properties;
 
-
-/**
- * May 13, 2004
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: Portlet.java,v 1.7 2004/09/30 01:00:05 tuan08 Exp $
- **/
 public class Application {
-  
+
   private String id;
-  private String instanceId ;
+  private String instanceId;
   private String applicationType = org.exoplatform.web.application.Application.EXO_PORTLET_TYPE;
   private String title;
-  
-  private String icon ; 
+
+  private String icon;
   private String description;
 
-  private boolean  showInfoBar = true ;
-  private boolean  showApplicationState = true ;
-  private boolean  showApplicationMode = true ;
+  private boolean showInfoBar = true;
+  private boolean showApplicationState = true;
+  private boolean showApplicationMode = true;
   private String theme;
-  private String width ;
-  private String height ;
+  private String width;
+  private String height;
   private Properties properties;
-  
-  public Application(){
-  }
+
+  public Application() {}
 
   public String getId() {
-    return this.id;
+    return id;
   }
 
   public void setId(String id) {
@@ -55,7 +47,7 @@ public class Application {
   }
 
   public String getInstanceId() {
-    return this.instanceId;
+    return instanceId;
   }
 
   public void setInstanceId(String instanceId) {
@@ -63,7 +55,7 @@ public class Application {
   }
 
   public String getApplicationType() {
-    return this.applicationType;
+    return applicationType;
   }
 
   public void setApplicationType(String applicationType) {
@@ -71,7 +63,7 @@ public class Application {
   }
 
   public String getTitle() {
-    return this.title;
+    return title;
   }
 
   public void setTitle(String title) {
@@ -79,7 +71,7 @@ public class Application {
   }
 
   public String getIcon() {
-    return this.icon;
+    return icon;
   }
 
   public void setIcon(String icon) {
@@ -87,7 +79,7 @@ public class Application {
   }
 
   public String getDescription() {
-    return this.description;
+    return description;
   }
 
   public void setDescription(String description) {
@@ -95,7 +87,7 @@ public class Application {
   }
 
   public boolean isShowInfoBar() {
-    return this.showInfoBar;
+    return showInfoBar;
   }
 
   public void setShowInfoBar(boolean showInfoBar) {
@@ -103,7 +95,7 @@ public class Application {
   }
 
   public boolean isShowApplicationState() {
-    return this.showApplicationState;
+    return showApplicationState;
   }
 
   public void setShowApplicationState(boolean showApplicationState) {
@@ -111,7 +103,7 @@ public class Application {
   }
 
   public boolean isShowApplicationMode() {
-    return this.showApplicationMode;
+    return showApplicationMode;
   }
 
   public void setShowApplicationMode(boolean showApplicationMode) {
@@ -119,7 +111,7 @@ public class Application {
   }
 
   public String getTheme() {
-    return this.theme;
+    return theme;
   }
 
   public void setTheme(String theme) {
@@ -127,7 +119,7 @@ public class Application {
   }
 
   public String getWidth() {
-    return this.width;
+    return width;
   }
 
   public void setWidth(String width) {
@@ -135,7 +127,7 @@ public class Application {
   }
 
   public String getHeight() {
-    return this.height;
+    return height;
   }
 
   public void setHeight(String height) {
@@ -143,11 +135,11 @@ public class Application {
   }
 
   public Properties getProperties() {
-    return this.properties;
+    return properties;
   }
 
   public void setProperties(Properties properties) {
     this.properties = properties;
   }
-  
+
 }

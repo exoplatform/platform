@@ -22,13 +22,6 @@ package org.exoplatform.platform.migration.plf.object;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-/**
- * Jun 9, 2004
- * 
- * @author: Tuan Nguyen
- * @email: tuan08@users.sourceforge.net
- * @version: $Id: ExoPortletPreferences.java,v 1.1 2004/07/13 02:31:13 tuan08 Exp $
- */
 public class PortletPreferences {
 
   private ArrayList<Preference> preferences;

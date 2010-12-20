@@ -24,13 +24,6 @@ import org.exoplatform.portal.config.model.PortalProperties;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.pom.data.ModelData;
 
-/**
- * May 13, 2004
- * 
- * @author: Tuan Nguyen
- * @email: tuan08@users.sourceforge.net
- * @version: $Id: PortalConfig.java,v 1.7 2004/08/06 03:02:29 tuan08 Exp $
- **/
 public class PortalConfig extends ModelObject {
 
   final public static String USER_TYPE = "user";
@@ -59,7 +52,7 @@ public class PortalConfig extends ModelObject {
   private transient boolean modifiable;
 
   public PortalConfig() {
-    this(PORTAL_TYPE);
+    this(PortalConfig.PORTAL_TYPE);
   }
 
   public PortalConfig(String type) {
@@ -68,7 +61,7 @@ public class PortalConfig extends ModelObject {
 
   public PortalConfig(String type, String ownerId) {
     this.type = type;
-    this.name = ownerId;
+    name = ownerId;
   }
 
   public String getType() {
@@ -144,35 +137,41 @@ public class PortalConfig extends ModelObject {
   }
 
   public String getProperty(String name) {
-    if (name == null)
+    if (name == null) {
       return null;
-    if (properties == null || !properties.containsKey(name))
+    }
+    if ((properties == null) || !properties.containsKey(name)) {
       return null;
+    }
     return properties.get(name);
   }
 
   public String getProperty(String name, String defaultValue) {
     String value = getProperty(name);
-    if (value != null)
+    if (value != null) {
       return value;
+    }
     return defaultValue;
   }
 
   public void setProperty(String name, String value) {
-    if (name == null)
+    if (name == null) {
       throw new NullPointerException();
+    }
     if (properties == null) {
       properties = new Properties();
     }
-    if (value == null)
+    if (value == null) {
       properties.remove(name);
-    else
+    } else {
       properties.setProperty(name, value);
+    }
   }
 
   public void removeProperty(String name) {
-    if (name == null || properties == null)
+    if ((name == null) || (properties == null)) {
       throw new NullPointerException();
+    }
     properties.remove(name);
   }
 

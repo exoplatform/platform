@@ -23,13 +23,6 @@ import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.pom.data.ModelData;
 
-/**
- * May 13, 2004
- * 
- * @author: Tuan Nguyen
- * @email: tuan08@users.sourceforge.net
- * @version: $Id: Portlet.java,v 1.7 2004/09/30 01:00:05 tuan08 Exp $
- **/
 public class Application extends ModelObject {
 
   private Portlet portlet;
@@ -63,7 +56,7 @@ public class Application extends ModelObject {
   public Application() {}
 
   public Portlet getPortlet() {
-    return this.portlet;
+    return portlet;
   }
 
   public void setPortlet(Portlet portlet) {
@@ -174,6 +167,7 @@ public class Application extends ModelObject {
     this.theme = theme;
   }
 
+  @Override
   public ModelData build() {
     return null;
   }

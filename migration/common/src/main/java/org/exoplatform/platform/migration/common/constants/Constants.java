@@ -1,6 +1,5 @@
 package org.exoplatform.platform.migration.common.constants;
 
-
 public interface Constants {
 
   public static final String UTF_8 = "UTF-8";

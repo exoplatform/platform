@@ -17,42 +17,64 @@
 package org.exoplatform.platform.migration.common.aio.object;
 
 import java.util.ArrayList;
-/**
- * Created by The eXo Platform SARL
- * Author : dang.tung
- *          tungcnw@gmail.com
- * April 05, 2008          
- */
+
 public class Gadgets {
-  
+
   private String id;
-  private String      ownerType;
-  private String      ownerId;
-  
-  private String[]    accessPermissions ;
-  
+  private String ownerType;
+  private String ownerId;
+
+  private String[] accessPermissions;
+
   private String editPermission;
-  
+
   private ArrayList<Container> children = new ArrayList<Container>();
-  
-  public String getOwnerId() { return ownerId; }
-  public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
 
-  public String getOwnerType() { return ownerType; }
-  public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
-
-  public String[] getAccessPermissions(){  return accessPermissions; }
-  public void     setAccessPermissions(String[] s) { accessPermissions = s ; }
-  
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
-  
-  public ArrayList<Container> getChildren(){ return children; }
-  public void setChildren(ArrayList<Container> values) { children = values; }
-  
-  public String getId() {
-    if(id == null) id = ownerType +"::"+ownerId;
-    return id; 
+  public String getOwnerId() {
+    return ownerId;
   }
-  
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getOwnerType() {
+    return ownerType;
+  }
+
+  public void setOwnerType(String ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String[] getAccessPermissions() {
+    return accessPermissions;
+  }
+
+  public void setAccessPermissions(String[] s) {
+    accessPermissions = s;
+  }
+
+  public String getEditPermission() {
+    return editPermission;
+  }
+
+  public void setEditPermission(String editPermission) {
+    this.editPermission = editPermission;
+  }
+
+  public ArrayList<Container> getChildren() {
+    return children;
+  }
+
+  public void setChildren(ArrayList<Container> values) {
+    children = values;
+  }
+
+  public String getId() {
+    if (id == null) {
+      id = ownerType + "::" + ownerId;
+    }
+    return id;
+  }
+
 }

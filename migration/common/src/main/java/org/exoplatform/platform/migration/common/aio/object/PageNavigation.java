@@ -16,9 +16,9 @@
  */
 package org.exoplatform.platform.migration.common.aio.object;
 
-import org.w3c.dom.Document;
-
 import java.util.ArrayList;
+
+import org.w3c.dom.Document;
 
 public class PageNavigation {
   private String ownerType;
@@ -101,8 +101,9 @@ public class PageNavigation {
   }
 
   public void addNode(PageNode node) {
-    if (pageNodes == null)
+    if (pageNodes == null) {
       pageNodes = new ArrayList<PageNode>();
+    }
     pageNodes.add(node);
   }
 
@@ -119,13 +120,14 @@ public class PageNavigation {
   }
 
   public void setSerialMark(long serialModifiedKey) {
-    this.serialMark = serialModifiedKey;
+    serialMark = serialModifiedKey;
   }
 
   public PageNode getNode(String name) {
     for (PageNode node : pageNodes) {
-      if (node.getName().equals(name))
+      if (node.getName().equals(name)) {
         return node;
+      }
     }
     return null;
   }

@@ -19,12 +19,6 @@
 
 package org.exoplatform.platform.migration.plf.object;
 
-/**
- * The transient state of an application when it has not yet been stored in the database.
- * 
- * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
- * @version $Revision$
- */
 public class Portlet {
   private String applicationName = null;
   private String portletName = null;
@@ -41,7 +35,7 @@ public class Portlet {
   }
 
   public String getApplicationName() {
-    return this.applicationName;
+    return applicationName;
   }
 
   public void setApplicationName(String applicationName) {
@@ -49,7 +43,7 @@ public class Portlet {
   }
 
   public String getPortletName() {
-    return this.portletName;
+    return portletName;
   }
 
   public void setPortletName(String portletName) {
@@ -57,7 +51,7 @@ public class Portlet {
   }
 
   public PortletPreferences getPreferences() {
-    return this.preferences;
+    return preferences;
   }
 
   public void setPreferences(PortletPreferences preferences) {

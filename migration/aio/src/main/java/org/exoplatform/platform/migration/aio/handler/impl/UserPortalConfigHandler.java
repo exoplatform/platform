@@ -39,15 +39,13 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
 
-/**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15 juil. 2010
- */
 public class UserPortalConfigHandler extends ComponentHandler {
 
   public UserPortalConfigHandler(InitParams initParams) {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
   }
 
+  @Override
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     try {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -115,7 +113,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
         }
         {/* Gadgets marshalling */
           Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
-          if (gadgets != null && gadgets.getChildren() != null && gadgets.getChildren().size() > 0) {
+          if ((gadgets != null) && (gadgets.getChildren() != null) && (gadgets.getChildren().size() > 0)) {
             zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.GADGET_FILE_NAME));
             byte[] bytes = toXML(gadgets);
             zos.write(bytes);

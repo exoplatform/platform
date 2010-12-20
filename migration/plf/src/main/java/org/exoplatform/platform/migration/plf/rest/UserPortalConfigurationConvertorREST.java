@@ -49,11 +49,11 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   final private static Map<String, Class<?>> unmarshelledObjectTypes = new HashMap<String, Class<?>>();
   static {
-    unmarshelledObjectTypes.put(Constants.PORTAL_FILE_NAME, PortalConfig.class);
-    unmarshelledObjectTypes.put(Constants.PAGES_FILE_NAME, PageSet.class);
-    unmarshelledObjectTypes.put(Constants.NAVIGATION_FILE_NAME, PageNavigation.class);
-    unmarshelledObjectTypes.put(Constants.GADGET_FILE_NAME, Gadgets.class);
-    unmarshelledObjectTypes.put(Constants.PORTLET_PREFERENCES_FILE_NAME, PortletPreferencesSet.class);
+    UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.PORTAL_FILE_NAME, PortalConfig.class);
+    UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.PAGES_FILE_NAME, PageSet.class);
+    UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.NAVIGATION_FILE_NAME, PageNavigation.class);
+    UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.GADGET_FILE_NAME, Gadgets.class);
+    UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.PORTLET_PREFERENCES_FILE_NAME, PortletPreferencesSet.class);
   }
 
   @GET
@@ -84,7 +84,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         String[] entries = ze.getName().split("/");
         String ownerType = entries[0];
         String entryFileName = entries[entries.length - 1];
-        Class<?> fileTypeToObjectClassType = unmarshelledObjectTypes.get(entryFileName);
+        Class<?> fileTypeToObjectClassType = UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.get(entryFileName);
         if (fileTypeToObjectClassType == null) {
           continue;
         }
@@ -158,7 +158,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   }
 
   private ArrayList<org.exoplatform.portal.config.model.PageNode> convertPageNodes(List<PageNode> pageNodes) {
-    if (pageNodes == null || pageNodes.size() == 0) {
+    if ((pageNodes == null) || (pageNodes.size() == 0)) {
       return null;
     }
     ArrayList<org.exoplatform.portal.config.model.PageNode> convertedPageNodes = new ArrayList<org.exoplatform.portal.config.model.PageNode>();
@@ -209,7 +209,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   }
 
   private ArrayList<ModelObject> convertUIComponents(List<?> children, PortletPreferencesSet portletPreferencesSet, String[] accessPermissions) {
-    if (children == null || children.size() == 0) {
+    if ((children == null) || (children.size() == 0)) {
       return null;
     }
     ArrayList<ModelObject> convertedPageChildren = new ArrayList<ModelObject>();
@@ -240,7 +240,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         convertedApplication.setHeight(application.getHeight());
         convertedApplication.setIcon(application.getIcon());
         convertedApplication.setId(application.getId());
-        if (application.getProperties() != null && application.getProperties().size() > 0) {
+        if ((application.getProperties() != null) && (application.getProperties().size() > 0)) {
           convertedApplication.setProperties(application.getProperties());
         }
         convertedApplication.setShowApplicationMode(application.isShowApplicationMode());
@@ -250,7 +250,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         convertedApplication.setTitle(application.getTitle());
         convertedApplication.setWidth(application.getWidth());
 
-        if (application.getInstanceId() == null || application.getInstanceId().length() == 0) {
+        if ((application.getInstanceId() == null) || (application.getInstanceId().length() == 0)) {
           continue;
         }
         org.exoplatform.platform.migration.plf.object.PortletPreferences portletPreferences = getPortletPreferences(portletPreferencesSet, application.getInstanceId());
@@ -300,7 +300,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
     Container portalLayoutContainer = portalConfig.getPortalLayout();
     List<?> uiCompomponents = Collections.singletonList(portalLayoutContainer);
     ArrayList<ModelObject> convertedPortalLayout = convertUIComponents(uiCompomponents, portletPreferencesSet, portalConfig.getAccessPermissions());
-    assert convertedPortalLayout != null && convertedPortalLayout.size() == 1;
+    assert (convertedPortalLayout != null) && (convertedPortalLayout.size() == 1);
     convertedPortalConfig.setPortalLayout((org.exoplatform.platform.migration.plf.object.Container) convertedPortalLayout.get(0));
 
     return convertedPortalConfig;

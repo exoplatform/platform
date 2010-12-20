@@ -125,7 +125,7 @@ public class MarshallConfigurationService {
 
   public String generateHTMLComponentsList(String containerId) throws Exception {
     ExoContainer container = null;
-    if (containerId == null || containerId.equalsIgnoreCase(Constants.ROOT_CONTAINER)) {
+    if ((containerId == null) || containerId.equalsIgnoreCase(Constants.ROOT_CONTAINER)) {
       container = ExoContainerContext.getTopContainer();
     } else {
       container = ExoContainerContext.getContainerByName(containerId);
@@ -163,9 +163,9 @@ public class MarshallConfigurationService {
   public Entry getComponentConfiguration(String containerId, String componentKey) throws Exception {
     ExoContainer container = ExoContainerContext.getContainerByName(containerId);
     ConfigurationManager configurationManager = (ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class);
-    Component component = (Component) configurationManager.getConfiguration().getComponent(componentKey);
+    Component component = configurationManager.getConfiguration().getComponent(componentKey);
     ExternalComponentPlugins externalComponentPlugins = configurationManager.getConfiguration().getExternalComponentPlugins(component.getKey());
-    if (externalComponentPlugins != null && externalComponentPlugins.getComponentPlugins() != null) {
+    if ((externalComponentPlugins != null) && (externalComponentPlugins.getComponentPlugins() != null)) {
       if (component.getComponentPlugins() == null) {
         component.setComponentPlugins((ArrayList) externalComponentPlugins.getComponentPlugins());
       } else {
@@ -204,7 +204,7 @@ public class MarshallConfigurationService {
 
     Collection componentLifecyclePlugins = configurationManager.getConfiguration().getComponentLifecyclePlugins();
     Collection containerLifecyclePlugins = configurationManager.getConfiguration().getContainerLifecyclePlugins();
-    if (containerLifecyclePlugins != null && componentLifecyclePlugins != null && componentLifecyclePlugins.size() > 0 && containerLifecyclePlugins.size() > 0) {
+    if ((containerLifecyclePlugins != null) && (componentLifecyclePlugins != null) && (componentLifecyclePlugins.size() > 0) && (containerLifecyclePlugins.size() > 0)) {
       Configuration configuration = new Configuration();
       for (Object componentLifecyclePlugin : componentLifecyclePlugins) {
         configuration.addComponentLifecyclePlugin(componentLifecyclePlugin);
@@ -249,20 +249,20 @@ public class MarshallConfigurationService {
   private Comparator<ComponentPlugin> componentPluginComparator = new Comparator<ComponentPlugin>() {
     public int compare(ComponentPlugin o1, ComponentPlugin o2) {
       int compare = 0;
-      if (o1.getName() != null && o2.getName() != null) {
+      if ((o1.getName() != null) && (o2.getName() != null)) {
         compare = o1.getName().compareTo(o2.getName());
       }
       if (compare == 0) {
-        if (o1.getType() != null && o2.getType() != null) {
+        if ((o1.getType() != null) && (o2.getType() != null)) {
           compare = o1.getType().compareTo(o2.getType());
         }
         if (compare == 0) {
-          if (o1.getDescription() != null && o2.getDescription() != null) {
+          if ((o1.getDescription() != null) && (o2.getDescription() != null)) {
             compare = o1.getDescription().compareTo(o2.getDescription());
           }
           if (compare == 0) {
             try {
-              if (o1.getInitParams() != null || o2.getInitParams() != null) {
+              if ((o1.getInitParams() != null) || (o2.getInitParams() != null)) {
                 if (o1.getInitParams() == o2.getInitParams()) { // null
                   compare = 0;
                 } else if (o1.getInitParams() == null) {

@@ -35,15 +35,13 @@ import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleData;
 import org.exoplatform.services.resources.ResourceBundleService;
 
-/**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 21 juil. 2010
- */
 public class ResourceBundleHandler extends ComponentHandler {
 
   public ResourceBundleHandler(InitParams initParams) {
     super.setTargetComponentName(ResourceBundleService.class.getName());
   }
 
+  @Override
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     ZipOutputStream zos = new ZipOutputStream(out);

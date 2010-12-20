@@ -17,8 +17,7 @@
 package org.exoplatform.platform.migration.common.aio.object;
 
 /**
- * Created by The eXo Platform SAS
- * Apr 25, 2007  
+ * Created by The eXo Platform SAS Apr 25, 2007
  */
 public class PageBody {
 

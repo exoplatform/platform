@@ -26,15 +26,12 @@ import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
 
-/**
- * Created by The eXo Platform SAS Author : haikel.thamri@exoplatform.com 15 juil. 2010
- */
 public abstract class ComponentHandler extends BaseComponentPlugin {
 
   private String targetComponentName;
 
   public String getTargetComponentName() {
-    return this.targetComponentName;
+    return targetComponentName;
   }
 
   public void setTargetComponentName(String targetComponentName) {
@@ -43,15 +40,15 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
 
   @Override
   public boolean equals(Object obj) {
-    if (obj != null && obj instanceof ComponentHandler) {
-      return this.getName().equals(((ComponentHandler) obj).getName());
+    if ((obj != null) && (obj instanceof ComponentHandler)) {
+      return getName().equals(((ComponentHandler) obj).getName());
     }
     return false;
   }
 
   @Override
   public int hashCode() {
-    return this.getName().hashCode();
+    return getName().hashCode();
   }
 
   public abstract Entry invoke(Component component, ExoContainer container) throws Exception;
@@ -83,11 +80,11 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
     private byte[] content;
 
     public EntryType getType() {
-      return this.type;
+      return type;
     }
 
     public String getComponentName() {
-      return this.componentName;
+      return componentName;
     }
 
     public void setComponentName(String componentName) {
@@ -99,7 +96,7 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
     }
 
     public byte[] getContent() {
-      return this.content;
+      return content;
     }
 
     public void setContent(byte[] content) {
@@ -108,15 +105,15 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
 
     @Override
     public boolean equals(Object obj) {
-      if (obj != null && obj instanceof Entry) {
-        return this.getComponentName().equals(((Entry) obj).getComponentName());
+      if ((obj != null) && (obj instanceof Entry)) {
+        return getComponentName().equals(((Entry) obj).getComponentName());
       }
       return false;
     }
 
     @Override
     public int hashCode() {
-      return this.getComponentName().hashCode();
+      return getComponentName().hashCode();
     }
   }
 
@@ -131,16 +128,16 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
     }
 
     public String getExtension() {
-      return this.extension;
+      return extension;
     }
 
     public String getMediaType() {
-      return this.mediaType;
+      return mediaType;
     }
 
     @Override
     public String toString() {
-      return this.getExtension();
+      return getExtension();
     }
   }
 

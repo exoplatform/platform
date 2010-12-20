@@ -131,11 +131,13 @@ public class PageNode {
   }
 
   public PageNode getChild(String name) {
-    if (children == null)
+    if (children == null) {
       return null;
+    }
     for (PageNode node : children) {
-      if (node.getName().equals(name))
+      if (node.getName().equals(name)) {
         return node;
+      }
     }
     return null;
   }

@@ -42,6 +42,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
   }
 
+  @Override
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     try {
       ByteArrayOutputStream out = new ByteArrayOutputStream();

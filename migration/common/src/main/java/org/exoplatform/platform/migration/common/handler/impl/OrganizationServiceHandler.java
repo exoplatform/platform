@@ -47,9 +47,6 @@ import org.exoplatform.services.organization.UserProfile;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 
-/**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15 juil. 2010
- */
 public class OrganizationServiceHandler extends ComponentHandler {
 
   private OrganizationService organizationService;
@@ -58,7 +55,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
 
   public OrganizationServiceHandler(InitParams initParams) {
     ValueParam valueParam = initParams.getValueParam(Constants.MAX_USERS_IN_FILE_PARAM_NAME);
-    if (valueParam == null || valueParam.getValue().length() == 0) {
+    if ((valueParam == null) || (valueParam.getValue().length() == 0)) {
       throw new IllegalStateException(Constants.MAX_USERS_IN_FILE_PARAM_NAME + " init param is missing");
     }
     maxUsersPerFile = Integer.parseInt(valueParam.getValue());
@@ -68,11 +65,12 @@ public class OrganizationServiceHandler extends ComponentHandler {
     super.setTargetComponentName(OrganizationService.class.getName());
   }
 
+  @Override
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     ZipOutputStream zos = new ZipOutputStream(out);
 
-    this.organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
     writeProfiles(zos);
     writeUsers(zos);
 
@@ -99,8 +97,8 @@ public class OrganizationServiceHandler extends ComponentHandler {
     }
 
     {// Write Users
-      PageList pageList = (PageList) organizationService.getUserHandler().findUsers(new Query());
-      int pageSize = pageList.getPageSize();
+      PageList pageList = organizationService.getUserHandler().findUsers(new Query());
+      pageList.getPageSize();
       int entryNumber = 1;
       List<OrganizationConfig.User> orgConfigUsersInSigleFile = new ArrayList<OrganizationConfig.User>();
       int i = 1;
@@ -113,7 +111,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
           }
           i++;
         }
-        if (orgConfigUsersInSigleFile.size() >= maxUsersPerFile || i > pageList.getAvailablePage()) {
+        if ((orgConfigUsersInSigleFile.size() >= maxUsersPerFile) || (i > pageList.getAvailablePage())) {
           Configuration organizationServiceConfiguration = buildOrganizationServiceConfiguration(getOrganizationConfig(null, null, orgConfigUsersInSigleFile));
           addEntry(zos, toXML(organizationServiceConfiguration), "OrganizationDataModel/Users" + entryNumber + ".xml");
           orgConfigUsersInSigleFile.clear();
@@ -236,7 +234,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
       List<User> usersList = usersPageList.getPage(i);
       for (User user : usersList) {
         UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(user.getUserName());
-        if (userProfile != null && userProfile.getUserInfoMap() != null && !userProfile.getUserInfoMap().isEmpty()) {
+        if ((userProfile != null) && (userProfile.getUserInfoMap() != null) && !userProfile.getUserInfoMap().isEmpty()) {
           xstream_.alias("user-profile", userProfile.getClass());
           String xml = xstream_.toXML(userProfile);
           zos.putNextEntry(new ZipEntry(Constants.PROFILES_FOLDER_NAME + userProfile.getUserName() + Constants.PROFILE_FILE_SUFFIX));

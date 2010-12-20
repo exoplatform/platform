@@ -23,65 +23,47 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by The eXo Platform SARL
- * Author : Mestrallet Benjamin
- *          benjmestrallet@users.sourceforge.net
- * Date: Jul 27, 2003
- * Time: 9:21:41 PM
- */
-public class Preference
-{
+public class Preference {
 
-   private String name;
+  private String name;
 
-   private List<String> values = new ArrayList<String>(3);
+  private List<String> values = new ArrayList<String>(3);
 
-   private boolean readOnly = false;
+  private boolean readOnly = false;
 
-   public Preference(String name, String value)
-   {
-      this.name = name;
-      this.values = Collections.singletonList(value);
-   }
+  public Preference(String name, String value) {
+    this.name = name;
+    values = Collections.singletonList(value);
+  }
 
-   public Preference()
-   {
-   }
+  public Preference() {}
 
-   public String getName()
-   {
-      return name;
-   }
+  public String getName() {
+    return name;
+  }
 
-   public void setName(String name)
-   {
-      this.name = name;
-   }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-   public List<String> getValues()
-   {
-      return values;
-   }
+  public List<String> getValues() {
+    return values;
+  }
 
-   public void setValues(List<String> values)
-   {
-      this.values = values;
-   }
+  public void setValues(List<String> values) {
+    this.values = values;
+  }
 
-   public void addValue(String value)
-   {
-      values.add(value);
-   }
+  public void addValue(String value) {
+    values.add(value);
+  }
 
-   public boolean isReadOnly()
-   {
-      return readOnly;
-   }
+  public boolean isReadOnly() {
+    return readOnly;
+  }
 
-   public void setReadOnly(boolean b)
-   {
-      readOnly = b;
-   }
+  public void setReadOnly(boolean b) {
+    readOnly = b;
+  }
 
 }

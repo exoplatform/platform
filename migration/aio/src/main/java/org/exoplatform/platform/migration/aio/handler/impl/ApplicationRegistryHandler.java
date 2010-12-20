@@ -29,15 +29,13 @@ import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 
-/**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 19 juil. 2010
- */
 public class ApplicationRegistryHandler extends ComponentHandler {
 
   public ApplicationRegistryHandler(InitParams initParams) {
     super.setTargetComponentName(ApplicationRegistryService.class.getName());
   }
 
+  @Override
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     preMarshallComponent(component, container);
     Configuration configuration = new Configuration();

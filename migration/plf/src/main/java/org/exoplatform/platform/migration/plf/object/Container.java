@@ -24,9 +24,6 @@ import java.util.ArrayList;
 import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.pom.data.ContainerData;
 
-/**
- * @author Tuan Nguyen
- **/
 public class Container extends ModelObject {
 
   protected String id;
@@ -62,7 +59,7 @@ public class Container extends ModelObject {
     super(storageId);
 
     //
-    this.children = new ArrayList<ModelObject>();
+    children = new ArrayList<ModelObject>();
   }
 
   public String getId() {
