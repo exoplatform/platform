@@ -14,7 +14,7 @@
 		<component-plugin>
 			<name>application.registry.handler</name>
 			<set-method>addHandler</set-method>
-			<type>org.exoplatform.platform.migration.handlers.impl.ApplicationRegistryHandler</type>
+			<type>org.exoplatform.platform.migration.plf.handler.impl.ApplicationRegistryHandler</type>
 		</component-plugin>
 	</external-component-plugins>
 </configuration>
