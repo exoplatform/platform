@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.platform.migration.aio.common.component.impl;
+package org.exoplatform.platform.migration.plf.component;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -35,8 +35,10 @@ public class ContainerParamExtractorImpl implements ContainerParamExtractor {
   }
 
   public String getContainerRestContext(ExoContainer container) {
-    String restContextName = "rest";
-    return restContextName;
+    if (!(container instanceof PortalContainer)) {
+      return ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
+    }
+    return container.getContext().getRestContextName();
   }
 
 }

@@ -2,7 +2,7 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 	<component>
 		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
-		<type>org.exoplatform.platform.migration.plf.common.component.impl.ContainerParamExtractorImpl</type>
+		<type>org.exoplatform.platform.migration.plf.component.ContainerParamExtractorImpl</type>
 	</component>
 	<component>
 		<type>org.exoplatform.platform.migration.plf.rest.UserProfileImporterREST</type>

@@ -14,11 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.platform.migration.plf.common.component.impl;
+package org.exoplatform.platform.migration.aio.component;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
 
 /**
@@ -28,17 +26,11 @@ import org.exoplatform.platform.migration.common.component.ContainerParamExtract
 public class ContainerParamExtractorImpl implements ContainerParamExtractor {
 
   public String getContainerId(ExoContainer container) {
-    if (!(container instanceof PortalContainer)) {
-      return ExoContainerContext.getCurrentContainer().getContext().getName();
-    }
-    return container.getContext().getName();
+    return "portal";
   }
 
   public String getContainerRestContext(ExoContainer container) {
-    if (!(container instanceof PortalContainer)) {
-      return ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
-    }
-    return container.getContext().getRestContextName();
+    return "rest";
   }
 
 }

@@ -2,7 +2,7 @@
 <configuration>
 	<component>
 		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
-		<type>org.exoplatform.platform.migration.aio.common.component.impl.ContainerParamExtractorImpl</type>
+		<type>org.exoplatform.platform.migration.aio.component.ContainerParamExtractorImpl</type>
 	</component>
 	<component>
 		<type>org.exoplatform.platform.migration.aio.rest.MarshallConfigurationREST</type>

@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>exo.platform.migration.common</artifactId>
 	<packaging>jar</packaging>
-	<name>eXo Platform - Migration Tools - AIO Part</name>
+	<name>eXo Platform - Migration Tools - Common</name>
 	<properties>
 		<org.jibx.version>1.2.1</org.jibx.version>
 		<org.exoplatform.kernel.version>2.0.11</org.exoplatform.kernel.version>

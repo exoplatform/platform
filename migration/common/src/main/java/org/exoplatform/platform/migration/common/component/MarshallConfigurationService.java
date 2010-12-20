@@ -60,9 +60,8 @@ public class MarshallConfigurationService {
     containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
     String containerId = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerId + "/" + containerRestContextName + "/");
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerId + "/" + containerRestContextName);
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
-    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_CONTAINERS_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);
@@ -70,9 +69,8 @@ public class MarshallConfigurationService {
     String componentsListURLSuffix = urlSuffixBuffer.toString();
 
     urlSuffixBuffer.delete(0, urlSuffixBuffer.length());
-    urlSuffixBuffer.append("<a href='/" + containerId + "/" + containerRestContextName + "/");
+    urlSuffixBuffer.append("<a href='/" + containerId + "/" + containerRestContextName);
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
-    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_CONTAINER_CONFIGURATION_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);
@@ -144,9 +142,8 @@ public class MarshallConfigurationService {
     Collection<?> components = ((ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class)).getComponents();
 
     responseStringBuffer.append("<html xmlns='http://www.w3.org/1999/xhtml'><body xmlns='http://www.w3.org/1999/xhtml'>");
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerName + "/" + containerRestContextName + "/");
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerName + "/" + containerRestContextName);
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
-    urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_COMPONENT_METHOD_URI_TEMPLE);
     urlSuffixBuffer.append("?");
     urlSuffixBuffer.append(Constants.CONTAINER_ID_PARAM_NAME);

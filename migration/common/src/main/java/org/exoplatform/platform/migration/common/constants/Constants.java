@@ -8,13 +8,13 @@ public interface Constants {
 
   public static final String LIFECYCLE_PLUGINS_XML_FILE_NAME = "LifecyclePlugins.xml";
 
-  public static final String CLASS_URI_TEMPLE = "containersConfiguration";
+  final public static String CLASS_URI_TEMPLE = "/containersConfiguration";
 
-  public static final String GET_COMPONENT_METHOD_URI_TEMPLE = "getComponentConfiguration";
+  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "/getComponentConfiguration/";
 
-  public static final String GET_CONTAINERS_METHOD_URI_TEMPLE = "ComponentsList";
+  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "/ComponentsList/";
 
-  public static final String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "exportContainerComponents";
+  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "/exportContainerComponents/";
 
   public static final String CONTAINER_ID_PARAM_NAME = "containerId";
 
