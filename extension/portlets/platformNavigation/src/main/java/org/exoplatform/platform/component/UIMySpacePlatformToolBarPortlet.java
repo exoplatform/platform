@@ -3,7 +3,7 @@ package org.exoplatform.platform.component;
 /**
  * Created by IntelliJ IDEA.
  * User: khemais.menzli
- * Date: 31 août 2010
+ * Date: 31 aoï¿½t 2010
  * Time: 13:16:17
  * To change this template use File | Settings | File Templates.
  */
@@ -56,12 +56,17 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       }
       organizationService = getApplicationComponent(OrganizationService.class);
       UserACL userACL = getApplicationComponent(UserACL.class);
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
-      for (Object object : memberships) {
-        Membership membership = (Membership) object;
-        if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
-          groupNavigationPermitted = true;
-          break;
+      //groupNavigationPermitted is set to true if the user is the super user
+      if(getUserId().equals(userACL.getSuperUser())){
+        groupNavigationPermitted = true;
+      }else{
+        Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+        for (Object object : memberships) {
+          Membership membership = (Membership) object;
+          if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
+            groupNavigationPermitted = true;
+            break;
+          }
         }
       }
     }
