@@ -52,6 +52,8 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 public class OrganizationServiceHandler extends ComponentHandler {
   final private static String PROFILES_FOLDER_NAME = "profiles/";
 
+  final private static String USERS_FOLDER_NAME = "users/";
+
   private OrganizationService organizationService;
 
   private static final String MAX_USERS_IN_FILE_PARAM_NAME = "max-users-per-file";
@@ -77,7 +79,8 @@ public class OrganizationServiceHandler extends ComponentHandler {
     ZipOutputStream zos = new ZipOutputStream(out);
 
     this.organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
-    writeProfiles(component, zos, container);
+    writeProfiles(zos);
+    writeUsers(zos);
 
     Configuration configuration = new Configuration();
     writeOrganizationModelData(zos, configuration);
@@ -231,8 +234,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
     return allMembershipTypes;
   }
 
-  private void writeProfiles(Component component, ZipOutputStream zos, ExoContainer container) throws Exception {
-    OrganizationService organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+  private void writeProfiles(ZipOutputStream zos) throws Exception {
     PageList usersPageList = organizationService.getUserHandler().findUsers(new Query());
     int pageCount = usersPageList.getAvailablePage();
     XStream xstream_ = new XStream(new XppDriver());
@@ -244,6 +246,24 @@ public class OrganizationServiceHandler extends ComponentHandler {
           xstream_.alias("user-profile", userProfile.getClass());
           String xml = xstream_.toXML(userProfile);
           zos.putNextEntry(new ZipEntry(PROFILES_FOLDER_NAME + userProfile.getUserName() + "_profile.xml"));
+          zos.write(xml.getBytes());
+          zos.closeEntry();
+        }
+      }
+    }
+  }
+
+  private void writeUsers(ZipOutputStream zos) throws Exception {
+    PageList usersPageList = organizationService.getUserHandler().findUsers(new Query());
+    int pageCount = usersPageList.getAvailablePage();
+    XStream xstream_ = new XStream(new XppDriver());
+    for (int i = 1; i <= pageCount; i++) {
+      List<User> usersList = usersPageList.getPage(i);
+      for (User user : usersList) {
+        if (user != null) {
+          xstream_.alias("user", user.getClass());
+          String xml = xstream_.toXML(user);
+          zos.putNextEntry(new ZipEntry(USERS_FOLDER_NAME + user.getUserName() + "_user.xml"));
           zos.write(xml.getBytes());
           zos.closeEntry();
         }

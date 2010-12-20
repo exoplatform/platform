@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.impl.UserImpl;
 import org.exoplatform.services.organization.impl.UserProfileImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 
@@ -21,7 +22,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 
 @Path("/userProfiles")
-public class UserProfileImporterREST implements ResourceContainer{
+public class UserProfileImporterREST implements ResourceContainer {
   public OrganizationService organizationService = null;
 
   public UserProfileImporterREST(OrganizationService organizationService, InitParams initParams) {
@@ -29,7 +30,7 @@ public class UserProfileImporterREST implements ResourceContainer{
   }
 
   @GET
-  public Response importProfiles(@QueryParam("id") String id) throws Exception {
+  public Response importProfiles() throws Exception {
     StringBuffer responseStringBuffer = new StringBuffer();
     responseStringBuffer.append("<form action='/portal/rest/userProfiles/import/' method='POST'>");
     responseStringBuffer.append("  <input type='text' name='filePath'/>");
@@ -41,8 +42,11 @@ public class UserProfileImporterREST implements ResourceContainer{
   @POST
   @Path("/import/")
   public Response put(@QueryParam("filePath") String filePath) throws Exception {
-    XStream xstream_ = new XStream(new XppDriver());
-    xstream_.alias("user-profile", UserProfileImpl.class);
+    XStream xstreamProfile_ = new XStream(new XppDriver());
+    xstreamProfile_.alias("user-profile", UserProfileImpl.class);
+
+    XStream xstreamUser_ = new XStream(new XppDriver());
+    xstreamUser_.alias("user", UserImpl.class);
 
     FileInputStream fin = new FileInputStream(filePath);
     ZipInputStream zin = new ZipInputStream(fin);
@@ -55,13 +59,28 @@ public class UserProfileImporterREST implements ResourceContainer{
         }
         zin.closeEntry();
 
-        UserProfileImpl userProfile = (UserProfileImpl) xstream_.fromXML(new String(fout.toByteArray()));
-        System.out.println("userProfile = " + userProfile.getUserName());
+        UserProfileImpl userProfile = (UserProfileImpl) xstreamProfile_.fromXML(new String(fout.toByteArray()));
         User user = organizationService.getUserHandler().findUserByName(userProfile.getUserName());
         if (user != null) {
           organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
         } else {
-          System.out.println("==> WARNING: userProfile = " + userProfile.getUserName() + " doesn't exist ");
+          // TODO log WARNING
+        }
+      } else if (ze.getName().contains("_user.xml")) {
+        ByteArrayOutputStream fout = new ByteArrayOutputStream();
+        for (int c = zin.read(); c != -1; c = zin.read()) {
+          fout.write(c);
+        }
+        zin.closeEntry();
+
+        UserImpl userImported = (UserImpl) xstreamUser_.fromXML(new String(fout.toByteArray()));
+        User user = organizationService.getUserHandler().findUserByName(userImported.getUserName());
+        if (user != null) {
+          user.setLastLoginTime(userImported.getLastLoginTime());
+          user.setCreatedDate(userImported.getCreatedDate());
+          organizationService.getUserHandler().saveUser(user, true);
+        } else {
+          // TODO log WARNING
         }
       }
     }
