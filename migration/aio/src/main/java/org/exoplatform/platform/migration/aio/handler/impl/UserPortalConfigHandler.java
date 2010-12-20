@@ -32,6 +32,7 @@ import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesS
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -82,7 +83,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
     try {
       DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
       Query<PageNavigation> pageNavigationQuery = new Query<PageNavigation>(null, null, PageNavigation.class);
-      List<PageNavigation> findedPageNavigations = (List<PageNavigation>)dataStorage.find(pageNavigationQuery).getAll();
+      List<PageNavigation> findedPageNavigations = (List<PageNavigation>) dataStorage.find(pageNavigationQuery).getAll();
       for (PageNavigation pageNavigation : findedPageNavigations) {
         String ownerType = pageNavigation.getOwnerType();
         String ownerId = pageNavigation.getOwnerId();
@@ -120,15 +121,15 @@ public class UserPortalConfigHandler extends ComponentHandler {
           zos.write(bytes);
           zos.closeEntry();
         }
-//        {/* Gadgets marshalling */
-//          Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
-//          if (gadgets != null && gadgets.getChildren() != null && gadgets.getChildren().size() > 0) {
-//            zos.putNextEntry(new ZipEntry(portalConfigForlder + GADGET_FILE_NAME));
-//            byte[] bytes = toXML(gadgets);
-//            zos.write(bytes);
-//            zos.closeEntry();
-//          }
-//        }
+        {/* Gadgets marshalling */
+          Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
+          if (gadgets != null && gadgets.getChildren() != null && gadgets.getChildren().size() > 0) {
+            zos.putNextEntry(new ZipEntry(portalConfigForlder + GADGET_FILE_NAME));
+            byte[] bytes = toXML(gadgets);
+            zos.write(bytes);
+            zos.closeEntry();
+          }
+        }
       }
     } catch (Exception ie) {
       throw ie;

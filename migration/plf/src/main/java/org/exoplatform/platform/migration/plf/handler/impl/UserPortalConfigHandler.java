@@ -18,17 +18,15 @@ package org.exoplatform.platform.migration.plf.handler.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.exoplatform.commons.utils.LazyList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
-import org.exoplatform.portal.application.PortletPreferences;
-import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -37,19 +35,12 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
 
-/**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15 juil. 2010
- */
 public class UserPortalConfigHandler extends ComponentHandler {
   final private static String PORTAL_FILE_NAME = "portal.xml";
 
   final private static String PAGES_FILE_NAME = "pages.xml";
 
   final private static String NAVIGATION_FILE_NAME = "navigation.xml";
-
-  final private static String GADGET_FILE_NAME = "gadgets.xml";
-
-  final private static String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
 
   public UserPortalConfigHandler(InitParams initParams) {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
@@ -82,7 +73,7 @@ public class UserPortalConfigHandler extends ComponentHandler {
     try {
       DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
       Query<PageNavigation> pageNavigationQuery = new Query<PageNavigation>(null, null, PageNavigation.class);
-      List<PageNavigation> findedPageNavigations = (List<PageNavigation>) dataStorage.find(pageNavigationQuery).getAll();
+      LazyList<PageNavigation> findedPageNavigations = (LazyList<PageNavigation>) dataStorage.find(pageNavigationQuery).getAll();
       for (PageNavigation pageNavigation : findedPageNavigations) {
         String ownerType = pageNavigation.getOwnerType();
         String ownerId = pageNavigation.getOwnerId();
@@ -97,9 +88,10 @@ public class UserPortalConfigHandler extends ComponentHandler {
         {/* Pages marshalling */
           zos.putNextEntry(new ZipEntry(portalConfigForlder + PAGES_FILE_NAME));
           Query<Page> portalConfigQuery = new Query<Page>(ownerType, ownerId, Page.class);
-          List<Page> findedPages = dataStorage.find(portalConfigQuery).getAll();
+          LazyList<Page> findedPages = (LazyList<Page>) dataStorage.find(portalConfigQuery).getAll();
           PageSet pageSet = new PageSet();
-          pageSet.setPages((ArrayList<Page>) findedPages);
+          pageSet.setPages(new ArrayList<Page>(findedPages));
+          // Marshalling of Application, is unsupported
           byte[] bytes = toXML(pageSet);
           zos.write(bytes);
           zos.closeEntry();
@@ -107,16 +99,6 @@ public class UserPortalConfigHandler extends ComponentHandler {
         {/* Navigation marshalling */
           zos.putNextEntry(new ZipEntry(portalConfigForlder + NAVIGATION_FILE_NAME));
           byte[] bytes = toXML(pageNavigation);
-          zos.write(bytes);
-          zos.closeEntry();
-        }
-        {/* PortletPreferences marshalling */
-          zos.putNextEntry(new ZipEntry(portalConfigForlder + PORTLET_PREFERENCES_FILE_NAME));
-          Query<PortletPreferences> portletPreferencesQuery = new Query<PortletPreferences>(ownerType, ownerId, PortletPreferences.class);
-          List<PortletPreferences> findedPortletPreferences = dataStorage.find(portletPreferencesQuery).getAll();
-          PortletPreferencesSet portletPreferencesSet = new PortletPreferencesSet();
-          portletPreferencesSet.setPortlets((ArrayList<PortletPreferences>) findedPortletPreferences);
-          byte[] bytes = toXML(portletPreferencesSet);
           zos.write(bytes);
           zos.closeEntry();
         }
