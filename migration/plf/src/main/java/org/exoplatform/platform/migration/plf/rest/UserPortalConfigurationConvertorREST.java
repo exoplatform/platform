@@ -36,6 +36,7 @@ import org.exoplatform.platform.migration.common.aio.object.PortletPreferences;
 import org.exoplatform.platform.migration.common.aio.object.Page.PageSet;
 import org.exoplatform.platform.migration.common.aio.object.PortletPreferences.PortletPreferencesSet;
 import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
+import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.plf.object.Portlet;
 import org.exoplatform.platform.migration.plf.object.Preference;
 import org.exoplatform.portal.config.model.ModelObject;
@@ -49,16 +50,6 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 
 @Path("/userPortalConfigurationConvertor")
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
-
-  final private static String PORTAL_FILE_NAME = "portal.xml";
-
-  final private static String PAGES_FILE_NAME = "pages.xml";
-
-  final private static String NAVIGATION_FILE_NAME = "navigation.xml";
-
-  final private static String GADGET_FILE_NAME = "gadgets.xml";
-
-  final private static String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
   
   private ContainerParamExtractor containerParamExtractor_ = null;
 

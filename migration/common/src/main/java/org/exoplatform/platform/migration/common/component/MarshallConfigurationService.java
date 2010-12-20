@@ -48,20 +48,6 @@ import org.jibx.runtime.JiBXException;
 public class MarshallConfigurationService {
 
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
-
-  final public static String CLASS_URI_TEMPLE = "containersConfiguration";
-
-  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "getComponentConfiguration";
-
-  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "ComponentsList";
-
-  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "exportContainerComponents";
-
-  final public static String CONTAINER_ID_PARAM_NAME = "containerId";
-
-  final public static String COMONENT_KEY_PARAM_NAME = "componentKey";
-
-  final public static String ROOT_CONTAINER = "root";
   
   private ContainerParamExtractor containerParamExtractor_ = null;
 
