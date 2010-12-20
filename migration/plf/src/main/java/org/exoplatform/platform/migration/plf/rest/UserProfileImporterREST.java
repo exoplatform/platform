@@ -5,10 +5,12 @@ import java.io.FileInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.exoplatform.container.xml.InitParams;
@@ -41,7 +43,8 @@ public class UserProfileImporterREST implements ResourceContainer {
 
   @POST
   @Path("/import/")
-  public Response put(@QueryParam("filePath") String filePath) throws Exception {
+  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+  public Response put(@FormParam("filePath") String filePath) throws Exception {
     XStream xstreamProfile_ = new XStream(new XppDriver());
     xstreamProfile_.alias("user-profile", UserProfileImpl.class);
 
