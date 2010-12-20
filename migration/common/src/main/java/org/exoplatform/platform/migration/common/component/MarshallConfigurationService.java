@@ -49,12 +49,32 @@ public class MarshallConfigurationService {
 
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
 
+  final public static String CLASS_URI_TEMPLE = "containersConfiguration";
+
+  final public static String GET_COMPONENT_METHOD_URI_TEMPLE = "getComponentConfiguration";
+
+  final public static String GET_CONTAINERS_METHOD_URI_TEMPLE = "ComponentsList";
+
+  final public static String GET_CONTAINER_CONFIGURATION_URI_TEMPLE = "exportContainerComponents";
+
+  final public static String CONTAINER_ID_PARAM_NAME = "containerId";
+
+  final public static String COMONENT_KEY_PARAM_NAME = "componentKey";
+
+  final public static String ROOT_CONTAINER = "root";
+  
+  private ContainerParamExtractor containerParamExtractor_ = null;
+
   public void addHandler(ComponentHandler componentHandler) {
     handlersMap.put(componentHandler.getTargetComponentName(), componentHandler);
   }
 
   public String generateHTMLContainersList() throws Exception {
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
+    String containerId = containerParamExtractor_.getContainerId(container);
+    String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerId + "/" + containerRestContextName + "/");
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_CONTAINERS_METHOD_URI_TEMPLE);
@@ -64,7 +84,7 @@ public class MarshallConfigurationService {
     String componentsListURLSuffix = urlSuffixBuffer.toString();
 
     urlSuffixBuffer.delete(0, urlSuffixBuffer.length());
-    urlSuffixBuffer.append("<a href='/portal/rest/");
+    urlSuffixBuffer.append("<a href='/" + containerId + "/" + containerRestContextName + "/");
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_CONTAINER_CONFIGURATION_URI_TEMPLE);
@@ -131,13 +151,14 @@ public class MarshallConfigurationService {
       container = ExoContainerContext.getContainerByName(containerId);
     }
 
-    String containerName = container.getContext().getName();
+    String containerName = containerParamExtractor_.getContainerId(container);
+    String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
 
     StringBuffer responseStringBuffer = new StringBuffer();
     Collection<?> components = ((ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class)).getComponents();
 
     responseStringBuffer.append("<html xmlns='http://www.w3.org/1999/xhtml'><body xmlns='http://www.w3.org/1999/xhtml'>");
-    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/portal/rest/");
+    StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerName + "/" + containerRestContextName + "/");
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append("/");
     urlSuffixBuffer.append(Constants.GET_COMPONENT_METHOD_URI_TEMPLE);

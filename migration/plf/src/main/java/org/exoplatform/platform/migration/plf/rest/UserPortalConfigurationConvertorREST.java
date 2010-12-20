@@ -22,6 +22,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.migration.common.aio.object.Application;
 import org.exoplatform.platform.migration.common.aio.object.Container;
 import org.exoplatform.platform.migration.common.aio.object.Gadgets;
@@ -33,7 +35,7 @@ import org.exoplatform.platform.migration.common.aio.object.PortalConfig;
 import org.exoplatform.platform.migration.common.aio.object.PortletPreferences;
 import org.exoplatform.platform.migration.common.aio.object.Page.PageSet;
 import org.exoplatform.platform.migration.common.aio.object.PortletPreferences.PortletPreferencesSet;
-import org.exoplatform.platform.migration.common.constants.Constants;
+import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
 import org.exoplatform.platform.migration.plf.object.Portlet;
 import org.exoplatform.platform.migration.plf.object.Preference;
 import org.exoplatform.portal.config.model.ModelObject;
@@ -47,6 +49,19 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 
 @Path("/userPortalConfigurationConvertor")
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
+
+  final private static String PORTAL_FILE_NAME = "portal.xml";
+
+  final private static String PAGES_FILE_NAME = "pages.xml";
+
+  final private static String NAVIGATION_FILE_NAME = "navigation.xml";
+
+  final private static String GADGET_FILE_NAME = "gadgets.xml";
+
+  final private static String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
+  
+  private ContainerParamExtractor containerParamExtractor_ = null;
+
   final private static Map<String, Class<?>> unmarshelledObjectTypes = new HashMap<String, Class<?>>();
   static {
     UserPortalConfigurationConvertorREST.unmarshelledObjectTypes.put(Constants.PORTAL_FILE_NAME, PortalConfig.class);
@@ -59,8 +74,16 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   @GET
   @Produces(MediaType.TEXT_HTML)
   public Response importProfiles() throws Exception {
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
+    String containerId = containerParamExtractor_.getContainerId(container);
+    String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
     StringBuffer responseStringBuffer = new StringBuffer();
-    responseStringBuffer.append("<html><body><form action='/portal/rest/userPortalConfigurationConvertor/convert/' enctype='application/x-www-form-urlencoded' method='POST'>");
+    responseStringBuffer.append("<html><body><form action='/"
+        + containerId
+        + "/"
+        + containerRestContextName
+        + "/userPortalConfigurationConvertor/convert/' enctype='application/x-www-form-urlencoded' method='POST'>");
     responseStringBuffer.append("  <input type='text' name='filePath'/>");
     responseStringBuffer.append("  <input type='submit'/>");
     responseStringBuffer.append("</form></body></html>");

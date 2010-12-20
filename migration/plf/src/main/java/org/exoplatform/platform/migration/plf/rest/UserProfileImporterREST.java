@@ -13,7 +13,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.impl.UserImpl;
@@ -26,6 +31,8 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 @Path("/userProfiles")
 public class UserProfileImporterREST implements ResourceContainer {
   public OrganizationService organizationService = null;
+  private ContainerParamExtractor containerParamExtractor_ = null;
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public UserProfileImporterREST(OrganizationService organizationService, InitParams initParams) {
     this.organizationService = organizationService;
@@ -33,8 +40,13 @@ public class UserProfileImporterREST implements ResourceContainer {
 
   @GET
   public Response importProfiles() throws Exception {
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
+    String containerId = containerParamExtractor_.getContainerId(container);
+    String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
     StringBuffer responseStringBuffer = new StringBuffer();
-    responseStringBuffer.append("<form action='/portal/rest/userProfiles/import/' method='POST'>");
+    responseStringBuffer.append("<form action='/" + containerId + "/" + containerRestContextName
+        + "/userProfiles/import/' method='POST'>");
     responseStringBuffer.append("  <input type='text' name='filePath'/>");
     responseStringBuffer.append("  <input type='submit'/>");
     responseStringBuffer.append("</form>");
@@ -67,7 +79,7 @@ public class UserProfileImporterREST implements ResourceContainer {
         if (user != null) {
           organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
         } else {
-          // TODO log WARNING
+          log.warn("userProfile = " + userProfile.getUserName() + " doesn't exist");
         }
       } else if (ze.getName().contains("_user.xml")) {
         ByteArrayOutputStream fout = new ByteArrayOutputStream();
@@ -83,7 +95,7 @@ public class UserProfileImporterREST implements ResourceContainer {
           user.setCreatedDate(userImported.getCreatedDate());
           organizationService.getUserHandler().saveUser(user, false);
         } else {
-          // TODO log WARNING
+          log.warn("user = " + userImported.getUserName() + " doesn't exist");
         }
       }
     }

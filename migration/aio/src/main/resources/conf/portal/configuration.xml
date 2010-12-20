@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
 	<component>
+		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
+		<type>org.exoplatform.platform.migration.aio.common.component.impl.ContainerParamExtractorImpl</type>
+	</component>
+	<component>
 		<type>org.exoplatform.platform.migration.aio.rest.MarshallConfigurationREST</type>
 	</component>
 	<external-component-plugins>
