@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
-  <version>3.0.2</version>
+  <version>3.0.2_CP01</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
@@ -30,9 +30,9 @@
     <org.exoplatform.jcr-services.version>1.12.6-GA</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.1.6-PLF</org.exoplatform.portal.version>
     <org.exoplatform.cs.version>2.1.2</org.exoplatform.cs.version>
-    <org.exoplatform.ks.version>2.1.2</org.exoplatform.ks.version>
+    <org.exoplatform.ks.version>2.1.2_CP01</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.1.2</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>1.1.2</org.exoplatform.social.version>
+    <org.exoplatform.social.version>1.1.2_CP01</org.exoplatform.social.version>
     <org.exoplatform.commons.version>1.0.2</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.0.2</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.0.2</org.exoplatform.ide.version>
