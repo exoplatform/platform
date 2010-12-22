@@ -28,27 +28,39 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.portal.config.model.ApplicationType;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 public class ApplicationRegistryHandler extends ComponentHandler {
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public ApplicationRegistryHandler(InitParams initParams) {
     super.setTargetComponentName(ApplicationRegistryService.class.getName());
   }
 
   @Override
-  public Entry invoke(Component component, ExoContainer container) throws Exception {
-    preMarshallComponent(component, container);
-    Configuration configuration = new Configuration();
-    configuration.addComponent(component);
-    byte[] bytes = toXML(configuration);
-    Entry entry = new Entry(component.getKey());
-    entry.setType(EntryType.XML);
-    entry.setContent(bytes);
-    return entry;
+  public Entry invoke(Component component, ExoContainer container) {
+    try{
+      preMarshallComponent(component, container);
+      Configuration configuration = new Configuration();
+      configuration.addComponent(component);
+      byte[] bytes = toXML(configuration);
+      Entry entry = new Entry(component.getKey());
+      entry.setType(EntryType.XML);
+      entry.setContent(bytes);
+      return entry;
+    }catch (Exception e) {
+      log.error("Error while invoking handler for component: " + component.getKey(), e);
+      return null;
+    }
   }
 
   private void preMarshallComponent(Component component, ExoContainer container) throws Exception {
     ApplicationRegistryService applicationRegistryService = (ApplicationRegistryService) container.getComponentInstanceOfType(ApplicationRegistryService.class);
+    if(log.isDebugEnabled()){
+      log.debug("Handler invoked for component: " + component.getKey() + " of type: " + applicationRegistryService.getClass().getName());
+    }
     List<ComponentPlugin> componentPlugins = component.getComponentPlugins();
     for (ComponentPlugin componentPlugin : componentPlugins) {
       if (componentPlugin.getType().equals("org.exoplatform.application.registry.ApplicationCategoriesPlugins")) {

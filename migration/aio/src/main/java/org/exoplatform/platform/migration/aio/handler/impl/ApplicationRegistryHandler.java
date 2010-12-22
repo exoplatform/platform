@@ -18,6 +18,7 @@ package org.exoplatform.platform.migration.aio.handler.impl;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.ExoContainer;
@@ -28,27 +29,39 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
+import org.exoplatform.services.log.ExoLogger;
 
 public class ApplicationRegistryHandler extends ComponentHandler {
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public ApplicationRegistryHandler(InitParams initParams) {
     super.setTargetComponentName(ApplicationRegistryService.class.getName());
   }
 
   @Override
-  public Entry invoke(Component component, ExoContainer container) throws Exception {
-    preMarshallComponent(component, container);
-    Configuration configuration = new Configuration();
-    configuration.addComponent(component);
-    byte[] bytes = toXML(configuration);
-    Entry entry = new Entry(component.getKey());
-    entry.setType(EntryType.XML);
-    entry.setContent(bytes);
-    return entry;
+  public Entry invoke(Component component, ExoContainer container) {
+    try {
+      preMarshallComponent(component, container);
+      Configuration configuration = new Configuration();
+      configuration.addComponent(component);
+      byte[] bytes = toXML(configuration);
+      Entry entry = new Entry(component.getKey());
+      entry.setType(EntryType.XML);
+      entry.setContent(bytes);
+      return entry;
+    } catch (Exception ie) {
+      log.error("Error while invoking handler for component: " + component.getKey(), ie);
+      return null;
+    }
   }
 
+  @SuppressWarnings("unchecked")
   private void preMarshallComponent(Component component, ExoContainer container) throws Exception {
     ApplicationRegistryService applicationRegistryService = (ApplicationRegistryService) container.getComponentInstanceOfType(ApplicationRegistryService.class);
+    if(log.isDebugEnabled()){
+      log.debug("Handler invoked for component: " + component.getKey() + " of type: " + applicationRegistryService.getClass().getName());
+    }
     List<ComponentPlugin> componentPlugins = component.getComponentPlugins();
     for (ComponentPlugin componentPlugin : componentPlugins) {
       if (componentPlugin.getType().equals("org.exoplatform.application.registry.ApplicationCategoriesPlugins")) {

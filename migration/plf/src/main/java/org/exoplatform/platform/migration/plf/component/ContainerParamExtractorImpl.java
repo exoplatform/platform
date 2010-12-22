@@ -20,15 +20,23 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 /**
  * Created by The eXo Platform SAS Author : eXoPlatform exo@exoplatform.com Dec
  * 20, 2010
  */
 public class ContainerParamExtractorImpl implements ContainerParamExtractor {
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public String getContainerId(ExoContainer container) {
     if (!(container instanceof PortalContainer)) {
+      if(log.isDebugEnabled()){
+        log.debug("The container: " + container.getContext().getName() + " is not a portal container");
+        log.debug("The current container will be used");
+      }
       return ExoContainerContext.getCurrentContainer().getContext().getName();
     }
     return container.getContext().getName();
@@ -36,6 +44,10 @@ public class ContainerParamExtractorImpl implements ContainerParamExtractor {
 
   public String getContainerRestContext(ExoContainer container) {
     if (!(container instanceof PortalContainer)) {
+      if(log.isDebugEnabled()){
+        log.debug("The container: " + container.getContext().getName() + " is not a portal container");
+        log.debug("The current rest context will be used");
+      }
       return ExoContainerContext.getCurrentContainer().getContext().getRestContextName();
     }
     return container.getContext().getRestContextName();

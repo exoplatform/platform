@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
@@ -38,20 +39,25 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
+import org.exoplatform.services.log.ExoLogger;
 
 public class UserPortalConfigHandler extends ComponentHandler {
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public UserPortalConfigHandler(InitParams initParams) {
     super.setTargetComponentName(UserPortalConfigService.class.getName());
   }
 
   @Override
-  public Entry invoke(Component component, ExoContainer container) throws Exception {
+  public Entry invoke(Component component, ExoContainer container) {
     try {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       ZipOutputStream zos = new ZipOutputStream(out);
-
-      writePortalConfigs(component, zos, container);
+      if(log.isDebugEnabled()){
+        log.debug("Handler invoked for component: " + component.getKey());
+      }
+      writePortalConfigs(zos, container);
 
       Configuration configuration = new Configuration();
       configuration.addComponent(component);
@@ -65,12 +71,13 @@ public class UserPortalConfigHandler extends ComponentHandler {
       entry.setContent(out.toByteArray());
       return entry;
     } catch (Exception ie) {
-      throw ie;
+      log.error("Error while invoking handler for component: " + component.getKey(), ie);
+      return null;
     }
   }
 
-  private void writePortalConfigs(Component component, ZipOutputStream zos, ExoContainer container) throws Exception {
-    try {
+  @SuppressWarnings("unchecked")
+  private void writePortalConfigs(ZipOutputStream zos, ExoContainer container) throws Exception{
       DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
       Query<PageNavigation> pageNavigationQuery = new Query<PageNavigation>(null, null, PageNavigation.class);
       List<PageNavigation> findedPageNavigations = dataStorage.find(pageNavigationQuery).getAll();
@@ -94,12 +101,18 @@ public class UserPortalConfigHandler extends ComponentHandler {
           byte[] bytes = toXML(pageSet);
           zos.write(bytes);
           zos.closeEntry();
+          if(log.isDebugEnabled()){
+            log.debug("Adding portalConfig: Pages entry: " + portalConfigForlder + Constants.PAGES_FILE_NAME);
+          }
         }
         {/* Navigation marshalling */
           zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.NAVIGATION_FILE_NAME));
           byte[] bytes = toXML(pageNavigation);
           zos.write(bytes);
           zos.closeEntry();
+          if(log.isDebugEnabled()){
+            log.debug("Adding portalConfig: Navigation entry: " + portalConfigForlder + Constants.NAVIGATION_FILE_NAME);
+          }
         }
         {/* PortletPreferences marshalling */
           zos.putNextEntry(new ZipEntry(portalConfigForlder + Constants.PORTLET_PREFERENCES_FILE_NAME));
@@ -110,6 +123,9 @@ public class UserPortalConfigHandler extends ComponentHandler {
           byte[] bytes = toXML(portletPreferencesSet);
           zos.write(bytes);
           zos.closeEntry();
+          if(log.isDebugEnabled()){
+            log.debug("Adding portalConfig: PortletPreferences entry: " + portalConfigForlder + Constants.PORTLET_PREFERENCES_FILE_NAME);
+          }
         }
         {/* Gadgets marshalling */
           Gadgets gadgets = dataStorage.getGadgets(ownerType + "::" + ownerId);
@@ -118,11 +134,11 @@ public class UserPortalConfigHandler extends ComponentHandler {
             byte[] bytes = toXML(gadgets);
             zos.write(bytes);
             zos.closeEntry();
+            if(log.isDebugEnabled()){
+              log.debug("Adding portalConfig: Gadgets entry: " + portalConfigForlder + Constants.GADGET_FILE_NAME);
+            }
           }
         }
       }
-    } catch (Exception ie) {
-      throw ie;
-    }
   }
 }

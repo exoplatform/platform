@@ -42,6 +42,8 @@ import org.exoplatform.platform.migration.plf.object.Preference;
 import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.PortalProperties;
 import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
@@ -52,6 +54,8 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   
   private ContainerParamExtractor containerParamExtractor_ = null;
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   final private static Map<String, Class<?>> unmarshelledObjectTypes = new HashMap<String, Class<?>>();
   static {
@@ -64,7 +68,9 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
 
   @GET
   @Produces(MediaType.TEXT_HTML)
-  public Response importProfiles() throws Exception {
+  public Response importProfiles() {
+    log.info("Starting: " + this.getClass().getName());
+    log.info("The UserPortalConfigurationConvertor is ready for use ..");
     ExoContainer container = ExoContainerContext.getCurrentContainer();
     containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
     String containerId = containerParamExtractor_.getContainerId(container);
@@ -131,17 +137,26 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
           PortletPreferencesSet portletPreferencesSet = (PortletPreferencesSet) ownerObjects.get(Constants.PORTLET_PREFERENCES_FILE_NAME);
           org.exoplatform.platform.migration.plf.object.Page.PageSet convertedPageSet = convertPageSet(pageSet, portletPreferencesSet);
           putEntry(zos, portalConfigForlder + Constants.PAGES_FILE_NAME, convertedPageSet);
+          if(log.isDebugEnabled()){
+            log.debug("Converting from zip entry: pages.xml & portlet-preferences.xml");
+          }
 
           // portal.xml conversion
           if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
             PortalConfig portalConfig = (PortalConfig) ownerObjects.get(Constants.PORTAL_FILE_NAME);
             org.exoplatform.platform.migration.plf.object.PortalConfig convertedPortalConfig = convertPortalConfig(portalConfig, portletPreferencesSet);
             putEntry(zos, portalConfigForlder + Constants.PORTAL_FILE_NAME, convertedPortalConfig);
+            if(log.isDebugEnabled()){
+              log.debug("Converting from zip entry: portal.xml");
+            }
           }
           {
             PageNavigation pageNavigation = (PageNavigation) ownerObjects.get(Constants.NAVIGATION_FILE_NAME);
             org.exoplatform.portal.config.model.PageNavigation convertedPageNavigation = convertNavigation(pageNavigation);
             putEntry(zos, portalConfigForlder + Constants.NAVIGATION_FILE_NAME, convertedPageNavigation);
+            if(log.isDebugEnabled()){
+              log.debug("Converting from zip entry: navigation.xml");
+            }
           }
           // {
           // Gadgets gadgets = (Gadgets) ownerObjects.get(GADGET_FILE_NAME);
@@ -153,8 +168,8 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         }
       }
       zos.close();
-    } catch (Exception exception) {
-      exception.printStackTrace();
+    } catch (Exception e) {
+      log.error("Error while converting portalConfiguration meta data ..", e);
     }
     return Response.ok().header("Content-disposition", "attachment; filename=ConvertedUserPortalConfigurationServiceFiles.zip").entity(new ByteArrayInputStream(result.toByteArray())).build();
   }
@@ -281,6 +296,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
     return convertedPageChildren;
   }
 
+  @SuppressWarnings("unchecked")
   private org.exoplatform.platform.migration.plf.object.PortletPreferences getPortletPreferences(PortletPreferencesSet portletPreferencesSet, String instanceId) {
     for (PortletPreferences portlet : portletPreferencesSet.getPortlets()) {
       if (portlet.getWindowId().equals(instanceId)) {
@@ -345,16 +361,21 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
     portalConfigObjects.put(fileNameType, unmarshelledObject);
   }
 
-  private byte[] readEntry(ZipInputStream zin) throws IOException {
-    ByteArrayOutputStream fout = new ByteArrayOutputStream();
-    for (int c = zin.read(); c != -1; c = zin.read()) {
-      fout.write(c);
+  private byte[] readEntry(ZipInputStream zin) {
+    try{
+      ByteArrayOutputStream fout = new ByteArrayOutputStream();
+      for (int c = zin.read(); c != -1; c = zin.read()) {
+        fout.write(c);
+      }
+      zin.closeEntry();
+      return fout.toByteArray();
+    }catch (IOException e) {
+      log.error("Error while reading entry from ZipInputStream ..", e);
+      return null;
     }
-    zin.closeEntry();
-    return fout.toByteArray();
   }
 
-  protected byte[] toXML(Object obj) throws Exception {
+  protected byte[] toXML(Object obj) {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     try {
       IBindingFactory bfact = BindingDirectory.getFactory(obj.getClass());
@@ -363,16 +384,22 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
       mctx.marshalDocument(obj, "UTF-8", null, out);
       return out.toByteArray();
     } catch (Exception ie) {
-      throw ie;
+      log.error("Error while converting to XML object ..", ie);
+      return null;
     }
   }
 
-  private <T> T fromXML(byte[] bytes, Class<T> clazz) throws Exception {
+  private <T> T fromXML(byte[] bytes, Class<T> clazz) {
     ByteArrayInputStream is = new ByteArrayInputStream(bytes);
-    IBindingFactory bfact = BindingDirectory.getFactory(clazz);
-    UnmarshallingContext uctx = (UnmarshallingContext) bfact.createUnmarshallingContext();
-    uctx.setDocument(is, null, "UTF-8", false);
-    return clazz.cast(uctx.unmarshalElement());
+    try{
+      IBindingFactory bfact = BindingDirectory.getFactory(clazz);
+      UnmarshallingContext uctx = (UnmarshallingContext) bfact.createUnmarshallingContext();
+      uctx.setDocument(is, null, "UTF-8", false);
+      return clazz.cast(uctx.unmarshalElement());
+    }catch (Exception e) {
+      log.error("Error while reading from XML object ..", e);
+      return null;
+    }
   }
 
 }

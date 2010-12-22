@@ -18,10 +18,12 @@ package org.exoplatform.platform.migration.aio.rest;
 
 import java.io.ByteArrayInputStream;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.platform.migration.common.component.MarshallConfigurationService;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler.Entry;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler.EntryType;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.rest.HTTPMethod;
 import org.exoplatform.services.rest.OutputTransformer;
 import org.exoplatform.services.rest.QueryParam;
@@ -36,6 +38,8 @@ import org.exoplatform.services.rest.transformer.StringOutputTransformer;
 public class MarshallConfigurationREST implements ResourceContainer {
 
   private MarshallConfigurationService marshallConfigurationService;
+  
+  private Log log = ExoLogger.getLogger(this.getClass());
 
   public MarshallConfigurationREST(MarshallConfigurationService marshallConfigurationService) {
     this.marshallConfigurationService = marshallConfigurationService;
@@ -44,24 +48,44 @@ public class MarshallConfigurationREST implements ResourceContainer {
   @HTTPMethod("GET")
   @URITemplate()
   @OutputTransformer(StringOutputTransformer.class)
-  public Response containersList() throws Exception {
-    String htmlContainersLink = marshallConfigurationService.generateHTMLContainersList();
+  public Response containersList() {
+    log.info("Starting: " + this.getClass().getName());
+    log.info("The Marshaller is ready for use ..");
+    String htmlContainersLink;
+    try {
+      htmlContainersLink = marshallConfigurationService.generateHTMLContainersList();
+    } catch (Exception e) {
+      log.error("Error while generating containers list", e);
+      return null;
+    }
     return Response.Builder.ok().entity(htmlContainersLink, "text/html").build();
   }
 
   @HTTPMethod("GET")
   @URITemplate(Constants.GET_CONTAINERS_METHOD_URI_TEMPLE)
   @OutputTransformer(StringOutputTransformer.class)
-  public Response componentsList(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId) throws Exception {
-    String htmlComponentsLink = marshallConfigurationService.generateHTMLComponentsList(containerId);
+  public Response componentsList(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId) {
+    String htmlComponentsLink;
+    try {
+      htmlComponentsLink = marshallConfigurationService.generateHTMLComponentsList(containerId);
+    } catch (Exception e) {
+      log.error("Error while generating components list for container: " + containerId, e);
+      return null;
+    }
     return Response.Builder.ok().entity(htmlComponentsLink, "text/html").build();
   }
 
   @HTTPMethod("GET")
   @URITemplate(Constants.GET_COMPONENT_METHOD_URI_TEMPLE)
   @OutputTransformer(PassthroughOutputTransformer.class)
-  public Response getComponentConfiguration(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId, @QueryParam(Constants.COMONENT_KEY_PARAM_NAME) String componentKey) throws Exception {
-    Entry configurationEntry = marshallConfigurationService.getComponentConfiguration(containerId, componentKey);
+  public Response getComponentConfiguration(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId, @QueryParam(Constants.COMONENT_KEY_PARAM_NAME) String componentKey) {
+    Entry configurationEntry;
+    try {
+      configurationEntry = marshallConfigurationService.getComponentConfiguration(containerId, componentKey);
+    } catch (Exception e) {
+      log.error("Error while generating component configuration for component: " + componentKey, e);
+      return null;
+    }
     Builder builder = Response.Builder.ok();
     if (configurationEntry.getType().equals(EntryType.ZIP)) {
       builder.header("Content-disposition", "attachment; filename=" + configurationEntry.getComponentName() + configurationEntry.getType());
@@ -72,8 +96,14 @@ public class MarshallConfigurationREST implements ResourceContainer {
   @HTTPMethod("GET")
   @URITemplate(Constants.GET_CONTAINER_CONFIGURATION_URI_TEMPLE)
   @OutputTransformer(PassthroughOutputTransformer.class)
-  public Response getAllComponentsConfiguration(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId) throws Exception {
-    Entry configurationEntry = marshallConfigurationService.getAllComponentsConfiguration(containerId);
+  public Response getAllComponentsConfiguration(@QueryParam(Constants.CONTAINER_ID_PARAM_NAME) String containerId) {
+    Entry configurationEntry;
+    try {
+      configurationEntry = marshallConfigurationService.getAllComponentsConfiguration(containerId);
+    } catch (Exception e) {
+      log.error("Error while generating all configurations for container: " + containerId, e);
+      return null;
+    }
     Builder builder = Response.Builder.ok();
     builder.header("Content-disposition", "attachment; filename=" + configurationEntry.getComponentName() + configurationEntry.getType());
     return builder.entity(new ByteArrayInputStream(configurationEntry.getContent()), configurationEntry.getType().getMediaType()).build();
