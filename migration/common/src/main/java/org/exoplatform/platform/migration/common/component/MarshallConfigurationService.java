@@ -50,6 +50,8 @@ public class MarshallConfigurationService {
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
   
   private ContainerParamExtractor containerParamExtractor_ = null;
+  
+  private Logger logger_ = null;
 
   public void addHandler(ComponentHandler componentHandler) {
     handlersMap.put(componentHandler.getTargetComponentName(), componentHandler);
@@ -58,8 +60,15 @@ public class MarshallConfigurationService {
   public String generateHTMLContainersList() throws Exception {
     ExoContainer container = ExoContainerContext.getCurrentContainer();
     containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
+    logger_ = (Logger) container.getComponentInstanceOfType(Logger.class);
+    logger_.setLogger(this.getClass());
     String containerId = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Current container: " + containerId);
+      logger_.debug("Current rest context: " + containerRestContextName);
+      logger_.debug("Generating containers list ...");
+    }
     StringBuffer urlSuffixBuffer = new StringBuffer("<a href='/" + containerId + "/" + containerRestContextName);
     urlSuffixBuffer.append(Constants.CLASS_URI_TEMPLE);
     urlSuffixBuffer.append(Constants.GET_CONTAINERS_METHOD_URI_TEMPLE);
@@ -99,6 +108,9 @@ public class MarshallConfigurationService {
       responseStringBuffer.append("</a>\r\n<br/>");
 
       responseStringBuffer.append("</fieldset><br/>");
+      if(logger_.isDebugEnabled()){
+        logger_.debug("Container: " + topContainer.getContext().getName());
+      }
     }
 
     List<PortalContainer> portalContainers = topContainer.getComponentInstancesOfType(PortalContainer.class);
@@ -122,6 +134,9 @@ public class MarshallConfigurationService {
       responseStringBuffer.append("</a>\r\n<br/>");
 
       responseStringBuffer.append("</fieldset><br/>");
+      if(logger_.isDebugEnabled()){
+        logger_.debug("Container: " + portalContainer.getContext().getName());
+      }
     }
     responseStringBuffer.append("</body></html>");
     return responseStringBuffer.toString();
@@ -138,6 +153,10 @@ public class MarshallConfigurationService {
     String containerName = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
 
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Selected container: " + containerId);
+      logger_.debug("Generating components list ...");
+    }
     StringBuffer responseStringBuffer = new StringBuffer();
     Collection<?> components = ((ConfigurationManager) container.getComponentInstanceOfType(ConfigurationManager.class)).getComponents();
 
@@ -190,6 +209,11 @@ public class MarshallConfigurationService {
       configurationEntry.setContent(toXML(configuration));
       configurationEntry.setType(EntryType.XML);
     }
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Generating component configuration ...");
+      logger_.debug("Selected container: " + containerId);
+      logger_.debug("Selected component: " + componentKey);
+    }
     return configurationEntry;
   }
 
@@ -204,6 +228,10 @@ public class MarshallConfigurationService {
       zos.putNextEntry(new ZipEntry(component.getKey() + entry.getType()));
       zos.write(entry.getContent());
       zos.closeEntry();
+    }
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Generating all components configuration ...");
+      logger_.debug("Selected container: " + containerId);
     }
 
     Collection componentLifecyclePlugins = configurationManager.getConfiguration().getComponentLifecyclePlugins();
@@ -220,6 +248,10 @@ public class MarshallConfigurationService {
       byte[] bytes = toXML(configuration);
       zos.write(bytes);
       zos.closeEntry();
+      if(logger_.isDebugEnabled()){
+        logger_.debug("Generating all component lifecycle plugins ...");
+        logger_.debug("Selected container: " + containerId);
+      }
     }
     zos.close();
     Entry entry = new Entry(Constants.CONTAINER_FILE_PREFIX + containerId);
@@ -246,7 +278,8 @@ public class MarshallConfigurationService {
       mctx.marshalDocument(obj, Constants.UTF_8, null, out);
       return out.toByteArray();
     } catch (Exception ie) {
-      throw ie;
+      logger_.error("Error while converting to XML object ...", ie);
+      return null;
     }
   }
 
@@ -278,7 +311,8 @@ public class MarshallConfigurationService {
                 }
               }
             } catch (Exception exception) {
-              exception.printStackTrace();
+              logger_.error("Error while comparing initParams: will return 0  ...", exception);
+              return 0;
             };
           }
         }

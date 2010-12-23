@@ -51,4 +51,6 @@ public interface Constants {
   public static final String PORTLET_PREFERENCES_FILE_NAME = "portlet-preferences.xml";
 
   public static final String KERNEL_CONFIGURATION_1_1_URI = "<configuration xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd\" xmlns=\"http://www.exoplaform.org/xml/ns/kernel_1_1.xsd\">";
+  
+  public static final String EMPTY_FIELD_REGULAR_EXPRESSION = "<field name=\"([a-z|A-Z]*)\"/>";
 }

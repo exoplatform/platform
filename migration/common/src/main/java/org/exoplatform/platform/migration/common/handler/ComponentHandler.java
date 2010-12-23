@@ -61,8 +61,7 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
       mctx.setIndent(2);
       mctx.marshalDocument(obj, "UTF-8", null, out);
       String outConf = new String(out.toByteArray());
-      String regex = "<field name=\"([a-z|A-Z]*)\"/>";
-      outConf = outConf.replace("<configuration>", Constants.KERNEL_CONFIGURATION_1_1_URI).replaceAll(regex, "");
+      outConf = outConf.replace("<configuration>", Constants.KERNEL_CONFIGURATION_1_1_URI).replaceAll(Constants.EMPTY_FIELD_REGULAR_EXPRESSION, "");
       return outConf.getBytes();
     } catch (Exception ie) {
       throw ie;

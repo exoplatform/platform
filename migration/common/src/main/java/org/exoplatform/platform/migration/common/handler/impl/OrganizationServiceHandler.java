@@ -33,6 +33,7 @@ import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.platform.migration.common.component.Logger;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.services.organization.Group;
@@ -52,6 +53,8 @@ public class OrganizationServiceHandler extends ComponentHandler {
   private OrganizationService organizationService;
 
   private int maxUsersPerFile = 0;
+  
+  private Logger logger_ = null;
 
   public OrganizationServiceHandler(InitParams initParams) {
     ValueParam valueParam = initParams.getValueParam(Constants.MAX_USERS_IN_FILE_PARAM_NAME);
@@ -71,6 +74,11 @@ public class OrganizationServiceHandler extends ComponentHandler {
     ZipOutputStream zos = new ZipOutputStream(out);
 
     organizationService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    logger_ = (Logger) container.getComponentInstanceOfType(Logger.class);
+    logger_.setLogger(this.getClass());
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Invoking handler for component: " + organizationService.getClass().getName());
+    }
     writeProfiles(zos);
     writeUsers(zos);
 
@@ -143,6 +151,9 @@ public class OrganizationServiceHandler extends ComponentHandler {
     zos.putNextEntry(new ZipEntry(entryName));
     zos.write(bytes);
     zos.closeEntry();
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Adding entry: " + entryName);
+    }
   }
 
   private Configuration buildOrganizationServiceConfiguration(OrganizationConfig organizationConfig) {
@@ -157,7 +168,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
     valueParam1.setName("checkDatabaseAlgorithm");
     valueParam1.setValue("entry");
     valueParam2.setName("printInformation");
-    valueParam2.setValue("false");
+    valueParam2.setValue("true");
     objectParam.setName("configuration");
     objectParam.setObject(organizationConfig);
 
@@ -170,9 +181,9 @@ public class OrganizationServiceHandler extends ComponentHandler {
     componentPlugin.setSetMethod("addListenerPlugin");
     componentPlugin.setType("org.exoplatform.services.organization.OrganizationDatabaseInitializer");
     componentPlugin.setInitParams(initParams);
-    ArrayList<ComponentPlugin> cm = new ArrayList<ComponentPlugin>();
-    cm.add(componentPlugin);
-    externalComponentPlugins.setComponentPlugins(cm);
+    ArrayList<ComponentPlugin> componentPlugins = new ArrayList<ComponentPlugin>();
+    componentPlugins.add(componentPlugin);
+    externalComponentPlugins.setComponentPlugins(componentPlugins);
     configuration.addExternalComponentPlugins(externalComponentPlugins);
     return configuration;
   }
@@ -200,7 +211,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
         allGroups.add(orgConfGroup);
       }
     } catch (Exception e) {
-      // log.error("Error when recovering of all groups ... ", e);
+      logger_.error("Error when recovering of all groups ... ", e);
       return null;
     }
     return allGroups;
@@ -220,7 +231,7 @@ public class OrganizationServiceHandler extends ComponentHandler {
       }
 
     } catch (Exception e) {
-      // log.error("Error when recovering of all membershipTypes ... ", e);
+      logger_.error("Error when recovering of all membershipTypes ... ", e);
       return null;
     }
     return allMembershipTypes;
@@ -240,6 +251,9 @@ public class OrganizationServiceHandler extends ComponentHandler {
           zos.putNextEntry(new ZipEntry(Constants.PROFILES_FOLDER_NAME + userProfile.getUserName() + Constants.PROFILE_FILE_SUFFIX));
           zos.write(xml.getBytes());
           zos.closeEntry();
+          if(logger_.isDebugEnabled()){
+            logger_.debug("Adding entry for userProfile: " + userProfile.getUserName());
+          }
         }
       }
     }
@@ -249,6 +263,9 @@ public class OrganizationServiceHandler extends ComponentHandler {
     PageList usersPageList = organizationService.getUserHandler().findUsers(new Query());
     int pageCount = usersPageList.getAvailablePage();
     XStream xstream_ = new XStream(new XppDriver());
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Adding entries for each user, additional fields are missing: LastLoginTime & CreatedDate");
+    }
     for (int i = 1; i <= pageCount; i++) {
       List<User> usersList = usersPageList.getPage(i);
       for (User user : usersList) {
@@ -258,6 +275,9 @@ public class OrganizationServiceHandler extends ComponentHandler {
           zos.putNextEntry(new ZipEntry(Constants.USERS_FOLDER_NAME + user.getUserName() + Constants.USER_FILE_SUFFIX));
           zos.write(xml.getBytes());
           zos.closeEntry();
+          if(logger_.isDebugEnabled()){
+            logger_.debug("Adding entry for user: " + user.getUserName());
+          }
         }
       }
     }

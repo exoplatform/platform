@@ -29,6 +29,7 @@ import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValuesParam;
+import org.exoplatform.platform.migration.common.component.Logger;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.exoplatform.platform.migration.common.handler.ComponentHandler;
 import org.exoplatform.services.resources.Query;
@@ -36,6 +37,8 @@ import org.exoplatform.services.resources.ResourceBundleData;
 import org.exoplatform.services.resources.ResourceBundleService;
 
 public class ResourceBundleHandler extends ComponentHandler {
+  
+  private Logger logger_ = null;
 
   public ResourceBundleHandler(InitParams initParams) {
     super.setTargetComponentName(ResourceBundleService.class.getName());
@@ -45,7 +48,11 @@ public class ResourceBundleHandler extends ComponentHandler {
   public Entry invoke(Component component, ExoContainer container) throws Exception {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     ZipOutputStream zos = new ZipOutputStream(out);
-
+    logger_ = (Logger) container.getComponentInstanceOfType(Logger.class);
+    logger_.setLogger(this.getClass());
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Invoking handler ");
+    }
     writeResourceBundles(component, zos, container);
 
     Configuration configuration = new Configuration();
@@ -63,6 +70,9 @@ public class ResourceBundleHandler extends ComponentHandler {
 
   private void writeResourceBundles(Component component, ZipOutputStream zos, ExoContainer container) throws Exception {
     ResourceBundleService resourceBundleService = (ResourceBundleService) container.getComponentInstanceOfType(ResourceBundleService.class);
+    if(logger_.isDebugEnabled()){
+      logger_.debug("Component: " + resourceBundleService.getClass().getName());
+    }
     Query query_ = new Query(null, null);
     List<ResourceBundleData> dataList = resourceBundleService.findResourceDescriptions(query_).getAll();
     ArrayList<String> resourcesNames = new ArrayList<String>();
@@ -72,6 +82,9 @@ public class ResourceBundleHandler extends ComponentHandler {
       zos.putNextEntry(new ZipEntry(resourceBundleName + "_" + rsrcBundleData.getLanguage() + Constants.RESURCE_BUNDLE_FILE_PROPERTIES));
       zos.write(rsrcBundleData.getData().getBytes());
       zos.closeEntry();
+      if(logger_.isDebugEnabled()){
+        logger_.debug("Adding entry: " + resourceBundleName + "_" + rsrcBundleData.getLanguage() + Constants.RESURCE_BUNDLE_FILE_PROPERTIES);
+      }
     }
 
     ValuesParam initResources = component.getInitParams().getValuesParam("init.resources");

@@ -5,6 +5,10 @@
 		<type>org.exoplatform.platform.migration.plf.component.ContainerParamExtractorImpl</type>
 	</component>
 	<component>
+		<key>org.exoplatform.platform.migration.common.component.logger</key>
+		<type>org.exoplatform.platform.migration.plf.component.LoggerImpl</type>
+	</component>
+	<component>
 		<type>org.exoplatform.platform.migration.plf.rest.UserProfileImporterREST</type>
 	</component>
 	<component>
