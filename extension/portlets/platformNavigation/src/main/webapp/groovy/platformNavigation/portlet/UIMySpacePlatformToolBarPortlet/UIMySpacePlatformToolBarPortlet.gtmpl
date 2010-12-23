@@ -91,8 +91,12 @@
       """;
         for(int j = 0; j < node.getChildren().size(); j++) {
           PageNode childNode = node.getChildren().get(j);
-          def isRender = uicomponent.isRender(node, childNode);
-          if (isRender) renderPageNode(childNode, j%2 == 0);
+          /** PLF-971 : we do not separate between group and space navigation, these navigations are rendered in the same level
+          /* this test is no more needed
+          */
+          //def isRender = uicomponent.isRender(node, childNode);
+          //if (isRender) 
+          renderPageNode(childNode, j%2 == 0);
         }
       print """
           </div>
