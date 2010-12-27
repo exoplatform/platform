@@ -49,7 +49,7 @@ public class BackupConvertorREST implements ResourceContainer {
     htmlContainersLink.append("<html xmlns='http://www.w3.org/1999/xhtml'><body xmlns='http://www.w3.org/1999/xhtml'>");
 
     htmlContainersLink.append("<fieldset>");
-    htmlContainersLink.append("<legend>Generates Collaboration Workspace export file</legend>");
+    htmlContainersLink.append("<legend>Generates Collaboration&System Workspace backup files</legend>");
 
     htmlContainersLink.append("<form action='backup/start' method='get'>");
     htmlContainersLink.append("Backup Location : <input type='text' name='location'/><BR/>");
