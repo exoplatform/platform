@@ -72,7 +72,7 @@ public class BackupService {
     return BackupJob.FULL;
   }
 
-  protected static Log log = ExoLogger.getLogger("exo.jcr.component.ext.FullBackupJob");
+  protected static Log log = ExoLogger.getLogger(BackupService.class);
 
   protected URL createStorage(BackupConfig config, Calendar timeStamp) throws FileNotFoundException, IOException {
     FileNameProducer fnp = new FileNameProducer(config.getRepository(), config.getWorkspace(), config.getBackupDir().getAbsolutePath(), timeStamp, true);
