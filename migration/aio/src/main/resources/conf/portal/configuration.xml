@@ -11,6 +11,12 @@
 	<component>
 		<type>org.exoplatform.platform.migration.aio.rest.MarshallConfigurationREST</type>
 	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.aio.rest.BackupConvertorREST</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.aio.backup.BackupService</type>
+	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</target-component>
 		<component-plugin>
