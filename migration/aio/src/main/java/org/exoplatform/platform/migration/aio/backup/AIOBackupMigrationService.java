@@ -56,7 +56,7 @@ import org.exoplatform.services.jcr.impl.xml.exporting.BaseXmlExporter;
 import org.exoplatform.services.log.ExoLogger;
 import org.xml.sax.SAXException;
 
-public class BackupService {
+public class AIOBackupMigrationService {
 
   private static final String SYSTEM_WS_NAME = "system";
 
@@ -64,7 +64,7 @@ public class BackupService {
 
   protected RepositoryService repoService;
 
-  public BackupService(RepositoryService repoService) {
+  public AIOBackupMigrationService(RepositoryService repoService) {
     this.repoService = repoService;
   }
 
@@ -72,7 +72,7 @@ public class BackupService {
     return BackupJob.FULL;
   }
 
-  protected static Log log = ExoLogger.getLogger(BackupService.class);
+  protected static Log log = ExoLogger.getLogger(AIOBackupMigrationService.class);
 
   protected URL createStorage(BackupConfig config, Calendar timeStamp) throws FileNotFoundException, IOException {
     FileNameProducer fnp = new FileNameProducer(config.getRepository(), config.getWorkspace(), config.getBackupDir().getAbsolutePath(), timeStamp, true);

@@ -19,7 +19,7 @@ package org.exoplatform.platform.migration.aio.rest;
 import java.io.File;
 
 import org.apache.commons.logging.Log;
-import org.exoplatform.platform.migration.aio.backup.BackupService;
+import org.exoplatform.platform.migration.aio.backup.AIOBackupMigrationService;
 import org.exoplatform.services.jcr.ext.backup.BackupConfig;
 import org.exoplatform.services.jcr.ext.backup.BackupManager;
 import org.exoplatform.services.log.ExoLogger;
@@ -32,12 +32,12 @@ import org.exoplatform.services.rest.container.ResourceContainer;
 import org.exoplatform.services.rest.transformer.StringOutputTransformer;
 
 @URITemplate("/migration/backup/")
-public class BackupConvertorREST implements ResourceContainer {
-
-  private BackupService backupService;
+public class AIOBackupMigrationREST implements ResourceContainer {
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  public BackupConvertorREST(BackupService backupService) {
+  private AIOBackupMigrationService backupService;
+
+  public AIOBackupMigrationREST(AIOBackupMigrationService backupService) {
     this.backupService = backupService;
   }
 
