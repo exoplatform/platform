@@ -1,8 +1,8 @@
-Global style sheet can be defined as the shared style sheet which will be applied to your entire site or a set of pages, depending on your definition. When you want to make changes for your site, you only need to create a new global style sheet, or edit the existing global style sheet.
+Global stylesheet is the shared stylesheet which is applied to your entire site or a set of pages, depending on your configuration. When you want to make changes for your site, you only need to create a new global stylesheet, or edit the existing global stylesheet.
 
-Global style sheets of eXo Platform are put into the CSS folder to manage the style sheet of your desired site. This section aims at showing you how to create and apply your own global style sheet by *Content Explorer* and by configuration. 
+Global stylesheets of eXo Platform are put into the CSS folder to manage the stylesheet of your desired site. This section aims at showing you how to create and apply your own global stylesheet by *Content Explorer* and by configuration. 
 
-h2. Create and apply the global style sheet by Content Explorer
+h2. Create and apply the global stylesheet by Content Explorer
 
 Do as follows:
 
@@ -14,47 +14,51 @@ Do as follows:
 
 *Illustration 1: Sites Management
 
-*Step 3:* Click *Add Document* to open the form to create the new global style sheet.
+*Step 3:* Click *Add Document* to open the form to create the new global stylesheet.
 
 !CreateGlobalStylesheetForm.png!
 
-*Illustration 2: Form to create the new global style sheet*
+*Illustration 2: Form to create the new global stylesheet*
 
-*Step 4:* Enter the name of global style sheet into the *Name* field, for example *GlobalStylesheet_Organge*.
+*Step 4:* Enter the name of global stylesheet into the *Name* field, for example *GlobalStylesheet_Organge*.
 
-*Step 5:* Set the value as "True" to activate your global style sheet for your site in the *Active* field. "True" is set by default. If you select "False", your newly created global style will be disabled.
+*Step 5:* Set the value as "True" to activate your global stylesheet for your site in the *Active* field. By default, "True" will be set when you create a new global stylesheet. If you select "False", your newly created global style will be disabled.
 
 *Step 6:* Input one positive integer into the *Priority* field, for example "10". 
 
 {note}
-The successful application of your newly created global style sheet depends on values in both *Active* and *Priority* fields. If "True" is set in many global styles sheets, the system will automatically render all global style sheets in the CSS folder in the descending order and get the style sheet with the highest priority. Thus, after selecting "True", you need to pay attention to the priority level so that the selected priority of your style sheet is higher than those of other global style sheets in the CSS folder.
+The successful application of your newly created global stylesheet depends on values in both *Active* and *Priority* fields. If "True" is set in many global stylesheets, the system will automatically render all global stylesheets in the CSS folder in the descending order and get the stylesheet with the highest priority. Thus, after selecting "True", you need to pay attention to the priority level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the CSS folder. 
+
+The default global stylesheet will be automatically created in the CSS folder when you create a new site. However, this global stylesheet can be overwritten by either setting "False" for its *Active* field or setting the higher priority for other global stylesheet than that of the default global stylesheet.
 {note}
 
-*Step 7:* Define your styles in the *CSS data* field. In this step, you can directly enter your styles into this field, or copy and paste your styles from your favorite text editors into this field. You only need to define your desired styles related to position of text, navigation bar, administration bar, text colors, background color and more.
+*Step 7:* Define your styles in the *CSS data* field. Here, you can directly enter your CSS rules, or copy and paste them from your favorite text editor.
 
 For example, you can define your styles with the following information:
 
 !cssdata.png!
 
-*Step 8:* Click the *Save as Draft* button to save your newly created global style sheet. You will see your global style sheet in the *Sites Management* pane.
+*Step 8:* Click the *Save as Draft* button to save your newly created global stylesheet. You will see your global stylesheet in the *Sites Management* pane.
 
 !GlobalStylesheet_org.png! 
 
 
-If you want to edit your newly created global style sheet or pre-defined global style sheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form and start changing values in fields, including Activate, Priority and CSS data, except the name of global style sheet. However, you can change the name of global style sheets by right-clicking your global style sheets in the left pane, then select *Rename*.
+To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
 
 
-h2. Create and apply the global style sheet by configuration 
+h2. Create and apply the global stylesheet by configuration 
 
-After creating your desired global style sheet as mentioned above, your global style sheet can be initialized automatically when the application is started by doing as follows:
+After being created as mentioned above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
 
-*Step 1:* Select *System* and click *Export Node* to export your newly created global style sheet.
+*Step 1:* Open the CSS folder.
+
+*Step 2:* Select *System* and click *Export Node* on the action bar.
 
 !ExportImportGlobalStylesheet.png!
 
-*Step 2:* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all style sheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
+*Step 3:* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all stylesheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
 
-*Step 3:* Add the code below to the file where all global style sheets will be initialized for your site, such as *acme-deployment-configuration.xml* in the folder "/acme-website/WEB-INF/conf/acme-portal/wcm/deployment/".
+*Step 4:* Add the code below to the file where all global stylesheets will be initialized for your site, such as *acme-deployment-configuration.xml* in the folder "/acme-website/WEB-INF/conf/acme-portal/wcm/deployment/".
 
 {code:xml}
    <object-param>
@@ -84,20 +88,18 @@ After creating your desired global style sheet as mentioned above, your global s
         </object-param>
 {code}
 
-*Step 4:* Save the file where you have added the code in *Step 3* and clean data created in the previous start-up.
+*Step 5:* Save the file where you have added the code in *Step 4* and clean data created in the previous start-up.
 
-*Step 5:* Initialize the eXo Platform application. After running successfully, you will find your global style sheet in the CSS folder of the relevant site.
+*Step 6:* Start eXo Platform. After accessing the Content Explorer page, you will find your global stylesheet in the CSS folder of the relevant site.
 
 
-h2. Check display of global style sheets
+h2. Check display of global stylesheets
 
-To check if your global style sheet is activated or not, simply select and set the value as "True" for global style sheets by turns.
-
-For example, to see differences when applying *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange*, do as follows:
+You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange*, do as follows:
 
 *Step 1:* Activate the *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange* by turns.
 
-*Step 2:* Click *My Sites* on the administration bar and select the relevant site, for example "acme". 
+*Step 2:* Click *My Spaces* on the administration bar and select the relevant site, for example "acme". 
 
 If you activate *GlobalStylesheet_Blue*, your site will be displayed as below:
 
