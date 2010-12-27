@@ -1,6 +1,4 @@
 
-
-
 h1. How to remove the sample applications
 
 eXo Platform comes with two sample portals that showcase the capabilities of the product. 
@@ -157,3 +155,34 @@ h3. Apache Tomcat's AJP connector
         </VirtualHost>
 {code}
 
+h1. How to configure the session-timeout for the web server
+The session-timeout is a concept that the web server uses to define a time period in which a session is valid/accessible.
+In a portal environment such as eXo Platform, it is highly recommended that all web applications have the same session timeout value:
+* Tomcat
+* Jboss
+The session timeout is configurable individually for each web application in web.xml file:
+{code}
+<!-- ==================== Default Session Configuration ================= --> 
+   <!-- You can set the default session timeout (in minutes) for all newly   --> 
+   <!-- created sessions by modifying the value below.                       --> 
+
+   <session-config> 
+      <session-timeout>30</session-timeout> 
+   </session-config>
+{code}
+h2. Server Tomcat
+In the Tomcat bundle, this file is located at *{{{$TOMCAT_HOME/conf/web.xml}}}*.
+To configure the session-timeout of Server Tomcat, do as follows:
+# Stop the server shutdown.sh 
+# Open the file web.xml
+# Change the value of the session-timeout
+# Save 
+# Restart (gatein.sh)
+h2. Sever Jboss
+In the Jboss, this file is located at *{{{$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml}}}*.
+To configure the session-timeout of Server Jboss, do as follows:
+# Stop the server shutdown.sh 
+# Open the file web.xml
+# Change the value of the session-timeout
+# Save 
+# Restart (run.sh)
