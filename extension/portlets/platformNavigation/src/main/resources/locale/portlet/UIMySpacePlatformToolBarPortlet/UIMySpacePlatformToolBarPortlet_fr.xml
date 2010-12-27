@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIMySpacePlatformToolBarPortlet>
+		<label>
+            Mes Espaces
+        </label>
+		<find>Trouver des Espaces
+		</find>
+		<manage>Gestion des groupes</manage>
+	</UIMySpacePlatformToolBarPortlet>
+</bundle>

@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
+    <version>3.0.3-SNAPSHOT</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc</artifactId>
@@ -15,5 +15,6 @@
     <module>developer</module>
     <module>refguide</module>
     <module>user</module>
+    <module>bundle</module>
   </modules>
 </project>

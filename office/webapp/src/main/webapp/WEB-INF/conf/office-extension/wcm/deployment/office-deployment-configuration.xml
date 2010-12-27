@@ -154,7 +154,7 @@
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/announcement.xml</string>
+              <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/jira.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>

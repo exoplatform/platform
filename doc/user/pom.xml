@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.doc</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
+    <version>3.0.3-SNAPSHOT</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc.user</artifactId>
@@ -139,7 +139,7 @@
                       <arg line="-nologo" />
                       <arg line="-headless" />
                       <arg line="-nofirststartwizard" />
-                      <arg line="-accept=&quot;socket,host=localhost,port=${openoffice.server.port};urp;&quot;" />
+                      <arg line="-accept='socket,host=localhost,port=${openoffice.server.port};urp;'" />
                       <!-- It is important to keep ' around line parameter to use " inside -->
                     </exec>
                     <echo>Waiting for Open Office</echo>
@@ -175,8 +175,8 @@
             <groupId>com.artofsolving</groupId>
             <artifactId>jodconverter-maven-plugin</artifactId>
             <configuration>
-              <sourceDirectory>${basedir}/src/main/resources</sourceDirectory>
-              <outputDirectory>${basedir}/target</outputDirectory>
+              <sourceDirectory>${basedir}/src/main/odt</sourceDirectory>
+              <outputDirectory>${basedir}/target/openoffice</outputDirectory>
               <include>**/*.odt</include>
               <outputFormat>pdf</outputFormat>
               <port>${openoffice.server.port}</port>
@@ -203,7 +203,7 @@
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/pdf-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
                   </descriptors>
                   <appendAssemblyId>false</appendAssemblyId>
                 </configuration>

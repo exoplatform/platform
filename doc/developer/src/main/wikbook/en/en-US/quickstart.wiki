@@ -1,24 +1,22 @@
 
-This guide will help developers use eXo Platform successfully for their projects. It introduces eXo architecture and gives step-by-step instructions for building your own custom portal based on eXo Platform.
-
-{note}While this document covers the most common tasks used when developing on eXo Platform, it is not a complete reference document.
-The full Reference Guide is available in the delivery package and is linked rather than replicated here.{note}
-
+This section will help you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
 
 *Requirements:*
+
 * JDK (Java Development Kit) 6.0 
 * SVN 1.6+
 * Maven 2.2.1+
 * Tomcat 6.0.26 or JBoss 5.1.0
 
-*Environment:*
+*Install and configure Maven:*
 
-Add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in global environment variables panel on Windows).
+You need to add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
-* Windows:
+* Windows:*
 {code}
 set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
 {code}
+
 * Linux/MacOS:
 {code}
 export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
@@ -27,15 +25,21 @@ export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 
 *Maven settings:*
 
-Save the file {{settings.xml}} in {{HOME/.m2/settings.xml}}
-http://wiki.exoplatform.org/xwiki/bin/download/Main/Building%20from%20sources/settings.xml
+Do as follows:
 
-Edit and change the {{local-properties}} profile:
-* {{exo.projects.directory.dependencies}} contains the application servers, and openfire
-* each {{exo.projects.app.AS-NAME.version}} contains the name and version of the application servers
+*Step 1:* Save the file {{settings.xml}} in {{HOME/.m2/settings.xml}}
 
-Note: If you have an existing file settings.xml, you can merge them all together. At the minimum, you will need the following:
-- The local-properties profile, which defines the properties used to build application server distributions of our products 
-- The repository [http://repository.exoplatform.org/public] to download our dependencies
+*Step 2:* Edit and change the {{local-properties}} profile, including:
 
+* {{exo.projects.directory.dependencies}} contains the application servers, and openfire.
+
+* each {{exo.projects.app.AS-NAME.version}} contains the name and version of the application servers.
+
+Note: 
+
+If the settings.xml file has been existing, you can merge them all together. You will need the followings:
+
+* The local-properties profile, which defines properties used to build application server distributions of our products.
+
+* The [repository|http://repository.exoplatform.org/public] to download our dependencies.
 

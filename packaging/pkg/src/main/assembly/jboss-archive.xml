@@ -8,14 +8,14 @@
    <includeBaseDirectory>false</includeBaseDirectory>
    <fileSets>
       <fileSet>
-         <directory>target/jboss</directory>
+         <directory>target/jbosseap</directory>
          <outputDirectory></outputDirectory>
          <excludes>
             <exclude>**/*.sh</exclude>
          </excludes>
       </fileSet>
       <fileSet>
-         <directory>target/jboss</directory>
+         <directory>target/jbosseap</directory>
          <outputDirectory></outputDirectory>
          <includes>
             <include>**/*.sh</include>

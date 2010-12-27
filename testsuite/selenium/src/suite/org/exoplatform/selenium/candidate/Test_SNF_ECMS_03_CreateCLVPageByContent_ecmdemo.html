@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/website</td>
+	<td>/portal/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -132,33 +132,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>Drag a content list</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[text()='Content List']</td>
+	<td>//div[@id='Contents/ContentListViewerPortlet']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div[text()='Content List']</td>
+	<td>//div[@id='Contents/ContentListViewerPortlet']</td>
 	<td>//div[@id='UIPagePreview']/div[@class='UIPage']//div[@class='UIComponentBlock']</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@title='Edit Portlet']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseOver</td>
-	<td>//a[@title='Edit Portlet']</td>
+	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@title='Edit Portlet']</td>
+	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,43 +187,63 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- General Drivers</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[text()='Content search form']</td>
+	<td>Generaldrives_</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[text()='Content search form']</td>
+	<td>Generaldrives_</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Enterl data into search fill</td>
+	<td>-- Sites Management</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//input[@id='name' and @name='name']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>//input[@id='name' and @name='name']</td>
-	<td>offices.jpg</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- click Search button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Search</td>
+	<td>Generaldrives_ManagedSites_</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Search</td>
+	<td>Generaldrives_ManagedSites_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- acme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Generaldrives_ManagedSites__acme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Generaldrives_ManagedSites__acme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Generaldrives_ManagedSites__acme_documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Generaldrives_ManagedSites__acme_documents</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,27 +253,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@onclick='eXo.ecm.ECS.addFile2ListContent(this);']</td>
+	<td>link=offices.jpg</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[@onclick='eXo.ecm.ECS.addFile2ListContent(this);']</td>
+	<td>link=offices.jpg</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertAlert</td>
 	<td>This content is successfully added into the list content.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[text()='Content browser']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[text()='Content browser']</td>
 	<td></td>
 </tr>
 <tr>
@@ -273,12 +273,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>repository:collaboration:/sites content/live/website/documents/offices.jpg</td>
+	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>repository:collaboration:/sites content/live/website/documents/offices.jpg</td>
+	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
 	<td></td>
 </tr>
 <tr>
@@ -352,7 +352,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
@@ -472,18 +472,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- click Edit navigator of website</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>link=Edit Navigation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>link=Edit Navigation</td>
 	<td></td>
 </tr>
 <tr>

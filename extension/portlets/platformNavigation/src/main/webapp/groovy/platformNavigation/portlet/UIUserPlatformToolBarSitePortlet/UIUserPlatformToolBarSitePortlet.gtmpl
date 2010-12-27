@@ -25,6 +25,7 @@
 			String clazz = "";
 			String href = "#";
 			 String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
+			 def manage=_ctx.appRes("UIUserPlatformToolBarSitePortlet.manage");
 			for(int i = 0; i < uicomponent.getAllPortalNames().size(); i++) {
 				String portal = uicomponent.getAllPortalNames().get(i);
  				if(portal.equals(uicomponent.getCurrentPortal())) {
@@ -53,7 +54,7 @@
 						<div class="MenuItem SiteIcon" >
 							<div class="">						
 					
-				<a href="$manageSiteURI" class="ManageSite">Manage Sites</a>
+				<a href="$manageSiteURI" class="ManageSite">$manage</a>
 			 						
 							</div>
 						</div>
@@ -139,7 +140,7 @@
 				<div class="UITab NormalToolbarTab">
 					<div class="">
 								<a class="ArrowIcon TBIcon" href="<%= portalURI + "portalnavigation" %>">
-										My Sites
+										 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
 								</a>
 					</div>
 					<% renderPortalNavigations() %>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2010 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+
+-->
+<page-set
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+  xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+
+  
+
+  
+  
+    <page>
+		<name>welcome</name>
+		<title>Welcome to eXo Platform 3.0</title>
+		<access-permissions>Everyone</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="defaultwelcome" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+		<portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>SingleContentViewer</portlet-ref>
+            <preferences>
+              <preference>
+                <name>repository</name>
+                <value>repository</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>workspace</name>
+                <value>collaboration</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>nodeIdentifier</name>
+                <value>/sites content/live/default/web contents/site artifacts/welcome</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowQuickEdit</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowPrintAction</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTOC</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTags</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowCategories</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTitle</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Welcome</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
+			
+			
+		</container>
+
+	</page>
+	<page>
+    <name>groupnavigation</name>
+    <title>Group Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>GroupNavigationPortlet</portlet-ref>
+      </portlet>
+      <title>Group Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
+	
+
+
+</page-set>

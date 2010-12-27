@@ -52,39 +52,39 @@
             <collection type="java.util.ArrayList">
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
-                  <field name="friendlyUri"><string>website</string></field>
-                  <field name="unfriendlyUri"><string>/public/website/detail?path=/repository/collaboration/sites content/live/website/web contents</string></field>
+                  <field name="friendlyUri"><string>acme</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/detail?path=/repository/collaboration/sites content/live/acme/web contents</string></field>
                 </object>
               </value>
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>news</string></field>
-                  <field name="unfriendlyUri"><string>/public/website/news?path=/website</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/news?path=/acme</string></field>
                 </object>
               </value>
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>news-detail</string></field>
-                  <field name="unfriendlyUri"><string>/public/website/detail?path=/website</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/detail?path=/acme</string></field>
                 </object>
               </value>
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>events</string></field>
-                  <field name="unfriendlyUri"><string>/public/website/events?path=/events</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/events?path=/events</string></field>
                 </object>
               </value>
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>acme-documents</string></field>
-                  <field name="unfriendlyUri"><string>/rest/jcr/repository/collaboration/sites content/live/website/documents</string></field>
+                  <field name="unfriendlyUri"><string>/rest/jcr/repository/collaboration/sites content/live/acme/documents</string></field>
                 </object>
               </value>
               <!-- 
               <value>
                 <object type="org.exoplatform.services.wcm.friendly.impl.FriendlyConfig$Friendly">
                   <field name="friendlyUri"><string>documents</string></field>
-                  <field name="unfriendlyUri"><string>/public/website/detail?path=/repository/collaboration</string></field>
+                  <field name="unfriendlyUri"><string>/public/acme/detail?path=/repository/collaboration</string></field>
                 </object>
               </value>
               <value>

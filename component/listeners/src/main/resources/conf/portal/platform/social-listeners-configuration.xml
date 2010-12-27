@@ -1,0 +1,28 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
+		<component-plugin>
+			<name>SpaceFileExplorerInitializer</name>
+			<set-method>addSpaceListener</set-method>
+			<type>org.exoplatform.platform.listeners.CustomizeSpacePagesListener</type>
+			<init-params>
+				<value-param>
+					<name>portlet-name</name>
+					<value>FileExplorerPortlet</value>
+				</value-param>
+				<value-param>
+					<name>navigation-label</name>
+					<value>Documents</value>
+				</value-param>
+				<properties-param>
+					<name>portletPreferences</name>
+					<description>FileExplorerPortlet Preferences</description>
+					<property name="usecase" value="jailed"/>
+					<property name="driveName" value="{modifiedGroupId}"/>
+					<property name="repository" value="repository"/>
+					<property name="showSideBar" value="false"/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

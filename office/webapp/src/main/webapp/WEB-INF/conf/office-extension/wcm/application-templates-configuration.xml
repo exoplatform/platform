@@ -36,7 +36,7 @@
       <init-params>
         <value-param>
           <name>portletName</name>
-          <value>Content List Viewer</value>
+          <value>content-list-viewer</value>
         </value-param>
         <value-param>
           <name>portlet.template.path</name>
@@ -44,14 +44,14 @@
         </value-param>
        
         <object-param>
-          <name>announcement.list.viewer</name>
+          <name>jira.notification.list.viewer</name>
           <description>Default folder list viewer groovy template with Big Image</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
             <field name="templateName">
-              <string>announcement.gtmpl</string>
+              <string>jiraNotification.gtmpl</string>
             </field>
             <field name="category">
-              <string>list-by-folder</string>
+              <string>list</string>
             </field>
           </object>
         </object-param>

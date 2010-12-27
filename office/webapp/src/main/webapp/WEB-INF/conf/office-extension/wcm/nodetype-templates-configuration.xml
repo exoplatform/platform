@@ -58,20 +58,20 @@
 				
                   <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
                     <field name="nodetypeName">
-                      <string>exo:announcement</string>
+                      <string>exo:jiraNotification</string>
                     </field>
                     <field name="documentTemplate">
                       <boolean>true</boolean>
                     </field>
                     <field name="label">
-                      <string>Announcement</string>
+                      <string>jira Notification</string>
                     </field>
                     <field name="referencedView">
                       <collection type="java.util.ArrayList">
                         <value>
                           <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
                             <field name="templateFile">
-                              <string>/announcement/views/view1.gtmpl</string>
+                              <string>/jiraNotification/views/view1.gtmpl</string>
                             </field>
                             <field name="roles">
                               <string>*</string>
@@ -85,7 +85,7 @@
                         <value>
                           <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
                             <field name="templateFile">
-                              <string>/announcement/dialogs/dialog1.gtmpl</string>
+                              <string>/jiraNotification/dialogs/dialog1.gtmpl</string>
                             </field>
                             <field name="roles">
                               <string>webdesigner:/platform/web-contributors</string>

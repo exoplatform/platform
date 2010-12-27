@@ -26,26 +26,6 @@
     xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
   <priority>5</priority>
   
-  <page-nodes>
-    <node>
-      <uri>organization</uri>
-      <name>organization</name>
-      <label>#{organization.title}</label>
-      
-      <node>
-	      <uri>organization/newStaff</uri>
-	      <name>newStaff</name>
-	      <label>#{organization.newstaff}</label>
-	      <page-reference>group::/organization/management/executive-board::newStaff</page-reference>
-    	</node>
-    	
-    	<node>
-	      <uri>organization/management</uri>
-	      <name>management</name>
-	      <label>#{organization.management}</label>
-	      <page-reference>group::/organization/management/executive-board::management</page-reference>
-    	</node>    	
-    </node>
-            
+  <page-nodes>        
   </page-nodes>    
 </node-navigation>

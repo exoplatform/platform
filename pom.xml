@@ -8,14 +8,14 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
-  <version>3.1.0-SNAPSHOT</version>
+  <version>3.0.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
   <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/platform/trunk</url>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/platform/branches/3.0.x</url>
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
@@ -23,27 +23,21 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.kernel.version>2.2.5-GA</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.3.5-GA</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.1.5-GA</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.12.5-GA</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.12.5-GA</org.exoplatform.jcr-services.version>
-    <org.exoplatform.portal.version>3.1.5-PLF</org.exoplatform.portal.version>
-    <org.exoplatform.cs.version>2.1.1</org.exoplatform.cs.version>
-    <org.exoplatform.ks.version>2.1.1</org.exoplatform.ks.version>
-    <org.exoplatform.ecms.version>2.1.1</org.exoplatform.ecms.version>
-	
-	<!-- IMPORTANT :: SHOULD be removed after upgrading to new SNAPSHOTs -->
-    <org.exoplatform.commons.social.version>1.0.2-SNAPSHOT</org.exoplatform.commons.social.version>
-	
-	
-	<org.exoplatform.social.version>1.2.0-SNAPSHOT</org.exoplatform.social.version>
-    
-    <org.exoplatform.commons.version>1.0.1</org.exoplatform.commons.version>
-    <org.exoplatform.gwtframework.version>1.0.0-GA</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.0.1</org.exoplatform.ide.version>
-    <org.xcmis.version>1.1.0-GA</org.xcmis.version>
-    <org.crsh.version>1.0.0-beta10</org.crsh.version>
+    <org.exoplatform.kernel.version>2.2.7-GA-SNAPSHOT</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.7-GA-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.1.7-GA-SNAPSHOT</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.12.7-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.12.7-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
+    <org.exoplatform.portal.version>3.1.7-PLF-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.cs.version>2.1.3-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.ks.version>2.1.3-SNAPSHOT</org.exoplatform.ks.version>
+    <org.exoplatform.ecms.version>2.1.3-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>1.1.3-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.commons.version>1.0.3-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.gwtframework.version>1.0.3-SNAPSHOT</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.0.3-SNAPSHOT</org.exoplatform.ide.version>
+    <org.xcmis.version>1.1.3-SNAPSHOT</org.xcmis.version>   
+    <org.crsh.version>1.0.0-beta15</org.crsh.version>
     <org.exoplatform.exopackage.version>1.1.0</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
     <exo.workflow.engine>jbpm</exo.workflow.engine>
@@ -54,7 +48,7 @@
     <org.mortbay.jetty.cometd-api.version>0.9.20080221</org.mortbay.jetty.cometd-api.version>
     <org.mortbay.jetty.jetty-util.version>6.1.11</org.mortbay.jetty.jetty-util.version>
     <xpp3.version>1.1.3.4.O</xpp3.version>
-    <commons-digester.version>1.7</commons-digester.version>
+    <commons-digester.version>1.8.1</commons-digester.version>
     <bsh.version>2.0b1</bsh.version>
     <net.oauth.version>20080621</net.oauth.version>
     <cglib.version>2.2</cglib.version>
@@ -69,24 +63,24 @@
     <javassist.version>3.4.GA</javassist.version>
     <findbugs.version>1.0.0</findbugs.version>
     <html-parser.version>1.6</html-parser.version>
-    <ical4j.version>0.9.20</ical4j.version>
+    <ical4j.version>1.0-beta5</ical4j.version>
     <org.jvnet.jaxb2.maven2.version>0.1</org.jvnet.jaxb2.maven2.version>
-    <commons-collections.version>3.2.1</commons-collections.version>
+    <commons-collections.version>3.2</commons-collections.version>
     <org.jsecurity.version>0.9.0</org.jsecurity.version>
     <xml-apis.version>1.3.04</xml-apis.version>
-    <org.chromattic.version>1.0.3</org.chromattic.version>
+    <org.chromattic.version>1.0.4</org.chromattic.version>
     <org.gatein.pc.version>2.1.1-GA</org.gatein.pc.version>
     <org.gatein.wci.version>2.0.1-GA</org.gatein.wci.version>
     <org.jboss.version>2.2.9.GA</org.jboss.version>
     <org.gatein.shindig.version>1.0-r790473-Patch04</org.gatein.shindig.version>
     <org.testng.version>5.10</org.testng.version>
     <asm.version>1.5.3</asm.version>
-    <org.slf4j.version>1.5.8</org.slf4j.version>
+    <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.jcrom.version>1.2</org.jcrom.version>
     <!-- ***************************************************** -->
     <!-- Plugin versions (waiting for an upgrade in exo parent -->
     <!-- ***************************************************** -->
-    <version.antrun.plugin>1.4</version.antrun.plugin>
+    <version.antrun.plugin>1.5</version.antrun.plugin>
     <!-- Slower than 2.1 version but we require some new features like classifier support in dependencySet ... -->
     <!-- See http://jira.exoplatform.org/browse/PAR-103 -->
     <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
@@ -106,13 +100,13 @@
     <version.surefire.plugin>2.6</version.surefire.plugin>
     <version.versions.plugin>1.2</version.versions.plugin>
     <version.war.plugin>2.1</version.war.plugin>
-    <version.wikbook.plugin>0.9.28</version.wikbook.plugin>
+    <version.wikbook.plugin>0.9.30</version.wikbook.plugin>
     <version.xml.plugin>1.0-beta-3</version.xml.plugin>
     <!-- ********************* -->
     <!-- Build settings        -->
     <!-- ********************* -->
     <!-- maven-release-plugin -->
-    <arguments>-Prelease,distrib -Dgatein.working.dir=target</arguments>
+    <arguments>-Prelease,distrib -Dgatein.working.dir=target -Dmaven.wagon.provider.http=httpclient</arguments>
   </properties>
   <build>
     <pluginManagement>
@@ -170,14 +164,14 @@
     <module>api</module>
     <module>component</module>
     <module>web</module>
+    <module>webui</module>
     <module>extension</module>
     <module>server</module>
     <module>doc</module>
     <module>office</module>
-    <module>samples/acme-website</module>
+    <module>samples</module>
     <module>migration</module>
     <module>packaging</module>
     <module>testsuite</module>
-    <module>assemblies</module>
   </modules>
 </project>

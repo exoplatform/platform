@@ -9,27 +9,27 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="ThreadCount" elementType="Argument">
             <stringProp name="Argument.name">ThreadCount</stringProp>
-            <stringProp name="Argument.value">${__P(expThreadCount,2)}</stringProp>
+            <stringProp name="Argument.value">${__P(thread,20)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
             <stringProp name="Argument.name">LoopCount</stringProp>
-            <stringProp name="Argument.value">${__P(expLoopCount,1000000)}</stringProp>
+            <stringProp name="Argument.value">${__P(loopcount,1000000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
             <stringProp name="Argument.name">Duration</stringProp>
-            <stringProp name="Argument.value">${__P(expDuration,3600)}</stringProp>
+            <stringProp name="Argument.value">${__P(duration,3600)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Server" elementType="Argument">
             <stringProp name="Argument.name">Server</stringProp>
-            <stringProp name="Argument.value">${__P(expHost,magellanic.testlab.exoplatform.vn)}</stringProp>
+            <stringProp name="Argument.value">${__P(server,magellanic.testlab.exoplatform.vn)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.value">${__P(port,8080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -141,12 +141,12 @@
           </elementProp>
           <elementProp name="ThinkTime" elementType="Argument">
             <stringProp name="Argument.name">ThinkTime</stringProp>
-            <stringProp name="Argument.value">${__P(expThinkTime,3000)}</stringProp>
+            <stringProp name="Argument.value">${__P(thinktime,3000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="RampUp" elementType="Argument">
             <stringProp name="Argument.name">RampUp</stringProp>
-            <stringProp name="Argument.value">${__P(expRampup,1)}</stringProp>
+            <stringProp name="Argument.value">${__P(rampup,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoginUserId" elementType="Argument">
@@ -157,6 +157,11 @@
           <elementProp name="LoginUserPassword" elementType="Argument">
             <stringProp name="Argument.name">LoginUserPassword</stringProp>
             <stringProp name="Argument.value">exo</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoginUserSequenceZ" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserSequenceZ</stringProp>
+            <stringProp name="Argument.value"></stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>

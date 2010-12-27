@@ -45,6 +45,19 @@
 		    <label>#{administration.pageManagement}</label>
 		    <page-reference>group::/platform/administrators::pageManagement</page-reference>
 	    </node>
+		<node>
+	      <uri>administration/newStaff</uri>
+	      <name>newStaff</name>
+	      <label>#{administration.newstaff}</label>
+	      <page-reference>group::/platform/administrators::newStaff</page-reference>
+    	</node>
+    	
+    	<node>
+	      <uri>administration/management</uri>
+	      <name>management</name>
+	      <label>#{administration.management}</label>
+	      <page-reference>group::/platform/administrators::management</page-reference>
+    	</node>    	
     </node>                        
   </page-nodes>
 </node-navigation>

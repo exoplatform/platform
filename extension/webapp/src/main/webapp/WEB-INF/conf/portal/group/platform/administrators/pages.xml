@@ -88,4 +88,38 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
+  	<page>
+		<name>newStaff</name>
+		<title>New Staff</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>AccountPortlet</portlet-ref>
+			</portlet>
+			<title>New Staff</title>
+			<access-permissions>*:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<show-application-state>false</show-application-state>
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>management</name>
+		<title>Organization Management</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>OrganizationPortlet</portlet-ref>
+			</portlet>
+			<title>Organization Management</title>
+			<access-permissions>*:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
 </page-set>

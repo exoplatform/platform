@@ -9,7 +9,8 @@ function getProduct(version) {
   product.codeRepo = "platform" ;//module in modules/portal/module.js
   product.serverPluginVersion = "${org.exoplatform.portal.version}"; // was project.version
   product.useWorkflow = true;
-  
+  product.useContentvalidation = true;
+
   // all WCM ext. have the same version number
   product.workflowVersion = "${org.exoplatform.ecms.version}" ;
   product.contentvalidationVersion = "${org.exoplatform.ecms.version}";
@@ -60,6 +61,9 @@ function getProduct(version) {
   // crash
   product.addDependencies(platform.crash.webapp);
   
+  // default website
+  product.addDependencies(platform.sample.defaultWebsite.webapp);
+
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
   
@@ -78,6 +82,7 @@ function getProduct(version) {
   product.addDependencies(dms.portlet.ecmbrowsecontent);
   product.addDependencies(dms.gadgets);
 
+  product.addDependencies(wcm.core.war);
   product.addDependencies(wcm.extension.war);
   product.addDependencies(wcm.portlet.webpresentation);
   product.addDependencies(wcm.portlet.websearches); 
@@ -99,6 +104,7 @@ function getProduct(version) {
   product.addDependencies(cs.web.csResources); // csResources.war
   product.addDependencies(cs.web.webservice); // exo.cs.web.webservice-2.0.0-SNAPSHOT.jar
   product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
+  product.addDependencies(new Project("org.exoplatform.cs", "exo.cs.ext.social-integration", "jar", cs.version));
 
   /* KS */
   
@@ -110,7 +116,7 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
   product.addDependencies(ks.web.ksResources); // ksResources.war
   product.addDependencies(ks.extension.webapp); // ks-extension.war
-  
+  product.addDependencies(new Project("org.exoplatform.ks", "exo.ks.ext.social-integration", "jar", ks.version));
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
   
 
@@ -149,12 +155,13 @@ function getProduct(version) {
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));
   product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "3.1"));
+  product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "3.2.1"));
   product.removeDependency(new Project("javax.mail", "mail", "jar", "1.4"));
   product.removeDependency(new Project("commons-beanutils", "commons-beanutils", "jar", "1.6"));
-  product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "2.1"));
-  product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "3.1"));
+//  product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "2.1"));
   product.removeDependency(new Project("commons-digester", "commons-digester", "jar", "1.6"));
   product.removeDependency(new Project("xstream", "xstream", "jar", "1.0.2"));
+  product.removeDependency(new Project("ical4j", "ical4j", "jar", "0.9.20"));
   product.removeDependency(new Project("commons-lang", "commons-lang", "jar", "2.3"));
   
   /* remove extensions config . We don't need them because PLF declares a global container config in exo.platform.config */
@@ -165,9 +172,9 @@ function getProduct(version) {
   product.removeDependency(new Project("org.exoplatform.ks", "exo.ks.extension.config", "jar", ks.version));
   product.removeDependency(new Project("org.exoplatform.cs", "exo.cs.extension.config", "jar", cs.version));
 
-  product.addDependencies(new Project("commons-beanutils", "commons-beanutils", "jar", "1.7.0"));
-  product.addDependencies(new Project("commons-beanutils", "commons-beanutils-core", "jar", "1.7.0"));
-  product.addDependencies(new Project("commons-digester", "commons-digester", "jar", "1.7"));
+//  product.addDependencies(new Project("commons-beanutils", "commons-beanutils", "jar", "1.7.0"));
+//  product.addDependencies(new Project("commons-beanutils", "commons-beanutils-core", "jar", "1.7.0"));
+//  product.addDependencies(new Project("commons-digester", "commons-digester", "jar", "1.7"));
   product.addDependencies(new Project("commons-httpclient", "commons-httpclient", "jar", "3.1"));
   product.addDependencies(new Project("findbugs", "annotations", "jar", "1.0.0"));
 

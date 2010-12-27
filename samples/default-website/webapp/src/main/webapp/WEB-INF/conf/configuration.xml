@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+  <!-- default website -->
+  <import>war:/conf/default-website/portal/resource-bundle-configuration.xml</import>
+  
+  <import>war:/conf/default-website/portal/portal-configuration.xml</import>
+
+  <import>war:/conf/default-website/wcm/deployment/default-deployment-configuration.xml</import>
+ 
+
+</configuration>

@@ -27,9 +27,9 @@
 
   
 
-  <nodeType name="exo:announcement" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+  <nodeType name="exo:jiraNotification" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <supertypes>
-      <supertype>exo:webContent</supertype>
+      <supertype>nt:base</supertype>
     </supertypes>
     <propertyDefinitions> 
      

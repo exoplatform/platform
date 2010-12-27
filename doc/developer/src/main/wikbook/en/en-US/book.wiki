@@ -27,3 +27,10 @@ h1. System Integration
 
 {include:document=integration.wiki|syntax=confluence/1.0}
 
+h1. eXo Platform 3.0 APIs
+
+{include:document=supported_api.wiki|syntax=confluence/1.0}
+
+h1. Cookbook
+
+{include:document=cookbook.wiki|syntax=confluence/1.0}

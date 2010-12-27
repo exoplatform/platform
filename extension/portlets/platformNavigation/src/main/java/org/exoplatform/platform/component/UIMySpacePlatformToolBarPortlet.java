@@ -3,11 +3,17 @@ package org.exoplatform.platform.component;
 /**
  * Created by IntelliJ IDEA.
  * User: khemais.menzli
- * Date: 31 août 2010
+ * Date: 31 aoï¿½t 2010
  * Time: 13:16:17
  * To change this template use File | Settings | File Templates.
  */
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -15,6 +21,8 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
@@ -22,96 +30,106 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 @ComponentConfig(
         lifecycle = UIApplicationLifecycle.class,
-
         template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl"
 )
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
 
+    private SpaceService spaceService = null;
+    private OrganizationService organizationService = null;
+    private String userId = null;
+    private boolean groupNavigationPermitted = false;
+    
+    
     /**
      * constructor
      *
      * @throws Exception
      */
     public UIMySpacePlatformToolBarPortlet() throws Exception {
+      try {
+        spaceService = getApplicationComponent(SpaceService.class);
+      } catch (Exception exception) {
+        // spaceService should be "null" because the Social profile isn't activated
+      }
+      organizationService = getApplicationComponent(OrganizationService.class);
+      UserACL userACL = getApplicationComponent(UserACL.class);
+      //groupNavigationPermitted is set to true if the user is the super user
+      if(getUserId().equals(userACL.getSuperUser())){
+        groupNavigationPermitted = true;
+      }else{
+        Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+        for (Object object : memberships) {
+          Membership membership = (Membership) object;
+          if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
+            groupNavigationPermitted = true;
+            break;
+          }
+        }
+      }
     }
 
-    private SpaceService spaceService = null;
-    private String userId = null;
 
-    public List<PageNavigation> getSpaceNavigations() throws Exception {
-        String remoteUser = getUserId();
-        List<Space> spaces = getSpaceService().getAccessibleSpaces(remoteUser);
-        UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
-        List<PageNavigation> allNavigations = userPortalConfig.getNavigations();
-        List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-        // Copy to another list to fix Concurency error
-        for (PageNavigation navi : allNavigations) {
-            navigations.add(navi);
-        }
-        Iterator<PageNavigation> navigationItr = navigations.iterator();
+    public List<PageNavigation> getGroupNavigations() throws Exception {
+      String remoteUser = getUserId();
+      UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
+      List<PageNavigation> allNavigations = userPortalConfig.getNavigations();
+      List<PageNavigation> computedNavigations = null;
+      if (spaceService != null) {
+        computedNavigations = new ArrayList<PageNavigation>(allNavigations);
+        List<Space> spaces = spaceService.getAccessibleSpaces(remoteUser);
+        Iterator<PageNavigation> navigationItr = computedNavigations.iterator();
         String ownerId;
         String[] navigationParts;
         Space space;
         while (navigationItr.hasNext()) {
-            ownerId = navigationItr.next().getOwnerId();
-            if (ownerId.startsWith("/spaces")) {
-                navigationParts = ownerId.split("/");
-                space = spaceService.getSpaceByUrl(navigationParts[2]);
-                if (space == null) navigationItr.remove();
-                if (!navigationParts[1].equals("spaces") && !spaces.contains(space)) navigationItr.remove();
-            } else { // not spaces navigation
-                navigationItr.remove();
-            }
+          ownerId = navigationItr.next().getOwnerId();
+          if (ownerId.startsWith("/spaces")) {
+            navigationParts = ownerId.split("/");
+            space = spaceService.getSpaceByUrl(navigationParts[2]);
+            if (space == null)
+              navigationItr.remove();
+            if (!navigationParts[1].equals("spaces") && !spaces.contains(space))
+              navigationItr.remove();
+          } else { // not spaces navigation
+            navigationItr.remove();
+          }
         }
-
-        return navigations;
+      } else { // Social Services aren't loaded in the current PortalContainer
+        computedNavigations = new ArrayList<PageNavigation>();
+      }
+      for (PageNavigation navigation : allNavigations) {
+        if ((navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) && (navigation.getOwnerId().indexOf("spaces") < 0)) {
+          computedNavigations.add(PageNavigationUtils.filter(navigation, remoteUser));
+        }
+      }
+      return computedNavigations;
     }
 
     public boolean isRender(PageNode spaceNode, PageNode applicationNode) throws SpaceException {
-        SpaceService spaceSrv = getSpaceService();
+        if(spaceService == null) {
+          return false;
+        }
         String remoteUser = getUserId();
         String spaceUrl = spaceNode.getUri();
         if (spaceUrl.contains("/")) {
             spaceUrl = spaceUrl.split("/")[0];
         }
-
-        Space space = spaceSrv.getSpaceByUrl(spaceUrl);
-
+        Space space = spaceService.getSpaceByUrl(spaceUrl);
         // space is deleted
         if (space == null) return false;
-
-        if (spaceSrv.hasEditPermission(space, remoteUser)) return true;
-
+        if (spaceService.hasEditPermission(space, remoteUser)) return true;
         String appName = applicationNode.getName();
         if (!appName.contains(SPACE_SETTING_PORTLET)) {
             return true;
         }
-
         return false;
     }
 
     public PageNode getSelectedPageNode() throws Exception {
         return Util.getUIPortal().getSelectedNode();
-    }
-
-    /**
-     * gets spaceService
-     *
-     * @return spaceService
-     * @see SpaceService
-     */
-    private SpaceService getSpaceService() {
-        if (spaceService == null) {
-            spaceService = getApplicationComponent(SpaceService.class);
-        }
-        return spaceService;
     }
 
     /**
@@ -138,19 +156,8 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         return result;
     }
 
-    // --- Merging Group navigation PLF-488
-
-    public List<PageNavigation> getGroupNavigations() throws Exception {
-        String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-        //List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
-        List<PageNavigation> allNavigations = Util.getUIPortalApplication().getNavigations();
-        List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-        for (PageNavigation navigation : allNavigations) {
-            if (navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) {
-                navigations.add(PageNavigationUtils.filter(navigation, remoteUser));
-            }
-        }
-        return navigations;
+    public boolean hasPermission() throws Exception {
+      return groupNavigationPermitted;
     }
 
 }

@@ -9,28 +9,33 @@ JavascriptManager jsmanager = rcontext.getJavascriptManager();
 jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
 jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
 jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
-String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
-String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 
 def user = uicomponent.getUser();
 
 void renderLink() {
 		def portalURI = Util.getPortalRequestContext().getPortalURI();
-		def labelActivities = _ctx.appRes("UIUserToolBarPortlet.label.activities");
-		def labelProfile = _ctx.appRes("UIUserToolBarPortlet.label.profile");
+		def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
+		def labelProfile = _ctx.appRes("UIUserPlatformToolBarPortlet.label.profile");
+		def labelnetwork = _ctx.appRes("UIUserPlatformToolBarPortlet.label.network");
+		def labelpeople = _ctx.appRes("UIUserPlatformToolBarPortlet.label.find");
+		def labelaccount = _ctx.appRes("UIUserPlatformToolBarPortlet.label.account");
+		def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
+		def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
 		def remoteUser = Util.getPortalRequestContext().getRemoteUser();
 		def activitiesLink = portalURI + "activities";
 		def profileLink = portalURI + "profile/" + remoteUser;
 		def connectionLink = portalURI + "connections/myConnections/" + remoteUser;
 		def directoryLink = portalURI + "people";
+		def changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
+		def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 		
 		def navigations = uicomponent.getNavigations();
 
  		String clazz = "";
  		
 			print """
-						<div style="position: absolute; display:none" class="MenuItemContainer">
-							<div class="SubBlock">
+				<div style="position: absolute; display:none" class="MenuItemContainer">
+					<div class="SubBlock">
 				""";
 				
 				if(navigations != null) {
@@ -38,73 +43,67 @@ void renderLink() {
 					 def pageNodes = nav.getNodes();
 				
 					 for(PageNode node in pageNodes) {
-					 if (node.getUri() == "profile") {
-			         print """
+					 	if (node.getUri() == "profile") {
+			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$profileLink" class="ToolBarProfileIcon">My Profile</a>
+											<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
 										</div>
 									</div>
 								""";
-			       }
-	         else if (node.getUri() == "activities") {
+			       		} else if (node.getUri() == "activities") {
 							print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$activitiesLink" class="ToolBarActivityIcon">My Activities</a>
+											<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
 										</div>
 									</div>
 								""";
-			       }  
-				   
-				   else if (node.getUri() == "myConnections") {
-			         print """
+			       		} else if (node.getUri() == "connections") {
+			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$connectionLink">My Connections</a>
+											<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
 										</div>
 									</div>
 								""";
-			       }
-				    else if (node.getUri() == "people") {
-			         print """
+			       		} else if (node.getUri() == "people") {
+			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$directoryLink" class="FindPeopleIcon">Find People</a>
+											<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
 										</div>
 									</div>
 								""";
-			       }
-				   
-					  }
-				  }
-				   
-				} 
-       print """
+			       		} // end if				   
+					  } // end for
+				  } // end for				   
+				} // end if
+				
+
+       			print """
 						<div class="MenuItem">
 							<div class="$clazz">						
-					
-				<a href="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" class="ChangeLanguageIcon">ChangeLanguage</a>
-			 						
+								<a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>				
 							</div>
-						</div>
-					""";
-					
-					 print """
-						<div class="MenuItem" onclick="eXo.portal.logout();">
+						</div>       
+						<div class="MenuItem" onclick="$changeLanguageAction">
 							<div class="$clazz">						
-					
-				<a href="#" class="LogoutIcon">Logout</a>
-			 						
+								<a href="#" class="ChangeLanguageIcon">$labellanguage</a>
+							</div>
+						</div>						
+						<div class="MenuItem" onclick="eXo.portal.logout();">
+							<div class="$clazz">								
+								<a href="#" class="LogoutIcon">$labellogout</a> 						
 							</div>
 						</div>
-					""";				
+				""";				
 				
 				
 			print """
-						</div>
 					</div>
-				""";
+				</div>
+			""";
 	}
 %>
 <div class="UIUserToolBarPortlet" id="$uicomponent.id">
@@ -112,11 +111,12 @@ void renderLink() {
         <div class="TabsContainer" style="position: relative">
             <div class="UITab NormalToolbarTab">
                 <div class="">
-                            <a class="ArrowIcon TBIcon" href="<%= accountSetting %>">
-                                    <%=user.getFullName();%>
+                            <a class="ArrowIcon TBIcon" href="#">
+                                   $user.fullName
                             </a>
                 </div>
                 <% renderLink() %>
+                
             </div>
         </div>
     </div>

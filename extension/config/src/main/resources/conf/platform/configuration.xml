@@ -13,10 +13,14 @@
         <name>default.rest.context</name>
         <value>rest</value>
       </value-param>
-      <!-- The name of the default securty realm -->
+      <value-param>
+        <name>ignore.unregistered.webapp</name>
+        <value>true</value>
+      </value-param>       
+      <!-- The name of the default security realm -->
       <value-param>
         <name>default.realm.name</name>
-        <value>gatein-domain</value> <!-- TODO : use a variable -->
+		<value>${exo.security.domain}</value> 
       </value-param>
       <object-param>
         <name>default.portal.definition</name>
@@ -115,6 +119,9 @@
                 <string>ecmadmin</string>
               </value>
               <value>
+                <string>ecm-wcm-core</string>
+              </value>
+              <value>
                 <string>ecm-wcm-extension</string>
               </value>
               <value>
@@ -139,8 +146,8 @@
               <value profiles="workflow,all">
                 <string>workflow</string>
               </value>
-              <value>
-                <string profiles="workflow,all">eXoWorkflowResources</string>
+              <value profiles="workflow,all">
+                <string>eXoWorkflowResources</string>
               </value>              
 
               <!-- SOCIAL -->

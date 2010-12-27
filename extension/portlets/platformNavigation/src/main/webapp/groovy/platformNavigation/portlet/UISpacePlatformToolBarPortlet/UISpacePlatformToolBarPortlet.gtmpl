@@ -126,7 +126,7 @@
         <div class="">
 		 <% if (renderSpacesLink()) { %>
           <a class="TBIcon" href="<%= spacesLink %>">
-            <%=_ctx.appRes("UISpacesToolBarPortlet.label.Spaces")%>
+            <%=_ctx.appRes("UISpacePlatformToolBarPortlet.label")%>
           </a>
        
 		 <% } %>

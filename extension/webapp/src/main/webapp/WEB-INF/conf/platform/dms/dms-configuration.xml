@@ -67,6 +67,14 @@
     </value-param>
 
     <!--
+        This parameter will define the path to the folder nodes icon.
+    --> 
+	<value-param>
+	      <name>folder-icon-path</name>
+	      <value>/ecmexplorer/skin/icons/16x16/NodeTypes/DefaultSkin/nt-folder.gif</value>
+   	</value-param>
+
+    <!--
         This parameter is responsible for managing Cache-Control header value which will be returned to the client.
         You can use patterns like "text/*", "image/*" or wildcard to define the type of content.
     -->  

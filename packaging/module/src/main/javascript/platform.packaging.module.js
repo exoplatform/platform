@@ -50,6 +50,7 @@ function getModule(params)
    module.extension = {};
    module.extension.webapp = 
       new Project("org.exoplatform.platform", "exo.platform.extension.webapp", "war", module.version).
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.webui.components", "jar", module.version)).
       // xCMIS dependencies
       addDependency(new Project("org.xcmis", "xcmis-renditions", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-restatom", "jar", xcmisVersion)).
@@ -67,7 +68,8 @@ function getModule(params)
       addDependency(new Project("org.apache.ws.commons.axiom", "axiom-api", "jar", "1.2.5")).
       addDependency(new Project("org.apache.ws.commons.axiom", "axiom-impl", "jar", "1.2.5")).
       addDependency(new Project("jaxen", "jaxen", "jar", "1.1.1")).
-      addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1"));
+      addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1")).
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.listeners", "jar", module.version));
    /*module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);*/
    module.extension.webapp.deployName = "platform-extension";
    
@@ -107,7 +109,8 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-gadget-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-netvibes-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-module-groovy-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion));
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion)).
+        addDependency(new Project("org.apache.commons", "commons-compress", "jar", "1.0"));
    module.ide.webapp.deployName = "IDE";
    
     // acme website
@@ -119,6 +122,14 @@ function getModule(params)
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
    module.sample.acme.webapp.deployName = "acme-website";
    
+    // default website
+   module.sample.defaultWebsite = {};
+   
+   module.sample.defaultWebsite.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.default-website.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.default-website.config", "jar", module.version));
+   module.sample.defaultWebsite.webapp.deployName = "default-website";
+   
+    // Crash
    module.crash = {};
    module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
    module.crash.webapp.deployName = "crash";

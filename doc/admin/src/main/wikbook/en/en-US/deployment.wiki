@@ -1,14 +1,17 @@
 
-
-
 h1. How to remove the sample applications
 
 eXo Platform comes with two sample portals that showcase the capabilities of the product. 
 Before deploying your system in production, you will want to remove these sample apps. 
 
-{caution}The instructions below assume that you are using the hsqldb embedded database configuration. {caution}
+{caution}
+The instructions below assume that you are using the hsqldb embedded database configuration.
+{caution}
 
 h2. Removing Acme Website
+The Acme site is a sample extension that demonstrates an example of intranet you could implement with eXo platform. 
+Once you have implemented your own extension, you will not likely need the acme website anymore.
+To remove the Acme site, do as follows:
 
 # Stop the server {{shutdown.sh}}
 # Delete acme-portal.war
@@ -17,11 +20,34 @@ h2. Removing Acme Website
 # Restart
 
 h2. Removing Acme Social Intranet
+The Acme Social Intranet is a sample extension that demonstrates an example of intranet you could implement with eXo platform. 
+Once you have implemented your own extension, you will not likely need the Social Intranet anymore.
+To remove the Acme Social Instranet, do as follows:	
 
 # Stop the server {{shutdown.sh}}
-# Delete office-portal.war
-# Delete exo.platform.office.config.jar
+# Delete *office-portal.war*
+# Delete *exo.platform.office.config.jar*
 # Delete {{gatein/data}}
+# Restart
+
+h2. Removing the docs webapp
+The docs are bundled as a convenience to be easily browsable while your portal is started. For production deployments, you will likely not need them.
+The docs webapp consists in a file *docs.war* located in {{tomcat/webapps}} and in {{jboss/server/default/deploy}}. In jboss, it is actually a folder named *docs.war*.
+
+To remove docs, webapp do as follows:
+
+# Stop the server {{shutdown.sh}}
+# Delete file of folder *docs.war*
+# Restart
+
+h2. Removing crash
+Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, we strongly advise to remove crash for your production deployments
+Crash consists in a file *crash.war* in {{tomcat/webapps}}. 
+
+To remove crash, do as follows:
+
+# Stop the server {{shutdown.sh}}
+# Delete file *crash.war*
 # Restart
 
 
@@ -54,7 +80,7 @@ This is the simplest example of a virtual host:
 {code}
 You can find more information about Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/]
 
-h2. Connection via HTTP protocol
+h2. Connection via HTTP protocol (Apache mod{{{_}}}proxy)
 
 With the _glue_ method, it is necessary to configure Apache HTTP daemon to work as *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
 For this type of connection, you will need to include the *mod{{{_}}}proxy* module in the HTTP demon configuratinon file.
@@ -157,3 +183,34 @@ h3. Apache Tomcat's AJP connector
         </VirtualHost>
 {code}
 
+h1. How to configure the session-timeout for the web server
+The session-timeout is a concept that the web server uses to define a time period in which a session is valid/accessible.
+In a portal environment such as eXo Platform, it is highly recommended that all web applications have the same session timeout value:
+* Tomcat
+* Jboss
+The session timeout is configurable individually for each web application in web.xml file:
+{code}
+<!-- ==================== Default Session Configuration ================= --> 
+   <!-- You can set the default session timeout (in minutes) for all newly   --> 
+   <!-- created sessions by modifying the value below.                       --> 
+
+   <session-config> 
+      <session-timeout>30</session-timeout> 
+   </session-config>
+{code}
+h2. Server Tomcat
+In the Tomcat bundle, this file is located at *{{{$TOMCAT_HOME/conf/web.xml}}}*.
+To configure the session-timeout of Server Tomcat, do as follows:
+# Stop the server shutdown.sh 
+# Open the file web.xml
+# Change the value of the session-timeout
+# Save 
+# Restart (gatein.sh)
+h2. Sever Jboss
+In the Jboss, this file is located at *{{{$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml}}}*.
+To configure the session-timeout of Server Jboss, do as follows:
+# Stop the server shutdown.sh 
+# Open the file web.xml
+# Change the value of the session-timeout
+# Save 
+# Restart (run.sh)

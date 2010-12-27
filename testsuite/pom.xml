@@ -4,13 +4,12 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
+    <version>3.0.3-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.testsuite</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Tests</name>
   <modules>
     <module>perf</module>
-    <module>selenium</module>
   </modules>
 </project>

@@ -1,44 +1,50 @@
-When working with eXo, it is important to not modify the source code.  This will ensure compatibility with future upgrades, and will simplify support.
-
+When working with eXo, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
 To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
 
 
 h1. Create your extension project
 
 A custom extension contains two mandatory items:
-* extension webapp: contains resources and kernel configurations.
-* extension activator jar: identifies your webapp as a dependency of the portal container.
 
-A sample extension package is provided here: [http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/]
+1. *extension webapp* contains resources and kernel configurations.
 
+2. *extension activator jar* identifies your webapp as a dependency of the portal container.
 
-Once you have modified the sample extension to build your own, use "maven clean install" to create the archive files.
+To see the sample extension package, go to [here|http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/].
 
-To deploy your extension in Tomcat, follow these steps:
-* Add the file {{sample-ext.war}} from {{sample/extension/war/target/}} to the {{tomcat/webapps}} directory.
-* Add the folder {{starter}} from {{starter/war/target/}} to the {{tomcat/webapps}} directory.
-* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
+Once you have modified the sample extension to build your own portal, use "maven clean install" to create the archive files.
+
+To deploy your extension in Tomcat, do as follows:
+
+*Step 1:* Add the file sample-ext.war from the {{sample/extension/war/target/}} to the directory {{tomcat/webapps}}.
+
+*Step 2:* Add the folder {{starter}} from {{starter/war/target/}} to the directory {{tomcat/webapps}}.
+
+*Step 3:* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
+
 {note}
-This will only work if the starter.war is the last war file to be loaded, so you may need to rename it if your war files are loaded in alphabetical order.
+This will only work if the starter.war is the last .war file to be loaded, so you may need to rename it if your war files are loaded in the alphabetical order.
 {note}
-* Add the jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
-* Add the jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
+
+*Step 4:* Add the .jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
+
+*Step 5:* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
 
 
-For JBoss deployment and more details, refer to the Reference Guide.
+For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
 
 
-h1. Portal, pages and menus structure
+h1. Structure of portal, pages and menus
 
-You can create as many pages as you want within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.
+You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.
 
 h2. Page layout
 
-The configuration of the "classic" portal can be found in the directory {{/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic}} of your extension webapp.
+The configuration of "classic" portal can be found in the {{/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic}} directory of your extension webapp.
 
-* *Portal:*
+*Portal:*
 
-The {{portal.xml}} file describes the layout and portlets common to all the pages of the portal.
+The {{portal.xml}} file describes the layout and portlets common to all pages of the portal.
 
 {code}<?xml version="1.0" encoding="ISO-8859-1"?>
 <portal-config
@@ -94,12 +100,13 @@ The {{portal.xml}} file describes the layout and portlets common to all the page
 {code}
 
 
-As you can see, each portlet can be configured with a set of preferences, which will be further detailed.
+As you can see, each portlet can be configured with a set of preferences, which will be further detailed in Chapter 6. The tag <page-body> </page-body> is a placeholder for the different pages of your portal. When the user opens a new portal page, all portlets of the portal layout (portal.xml) are remained, whereas the content of <page-body> switches to the page opened by the user.
 
-* *Pages:*
+*Pages:*
 
-The {{pages.xml}} file is used to describe the content of the pages of your portal. In other words, what will be inside the <page-body> tag of the {{portal.xml}} file above.
-Here is an example of the classic portal pages.xml.
+The {{pages.xml}} file is used to describe the content of pages of your portal. In other words, pages of your portal will be inside the <page-body> tag of the {{portal.xml}} file above.
+
+This is the example of pages.xml of the classic portal.
 
 {code}
 <page>
@@ -141,17 +148,16 @@ Here is an example of the classic portal pages.xml.
 {code}
 
 {note}
-This section is meant to help you organize the layout and structure of your portal. Review the "Working with applications" chapter to learn more about portlet configuration within the pages.xml file.
+See Chapter 6 to learn more about the portlet configuration within the pages.xml file.
 {note}
 
-* *Navigation:*
+*Navigation:*
 
-The {{navigation.xml}} is used to associate the links in your navigation (called page-node) with your portal pages.
+The *navigation.xml* is used to associate the links in your navigation with your portal pages. The navigation is a tree structure of "navigation nodes". Each navigation node points to one page (called the page node). The tree structure corresponds to a hierarchy of menus and sub-menus of a site.
 
-If the pattern #{} is used then the label of the link will be loaded from the portal resource bundle (link to the [ref guide about resource bundles|http://wiki.exoplatform.org/xwiki/bin/view/Portal/Internationalization+Configuration]
+If the pattern #{} is used, the link label will be loaded from the portal resource bundle. To learn more, refer to [Internationalization Configuration|http://platform.demo.exoplatform.org/docs/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Internationalization_Configuration].
 
-
-{code}
+{code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
 <node-navigation>
 <owner-type>portal</owner-type>
@@ -175,27 +181,31 @@ If the pattern #{} is used then the label of the link will be loaded from the po
 {code}
 
 
-This navigation tree can have multiple views inside portliest, such as breadcrumbs that render the current view node, the site map or the menu portlets.
+This navigation tree is shown and reused in different portlets, such as sitemap, navigation or breadcrumbs. The breadcrumbs portlet renders the position of the current navigation node.
 
 {note}
-For top nodes, the URI and the navigation node name must have the same value. For the other nodes, the URI is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' the name of the node (<name>fileexplorer</name>).
+For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' is the name of node (<name>fileexplorer</name>).
 {note}
 
 h2. Visibility of pages
 
-You can easily set the visibility of select pages and navigation to certain groups and users. Simply create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and user to which you want to give permission:
-* sample-ext/portal/group/group-name/your files
-* sample-ext/portal/user/username/your files
+You can easily restrict the visibility of selected pages and navigation nodes to certain groups and users. You just need to create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and user to which you want to give permission:
+
+*sample-ext/portal/group/group-name/your files*
+
+*sample-ext/portal/user/username/your files*
 
 h1. Customize your portal
 
-One of the first steps in any web project is to integrate a graphic chart. This can be done entirely within your extension, by customizing the portal configuration.
+One of the first steps in any web project is to integrate a corporate design. This can be done entirely within your extension by customizing the portal configuration.
 
+To add a JavaScript library, for example JQuery, do as follows:
 
-In order to add a JavaScript library (for example JQuery), follow these steps:
-* Create the following folder, if it does not already exist: {{/war/src/main/webapp/WEB-INF/conf/script/groovy}}
-* Within this folder, create a {{JavascriptScript.groovy}} file
-* Add the following line to the groovy file
+*Step 1:* Create the {{/war/WEB-INF/conf/script/groovy}} folder if it does not already exist.
+
+*Step 2:* Create a {{JavascriptScript.groovy}} file within this folder.
+
+*Step 3:* Add the following line to the groovy file.
 
 {code}
 JavascriptService.addJavascript("Name_Of_Library", "/path_to/java_script/JavaScript_Lib.js", ServletContext);
@@ -206,3 +216,79 @@ For example:
 JavascriptService.addJavascript("eXo.myproject.Jquery", "/javascript/eXo/myproject/jquery.js", ServletContext);
 {code}
 
+h1. Add/remove languages
+
+All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Each language consists of information related to key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ files with keys specified in the _locale-config.xml_ file.
+
+All languages defined in the _locale-config.xml_ file are listed in *Interface Language Settings*. 
+
+h2. Add a new language
+
+To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as key of the added node.
+
+For example, to add Italian, do as follows:
+
+*Step 1:* Add the following node to the _locale-config.xml_ file. 
+
+{code:xml}
+<locale-config>
+    <locale>it</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for Italian locale</description>
+</locale-config>
+{code}
+
+*Step 2:* Create a new _resource bundle_ as *_{{{webui_it.properties}}}_* in the _myextension.war/WEB-INF/classes/locale/portal_ folder. 
+
+{note}
+This step is necessary because the Resource Bundle Service of the portal will find keys and values in the _resource bundle_ of each corresponding language. 
+{note}
+
+*Step 3:* Restart the server.
+
+To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, you will see Italian as shown:
+
+!example_addItalian.png!
+
+
+
+
+*Illustration 1: Italian display on Interface Language Setting*
+
+h2. Remove languages
+
+To remove an existing language, you need to delete the relevant language node in the _locale-config.xml_ file and all files containing the suffix name as the key of language.
+
+For example, to remove French, do as follows:
+
+*Step 1:* Find and remove the following node from the _locale-config.xml_ file.
+
+{code:xml}
+<locale-config>
+    <locale>fr</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for france locale</description>
+</locale-config>
+{code}
+
+*Step 2:* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
+
+{note}
+It is recommended to do this step to delete unnecessary data in the application.
+{note}
+ 
+*Step 3:* Restart the server.
+
+To check if the French removal takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, French which is shown in the *Illustration 1* has not existed on the *Interface Language Setting* window. 
+
+!example_removeFrench.png!
+
+
+
+
+*Illustration 2: Interface Language Setting without French*
+
+h1. Create custom look and feel
+{include:document="customize/How_to_create_custom_look_and_feel.wiki"}

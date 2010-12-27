@@ -22,27 +22,52 @@
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
- <component>
-    <key>org.exoplatform.social.core.space.spi.SpaceService</key>
-    <type>org.exoplatform.social.core.space.impl.SpaceServiceImpl</type>
-    <init-params>
-      <!-- Configure the applications to install in a space -->
-      <values-param>
-        <name>space.homeNodeApp</name>
-        <value>SpaceActivityStreamPortlet</value>
-      </values-param>
-      <!-- Configure removable application or not <value>Application:removable</value> -->
-      <values-param>
-        <name>space.apps</name>
-        <value>DashboardPortlet:true</value>
-        <value>SpaceSettingPortlet:false</value>
-		<value>MembersPortlet:true</value>
-        <value>CalendarPortlet:true</value>
-		<value>ForumPortlet:true</value>
-		<value>AnswersPortlet:true</value>
-		<value>FileExplorerPortlet:true</value>
-      </values-param>
-    </init-params>
-  </component>
-
+	<component>
+		<key>org.exoplatform.social.core.space.spi.SpaceService</key>
+		<type>org.exoplatform.social.core.space.impl.SpaceServiceImpl</type>
+		<init-params>
+			<!-- Configure the applications to install in a space -->
+			<values-param>
+				<name>space.homeNodeApp</name>
+				<value>SpaceActivityStreamPortlet</value>
+			</values-param>
+			<!-- Configure removable application or not <value>Application:removable</value> -->
+			<values-param>
+				<name>space.apps</name>
+				<value>DashboardPortlet:true</value>
+				<value>SpaceSettingPortlet:false</value>
+				<value>MembersPortlet:true</value>
+				<value>CalendarPortlet:true</value>
+				<value>ForumPortlet:true</value>
+				<value>AnswersPortlet:true</value>
+				<value>FileExplorerPortlet:true</value>
+			</values-param>
+		</init-params>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
+		<component-plugin>
+			<name>SpaceFileExplorerInitializer</name>
+			<set-method>addSpaceListener</set-method>
+			<type>org.exoplatform.platform.listeners.CustomizeSpacePagesListener</type>
+			<init-params>
+				<value-param>
+					<name>portlet-name</name>
+					<value>FileExplorerPortlet</value>
+				</value-param>
+				<value-param>
+					<name>navigation-label</name>
+					<value>Documents</value>
+				</value-param>
+				<properties-param>
+					<name>portletPreferences</name>
+					<description>FileExplorerPortlet Preferences</description>
+					<property name="usecase" value="jailed"/>
+					<property name="driveName" value="{modifiedGroupId}"/>
+					<property name="repository" value="repository"/>
+					<property name="showSideBar" value="true"/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
 </configuration>

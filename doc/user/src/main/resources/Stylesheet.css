@@ -1,0 +1,175 @@
+body {
+	background:transparent url(background/BannerRepeat.gif) repeat-x top;
+	font-family:Lucida Sans;
+	font-size:12px;
+	height:100%;
+	margin:0px;
+	overflow-x:hidden;
+	padding:0px;
+}
+
+/* ClearFix */	
+.ClearFix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.ClearFix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .ClearFix {height: 1%;}
+.ClearFix {display: block;}
+/* End hide from IE-mac */ 
+
+
+.UIWikiUserGuides {
+	width: 960px;
+	margin: auto;
+}
+
+/*######################### Banner #############################*/
+
+
+.UIWikiUserGuides .Banner2{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left top;
+	height: 125px;
+}
+
+.UIWikiUserGuides h1{
+	font-size: 14px;
+	margin: 4px 0px;
+}
+
+.UIWikiUserGuides h2{
+	font-size: 16px;
+}
+
+.UIWikiUserGuides h3{
+	font-size: 18px;
+	margin: 4px 0px;
+}
+
+.UIWikiUserGuides h4{
+	font-size: 19px;
+}
+
+.UIWikiUserGuides h5{
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.UIWikiUserGuides h6{
+	font-size: 24px;
+	font-weight: normal;
+	margin: 14px 0px;
+}
+
+.UIWikiUserGuides .BlueText{
+	color:#314572;
+}
+
+.UIWikiUserGuides .LightBlueText{
+	color:#6180ff;
+}
+
+.UIWikiUserGuides .UppercaseText{
+	text-transform: uppercase;
+}
+
+.UIWikiUserGuides .OrangeText{
+	color:#e54c10;
+}
+
+.UIWikiUserGuides .LightOrangeText{
+	color:#fbad18;
+}
+
+.UIWikiUserGuides .GreenText{
+	color:#5384ad;
+}
+
+.UIWikiUserGuides .DarkGreenText{
+	color:#422ea6;
+}
+
+.UIWikiUserGuides .GrayText{
+	color: #565759;
+}
+
+.UIWikiUserGuides a{
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+
+.UIWikiUserGuides .footer{
+	padding: 8px 0px;
+	text-align: right;
+	color: #898989;
+}
+
+.UIWikiUserGuides .UserGuidForm ul{
+	padding-left: 10px;
+	margin-left: 0px;
+}
+
+.UIWikiUserGuides .UserGuidForm ul li{
+	color:#6180ff;
+	font-size:12px;
+	font-weight:normal;
+	list-style:square outside none;
+}
+
+.UIWikiUserGuides .UserGuidForm{
+	background: #f3f3f3;
+	-webkit-border-radius:5px;
+	-moz-border-radius: 5px;
+	padding:1px 12px 12px;
+	margin-bottom: 8px;
+}
+
+.UIWikiUserGuides .UserGuidForm .GateinForm{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -128px;
+	width: 465px;
+	height: 152px;
+	float: left;
+	margin-right: 5px;
+}
+
+.UIWikiUserGuides .UserGuidForm .ContentForm{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -281px;
+	width: 465px;
+	height: 152px;
+	float: left;
+}
+
+.UIWikiUserGuides .UserGuidForm .SocialForm{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -435px;
+	width: 307px;
+	height: 178px;
+	float: left;
+	margin-right: 5px;
+}
+
+.UIWikiUserGuides .UserGuidForm .ColaborationForm{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -615px;
+	width: 307px;
+	height: 178px;
+	float: left;
+	margin-right: 5px;
+}
+
+.UIWikiUserGuides .UserGuidForm .KnowledgeForm{
+	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -795px;
+	width: 307px;
+	height: 178px;
+	float: left;
+}
+
+.UIWikiUserGuides .UserGuidForm .Content{
+	padding: 10px;
+}

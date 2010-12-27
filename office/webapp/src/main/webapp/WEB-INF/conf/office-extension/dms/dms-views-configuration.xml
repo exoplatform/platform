@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+
+  <component>
+    <key>org.exoplatform.services.cms.views.ManageViewService</key>
+    <type>org.exoplatform.services.cms.views.impl.ManageViewServiceImpl</type>
+  </component>
+  
+	<external-component-plugins>
+    <target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
+    	<component-plugin> 
+        <name>manage.view.plugin</name>
+        <set-method>setManageViewPlugin</set-method>
+        <type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
+        <description>this plugin manage user view</description>
+        <init-params>
+        	<value-param>
+	        	<name>autoCreateInNewRepository</name>
+	        	<value>true</value>
+	        </value-param>
+	        <value-param>
+	        	<name>predefinedViewsLocation</name>
+	        	<value>war:/conf/dms-extension/dms/artifacts</value>
+	        </value-param>	        
+	        <value-param>
+	        	<name>repository</name>
+	        	<value>repository</value>
+	        </value-param>
+          <object-param>	      
+		        <name>Timeline-View-document</name>
+		        <description>View configuration for System workspace</description>
+		        <object type="org.exoplatform.services.cms.views.ViewConfig">		          
+		          <field name="name"><string>Timeline-View-document</string></field>
+		          <field name="permissions"><string>*:/platform/users</string></field>
+		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
+		          <field name="tabList">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                      <field name="tabName"><string>Actions</string></field>
+                      <field name="buttons">
+                      	<string>upload; addFolder; editDocument; taggingDocument; vote; Comment; viewMetadatas; 
+                      	</string>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+		        </object>
+		      </object-param>  
+	      </init-params>	
+      </component-plugin> 
+  </external-component-plugins>
+  
+</configuration>

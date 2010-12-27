@@ -1,0 +1,114 @@
+Global stylesheet is the shared stylesheet which is applied to your entire site or a set of pages, depending on your configuration. When you want to make changes for your site, you only need to create a new global stylesheet, or edit the existing global stylesheet.
+
+Global stylesheets of eXo Platform are put into the CSS folder to manage the stylesheet of your desired site. This section aims at showing you how to create and apply your own global stylesheet by *Content Explorer* and by configuration. 
+
+h2. Create and apply the global stylesheet by Content Explorer
+
+Do as follows:
+
+*Step 1:* Select *My Spaces → Content Explorer → Sites Management*.
+
+*Step 2:* Select one site node in the *Sites Management* pane, for example *acme*, and then select the CSS folder.
+
+!CreateNewGlobalStylesheet.png!
+
+*Illustration 1: Sites Management
+
+*Step 3:* Click *Add Document* to open the form to create the new global stylesheet.
+
+!CreateGlobalStylesheetForm.png!
+
+*Illustration 2: Form to create the new global stylesheet*
+
+*Step 4:* Enter the name of global stylesheet into the *Name* field, for example *GlobalStylesheet_Organge*.
+
+*Step 5:* Set the value as "True" to activate your global stylesheet for your site in the *Active* field. By default, "True" will be set when you create a new global stylesheet. If you select "False", your newly created global style will be disabled.
+
+*Step 6:* Input one positive integer into the *Priority* field, for example "10". 
+
+{note}
+The successful application of your newly created global stylesheet depends on values in both *Active* and *Priority* fields. If "True" is set in many global stylesheets, the system will automatically render all global stylesheets in the CSS folder in the descending order and get the stylesheet with the highest priority. Thus, after selecting "True", you need to pay attention to the priority level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the CSS folder. 
+
+The default global stylesheet will be automatically created in the CSS folder when you create a new site. However, this global stylesheet can be overwritten by either setting "False" for its *Active* field or setting the higher priority for other global stylesheet than that of the default global stylesheet.
+{note}
+
+*Step 7:* Define your styles in the *CSS data* field. Here, you can directly enter your CSS rules, or copy and paste them from your favorite text editor.
+
+For example, you can define your styles with the following information:
+
+!cssdata.png!
+
+*Step 8:* Click the *Save as Draft* button to save your newly created global stylesheet. You will see your global stylesheet in the *Sites Management* pane.
+
+!GlobalStylesheet_org.png! 
+
+
+To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
+
+
+h2. Create and apply the global stylesheet by configuration 
+
+After being created as mentioned above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
+
+*Step 1:* Open the CSS folder.
+
+*Step 2:* Select *System* and click *Export Node* on the action bar.
+
+!ExportImportGlobalStylesheet.png!
+
+*Step 3:* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all stylesheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
+
+*Step 4:* Add the code below to the file where all global stylesheets will be initialized for your site, such as *acme-deployment-configuration.xml* in the folder "/acme-website/WEB-INF/conf/acme-portal/wcm/deployment/".
+
+{code:xml}
+   <object-param>
+          <name>ACME Stylesheet Green data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="repository">
+                  <string>repository</string>
+                </field>
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/css</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetOrange.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>              
+          </object>
+        </object-param>
+{code}
+
+*Step 5:* Save the file where you have added the code in *Step 4* and clean data created in the previous start-up.
+
+*Step 6:* Start eXo Platform. After accessing the Content Explorer page, you will find your global stylesheet in the CSS folder of the relevant site.
+
+
+h2. Check display of global stylesheets
+
+You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange*, do as follows:
+
+*Step 1:* Activate the *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange* by turns.
+
+*Step 2:* Click *My Spaces* on the administration bar and select the relevant site, for example "acme". 
+
+If you activate *GlobalStylesheet_Blue*, your site will be displayed as below:
+
+!DisplayGlobalStyleBlue.png!
+
+*Illustration 3: The "acme" site when applying GlobalStylesheet_Blue*
+
+If you activate "GlobalStylesheet_Orange", your site will be displayed in such a different way: 
+
+!DisplayGlobalStyleOrange.png!
+
+*Illustration 4: The "acme" site when applying GlobalStylesheet_Orange"

@@ -47,7 +47,7 @@
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>root</value>     
+        <value>${exo.super.user}</value>     
       </value-param>
       
       <value-param>
@@ -146,19 +146,6 @@
 	          </object>
 	        </object-param>
 	        <object-param>
-	          <name>portal.configuration</name>
-	          <description>description</description>
-	          <object type="org.exoplatform.portal.config.NewPortalConfig">
-	            <field  name="predefinedOwner">
-	              <collection type="java.util.HashSet">                
-	                <value><string>default</string></value>	               
-	              </collection>
-	            </field>
-	            <field name="ownerType"><string>portal</string></field>
-	            <field name="templateLocation"><string>war:/conf/platform/portal</string></field>
-	          </object>
-	        </object-param> 
-	        <object-param>
 	          <name>group.configuration</name>
 	          <description>description</description>
 	          <object type="org.exoplatform.portal.config.NewPortalConfig">
@@ -167,7 +154,6 @@
 	              	<value><string>/platform/administrators</string></value>
 	              	<value><string>/platform/users</string></value>
 	              	<value><string>/platform/guests</string></value>
-	              	<value><string>/organization/management/executive-board</string></value>	              
 	              </collection>
 	            </field>
 	            <field  name="ownerType"><string>group</string></field>
@@ -276,6 +262,29 @@
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.cache.CacheService</target-component>
+    <component-plugin>
+      <name>addExoCacheConfig</name>
+      <set-method>addExoCacheConfig</set-method>
+      <type>org.exoplatform.services.cache.ExoCacheConfigPlugin</type>
+      <description>add Exo Cache Config</description>
+      <init-params>
+        <object-param>
+          <name>cache.config.MOPSessionManager</name>
+          <description>The JBoss Cache configuration for the MOP session Manager</description>
+          <object type="org.exoplatform.services.cache.ExoCacheConfig">
+            <field name="name">
+              <string>MOPSessionManager</string>
+            </field>
+            <field name="maxSize">
+              <int>5000</int>
+            </field>
+            <field name="liveTime">
+              <long>60000</long>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
     <component-plugin profiles="cluster">
       <name>addExoCacheConfig</name>
       <set-method>addExoCacheConfig</set-method>
@@ -290,7 +299,7 @@
               <string>MOPSessionManager</string>
             </field>
             <field name="expirationTimeout">
-              <long>600</long>
+              <long>60000</long>
             </field>
             <field name="distributed">
               <boolean>true</boolean>

@@ -17,13 +17,21 @@ System requirements
     * Browser: Firefox 3+ or Internet Explorer 7+
     * The eXo server will run on port 8080, make sure this port is not currently in use
 
+----------------------------
+How to start the Chat server
+----------------------------
+
+    * The Chat server is located in bin/chat-server
+    * On Windows: Open a DOS prompt command, go to bin/chat-server/bin and type the command: "run.bat"
+    * On Linux/Mac OS X: Open a terminal, go to bin/chat-server/bin and type the command: "run.sh"
+
 -------------------------
 How to start the Platform
 -------------------------
 
     * PLF_HOME is the location of the unzipped eXo Platform 3.0 server. It refers to a Tomcat 6 bundle located at : bin/tomcat6-bundle
-    * On Windows: Open a DOS prompt command, go to PLF_HOME/bin directory and type the command: "gatein.bat run"
-    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME/bin directory and type the command :"./gatein.sh run"
+    * On Windows: Open a DOS prompt command, go to PLF_HOME directory and type the command: "start_eXo.bat run"
+    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME directory and type the command :"./start_eXo.sh run"
 
 -----------------------------------
 How to access the Platform homepage
@@ -51,8 +59,8 @@ Going Further
 -------------
 Your next stop will depend on who you are:
 
-    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Documentation : docs/dev/index.html
-    * Administrators: learn how to install eXo Platform on a server in the Administrator Guide : docs/admin/administrators-guide/index.html
+    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [docs/developer/html/index.html] and the Reference Documentation [docs/refguide/html/index.html]    
+   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide : docs/admin/html/index.html
     * End Users: learn more about using the features in the User Manuals docs/user/index.html
 
 ------------------

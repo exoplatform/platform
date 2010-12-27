@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<component>
+		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
+		<type>org.exoplatform.platform.migration.plf.component.ContainerParamExtractorImpl</type>
+	</component>
+	<component>
+		<key>org.exoplatform.platform.migration.common.component.logger</key>
+		<type>org.exoplatform.platform.migration.plf.component.LoggerImpl</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.plf.rest.UserProfileImporterREST</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.plf.rest.UserPortalConfigurationConvertorREST</type>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.migration.plf.rest.MarshallConfigurationREST</type>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</target-component>
+		<component-plugin>
+			<name>application.registry.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.plf.handler.impl.ApplicationRegistryHandler</type>
+		</component-plugin>
+<!--		<component-plugin>-->
+<!--			<name>portal.configuration.handler</name>-->
+<!--			<set-method>addHandler</set-method>-->
+<!--			<type>org.exoplatform.platform.migration.plf.handler.impl.UserPortalConfigHandler</type>-->
+<!--		</component-plugin>-->
+	</external-component-plugins>
+</configuration>

@@ -1,0 +1,446 @@
+h2. Goal
+This tutorial will help you to create a new layout and skin, and give some best practices you should know and respect when creating a new layout and skin for your portal and page.
+
+
+h2. Assumptions
+- You have an extension named "MyPortal", and you need to create a site called "MySite" inside this portal.
+- The _{{{<myportal_path>}}}_ below is replaced by the based path of your "MyPortal" extension.
+- If you see any folder/file which does not exist, you should create a new one.
+
+h2. Customize portal's layout
+{note:title=Configuration}
+
+This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
+{note}
+
+* For example, you will have a layout like this:
+[image:sample_layout.jpg]
+
+In which:
+* Branding: A branding application
+* Top navigation: A top navigation application
+A table column container with three nested containers:
+* Left Column and Right Column: contain one application for each.
+* Main content: contains the page body.
+
+And here is the "short version" of *{{portal.xml}}*.
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml_*
+
+{code:xml}
+<!-- ... -->
+
+  <portlet-application>
+    <!-- Branding application. You can use WCM web content *exo:webContent* for the content and SCV portlet to display -->
+  </portlet-application>
+
+  <portlet-application>
+    <!-- navigation application. You can use WCM web content *exo:webContent* for the content and SCV portlet to display -->
+  </portlet-application>
+
+  <container id="MySite" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+    <container id="LeftColumn" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <!-- One or more application(s) here -->
+      <portlet-application>
+      </portlet-application>
+    </container>
+
+    <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <page-body>
+      </page-body>
+    </container>
+
+    <container id="RightColumn" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <!-- One or more application(s) here -->
+      <portlet-application>
+      </portlet-application>
+    </container>
+  </container>
+
+  <portlet-application>
+    <!-- Footer application. You can use WCM web content *exo:webContent* for the content and SCV portlet to display -->
+  </portlet-application>
+
+<!-- ... -->
+{code}
+
+As you see in the *portal.xml* file above, every *container* tag has an *id* attribute, for example "<container id = '*RightColumn*'>". When you create a CSS file, the property applied for this container should have the following name manner:
+
+{code}
+${container_id}TDContainer
+{code}
+
+and the details of this container: 
+
+{code}
+RightColumnTDContainer
+{code}
+
+The reason is, when you have a look in the file *_system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl_* shown above, you will see this code fragment:
+{code}
+ <table class="UITableColumnContainer" style="table-layout: fixed; margin: 0px auto; $style">
+	<tr class="TRContainer">
+		<% for(uiChild in uicomponent.getChildren()) {%>
+			<td class="${uiChild.id}TDContainer TDContainer"><% uicomponent.renderUIComponent(uiChild) %></td>
+		<% } %>
+	</tr>
+</table>
+{code}
+
+So, in the *table* element (which represents the outer container), there are many *td* elements, each of which has the *class* attribute that equals to the *id* of the corresponding child component plus the "TDContainer" string literal.
+
+To learn more, see [Customize portal and page's style|#customize-portal-and-page-style].
+
+h2. Customize page's layouts
+
+{note:title=Configuration}
+This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/pages.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
+{note}
+
+* Like *{{portal.xml}}*, you can define the layout for each page in your site as shown in the following example:
+[image:sample_page.jpg]
+
+{code:xml}
+<!-- ... -->
+
+  <portlet-application>
+    <!-- A custom document for content and SCV portlet to display -->
+  </portlet-application>
+
+  <portlet-application>
+    <!-- A CLV portlet with a custom template. -->
+  </portlet-application>
+
+  <portlet-application>
+    <!-- A CLV portlet with another custom template. -->
+  </portlet-application>
+
+<!-- ... -->
+{code}
+
+h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
+If you want your skin to be applied for every page, do as follows:
+
+*Step 1:* Go to *Sites Explorer* portlet > *Shared* drive > *CSS* folder.
+*Step 2:* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
+
+If you want your skin to be applied for your *MySite* page only, do as follows:
+
+*Step 1:* Open the browser > *Sites Explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*Step 2:* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
+
+{warning:title=Warning}
+This document should contain *ONLY* the stylesheet for the page and portal level.
+{warning}
+
+The following is one sample stylesheet:
+{code}
+/* ... */
+
+.LeftColumnTDContainer {
+  /* ... */
+}
+.RightColumnTDContainer {
+  /* ... */
+}
+
+/* ... */
+{code}
+
+{note}
+The order of applying CSS files (of site and web content) depends on their own *priority* property value. It means that we can apply the site CSS first and then web content CSS, or vice versa.
+{note}
+
+h2. Customize CLV portlet's template
+
+{note:title=Configuration}
+This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl]
+{note}
+
+* Apply your HTML/Groovy template code for this template. For example:
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl_*
+
+{code}
+<div id="$uicomponent.id" class="ACustomizedCLVTemplate">
+  <div class="ListContents">
+    <!-- something here -->
+  </div>
+</div>
+{code}
+
+* Now, we need to import this template to the database.
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml_*
+
+
+{code:xml}
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.views.ApplicationTemplateManagerService</target-component>
+    <component-plugin>
+      <name>ACustomizedCLVTemplate</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.cms.views.PortletTemplatePlugin</type>
+      <description>This is a sample customized CLV template</description>
+      <init-params>
+        <value-param>
+          <name>portletName</name>
+          <value>Content List Viewer</value>
+        </value-param>
+        <value-param>
+          <name>portlet.template.path</name>
+          <value>war:/conf/myportal/customized/template</value>
+        </value-param>
+        <object-param>
+          <name>default.folder.list.viewer</name>
+          <description>Default folder list viewer groovy template</description>
+          <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="templateName">
+              <string>ACustomizedCLVTemplate.gtmpl</string>
+            </field>
+            <field name="category">
+              <string>list</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+{code}
+
+
+h2. Customize CLV template's style
+
+To customize CLV template's style, do as follows:
+
+*Step 1:* Go to *Sites explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*Step 2:* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
+
+{warning:title=Warning}
+This document should contain *ONLY* the stylesheet for *THIS* template. If you have another template, you should create a new CSS document.
+
+{warning}
+
+* The following is one sample stylesheet:
+{code}
+/* ... */
+
+.ACustomizedCLVTemplate {
+  /* ... */
+}
+.ListContents {
+  /* ... */
+}
+
+/* ... */
+{code}
+
+*Step 3:* Export the document and now you have an XML file.
+
+Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into database.
+
+h2. Customize Document's skin
+
+{note:title=Configuration}
+This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml].
+{note}
+
+ - First, you need to create a new document definition.
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml_*
+	
+{code:xml}
+	node type name :exo:customizedDocument
+	properties: exo:name(type : String), exo:title(type : String), exo:content(type : String)
+{code}
+
+You also need to configure it to make sure it is imported to the database.
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml_*
+
+{code:xml} 
+<external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+      <name>ACustomizedDocument</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+      <priority>200</priority>
+      <init-params>
+        <values-param>
+          <name>autoCreatedInNewRepository</name>
+          <description>ACustomizedDocument document definition</description>
+          <value>war:/conf/myportal/customized/document/ACustomizedDocument.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+{code}
+
+- Now it is time to create the templates for this document, including:
+
+* Dialog: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl])
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl_*
+
+{code}
+<div class="UIForm ACustomizedDocument">
+  <% uiform.begin() %>
+    <!-- Document dialog content is here -->
+  <% uiform.end() %>
+{code}
+
+* View: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl])
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl_*
+
+{code}
+ <style>
+   <% _ctx.include(uicomponent.getTemplateSkin("exo:customizedDocument", "Stylesheet")); %>
+</style>
+<!-- Document view template content is here -->
+{code}
+
+* Stylesheet: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css])
+
+{warning}
+This document should contain *ONLY* the stylesheet for *THIS* template.
+{warning}
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css_*
+
+
+{code}
+/* ... */
+
+.ACustomizedDocument {
+  /* ... */
+}
+
+/* ... */
+{code}
+
+* You also need to import them to database.
+
+*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml_*
+ 
+
+{code:xml}
+<external-component-plugins>
+    <target-component>org.exoplatform.services.cms.templates.TemplateService</target-component>
+    <component-plugin>
+      <name>addTemplates</name>
+      <set-method>addTemplates</set-method>
+      <type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
+      <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>storedLocation</name>
+          <value>war:/conf/myportal/customized/document</value>
+        </value-param>
+        <value-param>
+          <name>repository</name>
+          <value>repository</value>
+        </value-param>
+        <object-param>
+          <name>template.configuration</name>
+          <description>configuration for the localtion of nodetypes templates to inject in jcr</description>
+          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">
+            <field name="nodeTypes">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
+                    <field name="nodetypeName">
+                      <string>exo:customizedDocument</string>
+                    </field>
+                    <field name="documentTemplate">
+                      <boolean>true</boolean>
+                    </field>
+                    <field name="label">
+                      <string>Customized Document</string>
+                    </field>
+                    <field name="referencedView">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                            <field name="templateFile">
+                              <string>view.gtmpl</string>
+                            </field>
+                            <field name="roles">
+                              <string>*</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                    <field name="referencedDialog">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                            <field name="templateFile">
+                              <string>dialog.gtmpl</string>
+                            </field>
+                            <field name="roles">
+                              <string>webdesigner:/platform/web-contributors</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+		    <field name="referencedSkin">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                            <field name="templateFile">
+                              <string>stylesheet.css</string>
+                            </field>
+                            <field name="roles">
+                              <string>*</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+{code}
+- Finally, you should create some initial contents and export them to XML files.
+To import this XML into database, you can set up for the deployment like this:
+{code:xml}
+<external-component-plugins>
+ <target-component>org.exoplatform.services.wcm.deployment.WCMContentInitializerService</target-component>    
+ <component-plugin> 
+  <name>Content Initializer Service</name>
+  <set-method>addPlugin</set-method>
+  <type>org.exoplatform.services.wcm.deployment.plugins.XMLDeploymentPlugin</type>
+  <description>XML Deployment Plugin</description>
+  <init-params>
+   <object-param>        
+    <name>ACME Logo data</name>
+    <description>Deployment Descriptor</description>
+    <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+     <field name="target">
+      <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+       <field name="repository"><string>repository</string></field>
+       <field name="workspace"><string>collaboration</string></field>
+       <field name="nodePath"><string>/sites content/live/acme/web contents/site artifacts</string></field>
+      </object>
+     </field>
+     <field  name="sourcePath"><string>war:/conf/wcm/artifacts/site-resources/acme/Logo.xml</string></field>
+    </object>
+   </object-param>
+  </init-params>  
+ </component-plugin> 
+</external-component-plugins>
+{code}.
+

@@ -1,0 +1,60 @@
+
+<%
+    String[] fieldJira = ["jcrPath=/node/exo:jiraNotification", "jira notification ", "visible=false"] ;
+    uicomponent.addHiddenField("jira", fieldJira) ;
+%>
+<div class="UIForm LayoutContent">
+	<% uiform.begin() %>
+  <div class="HorizontalLayout">
+  	<table class="UIFormGrid">	  
+	    <tr>		          					
+	      <td class="FieldLabel">name</td>
+	      <td class="FieldComponent">
+		      <%
+		        String[] fieldNom = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null", "validate=empty,name"] ;
+		        uicomponent.addTextField("nom", fieldNom) ;  
+		      %>
+		    </td>
+	    </tr>
+		<tr>		          					
+	      <td class="FieldLabel">title</td>
+	      <td class="FieldComponent">
+			    <div class="UIFCKEditor">
+			      <%
+			        String[] fieldQuestion = ["jcrPath=/node/exo:title", "options=default", ""] ;
+			        uicomponent.addWYSIWYGField("question", fieldQuestion) ;
+			      %>
+			    </div>
+		    </td>
+	    </tr>
+
+	
+	  </table>
+		<%/* start render action*/%>
+		<div class="UIAction"> 
+	    <table class="ActionContainer">
+	    	<tr>
+	    		<td>
+			      <% for(action in uicomponent.getActions()) { 
+			      		String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+						String link = uicomponent.event(action) ;
+			      %>
+						<div onclick="$link" class="ActionButton LightBlueStyle">
+							<div class="ButtonLeft">
+								<div class="ButtonRight">
+									<div class="ButtonMiddle">
+										<a href="javascript:void(0);">$actionLabel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+			      <%}%>
+	      	</td>
+	      </tr>
+	    </table>
+	  </div>
+	  <%/* end render action*/%>
+	  
+  </div>
+  <% uiform.end() %>
+</div>

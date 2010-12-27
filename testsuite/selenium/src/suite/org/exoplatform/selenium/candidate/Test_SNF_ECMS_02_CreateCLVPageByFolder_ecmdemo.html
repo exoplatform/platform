@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/website</td>
+	<td>/portal/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -92,11 +92,6 @@
 	<td>ASnfEcms02</td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- Step 2</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
 	<td></td>
@@ -112,11 +107,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- Step 3</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
 	<td></td>
@@ -124,11 +114,6 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Content tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,17 +223,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Select Sites website</td>
+	<td>-- Select Sites acme</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>Generaldrives_ManagedSites__website</td>
+	<td>Generaldrives_ManagedSites__acme</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Generaldrives_ManagedSites__website</td>
+	<td>Generaldrives_ManagedSites__acme</td>
 	<td></td>
 </tr>
 <tr>
@@ -258,12 +243,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/website/documents']</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/website/documents']</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
 </tr>
 <tr>
@@ -318,7 +303,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Go to &quot;ASnfEcms02&quot; pages : Save</td>
+	<td>Go to &quot;ASnfEcms02&quot; pages : Save </td>
 	<td></td>
 </tr>
 <tr>
@@ -457,18 +442,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo </td>
-	<td>-- click Edit Navigation of WEBSITE</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>link=Edit Navigation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>link=Edit Navigation</td>
 	<td></td>
 </tr>
 <tr>
@@ -489,11 +469,6 @@
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure you want to delete this node?</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>

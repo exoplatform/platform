@@ -30,7 +30,6 @@
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
 	padding: 0 24px 0 35px; /* orientation=lt */
 	padding: 0 35px 0 24px; /* orientation=rt */
-	font-family: "Lucida Sans";
 	font-size: 12px;
 	color: #8f8f8f;
 	display: block;
@@ -98,7 +97,7 @@
 	background: url('background/ToolbarContainer-rt.gif') no-repeat -5px -664px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .DefaultPageIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .DefaultPageIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -634px; /* orientation=lt */
 	background: url('background/ToolbarContainer-rt.gif') no-repeat 100% -634px; /* orientation=rt */
 }
@@ -130,86 +129,102 @@
 	background: none;
 	margin-left: 0;
 	zoom: 1;
+	_display:inline-block;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
 	color: #8F8F8F;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.ArrowIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a.ArrowIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 	padding: 0 22px 0 12px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .SocialPeopleToolBarIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .SocialPeopleToolBarIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.GroupIcon {
-	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
-	padding: 0 22px 0 12px;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.EditorIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a.GroupIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 	padding: 0 22px 0 12px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .EditPageIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a.EditorIcon {
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
+	padding: 0 22px 0 12px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .EditPageIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .EditSiteIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .EditSiteIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */	
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ChangeLanguageIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .SiteIcon {
+	background: url('background/ToolbarContainer.png') no-repeat scroll 5px -184px transparent; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat scroll 100% -184px transparent; /* orientation=rt */	
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .AddPageIcon {
+	background:	url("/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/background/ToolbarContainer.gif") no-repeat scroll 2px -320px transparent; /* orientation=lt */
+	background:	url("/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/background/ToolbarContainer.gif") no-repeat scroll 100% -320px transparent; /* orientation=rt */	
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .ChangeLanguageIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ChangeSkinIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .ChangeSkinIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .AccountSettingIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .AccountSettingIcon{
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .SignOutIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .SignOutIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ToolBarActivityIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem  .ToolBarActivityIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -453px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ToolBarProfileIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem  .ToolBarNetworkIcon {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -481px;
+}
+
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem  .ToolBarProfileIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -421px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .FindPeopleIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .FindPeopleIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -513px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ChangeLanguageIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem  .ChangeLanguageIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -573px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .LogoutIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem  .LogoutIcon {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -603px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ManageSite {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .ManageSite {
 	background: url('background/ToolbarContainer.png') no-repeat 5px -697px;
 }
 
@@ -240,4 +255,9 @@
 	background: url('background/GateinLogo.jpg') no-repeat 23px 5px; /* orientation=rt */
 	width: 64px;
 	height: 31px;
+}
+
+.UIToolbarContainer .SpacesToolbarPortletTDContainer {
+	position:relative;
+	z-index:3;
 }
