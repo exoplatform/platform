@@ -1,0 +1,132 @@
+/***************************************  UIGadget   **************************************/
+
+.UIWindow .UIGadgetPortlet {
+	padding: 10px;
+}
+
+.UIWindow .UIGadgetPortlet .gadgets-gadget-content {
+	padding: 0;
+}
+
+.UIGadget {
+	margin: 3px 0px;
+}
+
+.UIGadget .GadgetMenuBar {
+	height: 20px;
+}
+
+.UIGadget .GadgetControl {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 100px; height: 20px;
+	padding-right: 6px; /* orientation=lt */
+	padding-left: 6px; /* orientation=rt */
+}
+
+.UIGadget .GadgetControl .LeftControlBar {
+	background: url('background/Gadget.png') no-repeat left top; /* orientation=lt */
+	background: url('background/Gadget-rt.png') no-repeat right top; /* orientation=rt */
+	padding-left: 23px; /* orientation=lt */
+	padding-right: 23px; /* orientation=rt */
+}
+
+.UIGadget .GadgetControl .RightControlBar{
+	background: url('background/Gadget.png') no-repeat right top;	/* orientation=lt */
+	background: url('background/Gadget-rt.png') no-repeat left top; /* orientation=rt */
+	padding-right: 4px; /* orientation=lt */
+	padding-left: 4px; /* orientation=rt */
+}
+
+.UIGadget .GadgetControl .CenterControlBar {
+	height: 19px;
+	background: url('background/Gadget.png') repeat-x center -19px;	
+}
+
+.UIGadget .GadgetControl .GadgetDragHandleArea {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 13px; height: 13px;
+	cursor: move;
+	margin: 3px 3px 0px 3px;
+	background: url('background/Gadget.png') left -78px;
+}
+
+.UIGadget .GadgetControl .IconControl {
+	background-image: url('background/IconGadget.gif');
+	background-position: no-repeat;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	height: 14px;
+	width: 14px;
+	margin: 3px;
+	cursor: pointer;
+}
+
+.UIGadget .GadgetControl .CloseGadget {
+	background-position: top right;
+}
+
+.UIGadget .GadgetControl .MinimizeGadget {
+	background-position: 31px top;
+}
+
+.UIGadget .GadgetControl .RestoreGadget {
+	background-position: 48px top;
+}
+
+.UIGadget .GadgetControl .EditGadget {
+	background-position: left top;
+}
+
+.UIGadget .GadgetControl .MaximizeGadget {
+	background-position: 48px top;
+}
+
+.UIGadget .TLGadget {
+	background: url('background/Gadget.png') no-repeat left -38px;
+	padding-left: 8px;
+}
+
+.UIGadget .TRGadget {
+	background: url('background/Gadget.png') no-repeat right -38px;
+	padding-right: 8px;
+}
+
+.UIGadget .TCGadget {
+	background: url('background/Gadget.png') repeat-x center -43px;
+	height: 5px;
+}
+
+.UIGadget .MLGadget {
+	background: url('background/MiddleGadget.png') repeat-y left;
+	padding-left: 6px;
+}
+
+.UIGadget .MRGadget {
+	background: url('background/MiddleGadget.png') repeat-y right;
+	padding-right: 6px;
+}
+
+.UIGadget .MCGadget {
+	background: white;
+}
+
+.UIGadget .BLGadget {
+	background: url('background/Gadget.png') no-repeat left -58px;
+	padding-left: 9px;
+}
+
+.UIGadget .BRGadget {
+	background: url('background/Gadget.png') no-repeat right -68px;
+	padding-right: 9px;
+}
+
+.UIGadget .BCGadget {
+	background: url('background/Gadget.png') repeat-x center -48px;
+	height: 10px;
+}
+
+.UIControlWorkspace .UIGadget iframe {
+	width: 210px;
+}

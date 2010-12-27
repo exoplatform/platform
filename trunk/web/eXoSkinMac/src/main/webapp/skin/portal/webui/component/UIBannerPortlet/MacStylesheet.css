@@ -1,0 +1,81 @@
+#banner {
+	border-top: 1px solid white;
+}	
+
+.UIBannerPortlet {
+	overflow: auto;
+}
+
+.UIBannerPortlet .LeftBanner {
+	padding: 0px 0px 0px 157px; /* orientation=lt */
+	padding: 0px 157px 0px 0px; /* orientation=rt */
+	background: url('MacSkin/background/LogoGatein.gif') no-repeat left top; /* orientation=lt */
+	background: url('MacSkin/background/LogoGatein.gif') no-repeat right top; /* orientation=rt */
+}
+
+.UIBannerPortlet .MiddleBanner {
+	height: 60px;
+}
+
+.UIBannerPortlet .RightBanner {
+}
+
+.UIBannerPortlet .BannerTitle {
+	height: 15px;
+}
+
+.UIBannerPortlet .LeftLoginContainer {
+}
+
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
+	padding: 2px 0px 0px 0px;
+	line-height: 20px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
+	color: #131313;
+	outline: none;
+	float: left;
+}
+
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a:hover {
+	color: #058ee6;
+}
+
+.UIBannerPortlet .RightLoginContainer .Name {
+	color: #131313;
+	float: left;
+	margin-right: 10px;
+}
+
+.UIBannerPortlet .RightLoginContainer .Logout {
+	float: left;
+	height: 26px;
+	background: url('MacSkin/background/IconLoginContainer.png') no-repeat left top;
+	margin-right : 15px;
+	cursor: pointer;
+	padding-left: 32px;
+	display: block;
+}
+
+.UIBannerPortlet .RightLoginContainer .Login {
+	float: left;
+	height: 26px;
+	background: url('MacSkin/background/IconLoginContainer.png') no-repeat left -45px;
+	margin-right : 15px;
+	cursor: pointer;
+	padding-left: 32px;
+	display: block;
+}
+
+.UIBannerPortlet .RightLoginContainer .Language {
+	height: 26px;
+	background: url('MacSkin/background/IconLoginContainer.png') no-repeat left -90px;
+	padding: 0px 7px 0px 32px;
+	cursor: pointer;
+	float: left;
+	display: block;
+	margin-left: 15px;
+}

@@ -1,0 +1,27 @@
+.UITabPane {
+}
+
+.UITabPane .TabPaneContent {
+	padding: 8px;
+}
+
+.UITabPane .UITabContentContainer {
+}
+
+.UITabPane .UITabContent {
+  background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
+  border: solid 1px white;
+  border-top: none;
+  padding: 8px ;
+}
+
+.UITabPane .UIForm .HorizontalLayout {
+	border: none;
+	background: none;
+	padding: 0px;
+}
+
+.UITabPane .UIFormWithTitle .HorizontalLayout {
+	border: 1px solid #b7b7b7;
+	border-top: none;
+}

@@ -1,0 +1,137 @@
+.UIRightClickPopupMenu {
+  display: none;
+  position: absolute;
+}
+
+.UIRightClickPopupMenu .UIRightPopupMenuContainer {
+  padding: 5px 0px;
+  background: #ffffff;
+  border: 1px solid white;
+}
+
+.UIRightClickPopupMenu .RightClickCustomItem {
+	display: none;
+}
+	
+.UIRightClickPopupMenu .MenuItem .ItemIcon {
+  padding: 4px 0px 4px 30px; /* orientation=lt */
+	padding: 4px 30px 4px 0px; /* orientation=rt */
+  width: auto;
+  cursor: pointer;
+  line-height: 16px;
+  white-space: nowrap;
+  display: block;
+  background-position: 6px center; /* orientation=lt */
+  background-position: 95% center; /* orientation=rt */
+}
+
+.UIRightClickPopupMenu a:hover {
+  color: orange;
+  background-color: #dee4f2;
+}
+
+.UIRightClickPopupMenu .Rename16x16Icon{
+   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Rename.gif') no-repeat left 4px; 	/* orientation=lt */
+	 background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Rename-rt.gif') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .AddNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus-rt.png') no-repeat right 4px; 	/* orientation=rt */
+	width: auto ;
+}
+
+.UIRightClickPopupMenu .EditPageNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPageNode.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPageNode-rt.png') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .EditSelectedNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditNode.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditNode-rt.png') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .CutNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/icon-cut.gif') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/icon-cut-rt.gif') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .CopyNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CopyIcon.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CopyIcon-rt.png') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .CloneNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CloneIcon.gif') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CloneIcon-rt.gif') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .PasteNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon-rt.png') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .DeleteNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left 4px; 	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin-rt.png') no-repeat right 4px; 	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .DeleteNavigation16x16Icon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left 4px;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin-rt.png') no-repeat right 4px;	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .PasteNavigation16x16Icon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat left 4px;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon-rt.gif') no-repeat right 4px;	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat left 4px;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil-rt.png') no-repeat right 4px;	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .SaveNavigation16x16Icon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat left 4px;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk-rt.gif') no-repeat right 4px;	/* orientation=rt */
+}
+
+.UIRightClickPopupMenu .TopLeftRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') no-repeat left top;
+	padding-left: 16px;
+}
+
+.UIRightClickPopupMenu .TopRightRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') no-repeat right -14px;
+	padding-right: 18px;
+}
+
+.UIRightClickPopupMenu .TopCenterRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') repeat-x left -28px;
+	height: 14px;
+}
+
+.UIRightClickPopupMenu .MiddleLeftRightClickPopupMenu {
+	background: url('background/MiddleRightClickPopupMenu.png') repeat-y left;
+	padding-left: 11px;
+}
+
+.UIRightClickPopupMenu .MiddleRightRightClickPopupMenu {
+	background: url('background/MiddleRightClickPopupMenu.png') repeat-y right;
+	padding-right: 13px;
+}
+
+.UIRightClickPopupMenu .BottomLeftRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') no-repeat left -42px;
+	padding-left: 17px;
+}
+
+.UIRightClickPopupMenu .BottomRightRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') no-repeat right -61px;
+	padding-right: 18px;
+}
+
+.UIRightClickPopupMenu .BottomCenterRightClickPopupMenu {
+	background: url('background/RightClickPopupMenu.png') repeat-x bottom;
+	height: 19px;
+}

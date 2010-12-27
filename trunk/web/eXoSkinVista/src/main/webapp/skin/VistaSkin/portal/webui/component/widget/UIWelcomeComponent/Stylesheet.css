@@ -1,0 +1,27 @@
+.UIWelcomeComponent {
+}
+
+.UIWelcomeComponent .DecoratorBox {
+  margin: 7px 0px 0px 0px;
+}
+
+.UIWelcomeComponent .ItemSelectorContainer .UIDropDownControl {
+	_position: static; /* orientation=rt */
+}
+
+.UIWelcomeComponent .WelcomeMessage {
+  float: left ;
+}
+
+.UIWelcomeComponent .OrangeMessage {
+  color: #fa8006 ;
+  font-weight: bold ;
+}
+
+.UIWelcomeComponent .LoginDetailBox {
+  width: 185px ;
+  background-color: #ebedf7 ; 
+  border: solid 1px #828dc3 ;
+  padding: 10px ; 
+  margin: 5px auto 7px auto ;
+}

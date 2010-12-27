@@ -1,0 +1,336 @@
+.UIPortlet {
+	
+}
+
+.UIPortlet .LAYOUT-PORTLET {
+}
+
+.UIPortlet .CONTROL-PORTLET {
+}
+
+.UIPortlet .CONTROL-PORTLET .DragControlArea {
+  cursor: move ;
+  height: 20px ; width: 30px;
+  float: left ; 	/* orientation=lt */
+	float: right ; 	/* orientation=rt */
+  margin-top: 2px;
+  background: url('background/DragBG30x20.gif');
+}
+
+.UIPortlet .CONTROL-PORTLET .UIInfoBar {
+}
+
+.UIPortlet .MaximizedPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px;  width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Maximize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .MinimizedPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px;  width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Minimize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .ConfigPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px; width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Config.gif') no-repeat;
+  margin: 3px 10px 0px 5px;
+}
+
+.UIPortlet .EditPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px;  width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
+  margin: 4px 10px 0px 5px;
+  cursor: pointer;
+}
+
+.UIPortlet .ViewPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px;  width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletView.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .HelpPortletIcon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  height: 16px;  width: 16px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletHelp.gif') no-repeat;
+  margin: 4px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .EditPortletPropertiesIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat;	/* orientation=rt */
+	height: 18px;	width:31px;
+	margin: 1px 0px 0px 5px; /* orientation=lt */
+	margin: 1px 5px 0px 0px; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIPortlet .NormalPortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 16px ;  width: 16px ;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Restore.gif') no-repeat ;
+	margin: 1px 10px 0px 0px ;
+	cursor: pointer ;
+}
+
+.UIPortlet .DeletePortletIcon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png');	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18-rt.png');	/* orientation=rt */
+	height: 18px;	
+	width: 29px;
+ 	margin: 1px 0px 0px 0px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIPortlet .PortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	line-height: 18px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	margin: 3px 5px 0px 5px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top;	/* orientation=rt */
+}
+
+.UIPortlet .OnShow {
+  display: block;
+}
+
+.UIPortlet .OnHide {
+  display: none;
+}
+
+/*##############################- PortletLayoutDecorator  -################################*/
+.PortletLayoutDecorator {
+}
+
+.PortletLayoutDecorator .TopLeft {
+  background: url('background/PortletLayoutDecorator.png') no-repeat left top;
+  padding-left: 10px ;
+}
+
+.PortletLayoutDecorator .TopMiddle {
+  background: url('background/PortletLayoutDecorator.png') repeat-x center -18px;
+}
+
+.PortletLayoutDecorator .TopRight {
+  background: url('background/PortletLayoutDecorator.png') no-repeat right -9px;
+  padding-right: 11px ;
+}
+
+.PortletLayoutDecorator .TopLeft .FixHeight {
+	height: 9px;
+}
+
+.PortletLayoutDecorator .MiddleLeft {
+  background: url('background/MiddlePortletLayout.png') repeat-y left;
+  padding-left: 10px;
+}
+
+.PortletLayoutDecorator .MiddleRight {
+  background: url('background/MiddlePortletLayout.png') repeat-y right;
+  padding-right: 11px ;
+}
+
+.PortletLayoutDecorator .CenterBackground {
+  background: white;
+  border-top: none;
+}
+
+.PortletLayoutDecorator .GardientBackground {
+  background: url('background/LayoutBG1x56.png') repeat-x bottom;
+  height: 64px;
+  border-top: none;
+  padding: 8px;
+}
+
+.PortletLayoutDecorator .LPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat left top;
+	padding-left: 12px;
+}
+
+.PortletLayoutDecorator .RPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat right -87px;
+	padding-right: 12px;
+}
+
+.PortletLayoutDecorator .CPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') repeat-x left -174px;
+}
+
+.PortletLayoutDecorator .FixHeight {
+	height: 62px;
+	padding: 10px 3px 15px 3px;
+}
+/*############### End Decorator ###################################################*/
+
+.VIEW-PORTAL .UIContainer .UITableColumnContainer {
+} 
+
+.LAYOUT-CONTAINER .UIContainer {
+	height: 100%;
+	/*
+	 fix bug dragdrop in IE6
+	*/
+}
+
+.UIContainer .LAYOUT-CONTAINER {
+  min-height: 60px;
+}
+
+*html .UIContainer .LAYOUT-CONTAINER {
+	height: 60px;
+}
+
+.UIContainer .UIInfoBar .BlueRoundedStyle {
+  padding: 0px; margin: 0px;
+  height: 22px;
+}
+
+.UIContainer .CONTROL-CONTAINER {
+}
+
+.UIContainer .CONTROL-CONTAINER .DragControlArea {
+  cursor: move;
+  height: 20px;
+	width: 30px;
+  float: left;  /* orientation=lt */
+	float: right;  /* orientation=rt */
+  background: url('background/DragBG30x20.gif');  /* orientation=lt */
+	background: url('background/DragBG30x20-rt.gif');  /* orientation=rt */
+  margin-top: 1px;
+}
+
+.UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
+  background:none ;
+  border: none ;
+  margin: auto;
+}
+
+.UIContainer .EditContainerIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat ; /* orientation=rt */
+	height: 18px;	width:31px;
+	margin: 1px 0px 0px 0px;
+	float: right;  /* orientation=lt */
+	float: left;  /* orientation=rt */
+}
+
+.UIContainer .DeleteContainerIcon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18-rt.png') ; /* orientation=rt */
+	height:18px;	width:29px;
+  margin: 1px 0px 0px 0px;
+	float: right;  /* orientation=lt */
+	float: left;  /* orientation=rt */
+}
+
+.UIContainer .ContainerIcon {
+	float: left;  /* orientation=lt */
+	float: right;  /* orientation=rt */
+	line-height: 16px; 
+	margin: 2px 6px;
+	padding-left: 20px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;  /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat;  /* orientation=rt */
+}
+
+.UIPortal .LAYOUT-PORTAL {
+  border: solid 1px #696969;
+  background: url('background/LayoutPortalBG.png') repeat;
+  padding: 6px;
+  _padding: 6px 0px; /* orientation=rt */
+  margin: 0px 8px;
+  _margin: 0px; /* orientation=rt */
+  _width: 99%; /* orientation=rt */
+}
+
+.UIPortal {
+  background: none;
+}
+
+.DragAndDropPreview {
+  width: auto ;
+  height: 80px ;
+  background: url('DefaultSkin/background/PortalBg.gif');
+  border: 1px solid #cdcdcd;
+  margin: 0px 12px 10px 12px;
+}
+
+.UIPage .CONTROL-PAGE .DragControlArea {
+  border: solid 1px blue ;
+  cursor: move;
+  width: 200px ; height: 18px ;
+  float: left ; 
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .LeftBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .RightBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .EditPageIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat left;
+	height: 16px;	width: 16px;
+  margin: 2px 10px 2px 0px;
+	float: right;
+}
+
+.UIPage .DeletePageIcon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') ;
+	height: 16px;	width: 16px;
+  margin: 2px 10px 2px 0px;
+	float: right;
+}
+
+.UIPageBody .UIPortlet .PortletInfoBar .PArrowDownIcon {
+  height: 20px; width: 33px;margin-top: 3px;
+  background: url('icons/16x16/PArrowDown.png') no-repeat ;
+}
+
+.UIPageBody .UIPortlet .PortletInfoBar .POverArrowDownIcon {
+  height: 20px; width: 33px;margin-top: 3px;
+  background: url('icons/16x16/PArrowDownOver.png') no-repeat ;
+}
+
+.EdittingContainer .NormalContainerBlock {
+  background: url('background/ContainerBG3x3.png') repeat;
+  border: dashed 1px #7c7c7c;
+  padding: 5px;
+  margin: 0px 3px 5px 3px;
+}
+
+.EdittingContainer .OverContainerBlock {
+  background: url('background/ContainerBG3x3.png') repeat;
+  border: solid 1px #a8a8a8;
+  padding: 5px;
+  margin: 0px 3px 5px 3px;
+}
+
+.UIContainer .VIEW-BLOCK .EmptyContainer {
+	height: 82px;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <portal>
+    <website>
+      <overview>Overview</overview>
+      <products>Products</products>
+      <events>Events</events>
+      <contactus>Contact Us</contactus>
+      <newsletters>Newsletters</newsletters>
+      <confirmation>Contact Form Confirmation</confirmation>
+      <detail>Details</detail>
+      <printviewer>Print page</printviewer>
+      <searchResult>Search</searchResult>
+      <newAccount>New Account</newAccount>
+      <groupnavigation>Group Navigation</groupnavigation>
+      <portalnavigation>Portal Navigation</portalnavigation>
+    </website>
+  </portal>
+</bundle>

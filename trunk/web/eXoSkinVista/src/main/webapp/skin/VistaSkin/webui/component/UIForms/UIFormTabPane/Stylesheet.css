@@ -1,0 +1,13 @@
+.UIFormTabPane  {
+  padding: 5px ;
+  border:1px white solid;
+}
+
+.UIFormTabPane .FormTabPaneContainer {
+  background: white ;
+  border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
+}
+
+.UIFormTabPane .UIBoxDecorator .DecoratorBox {
+	width: 400px ;  height: 220px ;	
+}

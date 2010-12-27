@@ -1,0 +1,433 @@
+.UIToolbar {
+}
+
+/*#################################- EditToolbar -##############################*/
+
+
+.UIToolbar .EditToolbar {
+  height: 31px;
+}
+
+.UIToolbar .EditToolbar .Icon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  margin: 4px 6px 0px 10px; /* orientation=lt */
+	margin: 4px 10px 0px 6px; /* orientation=rt */
+  cursor: pointer;
+}
+
+.UIToolbar .EditToolbar .LeftBar {
+  padding-left: 4px;
+  background: url('background/EditToolbar.png') no-repeat left top;
+}
+
+.UIToolbar .EditToolbar .RightBar {
+  padding-right: 5px;
+  background: url('background/EditToolbar.png') no-repeat right -31px;
+}
+
+.UIToolbar .EditToolbar .MiddleBar {
+  height: 31px;
+  background: url('background/EditToolbar.png') repeat-x left -62px;
+}
+
+/*##########################Edit Page Control Bar#############################*/
+
+
+.UIToolbar .EditToolbar .SavePortalIcon {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  width: 24px;  height: 24px;
+  margin: 4px 7px;
+  background: url('background/EditToolbar.png') no-repeat left -93px;
+}
+
+.UIToolbar .EditToolbar .PreviewIcon {
+  margin: 4px 11px 0px 18px;
+  width: 29px;  height: 24px;  
+  background: url('background/EditToolbar.png') no-repeat left -117px;
+}
+
+.UIToolbar .EditToolbar .EditPortalIcon { 
+  margin: 4px 11px 0px 11px;
+  width: 29px;  height: 24px;
+  background: url('background/EditToolbar.png') no-repeat left -141px;
+}
+
+
+.UIToolbar .EditToolbar .EditContainerIcon {
+  margin: 4px 11px 0px 11px;
+  width: 29px;  height: 24px;
+  background: url('background/EditToolbar.png') no-repeat left -165px;
+}
+
+.UIToolbar .EditToolbar .EditPortletIcon {
+  margin: 4px 11px 0px 11px;
+  width: 29px;  height: 24px;
+  background: url('background/EditToolbar.png') no-repeat left -189px;
+}
+
+.UIToolbar .EditToolbar .LayoutModeIcon {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin: 4px 11px 0px 11px;
+  width: 26px;  height: 24px;
+  cursor : pointer;
+  background: url('background/EditToolbar.png') no-repeat left -213px;
+}
+
+.UIToolbar .EditToolbar .SavePageIcon {
+  width: 26px; height: 24px;
+  background: url('background/EditToolbar.png') no-repeat left -237px ;
+}
+
+.UIToolbar .EditToolbar .PagePreviewIcon {
+  width: 22px; height: 25px;
+  background: url('background/EditToolbar.png') no-repeat left -261px;
+}
+
+.UIToolbar .EditToolbar .EditPageIcon {
+  width: 24px; height: 24px;
+  background: url('background/EditToolbar.png') no-repeat left -286px;
+}
+
+.UIToolbar .EditToolbar .PageLayoutModeIcon {
+  width: 22px; height: 22px;
+  background: url('background/EditToolbar.png') no-repeat left -310px;
+}
+
+
+/*#################################- ControlToolbar -##############################*/
+
+
+.UIToolbar .ControlToolbar {
+	margin: 10px 2px 0px 95px; 	/* orientation=lt */
+	margin: 10px 95px 0px 2px; 	/* orientation=rt */
+}
+
+.UIToolbar .ControlToolbar .LeftBar {
+  height: 28px;
+  padding-left: 11px;	/* orientation=lt */
+	padding-right: 11px;	/* orientation=rt */
+  background: url('background/ControlToolbar.png') no-repeat left top;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right top;	/* orientation=rt */
+}
+
+.UIToolbar .ControlToolbar .MiddleBar {
+  height: 28px;
+  line-height: 28px;
+  background: url('background/ControlToolbar.png') repeat-x left -28px ;
+}
+
+.UIToolbar .ControlToolbar .SeparateLine{
+  width: 2px; height: 19px;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin: 4px 2px 0px 3px;
+  background: url('background/SeparateLine2x19.png') repeat-y ;
+}
+
+.UIToolbar .ControlToolbar .Icon {
+  float: left;	/* orientation=lt */
+	float: right;	/* orientation=rt */
+  margin: 1px 4px 0px 4px; 
+}
+
+.UIToolbar .BackIcon {
+	width: 24px; height: 24px;
+	background: url('background/ControlToolbar.png') no-repeat left -56px;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right -56px;	/* orientation=rt */
+}
+
+.UIToolbar .RollbackIcon {
+	width: 24px; height: 24px;
+	background: url('background/ControlToolbar.png') no-repeat left -80px;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right -80px;	/* orientation=rt */
+}
+
+.UIToolbar .FinishIcon {
+	width: 24px; height: 24px;
+	background: url('background/ControlToolbar.png') no-repeat left -128px;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right -128px;	/* orientation=rt */
+}
+
+.UIToolbar .SaveIcon {
+	width: 24px; height: 24px;
+	background: url('background/ControlToolbar.png') no-repeat left -152px;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right -152px;	/* orientation=rt */
+}
+
+.UIToolbar .AbortIcon {
+	width: 24px; height: 24px;
+	background: url('background/ControlToolbar.png') no-repeat left -104px;	/* orientation=lt */
+	background: url('background/ControlToolbar-rt.png') no-repeat right -104px;	/* orientation=rt */
+}
+/*====================================================*/
+
+.UIToolbar .Button {
+  cursor: pointer ;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+}
+
+.UIToolbar .Button .ButtonLabel {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+}
+
+.UIToolbar .HorizontalSeparator {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 16px ;
+  width: 2px; height: 20px ;
+  background: url('background/GrayLine2x4.png') repeat-y ;
+
+}
+
+/*##############################- LargeToolbar style -#########################*/
+
+.UIToolbar .LargeToolbar {
+  height: 74px ; 
+  line-height: 74px ;
+  margin-bottom: 2px ;
+}
+
+.UIToolbar .LargeToolbar .LeftToolbar {
+  height: 74px ;
+  background: url('background/LargeToolbar.png') no-repeat left -74px; 			/* orientation=lt */
+  background: url('background/LargeToolbar-rt.png') no-repeat left top; 		/* orientation=rt */
+  padding-left: 10px;  		/* orientation=lt */
+  padding-left: 86px; 		/* orientation=rt */
+}
+
+.UIToolbar .LargeToolbar .RightToolbar {
+  height: 74px;
+  background: url('background/LargeToolbar.png') no-repeat right top; 				/* orientation=lt */
+  background: url('background/LargeToolbar-rt.png') no-repeat right -74px; 		/* orientation=rt */
+  padding-right: 86px; 		/* orientation=lt */
+  padding-right: 10px; 		/* orientation=rt */
+}
+
+.UIToolbar .LargeToolbar .MiddleToolbar {
+  height: 74px; 
+  line-height: 74px ; 
+  background: url('background/LargeToolbar.png') repeat-x left -148px;
+}
+
+.UIToolbar .LargeToolbar a {
+  color: black ; font-weight: bold ;
+  margin-left: 10px ;
+  padding: 0px 3px;
+  cursor: pointer ;
+}
+
+.UIToolbar .LargeToolbar a:hover{
+  color: orange;
+}
+
+/*********************fix bug in IE**********************/
+
+.UIToolbar .LargeToolbar .ButtonLabel {
+	height: 18px;
+	line-height: 18px;
+}
+
+.UIToolbar .LargeToolbar .SelectButtonLabel {
+	height: 18px;
+	line-height: 18px;
+	color: orange; 
+}
+
+.UIToolbar .LargeToolbar .HorizontalSeparator {
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
+  margin: 13px 0px 0px 0px ;
+  width: 2px; height: 40px ;
+}
+
+.UIToolbar .LargeToolbar .UserButton {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px; 
+  margin-left: 0px;
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.UIToolbar .LargeToolbar .GroupButton {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px; 
+  margin-left: 0px;
+  width: 130px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.UIToolbar .LargeToolbar .MembershipButton {
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px;  
+  margin-left: 0px;
+  width: 170px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.UIToolbar .LargeToolbar .ManagementIconContainer {
+  margin-left: 5px;
+  padding-top: 7px;
+}
+
+.UIToolbar .LargeToolbar .UserManagementIcon {
+  width: 22px; height: 22px; 
+  margin: auto;
+  background: url('background/LargeToolbar.png') no-repeat left -222px;
+}
+
+.UIToolbar .LargeToolbar .GroupManagementIcon {
+  width: 26px; height: 23px; 
+  margin: auto;
+  background: url('background/LargeToolbar.png') no-repeat -22px -222px;
+}
+
+.UIToolbar .LargeToolbar .MembershipManagementIcon {
+  width: 24px; height: 23px; 
+  margin: auto;
+  background: url('background/LargeToolbar.png') no-repeat -48px -222px;
+}
+
+
+/*------------------- BlueLargeToolbar style ------------------------*/
+
+.UIToolbar .BlueLargeToolbar {
+  height: 32px;
+}
+
+.UIToolbar .BlueLargeToolbar .LeftToolbar {
+  background: url('background/BlueLargeToolbar.png') no-repeat left top;
+  padding-left: 6px;
+}
+
+.UIToolbar .BlueLargeToolbar .RightToolbar {
+  background: url('background/BlueLargeToolbar.png') no-repeat right top;
+  padding-right: 6px;
+}
+
+.UIToolbar .BlueLargeToolbar .MiddleToolbar {
+  height: 32px;
+  background: url('background/BlueLargeToolbar.png') repeat-x center -32px;
+}
+
+.UIToolbar .BlueLargeToolbar a {
+  color: #7e9bc9; font-weight: bold;
+  padding: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.UIToolbar .BlueLargeToolbar a:hover {
+  color: #003c7f;
+}
+
+.UIToolbar .BlueLargeToolbar .SelectItemButton .LablelIcon {
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
+}
+
+.UIToolbar .BlueLargeToolbar .SelectItemButton .ButtonLabel {
+  line-height: 18px;
+  color: #003c7f;
+}
+
+.UIToolbar .BlueLargeToolbar .HorizontalSeparator {
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
+  margin: 2px 8px 0px 10px;	 	/* orientation=lt */
+  margin: 2px 10px 0px 8px;	 	/* orientation=rt */
+  width: 2px; height: 28px;
+  background: url('background/BlueLargeToolbar.png') no-repeat left bottom;
+}
+
+.UIToolbar .BlueLargeToolbar .ManagementIconContainer {
+  padding-top: 1px;
+  margin-left: 5px;
+}
+
+.UIToolbar .BlueLargeToolbar .ItemButton {
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
+	padding-left: 35px; /* orientation=lt */
+	padding-right: 35px; /* orientation=rt */
+	height: 32px; line-height: 32px;
+	background-image: url('background/BlueLargeToolbar.png');
+  background-repeat: no-repeat;
+  margin: 0 10px;
+  font-weight: bold; color: #363636;
+  display: block;
+}
+
+.UIToolbar .BlueLargeToolbar .ItemButton:hover {
+	color: #058ee6;
+}
+
+.UIToolbar .BlueLargeToolbar .OrganizeIcon {
+  background-position: left -64px; /* orientation=lt */
+  background-position: right -64px; /* orientation=rt */
+}
+
+.UIToolbar .BlueLargeToolbar .PorletIcon {
+  background-position: left -96px; /* orientation=lt */
+  background-position: right -96px; /* orientation=rt */
+}
+
+.UIToolbar .BlueLargeToolbar .GadgetIcon {
+  background-position: left -128px; /* orientation=lt */
+  background-position: right -128px; /* orientation=rt */
+}
+
+
+/*#################################- LightToolbar -##############################*/
+
+.UIToolbar .LightToolbar {
+  height: 33px;
+  margin-top: 3px;
+}
+
+.UIToolbar .LightToolbar .LeftBar {
+  padding-left: 3px;
+  background: url('background/LightToolbar.gif') no-repeat left top;
+}
+
+.UIToolbar .LightToolbar .RightBar {
+  padding-right: 3px;
+  background: url('background/LightToolbar.gif') no-repeat right top;
+}
+
+.UIToolbar .LightToolbar .MiddleBar {
+  height: 33px;
+  line-height: 33px;
+  background: url('background/LightToolbar.gif') repeat-x bottom;
+}
+
+
+/*#################################- HeaderToolbar-##############################*/
+.UIToolbar .HeaderToolbar {
+  height: 31px;
+}
+
+.UIToolbar .HeaderToolbar .LeftBar {
+  padding-left: 7px;
+  background: url('background/HeaderToolbar.gif') no-repeat left top;
+}
+
+.UIToolbar .HeaderToolbar .RightBar {
+  padding-right: 7px;
+  background: url('background/HeaderToolbar.gif') no-repeat right top;
+}
+
+.UIToolbar .HeaderToolbar .CenterBar {
+  height: 31px; line-height: 31px;
+  background: url('background/HeaderToolbar.gif') repeat-x left -31px;
+}
+

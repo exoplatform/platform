@@ -1,0 +1,192 @@
+.UIBarStyle {
+}
+
+/*###########################-RoundedBarStyle-###########################*/
+.UIBarStyle .RoundedBarStyle {
+	height: 25px;
+}
+
+.UIBarStyle .RoundedBarStyle .LeftBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/RoundedBarStyle.gif') no-repeat top left;
+  padding: 0px 0px 0px 8px;
+}
+
+.UIBarStyle .RoundedBarStyle .RightBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/RoundedBarStyle.gif') no-repeat top right;
+  padding: 0px 8px 0px 0px ;
+}
+
+.UIBarStyle .RoundedBarStyle .MiddleBar {
+	height: 25px;
+  line-height: 25px;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/RoundedBarStyle.gif') repeat-x bottom;  	
+}
+
+/*###########################-WhiteRoundedBarStyle-###########################*/
+.UIBarStyle .WhiteRoundedBarStyle {
+	height: 26px;
+}
+
+.UIBarStyle .WhiteRoundedBarStyle .LeftBar {
+	background: url('background/WhiteRoundedBarStyle.gif') no-repeat left top;
+	padding: 0px 0px 0px 12px;
+}
+
+.UIBarStyle .WhiteRoundedBarStyle .RightBar {
+	background: url('background/WhiteRoundedBarStyle.gif') no-repeat right top;
+	padding: 0px 12px 0px 0px;
+}
+
+.UIBarStyle .WhiteRoundedBarStyle .MiddleBar {
+	height: 26px; 
+	line-height: 26px;
+	background: white;
+	border-top: solid 1px #c0bfbf;
+	border-bottom: solid 1px #c0bfbf;	
+}
+
+/*###########################-BarStyle2-###########################*/
+.UIBarStyle .BarStyle2 {
+	height: 36px;
+}
+
+.UIBarStyle .BarStyle2 .LeftBar {
+	
+}
+
+.UIBarStyle .BarStyle2 .RightBar {
+	
+}
+
+.UIBarStyle .BarStyle2 .MiddleBar {
+	line-height: 36px; 
+	height: 36px;
+	background: url('background/BarStyle2.gif') repeat-x left top;
+}
+
+/*###########################-NavyBluePolygonBar32Style-###########################*/
+.UIBarStyle .NavyBluePolygonBar32Style {
+	height: 32px;
+}
+
+.UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
+	background: url('background/NavyBluePolygonBar32Style.gif') no-repeat left top;
+	padding: 0px 0px 0px 3px;
+}
+
+.UIBarStyle .NavyBluePolygonBar32Style .RightBar {
+	background: url('background/NavyBluePolygonBar32Style.gif') no-repeat right top;
+	padding: 0px 3px 0px 0px ;
+}
+
+.UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {
+	height: 32px; 
+	line-height: 32px; 
+	background: url('background/NavyBluePolygonBar32Style.gif') repeat-x bottom;
+}
+
+/*###########################-Style3Bar-###########################*/
+.UIBarStyle .Style3 {
+	height: 26px;
+}
+
+.UIBarStyle .Style3 .LeftBar {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/Style3Bar.gif') no-repeat left top;
+  padding: 0px 0px 0px 3px ;
+}
+
+.UIBarStyle .Style3 .RightBar {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/Style3Bar.gif') no-repeat right top ;
+	padding: 0px 3px 0px 0px ;
+}
+
+.UIBarStyle .Style3 .MiddleBar {
+  height: 26px ;
+  line-height: 26px ;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/Style3Bar.gif') repeat-x bottom ;
+}
+
+/*###########################-SmoothNavy40Style-###########################*/
+.UIBarStyle .SmoothNavy40Style {
+	height: 62px;
+}
+
+.UIBarStyle .SmoothNavy40Style .LeftBar {
+	background: url('background/SmoothNavy40Style.gif') no-repeat left top;
+	padding: 0px 0px 0px 15px ;
+}
+
+.UIBarStyle .SmoothNavy40Style .RightBar {
+	background: url('background/SmoothNavy40Style.gif') no-repeat right top ;
+	padding: 0px 15px 0px 0px ;
+}
+
+.UIBarStyle .SmoothNavy40Style .MiddleBar {
+	height: 62px ; 
+	line-height: 62px ; 
+	vertical-align: middle ;
+	background: url('background/SmoothNavy40Style.gif') repeat-x bottom;
+}
+
+/*###########################-ControlBar-###########################*/
+
+.UIBarStyle .ControlBar .LeftBar {
+	background: url('background/ControlBar.png') no-repeat left top ; /* orientation=lt */
+	background: url('background/ControlBar-rt.png') no-repeat left -32px ; /* orientation=rt */
+	padding: 0px 0px 0px 13px ; /* orientation=lt */
+	padding: 0px 0px 0px 15px ; /* orientation=rt */
+}
+
+.UIBarStyle .ControlBar .RightBar {
+	background: url('background/ControlBar.png') no-repeat right -32px; /* orientation=lt */
+	background: url('background/ControlBar-rt.png') no-repeat right top; /* orientation=rt */
+	padding: 0px 15px 0px 0px; /* orientation=lt */
+	padding: 0px 13px 0px 0px; /* orientation=rt */
+}
+
+.UIBarStyle .ControlBar .MiddleBar {
+	background: url('background/ControlBar.png') repeat-x bottom;
+	height: 32px;
+}
+  
+
+/*============================== TitleBar ========================================*/
+.UIBarStyle .TitleBar .LeftBar {
+
+}
+
+.UIBarStyle .TitleBar .RightBar {
+
+}
+
+.UIBarStyle .TitleBar .MiddleBar {
+	background: #ffffff;
+	padding: 0 6px;
+	height: 32px; line-height: 32px;
+	color: #000000; font-weight: bold; font-family: arial;
+	font-size: 14px;
+	-moz-border-radius-topright: 5px; -moz-border-radius-topleft: 5px;
+}
+
+
+/*======================================== NormalBarStyle ==================================*/
+
+.UIBarStyle .NormalBarStyle {
+  height: 38px;
+}
+
+.UIBarStyle .NormalBarStyle .LeftBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') no-repeat top left;
+  padding: 0px 0px 0px 6px;
+}
+
+.UIBarStyle .NormalBarStyle .RightBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') no-repeat top right;
+  padding: 0px 6px 0px 0px ;
+}
+
+.UIBarStyle .NormalBarStyle .MiddleBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') repeat-x bottom;
+  height: 38px;
+  line-height: 38px;
+}

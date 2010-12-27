@@ -1,0 +1,119 @@
+/**
+ * Copyright (C) 2009 eXo Platform SAS.
+ * 
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ * 
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+
+
+@import url(UIToolbarContainer/Stylesheet.css);
+@import url(UITabPaneDashboard/Stylesheet.css);
+@import url(UICLVFolderMode/Stylesheet.css);
+
+*, div, table, th, tr, td, img, form {
+	padding: 0px; margin: 0px;
+	outline: none;
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+body {
+	background: white !important;
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+a {
+	color: #28175a;
+}
+
+
+.UIPageBody .BLPagebody {
+	display: none;
+}
+
+.UIWorkingWorkspace .UIPageBody {
+	padding-top: 1px;
+	width: auto;
+}
+
+.UIWorkingWorkspace .UIPageBody .VIEW-PAGEBODY .UIPage {
+	padding: 0;
+}
+
+#UIPortalApplication .UIWorkingWorkspace {
+	width: auto;
+	background: white;
+}
+
+.OfficeLeftTDContainer, .OfficeRightTDContainer {
+	width: 250px;
+}
+
+.OfficeLogoTDContainer {
+	width: 150px;
+}
+
+.OfficeSearchTDContainer {
+	width: 250px;
+}
+
+.OfficeMiddleTDContainer {
+	padding: 5px 15px 0;
+}
+
+/* Banner */
+.UIWorkingWorkspace #OfficeBanner {
+	background: url('background/BannerBg.jpg') no-repeat right top;
+}
+
+.UIWorkingWorkspace #ACMEBanner {
+	margin:20px;
+}
+
+.UIWorkingWorkspace .UINavigationPortlet {
+	line-height: 14px;
+	margin-top: 17px;
+}
+
+.TxtDarkBlue {color: #28175a;}
+.TxtGray {color: #484848;}
+.TxtOrange {color: #f58220;}
+.TxtYellow {color: #ffd400;}
+/*###############################################################################################*/
+
+.UIGadgetPortlet {
+}
+
+.UIGadgetPortlet .UIGadgetViewMode {
+	height: 100%;
+}
+
+.UIGadgetPortlet .gadgets-gadget-content {
+	height: 100%;
+}
+
+.UIGadgetPortlet .UIGadgetContent {
+	height: 100%;
+}
+
+.UIGadgetPortlet .gadgets-gadget {
+	width: 100%;
+}
+
+/**/
+.UIWorkingWorkspace .UIHomePagePortlet {
+	margin:0 auto;
+}

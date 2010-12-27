@@ -1,0 +1,395 @@
+.UIHorizontalTabs {
+}
+
+.UIHorizontalTabs .CenterHorizontalTabs {
+  background: url('background/LineDecorator1x7.gif') repeat-x bottom;
+}
+
+.UIHorizontalTabs .TabsContainer {
+  height: 30px;
+}
+
+.UIHorizontalTabs .UITab {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  text-align: center;
+}
+
+/*###########################--NavigationTabTab--############################*/
+.UIHorizontalTabs .UITab .NormalNavigationTab {
+  line-height: 34px; 
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
+  border-left: 1px solid #999999;
+  padding-left: 1px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
+  border-right: 1px solid #999999;
+  padding-right: 1px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
+  line-height: 34px;
+  padding: 0px 20px;
+  height: 34px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
+  line-height: 34px;
+  padding: 0px;
+  font-size: 17px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a {
+  color: #2d2d2d;
+  line-height: 34px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat right; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left; /* orientation=rt */
+  cursor: pointer;
+}
+
+/*###############-Hightlight Navigation Tab  -################*/
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab {
+  line-height: 30px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
+  background: url('background/NavigationTab.gif') no-repeat left top;
+  padding-left: 2px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
+  background: url('background/NavigationTab.gif') no-repeat right top;
+  padding-right: 2px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
+  background: url('background/NavigationTab.gif') repeat-x left -34px;
+  padding: 0px 20px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
+  line-height: 34px;
+  padding: 0px;
+  font-size: 17px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab a {
+  color: #000;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left; /* orientation=rt */
+  cursor: pointer;
+  height: 34px;
+}
+
+/*###############-Selected Navigation Tab-################*/
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab {
+  line-height: 34px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
+  background: url('background/NavigationTab.gif') no-repeat left -68px;
+  padding-left: 2px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
+  background: url('background/NavigationTab.gif') no-repeat right -68px;
+  padding-right: 2px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
+  background: url('background/NavigationTab.gif') repeat-x left -102px;
+  padding: 0px 20px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
+  line-height: 34px;
+  padding: 0px;
+  font-size: 17px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab a {
+  color: #fff;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left; /* orientation=rt */
+  cursor: pointer;
+  height: 34px;
+}
+
+/*###########################--NormalTab--############################*/
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab {
+  line-height: 24px;
+  margin: 0px 1px 0px 0px; /* orientation=lt */
+  margin: 0px 0px 0px 1px; /* orientation=rt */
+  color: #474849;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab a {
+  color: #5a5a5a;
+  line-height: 24px; 
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab a:hover {
+  color: blue;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
+  padding-left: 6px;
+  line-height: 24px;
+  background: url('background/NavigationTab.png') no-repeat left top;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('background/NavigationTab.png') no-repeat right -24px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
+  line-height: 24px;
+  background: url('background/NavigationTab.png') repeat-x left -48px;
+  cursor: pointer;
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab {
+  line-height: 24px;
+  color: black;
+  margin-right: 1px; 
+  margin-bottom: 6px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab a:hover{
+  color: blue;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
+  line-height: 24px;
+  padding-left: 6px;
+  background: url('background/NavigationTab.png') no-repeat left -72px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .RightTab {
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('background/NavigationTab.png') no-repeat right -96px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
+  line-height: 24px;
+  background: url('background/NavigationTab.png') repeat-x left -120px;
+  cursor: pointer;
+  padding: 0px 4px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab{
+  line-height: 24px;
+  color: black;
+  margin-right: 1px; /* orientation=lt */
+  margin-left: 1px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
+  line-height: 24px;
+  padding-left: 6px;
+  background: url('background/NavigationTab.png') no-repeat left -144px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('background/NavigationTab.png') no-repeat right -168px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
+  line-height: 24px;
+  background: url('background/NavigationTab.png') repeat-x bottom;
+  cursor: pointer;
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab a{
+  color: blue;
+}
+
+/*###########################-- MessageTabDialog --############################*/
+
+/*==============================NormalTab for MessageTab=====================*/
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .NormalTab {
+  line-height: 30px;
+  margin-right: 1px;
+  padding: 0px;
+  color: #202020; font-weight: normal;
+  overflow: hidden; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
+  padding-left: 3px; /* orientation=lt */
+  padding-right: 3px; /* orientation=rt */
+  line-height: 20px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .RightTab {
+  line-height: 30px;
+  padding-right: 3px; /* orientation=lt */
+  padding-left: 3px; /* orientation=rt */
+  background: url('background/SeparatorLine1x2.gif') repeat-y right; /* orientation=lt */
+  background: url('background/SeparatorLine1x2.gif') repeat-y left; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
+  line-height: 30px;
+  height: auto;
+  cursor: pointer;
+  padding: 0px 10px;
+  color: black;
+  font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab div:hover{
+  color: orange;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
+  padding-left: 23px; /* orientation=lt */
+  padding-right: 23px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left 8px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right 8px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -19px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -19px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -43px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -43px; /* orientation=rt */
+}
+
+/*==============================Disable Tab for MessageTab=====================*/
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab {
+  line-height: 30px;
+  margin-right: 1px;
+  color: #202020; font-weight: normal;
+  overflow: hidden; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
+  padding-left: 3px;
+  line-height: 20px;
+  background: none;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
+  padding-right: 3px;
+  line-height: 30px;
+  background: none;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
+  line-height: 30px;
+  background: none;
+  padding: 0px 10px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
+  padding-left: 23px; /* orientation=lt */
+  padding-right: 23px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -68px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -68px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -95px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -95px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -120px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -120px; /* orientation=rt */
+}
+/*==============================Selected Tab for MessageTab=====================*/
+
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab {
+  line-height: 30px;
+  color: #0032fe;
+  font-weight: normal;
+  margin-right: 1px; /* orientation=lt */
+  margin-left: 1px; /* orientation=rt */
+  overflow: hidden; /* orientation=rt */
+}
+
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
+  line-height: 30px;
+  padding-left: 3px;
+  background: url('background/TabMessage.gif') no-repeat left top;
+}
+
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
+  line-height: 30px;
+  padding-right: 3px;
+  background: url('background/TabMessage.gif') no-repeat right top;
+}
+
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
+  line-height: 30px;
+  height: auto;
+  background: url('background/TabMessage.gif') repeat-x bottom;
+  padding: 0px 10px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
+  padding-left: 23px; /* orientation=lt */
+  padding-right: 23px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left 8px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right 8px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -19px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -19px; /* orientation=rt */
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
+  background: url('background/MessageTabIcon.gif') no-repeat left -43px; /* orientation=lt */
+  background: url('background/MessageTabIcon.gif') no-repeat right -43px; /* orientation=rt */
+}

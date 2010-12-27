@@ -1,0 +1,128 @@
+@import url(control/Stylesheet.css) ;
+@import url(customization/Stylesheet.css) ;
+@import url(view/Stylesheet.css) ;
+@import url(widget/Stylesheet.css) ;
+div {
+	padding:	0px ; margin: 0px ;
+	outline: none;
+}
+
+table {
+	width: 100% ;
+	border-spacing:	0px ;
+	border-collapse: collapse ;
+	padding: 0px ; margin: 0px auto;
+}
+
+th, td {
+	padding: 0px ; margin: 0px ;
+	vertical-align: top;
+}
+
+img {
+	padding: 0px ; margin: 0px ; border: none ;
+	vertical-align: middle;
+}
+
+form {
+	padding: 0px ; margin: 0px ;
+}
+
+html {
+	margin: 0px ; padding: 0px;
+	*overflow-x: hidden;
+}
+
+body {
+ background: #232943 url('/eXoSkinVista/skin/VistaSkin/background/Background.jpg') no-repeat fixed top center;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif ;
+	font-size: 11px;
+	margin: 0px ; padding: 0px;
+	overflow-x: hidden;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+/*###############################################################################################*/
+
+.OverflowContainer {
+	overflow:hidden;
+	width: 100%;
+}
+
+.LeftBlock {
+	float: left;		/* orientation=lt */
+	float: right;		/* orientation=rt */
+}
+
+.RightBlock {
+	float: right;		/* orientation=lt */
+	float: left;		/* orientation=rt */
+}
+
+.InlineContainer {
+	overflow:hidden;
+}
+
+.InlineLeft {
+	float:left;
+}
+
+.InlineRight {
+	float:right;
+}
+
+.AjaxLoadingMask {
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingLeft13x113.png') no-repeat left;
+  padding: 0px 0px 0px 13px;
+}
+
+.AjaxLoadingMask .CenterLoadingContainer {
+  width: 192px; height: 113px;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/MiddleLoading1x113.png') repeat-x ;
+}
+
+.AjaxLoadingMask .LoadingContainer {
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingRight16x113.png') no-repeat right;
+	padding: 0px 16px 0px 0px;
+}
+
+.AjaxLoadingMask .LoadingText {
+  text-align: center;
+  padding: 20px 0px 5px 0px;
+}
+
+.AjaxLoadingMask .LoadingProgressBar {
+  width: 160px; height: 10px;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingProgressBar.gif') no-repeat top center;
+  margin: auto;
+  padding: 1px 0px;
+}
+
+.FloatLeft {
+ float: left; /* orientation=lt */
+ float: right; /* orientation=rt */
+}
+
+.FloatRight {
+ float: right; /* orientation=lt */
+ float: left; /* orientation=rt */
+}
+
+
+.ClearLeft {
+  clear: left; /* orientation=lt */
+  clear: right; /* orientation=rt */
+}
+
+.ClearRight {
+  clear: right; /* orientation=lt */
+  clear: left; /* orientation=rt */
+}
+
+.ClearBoth {
+  clear: both;
+}

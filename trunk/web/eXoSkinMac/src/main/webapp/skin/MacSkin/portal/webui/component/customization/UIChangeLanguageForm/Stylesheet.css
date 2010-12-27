@@ -1,0 +1,97 @@
+.UIChangeLanguageForm {
+}
+	
+.UIChangeLanguageForm .UIFormTabPane .TabPaneContent {
+	padding: 0px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+	width: 175px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .Title {
+ color: #585858;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
+	background: white url('background/ItemListBg157x69.gif') no-repeat right bottom; /* orientation=lt */
+	background: white url('background/ItemListBg157x69-rt.gif') no-repeat left bottom; /* orientation=rt */
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
+	margin: 0px 0px 0px 180px; /* orientation=lt */
+	margin: 0px 180px 0px 0px; /* orientation=rt */
+	padding: 0px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemDetail .TemplateContainer {
+	padding-top: 10px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemDetailContaier {
+	background: #ffffff;
+	border: solid 1px #c3c3c3;
+	padding: 6px;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem {
+	height: 24px;
+	border-bottom: solid 1px #e9e7e7;
+	cursor: pointer;
+	color: black;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem a:hover {
+	height: 24px;
+	color: blue;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem {
+	background: url('background/SelectedLangBg.gif') repeat-x;
+	height: 23px;
+	color: #ffffff;
+	border-bottom: solid 1px #e9e7e7;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem a {
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+	height: 24px; width: 24px;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+	height: 24px; width: 24px;
+	background: url('background/SelectedIconArrow.gif') no-repeat center; /* orientation=lt */
+	background: url('background/SelectedIconArrow-rt.gif') no-repeat center; /* orientation=rt */
+}
+
+.UIChangeLanguageForm .ItemDetail .NodeLabel {
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+	line-height: 24px;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
+	font-size: 12px;
+}
+
+.UIChangeLanguageForm .ItemDetail .PercentLabel {
+	line-height: 24px;
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+	padding-right: 20px; /* orientation=lt */
+	padding-left: 20px; /* orientation=rlt */
+	font-size: 12px;
+}
+

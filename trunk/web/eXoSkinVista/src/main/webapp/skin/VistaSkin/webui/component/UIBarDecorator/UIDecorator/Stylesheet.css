@@ -1,0 +1,22 @@
+.LineDecorator4px {
+	height: 4px;
+	background: url('background/LineDecorator.gif') no-repeat top;
+}
+
+.LineDecorator6px {
+	height: 6px;
+	background: url('background/LineDecorator.gif') no-repeat left -4px;
+}
+
+.LineDecorator8px {
+	height: 8px;
+	background: url('background/LineDecorator.gif') no-repeat left -6px;
+}
+
+.LineDecorator23px {
+	height: 20px;	
+	background: url('background/LineDecorator.gif') no-repeat bottom;
+	line-height: 20px;
+	margin: 1px 0px 0px 0px ;
+  border: solid 1px #cdcdcd;
+}

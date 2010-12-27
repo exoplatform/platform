@@ -1,0 +1,31 @@
+.UITabPane {
+}
+
+.UITabPane .TabPaneContent {
+	padding: 8px;
+}
+
+.UITabPane .UITabContentContainer {
+  background: white url('background/TabContainerBG1x11.png') repeat-x top;
+  border: 1px #868686 solid;
+}
+
+.UITabPane .UITabContent {
+	padding: 10px;
+}
+
+.UITabPane .TabPaneContent .UIQuickHelp {
+  float: right ;
+  width: 25% ;
+}
+
+.UITabPane .UIForm .HorizontalLayout {
+	border: none;
+	background: none;
+	padding: 0px;
+}
+
+.UITabPane .UIFormWithTitle .HorizontalLayout {
+	border: 1px solid #b7b7b7;
+	border-top: none;
+}

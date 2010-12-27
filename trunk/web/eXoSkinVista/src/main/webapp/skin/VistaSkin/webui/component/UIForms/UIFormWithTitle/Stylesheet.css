@@ -1,0 +1,28 @@
+.UIFormWithTitle {
+  margin: auto;
+  width: 500px;
+}
+
+.UIFormWithTitle .TitleBar {
+  padding-left: 15px ;
+  background: url('background/TitleBG1x23.gif') repeat-x ;
+  height: 23px ;
+  vertical-align: middle ;  line-height: 23px ;
+  border: solid 1px #bec1c7;
+}
+
+.UIFormWithTitle .HorizontalLayout {
+  border: solid 1px #bec1c7;
+  border-top: none;
+  background: url('background/FormContainerBG1x11.gif') repeat-x top;
+}
+
+.UIFormWithTitle .HorizontalLayout .FormContainer {
+	padding: 5px;
+}
+
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
+  float: left; width: 120px;
+  text-align: right;
+}
+

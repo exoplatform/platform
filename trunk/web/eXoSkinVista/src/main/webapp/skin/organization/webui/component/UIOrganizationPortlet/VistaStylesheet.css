@@ -1,0 +1,329 @@
+.UIWindow .UIOrganizationPortlet {	
+	border: none;
+	margin: 0px auto;
+	overflow: visible;
+}
+
+.UIOrganizationPortlet {
+	background: white;
+	border: 1px solid #b7b7b7;
+	margin: 5px;
+	padding: 7px; 
+	overflow: auto;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer {
+	padding: 5px 8px;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIListMembershipType .UIGrid {
+	width: 99.3%;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIMembershipTypeForm {
+	width: 99.3%;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .UIGrid td {
+	height: auto;
+	padding: 4px 0px 7px 7px; /* orientation=lt */
+	padding: 4px 7px 7px 0px; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
+	height: 18px;
+	line-height: 18px;
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .SelectButtonLabel {
+	height: 18px;
+	line-height: 18px;
+	color: orange; 
+}
+
+/*##############################- UIUserManagement -###########################*/
+
+.UIOrganizationPortlet .UIFormTabPane {
+	border: none;
+}
+
+.UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
+	border: none;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UISearch .UIForm {
+	padding: 0px; 
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIFormInputSet .FieldContainer {
+	width: 410px;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
+	width: 410px;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
+	height: 300px;
+}
+
+.UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
+	height: 268px;
+}
+
+.UIOrganizationPortlet .UIUserManagement .GroupGridIterator {
+	margin: 5px 4px 1px 4px;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIGrid {	
+	margin: 1px auto;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIPageIterator {	
+	width: 100%;
+}
+
+.UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
+	height: 270px;
+}
+
+/*#######################- UIUserInfo - #####################*/
+
+.UIOrganizationPortlet .UIUserManagement .UIUserInfo {
+	width: auto; 
+}
+
+.UIOrganizationPortlet .PersonalInfoIcon {
+	width: 32px;	height: 32px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/PersonalInfo.gif');
+}
+
+.UIOrganizationPortlet .HomeInfoIcon {
+	width: 32px;	height: 32px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/HomeInfo.gif');
+
+}
+
+.UIOrganizationPortlet .BusinessInfoIcon {
+	width: 32px;	height: 32px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/BusinessInfo.gif');
+}
+
+/*#######################	UIGroupManagement #################################*/
+
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
+	height: 24px; 
+	width: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupPanel {
+	margin-top: 7px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
+	width: 210px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
+	height: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .TitleBar {
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') repeat-x bottom;
+	border: 1px solid #b7b7b7;
+	line-height: 23px;
+	font-weight: bold;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}	
+
+.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
+	color: #1c1c1c;
+	font-weight: bold;
+	line-height: 24px;
+	padding-left: 7px; /* orientation=lt */
+	padding-right: 7px; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
+ 	background: url('VistaSkin/background/UITreeBG.png') repeat;
+	height: 224px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
+	line-height: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
+	width: 100%;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer .BlueLevelUpArrow24x24Icon {
+	margin-left: 7px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 2px 10px 0px 0px; /* orientation=lt */
+	margin: 2px 0px 0px 10px; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon {
+	width: 21px; height: 21px;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat top;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon {
+	width: 21px; height: 21px;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat left -44px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon {
+	width: 21px; height: 21px;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat left -22px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail {
+	margin-left: 220px; /* orientation=lt */
+	margin-right: 220px; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
+	height: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
+	padding-left: 2px; /* orientation=lt */
+	padding-right: 2px; /* orientation=rt */
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TopDecorator {
+	border: solid 1px #526d82;	border-bottom: 0px;	
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .BottomDecorator {
+	border: solid 1px #526d82;	border-top: 0px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
+	margin: 5px auto 0px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr {
+	height: 25px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
+	margin: auto;
+	padding: 0px;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
+	padding: 16px 0px 0px 0px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
+	width: 94.5%;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .UITrees {
+	border-top: none;
+	width: 99%;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
+	width: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIForm {
+	padding: 0px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UISearch {
+	width: 100%;
+	margin: 0px auto 2px 0px;
+}
+
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
+	height: 213px;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 215px;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .UIForm input {
+	width: 210px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
+	background-position: left top;
+	background-repeat: no-repeat;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin-left: 4px; /* orientation=lt */
+	margin-right: 4px; /* orientation=rt */
+	height: 24px; 
+	width: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .SearchIcon { 
+	margin-top: 3px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 
+	padding: 10px;
+}
+
+.UIOrganizationPortlet .ListUserForSearch .UIGrid { 
+	width: 100%;
+}
+
+.UIOrganizationPortlet .SelectUserIcon {
+	width: 16px; height: 16px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectIcon.gif') center;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm td.FieldComponent {
+	width: 255px;
+}
+
+/*#######################	UIMemberShipManagement #################################*/
+
+.UIOrganizationPortlet .UIMemberShipManagement {
+	width: 99.7%;	
+}
+
+.UIOrganizationPortlet .UIMembershipTypeForm {
+	width: 97%; 
+	margin: 10px auto 0px auto; 
+}
+
+.UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {
+	width: 480px;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIMembershipManagement .UIListMembershipType .UIPageIterator {
+	width: 100%;
+}

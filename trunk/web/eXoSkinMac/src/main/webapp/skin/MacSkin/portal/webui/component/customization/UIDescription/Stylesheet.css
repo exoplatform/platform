@@ -1,0 +1,37 @@
+.UIDescription {
+  padding: 0px 7px ;
+}
+
+.UIDescription .DecoratorBox .DecoratorBackground{
+  background: #efefef;
+  padding: 0px 3px;
+}
+
+.UIDescription .DecriptionContainer {
+  padding: 8px 5px 5px 5px;
+}
+
+.UIDescription .DescriptionTitle {
+  border: 1px #b7b7b7 solid;
+  background: white;
+  text-align: center; font-weight: bold;
+  height: 19px; line-height: 19px; 
+  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
+}
+
+.UIDescription .DescriptionContent {
+  padding: 1px;
+  border: 1px #b7b7b7 solid; 
+  background: white;
+}
+
+.UIDescription .DescriptionContentContainer {
+  line-height: 18px;
+  border: 1px #cdcdcd solid;
+  background: #f4f4f4;
+}
+
+.UIDescription .DescriptionContentMaxHeight {
+  padding: 5px;
+  height: 345px;
+}

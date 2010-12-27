@@ -1,0 +1,39 @@
+
+/*########################### End Slidebar ###########################*/
+.UIWorkingWorkspace {
+	background: url('background/BgWorkingWorkspace.png') repeat;
+	margin: auto;
+	width: 980px;
+/*
+ * minh.js.exo
+ * bug : right click with IE7 in ECM
+ */
+}
+
+.MaskLayer {
+	background: black ;
+	text-align: center ;
+	position: absolute ;
+	overflow: auto; /* Fix for FF2 */
+}
+
+.WarningLayer {
+	width: 300px ;	height: 100px ;
+	background: white ;
+	line-height: 100px ;	
+	text-align: center ;
+	position: absolute ;
+	opacity: 0.5 !important ;
+	filter: alpha(opacity=50) ;
+}
+
+.PreviewMode {
+	width: 172px ;	
+	height: 38px ;
+	background: url('background/PreviewModeImage172x38.png') no-repeat;
+	position: absolute ;
+	cursor: pointer ;
+	top: 0px; 
+	right: 0px; /* orientation=lt */
+	left: 0px; /* orientation=rt */
+}

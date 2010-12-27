@@ -1,0 +1,107 @@
+
+.SelectFileFrame {
+	width: 400px;
+	margin: 10px 0px;
+}
+
+.SelectFileLabel {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+	margin-right: 15px; /* orientation=lt */
+	margin-left: 15px; /* orientation=rt */
+}
+
+.UploadButton {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	background: url('eXoResources/skin/DefaultSkin/webui/UIUpload/background/UpArrow16x16.gif') no-repeat left;
+	cursor: pointer;
+	padding-left: 16px; /* orientation=lt */
+	padding-right: 16px; /* orientation=rt */
+	color: #058ee6;
+	font-weight: bold;
+}
+
+.ProgressBarFrame {
+	width: 400px;
+	margin: 10px 0px;
+}
+
+.ProgressBar {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 230px;
+	margin-left: 10px;
+}
+
+.ProgressBarLeft {
+	padding: 1px;
+	border: solid 1px gray;
+}
+
+.ProgressBarMiddle {
+}
+
+.BlueProgressBar {
+	width: 0%; height: 14px;
+	background: url('eXoResources/skin/DefaultSkin/webui/UIUpload/background/BlueBg1x14.gif') repeat-x;
+	position: relative;
+}
+
+.ProgressBarLabel {
+	width: 15px; height: 15px;
+	position: absolute;
+	left: 110px; /* orientation=lt */
+	right: 110px; /* orientation=rt */
+}
+
+.ProgressBarLabel {
+	text-align: center;
+}
+
+.DeleteFileFrame {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('background/Delete.gif') no-repeat;
+	cursor: pointer;
+	padding-left: 23px; /* orientation=lt */
+	padding-right: 23px; /* orientation=rt */
+	margin-left: 5px; /* orientation=lt */
+	margin-right: 5px; /* orientation=rt */
+}
+
+.DeleteFileLable {
+	font-family: verdana;
+	line-height: 18px;
+}
+
+.FileName {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.FileNameLabel {
+	font-weight: bold;
+	line-height: 14px;
+	width: 215px;
+	padding: 0px 0px 0px 8px; /* orientation=lt */
+	padding: 0px 8px 0px 0px; /* orientation=rt */
+}
+
+.RemoveFile {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 18px; 
+	line-height: 18px;
+	background: url('eXoResources/skin/DefaultSkin/webui/UIUpload/background/Delete18x18.gif') repeat-x;
+	cursor: pointer;
+	margin-left: 10px; /* orientation=lt */
+	margin-right: 10px; /* orientation=rt */
+	width: 18px;
+}
+
+.TestIframe {
+	width: 260px;
+}

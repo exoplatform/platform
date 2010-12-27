@@ -1,0 +1,237 @@
+.UIPortlet {
+
+}
+
+.UIPortlet .LAYOUT-PORTLET {
+}
+
+.UIPortlet .CONTROL-PORTLET {
+}
+
+.UIPortlet .CONTROL-PORTLET .DragControlArea {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */ 
+	width: 24px; height: 16px; 
+	background: url('background/DragArea2x2.gif');
+	cursor: move;
+	margin: 5px 0px 0px 3px; /* orientation=lt */
+	margin: 5px 3px 0px 0px; /* orientation=rt */
+}
+
+.UIPortlet .CONTROL-PORTLET .UIInfoBar {
+}
+
+.UIPortlet .ViewPortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height: 16px; 
+	background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/BlueBoxLight.gif') no-repeat;
+	margin: 3px 5px 0px 0px; /* orientation=lt */
+	margin: 3px 0px 0px 5px; /* orientation=rt */
+	cursor: pointer;
+}
+
+.UIPortlet .EditPortletPropertiesIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height: 16px;
+	background: url('background/ContainerIcon.gif') no-repeat top;
+	margin: 4px 5px 0px 5px; /* orientation=lt */
+	margin: 4px 5px 0px 5px; /* orientation=rt */
+}
+
+.UIPortlet .DeletePortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height:17px; 
+	background: url('background/ContainerIcon.gif') no-repeat center -16px;
+	margin: 3px 0px 0px 0px;
+}
+
+.UIPortlet .PortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	line-height: 16px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	margin: 3px 5px 0px 5px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat left top;
+}
+
+/*##############################- PortletLayoutDecorator	-################################*/
+.PortletLayoutDecorator {
+
+}
+
+.PortletLayoutDecorator .TopLeft {
+	background: url('background/PortletLayoutDecorator.png') no-repeat left top;
+	padding-left: 11px;
+}
+
+.PortletLayoutDecorator .TopMiddle {
+	background: url('background/PortletLayoutDecorator.png') repeat-x center -14px;
+}
+
+.PortletLayoutDecorator .TopRight {
+	background: url('background/PortletLayoutDecorator.png') no-repeat right -7px;
+	padding-right: 11px;
+}
+
+.PortletLayoutDecorator .TopLeft .FixHeight {
+	height: 7px;
+}
+
+.PortletLayoutDecorator .MiddleLeft {
+	background: url('background/MiddlePortletLayout.png') repeat-y left;
+	padding-left: 11px;
+}
+	
+.PortletLayoutDecorator .MiddleRight {
+	background: url('background/MiddlePortletLayout.png') repeat-y right;
+	padding-right: 11px;
+}
+
+.PortletLayoutDecorator .CenterBackground {
+	background: white;
+}
+
+.PortletLayoutDecorator .GardientBackground {
+	height: 64px;
+	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPortalComponent/background/LayoutCBg1x56.gif') repeat-x bottom;
+	padding: 6px;
+}
+
+.PortletLayoutDecorator .LPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat left top;
+	padding-left: 16px;
+}
+
+.PortletLayoutDecorator .RPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat right -87px;
+	padding-right: 16px;
+}
+
+.PortletLayoutDecorator .CPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') repeat-x left -174px;
+}
+
+.PortletLayoutDecorator .FixHeight {
+	height: 62px;
+	padding: 10px 0px 15px 0px;
+}
+/*############### End Decorator ###################################################*/
+
+.VIEW-PORTAL .UIContainer .UITableColumnContainer {
+}
+
+.UIContainer {
+	
+}
+
+.LAYOUT-CONTAINER .UIContainer {
+	height: 100%;
+	/*
+	 fix bug dragdrop in IE6
+	*/
+}
+
+.UIContainer .LAYOUT-CONTAINER {
+	min-height: 60px;
+}
+
+* html .UIContainer .LAYOUT-CONTAINER {
+	height: 60px;
+}
+
+.UIContainer .UIInfoBar .BlueRoundedStyle {
+	padding: 0px; margin: 0px;
+	height: 23px;
+}
+
+.UIContainer .CONTROL-CONTAINER .DragControlArea {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */ 
+	width: 24px; height: 16px; 
+	background: url('background/DragArea2x2.gif');
+	cursor: move;
+	margin: 5px 0px 0px 3px; /* orientation=lt */
+	margin: 5px 3px 0px 0px; /* orientation=rt */
+}
+
+.UIContainer .LAYOUT-CONTAINER	.UITableColumnContainer {
+	background: none;
+	border: none;
+	margin: auto;
+}
+
+.UIContainer .EditContainerIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 16px; height: 16px;
+	background: url('background/ContainerIcon.gif') no-repeat top;
+	margin: 4px 5px 2px 0px; /* orientation=lt */
+	margin: 4px 0px 2px 5px; /* orientation=rt */
+}
+
+.UIContainer .DeleteContainerIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 18px; height:18px; 
+	background: url('background/ContainerIcon.gif') no-repeat center -16px;
+	margin: 5px 0px 0px 0px;
+}
+
+.UIContainer .ContainerIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	line-height: 16px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	margin: 3px 5px 0px 5px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat;
+}
+
+.UIContainer .ContentPortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height: 16px;
+	margin: 3px 5px 0px 5px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+}
+
+.UIPortal .LAYOUT-PORTAL {
+	background: url('background/PortalBackground1x1.png');
+	border: solid 1px white;
+	padding: 6px;
+	_padding: 6px 0px; /* orientation=rt */
+  _width: 99%; /* orientation=rt */
+}
+
+.DragAndDropPreview {
+	width: auto; height: 80px;
+	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');
+	border: 1px solid #c4c4c4;
+	margin: 0px 12px 10px 12px;
+}
+
+.UIPage .VIEW-PAGE {
+	padding: 0px 6px;
+}
+
+.EdittingContainer .NormalContainerBlock {
+	border: solid 1px #aeaeae;
+	padding: 5px;
+	margin: 0px 3px 5px 3px;
+	background: #fff;
+}
+
+.EdittingContainer .OverContainerBlock {
+	border: solid 1px #c3c3c3;
+	padding: 5px;
+	margin: 0px 3px 5px 3px;
+	background: #f8f8f8;
+}
+
+.UIContainer .VIEW-BLOCK .EmptyContainer {
+	height: 82px;
+}

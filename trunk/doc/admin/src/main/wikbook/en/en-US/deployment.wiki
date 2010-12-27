@@ -1,0 +1,159 @@
+
+
+
+h1. How to remove the sample applications
+
+eXo Platform comes with two sample portals that showcase the capabilities of the product. 
+Before deploying your system in production, you will want to remove these sample apps. 
+
+{caution}The instructions below assume that you are using the hsqldb embedded database configuration. {caution}
+
+h2. Removing Acme Website
+
+# Stop the server {{shutdown.sh}}
+# Delete acme-portal.war
+# Delete exo.ecms.ext.acme.config.jar
+# Delete {{gatein/data}}
+# Restart
+
+h2. Removing Acme Social Intranet
+
+# Stop the server {{shutdown.sh}}
+# Delete office-portal.war
+# Delete exo.platform.office.config.jar
+# Delete {{gatein/data}}
+# Restart
+
+
+h1. How to deploy a custom extension
+
+Extensions are packaged as java EE web applications and come packaged as normal .war files.
+Hence, to deploy a custom extension, you will likely do as for any other webapp. 
+In Tomcat this ends up by copying the war archive to the {{webapps}} folder
+
+However, note that the Gatein extension mechanism imposes that the starter.war webapp starts after all extension wars.
+This is the case for the sample applications bundled by defaut, but you must ensure that for your custom applications.
+There are several ways to control le loading order of webapps in Tomcat. Please refer to [Tomcat's Deployer How To|http://tomcat.apache.org/tomcat-6.0-doc/deployer-howto.html#A_word_on_Contexts]
+
+h1. How to setup an Apache Frontend
+
+It may be necessary to use an HTTP server as a frontend for tomcat. For example, you may want to keep more then one application server on the same host, and/or you want to access these app servers with separate DNS names, without having to add a port to the URL.
+There are two methods that allow you to "_glue_" Apache HTTP Daemon and tomcat application server:
+- via HTTP protocol, using [proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html]
+- via [Apache JServ Protocol|http://tomcat.apache.org/connectors-doc/ajp/ajpv13a.html], using [tomcat connector|http://tomcat.apache.org/connectors-doc/] or [HTTPD AJP proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html]
+
+h2. Base configuration for apache
+
+First, you need to configure a new virtual host in Apache HTTPD for the application server.
+This is the simplest example of a virtual host:
+{code}
+        <VirtualHost *:80>
+                ServerName      Enter your server DNS name here
+                RedirectMatch permanent "^/?$" "/portal/"
+        </VirtualHost>
+{code}
+You can find more information about Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/]
+
+h2. Connection via HTTP protocol
+
+With the _glue_ method, it is necessary to configure Apache HTTP daemon to work as *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
+For this type of connection, you will need to include the *mod{{{_}}}proxy* module in the HTTP demon configuratinon file.
+This can be found in the *httpd.conf* file, which is usually located here: *_/etc/httpd/conf/_*.  However, depending on your OS, this path may vary.
+You will then need to add some directives to your virtual host configuration.
+{code}
+ProxyRequests   Off
+ProxyPass	 "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
+ProxyPassReverse "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
+{code}
+{note}
+  In the example above:
+   YOUR_AS_HOST - host (IP or DNS name) is the location of your application server. If you run HTTP demon on the same host as your app server, you can change this to *localhost*.
+   AS_HTTP_PORT - port, is the location where your app server will listen for incoming requests. For tomcat this value, by default, is 8080. You can find the value at *tomcat/conf/server.xml*
+{note}
+In this example, HTTP daemon will work in *reverse proxy* mode (ProxyRequests Off) and will redirect all requests to tcp port 8080 on localhost.
+So, the configuration of a virtual host will look like the following:
+{code}
+        <VirtualHost *:80>
+                ServerName      Enter your server DNS name here
+                RedirectMatch	permanent "^/?$" "/portal/"
+		ProxyRequests   Off
+		ProxyPass	 "/" http://localhost:8080/
+		ProxyPassReverse "/" http://localhost:8080/
+        </VirtualHost>
+{code}
+For more detail about *mod{{{_}}}proxy*, review this [documentation|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html]
+
+h2. Connection via AJP protocol
+As described above, the 'glue' method can be implemented in two ways:
+- using the native Apache HTTP demon's [AJP proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html]
+- using the native Apache Tomcat's [AJP conector|http://tomcat.apache.org/connectors-doc/ajp/ajpv13a.html]
+With the first method, you only need the HTTP demon and application server, but settings are limited.
+With the second method, you can obtain much richer settings, but you will need to download and install additional modules for HTTP Daemon that are not included in the default package.
+
+h3. AJP proxy module
+Make sure that *mod{{{_}}}proxy{{{_}}}ajp.so* is included in the list of loadable modules.
+Add the following to your virtual host configuration setting:
+{code}
+ProxyPass / ajp://localhost:8009/
+{code}
+In this example, the app server is located on the same host as the Apache HTTP daemon, and accepts incoming connections on port 8009 (the default setting for tomcat application server). \\
+A full list of virtual host configurations can be found here:
+{code}
+        <VirtualHost *:80>
+                ServerName      Enter your server DNS name here
+                RedirectMatch	permanent "^/?$" "/portal/"
+		ProxyRequests   Off
+		ProxyPass	/ ajp://localhost:8009/
+        </VirtualHost>
+{code}
+
+h3. Apache Tomcat's AJP connector
+# Download AJP connector module from [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/]
+# Move the downloaded *mod{{{_}}}jk.so* file into HTTPD's module directory. For example: */etc/httpd/modules* (this may be different, depending on the OS)
+# Create the configuration file for module mod\_jk.conf
+  {code}
+	LoadModule    jk_module  modules/mod_jk.so
+	<IfModule jk_module>
+	  # ---- Where to find workers.properties
+          JkWorkersFile   conf.d/workers.properties
+	  # ---- Where to put jk logs
+	  JkLogFile       logs/mod_jk.log
+	  # ---- Set the jk log level [debug/error/info]
+	  JkLogLevel    info
+	  # ---- Select the timestamp log format
+	  JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
+	  JkRequestLogFormat "%w %R %T"
+	  # ---- Send everything for context /examples to worker named worker1 (ajp13)
+	  JkMountFileReload       "0"
+	</IfModule>
+  {code}
+   You can find more details in the [Tomcat docs|http://tomcat.apache.org/connectors-doc/reference/apache.html]
+# Place the *mod{{{_}}}jk.conf* file into the directory where other configuration files for Apache HTTP Demon are located. For example, */etc/httpd/conf.d/*
+# Create a workers.properties file, which defines [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for HTTP demon.
+  {code}
+	worker.list=status, WORKER_NAME
+	# Main status worker
+	worker.stat.type=status
+	worker.stat.read_only=true
+	worker.stat.user=admin
+	# Your AJP worker configuration
+	worker.WORKER_NAME.type=ajp13
+	worker.WORKER_NAME.host=localhost
+	worker.WORKER_NAME.port=8109
+	worker.WORKER_NAME.socket_timeout=120
+	worker.WORKER_NAME.socket_keepalive=true
+  {code}
+  {note}
+	In example above you can change *WORKER_NAME* to any value.
+  {note}
+# Place this file in the same directory as the mod{{{_}}}jk.conf file.
+# Update the virtual host configuration:
+{code}
+        <VirtualHost *:80>
+                ServerName      Enter your server DNS name here
+                RedirectMatch	permanent "^/?$" "/portal/"
+		ProxyRequests   Off
+                JkMount         /*	WORKER_NAME
+        </VirtualHost>
+{code}
+

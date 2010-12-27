@@ -1,0 +1,22 @@
+.UIFooterPortlet {
+ padding: 10px 18px;
+}
+	
+.UIFooterPortlet .LeftFooter {
+}
+
+.UIFooterPortlet .RightFooter {
+}
+
+.UIFooterPortlet .RepeatFooter {
+}
+
+.UIFooterPortlet .FooterInfoContainer {
+	height: 32px;
+}
+
+.UIFooterPortlet .CopyrightInfo {
+	line-height: 30px;
+	text-align: left;
+	color: #686868;
+}

@@ -1,0 +1,127 @@
+<%
+	 
+
+	 	import javax.jcr.Node;
+		import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+		import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+		import org.exoplatform.wcm.webui.Utils;
+		import org.exoplatform.services.wcm.core.NodeLocation;
+%>
+	<%
+			def header = uicomponent.getHeader();
+			def rssLink = uicomponent.getRssLink();
+			def isShowRssLink = uicomponent.isShowRssLink();
+		  def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
+			%>
+		  <div class="TopBoxHeader">
+				<%
+				if (isShowHeader) {
+					%>
+						<div class="TitleBarL">
+							<div class="TitleBarR">
+                <div class="TitleBarM">
+                  $header
+                  <%if (isShowRssLink) {
+                    %><a class="RssIcon" href="$rssLink" target="_newrss" title="<%= _ctx.appRes("UICLVPresentation.label.rssFeed") %>">&nbsp;</a><%
+                  }%>
+                </div>
+							</div>
+						</div>
+					<%
+				}
+				%>
+				<div class="ClearBoth"><span></span></div>
+			</div>
+<%
+
+	
+			if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+				%>
+					
+				<%
+			} else {
+			%>
+
+<div id="$uicomponent.id" class="UICLVPresentation">
+	<div class="CLV">
+	
+		
+
+		    	<div class="Contents">			
+			<%
+			  def currentPageData = uicomponent.getCurrentPageData();
+				def i=currentPageData.size()-1;
+				  	def viewNode = currentPageData.get(i);
+				 	
+					
+					def isShowTitle = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE);
+					def isShowDate = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREATED);
+					def isShowLink = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK);
+					def isShowReadmore = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_READMORE);
+					
+					def itemLink = uicomponent.getURL(viewNode);			
+					def itemDateCreated = uicomponent.getCreatedDate(viewNode);
+					def itemOwner = uicomponent.getAuthor(viewNode);			
+					
+					def imgSrc = uicomponent.getIllustrativeImage(viewNode);
+					def isShowImage = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION) && imgSrc != null;
+
+					def itemName = viewNode.getName();
+					def itemTitle = uicomponent.getTitle(viewNode);
+					if (itemTitle != null && itemTitle.trim().length() != 0)
+						itemName = itemTitle;
+
+					def itemSummary = uicomponent.getSummary(viewNode);
+					def isShowSummary = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY) && itemSummary != null;
+					def	html = viewNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();			
+					%>
+
+            <%=uicomponent.addQuickEditDiv("Column2", viewNode)%>
+			
+							<%
+							if(isShowImage) {
+							  %><a class="Image" title="$itemName"><img alt="$itemName" src="$imgSrc" /></a><%
+							}
+							%>
+							<div class="Content">
+								<%
+									if (isShowTitle) {
+										if (isShowLink) {
+											%><div class="Title"><a href="$itemLink">$itemName</a></div><%
+										} else {
+											%><div class="Title">$itemName</div><%
+										}
+									}
+									
+	                if (isShowDate) {
+	                  %><div class="DateAndMail">$itemDateCreated by $itemOwner</div><%
+	                }
+									if (isShowSummary) { 
+										%><div class="Summary">$itemSummary</div><% 
+									}
+								%>
+								<div class="Summary"><%=html%></div>
+							</div>
+							
+						</div>
+				
+				
+	   	</div> <%
+			}
+			%>
+		<div class="CaptionFunc">
+			<% String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");
+			  def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
+				if (isShowRefresh) { 
+					String link = uicomponent.event("Refresh");
+					%>				
+						<div class="CaptionRefresh">
+							<a href="$link">$labelRefreshAction</a>
+						</div>
+					<% 
+				}
+				
+			%>
+			<div style="clear: left;"><span></span></div>
+		</div>
+	</div>

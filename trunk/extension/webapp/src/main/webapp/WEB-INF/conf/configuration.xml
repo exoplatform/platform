@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+
+  <!-- builtin configuration -->
+  <import>war:/conf/platform/jcr-configuration.xml</import>
+  <import>war:/conf/platform/dms/dms-configuration.xml</import>
+  <import>war:/conf/platform/chat/chat-configuration.xml</import>
+
+  <!-- IDE -->
+  <import>war:/conf/platform/ide-jcr-configuration.xml</import>
+  <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
+  <import>war:/conf/platform/ide-configuration.xml</import>
+  
+  <!-- default website -->
+  <import>war:/conf/platform/portal/resource-bundle-configuration.xml</import>
+  <import>war:/conf/platform/wcm/deployment/default-deployment-configuration.xml</import>
+ 
+
+</configuration>
