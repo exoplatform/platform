@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIMySpacePlatformToolBarPortlet>
+		<label>
+            <myspaces>My Spaces</myspaces>
+        </label>
+	</UIMySpacePlatformToolBarPortlet>
+</bundle>

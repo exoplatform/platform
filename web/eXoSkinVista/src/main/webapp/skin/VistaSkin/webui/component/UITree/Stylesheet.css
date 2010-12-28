@@ -1,0 +1,94 @@
+.UITrees {
+  border: 1px solid #b7b7b7;
+  background: white;
+}
+
+.UITrees .TreeContainer {
+  padding: 4px 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 99.6%;
+}
+
+.UITrees a {
+    display: block;
+} 
+
+.UITrees a:hover {
+    color: #058ee6;
+}
+
+.UITrees .LevelUpArrowIcon {
+  height: 20px;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat left center; /* orientation=lt */
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow-rt.gif) no-repeat right center; /* orientation=rt */
+  margin-left: 10px; /* orientation=lt */
+  margin-right: 10px; /* orientation=rt */
+}
+
+.UITrees a.LevelUpArrowIcon:hover {
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat left center; /* orientation=lt */    
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow-rt.gif) no-repeat right center; /* orientation=rt */
+}
+
+.UITrees .Node {
+    line-height: 24px;
+    padding-top: 7px;
+    margin: 0 0 0 15px; /* orientation=lt */
+    margin: 0 15px 0 0; /* orientation=rt */
+    white-space: nowrap;
+  background: url('background/Dotted.gif') repeat-y left; /* orientation=lt */
+  background: url('background/Dotted-rt.gif') repeat-y right; /* orientation=rt */
+  width: 100%;
+}
+
+.UITrees .LastNode {
+  background: url('background/Dotted.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/Dotted-rt.gif') no-repeat right top; /* orientation=rt */
+}
+
+.UITrees .Node .NodeIcon {
+    background-position: left top; /* orientation=lt */
+    background-position: right top; /* orientation=rt */
+    font-weight: bold;
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 24px; /* orientation=lt */ 
+    padding: 0 24px 0 0; /* orientation=rt */
+}
+
+.UITrees .Node .ExpandIcon {
+    padding: 0 0 0 18px; /* orientation=lt */
+    padding: 0 18px 0 0; /* orientation=rt */
+  background: url('background/SmallGrayMinus.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/SmallGrayMinus-rt.gif') no-repeat right top; /* orientation=rt */
+  width: 100%;
+  height: auto;
+}
+  
+.UITrees .Node .CollapseIcon {
+    padding: 0 0 0 18px; /* orientation=lt */
+    padding: 0 18px 0 0; /* orientation=rt */
+  background: url('background/SmallGrayPlus.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/SmallGrayPlus-rt.gif') no-repeat right top; /* orientation=rt */
+  width: 100%; 
+  height: auto;
+}
+
+.UITrees .Node .NodeSelected {
+  font-weight: bold;
+  color: #058ee6;
+  cursor: pointer;
+}
+/** ################# Icons ###################*/
+
+.UITrees .TreeContainer .GroupAdminIcon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat left top; /* orientation=lt */
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup-rt.png') no-repeat right top; /* orientation=rt */
+}
+
+.UITrees .TreeContainer .PortalIcon {
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat left top; /* orientation=lt */ 
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup-rt.png') no-repeat right top; /* orientation=rt */
+   
+}

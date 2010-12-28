@@ -1,0 +1,59 @@
+/**
+ * Created by The eXo Platform SARL
+ * Modifile : Vu Duy Tu
+ * 					duytucntt@gmail.com
+ * December 14, 2006
+ * version: $Id$
+ */
+
+.UIPortalToolPanel {
+	_height: 100%; /* orientation=rt */
+}
+
+.UIPortalToolPanel .Body {
+	padding: 1px;
+  _height: 100%;
+}
+
+.UIPortalToolPanel .Body .UIPage {
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContainer {
+	background: #f7f7f7;
+	padding: 1px;
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContent {
+	min-width: 100px;
+	overflow: auto;
+}
+
+/**################################ ItemDetailList ######################*/
+.UIPortalToolPanel .UIItemSelector .ItemDetailList .ItemDetail {
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle {
+	height: 100%;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer {
+	height: 100%;
+	width: 247px;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
+	border: 1px #b7b7b7 solid;
+	height: 264px;	
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .TemplateImage{
+	height: 240px; 
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
+	height: 28px; 
+	line-height: 27px; 
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
+	background: url('background/TitleBG1x28.gif') repeat-x;
+}

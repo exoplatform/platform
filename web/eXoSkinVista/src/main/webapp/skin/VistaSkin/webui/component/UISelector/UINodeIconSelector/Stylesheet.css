@@ -1,0 +1,90 @@
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
+	height: 230px;
+	background: white;
+	border: 1px solid #b7b7b7;
+}
+
+.UINodeIconSelector .LeftColumnStyle .ItemDetailList {
+	height: 263px;
+	background: white;
+}
+
+.UINodeIconSelector .LeftColumnStyle .Title {
+	line-height: 22px; height: 22px; 
+	overflow: hidden;
+}
+	
+.UINodeIconSelector .SelectedIconInfo {
+	background: white;
+	border: solid 1px #b7b7b7 ;
+	height: 32px;
+	margin-top: 6px;
+	line-height: 32px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
+	white-space: nowrap;
+	margin: 0px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
+	font-size: 12px; font-weight: normal;
+ 	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 0px 10px 0px 10px;
+	width: auto;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue {
+	margin-left: 0px;
+	float: none;
+	color: #2F76E2;
+}
+
+.UINodeIconSelector .IconSelector {
+	background: white ;
+	border: 1px solid	#b7b7b7 ;
+	height: 197px; 
+	overflow: auto;
+}
+
+.UINodeIconSelector .IconSelector .Icon {
+	float: left; width: 16px; height: 16px;
+	margin: 3px ;
+}
+
+.UINodeIconSelector .IconSelector a {
+	float: left;
+	border: 1px white solid;
+	margin: 3px;
+	cursor: pointer ;
+}
+
+.UINodeIconSelector .IconSelector a:hover {
+	border: 1px #c0c0c0 solid;
+}
+
+.UINodeIconSelector .IconSelector .SelectedBackground {
+	float: left;
+	border: 1px red solid;
+	margin: 3px;
+	cursor: pointer ;
+}
+
+.UINodeIconSelector .LeftColumnStyle .SetDefault a {
+	color: black;
+	line-height: 25px;
+	text-decoration: underline;
+}
+
+.UINodeIconSelector .LeftColumnStyle .SetDefault a:hover {
+	color: #058EE6;
+}
+
+.UINodeIconSelector .ItemDetailList .SelectedIconInfo .UIFormInputSet {
+	padding: 0px;
+}
+
+.UINodeIconSelector .CategoryContainer .OverflowContainer {
+	width: auto;
+} 

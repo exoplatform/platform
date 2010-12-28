@@ -1,0 +1,39 @@
+.UIWindow .UIAccountPortlet {	
+	border: none;
+	margin: 0px;
+	overflow: visible;
+}
+
+.UIAccountPortlet {
+	background: white;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid #b7b7b7;
+	overflow: auto; /*Fix when Restore Down for IE*/
+}
+
+.UIAccountPortlet .UIFormTabPane {
+	width: 670px;
+	margin: auto;
+	padding: 0px 6px;
+}
+
+/*########################-Template Selector-###########################*/
+
+.UIAccountPortlet .UIForm .HorizontalLayout .RightColumnBigItemStyle .UIFormInputSet {
+	width: auto;
+}
+
+.UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
+	background: white;
+	height: 311px;
+}
+
+.UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
+	height: 290px;
+}
+
+.UIAccountPortlet .AccountInputSet .SearchIcon {
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}

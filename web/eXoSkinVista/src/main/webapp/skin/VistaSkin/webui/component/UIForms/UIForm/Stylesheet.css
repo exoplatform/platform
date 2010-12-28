@@ -1,0 +1,181 @@
+/*####################- HorizontalLayout -#################*/
+
+.UIForm .HorizontalLayout {
+  padding: 10px; 
+  border: 1px solid #b7b7b7;
+}
+
+.PopupContent .UIForm .HorizontalLayout {
+  padding: 10px; 
+  border: none;
+}
+
+.UIFormGrid {
+	width: auto;
+	margin: auto;
+}
+
+.UITabContent .UIForm .HorizontalLayout .FormContainer {
+	padding: 10px;
+}
+
+.UIForm .UIFormGrid td.FieldLabel {
+  padding: 4px;
+  text-align: right; /* orientation=lt */
+  text-align: left; /* orientation=rt */
+	vertical-align: top;
+}
+
+.UIForm .UIFormGrid td.FieldComponent {
+  padding: 4px;
+	*padding: 0px 0px 4px 4px;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
+  margin-top: 3px ;
+  margin-left: 145px ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
+	float: left ;
+	margin: 2px 5px 0px 5px ;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer {
+  margin-bottom: 5px;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer .MultiFieldAction {
+  margin: 0px 3px;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet {
+	padding: 10px;
+	margin: auto;
+}
+
+.HorizontalLayout .UIForm .UIFormInputSet {
+	padding: 0px;
+	margin: auto;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .Title {
+  margin: 10px 0px 0px 10px ;
+  color: #5f7fd6 ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
+  float: left ;
+  font-weight: bold ;
+  width: 100px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValue {
+  margin-left: 5px ;
+  float: left ;
+  color: #2f76e2 ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValueDescription {
+  margin-top: 10px ;
+  height: 50px ;
+  border: solid 1px gray ;
+  background: white ;
+}
+
+.UIForm .HorizontalLayout input {
+  width: 230px ;
+  font-size: 11px;
+}
+
+.UIForm .HorizontalLayout input.radio {
+  width: 15px;
+}
+
+.UIForm .HorizontalLayout input.checkbox {
+	width: 16px;
+	margin: 0px;
+}
+
+.UIForm .HorizontalLayout textarea {
+  width: 232px ;  height: 75px ;
+  border: 1px solid gray ;
+  font-size: 11px;
+}
+
+.UIForm .HorizontalLayout select {
+  width: 234px ;
+  border: 1px solid gray ;
+  font-size: 11px;
+}
+
+.HorizontalLayout .UIForm input {
+  width: 230px ;
+  font-size: 11px;
+}
+
+.HorizontalLayout .UIForm input.radio {
+	float: none;
+	border: none;
+  width: 15px;
+}
+
+.HorizontalLayout .UIForm input.checkbox {
+	width: 16px;
+	margin: 0px;
+	border: none;
+}
+
+.HorizontalLayout .UIForm textarea {
+  width: 232px ;  height: 75px ;
+  border: 1px solid gray ;
+  font-size: 11px;
+}
+
+.HorizontalLayout .UIForm select {
+  width: 234px ;
+  border: 1px solid gray ;
+  font-size: 11px;
+}
+
+/*####################- VerticalLayout -#################*/
+.UIForm .VerticalLayout {}
+
+
+.UIForm .VerticalLayout  label {
+	text-align: left ;
+  font-weight: bold ;
+  margin-bottom: 15px ;
+}
+
+.UIForm .VerticalLayout input {
+  width: 170px ;
+  font-size: 11px;  
+}
+
+.UIForm .VerticalLayout textarea {
+  width: 170px ;  height: 75px ;
+  font-size: 11px;
+}
+
+.UIForm .VerticalLayout select {
+  width: 170px ;
+  font-size: 11px;
+}
+
+/*####################- UIFormInputSet -#################*/
+.UIFormInputSet .UIFormInputSetWithAction .UIFormGrid td {
+	padding: 0px 4px;
+}
+
+/*####################- UIPermissionForm -#################*/
+
+.UIPermissionForm .UIForm .HorizontalLayout .UIAccessGroup td.FieldLabel {
+  line-height: 16px;
+}
+
+.UIPermissionForm .UIForm .UIAccessGroup .UIFormGrid td.FieldComponent {
+  padding: 3px;
+  *padding: 1px 0px 5px 4px;
+}
+

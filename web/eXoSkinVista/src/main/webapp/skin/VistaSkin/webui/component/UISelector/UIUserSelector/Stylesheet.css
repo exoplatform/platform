@@ -1,0 +1,71 @@
+.UIUserSelector {
+	padding: 10px;
+}
+
+.UIUserSelector .SelectUserContainer {
+	border: 1px solid #b7b7b7;
+}
+
+.UIUserSelector .SelectUserContainer .HorizontalContent {
+	border: 1px solid white;
+	background: #f1f1f1;
+	padding: 10px;
+}
+
+.UIUserSelector .InsertAddressContainer {
+	padding: 10px;
+	border: 1px solid #c0c0c0;
+}
+
+/*********************************************UISearch*****************************************/
+
+.UIUserSelector .UISearch {
+	padding-bottom: 10px;
+}
+
+.UIUserSelector .UIAddressSearchForm {
+	padding-top: 7px;
+}
+
+.UIUserSelector .UIAddressSearchForm input,.UIUserSelector .UIAddressSearchForm .GroupInput {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIUserSelector .UIAddressSearchForm input{
+	font-size: 11px;
+	height: 16px;
+	width: 120px;
+}
+
+.UIUserSelector .UIAddressSearchForm .GroupInput input {
+	width: 300px;
+}
+
+.UIUserSelector .UIAddressSearchForm .SearchIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  height: 20px; width: 24px;
+  margin: 3px 10px;
+}
+
+.UIUserSelector .UIAddressSearchForm .AddressLabel {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 4px;
+	line-height: 21px;	
+}
+
+.UIUserSelector .UIAddressSearchForm select {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 21px;
+	font-size: 11px;
+	margin-left: 4px; /* orientation=lt */
+	margin-right: 4px; /* orientation=rt */
+	width: auto;
+}
+
+.UIUserSelector .UIGroupMembershipSelector .SelectPageIcon {
+	padding: 10px;
+}

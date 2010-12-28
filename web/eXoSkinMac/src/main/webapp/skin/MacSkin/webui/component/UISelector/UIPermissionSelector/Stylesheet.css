@@ -1,0 +1,115 @@
+.UIPermissionSelector {
+ padding: 10px;
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar {
+	margin: 5px 0px 0px 5px; /* orientation=lt */
+	margin: 5px 5px 0px 0px; /* orientation=rt */
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/PermissionIcon.png') no-repeat;
+	width: 24px; height: 22px;
+	margin: 0px 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar .Title {
+	height: 24px; line-height: 24px;
+	font-size: 12px; font-weight: 
+	bold; color: #0a80d2;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIPermissionSelector .PermissionInfoContainer .InfoContentContainer {
+	padding: 5px 0px 0px 0px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
+	height: 20px; line-height: 20px;
+	background: url('background/TitleBG1x20.gif') repeat-x; 
+	border: solid 1px #cdcdcd; border-bottom: none;
+	margin: 0px 10px; 
+}
+
+.UIPermissionSelector .PermissionTypeBar .SeparateLine {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 2px; height: 20px;
+	background: url('background/GrayLine2x2.gif') repeat-y;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
+	border: solid 1px #cdcdcd;
+	background: white;
+	margin: 0px 10px;
+	padding: 15px 0px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon{
+	margin: 0px 5px 0px 15px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}	
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle{
+	margin-left: 5px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	font-weight: bold;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
+	margin: 8px 0px 5px 0px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 150px;
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: none;
+	margin: 8px 0px 5px 15px; /* orientation=lt */
+	margin: 8px 15px 5px 0px; /* orientation=rt */
+	color: #0749c4;
+	width: 320px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
+	filter:alpha(opacity=30);
+	-moz-opacity:.30;
+	opacity:.30;
+}
+
+.UIPermissionSelector .PermissionInfoContainer a.FloatBlockHidden {
+	cursor: default;
+}
+
+.UIPermissionSelector .PermissionInfoContainer a:hover.FloatBlockHidden {
+	color: black;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon	{
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left 2px; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon-rt.gif') no-repeat right 2px; /* orientation=rt */
+	line-height: 21px;
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
+	height: auto; width: auto;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon	{
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left 2px; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon-rt.png') no-repeat right 2px; /* orientation=rt */
+	line-height: 21px;
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
+	height: auto; width: auto;
+} 

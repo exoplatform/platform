@@ -1,0 +1,180 @@
+.UILoginForm {	
+	margin: auto;
+	padding: 30px 17px 30px 10px; /* orientation=lt */
+	padding: 30px 10px 30px 17px; /* orientation=rt */
+	background: #f4f4f4;
+}
+
+/*##############################- LoginBox Style-################################*/
+
+.UILoginForm .LoginDecorator {
+	width: 450px;
+	margin: auto;
+}
+
+.UILoginForm .LoginDecorator .LoginDecoratorBackground {
+	background: #fff url('background/CenterMiddleLogin.gif') repeat-x left bottom;
+}
+
+.UILoginForm .LoginDecorator .LoginDetailBox {
+	background: url('background/ImageMiddle.gif') no-repeat left bottom; /* orientation=lt */
+	background: url('background/ImageMiddle-rt.gif') no-repeat right bottom; /* orientation=rt */
+	padding: 20px 0px 20px 115px; /* orientation=lt */
+	padding: 20px 115px 20px 0px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .TopLeftLoginDecorator {
+	background: url('background/Login.gif') no-repeat left top; /* orientation=lt */
+	background: url('background/Login-rt.gif') no-repeat right top; /* orientation=rt */
+	padding: 0px 0px 0px 8px; /* orientation=lt */
+	padding: 0px 8px 0px 0px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .TopCenterLoginDecorator {
+	background: url('background/Login.gif') repeat-x center -32px;
+	height: 32px;
+}
+
+.UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
+	color: #181818;
+	font-size: 15px;
+	line-height: 28px;
+	padding: 0px 0px 0px 15px; /* orientation=lt */
+	padding: 0px 15px 0px 0px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .TopRightLoginDecorator {
+	background: url('background/Login.gif') no-repeat right top; /* orientation=lt */
+	background: url('background/Login-rt.gif') no-repeat left top; /* orientation=rt */
+	padding: 0px 8px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 8px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
+	background: url('background/MiddleLogin.gif') repeat-y left center; /* orientation=lt */
+	background: url('background/MiddleLogin.gif') repeat-y right center; /* orientation=rt */
+	padding: 0px 0px 0px 4px; /* orientation=lt */
+	padding: 0px 4px 0px 0px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
+	background: url('background/MiddleLogin-rt.gif') repeat-y right; /* orientation=lt */
+	background: url('background/MiddleLogin-rt.gif') repeat-y left; /* orientation=rt */
+	padding: 0px 4px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 4px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
+	background: url('background/Login.gif') no-repeat left -68px; /* orientation=lt */
+	background: url('background/Login-rt.gif') no-repeat right -68px; /* orientation=rt */
+	padding: 0px 0px 0px 11px; /* orientation=lt */
+	padding: 0px 11px 0px 0px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
+	background: url('background/Login.gif') repeat-x center -81px;
+	height: 7px;
+}
+
+.UILoginForm .LoginDecorator .BottomRightLoginDecorator {
+	background: url('background/Login.gif') no-repeat right -68px; /* orientation=lt */
+	background: url('background/Login-rt.gif') no-repeat left -68px; /* orientation=rt */
+	padding: 0px 11px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 11px; /* orientation=rt */
+}
+
+.UILoginForm .UIForm .SimpleStyle .ButtonLeft {
+	background: url('background/Login.gif') no-repeat left -128px;
+	padding-left: 3px;
+}
+
+.UILoginForm .UIForm .SimpleStyle .ButtonRight {
+	background: url('background/Login.gif') no-repeat right -128px;
+	padding-right: 3px;
+}
+
+.UILoginForm .UIForm .SimpleStyle .ButtonMiddle {
+	background: url('background/Login.gif') repeat-x center -151px;
+	line-height: 22px;
+}
+
+.UILoginForm .UIForm .SimpleStyle .ButtonMiddle a {
+	color: #4f4f4f;
+}
+
+.UILoginForm .UIForm .SimpleStyle .ButtonMiddle a:hover {
+	color: #058EE6;
+}
+
+.UILoginForm .UIForm .UIAction .ActionContainer a {
+	font-weight: normal;
+}
+
+/* ============================End LoginDecorator============================== */
+/*
+ * minh.js.exo
+ * 4h44 07/08/2007
+ * fix bug : hidden cursor in form login
+ */
+ 
+.UILoginForm .LoginDetailBox .UIForm {
+	overflow: auto;
+	color: #4f4f4f;
+}
+	
+.UILoginForm .LoginDetailBox .ForgetPass {
+	padding-left: 59px; /* orientation=lt */
+	padding-right: 59px; /* orientation=rt */
+}
+
+.UILoginForm .LoginDetailBox .ForgetPass a {
+	color: #b9b9b9;
+}
+
+.UILoginForm .LoginDetailBox .UIFormGrid td {
+	line-height: 22px;
+}
+
+.UILoginForm .LoginDetailBox .UIFormGrid  td.FieldLabel {
+	padding: 4px 8px 0px 0px;
+}
+
+.UILoginForm .LoginDetailBox .UserNameField input {
+	background: #f7f7f7 url('background/Login.gif') no-repeat left -90px; /* orientation=lt */
+	background: #f7f7f7 url('background/Login-rt.gif') no-repeat right -90px; /* orientation=rt */
+	width: 180px; height: 18px;
+	line-height: 18px;
+	border: solid 1px #b7b7b7;
+	padding: 0px 0px 0px 22px; /* orientation=lt */
+	padding: 0px 22px 0px 0px; /* orientation=rt */
+	cursor: text;
+}
+
+.UILoginForm .LoginDetailBox .PasswordField input {
+	background: #f7f7f7 url('background/Login.gif') no-repeat left -108px; /* orientation=lt */
+	background: #f7f7f7 url('background/Login-rt.gif') no-repeat right -108px; /* orientation=rt */
+	width: 180px; height: 18px;
+	line-height: 18px;
+	border: solid 1px #b7b7b7;
+	padding: 0px 0px 0px 22px; /* orientation=lt */
+	padding: 0px 22px 0px 0px; /* orientation=rt */
+	cursor: text;
+}
+
+.UILoginForm .LoginDetailBox .RememberField input {
+	border: none;
+	margin: 0px;
+}
+
+.UILoginForm .UIForm .VerticalLayout .UIFormGrid {
+	margin: 0px;
+}
+
+.UILoginForm .UIForm .VerticalLayout .UIAction {
+	padding: 15px 0px 0px 56px; /* orientation=lt */
+	padding: 15px 56px 0px 0px; /* orientation=rt */
+}
+
+.UILoginForm .UIForm .VerticalLayout .UIAction .ActionContainer {
+	margin: 0px;
+}

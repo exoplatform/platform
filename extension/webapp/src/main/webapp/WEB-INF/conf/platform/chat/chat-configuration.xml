@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+<component>
+    <type>org.exoplatform.services.xmpp.connection.impl.XMPPMessenger</type>
+    <init-params>
+      <properties-param>
+        <name>openfire-connection-conf</name>
+        <property name="host" value="${exo.chat.server}" />
+        <property name="port" value="${exo.chat.port}" />
+      </properties-param>
+      <properties-param>
+        <name>alive-checker-conf</name>
+        <property name="disconnect" value="15000" />
+        <property name="close" value="3000000" />
+      </properties-param>
+      <properties-param>
+        <name>send-file</name>
+        <property name="timeout" value="7200000" />
+      </properties-param>
+    </init-params>
+  </component>
+</configuration>

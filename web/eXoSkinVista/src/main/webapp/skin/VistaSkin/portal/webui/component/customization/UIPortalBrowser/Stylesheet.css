@@ -1,0 +1,7 @@
+.UIPortalBrowser {
+  width: 99.4%;
+}
+
+.UIPortalBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}

@@ -1,0 +1,136 @@
+.UIGrid thead {
+	border:1px solid #f5f5f5;
+}
+
+.UIGrid th {
+	line-height: 19px;
+	border: 1px solid #f5f5f5;
+	background: white url('background/ThGridRepeatBg1x19.gif') repeat-x;
+	font-weight: normal;
+	padding-left: 4px;
+	vertical-align: middle;
+}
+
+.UIGrid tbody {
+	padding-bottom: 1px;
+}
+
+.UIGrid td {
+	height: 20px;
+	line-height: 20px;
+	border-right: 1px solid #f5f5f5;
+	border-left: 1px solid #f5f5f5;
+	border-top: 1px solid #f5f5f5;
+	padding: 4px;
+}
+
+.UIGrid .OddRow {
+	background: #fdfdfd;
+}
+
+.UIGrid .EvenRow {
+	background: #fafafa;
+}
+
+.UIGrid .ActionContainer {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.UIGrid .ActionContainer a {
+	margin: 0px 3px;
+	color: #024369;
+}
+
+.UIGrid .ActionContainer img {
+	width: 20px;
+	height: 20px;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: none;
+}
+
+.UIGrid .Text {
+	overflow: hidden;
+}
+
+.UIGrid .Number {
+	text-align: center;
+}
+
+.UIGrid .ValueWithIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+}
+/*
+.UIGrid .DeleteIcon {
+	width: 17px;	height: 18px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+}
+*/
+.UIGrid .ViewIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat;
+}
+
+.UIGrid .EditInfoIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon-rt.png') no-repeat right; /* orientation=rt */
+}
+
+.UIGrid .AddNewIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AquaBlueAddSign.gif') no-repeat;
+}
+
+.UIGrid .PreviewIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn-rt.gif') no-repeat right; /* orientation=rt */
+}
+
+/*###################### UIListUsers Icon ######################*/
+
+.UIGrid .DeleteUserIcon {
+	width: 17px;	height: 18px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+}
+
+.UIGrid .ViewUserInfoIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+}
+	
+/*###################### UIListMembershipType Icon ######################*/
+
+.UIGrid .DeleteMembershipIcon {
+	width: 17px;	height: 18px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+}
+
+.UIGrid .EditMembershipIcon {
+	width: 16px;	
+	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditGroupIcon.gif') no-repeat;
+}
+
+.UIGrid .DeleteUserIcon {
+	width: 17px;	
+	height: 18px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+}
+
+.UIGrid .ViewUserInfoIcon {
+	width: 16px;	
+	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditGroupIcon.gif') no-repeat;
+}
+
+.UIGrid input.checkbox {
+	width: 16px;	height: 16px;
+	margin: auto;
+	float: none;
+}

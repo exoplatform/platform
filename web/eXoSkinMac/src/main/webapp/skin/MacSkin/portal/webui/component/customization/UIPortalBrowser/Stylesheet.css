@@ -1,0 +1,16 @@
+.UIPortalBrowser {
+  padding: 5px;
+  width: auto;
+}
+
+.UIPortalBrowser .UIGrid  {  
+  width: 99.5%;
+}
+
+.UIPortalBrowser .UIPageIterator  {  
+  width: 99.5%;
+}
+
+.UIPortalBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}

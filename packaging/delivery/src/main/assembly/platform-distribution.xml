@@ -1,0 +1,151 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+  <id>distribution</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <!-- From -->
+      <directory>src/main/resources</directory>
+      <!-- To -->
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <!-- ######## -->
+    <!-- BINARIES -->
+    <!-- ######## -->
+    <!-- Tomcat Bundle -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.packaging.assembly:zip:tomcat</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/bin/tomcat6-bundle</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <!-- Chat Server -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.packaging.assembly:zip:chatserver</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/bin/chat-server</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <!-- ############## -->
+    <!-- DOCUMENTATIONS -->
+    <!-- ############## -->
+    <!-- Admin documentations -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.admin:zip:html</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/admin/administrators-guide</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.admin:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/admin/AdministratorsGuide</outputDirectory>
+      <outputFileNameMapping>Platform-AdministratorsGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <!-- Developers documentations -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.developer:zip:html</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/developers-guide</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.developer:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/developers-guide</outputDirectory>
+      <outputFileNameMapping>Platform-DevelopersGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <!-- Reference Guides -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.refguide:zip:html</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/reference</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.ecms:exo-ecms-docs-refguide:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/reference</outputDirectory>
+      <outputFileNameMapping>Content-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.cs:exo.cs.docs.refguide:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/reference</outputDirectory>
+      <outputFileNameMapping>Collaboration-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.ks:exo.ks.docs.refguide:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/reference</outputDirectory>
+      <outputFileNameMapping>Knowledge-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.social:exo.social.docs.refguide:pdf</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/dev/reference</outputDirectory>
+      <outputFileNameMapping>Social-ReferenceGuide-${artifact.version}.pdf</outputFileNameMapping>
+    </dependencySet>
+    <!-- User documentations -->
+    <dependencySet>
+      <!-- From -->
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.doc.user:zip</include>
+      </includes>
+      <!-- To -->
+      <outputDirectory>/docs/user/manuals</outputDirectory>
+      <!-- Options -->
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+  </dependencySets>
+</assembly>

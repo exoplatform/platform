@@ -1,0 +1,113 @@
+.UIChangeLanguageForm {
+}
+
+.UIChangeLanguageForm .UIFormTabPane {
+	border: 1px solid white;
+	padding: 0px;
+}
+
+.UIChangeLanguageForm .MiddleFormTitle {
+	background:transparent url(background/MiddleFormTitle1x29.png) repeat-x scroll 0%;
+	color:#0786E7;
+	font-weight:bold;
+	height:29px;
+	line-height:29px;
+	padding-left:10px;
+}
+
+.UIChangeLanguageForm .UITabPane .TabPaneContent {
+	padding: 0px 10px;
+}
+
+.UIChangeLanguageForm .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
+	padding: 0px 10px 0px 10px;
+	background: #ffffff;
+	border-top: none;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemListTitle {
+	height: 29px; line-height: 29px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
+	float: left;
+	width: 175px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
+  background: white url('/background/ItemListBg157x69.gif') no-repeat right bottom;
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
+	margin: 0px 0px 0px 180px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemDetail .TemplateContainer {
+	padding-top: 10px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
+	padding: 0px;
+	border: none;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemDetailContaier {
+	background: #ffffff;
+	border: solid 1px #c3c3c3;
+	padding: 6px;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemDetail {
+	border: solid 1px #c3c3c3;
+	height: 227px;
+	overflow: auto;
+	margin: 0px;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem {
+	height: 24px;
+	border-bottom: solid 1px #e9e7e7;
+	cursor: pointer ;
+	color: black;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem a:hover {
+	height: 24px;
+	border-bottom: solid 1px #e9e7e7;
+	cursor: pointer ;
+	color: blue;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem {
+	height: 24px;
+	color: #f27e01;
+	border-bottom: solid 1px #e9e7e7;
+	background: #f2f8fb;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem {
+	color: #f27e01;
+}
+
+.UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
+	float: left;
+	height: 24px; width: 24px;
+}
+
+.UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
+	float: left;
+	height: 24px; width: 24px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png') no-repeat center;
+}
+
+.UIChangeLanguageForm .ItemDetail .NodeLabel {
+	float: left;
+	line-height: 24px;
+	text-align: left;
+}
+
+.UIChangeLanguageForm .ItemDetail .PercentLabel {
+	line-height: 24px;
+	text-align: right;
+	padding-right: 20px;
+}

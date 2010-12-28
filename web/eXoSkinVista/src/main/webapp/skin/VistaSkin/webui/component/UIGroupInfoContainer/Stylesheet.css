@@ -1,0 +1,27 @@
+.UIGroupInfoContainer {
+}
+
+.UIGroupInfoContainer .HorizontalLayout {
+	border: solid 1px #979797;
+	border-top: none;
+}
+
+.UIGroupInfoContainer .HorizontalLayout .FormContainer {
+	padding: 5px;
+}
+
+.UIGroupInfoContainer .TitleBar {
+	font-weight: bold;
+	padding: 0px 0px 0px 15px;		/* orientation=lt */
+	padding: 0px 15px 0px 0px;		/* orientation=rt */
+	border-right: 1px solid #b7b7b7;
+	border-left: 1px solid #b7b7b7;
+	background: url(background/Style2BarM1x29.gif) repeat-x;
+}
+
+.UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
+	font-weight: normal;
+	background: url(background/TitleBG1x23.gif) repeat-x ;
+	line-height: 23px;
+	margin: 0px;
+}

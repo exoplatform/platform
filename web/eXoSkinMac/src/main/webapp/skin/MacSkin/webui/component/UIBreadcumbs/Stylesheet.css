@@ -1,0 +1,57 @@
+
+.UIBreadcumbsPortlet {
+	height: 34px;
+}
+	
+.UIBreadcumbs {
+	height:33px;	
+	line-height: 29px;
+	vertical-align: middle;
+}
+
+.UIBreadcumbs a {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIBreadcumbs a.Selected {
+	color: #000	; 
+}
+
+.UIBreadcumbs .HomeIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 20px; height: 24px;
+	margin-top: 3px;
+	background: url('background/BreadcumbsHomeIcon.gif') no-repeat left center;
+}
+
+.UIBreadcumbs .Home16x16Icon {
+	display: none;
+}
+
+.UIBreadcumbs .LeftBreadcumbsBar {
+
+}
+
+.UIBreadcumbs .RightBreadcumbsBar {
+
+}
+
+.UIBreadcumbs .BreadcumbsInfoBar {
+	line-height: 33px; 
+	vertical-align: middle;
+	overflow: hidden;
+  white-space: nowrap;
+  padding: 0px 18px;
+}
+
+.UIBreadcumbs .RightBlackGridArrowIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; 
+	height: 16px;
+	margin: 10px 5px 0px 5px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat left; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeat right; /* orientation=rt */
+}

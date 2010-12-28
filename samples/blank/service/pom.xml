@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.sample.blank</artifactId>
+    <version>3.0.0-CR01-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.sample.blank.config</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform - Blank sample Config</name>
+</project>

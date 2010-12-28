@@ -1,0 +1,136 @@
+@import url(control/Stylesheet.css) ;
+@import url(customization/Stylesheet.css) ;
+@import url(view/Stylesheet.css) ;
+@import url(widget/Stylesheet.css) ;
+div {
+	padding:	0px ; margin: 0px ;
+	outline: none;
+}
+
+table {
+  width:	100% ;
+	padding:	0px ; margin: 0px ;
+	border-spacing:	0px ;
+	border-collapse: collapse ;
+}
+
+th, td {
+	padding: 0px ; margin: 0px ;
+	vertical-align: top;
+}
+
+img {
+	padding: 0px ; margin: 0px ;
+	border: none ; vertical-align: middle;
+}
+
+form {
+	padding:	0px ; margin: 0px ;
+}
+
+html {
+	margin: 0px ; padding: 0px;
+	*overflow-x: hidden;
+}
+
+body {
+	background: white ;
+	font-family: sans-serif,Tahoma,Geneva,Arial,Verdana;
+  font-size: 12px;
+	margin: 0px ; padding: 0px;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration:none;
+	color: #333333;
+}
+
+/*###############################################################################################*/
+
+.OverflowContainer {
+	overflow: hidden;
+	width: 100%;
+}
+
+.LeftBlock {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.RightBlock {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.InlineContainer {
+  padding: 0px 18px;
+	overflow: hidden ;
+}
+
+.InlineLeft {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.InlineRight {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.AjaxLoadingMask {
+  width: 200px; height: 110px;
+  background: white;
+  padding: 3px;
+  background: url('/eXoSkinMac/skin/MacSkin/background/PortletBG.gif');
+  border: 1px solid #66667e;
+}
+
+.AjaxLoadingMask .LoadingContainer {
+  height: 108px;
+  border: 1px solid #a8a9bb;
+  background: white;
+}
+
+.AjaxLoadingMask .LoadingText {
+  text-align: center;
+  padding: 10px 0px 5px 0px;
+}
+
+.AjaxLoadingMask .LoadingProgressBar {
+  width: 40px; height: 40px;
+  background: url('/eXoResources/skin/DefaultSkin/background/LoadingProgress.gif') no-repeat center;
+  margin: auto;
+}
+
+.AjaxLoadingMask .UIAction .ActionButton{
+  float: none;
+}
+
+.StarToolBarPortletTDContainer {
+	_width: 63px;
+}
+
+.ClearLeft {
+  clear: left; /* orientation=lt */
+  clear: right; /* orientation=rt */
+}
+
+.ClearRight {
+  clear: right; /* orientation=lt */
+  clear: left; /* orientation=rt */
+}
+
+.ClearBoth {
+  clear: both;
+}
+
+.FloatLeft {
+ float: left; /* orientation=lt */
+ float: right; /* orientation=rt */
+}
+
+.FloatRight {
+ float: right; /* orientation=lt */
+ float: left; /* orientation=rt */
+}

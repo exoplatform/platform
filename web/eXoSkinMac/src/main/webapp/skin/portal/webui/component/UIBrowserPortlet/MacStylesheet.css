@@ -1,0 +1,224 @@
+
+.UIBrowserPortlet {
+	border: solid 0px gray;
+  overflow: auto;  
+}
+
+.UIBrowserPortlet .UIToolbar {
+	border-bottom: solid 1px gray;
+	padding-left: 5px;
+	background: url("DefaultSkin/background/UIToolbarBG1x32.jpg") repeat-x;
+}
+
+.UIBrowserPortlet .ButtonContainer {
+	float: left;
+}
+
+.UIBrowserPortlet .ToolbarButton {
+	float: left;
+	width: 32px; height: 32px;
+	cursor: pointer;
+}
+
+.UIBrowserPortlet .ToolbarButtonOver {
+	float: left;
+	width: 32px; height: 32px;
+	cursor: pointer;
+	background: #d8d8d8;
+}
+
+.UIBrowserPortlet .Separators {
+	float: left;
+	width: 2px; height: 32px;
+	background: url("DefaultSkin/background/Separator.jpg") no-repeat center;
+}
+
+.UIBrowserPortlet .TabContainer .Separator {
+	float: left;
+	width: 2px; height: 20px;
+	background: url("DefaultSkin/background/Separator.jpg") no-repeat center;
+}
+
+.UIBrowserPortlet .TabContainer .SeparatorRight {
+	float: left;
+	width: 2px; height: 20px;
+	background: url("DefaultSkin/background/Separator.jpg") no-repeat center;
+}
+
+.UIBrowserPortlet .BackButton {
+	float: left;
+	width: 32px; height: 32px;
+	background: url("DefaultSkin/icons/24x24/Back.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .FowardButton {
+	width: 32px; height: 32px;
+	background: url("DefaultSkin/icons/24x24/Foward.gif") no-repeat center;	
+}
+
+.UIBrowserPortlet .RefreshButton{
+	width: 32px; height: 32px;
+	background: url("DefaultSkin/icons/24x24/Refresh.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .StopButton {
+	width: 32px; height: 32px;
+	background: url("DefaultSkin/icons/24x24/Stop.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .HomeButton {
+	width: 32px; height: 32px;
+	background: url("DefaultSkin/icons/24x24/Home.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .RightAddressBarContainer {
+	margin: 0px 0px 0px 170px;
+	padding: 1px 0px 0px 0px;
+}
+
+.UIBrowserPortlet .StatusButton {
+  float: right;
+	width: 32px; height: 31px;
+	background: url("DefaultSkin/icons/24x24/Status.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .GoButton {
+  float: right;
+  height: 30px;
+	background: url("DefaultSkin/icons/16x16/Go.gif") no-repeat left;
+	cursor: pointer;
+	line-height: 30px;
+	padding: 0px 5px 0px 25px;
+}
+
+.UIBrowserPortlet .RightAddressBarContainer a:hover {
+	background: url("DefaultSkin/icons/16x16/OverGo.gif") no-repeat left;
+}
+
+.UIBrowserPortlet .AddressBarContainer {
+  height: 18px;
+	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") white no-repeat left;
+	padding: 0px 2px 0px 17px;
+	margin: 5px 0px 0px 0px;
+	border: inset 1px gray;
+	overflow-y: hidden;
+}
+
+.UIBrowserPortlet .ArrowDownButton {
+  float: right;
+	width: 16px; height: 16px;
+	background: url("DefaultSkin/icons/16x16/ArrowDownButton.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .TextBox {
+  border: 0px;
+	margin: 0px 17px 0px 0px;
+}
+
+.UIBrowserPortlet .BrowserContent {
+	width: 100%;
+}
+
+.UIBrowserPortlet .TabBackground {
+	background: url("DefaultSkin/background/TabContainerBG1x20.jpg") repeat-x;
+	padding: 0px 0px 0px 5px;
+	border-bottom: solid 1px gray;
+}
+
+.UIBrowserPortlet .TabContainer {
+	overflow: hidden;
+	margin: 0px 5px 0px 0px;
+}
+
+.UIBrowserPortlet .ActiveTabDetailBackground {
+  float: left;
+  width: 150px; height: 20px;
+	background: url("DefaultSkin/background/ActiveTabDetail1x20.jpg") repeat-x;
+}
+
+.UIBrowserPortlet .TabDetailBackground {
+  float: left;
+  width: 150px; height: 20px;
+	background: none;
+}
+
+.UIBrowserPortlet .TabDetail {
+  width: 150px; height: 20px;
+	background: url("DefaultSkin/icons/16x16/InactiveGlobal.gif") no-repeat left;
+	padding: 2px 5px 0px 21px;
+}
+
+.UIBrowserPortlet .ActiveTabDetail {
+  height: 20px;
+	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") no-repeat left;
+	padding: 0px 5px 0px 21px;
+}
+
+.UIBrowserPortlet .TabSeparator {
+  float: left;
+	width: 2px; height: 20px;
+	background: url("DefaultSkin/icons/16x16/TabSeparator2x20.jpg") no-repeat;
+}
+
+.UIBrowserPortlet .TabContent {
+	width: 100%;
+}
+
+.UIBrowserPortlet .TabLabel {
+	font-size: 11px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 18px;
+	cursor: pointer;
+}
+
+.UIBrowserPortlet .CloseButton {
+  float: right;
+	width: 18px; height: 20px;
+	background: url("DefaultSkin/icons/16x16/InactiveClose.gif") no-repeat center;
+	cursor: pointer;
+}
+
+.UIBrowserPortlet .ActiveCloseButton {
+  float: right;
+	width: 18px; height: 20px;
+	cursor: pointer;
+	background: url("DefaultSkin/icons/16x16/ActiveClose.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .NewTabButtonOver {
+  float: left;
+	width: 30px; height: 20px;
+	cursor: pointer;
+	background: url("DefaultSkin/background/ActiveTabDetail1x20.jpg") repeat-x;
+}
+
+.UIBrowserPortlet .NewTabButton {
+  float: left;
+	width: 30px; height: 20px;
+	background: url("DefaultSkin/background/NewTabBG1x20.jpg") repeat-x;
+	cursor: pointer;
+}
+
+.UIBrowserPortlet .RightNewTab {
+  height: 20px;
+	background: url("DefaultSkin/background/RightNewTab2x20.jpg") no-repeat right;
+}
+
+.UIBrowserPortlet .MiddleNewTab {
+	height: 20px;
+	background: url("DefaultSkin/icons/16x16/NewTab.gif") no-repeat center;
+}
+
+.UIBrowserPortlet .ClipTabIcon {
+	float: right;
+	width: 20px; height: 20px;	
+	background: url("DefaultSkin/icons/16x16/ClipTab.gif") no-repeat center;
+	cursor: pointer;
+}
+
+.UIBrowserPortlet .IFrame {
+	width: 100%;	height: 100%;
+	border: solid 0px gray;
+}

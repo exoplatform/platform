@@ -1,0 +1,522 @@
+/**
+ * Copyright (C) 2009 eXo Platform SAS.
+ * 
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ * 
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+
+/**	
+ * Created by The eXo Platform SARL
+ * Modifile : Nguyen Ngoc Thuy
+ * May 8, 2007
+ * version: $Id$
+ */	
+ 
+.UIWindow .UIApplicationRegistryPortlet {
+	overflow: visible;
+}
+
+.UIApplicationRegistryPortlet {
+	overflow: auto;
+	background: white;
+}
+
+.UIApplicationRegistryPortlet .CategoryContainer .EditIcon	{
+	float: none;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar {
+	background: url('MacSkin/background/ControlIcon.gif') repeat-x center -222px;
+	border: 1px solid #b7b7b7;
+	height: 23px; line-height: 23px;
+	padding: 0px 10px;
+	margin: 5px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .IconControl {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	cursor: pointer;
+	background-image: url('MacSkin/background/ControlIcon.gif'); /* orientation=lt */
+	background-image: url('MacSkin/background/ControlIcon-rt.gif'); /* orientation=rt */
+	background-repeat: no-repeat;
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
+	line-height: 23px;
+	margin: 0px 15px 0px 7px; /* orientation=lt */
+	margin: 0px 7px 0px 15px; /* orientation=rt */
+	width: auto; 
+	height: auto;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .AddNewIcon {
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .AddIcon {
+	background: url('MacSkin/background/ControlIcon.gif') no-repeat left -247px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') no-repeat right -247px; /* orientation=rt */
+	width: 19px;
+	height: 20px;
+}
+
+.UIApplicationRegistryPortlet .ReloadIcon {
+	background: url('MacSkin/background/ControlIcon.gif') no-repeat left -273px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') no-repeat right -273px; /* orientation=rt */
+	width: 19px;
+	height: 20px;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .AddCategoryIcon {
+	background-position: left -46px; /* orientation=lt */
+	background-position: right -46px; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .CreateNewIcon {
+	background: url('MacSkin/background/ControlIcon.gif') no-repeat left -25px; /* orientation=lt */	
+	background: url('MacSkin/background/ControlIcon-rt.gif') no-repeat right -25px; /* orientation=rt */
+	width: 19px;
+	height: 20px;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
+	background-position: left -69px; /* orientation=lt */
+	background-position: right -69px; /* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .CopyGadgetIcon {
+	background: url('MacSkin/background/ControlIcon.gif') repeat-x left -69px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') repeat-x right -69px; /* orientation=rt */
+	width: 23px;
+	height: 22px;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer {
+	height: 100%;
+	border: 1px solid #b7b7b7;
+	background: url('MacSkin/background/Repeat-Y16x2.gif') repeat-y left top; /* orientation=lt */
+	background: url('MacSkin/background/Repeat-Y16x2-rt.gif') repeat-y right top; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer .AppRegistryControl {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 239px;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer .ControlArea {
+	padding: 5px 2px 5px 5px; /* orientation=lt */
+	padding: 5px 5px 5px 2px; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .AppRegistryControl .CategoryContent {
+	padding: 1px;
+	background: white;
+	border: 1px solid #d7d7d7;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryControl .Border {
+	border: 1px solid #d7d7d7;	
+	padding: 1px; margin: 1px;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryControl .TitleCategory {
+	background: url('MacSkin/background/AppRegistryControl.gif') repeat-x left top;
+	height: 17px;
+	padding: 10px 5px 0px 5px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ListContent {
+	border: 1px solid #d7d7d7;
+	margin: 5px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent {
+	line-height: 26px;
+	height: 26px;
+	background: url('MacSkin/background/AppRegistryControl.gif') no-repeat -453px bottom;
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel:hover {
+	color: #058ee6;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .SelectedItem .TabLabel {
+	color: #058ee6;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
+	display: block;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('MacSkin/background/ControlIcon.gif') repeat-y left -92px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') repeat-y right -92px; /* orientation=rt */
+	padding: 0px 0px 0px 20px; /* orientation=lt */
+	padding: 0px 20px 0px 0px; /* orientation=rt */
+	cursor: pointer;
+	width: 160px; 
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
+	display: block;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 3px;
+	filter: alpha(opacity=30);
+	-moz-opacity: 0.3;
+}
+
+.UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {
+	font-weight: bold;
+	padding-left: 3px; /* orientation=lt */
+	padding-right: 3px; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover {
+	background-color: #9d9d9d;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover a {
+	color: white;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs {
+	margin: 1px 1px 1px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs a:hover {
+	color: #058ee6;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab a.TabLabel {
+	background: url('MacSkin/background/BlueNextArrow.gif') no-repeat left center; /* orientation=lt */
+	background: url('MacSkin/background/BlueNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
+	padding: 0 0 0 18px; /* orientation=lt */
+	padding: 0 18px 0 0; /* orientation=rt */
+	display: block;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab a.TabLabel {
+	background: url('MacSkin/background/BlueDownArrow.gif') no-repeat left center;
+	padding: 0 0 0 18px; /* orientation=lt */
+	padding: 0 18px 0 0; /* orientation=rt */
+	display: block;
+	width: 120px; overflow: hidden;
+	color: #626262;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
+	background: url('MacSkin/background/ControlIcon.gif') no-repeat left -170px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') no-repeat right -170px; /* orientation=rt */
+	padding-left: 10px;	/* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
+	display: block;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	cursor: pointer;
+	width: 158px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
+	padding: 5px;
+	margin: 0px 1px;
+}
+
+.UIApplicationRegistryPortlet .UIVTabContent .SelectedItem .ItemLabel {
+	background: url('MacSkin/background/ControlIcon.gif') no-repeat left -196px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon-rt.gif') no-repeat right -196px; /* orientation=rt */
+	display: block;
+	color: #898989;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .UIGroupMembershipSelector .UITrees {
+	background: white;
+}
+
+/**************************** AppWorkingArea *****************************/
+
+.UIApplicationRegistryPortlet .AppWorkingArea {
+	margin-left: 260px;	/* orientation=lt */
+	margin-right: 260px; /* orientation=rt */
+	padding: 10px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb {
+	padding: 0px 10px;
+	border-bottom: 1px solid #b7b7b7;
+	height: 19px;
+	color: #4b4b4b;
+	font-weight: bold;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .BreadcumbInfo {
+	width: 90%;
+	overflow: hidden;
+	height: 16px;
+	line-height: 16px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .RightBlackGridArrow16x16Icon {
+	background-position: center;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 6px;
+	margin: 5px 0px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .Selected {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	color: #535353;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .DownLoadIcon {
+	background: url('MacSkin/background/DownLoadIcon.gif') no-repeat;
+	width: 16px; 
+	height: 16px;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContainer {
+	padding: 10px 0px;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent {
+	margin-left: 90px; /* orientation=lt */
+	margin-right: 90px; /* orientation=rt */
+	padding: 15px 15px 15px 0px; /* orientation=lt */
+	padding: 15px 0px 15px 15px; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent table {
+	table-layout: fixed;
+	width: 99%;
+	line-height: 18px;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent .RightLabel {
+	width: 78%;
+	overflow: hidden;
+	padding: 0px 4px;
+	vertical-align: middle;
+}
+
+.UIApplicationRegistryPortlet .TitleBarApplication {
+	background: none;
+	font-weight: bold; font-size: 12px; color: #535353;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContentLabel {
+	line-height: 16px;
+	margin: auto;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent .LeftLabel {
+	font-weight: bold;
+	font-size: 11px;
+	color: black;
+	text-align: right; /* orientation=lt */
+	text-align: left;	/* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .ApplicationContentLabel .RightLabel {
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .PortletIcons {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 80px; 
+	height: 80px;
+	cursor: pointer;
+	margin-top: 2px;
+}
+
+.UIApplicationRegistryPortlet .UIFormWithTitle {
+	width: 480px;
+}
+
+/*******************************UIAcessPermissions******************************/
+
+.UIApplicationRegistryPortlet .UIAcessPermissions {
+	margin: 20px 0px;
+	width: auto;
+	height: 100%;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIForm .HorizontalLayout {
+	padding: 0px;
+	border: none;
+	background: none;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid {
+	width: 100%;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .PublicCheck .UIFormGrid {
+	width: auto;
+}
+
+/**************************** UIOrganizerManagement ***************************/
+
+.UIApplicationRegistryPortlet .UIAddApplicationForm .UIFormGrid {
+	width: 99%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .UIFormGrid {
+	width: 99%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .PublicCheck .UIFormGrid {
+	width: auto;
+}
+
+.UIOrganizerManagement .UIAddApplicationForm .UIFormGrid td.text {
+	white-space: normal;
+}
+/***************************** UIPortletManagement ***************************/
+
+.UIPortletManagement .ListCategory .CategoryLable {
+	background: url(MacSkin/background/ControlIcon.gif) no-repeat scroll 5px -170px;	/* orientation=lt */
+	background: url(MacSkin/background/ControlIcon-rt.gif) no-repeat scroll right -170px;	/* orientation=rt */
+	padding: 0px 0px 0px 15px; /* orientation=lt */
+	padding: 0px 15px 0px 0px; /* orientation=rt */
+	display: block;
+	line-height: 25px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.UIPortletManagement .SelectedCategory .CategoryLable {
+	background: #b7b7b7 url(MacSkin/background/ControlIcon.gif) no-repeat scroll 5px -196px; /* orientation=lt */
+	background: #b7b7b7 url(MacSkin/background/ControlIcon-rt.gif) no-repeat scroll right -196px; /* orientation=rt */
+	color: white;
+	font-weight: bold;
+}
+
+.UIPortletManagement .ListCategory .ListItem {
+	background: #f7f7f7;
+	border-bottom: 1px solid #dddddd;
+}
+
+.UIPortletManagement .ListCategory .Item {
+	display: block;
+	background: url('MacSkin/background/ControlIcon.gif') repeat-y left -92px; /* orientation=lt */
+	background: url('MacSkin/background/ControlIcon.gif') repeat-y right -92px; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	cursor: pointer;
+	width: 158px; overflow: hidden;
+	white-space: nowrap;
+	line-height: 25px;
+}
+
+.UIPortletManagement .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
+	background: none;
+}
+
+.UIPortletManagement .BoxContent {
+	padding: 1px;
+	border: 1px solid #d7d7d7;
+	margin: 1px;
+}
+
+.UIPortletManagement .BoxContent .TitleCategory {
+	cursor: pointer;
+	text-transform: capitalize;
+}
+
+.UIPortletManagement .UIGrid .FieldLable {
+	width: 30%;
+	text-align: right;
+}
+
+.UIPortletManagement .UIGrid .FieldComponent {
+	padding: 4px 0px;
+}
+
+/******************************** UIGadgetManagement ******************************/
+.UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
+	width: 150px; height: 120px;
+	padding-top: 20px; text-align: center;
+}
+
+.UIApplicationRegistryPortlet .UIGadgetManagement .ApplicationContent {
+	margin-left: 150px; /* orientation=lt */
+	margin-right: 150px; /* orientation=rt */
+}
+
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL table {
+	width: 99%;
+	table-layout: fixed;
+}
+
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL .RightLabel {
+	overflow: hidden;
+}
+
+.UIGadgetManagement .UIGadgetEditor table.UIFormGrid {
+	width: 99%;
+	table-layout: fixed;
+}
+
+.UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
+	height: 250px; 
+	padding: 0px;
+	width: 97%; 
+	overflow: auto;
+}
+
+.UIGadgetManagement .UIGadgetEditor td.FieldComponent {
+	width: 90%;
+}
+
+.UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
+	width: 99%;
+}

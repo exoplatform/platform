@@ -1,0 +1,59 @@
+.UILogoPortlet {
+	zoom: 100%;
+	padding: 5px;
+	line-height: 38px;
+}
+
+.ClearFix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ClearFix {
+	!display: inline-block;
+  !zoom: 1;
+  !display: block; 
+}
+
+.UILogoPortlet .Img img {
+	height: 38px;
+}
+
+.UILogoPortlet .Img,.UILogoPortlet .BannerTitle {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	color: white;
+	font-size: 17px;
+}
+
+.UILogoPortlet .Signin a,.UILogoPortlet .Signout a,
+.UILogoPortlet .Signout span {
+	display: block;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	cursor: pointer;
+}
+
+.UILogoPortlet a {
+	color: white;
+	outline: none;
+	margin: 0 8px;
+	font-weight: bold;
+}
+
+.UILogoPortlet a.User {
+	padding: 0 4px; 
+	background: none;
+	color: #e66a1f;;
+}
+
+.UILogoPortlet a:hover {
+	color: #e7e7e7;
+}
+
+.UILogoPortlet .Name {
+	color: #666666;
+}

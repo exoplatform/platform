@@ -1,0 +1,90 @@
+.UINodeIconSelector {
+}
+
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
+	height: 240px;
+	background: white url('background/IconImage.gif') no-repeat bottom;
+}
+
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemDetailList {
+	height: 263px;
+}
+
+.UINodeIconSelector .SelectedIconInfo {
+	background: white;
+	border: solid 1px #b7b7b7;
+	height: 35px;
+	padding-top: 3px;
+	margin-top: 6px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
+	white-space: nowrap;
+	margin: 0px;
+	line-height: 32px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
+	font-size: 12px; font-weight: normal;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 0px 10px;
+	width: auto;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue {
+	margin-left: 0px;
+	float: none;
+	color: #2F76E2;
+}
+
+.UINodeIconSelector .IconSelector {
+	background: white;
+	border: 1px solid	#b7b7b7;
+	height: 197px; 
+}
+
+.UINodeIconSelector .IconSelector .Icon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 2px;
+	cursor: pointer;
+	width: 16px; height: 16px;
+}
+
+.UINodeIconSelector .IconSelector a {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 2px;
+	border: 1px white solid;
+	cursor: pointer;
+	width: 20px;
+}
+
+.UINodeIconSelector .IconSelector a:hover {
+	border: 1px #c0c0c0 solid;
+}
+	
+.UINodeIconSelector .IconSelector .SelectedBackground {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 2px;
+	border: 1px red solid;
+	cursor: pointer;
+	width: 20px;
+}
+
+.UINodeIconSelector .LeftColumnStyle .SetDefault a {
+	color: black;
+	line-height: 22px;
+	text-decoration: underline;
+}
+
+.UINodeIconSelector .LeftColumnStyle .SetDefault a:hover {
+	color: #058EE6;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
+	width: auto;
+	padding: 0px;
+}

@@ -1,0 +1,74 @@
+.UIDescription {
+  padding: 0px 5px 7px 5px;
+}
+
+.UIDescription .DecoratorBox .DecoratorBackground{
+  background: #efefef;
+  padding: 0px 3px 0px 3px;
+}
+
+.UIDescription .DecriptionContainer {
+  padding: 0px 5px 5px 5px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+
+.UIDescription .DescriptionTitle {
+  border :1px #ffffff solid;
+  border-top:none;
+  border-bottom:none;
+  text-align: center; font-weight: bold;
+  height: 23px; line-height: 23px;
+  background: url('background/UIDescription.png') repeat-x bottom;
+}
+
+.UIDescription .DescriptionContent {
+  line-height: 18px;
+  border:1px #7e878f solid;
+  background: url('background/DescriptionContentBackgr.png') repeat;
+}
+
+.UIDescription .DescriptionContentMaxHeight {
+  padding: 8px;
+  height: 345px;
+}
+
+.UIDescription .LeftTopDescriptionDecorator {
+	background: url('background/UIDescription.png') no-repeat left top;
+	padding-left: 7px;
+}
+
+.UIDescription .RightTopDescriptionDecorator {
+	background: url('background/UIDescription.png') no-repeat right -11px;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterTopDescriptionDecorator {
+	background: url('background/UIDescription.png') repeat-x left -22px;
+	height: 11px;
+}
+
+.UIDescription .LeftMiddleDescriptionDecorator {
+	background: url('background/LeftMiddleDescriptionDecorator3x1.png') repeat-y left;
+	padding-left: 3px;
+}
+
+.UIDescription .RightMiddleDescriptionDecorator {
+	background: url('background/RightMiddleDescriptionDecorator4x1.png') repeat-y right;
+	padding-right: 4px;
+}
+
+.UIDescription .LeftBottomDescriptionDecorator {
+	background: url('background/UIDescription.png') no-repeat left -33px;
+	padding-left: 8px;
+}
+
+.UIDescription .RightBottomDescriptionDecorator {
+	background: url('background/UIDescription.png') no-repeat right -42px;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterBottomDescriptionDecorator {
+	background: url('background/UIDescription.png') repeat-x left -51px;
+	height: 9px;
+}
