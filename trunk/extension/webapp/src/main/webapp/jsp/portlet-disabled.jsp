@@ -1,1 +1,0 @@
-<p>this portlet has been disabled</p>
