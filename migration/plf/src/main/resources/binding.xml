@@ -19,7 +19,7 @@
 		<value name="access-permissions" field="accessPermissions" usage="optional"/>
 		<value name="edit-permission" field="editPermission" usage="optional"/>
 		<value name="show-max-window" field="showMaxWindow" usage="optional"/>
-		<collection field="children" ordered="false">
+		<collection field="children" ordered="false" usage="optional">
 			<structure map-as="org.exoplatform.platform.migration.plf.object.Container" usage="optional"/>
 			<structure map-as="org.exoplatform.platform.migration.plf.object.Application" usage="optional"/>
 		</collection>
@@ -36,7 +36,7 @@
 		<value name="description" field="description" usage="optional"/>
 		<value name="width" usage="optional" field="width" style="attribute"/>
 		<value name="height" usage="optional" field="height" style="attribute"/>
-		<collection field="children" ordered="false">
+		<collection field="children" ordered="false" usage="optional">
 			<structure map-as="org.exoplatform.platform.migration.plf.object.Container" usage="optional"/>
 			<structure map-as="org.exoplatform.platform.migration.plf.object.Application" usage="optional"/>
 			<structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
