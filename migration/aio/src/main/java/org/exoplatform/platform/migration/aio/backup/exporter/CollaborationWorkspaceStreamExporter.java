@@ -1,5 +1,6 @@
 package org.exoplatform.platform.migration.aio.backup.exporter;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,14 +24,26 @@ import org.exoplatform.services.jcr.impl.xml.exporting.WorkspaceSystemViewStream
 
 public class CollaborationWorkspaceStreamExporter extends WorkspaceSystemViewStreamExporter {
 
-  public CollaborationWorkspaceStreamExporter(XMLStreamWriter writer, ItemDataConsumer dataManager, NamespaceRegistry namespaceRegistry, ValueFactoryImpl systemValueFactory, boolean skipBinary, boolean noRecurse) throws NamespaceException, RepositoryException {
+  private boolean deleteWCMServicesLogNodes;
+
+  private static List<String> wcmServicesLogNodesNames = null;
+  static {
+    wcmServicesLogNodesNames = Arrays.asList(new String[] { "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService" });
+  }
+
+  public CollaborationWorkspaceStreamExporter(XMLStreamWriter writer, ItemDataConsumer dataManager, NamespaceRegistry namespaceRegistry, ValueFactoryImpl systemValueFactory, boolean skipBinary, boolean noRecurse, boolean deleteWCMServicesLogNodes) throws NamespaceException, RepositoryException {
     super(writer, dataManager, namespaceRegistry, systemValueFactory, skipBinary, noRecurse);
+    this.deleteWCMServicesLogNodes = deleteWCMServicesLogNodes;
   }
 
   public void visit(NodeData node) throws RepositoryException {
     try {
       entering(node, currentLevel);
       if ((maxLevel == -1) || (currentLevel < maxLevel)) {
+        String nodeName = getExportName(node, false);
+        if (this.deleteWCMServicesLogNodes && (currentLevel == 2) && wcmServicesLogNodesNames.contains(nodeName)) {
+          return;
+        }
         currentLevel++;
 
         List<PropertyData> properties = dataManager.getChildPropertiesData(node);

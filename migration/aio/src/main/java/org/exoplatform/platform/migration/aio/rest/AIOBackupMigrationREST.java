@@ -19,7 +19,9 @@ package org.exoplatform.platform.migration.aio.rest;
 import java.io.File;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.platform.migration.aio.backup.AIOBackupMigrationService;
+import org.exoplatform.platform.migration.common.component.ContainerParamExtractor;
 import org.exoplatform.services.jcr.ext.backup.BackupConfig;
 import org.exoplatform.services.jcr.ext.backup.BackupManager;
 import org.exoplatform.services.log.ExoLogger;
@@ -37,8 +39,11 @@ public class AIOBackupMigrationREST implements ResourceContainer {
 
   private AIOBackupMigrationService backupService;
 
-  public AIOBackupMigrationREST(AIOBackupMigrationService backupService) {
+  private ContainerParamExtractor containerParamExtractor_ = null;
+
+  public AIOBackupMigrationREST(AIOBackupMigrationService backupService, ContainerParamExtractor containerParamExtractor) {
     this.backupService = backupService;
+    this.containerParamExtractor_ = containerParamExtractor;
   }
 
   @HTTPMethod("GET")
@@ -51,7 +56,7 @@ public class AIOBackupMigrationREST implements ResourceContainer {
     htmlContainersLink.append("<fieldset>");
     htmlContainersLink.append("<legend>Generates Collaboration&System Workspace backup files</legend>");
 
-    htmlContainersLink.append("<form action='backup/start' method='get'>");
+    htmlContainersLink.append("<form action='/" + containerParamExtractor_.getContainerId(PortalContainer.getInstance()) + "/" + containerParamExtractor_.getContainerRestContext(PortalContainer.getInstance()) + "/migration/backup/start' method='get'>");
     htmlContainersLink.append("Backup Location : <input type='text' name='location'/><BR/>");
     htmlContainersLink.append("<input type='submit'/>");
     htmlContainersLink.append("</form>");

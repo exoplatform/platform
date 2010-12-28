@@ -16,6 +16,12 @@
 	</component>
 	<component>
 		<type>org.exoplatform.platform.migration.aio.backup.AIOBackupMigrationService</type>
+		<init-params>
+			<value-param>
+				<name>delete.wcm.services.log.nodes</name>
+				<value>true</value>
+			</value-param>
+		</init-params>
 	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</target-component>

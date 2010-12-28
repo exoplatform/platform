@@ -32,6 +32,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.migration.aio.backup.exporter.CollaborationWorkspaceStreamExporter;
 import org.exoplatform.platform.migration.aio.backup.exporter.SystemWorkspaceStreamExporter;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -64,8 +65,12 @@ public class AIOBackupMigrationService {
 
   protected RepositoryService repoService;
 
-  public AIOBackupMigrationService(RepositoryService repoService) {
+  private boolean deleteWCMServicesLogNodes;
+
+  public AIOBackupMigrationService(RepositoryService repoService, InitParams initParams) {
     this.repoService = repoService;
+    String deleteWCMServicesLogNodes = initParams.getValueParam("delete.wcm.services.log.nodes").getValue();
+    this.deleteWCMServicesLogNodes = Boolean.parseBoolean(deleteWCMServicesLogNodes);
   }
 
   public final int getType() {
@@ -117,7 +122,7 @@ public class AIOBackupMigrationService {
       XMLStreamWriter streamWriter = outputFactory.createXMLStreamWriter(out, Constants.DEFAULT_ENCODING);
       BaseXmlExporter exporter = null;
       if (workspaceName.equals(COLLABORATION_WS_NAME)) {
-        exporter = new CollaborationWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse);
+        exporter = new CollaborationWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse, this.deleteWCMServicesLogNodes);
       } else if (workspaceName.equals(SYSTEM_WS_NAME)) {
         exporter = new SystemWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse);
       } else {
