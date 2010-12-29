@@ -1,9 +1,7 @@
 
 This section describes how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another Platform servers. To copy the whole site, you need to do the following actions:
 
-h2. Copy the site content folder with its versions history
-
-Do as follows:
+h2. Copy the site content folder with its version history
 
 *Step 1:* Go to the *Sites Management* drive.
 
@@ -13,11 +11,11 @@ Do as follows:
 
 !how_to_copy_a_site/export_site_nodes2.png!
 
-*Step 4:* Select *Export* or *Export version history* to perform exporting, or *Cancel* to discard exporting.
+*Step 4:* Select *Export* or *Export version history* to perform exporting.
 
 *Step 5:* Click *Import Node* to open the *Import Node* form. 
 
-*Step 6:* Select the exported nodes and versions history to be imported, or *Cancel* to discard importing.
+*Step 6:* Select the exported nodes and version history to be imported.
 
 !how_to_copy_a_site/import_site_nodes2.png!
 
@@ -25,8 +23,6 @@ One pop-up message will appear to inform that you have imported successfully as 
 !how_to_copy_a_site/import_successfully.png!
 
 h2. Copy navigation nodes of sites
-
-Do as follows:
 
 *Step 1:* Add a new drive to both target and source servers.
 
@@ -43,16 +39,14 @@ Do as follows:
 h2. Copy the template of node type
 
 {note}
-If you have some specific JCR namespaces and node types, you will have to import them to the new server.
+If you have some specific JCR namespaces and node types, you need to import them into the new server.
 {note}
-
-Do as follows:
 
 *Step 1:* Add the *System* drive to both servers.
 
 !how_to_copy_a_site/add_system_drive.png!
 
-*Step 2:* Open system:/jcr:system/exo:namespaces/\{namespace_name\}, and export it.
+*Step 2:* Open system:/jcr:system/exo:namespaces/{noformat}{namespace_name}{noformat}, and export it.
 
 !how_to_copy_a_site/export_namespace.png!
 
@@ -60,7 +54,7 @@ Do as follows:
 
 !how_to_copy_a_site/import_namespace.png!
 
-*Step 4:* Open system:/jcr:system/jcr:nodetypes/\{node_type\}, and export it.
+*Step 4:* Open system:/jcr:system/jcr:nodetypes/{noformat}{node_type}{noformat}, and export it.
 
 !how_to_copy_a_site/export_node_type.png!
 
@@ -71,14 +65,13 @@ Do as follows:
 h2. Copy WCM templates
 
 {note}
-If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them in the new server.
+If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them into the new server.
 {note}
 
-Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive.
 
-*Step 2:* Open dms-system:/exo:ecm/templates/\{node_type\} , and export it.
+*Step 2:* Open dms-system:/exo:ecm/templates/{noformat}{node_type}{noformat}, and export it.
 
 !how_to_copy_a_site/export_node_type_templates.png!
 
@@ -88,22 +81,22 @@ Do as follows:
 
 Also, for CLV/PCLV templates, you can find all template views defined in the dms-system:/exo:ecm/views path with:
 
-* userviews: this folder contains SiteExplorer's views with a set of actions.
+* userviews: this folder contains views of Sites Explorer with a set of actions.
 * templates: where you can find all gtmpl templates of:
 ** Category Navigation Portlet templates.
 ** Content List Viewer (CLV) templates and its paginator templates.
 ** content-browser templates (Deprecated Portlet).
-** ecm-explorer templates: Those templates are used to define how to display nodes in the the SiteExplorer Portlet, such as CoverFlow template, IconView template.
+** ecm-explorer templates define how to display nodes in the Sites Explorer portlet, such as CoverFlow template, IconView template.
 ** Parameterized Content List Viewer (PCLV) templates and its paginator templates.
-** WCM Advanced Search: this template is used in the WCM Search portlet to define the form, layout, result and result's paginator.
+** WCM Advanced Search is used in the WCM Search portlet to define the form, layout, result and result's paginator.
 
-If you want to reuse one of the non-predefined templates above, you simply need to export and import it in the new server at the same place.
+If you want to reuse one of the non-predefined templates above, simply export and import it into the new server at the same place.
 
 !how_to_copy_a_site/WCM_templates.png!
 
 h2. Copy a Taxonomy tree
 
-By importing the whole site as described in the *Copy the site content folder with its versions history* section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you now need to do is to add this Taxonomy Tree definition by following those steps:
+By importing the whole site as described in the *Copy the site content folder with its version history* section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you now need to do is to add this Taxonomy Tree definition by following those steps:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
 
@@ -113,39 +106,37 @@ By importing the whole site as described in the *Copy the site content folder wi
 
 !how_to_copy_a_site/select_TaxonomyTree_rootNode.png!
 
-The name of symlink will be displayed as "acme".
+The name of symlink is displayed as "acme".
 
 !how_to_copy_a_site/select_TaxonomyTree_rootNode2.png!
 
-The symlink will be generated as below:
+The symlink is generated as below:
 
 !how_to_copy_a_site/select_TaxonomyTree_rootNode3.png!
 
-Note that in some cases, you need to clean cache by disconnecting or restarting the server to see modifications. 
+In some cases, to see changes, you need to clean cache by disconnecting or restarting the server. 
 
 !how_to_copy_a_site/TaxonomyTree_added_successfully.png!
 
+
 h2. Copy metadata templates
-Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
 
-*Step 2:* Go to /exo:ecm/metadata/\{meta_data_name\}.
+*Step 2:* Go to /exo:ecm/metadata/{noformat}{meta_data_name}{noformat}.
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
 
 h2. Copy queries
-Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
 
-*Step 2:* Go to "/exo:ecm/queries/\{query_name\}".
+*Step 2:* Go to "/exo:ecm/queries/{noformat}{query_name}{noformat}".
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
 h2. Copy scripts
-Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
 
@@ -155,36 +146,34 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 ** action: The action scripts are launched when an ECM action triggers them. For more information, refer to *Actions Concept*.
 
-** interceptor: Interceptor scripts will be triggered before and/or after a JCR node is saved, or when a node is created or edited. They are used to either validate the value entered in a form or to manipulate the newly created node, for example, to map the new node with a forum thread or any other type of discussion areas.
+** interceptor: Interceptor scripts are triggered before and/or after the JCR node is saved, or when a node is created or edited. They are used to either validate the value entered in a form or to manipulate the newly created node, for example, to map the new node with a forum thread or any other type of discussion areas.
 
-** widget: Widget scripts are used to fill widgets, such as a select box in a dynamic way.
+** widget: Widget scripts are used to fill widgets, such as a selectbox in a dynamic way.
 
 *Step 3:* Export your customized script in the same location in the new server.
 
 h2. Copy drive configurations
-Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
 
-*Step 2:* Go to /exo:ecm/exo:drives/\{drive_name\}.
+*Step 2:* Go to /exo:ecm/exo:drives/{noformat}{drive_name}{noformat}.
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
 h2. Copy gadgets
-Do as follows:
 
 *Step 1:* Open the drive that points into *Portal-System* Workspace.
 
-*Step 2:* Go to your gadget "portal-system:/production/app:gadgets/\{gadget_namee\}".
+*Step 2:* Go to your gadget "portal-system:/production/app:gadgets/{noformat}{gadget_namee}{noformat}".
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
 h2. Restart server
 
-After importing the site navigation nodes, the site will look like:
+After importing the site navigation nodes, the site looks like:
 
 !how_to_copy_a_site/acme_site_after_import.png!
 
-So, you need to restart the server. The site will look like:
+So, you need to restart the server first. The site looks like:
 
 !how_to_copy_a_site/acme_site_after_import_and_restart.png!
