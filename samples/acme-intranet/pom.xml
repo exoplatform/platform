@@ -3,10 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.office</artifactId>
+    <artifactId>exo.platform.sample</artifactId>
     <version>3.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.office.config</artifactId>
-  <packaging>jar</packaging>
-  <name>eXo Platform - Office Portal Config</name>
+  <artifactId>exo.platform.sample.acme-intranet</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Acme Intranet</name>
+  <modules>
+    <module>webapp</module>
+    <module>resources</module>
+    <module>service</module>
+    <module>ear</module>
+  </modules>
 </project>

@@ -3,16 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+    <artifactId>exo.platform.sample.acme-intranet</artifactId>
     <version>3.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.office</artifactId>
-  <packaging>pom</packaging>
-  <name>eXo Platform - Office Portal</name>
-  <modules>
-    <module>webapp</module>
-    <module>officeResources</module>
-    <module>service</module>
-    <module>ear</module>
-  </modules>
+  <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
+  <packaging>war</packaging>
+  <name>eXo Platform - Acme Intranet Resources</name>
+  <build>
+    <finalName>acmeIntranetResources</finalName>
+  </build>
 </project>

@@ -85,10 +85,11 @@ function getModule(params)
 
    // office portal
    module.office = {};
-   module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.office.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.office.config", "jar", module.version));
-   module.office.webapp.deployName = "office-portal";
-   module.office.officeResources =  new Project("org.exoplatform.platform", "exo.platform.office.officeResources", "war", module.version);
+   module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.samples.acme-intranet.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.samples.acme-intranet.config", "jar", module.version));
+   module.office.webapp.deployName = "acme-intranet";
+   module.office.officeResources =  new Project("org.exoplatform.platform", "exo.platform.samples.acme-intranet.resources", "war", module.version);
+   module.office.officeResources.deployName = "acmeIntranetResources";
       
    
    module.patch = {};

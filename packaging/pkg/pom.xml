@@ -1265,13 +1265,13 @@
     </dependency><!-- 3.0.2-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.config</artifactId>
+      <artifactId>exo.platform.samples.acme-intranet.config</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
     </dependency><!-- 3.0.2-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.webapp</artifactId>
+      <artifactId>exo.platform.samples.acme-intranet.webapp</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency><!-- 3.0.2-SNAPSHOT-->
@@ -1289,7 +1289,7 @@
     </dependency><!-- 3.0.2-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.officeResources</artifactId>
+      <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency><!-- 3.0.2-SNAPSHOT-->
@@ -1603,7 +1603,7 @@
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
-				  <artifactId>exo.platform.office.ear</artifactId>
+				  <artifactId>exo.platform.samples.acme-intranet.ear</artifactId>
 				  <version>${project.version}</version>
 				  <type>ear</type>
 				</artifactItem>
@@ -1771,7 +1771,7 @@
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
-				  <artifactId>exo.platform.office.ear</artifactId>
+				  <artifactId>exo.platform.samples.acme-intranet.ear</artifactId>
 				  <version>${project.version}</version>
 				  <type>ear</type>
 				</artifactItem>

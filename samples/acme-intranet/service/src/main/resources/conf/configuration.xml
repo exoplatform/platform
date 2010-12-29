@@ -24,10 +24,10 @@
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>officeResources</string>
+									<string>acmeIntranetResources</string>
 								</value>
 								<value>
-									<string>office-extension</string>
+									<string>acme-intranet</string>
 								</value>
 							</collection>
 						</field>					

@@ -3,58 +3,58 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.office</artifactId>
+    <artifactId>exo.platform.sample.acme-intranet</artifactId>
     <version>3.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.office.ear</artifactId>
+  <artifactId>exo.platform.sample.acme-intranet.ear</artifactId>
   <packaging>ear</packaging>
-  <name>eXo Platform - Office Portal EAR</name>
+  <name>eXo Platform - Acme Intranet EAR</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.webapp</artifactId>
+      <artifactId>exo.platform.sample.acme-intranet.webapp</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.config</artifactId>
+      <artifactId>exo.platform.sample.acme-intranet.config</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.office.officeResources</artifactId>
+      <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
   </dependencies>
   <build>
-    <finalName>office-portal</finalName>
+    <finalName>acme-intranet</finalName>
 
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-ear-plugin</artifactId>
         <configuration>
-          <displayName>office-portal</displayName>
+          <displayName>acme-intranet</displayName>
           <defaultLibBundleDir>lib</defaultLibBundleDir>
           <modules>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.office.config</artifactId>
+              <artifactId>exo.platform.sample.acme-intranet.config</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.office.webapp</artifactId>
-              <contextRoot>office-portal</contextRoot>
-              <bundleFileName>office-portal.war</bundleFileName>
+              <artifactId>exo.platform.sample.acme-intranet.webapp</artifactId>
+              <contextRoot>acme-intranet</contextRoot>
+              <bundleFileName>acme-intranet.war</bundleFileName>
             </webModule>
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.office.officeResources</artifactId>
-              <contextRoot>officeResources</contextRoot>
-              <bundleFileName>officeResources.war</bundleFileName>
+              <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
+              <contextRoot>acmeIntranetResources</contextRoot>
+              <bundleFileName>acmeIntranetResources.war</bundleFileName>
             </webModule>
           </modules>
         </configuration>
