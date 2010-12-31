@@ -48,23 +48,26 @@ import org.jibx.runtime.JiBXException;
 public class MarshallConfigurationService {
 
   Map<String, ComponentHandler> handlersMap = new HashMap<String, ComponentHandler>();
-  
+
   private ContainerParamExtractor containerParamExtractor_ = null;
-  
+
   private Logger logger_ = null;
 
+  public MarshallConfigurationService(ContainerParamExtractor containerParamExtractor) {
+    containerParamExtractor_ = containerParamExtractor;
+  ]
+  
   public void addHandler(ComponentHandler componentHandler) {
     handlersMap.put(componentHandler.getTargetComponentName(), componentHandler);
   }
 
   public String generateHTMLContainersList() throws Exception {
     ExoContainer container = ExoContainerContext.getCurrentContainer();
-    containerParamExtractor_ = (ContainerParamExtractor) container.getComponentInstanceOfType(ContainerParamExtractor.class);
     logger_ = (Logger) container.getComponentInstanceOfType(Logger.class);
     logger_.setLogger(this.getClass());
     String containerId = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
-    if(logger_.isDebugEnabled()){
+    if (logger_.isDebugEnabled()) {
       logger_.debug("Current container: " + containerId);
       logger_.debug("Current rest context: " + containerRestContextName);
       logger_.debug("Generating containers list ...");
@@ -108,7 +111,7 @@ public class MarshallConfigurationService {
       responseStringBuffer.append("</a>\r\n<br/>");
 
       responseStringBuffer.append("</fieldset><br/>");
-      if(logger_.isDebugEnabled()){
+      if (logger_.isDebugEnabled()) {
         logger_.debug("Container: " + topContainer.getContext().getName());
       }
     }
@@ -134,7 +137,7 @@ public class MarshallConfigurationService {
       responseStringBuffer.append("</a>\r\n<br/>");
 
       responseStringBuffer.append("</fieldset><br/>");
-      if(logger_.isDebugEnabled()){
+      if (logger_.isDebugEnabled()) {
         logger_.debug("Container: " + portalContainer.getContext().getName());
       }
     }
@@ -153,7 +156,7 @@ public class MarshallConfigurationService {
     String containerName = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
 
-    if(logger_.isDebugEnabled()){
+    if (logger_.isDebugEnabled()) {
       logger_.debug("Selected container: " + containerId);
       logger_.debug("Generating components list ...");
     }
@@ -209,7 +212,7 @@ public class MarshallConfigurationService {
       configurationEntry.setContent(toXML(configuration));
       configurationEntry.setType(EntryType.XML);
     }
-    if(logger_.isDebugEnabled()){
+    if (logger_.isDebugEnabled()) {
       logger_.debug("Generating component configuration ...");
       logger_.debug("Selected container: " + containerId);
       logger_.debug("Selected component: " + componentKey);
@@ -229,7 +232,7 @@ public class MarshallConfigurationService {
       zos.write(entry.getContent());
       zos.closeEntry();
     }
-    if(logger_.isDebugEnabled()){
+    if (logger_.isDebugEnabled()) {
       logger_.debug("Generating all components configuration ...");
       logger_.debug("Selected container: " + containerId);
     }
@@ -248,7 +251,7 @@ public class MarshallConfigurationService {
       byte[] bytes = toXML(configuration);
       zos.write(bytes);
       zos.closeEntry();
-      if(logger_.isDebugEnabled()){
+      if (logger_.isDebugEnabled()) {
         logger_.debug("Generating all component lifecycle plugins ...");
         logger_.debug("Selected container: " + containerId);
       }

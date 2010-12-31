@@ -16,6 +16,7 @@
 		<org.exoplatform.jcr.version>1.10.8</org.exoplatform.jcr.version>
 		<org.exoplatform.pc.version>2.0.8</org.exoplatform.pc.version>
 		<org.exoplatform.portal.version>2.5.7</org.exoplatform.portal.version>
+		<org.exoplatform.ecm.dms.version>2.5.7</org.exoplatform.ecm.dms.version>
 		<org.shindig.version>0.8.1-1-r719456</org.shindig.version>
 	</properties>
 	<dependencies>
@@ -79,6 +80,11 @@
 			<groupId>org.exoplatform.ws</groupId>
 			<artifactId>exo.ws.frameworks.json</artifactId>
 			<version>${org.exoplatform.ws.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecm.dms.core</groupId>
+			<artifactId>exo.ecm.dms.core.component.cms</artifactId>
+			<version>${org.exoplatform.ecm.dms.version}</version>
 		</dependency>
 	</dependencies>
 </project>
