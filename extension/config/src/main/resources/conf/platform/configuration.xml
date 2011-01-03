@@ -200,6 +200,9 @@
               <value>
                 <string>platform-extension</string>
               </value>
+              <value>
+                <string>eXoPlatformResources</string>
+              </value>
             </collection>
           </field>
 

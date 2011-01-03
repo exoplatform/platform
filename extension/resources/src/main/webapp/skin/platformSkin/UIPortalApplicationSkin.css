@@ -58,27 +58,6 @@ a {
 	background: white;
 }
 
-.OfficeLeftTDContainer, .OfficeRightTDContainer {
-	width: 250px;
-}
-
-.OfficeLogoTDContainer {
-	width: 150px;
-}
-
-.OfficeSearchTDContainer {
-	width: 250px;
-}
-
-.OfficeMiddleTDContainer {
-	padding: 5px 15px 0;
-}
-
-/* Banner */
-.UIWorkingWorkspace #OfficeBanner {
-	background: url('background/BannerBg.jpg') no-repeat right top;
-	height: 50px;
-}
 /*
 .UIWorkingWorkspace #ACMEBanner {
 	margin:20px;

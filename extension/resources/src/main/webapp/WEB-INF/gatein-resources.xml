@@ -25,34 +25,13 @@
     xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_1">
 
 	
-	<!-- portal Skin for office portal -->
+	<!-- portal Skin -->
 	
     <portal-skin>
 		<skin-name>Default</skin-name>
 		<skin-module>Classic</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
-                <overwrite>true</overwrite>
-	</portal-skin>		
-
-	<!-- Skins for portlets in 'web' application -->
-						<!--must  be completed with the others portlets skins -->	
-	<portlet-skin>
-		<application-name>web</application-name>
-		<portlet-name>FooterPortlet</portlet-name>
-		<skin-name>officeSkin</skin-name>
-		<css-path>/skin/webPortlet/webui/component/UIFooterPortlet/Stylesheet.css</css-path>
-	</portlet-skin>
-	
-	
-	<!-- Skin for HomePagePortlet -->
-	<portlet-skin>
-		<application-name>web</application-name>
-		<portlet-name>HomePagePortlet</portlet-name>
-		<skin-name>officeSkin</skin-name>
-		<css-path>/skin/webPortlet/webui/component/UIHomePagePortlet/Stylesheet.css</css-path>
-	</portlet-skin>
-	
-	
-
+		<overwrite>true</overwrite>
+	</portal-skin>
 	
 </gatein-resources>

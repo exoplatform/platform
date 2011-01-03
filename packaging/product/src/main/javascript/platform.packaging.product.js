@@ -53,9 +53,8 @@ function getProduct(version) {
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config); 
   product.addDependencies(platform.extension.webapp); // includes xCMIS dependencies
+  product.addDependencies(platform.extension.resources);
   product.addDependencies(platform.component.common);
-  product.addDependencies(platform.office.webapp);
-  product.addDependencies(platform.office.officeResources);
   product.addDependencies(platform.extension.portlets.platformNavigation);
   
   // crash
@@ -66,6 +65,9 @@ function getProduct(version) {
 
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
+  
+  // acme social intranet
+  product.addDependencies(platform.sample.acmeIntranet.webapp);
   
   /* IDE */
   product.addDependencies(platform.ide.webapp);

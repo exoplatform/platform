@@ -21,12 +21,6 @@
       <artifactId>exo.platform.sample.acme-intranet.config</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
-      <version>${project.version}</version>
-      <type>war</type>
-    </dependency>
   </dependencies>
   <build>
     <finalName>acme-intranet</finalName>
@@ -49,12 +43,6 @@
               <artifactId>exo.platform.sample.acme-intranet.webapp</artifactId>
               <contextRoot>acme-intranet</contextRoot>
               <bundleFileName>acme-intranet.war</bundleFileName>
-            </webModule>
-            <webModule>
-              <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
-              <contextRoot>acmeIntranetResources</contextRoot>
-              <bundleFileName>acmeIntranetResources.war</bundleFileName>
             </webModule>
           </modules>
         </configuration>

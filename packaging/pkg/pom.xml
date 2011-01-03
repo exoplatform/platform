@@ -1289,12 +1289,6 @@
     </dependency><!-- 3.0.2-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.sample.acme-intranet.resources</artifactId>
-      <version>${project.version}</version>
-      <type>war</type>
-    </dependency><!-- 3.0.2-SNAPSHOT-->
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
       <version>${project.version}</version>
       <type>war</type>
@@ -1323,6 +1317,12 @@
       <version>${project.version}</version>
       <type>war</type>
     </dependency><!-- 3.0.2-SNAPSHOT-->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.extension.resources</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.calendar.service</artifactId>

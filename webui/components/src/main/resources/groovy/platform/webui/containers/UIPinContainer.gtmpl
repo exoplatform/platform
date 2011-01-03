@@ -13,7 +13,7 @@
 <div id="<%=uicomponent.getId()%>">
 	<div class="PinToolbarContainer FloatLeft">
 		<a href="<%=uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned()))%>">
-			<img src="<%=uicomponent.isPinned() ? "/officeResources/skin/toolbarPin/unpin.png":"/officeResources/skin/toolbarPin/pin.png"%>"/>
+			<img src="<%=uicomponent.isPinned() ? "/eXoPlatformResources/skin/toolbarPin/unpin.png":"/eXoPlatformResources/skin/toolbarPin/pin.png"%>"/>
 		</a>
 	</div>
 

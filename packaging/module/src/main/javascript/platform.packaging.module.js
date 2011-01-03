@@ -72,6 +72,9 @@ function getModule(params)
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.listeners", "jar", module.version));
    /*module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);*/
    module.extension.webapp.deployName = "platform-extension";
+   module.extension.resources = 
+      new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);
+   module.extension.resources.deployName = "eXoPlatformResources";
    
    
    module.extension.portlets = {};
@@ -81,15 +84,6 @@ function getModule(params)
    // platform commons
    module.component = {};
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version);
-
-
-   // office portal
-   module.office = {};
-   module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.config", "jar", module.version));
-   module.office.webapp.deployName = "acme-intranet";
-   module.office.officeResources =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.resources", "war", module.version);
-   module.office.officeResources.deployName = "acmeIntranetResources";
       
    
    module.patch = {};
@@ -122,6 +116,13 @@ function getModule(params)
    module.sample.acme.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.webapp", "war", module.version).
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
    module.sample.acme.webapp.deployName = "acme-website";
+   
+   // acme social intranet
+   module.sample.acmeIntranet = {};
+   
+   module.sample.acmeIntranet.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.config", "jar", module.version));
+   module.sample.acmeIntranet.webapp.deployName = "acme-intranet";
    
     // default website
    module.sample.defaultWebsite = {};
