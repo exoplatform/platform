@@ -17,6 +17,7 @@
 package org.exoplatform.platform.migration.aio.handler.impl;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -24,7 +25,10 @@ import java.util.zip.ZipOutputStream;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
 import javax.jcr.Value;
+import javax.jcr.ValueFormatException;
 import javax.jcr.nodetype.NodeType;
 import javax.jcr.nodetype.NodeTypeIterator;
 import javax.jcr.nodetype.NodeTypeManager;
@@ -47,6 +51,8 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 
 public class NodeTypeTemplateHandler extends ComponentHandler {
+
+  private static final String AUTO_CREATE_IN_NEW_REPOSITORY = "autoCreateInNewRepository";
 
   private static final String GTMPL_EXTENSION = ".gtmpl";
 
@@ -81,8 +87,8 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
       templatesComponentPlugin.setInitParams(templatesPluginInitParams);
 
       ValueParam valueParam = new ValueParam();
-      valueParam.setName("autoCreateInNewRepository");
-      valueParam.setValue("true");
+      valueParam.setName(AUTO_CREATE_IN_NEW_REPOSITORY);
+      valueParam.setValue(component.getInitParams().getValueParam(AUTO_CREATE_IN_NEW_REPOSITORY).getValue());
       templatesPluginInitParams.addParam(valueParam);
 
       valueParam = new ValueParam();
@@ -90,15 +96,16 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
       valueParam.setValue(TEMPLATES_NODETYPE_LOCATION);
       templatesPluginInitParams.addParam(valueParam);
 
-      valueParam = new ValueParam();
-      valueParam.setName("repository");
-      valueParam.setValue("repository");
-      templatesPluginInitParams.addParam(valueParam);
-      componentPluginsList.add(templatesComponentPlugin);
-
       RepositoryService repositoryService = ((RepositoryService) container.getComponentInstanceOfType(RepositoryService.class));
       String repositoryName = repositoryService.getDefaultRepository().getConfiguration().getName();
 
+      valueParam = new ValueParam();
+      valueParam.setName("repository");
+      valueParam.setValue(repositoryName);
+      templatesPluginInitParams.addParam(valueParam);
+      componentPluginsList.add(templatesComponentPlugin);
+
+      // Generates the ObjectParameter "templateConfig" that will contains the NodeType Templates Definition
       TemplateConfig templateConfig = new TemplateConfig();
       List<TemplateConfig.NodeType> documentTypeList = new ArrayList<TemplateConfig.NodeType>();
       templateConfig.setNodeTypes(documentTypeList);
@@ -107,99 +114,39 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
       NodeTypeIterator nodeTypeIter = ntManager.getAllNodeTypes();
       List<String> documentTypeTemplateNames = templateService.getAllDocumentNodeTypes(repositoryName);
       SessionProvider systemSessionProvider = SessionProvider.createSystemProvider();
+      // For all repository's nodeTypes
       while (nodeTypeIter.hasNext()) {
         NodeType nodeType = nodeTypeIter.nextNodeType();
         boolean isManagedNodeType = templateService.isManagedNodeType(nodeType.getName(), repositoryName);
-        if (isManagedNodeType) {
+        if (isManagedNodeType) { // Test if nodeType has Templates definition
           TemplateConfig.NodeType nodeTypeTemplates = new TemplateConfig.NodeType();
+          documentTypeList.add(nodeTypeTemplates);
+
           nodeTypeTemplates.setLabel(templateService.getTemplateLabel(nodeType.getName(), repositoryName));
           nodeTypeTemplates.setNodetypeName(nodeType.getName());
           nodeTypeTemplates.setDocumentTemplate(documentTypeTemplateNames.contains(nodeType.getName()));
-          documentTypeList.add(nodeTypeTemplates);
-          NodeIterator dialogsNodeIterator = templateService.getAllTemplatesOfNodeType(true, nodeType.getName(), repositoryName, systemSessionProvider);
-          List<Template> dialogs = new ArrayList<Template>();
-          while (dialogsNodeIterator.hasNext()) {
-            Node templateNode = dialogsNodeIterator.nextNode();
-            Template dialogTemplate = new TemplateConfig.Template();
-            String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.DIALOGS + "/" + templateNode.getName();
-            dialogTemplate.setTemplateFile(templateLocation);
-            Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
-            String roles = "";
-            for (int i = 0; i < values.length; i++) {
-              Value value = values[i];
-              roles += value.getString();
-              if (i < (values.length - 1)) {
-                roles += ",";
-              }
-            }
-            dialogTemplate.setRoles(roles);
-            dialogs.add(dialogTemplate);
-            String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
 
-            zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + GTMPL_EXTENSION));
-            zos.write(template.getBytes());
-            zos.closeEntry();
-          }
+          // Generates Dialog Templates
+          NodeIterator dialogsNodeIterator = templateService.getAllTemplatesOfNodeType(true, nodeType.getName(), repositoryName, systemSessionProvider);
+          List<Template> dialogs = generateDialogTemplates(zos, nodeType, dialogsNodeIterator);
           nodeTypeTemplates.setReferencedDialog(dialogs);
 
-          List<Template> views = new ArrayList<Template>();
+          // Generates View Templates
           NodeIterator viewsNodeIterator = templateService.getAllTemplatesOfNodeType(false, nodeType.getName(), repositoryName, systemSessionProvider);
-          while (viewsNodeIterator.hasNext()) {
-            Node templateNode = viewsNodeIterator.nextNode();
-            Template viewTemplate = new TemplateConfig.Template();
-            String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.VIEWS + "/" + templateNode.getName();
-            viewTemplate.setTemplateFile(templateLocation);
-            Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
-            String roles = "";
-            for (int i = 0; i < values.length; i++) {
-              Value value = values[i];
-              roles += value.getString();
-              if (i < (values.length - 1)) {
-                roles += ",";
-              }
-            }
-            viewTemplate.setRoles(roles);
-            views.add(viewTemplate);
-
-            String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
-
-            zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + GTMPL_EXTENSION));
-            zos.write(template.getBytes());
-            zos.closeEntry();
-          }
+          List<Template> views = generateViewTemplate(zos, nodeType, viewsNodeIterator);
           nodeTypeTemplates.setReferencedView(views);
 
+          // Generates Skin Templates
           Node nodeTypeNode = templateService.getTemplatesHome(repositoryName, systemSessionProvider).getNode(nodeType.getName());
           if (nodeTypeNode.hasNode(TemplateService.SKINS)) {
-            List<Template> skins = new ArrayList<Template>();
             NodeIterator skinsNodeIterator = nodeTypeNode.getNode(TemplateService.SKINS).getNodes();
-            while (skinsNodeIterator.hasNext()) {
-              Node templateNode = skinsNodeIterator.nextNode();
-              Template skinTemplate = new TemplateConfig.Template();
-              String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.SKINS + "/" + templateNode.getName();
-              skinTemplate.setTemplateFile(templateLocation);
-              Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
-              String roles = "";
-              for (int i = 0; i < values.length; i++) {
-                Value value = values[i];
-                roles += value.getString();
-                if (i < (values.length - 1)) {
-                  roles += ",";
-                }
-              }
-              skinTemplate.setRoles(roles);
-              skins.add(skinTemplate);
-
-              String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
-
-              zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + CSS_EXTENSION));
-              zos.write(template.getBytes());
-              zos.closeEntry();
-            }
+            List<Template> skins = generateSkinTemplate(zos, nodeType, skinsNodeIterator);
             nodeTypeTemplates.setReferencedSkin(skins);
           }
         }
       }
+
+      // Add nodeType templates definition into the InitParams of the Component
       ObjectParameter objectParam = new ObjectParameter();
       objectParam.setName("template.configuration");
       objectParam.setObject(templateConfig);
@@ -222,6 +169,89 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
       return null;
     }
 
+  }
+
+  private List<Template> generateSkinTemplate(ZipOutputStream zos, NodeType nodeType, NodeIterator skinsNodeIterator) throws RepositoryException, ValueFormatException, PathNotFoundException, IOException {
+    List<Template> skins = new ArrayList<Template>();
+    while (skinsNodeIterator.hasNext()) {
+      Node templateNode = skinsNodeIterator.nextNode();
+      Template skinTemplate = new TemplateConfig.Template();
+      String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.SKINS + "/" + templateNode.getName();
+      skinTemplate.setTemplateFile(templateLocation);
+      Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
+      String roles = "";
+      for (int i = 0; i < values.length; i++) {
+        Value value = values[i];
+        roles += value.getString();
+        if (i < (values.length - 1)) {
+          roles += ",";
+        }
+      }
+      skinTemplate.setRoles(roles);
+      skins.add(skinTemplate);
+
+      String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
+
+      zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + CSS_EXTENSION));
+      zos.write(template.getBytes());
+      zos.closeEntry();
+    }
+    return skins;
+  }
+
+  private List<Template> generateViewTemplate(ZipOutputStream zos, NodeType nodeType, NodeIterator viewsNodeIterator) throws RepositoryException, ValueFormatException, PathNotFoundException, IOException {
+    List<Template> views = new ArrayList<Template>();
+    while (viewsNodeIterator.hasNext()) {
+      Node templateNode = viewsNodeIterator.nextNode();
+      Template viewTemplate = new TemplateConfig.Template();
+      String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.VIEWS + "/" + templateNode.getName();
+      viewTemplate.setTemplateFile(templateLocation);
+      Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
+      String roles = "";
+      for (int i = 0; i < values.length; i++) {
+        Value value = values[i];
+        roles += value.getString();
+        if (i < (values.length - 1)) {
+          roles += ",";
+        }
+      }
+      viewTemplate.setRoles(roles);
+      views.add(viewTemplate);
+
+      String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
+
+      zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + GTMPL_EXTENSION));
+      zos.write(template.getBytes());
+      zos.closeEntry();
+    }
+    return views;
+  }
+
+  private List<Template> generateDialogTemplates(ZipOutputStream zos, NodeType nodeType, NodeIterator dialogsNodeIterator) throws RepositoryException, ValueFormatException, PathNotFoundException, IOException {
+    List<Template> dialogs = new ArrayList<Template>();
+    while (dialogsNodeIterator.hasNext()) {
+      Node templateNode = dialogsNodeIterator.nextNode();
+      Template dialogTemplate = new TemplateConfig.Template();
+      String templateLocation = "/" + nodeType.getName() + "/" + TemplateService.DIALOGS + "/" + templateNode.getName();
+      dialogTemplate.setTemplateFile(templateLocation);
+      Value[] values = templateNode.getProperty(TemplateService.EXO_ROLES_PROP).getValues();
+      String roles = "";
+      for (int i = 0; i < values.length; i++) {
+        Value value = values[i];
+        roles += value.getString();
+        if (i < (values.length - 1)) {
+          roles += ",";
+        }
+      }
+      dialogTemplate.setRoles(roles);
+      dialogs.add(dialogTemplate);
+      String template = templateNode.getProperty(TemplateService.EXO_TEMPLATE_FILE_PROP).getString();
+
+      zos.putNextEntry(new ZipEntry(TEMPLATES_NODETYPE_LOCATION + templateLocation + GTMPL_EXTENSION));
+      zos.write(template.getBytes());
+      zos.closeEntry();
+    }
+    return dialogs;
   }
 
   @SuppressWarnings("unchecked")
