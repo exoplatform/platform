@@ -55,7 +55,7 @@ public class MarshallConfigurationService {
 
   public MarshallConfigurationService(ContainerParamExtractor containerParamExtractor) {
     containerParamExtractor_ = containerParamExtractor;
-  ]
+  }
   
   public void addHandler(ComponentHandler componentHandler) {
     handlersMap.put(componentHandler.getTargetComponentName(), componentHandler);
