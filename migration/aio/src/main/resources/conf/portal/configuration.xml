@@ -45,5 +45,10 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.aio.handler.impl.NodeTypeTemplateHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>application.templates.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.ApplicationTemplatesHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>

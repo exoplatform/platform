@@ -83,15 +83,23 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
       templatesComponentPlugin.setName("addTemplates");
       templatesComponentPlugin.setSetMethod("addTemplates");
       templatesComponentPlugin.setType(TemplatePlugin.class.getName());
+
       InitParams templatesPluginInitParams = new InitParams();
       templatesComponentPlugin.setInitParams(templatesPluginInitParams);
 
-      ValueParam valueParam = new ValueParam();
-      valueParam.setName(AUTO_CREATE_IN_NEW_REPOSITORY);
-      valueParam.setValue(component.getInitParams().getValueParam(AUTO_CREATE_IN_NEW_REPOSITORY).getValue());
-      templatesPluginInitParams.addParam(valueParam);
+      if (component.getInitParams() != null) {
+        ValueParam valueParam = new ValueParam();
+        valueParam.setName(AUTO_CREATE_IN_NEW_REPOSITORY);
+        String autoCreateInNewRepository = "false";
+        ValueParam originalParam = component.getInitParams().getValueParam(AUTO_CREATE_IN_NEW_REPOSITORY);
+        if (originalParam != null) {
+          autoCreateInNewRepository = originalParam.getValue();
+        }
+        valueParam.setValue(autoCreateInNewRepository);
+        templatesPluginInitParams.addParam(valueParam);
+      }
 
-      valueParam = new ValueParam();
+      ValueParam valueParam = new ValueParam();
       valueParam.setName("storedLocation");
       valueParam.setValue(TEMPLATES_NODETYPE_LOCATION);
       templatesPluginInitParams.addParam(valueParam);
