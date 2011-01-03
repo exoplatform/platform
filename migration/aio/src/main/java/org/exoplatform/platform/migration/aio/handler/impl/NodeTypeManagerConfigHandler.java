@@ -75,8 +75,6 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
       addNamespaceComponentPlugin(repositoryService, componentPluginsList);
       generateNodeTypesConfiguration(zos, nodeTypeIter, componentPluginsList);
 
-//      generateRepositoryConfiguration(repositoryService, zos);
-
       Configuration configuration = new Configuration();
       configuration.addComponent(component);
 

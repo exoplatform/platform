@@ -62,6 +62,7 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
 
   @Override
   public Entry invoke(Component component, ExoContainer container) {
+    Session dmsWorkspaceSession = null;
     try {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       ZipOutputStream zos = new ZipOutputStream(out);
@@ -80,8 +81,8 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
       NodeHierarchyCreator hierarchyCreator = ((NodeHierarchyCreator) container.getComponentInstanceOfType(NodeHierarchyCreator.class));
       String cmsViewTemplatesPath = hierarchyCreator.getJcrPath(BasePath.CMS_VIEWTEMPLATES_PATH);
 
-      Session session = repository.getSystemSession(dmsSystemWorkspace);
-      Node basedTemplateHome = (Node) session.getItem(cmsViewTemplatesPath);
+      dmsWorkspaceSession = repository.getSystemSession(dmsSystemWorkspace);
+      Node basedTemplateHome = (Node) dmsWorkspaceSession.getItem(cmsViewTemplatesPath);
 
       ApplicationTemplateManagerService applicationTemplateService = ((ApplicationTemplateManagerService) container.getComponentInstanceOfType(ApplicationTemplateManagerService.class));
       List<String> applicationNames = applicationTemplateService.getAllManagedPortletName(defaumtRepositoryName);
@@ -131,7 +132,7 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
           }
         }
       }
-      session.logout();
+      dmsWorkspaceSession.logout();
 
       Configuration configuration = new Configuration();
       configuration.addComponent(component);
@@ -148,6 +149,9 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
     } catch (Exception ie) {
       log.error("Error while invoking handler for component: " + component.getKey(), ie);
       return null;
+    } finally {
+      if (dmsWorkspaceSession != null)
+        dmsWorkspaceSession.logout();
     }
 
   }

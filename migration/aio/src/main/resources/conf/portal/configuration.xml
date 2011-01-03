@@ -50,5 +50,20 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.aio.handler.impl.ApplicationTemplatesHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>application.templates.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.MetadataTemplateHandler</type>
+		</component-plugin>
+		<component-plugin>
+			<name>views.templates.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.ManageViewsHandler</type>
+		</component-plugin>
+		<component-plugin>
+			<name>scripts.templates.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.GroovyScriptHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>
