@@ -65,5 +65,10 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.aio.handler.impl.GroovyScriptHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>drives.templates.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.ManageDriveHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>

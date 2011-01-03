@@ -77,8 +77,6 @@ public class ManageViewsHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
-
   public ManageViewsHandler() {
     super.setTargetComponentName(ManageViewService.class.getName());
   }

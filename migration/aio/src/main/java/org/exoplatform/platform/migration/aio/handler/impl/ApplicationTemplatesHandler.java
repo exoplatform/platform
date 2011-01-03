@@ -54,8 +54,6 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
-
   public ApplicationTemplatesHandler() {
     super.setTargetComponentName(ApplicationTemplateManagerService.class.getName());
   }

@@ -62,8 +62,6 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
-
   public NodeTypeTemplateHandler() {
     super.setTargetComponentName(TemplateService.class.getName());
   }

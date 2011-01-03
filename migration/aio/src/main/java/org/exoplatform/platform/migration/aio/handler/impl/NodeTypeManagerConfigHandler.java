@@ -17,7 +17,6 @@
 package org.exoplatform.platform.migration.aio.handler.impl;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -52,7 +51,7 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
+  private StringBuffer nodeTypePathTmp_ = new StringBuffer();
 
   public NodeTypeManagerConfigHandler() {
     super.setTargetComponentName(RepositoryService.class.getName());
@@ -92,13 +91,6 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
       return null;
     }
 
-  }
-
-  private void generateRepositoryConfiguration(RepositoryService repositoryService, ZipOutputStream zos) throws IOException, Exception {
-    zos.putNextEntry(new ZipEntry("repository-configuration.xml"));
-    zos.write(toXML(repositoryService.getConfig()));
-    zos.closeEntry();
-    zos.close();
   }
 
   private void generateNodeTypesConfiguration(ZipOutputStream zos, NodeTypeIterator nodeTypeIter, List<ComponentPlugin> componentPluginsList) {

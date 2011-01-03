@@ -56,8 +56,6 @@ public class GroovyScriptHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
-
   public GroovyScriptHandler() {
     super.setTargetComponentName(ScriptService.class.getName());
   }

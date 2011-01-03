@@ -63,8 +63,6 @@ public class MetadataTemplateHandler extends ComponentHandler {
 
   private Log log = ExoLogger.getLogger(this.getClass());
 
-  StringBuffer nodeTypePathTmp_ = new StringBuffer();
-
   public MetadataTemplateHandler() {
     super.setTargetComponentName(MetadataService.class.getName());
   }
