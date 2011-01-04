@@ -71,7 +71,8 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
       NodeTypeManager ntManager = repositoryService.getDefaultRepository().getNodeTypeManager();
       NodeTypeIterator nodeTypeIter = ntManager.getAllNodeTypes();
 
-      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, AddNodeTypePlugin.class);
+      cleanComponentPlugins(component, AddNodeTypePlugin.class);
+      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, AddNamespacesPlugin.class);
 
       addNamespaceComponentPlugin(repositoryService, componentPluginsList);
       generateNodeTypesConfiguration(zos, nodeTypeIter, componentPluginsList);
