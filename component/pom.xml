@@ -10,7 +10,6 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Component</name>
   <modules>
-    <module>gifbackport</module>
     <module>common</module>
 	<module>listeners</module>
   </modules>
