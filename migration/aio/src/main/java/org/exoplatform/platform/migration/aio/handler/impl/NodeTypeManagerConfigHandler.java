@@ -25,6 +25,8 @@ import java.util.zip.ZipOutputStream;
 import javax.jcr.NamespaceException;
 import javax.jcr.NamespaceRegistry;
 import javax.jcr.RepositoryException;
+import javax.jcr.Value;
+import javax.jcr.ValueFormatException;
 import javax.jcr.nodetype.NodeDefinition;
 import javax.jcr.nodetype.NodeType;
 import javax.jcr.nodetype.NodeTypeIterator;
@@ -93,7 +95,7 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
 
   }
 
-  private void generateNodeTypesConfiguration(ZipOutputStream zos, NodeTypeIterator nodeTypeIter, List<ComponentPlugin> componentPluginsList) {
+  private void generateNodeTypesConfiguration(ZipOutputStream zos, NodeTypeIterator nodeTypeIter, List<ComponentPlugin> componentPluginsList) throws ValueFormatException, IllegalStateException, RepositoryException {
     ValuesParam nodeTypesValuesParam = new ValuesParam();
     nodeTypesValuesParam.setName("autoCreatedInNewRepository");
     nodeTypesValuesParam.setDescription("Node types configuration file");
@@ -133,8 +135,7 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
     componentPluginsList.add(addNamespacesPlugin);
   }
 
-
-  private String addNodeTypeXML(NodeType nodeType, ZipOutputStream zos) {
+  private String addNodeTypeXML(NodeType nodeType, ZipOutputStream zos) throws ValueFormatException, IllegalStateException, RepositoryException {
     StringBuffer nodeTypeXML = new StringBuffer();
     nodeTypeXML.append("<nodeTypes xmlns:nt=\"http://www.jcp.org/jcr/nt/1.5\" ");
     nodeTypeXML.append("xmlns:mix=\"http://www.jcp.org/jcr/mix/1.5\" ");
@@ -191,7 +192,7 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
     return superTypeXML.toString();
   }
 
-  private String representPropertyDefinition(NodeType nodeType) {
+  private String representPropertyDefinition(NodeType nodeType) throws ValueFormatException, IllegalStateException, RepositoryException {
     String[] requireType = { "undefined", "String", "Binary", "Long", "Double", "Date", "Boolean", "Name", "Path", "Reference" };
     String[] onparentVersion = { "", "COPY", "VERSION", "INITIALIZE", "COMPUTE", "IGNORE", "ABORT" };
     StringBuilder propertyXML = new StringBuilder();
@@ -216,6 +217,18 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
       propertyXML.append("protected=").append("\"").append(protect).append("\" ");
       String multiple = String.valueOf(proDef[j].isMultiple());
       propertyXML.append("multiple=").append("\"").append(multiple).append("\" >").append("\n");
+
+      Value[] defaultValues = proDef[j].getDefaultValues();
+      if (defaultValues != null && defaultValues.length > 0) {
+        propertyXML.append("<defaultValues>").append("\n");
+        for (int k = 0; k < defaultValues.length; k++) {
+          String defaultValue = defaultValues[k].getString();
+          propertyXML.append("<defaultValue>").append(defaultValue).append("</defaultValue>");
+          propertyXML.append("\n");
+        }
+        propertyXML.append("</defaultValues>").append("\n");
+      }
+
       String[] constraints = proDef[j].getValueConstraints();
       if (constraints != null && constraints.length > 0) {
         propertyXML.append("<valueConstraints>").append("\n");
