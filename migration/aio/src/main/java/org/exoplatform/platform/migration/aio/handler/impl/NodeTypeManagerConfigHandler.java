@@ -69,7 +69,7 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
       NodeTypeManager ntManager = repositoryService.getDefaultRepository().getNodeTypeManager();
       NodeTypeIterator nodeTypeIter = ntManager.getAllNodeTypes();
 
-      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component);
+      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, AddNodeTypePlugin.class);
 
       addNamespaceComponentPlugin(repositoryService, componentPluginsList);
       generateNodeTypesConfiguration(zos, nodeTypeIter, componentPluginsList);
@@ -133,20 +133,6 @@ public class NodeTypeManagerConfigHandler extends ComponentHandler {
     componentPluginsList.add(addNamespacesPlugin);
   }
 
-  @SuppressWarnings("unchecked")
-  private List<ComponentPlugin> cleanComponentPlugins(Component component) {
-    List<ComponentPlugin> componentPluginsList = component.getComponentPlugins();
-    int i = 0;
-    while (i < componentPluginsList.size()) {
-      ComponentPlugin componentPlugin = componentPluginsList.get(i);
-      if (componentPlugin.getType().equals(AddNodeTypePlugin.class.getName()) || componentPlugin.getType().equals(AddNamespacesPlugin.class.getName())) {
-        componentPluginsList.remove(i);
-      } else {
-        i++;
-      }
-    }
-    return componentPluginsList;
-  }
 
   private String addNodeTypeXML(NodeType nodeType, ZipOutputStream zos) {
     StringBuffer nodeTypeXML = new StringBuffer();

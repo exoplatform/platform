@@ -90,7 +90,7 @@ public class ManageViewsHandler extends ComponentHandler {
       if (log.isDebugEnabled()) {
         log.debug("Handler invoked for component: " + component.getKey());
       }
-      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component);
+      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, ManageViewPlugin.class);
 
       ComponentPlugin templatesComponentPlugin = new ComponentPlugin();
       templatesComponentPlugin.setName("addPlugins");
@@ -233,20 +233,4 @@ public class ManageViewsHandler extends ComponentHandler {
       templatesPluginInitParams.addParam(objectParam);
     }
   }
-
-  @SuppressWarnings("unchecked")
-  private List<ComponentPlugin> cleanComponentPlugins(Component component) {
-    List<ComponentPlugin> componentPluginsList = component.getComponentPlugins();
-    int i = 0;
-    while (i < componentPluginsList.size()) {
-      ComponentPlugin componentPlugin = componentPluginsList.get(i);
-      if (componentPlugin.getType().equals(ManageViewPlugin.class.getName())) {
-        componentPluginsList.remove(i);
-      } else {
-        i++;
-      }
-    }
-    return componentPluginsList;
-  }
-
 }

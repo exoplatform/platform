@@ -110,7 +110,7 @@ public class GroovyScriptHandler extends ComponentHandler {
       List<Resource> resources = new ArrayList<Resource>();
       resourceConfig.setRessources(resources);
 
-      // Add nodeType templates definition into the InitParams of the Component
+      // Add script definition into the InitParams of the Component
       ObjectParameter objectParam = new ObjectParameter();
       objectParam.setName("predefined.scripts");
       objectParam.setObject(resourceConfig);

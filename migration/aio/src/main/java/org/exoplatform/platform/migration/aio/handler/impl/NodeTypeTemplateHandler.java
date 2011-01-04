@@ -75,7 +75,7 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
         log.debug("Handler invoked for component: " + component.getKey());
       }
       TemplateService templateService = ((TemplateService) container.getComponentInstanceOfType(TemplateService.class));
-      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component);
+      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, TemplatePlugin.class);
 
       ComponentPlugin templatesComponentPlugin = new ComponentPlugin();
       templatesComponentPlugin.setName("addTemplates");
@@ -259,20 +259,4 @@ public class NodeTypeTemplateHandler extends ComponentHandler {
     }
     return dialogs;
   }
-
-  @SuppressWarnings("unchecked")
-  private List<ComponentPlugin> cleanComponentPlugins(Component component) {
-    List<ComponentPlugin> componentPluginsList = component.getComponentPlugins();
-    int i = 0;
-    while (i < componentPluginsList.size()) {
-      ComponentPlugin componentPlugin = componentPluginsList.get(i);
-      if (componentPlugin.getType().equals(TemplatePlugin.class.getName())) {
-        componentPluginsList.remove(i);
-      } else {
-        i++;
-      }
-    }
-    return componentPluginsList;
-  }
-
 }

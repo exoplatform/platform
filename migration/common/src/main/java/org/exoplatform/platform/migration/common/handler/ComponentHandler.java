@@ -17,10 +17,13 @@
 package org.exoplatform.platform.migration.common.handler;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.container.xml.Component;
+import org.exoplatform.container.xml.ComponentPlugin;
 import org.exoplatform.platform.migration.common.constants.Constants;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
@@ -66,6 +69,26 @@ public abstract class ComponentHandler extends BaseComponentPlugin {
     } catch (Exception ie) {
       throw ie;
     }
+  }
+
+  @SuppressWarnings("unchecked")
+  protected List<ComponentPlugin> cleanComponentPlugins(Component component, Class pluginClass) {
+    List<ComponentPlugin> componentPluginsList = component.getComponentPlugins();
+    if (componentPluginsList != null && componentPluginsList.size() > 0) {
+      int i = 0;
+      while (i < componentPluginsList.size()) {
+        ComponentPlugin componentPlugin = componentPluginsList.get(i);
+        if (componentPlugin.getType().equals(pluginClass.getName())) {
+          componentPluginsList.remove(i);
+        } else {
+          i++;
+        }
+      }
+    } else {
+      component.setComponentPlugins(new ArrayList<ComponentPlugin>());
+      componentPluginsList = component.getComponentPlugins();
+    }
+    return componentPluginsList;
   }
 
   public static class Entry {

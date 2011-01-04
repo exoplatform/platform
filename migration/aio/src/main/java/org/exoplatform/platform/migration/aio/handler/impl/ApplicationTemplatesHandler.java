@@ -67,7 +67,7 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
       if (log.isDebugEnabled()) {
         log.debug("Handler invoked for component: " + component.getKey());
       }
-      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component);
+      List<ComponentPlugin> componentPluginsList = cleanComponentPlugins(component, PortletTemplatePlugin.class);
 
       RepositoryService repositoryService = ((RepositoryService) container.getComponentInstanceOfType(RepositoryService.class));
       ManageableRepository repository = repositoryService.getDefaultRepository();
@@ -153,20 +153,4 @@ public class ApplicationTemplatesHandler extends ComponentHandler {
     }
 
   }
-
-  @SuppressWarnings("unchecked")
-  private List<ComponentPlugin> cleanComponentPlugins(Component component) {
-    List<ComponentPlugin> componentPluginsList = component.getComponentPlugins();
-    int i = 0;
-    while (i < componentPluginsList.size()) {
-      ComponentPlugin componentPlugin = componentPluginsList.get(i);
-      if (componentPlugin.getType().equals(PortletTemplatePlugin.class.getName())) {
-        componentPluginsList.remove(i);
-      } else {
-        i++;
-      }
-    }
-    return componentPluginsList;
-  }
-
 }
