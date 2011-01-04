@@ -102,7 +102,7 @@ public class FolksonomyHandler extends ComponentHandler {
         HtmlTagStyle htmlTagStyle = new HtmlTagStyle();
         htmlTagStyle.setName(node.getName());
         htmlTagStyle.setHtmlStyle(getHtmlStyleOfStyle(node));
-        htmlTagStyle.setName(getRangeOfStyle(node));
+        htmlTagStyle.setTagRate(getRangeOfStyle(node));
 
         htmlTagStyleList.add(htmlTagStyle);
       }
