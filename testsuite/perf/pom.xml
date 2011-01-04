@@ -21,10 +21,10 @@
 	    <jmeter.home>${project.build.directory}/jakarta-jmeter-${jmeter-version}</jmeter.home>
 	    <history.directory>${project.build.directory}/history/${project.version}-${java.specification.version}-${dataset.version}</history.directory>
 	    <test-connect-timeout>150000</test-connect-timeout>
-	    <test-duration>120</test-duration>
-	    <test-host>magellanic.testlab.exoplatform.vn</test-host>
-	    <test-loop-count>150000</test-loop-count>
+	    <test-host>localhost</test-host>
 	    <test-port>8080</test-port>
+	    <test-duration>300</test-duration>
+	    <test-loop-count>150000</test-loop-count>
 	    <test-org-or-admin>administration</test-org-or-admin>
 	    <test-rampup>1</test-rampup>
 	    <test-report-file-prefix>${basedir}/target/${scenario.file.name}-${__time(MMddHHmm)}</test-report-file-prefix>
