@@ -80,5 +80,10 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.aio.handler.impl.FolksonomyHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>taxonomy.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.TaxonomyHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>
