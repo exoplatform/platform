@@ -57,7 +57,7 @@ public class MetadataTemplateHandler extends ComponentHandler {
 
   private static final String GTMPL_EXTENSION = ".gtmpl";
 
-  private static final String TEMPLATES_NODETYPE_LOCATION = "matadata-templates";
+  private static final String TEMPLATES_NODETYPE_LOCATION = "metadata-templates";
 
   private static final String CSS_EXTENSION = ".css";
 
