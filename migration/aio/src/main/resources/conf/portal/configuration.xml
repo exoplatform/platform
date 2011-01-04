@@ -75,5 +75,10 @@
 			<set-method>addHandler</set-method>
 			<type>org.exoplatform.platform.migration.aio.handler.impl.QueryHandler</type>
 		</component-plugin>
+		<component-plugin>
+			<name>folksonomy.handler</name>
+			<set-method>addHandler</set-method>
+			<type>org.exoplatform.platform.migration.aio.handler.impl.FolksonomyHandler</type>
+		</component-plugin>
 	</external-component-plugins>
 </configuration>
