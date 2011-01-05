@@ -29,8 +29,8 @@
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
       <user-name>sa</user-name>
       <password></password>
-      <min-pool-size>5</min-pool-size>
-      <max-pool-size>20</max-pool-size>
+      <min-pool-size>16</min-pool-size>
+      <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
@@ -41,8 +41,8 @@
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
       <user-name>sa</user-name>
       <password></password>
-      <min-pool-size>5</min-pool-size>
-      <max-pool-size>20</max-pool-size>
+      <min-pool-size>16</min-pool-size>
+      <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
