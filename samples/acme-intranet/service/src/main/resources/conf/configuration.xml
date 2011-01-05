@@ -24,9 +24,6 @@
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>acmeIntranetResources</string>
-								</value>
-								<value>
 									<string>acme-intranet</string>
 								</value>
 							</collection>
