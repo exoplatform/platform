@@ -164,7 +164,6 @@
     <module>api</module>
     <module>component</module>
     <module>web</module>
-    <module>webui</module>
     <module>extension</module>
     <module>server</module>
     <module>doc</module>

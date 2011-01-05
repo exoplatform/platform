@@ -23,12 +23,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.webui</artifactId>
+    <artifactId>exo.platform.component</artifactId>
     <version>3.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.webui.components</artifactId>
+  <artifactId>exo.platform.component.webui</artifactId>
   <packaging>jar</packaging>
-  <name>eXo Platform WebUI components</name>
+  <name>eXo Platform component WebUI</name>
 
   <dependencies>
     <dependency>
