@@ -38,12 +38,12 @@ public class CollaborationWorkspaceStreamExporter extends WorkspaceSystemViewStr
 
   public void visit(NodeData node) throws RepositoryException {
     try {
+      String nodeName = getExportName(node, false);
+      if (this.deleteWCMServicesLogNodes && (currentLevel == 2) && wcmServicesLogNodesNames.contains(nodeName)) {
+        return;
+      }
       entering(node, currentLevel);
       if ((maxLevel == -1) || (currentLevel < maxLevel)) {
-        String nodeName = getExportName(node, false);
-        if (this.deleteWCMServicesLogNodes && (currentLevel == 2) && wcmServicesLogNodesNames.contains(nodeName)) {
-          return;
-        }
         currentLevel++;
 
         List<PropertyData> properties = dataManager.getChildPropertiesData(node);
