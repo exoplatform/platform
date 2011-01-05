@@ -10,8 +10,8 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Acme Intranet</name>
   <modules>
-    <module>webapp</module>
     <module>config</module>
+    <module>webapp</module>
     <module>ear</module>
   </modules>
 </project>
