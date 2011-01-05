@@ -1708,6 +1708,14 @@
 				  <outputDirectory>${project.build.directory}/jboss</outputDirectory>
                   <excludes>META-INF/</excludes>
 				</artifactItem>
+                <!-- extracts the docs webapp, PLF-961 -->
+				<artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.doc.bundle</artifactId>
+				  <version>${project.version}</version>
+				  <type>war</type>
+                  <outputDirectory>${project.build.directory}/jboss/server/default/deploy/docs.war</outputDirectory>
+				</artifactItem>
                </artifactItems>
              </configuration>
            </execution>
