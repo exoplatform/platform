@@ -1,0 +1,1010 @@
+{excerpt}This document will provide a guide for projects willing to migration from eXo AIO to PLF{excerpt}
+
+{warning}Work in progress. Don't use{warning}
+
+{toc:maxLevel=2}
+
+h1. Preamble
+
+
+This guide will help you migrating your project from eXo All In One 1.6 to eXo Platform 3.0.
+
+h2. Prerequisites
+
+
+* The eXo instance you want to migrate will need to be using the latest version of eXo All In One
+* Have a full access or a full copy of your portal server in order
+* Read the [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/index.html]
+
+h2. Questions to ask
+
+Before you start anything, you need to gather the requirements for your migration project.
+Start by getting the answers to the following questions :
+* Do you need to migrate a project sources ?
+* Do you have a portal running in production ?
+* Have you performed live changes on portal or ECM ? Would you like to keep these changes ?
+* have you developed a custom application on top of JCR ?
+* Have you configured a dedicated JCR workspace ?
+* Which eXo APIs is your code  using ?
+* Have you overridden any eXo file ?
+* Which kernel configurations have you customized ?
+
+
+h2. Prepare your extension project
+
+You will need to create a brand new project and migrate your old one into it. Platform introduced a new way to package your project customization called _extensions_.
+If you don't understand what that means, get back to [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html] to learn how to bootstrap the basic structure for your extension project.
+
+h3. Move configurations into your extension war
+
+The extension mechanism allows to load xml configuration files from your extension war.
+Previously, you had to wire the loading of your xml configurations through the external configuration directory via import statements.
+Now, you can place all your xml files in your extension webapp. eXo Platform will read and load from your {{WEB-INF/conf/configuration.xml}}.
+
+Read more on this in the [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/ch03.html].
+
+{tip:title=What if you need to modify something in portal.war ?}
+In most cases, you should not even need to do it. But if you are still tempted to alter an xml file of portal.war, that's simple : *don't do it\!*
+The extension mechanism lets you virtually override any file from portal.war by placing a file in your extension at the exact same location. For example to override, {{portal.war\!WEB-INF/conf/database/configuration.xml}}, simply place a your file in {{myextension.war\!WEB-INF/conf/database/configuration.xml}}.
+{tip}
+
+{note:title=Files Paths changes}
+Be careful about the files shifting to the WAR extension, use "war:/" prefix to redefine the moved Metadata & Gtmpl files, such as:
+* CLV Templates
+* Locales config file definition
+* Repository configuration
+* NodeTypes Templates
+* Gtmpl files
+{note}
+
+h3. Check files encoding
+
+eXo Platform expects UTF-8 as the encoding of all files especially for resource bundles (.properties).
+For xml files, you can specify the encoding, otherwise, convert them to UTF-8.
+
+
+h3. Guidelines for maven projects
+
+Although it is not strictly required, eXo recommends you to use [Apache Maven 2.2|http://maven.apache.org/docs/2.2.1/release-notes.html] to build in your project. You will benefit of the eXo maven repository for all eXo libraries and their dependencies.
+
+
+
+
+h4. Configure eXo Public Repository
+
+You need to upgrade your maven environment to match Platform.
+Configure the eXo maven repository url either in your settings.xml or within your maven proxy :
+
+{code:xml}
+<repository>
+  <id>exo.public</id>
+   <url>http://repository.exoplatform.org/public</url>
+  <releases>
+   <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>false</enabled>
+  </snapshots>
+</repository>
+{code}
+
+
+h4. Upgrade to java6
+
+PLF is compatible with JAVA 1.6 and higher, so if you have 1.5 compiler level declaration in your parent POM, you 'll have to upgrade it like this:
+
+{code:xml}
+ <plugins>
+	 <plugin>
+		 <groupId>org.apache.maven.plugins</groupId>
+		 <artifactId>maven-compiler-plugin</artifactId>
+		 <configuration>
+			 <source>1.6</source>
+			 <target>1.6</target>
+		 </configuration>
+	  </plugin>
+  </plugins>
+{code}
+
+h4. Update dependencies versions
+
+The versions of all eXo maven artifacts have all been upgraded and you need to pickup the right versions in your pom.
+There are several ways to pull a dependency in maven. A common pattern is to combine {{<dependencyManagement>}} and use properties for version numbers. For example, your properties section could look like :
+{code:lang=xml|title=Versions of eXo dependencies for Platform 3.0.1}
+  <properties>
+...
+    <!-- eXo dependencies for 3.0.1 -->
+    <org.exoplatform.kernel.version>2.2.5-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.5-GA</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.1.5-GA</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.12.5-GA</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.12.5-GA</org.exoplatform.jcr-services.version>
+    <org.exoplatform.portal.version>3.1.5-PLF</org.exoplatform.portal.version>
+    <org.exoplatform.cs.version>2.1.1</org.exoplatform.cs.version>
+    <org.exoplatform.ks.version>2.1.1</org.exoplatform.ks.version>
+    <org.exoplatform.ecms.version>2.1.1</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>1.1.1</org.exoplatform.social.version>
+    <org.exoplatform.commons.version>1.0.1</org.exoplatform.commons.version>
+    <org.exoplatform.gwtframework.version>1.0.1</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.0.1</org.exoplatform.ide.version>
+...
+</properties>
+{code}
+{tip}To know the exact versions to use in your version of Platform, please refer to the release notes delivered with the product's package.{tip}
+
+h4. Changes in ECM dependencies
+
+ECM dependencies have changed significantly. The table below should help you to match old and new GAVs :
+|| AIO || PLF ||
+| {code:xml}
+<dependency>
+  <groupId>org.exoplatform.ecm.dms.core</groupId>
+   <!-- any artifact -->
+  <artifactId>*</artifactId>
+  <version>${org.exoplatform.ecm.dms.version}</version>
+  <scope>provided</scope>
+</dependency>{code} | {code:xml}
+<dependency>
+  <groupId>org.exoplatform.ecms</groupId>
+  <artifactId>exo-ecms-core-services</artifactId>
+  <version>${org.exoplatform.ecms.version}</version>
+  <scope>provided</scope>
+</dependency>{code} |
+| {code:xml}
+    <dependency>
+      <groupId>org.exoplatform.ecm.dms.core</groupId>
+      <artifactId>exo.ecm.dms.core.webui.ext</artifactId>
+      <version>${org.exoplatform.ecm.dms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+{code} | {code:xml}
+<dependency>
+  <groupId>org.exoplatform.ecms</groupId>
+  <artifactId>exo-ecms-core-webui</artifactId>
+  <version>${org.exoplatform.ecms.version}</version>
+  <scope>provided</scope>
+</dependency>
+{code} |
+| {code:xml}
+    <dependency>
+      <groupId>org.exoplatform.ecm.dms.core</groupId>
+      <artifactId>exo.ecm.dms.core.portlet.ecm.core.main</artifactId>
+      <version>${org.exoplatform.ecm.dms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+{code} | {code:xml}
+<dependency>
+  <groupId>org.exoplatform.ecms</groupId>
+  <artifactId>exo-ecms-core-webui-explorer</artifactId>
+  <version>${org.exoplatform.ecms.version}</version>
+  <scope>provided</scope>
+</dependency>
+{code} |
+In AIO, ECM was composed of 3 modules with a separate lifecycle (DMS, WCM and Workflow) and each artifact had a different version. In PLF, the ECM subsystem is now called _eXo Content_ and the 3 modules follow the same lifecycle. So their artifacts hold the same version.
+
+So, if your AIO project had defined properties like {{org.exoplatform.ecm.dms.version}} or {{org.exoplatform.ecm.wcm.version}}, replace them by {{org.exoplatform.ecms.version}}.
+{tip}Since eXo repository contains also AIO dependencies, you need to be careful. Your project may build successfully although it still builds against AIO dependencies. Maven dependency plugin can help you : {{mvn:dependency:tree}}.
+{tip}
+
+
+h2. Prepare eXo XML customizations
+
+As you know, most of the customization in AIO is done via xml files. It is still the case in PLF, but they have evolved.
+The list of available components and plugins has changed, and the xml files layout has also evolved.
+
+h4. make yourself a favor, keep only needed changes
+
+When it comes to xml configuration files, a common practice observed in AIO projects, is to copy-paste it then customize some init-params and plug it from the external configuration directory.
+Doing this, usually duplicates some {{component}} declarations. Most of the time, it does not hurt much.
+
+But, in PLF, these components may have been moved away or renamed. And so, there is a risk that you attempt to load a component at the wrong place, or worse, the container may attempt to load a component that no longer exists.
+
+Before you start migrating your xml files, cleanup your custom xml configuration files using this
+rule : *Keep only* {{{*}components{*}}} *and* {{{*}external-component-plugins{*}}} *that your really need to customize. Remove anything that was blindly copy-pasted*.
+
+{tip}
+You could use the *Export all Components* functionnality described in the [Migration Tools Guide|PLF:Migration Tools User Guide]
+{tip}
+
+
+h4. Add XSD declaration for kernel configuration files
+
+There is now an XSD for kernel configuration files. You can use it to validate the grammar of your xml files. So, change the  root {<configuration>}} element of your ml files to this :
+{code:xml}
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	...
+</configuration>
+{code}
+
+h1. Portal Migration
+
+
+
+
+
+h2. Portal declarations
+
+Customizing pages and navigations is done by the component named {{org.exoplatform.portal.config.UserPortalConfigService}}.
+
+In AIO, you had to redefine the {{component}} entirely. In PLF, there is now an {{external-component-plugin}}, that you can call from your extension in order to add your own customizations. See [this chapter|http://community.jboss.org/wiki/Portalcontainers#How_to_add_new_Portal_Configurations_Navigations_Pages_or_Portlet_Preferences_to_my_portal_] for further information.
+
+Transform your component declaration into an external-component-plugin declaration
+
+|| AIO || PLF ||
+| {code:xml}
+<component>
+	<key>org.exoplatform.portal.config.UserPortalConfigService</key>
+	<type>org.exoplatform.portal.config.UserPortalConfigService</type> 
+	...
+		<!-- If you define a new "default.portal" value in your extension,
+		it will be considered as prior to any other "default.portal" definition -->
+		<value-param>
+			<name>default.portal</name>
+			<description>The default portal</description>
+			<value>defaultPortalName</value>
+		</value-param>
+	...
+</component>
+{code} | {code:xml}
+<external-component-plugins>
+	<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+	... (same thing)
+		<value-param>
+			<name>default.portal</name>
+			<description>The default portal</description>
+			<value>defaultPortalName</value>
+		</value-param> 
+	... (same thing)
+</external-component-plugins>
+{code} |
+
+h2. Portal metadata descriptors
+
+Use this [Tool|PLF:Migration Tools User Guide], section {{{*}Portal Configuration Migration{*}}} to export and convert automatically AIO Portal metadata descriptors.
+The following paragraphs describes more about what was changed in PLF Portal metadata descriptors:
+
+{warning}
+There is some modifications wasn't made automatically by the {{Migration Tool}}, please read the following details for more informations.
+{warning}
+
+h3. navigation.xml
+
+The navigation.xml file contains the navigations of your portal.
+In AIO a node could be visible or invisible. Gatein has extended the concept of visibility.
+AIO's visibility maps as follow in PLF :
+|| AIO || PLF ||
+| {code:xml}<visible>false</visible>{code} | {code:xml}<visibility>HIDDEN</visibility>{code} |
+| {code:xml}<visible>true</visible>{code} | {code:xml}<visibility>DISPLAYED</visibility>{code} |
+
+{tip}
+Refer to this [XSD |http://anonsvn.jboss.org/repos/gatein/portal/trunk/component/portal/src/main/java/gatein_objects_1_1.xsd] file to see the possible "visibility" element values
+{tip}
+
+h3. pages.xml
+
+pages.xml contains the definition of the structure of each page.
+
+h4. container
+
+Gatein introduced the ability to define fine grained permissions on the blocks of a page. To make sure all your blocks are visible you need to grant access permissions to everyone.
+
+Containers are invisible structural elements that you use in the layout out of your page.
+|| AIO || PLF ||
+| {code:xml}<container><!-- ... --></container>{code} | {code:xml}
+<container>
+  <access-permissions>Everyone</access-permissions>
+  <!-- ... -->
+</container>{code} |
+
+
+h4. application
+
+Applications are applicative blocks such as portlets.
+In AIO, portlets used the element {{<application>}}. In PLF, this element has changed to {{<portlet-application>}}
+
+|| AIO || PLF ||
+| {code:xml}<application><!-- ... --></application>{code} | {code:xml}
+<portlet-application>
+  <!-- ... -->
+  <access-permissions>Everyone</access-permissions>
+</portlet-application>{code} |
+
+Like containers, applications can now have access permissions.
+You need to append {{<access-permission>}} before the closing tag {{</application>}}:
+
+|| AIO || PLF ||
+| {code:xml}<application><!-- ... --></application>{code} | {code:xml}
+<portlet-application>
+  <!-- ... -->
+  <access-permissions>Everyone</access-permissions>
+</portlet-application>{code} |
+
+
+
+h4. instance-id
+
+In AIO, the instance-id was a string identifier for the window, indicating what portlet to instantiate.
+In PLF, this has been simplified largely, only the application and the portlet names are needed:
+
+|| AIO || PLF ||
+| {code:xml}<application>
+  <instance-id>owner-type#owner-id:/application/portlet/window-id</instance-id>
+</application>{code} | {code:xml}<portlet-application>
+  <portlet>
+    <application-ref>application</application-ref>
+    <portlet-ref>portlet</portlet-ref>
+    <preferences><!-- ... --></preferences>
+  </portlet>
+  <!-- ... -->
+</portlet-application>{code} |
+
+{info}The {{<preferences>}} element allows to inline portlet preferences declaration instead of using the {{portlet-preferences.xml}}.{info}
+
+h4. window options
+
+If you want to remove the window decorations, you need to indicate it explicitly :
+
+{code:xml}
+<portlet-application>
+  <!-- ... -->
+  <access-permissions>Everyone</access-permissions>
+  <show-info-bar>false</show-info-bar>
+  <show-application-state>false</show-application-state>
+  <show-application-mode>false</show-application-mode>
+</portlet-application>
+{code}
+
+h4. Remove unnecessary elements
+
+Some elements in AIO were redundant, this has been simplified in Gatein. Remove the following elements :
+* {{<modifier>}}
+* {{<factory-id>}}
+* {{<page-id>}}
+* {{<owner-type>}}
+* {{<owner-id>}}
+
+
+h3. portal.xml
+
+The {{portal.xml}} file defines the structure of your portal. Its content is similar to {{pages.xml}}.
+Apply the same conversion that you applied to {{pages.xml}}
+
+You also need to remove {{<creator>}} that was unused and got removed.
+
+h3. portlet-preferences.xml
+
+The {{portlet-preferences.xml}} is used to configure portlet instances preferences. This will not be necessary in PLF, because the portlet preferences are now inlined in {{pages.xml}}.
+
+To migrate your portlet-preferences.xml, extract the {{<portlet-preferences>}} blocks and insert them in the corresponding {{<portlet-application>}} of {{pages.xml}}.
+
+|| AIO (portlet-preferences.xml) || PLF (pages.xml) ||
+| {code:xml}
+<portlet-preferences>
+  <owner-type>portal</owner-type>
+  <owner-id>classic</owner-id>
+  <window-id>portal#classic:/web/NavigationPortlet/toolbar</window-id>
+  <preference>
+    <name>useAJAX</name>
+    <value>true</value>
+    <read-only>false</read-only>
+  </preference>
+</portlet-preferences>
+{code} | {code:xml}
+<portlet-application>
+  <portlet>
+    <application-ref>web</application-ref>
+    <portlet-ref>NavigationPortlet</portlet-ref>
+    <preferences>
+      <preference>
+        <name>useAJAX</name>
+        <value>true</value>
+        <read-only>false</read-only>
+      </preference>
+    </preferences>
+  </portlet>
+  <!-- ... -->
+</portlet-application>
+{code} |
+
+h3. group and portal navigations pages
+
+In PLF, the edition of group and portal navigations is implemented by portlets.
+Hence, if you want to enable that feature in your portal, you will need to add these pages in {{pages.xml}} and link them to navigation nodes in {{navigation.xml}}. Read more about it in [GateIn Reference Guide|http://platform.demo.exoplatform.org/docs/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Portal_Navigation_Configuration-Portal_Navigation].
+
+Group navigations are managed by the {{GroupNavigationPortlet}} :
+
+
+{code:xml}
+<page>
+  <name>groupnavigation</name>
+  <title>Group Navigation</title>
+  <access-permissions>*:/platform/users</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <portlet-application>
+    <portlet>
+      <application-ref>exoadmin</application-ref>
+      <portlet-ref>GroupNavigationPortlet</portlet-ref>
+    </portlet>
+    <title>Group Navigation</title>
+    <access-permissions>Everyone</access-permissions>
+    <show-info-bar>false</show-info-bar>
+    <show-application-state>false</show-application-state>
+    <show-application-mode>false</show-application-mode>
+  </portlet-application>
+</page>
+{code}
+
+Portal navigations are managed by the {{PortalNavgationPortlet}}:
+{code:xml}
+<page>
+  <name>portalnavigation</name>
+  <title>Portal Navigation</title>
+  <access-permissions>*:/platform/users</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <portlet-application>
+    <portlet>
+      <application-ref>exoadmin</application-ref>
+      <portlet-ref>PortalNavigationPortlet</portlet-ref>
+    </portlet>
+    <title>Portal Navigation</title>
+    <access-permissions>Everyone</access-permissions>
+    <show-info-bar>false</show-info-bar>
+    <show-application-state>false</show-application-state>
+    <show-application-mode>false</show-application-mode>
+  </portlet-application>
+</page>
+{code}
+
+{warning}
+This section isn't added automatically by the {{Migration Tool}}, it should be added manually \!
+{warning}
+
+h3. Renamed portlets and preferences
+
+Several built-in portlet applications have been renamed since AIO. Convert the following "application-ref" : portlets was modified in PLF):
+* FileExplorerPortlet : <application-ref>ecmexplorer</application-ref>
+* BrowseContentPortlet: <application-ref>ecmbrowsecontent</application-ref>
+* ECMAdminPortlet: <application-ref>ecmadmin</application-ref>
+
+In CLV, the portlet-preference "folderPath" has been modified, it has to start with "repository:WSName:/...".
+
+{warning}
+This section isn't converted automatically by the {{Migration Tool}}, it should be updated manually \!
+{warning}
+
+h2. Resource bundles
+
+You may have defined some custom resource bundles, it is no longer used/defined in a component configuration, you 've to change it into an external component plugin, where you could define only your resource bundles
+Old resource bundles declaration (Override the whole ResourceBundleService component declaration):
+|| AIO || PLF ||
+| {code:xml}
+<component>
+<key>org.exoplatform.services.resources.ResourceBundleService</key>
+<type>org.exoplatform.services.resources.jcr.ResourceBundleServiceImpl</type>
+<init-params>
+...
+</init-params>
+</component>
+{code} | {code:xml}
+<external-component-plugins>
+ <!-- New resource bundles declaration (plugin the list of resource bundles) -->
+ <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+ <component-plugin>
+	<!-- The name of the plugin -->
+	<name>Sample ResourceBundle Plugin</name>
+	<!-- The name of the method to call on the ResourceBundleService in order to register the ResourceBundles -->
+	<set-method>addResourceBundle</set-method>
+	<!-- The full qualified name of the BaseResourceBundlePlugin -->
+	<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+	<init-params>
+...
+	</init-params>
+ </component-plugin>
+</external-component-plugins>
+{code} |
+
+{info}
+The implementation of *ResourceBundleService* has been changed so that resource bundles are no longer stored in the jcr, so the "Internationalization Portlet" is removed from PLF.
+{info}
+
+If you have made some modification in Resource Bundles in your AIO Server, you could extract all the Resource Bundles stored in the JCR by using the [Migration Tool|PLF:Migration Tools User Guide], see section {{Resource Bundles Migration}}.
+
+h2. ApplicationRegistry service configurations
+
+The Application Registry application can be configured to predefine categories and permissions on portlets and gadgets. If you have customized this configuration, you need to migrate.
+
+|| AIO || PLF ||
+| {code:xml}
+
+<component>
+  <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+<!-- AIO "ApplicationRegistryService" implementation -->
+  <type>org.exoplatform.application.registry.impl.ApplicationRegistryServiceImpl</type>
+...
+<field name="applicationType">
+	<string>portlet</string>
+</field>
+...
+<field name="applicationGroup">
+	<string>exoadmin</string>
+</field>
+...
+</component>
+{code} | {code:xml}
+
+<component>
+  <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+<!-- PLF "ApplicationRegistryService" implementation -->
+  <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
+...
+<!-- "applicationType" is replaced by "type"-->
+<field name="type">
+	<string>portlet</string>
+</field>
+...
+<!-- "applicationGroup" is replaced by "contentId"-->
+<field name="contentId">
+	<string>exoadmin</string>
+</field>
+...
+</component>
+{code} |
+
+You may have modified the applications and gadgets categories, by using the "Application Registry Portlet", this configuration is stored in the JCR. So in order to recuperate this configuration, you could use the [Migration Tool|PLF:Migration Tools User Guide] to know How to extract this in << AIO Kernel Configuration format >>.
+
+h2. API changes
+
+If your code uses eXo APIs, you may be affected by some API changes.
+
+h3. REST services
+
+Platform now uses a JAX-RS (JSR311) implementation to back its webservices.
+Webservices developed in AIO are not compatible.
+
+{info}Learn how to migrate your services by reading [REST Migration to JSR 311|http://wiki.exoplatform.org/xwiki/bin/view/WS/WS+rest+jsr311+migration+how-to].{info}
+
+h3. SessionProvider
+
+If you have implemented custom code against JCR API, you probably used the {{SessionProvider}} to obtain JCR sessions.
+
+In Platform, all http requests now execute all JCR queries with a same {{SessionProvider}} instance. So if there is some SessionProvider closing instructions in your custom Groovy Templates, you may see warning messages like _"SessionProvider already closed"_.
+
+Below are some examples of those problematic instructions:
+{code}
+finally  {
+     sessionProviderService.removeSessionProvider(null);
+}
+{code}
+&
+{code}
+finally{
+    if (null != sessionProvider){
+       sessionProvider.close();
+    }
+}
+{code}
+
+h3. OrganizationService
+
+If you are programming against the {{OrganizationService}} using PicketLink IDM implementation (which is the default implementation used in PLF), you will need to wrap your code with {{startRequest()}} and {{stopRequest()}}. This will ensure the your code is exscuted within a tranaction.
+{code:java}
+{
+   ((ComponentRequestLifecycle)organizationService).startRequest(PortalContainer.getInstance());
+   ...
+   // Use organizationService handlers such as "organizationService.getGroupHandler().save(...);"
+   ...
+   ((ComponentRequestLifecycle)organizationService).endRequest(PortalContainer.getInstance());
+}
+{code}
+
+h3. Groovy templates
+
+In your gtmpl files, replace Groovy markers :
+|| AIO || PLF ||
+| $someVariable | <%=someVariable%> |
+
+
+
+h2. Custom portlets migration
+
+If you have implemented your own portlets, you will need to edit their web.xml :
+* Remove the following :
+{code:xml}
+<listener>
+  <listener-class>org.exoplatform.services.portletcontainer.impl.servlet.PortletApplicationListener</listener-class>
+</listener>
+<servlet>
+  <servlet-name>PortletWrapper</servlet-name>
+  <servlet-class>org.exoplatform.services.portletcontainer.impl.servlet.ServletWrapper</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>PortletWrapper</servlet-name>
+  <url-pattern>/PortletWrapper</url-pattern>
+</servlet-mapping>
+{code}
+* If you are using [JBoss or Tomcat|http://community.jboss.org/thread/156377], you don't need to add anything specific to your {{web.xml}} file, else add the following servlet declaration :
+{code:xml}
+  <servlet>
+    <servlet-name>GateInServlet</servlet-name>
+    <servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>RestServer</servlet-name>
+    <description>eXo - Platform REST Server</description>
+    <servlet-class>org.exoplatform.services.rest.servlet.RestServlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+{code}
+
+
+h3. JSF portlets
+
+You need to update your portlet bridge libraries from version 1 (JSR 301) to version 2 (JSR 329). Version 1 was designed to act as a bridge between a Portlet 1.0 container and JSF 1.2. Version 2 is designed to act as a bridge between a Portlet 2.0 container and JSF 1.2.
+
+{note:title=TODO}Explain where to get the bridge and deploy it. Explain what changes to be done in the portlet{note}
+
+
+h3. Struts portlets
+
+The descriptor file of struts portlet (WEB-INF/portlet.xml) needs be to updated :
+
+|| AIO || PLF ||
+| {code:xml} <portlet>
+   ...
+   <init-param>
+     <name>ServletContextProvider</name>
+     <value>org.exoplatform.ServletContextProviderImpl</value>
+   </init-param>
+   ...
+ </portlet> {code} | {code:xml}
+<portlet>
+   ...
+   <init-param>
+     <name>ServletContextProvider</name>
+     <value>org.gatein.pc.bridge.GateInServletContextProvider</value>
+   </init-param>
+   ...
+ </portlet> {code} |
+
+h1. WCM Migration
+
+h2. ECM actions
+
+If you have defined an ECM action, or Taxonomy Action then you have to change the type and the value of the field lifecyclePhase as follow:
+
+|| AIO || PLF ||
+| {code:xml}
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.actions.ActionServiceContainer</target-component>
+...
+		<object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+...
+		<!--AIO "lifecyclePhase" field declaration-->
+		   <field name="lifecyclePhase">
+			 <string>add</string>
+		   </field>
+...
+		</object>
+...
+</external-component-plugins>
+{code} | {code:xml}
+<external-component-plugins>
+    <target-component>org.exoplatform.services.cms.actions.ActionServiceContainer</target-component>
+...
+		<object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+...
+		<!--PLF "lifecyclePhase" field declaration-->
+		  <field  name="lifecyclePhase">
+			<collection type="java.util.ArrayList">
+			 <value><string>node_added</string></value>
+			</collection>
+		  </field>
+...
+		</object>
+...
+</external-component-plugins>
+{code} |
+
+And same thing for {{TaxonomyPlugin}} declaration:
+
+|| AIO || PLF ||
+| {code:xml}
+<external-component-plugins>
+  <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
+...
+        <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+         <!--AIO "lifecyclePhase" field declaration-->
+         <field name="lifecyclePhase">
+           <string>add</string>
+         </field>
+...
+		</object>
+...
+</external-component-plugins>
+{code} | {code:xml}
+<external-component-plugins>
+  <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
+...
+  <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+	 <!--PLF "lifecyclePhase" field declaration-->
+	 <field  name="lifecyclePhase">
+	  <collection type="java.util.ArrayList">
+	   <value>
+		<string>node_added</string>
+	   </value>
+	  </collection>
+	 </field>
+...
+	</object>
+...
+</external-component-plugins>
+{code} |
+
+{{org.exoplatform.services.cms.actions.impl.ActionConfig}} can now accept a set of mixins. An interesting one is {{mix:affectedNodetype}}. It allows to filter the nodetype on which the action is triggered.
+
+{code}
+<component-plugin>
+<type>org.exoplatform.services.cms.actions.impl.ScriptActionPlugin</type>
+...
+<field name="actions">
+  <collection type="java.util.ArrayList">
+	<value>
+	  <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+...
+        <!--"mixins" field declaration-->
+		<field  name="mixins">
+			<collection type="java.util.ArrayList">
+			  <value>
+			   <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Mixin">
+				<field  name="name"><string>mix:affectedNodeTypes</string></field>
+				<field  name="properties">
+				 <string>exo:affectedNodeTypeNames=exo:article</string>
+				</field>
+			   </object>
+			  </value>
+			</collection>
+		  </field>
+...
+	  </object>
+	</value>
+  </collection>
+ </field>
+...
+</component-plugin>
+{code}
+
+h2. ECM drives
+
+{{allowCreateFolders}} field declaration has been modified in the ECMS Drives declaration configuration:
+
+|| AIO || PLF ||
+| {code:xml}
+   <external-component-plugins>
+      <target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
+      <component-plugin>
+...
+		<type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+...
+			<!-- AIO "allowCreateFolders" field declaration -->
+                <field  name="allowCreateFolder"><string>Both</string></field>
+...
+      </component-plugin>
+</external-component-plugins>
+{code} | {code:xml}
+   <external-component-plugins>
+      <target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
+...
+            <!-- PLF "allowCreateFolders" field declaration -->
+            <field name="allowCreateFolders">
+              <string>nt:folder,nt:unstructured</string>
+            </field>
+...
+   </external-component-plugins>
+{code} |
+
+
+h2. Publication lifecycle
+
+In PLF, the default publication public has changed to a new one, more flexible called {{Authoring}} plugin. The old {{StageAndVersion}} is now deprecated.
+It is recommended that you upgrade to the new plugin. Read more about the new Authoring plugin in ECMS reference guide.
+
+To migrate gracefully, it is possible to define a lifecycle that behaves identically to the StageAndVersion plugin. See the [Migration Tools Guide|PLF:Migration Tools User Guide], section {{{*}WCM Contents Publication Migration{*}}}.
+
+h2. ECM APIs changes
+
+Replace folksonomy service :
+
+|| AIO || PLF ||
+| {{import org.exoplatform.services.cms.folksonomy.FolksonomyService}} | {{org.exoplatform.services.cms.folksonomy.NewFolksonomyService}} |
+
+
+h2. ECM templates migration
+
+For ECM groovy templates, follow this :
+
+|| AIO || PLF ||
+| {{uicomponent.isShowHeader()}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_HEADER)}} \\
+or {{uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER)}} |
+| {{uicomponent.showRefreshButton(_)}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_REFRESH_BUTTON)}} \\
+or {{isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON)}} |
+| {{uicomponent.getPortletPreferences()}} | {{portletRequest.getPreferences()}} |
+| {{UICLVPortlet.SHOW_XX\_}} | {{UICLVPortlet.PREFERENCE_SHOW_XX\_}} |
+| {{UICLVPortlet.SHOW_THUMBNAILS_VIEW}} | {{UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION}} |
+| {{def viewNode = Utils.getNodeView(node);}} | {code:java}
+def contentNodeLocation = NodeLocation.getNodeLocationByNode(node);
+def viewNode = Utils.getViewableNodeByComposer(contentNodeLocation.getRepository(), contentNodeLocation.getWorkspace(), contentNodeLocation.getPath());
+{code} |
+{info}Remember to add the corresponding imports :
+* {{import org.exoplatform.wcm.webui.clv.UICLVPortlet;}}
+* {{import org.exoplatform.wcm.webui.pclv.UIPCLVPortlet;}}
+* {{import org.exoplatform.services.wcm.core.NodeLocation;}}
+{info}
+
+h3. CKEditor
+
+PLF comes with a new version  of the WYSIWYG editor called CKEditor 3. Previous version was called fckeditor 2. FCKEditor is still there for compatibility, but it is possible to use CKEditor in document dialogs forms.
+
+h4. Dialog forms
+
+In order to use CKEditor 3 instead FCKEditor 2 in your document dialogs forms, you'll need to update your .gtmpl files, by using "options=toolbar:CompleteWCM" property like this:
+{code}
+// ...
+String[] args = ["jcrPath=/node/data_property", "options=toolbar:CompleteWCM,height:'410px'", "This is the initialize text"];
+uicomponent.addRichtextField("CKEditor", args) ;
+//...
+{code}
+
+h4. CKEditor templates
+
+Adding custom CKEditor templates has changed with the new version. Instead of defining your templates in an XML format in the file fcktemplates.xml you now have to define them in JavaScript.
+To do so :
+- create a custom javascript file in your extension (for example /myResourcesExtension/javascript/my-ckeditor-templates-defintion.js) containing the definition of your custom CKeditor templates. The script must call the CKEditor.addTemplates method as described in the CKEditor documentation ([http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Templates]).
+- then add the following script in your dialog forms or in a global JavaScript file :
+{code}
+CKEDITOR.config.templates = 'default';
+CKEDITOR.config.templates_files = '/myResourcesExtension/javascript/my-ckeditor-templates-defintion.js';
+{code}
+
+{note}
+The description of 'How to add custom CKEditor templates ?' should be included in the documentation. This migration guide should only warn that it has changed and propose a link to the documentation.
+{note}
+
+
+h2. ECM UI extension migrations
+
+If you have defined a new UI Extension using this page [UI Extension Framework|http://wiki.exoplatform.org/xwiki/bin/view/ECM/UI%20Extension%20Framework], please refer [to this page|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch06.html#d0e30284] to know how to redefine it in ECMS.
+
+h1. Graphic Chart Migration
+
+In Platform, css and javascript integration adopts a new descriptor. Please refer to the [skinning|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html#d0e1318] paragraph of the Developer guide. You can also read the [Skinning|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Skinning_Portal] & [Javascript|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Javascript_Configuration] Configuration Chapters in the Reference guide of GateIn.
+
+h2. changes in web.xml of webapps
+
+Web-Resources WARs (images, css and Javascript) had some specific listeners declared in its web.xml files, this should be modified as following table shows
+
+|| AIO || PLF ||
+| {code:xml}
+	<filter>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  <!-- PLF don't use this part anymore -->
+  <listener>
+    <listener-class>org.exoplatform.portal.webui.skin.SkinConfigListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.exoplatform.portal.webui.javascript.JavascriptListener</listener-class>
+  </listener>
+{code} | {code:xml}
+	<filter>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+{code} |
+
+{info}
+Lean more about [ResourceRequestFilter|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guid-Skin_Configuration-Skin_Service] (section "3.1.5.2. Resource Request Filter").
+{info}
+
+h2. new deployment descriptor : gatein-resource.xml
+
+Each war containing webresouces such as css or javascript for your graphic charter, will now require you to use a new file named {{gatein-resources.xml}}.
+
+Add a file named "gatein-resources.xml" to *CustomerResourcesWAR*/WEB-INF/ with this empty content:
+{code:xml}
+<gatein-resources
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_0 http://www.gatein.org/xml/ns/gatein_resources_1_0"
+    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_0">
+
+</gatein-resources>
+{code}
+
+h2. Javascripts
+
+In AIO, you used to load a javascript file thank to a descriptor called {{conf/script/groovy/JavascriptScript.groovy}}, it can be directly mapped to a {{<javascript>}} block in {{gatein-resources.xml}}.
+
+|| AIO || PLF ||
+| {code:java}
+JavascriptService.addJavascript("module.name", "/path/to/file.js", ServletContext);
+{code} | {code:xml}
+<javascript>
+ <param>
+	<js-module>module.name</js-module>
+	<js-path>/path/to/file.js</js-path>
+ </param>
+</javascript>
+{code} |
+
+
+h2. CSS
+
+In AIO, you used to declare a css thank to a descriptor called {{conf/script/groovy/SkinConfigScript.groovy}}.
+The content of this file is mapped to different blocks in {{gatein-resources.xml}}.
+
+|| AIO || PLF ||
+| {color:grey}Portal Skin{color} |
+| {code:java}SkinService.addPortalSkin("skinModule","skinName", "/path/to/file.css", ServletContext);{code} | {code:xml}
+<portal-skin>
+  <skin-name>skinName</skin-name>
+  <skin-module>skinModule</skin-module>
+  <css-path>/path/to/file.css</css-path>
+</portal-skin>
+{code} |
+| {color:grey}Portlet Skin{color} |
+| {code:java}SkinService.addSkin(
+    "applicationName/portletName",
+    "skinName",
+    "/path/to/file.css",
+    ServletContext
+);
+{code} | {code:xml}<portlet-skin>
+  <application-name>applicationName</application-name>
+  <portlet-name>portletName</portlet-name>
+  <skin-name>skinName</skin-name>
+  <css-path>/path/to/file.css</css-path>
+</portlet-skin>{code} |
+| {color:grey}Window Decorators{color} |
+| {code:java}SkinService.addTheme("styleName", ["Theme1","Theme2"]);{code} | {code:xml}<window-style>
+ <style-name>styleName</style-name>
+  <style-theme>
+   <theme-name>Theme1</theme-name>
+  </style-theme>
+  <style-theme>
+   <theme-name>Theme2</theme-name>
+  </style-theme>
+</window-style>{code} |
+
+Once their content is migrated, you can delete your {{JavascriptScript.groovy}} and {{SkinConfigScript.groovy}} files.
+
+{info}Some of the eXo built-in containers(such as UIContainer.gtmpl) have evolved. As a consequence, the DOM structure is different and, depending on how your css were written, you may need to update them.{info}
+{tip}Don't use numbers as ids for containers because the prefix _{_}UIContainer-_\_ will not be added automatically.{tip}
+
+h1. Organization Data Model Migration
+
+The organization model is made of Users, users profiles, groups, memberships and membership types. This data is managed by the OrganizationService.
+This service has different implementations that depend on the type of datasource (it can be a directory or a database). In Platform, the service interface has been maintained, but the implementation has been replaced by a new one based on picketlink IDM. The database implementation has a new DB schema and thus requires data migration. See the Migration Tools Guide, section *Organization Service Migration*
+
+h1. Data Migration
+
+If you have already used AIO in a production environment, you may have defined some specific contents, such as WebContents, files, KS and CS nodes.
+In order to copy all those informations in the new PLF server, you could use the Migration Tool described [here|PLF:Migration Tools User Guide], see section *Collaboration workspace Content Migration*.
+
+{note}
+TODO: We have to know what nodes path was modified in KS and CS.
+{note}
+
+h1. Server Environment Migration
+
+h2. Data sources
+
+Platform uses two datasources, one for the JCR, and another one for the organization model. The name of these datasources in controlled in {{configuration.properties}}. AIO comes with a single datasource, configured by default in {{portal.war\!WEB-INF/conf/database/database-configuration.xml}}. You don't need to override this file anymore in PLF. Instead, refer to the  Please refer to the [Administrators Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html] to learn how to setup datasources.
