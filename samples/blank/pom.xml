@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Blank sample</name>
   <modules>
-    <module>service</module>
+    <module>config</module>
     <module>ear</module>
   </modules>
 </project>

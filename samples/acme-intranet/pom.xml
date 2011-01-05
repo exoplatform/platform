@@ -11,7 +11,7 @@
   <name>eXo Platform - Acme Intranet</name>
   <modules>
     <module>webapp</module>
-    <module>service</module>
+    <module>config</module>
     <module>ear</module>
   </modules>
 </project>

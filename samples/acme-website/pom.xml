@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Acme Website</name>
   <modules>
-    <module>service</module>
+    <module>config</module>
     <module>webapp</module>
     <module>ear</module>
   </modules>
