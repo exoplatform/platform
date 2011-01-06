@@ -28,9 +28,9 @@ public class Application {
   private String icon;
   private String description;
 
-  private boolean showInfoBar = true;
-  private boolean showApplicationState = true;
-  private boolean showApplicationMode = true;
+  private boolean showInfoBar = false;
+  private boolean showApplicationState = false;
+  private boolean showApplicationMode = false;
   private String theme;
   private String width;
   private String height;
