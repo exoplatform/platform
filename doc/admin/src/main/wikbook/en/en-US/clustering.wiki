@@ -30,9 +30,9 @@ All nodes must have a read/write access on the shared file system.
 h1. Cluster setup
 
 
-The switch to a cluster configuration is done in  {{configuration.properties}}
+The switch to a cluster configuration is done in {{configuration.properties}}. This {{configuration.properties}} file must be set in the same way on all the cluster nodes.
 
-First, switch the JCR to cluster mode:
+First, switch the JCR to cluster mode.
 
 {code}
 gatein.jcr.config.type=cluster
@@ -87,7 +87,7 @@ h2. Initial Startup
 
 For the very first startup of your JCR cluster, you should only start a single node. This node will initialise the internal JCR database and create the system workspace. Once this first node is definitely started, you can start the other nodes.
 
-{note}This contraint is only for the very first start. Once the initialization has been done, you can start odes in any order{note}
+{note}This contraint is only for the very first start. Once the initialization has been done, you can start nodes in any order{note}
 
 
 h2. Startup and shutdown

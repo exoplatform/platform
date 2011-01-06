@@ -115,7 +115,7 @@ You need to prepare two database schema and a technical user to access them.
 #* {code}show databases;{code}
 # Quit the server with {code}exit{code}
 
-{note}eXo Platform does not require tables to be created, before it starts because it is capable to do it automatically on first startup. If you prefer to run a DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
+{note}eXo Platform does not require tables to be created before it starts because it is capable of doing it automatically on the first startup. If you prefer to run a DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
 {note}
 
 h3. Configuring eXo Platform
@@ -125,7 +125,7 @@ Now that the database is ready, you need to configure eXo to be able to connect 
 h4. Tomcat bundle
 
 Configuring a datasource for eXo under Tomcat involves two steps : 
-* Edit server.xml
+* Edit gatein-ds.xml
 * Add the JDBC driver
 
 h5. Edit server.xml
@@ -137,17 +137,19 @@ To declare the binding of the datasources in the GlobalNaming context :
 # Change the username and password to the values set above
 # Change the url to access your DataBase : {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
 
-The code should now look like :
+The code now should look like :
 {code:language=xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
+			   maxActive="20" maxIdle="10" maxWait="10000"
+			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="_$username_" password="_$password_" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://_$host_:3306/_$dbname-jcr_"/>
 
 <!-- eXo IDM Datasource for portal -->                
 <Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
+			   maxActive="20" maxIdle="10" maxWait="10000"
+			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="_$username_" password="_$password_" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://_$host_:3306/_$dbname-idm_"/>   
 {code}
@@ -172,7 +174,7 @@ Open *_$JBOSS_HOME/server/default/deploy/gatein-ds.xml_*
 
 To declare the binding of the datasources in the GlobalNaming context : 
 # Change the driver : {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
-# Change the username and password to the values setearier
+# Change the username and password to the values set earlier
 # Change the url to access your DataBase : {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
 
 The configuration should now look like :
@@ -185,8 +187,8 @@ The configuration should now look like :
       <user-name>_$username_</user-name>
       <password>_$password_</password>
 
-      <min-pool-size>5</min-pool-size>
-      <max-pool-size>20</max-pool-size>
+      <min-pool-size>16</min-pool-size>
+      <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
@@ -198,8 +200,8 @@ The configuration should now look like :
       <user-name>_$username_</user-name>
       <password>_$password_</password>
 
-      <min-pool-size>5</min-pool-size>
-      <max-pool-size>20</max-pool-size>
+      <min-pool-size>16</min-pool-size>
+      <max-pool-size>128</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
@@ -262,13 +264,15 @@ Declare the binding of the datasources in the GlobalNaming context :
 {code:language=xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
+			   maxActive="128" maxIdle="32" maxWait="10000"
+			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
                url="jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"/>
 
 <!-- eXo IDM Datasource for portal -->                
 <Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
-               maxActive="20" maxIdle="10" maxWait="10000"
+			   maxActive="128" maxIdle="32" maxWait="10000"
+			   removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
                url="jdbc:hsqldb:file:../gatein/data/hsql/exo-idm_portal"/>   
 {code}               
@@ -311,7 +315,7 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 {code}
 
 
-The following table explains what goes in what path. The {{temporary?}} column indicates if the data is temporary or persistent.
+The following table explains what goes in what path. The {{temporary}} column indicates if the data is temporary or persistent.
 || variable || content || temporary ||
 || {{gatein.data.dir}} || jta transactional data | yes |
 || {{gatein.jcr.data.dir}} || jcr swap data | yes |
@@ -379,7 +383,7 @@ The configuration property is: {{exo.webdav.cache-control}}
 exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 {screen}
 
-The property expects a comma-separated list of key=pair values, where keys are a list of mimetypes followed by the cache-control value to set.
+The property expects a list of key=pair values separated by a semicolon, where keys are a list of mimetypes followed by the cache-control value to set.
 
 h1. Chat Server
 
@@ -489,7 +493,7 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 {code}
 
-| {{gatein.jcr.config.type}} | use {{cluster}} is you want to use eXo Platform in cluster mode. Otherwise leave {{local}} |
+| {{gatein.jcr.config.type}} | use {{cluster}} if you want to use eXo Platform in cluster mode. Otherwise leave {{local}} |
 | {{gatein.jcr.index.changefilterclass}} | in cluster mode change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}} |
 | {{gatein.jcr.cache.config}}  |JBoss Cache configuration for the JCR locks |
 | {{gatein.jcr.index.cache.config}} | JBoss Cache Configuraiton for the JCR index |

@@ -72,8 +72,8 @@ h3. Common Changes
 Finally, there are some common changes to do on both app servers.
 
 h4. configuration.properties
-First, edit the change it need to change the  JAAS realm to fit your own security contraints, 
-LInside configuration.properties, identifythe entry named "exo.security.domain"
+First, change the JAAS realm to match your own security constraints, 
+inside the configuration.properties file, identify the entry named "exo.security.domain
 {code}
 # Realm name
 exo.security.domain=gatein-domain

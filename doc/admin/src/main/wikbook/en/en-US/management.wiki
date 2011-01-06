@@ -147,7 +147,7 @@ h3. Token Store
 
 h4. Definition of Token store
 
-Token (sometimes called the security token or authentication token) is an object that caches identity or profiles to authorize users. It will be used in authentication to increase the information security. You, as an administrator, can create, delete, retrieve or clean tokens. For example, instead of signing in with your username and password when accessing a site, you only need to login for the first time with the token. After the client's token has been sent, the authentication will be processed from the server.
+Token (sometimes called the security token or authentication token) is an object that caches identity or profiles to authenticate users. It will be used in authentication to increase the information security. You, as an administrator, can create, delete, retrieve or clean tokens. For example, instead of signing in with your username and password when accessing a site, you only need to login for the first time with the token. After the client's token has been sent, the authentication will be processed from the server.
 
 eXo Platform provides several token store mechanisms via implementing the *TokenStore* interface. The *TokenStore* interface has TWO methods, including *createToken* and *validateToken*.
 
@@ -212,7 +212,7 @@ In which, the token service will initialize by retrieving init-params named as "
 
 * [3]: Timing unit.
 
-In the above code, the service name is "memory-token" and the token will be expired after ONE minute. 
+In the above code, the service name is "memory-token" and the token will expire after ONE minute. 
 
 eXo Platform supports FOUR timing units, including SECOND, MINUTE, HOUR, DAY.
 
@@ -237,7 +237,7 @@ The JMX name of the portal statistics MBean follows the template {{exo:view=port
 |{{PortalList}}|returns the list of the loaded portals|
 
 ||Operation||Description||
-|{{getThroughput(portalId)}}|returns the number of request per second for a specified portal|
+|{{getThroughput(portalId)}}|returns the number of requests per second for a specified portal|
 |{{getAverageTime(portalId)}}|returns the average time spent in a specified portal|
 |{{getExecutionCount(portalId)}}|returns the number of times a specified portal has been executed|
 |{{getMinTime(portalId)}}|returns the minimum time spent in the specified portal|

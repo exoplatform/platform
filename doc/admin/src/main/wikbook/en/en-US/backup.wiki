@@ -1,4 +1,8 @@
 h1. How to backup eXo
-{note}
-TODO : explain how to backup an eXo instance. This involves backing up the databases and the filesystem for index and value storage
-{note}
+
+eXo instance backup involves backing up the databases and the filesystems for index and value storage.
+JCR backup should be done off-line. All datas under gatein/data should be backuped. Use this tar command : 
+
+{screen}tar cvjf gatein-backup.tar.bz gatein/data{screen}
+
+SQL backup should use RDBMS tools, it will depend on engine. Example: mysqldump on MySQL

@@ -1,9 +1,9 @@
-eXo Platform is packaged as a deployable enterprise archive, per the Java EE specification, and as a configuration directory.
+eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory.
 
 
 h1. Installing the Tomcat bundle
 
-The easiest way to install eXo Platform is to take the default bundle. 
+The easiest way to install eXo Platform is to take the default bundle.
 This is a ready-made package on top of Tomcat 6 application server, so you simply need to copy the {{bin/tomcat6-bundle/}} directory to your server.
 
 h2. Startup
@@ -74,7 +74,7 @@ h3. Developer mode
 || {{-Dcom.sun.management.jmxremote}} | activates the JMX remoting |
 || {{-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n}} | enables remote debugging |
 || {{-Dorg.exoplatform.container.configuration.debug}} | the container will log to the console what xml files it loads |
-|| {{-Dexo.product.developing=true}} | desactivates javascript and css merging for easier debugging |
+|| {{-Dexo.product.developing=true}} | deactivates javascript and css merging for easier debugging |
 
 
 h1. Installing the JBoss EARs
@@ -83,7 +83,7 @@ We provide EARs packages to deploy in your existing JBoss application server. Th
 
 To install eXo Platform on JBoss, follow these steps:
 
-h2. Copy these files in {{jboss-root/server/default/deploy}}
+h2. Copy files in {{jboss-root/server/default/deploy}}
 - gatein-ds.xml
 - gatein.ear (it must remain a folder named gatein.ear)
 - starter-gatein.ear
@@ -96,7 +96,7 @@ h2. Copy these files in {{jboss-root/server/default/deploy}}
 - gatein-wcm-extension-plf.ear
 - gatein-workflow-extension-plf.ear
 
-h2.  Create a folder {{jboss-root/server/default/conf/gatein}}
+h2. Create a folder {{jboss-root/server/default/conf/gatein}}
 
 Copy these files:
 - configuration.properties
@@ -118,7 +118,7 @@ EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFact
 JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
-On *Windows*, at these lines at the end of {{jboss-root/bin/run.conf.bat}}:
+On *Windows*, add these lines at the end of {{jboss-root/bin/run.conf.bat}}:
 {code}
 rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
