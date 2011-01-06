@@ -778,6 +778,14 @@
       <version>${org.exoplatform.portal.version}</version>
       <type>war</type>
     </dependency>
+ 
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.dashboard</artifactId>  <!-- changed in 3.2 -->
+      <version>${org.exoplatform.portal.version}</version>
+      <type>jar</type>
+    </dependency>
+    
     
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
@@ -920,13 +928,6 @@
     </dependency>
     
     <dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.dashboard</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-formgenerator-portlet</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
@@ -939,6 +940,7 @@
       <version>${org.exoplatform.portal.version}</version>
       <type>war</type>
     </dependency>
+    
     
     <dependency>
       <groupId>org.exoplatform.social</groupId>
