@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,13 +28,13 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>username</td>
-	<td>root</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Application Registry</td>
+	<td>link=Applications Registry</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,13 +73,33 @@
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>link=Contents</td>
+	<td>Contents</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Contents</td>
+	<td>Contents</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Dashboard</td>
 	<td>Dashboard</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>link=Dashboard</td>
 	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Forms</td>
+	<td>Forms</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Forms</td>
+	<td>Forms</td>
 </tr>
 <tr>
 	<td>waitForText</td>
@@ -90,6 +110,16 @@
 	<td>verifyText</td>
 	<td>link=Gadgets</td>
 	<td>Gadgets</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Newsletter</td>
+	<td>Newsletter</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Newsletter</td>
+	<td>Newsletter</td>
 </tr>
 <tr>
 	<td>waitForText</td>
@@ -128,23 +158,153 @@
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>link=Admin</td>
+	<td>Admin</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Admin</td>
+	<td>Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Administration</td>
 	<td>Administration</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>link=Administration</td>
 	<td>Administration</td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>link=calendar</td>
+	<td>calendar</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=chat</td>
+	<td>chat</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=chat</td>
+	<td>chat</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=chatbar</td>
+	<td>chatbar</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=chatbar</td>
+	<td>chatbar</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=contact</td>
+	<td>contact</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=contact</td>
+	<td>contact</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Contents</td>
+	<td>Contents</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Contents</td>
+	<td>Contents</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Dashboard</td>
 	<td>Dashboard</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>link=Dashboard</td>
 	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=ecm</td>
+	<td>ecm</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=ecm</td>
+	<td>ecm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=ECM</td>
+	<td>ECM</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=ECM</td>
+	<td>ECM</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=faq</td>
+	<td>faq</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=faq</td>
+	<td>faq</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=fastcontentcreator</td>
+	<td>fastcontentcreator</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=fastcontentcreator</td>
+	<td>fastcontentcreator</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Form Generator Portlet</td>
+	<td>Form Generator Portlet</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Form Generator Portlet</td>
+	<td>Form Generator Portlet</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Forms</td>
+	<td>Forms</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Forms</td>
+	<td>Forms</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Forms</td>
+	<td>Forms</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=forum</td>
+	<td>forum</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=forum</td>
+	<td>forum</td>
 </tr>
 <tr>
 	<td>waitForText</td>
@@ -168,6 +328,16 @@
 </tr>
 <tr>
 	<td>waitForText</td>
+	<td>link=mail</td>
+	<td>mail</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=mail</td>
+	<td>mail</td>
+</tr>
+<tr>
+	<td>waitForText</td>
 	<td>link=Navigation</td>
 	<td>Navigation</td>
 </tr>
@@ -175,6 +345,66 @@
 	<td>verifyText</td>
 	<td>link=Navigation</td>
 	<td>Navigation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Newsletter</td>
+	<td>Newsletter</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Newsletter</td>
+	<td>Newsletter</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=platformNavigation</td>
+	<td>platformNavigation</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=platformNavigation</td>
+	<td>platformNavigation</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=poll</td>
+	<td>poll</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=poll</td>
+	<td>poll</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=rss</td>
+	<td>rss</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=rss</td>
+	<td>rss</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Search</td>
+	<td>Search</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Search</td>
+	<td>Search</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=social</td>
+	<td>social</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=social</td>
+	<td>social</td>
 </tr>
 <tr>
 	<td>verifyText</td>
@@ -188,6 +418,16 @@
 </tr>
 <tr>
 	<td>waitForText</td>
+	<td>link=WCM Admin</td>
+	<td>WCM Admin</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=WCM Admin</td>
+	<td>WCM Admin</td>
+</tr>
+<tr>
+	<td>waitForText</td>
 	<td>link=web</td>
 	<td>web</td>
 </tr>
@@ -195,6 +435,16 @@
 	<td>verifyText</td>
 	<td>link=web</td>
 	<td>web</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=workflow</td>
+	<td>workflow</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=workflow</td>
+	<td>workflow</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -203,12 +453,192 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Integration</td>
+	<td>link=Admin</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Integration</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete calendar's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete chat's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=chat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=chat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete chatbar's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=chatbar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=chatbar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete contact's category--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=contact</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=contact</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete controller's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Controller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Controller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[3]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[3]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Detele ecm's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ecm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ecm</td>
 	<td></td>
 </tr>
 <tr>
@@ -222,13 +652,253 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForConfirmationPresent</td>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete ECM's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ECM</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=ECM</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete faq's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=faq</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=faq</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Detele fastcontentcreator's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=fastcontentcreator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=fastcontentcreator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Form Generator Portlet's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Form Generator Portlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Form Generator Portlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete forum's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[5]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[5]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Intergration's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete mail's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=mail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=mail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete platformNavigation's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=platformNavigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=platformNavigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[8]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[8]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Navigation's category --</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,17 +913,142 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[6]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete poll's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=poll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=poll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete rss's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=rss</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=rss</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Search's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete social's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=social</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=social</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete System's category --</td>
 	<td></td>
 </tr>
 <tr>
@@ -268,17 +1063,72 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForConfirmationPresent</td>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete WCM Admin's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=WCM Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=WCM Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete workflow's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[8]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[8]/div[1]/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -288,12 +1138,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
