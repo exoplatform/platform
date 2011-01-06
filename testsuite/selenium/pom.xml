@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <artifactId>exo.platform.testsuite</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>3.0.2-SNAPSHOT</version>
+    <version>3.0.3-SNAPSHOT</version>
   </parent>
-<!--
-   <parent>
-      <groupId>org.exoplatform.test</groupId>
-      <artifactId>TO_CHANGE.parent</artifactId>
-      <version>0.9.1</version>
-  </parent>
--->
-  <groupId>org.exoplatform.test</groupId>
+
   <artifactId>selenium</artifactId>
-  <version>0.9.1</version>
   <packaging>jar</packaging>
   <name>Selenium Sniff Test for selenium</name>
   <description>Automated UI tests for selenium</description>
