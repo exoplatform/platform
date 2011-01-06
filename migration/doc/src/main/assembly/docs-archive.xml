@@ -9,11 +9,7 @@
   <fileSets>
     <fileSet>
       <directory>target/docbook/publish/en-US/html</directory>
-      <outputDirectory>/html</outputDirectory>
-    </fileSet>
-    <fileSet>
-      <directory>target/wikbook/output/pdf</directory>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>/docs</outputDirectory>
     </fileSet>
   </fileSets>
 </assembly>

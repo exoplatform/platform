@@ -1,0 +1,36 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+	<id>migration-distribution</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<!-- Tomcat Bundle -->
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<includes>
+				<include>org.exoplatform.platform:exo.platform.migration.common:jar</include>
+			</includes>
+		</dependencySet>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<includes>
+				<include>org.exoplatform.platform:exo.platform.migration.aio:jar</include>
+			</includes>
+		</dependencySet>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+			<includes>
+				<include>org.exoplatform.platform:exo.platform.migration.plf:jar</include>
+			</includes>
+		</dependencySet>
+		<dependencySet>
+			<unpack>true</unpack>
+			<includes>
+				<include>org.exoplatform.platform:exo.platform.migration.doc:zip</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+</assembly>

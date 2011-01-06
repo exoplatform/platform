@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>exo.platform.migration.doc</artifactId>
 	<packaging>pom</packaging>
-	<name>eXo Platform - AIO Migration - Docs</name>
+	<name>eXo Platform - Migration - Docs</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.wikbook</groupId>
@@ -21,7 +21,7 @@
 			<id>distrib</id>
 			<properties>
 				<wikbook.source>${project.basedir}/src/main/wikbook</wikbook.source>
-				<wikbook.target>${project.build.directory}/wikbook</wikbook.target>
+				<wikbook.target>${project.build.directory}/docbook</wikbook.target>
 			</properties>
 			<build>
 				<resources>
@@ -89,9 +89,9 @@
 							<!-- We need to support xinclude -->
 							<xincludeSupported>true</xincludeSupported>
 							<!--
-               |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
-               |  Callouts on imported text
-               -->
+						   |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
+						   |  Callouts on imported text
+						   -->
 							<useExtensions>1</useExtensions>
 							<calloutsExtension>1</calloutsExtension>
 							<!-- Copy any docbook XML -->
@@ -111,20 +111,11 @@
 						</configuration>
 						<executions>
 							<execution>
-								<id>generate-pdf</id>
+								<id>generate-html</id>
 								<goals>
-									<goal>generate-pdf</goal>
+									<goal>generate-html</goal>
 								</goals>
 								<phase>generate-resources</phase>
-								<configuration>
-									<!-- Output -->
-									<targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
-									<!-- Stylesheet -->
-									<foCustomization>${wikbook.target}/src/resources/xsl/fopdf.xsl</foCustomization>
-									<!-- Image configuration -->
-									<imgSrcPath>${wikbook.target}/src/resources/images/</imgSrcPath>
-									<admonGraphicsPath>${wikbook.target}/src/resources/images/admons/</admonGraphicsPath>
-								</configuration>
 							</execution>
 						</executions>
 						<dependencies>
@@ -201,6 +192,24 @@
 								<docbookVersion>1.74.0</docbookVersion>
 							</options>
 						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+						  <execution>
+							<id>distribution</id>
+							<phase>package</phase>
+							<goals>
+							  <goal>single</goal>
+							</goals>
+							<configuration>
+							  <descriptors>
+								<descriptor>src/main/assembly/docs-archive.xml</descriptor>
+							  </descriptors>
+							  <appendAssemblyId>false</appendAssemblyId>
+							</configuration>
+						  </execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>

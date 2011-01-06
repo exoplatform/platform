@@ -14,5 +14,6 @@
     <module>aio</module>
     <module>plf</module>
     <module>doc</module>
+    <module>assembly</module>
   </modules>
 </project>
