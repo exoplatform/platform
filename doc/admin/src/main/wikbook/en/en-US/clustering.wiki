@@ -119,3 +119,16 @@ This problem arise under specific circumstances when JGroups, the networking lib
 Verify that : 
 * the hostname is a valid IP address, served by one of the network device of your machine (ie: eth0, eth1...).
 * the hostname is NOT defined as localhost or 127.0.0.1
+
+h2. How to solve the "failed sending message to null" error? 
+
+When starting up in the cluster mode under Linux and you encourter the following error:
+{code}
+Dec 15, 2010 6:11:31 PM org.jgroups.protocols.TP down
+SEVERE: failed sending message to null (44 bytes)
+java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
+{code}
+
+You must remember that clustering on Linux only works with IPv4.
+{code} -Djava.net.preferIPv4Stack=true {code}
+is mandatory for running in the cluster mode under Linux. 
