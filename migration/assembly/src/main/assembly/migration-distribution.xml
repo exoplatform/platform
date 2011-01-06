@@ -7,7 +7,6 @@
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<dependencySets>
-		<!-- Tomcat Bundle -->
 		<dependencySet>
 			<outputDirectory>lib</outputDirectory>
 			<includes>
