@@ -52,9 +52,9 @@ import org.jibx.runtime.impl.UnmarshallingContext;
 
 @Path("/userPortalConfigurationConvertor")
 public class UserPortalConfigurationConvertorREST implements ResourceContainer {
-  
+
   private ContainerParamExtractor containerParamExtractor_ = null;
-  
+
   private Log log = ExoLogger.getLogger(this.getClass());
 
   final private static Map<String, Class<?>> unmarshelledObjectTypes = new HashMap<String, Class<?>>();
@@ -76,11 +76,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
     String containerId = containerParamExtractor_.getContainerId(container);
     String containerRestContextName = containerParamExtractor_.getContainerRestContext(container);
     StringBuffer responseStringBuffer = new StringBuffer();
-    responseStringBuffer.append("<html><body><form action='/"
-        + containerId
-        + "/"
-        + containerRestContextName
-        + "/userPortalConfigurationConvertor/convert/' enctype='application/x-www-form-urlencoded' method='POST'>");
+    responseStringBuffer.append("<html><body><form action='/" + containerId + "/" + containerRestContextName + "/userPortalConfigurationConvertor/convert/' enctype='application/x-www-form-urlencoded' method='POST'>");
     responseStringBuffer.append("  <input type='text' name='filePath'/>");
     responseStringBuffer.append("  <input type='submit'/>");
     responseStringBuffer.append("</form></body></html>");
@@ -137,7 +133,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
           PortletPreferencesSet portletPreferencesSet = (PortletPreferencesSet) ownerObjects.get(Constants.PORTLET_PREFERENCES_FILE_NAME);
           org.exoplatform.platform.migration.plf.object.Page.PageSet convertedPageSet = convertPageSet(pageSet, portletPreferencesSet);
           putEntry(zos, portalConfigForlder + Constants.PAGES_FILE_NAME, convertedPageSet);
-          if(log.isDebugEnabled()){
+          if (log.isDebugEnabled()) {
             log.debug("Converting from zip entry: pages.xml & portlet-preferences.xml");
           }
 
@@ -146,7 +142,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
             PortalConfig portalConfig = (PortalConfig) ownerObjects.get(Constants.PORTAL_FILE_NAME);
             org.exoplatform.platform.migration.plf.object.PortalConfig convertedPortalConfig = convertPortalConfig(portalConfig, portletPreferencesSet);
             putEntry(zos, portalConfigForlder + Constants.PORTAL_FILE_NAME, convertedPortalConfig);
-            if(log.isDebugEnabled()){
+            if (log.isDebugEnabled()) {
               log.debug("Converting from zip entry: portal.xml");
             }
           }
@@ -154,7 +150,7 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
             PageNavigation pageNavigation = (PageNavigation) ownerObjects.get(Constants.NAVIGATION_FILE_NAME);
             org.exoplatform.portal.config.model.PageNavigation convertedPageNavigation = convertNavigation(pageNavigation);
             putEntry(zos, portalConfigForlder + Constants.NAVIGATION_FILE_NAME, convertedPageNavigation);
-            if(log.isDebugEnabled()){
+            if (log.isDebugEnabled()) {
               log.debug("Converting from zip entry: navigation.xml");
             }
           }
@@ -303,6 +299,9 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
         org.exoplatform.platform.migration.plf.object.PortletPreferences convertedPortletPreferences = new org.exoplatform.platform.migration.plf.object.PortletPreferences();
         for (Object object : portlet.getPreferences()) {
           org.exoplatform.platform.migration.common.aio.object.Preference preference = (org.exoplatform.platform.migration.common.aio.object.Preference) object;
+          if (preference.getValues() == null || preference.getValues().size() == 0 || preference.getValues().get(0) == null || preference.getValues().get(0).equals("")) {
+            continue;
+          }
           Preference convertedPreference = new Preference();
           convertedPreference.setName(preference.getName());
           convertedPreference.setValues(preference.getValues());
@@ -362,14 +361,14 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
   }
 
   private byte[] readEntry(ZipInputStream zin) {
-    try{
+    try {
       ByteArrayOutputStream fout = new ByteArrayOutputStream();
       for (int c = zin.read(); c != -1; c = zin.read()) {
         fout.write(c);
       }
       zin.closeEntry();
       return fout.toByteArray();
-    }catch (IOException e) {
+    } catch (IOException e) {
       log.error("Error while reading entry from ZipInputStream ..", e);
       return null;
     }
@@ -391,12 +390,12 @@ public class UserPortalConfigurationConvertorREST implements ResourceContainer {
 
   private <T> T fromXML(byte[] bytes, Class<T> clazz) {
     ByteArrayInputStream is = new ByteArrayInputStream(bytes);
-    try{
+    try {
       IBindingFactory bfact = BindingDirectory.getFactory(clazz);
       UnmarshallingContext uctx = (UnmarshallingContext) bfact.createUnmarshallingContext();
       uctx.setDocument(is, null, "UTF-8", false);
       return clazz.cast(uctx.unmarshalElement());
-    }catch (Exception e) {
+    } catch (Exception e) {
       log.error("Error while reading from XML object ..", e);
       return null;
     }
