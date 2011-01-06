@@ -24,6 +24,15 @@
 				<wikbook.target>${project.build.directory}/wikbook</wikbook.target>
 			</properties>
 			<build>
+				<resources>
+					<resource>
+						<directory>${wikbook.source}/images</directory>
+						<includes>
+							<include>**</include>
+						</includes>
+						<targetPath>${wikbook.target}/wikbook/src/resources/images/</targetPath>
+					</resource>
+				</resources>
 				<plugins>
 					<!-- The wikbook maven plugin generates the docbook document from the wiki source -->
 					<plugin>
@@ -113,7 +122,7 @@
 									<!-- Stylesheet -->
 									<foCustomization>${wikbook.target}/src/resources/xsl/fopdf.xsl</foCustomization>
 									<!-- Image configuration -->
-									<imgSrcPath>${wikbook.source}/</imgSrcPath>
+									<imgSrcPath>${wikbook.target}/src/resources/images/</imgSrcPath>
 									<admonGraphicsPath>${wikbook.target}/src/resources/images/admons/</admonGraphicsPath>
 								</configuration>
 							</execution>

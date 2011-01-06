@@ -1,11 +1,6 @@
-{excerpt}This document will provide a guide for projects willing to migration from eXo AIO to PLF{excerpt}
-
-{warning}Work in progress. Don't use{warning}
-
 {toc:maxLevel=2}
 
 h1. Preamble
-
 
 This guide will help you migrating your project from eXo All In One 1.6 to eXo Platform 3.0.
 
@@ -33,6 +28,7 @@ Start by getting the answers to the following questions :
 h2. Prepare your extension project
 
 You will need to create a brand new project and migrate your old one into it. Platform introduced a new way to package your project customization called _extensions_.
+By using WAR extension configuration approach, you will be able to overload eXo default files defined in WARs, such as gtmpl, favicon, xml, jsp files.
 If you don't understand what that means, get back to [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html] to learn how to bootstrap the basic structure for your extension project.
 
 h3. Move configurations into your extension war
@@ -49,7 +45,7 @@ The extension mechanism lets you virtually override any file from portal.war by 
 {tip}
 
 {note:title=Files Paths changes}
-Be careful about the files shifting to the WAR extension, use "war:/" prefix to redefine the moved Metadata & Gtmpl files, such as:
+Be careful about the files shifting to the WAR extension, use _war:_ prefix to redefine the moved Metadata & Gtmpl files, such as:
 * CLV Templates
 * Locales config file definition
 * Repository configuration
@@ -65,7 +61,7 @@ For xml files, you can specify the encoding, otherwise, convert them to UTF-8.
 
 h3. Guidelines for maven projects
 
-Although it is not strictly required, eXo recommends you to use [Apache Maven 2.2|http://maven.apache.org/docs/2.2.1/release-notes.html] to build in your project. You will benefit of the eXo maven repository for all eXo libraries and their dependencies.
+Although it is not strictly required, eXo recommends you to use [Apache Maven 2.2|http://maven.apache.org/docs/2.2.1/release-notes.html] to build your project. You will benefit of the eXo maven repository for all eXo libraries and their dependencies.
 
 
 
@@ -78,7 +74,7 @@ Configure the eXo maven repository url either in your settings.xml or within you
 {code:xml}
 <repository>
   <id>exo.public</id>
-   <url>http://repository.exoplatform.org/public</url>
+   <url>http://repository.exoplatform.org/content/groups/public/</url>
   <releases>
    <enabled>true</enabled>
   </releases>
@@ -203,7 +199,7 @@ Before you start migrating your xml files, cleanup your custom xml configuration
 rule : *Keep only* {{{*}components{*}}} *and* {{{*}external-component-plugins{*}}} *that your really need to customize. Remove anything that was blindly copy-pasted*.
 
 {tip}
-You could use the *Export all Components* functionnality described in the [Migration Tools Guide|PLF:Migration Tools User Guide]
+You could use the *Export all Components* functionnality described in the _Migration Tools User Guide_
 {tip}
 
 
@@ -217,10 +213,6 @@ There is now an XSD for kernel configuration files. You can use it to validate t
 {code}
 
 h1. Portal Migration
-
-
-
-
 
 h2. Portal declarations
 
@@ -236,8 +228,6 @@ Transform your component declaration into an external-component-plugin declarati
 	<key>org.exoplatform.portal.config.UserPortalConfigService</key>
 	<type>org.exoplatform.portal.config.UserPortalConfigService</type> 
 	...
-		<!-- If you define a new "default.portal" value in your extension,
-		it will be considered as prior to any other "default.portal" definition -->
 		<value-param>
 			<name>default.portal</name>
 			<description>The default portal</description>
@@ -249,6 +239,8 @@ Transform your component declaration into an external-component-plugin declarati
 <external-component-plugins>
 	<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
 	... (same thing)
+		<!-- If you define a new "default.portal" value in your extension,
+		it will be considered as prior to any other "default.portal" definition -->
 		<value-param>
 			<name>default.portal</name>
 			<description>The default portal</description>
@@ -260,11 +252,11 @@ Transform your component declaration into an external-component-plugin declarati
 
 h2. Portal metadata descriptors
 
-Use this [Tool|PLF:Migration Tools User Guide], section {{{*}Portal Configuration Migration{*}}} to export and convert automatically AIO Portal metadata descriptors.
+Use _Migration Tools_ (see the User Guide, section {{Portal Configuration Migration}} ) to export and convert automatically AIO Portal metadata descriptors.
 The following paragraphs describes more about what was changed in PLF Portal metadata descriptors:
 
 {warning}
-There is some modifications wasn't made automatically by the {{Migration Tool}}, please read the following details for more informations.
+There is some modifications wasn't made automatically by the {{Migration Tools}}, please read the following details to pick up what to modify manually (See Warnings below).
 {warning}
 
 h3. navigation.xml
@@ -301,16 +293,8 @@ h4. application
 
 Applications are applicative blocks such as portlets.
 In AIO, portlets used the element {{<application>}}. In PLF, this element has changed to {{<portlet-application>}}
-
-|| AIO || PLF ||
-| {code:xml}<application><!-- ... --></application>{code} | {code:xml}
-<portlet-application>
-  <!-- ... -->
-  <access-permissions>Everyone</access-permissions>
-</portlet-application>{code} |
-
 Like containers, applications can now have access permissions.
-You need to append {{<access-permission>}} before the closing tag {{</application>}}:
+You need to append {{<access-permission>}} before the closing tag {{</portlet-application>}}:
 
 || AIO || PLF ||
 | {code:xml}<application><!-- ... --></application>{code} | {code:xml}
@@ -318,8 +302,6 @@ You need to append {{<access-permission>}} before the closing tag {{</applicatio
   <!-- ... -->
   <access-permissions>Everyone</access-permissions>
 </portlet-application>{code} |
-
-
 
 h4. instance-id
 
@@ -456,7 +438,7 @@ Portal navigations are managed by the {{PortalNavgationPortlet}}:
 {code}
 
 {warning}
-This section isn't added automatically by the {{Migration Tool}}, it should be added manually \!
+This section isn't automatically added by the {{Migration Tool}}, it should be added manually \!
 {warning}
 
 h3. Renamed portlets and preferences
@@ -465,17 +447,15 @@ Several built-in portlet applications have been renamed since AIO. Convert the f
 * FileExplorerPortlet : <application-ref>ecmexplorer</application-ref>
 * BrowseContentPortlet: <application-ref>ecmbrowsecontent</application-ref>
 * ECMAdminPortlet: <application-ref>ecmadmin</application-ref>
-
-In CLV, the portlet-preference "folderPath" has been modified, it has to start with "repository:WSName:/...".
-
+* Content List Viewer Portlet: The portlet preference _folderPath_ has been modified, it has to start with *_repository:WSName:/..._*.
 {warning}
 This section isn't converted automatically by the {{Migration Tool}}, it should be updated manually \!
 {warning}
 
 h2. Resource bundles
 
-You may have defined some custom resource bundles, it is no longer used/defined in a component configuration, you 've to change it into an external component plugin, where you could define only your resource bundles
-Old resource bundles declaration (Override the whole ResourceBundleService component declaration):
+You may have defined some custom resource bundles, it is no longer used/defined in a component configuration, you 've to change it into an external component plugin. In this external component plugin you will have to define only your own resource bundles,
+which means, eXo resource bundles declaration shouldn't be declared in your configuration:
 || AIO || PLF ||
 | {code:xml}
 <component>
@@ -497,6 +477,7 @@ Old resource bundles declaration (Override the whole ResourceBundleService compo
 	<!-- The full qualified name of the BaseResourceBundlePlugin -->
 	<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
 	<init-params>
+	<!-- Keep only your own resource bundles declarations -->
 ...
 	</init-params>
  </component-plugin>
@@ -507,7 +488,7 @@ Old resource bundles declaration (Override the whole ResourceBundleService compo
 The implementation of *ResourceBundleService* has been changed so that resource bundles are no longer stored in the jcr, so the "Internationalization Portlet" is removed from PLF.
 {info}
 
-If you have made some modification in Resource Bundles in your AIO Server, you could extract all the Resource Bundles stored in the JCR by using the [Migration Tool|PLF:Migration Tools User Guide], see section {{Resource Bundles Migration}}.
+If you have made some modifications in Resource Bundles in your AIO Server, you could extract all the Resource Bundles stored in the JCR by using the Migration Tools (see the User Guide, section {{Resource Bundles Migration}}).
 
 h2. ApplicationRegistry service configurations
 
@@ -550,7 +531,7 @@ The Application Registry application can be configured to predefine categories a
 </component>
 {code} |
 
-You may have modified the applications and gadgets categories, by using the "Application Registry Portlet", this configuration is stored in the JCR. So in order to recuperate this configuration, you could use the [Migration Tool|PLF:Migration Tools User Guide] to know How to extract this in << AIO Kernel Configuration format >>.
+You may have modified the applications and gadgets categories, by using the "Application Registry Portlet", this configuration is stored in the JCR. In order to extract this new configuration, you could use the Migration Tools ( see User Guide, section {{Application Registry Migration}}).
 
 h2. API changes
 
@@ -561,7 +542,7 @@ h3. REST services
 Platform now uses a JAX-RS (JSR311) implementation to back its webservices.
 Webservices developed in AIO are not compatible.
 
-{info}Learn how to migrate your services by reading [REST Migration to JSR 311|http://wiki.exoplatform.org/xwiki/bin/view/WS/WS+rest+jsr311+migration+how-to].{info}
+{info}Learn how to migrate your services by reading [REST Migration to JSR 311|http://wiki.exoplatform.org/xwiki/bin/view/WS/WS+rest+jsr311+migration+how-to]{info}
 
 h3. SessionProvider
 
@@ -584,9 +565,15 @@ finally{
 }
 {code}
 
+h3. Groovy templates
+
+In your gtmpl files, replace Groovy markers :
+|| AIO || PLF ||
+| $someVariable | <%=someVariable%> |
+
 h3. OrganizationService
 
-If you are programming against the {{OrganizationService}} using PicketLink IDM implementation (which is the default implementation used in PLF), you will need to wrap your code with {{startRequest()}} and {{stopRequest()}}. This will ensure the your code is exscuted within a tranaction.
+If you are programming against the {{OrganizationService}} using PicketLink IDM implementation (which is the new default implementation used in PLF), you will need to wrap your code with {{startRequest()}} and {{stopRequest()}}. This will ensure that your code is exscuted within a tranaction.
 {code:java}
 {
    ((ComponentRequestLifecycle)organizationService).startRequest(PortalContainer.getInstance());
@@ -597,11 +584,6 @@ If you are programming against the {{OrganizationService}} using PicketLink IDM 
 }
 {code}
 
-h3. Groovy templates
-
-In your gtmpl files, replace Groovy markers :
-|| AIO || PLF ||
-| $someVariable | <%=someVariable%> |
 
 
 
@@ -642,9 +624,14 @@ h3. JSF portlets
 
 You need to update your portlet bridge libraries from version 1 (JSR 301) to version 2 (JSR 329). Version 1 was designed to act as a bridge between a Portlet 1.0 container and JSF 1.2. Version 2 is designed to act as a bridge between a Portlet 2.0 container and JSF 1.2.
 
-{note:title=TODO}Explain where to get the bridge and deploy it. Explain what changes to be done in the portlet{note}
+In other words:
+* JSR-301 = Portlet 1.0 (JSR-168) + JSF 1.2
+* JSR-329 = Portlet 2.0 (JSR-286) + JSF 1.2
 
-
+You 'll have to include the new JSR 329 libraries (depending on the implementation you are using). Nothing specific to integrate you JSF portlets in PLF.
+{tip}
+Find more information in the web about [JSF Bridges implementations|http://www.portletfaces.org/doc/1.3.0/docbook/en-US/html_single/index.html#d4e1097]
+{tip}
 h3. Struts portlets
 
 The descriptor file of struts portlet (WEB-INF/portlet.xml) needs be to updated :
@@ -667,7 +654,22 @@ The descriptor file of struts portlet (WEB-INF/portlet.xml) needs be to updated 
    ...
  </portlet> {code} |
 
-h1. WCM Migration
+h1. ECM Migration
+
+If you have made some live changes on ECM Administration templates and configurations, you will need to use the Migration Tools in order to extract the whole configurations in a Kernel's source format.
+See the Migration Tools User Guide for more informations, sections:
+* NodeTypes & Namespaces Migration
+* DocumentType Templates Migration
+* Application Templates Migration
+* Metadata Templates Migration
+* ECM Views Migration
+* Groovy Scripts Migration
+* ECM Drives Migration
+* Shared JCR Queries Migration
+* Folksonomies Style Migration
+* Taxonomy Trees Migration
+* Collaboration workspace Content Migration
+* WCM Contents Publication Migration
 
 h2. ECM actions
 
@@ -714,6 +716,7 @@ And same thing for {{TaxonomyPlugin}} declaration:
   <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
 ...
         <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+...
          <!--AIO "lifecyclePhase" field declaration-->
          <field name="lifecyclePhase">
            <string>add</string>
@@ -727,6 +730,7 @@ And same thing for {{TaxonomyPlugin}} declaration:
   <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
 ...
   <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+...
 	 <!--PLF "lifecyclePhase" field declaration-->
 	 <field  name="lifecyclePhase">
 	  <collection type="java.util.ArrayList">
@@ -795,6 +799,8 @@ h2. ECM drives
    <external-component-plugins>
       <target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
 ...
+		<type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+...
             <!-- PLF "allowCreateFolders" field declaration -->
             <field name="allowCreateFolders">
               <string>nt:folder,nt:unstructured</string>
@@ -803,13 +809,42 @@ h2. ECM drives
    </external-component-plugins>
 {code} |
 
+* If you have defined *org.exoplatform.services.cms.drives.impl.NewGroupListener* as component-plugin for this Service, please make sure to change the parameter "allowCreateFolder" defined in init-params:
+** open the file configuration.xml
+** find the value-param *allowCreateFolder* for components of type *org.exoplatform.services.cms.drives.impl.NewGroupListener*
+** edit the value *Both* to *nt:folder,nt:unstructured*
+** add the value-param *allowNodeTypesOnTree* (allowNodeTypesOnTree field declaration is mandatory: added in Platform)
+|| AIO || PLF ||
+| {code:xml}
+[...]
+<type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
+[...]
+<value-param>
+ <name>allowCreateFolder</name>
+ <value>Both</value>
+</value-param>
+[...]
+{code} | {code:xml}
+[...]
+<type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
+[...]
+<value-param>
+  <name>allowCreateFolder</name>
+  <value>nt:folder,nt:unstructured</value>
+</value-param>
+<value-param>
+  <name>allowNodeTypesOnTree</name>
+  <value>*</value>
+</value-param>
+[...]
+{code} |
 
 h2. Publication lifecycle
 
 In PLF, the default publication public has changed to a new one, more flexible called {{Authoring}} plugin. The old {{StageAndVersion}} is now deprecated.
 It is recommended that you upgrade to the new plugin. Read more about the new Authoring plugin in ECMS reference guide.
 
-To migrate gracefully, it is possible to define a lifecycle that behaves identically to the StageAndVersion plugin. See the [Migration Tools Guide|PLF:Migration Tools User Guide], section {{{*}WCM Contents Publication Migration{*}}}.
+To migrate gracefully, it is possible to define a lifecycle that behaves identically to the StageAndVersion plugin. Use the Migration Tools (see User Guide, section {{WCM Contents Publication Migration}}).
 
 h2. ECM APIs changes
 
@@ -818,15 +853,14 @@ Replace folksonomy service :
 || AIO || PLF ||
 | {{import org.exoplatform.services.cms.folksonomy.FolksonomyService}} | {{org.exoplatform.services.cms.folksonomy.NewFolksonomyService}} |
 
-
 h2. ECM templates migration
 
 For ECM groovy templates, follow this :
 
 || AIO || PLF ||
-| {{uicomponent.isShowHeader()}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_HEADER)}} \\
+| {{uicomponent.isShowHeader()}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_HEADER)}}
 or {{uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER)}} |
-| {{uicomponent.showRefreshButton(_)}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_REFRESH_BUTTON)}} \\
+| {{uicomponent.showRefreshButton(_)}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_REFRESH_BUTTON)}}
 or {{isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON)}} |
 | {{uicomponent.getPortletPreferences()}} | {{portletRequest.getPreferences()}} |
 | {{UICLVPortlet.SHOW_XX\_}} | {{UICLVPortlet.PREFERENCE_SHOW_XX\_}} |
@@ -987,7 +1021,7 @@ The content of this file is mapped to different blocks in {{gatein-resources.xml
 Once their content is migrated, you can delete your {{JavascriptScript.groovy}} and {{SkinConfigScript.groovy}} files.
 
 {info}Some of the eXo built-in containers(such as UIContainer.gtmpl) have evolved. As a consequence, the DOM structure is different and, depending on how your css were written, you may need to update them.{info}
-{tip}Don't use numbers as ids for containers because the prefix _{_}UIContainer-_\_ will not be added automatically.{tip}
+{tip}Don't use numbers as ids for containers because the prefix _UIContainer-_ will not be added automatically.{tip}
 
 h1. Organization Data Model Migration
 
@@ -999,12 +1033,12 @@ h1. Data Migration
 If you have already used AIO in a production environment, you may have defined some specific contents, such as WebContents, files, KS and CS nodes.
 In order to copy all those informations in the new PLF server, you could use the Migration Tool described [here|PLF:Migration Tools User Guide], see section *Collaboration workspace Content Migration*.
 
-{note}
-TODO: We have to know what nodes path was modified in KS and CS.
-{note}
-
 h1. Server Environment Migration
 
 h2. Data sources
 
-Platform uses two datasources, one for the JCR, and another one for the organization model. The name of these datasources in controlled in {{configuration.properties}}. AIO comes with a single datasource, configured by default in {{portal.war\!WEB-INF/conf/database/database-configuration.xml}}. You don't need to override this file anymore in PLF. Instead, refer to the  Please refer to the [Administrators Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html] to learn how to setup datasources.
+PLF uses two datasources, one for the JCR, and another one for the organization model. The name of these datasources in controlled in {{configuration.properties}}. AIO comes with a single datasource, configured by default in {{portal.war\!WEB-INF/conf/database/database-configuration.xml}}. You don't need to override this file anymore in PLF. Instead, refer to the  Please refer to the [Administrators Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html] to learn how to setup datasources.
+
+{tip:title=Use a single datasource}
+In PLF, you could point the two datasource definitions to use only one.
+{tip}
