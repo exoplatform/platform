@@ -1,194 +1,87 @@
-<?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.exoplatform</groupId>
-  <artifactId>automated-plf-ks-perftest</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>Automated Test Runner and Performance Reports for PLF</name>
-  <description>Automated Test Runner and Performance Reports for PLF</description>
   <parent>
-    <groupId>org.exoplatform</groupId>
-    <artifactId>exo.parent</artifactId>
-    <version>8</version>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.testsuite</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
   </parent>
-  <properties>
-    <!--  JMeter scenario file (shouldn't be overrided from the outside) -->
-    <jmeter-version>2.4</jmeter-version>
-    <jmeter-plugins-version>0.3.0</jmeter-plugins-version>
-    <jmeter.home>${project.build.directory}/jakarta-jmeter-${jmeter-version}</jmeter.home>
-    <history.directory>${project.build.directory}/history/${project.version}-${java.specification.version}-${dataset.version}</history.directory>
-    <test-host>192.168.3.2</test-host>
-    <test-port>8080</test-port>
-    <test-duration>1800</test-duration>
-    <test-loop-count>150000</test-loop-count>
-    <test-org-or-admin>administration</test-org-or-admin>
-    <test-rampup>1</test-rampup>
-    <test-report-file-prefix>${basedir}/target/${scenario.file.name}-${__time(MMddHHmm)}</test-report-file-prefix>
-    <test-connect-timeout>150000</test-connect-timeout>
-    <test-response-timeout>500000</test-response-timeout>
-    <test-think-time>3000</test-think-time>
-  </properties>
+  <artifactId>exo.platform.testsuite.perf</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Performance Tests</name>
   <profiles>
-    <profile><id>PLF_PERF_04_SocialRead-3.0.x</id>
-      <properties>
-        <scenario.file.name>PLF_PERF_04_SocialRead-3.0.x.jmx</scenario.file.name>
-      </properties>
-    </profile>
-    <profile><id>PLF_PERF_01_3-0-1-SNP_AllScenarios-simplified</id>
-      <properties>
-        <scenario.file.name>PLF_PERF_01_3-0-1-SNP_AllScenarios-simplified.jmx</scenario.file.name>
-      </properties>
-    </profile>
-    <profile><id>PLF_PERF_02_Social-3.0.2-simplified</id>
-      <properties>
-        <scenario.file.name>PLF_PERF_02_Social-3.0.2-simplified.jmx</scenario.file.name>
-      </properties>
-    </profile>
-    <profile><id>1VU</id><properties><test-threadcount>1</test-threadcount></properties></profile>
-    <profile><id>2VUs</id><properties><test-threadcount>2</test-threadcount></properties></profile>
-    <profile><id>3VUs</id><properties><test-threadcount>3</test-threadcount></properties></profile>
-    <profile><id>5VUs</id><properties><test-threadcount>5</test-threadcount></properties></profile>
-    <profile><id>10VUs</id><properties><test-threadcount>10</test-threadcount></properties></profile>
-    <profile><id>15VUs</id><properties><test-threadcount>15</test-threadcount></properties></profile>
-    <profile><id>20VUs</id><properties><test-threadcount>20</test-threadcount></properties></profile>
-    <profile><id>verify</id>
+    <profile>
+      <!-- Run performance tests -->
+      <id>run-pts</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>2.1</version>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>maven-jmeter-plugin</artifactId>
+            <configuration>
+              <reportDir>${project.build.directory}/jmeter-reports</reportDir>
+              <jmeterUserProperties>
+                <host>localhost</host>
+                <port>8080</port>
+                <threads>10</threads>
+                <rampup>1</rampup>
+                <duration>10</duration>
+              </jmeterUserProperties>
+            </configuration>
             <executions>
               <execution>
-                <id>unpack-jmeter</id>
-                <phase>pre-integration-test</phase>
+                <id>jmeter-tests</id>
+                <phase>verify</phase>
                 <goals>
-                  <goal>unpack</goal>
+                  <goal>jmeter</goal>
                 </goals>
-                <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>org.apache.jmeter</groupId>
-                      <artifactId>jmeter</artifactId>
-                      <version>${jmeter-version}</version>
-                      <type>zip</type>
-                    </artifactItem>
-                  </artifactItems>
-                  <outputDirectory>${project.build.directory}</outputDirectory>
-                </configuration>
-              </execution>
-              <execution>
-                <id>unpack-jmeter-plugin</id>
-                <phase>pre-integration-test</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
-                <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>org.apache.jmeter</groupId>
-                      <artifactId>jmeter-plugins</artifactId>
-                      <version>${jmeter-plugins-version}</version>
-                      <type>zip</type>
-                    </artifactItem>
-                  </artifactItems>
-                  <outputDirectory>${project.build.directory}/jakarta-jmeter-${jmeter-version}/lib/ext/</outputDirectory>
-                  <includes>JMeterPlugins.jar</includes>
-                </configuration>
-              </execution>
-              <execution>
-                <id>unpack-jmeter-plugin-agents</id>
-                <phase>pre-integration-test</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
-                <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>org.apache.jmeter</groupId>
-                      <artifactId>jmeter-plugins</artifactId>
-                      <version>${jmeter-plugins-version}</version>
-                      <type>zip</type>
-                    </artifactItem>
-                  </artifactItems>
-                  <outputDirectory>${project.build.directory}/jakarta-jmeter-${jmeter-version}/bin</outputDirectory>
-                  <includes>serverAgent/*.*</includes>
-                </configuration>
               </execution>
             </executions>
           </plugin>
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
-            <artifactId>chronos-maven-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>xml-maven-plugin</artifactId>
             <configuration>
-              <jmeterhome>${jmeter.home}</jmeterhome>
-              <historydir>${history.directory}</historydir>
-              <options>
-                <value>-XX:+UseParallelGC</value>
-                <value>-XX:+UseParallelOldGC</value>
-              </options>
-              <heap>756m</heap>
-              <newsize>256m</newsize>
-              <permsize>192m</permsize>
-              <survivorratio>8</survivorratio>
+              <transformationSets>
+                <transformationSet>
+                  <dir>target/jmeter-reports/</dir>
+                  <!-- BASIC stylesheet>src/test_resources/jmeter-results-report_21.xsl</stylesheet -->
+                  <stylesheet>src/test_resources/jmeter-results-detail-report_21.xsl</stylesheet>
+                  <outputDir>target/site/jmeter-reports</outputDir>
+                  <fileMappers>
+                    <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+                      <targetExtension>html</targetExtension>
+                    </fileMapper>
+                  </fileMappers>
+                </transformationSet>
+              </transformationSets>
             </configuration>
             <executions>
               <execution>
-                <id>${scenario.file.name}-${test-threadcount}-test</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>transform</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- make sure the jmeter icons are copied to the site folder -->
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>verify</phase>
                 <configuration>
-                  <dataid>${scenario.file.name}-${test-threadcount}-</dataid>
-                  <input>${basedir}/src/test/jmeter/${scenario.file.name}</input>
-                  <sysproperties>
-                    <property>
-                      <name>expThreadCount</name>
-                      <value>${test-threadcount}</value>
-                    </property>
-                    <property>
-                      <name>expDuration</name>
-                      <value>${test-duration}</value>
-                    </property>
-                    <property>
-                      <name>expHost</name>
-                      <value>${test-host}</value>
-                    </property>
-                    <property>
-                      <name>expLoopCount</name>
-                      <value>${test-loop-count}</value>
-                    </property>
-                    <property>
-                      <name>expPort</name>
-                      <value>${test-port}</value>
-                    </property>
-                    <property>
-                      <name>expOrgOrAdmin</name>
-                      <value>${test-org-or-admin}</value>
-                    </property>
-                    <!--property>
-                      <name>expReportFilePrefix</name>
-                      <value>${test-report-file-prefix}</value>
-                    </property-->
-                    <property>
-                      <name>expResponseTimeOut</name>
-                      <value>${test-response-timeout}</value>
-                    </property>
-                    <property>
-                      <name>expThinkTime</name>
-                      <value>${test-think-time}</value>
-                    </property>
-                    <property>
-                      <name>expConnectTimeOut</name>
-                      <value>${test-connect-timeout}</value>
-                    </property>
-                  </sysproperties>
+                  <tasks>
+                    <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/" />
+                    <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/" />
+                    <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/" />
+                    <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/" />
+                    <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/" />
+                  </tasks>
                 </configuration>
                 <goals>
-                  <goal>jmeter</goal>
-                  <goal>check</goal>
-                  <goal>savehistory</goal>
+                  <goal>run</goal>
                 </goals>
               </execution>
             </executions>
@@ -197,32 +90,4 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       </build>
     </profile>
   </profiles>
-  
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>chronos-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <configuration>
-          <historydir>${history.directory}</historydir>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <id>${scenario.file.name}-${test-threadcount}-report</id>
-            <configuration>
-              <dataid>${scenario.file.name}-${test-threadcount}</dataid>
-              <reportid>jmeter-${scenario.file.name}-${test-threadcount}-report</reportid>
-              <title>${scenario.file.name}-${test-threadcount} concurrents users Test Report</title>
-              <description>${scenario.file.name}-${test-threadcount} concurrents users Test Report</description>
-            </configuration>
-            <reports>
-              <report>report</report>
-              <report>historyreport</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
 </project>
