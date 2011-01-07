@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +57,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,17 +93,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>-Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,11 +112,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Actions</td>
 	<td></td>
@@ -132,13 +122,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>-- Add Content&nbsp;&nbsp;folder aa</td>
+	<td>-- Add folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +144,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>aa</td>
+	<td>XinhTuoi</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -173,7 +158,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -199,7 +184,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>bb</td>
+	<td>TocNgan</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -209,11 +194,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +203,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
+	<td>link=XinhTuoi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=aa</td>
+	<td>link=XinhTuoi</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,27 +243,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to r o ot</td>
+	<td>--Go to root</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='root']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='root']</td>
 	<td></td>
 </tr>
 <tr>
@@ -293,12 +273,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Private']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Choose TocNgan</td>
 	<td></td>
 </tr>
 <tr>
@@ -310,6 +295,16 @@
 	<td>click</td>
 	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[9]/td[2]/a/div</td>
 	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>symLinkName</td>
+	<td>TocNgan.lnk</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>symLinkName</td>
+	<td>TocNgan.lnk</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -338,12 +333,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
+	<td>link=XinhTuoi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=aa</td>
+	<td>link=XinhTuoi</td>
 	<td></td>
 </tr>
 <tr>
@@ -364,16 +359,6 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=aa</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=aa</td>
 	<td></td>
 </tr>
 <tr>
@@ -382,13 +367,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>link=bb</td>
+	<td>link=TocNgan</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=bb</td>
+	<td>link=TocNgan</td>
 	<td></td>
 </tr>
 <tr>
@@ -409,21 +399,16 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=bb</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>

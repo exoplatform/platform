@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,23 +57,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open&nbsp;&nbsp;driver pane</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open Private driver</td>
 	<td></td>
 </tr>
 <tr>
@@ -84,6 +89,51 @@
 <tr>
 	<td>click</td>
 	<td>link=Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Go to Admin View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Go to Action tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -122,6 +172,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>title</td>
 	<td></td>
@@ -129,11 +184,6 @@
 <tr>
 	<td>type</td>
 	<td>title</td>
-	<td>Test_SNF_ECMS_27</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
 	<td>Test_SNF_ECMS_27</td>
 </tr>
 <tr>
@@ -148,7 +198,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>link=Save as Draft</td>
+	<td>--&nbsp;&nbsp;Save as Draft</td>
 	<td></td>
 </tr>
 <tr>
@@ -163,7 +213,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,12 +228,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>link=Edit Document</td>
+	<td>--&nbsp;&nbsp;Edit Document</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,8 +247,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>waitForElementPresent</td>
+	<td>description</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,6 +257,11 @@
 	<td>this is a test</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save as Draft</td>
 	<td></td>
@@ -218,7 +273,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -233,7 +288,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -257,6 +312,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;ok</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
 	<td></td>
@@ -267,13 +327,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_27</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_27</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>

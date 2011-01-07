@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -24,11 +24,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +68,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Manage View</td>
 	<td></td>
 </tr>
 <tr>
@@ -89,6 +89,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Manage View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add View</td>
 	<td></td>
 </tr>
 <tr>
@@ -109,7 +114,12 @@
 <tr>
 	<td>type</td>
 	<td>viewName</td>
-	<td>Test</td>
+	<td>LinhNhi</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Add Permission']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -117,6 +127,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Set any permission</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='Set any permission']</td>
 	<td></td>
@@ -127,6 +142,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Add Tab</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Add Tab</td>
 	<td></td>
@@ -134,6 +154,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Set Name</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,21 +169,51 @@
 <tr>
 	<td>type</td>
 	<td>tabName</td>
-	<td>test</td>
+	<td>Linh</td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>echo</td>
+	<td>-- addCategory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>addCategory</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>echo</td>
+	<td>-- addDocument</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>addDocument</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save to Add New</td>
 	<td></td>
 </tr>
 <tr>
@@ -188,7 +243,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Edit View</td>
+	<td>--Edit View : LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
@@ -199,6 +254,11 @@
 <tr>
 	<td>click</td>
 	<td>//tr[4]/td[5]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Add Tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -219,26 +279,31 @@
 <tr>
 	<td>type</td>
 	<td>tabName</td>
-	<td>test1</td>
+	<td>YKhue</td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>echo</td>
+	<td>-- addLocalizationLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>addLocalizationLink</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;addSymLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>addSymLink</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -249,6 +314,26 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,6 +352,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=3</td>
 	<td></td>
@@ -277,33 +367,63 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Edit Managed Sites</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[3]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[3]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Edit Managed Sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='EditDriveManagerPopup']/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Apply Views']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='EditDriveManagerPopup']/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Apply Views']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Select &quot;LinhNhi&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Test</td>
+	<td>LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -313,17 +433,27 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Show Drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Sites Management</td>
 	<td></td>
 </tr>
 <tr>
@@ -337,13 +467,88 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Select &quot;Test&quot; view mode</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[text()='Linh']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[text()='Linh']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check &quot;Linh&quot; view mode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;Linh Tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='Linh']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='Linh']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;YKhue Tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='YKhue']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='YKhue']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Translation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Add Translation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Sym Link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Add Sym Link</td>
 	<td></td>
 </tr>
 <tr>
@@ -353,17 +558,32 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Manage Drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -377,18 +597,38 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[3]/td[7]/div/img[1]</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='EditDriveManagerPopup']/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Apply Views']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Test</td>
+	<td>//div[text()='Apply Views']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>LinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
@@ -398,12 +638,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete View</td>
+	<td>-- Manage View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Manage View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete View</td>
 	<td></td>
 </tr>
 <tr>
@@ -422,18 +672,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>echo</td>
+	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

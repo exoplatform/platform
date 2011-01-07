@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,7 +63,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Old information</td>
+	<td>--&nbsp;&nbsp;Old information</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,7 +98,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Edit CLV</td>
+	<td>--&nbsp;&nbsp;Edit CLV</td>
 	<td></td>
 </tr>
 <tr>
@@ -107,13 +112,128 @@
 	<td>label=Edit</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Choose Documents part</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td> -- select Resources</td>
+	<td>--&nbsp;&nbsp;Select folder path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Select folder path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Select folder path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;General Drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='General Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='General Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Choose ecms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='ListRecords']/thead/tr[2]/td/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='ListRecords']/thead/tr[2]/td/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify data is changed.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Upcoming Power 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Upcoming Power 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Upcoming Power 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Upcoming Power 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Power Pack 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Power Pack 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UICLVPresentation']/div/div[1]/div[1]/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UICLVPresentation']/div/div[1]/div[1]/div/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,163 +263,63 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- General drives</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>20000</td>
+	<td>-- Select General Drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>Generaldrives_</td>
+	<td>//a[text()='Managed Sites']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>Generaldrives_</td>
+	<td>//a[text()='Managed Sites']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- acme</td>
+	<td>-- Select acme</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//table[@id='ListRecords']/thead/tr[2]/td/a</td>
+	<td>//a[@isupload='true' and @name='acme']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//table[@id='ListRecords']/thead/tr[2]/td/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
+	<td>//a[@isupload='true' and @name='acme']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>verify data is changed.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[1]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 1</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[1]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 1</td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[3]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 2</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[3]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 2</td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[2]/div[2]/div[2]/a</td>
-	<td>Power Pack 1</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[2]/div[2]/div[2]/a</td>
-	<td>Power Pack 1</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Restore data default</td>
+	<td>-- choose document folder on right</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseOver</td>
-	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//td[2]/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//img[@alt='Select folder path']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//img[@alt='Select folder path']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>20000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>Generaldrives_</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>Generaldrives_</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>Generaldrives_ManagedSites_</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>Generaldrives_ManagedSites_</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>Generaldrives_ManagedSites__acme</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>Generaldrives_ManagedSites__acme</td>
+	<td>//a[@url='/portal/rest/jcr/repository/collaboration/sites content/live/acme/documents']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- choose Document</td>
+	<td>-- verify value in Folder path</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//table[@id='ListRecords']/thead/tr[5]/td/a</td>
-	<td></td>
+	<td>waitForValue</td>
+	<td>UICLVConfigItemPathFormStringInput</td>
+	<td>documents</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//table[@id='ListRecords']/thead/tr[5]/td/a</td>
-	<td></td>
+	<td>verifyValue</td>
+	<td>UICLVConfigItemPathFormStringInput</td>
+	<td>documents</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -318,7 +338,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>verify information that is stored</td>
+	<td>--&nbsp;&nbsp;Restore information</td>
 	<td></td>
 </tr>
 <tr>

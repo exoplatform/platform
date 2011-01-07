@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,22 +53,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>--&nbsp;&nbsp;Go to Sites Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Open Preference setting form</td>
+	<td>--&nbsp;&nbsp;Set up your browsing preferences</td>
 	<td></td>
 </tr>
 <tr>
@@ -83,7 +78,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Hide Side Bar</td>
+	<td>--&nbsp;&nbsp;Hide Side Bar</td>
 	<td></td>
 </tr>
 <tr>
@@ -94,6 +89,11 @@
 <tr>
 	<td>uncheck</td>
 	<td>showSideBar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +108,27 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Show side bar</td>
+	<td>--&nbsp;&nbsp;Check hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Show side bar</td>
 	<td></td>
 </tr>
 <tr>
@@ -124,6 +139,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIViewBarContainer']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>showSideBar</td>
 	<td></td>
 </tr>
 <tr>
@@ -132,6 +152,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save to show</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save</td>
 	<td></td>
@@ -142,8 +167,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Logout</td>
+	<td>--&nbsp;&nbsp;Check show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Logout</td>
 	<td></td>
 </tr>
 <tr>

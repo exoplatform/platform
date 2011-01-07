@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +57,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Sites Explorer</td>
+	<td>clickAndWait</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,17 +93,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--&nbsp;&nbsp;Select Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,7 +113,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,7 +128,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,11 +154,11 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Content Folder</td>
+	<td>TieuHuongDuong</td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--- Save</td>
+	<td>--&nbsp;&nbsp;Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -183,7 +178,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Admin Tab to View properties</td>
+	<td>--&nbsp;&nbsp;Go to Admin Tab to View properties</td>
 	<td></td>
 </tr>
 <tr>
@@ -198,12 +193,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=TieuHuongDuong</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Content Folder</td>
+	<td>link=TieuHuongDuong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;View Node Properties</td>
 	<td></td>
 </tr>
 <tr>
@@ -218,17 +218,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--go to Add new propertise tab</td>
+	<td>-- Go to Add new propertise tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPropertiesManager']/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Add New Property']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPropertiesManager']/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Add New Property']</td>
 	<td></td>
 </tr>
 <tr>
@@ -244,12 +244,12 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>test</td>
+	<td>lamykhue</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>value0</td>
-	<td>abc</td>
+	<td>emyeuchi</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -257,6 +257,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Close</td>
 	<td></td>
@@ -267,18 +272,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Delete Content Folder</td>
+	<td>--&nbsp;&nbsp;Delete tieuhuongduong ra khoi tim</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=TieuHuongDuong</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=Content Folder</td>
+	<td>link=TieuHuongDuong</td>
 	<td></td>
 </tr>
 <tr>
@@ -297,13 +307,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=Content Folder</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=Content Folder</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=TieuHuongDuong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=TieuHuongDuong</td>
 	<td></td>
 </tr>
 <tr>

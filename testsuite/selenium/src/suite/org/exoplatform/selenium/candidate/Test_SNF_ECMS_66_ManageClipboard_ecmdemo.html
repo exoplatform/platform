@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,32 +53,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>--&nbsp;&nbsp;Go to Sites Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--&nbsp;&nbsp;Open&nbsp;&nbsp;driver pane</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,27 +93,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--&nbsp;&nbsp;Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Action tab</td>
+	<td>--&nbsp;&nbsp;Go to Action tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,7 +128,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -152,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
 	<td></td>
@@ -164,6 +164,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -194,6 +199,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,7 +238,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Copy Content Folder2</td>
+	<td>--&nbsp;&nbsp;Copy Content Folder2</td>
 	<td></td>
 </tr>
 <tr>
@@ -253,7 +263,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Content Folder1 and Clipboard to paste Content Folder2</td>
+	<td>--&nbsp;&nbsp;Go to Content Folder1 and Clipboard to paste Content Folder2</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,13 +277,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Goto Clipboard</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[3]/div</td>
+	<td>//div[@title='Clipboard']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[3]/div</td>
+	<td>//div[@title='Clipboard']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Paste 2 to 1</td>
 	<td></td>
 </tr>
 <tr>
@@ -288,27 +308,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Check displaying of Content folder2 in Content Folder1</td>
+	<td>--&nbsp;&nbsp;Check displaying of Content folder2 in Content Folder1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[4]/div/div/div/div/div/div[2]/div[3]/div/div</td>
+	<td>//div[text()='Content Folder2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyVisible</td>
-	<td>//div[4]/div/div/div/div/div/div[2]/div[3]/div/div</td>
+	<td>//div[text()='Content Folder2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Site Explorer to Cut Content Folder3</td>
+	<td>--&nbsp;&nbsp;Go to Site Explorer to Cut Content Folder3</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[1]/div</td>
+	<td>//div[@title='File explorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -343,12 +363,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[3]/div</td>
+	<td>//div[@title='Clipboard']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[3]/div</td>
+	<td>//div[@title='Clipboard']</td>
 	<td></td>
 </tr>
 <tr>
@@ -363,22 +383,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Check displaying of Content Folder3 in Content Folder1</td>
+	<td>-- Check displaying of Content Folder3 in Content Folder1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div[3]/div/div</td>
+	<td>//div[text()='Content Folder2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyVisible</td>
-	<td>//div[3]/div[3]/div/div</td>
+	<td>//div[text()='Content Folder2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Content Folder3']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[text()='Content Folder3']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Action in Clipboard</td>
+	<td>--&nbsp;&nbsp;Delete Action in Clipboard</td>
 	<td></td>
 </tr>
 <tr>
@@ -392,23 +422,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>There is no item in clipboard !</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>There is no item in clipboard !</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Comeback Site Exploer</td>
+	<td>--&nbsp;&nbsp;Comeback Site Exploer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[1]/div</td>
+	<td>//div[@title='File explorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[1]/div</td>
+	<td>//div[@title='File explorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Content Folder1</td>
+	<td>--&nbsp;&nbsp;Delete Content Folder 1</td>
 	<td></td>
 </tr>
 <tr>
@@ -432,23 +472,38 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Ok to delete</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
 	<td>link=Content Folder1</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
+	<td>verifyElementNotPresent</td>
 	<td>link=Content Folder1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Content Folder2</td>
+	<td>--&nbsp;&nbsp;Delete Content Folder2</td>
 	<td></td>
 </tr>
 <tr>
@@ -472,23 +527,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
+	<td>click</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
 	<td>link=Content Folder2</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
+	<td>verifyElementNotPresent</td>
 	<td>link=Content Folder2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Logout</td>
+	<td>--&nbsp;&nbsp;Logout</td>
 	<td></td>
 </tr>
 <tr>

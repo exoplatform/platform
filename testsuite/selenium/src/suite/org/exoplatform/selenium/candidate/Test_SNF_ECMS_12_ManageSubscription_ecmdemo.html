@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,17 +58,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Create new subscription</td>
+	<td>-- Newsletter Manager</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Newsletter Manager</td>
+	<td>//a[contains(@href, '/portal/private/acme/newslettermanager')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Newsletter Manager</td>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/portal/private/acme/newslettermanager')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--New Subscription</td>
 	<td></td>
 </tr>
 <tr>
@@ -90,6 +100,16 @@
 	<td>type</td>
 	<td>SubcriptionTitle</td>
 	<td>Subscription</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--SelectUser</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='SelectUser']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -123,12 +143,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Marketing</td>
+	<td>link=General</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Marketing</td>
+	<td>link=General</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,12 +163,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>//div[@id='UISubscriptions']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>//div[@id='UISubscriptions']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
@@ -169,7 +189,7 @@
 <tr>
 	<td>type</td>
 	<td>SubcriptionDescription</td>
-	<td>hi all</td>
+	<td>Cuoi` di em, dung khoc nhe. Minh xa nhau co le cung do ong troi. roi ngay mai o ben em se khong phai la anh</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -179,6 +199,26 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify Result after update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Cuoi` di em, dung khoc nhe. Minh xa nhau co le cung do ong t ...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cuoi` di em, dung khoc nhe. Minh xa nhau co le cung do ong t ...</td>
 	<td></td>
 </tr>
 <tr>
@@ -188,27 +228,37 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>Subscription</td>
+	<td>link=General</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
+	<td>link=General</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>Subscription</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Open</td>
+	<td>--&nbsp;&nbsp;Open</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,27 +273,37 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Marketing</td>
+	<td>--&nbsp;&nbsp;General</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Marketing</td>
+	<td>link=General</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Marketing</td>
+	<td>link=General</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
@@ -262,18 +322,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
+	<td>waitForConfirmation</td>
 	<td>Are you sure you want to delete this subscription ?</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>Subscription</td>
 	<td></td>
 </tr>
 <tr>
@@ -283,12 +333,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

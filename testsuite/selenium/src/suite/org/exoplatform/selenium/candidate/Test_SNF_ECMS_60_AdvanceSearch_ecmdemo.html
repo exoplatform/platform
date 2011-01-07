@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Login</td>
+	<td>--&nbsp;&nbsp;Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,37 +53,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>--&nbsp;&nbsp;Go to Sites Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--&nbsp;&nbsp;Open&nbsp;&nbsp;driver pane</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--&nbsp;&nbsp;Open Private driver</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,27 +93,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--&nbsp;&nbsp;Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Action tab</td>
+	<td>--&nbsp;&nbsp;Go to Action tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,12 +128,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Create a Article document</td>
+	<td>--&nbsp;&nbsp;Add Document</td>
 	<td></td>
 </tr>
 <tr>
@@ -149,6 +144,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -177,9 +177,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>test1</td>
+	<td>Giong nhu em toi co mot noi buon</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -192,9 +192,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>test1</td>
+	<td>Yeu sa mac nen long hay mong mo</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -213,7 +213,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,67 +228,67 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to root path</td>
+	<td>--&nbsp;&nbsp;Go to root path</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]</td>
+	<td>//div[@title='Private']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]</td>
+	<td>//div[@title='Private']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Advance search</td>
+	<td>--&nbsp;&nbsp;Advance search</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[5]/div</td>
+	<td>//div[@title='Saved Searches']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[5]/div</td>
+	<td>//div[@title='Saved Searches']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open advance search form</td>
+	<td>--&nbsp;&nbsp;Open advance search form</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div/div/div[1]/div[1]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@title='Advance Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div/div/div[1]/div[1]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@title='Advance Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Advanve Search tab</td>
+	<td>--&nbsp;&nbsp;Go to Advanve Search tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIECMSearch', 'UISearchContainer')&quot;]</td>
+	<td>//div[@id='UIECMSearch']//div[text()='Advanced Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIECMSearch', 'UISearchContainer')&quot;]</td>
+	<td>//div[@id='UIECMSearch']//div[text()='Advanced Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -299,7 +299,12 @@
 <tr>
 	<td>type</td>
 	<td>input</td>
-	<td>test1</td>
+	<td>Yeu sa mac nen long hay mong mo</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UISimpleSearch']/div[2]/div/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -307,6 +312,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;View this node</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='View this node']</td>
 	<td></td>
@@ -317,23 +327,43 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>Giong nhu em toi co mot noi buon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Giong nhu em toi co mot noi buon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Yeu sa mac nen long hay mong mo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Yeu sa mac nen long hay mong mo</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Go to site Explorer</td>
+	<td>--&nbsp;&nbsp;Go to File Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[1]/div</td>
+	<td>//div[@title='File explorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[2]/div[1]/div</td>
+	<td>//div[@title='File explorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Sample node</td>
+	<td>--&nbsp;&nbsp;Delete Sample node</td>
 	<td></td>
 </tr>
 <tr>
@@ -353,17 +383,37 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIJCRExplorer']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIJCRExplorer']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Logout</td>
+	<td>--&nbsp;&nbsp;Delete ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Test_SNF_ECMS_60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Test_SNF_ECMS_60</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Logout</td>
 	<td></td>
 </tr>
 <tr>

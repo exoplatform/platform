@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,62 +63,147 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Show event page</td>
+	<td>-- Site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Events</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>echo</td>
+	<td>-- Browse all drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Sites Management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sites Management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Sites Management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;acme</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='acme' and @style='cursor: pointer;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='acme' and @style='cursor: pointer;']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;events/All</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=All</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Products</td>
+	<td>click</td>
+	<td>link=All</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Show content of document</td>
+	<td>--&nbsp;&nbsp;&nbsp;Click on any category: Air</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=A Revolution in the Multi-Touch displays</td>
+	<td>link=Air</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=A Revolution in the Multi-Touch displays</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Products</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Products</td>
+	<td>click</td>
+	<td>link=Air</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Log out</td>
+	<td>--&nbsp;&nbsp;&nbsp;Air/Power 4 - Flying</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Power 4 - Flying</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Power 4 - Flying</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;The content is displayed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>In traditional cultures, air is often seen as a universal power or pure substance. Its fundamental importance to life can be seen in words such as aspire, inspire, perspire, and spirit, all derived from the Latin spirare (&quot;to breathe&quot;).</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>In traditional cultures, air is often seen as a universal power or pure substance. Its fundamental importance to life can be seen in words such as aspire, inspire, perspire, and spirit, all derived from the Latin spirare (&quot;to breathe&quot;).</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

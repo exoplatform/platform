@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -64,11 +69,6 @@
 <tr>
 	<td>click</td>
 	<td>link=News</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,6 +162,41 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Verify result is showed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>ACME Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>ACME Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>21.08.2009 | 01h08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>21.08.2009 | 01h08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Print</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Print</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[2]/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
@@ -217,9 +252,39 @@
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>EditingOptions</td>
-	<td>label=Published</td>
+	<td>echo</td>
+	<td>-- Verify result is hidden</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>ACME Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>ACME Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>21.08.2009 | 01h08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>21.08.2009 | 01h08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>link=Print</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>link=Print</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -228,12 +293,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

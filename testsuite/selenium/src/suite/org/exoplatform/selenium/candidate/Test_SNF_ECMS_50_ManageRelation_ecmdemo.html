@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +57,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -87,11 +82,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Private</td>
 	<td></td>
@@ -103,22 +93,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>--&nbsp;&nbsp;Select Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -128,7 +113,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,7 +128,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>title</td>
 	<td></td>
@@ -169,11 +159,6 @@
 <tr>
 	<td>type</td>
 	<td>title</td>
-	<td>Test_SNF_ECMS_50</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
 	<td>Test_SNF_ECMS_50</td>
 </tr>
 <tr>
@@ -202,9 +187,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>Tai sao chi lai tu` troi em chu', Em muon het len. EM YEU CHI</td>
+	<td>Tai sao chi lai tu` choi em chu', Em muon het len. EM YEU CHI. Minh bi dien mia roi</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -212,6 +197,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save as Draft</td>
 	<td></td>
@@ -223,37 +213,42 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to root path</td>
+	<td>-- Close</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]</td>
+	<td>link=Close</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div[1]/div[2]/div[1]/div/div/div/div[1]</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Go to Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Private']</td>
 	<td></td>
 </tr>
 <tr>
@@ -262,11 +257,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Add Document</td>
 	<td></td>
@@ -278,7 +268,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -292,11 +282,21 @@
 	<td>label=Kofax document</td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>name</td>
 	<td>Kofax</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save as Draft &quot;Kofax document &quot;</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save as Draft</td>
 	<td></td>
@@ -308,7 +308,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Close</td>
 	<td></td>
 </tr>
 <tr>
@@ -323,7 +328,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -347,13 +352,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Admin</td>
+	<td>//a[text()='Admin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Admin</td>
+	<td>//a[text()='Admin']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Manage Relations</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,7 +388,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to &quot;Select relation tab&quot;</td>
+	<td>--&nbsp;&nbsp;Go to &quot;Select relation tab&quot;</td>
 	<td></td>
 </tr>
 <tr>
@@ -387,38 +407,53 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;User</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='Users']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;root</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='root']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='root']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[text()='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;Choose Kofax file</td>
 	<td></td>
 </tr>
 <tr>
@@ -442,6 +477,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Close</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Close</td>
 	<td></td>
@@ -449,11 +489,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -462,6 +497,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Info</td>
 	<td></td>
@@ -472,8 +512,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Show/hide Relation</td>
+	<td>-- Verify link to Kofax: Select Relation</td>
 	<td></td>
 </tr>
 <tr>
@@ -487,18 +532,38 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_50</td>
+	<td>echo</td>
+	<td>-- Check in Relations List</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_50</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>display</td>
+	<td>-- Check References List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Test_SNF_ECMS_50']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Test_SNF_ECMS_50']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Show</td>
 	<td></td>
 </tr>
 <tr>
@@ -512,18 +577,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Test_SNF_ECMS_50</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyVisible</td>
-	<td>link=Test_SNF_ECMS_50</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>--Delete Relation</td>
+	<td>-- Delete Relation: Go to Admin Tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -538,12 +593,32 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>link=Test_SNF_ECMS_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test_SNF_ECMS_50</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Access Manage Relations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Manage Relations</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Manage Relations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete icon</td>
 	<td></td>
 </tr>
 <tr>
@@ -572,6 +647,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Close</td>
 	<td></td>
@@ -602,28 +687,38 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Ok</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_50</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Test_SNF_ECMS_50']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>link=Test_SNF_ECMS_50</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Test_SNF_ECMS_50']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete document</td>
+	<td>-- Delete Kofax document</td>
 	<td></td>
 </tr>
 <tr>
@@ -642,23 +737,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Ok</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>link=Kofax</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>link=Kofax</td>
+	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
 	<td></td>
 </tr>
 <tr>

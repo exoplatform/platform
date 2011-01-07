@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -29,6 +29,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,32 +53,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to&nbsp;&nbsp;Types Of Content</td>
+	<td>--&nbsp;&nbsp;Go to&nbsp;&nbsp;Types Of Content</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[3]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon TypesOfContentIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[3]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon TypesOfContentIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Create new a namespace</td>
+	<td>-- Select&nbsp;&nbsp;Namespace Registry</td>
 	<td></td>
 </tr>
 <tr>
@@ -87,6 +92,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Select Register</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Register</td>
 	<td></td>
@@ -94,6 +104,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Fill data into form</td>
 	<td></td>
 </tr>
 <tr>
@@ -104,16 +119,41 @@
 <tr>
 	<td>type</td>
 	<td>namespace</td>
-	<td>namespace1</td>
+	<td>A Hoa Huong Duong</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>uri</td>
-	<td>Uri1</td>
+	<td>http://anhyeuTieuHuongDuong.com</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>A Hoa Huong Duong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>A Hoa Huong Duong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>http://anhyeuTieuHuongDuong.com</td>
 	<td></td>
 </tr>
 <tr>
@@ -122,8 +162,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
 	<td></td>
 </tr>
 </tbody></table>

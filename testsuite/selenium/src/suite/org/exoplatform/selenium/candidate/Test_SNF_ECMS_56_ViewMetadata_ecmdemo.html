@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Sites Explorer</td>
+	<td>--Go to site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,17 +93,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--&nbsp;&nbsp;Select Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,22 +113,22 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div/div/a</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div/div/a</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -167,6 +167,11 @@
 	<td>label=File</td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
 	<td></td>
@@ -174,7 +179,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>File</td>
+	<td>File_56</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -187,9 +192,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>manchester</td>
+	<td>chi mong duoc nam tay chi di trong troi dong ha noi</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -213,7 +218,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -233,7 +238,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,22 +248,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=File</td>
+	<td>link=File_56</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=File</td>
+	<td>link=File_56</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>echo</td>
+	<td>-- Info tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -272,6 +277,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=View Metadatas</td>
 	<td></td>
@@ -279,6 +289,11 @@
 <tr>
 	<td>click</td>
 	<td>link=View Metadatas</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -299,17 +314,82 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>title0</td>
-	<td>test</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>title0</td>
-	<td>test</td>
+	<td>Anh nho em tieuhuongduong</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>creator0</td>
-	<td>hanhly</td>
+	<td>linhkhue</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>subject0</td>
+	<td>Nhin em giay phut muon noi yeu em</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>source0</td>
+	<td>Gap anh la duyen phan cua em do. em co biet khong</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>contributor0</td>
+	<td>Yeu sa mac nen long hay mong mo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>resourceType0</td>
+	<td>dem thau chi nhin khoi thuoc bay ve noi hu vo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>publisher0</td>
+	<td>Hoa huong duong se heo ua khi dem ve`</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description0</td>
+	<td>Benh nagn roi</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>rights0</td>
+	<td>Den voi anh di em</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>relation0</td>
+	<td>Roi mai day anh se lam gi voi noi nho cua minh</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>format0</td>
+	<td>Mot chut thoi nhe</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>identifier0</td>
+	<td>EM GHET CHI LAM. GHET NHIEU LAM</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>coverage0</td>
+	<td>Xa ngan dam nhung anh van o day cho em</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>language0</td>
+	<td>laos</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -319,6 +399,11 @@
 <tr>
 	<td>click</td>
 	<td>//form[@id='UIViewMetadataForm']/div[2]/div/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -332,6 +417,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Referesh</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[3]/a[2]</td>
 	<td></td>
@@ -339,6 +429,31 @@
 <tr>
 	<td>click</td>
 	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[3]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- OK</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -348,22 +463,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=test</td>
+	<td>//a[contains(text(),'Anh nho em tieuhuongduong')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=test</td>
+	<td>//a[contains(text(),'Anh nho em tieuhuongduong')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -387,13 +492,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>link=File</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>link=File</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>

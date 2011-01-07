@@ -13,17 +13,22 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Log in</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,17 +58,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Create new template</td>
+	<td>-- Create new template: Form Builder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Form Generator</td>
+	<td>//a[@href='/portal/private/acme/formgenerator']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Form Generator</td>
+	<td>//a[@href='/portal/private/acme/formgenerator']</td>
 	<td></td>
 </tr>
 <tr>
@@ -74,31 +79,31 @@
 <tr>
 	<td>type</td>
 	<td>FormGeneratorName</td>
-	<td>Test_SNF_ECMS_16</td>
+	<td>LamYKhue_16</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIFormGeneratorPortlet']/div[1]/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[@id='UIFormGeneratorPortlet']//div[text()=&quot;Form builder&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabContentContainer']/div/div[1]/div/div/div[1]</td>
+	<td>//div[@id='UITabContentContainer']//div[text()=&quot;Input Text&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITabContentContainer']/div/div[1]/div/div/div[1]</td>
+	<td>//div[@id='UITabContentContainer']//div[text()=&quot;Input Text&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabContentContainer']/div/div[3]/div/div/div[1]</td>
+	<td>//div[@id='UITabContentContainer']//div[text()=&quot;Text Area&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITabContentContainer']/div/div[3]/div/div/div[1]</td>
+	<td>//div[@id='UITabContentContainer']//div[text()=&quot;Text Area&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,27 +118,27 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
 	<td>//div[3]/div/div/div/div/div[2]</td>
-	<td>Nodetype Test_SNF_ECMS_16's template is generated successful</td>
+	<td>Nodetype LamYKhue_16's template is generated successful</td>
 </tr>
 <tr>
 	<td>verifyText</td>
 	<td>//div[3]/div/div/div/div/div[2]</td>
-	<td>Nodetype Test_SNF_ECMS_16's template is generated successful</td>
+	<td>Nodetype LamYKhue_16's template is generated successful</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,22 +148,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Browse all drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -169,21 +179,21 @@
 <tr>
 	<td>click</td>
 	<td>link=Sites Management</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Document</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
 	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add Document</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Add Document</td>
 	<td></td>
 </tr>
 <tr>
@@ -194,7 +204,7 @@
 <tr>
 	<td>select</td>
 	<td>selectTemplate</td>
-	<td>label=Test_SNF_ECMS_16</td>
+	<td>label=LamYKhue_16</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -204,7 +214,12 @@
 <tr>
 	<td>type</td>
 	<td>/node/Textarea field</td>
-	<td>Test_SNF_ECMS_16_FormGenerator_ecmdemo</td>
+	<td>SNF_ECMS_16_FormGenerator_ecmdemo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>/node/Input field</td>
+	<td>Sorry</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -234,6 +249,31 @@
 <tr>
 	<td>pause</td>
 	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify Information</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sorry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Sorry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>SNF_ECMS_16_FormGenerator_ecmdemo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>SNF_ECMS_16_FormGenerator_ecmdemo</td>
 	<td></td>
 </tr>
 <tr>
@@ -253,12 +293,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()=&quot;OK&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()=&quot;OK&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,18 +307,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

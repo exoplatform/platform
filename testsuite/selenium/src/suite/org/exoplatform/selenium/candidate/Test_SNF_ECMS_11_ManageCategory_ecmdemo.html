@@ -12,13 +12,8 @@
 <tr><td rowspan="1" colspan="3">Test_SNF_ECMS_11_ManageCategory_ecmdemo</td></tr>
 </thead><tbody>
 <tr>
-	<td>echo</td>
-	<td>-- Log in</td>
-	<td></td>
-</tr>
-<tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -27,8 +22,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Login</td>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,17 +58,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Create new category</td>
+	<td>-- Newsletter Manager</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Newsletter Manager</td>
+	<td>//a[contains(@href, '/portal/private/acme/newslettermanager')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Newsletter Manager</td>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/portal/private/acme/newslettermanager')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;New Category</td>
 	<td></td>
 </tr>
 <tr>
@@ -104,6 +109,11 @@
 <tr>
 	<td>click</td>
 	<td>//img[@alt='Select user']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,6 +157,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Check all</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>UISubscriptionsCheckAll</td>
 	<td></td>
@@ -157,13 +172,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Administration button</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div</td>
+	<td>link=Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Edit Category on pop-up menu</td>
 	<td></td>
 </tr>
 <tr>
@@ -189,7 +214,7 @@
 <tr>
 	<td>type</td>
 	<td>CategoryDescription</td>
-	<td>aaa</td>
+	<td>Sao nguoi khong nhan lay de toi hoang mang thang ngay</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -208,27 +233,32 @@
 </tr>
 <tr>
 	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check result update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Sao nguoi khong nhan lay de toi hoang mang thang ngay</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
 	<td>-- Delete Category</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div</td>
+	<td>link=Administration</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Edit Delete Category on pop-up menu</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,12 +293,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

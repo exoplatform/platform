@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -24,11 +24,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- Log in</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,17 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
@@ -78,17 +68,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add driver</td>
+	<td>-- Manage Drives</td>
 	<td></td>
 </tr>
 <tr>
@@ -99,6 +89,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Manage Drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add driver</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,7 +114,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Test</td>
+	<td>Test_72</td>
 </tr>
 <tr>
 	<td>select</td>
@@ -127,18 +122,18 @@
 	<td>label=collaboration</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//option[@value='collaboration']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='collaboration']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Choose path</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//option[@value='collaboration']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//option[@value='collaboration']</td>
+	<td>--&nbsp;&nbsp;Add Path</td>
 	<td></td>
 </tr>
 <tr>
@@ -149,6 +144,11 @@
 <tr>
 	<td>click</td>
 	<td>//img[@title='Add Path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Select Root path</td>
 	<td></td>
 </tr>
 <tr>
@@ -177,6 +177,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Set any permission</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='Set any permission']</td>
 	<td></td>
@@ -187,8 +192,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Check Show sidebar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>viewSideBar</td>
+	<td></td>
+</tr>
+<tr>
 	<td>check</td>
 	<td>viewSideBar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add to allow create Folders</td>
 	<td></td>
 </tr>
 <tr>
@@ -203,17 +223,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Apply View Tab</td>
+	<td>--&nbsp;&nbsp;Go to Apply View Tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Apply Views']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Apply Views']</td>
 	<td></td>
 </tr>
 <tr>
@@ -292,8 +312,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Edit Driver</td>
+	<td>--&nbsp;&nbsp;Go to last page</td>
 	<td></td>
 </tr>
 <tr>
@@ -307,14 +332,29 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Edit Driver: Test_72</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[9]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[9]/td[7]/div/img[1]</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check Show referenced documents</td>
+	<td>nced</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -327,6 +367,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check Show &quot;non document&quot; nodes</td>
+	<td>nced</td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>viewNonDocument</td>
 	<td></td>
@@ -335,6 +380,11 @@
 	<td>check</td>
 	<td>viewNonDocument</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check Show hidden nodes</td>
+	<td>nced</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -354,6 +404,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -363,37 +418,197 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Choose Test_72</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Test</td>
+	<td>link=Test_72</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Test</td>
+	<td>link=Test_72</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Drive ----</td>
+	<td>--&nbsp;&nbsp;Verify view mode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admin View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cover Flow View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Cover Flow View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Cover Flow View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Icon View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Icon View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Icon View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbnails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Thumbnails']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Thumbnails']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Slide show</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Slide show']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Slide show']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timeline view</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Timeline view']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Timeline view']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Drive ----</td>
+	<td>--&nbsp;&nbsp;Delete Drive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Manage Drives</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=3</td>
 	<td></td>
 </tr>
 <tr>
@@ -412,13 +627,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>Test</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Test</td>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>

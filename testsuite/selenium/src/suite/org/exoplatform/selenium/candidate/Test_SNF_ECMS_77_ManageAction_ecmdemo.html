@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,37 +53,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Advanced Configuration</td>
+	<td>--&nbsp;&nbsp;Go to Advanced Configuration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Create an Action Type</td>
 	<td></td>
 </tr>
 <tr>
@@ -94,6 +89,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Create an Action Type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Add</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,12 +114,12 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>exo:test</td>
+	<td>exo:test_77</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>variables0</td>
-	<td>abc</td>
+	<td>LamYKhue</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -129,6 +129,41 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify Result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>exo:test_77</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exo:test_77</td>
 	<td></td>
 </tr>
 <tr>

@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,27 +58,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Advanced Configuration</td>
+	<td>--&nbsp;&nbsp;Go to Advanced Configuration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Select Manage Queries</td>
 	<td></td>
 </tr>
 <tr>
@@ -89,6 +94,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Manage Scripts</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Add scripts</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,7 +124,7 @@
 <tr>
 	<td>type</td>
 	<td>scriptName</td>
-	<td>test</td>
+	<td>Test_76</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -127,8 +137,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Edit Script</td>
+	<td>--&nbsp;&nbsp;Edit Script: Test_76.groovy</td>
 	<td></td>
 </tr>
 <tr>
@@ -157,8 +172,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>Need verify action after change, Save or not</td>
+	<td>-- Need verify action after change, Save or not</td>
 	<td></td>
 </tr>
 <tr>
@@ -169,6 +189,11 @@
 <tr>
 	<td>click</td>
 	<td>//tr[10]/td[4]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>enableVersion</td>
 	<td></td>
 </tr>
 <tr>

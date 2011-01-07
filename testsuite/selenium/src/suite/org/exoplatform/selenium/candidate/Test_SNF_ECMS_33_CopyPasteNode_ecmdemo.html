@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -34,7 +34,7 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>username</td>
-	<td>root</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -53,22 +53,32 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Select drive</td>
+	<td>-- Go to Sites Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open&nbsp;&nbsp;driver pane</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Open Private driver</td>
 	<td></td>
 </tr>
 <tr>
@@ -79,6 +89,46 @@
 <tr>
 	<td>click</td>
 	<td>link=Private</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Go to Admin View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Go to Action tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -99,16 +149,21 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
-	<td>folder1</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>folder1</td>
+	<td>LamYKhue</td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -124,31 +179,41 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
-	<td>folder2</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>folder2</td>
+	<td>LinhNhi</td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Copy folder1 to folder2</td>
+	<td>-- Copy LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=folder1</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=folder1</td>
+	<td>link=LamYKhue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,13 +227,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Paste into LinhNhi ^^</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>link=folder2</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=folder2</td>
+	<td>link=LinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Paste</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,7 +258,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -188,12 +268,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=folder1</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=folder1</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +303,32 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=folder2</td>
+	<td>link=LinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=LinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check LamYKhue in LinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='LamYKhue']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[text()='LamYKhue']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=folder2</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
@@ -257,28 +357,33 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=fodler1</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=fodler1</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=fodler2</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=fodler2</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>

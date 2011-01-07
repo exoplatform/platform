@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +57,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,17 +93,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>-Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,28 +117,38 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div/div/a</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div/div/a</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Add folder aa</td>
+	<td>-- Add folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Add folder LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +169,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>aa</td>
+	<td>LamYKhue</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -178,12 +188,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=aa</td>
+	<td>link=LamYKhue</td>
 	<td></td>
 </tr>
 <tr>
@@ -199,7 +209,7 @@
 <tr>
 	<td>type</td>
 	<td>nameField</td>
-	<td>bb</td>
+	<td>LinhNhi</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -208,17 +218,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete bb</td>
+	<td>-- Delete LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=bb</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=bb</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,12 +253,12 @@
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>link=bb</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>link=bb</td>
+	<td>link=LinhNhi</td>
 	<td></td>
 </tr>
 <tr>

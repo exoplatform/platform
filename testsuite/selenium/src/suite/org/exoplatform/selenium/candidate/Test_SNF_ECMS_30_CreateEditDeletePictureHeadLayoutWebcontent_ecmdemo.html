@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,27 +58,27 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--&nbsp;&nbsp;Show Drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--&nbsp;&nbsp;Open Private driver</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,17 +93,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Go to Detail View</td>
+	<td>-Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,11 +117,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>30000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Actions</td>
 	<td></td>
@@ -128,7 +128,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,11 +147,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>selectTemplate</td>
 	<td>label=Picture on head layout webcontent</td>
@@ -162,6 +157,11 @@
 	<td>label=Picture on head layout webcontent</td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
 	<td></td>
@@ -170,11 +170,6 @@
 	<td>type</td>
 	<td>name</td>
 	<td>Test_SNF_30</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>title</td>
-	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -194,7 +189,7 @@
 <tr>
 	<td>type</td>
 	<td>//html/body</td>
-	<td>Manchester</td>
+	<td>TieuHuongDuong! Em ghet chi lam</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -208,17 +203,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIDocumentForm']/div[2]/div/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
+	<td>//form[@id='UIDocumentForm']/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIDocumentForm']/div[2]/div/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
+	<td>//form[@id='UIDocumentForm']/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>30000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,7 +233,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>30000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -258,7 +253,17 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>30000</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>TieuHuongDuong! Em ghet chi lam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>TieuHuongDuong! Em ghet chi lam</td>
 	<td></td>
 </tr>
 <tr>
@@ -273,7 +278,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -307,9 +312,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>Manchester</td>
+	<td>Lam vo em nhe!</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -318,7 +323,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Save as draft</td>
+	<td>--&nbsp;&nbsp;Save as draft</td>
 	<td></td>
 </tr>
 <tr>
@@ -333,12 +338,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>30000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Close form</td>
+	<td>--&nbsp;&nbsp;Close form</td>
 	<td></td>
 </tr>
 <tr>
@@ -353,12 +358,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>20000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Picture on head layout webcontent</td>
+	<td>--&nbsp;&nbsp;Delete Picture on head layout webcontent</td>
 	<td></td>
 </tr>
 <tr>

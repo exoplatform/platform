@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Login &lt;&lt;</td>
+	<td>-- Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,27 +58,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to site Explorer</td>
+	<td>--&nbsp;&nbsp;Go to site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--&nbsp;&nbsp;Open&nbsp;&nbsp;driver pane</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,17 +98,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--&nbsp;&nbsp;Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,7 +118,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -134,6 +134,11 @@
 <tr>
 	<td>pause</td>
 	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add Folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -163,7 +168,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Lock node</td>
+	<td>--&nbsp;&nbsp;Lock node</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,28 +192,38 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Advanced Configuration</td>
+	<td>-- Go to Advanced Configuration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[4]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon AdvanceConfiguarationIcon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Manage UnLocks</td>
 	<td></td>
 </tr>
 <tr>
@@ -217,18 +232,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>/Users/root/Private/AA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>/Users/root/Private/AA</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Go to Manage Lock Tab</td>
+	<td>--&nbsp;&nbsp;Go to Manage Lock Tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIUnLockManager', 'UILockHolderContainer')&quot;]</td>
+	<td>//div[text()='Manage Lock']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIUnLockManager', 'UILockHolderContainer')&quot;]</td>
+	<td>//div[text()='Manage Lock']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Platform</td>
 	<td></td>
 </tr>
 <tr>
@@ -242,6 +272,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Platform/Users</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Users</td>
 	<td></td>
@@ -252,6 +287,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Platform/Users/*</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=exact:*</td>
 	<td></td>
@@ -259,6 +299,21 @@
 <tr>
 	<td>click</td>
 	<td>link=exact:*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check result add permission</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>*:/platform/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>*:/platform/users</td>
 	<td></td>
 </tr>
 <tr>
@@ -277,18 +332,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextNotPresent</td>
+	<td>*:/platform/users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>*:/platform/users</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Unlock a node</td>
+	<td>--&nbsp;&nbsp;Go to &quot;Locked Node&quot;Tab to Unlock a node</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIUnLockManager', 'UILockNodeList')&quot;]</td>
+	<td>//div[text()='Locked Node']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, 'UIUnLockManager', 'UILockNodeList')&quot;]</td>
+	<td>//div[text()='Locked Node']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Unlock</td>
 	<td></td>
 </tr>
 <tr>
@@ -303,17 +373,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Site explorer to delete Lock node</td>
+	<td>--&nbsp;&nbsp;Go to Site explorer to delete Lock node</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete AA</td>
+	<td>--&nbsp;&nbsp;Delete Node :&nbsp;&nbsp;AA</td>
 	<td></td>
 </tr>
 <tr>
@@ -338,22 +408,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete AA</td>
+	<td>--&nbsp;&nbsp;Ok</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIJcrExplorerContainer']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIJcrExplorerContainer']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete AA</td>
+	<td>--&nbsp;&nbsp;Delete ?</td>
 	<td></td>
 </tr>
 <tr>
@@ -369,6 +439,11 @@
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>

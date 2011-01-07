@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,32 +93,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Create new folder</td>
+	<td>-- Add Folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Documents</td>
+	<td>link=Add Folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Documents</td>
+	<td>link=Add Folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Add Folder</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -137,43 +127,98 @@
 	<td>SNF_ECMS_65</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIFolderForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td>//form[@id='UIFolderForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIFolderForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td>//form[@id='UIFolderForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Filter by Items</td>
+	<td>-- Filter by Items: Owend by me</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>//div[@id='UIAllItems']//span[text()='Owned by me']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>//div[@id='UIAllItems']//span[text()='Owned by me']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Verify folder is displayed</td>
+	<td>--&nbsp;&nbsp;Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[4]/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify folder is displayed on right</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Not Show Documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Documents ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Documents ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Not Show Favorites</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Favorites ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Favorites ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Show Test_SNF_65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//div[4]/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
 	<td></td>
 </tr>
 <tr>
@@ -183,37 +228,72 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>//div[@id='UIAllItems']//span[text()='Owned by me']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>//div[@id='UIAllItems']//span[text()='Owned by me']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Remove document</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Show Documents</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Documents</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Documents ']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Documents</td>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Documents ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Show Favorites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_ECMS_65</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Favorites ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='Favorites ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>&nbsp;&nbsp;--&nbsp;&nbsp;Show Test_SNF_65</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='SNF_ECMS_65']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=SNF_ECMS_65</td>
+	<td>//a[text()='SNF_ECMS_65']</td>
 	<td></td>
 </tr>
 <tr>
@@ -227,28 +307,43 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- OK to delete</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>SNF_ECMS_65</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>SNF_ECMS_65</td>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='UIDocumentInfo']//div[@title='SNF_ECMS_65 ']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>

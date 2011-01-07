@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,23 +62,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Administration</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/portal/private/acme/wcmAdmin']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Content Presentation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[contains(text(),'Content Presentation')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[contains(text(),'Content Presentation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Manage View</td>
 	<td></td>
 </tr>
 <tr>
@@ -102,6 +112,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Choose wcm-view</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='UIViewList']/table/tbody/tr[2]/td[5]/div/img[2]</td>
 	<td></td>
@@ -112,6 +127,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Publication</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Publication</td>
 	<td></td>
@@ -119,6 +139,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Publication</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check Manage Action</td>
 	<td></td>
 </tr>
 <tr>
@@ -153,7 +178,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>save2</td>
+	<td>--&nbsp;&nbsp;Save2</td>
 	<td></td>
 </tr>
 <tr>
@@ -173,27 +198,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add action for folder</td>
+	<td>-- Browse all drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
@@ -212,13 +237,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- acme</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='iconTreeExplorer']/div[2]/a</td>
+	<td>//a[@title='acme ']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='iconTreeExplorer']/div[2]/a</td>
+	<td>//a[@title='acme ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- acme/documents</td>
 	<td></td>
 </tr>
 <tr>
@@ -233,7 +268,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Manage Actions</td>
+	<td>--&nbsp;&nbsp;Manage Actions</td>
 	<td></td>
 </tr>
 <tr>
@@ -247,13 +282,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Add Action tab</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIActionManager']/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Add Action']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIActionManager']/div/div/div[1]/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Add Action']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -277,14 +322,14 @@
 	<td>label=User Action</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//option[@value='read']</td>
+	<td>waitForElementPresent</td>
+	<td>to</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>to</td>
-	<td>hanhlt84@gmail.com</td>
+	<td>lamykhuelinhnhi@gmail.com</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -322,8 +367,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Contact Us</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='navigation-generator']/div/div/div[5]/div/a</td>
+	<td>//a[contains(@href,'/portal/private/acme/contactus')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Edit Contact Us page</td>
 	<td></td>
 </tr>
 <tr>
@@ -338,22 +393,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@class='UIComponentBlock']</td>
+	<td>//div[@id=&quot;ContactUSColumnContainerLeftBottom&quot;]//a[@title=&quot;Edit Portlet&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div[@class='UIComponentBlock']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[@id=&quot;ContactUSColumnContainerLeftBottom&quot;]//a[@title=&quot;Edit Portlet&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[@id=&quot;ContactUSColumnContainerLeftBottom&quot;]//a[@title=&quot;Edit Portlet&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,31 +418,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Edit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//img[@title='Edit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>lifecycle</td>
-	<td>label=node_added</td>
-</tr>
-<tr>
-	<td>addSelection</td>
-	<td>lifecycle</td>
-	<td>label=node_added</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//option[@value='node_added']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
 	<td>link=Save</td>
 	<td></td>
 </tr>
@@ -403,57 +428,57 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- OK</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Save</td>
+	<td>//div/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Save</td>
+	<td>//div/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[1]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[1]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>2000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -464,7 +489,7 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>your_nameFieldName</td>
-	<td>Linh</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -479,17 +504,17 @@
 <tr>
 	<td>type</td>
 	<td>your_email_addressFieldName</td>
-	<td>hi</td>
+	<td>lamykhue</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>your_phone_numberFieldName</td>
-	<td>hi</td>
+	<td>tieuhuongduong</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>your_messageFieldName</td>
-	<td>hi</td>
+	<td>Hoac em hoac khong ai ca</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -513,12 +538,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/portal/public/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Sites Explorer</td>
+	<td>clickAndWait</td>
+	<td>//a[@href='/portal/public/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -558,12 +583,77 @@
 </tr>
 <tr>
 	<td>echo</td>
+	<td>-- Refresh to file display</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Refresh']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Refresh']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Refresh to file display</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
 	<td>-- Delete created document</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>//div[4]/div[2]/div[1]/div/div/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/div[2]/div[1]/div/div/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify Result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>tieuhuongduong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>tieuhuongduong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>lamykhue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Hoac em hoac khong ai ca</td>
 	<td></td>
 </tr>
 <tr>
@@ -583,107 +673,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Delete action of view</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Administration</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Manage View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Manage View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Manage View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIViewList']/table/tbody/tr[2]/td[5]/div/img[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIViewList']/table/tbody/tr[2]/td[5]/div/img[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Publication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Publication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>manageActions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>manageActions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
+	<td>//div[@id='UIPopupWindow']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
@@ -693,12 +688,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

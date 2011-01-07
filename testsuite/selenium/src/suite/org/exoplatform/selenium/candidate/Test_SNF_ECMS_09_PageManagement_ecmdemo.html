@@ -13,12 +13,17 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
 	<td>windowMaximize</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
@@ -29,7 +34,7 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>username</td>
-	<td>root</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -47,13 +52,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Page Management</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Go to Page Management</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Page Management</td>
+	<td>//a[@href='/portal/private/acme/administration/pageManagement']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add New Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@class='ActionContainer']//a[text()='Add New Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@class='ActionContainer']//a[text()='Add New Page']</td>
 	<td></td>
 </tr>
 <tr>
@@ -62,19 +82,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageBrowser']/div[2]/table/tbody/tr/td/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIPageBrowser']/div[2]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>echo</td>
+	<td>-- Display form to create page</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>ownerType</td>
-	<td>label=group</td>
+	<td></td>
 </tr>
 <tr>
 	<td>select</td>
@@ -83,37 +98,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>name</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
-	<td>NewPage</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'UIPageTemplateOptions');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=UIPageTemplateOptions')&quot;]</td>
+	<td>//div[text()='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'UIPageTemplateOptions');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=UIPageTemplateOptions')&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'PermissionSetting');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=PermissionSetting')&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'PermissionSetting');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=PermissionSetting')&quot;]</td>
+	<td>//div[text()='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Access Permisssion setting</td>
+	<td>--&nbsp;&nbsp;Add Permisssion</td>
 	<td></td>
 </tr>
 <tr>
@@ -127,13 +122,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Platform</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Customers</td>
+	<td>link=Platform</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Customers</td>
+	<td>link=Platform</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;Author</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,6 +152,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;Edit Permission Setting</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Edit Permission Setting</td>
 	<td></td>
@@ -157,13 +167,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;&nbsp;&nbsp;Page Setting tab</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'PageSetting');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=PageSetting')&quot;]</td>
+	<td>//div[text()='Page Setting']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, 'UIPageForm', 'PageSetting');javascript:eXo.webui.UIForm.submitEvent('UIPageForm','SelectTab','&amp;objectId=PageSetting')&quot;]</td>
+	<td>//div[text()='Page Setting']</td>
 	<td></td>
 </tr>
 <tr>
@@ -174,7 +189,12 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>NewPage</td>
+	<td>Test_SNF_ECMS_09</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -188,77 +208,17 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
-	<td>NewPage</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>NewPage</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify Page in List</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Edit Page']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//img[@title='Edit Page']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//div[@onclick=&quot;javascript:ajaxGet('/ecmdemo/private/acme/administration/pageManagement?portal:componentId=UIApplicationList&amp;portal:action=SelectCategory&amp;objectId=Contents&amp;ajaxRequest=true')&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=//div[@onclick=&quot;javascript:ajaxGet('/ecmdemo/private/acme/administration/pageManagement?portal:componentId=UIApplicationList&amp;portal:action=SelectCategory&amp;objectId=Contents&amp;ajaxRequest=true')&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>dragAndDropToObject</td>
-	<td>//div[@id='Contents/ParameterizedContentListViewerPortlet']/div//div[@class='OverflowContainer']</td>
-	<td>//div[@id='UIPortalToolPanel']/div/div/div/div/div/div[2]/div/div/div[@class='UIPage']//div[@class='UIComponentBlock']</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>searchOption</td>
 	<td></td>
 </tr>
 <tr>
@@ -269,11 +229,196 @@
 <tr>
 	<td>type</td>
 	<td>searchTerm</td>
-	<td>NewPage</td>
+	<td>Test_SNF_ECMS_09</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Test_SNF_ECMS_09</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Test_SNF_ECMS_09</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Edit Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Edit Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Edit Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Access Contents tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Contents']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Contents']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Drag and Drop: Category Contents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Category Contents']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>dragAndDropToObject</td>
+	<td>//div[text()='Category Contents']</td>
+	<td>//div[@id='UIPortalToolPanel']/div/div/div/div/div/div[2]/div/div/div[@class='UIPage']//div[@class='UIComponentBlock']</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Set value of path home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Edit Portlet']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//a[@title='Edit Portlet']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Edit Portlet']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Select folder path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Select folder path']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>GeneralDrives_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>GeneralDrives_</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@onclick='eXo.ecm.ECS.insertContent(this);']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@onclick='eXo.ecm.ECS.insertContent(this);']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UICLVPortlet']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UICLVPortlet']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch View mode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Switch View mode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify&nbsp;&nbsp;acme template</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Upcoming Power 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Upcoming Power 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Detele Page</td>
 	<td></td>
 </tr>
 <tr>
@@ -292,28 +437,48 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>NewPage</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>NewPage</td>
+	<td>echo</td>
+	<td>-- Ok</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check delete ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@id='UIRepeater']/table/tbody/tr/td[2]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='UIRepeater']/table/tbody/tr/td[2]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -52,28 +52,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Sites Explorer</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Explorer</td>
+	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--&nbsp;&nbsp;Show Drives</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
+	<td>//div[@title='Show Drives']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,17 +93,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
+	<td>--Go to Admin View</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>selectTemplate</td>
 	<td>label=Sample node</td>
@@ -155,6 +160,11 @@
 	<td>select</td>
 	<td>selectTemplate</td>
 	<td>label=Sample node</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -169,12 +179,12 @@
 <tr>
 	<td>type</td>
 	<td>summary</td>
-	<td>test</td>
+	<td>Thoi nao` kung. co len di. Roi moi thu se qua</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>content</td>
-	<td>test</td>
+	<td>Khong duoc song nhu the nay nua. thuc te len di. hic nhung em yeu chi.</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -188,7 +198,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -203,7 +213,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>3000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -253,12 +263,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//span/div/div/div[2]/div/div/div/div/div/div/div/div[1]/div/div[4]</td>
+	<td>//div[@title='Excellent/Click to vote']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//span/div/div/div[2]/div/div/div/div/div/div/div/div[1]/div/div[4]</td>
+	<td>//div[@title='Excellent/Click to vote']</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,14 +277,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForText</td>
-	<td>//div[@id='UIDocumentInfo']/div[2]/div/div/div/div/div/div[2]/div[2]</td>
+	<td>waitForTextPresent</td>
 	<td>4.0</td>
+	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>//div[@id='UIDocumentInfo']/div[2]/div/div/div/div/div/div[2]/div[2]</td>
+	<td>verifyTextPresent</td>
 	<td>4.0</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -304,6 +314,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>

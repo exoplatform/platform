@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,13 +22,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- Login</td>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Login</td>
+	<td>echo</td>
+	<td>-- Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -67,16 +67,11 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=News</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>EditingOptions</td>
 	<td></td>
@@ -88,12 +83,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Set Properties</td>
 	<td></td>
 </tr>
 <tr>
@@ -102,7 +102,27 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>focus</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
 	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
 	<td></td>
 </tr>
@@ -112,7 +132,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>keyUp</td>
+	<td>UICLVConfigShowReadmoreFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
 	<td>UICLVConfigShowReadmoreFormCheckboxInput</td>
 	<td></td>
 </tr>
@@ -122,7 +147,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>keyUp</td>
+	<td>UICLVConfigShowDateCreatedFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
 	<td>UICLVConfigShowDateCreatedFormCheckboxInput</td>
 	<td></td>
 </tr>
@@ -137,23 +167,58 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>EditingOptions</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Verify results</td>
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>EditingOptions</td>
-	<td>label=Edit</td>
+	<td>waitForTextPresent</td>
+	<td>Aug 10, 2010 5:10:35 PM</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Aug 10, 2010 5:10:35 PM</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td>link=Read more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Read more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Unset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Set Properties</td>
 	<td></td>
 </tr>
 <tr>
@@ -198,17 +263,52 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Log out</td>
+	<td>--&nbsp;&nbsp;Verify results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Aug 10, 2010 5:10:35 PM</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Aug 10, 2010 5:10:35 PM</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Read more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Read more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

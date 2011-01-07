@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,47 +48,47 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>--&nbsp;&nbsp;Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Ontologies</td>
+	<td>--&nbsp;&nbsp;Go to Ontologies</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@class='TabIcon DefaultItemIcon OntologiesIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@class='TabIcon DefaultItemIcon OntologiesIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Manage Taxonomy trees</td>
+	<td>--&nbsp;&nbsp;Go to Manage Taxonomy trees</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Manage Taxonomy Trees</td>
+	<td>link=Manage Categories</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Manage Taxonomy Trees</td>
+	<td>link=Manage Categories</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Add taxonomy</td>
+	<td>--&nbsp;&nbsp;Add taxonomy</td>
 	<td></td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@
 <tr>
 	<td>type</td>
 	<td>TaxoTreeName</td>
-	<td>test1</td>
+	<td>Test_68</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -133,7 +133,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Select Home path</td>
+	<td>--&nbsp;&nbsp;Select Home path</td>
 	<td></td>
 </tr>
 <tr>
@@ -147,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Tick RootNode</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='AddRootNode']</td>
 	<td></td>
@@ -154,6 +159,11 @@
 <tr>
 	<td>click</td>
 	<td>//img[@title='AddRootNode']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Next</td>
 	<td></td>
 </tr>
 <tr>
@@ -168,7 +178,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Set permission for taxonomy tree node</td>
+	<td>--&nbsp;&nbsp;Set permission for taxonomy tree node :Select everyone</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,18 +217,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPermissionTreeForm']/div[2]/div/div/table/tbody/tr/td/div[4]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIPermissionTreeForm']/div[2]/div/div/table/tbody/tr/td/div[4]/div/div/div/a</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Register an action for this tree</td>
+	<td>--&nbsp;&nbsp;Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIPermissionTreeForm']//a[text()='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIPermissionTreeForm']//a[text()='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Register an action for this tree</td>
 	<td></td>
 </tr>
 <tr>
@@ -245,6 +265,11 @@
 	<td>select</td>
 	<td>targetWorkspace</td>
 	<td>label=collaboration</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Search Target path</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -302,8 +327,13 @@
 	<td>child 1</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']//a[text()='Save']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -333,12 +363,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UITaxonomyTreeCreateChildForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>//form[@id='UITaxonomyTreeCreateChildForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -348,12 +378,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//div[@title='Test_68']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[2]/a/div</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//div[@title='Test_68']</td>
 	<td></td>
 </tr>
 <tr>
@@ -388,12 +418,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[3]/a/div</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//div[text()='child 2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[2]/div/div/div/div/div[3]/a/div</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//div[text()='child 2']</td>
 	<td></td>
 </tr>
 <tr>
@@ -483,7 +513,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>2000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -523,7 +553,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>2000</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -542,13 +572,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Prevous</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[4]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//a[text()='Previous']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITaxonomyTreeCreateChild']/div[4]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UITaxonomyTreeCreateChild']//a[text()='Previous']</td>
 	<td></td>
 </tr>
 <tr>
@@ -572,13 +607,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td>//form[@id='UIActionForm']//a[text()='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIActionForm']/div[2]/div/table/tbody/tr/td/div[2]/div/div/div/a</td>
+	<td>//form[@id='UIActionForm']//a[text()='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Close</td>
 	<td></td>
 </tr>
 <tr>

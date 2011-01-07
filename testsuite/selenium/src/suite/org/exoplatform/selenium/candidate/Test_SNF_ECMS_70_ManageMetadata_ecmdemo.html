@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,12 +48,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
@@ -63,17 +63,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon ContentPresentationIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--View Metadata</td>
+	<td>--&nbsp;&nbsp;View Metadata</td>
 	<td></td>
 </tr>
 <tr>
@@ -87,6 +87,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;View Metadata : dc:elementSet</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='View']</td>
 	<td></td>
@@ -94,6 +99,11 @@
 <tr>
 	<td>click</td>
 	<td>//img[@title='View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Close</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,7 +118,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Edit Metadata</td>
+	<td>--&nbsp;&nbsp;Edit Metadata</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,11 +129,6 @@
 <tr>
 	<td>click</td>
 	<td>//img[@title='Edit']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//img[@title='Add Permission']</td>
 	<td></td>
 </tr>
 <tr>
@@ -142,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Platform</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Platform</td>
 	<td></td>
@@ -149,6 +159,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Platform</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Platform/Users</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,6 +177,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Platform/Users/*</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=exact:*</td>
 	<td></td>
@@ -169,6 +189,16 @@
 <tr>
 	<td>click</td>
 	<td>link=exact:*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Apply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Apply</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,17 +208,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Metadata</td>
+	<td>--&nbsp;&nbsp;Delete Metadata</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Delete']</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[@title='Delete']</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,18 +227,88 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>Templates of 'dc:elementSet' has been deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Templates of 'dc:elementSet' has been deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;OK to confirm</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UIECMAdminPortlet']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UIECMAdminPortlet']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Restore delete function</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Apply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Apply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='UIMetadataManager']//tr[1]//td[5]//img[@title='Delete']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>

@@ -12,8 +12,8 @@
 <tr><td rowspan="1" colspan="3">Test_SNF_ECMS_14_SubscribleLetter_ecmdemo</td></tr>
 </thead><tbody>
 <tr>
-	<td>echo</td>
-	<td>-- Login</td>
+	<td>open</td>
+	<td>portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,8 +22,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -74,26 +79,21 @@
 <tr>
 	<td>type</td>
 	<td>inputEmail</td>
-	<td>hanhlt84@gmail.com</td>
+	<td>ykhue@gmail.com</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>marketing#market</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>marketing#market</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check to Subscribe</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>general#results</td>
+	<td>a-general#acme-trainings</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>general#results</td>
+	<td>check</td>
+	<td>a-general#acme-trainings</td>
 	<td></td>
 </tr>
 <tr>
@@ -107,13 +107,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>You are now subscribed to the selected newletters. </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>You are now subscribed to the selected newletters. </td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;OK</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UINewsletterViewerPortlet']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UINewsletterViewerPortlet']//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,12 +153,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

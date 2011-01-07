@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/acme/</td>
+	<td>/ecmdemo/public/acme/</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,12 +58,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- go to sites Administration</td>
+	<td>-- Go to sites Administration</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,17 +73,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[3]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon TypesOfContentIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[3]/div[1]/div/div/div/div[2]</td>
+	<td>//div[@id='UIECMAdminPortlet']//div[@class='TabIcon DefaultItemIcon TypesOfContentIcon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Add new node tpe</td>
+	<td>--&nbsp;&nbsp;Manage Node Type</td>
 	<td></td>
 </tr>
 <tr>
@@ -97,6 +97,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Add Node</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Add</td>
 	<td></td>
@@ -104,6 +109,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,12 +129,22 @@
 <tr>
 	<td>type</td>
 	<td>nodeTypeName</td>
-	<td>dung</td>
+	<td>TieuHuongDuong</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>superTypes</td>
 	<td>nt:base</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UINodeTypeForm']/div[3]/div[1]/div[1]/div/div/div/div[9]/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -133,12 +153,42 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--confirm message</td>
+	<td>--confirm message[press OK]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[3]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>NodeTypeText</td>
+	<td>TieuHuongDuong</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='NodeTypeSearchForm']/div[2]/div[1]/div/div/div/div/table/tbody/tr/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify result find Node type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>nt:TieuHuongDuong</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>nt:TieuHuongDuong</td>
 	<td></td>
 </tr>
 <tr>
@@ -157,6 +207,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- verify&nbsp;&nbsp;Super types</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>superTypes</td>
+	<td>nt:base</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>superTypes</td>
+	<td>nt:base</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Close</td>
 	<td></td>
@@ -164,6 +234,11 @@
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
 	<td></td>
 </tr>
 <tr>
