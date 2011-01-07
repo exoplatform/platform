@@ -671,6 +671,11 @@ See the Migration Tools User Guide for more informations, sections:
 * Collaboration workspace Content Migration
 * WCM Contents Publication Migration
 
+h2. ECM portlets
+
+Some WCM portlets are deprecated, such as {{Parameterized Content List Viewer Portlet}} (PCLV), {{Category Navigation Porlet}} (CN) and {{Parameterized Content Viewer Portlet}}(PCV).
+See available WCM Porlets in ECMS Developers Guide [here|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch02.html].
+
 h2. ECM actions
 
 If you have defined an ECM action, or Taxonomy Action then you have to change the type and the value of the field lifecyclePhase as follow:
