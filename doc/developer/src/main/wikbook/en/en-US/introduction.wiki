@@ -23,7 +23,7 @@ eXo Platform 3.0 is composed of Core and Extended Services.
 
 h1. Who should read this guide? 
 
-This guide is intended for systems integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portal. Accordingly, this guide will introduce you the eXo architecture, and show developers how to perform 
+This guide is intended for systems integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portal.
 
 This guide introduces the eXo architecture, and shows developers how to perform some of the most common tasks needed for working with the eXo Platform. It also serves as an entry point for the Reference Guide, which provides more in-depth technical details about eXo Platform 3.0. As a result, you will be able to customize your own portal with eXo Platform.
 
