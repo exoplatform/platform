@@ -3,51 +3,7 @@
                  "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
   <display-name>acme-portal</display-name>
-
-  <context-param>
-    <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
-    <param-value>portal</param-value>
-    <description>Binary assets workspace name</description>
-  </context-param>
-
-  <context-param>
-    <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsPath</param-name>
-    <param-value>/</param-value>
-    <description>Binary assets path</description>
-  </context-param>
-
-
-	<!-- ================================================================== -->
-	<!--   RESOURCE FILTER TO CACHE MERGED JAVASCRIPT AND CSS               -->
-	<!-- ================================================================== -->
-	<filter>
-		<filter-name>ResourceRequestFilter</filter-name>
-		<filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>ResourceRequestFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-
-	<!-- ================================================================== -->
-	<!--           LISTENER                                                 -->
-	<!-- ================================================================== -->
 	<listener>
 		<listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
 	</listener>
-	<!-- ================================================================== -->
-	<!--           SERVLET                                                  -->
-	<!-- ================================================================== -->
-	<servlet>
-		<servlet-name>GateInServlet</servlet-name>
-		<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
-	<!--  =================================================================  -->
-	<servlet-mapping>
-		<servlet-name>GateInServlet</servlet-name>
-		<url-pattern>/gateinservlet</url-pattern>
-	</servlet-mapping>
 </web-app>
