@@ -1352,6 +1352,11 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
+    
+    <!-- needed since switch to portal 3.2 -->
+<dependency><groupId>org.gatein.wci</groupId><artifactId>wci-tomcat</artifactId><version>${org.gatein.wci.version}</version><type>jar</type></dependency><!-- 2.0.2-GA-->
+
+    
   </dependencies>
   
   
