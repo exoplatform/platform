@@ -6,26 +6,13 @@
 
 <web-app>
 	<display-name>PlatformNavigation</display-name>
-
-	<listener>
-		<listener-class>
-			org.exoplatform.services.portletcontainer.impl.servlet.PortletApplicationListener
-		</listener-class>
-	</listener>
-
 	<servlet>
-		<servlet-name>PortletWrapper</servlet-name>
-		<servlet-class>
-			org.exoplatform.services.portletcontainer.impl.servlet.ServletWrapper
-		</servlet-class>
+		<servlet-name>GateInServlet</servlet-name>
+		<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>PortletWrapper</servlet-name>
-		<url-pattern>/PortletWrapper</url-pattern>
+		<servlet-name>GateInServlet</servlet-name>
+		<url-pattern>/gateinservlet</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>PortletWrapper</servlet-name>
-		<url-pattern>/PortletWrapper/*</url-pattern>
-	</servlet-mapping>
-
 </web-app>
