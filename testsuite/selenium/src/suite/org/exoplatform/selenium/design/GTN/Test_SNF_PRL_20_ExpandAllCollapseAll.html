@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -52,8 +52,108 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Add new page have sitemap portlet --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add New Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add New Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>pageName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pageName</td>
+	<td>Test_SNF_PRL_20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pageDisplayName</td>
+	<td>Test_SNF_PRL_20</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Click Next to move step 2 --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Click Next to move step 3 --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Choose web's category --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=web</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=web</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='web/SiteMapPortlet']/div/div/img</td>
+	<td>//div[2]/div/div/div[1]/div/div[2]/div/div/div/div</td>
+</tr>
+<tr>
+	<td>dragAndDropToObject</td>
+	<td>//div[@id='web/SiteMapPortlet']/div/div/img</td>
+	<td>//div[2]/div/div/div[1]/div/div[2]/div/div/div/div</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=SiteMap</td>
+	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Click on link to move to another page--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Test_SNF_PRL_20</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,47 +173,82 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Application Registry</td>
+	<td>Home</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Application Registry</td>
+	<td>Home</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Page Management</td>
+	<td>Test_SNF_PRL_20</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Page Management</td>
+	<td>Forums</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>New Staff</td>
+	<td>Documents</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Users and groups management</td>
+	<td>Sites Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Blog</td>
+	<td>Newsletter Manager</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Google</td>
+	<td>Form Generator</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Facebook</td>
+	<td>Sites Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Form Generator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Portal Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Applications Registry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Manage Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Add new Users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Manage Users and Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>IDE</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,12 +268,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- verify Application Registry disappear</td>
+	<td>-- verify Test_SNF_PRL_20 disappear</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>//div[@id='UISiteMap']/div[2]/div/div[3]/div[2]/div[1]/div/div/a</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Test_SNF_PRL_20']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- verify&nbsp;&nbsp;Appkication Registry disappear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Applications Registry']</td>
 	<td></td>
 </tr>
 <tr>
@@ -148,7 +293,7 @@
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>//div[3]/div[2]/div[2]/div/div/a</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Manage Pages']</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,60 +303,184 @@
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>//div[4]/div[2]/div[1]/div/div/a</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Add new Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- verify Users and groups management&nbsp;&nbsp;disappear</td>
+	<td>-- verify Manage Users and Groups disappear</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>//div[4]/div[2]/div[2]/div/div/a</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Manage Users and Groups']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- verify&nbsp;&nbsp;Blog disappear</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>//div[5]/div[2]/div[1]/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- verify&nbsp;&nbsp;Google disappear</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>//div[5]/div[2]/div[2]/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- verify Facebook disappear</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>//div[2]/div[3]/div/div/a</td>
+	<td>-- Delete page ( node)--</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_20']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_20']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete Node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete Node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this node?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete page in manage page --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Pages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>searchTerm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>searchTerm</td>
+	<td>Test_SNF_PRL_20</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>searchOption</td>
+	<td>label=Title</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Delete Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Delete Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Do you want to delete this page?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>No result found.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>No result found.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
