@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
@@ -63,12 +63,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table/tbody/tr/td[3]/a[1]</td>
+	<td>//div[@id='UISiteManagement']/table[1]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table/tbody/tr/td[3]/a[1]</td>
+	<td>//div[@id='UISiteManagement']/table[1]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -89,6 +89,11 @@
 <tr>
 	<td>verifyElementNotPresent</td>
 	<td>css=div[class='LAYOUT-PORTAL LAYOUT-BLOCK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch View Mode</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,12 +124,12 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
+	<td>//div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[2]/div/div/div/div[1]/div</td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
+	<td>//div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[2]/div/div/div/div[1]/div</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -149,12 +154,17 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='Gadgets/Calculator']/div/div/img</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div</td>
+	<td>//html/body/div/div[2]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/div</td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
 	<td>//div[@id='Gadgets/Calculator']/div/div/img</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div</td>
+	<td>//html/body/div/div[2]/div/div[2]/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div/div/div/div</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch View Mode</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -172,6 +182,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Switch View Mode</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Switch View Mode</td>
 	<td></td>
@@ -183,17 +198,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
 	<td>Calculator</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[1]/div/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,17 +238,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
 	<td>Container</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,15 +278,14 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
