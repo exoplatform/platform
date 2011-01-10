@@ -33,6 +33,11 @@ Version:
 	<xsl:if test="$suppress.navigation = '0' and $suppress.header.navigation = '0'">
 		<xsl:if test="$row1 or $row2">
 			<xsl:if test="$row1">
+                                <div>
+                                 <xsl:attribute name="class">
+						<xsl:text>UIPageBody</xsl:text>
+					</xsl:attribute>
+                                </div>
 				<div> <!-- xmlns="http://www.w3.org/1999/xhtml" -->
 					<xsl:attribute name="class">
 						<xsl:text>Banner</xsl:text>
