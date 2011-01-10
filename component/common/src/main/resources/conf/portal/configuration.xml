@@ -44,32 +44,4 @@
 			</component-plugin>					
 		</component-plugins>
 	</component>
-	
-	<external-component-plugins>
-		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-		<component-plugin>
-			<name>JSP filter Plugin</name>
-			<set-method>addFilterDefinitions</set-method>
-			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
-			<init-params>
-				<object-param>
-					<name>JSP Filter</name>
-					<object type="org.exoplatform.web.filter.FilterDefinition">
-						<field name="filter"><object type="org.exoplatform.commons.platform.RedefinableResourceFilter"/></field>				
-						<field name="patterns">
-                            <!-- WARNING: the mapping is expressed with regular expressions -->
-							<collection type="java.util.ArrayList" item-type="java.lang.String">
-								<value>
-									<string>.*/.*\.jsp</string>
-								</value>
-                                <value>
-                                  <string>.*/favicon\.ico</string>
-                                </value>                
-							</collection>
-						</field>
-					</object>
-				</object-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
 </configuration>
