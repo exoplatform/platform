@@ -135,7 +135,7 @@
     </init-params>
   </component>
 
-  <external-component-plugins>
+  <!--external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
       <name>Content Initializer Service</name>
@@ -167,5 +167,5 @@
         </object-param>
       </init-params>
     </component-plugin>
-  </external-component-plugins>
+  </external-component-plugins-->
 </configuration>
