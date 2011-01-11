@@ -1,0 +1,21 @@
+CS NOTES:
+
+- Make sure all data of application to test are clean
+- Make sure all data in two mails: exotest4@gmail.com (pass: exovietnam) and exotest3@gmail.com (pass: exovietnam) are clean before run the test.
+- Run the file script : Test_Mail.html firstly to create default data used during the test process.
+- Need to set valid email address for mary, demo, john, root before the tes. Current email addresses of the default 
+- Login by root, change the Time Zone corresponding to your local pc time zone to check reminder pop up function
+- Place file Test_Attachment.html in D:/ path or change path corresponding in case Ubuntu is used e.g:/home/cong_nguyen/Test_Attachment.html for the location of the filename upload (SNF_CS_29)
+- Some cases can not recorded: Export/Import in Calendar/Mail/Contact(SNF_CS_50,SNF_CS_51,SNF_CS_19,SNF_CS_20)
+- The cases related to Chat is  not recorded. It should be tested manually because it needs the interaction of at least 2 browsers
+
+- SNF_CS_25, SNF_CS_27, SNF_CS_28, SNF_CS_29 : It may be failed because of the checkmail function is slow or on stable
+
+
+
+
+
+
+
+
+
