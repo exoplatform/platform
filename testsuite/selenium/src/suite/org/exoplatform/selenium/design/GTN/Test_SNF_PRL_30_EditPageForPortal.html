@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,7 +138,7 @@
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/classic/Test_SNF_PRL_30</td>
+	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_30</td>
 	<td></td>
 </tr>
 <tr>
@@ -173,12 +173,12 @@
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>css= div[@id=&quot;UIPortalApplication&quot;]</td>
+	<td>//div[@class=&quot;UIPortalApplication&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>css= div[@id=&quot;UIPortalApplication&quot;]</td>
+	<td>//div[@class=&quot;UIPortalApplication&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -503,12 +503,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
+	<td>link=Test_SNF_PRL_30</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
+	<td>link=Test_SNF_PRL_30</td>
 	<td></td>
 </tr>
 <tr>
@@ -518,17 +518,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
@@ -538,12 +528,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[8]/div/a</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[8]/div/a</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -577,8 +577,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -587,14 +597,19 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Pages</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=Page Management</td>
+	<td>link=Manage Pages</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>searchTerm</td>
-	<td>Test_SNF_PRL_30</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -668,15 +683,14 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

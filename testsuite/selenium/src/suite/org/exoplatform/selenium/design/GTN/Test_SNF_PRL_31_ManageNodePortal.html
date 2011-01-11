@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
@@ -63,12 +63,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,28 +197,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-- View new node--</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
+	<td>link=Test_SNF_PRL_31</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Test_SNF_PRL_31</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Test_SNF_PRL_31</td>
+	<td>link=Test_SNF_PRL_31</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,17 +223,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -259,6 +254,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Edit this Node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -367,28 +367,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-- View node node after change page --</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
+	<td>link=Test_SNF_PRL_31_edit</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='PortalNavigationTopContainer']/div[3]/div/div/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Test_SNF_PRL_31_edit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Test_SNF_PRL_31_edit</td>
+	<td>clickAndWait</td>
+	<td>link=Test_SNF_PRL_31_edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -398,22 +393,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -458,12 +453,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
