@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,18 +22,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Login</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Sites Explorer</td>
+	<td>-- Site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -107,11 +107,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Go to Action tab</td>
 	<td></td>
@@ -124,11 +119,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -208,7 +198,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,7 +213,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -244,11 +234,6 @@
 <tr>
 	<td>echo</td>
 	<td>--Open form to add language</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -279,11 +264,11 @@
 <tr>
 	<td>select</td>
 	<td>typeLang</td>
-	<td>label=Vietnamese</td>
+	<td>label=French</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//option[@value='vi']</td>
+	<td>//option[@value='fr']</td>
 	<td></td>
 </tr>
 <tr>
@@ -294,7 +279,7 @@
 <tr>
 	<td>type</td>
 	<td>title</td>
-	<td>vietnam</td>
+	<td>FrenchDocument</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -307,9 +292,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>vietnam</td>
+	<td>French</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -322,9 +307,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>typeKeys</td>
+	<td>type</td>
 	<td>//html/body</td>
-	<td>vietnam</td>
+	<td>paris</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -359,12 +344,12 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>languages</td>
-	<td>label=Vietnamese</td>
+	<td>label=French</td>
 </tr>
 <tr>
 	<td>select</td>
 	<td>languages</td>
-	<td>label=Vietnamese</td>
+	<td>label=French</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -377,8 +362,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Check French</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>FrenchDocument</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>FrenchDocument</td>
 	<td></td>
 </tr>
 <tr>
@@ -394,11 +389,6 @@
 <tr>
 	<td>click</td>
 	<td>//a[text()='Add/Edit localised contents']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -419,6 +409,16 @@
 <tr>
 	<td>click</td>
 	<td>link=View</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Thap len rung ro mot troi may. Ngat ngay nang trong tinh yeu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thap len rung ro mot troi may. Ngat ngay nang trong tinh yeu</td>
 	<td></td>
 </tr>
 <tr>
@@ -452,23 +452,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

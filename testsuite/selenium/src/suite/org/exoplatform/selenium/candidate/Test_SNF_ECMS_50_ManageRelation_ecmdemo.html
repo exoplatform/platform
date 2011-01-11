@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,18 +22,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Login</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Sites Explorer</td>
+	<td>-- Site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -124,11 +124,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,11 +139,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Document</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,7 +203,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -229,11 +219,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,11 +252,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>selectTemplate</td>
 	<td>label=Kofax document</td>
@@ -280,11 +260,6 @@
 	<td>select</td>
 	<td>selectTemplate</td>
 	<td>label=Kofax document</td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -308,7 +283,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -324,11 +299,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -352,11 +322,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>//a[text()='Admin']</td>
 	<td></td>
@@ -364,11 +329,6 @@
 <tr>
 	<td>click</td>
 	<td>//a[text()='Admin']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -498,7 +458,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -509,11 +469,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Info</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -652,11 +607,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Close</td>
 	<td></td>
@@ -703,7 +653,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -753,17 +703,17 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
+	<td>link=Kofax</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>//div[@class='UIViewRelationList']//a[text()='Kofax']</td>
+	<td>link=Kofax</td>
 	<td></td>
 </tr>
 <tr>
@@ -773,12 +723,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

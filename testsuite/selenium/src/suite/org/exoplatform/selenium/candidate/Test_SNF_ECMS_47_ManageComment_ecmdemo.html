@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,23 +22,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>--Login</td>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Login</td>
+	<td>echo</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Site explorer</td>
+	<td>-- Site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,13 +107,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>echo</td>
+	<td>-- Go to Action tab</td>
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- Go to Action tab</td>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -129,11 +124,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -149,11 +139,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Document</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,7 +163,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -193,7 +178,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -237,23 +222,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//iframe[@id='comment___Frame']</td>
+	<td>//td[@id='cke_contents_comment']//iframe</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
-	<td>//iframe[@id='comment___Frame']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td>//td[@id='cke_contents_comment']//iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -278,7 +253,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -294,11 +269,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Show comments</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -328,27 +298,17 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//iframe[@id='comment___Frame']</td>
+	<td>//td[@id='cke_contents_comment']//iframe</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
-	<td>//iframe[@id='comment___Frame']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td>//td[@id='cke_contents_comment']//iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,7 +328,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -467,28 +427,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=Test_SNF_ECMS_47</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
