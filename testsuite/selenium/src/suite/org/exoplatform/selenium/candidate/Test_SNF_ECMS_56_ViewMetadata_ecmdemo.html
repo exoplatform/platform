@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,18 +22,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-- Login ---</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to site Explorer</td>
+	<td>-- Site Explorer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,11 +112,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Actions</td>
 	<td></td>
@@ -124,11 +119,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,11 +134,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Document</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -165,11 +150,6 @@
 	<td>select</td>
 	<td>selectTemplate</td>
 	<td>label=File</td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -218,7 +198,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -237,11 +217,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Open form to view metadata</td>
 	<td></td>
@@ -254,11 +229,6 @@
 <tr>
 	<td>click</td>
 	<td>link=File_56</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -277,11 +247,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=View Metadatas</td>
 	<td></td>
@@ -289,11 +254,6 @@
 <tr>
 	<td>click</td>
 	<td>link=View Metadatas</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -402,11 +362,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Cancel</td>
 	<td></td>
@@ -432,11 +387,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- OK</td>
 	<td></td>
@@ -453,7 +403,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -492,23 +442,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

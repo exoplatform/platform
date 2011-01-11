@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_ECMS_54_ViewNodeType_ecmdemo</title>
+<title>Test_SNF_ECMS_04_EditSCV_ecmdemo</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_54_ViewNodeType_ecmdemo</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_04_EditSCV_ecmdemo</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -37,6 +37,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>username</td>
 	<td>root</td>
@@ -53,132 +58,132 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Site Explorer</td>
+	<td>-- Change Edit mode</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>EditingOptions</td>
+	<td>label=Edit</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Edit SCV at footer on Overview page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[4]/div/div/div[1]/div[1]/div/div/div/div/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[4]/div/div/div[1]/div[1]/div/div/div/div/div[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
+	<td>//div[4]/div/div/div[1]/div[1]/div/div/div/div/div[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>-- Change content</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@title='Show Drives']</td>
+	<td>//td[contains(@id,'cke_contents_htmlData')]/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//td[contains(@id,'cke_contents_htmlData')]/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Powered by eXo WCM - Copyright @ 2000-2009. All rights Reserved, eXo Platform SEA</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Save as Draft')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@title='Show Drives']</td>
+	<td>//div[contains(text(),'Save as Draft')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private drive</td>
+	<td>-- Close</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>//div[contains(text(),'Close')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>//div[contains(text(),'Close')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--&nbsp;&nbsp;Select Admin View</td>
+	<td>-- Back Overview</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@title='Admin View']</td>
+	<td>//div[@id='UIViewBarContainer']/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@title='Admin View']</td>
+	<td>//div[@id='UIViewBarContainer']/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Powered by eXo WCM - Copyright @ 2000-2009. All rights Reserved, eXo Platform SEA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Powered by eXo WCM - Copyright @ 2000-2009. All rights Reserved, eXo Platform SEA</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Info Tab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Info</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Info</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Documents</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Documents</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Documents</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--View Node Types</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=View Node Types</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=View Node Types</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[text()='NodeType Infomation']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//div[text()='NodeType Infomation']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Logout</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>
