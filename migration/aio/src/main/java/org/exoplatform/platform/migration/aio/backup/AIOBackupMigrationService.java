@@ -34,6 +34,7 @@ import javax.xml.stream.XMLStreamWriter;
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.migration.aio.backup.exporter.CollaborationWorkspaceStreamExporter;
+import org.exoplatform.platform.migration.aio.backup.exporter.KnowledgeWorkspaceStreamExporter;
 import org.exoplatform.platform.migration.aio.backup.exporter.SystemWorkspaceStreamExporter;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.config.RepositoryConfigurationException;
@@ -58,6 +59,8 @@ import org.exoplatform.services.log.ExoLogger;
 import org.xml.sax.SAXException;
 
 public class AIOBackupMigrationService {
+
+  public static final String KNOWLEDGE_WS_NAME = "knowledge";
 
   private static final String SYSTEM_WS_NAME = "system";
 
@@ -107,9 +110,13 @@ public class AIOBackupMigrationService {
 
   private void exportWorkspace(OutputStream out, String repositoryName, String workspaceName, boolean skipBinary, boolean noRecurse) throws IOException, PathNotFoundException, RepositoryException {
     try {
+      String effectiveWorkspaceName = workspaceName;
+      if (workspaceName.equals(KNOWLEDGE_WS_NAME)) {
+        effectiveWorkspaceName = COLLABORATION_WS_NAME;
+      }
       ManageableRepository repository = (ManageableRepository) repoService.getRepository(repositoryName);
-      SessionImpl session = (SessionImpl) repository.getSystemSession(workspaceName);
-      WorkspaceContainerFacade workspaceContainer = repository.getWorkspaceContainer(workspaceName);
+      SessionImpl session = (SessionImpl) repository.getSystemSession(effectiveWorkspaceName);
+      WorkspaceContainerFacade workspaceContainer = repository.getWorkspaceContainer(effectiveWorkspaceName);
       LocalWorkspaceDataManagerStub workspaceDataManager = (LocalWorkspaceDataManagerStub) workspaceContainer.getComponent(LocalWorkspaceDataManagerStub.class);
       SessionDataManager dataManager = new SessionDataManager(session, workspaceDataManager);
 
@@ -125,6 +132,8 @@ public class AIOBackupMigrationService {
         exporter = new CollaborationWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse, this.deleteWCMServicesLogNodes);
       } else if (workspaceName.equals(SYSTEM_WS_NAME)) {
         exporter = new SystemWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse);
+      } else if (workspaceName.equals(KNOWLEDGE_WS_NAME)) {
+        exporter = new KnowledgeWorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(), valueFactoryImpl, skipBinary, noRecurse);
       } else {
         throw new RuntimeException("Unknown Workspace name. No backup Job launched for workspace : " + workspaceName);
       }

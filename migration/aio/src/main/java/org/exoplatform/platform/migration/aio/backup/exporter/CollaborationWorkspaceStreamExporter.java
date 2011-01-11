@@ -27,6 +27,11 @@ public class CollaborationWorkspaceStreamExporter extends WorkspaceSystemViewStr
   private boolean deleteWCMServicesLogNodes;
 
   private static List<String> wcmServicesLogNodesNames = null;
+
+  private static final String FAQ_SERVICE_NODE_NAME = "faqApp";
+
+  private static final String FORUM_SERVICE_NODE_NAME = "ForumService";
+
   static {
     wcmServicesLogNodesNames = Arrays.asList(new String[] { "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService" });
   }
@@ -40,6 +45,9 @@ public class CollaborationWorkspaceStreamExporter extends WorkspaceSystemViewStr
     try {
       String nodeName = getExportName(node, false);
       if (this.deleteWCMServicesLogNodes && (currentLevel == 2) && wcmServicesLogNodesNames.contains(nodeName)) {
+        return;
+      }
+      if ((currentLevel == 2) && (nodeName.equals(FORUM_SERVICE_NODE_NAME) || nodeName.equals(FAQ_SERVICE_NODE_NAME))) {
         return;
       }
       entering(node, currentLevel);

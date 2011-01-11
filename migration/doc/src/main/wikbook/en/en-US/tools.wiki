@@ -530,8 +530,11 @@ h2. Data Migration
 
 h3. Collaboration workspace Content Migration
 
-The main goal of this RESTfull Service is to migrate the totality of an AIO Collaboration workspace, to PLF compliant collaboration workspace.
+The main goal of this RESTfull Service is to migrate the totality of an AIO Collaboration workspace, to PLF compliant collaboration&knowledge workspaces.
 So it is only useful in case of you have already a collaboration workspace in an AIO server, that is in production or pre-production environment, else, which means, if you are using AIO in development project phase, you 'll probably not use this tool.
+{info}
+This tool will generate the Forum and FAQ data in a separate workspace backup. This workspace name is {{knowledge}}, which refers the workspace used for FAQ&Forum in PLF.
+{info}
 
 Steps:
 # Add migration libraries to AIO instance
@@ -541,10 +544,11 @@ Steps:
 # You 'll have to wait until these messages appear in the 'AIO Server's console'
 {code}
 [INFO] BackupService - collaboration backup done successfully!
+[INFO] BackupService - knowledge backup done successfully!
 [INFO] BackupService - system backup done successfully!
 {code}
 After that, you 'll get two sub folders in the chosen location:
-# Collaboration backup : The whole workspace was backed up, but you could modify this Migration Tool configuration in order to delete some WCM configuration nodes. Those nodes will allow enable/disable those services "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService". The configuration looks like this: {code:xml}
+# Collaboration backup : the whole workspace was backed up, but you could modify this Migration Tool configuration in order to delete some WCM configuration nodes. Those nodes will allow enable/disable those services "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService". The configuration looks like this: {code:xml}
 ...
 <component>
 	<type>org.exoplatform.platform.migration.aio.backup.AIOBackupMigrationService</type>
@@ -557,9 +561,10 @@ After that, you 'll get two sub folders in the chosen location:
 </component>
 ...
 {code} If you set this init param {{delete.wcm.services.log.nodes}} to false, on PLF startup, those services will not load configurations, and will not deploy configured artifacts. This could be usefull, if you don't want to add default DATAs by configuration. Learn more about ECMS [auto deployed artifacts|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch03.html#d0e26140].
-# System backup: Not all contents of system workspace was backed up, we find into it:
+# System backup: not all contents of system workspace was backed up, we find into it:
 * Version History nodes.
 * Bonita business processe definitions nodes
+# Knowledge backup : the content of PLF knowledge workspace. This data is generated from AIO Collaboration workspace, it contains the FAQ&Forum data nodes (Categories, posts ...).
 # In PLF, use this [documentation|http://platform.demo.exoplatform.org/docs/refguide/html/ch-exojcr-backup-service.html#d0e7239] steps to perform a restore for each workspace, [download this configuration|^repository-configuration.zip] to put in "TOMCAT/gatein/conf/portal/portal/" as an example.
 
 h3. WCM Contents Publication Migration

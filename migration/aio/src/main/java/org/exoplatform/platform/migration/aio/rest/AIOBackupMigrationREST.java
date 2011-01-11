@@ -86,6 +86,14 @@ public class AIOBackupMigrationREST implements ResourceContainer {
         config.setBackupDir(new File(backupLocation));
         backupService.startBackupWorkspace(config);
       }
+      {// Backup knowledge workspace
+        BackupConfig config = new BackupConfig();
+        config.setBuckupType(BackupManager.FULL_BACKUP_ONLY);
+        config.setRepository("repository");
+        config.setWorkspace("knowledge");
+        config.setBackupDir(new File(backupLocation));
+        backupService.startBackupWorkspace(config);
+      }
     } catch (Exception e) {
       log.error("Can't start backup", e);
     }
