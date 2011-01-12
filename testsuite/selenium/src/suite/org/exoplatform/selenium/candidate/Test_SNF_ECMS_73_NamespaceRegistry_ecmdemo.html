@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,18 +22,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-- Login</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to sites Administration</td>
+	<td>--&nbsp;&nbsp;Go to Site Admin</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
+	<td>//a[contains(@href, '/portal/private/acme/wcmAdmin')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,7 +138,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -163,12 +163,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>

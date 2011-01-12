@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/ecmdemo/public/acme/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -22,18 +22,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Visit the Acme Website</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-- Login</td>
+	<td>-- Log in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,12 +53,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to sites Administration</td>
+	<td>--&nbsp;&nbsp;Go to Site Admin</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
+	<td>//a[contains(@href, '/portal/private/acme/wcmAdmin')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,7 +114,7 @@
 <tr>
 	<td>type</td>
 	<td>viewName</td>
-	<td>LinhNhi</td>
+	<td>ZLinhNhi</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -208,7 +208,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -248,12 +248,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[4]/td[5]/div/img[2]</td>
+	<td>//img[contains(@onclick,&quot;ZLinhNhi&quot;) and @title=&quot;Edit&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[4]/td[5]/div/img[2]</td>
+	<td>//img[contains(@onclick,&quot;ZLinhNhi&quot;) and @title=&quot;Edit&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -318,7 +318,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -333,7 +333,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -352,23 +352,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=3</td>
+	<td>link=2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=3</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>link=2</td>
 	<td></td>
 </tr>
 <tr>
@@ -378,12 +368,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
+	<td>//tr[8]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
+	<td>//tr[8]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -408,12 +398,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>LinhNhi</td>
+	<td>ZLinhNhi</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>LinhNhi</td>
+	<td>check</td>
+	<td>ZLinhNhi</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -423,7 +418,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -433,7 +428,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/siteExplorer']</td>
+	<td>//a[@href='/portal/private/acme/siteExplorer']</td>
 	<td></td>
 </tr>
 <tr>
@@ -517,11 +512,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>//a[text()='YKhue']</td>
 	<td></td>
@@ -558,7 +548,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//a[@href='/ecmdemo/private/acme/wcmAdmin']</td>
+	<td>//a[contains(@href, '/portal/private/acme/wcmAdmin')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -582,33 +572,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=3</td>
+	<td>link=2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=3</td>
+	<td>link=2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
+	<td>//tr[8]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']//tr[3]/td[7]/div/img[1]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>//tr[8]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -623,12 +603,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>LinhNhi</td>
+	<td>ZLinhNhi</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>LinhNhi</td>
+	<td>uncheck</td>
+	<td>ZLinhNhi</td>
 	<td></td>
 </tr>
 <tr>
@@ -658,12 +638,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[4]/td[5]/div/img[3]</td>
+	<td>//img[contains(@onclick,&quot;ZLinhNhi&quot;) and @title=&quot;Delete&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[4]/td[5]/div/img[3]</td>
+	<td>//img[contains(@onclick,&quot;ZLinhNhi&quot;) and @title=&quot;Delete&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -678,12 +658,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
