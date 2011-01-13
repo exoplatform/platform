@@ -1,18 +1,18 @@
 h1. How to backup Platform
 
 eXo Platform instance backup involves backing up the databases and the filesystems for JCR index and value storage.
-JCR backup should be done off-line (!). All datas under {{$\{gatein.data.dir\}}} should be backuped. 
+JCR backup should be done off-line (!). Allmost all data under {{$\{gatein.data.dir\}}} should be backuped (find details below in "Plan backup" paragraph). 
 
 {note}
-By default variable {{$\{gatein.data.dir\}}} points to {{$APPSEVER_HOME/gatein/data}} folder.
+Variable {{$\{gatein.data.dir\}}} defined in eXo configuration _configuration.properties_ and by default points to {{$APPSEVER_HOME/gatein/data}} folder.
 
-Use this _tar_ command for file backup in your application server home dir: 
+You can use this _tar_ command for file backup from your application server home dir: 
 {screen}tar cvjf gatein-backup.tar.bz gatein/data{screen}
 {note}
 
-SQL database backup should use backup tools your RDMBS provides.
 {note}
- Example: mysqldump on MySQL
+SQL database backup should use backup tools your RDMBS provides.
+Example: [mysqldump|http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html] on MySQL
 {note}
 
 h2. Plan backup
@@ -29,17 +29,68 @@ In case of Platform cluster every node should be stopped before a backup will be
 {warning}
 
 Platform backup consists of following parts:
-* JCR files backup
-* JCR database backup
-* Organization service database backup
+* JCR data backup
+** JCR index files, pointed by configuration property {{$\{gatein.jcr.index.data.dir\}}} 
+** JCR value storage files, pointed by configuration property {{$\{gatein.jcr.storage.data.dir\}}} 
+** JCR database backup, database specified in JDNI configuration of Application server with "exo-jcr_portal" name
+* Organization service database backup, database specified in JDNI configuration of Application server with "exo-idm_portal" name
+* Transaction service files backup, pointed by configuration property {{$\{com.arjuna.ats.arjuna.objectstore.objectStoreDir\}}} 
 
 {note}
-Platform in this context means one Portal application, what is by default. But if your Platform instance runs has several portals, each portal has own JCR and Organization services. So, each portal should be backed up separately.
+Platform in this context means one Portal application, what is by default. But if your Platform instance runs several portals, each portal has own JCR, Organization and Transaction services. So, each portal should be backed up separately.
 In this document a single-portal Platform backup described. It just can be repeated for each portal of your system. 
 {note}
 
+{note}
+Only two kind of JCR files are important in backup sense: index and value storages. 
+The {{$\{gatein.jcr.data.dir\}}} folder (by default it's {{$\{gatein.data.dir\}/jcr}}) also contain _swap_ sub-folder.
+The _swap_ folder used for temporary files in case when BLOBs stored in database (see JCR configuration guide) and has no meaning for backup.
+{note}
+
 Below given an example of Platform backup process organization. This example introduces basic principles and will help to create your backup implementation.
-TODO: weekly basis schedule, folders for backup store, sample files naming, MySQL DB in context.
+
+h3. Example backup planning
+
+*Environment*
+* Platform server runs on RedHat Linux server
+* We have remote database server MySQL 5.1 _mysqlhost_
+** JCR database _jcrdb_
+** Organization service database _idmdb_
+* Platform files are on network mounted storage _/mnt/netfs/platform_
+** JCR value storage files in _/mnt/netfs/platform/jcr/values_
+** JCR index files in _/mnt/netfs/platform/jcr/index_
+** Transaction service store in _/mnt/netfs/platform/jta_
+* Backup storage located on dedicated network mounted storage _/mnt/backupfs/my_plf_backup_
+
+*Naming and Rotation*
+It's a general case when backup organized in two cycles rotation: everyday backup files stored for a last week days, older data stored on weekly basis and we'll plan to keep three years history at all.
+
+To implement this approach we'll run daily backups (at night time when our site isn't in use) and will store result files (database and JCR files) on network storage in following structure:
+* _/my_plf_backup/2010/..._ - prev year archive
+* _/my_plf_backup/2011/_ - present year folder
+* _/my_plf_backup/2011/weeks_ - weeks archive for current year
+* _/my_plf_backup/2011/weeks/01_ - first week in year folder
+* _/my_plf_backup/2011/weeks/02_ - second week in year folder
+etc.
+
+Files will have following format (using ISO 8601 date format):
+* _yyyy-MM-dd_mysql_jcrdb.tar.gz_ - for JCR database backup
+* _yyyy-MM-dd_mysql_idmdb.tar.gz_ - for Organization service database backup
+* _yyyy-MM-dd_jcr_values.tar.gz_ - for JCR value storage files backup
+* _yyyy-MM-dd_jcr_index.tar.gz_ - for JCR index files backup
+* _yyyy-MM-dd_jta.tar.gz_ - for Transaction service files backup
+
+For files backup we have a shell script running on the Platform server. This script does next steps:
+* Stops the Platform server (ensure full stop by log sniffering)
+* Runs database backup tool against _jcrdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/2011/yyyy-MM-dd_mysql_jcrdb.tar.gz_
+* Runs database backup tool against _idmdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/2011/yyyy-MM-dd_mysql_idmdb.tar.gz_
+* Copies JCR value files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_values.tar.gz_
+* Copies JCR index files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_index.tar.gz_
+* Copies Transaction service files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jta.tar.gz_
+* On each Sunday copies all 7 days old archive files to a week folder, e.g. * _/my_plf_backup/2011/weeks/02_ for backup at January 9, 2011. 
+* Otherwise deletes files older of 7 days from _/my_plf_backup/2011/_
+* Starts the Platform server
+* Sends mail to Admin in case of error on any step.
 
 
 h2. Perform backup

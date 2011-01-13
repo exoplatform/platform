@@ -20,6 +20,10 @@ h1. Security
 
 {include:document=security.wiki|syntax=confluence/1.0}
 
+h1. Backup
+
+{include:document=backup.wiki|syntax=confluence/1.0}
+
 h1. Clustering
 
 {include:document=clustering.wiki|syntax=confluence/1.0}
