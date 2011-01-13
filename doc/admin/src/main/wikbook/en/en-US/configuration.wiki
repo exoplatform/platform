@@ -294,7 +294,33 @@ We declare resource links that make our datasources accessible to the starter we
 {code}                  
  
 
+h2. Database configuration FAQ
 
+h3. How do I remove idle MySQL connections
+
+Some RDBMS, like MySQL, close idle connections after a while (8h by default on MySQL). Thus, a connection from the pool will be invalid and of course any application SQL command will fail, resulting in errors like:
+{code}
+org.hibernate.SessionException: Session is closed!
+at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java:72)
+at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342)
+{code}
+
+To avoid this, a solution is to use DBCP to monitor idle connections and drop them when they are invalid, with the parameters *testWhileIdle*, *timeBetweenEvictionRunsMillis* and *validationQuery*.
+
+The validation query is specific to your RDBMS, for example on MySQL you would use:
+{code:xml}
+testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
+{code}
+* *testWhileIdle* activates idle connections monitoring
+* *timeBetweenEvictionRunsMillis* defines the time interval between two checks in milliseconds (5 minutes in the example)
+* *validationQuery* provides a simple SQL command to validate the connection to the RDBMS
+
+You can add these parameters in the datasource configuration file of your application server (i.e. conf/server.xml on Tomcat).
+
+For more details about the configuration, or some examples on other RDBMS and applications servers, please refer to:
+* http://markmail.org/message/a3bszoyqbvi5qer4
+* http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
+* http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
 
 h1. FileSystem paths
 
