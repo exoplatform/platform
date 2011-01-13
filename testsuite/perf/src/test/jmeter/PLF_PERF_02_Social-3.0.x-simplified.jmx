@@ -300,18 +300,6 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
-                  <stringProp name="ConstantTimer.delay">${StartUpDelayTime}</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor log iteration startup information" enabled="false">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;));
-//log.info(&quot;Thread [&quot; +vars.get(&quot;ThreadName&quot;) + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;));</stringProp>
-                </BeanShellPostProcessor>
-                <hashTree/>
               </hashTree>
               <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1120.Click to login (/portal/public/intranet/)" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -702,10 +690,6 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <stringProp name="RegexExtractor.default">xxxexotokenxxx</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
-                <hashTree/>
-                <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop the thread if user can not login***" enabled="false">
-                  <intProp name="OnError.action">1</intProp>
-                </ResultAction>
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="--Response Assertion SecureToken${ImportanceAssertionHighlightString}" enabled="true">
                   <collectionProp name="Asserion.test_strings">
@@ -8423,11 +8407,6 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <intProp name="Assertion.test_type">2</intProp>
                   </ResponseAssertion>
                   <hashTree/>
-                  <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop if the assertion failed***" enabled="false">
-                    <stringProp name="TestPlan.comments">if there is no invite to VUser... then stop</stringProp>
-                    <intProp name="OnError.action">1</intProp>
-                  </ResultAction>
-                  <hashTree/>
                   <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
                     <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
      if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
@@ -8716,11 +8695,6 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <stringProp name="Assertion.scope">variable</stringProp>
                     <stringProp name="Scope.variable">publicSpaceObjectId</stringProp>
                   </ResponseAssertion>
-                  <hashTree/>
-                  <ResultAction guiclass="ResultActionGui" testclass="ResultAction" testname="--Stop if the assertion failed***" enabled="false">
-                    <stringProp name="TestPlan.comments">if there is no invite to VUser... then stop</stringProp>
-                    <intProp name="OnError.action">1</intProp>
-                  </ResultAction>
                   <hashTree/>
                   <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
                     <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
