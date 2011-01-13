@@ -1,10 +1,10 @@
 h1. How to backup Platform
 
 eXo Platform instance backup involves backing up the databases and the filesystems for JCR index and value storage.
-JCR backup should be done off-line (!). Allmost all data under {{$\{gatein.data.dir\}}} should be backuped (find details below in "Plan backup" paragraph). 
+JCR backup should be done off-line. Allmost all data under {{gatein.data.dir}} should be backuped (find details below in "Plan backup" paragraph). 
 
 {note}
-Variable {{$\{gatein.data.dir\}}} defined in eXo configuration _configuration.properties_ and by default points to {{$APPSEVER_HOME/gatein/data}} folder.
+Variable {{gatein.data.dir}} defined in eXo configuration _configuration.properties_ and by default points to {{$APPSEVER_HOME/gatein/data}} folder.
 
 You can use this _tar_ command for file backup from your application server home dir: 
 {screen}tar cvjf gatein-backup.tar.bz gatein/data{screen}
@@ -30,11 +30,11 @@ In case of Platform cluster every node should be stopped before a backup will be
 
 Platform backup consists of following parts:
 * JCR data backup
-** JCR index files, pointed by configuration property {{$\{gatein.jcr.index.data.dir\}}} 
-** JCR value storage files, pointed by configuration property {{$\{gatein.jcr.storage.data.dir\}}} 
+** JCR index files, pointed by configuration property {{gatein.jcr.index.data.dir}} 
+** JCR value storage files, pointed by configuration property {{gatein.jcr.storage.data.dir}}
 ** JCR database backup, database specified in JDNI configuration of Application server with "exo-jcr_portal" name
 * Organization service database backup, database specified in JDNI configuration of Application server with "exo-idm_portal" name
-* Transaction service files backup, pointed by configuration property {{$\{com.arjuna.ats.arjuna.objectstore.objectStoreDir\}}} 
+* Transaction service files backup, pointed by configuration property {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}}
 
 {note}
 Platform in this context means one Portal application, what is by default. But if your Platform instance runs several portals, each portal has own JCR, Organization and Transaction services. So, each portal should be backed up separately.
@@ -43,7 +43,7 @@ In this document a single-portal Platform backup described. It just can be repea
 
 {note}
 Only two kind of JCR files are important in backup sense: index and value storages. 
-The {{$\{gatein.jcr.data.dir\}}} folder (by default it's {{$\{gatein.data.dir\}/jcr}}) also contain _swap_ sub-folder.
+The {{gatein.jcr.data.dir}} folder (by default it's {{$gatein.data.dir/jcr}}) also contain _swap_ sub-folder.
 The _swap_ folder used for temporary files in case when BLOBs stored in database (see JCR configuration guide) and has no meaning for backup.
 {note}
 
@@ -71,9 +71,9 @@ To implement this approach we'll run daily backups (at night time when our site 
 * _/my_plf_backup/2011/weeks_ - weeks archive for current year
 * _/my_plf_backup/2011/weeks/01_ - first week in year folder
 * _/my_plf_backup/2011/weeks/02_ - second week in year folder
-etc.
+* _/my_plf_backup/2011/weeks/N_ - N week in year folder
 
-Files will have following format (using ISO 8601 date format):
+Files will have following format (using [ISO 8601|http://en.wikipedia.org/wiki/ISO_8601] date format):
 * _yyyy-MM-dd_mysql_jcrdb.tar.gz_ - for JCR database backup
 * _yyyy-MM-dd_mysql_idmdb.tar.gz_ - for Organization service database backup
 * _yyyy-MM-dd_jcr_values.tar.gz_ - for JCR value storage files backup
@@ -87,7 +87,7 @@ For files backup we have a shell script running on the Platform server. This scr
 * Copies JCR value files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_values.tar.gz_
 * Copies JCR index files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_index.tar.gz_
 * Copies Transaction service files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jta.tar.gz_
-* On each Sunday copies all 7 days old archive files to a week folder, e.g. * _/my_plf_backup/2011/weeks/02_ for backup at January 9, 2011. 
+* On each Sunday copies all 7 days old archive files to a week folder, e.g. _/my_plf_backup/2011/weeks/02_ for backup at January 9, 2011. 
 * Otherwise deletes files older of 7 days from _/my_plf_backup/2011/_
 * Starts the Platform server
 * Sends mail to Admin in case of error on any step.
@@ -95,11 +95,13 @@ For files backup we have a shell script running on the Platform server. This scr
 
 h2. Perform backup
 
-TODO: describe steps
-
+TODO describe steps
 
 
 h2. Perform restore 
 
-TODO: Intro and notes about all should be stopped
-TODO: Describe steps
+TODO Intro and notes about all should be stopped
+TODO Describe steps
+
+
+aaaa
