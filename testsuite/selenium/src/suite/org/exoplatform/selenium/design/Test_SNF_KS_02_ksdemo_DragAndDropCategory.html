@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_KS_02_ksdemo_DragAndDropCategory</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_02_ksdemo_DragAndDropCategory</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td>exo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div[@class='ButtonMiddle']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div[@class='ButtonMiddle']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/answers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_02_Category 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>SNF_KS_02_Category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>SNF_KS_02_Category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_02_Category 2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Drag and Drop-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='UICategories']/div/div[4]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>dragAndDropToObject</td>
+	<td>//div[@class='UICategories']/div/div[6]//a</td>
+	<td>//div[@class='UICategories']/div/div[8]//a</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<!--Moved category disappear after move(Problem from selenium)-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_02_Category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=SNF_KS_02_Category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Delete Test Data-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='FAQCategroManager']//div[@class='UIRightPopupMenuContainer']/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='FAQCategroManager']//div[@class='UIRightPopupMenuContainer']/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this category ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_KS_02_Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
