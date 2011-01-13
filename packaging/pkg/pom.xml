@@ -517,7 +517,12 @@
       <version>${org.gatein.wci.version}</version>
       <type>jar</type>
     </dependency>
-    <!-- 2.0.1-GA-->
+    <dependency>
+      <groupId>org.gatein.wci</groupId>
+      <artifactId>wci-tomcat</artifactId>
+      <version>${org.gatein.wci.version}</version>
+      <type>jar</type>
+    </dependency>
     <dependency>
       <groupId>commons-digester</groupId>
       <artifactId>commons-digester</artifactId>
