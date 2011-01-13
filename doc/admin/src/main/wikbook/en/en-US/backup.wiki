@@ -1,8 +1,54 @@
-h1. How to backup eXo
+h1. How to backup Platform
 
-eXo instance backup involves backing up the databases and the filesystems for index and value storage.
-JCR backup should be done off-line. All datas under gatein/data should be backuped. Use this tar command : 
+eXo Platform instance backup involves backing up the databases and the filesystems for JCR index and value storage.
+JCR backup should be done off-line (!). All datas under {{$\{gatein.data.dir\}}} should be backuped. 
 
+{note}
+By default variable {{$\{gatein.data.dir\}}} points to {{$APPSEVER_HOME/gatein/data}} folder.
+
+Use this _tar_ command for file backup in your application server home dir: 
 {screen}tar cvjf gatein-backup.tar.bz gatein/data{screen}
+{note}
 
-SQL backup should use RDBMS tools, it will depend on engine. Example: mysqldump on MySQL
+SQL database backup should use backup tools your RDMBS provides.
+{note}
+ Example: mysqldump on MySQL
+{note}
+
+h2. Plan backup
+
+Start you backup strategy with a concept of a data repository. The backup data needs to be stored somehow and probably should be organized to a degree.
+eXo Platform instance backup will produces set of files. What can be located on various storage medias (hard disk, tape, optical or solid storages, or even a special remote backup services can be used).  
+Organization of the files in catalogs (folders) or use of different media is up to a concrete Plaform implementation. 
+But it is highly recommended to apply a [Backup rotation scheme|http://en.wikipedia.org/wiki/Backup_rotation_scheme] to make the backup implementation effective and reliable.
+Also always use your Operating System and Database software available backup solutions. It will simplify backup organization and help to avoid mistakes and data lost.
+
+Plan Platform backup operations taking in account full stop of the Platform server(s). 
+{warning}
+In case of Platform cluster every node should be stopped before a backup will be perfoamed.
+{warning}
+
+Platform backup consists of following parts:
+* JCR files backup
+* JCR database backup
+* Organization service database backup
+
+{note}
+Platform in this context means one Portal application, what is by default. But if your Platform instance runs has several portals, each portal has own JCR and Organization services. So, each portal should be backed up separately.
+In this document a single-portal Platform backup described. It just can be repeated for each portal of your system. 
+{note}
+
+Below given an example of Platform backup process organization. This example introduces basic principles and will help to create your backup implementation.
+TODO: weekly basis schedule, folders for backup store, sample files naming, MySQL DB in context.
+
+
+h2. Perform backup
+
+TODO: describe steps
+
+
+
+h2. Perform restore 
+
+TODO: Intro and notes about all should be stopped
+TODO: Describe steps
