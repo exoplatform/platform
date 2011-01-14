@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="2.1">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_PERF_01_3-0-1-SNP_AllScenarios" enabled="true">
-      <stringProp name="TestPlan.comments">recorded with Platform 3.0.2 rev62727</stringProp>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_PERF_01_AllScenarios-3.0.x-simplified" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
@@ -235,7 +235,7 @@ return &quot;continue variable=true&quot;;
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
               <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
      if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
      {
@@ -321,7 +321,7 @@ return &quot;continue variable=true&quot;;
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
               <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
      if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
      {
@@ -408,7 +408,7 @@ return &quot;continue variable=true&quot;;
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
               <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
      if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
      {
