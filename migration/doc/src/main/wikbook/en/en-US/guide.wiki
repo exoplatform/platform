@@ -7,8 +7,8 @@ This guide will help you migrating your project from eXo All In One 1.6 to eXo P
 h2. Prerequisites
 
 
-* The eXo instance you want to migrate will need to be using the latest version of eXo All In One
-* Have a full access or a full copy of your portal server in order
+* You need to use the latest version of eXo All In One before migration.
+* Have a full access or a full copy of your portal server in sequence
 * Read the [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/index.html]
 
 h2. Questions to ask
@@ -87,7 +87,7 @@ Configure the eXo maven repository url either in your settings.xml or within you
 
 h4. Upgrade to java6
 
-PLF is compatible with JAVA 1.6 and higher, so if you have 1.5 compiler level declaration in your parent POM, you 'll have to upgrade it like this:
+PLF is compatible with JAVA 1.6 and higher, so if you have 1.5 compiler level declaration in your parent POM, you will have to upgrade it like this:
 
 {code:xml}
  <plugins>
@@ -188,7 +188,7 @@ h2. Prepare eXo XML customizations
 As you know, most of the customization in AIO is done via xml files. It is still the case in PLF, but they have evolved.
 The list of available components and plugins has changed, and the xml files layout has also evolved.
 
-h4. make yourself a favor, keep only needed changes
+h4. Make yourself a favor, keep only needed changes
 
 When it comes to xml configuration files, a common practice observed in AIO projects, is to copy-paste it then customize some init-params and plug it from the external configuration directory.
 Doing this, usually duplicates some {{component}} declarations. Most of the time, it does not hurt much.
@@ -199,13 +199,13 @@ Before you start migrating your xml files, cleanup your custom xml configuration
 rule : *Keep only* {{{*}components{*}}} *and* {{{*}external-component-plugins{*}}} *that your really need to customize. Remove anything that was blindly copy-pasted*.
 
 {tip}
-You could use the *Export all Components* functionnality described in the _Migration Tools Guide_
+You could use the *Export all Components* functionality described in the _Migration Tools Guide_
 {tip}
 
 
 h4. Add XSD declaration for kernel configuration files
 
-There is now an XSD for kernel configuration files. You can use it to validate the grammar of your xml files. So, change the  root {<configuration>}} element of your ml files to this :
+There is now an XSD for kernel configuration files. You can use it to validate the grammar of your xml files. So, change the  root {{<configuration>}} element of your ml files to this :
 {code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 	...
@@ -253,7 +253,7 @@ Transform your component declaration into an external-component-plugin declarati
 h2. Portal metadata descriptors
 
 Use _Migration Tools_ (see, the Migration Tools Guide, section {{Portal Configuration Migration}} ) to export and convert automatically AIO Portal metadata descriptors.
-The following paragraphs describes more about what was changed in PLF Portal metadata descriptors:
+The following paragraphs describe more about what was changed in PLF Portal metadata descriptors:
 
 {warning}
 Some modifications are not made automatically by the {{Migration Tools}}, please read the following details to pick up what to modify manually (See Warnings below).
@@ -628,7 +628,7 @@ In other words:
 * JSR-301 = Portlet 1.0 (JSR-168) + JSF 1.2
 * JSR-329 = Portlet 2.0 (JSR-286) + JSF 1.2
 
-You 'll have to include the new JSR 329 libraries (depending on the implementation you are using). Nothing specific to integrate you JSF portlets in PLF.
+You will have to include the new JSR 329 libraries (depending on the implementation you are using). Nothing specific to integrate you JSF portlets in PLF.
 {tip}
 Find more information in the web about [JSF Bridges implementations|http://www.portletfaces.org/doc/1.3.0/docbook/en-US/html_single/index.html#d4e1097]
 {tip}
@@ -886,7 +886,7 @@ PLF comes with a new version  of the WYSIWYG editor called CKEditor 3. Previous 
 
 h4. Dialog forms
 
-In order to use CKEditor 3 instead FCKEditor 2 in your document dialogs forms, you'll need to update your .gtmpl files, by using "options=toolbar:CompleteWCM" property like this:
+In order to use CKEditor 3 instead FCKEditor 2 in your document dialogs forms, youwill need to update your .gtmpl files, by using "options=toolbar:CompleteWCM" property like this:
 {code}
 // ...
 String[] args = ["jcrPath=/node/data_property", "options=toolbar:CompleteWCM,height:'410px'", "This is the initialize text"];
@@ -896,7 +896,7 @@ uicomponent.addRichtextField("CKEditor", args) ;
 
 h4. CKEditor templates
 
-Adding custom CKEditor templates has changed with the new version. Instead of defining your templates in an XML format in the file fcktemplates.xml you now have to define them in JavaScript.
+The method to add custom CKEditor templates has changed with the new version. Instead of defining your templates in an XML format in the file fcktemplates.xml you now have to define them in JavaScript.
 To do so :
 - create a custom javascript file in your extension (for example /myResourcesExtension/javascript/my-ckeditor-templates-defintion.js) containing the definition of your custom CKeditor templates. The script must call the CKEditor.addTemplates method as described in the CKEditor documentation ([http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Templates]).
 - then add the following script in your dialog forms or in a global JavaScript file :
@@ -913,7 +913,7 @@ h1. Graphic Chart Migration
 
 In Platform, css and javascript integration adopts a new descriptor. Please refer to the [skinning|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html#d0e1318] paragraph of the Developer guide. You can also read the [Skinning|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Skinning_Portal] & [Javascript|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Javascript_Configuration] Configuration Chapters in the Reference guide of GateIn.
 
-h2. changes in web.xml of webapps
+h2. Changes in web.xml of webapps
 
 Web resources WARs (images, css and Javascript) had some specific listeners declared in its web.xml files, this should be modified as following table shows
 

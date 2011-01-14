@@ -340,7 +340,7 @@ Steps to convert Portal Config metadata files:
 
 !userPortalConfigurationConvertor1.png!
 
-As result of this operation you'll get a Zip file containing the converted Portal Config metadata.
+As result of this operation you will get a Zip file containing the converted Portal Config metadata.
 The Zip file looks like:
 
 !userPortalConfigurationConvertor2.png!
@@ -472,7 +472,7 @@ The format of the exported configuration is a Zip file named {{org.exoplatform.s
 h3. ECM Views Migration
 
 The "ECM Views" migration tool module, computes the configuration of {{org.exoplatform.services.cms.views.ManageViewService}}.
-The plugins of this Service allows you to configure:
+This component's plugins allow you to migrate several types of groovy scripts:
 * ECMExplorer GTMPL templates that will display the content of node in the ECMExplorerPortlet.
 * ContentBrowser groovy templates
 {note}ContentBrowserPortlet is deprecated, use WCM Portlets instead.{note}
@@ -544,13 +544,13 @@ Steps:
 # Hit {{/portal/rest/migration/backup/}}
 # Enter Backup Location: This location will contains the XML backup folders for each workspace
 # Click on 'Submit'
-# You 'll have to wait until these messages appear in the 'AIO Server's console'
+# You will have to wait until these messages appear in the 'AIO Server's console'
 {code}
 [INFO] BackupService - collaboration backup done successfully!
 [INFO] BackupService - knowledge backup done successfully!
 [INFO] BackupService - system backup done successfully!
 {code}
-After that, you 'll get two sub-folders in the chosen location:
+After that, you will get two sub-folders in the chosen location:
 # Collaboration backup : the whole workspace was backed up, but you could modify this migration tool configuration in order to delete some WCM configuration nodes. Those nodes will allow enable/disable those services "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService". The configuration looks like this: {code:xml}
 ...
 <component>
