@@ -1360,6 +1360,18 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
+<!-- lead capture filter -->
+    <dependency>
+      <groupId>org.exoplatform.leadcapture</groupId>
+      <artifactId>exo.leadcapture.web.client.application</artifactId>
+      <version>${org.exoplatform.leadcapture.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.leadcapture</groupId>
+      <artifactId>exo.leadcapture.client</artifactId>
+      <version>${org.exoplatform.leadcapture.version}</version>
+    </dependency>
   </dependencies>
   <!-- 1.1.1-->
   <!-- 2.1.0-SNAPSHOT-->
@@ -1444,8 +1456,8 @@
         <artifactId>exec-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>tomcat-exopackage</id>
-            <phase>package</phase>
+            <id>01-tomcat-exopackage</id><!-- create base tomcat -->
+            <phase>prepare-package</phase>
             <configuration>
               <executable>java</executable>
               <workingDirectory>${basedir}</workingDirectory>
@@ -1556,7 +1568,7 @@
         <executions>
           <!-- Copy the EARs to jboss/server/default/deploy -->
           <execution>
-            <id>jbosseap-copy-ears</id>
+            <id>01-jbosseap-copy-ears</id>
             <phase>package</phase>
             <goals>
               <goal>copy</goal>
@@ -1629,7 +1641,7 @@
           </execution>
           <!-- Extract gatein.ear and the jboss server patch -->
           <execution>
-             <id>jbosseap-unpack-dependencies</id>
+             <id>02-jbosseap-unpack-dependencies</id>
              <phase>package</phase>
              <goals>
                <goal>unpack</goal>
@@ -1661,7 +1673,7 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-                <id>jbosseap-assembly</id>
+                <id>03-jbosseap-assembly</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -1696,7 +1708,7 @@
         <executions>
           <!-- Extract gatein.ear and the jboss server patch -->
           <execution>
-             <id>ears-unpack-dependencies</id>
+             <id>01-ears-unpack-dependencies</id>
              <phase>prepare-package</phase>
              <goals>
                <goal>unpack</goal>
@@ -1732,8 +1744,8 @@
            </execution>
           <!-- Copy the EARs to jboss/server/default/deploy -->
           <execution>
-            <id>ears-copy-ears</id>
-            <phase>package</phase>
+            <id>02-ears-copy-ears</id>
+            <phase>prepare-package</phase>
             <goals>
               <goal>copy</goal>
             </goals>
@@ -1805,12 +1817,168 @@
           </execution>
         </executions>
       </plugin>
+     <!-- create extra packages -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>02-prepare-demo-trial</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <!-- create demo -->
+                <copy todir="${project.build.directory}/tomcat-demo">
+				  <fileset dir="${project.build.directory}/tomcat"/>
+			    </copy>
+                <mkdir dir="${project.build.directory}/tomcat-demo/webapps/portal"/>
+                <unzip src="${project.build.directory}/tomcat-demo/webapps/portal.war"
+                       dest="${project.build.directory}/tomcat-demo/webapps/portal"/>
+                <replace file="${project.build.directory}/tomcat-demo/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
+				  <replacetoken><![CDATA[</body>]]></replacetoken>
+				  <replacevalue><![CDATA[<script src="http://www.google-analytics.com/ga.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1292368-16");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+</body>]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-demo/webapps/portal.war"
+                     basedir="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-demo/webapps/portal"/>
+                <!-- create trial -->
+                <copy todir="${project.build.directory}/tomcat-trial">
+				  <fileset dir="${project.build.directory}/tomcat"/>
+			    </copy>
+                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/portal"/>
+                <unzip src="${project.build.directory}/tomcat-trial/webapps/portal.war"
+                       dest="${project.build.directory}/tomcat-trial/webapps/portal"/>
+                <replace file="${project.build.directory}/tomcat-trial/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
+                  <!-- LoopFuse must be added before the gadgets scripts, so we replace the only div closing element -->
+                  <!-- If this element changes in the future, this script must be updated -->
+				  <replacetoken><![CDATA[</div>]]></replacetoken>
+				  <replacevalue><![CDATA[</div>
+  <script src="http://lfov.net/webrecorder/js/listen.js" type="text/javascript"></script>
+  <script type="text/Javascript">
+    _lf_cid = "LF_df197061";
+    _lf_remora();
+  </script>]]></replacevalue>
+				</replace>
+                <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
+				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
+				  <replacevalue><![CDATA[<distributable/>
+
+   <!-- Begin - Lead Capture Filter -->
+   <filter>
+	  <filter-name>LeadCaptionFilter</filter-name>
+	  <filter-class>org.exoplatform.capture.client.LeadCaptionFilter</filter-class>
+   </filter>
+   <filter-mapping>
+	  <filter-name>LeadCaptionFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   <!-- End - Lead Capture Filter -->]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-trial/webapps/portal.war"
+                     basedir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-trial/webapps/portal"/>
+                <dependencyfilesets prefix="lcfdeps."/>
+                <copy tofile="${project.build.directory}/tomcat-trial/webapps/capture.war">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.web.client.application:war"/>
+                </copy>
+                <copy todir="${project.build.directory}/tomcat-trial/lib">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar"/>
+                </copy>
+                <mkdir dir="${project.build.directory}/tomcat-trial/lib/lcf"/>
+                <unzip dest="${project.build.directory}/tomcat-trial/lib/lcf">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar"/>
+                </unzip>
+                <replace file="${project.build.directory}/tomcat-trial/lib/lcf/conf/portal/configuration.xml">
+				  <replacetoken><![CDATA[<value>Platform 3.0.0-GA</value>]]></replacetoken>
+				  <replacevalue><![CDATA[<value>Platform ${project.version}</value>]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-trial/lib/exo.leadcapture.client-${org.exoplatform.leadcapture.version}.jar"
+                     basedir="${project.build.directory}/tomcat-trial/lib/lcf"/>
+                <delete dir="${project.build.directory}/tomcat-trial/lib/lcf"/>
+                <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
+                         token="gatein.data.dir=" value="#gatein.data.dir=" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>01-replace-variable</id>
+            <phase>package</phase>
+            <configuration>
+              <target>
+                <!-- replace the gatein.data.dir variable to the original -->
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
+                         token="#gatein.data.dir=" value="gatein.data.dir=" />                
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- start / stop the trial package -->
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.0.5</version>
+        <executions>
+			<execution>
+			  <id>03-start-container</id>
+			  <phase>prepare-package</phase>
+			  <goals>
+				<goal>start</goal>
+			  </goals>
+			</execution>
+			<execution>
+			  <id>04-stop-container</id>
+			  <phase>prepare-package</phase>
+			  <goals>
+				<goal>stop</goal>
+			  </goals>
+			</execution>
+		  </executions>
+		<configuration>
+          <wait>false</wait>
+		  <!-- Container configuration -->
+		  <container>
+			<containerId>tomcat6x</containerId>
+			<home>${project.build.directory}/tomcat-trial</home>
+            <type>installed</type>
+            <timeout>240000</timeout>
+			<systemProperties>
+			  <org.apache.commons.logging.Log>org.apache.commons.logging.impl.SimpleLog</org.apache.commons.logging.Log>
+              <java.security.auth.login.config>../conf/jaas.conf</java.security.auth.login.config>
+              <gatein.data.dir>${project.build.directory}/tomcat-trial/gatein/data</gatein.data.dir>
+              <exo.product.developing>false</exo.product.developing>
+              <exo.conf.dir.name>gatein/conf</exo.conf.dir.name>
+              <exo.profiles>default</exo.profiles>
+			</systemProperties>
+		  </container>
+		  <!-- Configuration to use with the container -->
+		  <configuration>
+            <type>existing</type>
+			<home>${project.build.directory}/tomcat-trial</home>
+		  </configuration>
+		</configuration>
+      </plugin>
+
 <!-- create zip archives -->
           <plugin>
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-                <id>assembly</id>
+                <id>02-assembly</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -1818,6 +1986,8 @@
                 <configuration>
                   <descriptors>
                     <descriptor>src/main/assembly/tomcat-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/tomcat-demo-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/tomcat-trial-archive.xml</descriptor>
                     <descriptor>src/main/assembly/chatserver-archive.xml</descriptor>
                     <descriptor>src/main/assembly/ears-archive.xml</descriptor>
                   </descriptors>

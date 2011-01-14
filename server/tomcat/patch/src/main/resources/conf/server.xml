@@ -51,14 +51,14 @@
                maxActive="128" maxIdle="32" maxWait="10000"
                removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"/>
+               url="jdbc:hsqldb:file:${gatein.data.dir}/hsql/exo-jcr_portal"/>
 
     <!-- eXo IDM Datasource for portal -->                
     <Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="128" maxIdle="32" maxWait="10000"
                removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
-               url="jdbc:hsqldb:file:../gatein/data/hsql/exo-idm_portal"/>     
+               url="jdbc:hsqldb:file:${gatein.data.dir}/hsql/exo-idm_portal"/>     
               
   </GlobalNamingResources>
 
