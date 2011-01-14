@@ -4,7 +4,7 @@ eXo Platform instance backup involves backing up the databases and the filesyste
 JCR backup should be done off-line. Allmost all data under {{gatein.data.dir}} should be backuped (find details below in "Plan backup" paragraph). 
 
 {note}
-Variable {{gatein.data.dir}} defined in eXo configuration _configuration.properties_ and by default points to {{$APPSEVER_HOME/gatein/data}} folder.
+Variable {{gatein.data.dir}} defined in eXo configuration _configuration.properties_ and by default points to {{$APPSEVERHOME/gatein/data}} folder.
 
 You can use this _tar_ command for file backup from your application server home dir: 
 {screen}tar cvjf gatein-backup.tar.bz gatein/data{screen}
@@ -39,16 +39,16 @@ Platform backup consists of following parts:
 * Transaction service files backup, pointed by configuration property {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}}
 
 Be ready for Restore:
-It's recommended to prepare tools (scripts etc) for restore at the backup planning stage. It will make particular restore operation quick and not .
+It's recommended to prepare tools (scripts etc) for restore at the backup planning stage. It will make particular restore operation quick and safe.
 
 {note}
-Platform in this context means one Portal application, what is by default. But if your Platform instance runs several portals, each portal has own JCR, Organization and Transaction services. So, each portal should be backed up separately.
+Platform means one Portal application in this context , what is by default. But if your Platform instance runs several portals, each portal has own JCR, Organization and Transaction services. So, each portal should be backed up separately.
 In this document a single-portal Platform backup described. It just can be repeated for each portal of your system. 
 {note}
 
 {note}
-Only two kind of JCR files are important in backup sense: index and value storages. 
-The {{gatein.jcr.data.dir}} folder (by default it's {{$gatein.data.dir/jcr}}) also contain _swap_ sub-folder.
+Notes about JCR: Only two kind of JCR files are important in backup sense: index and value storages. 
+The {{gatein.jcr.data.dir}} folder (by default it's {{$gatein.data.dir/jcr}} also contain _swap_ sub-folder.
 The _swap_ folder used for temporary files in case when BLOBs stored in database (see JCR configuration guide) and has no meaning for backup.
 {note}
 
@@ -57,10 +57,11 @@ Below given an example of Platform backup process organization. This example int
 h3. Example backup planning {anchor:id=ADM.Backup.Example_backup_planing}
 
 *Environment*
+
 * Platform server runs on RedHat Linux server
-* We have remote database server MySQL 5.1 _mysqlhost_
-** JCR database _jcrdb_
-** Organization service database _idmdb_
+* We have remote database server MySQL 5.1 
+** JCR database - _jcrdb_
+** Organization service database - _idmdb_
 * Platform files are on network mounted storage _/mnt/netfs/platform_
 ** JCR value storage files in _/mnt/netfs/platform/jcr/values_
 ** JCR index files in _/mnt/netfs/platform/jcr/index_
@@ -68,33 +69,34 @@ h3. Example backup planning {anchor:id=ADM.Backup.Example_backup_planing}
 * Backup storage located on dedicated network mounted storage _/mnt/backupfs/my_plf_backup_
 
 *Naming and Rotation*
+
 It's a general case when backup organized in two cycles rotation: everyday backup files stored for a last week days, older data stored on weekly basis and we'll plan to keep three years history at all.
 
 To implement this approach we'll run daily backups (at night time when our site isn't in use) and will store result files (database and JCR files) on network storage in following structure:
-* _/my_plf_backup/2010/..._ - previous year archive
-* _/my_plf_backup/current/_ - present year folder
-* _/my_plf_backup/current/weeks_ - weeks archive for current year folder
-* _/my_plf_backup/current/weeks/01_ - first week in current year folder
-* _/my_plf_backup/current/weeks/02_ - second week in current year folder
-* _/my_plf_backup/current/weeks/N_ - N week in current year folder
+* {{{/my_plf_backup/2010/...}}} - previous year archive
+* {{{/my_plf_backup/current/}}} - present year folder
+* {{{/my_plf_backup/current/weeks}}} - weeks archive for current year folder
+* {{{/my_plf_backup/current/weeks/01}}} - first week in current year folder
+* {{{/my_plf_backup/current/weeks/02}}} - second week in current year folder
+* {{{/my_plf_backup/current/weeks/N}}} - N week in current year folder
 
 Files will have following format (using [ISO 8601|http://en.wikipedia.org/wiki/ISO_8601] date format):
-* _yyyy-MM-dd_mysql_jcrdb.tar.gz_ - for JCR database backup
-* _yyyy-MM-dd_mysql_idmdb.tar.gz_ - for Organization service database backup
-* _yyyy-MM-dd_jcr_values.tar.gz_ - for JCR value storage files backup
-* _yyyy-MM-dd_jcr_index.tar.gz_ - for JCR index files backup
-* _yyyy-MM-dd_jta.tar.gz_ - for Transaction service files backup
+* {{{yyyy-MM-dd_mysql_jcrdb.tar.gz}}} - for JCR database backup
+* {{{yyyy-MM-dd_mysql_idmdb.tar.gz}}} - for Organization service database backup
+* {{{yyyy-MM-dd_jcr_values.tar.gz}}} - for JCR value storage files backup
+* {{{yyyy-MM-dd_jcr_index.tar.gz}}} - for JCR index files backup
+* {{{yyyy-MM-dd_jta.tar.gz}}} - for Transaction service files backup
 
 For files backup we have a shell script running on the Platform server. This script does next steps:
 * Stops the Platform server (ensure full stop by log sniffering)
-* Runs database backup tool against _jcrdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_jcrdb.tar.gz_
-* Runs database backup tool against _idmdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_idmdb.tar.gz_
-* Copies JCR value files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jcr_values.tar.gz_
-* Copies JCR index files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jcr_index.tar.gz_
-* Copies Transaction service files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jta.tar.gz_
-* On each Sunday copies all 7 days old archive files to a week folder, e.g. _/my_plf_backup/current/weeks/02_ for backup at January 9, 2011. 
-* Otherwise deletes files older of 7 days from _/my_plf_backup/current/_
-* If it's [first week|http://en.wikipedia.org/wiki/ISO_8601#Week_dates} of a new year, the script creates a previosu year folder in _/my_plf_backup/_, e.g. _/my_plf_backup/2010_, and moves content of _/my_plf_backup/current/weeks_ there.
+* Runs database backup tool against {{jcrdb}} and store result file in archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_jcrdb.tar.gz}}}
+* Runs database backup tool against {{idmdb}} and store result file in archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_idmdb.tar.gz}}}
+* Copies JCR value files to archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jcr_values.tar.gz}}}
+* Copies JCR index files to archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jcr_index.tar.gz}}}
+* Copies Transaction service files to archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jta.tar.gz}}}
+* On each Sunday copies all 7 days old archive files to a week folder, e.g. {{{/my_plf_backup/current/weeks/02}}} for backup at January 9, 2011. 
+* Otherwise deletes files older of 7 days from {{{/my_plf_backup/current/}}}
+* If it's [first week|http://en.wikipedia.org/wiki/ISO_8601#Week_dates] of a new year, the script creates a previosu year folder in {{{/my_plf_backup/}}}, e.g. {{{/my_plf_backup/2010}}}, and moves content of {{{/my_plf_backup/current/weeks}}} there.
 * Starts the Platform server
 * Sends mail to Admin in case of error on any step.
 
@@ -106,7 +108,7 @@ Example script implementation outside of the scope of this guide.
 
 h2. Perform backup {anchor:id=ADM.Backup.Perform_backup}
 
-General steps should be perfoamed to backup eXo Platform:
+Main steps should be performed to backup eXo Platform:
 * Stop Platform instance and ensure it is stopped fully, use shell command {{stop_eXo}} (find details in Installation chapter)
 * Run backup procudure that performes backup of:
 ** JCR database
@@ -115,22 +117,47 @@ General steps should be perfoamed to backup eXo Platform:
 ** JCR index files 
 ** Transaction service files
 * Archive backup files to your backup store
-* Start Platform instance
+* Start Platform
 
 {note}
-In case of Platform cluster, start it in proper order according the Clustering chapter steps.
+In case of Platform cluster, start it in an order according the Clustering chapter steps.
 {note}
 
 h2. Perform restore {anchor:id=ADM.Backup.Perform_restore} 
 
 Restore from backup can be used in several cases: failure, duplicating a site (e.g. for testing).
-As for backup it's important to stop the platform fully before the restore.
+Same as for backup it's important to stop the platform fully before the restore.
 
+Main steps should be perfoamed to restore eXo Platform:
+* Unarchive backup files from backup store to temporary location
+* Stop Platform instance and ensure it is stopped fully, use shell command {{{stop_eXo}}} (find details in Installation chapter)
+* Run restore procudure that performes restore from backup local files for:
+** JCR database 
+** Organization service database 
+** JCR value storage files 
+** JCR index files 
+** Transaction service files
+* Start Platform
 
-TODO Intro and notes about all should be stopped
-TODO Describe steps
+{note}
+In case of Platform cluster, start it an order according the Clustering chapter steps.
+{note}
+ 
+h2. Third party tools {anchor:id=ADM.Backup.Third_party_tools}
 
-h2. Thrid party tools {anchor:id=ADM.Backup.Thrid_party_tools} 
+Steps described above based on full backup of data. But there is an [incremental backup approach|http://en.wikipedia.org/wiki/Incremental_backup]:
+an incremental backup preserves data by creating multiple copies that are based on the differences in those data, a successive copy of the data contains only that portion which has changed since the preceding copy has been created.
 
-TODO mentione _rsync_ and [backula.org|http://www.bacula.org/] as tools for incremental backup.
+Having in account steps described above it's also possible to implement an incremental backup against Platform data.
 
+Users of Unix platforms can use {{rsync}} tool for files synchronization and implement incremental backup for JCR value and indexe files. Microsoft Windows users can use Backup utility ({{Ntbackup.exe}}).  
+
+These tools can be used in conjunction with a database incremental backup feature of your RDBMS to implement the Platform incremental backup solution.
+But all backup targets described above should be counted. 
+
+In case of the example it's possible to organize full backup weekly (every Sunday) and incrementals each day of a week. Incremental backup will be faster, it will decrease time of your site everyday maintenance.
+
+{note}
+It's also possible to use ready solutions as [backula.org|http://www.bacula.org/] 
+Follow a product documentation for the implementation.
+{note}
