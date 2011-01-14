@@ -1,5 +1,5 @@
 
-h1. Introduction to eXo Platform Management
+h1. Introduction to eXo Platform Management {anchor:id=ADM.Management.Introduction}
 
 Managing resources of eXo Platform is critical for IT operators and system administrators to monitor and supervise the production system.
 
@@ -9,7 +9,7 @@ When it comes to Java, the Java Management Extension (also known as JMX) is the 
 
 This chapter explains various resources provided by the eXo Platform server, possible management actions, and how to obtain relevant metrics.
 
-h2. JMX interface  
+h2. JMX interface  {anchor:id=ADM.Management.JMX_interface} 
 
 The resources management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
 
@@ -17,7 +17,7 @@ At runtime, MBeans are registered by the eXo Kernel in the MBeanServer and direc
 
 To enable JMX monitoring in Tomcat, you need to pass the following system property to the VM: {{-Dcom.sun.management.jmxremote}}.
 
-h2. REST interface
+h2. REST interface {anchor:id=ADM.Management.REST_interface}
 
 The built-in REST Management Provider of eXo Platform makes some of the MBeans operations accessible as REST endpoints. Administrators can handle the system simply with a browser without performing any complex configurations.
 
@@ -25,9 +25,9 @@ Only members of the platform/administrators group are given permission to work o
 
 The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through the REST request is [http://localhost:8080/rest/management/skinservice/getSkinList].
 			
-h1. Management views of eXo Platform
+h1. Management views of eXo Platform {anchor:id=ADM.Management.Management_views_of_eXo_Platform}
 
-h2. PortalContainer management view
+h2. PortalContainer management view {anchor:id=ADM.Management.PortalContainer_management_view}
 
 PortalContainer manages all objects and configurations of a given portal.
 
@@ -47,7 +47,7 @@ PortalContainer manages all objects and configurations of a given portal.
 |{{getRegisteredComponentNames}}|Return the list of all registered component names.|
 |{{isStarted}}|Check if the portal container is started or not. The portal container is only started once all its components have been started.|
 
-h2. Cache management view 
+h2. Cache management view  {anchor:id=ADM.Management.Cache_management_view}
 
 eXo Platform uses caches at several levels. Monitoring them can provide the critical performance information, especially useful for tuning the server. Each cache is exposed with statistics and management operations. 
 
@@ -74,7 +74,7 @@ eXo Platform uses caches at several levels. Monitoring them can provide the crit
 |{{setMaxSize}}|Set the maximum capacity of the cache.|
 |{{getCacheSize}}|Return the number of entries in the cache.|
 
-h3. Cache instances
+h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
 * Portal
 
@@ -118,7 +118,7 @@ h3. Cache instances
 |{{org.exoplatform.social.core.manager.RelationshipManagerrelationshipListCache}}|Cache the list of relationships by identityId.|
 
 
-h3. CacheManager
+h3. CacheManager {anchor:id=ADM.Management.Chache_manager}
 
 The CacheManager management view enables you to control different caches. 
 
@@ -129,7 +129,7 @@ The CacheManager management view enables you to control different caches.
 |{{clearCaches()}}|Force a programmatic flush of all the registered caches.|
 
 
-h3. PicketLinkIDMCacheService
+h3. PicketLinkIDMCacheService {anchor:id=ADM.Management.PicketLinkIDMCacheServer}
 
 PicketLinkIDMCacheService is the default implementation for the organization model. 
 
@@ -141,11 +141,11 @@ PicketLinkIDMCacheService is the default implementation for the organization mod
 |{{invalidate(namespace)}}|Invalidate a specific cache namespace.|
 
 
-h2. eXo Content management view
+h2. eXo Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
 
 eXo Content provides a management view for three following services:
 
-h3. WCMComposer
+h3. WCMComposer {anchor:id=ADM.Management.WCMComposer}
 
 WCMComposer is responsible for assembling pages, and is key for serving pages efficiently. 
 
@@ -170,7 +170,7 @@ WCMComposer is responsible for assembling pages, and is key for serving pages ef
 |{{getUsedLanguages}}|Return the list of all languages accessible in the composer.|
 |{{getUsedOrderBy}}|Return the list of OrderBy properties accessible in the composer.|
 
-h3. FriendlyService
+h3. FriendlyService {anchor:id=ADM.Management.Friendly_service}
 
 FriendlyService is to make URIs more friendly.
 
@@ -192,7 +192,7 @@ FriendlyService is to make URIs more friendly.
 |{{getFriendlies}}|Return the list of registered friendly URIs.|
 
 
-h3. WCMService
+h3. WCMService {anchor:id=ADM.Management.WCMService}
 
 * The JMX name template of WCMService MBeans: {{exo:portal="portal",service=wcm,view=portal,type=content}}. 
 
@@ -215,11 +215,11 @@ WCMComposer, FriendlyService, and WCMService can be controlled through the follo
 * http://localhost:8080/rest/management/wcmservice/.
 {note}
 
-h2. JCR management view
+h2. JCR management view {anchor:id=ADM.Management.JCR_management_view}
 
 Java Content Repository (JCR) provides a management view to monitor sessions, locks, repository configurations, and workspace configurations.
 
-h3. SessionRegistry
+h3. SessionRegistry {anchor:id=ADM.Management.Session_Registry}
 
 * The JMX name template of SessionRegistry MBeans: {{exo:portal="portal",service=SessionRegistry,repository="portal-repository"}}.
 
@@ -235,7 +235,7 @@ h3. SessionRegistry
 |{{getSize}}|Return the number of currently active sessions.|
 
 
-h3. LockManager
+h3. LockManager {anchor:id=ADM.Management.Lock_manager}
 
 LockManager stores lock objects and is reponsible for removing expired locks.
 
@@ -268,7 +268,7 @@ LockManager stores lock objects and is reponsible for removing expired locks.
 |{{wsrp-system}}|Data of remote portlets.|
 
 
-h3. Repository
+h3. Repository {anchor:id=ADM.Management.Repository}
 
 * The JMX name template of Repository MBeans: {{exo:portal="portal",container=repository,name="repository"}}.
 
@@ -282,7 +282,7 @@ h3. Repository
 |{{getName}}|Return the repository container name.|
 |{{getRegisteredComponentNames}}|Return the list of registered component names in the repository.|
 
-h3. Workspace
+h3. Workspace {anchor:id=ADM.Management.Workspace}
 
 * The JMX name template of Workspace MBeans: {{exo:portal="portal",container=workspace,repository="repository",name={noformat}{WorkspaceName}{noformat}}} where WorkspaceName is the name of each workspace.
 
@@ -297,10 +297,10 @@ h3. Workspace
 |{{getRegisteredComponentNames}}|Return the list of registered component names in the workspace.|
 
 
-h2. Portal management view
+h2. Portal management view {anchor:id=ADM.Management.Portal_management_view}
 
-h3. Template statistics
-
+h3. Template statistics {anchor:id=ADM.Management.Temaplate_statistics}
+ 
 Template statistics exposes various templates used by the portal and its components to render markups. Various statistics are available for individual templates, and aggregated statistics, such as the list of the slowest templates. Most management operations are performed on a single template; those operations take the template identifier as an argument. 
 
 * The JMX name template of Template statistics MBeans: {{exo:portal="portal",service=statistic,view=portal,type=template}}.
@@ -323,7 +323,7 @@ Template statistics exposes various templates used by the portal and its compone
 |{{getTemplateList}}|Return the list of templates loaded.|
 |{{getFastestTemplates}}|Return the list of the 10 fastest templates.|
 
-h3. Template management 
+h3. Template management {anchor:id=ADM.Management.Template_management} 
 
 Template management provides the capability to force the reload of a specified template. 
 
@@ -336,7 +336,7 @@ Template management provides the capability to force the reload of a specified t
 |{{reloadTemplate(templateId)}}|Clear the template cache for a specified template identifier.|
 
 
-h3. Skin management
+h3. Skin management {anchor:id=ADM.Management.Skin_management}
 
 *The JMX name template of Skin management MBeans: {{exo:portal="portal",service=management,view=portal,type=skin}}.
 
@@ -350,7 +350,7 @@ h3. Skin management
 |{{reloadSkins}}|Force a reload of the loaded skins.|
 |{{getSkinList}}|Return the list of loaded skins by the skin service.|
 
-h3. TokenStore
+h3. TokenStore {anchor:id=ADM.Management.TokenStore}
 
 * The JMX name template of TokenStore MBeans: {{exo:service=TokenStore, name={noformat}{Name}{noformat}}} where Name is the name of each specific token.
 
@@ -379,7 +379,7 @@ eXo Platform provides the following TokenStore instances:
 |{{getPortalList}}|Return the list of identifiers of all loaded portals.|
 
 
-h3. Portal statistics
+h3. Portal statistics {anchor:id=ADM.Management.Portal_statistic}
 
 * The JMX name template of Portal statistics MBeans: {{exo:portal="portal",service=statistic,view=portal,type=portal}}.
 
@@ -397,7 +397,7 @@ h3. Portal statistics
 |{{getPortalList}}|Return the list of identifiers of loaded portals.|
 
 
-h3. Application statistics
+h3. Application statistics {anchor:id=ADM.Management.Application_statistics}
 
 Various applications are exposed to provide relevant statistics.
 
@@ -422,11 +422,11 @@ Various applications are exposed to provide relevant statistics.
 |{{getApplicationList}}|Return the list of application identifiers classified in the alphabetic order.|
 
 
-h2. eXo Knowledge management view
+h2. eXo Knowledge management view {anchor:id=ADM.Management.eXo_Knowledge_management_view}
 
 eXo Knowledge provides a management view, enabling you to control rules, statistics, information of data storage in Forum and Answers.
 
-h3. Forum
+h3. Forum {anchor:id=ADM.Management.Forum}
 
 With the Forum Service management view, you can view ADMIN rules, statistics, such as the number of online users, and information of Mail Service configuration.
 
@@ -450,7 +450,7 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 |{{getMailServiceConfig}}|Return the Mail service configuration used to send notifications in eXo Knowledge.|
 
 
-h3. Job
+h3. Job {anchor:id=ADM.Management.Job}
 
 The Job management view enables you to view state information of Jobs used in eXo Knowledge.
 
@@ -479,9 +479,9 @@ eXo Knowledge provides the following Job instances:
 |{{UpdateDataJob}}|Update Forum statistics, such as posts or topics of users.|
 
 
-h3. Plugin
+h3. Plugin {anchor:id=ADM.Management.Plugin}
 
-h4. RoleRulesPlugin
+h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 
 * The JMX name template of RoleRulesPlugin MBeans: {{exo:portal="portal",service=forum,view=plugins,name="add.role.rules.plugin"}}.
 
@@ -502,7 +502,7 @@ h4. RoleRulesPlugin
 |{{getAllRules}}|Return all rules added to the plugin.|
 
 
-h4. BBCodePlugin
+h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
 * The JMX name template of BBCodePlugin MBeans: {{exo:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"}}.
 
@@ -514,7 +514,7 @@ h4. BBCodePlugin
 ||Operation||Description||
 |{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: URL, JUSTIFY, B, HIGHLIGHT, I, U, RIGHT, EMAIL, LIST, EMAIL, COLOR, URL, CODE, CENTER, CODE, QUOTE, LIST, CSS, LEFT, FONT, GOTO, QUOTE, SIZE, SLIDESHARE, IMG.|
 
-h4. ForumInitialDataPlugin
+h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
 * The JMX name template of ForumInitialDataPlugin MBeans: {{exo:portal="portal",service=forum,view=plugins,name={noformat}{Name}{noformat}}}.
 
@@ -526,7 +526,7 @@ h4. ForumInitialDataPlugin
 ||Operation||Description||
 |{{getLocation}}|Return the location where the Forum export file is stored, for example *war:/data/forum/data-full-forum.zip*.|
 
-h4. InitialDataPlugin
+h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 
 * The JMX name template of InitialDataPlugin MBeans: {{exo:portal="portal",service=faq,view=plugins,name={noformat}{Name}{noformat}}}.
 
@@ -539,7 +539,7 @@ h4. InitialDataPlugin
 |{{getLocation}}|Return the location where the FAQ export file is stored, for example *war:/data/Technical-FAQ.zip*.|
 |{{isForceXML}}|Indicate if the data loaded from the FAQ export file should override any data found in the existing database.|
 
-h3. Storage
+h3. Storage {anchor:id=ADM.Management.Storage}
 
 The Storage management view enables you to get storage information in eXo Knowledge, such as data path, repository and workspace.
 
@@ -557,7 +557,7 @@ The Storage management view enables you to get storage information in eXo Knowle
 |{{getWorkspace}}|Return the name of workspace of the Forum Storage.|
 |{{getPath}}|Return the JCR data path of the Forum Storage.|
 
-h2. eXo Collaboration management view
+h2. eXo Collaboration management view {anchor:id=ADM.Management.eXo_Collaboration_management_view}
 
 eXo Collaboration provides a management view, enabling you to view some state information of Jobs used in CS. 
 

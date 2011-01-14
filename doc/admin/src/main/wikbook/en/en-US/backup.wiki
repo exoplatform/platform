@@ -1,4 +1,4 @@
-h1. How to backup Platform
+h1. How to backup Platform {anchor:id=ADM.Backup.How_to_backup_Platform}
 
 eXo Platform instance backup involves backing up the databases and the filesystems for JCR index and value storage.
 JCR backup should be done off-line. Allmost all data under {{gatein.data.dir}} should be backuped (find details below in "Plan backup" paragraph). 
@@ -15,7 +15,7 @@ SQL database backup should use backup tools your RDMBS provides.
 Example: [mysqldump|http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html] on MySQL
 {note}
 
-h2. Plan backup
+h2. Plan backup {anchor:id=ADM.Security.Plan_backup}
 
 Start you backup strategy with a concept of a data repository. The backup data needs to be stored somehow and probably should be organized to a degree.
 eXo Platform instance backup will produces set of files. What can be located on various storage medias (hard disk, tape, optical or solid storages, or even a special remote backup services can be used).  
@@ -49,7 +49,7 @@ The _swap_ folder used for temporary files in case when BLOBs stored in database
 
 Below given an example of Platform backup process organization. This example introduces basic principles and will help to create your backup implementation.
 
-h3. Example backup planning
+h3. Example backup planning {anchor:id=ADM.Security.Example_backup_planing}
 
 *Environment*
 * Platform server runs on RedHat Linux server
@@ -93,7 +93,7 @@ For files backup we have a shell script running on the Platform server. This scr
 * Sends mail to Admin in case of error on any step.
 
 
-h2. Perform backup
+h2. Perform backup {anchor:id=ADM.Security.Perform_backup}
 
 TODO describe steps
 

@@ -1,4 +1,4 @@
-h1. Welcome to eXo Platform
+h1. Welcome to eXo Platform {anchor:id=ADM.Introduction.Welcome}
 
 eXo Platform 3.0, the user experience platform for Java, is comprised of Core and Extended Services.
 
@@ -21,7 +21,7 @@ eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applicatio
 
 
 
-h1. Who should read this guide? 
+h1. Who should read this guide? {anchor:id=ADM.Introduction.Intended_Readers} 
 
 This guide describes how to get started with eXo Platform, specifically for:
 * _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise. 

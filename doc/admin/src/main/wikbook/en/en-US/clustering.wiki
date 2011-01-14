@@ -1,7 +1,7 @@
 
-h1. About Platform clustering
+h1. About Platform clustering {anchor:id=ADM.Clustering.About_Platform_Clustering}
 
-h2. When should you consider clustering ?
+h2. When should you consider clustering ? {anchor:id=ADM.Clustering.When_consider_clustering}
 
 Installing eXo platform in cluster mode should be considered in the following cases:
 
@@ -14,7 +14,7 @@ In this chapter, we will cover only the changes needed by eXo to work in a clust
 
 
 
-h2. Shared file system
+h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_system}
 
 In eXo Platform, the persistence mostly relies on JCR, which is a middleware between the eXo applications (including the portal) and the database. Hence this component must be configured to work in cluster.
 
@@ -27,7 +27,7 @@ All nodes must have a read/write access on the shared file system.
 {info}We strongly advise the use of a mount point on a SAN.{info}
 
 
-h1. Cluster setup
+h1. Cluster setup {anchor:id=ADM.Clustering.Cluster_setup}
 
 
 The switch to a cluster configuration is done in {{configuration.properties}}. This {{configuration.properties}} file must be set in the same way on all the cluster nodes.
@@ -50,7 +50,7 @@ gatein.jcr.index.data.dir=/PATH/TO/SHARED/FS/index
 
 The path is shared, so all nodes will need read/write access to this path.
 
-h2. advanced configuration
+h2. advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
 The cluster mode is preconfigured to work out of the box. It relies on the JBoss Cache configuration.
 
@@ -69,9 +69,9 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 
 
 
-h1. Cluster management
+h1. Cluster management {anchor:id=ADM.Clustering.Cluster_management}
 
-h2. Cluster profile
+h2. Cluster profile {anchor:id=ADM.Clustering.Cluster_profile}
 
 You need to indicate the _cluster_ kernel profile to eXo Platform.
 This can be done by editing {{gatein.sh}} like this: 
@@ -83,23 +83,23 @@ or using start_eXo script :
 ./start_eXo.sh default,cluster
 {code}
 
-h2. Initial Startup
+h2. Initial Startup {anchor:id=ADM.Clustering.Initial_startup}
 
 For the very first startup of your JCR cluster, you should only start a single node. This node will initialise the internal JCR database and create the system workspace. Once this first node is definitely started, you can start the other nodes.
 
 {note}This contraint is only for the very first start. Once the initialization has been done, you can start nodes in any order{note}
 
 
-h2. Startup and shutdown
+h2. Startup and shutdown {anchor:id=ADM.Clustering.Startup_and_shutdown}
 
 Nodes of the cluster will automatically try to join others at startup. Once they discover each other, they will synchronize their state.
 During the synchronization the node is not ready to serve requests.
 
 
 
-h1. Clustering FAQ
+h1. Clustering FAQ {anchor:id=ADM.Clustering.Clustering_FAQ}
 
-h2. How do I migrate from local to cluster mode ?
+h2. How do I migrate from local to cluster mode ? {anchor:id=ADM.Clustering.How_to_migrate_from_local_to_cluter_mode}
 
 If you intend to migrate your production system from local (non cluster) mode to cluster, follow these steps :
 
@@ -108,7 +108,7 @@ If you intend to migrate your production system from local (non cluster) mode to
 * Move the index and value storage to the shared file system
 * Start the cluster
 
-h2. Why is startup failing with a _Port value out of range_ error ?
+h2. Why is startup failing with a _Port value out of range_ error ? {anchor:id=ADM.Clustering.Port_value_out_of_range_error}
 
 On Linux Platforms, if you encounter an error at startup like this :
 {code}
@@ -120,7 +120,7 @@ Verify that :
 * the hostname is a valid IP address, served by one of the network device of your machine (ie: eth0, eth1...).
 * the hostname is NOT defined as localhost or 127.0.0.1
 
-h2. How to solve the "failed sending message to null" error? 
+h2. How to solve the "failed sending message to null" error? {anchor:id=ADM.Clustering.Solve_failed_sending_message_to_null} 
 
 When starting up in the cluster mode under Linux and you encourter the following error:
 {code}
