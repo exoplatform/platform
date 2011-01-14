@@ -301,6 +301,9 @@
             <field name="expirationTimeout">
               <long>600000</long>
             </field>
+            <field name="maxNodes">
+              <int>5000</int>
+            </field>
             <field name="distributed">
               <boolean>true</boolean>
             </field>
