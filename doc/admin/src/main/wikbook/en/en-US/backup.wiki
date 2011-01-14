@@ -15,7 +15,7 @@ SQL database backup should use backup tools your RDMBS provides.
 Example: [mysqldump|http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html] on MySQL
 {note}
 
-h2. Plan backup {anchor:id=ADM.Security.Plan_backup}
+h2. Plan backup {anchor:id=ADM.Backup.Plan_backup}
 
 Start you backup strategy with a concept of a data repository. The backup data needs to be stored somehow and probably should be organized to a degree.
 eXo Platform instance backup will produces set of files. What can be located on various storage medias (hard disk, tape, optical or solid storages, or even a special remote backup services can be used).  
@@ -66,12 +66,12 @@ h3. Example backup planning {anchor:id=ADM.Security.Example_backup_planing}
 It's a general case when backup organized in two cycles rotation: everyday backup files stored for a last week days, older data stored on weekly basis and we'll plan to keep three years history at all.
 
 To implement this approach we'll run daily backups (at night time when our site isn't in use) and will store result files (database and JCR files) on network storage in following structure:
-* _/my_plf_backup/2010/..._ - prev year archive
-* _/my_plf_backup/2011/_ - present year folder
-* _/my_plf_backup/2011/weeks_ - weeks archive for current year
-* _/my_plf_backup/2011/weeks/01_ - first week in year folder
-* _/my_plf_backup/2011/weeks/02_ - second week in year folder
-* _/my_plf_backup/2011/weeks/N_ - N week in year folder
+* _/my_plf_backup/2010/..._ - previous year archive
+* _/my_plf_backup/current/_ - present year folder
+* _/my_plf_backup/current/weeks_ - weeks archive for current year folder
+* _/my_plf_backup/current/weeks/01_ - first week in current year folder
+* _/my_plf_backup/current/weeks/02_ - second week in current year folder
+* _/my_plf_backup/current/weeks/N_ - N week in current year folder
 
 Files will have following format (using [ISO 8601|http://en.wikipedia.org/wiki/ISO_8601] date format):
 * _yyyy-MM-dd_mysql_jcrdb.tar.gz_ - for JCR database backup
@@ -82,26 +82,48 @@ Files will have following format (using [ISO 8601|http://en.wikipedia.org/wiki/I
 
 For files backup we have a shell script running on the Platform server. This script does next steps:
 * Stops the Platform server (ensure full stop by log sniffering)
-* Runs database backup tool against _jcrdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/2011/yyyy-MM-dd_mysql_jcrdb.tar.gz_
-* Runs database backup tool against _idmdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/2011/yyyy-MM-dd_mysql_idmdb.tar.gz_
-* Copies JCR value files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_values.tar.gz_
-* Copies JCR index files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jcr_index.tar.gz_
-* Copies Transaction service files to archive _/mnt/backupfs/my_plf_backup/2011/_yyyy-MM-dd_jta.tar.gz_
-* On each Sunday copies all 7 days old archive files to a week folder, e.g. _/my_plf_backup/2011/weeks/02_ for backup at January 9, 2011. 
-* Otherwise deletes files older of 7 days from _/my_plf_backup/2011/_
+* Runs database backup tool against _jcrdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_jcrdb.tar.gz_
+* Runs database backup tool against _idmdb_ and store result file in archive _/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_idmdb.tar.gz_
+* Copies JCR value files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jcr_values.tar.gz_
+* Copies JCR index files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jcr_index.tar.gz_
+* Copies Transaction service files to archive _/mnt/backupfs/my_plf_backup/current/_yyyy-MM-dd_jta.tar.gz_
+* On each Sunday copies all 7 days old archive files to a week folder, e.g. _/my_plf_backup/current/weeks/02_ for backup at January 9, 2011. 
+* Otherwise deletes files older of 7 days from _/my_plf_backup/current/_
+* If it's [first week|http://en.wikipedia.org/wiki/ISO_8601#Week_dates} of a new year, the script creates a previosu year folder in _/my_plf_backup/_, e.g. _/my_plf_backup/2010_, and moves content of _/my_plf_backup/current/weeks_ there.
 * Starts the Platform server
 * Sends mail to Admin in case of error on any step.
 
+{note}
+Example script implementation outside the scope of this guide.
+{note}
 
-h2. Perform backup {anchor:id=ADM.Security.Perform_backup}
+h2. Perform backup {anchor:id=ADM.Backup.Perform_backup}
 
-TODO describe steps
+General steps should be perfoamed to backup eXo Platform:
+* Stop Platform instance and ensure it is stopped fully, use shell command {{stop_eXo}} (find details in Installation chapter)
+* Run backup procudure that performes backup of:
+** JCR database
+** Organization service database 
+** JCR value storage files 
+** JCR index files 
+** Transaction service files
+* Archive backup files to your backup store
+* Start Platform instance
 
+{note}
+In case of Platform cluster, start it in proper order according the Clustering chapter steps.
+{note}
 
-h2. Perform restore 
+h2. Perform restore {anchor:id=ADM.Backup.Perform_restore} 
+
+Restore from backup can be used in several cases: failure, duplicating a site (e.g. for testing).
+
+As for backup it's important to stop the platform fully before the restore.
 
 TODO Intro and notes about all should be stopped
 TODO Describe steps
 
+h2. Thrid party tools {anchor:id=ADM.Backup.Thrid_party_tools} 
 
-aaaa
+TODO mentione _rsync_ and [backula.org|http://www.bacula.org/] as tools for incremental backup.
+
