@@ -384,6 +384,12 @@
       <version>${org.exoplatform.commons.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.fck</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+      <type>war</type>
+    </dependency>
     <!-- 3.0.0-Beta01-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.social</groupId>
