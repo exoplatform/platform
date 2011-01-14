@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>portal/public/default/</td>
+	<td>/portal/public/default/</td>
 	<td></td>
 </tr>
 <tr>
@@ -83,12 +83,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -172,12 +177,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
+	<td>waitForTextNotPresent</td>
 	<td>Aug 10, 2010 5:10:35 PM</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
+	<td>verifyTextNotPresent</td>
 	<td>Aug 10, 2010 5:10:35 PM</td>
 	<td></td>
 </tr>
@@ -208,12 +213,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UICLVFolderMode']//a[@title='Preferences']</td>
+	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div/div/div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -227,19 +237,34 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>focus</td>
 	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
 	<td></td>
 </tr>
 <tr>
+	<td>mouseOver</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>keyUp</td>
+	<td>UICLVConfigShowRefreshFormCheckboxInput</td>
+	<td>\32</td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>UICLVConfigShowReadmoreFormCheckboxInput</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>keyUp</td>
 	<td>UICLVConfigShowReadmoreFormCheckboxInput</td>
-	<td></td>
+	<td>\32</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -247,9 +272,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>keyUp</td>
 	<td>UICLVConfigShowDateCreatedFormCheckboxInput</td>
-	<td></td>
+	<td>\32</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -267,12 +292,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
+	<td>waitForTextPresent</td>
 	<td>Aug 10, 2010 5:10:35 PM</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
+	<td>verifyTextPresent</td>
 	<td>Aug 10, 2010 5:10:35 PM</td>
 	<td></td>
 </tr>

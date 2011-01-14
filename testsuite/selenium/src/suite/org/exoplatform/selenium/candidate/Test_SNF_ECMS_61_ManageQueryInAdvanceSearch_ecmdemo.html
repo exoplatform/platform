@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_ECMS_37_AddSymlink_ecmdemo</title>
+<title>Test_SNF_ECMS_61_ManageQueryInAdvanceSearch_ecmdemo</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_37_AddSymlink_ecmdemo</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_ECMS_61_ManageQueryInAdvanceSearch_ecmdemo</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -107,11 +107,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Go to Action tab</td>
 	<td></td>
@@ -128,237 +123,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add folder</td>
+	<td>--Add Article</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Add Folder</td>
+	<td>link=Add Document</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>name</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
-	<td>XinhTuoi</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Add Content folder bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>name</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
-	<td>TocNgan</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Add Symlink</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=XinhTuoi</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=XinhTuoi</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add Sym Link</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Add Sym Link</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Click additem icon to find path</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//img[@title='Add Item']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//img[@title='Add Item']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Go to the node to add symlink</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[text()='Users']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[text()='Users']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Go to root</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[text()='root']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[text()='root']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Go to private</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[text()='Private']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[text()='Private']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--&nbsp;&nbsp;Choose TocNgan</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[9]/td[2]/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[9]/td[2]/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForValue</td>
-	<td>symLinkName</td>
-	<td>TocNgan.lnk</td>
-</tr>
-<tr>
-	<td>verifyValue</td>
-	<td>symLinkName</td>
-	<td>TocNgan.lnk</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Click Save button to finish adding symlink</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete Content Folder aa</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=XinhTuoi</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>link=XinhTuoi</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Delete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete content folder bb</td>
+	<td>link=Add Document</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,22 +143,267 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=TocNgan</td>
+	<td>title</td>
 	<td></td>
 </tr>
 <tr>
-	<td>mouseDownRight</td>
-	<td>link=TocNgan</td>
+	<td>type</td>
+	<td>title</td>
+	<td>Nhuvaynhe</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='cke_contents_summary']/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//td[@id='cke_contents_summary']/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Dung khoc nhe. cuoi len em.</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>//td[@id='cke_contents_content']/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//td[@id='cke_contents_content']/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Nhung anh se nho nhung nu hon do ta trao</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Go to root path</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Private']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Open Search tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Saved Searches']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Saved Searches']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Open advanced search form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Advance Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Advance Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Open form to create query</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMSearch']//div[text()='New Query']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIECMSearch']//div[text()='New Query']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>zzNew</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>select * from exo:article</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIJCRAdvancedSearch']//a[text()='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Execute new query</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISavedQuery']/table/tbody/tr[4]/td[5]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UISavedQuery']/table/tbody/tr[4]/td[5]/div/img[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- View content of document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>/sites content/live/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>/sites content/live/acme/web contents/NewEvents/a-revolution-in-the-multi-touch-displays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete query</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Saved Query']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[text()='Saved Query']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Do you really want to delete this query?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--&nbsp;&nbsp;Close Form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPopupWindow']/div/div[1]/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISideBar']//div[@title='File explorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UISideBar']//div[@title='File explorer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete Article</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Nhuvaynhe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>link=Nhuvaynhe</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- comfirm deleting</td>
 	<td></td>
 </tr>
 <tr>
