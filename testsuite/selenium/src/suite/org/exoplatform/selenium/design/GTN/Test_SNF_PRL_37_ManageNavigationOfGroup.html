@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,12 +48,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Group navigation --</td>
+	<td>- Go to Manage groups--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -63,6 +68,16 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
+	<td>Developers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Developers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
 	<td>Executive Board</td>
 	<td></td>
 </tr>
@@ -73,12 +88,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Administrators</td>
+	<td>Administrator</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Administrators</td>
+	<td>Administrator</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,12 +108,22 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Users</td>
+	<td>Visitors</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Users</td>
+	<td>Visitors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Content Manager</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Content Manager</td>
 	<td></td>
 </tr>
 <tr>
@@ -128,12 +153,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Cancel</td>
+	<td>//div[@id='UIAddGroupNavigation']/div[2]/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Cancel</td>
+	<td>//div[@id='UIAddGroupNavigation']/div[2]/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -153,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[2]/tbody/tr/td[3]/a[3]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[2]/tbody/tr/td[3]/a[3]</td>
 	<td></td>
 </tr>
 <tr>
@@ -182,11 +207,15 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>
