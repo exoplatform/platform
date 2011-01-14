@@ -21,12 +21,36 @@
 # Computes the absolute path of eXo
 cd `dirname "$0"`
 
+# resolve links - $0 may be a softlink
+PRG="$0"
+
+while [ -h "$PRG" ]; do
+  ls=`ls -ld "$PRG"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '/.*' > /dev/null; then
+    PRG="$link"
+  else
+    PRG=`dirname "$PRG"`/"$link"
+  fi
+done
+
+# Get standard environment variables
+PRGDIR=`dirname "$PRG"`
+
+# set CATALINA_TEMP
+[ -z "$CATALINA_TEMP" ] && CATALINA_TEMP=`cd "$PRGDIR" >/dev/null; pwd`
+
+# set CATALINA_PID
+CATALINA_PID="$CATALINA_TEMP"/temp/catalina.tmp
+export CATALINA_PID
+
 echo Stopping eXo ...
 
 cd ./bin
 
+# shutdown.sh -force -> it makes a Kill -9 on the process
 if [ -r ./shutdown.sh ]; then
-	exec ./shutdown.sh
+	exec ./shutdown.sh $1
 else
 	echo shutdown.sh is missing.
 fi

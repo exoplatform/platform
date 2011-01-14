@@ -24,6 +24,12 @@ h2. Shutdown {anchor:id=ADM.INstallation.Tomcat_Bundle_Shutdown}
 * On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
 * On Windows:        {screen}%TOMCAT_HOME%\\stop_eXo.bat {screen}
 
+If you have a similar message when you try to stop Tomcat:
+{screen}Tomcat did not stop in time. PID file was not removed.{screen}
+then you must stop the tomcat process by a Ctrl+C or kill -9 command. To perform a kill automatically, you can type:
+{screen}stop_eXo.sh -force{screen} instead. It is available only on Linux and OS X systems.
+
+
 The server has stopped when you see the following message in your log/console:
 
 {screen}
