@@ -47,9 +47,6 @@
 						<field name="appTitle">
 							<string>Home</string>
 						</field>
-						<field name="icon">
-							<string>SpaceHomeIcon</string>
-						</field>
 					</object>
 				</object-param>
 
@@ -79,9 +76,6 @@
 										<field name="uri">
 											<string>dashboard</string>
 										</field>
-										<field name="icon">
-											<string>SpaceDashboardIcon</string>
-										</field>
 									</object>
 								</value>
 								<value>
@@ -103,9 +97,6 @@
 										</field>
 										<field name="uri">
 											<string>settings</string>
-										</field>
-										<field name="icon">
-											<string>SpaceSettingsIcon</string>
 										</field>
 									</object>
 								</value>
@@ -129,9 +120,6 @@
 										<field name="uri">
 											<string>members</string>
 										</field>
-										<field name="icon">
-											<string>SpaceMembersIcon</string>
-										</field>
 									</object>
 								</value>
 								<value>
@@ -153,9 +141,6 @@
 										</field>
 										<field name="uri">
 											<string>calendar</string>
-										</field>
-										<field name="icon">
-											<string>SpaceCalendarIcon</string>
 										</field>
 									</object>
 								</value>
@@ -179,9 +164,6 @@
 										<field name="uri">
 											<string>forum</string>
 										</field>
-										<field name="icon">
-											<string>SpaceForumIcon</string>
-										</field>
 									</object>
 								</value>
 								<value>
@@ -204,9 +186,6 @@
 										<field name="uri">
 											<string>answers</string>
 										</field>
-										<field name="icon">
-											<string>SpaceAnswersIcon</string>
-										</field>
 									</object>
 								</value>
 								<value>
@@ -228,9 +207,6 @@
 										</field>
 										<field name="uri">
 											<string>documents</string>
-										</field>
-										<field name="icon">
-											<string>SpaceDocumentsIcon</string>
 										</field>
 										<field name="preferences">
 											<map type="java.util.HashMap">
