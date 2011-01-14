@@ -279,7 +279,7 @@
               <int>5000</int>
             </field>
             <field name="liveTime">
-              <long>600000</long>
+              <long>600</long>
             </field>
           </object>
         </object-param>
