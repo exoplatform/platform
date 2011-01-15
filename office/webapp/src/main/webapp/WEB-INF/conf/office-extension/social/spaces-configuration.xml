@@ -22,10 +22,6 @@
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
-	<component>
-		<key>org.exoplatform.social.core.space.spi.SpaceService</key>
-		<type>org.exoplatform.social.core.space.impl.SpaceServiceImpl</type>
-	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
 		<component-plugin>
