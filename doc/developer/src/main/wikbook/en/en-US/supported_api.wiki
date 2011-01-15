@@ -54,19 +54,19 @@ h3. Java APIs
 
 *[Organization|/docs/refguide/html/ch-organization-service.html]*: An API and SPI for accessing user, group and membership information.
 
-*[Portal Container Definition|/docs/refguide/html/ch-service-configuration-for-beginners.html#d0e10576]*: This API is used to configure your portal.
+*[Portal Container Definition|/docs/refguide/html/ch-service-configuration-for-beginners.html#d0e10882]*: This API is used to configure your portal.
 
-*[Taxonomy|/docs/refguide/html/bk03ch07.html#d0e30746]*: An API that allows you to organize your content.
+*[Taxonomy|/docs/refguide/html/bk03ch07.html#d0e31062]*: An API that allows you to organize your content.
 
-*[Link Management|/docs/refguide/html/bk03ch07.html#d0e31776]*: An API that provides a way to manage links when developing WCM features.
+*[Link Management|/docs/refguide/html/bk03ch07.html#d0e32092]*: An API that provides a way to manage links when developing WCM features.
 
-*[Publication Management|/docs/refguide/html/bk03ch07.html#d0e32213]*: An API that provides different ways to manage the publication of content when developing WCM features.
+*[Publication Management|/docs/refguide/html/bk03ch07.html#d0e32570]*: An API that provides different ways to manage the publication of content when developing WCM features.
 
-*[WCM Composer|/docs/refguide/html/bk03ch07.html#d0e32392]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
+*[WCM Composer|/docs/refguide/html/bk03ch07.html#d0e32749]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
 
-*[Template WCM|/docs/refguide/html/bk03ch03.html#d0e27735]*: An API to provide views and dialogs to node types (system or document).
+*[Template WCM|/docs/refguide/html/bk03ch03.html#d0e28051]*: An API to provide views and dialogs to node types (system or document).
 
-*[XML Configuration|/docs/refguide/html/ch-services-wiring.html#d0e12795]*: A set of DTD for configuring the platform.
+*[XML Configuration|/docs/refguide/html/ch-services-wiring.html#d0e13101]*: A set of DTD for configuring the platform.
 
 h3. JavaScript APIs
 
@@ -88,10 +88,10 @@ h3. Java APIs
 
 *UI Extensions*: An API to plug new actions into the eXo Platform UI.
 
-*[DocumentExplorer Toolbar|/docs/refguide/html/bk03ch06.html#d0e30202]*
+*[DocumentExplorer Toolbar|/docs/refguide/html/bk03ch06.html#d0e30518]*
 
-*[ECM Admin|/docs/refguide/html/bk03ch06.html#d0e30202]*
+*[ECM Admin|/docs/refguide/html/bk03ch06.html#d0e30518]*
 
-*[Activity Sharing|/docs/refguide/html/bk08ch03.html#d0e48121]*
+*[Activity Sharing|/docs/refguide/html/bk08ch03.html#d0e49605]*
 
 
