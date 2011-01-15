@@ -68,7 +68,7 @@ function getModule(params)
       addDependency(new Project("org.apache.ws.commons.axiom", "axiom-api", "jar", "1.2.5")).
       addDependency(new Project("org.apache.ws.commons.axiom", "axiom-impl", "jar", "1.2.5")).
       addDependency(new Project("jaxen", "jaxen", "jar", "1.1.1")).
-      addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1")).
+      addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1"));
    /*module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);*/
    module.extension.webapp.deployName = "platform-extension";
    
