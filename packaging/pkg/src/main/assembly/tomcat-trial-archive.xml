@@ -17,6 +17,8 @@
            <exclude>webapps/host-manager/</exclude>
            <exclude>webapps/manager/</exclude>
            <exclude>webapps/ROOT/</exclude>
+           <exclude>conf/**/manager.xml</exclude>
+           <exclude>conf/**/host-manager.xml</exclude>
          </excludes>
       </fileSet>
       <!-- Executable files-->

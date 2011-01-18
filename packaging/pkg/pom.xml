@@ -1862,6 +1862,9 @@
                 <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
                 <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
                          token="gatein.data.dir=" value="#gatein.data.dir=" />
+                <!-- uses the gatein.data.dir to store the db at the correct location, in tomcat-trial/gatein/data -->
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml"
+                         token="../gatein/data" value="${gatein.data.dir}" />
               </target>
             </configuration>
             <goals>
@@ -1875,7 +1878,10 @@
               <target>
                 <!-- replace the gatein.data.dir variable to the original -->
                 <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
-                         token="#gatein.data.dir=" value="gatein.data.dir=" />                
+                         token="#gatein.data.dir=" value="gatein.data.dir=" />
+                <!-- remove usage of the variable so tomcat-trial works as normal -->
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml"
+                         token="${gatein.data.dir}" value="../gatein/data" />
               </target>
             </configuration>
             <goals>
