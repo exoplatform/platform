@@ -35,6 +35,12 @@
     <!-- Commons -->
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.fck</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui.ext</artifactId>
       <version>${org.exoplatform.commons.version}</version>
     </dependency>
@@ -934,6 +940,12 @@
 		      <artifactId>exo.platform.commons.comet.service</artifactId>
 		      <includeInApplicationXml>true</includeInApplicationXml>
 		    </jarModule>
+            <webModule>
+              <groupId>org.exoplatform.commons</groupId>
+              <artifactId>exo.platform.commons.fck</artifactId>
+		      <contextRoot>fck</contextRoot>
+		      <bundleFileName>fck.war</bundleFileName>
+		    </webModule>
                     <webModule>
                       <groupId>org.exoplatform.commons</groupId>
                       <artifactId>exo.platform.commons.comet.webapp</artifactId>
