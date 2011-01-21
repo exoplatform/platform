@@ -104,6 +104,11 @@
                 <value>ASC</value>
                 <read-only>false</read-only>
               </preference>
+			  <preference>
+                <name>header</name>
+                <value>Featured Products</value>
+                <read-only>false</read-only>
+              </preference>
               <preference>
                 <name>formViewTemplatePath</name>
                 <value>/exo:ecm/views/templates/content-list-viewer/list/TwoColumnsCLVTemplate.gtmpl</value>
@@ -131,7 +136,7 @@
               </preference>
               <preference>
                 <name>showHeader</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
