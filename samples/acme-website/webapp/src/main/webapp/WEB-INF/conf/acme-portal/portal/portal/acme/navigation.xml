@@ -79,6 +79,14 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::acme::detail</page-reference>
     </node>
+	
+	<node>
+      <uri>catalog</uri>
+      <name>catalog</name>
+      <label>#{portal.acme.catalog}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::acme::catalog</page-reference>
+    </node>
 
     <node>
       <uri>printviewer</uri>

@@ -1,0 +1,33 @@
+<%
+/**
+ * Created by The eXo Platform MEA
+ * Author : Anouar Chattouna
+ *          anouar.chattouna@exoplatform.com
+ * Sept 10, 2010
+ * 9:32:56 AM 
+ */
+%>
+<%
+	import	org.exoplatform.platform.samples.website.extention.webui.UINavigationTreeBuilder;
+	String siteName = uicomponent.getChild(UINavigationTreeBuilder.class).getSiteName();
+%>
+<div class="$uicomponent.id" id="$uicomponent.id">
+  <div class="TopTitleBar">
+	  <div class="DecoratorBox">
+	    <div class="BarDecorator">
+	      <div class="TopLeftBar">
+	          <div class="TopCenterBar"><span></span></div>
+	      </div>
+	      <div class="MiddleLeftBar">
+	          <div class="MiddleCenterBar" style="background-image: none;">$siteName</div>
+	      </div>
+	      <div class="BottomLeftBar">
+	          <div class="BottomCenterBar"><span></span></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  <div>
+    <% uicomponent.renderChildren(); %>
+  </div>
+</div>

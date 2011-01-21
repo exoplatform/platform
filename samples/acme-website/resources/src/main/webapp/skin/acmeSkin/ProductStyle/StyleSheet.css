@@ -1,0 +1,468 @@
+.FL {
+	float: left;
+	width: 445px;
+}
+
+.FR {
+	float: right;
+	width: 445px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+
+/* Product - Category  */
+.ACMECategoriesTDContainer {
+	width: 230px;
+}
+.ACMECategoriesTDContainer .CategoriesContainer .Title {
+	background: url('background/CategoriesContainerBg.png') repeat-x left -439px; 
+	border-top: 1px solid #ffffff;
+	font-size: 12px;
+	color: #282828;
+	line-height: 24px;
+	padding-left: 15px;
+}
+.ACMECategoriesTDContainer .CategoriesContainer {
+	padding-bottom: 7px;
+	width: 230px;
+}
+
+.ACMECategoriesTDContainer .CategoriesContainer .CategT {
+	background: url('background/MenuT.gif') no-repeat left top;
+	line-height: 28px;
+	padding: 0 0 0 15px;
+	color: #424242;
+	font-size: 14px;
+	font-weight: bold;
+	text-shadow: 1px 1px #ffe79e;
+}
+
+.ACMECategoriesTDContainer .CategoriesContainer .CategB {
+	background: url('background/MenuB.gif') no-repeat left bottom;
+	height: 9px;
+}
+
+.ACMECategoriesTDContainer .CategoriesContainer .CategC {
+	background: #f6f6f6;
+	padding-bottom: 20px;
+}
+
+.ACMECategoriesTDContainer .Tab h5 {
+	border-bottom: 1px dotted #686868;
+	display: block;
+	margin: 0 13px;
+	padding: 5px 0;
+}
+
+.ACMECategoriesTDContainer .SubTab h5 {
+	border-bottom: 1px dotted #aeaeae;
+	display: block;
+	margin: 0 30px;
+}
+
+.ACMECategoriesTDContainer .CategoriesContainer .CategC a.Item {
+	color: #424242;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.ACMECategoriesTDContainer .CategoriesContainer .CategC a.SubItem {
+	color: #696969;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/* Right column */
+.ACMEParameterizedTDContainer {
+	width: auto;
+	padding: 10px 20px 10px 10px;
+}
+
+.ACMEParameterizedTDContainer .OptionsTab {
+	color: #424242;
+	font-weight: bold;
+	line-height: 28px;
+}
+
+.ACMEParameterizedTDContainer .OptionsTab a.Selected {
+	color: #424242;
+}
+
+.ACMEParameterizedTDContainer .OptionsTab a.Normal {
+	color: #f58220;
+}
+
+/* Normal news */
+.ACMEParameterizedTDContainer .NorNews {
+	margin: 15px 0;
+}
+
+.ACMEParameterizedTDContainer .NorNews .ImgNorNews {
+	float: left;
+	width: 51px;
+}
+
+.ACMEParameterizedTDContainer .NorNews .ContentNorNews {
+	padding-left: 60px;
+}
+
+.ACMEParameterizedTDContainer .NorNews .TitNorNews {
+	font-size: 12px;
+	font-weight: bold;
+	color: #f58220;
+}
+
+.ACMEParameterizedTDContainer .NorNews .TitNorNews:hover {
+	/*text-decoration: underline;*/
+}
+
+.ACMEParameterizedTDContainer .NorNews .Summary {
+	color: #595959;
+	padding-top: 5px;
+	text-align: justify;
+}
+
+/* Hot news */
+.ACMEParameterizedTDContainer .HotNews {
+	margin: 20px 0;
+}
+
+.ACMEParameterizedTDContainer .HotNews .ImgHotNews {
+	float: left;
+	width: 93px;
+}
+
+.ACMEParameterizedTDContainer .HotNews .ContentHotNews {
+	padding-left: 110px;
+}
+
+.ACMEParameterizedTDContainer .HotNews .TitHotNews {
+	font-size: 12px;
+	font-weight: bold;
+	color: #f58220;
+}
+
+.ACMEParameterizedTDContainer .HotNews .TitHotNews:hover {
+	text-decoration: underline;
+}
+
+.ACMEParameterizedTDContainer .HotNews .Summary {
+	color: #595959;
+	padding-top: 5px;
+}
+
+.ACMEParameterizedTDContainer .LearnMore {
+	text-align: right;
+	padding: 3px 0;
+}
+
+.ACMEParameterizedTDContainer .LearnMore a {
+	color: #6180ff;
+}
+
+.ACMEParameterizedTDContainer .LearnMore a:hover {
+	text-decoration: underline;
+}
+
+/********************** Product detail *****************************************/
+.ProDetailPage {
+	padding: 13px 22px;
+}
+
+.ProDetailPage .ShareApp a {
+	width: 20px;
+	height: 20px;
+}
+
+.ProDetailPage .ShareApp .Facebook {
+	background: url('background/Icon20x20.png') no-repeat right -24px;
+	margin-left: 6px;
+}
+
+.ProDetailPage .ShareApp .Twitter {
+	background: url('background/Icon20x20.png') no-repeat right top;
+}
+
+.ProDetailPage .ProBoxTL {
+	background: url('background/ProDetailBg.png') no-repeat left -116px;
+	padding-left: 7px;
+}
+
+.ProDetailPage .ProBoxTR {
+	background: url('background/ProDetailBg.png') no-repeat right -116px;
+	padding-right: 7px;
+}
+
+.ProDetailPage .ProBoxTM {
+	background: url('background/ProDetailBg.png') repeat-x left -145px;
+	line-height: 28px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #424242;
+	padding-left: 10px;
+}
+
+.ProDetailPage .ProBoxControl {
+	padding: 6px 16px 0px 16px;
+}
+
+.ProDetailPage .ProBoxTLIn {
+	background-position: left -200px;
+}
+
+.ProDetailPage .ProBoxTRIn {
+	background-position: right -200px;
+}
+
+.ProDetailPage .ProBoxTMIn {
+	background-position: left -232px;
+}
+
+.ProDetailPage .ProBoxBL {
+	background: url('background/ProDetailBg.png') no-repeat left -176px;
+	padding-left: 7px;
+}
+
+.ProDetailPage .ProBoxBR {
+	background: url('background/ProDetailBg.png') no-repeat right -176px;
+	padding-right: 7px;
+}
+
+.ProDetailPage .ProBoxBM {
+	background: url('background/ProDetailBg.png') repeat-x left -189px;
+	padding-top:10px;
+}
+
+.ProDetailPage .ProBoxC {
+	background: #ffffff;
+	border-left: 1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
+	padding: 6px 16px 6px 16px;
+}
+
+.ProDetailPage .Box1 {
+	padding: 12px 0;
+	
+}
+
+.ProDetailPage .BoxContAct .ProBoxC {
+	text-align: center;
+}
+
+.ProDetailPage .Box1 .BlockWebsite {
+	width: 225px;
+}
+
+
+.ProDetailPage .Box1 .BlockSupport {
+	width: 190px;
+}
+
+.ProDetailPage .Box1 .Icon {
+	float: left;
+	height: 45px;
+	width: 50px;
+}
+
+.ProDetailPage .Box1 .TxtLinkIcon {
+	line-height: 45px;
+	padding-left: 10px;
+	color: #595959;
+}
+
+.ProDetailPage .Box1 .Block {
+	padding: 8px 0;
+}
+
+.ProDetailPage .Box1 .VideoDemo {
+	background: url('background/Icon50x50.png') no-repeat left top;
+}
+
+.ProDetailPage .Box1 .MemberKit {
+	background: url('background/Icon50x50.png') no-repeat left -119px;
+}
+
+.ProDetailPage .Box1 .Tutorial {
+	background: url('background/Icon50x50.png') no-repeat left -61px;
+}
+
+.ProDetailPage .Box1 .SampContract {
+	background: url('background/Icon50x50.png') no-repeat left -178px;
+}
+
+.ProDetailPage .Box1 .Healing {
+	background: url('background/Icon50x50.png') no-repeat left -238px;
+}
+
+.ProDetailPage .Box1 .XRayVision {
+	background: url('background/Icon50x50.png') no-repeat left -367px;
+}
+
+.ProDetailPage .Box1 .Immunity {
+	background: url('background/Icon50x50.png') no-repeat left -301px;
+}
+
+.ProDetailPage .Box1 .Vision {
+	background: url('background/Icon50x50.png') no-repeat left -429px;
+}
+
+/* Control button */
+.ProDetailPage .ControlBtn {
+	
+}
+
+.ProDetailPage .ControlBtn .Btn {
+	float: left;
+	margin-right: 13px;
+	cursor: pointer;
+}
+
+.ProDetailPage .ControlBtn a {
+	line-height: 28px;
+	color: #424242;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0 20px 0 0;
+	display: block;
+}
+
+/*Normal button*/
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnL {
+	background: url('background/ProDetailBg.png') no-repeat left -58px;
+	padding-left: 6px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnR {
+	background: url('background/ProDetailBg.png') no-repeat right -58px;
+	padding-right: 5px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnM {
+	background: url('background/ProDetailBg.png') repeat-x left -87px;
+	height: 28px;
+	padding: 0 7px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn a.ArrowCtrl {
+	background: url('background/Icon11x11.png') no-repeat right -13px;
+}
+
+/*Highlight button*/
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnL {
+	background: url('background/ProDetailBg.png') no-repeat left top;
+	padding-left: 4px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnR {
+	background: url('background/ProDetailBg.png') no-repeat right top;
+	padding-right: 4px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnM {
+	background: url('background/ProDetailBg.png') repeat-x left -29px;
+	height: 28px;
+	padding: 0 7px;
+}
+
+.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn a.ArrowCtrl {
+	background: url('background/Icon11x11.png') no-repeat right 11px;
+}
+
+/* Override JQuery Tabs default style */
+.ui-tabs .ui-tabs-nav li a {
+	padding: 0 20px 0 0;
+}
+
+/* Content list */
+.ProDetailPage ul.ContList {
+	padding: 10px 0 10px 30px;
+}
+
+.ProDetailPage ul.ContList li {
+	list-style-image: url('background/ListIcon.png');
+	list-style-type: square;
+	line-height: 16px;
+	padding: 5px 0;
+	color: #424242;
+}
+
+/*  */
+.ProDetailPage .BigNews {
+	margin: 5px 0 30px;
+}
+
+.ProDetailPage .BigNews .Image {
+	float: left;
+	width: 93px;
+}
+
+.ProDetailPage .BigNews .Content {
+	padding-left: 110px;
+}
+
+.ProDetailPage .BigNews .Content .Title {
+	font-size: 27px;
+	font-weight: bold;
+	color: #424242;
+}
+
+.ProDetailPage .BigNews .Content .Title:hover {
+	text-decoration: underline;
+}
+
+.ProDetailPage .BigNews .Content .Index1 {
+	color: #f58220;
+	font-size: 12px;
+}
+
+.ProDetailPage .BigNews .Content .Summary {
+	color: #595959;
+	padding-top: 5px;
+}
+
+/* Edit Mode */
+.UIPresentationSubContainerHover .EdittingToolBarSubContainer {
+	display:block;
+}
+
+.EdittingToolBarSubContainer {
+	display:none;
+	float:right;
+	position:relative;
+	right:0;
+	top:0;
+	width:160px;
+	z-index:1;
+}
+
+.EdittingToolBarSubContainer .EdittingToolBar {
+	position:absolute;
+	right:0;
+	top:-20px;
+}
+.EdittingToolBarSubContainer .EdittingCurrentState {
+	color:#5E6D7B;
+	padding-left:3px;
+}
+.EdittingToolBarSubContainer .EdittingToolBar .EdittingToolBarL {
+	background:url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/icons/EdittingToolBarL.png") no-repeat scroll left top transparent;
+	padding-left:4px;
+}
+.EdittingToolBarSubContainer .EdittingToolBar .EdittingToolBarR {
+	background:url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/icons/EdittingToolBarR.png") no-repeat scroll right top transparent;
+	padding-right:4px;
+}
+.EdittingToolBarSubContainer .EdittingToolBar .EdittingToolBarC {
+	background:url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/icons/EdittingToolBarC.png") repeat-x scroll 0 0 transparent;
+	line-height:18px;
+	padding:2px 0 0;
+}

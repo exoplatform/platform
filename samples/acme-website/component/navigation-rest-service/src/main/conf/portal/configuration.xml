@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+	<!-- Content Navigation REST Service -->
+	<component>
+		<type>org.exoplatform.platform.samples.website.extention.services.ContentNavigationService</type>
+		<init-params>
+			<value-param>
+				<name>repository</name>
+				<value>repository</value>
+			</value-param>
+			<value-param>
+				<name>workspace</name>
+				<value>collaboration</value>
+			</value-param>
+		</init-params>
+	</component>
+
+</configuration>

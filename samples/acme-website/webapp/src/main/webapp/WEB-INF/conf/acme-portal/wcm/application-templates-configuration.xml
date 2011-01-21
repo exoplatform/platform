@@ -54,12 +54,36 @@
             </field>
           </object>
         </object-param>
+		<object-param>
+          <name>Powers Category Tree</name>
+          <description>Powers Category Tree</description>
+          <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="templateName">
+              <string>AcmePowersCategoryTree.gtmpl</string>
+            </field>
+            <field name="category">
+              <string>navigation</string>
+            </field>
+          </object>
+        </object-param>
         <object-param>
           <name>Big Hot News</name>
           <description>Big Hot News</description>
           <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
             <field name="templateName">
               <string>AcmeBigHotNewsTemplateCLV.gtmpl</string>
+            </field>
+            <field name="category">
+              <string>list</string>
+            </field>
+          </object>
+        </object-param>
+		<object-param>
+          <name>Powers</name>
+          <description>Powers</description>
+          <object type="org.exoplatform.services.cms.views.PortletTemplatePlugin$PortletTemplateConfig">
+            <field name="templateName">
+              <string>AcmePowersTemplateCLV.gtmpl</string>
             </field>
             <field name="category">
               <string>list</string>

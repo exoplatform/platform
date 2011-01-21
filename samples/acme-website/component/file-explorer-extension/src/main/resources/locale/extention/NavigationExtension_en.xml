@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIActionBar>
+		<tooltip>
+			<ContentNavigation>Content Navigation</ContentNavigation>
+		</tooltip>
+	</UIActionBar>
+	<UIViewFormTabPane>
+		<label>
+			<contentNavigation>Navigation by Content</contentNavigation>
+		</label>
+	</UIViewFormTabPane>
+	<UIPopupWindow>
+		<title>
+			<UINavigationForm>Navigation Form</UINavigationForm>
+		</title>
+	</UIPopupWindow>
+	<UINavigationForm>
+		<label>
+			<Node>Category :</Node>
+			<Visible>Visible :</Visible>
+			<NavigationNodeInputSet>Navigation node :</NavigationNodeInputSet>
+			<Index>Index</Index>
+			<Clickable>Clickable :</Clickable>
+			<NavigationControls>Navigation Controls</NavigationControls>
+			<ListTargetPageFormInputSet>Page for list :</ListTargetPageFormInputSet>
+			<ListShowCLVByStringInput>Parameter name :</ListShowCLVByStringInput>
+			<DetailTargetPageInputSet>Page for detail :</DetailTargetPageInputSet>
+			<DetailShowCLVByStringInput>Parameter name :</DetailShowCLVByStringInput>
+			<List>List</List>
+			<Detail>Detail</Detail>
+		</label>
+		<action>
+			<Save>Save</Save>
+			<Cancel>Cancel</Cancel>
+		</action>
+	</UINavigationForm>
+	<Visible>
+		<label>
+			<VisibleEnable>Yes</VisibleEnable>
+			<VisibleDisable>No</VisibleDisable>
+		</label>
+	</Visible>
+	<Clickable>
+		<label>
+			<ClickableEnable>Yes</ClickableEnable>
+			<ClickableDisable>No</ClickableDisable>
+		</label>
+	</Clickable>
+	<NavigationNodeInputSet>
+		<title>
+			<SelectNavigationNode>Select Navigation Node</SelectNavigationNode>
+			<RemoveNavigationNode>Reset</RemoveNavigationNode>
+		</title>
+	</NavigationNodeInputSet>
+	<ListTargetPageFormInputSet>
+		<title>
+			<SelectListTargetPage>Select Target Page</SelectListTargetPage>
+			<RemoveListTargetPage>Reset</RemoveListTargetPage>
+		</title>
+	</ListTargetPageFormInputSet>
+	<DetailTargetPageInputSet>
+		<title>
+			<SelectDetailTargetPage>Select Children Target Page</SelectDetailTargetPage>
+			<RemoveDetailTargetPage>Reset</RemoveDetailTargetPage>
+		</title>
+	</DetailTargetPageInputSet>
+	<NavigationSelectorPopupWindow>
+		<title>
+			<UINavigationSelector>Navigation Selector</UINavigationSelector>
+		</title>
+	</NavigationSelectorPopupWindow>
+	<ListTargetPageSelectorPopupWindow>
+		<title>
+			<UIPageSelector>Page Selector</UIPageSelector>
+		</title>
+	</ListTargetPageSelectorPopupWindow>
+	<DetailTargetPageSelectorPopupWindow>
+		<title>
+			<UIPageSelector>Page Selector</UIPageSelector>
+		</title>
+	</DetailTargetPageSelectorPopupWindow>
+</bundle>

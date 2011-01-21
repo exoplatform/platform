@@ -11,6 +11,9 @@
   <name>eXo Platform - Acme Website</name>
   <modules>
     <module>config</module>
+    <module>component/file-explorer-extension</module>
+	<module>component/navigation-rest-service</module>
+	<module>resources</module>
     <module>webapp</module>
     <module>ear</module>
   </modules>

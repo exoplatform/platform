@@ -96,7 +96,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/Events</value>
+                <value>repository:collaboration:/sites content/live/acme/web contents/Powers</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -116,7 +116,7 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>5</value>
+                <value>4</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -380,7 +380,7 @@
               </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/navigation/AcmeCategoryTree.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/navigation/AcmePowersCategoryTree.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -443,22 +443,22 @@
               </preference>
               <preference>
                 <name>orderBy</name>
-                <value>publication:liveDate</value>
+                <value>exo:index</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>orderType</name>
-                <value>DESC</value>
+                <value>ASC</value>
                 <read-only>false</read-only>
               </preference>
-              <preference>
+              <!--preference>
                 <name>header</name>
                 <value>Top News</value>
                 <read-only>false</read-only>
-              </preference>
+              </preference-->
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmeBigHotNewsTemplateCLV.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmePowersTemplateCLV.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -468,7 +468,7 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>5</value>
+                <value>3</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -478,12 +478,12 @@
               </preference>
               <preference>
                 <name>showDateCreated</name>
-                <value>true</value>
+                <value>false</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>showReadmore</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -863,6 +863,86 @@
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
     </portlet-application>
+  </page>
+  
+  <page>
+    <name>catalog</name>
+    <title>Catalog</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+	<portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>ContentListViewerPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>folderPath</name>
+                <value>repository:collaboration:/sites content/live/acme/categories/acme</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>orderBy</name>
+                <value>exo:index</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>orderType</name>
+                <value>ASC</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>formViewTemplatePath</name>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/OneColumnCLVTemplate.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+			  <preference>
+                <name>paginatorTemplatePath</name>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorDefault.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>basePath</name>
+                <value>detail</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>itemsPerPage</name>
+                <value>3</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showDateCreated</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showReadmore</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>contextualFolder</name>
+                <value>contextualEnable</value>
+                <read-only>false</read-only>
+              </preference>      
+              <preference>
+                <name>showScvWith</name>
+                <value>content-id</value>
+                <read-only>false</read-only>
+              </preference>      
+              <preference>
+                <name>showClvBy</name>
+                <value>folder-id</value>
+                <read-only>false</read-only>
+              </preference>      
+            </preferences>
+          </portlet>
+          <title>Catalog</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
   </page>
 
   <page>

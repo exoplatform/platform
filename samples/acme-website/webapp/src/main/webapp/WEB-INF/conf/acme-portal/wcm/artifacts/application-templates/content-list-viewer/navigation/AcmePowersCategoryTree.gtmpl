@@ -1,0 +1,103 @@
+<%
+	 /**
+	 	* Created by The eXo Platform MEA
+	 	* Author : eXoPlatform
+	 	*          anouar.chattouna@exoplatform.com
+	 	* Oct 1, 2010  
+	 	*/
+
+%>
+
+<%	
+	public void renderChild(def category) {
+		if (category.hasChilds()){
+			def subcategories= category.getChilds();
+			%>
+			<ul class="Tab">
+			<%
+				for (cat in subcategories) {
+					def subcategoryTitle = cat.getTitle();
+					def subcategoryURL = cat.getUrl();
+					String selectedItem = "Item";
+					if (cat.isSelected()) selectedItem += " selectedItem";
+			%>
+				<li>
+					<h5><a class="$selectedItem" href="$subcategoryURL">$subcategoryTitle</a></h5>
+					<% 
+					if (cat.hasChilds()){
+						renderSubChild(cat);
+					}
+					%>
+				</li>
+			<% } %>
+			</ul>
+			<%
+		}
+	}
+
+	public void renderSubChild(def category) {
+	 if(category.hasChilds()){
+		def subcategories = category.getChilds();
+
+		%>
+			<ul class="SubTab">
+			<%
+				for (subcat in subcategories) {
+					def subcategoryName = subcat.getTitle();
+					def categoryLink = subcat.getUrl();
+					String selectedItem = "SubItem";
+					if (subcat.isSelected()){ selectedItem += " SelectedSubItem";}
+					def margin = 16 * (subcat.getDepth() - 2) + "px";
+			%>
+				<li style="margin-left: $margin">
+					<h5><a class="$selectedItem" href="$categoryLink">$subcategoryName</a></h5>
+					<% 
+					if (subcat.hasChilds()){
+						renderSubChild(subcat);
+					}
+					%>
+				</li>
+			<% } %>
+			</ul>
+		<%
+
+	 }
+	}
+%>
+<style>
+.ACMEParameterizedTDContainer {
+padding:10px;
+width:auto !important;
+}
+</style>
+<!-- Products -->
+<!--table style="table-layout: fixed; margin: 0px auto;" class="UITableColumnContainer">
+		<tr class="TRContainer">
+			<td class="ACMECategoriesTDContainer TDContainer"-->
+
+	<div class="UIContainer" id="ACMECategories">
+		<div class="CategoriesContainer">
+			<div class="CategT"><%=uicomponent.getHeader()%></div>
+			<div class="CategC">	
+		<%
+			def categories = uicomponent.getCategories();
+			def cssStyle = "Title";
+			for (category in categories) {	
+				if (category.isSelected()){
+				cssStyle += " CategorySelected";
+				}
+				def categoryTitle = category.getTitle();
+				def categoryURL = category.getUrl();
+			%>
+			<div class="$cssStyle"><a href="$categoryURL" title="$categoryTitle">$categoryTitle</a></div>
+			<%
+				renderChild(category);
+			}
+		%>					
+			</div>
+			<div class="CategB"></div>
+		</div>
+	</div>
+			<!--/td>
+		</tr>
+</table-->

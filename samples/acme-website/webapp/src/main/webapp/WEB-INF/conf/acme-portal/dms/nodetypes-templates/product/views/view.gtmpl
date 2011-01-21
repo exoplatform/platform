@@ -1,0 +1,675 @@
+<%
+	import java.util.Collections;
+	import java.util.HashMap;
+	import java.util.List;
+	import javax.jcr.Node;
+	import javax.jcr.NodeIterator;
+	import javax.jcr.PathNotFoundException;
+	import javax.jcr.query.Query;
+	import javax.jcr.query.QueryManager;
+	import javax.jcr.Session;
+	import javax.portlet.PortletRequest;
+	import org.exoplatform.ecm.webui.comparator.NodeNameComparator;
+	import org.exoplatform.ecm.webui.comparator.PropertyValueComparator;
+	import org.exoplatform.portal.webui.util.SessionProviderFactory;
+	import org.exoplatform.portal.webui.util.Util;
+	import org.exoplatform.services.cms.folksonomy.NewFolksonomyService;
+	import org.exoplatform.services.cms.taxonomy.TaxonomyService;
+	import org.exoplatform.services.wcm.images.RESTImagesRendererService;
+	import org.exoplatform.services.wcm.core.NodeLocation;
+	import org.exoplatform.services.jcr.core.ExtendedNode;
+	import org.exoplatform.services.jcr.access.PermissionType;
+	import org.exoplatform.services.jcr.RepositoryService;
+	import org.exoplatform.services.jcr.core.ManageableRepository;
+	import org.exoplatform.services.jcr.ext.common.SessionProvider;
+	import org.exoplatform.services.wcm.publication.WCMComposer;
+	import org.exoplatform.services.wcm.utils.WCMCoreUtils;	
+	import org.exoplatform.wcm.webui.Utils;
+	import org.exoplatform.ecm.webui.utils.LockUtil;
+	import org.exoplatform.webui.application.portlet.PortletRequestContext;
+	import org.exoplatform.webui.application.WebuiRequestContext;
+	
+	def currentNode = uicomponent.getNode();
+	def originalNode = currentNode;
+	
+	if(currentNode.isNodeType("nt:frozenNode")){ 		
+		String nodeUUID = currentNode.getProperty("jcr:frozenUuid").getString();
+		originalNode = currentNode.getSession().getNodeByUUID(nodeUUID);
+	}
+	
+	public String getBaseURI(){
+		return WebuiRequestContext.getCurrentInstance().getRequest().getScheme() + "://" + WebuiRequestContext.getCurrentInstance().getRequest().getServerName() + ":" + String.format("%s", WebuiRequestContext.getCurrentInstance().getRequest().getServerPort());
+	}
+	
+	public String getPortalName(){
+		return uicomponent.getPortalName();
+	}
+	
+	public String getRestContextName(){
+		return org.exoplatform.ecm.webui.utils.Utils.getRestContextName(getPortalName());
+	}
+	
+	public String getRepositoryName(Node node){
+		return NodeLocation.make(node).getRepository();
+	}
+	
+	public String getWorkspaceName(Node node){
+		return NodeLocation.make(node).getWorkspace();
+	}
+ 
+	public String getRimOfImage(String property, Node currentNode) throws Exception {
+		String rim = "";
+		try {
+		  rim = currentNode.getProperty(property).getString();
+		  if (!(rim.indexOf("%") > 0)) rim = rim + "px";
+		} catch(PathNotFoundException pnf) {
+		  rim = "100px";
+		}
+		return rim;
+	}
+		
+	public boolean getPortletPreference(String name) {
+		String value = _ctx.getRequestContext().getRequest().getPreferences().getValue(name, null);
+		if(value != null) return Boolean.parseBoolean(value);
+		return false;
+	}
+  
+	public List<Node> getRenderedContentNodes(String path) throws Exception {
+		PortletRequestContext portletRequestContext = WebuiRequestContext.getCurrentInstance();
+		WCMComposer wcmComposer = uicomponent.getApplicationComponent(WCMComposer.class);
+		HashMap<String, String> filters = new HashMap<String, String>();
+		filters.put(WCMComposer.FILTER_MODE, Utils.getCurrentMode());
+		//TODO replace  exo:lastModifiedDate by exo:index
+		String orderBy = "exo:dateModified";
+		String orderType = "ASC"; 
+		filters.put(WCMComposer.FILTER_ORDER_BY, orderBy);
+		filters.put(WCMComposer.FILTER_ORDER_TYPE, orderType);
+		filters.put(WCMComposer.FILTER_LANGUAGE, Util.getPortalRequestContext().getLocale().getLanguage());	  
+		NodeLocation nodeLocation = NodeLocation.getNodeLocationByExpression(path);
+		return wcmComposer.getContents(nodeLocation.getRepository(), nodeLocation.getWorkspace(), nodeLocation.getPath(), filters, WCMCoreUtils.getUserSessionProvider());
+	}
+
+	public boolean isShowEdit(Node node) {
+		if (!"UIDocumentInfo".equals(uicomponent.getName()) && Utils.isShowQuickEdit()) {
+			try {
+				Node parent = node.getParent();
+				((ExtendedNode)node).checkPermission(PermissionType.SET_PROPERTY);
+				((ExtendedNode)parent).checkPermission(PermissionType.ADD_NODE);
+			} catch (Exception e) {
+				return false;
+			}
+			return true;
+		} else {
+			return false;
+		}
+	}	
+
+	public void sortChildNodes(List<Node> childrenList) {
+	//TODO replace  exo:lastModifiedDate by exo:index
+	  Collections.sort(childrenList, new PropertyValueComparator("exo:lastModifiedDate", "Ascending"));	  
+	}
+	
+	public List<Node> getChildNodeListFromNodeIterator(NodeIterator childrenIterator){
+		List<Node> childrenList  = new ArrayList<Node>();
+		while(childrenIterator.hasNext()) {
+			Node child = (Node)childrenIterator.next() ;
+			if(child.isNodeType("nt:file") && Utils.isViewable(child)) {
+				childrenList.add(child) ;
+			}
+		  }
+		return childrenList;
+	}
+	
+	public List<Node> getFolderNodeListFromNodeIterator(NodeIterator childrenIterator){
+		List<Node> childrenList  = new ArrayList<Node>();
+		while(childrenIterator.hasNext()) {
+			Node child = (Node)childrenIterator.next() ;
+			if(child.isNodeType("nt:folder") && Utils.isViewable(child)) {
+				childrenList.add(child) ;
+			}
+		  }
+		return childrenList;
+	}
+
+	public void renderDocuments(Node node) throws Exception {
+		
+		// check permissions
+		if(Utils.isViewable(node)) {
+			// check publication state
+			NodeLocation nodeLocation = NodeLocation.getNodeLocationByNode(node);
+			Node viewNode = Utils.getViewableNodeByComposer(nodeLocation.getRepository(), nodeLocation.getWorkspace(), nodeLocation.getPath(), null);
+			if (viewNode != null) {
+				if(node.isNodeType("nt:file")){
+					def itemName = node.getName();
+					def itemIcon = "Icon16x16 default48x48Icon "+org.exoplatform.ecm.webui.utils.Utils.getNodeTypeIcon(node, "48x48Icon");
+					def itemWebdavLink = getBaseURI() + "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
+					%>
+						<div class="Block">
+								<a class="Icon $itemIcon" href="$itemWebdavLink"></a>
+								<a class="TxtLinkIcon" href="$itemWebdavLink" target="_newdoc">$itemName</a>
+								<%
+									def contentNode = node.getNode("jcr:content") ;
+									def mimeType = contentNode.getProperty("jcr:mimeType").getString();
+									// DISPLAY PREVIEW ONLY FOR PDF DOCUMENTS
+									if (mimeType.equals("application/pdf")){
+									def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/private/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
+								%>
+									<a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" /></a>
+								<%
+									}
+								%>
+						</div>
+					<%
+				} else if(node.isNodeType("nt:folder")) {
+					if (node.getNodes().getSize() > 0){//if folder has no items it will not be displayed
+						%>
+						<div class="ProBoxControl">
+							<div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">
+							<%
+								def canEditNode = isShowEdit(node);
+								//def ProBoxControlId = "ProBoxControl";
+								//def hoverClassNode = canEditNode ? " ContainerHoverClass" : "";
+								//if(canEditNode){
+								if (canEditNode && !LockUtil.isLocked(node)) {
+									def managePath = getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
+									def manageLink = Utils.getEditLink(managePath, false, false);
+									def rcontext = _ctx.getRequestContext() ;
+									String portletId = Utils.getRealPortletId(rcontext);
+									def quickEditingBlockId = portletId + "-QuickEditingBlock";
+									def addContentBlockId = portletId + "-AddContentBlock";
+									def manageContentBlockId = portletId + "-ManageContentBlock";		
+									def addContentLink = Utils.getEditLink(managePath, false, true);
+									def manageContentsLink = Utils.getEditLink(managePath, false, false);
+									def edittingStyle = "z-index: 1";
+							%>
+								 <div class="EdittingToolBarSubContainer" style="$edittingStyle">
+									 <div class="EdittingToolBar " >
+										<div class="EdittingToolBarL">
+											<div class="EdittingToolBarR">
+												<div class="EdittingToolBarC clearfix">
+													<div style="float: right"  id="<%=manageContentBlockId%>">
+														<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
+														  &nbsp;
+														</a>           
+													</div>
+													<!--
+													<div style="float: right" id="<%=addContentBlockId%>">
+														<a class="AddContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=addContentLink%>" title="<%= _ctx.appRes("UICLVContainer.label.AddContent");%>">
+														  &nbsp;
+														</a>           
+													</div>
+													-->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							<% } %>
+
+							<%
+						
+						def folderTitle = node.getName();
+						%>
+							<!--div class="ProBoxTL ProBoxTLIn">
+								<div class="ProBoxTR ProBoxTRIn">
+									<div class="ProBoxTM ProBoxTMIn">$folderTitle</div>
+								</div>
+							</div-->
+							<div class="ProBoxTL">
+								<div class="ProBoxTR">
+									<div class="ProBoxTM">$folderTitle</div>
+								</div>
+							</div>
+							<div class="ProBoxC">
+						<%
+						List<Node> childeNodes = getChildNodeListFromNodeIterator(node.getNodes());
+						sortChildNodes(childeNodes);
+						for(docNode in childeNodes){
+							renderDocuments(docNode);
+						}
+						%>
+							</div>
+							<div class="ProBoxBL">
+								<div class="ProBoxBR">
+									<div class="ProBoxBM"><span></span></div>
+								</div>
+							</div>
+						  </div>
+						</div>
+						<%
+					}
+				}
+			}
+		}
+}
+%>
+<div class="ProDetailPage">
+
+<!-- Hot news -->
+<div class="BigNews ClearFix">                
+	<!-- Begin illustrative image -->
+		<%  
+		RESTImagesRendererService imagesRenderer = uicomponent.getApplicationComponent(RESTImagesRendererService.class);								
+		def imageURI = imagesRenderer.generateImageURI(currentNode.getNode("medias/images/illustration"),null);
+		if (imageURI != null){
+		%>
+	<a class="Image"><img width="93" src="$imageURI" alt=""></a>
+		<%
+		}
+		%>
+	<div class="Content">
+	<!-- Begin title -->
+	<%
+	  if(currentNode.hasProperty("exo:title")) {
+		def title = currentNode.getProperty("exo:title").getString();
+		%>
+		<a href="#" class="Title">$title</a>
+		<div class="Index1">$title</div>
+		<%
+	  }
+	%>
+	<!-- End title -->
+	<!-- Begin summary -->
+		<%
+		if(currentNode.hasProperty("exo:summary")) {
+		def summary = currentNode.getProperty("exo:summary").getString();
+		%>
+		<div class="Summary">$summary</div>
+		<%
+		}
+		%>	
+	<!-- End summary -->		
+	</div>
+</div>
+
+<script type="text/javascript" src="/acme-websiteResources/javascript/jquery-ui-1.8.6.custom.min.js"></script>
+
+<div id="sectionsTabs">
+	<ul>
+		<li>
+			<!-- Begin Benefits head section -->
+			<div class="ControlBtn ClearFix">
+				<div class="Btn Highlight">
+					<div class="BtnL">
+						<div class="BtnR">
+							<div class="BtnM">
+								<a class="ArrowCtrl" href="#tab-benefits">Benefits</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Benefits head section -->
+		</li>
+		<li>
+			<!-- Begin Features head section -->
+			<div class="ControlBtn ClearFix">
+				<div class="Btn Normal">
+					<div class="BtnL">
+						<div class="BtnR">
+							<div class="BtnM">
+								<a class="ArrowCtrl" href="#tab-features">Features</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Features head section -->
+		</li>
+	</ul>
+	<div id="tab-benefits">
+	  <%
+		  if(currentNode.hasProperty("exo:productBenefits")) {
+			def benefits = currentNode.getProperty("exo:productBenefits").getString();
+			print benefits;
+		  }
+	  %>							
+	</div>
+	<div id="tab-features">
+	  <%
+		  if(currentNode.hasProperty("exo:productFeatures")) {
+			def features = currentNode.getProperty("exo:productFeatures").getString();
+			print features;
+		  }
+	  %>							
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery.noConflict();
+	jQuery(document).ready(function() {
+		jQuery("#sectionsTabs").tabs();
+	});
+</script>
+
+<!-- Begin render related pictures /node/medias/images -->
+<script type="text/javascript" src="/portal/rest/jcr/repository/collaboration/sites content/live/acme/js/jcarousellite.js"></script>
+<%
+	String imgSrc = "";	
+	if(originalNode.hasNode("medias/images")){
+		def mediasImagesNode = originalNode.getNode("medias/images");
+		//def mediasImagesNode = currentNode.getNode("medias/images");
+		if(mediasImagesNode.getNodes().getSize() > 1){
+		%>
+
+<!-- Images See in action -->
+<div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">	<div class="Box1 ClearFix">
+		<%
+		if (isShowEdit(mediasImagesNode) && !LockUtil.isLocked(currentNode)) {
+			def managePicturesPath = getRepositoryName(mediasImagesNode) + "/" +  getWorkspaceName(mediasImagesNode) + mediasImagesNode.getPath();
+			def managePicturesLink = Utils.getEditLink(managePicturesPath, false, false);
+			def rcontext = _ctx.getRequestContext() ;
+			String portletId = Utils.getRealPortletId(rcontext);
+			def quickEditingBlockId = portletId + "-QuickEditingBlock";
+			def addContentBlockId = portletId + "-AddContentBlock";
+		    def manageContentBlockId = portletId + "-ManageContentBlock";		
+		    //def addContentLink = Utils.getEditLink(managePicturesPath, false, true);
+		    def addContentLink = Utils.getEditLink(managePicturesPath, false, false);
+		    def manageContentsLink = Utils.getEditLink(managePicturesPath, false, false);
+			def edittingStyle = "z-index: 1";
+		%>
+	
+		 <div class="EdittingToolBarSubContainer" style="$edittingStyle">
+			 <div class="EdittingToolBar " >
+				<div class="EdittingToolBarL">
+					<div class="EdittingToolBarR">
+						<div class="EdittingToolBarC clearfix">
+							<div style="float: right"  id="<%=manageContentBlockId%>">
+								<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
+								  &nbsp;
+								</a>           
+							</div>
+							<!--
+							<div style="float: right" id="<%=addContentBlockId%>">
+								<a class="AddContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=addContentLink%>" title="<%= _ctx.appRes("UICLVContainer.label.AddContent");%>">
+								  &nbsp;
+								</a>           
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% } %>
+		<div class="BoxContAct">
+			<div class="ProBoxTL">
+				<div class="ProBoxTR">
+					<div class="ProBoxTM">See it in action</div>
+				</div>
+			</div>
+			<div class="ProBoxC">
+				<div class="jQProDetailPage">
+					<div class="jQBoxContAct">
+						<div class="jQProBoxTL">
+							<div class="jQProBoxTR">
+								<div class="jQProBoxTM"><span></span></div>
+							</div>
+						</div>
+						
+						<div class="jQProBoxC">
+							<!-- Begin jCarouselLite part -->
+							<button class="jQprev">&nbsp;</button>
+							<div class="jCarouselLite">
+							   <ul>
+						<%
+						/*A valid expression has pattern repository:workspace:path*/
+						def picturesValidPath = getRepositoryName(mediasImagesNode) + ":" +  getWorkspaceName(mediasImagesNode) + ":" + mediasImagesNode.getPath();
+						for(image in getRenderedContentNodes(picturesValidPath)) {
+							// check permissions
+							if(Utils.isViewable(image)) {
+								if((!image.getName().equals("exo:thumbnails")) && (!image.getName().equals("illustration")) ){
+									if(image.hasNode("jcr:content")){
+										def imgContent = image.getNode("jcr:content");
+										if(imgContent.hasProperty("jcr:mimeType")){
+											def imgContentMimeType = imgContent.getProperty("jcr:mimeType").getString();
+											if("image/gif".equals(imgContentMimeType)||"image/png".equals(imgContentMimeType)||"image/jpg".equals(imgContentMimeType)||"image/jpeg".equals(imgContentMimeType)||"image/bmp".equals(imgContentMimeType)||"image/tiff".equals(imgContentMimeType)){					
+												String title = image.getName();
+												imgSrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(image) + "/" +  getWorkspaceName(image) + image.getPath();
+												%>
+												<li><img src="$imgSrc" alt="$title" width="204" height="200"/></li>
+												<%
+											}
+										}
+									}
+								}
+							}
+						}
+						%>
+								</ul>
+							</div>
+							<button class="jQnext">&nbsp;</button>
+							<!-- End jCarouselLite part -->
+						</div>
+						<div class="clear"></div>
+						<div class="jQProBoxBL">
+							<div class="jQProBoxBR">
+								<div class="jQProBoxBM"><span></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ProBoxBL">
+				<div class="ProBoxBR">
+					<div class="ProBoxBM"><span></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+	jQuery.noConflict();
+	   jQuery(document).ready(function(){
+	  //jQuery.noConflict();
+		jQuery(".jCarouselLite").jCarouselLite({
+		btnNext: ".jQprev",
+		btnPrev: ".jQnext",
+		//auto: 500,
+		//speed: 500	    
+	});
+ });
+	</script>
+	<%
+		}
+	}
+%>	
+<!-- End render related pictures /node/medias/images -->
+
+<!-- Begin render related documents /node/documents nt:folder pdf-->
+<%
+if(originalNode.hasNode("documents")){
+	def docmentsNode = originalNode.getNode("documents");
+	List<Node> documentsFolderChildNodes = getFolderNodeListFromNodeIterator(docmentsNode.getNodes());
+	def folderSize = documentsFolderChildNodes.size();
+	if(folderSize > 0){				
+		def boxWidth = ((100 / documentsFolderChildNodes.size()) as int);
+	%>
+	<!-- More content -->
+	<div class="Box1 ClearFix">
+		<table>
+			<tr>
+	<%			
+		
+		sortChildNodes(documentsFolderChildNodes);
+		def folderIndex = 1;
+		for(folderNode in documentsFolderChildNodes){
+			def folderName = folderNode.getName();				
+			def canEditDocNode = isShowEdit(folderNode);
+			def moreContentId = "Box1 ClearFix";
+			def hoverClassDocNode = canEditDocNode ? " ContainerHoverClass" : "";
+			def boxStyle = "";
+			if(folderSize > 1) {	
+				if(folderIndex == 1) {
+					boxStyle = "padding: 0px 5px 0px 0px;"
+				} else if(folderIndex == folderSize) {
+					boxStyle = "padding: 0px 0px 0px 0px;"
+				} else {
+					boxStyle = "padding: 0px 5px 0px 0px;"
+				}
+			}
+%>
+<!--div class="$moreContentId" id="$moreContentId" onmouseover="this.className = '$moreContentId $hoverClassDocNode' " onmouseout="this.className = '$moreContentId' "-->
+	
+		<td width="<%=boxWidth%>%" style="<%=boxStyle%>">
+		<div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">
+			<%
+			if (canEditDocNode && !LockUtil.isLocked(folderNode)) {
+				def managePath = getRepositoryName(folderNode) + "/" +  getWorkspaceName(folderNode) + folderNode.getPath();
+				def manageLink = Utils.getEditLink(managePath, false, false);
+				def rcontext = _ctx.getRequestContext() ;
+				String portletId = Utils.getRealPortletId(rcontext);
+				def quickEditingBlockId = portletId + "-QuickEditingBlock";
+				def addContentBlockId = portletId + "-AddContentBlock";
+			    def manageContentBlockId = portletId + "-ManageContentBlock";		
+			    def addContentLink = Utils.getEditLink(managePath, false, true);
+			    def manageContentsLink = Utils.getEditLink(managePath, false, false);
+				def edittingStyle = "z-index: 1";
+			%>
+			 <div class="EdittingToolBarSubContainer" style="$edittingStyle">
+				 <div class="EdittingToolBar " >
+					<div class="EdittingToolBarL">
+						<div class="EdittingToolBarR">
+							<div class="EdittingToolBarC clearfix">
+								<div style="float: right"  id="<%=manageContentBlockId%>">
+									<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
+									  &nbsp;
+									</a>           
+								</div>
+								<!--
+								<div style="float: right" id="<%=addContentBlockId%>">
+									<a class="AddContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=addContentLink%>" title="<%= _ctx.appRes("UICLVContainer.label.AddContent");%>">
+									  &nbsp;
+									</a>           
+								</div>
+								-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+
+			<div class="ProBoxTL">
+				<div class="ProBoxTR">
+					<div class="ProBoxTM">$folderName</div>
+				</div>
+			</div>						
+			<div class="ProBoxC">
+				<%
+				for(item in folderNode.getNodes()){
+					renderDocuments(item);
+				}
+				%>
+			</div>
+			<div class="ProBoxBL">
+				<div class="ProBoxBR">
+					<div class="ProBoxBM"><span></span></div>
+				</div>
+			</div>
+		  </div>
+		</td>
+	
+				<%
+				folderIndex++;
+			}	
+		}
+		%>
+
+	</tr>
+</table>
+		<%
+}
+%>
+</div>				
+<!-- End render related documents /node/documents nt:folder pdf-->
+<!-- Begin render related videos /node/medias/videos -->
+
+<%				
+	if(originalNode.hasNode("medias/videos")){
+		def mediasVideosNode = originalNode.getNode("medias/videos");
+		if(mediasVideosNode.getNodes().getSize() > 0){
+		%>
+<!-- Videos See in action -->
+<div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">
+	<div class="Box ClearFix">
+	
+	<%
+	if (isShowEdit(mediasVideosNode) && !LockUtil.isLocked(currentNode)) {
+		def manageVideosPath = getRepositoryName(mediasVideosNode) + "/" +  getWorkspaceName(mediasVideosNode) + mediasVideosNode.getPath();
+		def manageVideosLink = Utils.getEditLink(manageVideosPath, false, false);
+		def rcontext = _ctx.getRequestContext() ;
+		String portletId = Utils.getRealPortletId(rcontext);
+		def quickEditingBlockId = portletId + "-QuickEditingBlock";
+		def addContentBlockId = portletId + "-AddContentBlock";
+	    def manageContentBlockId = portletId + "-ManageContentBlock";		
+	    //def addContentLink = Utils.getEditLink(manageVideosPath, false, true);
+	    def addContentLink = Utils.getEditLink(manageVideosPath, false, false);
+	    def manageContentsLink = Utils.getEditLink(manageVideosPath, false, false);
+		def edittingStyle = "z-index: 1";
+	%>
+	 <div class="EdittingToolBarSubContainer" style="$edittingStyle">
+		 <div class="EdittingToolBar " >
+			<div class="EdittingToolBarL">
+				<div class="EdittingToolBarR">
+					<div class="EdittingToolBarC clearfix">
+						<div style="float: right"  id="<%=manageContentBlockId%>">
+							<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
+							  &nbsp;
+							</a>           
+						</div>
+						<!--
+						<div style="float: right" id="<%=addContentBlockId%>">
+							<a class="AddContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=addContentLink%>" title="<%= _ctx.appRes("UICLVContainer.label.AddContent");%>">
+							  &nbsp;
+							</a>           
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% } %>
+	
+		<div class="ProBoxTL">
+			<div class="ProBoxTR">
+				<div class="ProBoxTM">More Resources</div>
+			</div>
+		</div>
+		<div class="ProBoxC">
+			<table>
+				<tr>
+			<%
+			//A valid expression has pattern repository:workspace:path
+			def videosValidPath = getRepositoryName(mediasVideosNode) + ":" +  getWorkspaceName(mediasVideosNode) + ":" +mediasVideosNode.getPath();
+			for(videoNode in getRenderedContentNodes(videosValidPath)) {
+				// check permissions
+				if(Utils.isViewable(videoNode)) {
+					binarySrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(videoNode) + "/" +  getWorkspaceName(videoNode) + videoNode.getPath();
+					%>			
+						<td>
+							<object type="application/x-shockwave-flash" data="/acme-website/addons/player_flv_multi.swf" width="150" height="150">
+							<param name="movie" value="/acme-website/addons/player_flv_multi.swf" />
+							<param name="FlashVars" value="flv=$binarySrc" />
+							</object>
+						</td>
+					<%
+				}
+			}
+%>
+				</tr>
+			</table>
+		</div>
+		<div class="ProBoxBL">
+			<div class="ProBoxBR">
+				<div class="ProBoxBM"><span></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+<%			
+		}
+	}
+%>
+<!-- End render related videos /node/medias/videos -->
+</div>

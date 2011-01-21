@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.sample.acme-website</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  <artifactId>exo.platform.sample.acme-website.component.navigation-rest</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo Platform - Acme Website Content Navigation REST Service</name>
+  <dependencies>
+    <!--dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-core-ext</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency-->
+    <dependency>
+		<groupId>org.exoplatform.commons</groupId>
+		<artifactId>exo.platform.commons.webui.ext</artifactId>
+		<version>${org.exoplatform.commons.version}</version>
+		<scope>provided</scope>
+	</dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-core-webui</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+      <dependency>
+         <groupId>org.exoplatform.kernel</groupId>
+         <artifactId>exo.kernel.commons</artifactId>
+		<version>${org.exoplatform.kernel.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.rest.core</artifactId>
+         <version>${org.exoplatform.ws.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.rest.ext</artifactId>
+         <version>${org.exoplatform.ws.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.frameworks.json</artifactId>
+         <version>${org.exoplatform.ws.version}</version>
+      </dependency>
+
+	<!--
+      <dependency>
+         <groupId>javax.ws.rs</groupId>
+         <artifactId>jsr311-api</artifactId>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>javax.annotation</groupId>
+         <artifactId>jsr250-api</artifactId>
+      </dependency>
+    -->
+  </dependencies>
+<build>
+    <resources>
+      <resource>
+        <directory>src/main</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+</project>

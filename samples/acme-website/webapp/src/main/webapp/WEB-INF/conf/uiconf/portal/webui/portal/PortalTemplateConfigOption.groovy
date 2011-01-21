@@ -23,12 +23,6 @@ import org.exoplatform.portal.webui.portal.PortalTemplateConfigOption ;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 
 List options = new ArrayList();
-
-  SelectItemCategory classic = new SelectItemCategory("ClassicPortal");
-  classic.addSelectItemOption(
-      new PortalTemplateConfigOption("", "classic", "Classic Portal", "ClassicPortal").addGroup("/platform/guests")
-  );
-  options.add(classic);
   
   SelectItemCategory acme = new SelectItemCategory("ACMEPortal");
   acme.addSelectItemOption(

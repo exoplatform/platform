@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		<component-plugin>
+			<name>add.nodeType</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+			<init-params>
+				<values-param>
+					<name>autoCreatedInNewRepository</name>
+					<description>Node types configuration file</description>
+					<!--value>jar:/conf/nodetypes-config.xml</value>
+					<value>jar:/conf/nodetypes-config-extended.xml</value-->
+					<value>jar:/conf/extension/nodetypes-configuration.xml</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+	<external-component-plugins>
+		<!-- The full qualified name of the UIExtensionManager that manages all the UI Extensions -->
+		<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
+		<component-plugin>
+			<name>add.action</name>
+			<!-- The method to call to register a new UI Extension -->
+			<set-method>registerUIExtensionPlugin</set-method>
+			<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
+			<init-params>
+				<object-param>
+					<!--<name>MyActionName</name> -->
+					<name>ContentNavigation</name>
+					<object type="org.exoplatform.webui.ext.UIExtension">
+						<!-- The type of extension, here it is the type related to the Action Bar in the File Explorer -->
+						<field name="type"><string>org.exoplatform.ecm.dms.UIActionBar</string></field>
+						<!-- The name of your action -->
+						<field name="name"><string>ContentNavigation</string></field>
+						<!-- The full qualified name of your webui component -->
+						<field name="component"><string>org.exoplatform.platform.samples.website.extention.webui.UINavigationAction</string></field>
+						<!-- The external filters -->
+						<field name="extendedFilters">
+							<collection type="java.util.ArrayList">
+								<value>									
+									<object type="org.exoplatform.webui.ext.filter.impl.UserACLFilter">
+										<field name="permissions">
+											<collection type="java.util.ArrayList">
+												<value>
+													<string>manager:/platform/administrators</string>
+												</value>
+												<!--value>
+													<string>*:/platform/web-contributors</string>
+												</value-->
+											</collection>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
+		<component-plugin>
+			<name>manage.view.plugin</name>
+			<set-method>setManageViewPlugin</set-method>
+			<type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
+			<description>this plugin manage user view</description>
+			<init-params>
+				<value-param>
+					<name>autoCreateInNewRepository</name>
+					<value>true</value>
+				</value-param>
+				<value-param>
+					<name>predefinedViewsLocation</name>
+					<value>war:/conf/wcm-artifacts</value>
+				</value-param>
+				<value-param>
+					<name>repository</name>
+					<value>repository</value>
+				</value-param>
+				 <object-param>
+		          <name>WCM-View</name>
+		          <description>View configuration of WCM administrator</description>
+		          <object type="org.exoplatform.services.cms.views.ViewConfig">
+		            <field name="name"><string>wcm-view</string></field>
+		            <field name="permissions"><string>*:/platform/web-contributors</string></field>
+		            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
+		            <field name="tabList">
+		              <collection type="java.util.ArrayList">
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Publication</string></field>
+		                    <field name="buttons"><string>addFolder; addDocument; editDocument; upload; managePublications; manageCategories; contentNavigation</string>
+		                    </field>
+		                  </object>
+		                </value>
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Collaboration</string></field>
+		                    <field name="buttons"><string>viewMetadatas; taggingDocument; vote; Comment</string></field>
+		                  </object>
+		                </value>
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>System</string></field>
+		                    <field name="buttons"><string>viewPermissions; viewProperties; manageVersions; exportNode; importNode</string></field>
+		                  </object>
+		                </value>
+		              </collection>
+		            </field>
+		          </object>
+		        </object-param>
+		        <object-param>
+		          <name>WCM-Category-View</name>
+		          <description>View configuration of WCM contributors</description>
+		          <object type="org.exoplatform.services.cms.views.ViewConfig">
+		            <field name="name"><string>wcm-category-view</string></field>
+		            <field name="permissions"><string>*:/platform/web-contributors</string></field>
+		            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
+		            <field name="tabList">
+		              <collection type="java.util.ArrayList">
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Publication</string></field>
+		                    <field name="buttons"><string>addCategory; addDocument; editDocument; upload; managePublications; manageCategories; contentNavigation </string></field>
+		                  </object>
+		                </value>
+		                <value>
+		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+		                    <field name="tabName"><string>Collaboration</string></field>
+		                    <field name="buttons"><string>taggingDocument; vote; Comment</string></field>
+		                  </object>
+		                </value>
+		              </collection>
+		            </field>
+		          </object>
+		        </object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+	<external-component-plugins>
+		<!-- The full qualified name of the ResourceBundleService -->
+		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>UIExtension ResourceBundle Plugin</name>
+			<!-- The name of the method to call on the ResourceBundleService in order to register the ResourceBundles -->
+			<set-method>addResourceBundle</set-method>
+			<!-- The full qualified name of the BaseResourceBundlePlugin -->
+			<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+			<init-params>
+				<values-param>
+					<name>init.resources</name>
+					<description>Store the following resources into the db for the first launch</description>
+					<value>locale.extention.NavigationExtension</value>
+				</values-param>
+				<values-param>
+					<name>portal.resource.names</name>
+					<description>The properties files of the portal , those file will be merged into one ResoruceBundle properties</description>
+					<value>locale.extention.NavigationExtension</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

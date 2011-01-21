@@ -26,6 +26,9 @@
 								<value>
 									<string>acme-website</string>
 								</value>
+								<value>
+									<string>acme-websiteResources</string>
+								</value>
 							</collection>
 						</field>					
 					</object>

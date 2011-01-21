@@ -1,0 +1,98 @@
+<%
+  def rcontext = _ctx.getRequestContext();
+  def jsManager = rcontext.getJavascriptManager();
+%>
+<div class="UIForm $uicomponent.id">
+  <%uiform.begin()%>
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+      <div class="FormContainer" >
+          <table class="UIFormGrid" style="width:100%;">
+            <tr>
+              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.NODE) %></td>
+              <td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.NODE) %></td>
+            </tr>
+			<tr>
+              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.IS_VISIBLE) %></td>
+              <td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.IS_VISIBLE) %></td>
+            </tr>
+			<tr>
+              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
+              <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
+            </tr>
+			<tr>
+              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.INDEX) %></td>
+              <td class="FieldComponent" colspan="3"><% uiform.renderField(uicomponent.INDEX) %></td>
+            </tr>
+          </table>
+	  </div>
+	  <div class="FormContainer">
+        <fieldset style=" margin-bottom: 10px; overflow: hidden; border: 1px solid #b7b7b7;" maxHeight="350">
+          <legend class="StyleLegend">&nbsp;<%=uicomponent.getLabel(uicomponent.NAVIGATION_CONTROLS)%>&nbsp;</legend>
+          <table class="UIFormGrid" style="width:100%;">
+			<tr>
+			  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.IS_CLICKABLE) %></td>
+			  <td class="FieldComponent ClickableRadio" colspan="2"><%uiform.renderField(uicomponent.IS_CLICKABLE)%></td>
+			</tr>
+		 	<div class="FieldLabel">&nbsp;<%=uicomponent.getLabel(uicomponent.LIST)%><div>
+            <tr onmouseover="this.style.background='#E7F3FF'" onmouseout="this.style.background='transparent'">
+				<td colspan="3">
+					<table>
+						<tr>
+						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></td>
+						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.LIST_TARGET_PAGE_INPUT_SET) %></td>
+						</tr>
+						<tr>
+						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.LIST_SHOW_CLV_BY_STRING_INPUT) %></td>
+						  <td class="FieldComponent" id="ParamName" colspan="6"><% uiform.renderField(uicomponent.LIST_SHOW_CLV_BY_STRING_INPUT) %></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<div class="FieldLabel">&nbsp;<%=uicomponent.getLabel(uicomponent.DETAIL)%></div>
+			<tr onmouseover="this.style.background='#E7F3FF'" onmouseout="this.style.background='transparent'">
+				<td colspan="3">
+					<table>
+						<tr>
+						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
+						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
+						</tr>
+						<tr>
+						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DETAIL_SHOW_CLV_BY_STRING_INPUT) %></td>
+						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.DETAIL_SHOW_CLV_BY_STRING_INPUT) %></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+          </table>
+        </fieldset>
+	 </div>
+	<!--/table-->
+      <div class="UIAction"> 
+        <table class="ActionContainer">
+        	<tr>
+        		<td>
+		          <% for(action in uicomponent.getActions()) { 
+                	 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+                   String link = uicomponent.event(action) ;
+          		%>
+          		<div onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+                    <div class="ButtonMiddle">
+                      <a href="javascript:void(0);">$actionLabel</a>
+                    </div>
+                  </div>
+                </div>
+           		</div>
+          		<%}%>        
+          	</td>
+          </tr>  
+        </table>
+      </div>
+</div>
+</div>
+<%
+    uiform.end()
+  %>
+</div>

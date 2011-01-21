@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+	<UIActionBar>
+		<tooltip>
+			<ContentNavigation>Navigation</ContentNavigation>
+		</tooltip>
+	</UIActionBar>
+	<UIViewFormTabPane>
+		<label>
+			<contentNavigation>Navigation par contenu</contentNavigation>
+		</label>
+	</UIViewFormTabPane>
+	<UIPopupWindow>
+		<title>
+			<UINavigationForm>Navigation</UINavigationForm>
+		</title>
+	</UIPopupWindow>
+	<UINavigationForm>
+		<label>
+			<Node>Catégorie :</Node>
+			<Visible>Visible :</Visible>
+			<NavigationNodeInputSet>Noeud de navigation :</NavigationNodeInputSet>
+			<Index>Index</Index>
+			<Clickable>Clickable :</Clickable>
+			<NavigationControls>Paramètres de navigation</NavigationControls>
+			<ListTargetPageFormInputSet>Page pour les listes :</ListTargetPageFormInputSet>
+			<ListShowCLVByStringInput>Par :</ListShowCLVByStringInput>
+			<DetailTargetPageInputSet>Page pour le détail :</DetailTargetPageInputSet>
+			<DetailShowCLVByStringInput>Par :</DetailShowCLVByStringInput>
+			<List>Liste</List>
+			<Detail>Détail</Detail>
+		</label>
+		<action>
+			<Save>Sauver</Save>
+			<Cancel>Annuler</Cancel>
+		</action>
+	</UINavigationForm>
+	<Visible>
+		<label>
+			<VisibleEnable>Oui</VisibleEnable>
+			<VisibleDisable>Non</VisibleDisable>
+		</label>
+	</Visible>
+	<Clickable>
+		<label>
+			<ClickableEnable>Oui</ClickableEnable>
+			<ClickableDisable>Non</ClickableDisable>
+		</label>
+	</Clickable>
+	<NavigationNodeInputSet>
+		<title>
+			<SelectNavigationNode>Sélectionner noeud de navigation</SelectNavigationNode>
+			<RemoveNavigationNode>Réinitialiser</RemoveNavigationNode>
+		</title>
+	</NavigationNodeInputSet>
+	<ListTargetPageFormInputSet>
+		<title>
+			<SelectListTargetPage>Sélectionner page de navigation</SelectListTargetPage>
+			<RemoveListTargetPage>Réinitialiser</RemoveListTargetPage>
+		</title>
+	</ListTargetPageFormInputSet>
+	<DetailTargetPageInputSet>
+		<title>
+			<SelectDetailTargetPage>Sélectionner page de navigation</SelectDetailTargetPage>
+			<RemoveDetailTargetPage>Réinitialiser</RemoveDetailTargetPage>
+		</title>
+	</DetailTargetPageInputSet>
+	<NavigationSelectorPopupWindow>
+		<title>
+			<UINavigationSelector>Sélecteur de navigation</UINavigationSelector>
+		</title>
+	</NavigationSelectorPopupWindow>
+	<ListTargetPageSelectorPopupWindow>
+		<title>
+			<UIPageSelector>Sélecteur de page</UIPageSelector>
+		</title>
+	</ListTargetPageSelectorPopupWindow>
+	<DetailTargetPageSelectorPopupWindow>
+		<title>
+			<UIPageSelector>Sélecteur de page</UIPageSelector>
+		</title>
+	</DetailTargetPageSelectorPopupWindow>
+</bundle>

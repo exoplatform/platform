@@ -1,0 +1,74 @@
+<%
+/**
+ * Created by The eXo Platform MEA
+ * Author : Anouar Chattouna
+ *          anouar.chattouna@exoplatform.com
+ * Sept 10, 2010
+ * 9:32:56 AM 
+ */
+%>
+<% 
+	import org.exoplatform.ecm.webui.utils.Utils;
+	import java.net.URLEncoder;
+%>
+<div id="$uicomponent.id" class="UITreeList">
+  <table class="UIGrid">
+	  <col></col>
+	  <col style="width:60px;"></col>
+	  <thead>
+	    <tr>
+	      <th><%=_ctx.appRes("UITreeList.header.name")%></th>
+		    <th><%=_ctx.appRes("UITreeList.header.action")%></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+      <%
+        def nodes = uicomponent.getSelectableNodes() ;
+        def rowClass = "OddRow" ;
+		    boolean even = true ;
+		    if(nodes.size() > 0) {
+			    for(node in nodes) {
+			      if(even) {
+			      	rowClass = "EvenRow" ;  
+			      } else {
+			      	rowClass =  "OddRow" ; 
+			      }
+			      even = !even ;
+	      %>
+			      <%if(!uicomponent.isExceptedNodeType(node)) {%>
+				      <tr class="$rowClass">
+				        <td>
+				        <%
+						  String nodeName = node.getUri();
+						  String nodeTypeIcon = "NodeIcon DefaultPageIcon";
+				          def clazz = "Text"
+				        %>
+				          
+				          <div class="$clazz <%=nodeTypeIcon%>">$nodeName</div>
+				        </td>
+				        <td>
+		              <a href="<%=uicomponent.event("Select", URLEncoder.encode(node.getUri(), "utf-8"))%>">
+		                <div class="Select16x16Icon" style="margin-left:15px;"></div>
+		              </a>
+				        </td>
+				      </tr>
+			<%
+			      }
+					}
+		    } else {
+		  %>
+		  		<tr class="EvenRow">
+		  			<td colspan="2" style="align:center;"><%=_ctx.appRes("UITreeList.info.child-not-found")%></td>
+		  		</tr>
+		  <%  	
+		    }
+			%>
+    </tbody>
+  </table>
+  <% if (uicomponent.getUIPageIterator().getAvailablePage() > 1) { %>
+  <div style="margin:1px 0px 5px 0px;">
+    <%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+  </div>
+  <% } %>
+</div>
+<div class="ClearLeft"><span></span></div>

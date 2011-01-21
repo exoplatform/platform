@@ -1,0 +1,138 @@
+<% 
+	import javax.jcr.Node;
+	import org.exoplatform.wcm.webui.paginator.UICustomizeablePaginator;
+	import org.exoplatform.wcm.webui.clv.UICLVPortlet;
+	import org.exoplatform.wcm.webui.Utils;
+	import org.exoplatform.services.wcm.core.NodeLocation;
+%>
+<style>
+.UICLVFolderMode .UICLVPresentation {
+background:none !important;
+border:none !important;
+color:none !important;
+height:0px !important;
+line-height:15px !important;
+padding:0 0 !important;
+}
+.ProDetailPage {
+padding:0 0 !important;
+}
+
+</style>
+<div class="UICLVPresentation" id="$uicomponent.id"> 
+
+	<%	
+		String header = uicomponent.getHeader();
+		def rssLink = uicomponent.getRssLink();
+		def isShowRssLink = uicomponent.isShowRssLink();
+		def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
+		def norNews = "NorNews";
+		def contentNorNews = "ContentNorNews";
+		def titNorNews = "TitNorNews";
+		def hotNews = "HorNews";
+		def contentHotNews = "ContentHotNews";
+		def titHotNews = "TitHotNews";
+		def orderType = Utils.getPortletPreference(UICLVPortlet.PREFERENCE_ORDER_TYPE);
+		def orderTypeLabel = (orderType.equals("DESC")) ? "UICLVConfigOrderTypeFormRadioBoxInput.label.OrderDesc" : "UICLVConfigOrderTypeFormRadioBoxInput.label.OrderAsc";
+		def orderBy = Utils.getPortletPreference(UICLVPortlet.PREFERENCE_ORDER_BY);
+		def orderByLabel = "UICLVConfig.label.option."+orderBy;
+		%>
+
+<div class="OptionsTab">Sort by: <a href="#" class="Selected"><%=_ctx.appRes(orderTypeLabel)%></a> | <a href="#" class="Normal"><%=_ctx.appRes(orderByLabel)%></a></div>
+		<% 	
+			String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");		
+			if (uicomponent.getUIPageIterator().getAvailable() == 0) {
+				%>
+					<div style="height: 20px; text-align: center; font-size: 13px; background: white; padding: 10px; margin: 5px;">
+						<span><%= _ctx.appRes(uicomponent.getParent().getMessageKey()) %></span>
+					</div>
+				<%
+			} else {			
+				def currentPageData = uicomponent.getCurrentPageData();							
+				String labelReadMore = _ctx.appRes("UICLVPresentation.label.readmore");
+				String draftLabel = _ctx.appRes("UICLVPresentation.label.draft");
+				String editActionLabel = _ctx.appRes("UICLVPresentation.action.edit");
+				
+				for (viewNode in currentPageData) {
+					if(!Utils.isViewable(viewNode)) continue;
+					
+					String itemLink = uicomponent.getURL(viewNode);			
+					String itemName = viewNode.getName();
+					String itemSummary = uicomponent.getSummary(viewNode);
+			    	String itemTitle = uicomponent.getTitle(viewNode);
+					String itemDateCreated = uicomponent.getCreatedDate(viewNode);
+					String itemOwner = uicomponent.getAuthor(viewNode);			
+					String imgSrc = uicomponent.getIllustrativeImage(viewNode);								
+					if (itemTitle != null && itemTitle.trim().length() != 0) {
+						itemName = itemTitle;
+					}						
+					%>
+					<%=uicomponent.addQuickEditDiv("CaptionItem", viewNode)%>
+		<div class="NorNews ClearFix">
+
+				<%
+                if(imgSrc != null && uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION)) {
+                    %>
+					<a class="ImgNorNews"><img width="51" src="$imgSrc" alt=""/></a>
+					<%
+                }
+				%>
+			<div class="ContentNorNews">
+				<%
+								if (uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE)) {
+									%>
+									<div class="TitNorNews">
+											<% 
+												if (uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_LINK)) {
+													%><a href="$itemLink">$itemName</a><% 
+												} else { 
+													%><%=itemName%><% 
+												} 
+											%> 
+									</div>
+									<%							
+								} 
+								if (itemDateCreated != null && uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_DATE_CREATED)) { 
+									%><div class="CaptionDate"><%=itemDateCreated%></div><% 
+								} 
+							%>	
+							<div class="Summary">
+							<!--div class="CaptionContent"-->
+								<% 
+									if (itemSummary != null && itemSummary.trim().length() != 0 && uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_SUMMARY)) {
+										%><%=itemSummary%><% 
+									} 
+								%>															
+							</div>			
+	            <%
+	            if (uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_READMORE)) {
+	            %>
+				<div class="LearnMore"><a href="$itemLink"><%=labelReadMore%></a></div>
+	            <%
+	            }
+	            %>
+			</div>
+		</div>
+	<!--/div-->
+					<%							
+				} //end for
+			} //end else	
+		%>
+		<div class="CaptionFunc">
+			<% 
+			  def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
+        if (isShowRefresh) { 
+					String link = uicomponent.event("Refresh");
+					%>				
+						<div class="CaptionRefresh">
+							<a href="$link">$labelRefreshAction</a>
+						</div>
+					<% 
+				}
+				if (uicomponent.showPaginator()) { 
+						uicomponent.renderChild(UICustomizeablePaginator.class);
+				} 
+			%>
+		</div>
+	</div>
+</div>

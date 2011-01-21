@@ -1,0 +1,70 @@
+.ContentNavigationIcon{
+background:url("DefaultSkin/icons/UINavigationForm.gif") no-repeat scroll left center transparent !important;
+height:24px !important;
+}
+
+.UINavigationForm .SelectNavigationNodeIcon {
+background:url("DefaultSkin/icons/MagnifierIconNews.png") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+.UINavigationForm .SelectListTargetPageIcon {
+background:url("DefaultSkin/icons/MagnifierIconNews.png") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+.UINavigationForm .SelectDetailTargetPageIcon {
+background:url("DefaultSkin/icons/MagnifierIconNews.png") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+.UINavigationForm .RemoveNavigationNodeIcon {
+background:url("DefaultSkin/icons/DustBin.gif") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+.UINavigationForm .RemoveListTargetPageIcon {
+background:url("DefaultSkin/icons/DustBin.gif") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+.UINavigationForm .RemoveDetailTargetPageIcon {
+background:url("DefaultSkin/icons/DustBin.gif") no-repeat scroll 0 0 transparent;
+height:16px;
+width:16px;
+}
+
+#ListTargetPageSelectorPopupWindow .UIPageSelector {
+  width: auto;
+}
+
+#ListTargetPageSelectorPopupWindow  .UIPageNodeSelector {
+  float: left;
+  width: 49%;
+}
+
+#ListTargetPageSelectorPopupWindow  #UIPageSelectorPanel {
+  float: left;
+  width: 49%;
+  padding-left: 10px;
+}
+
+#DetailTargetPageSelectorPopupWindow .UIPageSelector {
+  width: auto;
+}
+
+#DetailTargetPageSelectorPopupWindow  .UIPageNodeSelector {
+  float: left;
+  width: 49%;
+}
+
+#DetailTargetPageSelectorPopupWindow  #UIPageSelectorPanel {
+  float: left;
+  width: 49%;
+  padding-left: 10px;
+}

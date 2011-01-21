@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0">
+
+	<nodeType name="exo:product" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+		<supertypes>
+			<supertype>nt:base</supertype>
+			<supertype>nt:unstructured</supertype>
+			<supertype>mix:referenceable</supertype><!-- jcr:uuid -->
+			<supertype>nt:hierarchyNode</supertype><!-- jcr:created -->
+			<supertype>exo:rss-enable</supertype><!-- exo:title + exo:summary -->
+		</supertypes>
+		<propertyDefinitions>
+			<propertyDefinition name="exo:productBenefits" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints/>
+			</propertyDefinition>
+			<propertyDefinition name="exo:productFeatures" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints/>
+			</propertyDefinition>
+		</propertyDefinitions>
+	</nodeType>
+</nodeTypes>

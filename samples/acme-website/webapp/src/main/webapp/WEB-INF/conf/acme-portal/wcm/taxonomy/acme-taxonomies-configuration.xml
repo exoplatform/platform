@@ -167,7 +167,7 @@
                               <string>mix:affectedNodeTypes</string>
                             </field>
                             <field name="properties">
-                              <string>exo:affectedNodeTypeNames=exo:article,exo:podcast,exo:sample,kfx:document,nt:file,rma:filePlan,exo:contact_us,exo:cssFile,exo:htmlFile,exo:jsFile,exo:webContent,exo:pictureOnHeadWebcontent,exo:siteSearchBox,exo:siteNavigationWebContent,exo:siteBreadcrumb</string>
+                              <string>exo:affectedNodeTypeNames=exo:article,exo:podcast,exo:sample,kfx:document,nt:file,rma:filePlan,exo:contact_us,exo:cssFile,exo:htmlFile,exo:jsFile,exo:webContent,exo:pictureOnHeadWebcontent,exo:siteSearchBox,exo:siteNavigationWebContent,exo:siteBreadcrumb,exo:product</string>
                             </field>
                           </object>
                         </value>
@@ -185,14 +185,14 @@
           <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig">
             <field name="taxonomies">
               <collection type="java.util.ArrayList">
-                <!-- World taxonomy -->
+                <!-- Defense taxonomy -->
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>Special Offers</string>
+                      <string>DefenseTaxonomy</string>
                     </field>
                     <field name="path">
-                      <string>/Special Offers</string>
+                      <string>/Defense</string>
                     </field>
                     <field name="permissions">
                       <collection type="java.util.ArrayList">
@@ -257,13 +257,158 @@
                     </field>
                   </object>
                 </value>
+                <!-- Defense/Vision taxonomy -->
                 <value>
                   <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
                     <field name="name">
-                      <string>From The Lab</string>
+                      <string>VisionTaxonomy</string>
                     </field>
                     <field name="path">
-                      <string>/From The Lab</string>
+                      <string>/Defense/Vision</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- Movement taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>MovementTaxonomy</string>
+                    </field>
+                    <field name="path">
+                      <string>/Movement</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/web-contributors</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <!-- Natural Elements taxonomy -->
+                <value>
+                  <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig$Taxonomy">
+                    <field name="name">
+                      <string>NaturalElementsTaxonomy</string>
+                    </field>
+                    <field name="path">
+                      <string>/Natural Elements</string>
                     </field>
                     <field name="permissions">
                       <collection type="java.util.ArrayList">

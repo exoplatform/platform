@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		<component-plugin>
+			<name>add.nodeType</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+			<init-params>
+				<values-param>
+					<name>autoCreatedInNewRepository</name>
+					<description>Node types configuration file</description>
+					<value>war:/conf/acme-portal/dms/nodetypes-configuration.xml</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	
+</configuration>

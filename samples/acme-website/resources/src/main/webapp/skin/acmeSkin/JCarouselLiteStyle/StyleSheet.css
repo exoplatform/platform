@@ -1,0 +1,92 @@
+/********************** Product detail jCarouselLite *****************************************/
+.jQProDetailPage {
+	padding: 13px 22px;
+	width:715px;
+	margin: auto;
+}
+
+.jQProDetailPage .jQProBoxTL {
+	background: url('background/ProDetailBg.png') no-repeat left top;
+	padding-left: 8px;
+}
+
+.jQProDetailPage .jQProBoxTR {
+	background: url('background/ProDetailBg.png') no-repeat right top;
+	padding-right: 8px;
+}
+
+.jQProDetailPage .jQProBoxTM {
+	background: url('background/ProDetailBg.png') repeat-x left -16px;
+	height: 8px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #424242;
+	padding-left: 10px;
+}
+
+.jQProDetailPage .jQProBoxBL {
+	background: url('background/ProDetailBg.png') no-repeat left -8px;
+	padding-left: 8px;
+}
+
+.jQProDetailPage .jQProBoxBR {
+	background: url('background/ProDetailBg.png') no-repeat right -8px;
+	padding-right: 8px;
+}
+
+.jQProDetailPage .jQProBoxBM {
+	background: url('background/ProDetailBg.png') repeat-x left -16px;
+	height: 8px;
+}
+
+.jQProDetailPage .jQProBoxC {
+	background: #d1d1d1;
+	padding: 8px 6px 5px;
+	overflow: hidden;
+	zoom:1;/*Strick hack IE6*/
+}
+
+.jQProDetailPage .jQBoxContAct .jQProBoxC {
+	text-align: center;
+}
+/****/
+ button.jQprev, button.jQnext {
+	display: block;
+	float: left;
+	width: 21px;
+	height: 200px;
+	text-decoration: none;
+	background: url("background/NavLeft.gif") left 92px no-repeat;
+	border:none;		
+}
+
+button.jQprev {
+	background: url("background/NavLeft.gif") right 92px no-repeat;
+}
+
+button.jQnext {
+	background: url("background/NavRight.gif") right 92px no-repeat;
+}
+
+button.jQnext:hover {
+	background-image: url("background/NavRightHover.gif");
+}
+
+button.jQprev:hover {
+	background-image: url("background/NavLeftHover.gif");
+}
+
+button:hover, button:active {
+	border: none;
+	outline: none;
+}
+
+.jCarouselLite {
+	float: left;
+	background-color: #d1d1d1;
+}
+
+.jCarouselLite ul li img {
+	padding:0 8px;
+}
+/****/

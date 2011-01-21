@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0">
+
+	<nodeType name="exo:navigable" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
+		<!--supertypes>
+			<supertype>nt:base</supertype>
+		</supertypes-->
+		<propertyDefinitions>
+			<propertyDefinition name="exo:clickable" requiredType="Boolean" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:navigationNode" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:index" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:page" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:pageParamId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:childrenPage" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+			<propertyDefinition name="exo:childrenPageParamId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+				<valueConstraints />
+			</propertyDefinition>
+		</propertyDefinitions>
+		<childNodeDefinitions>
+			<childNodeDefinition name="*" defaultPrimaryType="" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+				<requiredPrimaryTypes>
+					<requiredPrimaryType>nt:base</requiredPrimaryType>
+				</requiredPrimaryTypes>
+			</childNodeDefinition>
+		</childNodeDefinitions>
+	</nodeType>
+</nodeTypes>
