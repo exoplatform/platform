@@ -114,8 +114,13 @@ function getModule(params)
    module.sample.acme = {};
    
    module.sample.acme.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.component.file-explorer", "jar", module.version)).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.component.navigation-rest", "jar", module.version)).
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
    module.sample.acme.webapp.deployName = "acme-website";
+   
+   module.sample.acme.resources =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.resources", "war", module.version);
+   module.sample.acme.resources.deployName = "acme-websiteResources";
    
    // acme social intranet
    module.sample.acmeIntranet = {};

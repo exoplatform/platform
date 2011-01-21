@@ -65,6 +65,7 @@ function getProduct(version) {
 
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
+  product.addDependencies(platform.sample.acme.resources);
   
   // acme social intranet
   product.addDependencies(platform.sample.acmeIntranet.webapp);
