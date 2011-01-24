@@ -781,7 +781,7 @@
             </field>
           </object>
         </object-param-->
-		<!-- put "acme-news-3" in categories -->
+		<!-- put "acme-news-3" in categories 
         <object-param>
           <name>news3Link</name>
           <description>Deployment Descriptor</description>
@@ -794,6 +794,7 @@
             </field>
           </object>
         </object-param>
+		-->
         <!--object-param>
           <name>news3SpecialOffersLink</name>
           <description>Deployment Descriptor</description>
@@ -974,7 +975,7 @@
           </object>
         </object-param>
 		<!-- put "Powers" in categories -->
-		<object-param>
+		<!--object-param>
           <name>invisibilityDefense</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
@@ -982,7 +983,7 @@
               <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Invisibility</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense</string>
+              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense/Invisibility</string>
             </field>
           </object>
         </object-param>
@@ -994,7 +995,7 @@
               <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Healing</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense</string>
+              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense/Healing</string>
             </field>
           </object>
         </object-param>
@@ -1006,10 +1007,10 @@
               <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Immunity</string>
             </field>
             <field name="targetPath">
-              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense</string>
+              <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense/Immunity</string>
             </field>
           </object>
-        </object-param>
+        </object-param-->
 		<object-param>
           <name>x-RayVision</name>
           <description>Deployment Descriptor</description>
@@ -1035,6 +1036,18 @@
           </object>
         </object-param>
 		<object-param>
+          <name>fireAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Fire</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
+            </field>
+          </object>
+        </object-param>
+		<object-param>
           <name>fireNaturalElements</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
@@ -1043,6 +1056,18 @@
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Natural Elements</string>
+            </field>
+          </object>
+        </object-param>
+		<object-param>
+          <name>iceAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Ice</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
             </field>
           </object>
         </object-param>
@@ -1079,6 +1104,18 @@
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Movement</string>
+            </field>
+          </object>
+        </object-param>
+		<object-param>
+          <name>flightAcme</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
+            <field name="sourcePath">
+              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Flight</string>
+            </field>
+            <field name="targetPath">
+              <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
             </field>
           </object>
         </object-param>

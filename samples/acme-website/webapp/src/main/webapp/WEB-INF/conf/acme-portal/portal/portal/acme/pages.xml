@@ -380,7 +380,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>Categories</value>
+                <value>Browse by</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -393,11 +393,11 @@
                 <value>news</value>
                 <read-only>false</read-only>
               </preference>
-              <preference>
+              <!--preference>
                 <name>itemsPerPage</name>
                 <value>5</value>
                 <read-only>false</read-only>
-              </preference>
+              </preference-->
               <preference>
                 <name>showDateCreated</name>
                 <value>false</value>
@@ -425,7 +425,7 @@
               </preference>      
             </preferences>
           </portlet>
-          <title>Categories</title>
+          <title></title>
           <access-permissions>Everyone</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
@@ -448,7 +448,7 @@
               </preference>
               <preference>
                 <name>orderBy</name>
-                <value>exo:index</value>
+                <value>exo:dateCreated</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -456,14 +456,14 @@
                 <value>ASC</value>
                 <read-only>false</read-only>
               </preference>
-              <!--preference>
+              <preference>
                 <name>header</name>
                 <value>Top News</value>
                 <read-only>false</read-only>
-              </preference-->
+              </preference>
               <preference>
                 <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmePowersTemplateCLV.gtmpl</value>
+                <value>/exo:ecm/views/templates/content-list-viewer/list/AcmeBigHotNewsTemplateCLV.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -473,7 +473,7 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>3</value>
+                <value>5</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -483,12 +483,12 @@
               </preference>
               <preference>
                 <name>showDateCreated</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
                 <name>showReadmore</name>
-                <value>true</value>
+                <value>false</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -885,11 +885,11 @@
                 <value>repository:collaboration:/sites content/live/acme/categories/acme</value>
                 <read-only>false</read-only>
               </preference>
-              <preference>
+              <!--preference>
                 <name>orderBy</name>
                 <value>exo:index</value>
                 <read-only>false</read-only>
-              </preference>
+              </preference-->
               <preference>
                 <name>orderType</name>
                 <value>ASC</value>
@@ -912,7 +912,7 @@
               </preference>
               <preference>
                 <name>itemsPerPage</name>
-                <value>3</value>
+                <value>6</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
