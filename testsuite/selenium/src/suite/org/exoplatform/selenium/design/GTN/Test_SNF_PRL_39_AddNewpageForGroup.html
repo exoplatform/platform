@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Application Registry</td>
+	<td>link=Applications Registry</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,7 +143,7 @@
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/classic/administration/Test_SNF_PRL_39</td>
+	<td>http://localhost:8080/portal/private/intranet/administration/Test_SNF_PRL_39</td>
 	<td></td>
 </tr>
 <tr>
@@ -153,23 +153,23 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[2]/tbody/tr/td[3]/a[1]</td>
-	<td>Edit Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[2]/tbody/tr/td[3]/a[1]</td>
-	<td>Edit Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -178,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[5]/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[5]/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -217,8 +217,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,18 +238,18 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Page Management</td>
+	<td>link=Manage Pages</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Page Management</td>
+	<td>link=Manage Pages</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>searchTerm</td>
-	<td>Test_SNF_PRL_39</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -313,15 +323,14 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
