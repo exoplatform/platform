@@ -243,6 +243,8 @@
 		}
 }
 %>
+<!-- needed to avoid js error of type jQuery("#sectionsTabs").tabs is not a function-->
+<script type="text/javascript" src="/acme-websiteResources/javascript/jquery-1.4.2.min.js"></script>
 <div class="ProDetailPage">
 
 <!-- Hot news -->
