@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.0.3-SNAPSHOT</version>
+    <version>3.0.3</version>
   </parent>
   <artifactId>exo.platform.packaging.assembly</artifactId>
   <packaging>pom</packaging>
@@ -1786,11 +1786,10 @@
               <target>
                 <!-- create demo -->
                 <copy todir="${project.build.directory}/tomcat-demo">
-				  <fileset dir="${project.build.directory}/tomcat"/>
+				  <fileset dir="${project.build.directory}/tomcat" />
 			    </copy>
-                <mkdir dir="${project.build.directory}/tomcat-demo/webapps/portal"/>
-                <unzip src="${project.build.directory}/tomcat-demo/webapps/portal.war"
-                       dest="${project.build.directory}/tomcat-demo/webapps/portal"/>
+                <mkdir dir="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <unzip src="${project.build.directory}/tomcat-demo/webapps/portal.war" dest="${project.build.directory}/tomcat-demo/webapps/portal" />
                 <replace file="${project.build.directory}/tomcat-demo/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
 				  <replacetoken><![CDATA[</body>]]></replacetoken>
 				  <replacevalue><![CDATA[<script src="http://www.google-analytics.com/ga.js" type="text/javascript">
@@ -1802,16 +1801,14 @@
   </script>
 </body>]]></replacevalue>
 				</replace>
-                <zip destfile="${project.build.directory}/tomcat-demo/webapps/portal.war"
-                     basedir="${project.build.directory}/tomcat-demo/webapps/portal" />
-                <delete dir="${project.build.directory}/tomcat-demo/webapps/portal"/>
+                <zip destfile="${project.build.directory}/tomcat-demo/webapps/portal.war" basedir="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-demo/webapps/portal" />
                 <!-- create trial -->
                 <copy todir="${project.build.directory}/tomcat-trial">
-				  <fileset dir="${project.build.directory}/tomcat"/>
+				  <fileset dir="${project.build.directory}/tomcat" />
 			    </copy>
-                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/portal"/>
-                <unzip src="${project.build.directory}/tomcat-trial/webapps/portal.war"
-                       dest="${project.build.directory}/tomcat-trial/webapps/portal"/>
+                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <unzip src="${project.build.directory}/tomcat-trial/webapps/portal.war" dest="${project.build.directory}/tomcat-trial/webapps/portal" />
                 <replace file="${project.build.directory}/tomcat-trial/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
                   <!-- LoopFuse must be added before the gadgets scripts, so we replace the only div closing element -->
                   <!-- If this element changes in the future, this script must be updated -->
@@ -1824,8 +1821,8 @@
   </script>]]></replacevalue>
 				</replace>
                 <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
-				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
-				  <replacevalue><![CDATA[<distributable/>
+				  <replacetoken><![CDATA[<distributable />]]></replacetoken>
+				  <replacevalue><![CDATA[<distributable />
 
    <!-- Begin - Lead Capture Filter -->
    <filter>
@@ -1838,56 +1835,50 @@
    </filter-mapping>
    <!-- End - Lead Capture Filter -->]]></replacevalue>
 				</replace>
-                <zip destfile="${project.build.directory}/tomcat-trial/webapps/portal.war"
-                     basedir="${project.build.directory}/tomcat-trial/webapps/portal" />
-                <delete dir="${project.build.directory}/tomcat-trial/webapps/portal"/>
+                <zip destfile="${project.build.directory}/tomcat-trial/webapps/portal.war" basedir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-trial/webapps/portal" />
                 <!-- disable configuration persister to allow start and restart on different computers PLF-1109 -->
-                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/plf"/>
-                <unzip src="${project.build.directory}/tomcat-trial/webapps/platform-extension.war"
-                       dest="${project.build.directory}/tomcat-trial/webapps/plf"/>
+                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <unzip src="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" dest="${project.build.directory}/tomcat-trial/webapps/plf" />
                 <replace file="${project.build.directory}/tomcat-trial/webapps/plf/WEB-INF/conf/jcr/jcr-configuration.xml">
 				  <replacetoken><![CDATA[<properties-param>
         <name>working-conf</name>
         <description>working-conf</description>
-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
-        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param>]]></replacetoken>
 				  <replacevalue><![CDATA[<!-- properties-param>
         <name>working-conf</name>
         <description>working-conf</description>
-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
-        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param -->]]></replacevalue>
 				</replace>
-                <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war"
-                     basedir="${project.build.directory}/tomcat-trial/webapps/plf"/>
-                <delete dir="${project.build.directory}/tomcat-trial/webapps/plf"/>
-                <dependencyfilesets prefix="lcfdeps."/>
+                <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <delete dir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <dependencyfilesets prefix="lcfdeps." />
                 <copy tofile="${project.build.directory}/tomcat-trial/webapps/capture.war">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.web.client.application:war"/>
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.web.client.application:war" />
                 </copy>
                 <copy todir="${project.build.directory}/tomcat-trial/lib">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar"/>
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
                 </copy>
-                <mkdir dir="${project.build.directory}/tomcat-trial/lib/lcf"/>
+                <mkdir dir="${project.build.directory}/tomcat-trial/lib/lcf" />
                 <unzip dest="${project.build.directory}/tomcat-trial/lib/lcf">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar"/>
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
                 </unzip>
                 <replace file="${project.build.directory}/tomcat-trial/lib/lcf/conf/portal/configuration.xml">
 				  <replacetoken><![CDATA[<value>Platform 3.0.0-GA</value>]]></replacetoken>
 				  <replacevalue><![CDATA[<value>Platform ${project.version}</value>]]></replacevalue>
 				</replace>
-                <zip destfile="${project.build.directory}/tomcat-trial/lib/exo.leadcapture.client-${org.exoplatform.leadcapture.version}.jar"
-                     basedir="${project.build.directory}/tomcat-trial/lib/lcf"/>
-                <delete dir="${project.build.directory}/tomcat-trial/lib/lcf"/>
+                <zip destfile="${project.build.directory}/tomcat-trial/lib/exo.leadcapture.client-${org.exoplatform.leadcapture.version}.jar" basedir="${project.build.directory}/tomcat-trial/lib/lcf" />
+                <delete dir="${project.build.directory}/tomcat-trial/lib/lcf" />
                 <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
-                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
-                         token="gatein.data.dir=" value="#gatein.data.dir=" />
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties" token="gatein.data.dir=" value="#gatein.data.dir=" />
                 <!-- uses the gatein.data.dir to store the db at the correct location, in tomcat-trial/gatein/data -->
-                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml"
-                         token="../gatein/data" value="${gatein.data.dir}" />
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml" token="../gatein/data" value="${gatein.data.dir}" />
               </target>
             </configuration>
             <goals>
@@ -1900,11 +1891,9 @@
             <configuration>
               <target>
                 <!-- replace the gatein.data.dir variable to the original -->
-                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties"
-                         token="#gatein.data.dir=" value="gatein.data.dir=" />
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties" token="#gatein.data.dir=" value="gatein.data.dir=" />
                 <!-- remove usage of the variable so tomcat-trial works as normal -->
-                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml"
-                         token="${gatein.data.dir}" value="../gatein/data" />
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml" token="${gatein.data.dir}" value="../gatein/data" />
               </target>
             </configuration>
             <goals>

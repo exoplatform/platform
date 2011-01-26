@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.0.3-SNAPSHOT</version>
+    <version>3.0.3</version>
   </parent>
   <artifactId>platform.packaging.product</artifactId>
   <packaging>pom</packaging>
