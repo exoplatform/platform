@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,8 +57,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add new Users</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=New Staff</td>
+	<td>link=Add new Users</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,7 +148,7 @@
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/classic/organization/Test_SNF_PRL_40</td>
+	<td>http://localhost:8080/portal/private/intranet/administration/Test_SNF_PRL_40</td>
 	<td></td>
 </tr>
 <tr>
@@ -518,7 +523,7 @@
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/classic/organization/Test_SNF_PRL_40</td>
+	<td>http://localhost:8080/portal/private/intranet/administration/Test_SNF_PRL_40</td>
 	<td></td>
 </tr>
 <tr>
@@ -527,13 +532,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -572,8 +587,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -582,8 +607,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Pages</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=Page Management</td>
+	<td>link=Manage Pages</td>
 	<td></td>
 </tr>
 <tr>
@@ -614,6 +644,11 @@
 <tr>
 	<td>click</td>
 	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -663,12 +698,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
