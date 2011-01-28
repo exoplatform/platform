@@ -100,6 +100,11 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>orderBy</name>
+                <value>exo:dateCreated</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>orderType</name>
                 <value>ASC</value>
                 <read-only>false</read-only>
@@ -115,6 +120,11 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>paginatorTemplatePath</name>
+                <value>/exo:ecm/views/templates/content-list-viewer/paginators/UIPaginatorEmpty.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>basePath</name>
                 <value>detail</value>
                 <read-only>false</read-only>
@@ -126,7 +136,7 @@
               </preference>
               <preference>
                 <name>showTitle</name>
-                <value>true</value>
+                <value>false</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -174,7 +184,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>Login as an acme user</value>
+                <value>Login as an Acme User</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
