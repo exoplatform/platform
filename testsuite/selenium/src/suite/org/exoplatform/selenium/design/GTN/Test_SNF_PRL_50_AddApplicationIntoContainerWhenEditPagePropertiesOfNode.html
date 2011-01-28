@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,28 +187,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-- View new node--</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[4]/div[2]/div/a</td>
+	<td>link=Test_SNF_PRL_50</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[4]/div[2]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Test_SNF_PRL_50</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Test_SNF_PRL_50</td>
+	<td>link=Test_SNF_PRL_50</td>
 	<td></td>
 </tr>
 <tr>
@@ -217,13 +212,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Group</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -538,7 +528,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -613,12 +603,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

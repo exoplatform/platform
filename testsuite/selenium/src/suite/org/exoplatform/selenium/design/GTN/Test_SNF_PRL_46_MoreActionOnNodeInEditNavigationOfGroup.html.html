@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,17 +53,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Group</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,6 +119,36 @@
 <tr>
 	<td>click</td>
 	<td>link=Search and Select Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>searchTerm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>searchTerm</td>
+	<td>Organization Management</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>searchOption</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>searchOption</td>
+	<td>label=Title</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIPageSearch']/div[2]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -193,12 +223,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Organization']</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Organization']</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,12 +268,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[5]/a</td>
+	<td>link=Cut Node</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[5]/a</td>
+	<td>link=Cut Node</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,22 +293,32 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='New Staff']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='New Staff']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//html/body/div/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[4]/div/div/div/div/div/div/div/div/div/div/div/div[4]/div/div[2]/div/div/div/div/div/div/div[2]/div[3]/div/div/div/div/div/div/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//html/body/div/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[4]/div/div/div/div/div/div/div/div/div/div/div/div[4]/div/div[2]/div/div/div/div/div/div/div[2]/div[3]/div/div/div/div/div/div/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Add new Users']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Add new Users']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -453,22 +493,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@title='New Staff']</td>
+	<td>//a[@title='Add new Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@title='New Staff']</td>
+	<td>//a[@title='Add new Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div[2]/div[2]/div/div/a</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div[2]/div[2]/div/div/a</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
@@ -568,12 +608,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
