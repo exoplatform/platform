@@ -75,7 +75,7 @@
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
               <artifactId>exo.platform.sample.acme-website.resources</artifactId>
-              <contextRoot>acme-website</contextRoot>
+              <contextRoot>acme-websiteResources</contextRoot>
               <bundleFileName>acme-websiteResources.war</bundleFileName>
             </webModule>
           </modules>
