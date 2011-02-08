@@ -243,8 +243,7 @@
 		}
 }
 %>
-<!-- needed to avoid js error of type jQuery("#sectionsTabs").tabs is not a function-->
-<script type="text/javascript" src="/acme-websiteResources/javascript/jquery-1.4.2.min.js"></script>
+
 <div class="ProDetailPage">
 
 <!-- Hot news -->
@@ -284,7 +283,6 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="/acme-websiteResources/javascript/jquery-ui-1.8.6.custom.min.js"></script>
 
 <div id="sectionsTabs">
 	<ul>
@@ -343,7 +341,6 @@
 </script>
 
 <!-- Begin render related pictures /node/medias/images -->
-<script type="text/javascript" src="/portal/rest/jcr/repository/collaboration/sites content/live/acme/js/jcarousellite.js"></script>
 <%
 	String imgSrc = "";	
 	if(originalNode.hasNode("medias/images")){

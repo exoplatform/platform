@@ -339,6 +339,7 @@
           </object>
         </object-param>
         -->
+		<!--
         <object-param>
           <name>ACME jcarousellite.js data</name>
           <description>Deployment Descriptor</description>
@@ -364,6 +365,7 @@
             </field>            
           </object>
         </object-param>
+		-->
 		<object-param>
           <name>ACME JcarouselliteImages data</name>
           <description>Deployment Descriptor</description>

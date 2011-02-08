@@ -178,6 +178,11 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
+                <name>orderBy</name>
+                <value>exo:dateCreated</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>orderType</name>
                 <value>ASC</value>
                 <read-only>false</read-only>
