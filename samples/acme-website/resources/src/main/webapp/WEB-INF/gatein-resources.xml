@@ -38,15 +38,18 @@
 		<param>
 			<js-module>acme.jquery.core</js-module>
 			<js-path>/javascript/jquery-1.4.2.min.js</js-path>
-			<js-priority>100</js-priority>
+			<js-priority>90</js-priority>
 		</param>
-		<!--
 		<param>
 			<js-module>acme.jquery.ui</js-module>
 			<js-path>/javascript/jquery-ui-1.8.6.custom.min.js</js-path>
-			<js-priority>1</js-priority>
+			<js-priority>95</js-priority>
 		</param>
-		-->
+		<param>
+			<js-module>acme.jquery.jcarousellite</js-module>
+			<js-path>/javascript/jcarousellite.js</js-path>
+			<js-priority>100</js-priority>
+		</param>
 	</javascript>
 	
 </gatein-resources>
