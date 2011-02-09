@@ -121,6 +121,7 @@ function getProduct(version) {
   product.addDependencies(ks.extension.webapp); // ks-extension.war
   product.addDependencies(new Project("org.exoplatform.ks", "exo.ks.ext.social-integration", "jar", ks.version));
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
+  product.addDependencies(ks.eXoApplication.wiki); // wiki.war
   
 
   /* SOCIAL */
