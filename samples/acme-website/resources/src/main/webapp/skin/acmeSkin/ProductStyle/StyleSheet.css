@@ -189,27 +189,8 @@ li {
 	background: url('background/Icon20x20.png') no-repeat right top;
 }
 
-.ProDetailPage .ProBoxTL {
-	background: url('background/ProDetailBg.png') no-repeat left -116px;
-	padding-left: 7px;
-}
-
-.ProDetailPage .ProBoxTR {
-	background: url('background/ProDetailBg.png') no-repeat right -116px;
-	padding-right: 7px;
-}
-
-.ProDetailPage .ProBoxTM {
-	background: url('background/ProDetailBg.png') repeat-x left -145px;
-	line-height: 28px;
-	font-size: 14px;
-	font-weight: bold;
-	color: #424242;
-	padding-left: 10px;
-}
-
 .ProDetailPage .ProBoxControl {
-	padding: 6px 16px 0px 16px;
+	padding: 6px 20px 8px;
 }
 
 .ProDetailPage .ProBoxTLIn {
@@ -224,35 +205,40 @@ li {
 	background-position: left -232px;
 }
 
-.ProDetailPage .ProBoxBL {
-	background: url('background/ProDetailBg.png') no-repeat left -176px;
-	padding-left: 7px;
+.ProDetailPage .BoxContainer {
+	-moz-border-radius: 5px 5px 5px 5px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding-top: 9px;
 }
 
-.ProDetailPage .ProBoxBR {
-	background: url('background/ProDetailBg.png') no-repeat right -176px;
-	padding-right: 7px;
+.ProDetailPage .ProBoxControl h3 {
+    color: #6D6D6D;
+    font-size: 16px;
+	font-weight: normal;
 }
 
-.ProDetailPage .ProBoxBM {
-	background: url('background/ProDetailBg.png') repeat-x left -189px;
-	padding-top:10px;
+.ProDetailPage .BoxContainer .TitleBar {
+	background: url("/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x left top;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 30px;
+    padding-left: 20px;
 }
 
-.ProDetailPage .ProBoxC {
-	background: #ffffff;
-	border-left: 1px solid #eaeaea;
-	border-right: 1px solid #eaeaea;
-	padding: 6px 16px 6px 16px;
+.ProDetailPage .BoxContainer .ContentBlock {
+	-moz-border-radius: 5px 5px 5px 5px;
+    background: url('/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/Bg.png') repeat-x left top #EFEFEF;
 }
 
-.ProDetailPage .Box1 {
-	padding: 12px 0;
-	
-}
-
-.ProDetailPage .BoxContAct .ProBoxC {
+.ProDetailPage .BoxContAct h1 {
 	text-align: center;
+	border-bottom: 1px solid #bfbfbf;
+    color: #4c4c4c;
+    font-size: 30px;
+	margin: 0 340px;
+    padding-bottom: 16px;
+	font-weight: normal;
 }
 
 .ProDetailPage .Box1 .BlockWebsite {
@@ -265,19 +251,18 @@ li {
 }
 
 .ProDetailPage .Box1 .Icon {
-	float: left;
-	height: 45px;
-	width: 50px;
-}
-
-.ProDetailPage .Box1 .TxtLinkIcon {
-	line-height: 45px;
-	padding-left: 10px;
+	background: url('/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif') no-repeat left top;
 	color: #595959;
+    float: left;
+    font-size: 13px;
+    height: auto;
+    line-height: 16px;
+    padding-left: 22px;
+    width: auto;
 }
 
 .ProDetailPage .Box1 .Block {
-	padding: 8px 0;
+	padding: 8px 0 8px 10px;
 }
 
 .ProDetailPage .Box1 .VideoDemo {
@@ -312,67 +297,27 @@ li {
 	background: url('background/Icon50x50.png') no-repeat left -429px;
 }
 
-/* Control button */
-.ProDetailPage .ControlBtn {
-	
-}
-
-.ProDetailPage .ControlBtn .Btn {
-	float: left;
-	margin-right: 13px;
-	cursor: pointer;
-}
-
-.ProDetailPage .ControlBtn a {
+.ProDetailPage ul.ui-tabs li a {
 	line-height: 28px;
+	display: block;
 	color: #424242;
 	font-weight: bold;
 	font-size: 14px;
-	padding: 0 20px 0 0;
-	display: block;
+	padding: 0 12px 28px;
 }
 
 /*Normal button*/
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnL {
-	background: url('background/ProDetailBg.png') no-repeat left -58px;
-	padding-left: 6px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnR {
-	background: url('background/ProDetailBg.png') no-repeat right -58px;
-	padding-right: 5px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn .BtnM {
-	background: url('background/ProDetailBg.png') repeat-x left -87px;
-	height: 28px;
-	padding: 0 7px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-state-default .ControlBtn a.ArrowCtrl {
-	background: url('background/Icon11x11.png') no-repeat right -13px;
+.ProDetailPage li.ui-state-default a.ArrowCtrl {
+	background: #f3f3f3 url('background/Icon11x11.png') no-repeat right -13px;
+	border: 1px solid #eaeaea;
+	-moz-border-radius: 5px 5px 5px 5px;
 }
 
 /*Highlight button*/
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnL {
-	background: url('background/ProDetailBg.png') no-repeat left top;
-	padding-left: 4px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnR {
-	background: url('background/ProDetailBg.png') no-repeat right top;
-	padding-right: 4px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn .BtnM {
-	background: url('background/ProDetailBg.png') repeat-x left -29px;
-	height: 28px;
-	padding: 0 7px;
-}
-
-.ProDetailPage .ui-tabs .ui-tabs-nav li.ui-tabs-selected .ControlBtn a.ArrowCtrl {
-	background: url('background/Icon11x11.png') no-repeat right 11px;
+.ProDetailPage li.ui-tabs-selected a.ArrowCtrl {
+	background: #ffcb05 url('background/Icon11x11.png') no-repeat right 11px;
+	border: 1px solid #eaeaea;
+	-moz-border-radius: 5px 5px 5px 5px;
 }
 
 /* Override JQuery Tabs default style */
@@ -383,6 +328,8 @@ li {
 /* Content list */
 .ProDetailPage ul.ContList {
 	padding: 10px 0 10px 30px;
+	border-bottom: 1px solid #BFBFBF;
+    margin-bottom: 25px;
 }
 
 .ProDetailPage ul.ContList li {
@@ -393,7 +340,7 @@ li {
 	color: #424242;
 }
 
-/*  */
+/* Hot news */
 .ProDetailPage .BigNews {
 	margin: 5px 0 30px;
 }
@@ -411,6 +358,7 @@ li {
 	font-size: 27px;
 	font-weight: bold;
 	color: #424242;
+	padding: 0;
 }
 
 .ProDetailPage .BigNews .Content .Title:hover {
@@ -425,6 +373,46 @@ li {
 .ProDetailPage .BigNews .Content .Summary {
 	color: #595959;
 	padding-top: 5px;
+}
+
+/* Box videos */
+.ProDetailPage .BoxVideos {
+	margin-top: 10px;
+}
+
+.ProDetailPage .BoxVideos .ContentBlock {
+	padding: 30px 18px;
+}
+
+.ProDetailPage .BoxVideos .VideoItem {
+	margin: 0 22px;
+}
+
+.ProDetailPage .BoxVideos .VideoItem object {
+	-moz-box-shadow: 0 0 35px #b3b3b3;
+	-webkit-box-shadow: 0 0 35px #b3b3b3;
+}
+
+/* Resources bar */
+
+.ProDetailPage .ResourBoxL {
+	background: url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png') no-repeat left -208px;
+	padding-left: 8px;
+}
+
+.ProDetailPage .ResourBoxR{
+	background: url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png') no-repeat right -208px;
+	padding-right: 7px;
+}
+
+.ProDetailPage .ResourBoxC {
+	background: url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png') repeat-x left -259px;
+	height: 50px;
+	font-size: 36px;
+	color: #ff9c00;
+	text-align: left;
+	margin-bottom: 10px;
+	line-height: 50px;
 }
 
 /* Edit Mode */
