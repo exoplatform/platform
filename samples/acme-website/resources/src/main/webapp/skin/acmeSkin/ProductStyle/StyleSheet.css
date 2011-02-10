@@ -297,25 +297,26 @@ li {
 	background: url('background/Icon50x50.png') no-repeat left -429px;
 }
 
-.ProDetailPage ul.ui-tabs li a {
+.ProDetailPage .ui-tabs ul li a {
 	line-height: 28px;
 	display: block;
 	color: #424242;
 	font-weight: bold;
 	font-size: 14px;
-	padding: 0 12px 28px;
+	padding: 0 24px 0 10px;
+	margin-right: 12px;
 }
 
 /*Normal button*/
 .ProDetailPage li.ui-state-default a.ArrowCtrl {
-	background: #f3f3f3 url('background/Icon11x11.png') no-repeat right -13px;
+	background: #f3f3f3 url('background/Icon11x11.png') no-repeat 90% -13px;
 	border: 1px solid #eaeaea;
 	-moz-border-radius: 5px 5px 5px 5px;
 }
 
 /*Highlight button*/
 .ProDetailPage li.ui-tabs-selected a.ArrowCtrl {
-	background: #ffcb05 url('background/Icon11x11.png') no-repeat right 11px;
+	background: #ffcb05 url('background/Icon11x11.png') no-repeat 90% 11px;
 	border: 1px solid #eaeaea;
 	-moz-border-radius: 5px 5px 5px 5px;
 }
