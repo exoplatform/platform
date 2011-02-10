@@ -1313,12 +1313,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.component.listeners</artifactId>
-      <version>${project.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.webui</artifactId>
       <version>${project.version}</version>
       <type>jar</type>

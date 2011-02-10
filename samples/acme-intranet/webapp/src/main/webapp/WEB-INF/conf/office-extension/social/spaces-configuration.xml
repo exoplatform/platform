@@ -22,51 +22,231 @@
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
-	<component>
-		<key>org.exoplatform.social.core.space.spi.SpaceService</key>
-		<type>org.exoplatform.social.core.space.impl.SpaceServiceImpl</type>
-		<init-params>
-			<!-- Configure the applications to install in a space -->
-			<values-param>
-				<name>space.homeNodeApp</name>
-				<value>SpaceActivityStreamPortlet</value>
-			</values-param>
-			<!-- Configure removable application or not <value>Application:removable</value> -->
-			<values-param>
-				<name>space.apps</name>
-				<value>DashboardPortlet:true</value>
-				<value>SpaceSettingPortlet:false</value>
-				<value>MembersPortlet:true</value>
-				<value>CalendarPortlet:true</value>
-				<value>ForumPortlet:true</value>
-				<value>WikiPortlet:true</value>
-				<value>FileExplorerPortlet:true</value>
-			</values-param>
-		</init-params>
-	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
 		<component-plugin>
-			<name>SpaceFileExplorerInitializer</name>
-			<set-method>addSpaceListener</set-method>
-			<type>org.exoplatform.platform.listeners.CustomizeSpacePagesListener</type>
+			<name>Space Application Configuration</name>
+			<set-method>setSpaceApplicationConfigPlugin</set-method>
+			<type>org.exoplatform.social.core.space.SpaceApplicationConfigPlugin</type>
 			<init-params>
-				<value-param>
-					<name>portlet-name</name>
-					<value>FileExplorerPortlet</value>
-				</value-param>
-				<value-param>
-					<name>navigation-label</name>
-					<value>Documents</value>
-				</value-param>
-				<properties-param>
-					<name>portletPreferences</name>
-					<description>FileExplorerPortlet Preferences</description>
-					<property name="usecase" value="jailed"/>
-					<property name="driveName" value="{modifiedGroupId}"/>
-					<property name="repository" value="repository"/>
-					<property name="showSideBar" value="true"/>
-				</properties-param>
+
+				<object-param>
+					<name>spaceHomeApplication</name>
+					<description>Space Home Application</description>
+					<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+						<field name="portletApp">
+							<string>social-portlet</string>
+						</field>
+						<field name="portletName">
+							<string>SpaceActivityStreamPortlet</string>
+						</field>
+						<field name="appTitle">
+							<string>Home</string>
+						</field>
+					</object>
+				</object-param>
+
+				<object-param>
+					<name>spaceApplicationListConfig</name>
+					<description>space application list configuration</description>
+					<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin">
+						<field name="spaceApplicationList">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string>dashboard</string>
+										</field>
+										<field name="portletName">
+											<string>DashboardPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Dashboard</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>1</int>
+										</field>
+										<field name="uri">
+											<string>dashboard</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string>social-portlet</string>
+										</field>
+										<field name="portletName">
+											<string>SpaceSettingPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Space Settings</string>
+										</field>
+										<field name="removable">
+											<boolean>false</boolean>
+										</field>
+										<field name="order">
+											<int>2</int>
+										</field>
+										<field name="uri">
+											<string>settings</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string>social-portlet</string>
+										</field>
+										<field name="portletName">
+											<string>MembersPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Members</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>3</int>
+										</field>
+										<field name="uri">
+											<string>members</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string/>
+										</field>
+										<field name="portletName">
+											<string>CalendarPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Calendar</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>4</int>
+										</field>
+										<field name="uri">
+											<string>calendar</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string/>
+										</field>
+										<field name="portletName">
+											<string>ForumPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Forum</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>5</int>
+										</field>
+										<field name="uri">
+											<string>forum</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string/>
+										</field>
+										<field name="portletName">
+											<string>AnswersPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Answers</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>6</int>
+										</field>
+										<field name="uri">
+											<string>answers</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
+											<string/>
+										</field>
+										<field name="portletName">
+											<string>FileExplorerPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Documents</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>7</int>
+										</field>
+										<field name="uri">
+											<string>documents</string>
+										</field>
+										<field name="preferences">
+											<map type="java.util.HashMap">
+												<entry>
+													<key>
+														<string>usecase</string>
+													</key>
+													<value>
+														<string>jailed</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>driveName</string>
+													</key>
+													<value>
+														<string>{modifiedGroupId}</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>repository</string>
+													</key>
+													<value>
+														<string>repository</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>showSideBar</string>
+													</key>
+													<value>
+														<string>true</string>
+													</value>
+												</entry>
+											</map>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
