@@ -193,7 +193,6 @@
     <module>server</module>
     <module>doc</module>
     <module>samples</module>
-    <module>migration</module>
     <module>packaging</module>
     <module>testsuite</module>
   </modules>
