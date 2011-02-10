@@ -168,10 +168,10 @@
 											<string/>
 										</field>
 										<field name="portletName">
-											<string>AnswersPortlet</string>
+											<string>WikiPortlet</string>
 										</field>
 										<field name="appTitle">
-											<string>Answers</string>
+											<string>Wiki</string>
 										</field>
 										<field name="removable">
 											<boolean>true</boolean>
@@ -180,7 +180,7 @@
 											<int>6</int>
 										</field>
 										<field name="uri">
-											<string>answers</string>
+											<string>wiki</string>
 										</field>
 									</object>
 								</value>
