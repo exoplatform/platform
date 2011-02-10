@@ -144,9 +144,8 @@
 					def itemIcon = "Icon16x16 default48x48Icon "+org.exoplatform.ecm.webui.utils.Utils.getNodeTypeIcon(node, "48x48Icon");
 					def itemWebdavLink = getBaseURI() + "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
 					%>
-						<div class="Block">
-								<a class="Icon $itemIcon" href="$itemWebdavLink"></a>
-								<a class="TxtLinkIcon" href="$itemWebdavLink" target="_newdoc">$itemName</a>
+						<div class="Block ClearFix">
+								<a class="Icon $itemIcon" href="$itemWebdavLink">$itemName</a>
 								<%
 									def contentNode = node.getNode("jcr:content") ;
 									def mimeType = contentNode.getProperty("jcr:mimeType").getString();
@@ -210,31 +209,15 @@
 						
 						def folderTitle = node.getName();
 						%>
-							<!--div class="ProBoxTL ProBoxTLIn">
-								<div class="ProBoxTR ProBoxTRIn">
-									<div class="ProBoxTM ProBoxTMIn">$folderTitle</div>
-								</div>
-							</div-->
-							<div class="ProBoxTL">
-								<div class="ProBoxTR">
-									<div class="ProBoxTM">$folderTitle</div>
-								</div>
+								<h3>$folderTitle</h3>
+								<%
+								List<Node> childeNodes = getChildNodeListFromNodeIterator(node.getNodes());
+								sortChildNodes(childeNodes);
+								for(docNode in childeNodes){
+									renderDocuments(docNode);
+								}
+								%>
 							</div>
-							<div class="ProBoxC">
-						<%
-						List<Node> childeNodes = getChildNodeListFromNodeIterator(node.getNodes());
-						sortChildNodes(childeNodes);
-						for(docNode in childeNodes){
-							renderDocuments(docNode);
-						}
-						%>
-							</div>
-							<div class="ProBoxBL">
-								<div class="ProBoxBR">
-									<div class="ProBoxBM"><span></span></div>
-								</div>
-							</div>
-						  </div>
 						</div>
 						<%
 					}
@@ -284,34 +267,16 @@
 </div>
 
 
-<div id="sectionsTabs">
-	<ul>
-		<li>
+<div id="sectionsTabs" class="ui-tabs">
+	<ul class="ui-tabs-nav ClearFix">
+		<li class="ui-state-default">
 			<!-- Begin Benefits head section -->
-			<div class="ControlBtn ClearFix">
-				<div class="Btn Highlight">
-					<div class="BtnL">
-						<div class="BtnR">
-							<div class="BtnM">
-								<a class="ArrowCtrl" href="#tab-benefits">Benefits</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<a class="ArrowCtrl" href="#tab-benefits">Benefits</a>
 			<!-- End Benefits head section -->
 		</li>
 		<li>
 			<!-- Begin Features head section -->
-			<div class="ControlBtn ClearFix">
-				<div class="Btn Normal">
-					<div class="BtnL">
-						<div class="BtnR">
-							<div class="BtnM">
-								<a class="ArrowCtrl" href="#tab-features">Features</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<a class="ArrowCtrl" href="#tab-features">Features</a>
 			<!-- End Features head section -->
 		</li>
 	</ul>
@@ -390,66 +355,55 @@
 		</div>
 		<% } %>
 		<div class="BoxContAct">
-			<div class="ProBoxTL">
-				<div class="ProBoxTR">
-					<div class="ProBoxTM">See it in Action:</div>
-				</div>
-			</div>
-			<div class="ProBoxC">
-				<div class="jQProDetailPage">
-					<div class="jQBoxContAct">
-						<div class="jQProBoxTL">
-							<div class="jQProBoxTR">
-								<div class="jQProBoxTM"><span></span></div>
-							</div>
+			<h1>See it in action</h1>
+			<div class="jQProDetailPage">
+				<div class="jQBoxContAct">
+					<div class="jQProBoxTL">
+						<div class="jQProBoxTR">
+							<div class="jQProBoxTM"><span></span></div>
 						</div>
-						
-						<div class="jQProBoxC">
-							<!-- Begin jCarouselLite part -->
-							<button class="jQprev">&nbsp;</button>
-							<div class="jCarouselLite">
-							   <ul>
-						<%
-						/*A valid expression has pattern repository:workspace:path*/
-						def picturesValidPath = getRepositoryName(mediasImagesNode) + ":" +  getWorkspaceName(mediasImagesNode) + ":" + mediasImagesNode.getPath();
-						for(image in getRenderedContentNodes(picturesValidPath)) {
-							// check permissions
-							if(Utils.isViewable(image)) {
-								if((!image.getName().equals("exo:thumbnails")) && (!image.getName().equals("illustration")) ){
-									if(image.hasNode("jcr:content")){
-										def imgContent = image.getNode("jcr:content");
-										if(imgContent.hasProperty("jcr:mimeType")){
-											def imgContentMimeType = imgContent.getProperty("jcr:mimeType").getString();
-											if("image/gif".equals(imgContentMimeType)||"image/png".equals(imgContentMimeType)||"image/jpg".equals(imgContentMimeType)||"image/jpeg".equals(imgContentMimeType)||"image/bmp".equals(imgContentMimeType)||"image/tiff".equals(imgContentMimeType)){					
-												String title = image.getName();
-												imgSrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(image) + "/" +  getWorkspaceName(image) + image.getPath();
-												%>
-												<li><img src="$imgSrc" alt="$title" width="204" height="200"/></li>
-												<%
-											}
+					</div>
+					
+					<div class="jQProBoxC">
+						<!-- Begin jCarouselLite part -->
+						<button class="jQprev">&nbsp;</button>
+						<div class="jCarouselLite">
+						   <ul>
+					<%
+					/*A valid expression has pattern repository:workspace:path*/
+					def picturesValidPath = getRepositoryName(mediasImagesNode) + ":" +  getWorkspaceName(mediasImagesNode) + ":" + mediasImagesNode.getPath();
+					for(image in getRenderedContentNodes(picturesValidPath)) {
+						// check permissions
+						if(Utils.isViewable(image)) {
+							if((!image.getName().equals("exo:thumbnails")) && (!image.getName().equals("illustration")) ){
+								if(image.hasNode("jcr:content")){
+									def imgContent = image.getNode("jcr:content");
+									if(imgContent.hasProperty("jcr:mimeType")){
+										def imgContentMimeType = imgContent.getProperty("jcr:mimeType").getString();
+										if("image/gif".equals(imgContentMimeType)||"image/png".equals(imgContentMimeType)||"image/jpg".equals(imgContentMimeType)||"image/jpeg".equals(imgContentMimeType)||"image/bmp".equals(imgContentMimeType)||"image/tiff".equals(imgContentMimeType)){					
+											String title = image.getName();
+											imgSrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(image) + "/" +  getWorkspaceName(image) + image.getPath();
+											%>
+											<li><img src="$imgSrc" alt="$title" width="204" height="200"/></li>
+											<%
 										}
 									}
 								}
 							}
 						}
-						%>
-								</ul>
-							</div>
-							<button class="jQnext">&nbsp;</button>
-							<!-- End jCarouselLite part -->
+					}
+					%>
+							</ul>
 						</div>
-						<div class="clear"></div>
-						<div class="jQProBoxBL">
-							<div class="jQProBoxBR">
-								<div class="jQProBoxBM"><span></span></div>
-							</div>
+						<button class="jQnext">&nbsp;</button>
+						<!-- End jCarouselLite part -->
+					</div>
+					<div class="clear"></div>
+					<div class="jQProBoxBL">
+						<div class="jQProBoxBR">
+							<div class="jQProBoxBM"><span></span></div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="ProBoxBL">
-				<div class="ProBoxBR">
-					<div class="ProBoxBM"><span></span></div>
 				</div>
 			</div>
 		</div>
@@ -473,6 +427,12 @@
 	}
 %>	
 <!-- End render related pictures /node/medias/images -->
+
+<div class="ResourBoxL">
+	<div class="ResourBoxR">
+		<div class="ResourBoxC">Resources</div>
+	</div>
+</div>
 
 <!-- Begin render related documents /node/documents nt:folder pdf-->
 <%
@@ -499,11 +459,11 @@ if(originalNode.hasNode("documents")){
 			def boxStyle = "";
 			if(folderSize > 1) {	
 				if(folderIndex == 1) {
-					boxStyle = "padding: 0px 5px 0px 0px;"
+					boxStyle = "padding: 0px 10px 0px 0px;"
 				} else if(folderIndex == folderSize) {
 					boxStyle = "padding: 0px 0px 0px 0px;"
 				} else {
-					boxStyle = "padding: 0px 5px 0px 0px;"
+					boxStyle = "padding: 0px 10px 0px 0px;"
 				}
 			}
 %>
@@ -548,24 +508,16 @@ if(originalNode.hasNode("documents")){
 			</div>
 			<% } %>
 
-			<div class="ProBoxTL">
-				<div class="ProBoxTR">
-					<div class="ProBoxTM">$folderName</div>
-				</div>
-			</div>						
-			<div class="ProBoxC">
-				<%
-				for(item in folderNode.getNodes()){
-					renderDocuments(item);
-				}
-				%>
-			</div>
-			<div class="ProBoxBL">
-				<div class="ProBoxBR">
-					<div class="ProBoxBM"><span></span></div>
+			<div class="BoxContainer">
+				<div class="TitleBar">$folderName</div>
+				<div class="ContentBlock">
+					<%
+					for(item in folderNode.getNodes()){
+						renderDocuments(item);
+					}
+					%>
 				</div>
 			</div>
-		  </div>
 		</td>
 	
 				<%
@@ -581,6 +533,7 @@ if(originalNode.hasNode("documents")){
 %>
 </div>				
 <!-- End render related documents /node/documents nt:folder pdf-->
+
 <!-- Begin render related videos /node/medias/videos -->
 
 <%				
@@ -590,7 +543,7 @@ if(originalNode.hasNode("documents")){
 		%>
 <!-- Videos See in action -->
 <div onmouseout="this.className = 'UIPresentationSubContainer' " onmouseover="this.className = 'UIPresentationSubContainerHover' " id="UIPresentationSubContainer" class="UIPresentationSubContainer">
-	<div class="Box ClearFix">
+	<div class="BoxVideos ClearFix">
 	
 	<%
 	if (isShowEdit(mediasVideosNode) && !LockUtil.isLocked(currentNode)) {
@@ -630,38 +583,27 @@ if(originalNode.hasNode("documents")){
 	</div>
 	<% } %>
 	
-		<div class="ProBoxTL">
-			<div class="ProBoxTR">
-				<div class="ProBoxTM">More Resources</div>
-			</div>
-		</div>
-		<div class="ProBoxC">
-			<table>
-				<tr>
-			<%
-			//A valid expression has pattern repository:workspace:path
-			def videosValidPath = getRepositoryName(mediasVideosNode) + ":" +  getWorkspaceName(mediasVideosNode) + ":" +mediasVideosNode.getPath();
-			for(videoNode in getRenderedContentNodes(videosValidPath)) {
-				// check permissions
-				if(Utils.isViewable(videoNode)) {
-					binarySrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(videoNode) + "/" +  getWorkspaceName(videoNode) + videoNode.getPath();
-					%>			
-						<td>
-							<object type="application/x-shockwave-flash" data="/acme-website/addons/player_flv_multi.swf" width="150" height="150">
-							<param name="movie" value="/acme-website/addons/player_flv_multi.swf" />
-							<param name="FlashVars" value="flv=$binarySrc" />
-							</object>
-						</td>
-					<%
+		<div class="BoxContainer">
+			<div class="TitleBar">Videos</div>
+			<div class="ContentBlock ClearFix">
+				<%
+				//A valid expression has pattern repository:workspace:path
+				def videosValidPath = getRepositoryName(mediasVideosNode) + ":" +  getWorkspaceName(mediasVideosNode) + ":" +mediasVideosNode.getPath();
+				for(videoNode in getRenderedContentNodes(videosValidPath)) {
+					// check permissions
+					if(Utils.isViewable(videoNode)) {
+						binarySrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(videoNode) + "/" +  getWorkspaceName(videoNode) + videoNode.getPath();
+						%>			
+							<div class="VideoItem FL">
+								<object type="application/x-shockwave-flash" data="/acme-website/addons/player_flv_multi.swf" width="250" height="170">
+								<param name="movie" value="/acme-website/addons/player_flv_multi.swf" />
+								<param name="FlashVars" value="flv=$binarySrc" />
+								</object>
+							</div>
+						<%
+					}
 				}
-			}
-%>
-				</tr>
-			</table>
-		</div>
-		<div class="ProBoxBL">
-			<div class="ProBoxBR">
-				<div class="ProBoxBM"><span></span></div>
+	%>
 			</div>
 		</div>
 	</div>
