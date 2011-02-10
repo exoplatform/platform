@@ -274,7 +274,7 @@
 			<a class="ArrowCtrl" href="#tab-benefits">Benefits</a>
 			<!-- End Benefits head section -->
 		</li>
-		<li>
+		<li class="ui-tabs-selected">
 			<!-- Begin Features head section -->
 			<a class="ArrowCtrl" href="#tab-features">Features</a>
 			<!-- End Features head section -->
