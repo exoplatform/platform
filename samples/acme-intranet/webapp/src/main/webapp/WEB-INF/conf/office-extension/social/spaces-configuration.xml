@@ -39,7 +39,7 @@
 				<value>MembersPortlet:true</value>
 				<value>CalendarPortlet:true</value>
 				<value>ForumPortlet:true</value>
-				<value>AnswersPortlet:true</value>
+				<value>WikiPortlet:true</value>
 				<value>FileExplorerPortlet:true</value>
 			</values-param>
 		</init-params>
