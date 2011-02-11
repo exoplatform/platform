@@ -57,7 +57,14 @@
 	      <name>management</name>
 	      <label>#{administration.management}</label>
 	      <page-reference>group::/platform/administrators::management</page-reference>
-    	</node>    	
+    	</node>
+		
+		<node>
+		    <uri>administration/workflowAdministration</uri>
+		    <name>workflowAdministration</name>
+		    <label>#{administration.workflowAdministration}</label>
+		    <page-reference>group::/platform/administrators::workflowAdministration</page-reference>
+	    </node>
     </node>                        
   </page-nodes>
 </node-navigation>

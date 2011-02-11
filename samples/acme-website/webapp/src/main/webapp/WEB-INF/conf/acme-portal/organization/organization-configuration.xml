@@ -178,7 +178,7 @@
 											<string>john.smith@acme.exoplatform.com</string>
 										</field>
 										<field name="groups">
-											<string>manager:/organization/management/executive-board,*:/platform/administrators,*:/platform/web-contributors, *:/platform/users,member:/developers</string>
+											<string>manager:/organization/management/executive-board,*:/platform/administrators,*:/platform/web-contributors,*:/platform/users,member:/developers,manager:/organization/employees</string>
 										</field>
 									</object>
 								</value>
@@ -200,7 +200,7 @@
 											<string>mary.williams@acme.exoplatform.com</string>
 										</field>
 										<field name="groups">
-											<string>editor:/platform/web-contributors,manager:/platform/web-contributors,publisher:/platform/web-contributors</string>
+											<string>editor:/platform/web-contributors,manager:/platform/web-contributors,publisher:/platform/web-contributors,member:/organization/employees</string>
 										</field>
 									</object>
 								</value>
@@ -222,7 +222,7 @@
 											<string>james.davis@acme.exoplatform.com</string>
 										</field>
 										<field name="groups">
-											<string>*:/organization/management/human-resources,redactor:/platform/web-contributors,author:/platform/web-contributors</string>
+											<string>*:/organization/management/human-resources,redactor:/platform/web-contributors,author:/platform/web-contributors,member:/organization/employees</string>
 										</field>
 									</object>
 								</value>
@@ -244,7 +244,7 @@
 											<string>jack.miller@acme.exoplatform.com</string>
 										</field>
 										<field name="groups">
-											<string>member:/developers</string>
+											<string>member:/developers,member:/organization/employees</string>
 										</field>
 									</object>
 								</value>

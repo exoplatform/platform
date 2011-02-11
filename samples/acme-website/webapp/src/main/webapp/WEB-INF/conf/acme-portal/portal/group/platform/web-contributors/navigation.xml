@@ -63,19 +63,5 @@
         <page-reference>group::platform/web-contributors::WcmAdmin</page-reference>
       </node>
 
-			<node>
-				<uri>businessprocess</uri>
-				<name>businessprocess</name>
-				<label>#{administration.workflowcontroller}</label>
-				<page-reference>group::platform/web-contributors::workflowController</page-reference>
-			</node>
-			
-			<node>
-		    <uri>workflowAdministration</uri>
-		    <name>workflowAdministration</name>
-		    <label>#{administration.workflowAdministration}</label>
-		    <page-reference>group::platform/web-contributors::workflowAdministration</page-reference>
-	    </node>	 
-
   </page-nodes>
 </node-navigation>

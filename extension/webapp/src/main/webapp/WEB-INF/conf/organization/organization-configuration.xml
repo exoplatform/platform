@@ -238,6 +238,38 @@
 										</field>
 									</object>
 								</value>
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+										<field  name="name">
+											<string>organization</string>
+										</field>
+										<field  name="parentId">
+											<string/>
+										</field>
+										<field  name="description">
+											<string>the organization group</string>
+										</field>
+										<field  name="label">
+											<string>Organization</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+										<field name="name">
+											<string>employees</string>
+										</field>
+										<field name="parentId">
+											<string>/organization</string>
+										</field>
+										<field name="description">
+											<string>the /organization/employees group</string>
+										</field>
+										<field name="label">
+											<string>Employees</string>
+										</field>
+									</object>
+								</value>
 							</collection>
 						</field>
 
@@ -261,7 +293,7 @@
 											<string>root@localhost</string>
 										</field>
 										<field name="groups">
-											<string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,</string>
+											<string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees</string>
 										</field>
 									</object>
 								</value>
