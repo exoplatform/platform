@@ -102,6 +102,34 @@
               </execution>
             </executions>
           </plugin>
+          <!-- PLF-986: bundle the WCM user guide in docbook -->
+		  <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-dependency-plugin</artifactId>
+		    <executions>
+		      <execution>
+		        <id>copy</id>
+		        <phase>prepare-package</phase>
+		        <goals>
+		          <goal>copy</goal>
+		        </goals>
+		        <configuration>
+		          <artifactItems>
+		            <artifactItem>
+		              <groupId>org.exoplatform.ecms</groupId>
+		              <artifactId>exo-ecms-docs-userguide</artifactId>
+		              <version>${org.exoplatform.ecms.version}</version>
+		              <type>pdf</type>
+		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <destFileName>eXo-Content-User-Guide.pdf</destFileName>
+                      <!-- overwrites the original one -->
+		              <overWrite>true</overWrite>
+		            </artifactItem>
+		          </artifactItems>
+		        </configuration>
+		      </execution>
+		    </executions>
+		  </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
