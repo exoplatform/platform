@@ -1424,11 +1424,6 @@
       <version>${org.jcrom.version}</version>
       <type>jar</type>
     </dependency>
-	<dependency>
-        <groupId>org.apache.jackrabbit</groupId>
-      	<artifactId>jackrabbit-webdav</artifactId>
-       	<version>${org.apache.jackrabbit.version}</version>
-    </dependency>
     <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-parser</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
