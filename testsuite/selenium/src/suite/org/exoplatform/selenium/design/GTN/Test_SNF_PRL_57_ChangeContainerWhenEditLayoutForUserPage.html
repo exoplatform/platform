@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -172,13 +172,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>css= div[@id=&quot;UIPortalApplication&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>css= div[@id=&quot;UIPortalApplication&quot;]</td>
+	<td>verifyTitle</td>
+	<td>Test_SNF_PRL_57</td>
 	<td></td>
 </tr>
 <tr>
@@ -348,17 +343,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div[3]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
 	<td>Test_SNF_PRL_57</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -408,15 +403,14 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

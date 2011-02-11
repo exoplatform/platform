@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/classic/Test_SNF_PRL_58</td>
+	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_58</td>
 	<td></td>
 </tr>
 <tr>
@@ -167,13 +167,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>// div[@id=&quot;UIPortalApplication&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//div[@id=&quot;UIPortalApplication&quot;]</td>
+	<td>verifyTitle</td>
+	<td>Test_SNF_PRL_58</td>
 	<td></td>
 </tr>
 <tr>
@@ -258,17 +253,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div[3]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
 	<td>Calculator</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -388,13 +383,13 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div[3]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
 	<td>Test_SNF_PRL_58</td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div[3]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
-	<td>//div[@class='LPortletLayoutDecorator']</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
+	<td>UIPortalApplication</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -438,17 +433,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/div[2]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
 	<td>Test_SNF_PRL_58</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -498,12 +493,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
