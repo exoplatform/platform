@@ -5,8 +5,7 @@
     <wcmAdmin>Quản trị site</wcmAdmin>
     <newslettermanager>Quản lý newsletter</newslettermanager>
     <formgenerator>Hệ thống sinh form tự động</formgenerator>
-		<workflowcontroller>Điều khiển luồng công việc</workflowcontroller>
-		<workflowAdministration>Quản trị luồng công việc</workflowAdministration>
+	<workflowAdministration>Quản trị luồng công việc</workflowAdministration>
   </administration>
 </bundle>
 

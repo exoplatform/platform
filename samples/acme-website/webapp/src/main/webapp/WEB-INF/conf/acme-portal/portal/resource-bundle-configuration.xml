@@ -40,11 +40,13 @@
 					<name>init.resources</name>
         			<value>locale.navigation.portal.acme</value>
         			<value>locale.navigation.group.platform.web-contributors</value>
+					<value>locale.navigation.group.organization.employees</value>
 				</values-param>
 				<values-param>
 					<name>portal.resource.names</name>
 			        <value>locale.navigation.portal.acme</value>
         			<value>locale.navigation.group.platform.web-contributors</value>
+					<value>locale.navigation.group.organization.employees</value>
 				</values-param>
 			</init-params>
 		</component-plugin>

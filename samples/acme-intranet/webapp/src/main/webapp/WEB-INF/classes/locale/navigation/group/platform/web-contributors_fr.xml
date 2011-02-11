@@ -5,8 +5,7 @@
     <wcmAdmin>Administration des sites</wcmAdmin>
     <newslettermanager>Gestion des newsletters</newslettermanager>
     <formgenerator>Générateur de formulaires</formgenerator>
-		<workflowcontroller>Contrôleur des processus d'affaires</workflowcontroller>
-		<workflowAdministration>Administration des Processus Métiers</workflowAdministration>
+	<workflowAdministration>Administration des Processus Métiers</workflowAdministration>
   </administration>
 </bundle>
 

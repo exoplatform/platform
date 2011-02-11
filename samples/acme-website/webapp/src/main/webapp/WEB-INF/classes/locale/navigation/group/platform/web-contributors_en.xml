@@ -5,7 +5,6 @@
     <wcmAdmin>Content Administration</wcmAdmin>
     <newslettermanager>Newsletters</newslettermanager>
     <formgenerator>Form Builder</formgenerator>
-	<workflowcontroller>Workflow Center</workflowcontroller>
 	<workflowAdministration>Workflow Administration</workflowAdministration>
   </administration>
 </bundle>
