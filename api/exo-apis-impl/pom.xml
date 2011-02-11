@@ -46,6 +46,11 @@
       <artifactId>slf4j-simple</artifactId>
       <version>${org.slf4j.version}</version>
       <scope>test</scope>
-    </dependency>      
+    </dependency>
+    <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-webdav</artifactId>
+        <version>${org.apache.jackrabbit.version}</version>
+      </dependency>      
   </dependencies>
 </project>

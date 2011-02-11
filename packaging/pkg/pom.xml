@@ -1103,14 +1103,24 @@
       <version>${org.exoplatform.cs.version}</version>
       <type>war</type>
     </dependency>
-    
+    <!-- cs extended lib -->
     <dependency>
       <groupId>ical4j</groupId>
       <artifactId>ical4j</artifactId>
       <version>${ical4j.version}</version>
       <type>jar</type>
     </dependency>
-    
+    <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-webdav</artifactId>
+        <version>${org.apache.jackrabbit.version}</version>
+    </dependency>    
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-jcr-commons</artifactId>
+      <version>${org.apache.jackrabbit.version}</version>
+      <type>jar</type>
+    </dependency>
     <dependency>
       <groupId>org.jvnet.jaxb2.maven2</groupId>
       <artifactId>maven-jaxb2-plugin</artifactId>
