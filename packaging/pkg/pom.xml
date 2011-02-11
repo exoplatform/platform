@@ -151,6 +151,13 @@
       <type>pom</type>
     </dependency>
     <dependency>
+	   <groupId>org.exoplatform.ecms</groupId>
+	   <artifactId>exo-ecms-ext-webui</artifactId>
+	   <version>${org.exoplatform.ecms.version}</version>
+	   <type>jar</type>
+	</dependency>
+	<!-- 2.2.0-SNAPSHOT-->
+    <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.packaging.assembly</artifactId>
       <version>${org.exoplatform.cs.version}</version>
@@ -1597,9 +1604,9 @@
 <dependency><groupId>org.exoplatform.core</groupId><artifactId>exo.core.component.organization.jdbc</artifactId><version>${org.exoplatform.core.version}</version><type>jar</type></dependency>
 <dependency><groupId>org.exoplatform.portal</groupId><artifactId>exo.portal.component.resources</artifactId><version>${org.exoplatform.portal.version}</version><type>jar</type></dependency>
 <dependency><groupId>org.exoplatform.portal</groupId><artifactId>exo.portal.component.scripting</artifactId><version>${org.exoplatform.portal.version}</version><type>jar</type></dependency>
-    
+<dependency><groupId>org.apache.jackrabbit</groupId><artifactId>jackrabbit-webdav</artifactId><version>${org.apache.jackrabbit.version}</version><type>jar</type></dependency><!-- 1.6.4-->
+<dependency><groupId>org.apache.jackrabbit</groupId><artifactId>jackrabbit-jcr-commons</artifactId><version>${org.apache.jackrabbit.version}</version><type>jar</type></dependency><!-- 1.6.4-->
 
-    
   </dependencies>
   
   
