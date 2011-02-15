@@ -3,6 +3,10 @@ h1. Introduction
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
+h1. Glossary
+
+{include:document=glossary.wiki|syntax=confluence/1.0}
+
 h1. Setting Up Your Project
 
 {include:document=quickstart.wiki|syntax=confluence/1.0}
