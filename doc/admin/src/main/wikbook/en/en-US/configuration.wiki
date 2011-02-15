@@ -133,11 +133,11 @@ h5. Edit server.xml
 Edit *_$TOMCAT_HOME/conf/server.xml_*
 
 To declare the binding of the datasources in the GlobalNaming context : 
-# Change the driver : {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+# Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
 # Change the username and password to the values set above
-# Change the url to access your DataBase : {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
+# Change the url to access your DataBase: {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
 
-The code should now look like :
+The code should now look like:
 {code:language=xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
@@ -146,7 +146,7 @@ The code should now look like :
                url="jdbc:mysql://_$host_:3306/_$dbname-jcr_"/>
 
 <!-- eXo IDM Datasource for portal -->                
-<Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+<Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
                username="_$username_" password="_$password_" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://_$host_:3306/_$dbname-idm_"/>   
@@ -155,12 +155,12 @@ The code should now look like :
 h5. Add the JDBC driver
 You need to add the  MySQL connector library in Tomcat.
 Add *mysql-connector-java-5.1.x.jar* to *_$TOMCAT_HOME/lib/_*
-{tip}You can get the latest MySQL connector from : http://dev.mysql.com/downloads/connector/j/{tip}
+{tip}You can get the latest MySQL connector from: http://dev.mysql.com/downloads/connector/j/{tip}
 
 h5. JBoss
 
 
-Configuring a datasource for eXo under JBoss involves two steps : 
+Configuring a datasource for eXo under JBoss involves two steps: 
 * Edit server.xml
 * Add the JDBC driver
 
@@ -170,12 +170,12 @@ h5. Edit gatein-ds.xml
 
 Open *_$JBOSS_HOME/server/default/deploy/gatein-ds.xml_*
 
-To declare the binding of the datasources in the GlobalNaming context : 
-# Change the driver : {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
-# Change the username and password to the values setearier
-# Change the url to access your DataBase : {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
+To declare the binding of the datasources in the GlobalNaming context: 
+# Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+# Change the username and password to the values setearier.
+# Change the url to access your DataBase: {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
 
-The configuration should now look like :
+The configuration should now look like:
 {code:language=xml}
 <datasources>
     <no-tx-datasource>
@@ -267,7 +267,7 @@ Declare the binding of the datasources in the GlobalNaming context :
                url="jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"/>
 
 <!-- eXo IDM Datasource for portal -->                
-<Resource name="jdbc/exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+<Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
                username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
                url="jdbc:hsqldb:file:../gatein/data/hsql/exo-idm_portal"/>   
@@ -320,7 +320,7 @@ The following table explains what goes in what path. The {{temporary?}} column i
 
 
 Each variable can be defined as an absolute or relative path.
-The default configuration combines them to obtain a compact tree : 
+The default configuration combines them to obtain a compact tree: 
 {code}
 /gatein       # gatein.data.dir
   /data
