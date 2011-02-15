@@ -39,7 +39,14 @@ h1 {
 }
 
 h2 {
- margin: 5px 0 0 5px;
+ margin: 6px 0 0 6px;
+ font-size: 16;
+}
+
+h3 {
+ margin: 5px 10 20px 6px;
+ font-size: 12;
+ font-weight: lighter;
 }
 
 a, .LightBlueText{
@@ -52,9 +59,10 @@ a, .LightBlueText{
 
 .footer{
 	padding: 8px 0px;
-	text-align: right;
+	text-align: center;
 	color: #898989;
-    width: 932px;
+        width: 932px;
+        margin-left:100px;
 }
 
 ul{
@@ -80,29 +88,43 @@ ul ul {
 	-moz-border-radius: 5px;
 	padding:12px;
 	margin-left: 8px;
-    width: 932px;
+        width: 1075px;
+}
+
+.Doc .User{
+	background:transparent url(background/UIbackgrounds.gif) no-repeat left;
+        background-position: -10px -10px;
+	width: 265px;
+	height: 250px;
+	float: left;
+	margin-right: 5px;
 }
 
 .Doc .Admin{
-	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -435px;
-	width: 307px;
-	height: 180px;
+	background:transparent url(background/UIbackgrounds.gif) no-repeat left;
+        background-position: -280px -10px;
+	width: 265px;
+	height: 250px;
 	float: left;
 	margin-right: 5px;
 }
 
 .Doc .Dev{
-	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -615px;
-	width: 307px;
-	height: 180px;
+	background:transparent url(background/UIbackgrounds.gif) no-repeat left;
+        background-position: -550px -10px;
+	width: 265px;
+	height: 250px;
 	float: left;
 	margin-right: 5px;
 }
 
-.Doc .User{
-	background:transparent url(background/UIWikiUserGuides.gif) no-repeat left -795px;
-	width: 307px;
-	height: 180px;
+
+
+.Doc .Ref{
+	background:transparent url(background/UIbackgrounds.gif) no-repeat left;
+        background-position: -820px -10px;
+	width: 265px;
+	height: 250px;
 	float: left;
 }
 
