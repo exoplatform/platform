@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,12 +68,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[4]/div[2]</td>
+	<td>//div[@id='UITabContent']//a[text()=&quot;French&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[4]/div[2]</td>
+	<td>//div[@id='UITabContent']//a[text()=&quot;French&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -83,52 +83,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Accueil</td>
+	<td>Mes Espaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Accueil</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Change language to VietNamese--</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Changer la langue</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Changer la langue</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[16]/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[16]/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Appliquer</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Trang chủ</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Trang chủ</td>
+	<td>Mes Espaces</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,50 +98,54 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Thay đổi ngôn ngữ</td>
+	<td>link=Changer de Langue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Thay đổi ngôn ngữ</td>
+	<td>link=Changer de Langue</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[3]/div[2]</td>
+	<td>//div[@id='UITabContent']//a[text()=&quot;Anglais&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UITabContent']/div/div/div/div/div/div[3]/div[2]</td>
+	<td>//div[@id='UITabContent']//a[text()=&quot;Anglais&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Appliquer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Áp dụng</td>
+	<td>link=Appliquer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Home</td>
+	<td>My Spaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Home</td>
+	<td>My Spaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
