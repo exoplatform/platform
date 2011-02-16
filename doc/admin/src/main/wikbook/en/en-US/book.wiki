@@ -1,5 +1,3 @@
-
-
 h1. Introduction
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
@@ -19,6 +17,10 @@ h1. Management
 h1. Security
 
 {include:document=security.wiki|syntax=confluence/1.0}
+
+h1. Backup {anchor:id=ADM.Backup}
+
+{include:document=backup.wiki|syntax=confluence/1.0}
 
 h1. Clustering
 

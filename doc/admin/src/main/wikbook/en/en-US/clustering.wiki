@@ -116,6 +116,6 @@ On Linux Platforms, if you encounter an error at startup like this :
 {code}
 
 This problem arise under specific circumstances when JGroups, the networking library behind the clustering, attempts to detect the IP to use for communication with other nodes.
-Verify that : 
+Verify that: 
 * the hostname is a valid IP address, served by one of the network device of your machine (ie: eth0, eth1...).
 * the hostname is NOT defined as localhost or 127.0.0.1

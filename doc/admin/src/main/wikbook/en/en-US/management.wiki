@@ -237,11 +237,11 @@ The JMX name of the portal statistics MBean follows the template {{exo:view=port
 |{{PortalList}}|returns the list of the loaded portals|
 
 ||Operation||Description||
-|{{getThroughput(portalId)}}|returns the number of request per second for a specified portal|
-|{{getAverageTime(portalId)}}|returns the average time spent in a specified portal|
-|{{getExecutionCount(portalId)}}|returns the number of times a specified portal has been executed|
-|{{getMinTime(portalId)}}|returns the minimum time spent in the specified portal|
-|{{getMaxTime(portalId)}}|returns the maximum time spent in the specified portal|
+|{{getThroughput(portalId)}}|returns the number of request per second for a specified portal.|
+|{{getAverageTime(portalId)}}|returns the average time spent in a specified portal.|
+|{{getExecutionCount(portalId)}}|returns the number of times a specified portal has been executed.|
+|{{getMinTime(portalId)}}|returns the minimum time spent in the specified portal.|
+|{{getMaxTime(portalId)}}|returns the maximum time spent in the specified portal.|
 
 h3. Application statistics
 
