@@ -1,12 +1,12 @@
 eXo Platform is packaged as a deployable enterprise archive, per the Java EE specification, and as a configuration directory.
 
 
-h1. Installing the Tomcat bundle
+h1. Installing the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
 The easiest way to install eXo Platform is to take the default bundle. 
 This is a ready-made package on top of Tomcat 6 application server, so you simply need to copy the {{bin/tomcat6-bundle/}} directory to your server.
 
-h2. Startup
+h2. Startup {anchor:id=ADM.Installation.Tomcat_Bundle_Startup}
 
 eXo Platform leverages the application server on which it is deployed. 
 This means, to start and stop eXo Platform, you only need to start and stop your application with the default commands.
@@ -19,7 +19,8 @@ The server has started when you see the following message in your log/console:
 INFO: Server startup in 353590 ms
 {screen}
 
-h2. Shutdown
+h2. Shutdown {anchor:id=ADM.INstallation.Tomcat_Bundle_Shutdown}
+
 
 * On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
 * On Windows:        {screen}%TOMCAT_HOME%\\stop_eXo.bat {screen}
@@ -31,7 +32,8 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 {screen}
 
 
-h2. Startup scripts
+h2. Startup scripts {anchor:id=ADM.Installation.JBoss_EARS_Startup_scripts}
+
 
 eXo comes with several builtin startup scripts :
 * {{start{{{_}}}eXo.sh}} : start eXo on Linux and OS X 
@@ -40,9 +42,9 @@ eXo comes with several builtin startup scripts :
 * bin/gatein-dev.bat : start eXo on Windows in developer mode 
 
 
-h3. Normal Mode
+h3. Normal Mode {anchor:id=ADM.Installation.Normal_Mode}
 
-{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options :
+{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options:
 {screen}
 -Xms256m 
 -Xmx1024m 
@@ -60,7 +62,8 @@ h3. Normal Mode
 
 This is enough to start and run a demo, but you will need to adjust these values for a production setup.
 
-h3. Developer mode
+h3. Developer mode {anchor:id=ADM.Installation.Developer_mode}
+
 
 {{gatein-dev}} scripts launch eXo in developer mode with a few more JVM options.
 {screen}
@@ -77,7 +80,8 @@ h3. Developer mode
 || {{-Dexo.product.developing=true}} | desactivates javascript and css merging for easier debugging |
 
 
-h1. Installing the JBoss EARs
+h1. Installing the JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
+
 
 We provide EARs packages to deploy in your existing JBoss application server. They are located in the folder {{bin/jboss5-eap-ears/}}.
 
@@ -106,7 +110,8 @@ h2. Copy these files in {{jboss-root/bin}}
 - exokey.pem
 - oauthkey.pem
 
-h2. Configure JVM parameters
+h2. Configure JVM parameters {anchor:id=ADM.Installation.Configure_JVM_Parameters}
+
 
 On *Linux*, add these lines at the end of {{jboss-root/bin/run.conf}}:
 {code}
@@ -144,7 +149,7 @@ h2. Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.x
    </category>
 {code}
 
-h2. Startup
+h2. Startup {anchor:id=ADM.Installation.JBoss_EARS_Startup}
 
 * On Linux and OS X:   {screen}$JBOSS_HOME/bin/run.sh{screen}
 * On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
@@ -154,7 +159,7 @@ The server has started when you see the following message in your log/console:
 INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.0.1 (build: ...)] Started in 3m:29s:259ms
 {screen}
 
-h2. Shutdown
+h2. Shutdown {anchor:id=ADM.Installation.JBoss_EARS_Shutdown}
 
 * On Linux and OS X: {screen}$JBOSS_HOME/bin/shutdown.sh{screen}
 * On Windows:        {screen}%JBOSS_HOME%\\bin\\shutdown.bat {screen}
@@ -166,7 +171,7 @@ INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shut
 {screen}
 
 
-h1. eXo Profiles
+h1. eXo Profiles {anchor:id=ADM.Installation.eXo_profiles}
 
 
 eXo comes with different runtime profile, that you can use if you want to customize what modules you want to enable/disable in you eXo instance.

@@ -1,5 +1,5 @@
 
-h1. Management of eXo Platform
+h1. Management of eXo Platform {anchor:id=ADM.Management.Introduction}
 
 Management of the eXo Platform resources is critical for production usage. 
 
@@ -9,7 +9,8 @@ When it comes to Java, the Java Management Extension (also known as JMX) is the 
 
 This chapter explains the various resources provided by the eXo Platform server, and management actions which can be performed, and how to obtain relevant metrics.
 
-h2. JMX interface  
+h2. JMX interface {anchor:id=ADM.Management.JMX_interface} 
+
 Resource management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
 
 At runtime, the MBeans are registered by the eXo Kernel in the MBeanServer, which the application server creates, and the MBeans are directly viewable in the JMX console. 
@@ -18,7 +19,7 @@ However, we do advocate using a better JMX client such as the JVisualVM, availab
 In order to enable JMX monitoring in Tomcat, you need to pass the following system property to the VM: {{-Dcom.sun.management.jmxremote}}
 
 
-h2. REST interface
+h2. REST interface {anchor:id=ADM.Management.REST_interface}
 
 The built-in REST Management Provider of GateIn makes some of the MBeans operations accessible as REST endpoints. Administrators can handle the system simply with a browser without performing any complex configurations.
 
@@ -26,7 +27,7 @@ Only members of the platform/administrators group are given permission to work o
 
 The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through the REST request is [http://localhost:8080/rest/management/skinservice/getSkinList].
 
-h1. Management view
+h1. Management view {anchor:id=ADM.Management.Management_views_of_eXo_Platform}
 
 h2. Kernel management view
 
