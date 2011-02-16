@@ -38,10 +38,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <profile><id>PLF_PERF_02_Social-3.0.x-simplified</id><properties><scenario.file.name>PLF_PERF_02_Social-3.0.x-simplified.jmx</scenario.file.name></properties></profile>
       <profile><id>PLF_PERF_03_EcmsBasicRun</id><properties><scenario.file.name>PLF_PERF_03_EcmsBasicRun.jmx</scenario.file.name></properties></profile>
       <profile><id>PLF_PERF_04_SocialRead-3.0.x</id><properties><scenario.file.name>PLF_PERF_04_SocialRead-3.0.x.jmx</scenario.file.name></properties></profile>
+      <profile><id>PLF_PERF_05_Login</id><properties><scenario.file.name>PLF_PERF_05_Login.jmx</scenario.file.name></properties></profile>
     <!-- -->
     <profile><id>1VU</id><properties><test-threadcount>1</test-threadcount></properties></profile>
     <profile><id>2VUs</id><properties><test-threadcount>2</test-threadcount></properties></profile>
     <profile><id>3VUs</id><properties><test-threadcount>3</test-threadcount></properties></profile>
+    <profile><id>4VUs</id><properties><test-threadcount>4</test-threadcount></properties></profile>
+    <profile><id>5VUs</id><properties><test-threadcount>5</test-threadcount></properties></profile>
+    <profile><id>6VUs</id><properties><test-threadcount>6</test-threadcount></properties></profile>
+    <profile><id>7VUs</id><properties><test-threadcount>7</test-threadcount></properties></profile>
+    <profile><id>8VUs</id><properties><test-threadcount>8</test-threadcount></properties></profile>
+    <profile><id>9VUs</id><properties><test-threadcount>9</test-threadcount></properties></profile>
     <profile><id>10VUs</id><properties><test-threadcount>10</test-threadcount></properties></profile>
     <profile><id>15VUs</id><properties><test-threadcount>15</test-threadcount></properties></profile>
     <profile><id>20VUs</id><properties><test-threadcount>20</test-threadcount></properties></profile>
