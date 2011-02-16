@@ -1,14 +1,14 @@
 
 This section will help you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
 
-*Requirements:*
+h1. Requirements  {anchor:id=DEV.SetupYourProject.Requirements}
 
 * JDK (Java Development Kit) 6.0 
 * SVN 1.6+
 * Maven 2.2.1+
 * Tomcat 6.0.26 or JBoss 5.1.0
 
-*Install and configure Maven:*
+h1. Install and configure Maven {anchor:id=DEV.SetupYourProject.Install&ConfigureMaven}
 
 You need to add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
@@ -23,7 +23,7 @@ export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 {code}
 
 
-*Maven settings:*
+h1. Maven settings {anchor:id=DEV.SetupYourProject.MavenSettings}
 
 Do as follows:
 

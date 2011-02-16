@@ -1,7 +1,7 @@
 
 eXo Platform 3.0 comes with a set of APIs to help you build your own applications from eXo services.
 
-h2. Definitions of API Levels
+h2. Definitions of API Levels {anchor:id=DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels}
 
 APIs vary according to level of maturity. It is important to understand the eXo's general approach to API change management.
 
@@ -27,15 +27,15 @@ The different levels of APIs are described in the following table:
 *Best Effort*: We will provide assistance, but eXo cannot guarantee any specific result.
 
 
-h3. Using Provisional or Experimental APIs
+h3. Using Provisional or Experimental APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs}
 These APIs are provided to give an "early look" at what will be available in upcoming versions of the eXo Platform. These APIs are not final, but they can be used to start developing your application.
 
 *Provisional APIs* are APIs close to being frozen, but that need a last look from users. They can be used by third-party developers for their own apps, with the knowledge that only a limited compatibility guarantee is offered.
 
 *Experimental APIs* are APIs that are likely to change. They are published in order to get feedback from the community. These APIs have been tested successfully, but have not yet had enough feedback from developers.
 
-h2. Platform APIs
-h3. Java APIs
+h2. Platform {anchor:id=DEV.eXoPlatformSupportedAPIs.Platform}
+h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 *[Portlet API|/docs/refguide/html/bk02ch04.html#sect-Reference_Guide-Portlet_Primer-JSR_168_and_JSR_286_overview] (JSR 168 and JSR 286)*: A Java standard that defines how to write portlets. This is the way to develop Java applications that are integrated into eXo Platform.
 
 *[WSRP 1.0|/docs/refguide/html/bk02ch07.html] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
@@ -68,11 +68,11 @@ h3. Java APIs
 
 *[XML Configuration|/docs/refguide/html/ch-services-wiring.html#d0e12795]*: A set of DTD for configuring the platform.
 
-h3. JavaScript APIs
+h3. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
 *[OpenSocial 0.8 Gadget Specification|http://www.opensocial.org/Technical-Resources/opensocial-spec-v08/opensocial-reference08]*: A standard that defines how to write gadgets and provide APIs. Gadgets are particularly useful for integrating external applications into eXo Platform.
 
-h3. Web Services
+h3. Web Services {anchor:id=DEV.eXoPlatformSupportedAPIs.WebServices}
 
 *[CMIS|/docs/refguide/html/bk05.html]*: A standard API that gives access to the content repository via REST and SOAP Web services.
 
@@ -82,9 +82,9 @@ h3. Web Services
 
 *[WebDAV|/docs/refguide/html/ch-webdav.html]*: A standard protocol for exchanging document over HTTP.
 
-h2. Provisional APIs
+h2. Provisional APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs}
 
-h3. Java APIs
+h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *UI Extensions*: An API to plug new actions into the eXo Platform UI.
 

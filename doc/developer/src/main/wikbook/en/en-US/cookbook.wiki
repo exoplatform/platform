@@ -1,6 +1,6 @@
 
 
-h1. How to Copy a Site
+h1. How to Copy a Site {anchor:id=DEV.Cookbook.HowToCoppyASite}
 {include:document=cookbook/how_to_copy_a_site.wiki|syntax=confluence/1.0}
 
 

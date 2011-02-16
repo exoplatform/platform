@@ -1,7 +1,7 @@
 
 This section describes how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another Platform servers. To copy the whole site, you need to do the following actions:
 
-h2. Copy the site content folder with its versions history
+h2. Copy the site content folder with its versions history {anchor:id=DEV.Cookbook.CopySitesContentFolderWithVersionHistory}
 
 Do as follows:
 
@@ -24,7 +24,7 @@ Do as follows:
 One pop-up message will appear to inform that you have imported successfully as below: 
 !how_to_copy_a_site/import_successfully.png!
 
-h2. Copy navigation nodes of sites
+h2. Copy navigation nodes of sites {anchor:id=DEV.Cookbook.CopyNavigationNodesOfSites}
 
 Do as follows:
 
@@ -40,7 +40,7 @@ Do as follows:
 
 !how_to_copy_a_site/import_site_navigations.png!
 
-h2. Copy the template of node type
+h2. Copy the template of node type {anchor:id=DEV.Cookbook.CopyTemplateOfNodeType}
 
 {note}
 If you have some specific JCR namespaces and node types, you will have to import them to the new server.
@@ -68,7 +68,7 @@ Do as follows:
 
 !how_to_copy_a_site/import_nodetype.png!
 
-h2. Copy WCM templates
+h2. Copy WCM templates {anchor:id=DEV.Cookbook.CopyWCMTemplates}
 
 {note}
 If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them in the new server.
@@ -101,7 +101,7 @@ If you want to reuse one of the non-predefined templates above, you simply need 
 
 !how_to_copy_a_site/WCM_templates.png!
 
-h2. Copy a Taxonomy tree
+h2. Copy a Taxonomy tree {anchor:id=DEV.Cookbook.CopyTaxonomyTree}
 
 By importing the whole site as described in the *Copy the site content folder with its versions history* section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you now need to do is to add this Taxonomy Tree definition by following those steps:
 
@@ -125,7 +125,7 @@ Note that in some cases, you need to clean cache by disconnecting or restarting 
 
 !how_to_copy_a_site/TaxonomyTree_added_successfully.png!
 
-h2. Copy metadata templates
+h2. Copy metadata templates {anchor:id=DEV.Cookbook.CopyMetadataTemplates}
 Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
@@ -135,7 +135,7 @@ Do as follows:
 *Step 3:* Export and re-import it in the same location in the new server.
 
 
-h2. Copy queries
+h2. Copy queries {anchor:id=DEV.Cookbook.CopyQueries}
 Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
@@ -144,7 +144,8 @@ Do as follows:
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
-h2. Copy scripts
+h2. Copy scripts {anchor:id=DEV.Cookbook.CopyScripts}
+
 Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
@@ -161,7 +162,8 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 *Step 3:* Export your customized script in the same location in the new server.
 
-h2. Copy drive configurations
+h2. Copy drive configurations {anchor:id=DEV.Cookbook.CopyDriveConfigurations}
+
 Do as follows:
 
 *Step 1:* Open the *DMS Administration* drive in the new server.
@@ -170,7 +172,8 @@ Do as follows:
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
-h2. Copy gadgets
+h2. Copy gadgets {anchor:id=DEV.Cookbook.CopyGadgets}
+
 Do as follows:
 
 *Step 1:* Open the drive that points into *Portal-System* Workspace.
@@ -179,7 +182,7 @@ Do as follows:
 
 *Step 3:* Export and re-import it in the same location in the new server.
 
-h2. Restart server
+h2. Restart server {anchor:id=DEV.Cookbook.RestartServer}
 
 After importing the site navigation nodes, the site will look like:
 

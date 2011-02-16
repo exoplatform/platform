@@ -1,4 +1,6 @@
-h2. The complete skinning of a page can be decomposed into three main parts:
+h2. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent} 
+
+The complete skinning of a page can be decomposed into three main parts:
 
 *Portal skin*
 
@@ -14,12 +16,12 @@ The CSS styles are associated with the portlet window decorators. The window dec
 
 The portlet skins affect how portlets are rendered on the page. The portlet skins can affect in two main ways:
 
-h3. Portlet Specification CSS Classes
+h3. Portlet Specification CSS Classes {anchor:id=DEV.CreateYourOwnPortal.PortletSpecificationCSSClasses}
 
 The [portlet specification|http://jcp.org/en/jsr/detail?id=286] defines a set of CSS classes that should be available to portlets.
 Platform provides these classes as a part of the portal skin. This enables each portal skin to define its own look and feel for these default values.
 
-h3. Portlet skins
+h3. Portlet skins {anchor:id=DEV.CreateYourOwnPortal.PortletSkins}
 
 Platform provides a means for portlet CSS files to be loaded that is based on the current portal skin. This enables a portlet to provide different CSS styles to better match the current portal's look and feel. 
 
@@ -28,15 +30,15 @@ The window decorators and the default portlet specification CSS classes should b
 A portlet skin does not need  to be  included as part of the portal skin and can be included within the portlets web application.
 {note}
 
-h2. Best practices to customize a skin
+h2. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in Platform.
 
-h2. Name files and folder
+h2. Name files and folder {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
 
 The id and class names are defined after the WebUI components name and portlets name with the 'UI-' as prefix. The same rule is applied for folder that contains components and portlets. It will help you find and edit correct files easily. 
 For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet and the UI component will be named as UIToolbarContainer, or UIVerticalTab.
 
-h2. Folder structure
+h2. Folder structure {anchor:id=DEV.CreateYourOwnPortal.FolderStructure}
 *Portal skin*
 The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transfered more quickly as a single file instead of many smaller files included with every page render.
 
