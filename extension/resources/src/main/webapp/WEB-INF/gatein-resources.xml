@@ -29,7 +29,7 @@
 	
     <portal-skin>
 		<skin-name>Default</skin-name>
-		<skin-module>Classic</skin-module>
+		<skin-module>Platform</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
 		<overwrite>true</overwrite>
 	</portal-skin>
