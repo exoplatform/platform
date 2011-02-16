@@ -1,40 +1,40 @@
 
-h1. Introduction
+h1. Introduction {anchor:id=DEV.Introduction}
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
-h1. Glossary
+h1. Glossary {anchor:id=DEV.Glossary}
 
 {include:document=glossary.wiki|syntax=confluence/1.0}
 
-h1. Setting Up Your Project
+h1. Setting Up Your Project {anchor:id=DEV.SettingUpYourProject}
 
 {include:document=quickstart.wiki|syntax=confluence/1.0}
 
-h1. eXo Architecture Primer 
+h1. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePrimer}
 
 {include:document=architecture.wiki|syntax=confluence/1.0}
 
-h1. Creating Your Own Portal
+h1. Creating Your Own Portal {anchor:id=DEV.CreatingYourOwnPortal}
 
 {include:document=customize.wiki|syntax=confluence/1.0}
 
-h1. Working with Content
+h1. Working with Content {anchor:id=DEV.WorkingwithContent}
 
 {include:document=content.wiki|syntax=confluence/1.0}
 
-h1. Working with Applications
+h1. Working with Applications {anchor:id=DEV.WorkingwithApplications}
 
 {include:document=applications.wiki|syntax=confluence/1.0}
 
-h1. System Integration
+h1. System Integration {anchor:id=DEV.SystemIntegration}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
 
-h1. eXo Platform 3.0 APIs
+h1. eXo Platform 3.0 APIs {anchor:id=DEV.eXoPlatformAPIs}
 
 {include:document=supported_api.wiki|syntax=confluence/1.0}
 
-h1. Cookbook
+h1. Cookbook {anchor:id=DEV.Cookbook}
 
 {include:document=cookbook.wiki|syntax=confluence/1.0}
