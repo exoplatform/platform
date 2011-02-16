@@ -371,8 +371,13 @@
 						   <ul>
 					<%
 					/*A valid expression has pattern repository:workspace:path*/
-					def picturesValidPath = getRepositoryName(mediasImagesNode) + ":" +  getWorkspaceName(mediasImagesNode) + ":" + mediasImagesNode.getPath();
-					for(image in getRenderedContentNodes(picturesValidPath)) {
+					//def picturesValidPath = getRepositoryName(mediasImagesNode) + ":" +  getWorkspaceName(mediasImagesNode) + ":" + mediasImagesNode.getPath();
+					//for(image in getRenderedContentNodes(picturesValidPath)) {
+					for(image in mediasImagesNode.getNodes()) {
+					// check publication state
+					NodeLocation nodeLocation = NodeLocation.getNodeLocationByNode(image);
+					Node viewNode = Utils.getViewableNodeByComposer(nodeLocation.getRepository(), nodeLocation.getWorkspace(), nodeLocation.getPath(), null);
+					if (viewNode != null) {
 						// check permissions
 						if(Utils.isViewable(image)) {
 							if((!image.getName().equals("exo:thumbnails")) && (!image.getName().equals("illustration")) ){
@@ -391,6 +396,7 @@
 								}
 							}
 						}
+					}
 					}
 					%>
 							</ul>
@@ -588,8 +594,13 @@ if(originalNode.hasNode("documents")){
 			<div class="ContentBlock ClearFix">
 				<%
 				//A valid expression has pattern repository:workspace:path
-				def videosValidPath = getRepositoryName(mediasVideosNode) + ":" +  getWorkspaceName(mediasVideosNode) + ":" +mediasVideosNode.getPath();
-				for(videoNode in getRenderedContentNodes(videosValidPath)) {
+				//def videosValidPath = getRepositoryName(mediasVideosNode) + ":" +  getWorkspaceName(mediasVideosNode) + ":" +mediasVideosNode.getPath();
+				//for(videoNode in getRenderedContentNodes(videosValidPath)) {
+				for(videoNode in mediasVideosNode.getNodes()) {
+					// check publication state
+					NodeLocation nodeLocation = NodeLocation.getNodeLocationByNode(videoNode);
+					Node viewNode = Utils.getViewableNodeByComposer(nodeLocation.getRepository(), nodeLocation.getWorkspace(), nodeLocation.getPath(), null);
+					if (viewNode != null) {
 					// check permissions
 					if(Utils.isViewable(videoNode)) {
 						binarySrc = "/" + getPortalName() + "/" + getRestContextName() + "/jcr/" + getRepositoryName(videoNode) + "/" +  getWorkspaceName(videoNode) + videoNode.getPath();
@@ -601,6 +612,7 @@ if(originalNode.hasNode("documents")){
 								</object>
 							</div>
 						<%
+					}
 					}
 				}
 	%>
