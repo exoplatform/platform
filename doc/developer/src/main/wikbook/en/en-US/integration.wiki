@@ -566,7 +566,48 @@ Here is how to use LDAPs protocol with the Active Directory:
 {code}
 
 h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDM}
-eXo Platform uses PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships. While the legacy interfaces are still used (org.exoplatform.services.organization) for identity management, there is a wrapper implementation that delegates to the PicketLink IDM framework. For futher information, look at [here|http://jboss.org/picketlink/IDM.html].
+
+eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships. 
+While the legacy interfaces are still used (org.exoplatform.services.organization) for the identity management, there is a wrapper implementation that delegates to the PicketLink IDM framework. 
+For further information, visit [here|http://jboss.org/picketlink/IDM.html].
+
+The project exo.core defines the API for Organization Service, and the eXo Platform implementation of API. For the Organization Service plugged in the eXo Platform product, you are flexible in switching between: eXo Organization Service, PicketLink and your own implementation.
+The configuration to switch between various Organization Service implementations can be found in {{portal.war/WEB-INF/conf/configuration.xml}}:
+
+{code:xml}
+<!--PicketLink IDM integration-->
+   <import>war:/conf/organization/idm-configuration.xml</import>
+
+   <!--Former exo implementations-->
+   <!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import>-->
+   <!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
+   <!--for organization service used active directory which is user lookup server -->
+   <!--
+      <import>war:/conf/organization/exoactivedirectory-configuration.xml</import>
+   -->
+   <!--for organization service used ldap server which is user lookup server -->
+   <!--
+     <import>war:/conf/ldap-configuration.xml</import>
+   -->
+{code}
+
+If you want to switch between different implementations, you just need to uncomment the corresponding <import> and leave others commented:
+
+{code:xml}
+<!--PicketLink IDM integration-->
+    <import>war:/conf/ldap-configuration.xml</import>
+   <!--
+	<import>war:/conf/organization/idm-configuration.xml</import>
+	-->
+   <!--Former exo implementations-->
+   <!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import>-->
+   <!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
+   <!--for organization service used active directory which is user lookup server -->
+   <!--
+      <import>war:/conf/organization/exoactivedirectory-configuration.xml</import>
+   -->
+   <!--for organization service used ldap server which is user lookup server -->
+{code}
 
 
 h1. Email {anchor:id=DEV.SystemIntegration.Email}
