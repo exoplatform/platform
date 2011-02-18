@@ -367,9 +367,16 @@ The default configuration combines them to obtain a compact tree:
 
 h1. Mail Server {anchor:id=ADM.Configuration.MailServer}
 
-eXo Platform requires an SMTP server in order to send emails, such as notifications or password reminders.
+eXo Platform requires an SMTP server to send emails, such as notifications or password reminders.
+The Email service can use any SMTP account that needs to be configured in /server/default/conf/gatein/configuration.properties (Or $TOMCAT_HOME/
+gatein/conf/configuration.properties if you are using Tomcat).
+
+The relevant section looks like:
 
 {code}
+#EMail
+mail.from=
+gatein.email.smtp.from=
 gatein.email.smtp.username=
 gatein.email.smtp.password=
 gatein.email.smtp.host=smtp.gmail.com
@@ -380,26 +387,28 @@ gatein.email.smtp.socketFactory.port=465
 gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 {code}
 
-	
+Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the value for 'sender' or 'from' in the email message that must be identical to the SMTP user and host. 
 
-|| gatein.email.smtp.host || SMTP hostname |
-|| gatein.email.smtp.port || SMTP port |
-|| gatein.email.smtp.starttls.enable || true to enable secure (TLS) SMTP. See  RFC 3207 |
-|| gatein.email.smtp.auth || true to enable SMTP authentication |
-|| gatein.email.smtp.username || username to send for authentication |
-|| gatein.email.smtp.password || password to send for authentication |
-|| gatein.email.smtp.socketFactory.port || Specifies the port to connect to when using the specified socket factory	 |
-|| gatein.email.smtp.socketFactory.class || his class will be used to create SMTP sockets. |
+The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
+
+|| mail.from || Sender's email address. |
+|| gatein.email.smtp.from || Sender's email address. |
+|| gatein.email.smtp.host || SMTP hostname. |
+|| gatein.email.smtp.port || SMTP port. |
+|| gatein.email.smtp.starttls.enable || True to enable the secure (TLS) SMTP. See  RFC 3207. |
+|| gatein.email.smtp.auth || True to enable the SMTP authentication. |
+|| gatein.email.smtp.username || Username to send for authentication. |
+|| gatein.email.smtp.password || Password to send for authentication. |
+|| gatein.email.smtp.socketFactory.port || Specify the port to connect to when using the specified socket factory. |
+|| gatein.email.smtp.socketFactory.class || This class will be used to create SMTP sockets. |
 
 More details can be found in the [JavaMail API documentation|http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html]. 
-
-
-For KS, you have to add one of the following properties to the configuration file ({{/gatein/conf/configuration.properties}}) to make sure that this mail service works with authenticated SMTP systems:
+For KS, you have to add one of the following properties to the configuration file {{/gatein/conf/configuration.properties}} to make sure that this mail service works with the authenticated SMTP systems:
 
 mail.from= 
 gatein.email.smtp.from=  
 
-The value must be the exact email-address of the account configured above.
+The value must be the exact email address of the account configured above.
 
 
 h1. WebDAV Cache Control {anchor:id=ADM.Configuration.Mail_server}
