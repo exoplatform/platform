@@ -32,7 +32,7 @@ function getModule(params)
    var crashVersion = "${org.crsh.version}";
 
    // fck editor required for KS & CS
-   module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
+   module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", cometVersion);
    module.fck.deployName = "fck";
    
    // cometd required by KS & CS

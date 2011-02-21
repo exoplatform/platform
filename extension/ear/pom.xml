@@ -98,12 +98,12 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!--dependency>
+    <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.fck</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <type>war</type>
-    </dependency-->
+    </dependency>
     <!-- IDE dependencies -->
     <dependency>
       <groupId>org.exoplatform.gwt</groupId>
@@ -951,12 +951,12 @@
 		      <contextRoot>cometd</contextRoot>
 		      <bundleFileName>cometd.war</bundleFileName>
 		    </webModule>
-                    <!--webModule>
+                    <webModule>
                       <groupId>org.exoplatform.commons</groupId>
                       <artifactId>exo.platform.commons.fck</artifactId>
 		      <contextRoot>fck</contextRoot>
 		      <bundleFileName>fck.war</bundleFileName>
-		    </webModule-->
+		    </webModule>
                     <!-- xCMIS -->
                     <jarModule>
 		      <groupId>org.xcmis</groupId>
