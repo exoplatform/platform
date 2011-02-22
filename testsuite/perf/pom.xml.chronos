@@ -152,6 +152,43 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
               </execution>
             </executions>
           </plugin>
+	  <plugin>
+	      <groupId>org.codehaus.mojo</groupId>
+	      <artifactId>exec-maven-plugin</artifactId>
+	      <version>1.1</version>
+	      <executions>
+		   <execution>
+		      <id>overide-jmeterproperties001</id>
+		      <phase>pre-integration-test</phase>
+		      <goals>
+			  <goal>exec</goal>
+		      </goals>
+		      <configuration>
+			  <executable>mv</executable>
+			  <workingDirectory>${basedir}</workingDirectory>
+			  <arguments>
+			      <argument>${project.build.directory}/jakarta-jmeter-${jmeter-version}/bin/jmeter.properties</argument>
+			      <argument>${project.build.directory}/jakarta-jmeter-${jmeter-version}/bin/jmeter.properties_</argument>
+			  </arguments>
+		      </configuration>
+		  </execution>
+		  <execution>
+		      <id>overide-jmeterproperties002</id>
+		      <phase>pre-integration-test</phase>
+		      <goals>
+			  <goal>exec</goal>
+		      </goals>
+		      <configuration>
+			  <executable>cp</executable>
+			  <workingDirectory>${basedir}</workingDirectory>
+			  <arguments>
+			      <argument>${basedir}/src/test/jmeter/jmeter.properties</argument>
+			      <argument>${project.build.directory}/jakarta-jmeter-${jmeter-version}/bin/jmeter.properties</argument>
+			  </arguments>
+		      </configuration>
+		  </execution>
+	      </executions>
+	  </plugin>
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>chronos-maven-plugin</artifactId>

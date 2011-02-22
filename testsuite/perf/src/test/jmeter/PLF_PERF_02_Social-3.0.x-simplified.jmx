@@ -8947,7 +8947,7 @@ return &quot;continue variable=true&quot;;</stringProp>
             <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename">${ReportFilePrefix}-9999.Summary-Report.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
         <boolProp name="useGroupName">true</boolProp>
         <stringProp name="TestPlan.comments">	</stringProp>
       </ResultCollector>
@@ -9027,7 +9027,7 @@ return &quot;continue variable=true&quot;;</stringProp>
             <idleTime>true</idleTime>
           </value>
         </objProp>
-        <stringProp name="filename">${ReportFilePrefix}-9999.Error-Report.jtl</stringProp>
+        <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
