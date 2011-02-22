@@ -159,11 +159,6 @@
             <stringProp name="Argument.value">exo</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="LoginUserSequencez" elementType="Argument">
-            <stringProp name="Argument.name">LoginUserSequencez</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
         <stringProp name="TestPlan.comments">magellanic.testlab.exoplatform.vn|bench.user</stringProp>
       </Arguments>
@@ -303,14 +298,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">${LoginUserId}${LoginUserSequence}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">${LoginUserPassword}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -600,14 +595,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">${LoginUserId}${LoginUserSequence}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">${LoginUserPassword}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -851,7 +846,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -909,7 +904,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/ {LoginUserId})" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -919,7 +914,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2723,65 +2718,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/loadJsResourceBundle/en/</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSampler>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Content-Type" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">text/plain;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-gb,fr;q=0.7,en;q=0.3</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="Keep-Alive" elementType="Header">
-                    <stringProp name="Header.name">Keep-Alive</stringProp>
-                    <stringProp name="Header.value">300</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (X11; U; Linux i686; en-GB; rv:1.9.1.13) Gecko/20100914 Firefox/3.5.13</stringProp>
-                  </elementProp>
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/portal/private/intranet</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip,deflate</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Charset" elementType="Header">
-                    <stringProp name="Header.name">Accept-Charset</stringProp>
-                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-            </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2951,7 +2888,7 @@ return &quot;continue variable=true&quot;;</stringProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7100/portal/private/intranet/connections/myConnections/${LoginUserId}" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7100/portal/private/intranet/connections/myConnections/ {LoginUserId}" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2961,7 +2898,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/${LoginUserId}${LoginUserSequence}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3001,7 +2938,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3059,7 +2996,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/ {LoginUserId})" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3069,7 +3006,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3172,7 +3109,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.LoadJsResourceBundle (/portal/rest/xmpp/loadJsResourceBundle/en/)" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3230,7 +3167,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/ {LoginUserId})" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3240,7 +3177,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${LoginUserId}${LoginUserSequence}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
