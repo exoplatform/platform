@@ -2439,11 +2439,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3000.  ++click on Spaces in user activities " enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3000.  ++click on Spaces in user activities " enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3100/portal/private/intranet" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3000.  ++click on Spaces in user activities (portal/private/intranet)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -2545,11 +2543,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="4000.  ++click on My status in activities " enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4000.  ++click on My status in activities " enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="4100/portal/private/intranet" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="4000.  ++click on My status in activities (portal/private/intranet)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="portal:componentId" elementType="HTTPArgument">
@@ -2650,11 +2646,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="5000.  ++Goto /portal/private/intranet/people" enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5000.  ++Goto /portal/private/intranet/people" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5100.Load people page (/portal/private/intranet/people)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5000.  ++Goto /portal/private/intranet/people" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2777,11 +2771,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="6000.  ++Matching search on /people " enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="6000.  ++Matching search on /people " enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="6100.Search people (/portal/private/intranet/people-portal:componentId= {intranetPeopleComponentId}" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="6000.  ++Matching search on /people (/portal/private/intranet/people-portal:componentId= {intranetPeopleComponentId}" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="formOp" elementType="HTTPArgument">
@@ -2884,11 +2876,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="7000.  ++Goto /portal/private/intranet/connections/myConnections/ {LoginUserId} " enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="7000.  ++Goto /portal/private/intranet/connections/myConnections/ {LoginUserId}" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7100/portal/private/intranet/connections/myConnections/ {LoginUserId}" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7000.  ++Goto /portal/private/intranet/connections/myConnections/ {LoginUserId}" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3055,11 +3045,9 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="8000.  ++Goto /portal/private/intranet/publicSpace " enabled="true">
-            <boolProp name="TransactionController.parent">false</boolProp>
-          </TransactionController>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="8000.  ++Goto /portal/private/intranet/publicSpace" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8100/portal/private/intranet/publicSpace" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8000.  ++Goto /portal/private/intranet/publicSpace" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
