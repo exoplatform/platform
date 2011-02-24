@@ -877,7 +877,7 @@
   </page>
     <page>
 		<name>welcome</name>
-		<title>welcome Page</title>
+		<title>Welcome Page</title>
 		<access-permissions>*:/platform/guests</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
