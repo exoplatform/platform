@@ -51,12 +51,12 @@ a {
 }
 
 .UIWorkingWorkspace .UIPageBody .VIEW-PAGEBODY .UIPage {
-	padding: 0;
+	padding: 0 !important;
 }
 
 #UIPortalApplication .UIWorkingWorkspace {
-	 width: auto;
-	 background: white;
+	width: auto;
+	background: white !important;
 }
 
 /*
