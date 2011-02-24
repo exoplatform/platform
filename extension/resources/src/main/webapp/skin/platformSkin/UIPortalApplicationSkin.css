@@ -22,16 +22,42 @@
 @import url(UITabPaneDashboard/Stylesheet.css);
 @import url(UICLVFolderMode/Stylesheet.css);
 
+/*override social skin*/
+.UIPageBody .VIEW-PAGEBODY .UIPage .UIComponentBlock {
+	background: none repeat scroll 0 0 transparent !important;
+}
+
+.UIWorkingWorkspace .UIPageBody .BLPagebody {
+	background: transparent !important;
+}
+.UIWorkingWorkspace .UIPageBody .BRPagebody {
+	background: transparent !important;
+}
+
+.UIWorkingWorkspace .UIPageBody .BMPagebody {
+	background: transparent !important;
+}
+
+.UIWorkingWorkspace{
+	background: transparent !important;
+}
+
+/**/
+
 *, div, table, th, tr, td, img, form {
 	padding: 0px; margin: 0px;
 	outline: none;
-	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	/*override social skin*/
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif !important;
 	font-size: 12px;
 }
 
 body {
 	background-color: white !important;
-	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	/*override social skin*/
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif !important;
+	/*override social skin*/
+	overflow: none !important;
 	font-size: 12px;
 }
 
@@ -50,12 +76,16 @@ a {
 }
 
 .UIWorkingWorkspace .UIPageBody .VIEW-PAGEBODY .UIPage {
-	padding: 0;
+/*override social skin*/
+	padding: 0 !important;
 }
 
 #UIPortalApplication .UIWorkingWorkspace {
-	width: auto;
-	background: white;
+	/*override social skin*/
+	width: auto !important;
+	background: white !important;
+	background-color: transparent !important;
+	margin:none !important;
 }
 
 /*
