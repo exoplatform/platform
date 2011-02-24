@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <set>
-   <!--title>eXo Platform 3.0 Reference Guides</title-->
+   <!--title>eXo Platform 3.5 Reference Guides</title-->
 <setinfo>
 <abstract>
-Welcome to eXo Platform 3.0 Reference Guide.
+Welcome to eXo Platform 3.5 Reference Guide.
 This guide is a complete reference for customization points, and available APIs, for all modules.
 </abstract>
 </setinfo>

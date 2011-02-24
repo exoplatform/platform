@@ -41,7 +41,7 @@ Version:
 						<xsl:attribute name="class">
 							<xsl:text>VersionInfo</xsl:text>
 						</xsl:attribute>
-						<xsl:text>eXo Platform 3.0</xsl:text>
+						<xsl:text>eXo Platform 3.5</xsl:text>
                                         </div>
 					<!--a>
 						<xsl:attribute name="href">

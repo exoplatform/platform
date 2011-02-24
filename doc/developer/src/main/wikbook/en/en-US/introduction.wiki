@@ -4,11 +4,11 @@ eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applicatio
 
 h1. Welcome to eXo Platform {anchor:id=DEV.Introduction.Welcome}
 
-eXo Platform 3.0 is composed of Core and Extended Services. 
+eXo Platform 3.5 is composed of Core and Extended Services. 
 
 !StructurePLF3.0.png!
 
-* *Core Services* is the foundation of eXo Platform 3.0. It is a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment.
+* *Core Services* is the foundation of eXo Platform 3.5. It is a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment.
 ** *GateIn Portal* is a powerful framework for developing portlets and other web-based user interfaces.
 ** *eXo Content* extends portal-based applications with Enterprise Content Management (ECM) capabilities.
 *** *eXo WCM* is a Web Content Management (WCM) service, enabling you to build dynamic and content-rich websites. 
@@ -16,7 +16,7 @@ eXo Platform 3.0 is composed of Core and Extended Services.
 *** *eXo Workflow* defines a workflow process with automatic actions for documents. The integrated Business Process Management (BPM) enables you to publish content using a wide range of publication tools automatically, such as RSS feeds and blogs.
 ** *eXo IDE* is an intuitive web-based development environment where you can build, test and deploy client applications, such as gadgets and mash-ups, and RESTful services online. Offering the ability to extend the eXo Platform online, eXo IDE instantly publishes any application that you can create and deploy immediately in your portal-based solutions.
 ** *CRaSH* is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing Groovy commands, without recompiling easily.
-* *Extended Services* are part of the eXo Platform 3.0, and run on top of eXo Core Services to enable you to develop rich, user-centric web applications easily. You, as Java developers, can now easily and consistently modernize their database applications by adding Social, Collaboration and Knowledge management capabilities.
+* *Extended Services* are part of the eXo Platform 3.5, and run on top of eXo Core Services to enable you to develop rich, user-centric web applications easily. You, as Java developers, can now easily and consistently modernize their database applications by adding Social, Collaboration and Knowledge management capabilities.
 ** *eXo Social* is a framework for building gadgets that can display and mash-up activity information for contacts, social networks, applications and services.
 ** *eXo Collaboration* is a productivity tool to extend your Java applications. With eXo Collaboration, you can now add intuitive and powerful Mail, Chat, Calendar and Address Book functionalities as a seamless extension to your portal-based web applications. 
 ** *eXo Knowledge* is an effective tool to enhance your company's internal productivity and creativity while building a valuable knowledge for your clients. With eXo Knowledge, you can add applications, including Forum, Answers and FAQ, to your portal-based applications for collecting, organizing and publishing knowledge from communities of experts and users. 
@@ -25,5 +25,5 @@ h1. Who should read this guide? {anchor:id=DEV.Introduction.IntendedReader}
 
 This guide is intended for systems integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portal. Accordingly, this guide will introduce you the eXo architecture, and show developers how to perform 
 
-This guide introduces the eXo architecture, and shows developers how to perform some of the most common tasks needed for working with the eXo Platform. It also serves as an entry point for the Reference Guide, which provides more in-depth technical details about eXo Platform 3.0. As a result, you will be able to customize your own portal with eXo Platform.
+This guide introduces the eXo architecture, and shows developers how to perform some of the most common tasks needed for working with the eXo Platform. It also serves as an entry point for the Reference Guide, which provides more in-depth technical details about eXo Platform 3.5. As a result, you will be able to customize your own portal with eXo Platform.
 

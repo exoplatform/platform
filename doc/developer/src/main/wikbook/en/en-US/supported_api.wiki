@@ -1,5 +1,5 @@
 
-eXo Platform 3.0 comes with a set of APIs to help you build your own applications from eXo services.
+eXo Platform 3.5 comes with a set of APIs to help you build your own applications from eXo services.
 
 h2. Definitions of API Levels {anchor:id=DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels}
 

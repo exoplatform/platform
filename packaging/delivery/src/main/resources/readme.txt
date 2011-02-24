@@ -1,8 +1,8 @@
-Thank you for downloading eXo Platform 3.0.
+Thank you for downloading eXo Platform 3.5.
 
-eXo Platform 3.0 is comprised of eXo Core and Extended Services. eXo Core Services, which integrates the GateIn portal framework with eXo Content, eXo IDE and other tools, provides all the functionality expected of a portal, but enhanced with enterprise content management, gadget-based development and deployment with an IDE as a service.  eXo Extended Services further enhance eXo Platform with user experience functionality, including eXo Collaboration, eXo Knowledge and eXo Social.
+eXo Platform 3.5 is comprised of eXo Core and Extended Services. eXo Core Services, which integrates the GateIn portal framework with eXo Content, eXo IDE and other tools, provides all the functionality expected of a portal, but enhanced with enterprise content management, gadget-based development and deployment with an IDE as a service.  eXo Extended Services further enhance eXo Platform with user experience functionality, including eXo Collaboration, eXo Knowledge and eXo Social.
 
-Follow the installation procedure and start eXo Platform 3.0 now!
+Follow the installation procedure and start eXo Platform 3.5 now!
 
 
 -------------------
@@ -29,7 +29,7 @@ How to start the Chat server
 How to start the Platform
 -------------------------
 
-    * PLF_HOME is the location of the unzipped eXo Platform 3.0 server. It refers to a Tomcat 6 bundle located at : bin/tomcat6-bundle
+    * PLF_HOME is the location of the unzipped eXo Platform 3.5 server. It refers to a Tomcat 6 bundle located at : bin/tomcat6-bundle
     * On Windows: Open a DOS prompt command, go to PLF_HOME directory and type the command: "start_eXo.bat"
     * On Linux/Mac OS X: Open a terminal, go to PLF_HOME directory and type the command :"./start_eXo.sh"
 

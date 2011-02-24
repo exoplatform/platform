@@ -1,6 +1,6 @@
 h1. Welcome to eXo Platform {anchor:id=ADM.Introduction.Welcome}
 
-eXo Platform 3.0, the user experience platform for Java, is comprised of Core and Extended Services.
+eXo Platform 3.5, the user experience platform for Java, is comprised of Core and Extended Services.
 
 * *Core Services*
 ** _GateIn Portal_: a powerful framework for developing portlets and other web-based user interfaces

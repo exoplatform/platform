@@ -1,4 +1,4 @@
-This chapter will help you integrate eXo Platform 3.0 to your information system.
+This chapter will help you integrate eXo Platform 3.5 to your information system.
 
 h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 

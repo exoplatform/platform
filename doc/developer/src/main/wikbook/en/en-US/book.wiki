@@ -31,7 +31,7 @@ h1. System Integration {anchor:id=DEV.SystemIntegration}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
 
-h1. eXo Platform 3.0 APIs {anchor:id=DEV.eXoPlatformAPIs}
+h1. eXo Platform 3.5 APIs {anchor:id=DEV.eXoPlatformAPIs}
 
 {include:document=supported_api.wiki|syntax=confluence/1.0}
 
