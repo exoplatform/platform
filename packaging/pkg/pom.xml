@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.5.0-M1-SNAPSHOT</version>
+    <version>3.5.0-M1</version>
   </parent>
   <artifactId>exo.platform.packaging.assembly</artifactId>
   <packaging>pom</packaging>
@@ -884,7 +884,7 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
-<!---->    
+    
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.management</artifactId>
@@ -948,7 +948,7 @@
       <version>${org.exoplatform.portal.version}</version>
       <type>jar</type>
     </dependency>
-<!---->
+
     <!-- 3.1.0-GA-->
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
