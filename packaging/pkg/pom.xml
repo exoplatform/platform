@@ -1570,11 +1570,11 @@
       <artifactId>xwiki-core-rendering-macro-code</artifactId>
       <version>2.3.2</version>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>org.xwiki.contrib</groupId>
       <artifactId>xwiki-macro-column</artifactId>
       <version>${column-macro.version}</version>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>org.wikimodel</groupId>
       <artifactId>org.wikimodel.wem</artifactId>
