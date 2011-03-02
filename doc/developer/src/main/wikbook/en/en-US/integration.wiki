@@ -142,7 +142,7 @@ The predefined users are specified in the *membershipType* field of the Organiza
 
 h2. Organization API {anchor:id=DEV.SystemIntegration.OrganizationAPI}
 
-The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for the five components. For more details, take a look at the [GateIn documentation|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Authentication_And_Identity.html#sect-Reference_Guide-APIs-Organization_API] .
+The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for the five components. For more details, take a look at the [GateIn documentation|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Authentication_And_Identity.html#sect-Reference_Guide-APIs-Organization_API].
 
 h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntergration}
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.
@@ -277,7 +277,6 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
 
 h4. User mapping {anchor:id=DEV.SystemIntegration.UserMapping}
 The following parameters maps LDAP attributes to eXo User java objects attributes.
-
 {code:xml}
 <field name="userUsernameAttr"><string>uid</string></field>
 <field name="userPassword"><string>userPassword</string></field>
@@ -310,7 +309,7 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
 
 
 h3. Groups {anchor:id=DEV.SystemIntegration.Groups}
-eXo groups can be mapped to organizational or applicative groups defined in your directory.
+eXo Platform groups can be mapped to organizational or applicative groups defined in your directory.
 
 {code}
 <field name="groupsURL"><string>ou=groups,ou=portal,dc=exoplatform,dc=org</string></field>
@@ -566,8 +565,7 @@ Here is how to use LDAPs protocol with the Active Directory:
 {code}
 
 h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDM}
-
-eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships. 
+eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships.
 While the legacy interfaces are still used (org.exoplatform.services.organization) for the identity management, there is a wrapper implementation that delegates to the PicketLink IDM framework. 
 For further information, visit [here|http://jboss.org/picketlink/IDM.html].
 

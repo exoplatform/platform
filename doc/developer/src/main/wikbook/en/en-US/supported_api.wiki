@@ -1,5 +1,5 @@
 
-eXo Platform 3.5 comes with a set of APIs to help you build your own applications from eXo services.
+eXo Platform comes with a set of APIs to help you build your own applications from eXo services.
 
 h2. Definitions of API Levels {anchor:id=DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels}
 
@@ -14,7 +14,7 @@ The different levels of APIs are described in the following table:
 
 *Test Suite*: A suite of tests that can be run against the API to detect changes.
 
-*Clients*: The API has been used successfully by at least 2 different teams, using API Documentation only.
+*Clients*: The API has been used successfully by at least 2 different teams, using the API Documentation only.
 
 *Documentation*: The API has a clean JavaDoc and reference documentation.
 
@@ -22,19 +22,19 @@ The different levels of APIs are described in the following table:
 
 *Compatibility X.Y.Z(+1)*: The compatibility between maintenance versions (X.Y.Z and X.Y.Z+1) is guaranteed. If a change appears between X.Y and X.Y+1, the eXo Support team will help by upgrading the code.
 
-*Compatibility X.Y(+1)*: The compatibility between minor versions (X.Y and X.Y+1) is guaranteed. If a change appears between X and X+1, the eXo Support team will help by upgrading the code.
+*Compatibility X.Y(+1)*: The compatibility between minor versions (X.Y and X.Y+1) is guaranteed. If any change appears between X and X+1, the eXo Support team will help by upgrading the code.
 
-*Best Effort*: We will provide assistance, but eXo cannot guarantee any specific result.
+*Best Effort*: You will receive assistance, but eXo cannot guarantee any specific result.
 
 
-h3. Using Provisional or Experimental APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs}
-These APIs are provided to give an "early look" at what will be available in upcoming versions of the eXo Platform. These APIs are not final, but they can be used to start developing your application.
+h3. Use Provisional or Experimental APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs}
+These APIs are provided to give an "early look" at which will be available in upcoming versions of eXo Platform. These APIs are not final, but they can be used to start developing your application.
 
 *Provisional APIs* are APIs close to being frozen, but that need a last look from users. They can be used by third-party developers for their own apps, with the knowledge that only a limited compatibility guarantee is offered.
 
-*Experimental APIs* are APIs that are likely to change. They are published in order to get feedback from the community. These APIs have been tested successfully, but have not yet had enough feedback from developers.
+*Experimental APIs* are APIs that are likely to change. They are published to get feedback from the community. These APIs have been tested successfully, but have not yet had enough feedback from developers.
 
-h2. Platform {anchor:id=DEV.eXoPlatformSupportedAPIs.Platform}
+h2. Platform APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.PlatformAPIs}
 h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 *[Portlet API|/docs/refguide/html/bk02ch04.html#sect-Reference_Guide-Portlet_Primer-JSR_168_and_JSR_286_overview] (JSR 168 and JSR 286)*: A Java standard that defines how to write portlets. This is the way to develop Java applications that are integrated into eXo Platform.
 
@@ -44,12 +44,12 @@ h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[JCR|/docs/refguide/html/ch-intro.html] (JSR 170)*: A standard API that provides access to a content repository.
 
-*[JCR Service Extensions|/docs/refguide/html/ch-jcr-extensions.html]*: A set of APIs that provide extended functionalities for the JCR such as observation, permissions, and access to a repository
+*[JCR Service Extensions|/docs/refguide/html/ch-jcr-extensions.html]*: A set of APIs that provide extended functionalities for the JCR, such as observation, permissions, and access to a repository.
 
 *[Java EE 5|http://www.oracle.com/technetwork/java/javaee/overview/index.html]*: eXo Platform supports the Java EE 5 APIs, so you can develop applications using this standard.
 
 *[Cache|/docs/refguide/html/ch-cache.html]*: An API used for data caching.
-6
+
 *[Event and Listener|/docs/refguide/html/ch-understanding-listeners-service.html]*: An API for listening and sending events within eXo Platform.
 
 *[Organization|/docs/refguide/html/ch-organization-service.html]*: An API and SPI for accessing user, group and membership information.

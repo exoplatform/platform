@@ -19,11 +19,11 @@ The portlet skins affect how portlets are rendered on the page. The portlet skin
 h3. Portlet Specification CSS Classes {anchor:id=DEV.CreateYourOwnPortal.PortletSpecificationCSSClasses}
 
 The [portlet specification|http://jcp.org/en/jsr/detail?id=286] defines a set of CSS classes that should be available to portlets.
-Platform provides these classes as a part of the portal skin. This enables each portal skin to define its own look and feel for these default values.
+eXo Platform provides these classes as a part of the portal skin. This enables each portal skin to define its own look and feel for these default values.
 
 h3. Portlet skins {anchor:id=DEV.CreateYourOwnPortal.PortletSkins}
 
-Platform provides a means for portlet CSS files to be loaded that is based on the current portal skin. This enables a portlet to provide different CSS styles to better match the current portal's look and feel. 
+eXo Platform provides a means for portlet CSS files to be loaded that is based on the current portal skin. This enables a portlet to provide different CSS styles to better match the current portal's look and feel.
 
 {note}
 The window decorators and the default portlet specification CSS classes should be considered as separate types of skinning components, but they need to be included as a part of the overall portal skin. The portal skin must include CSS classes of these components or they will not be displayed correctly.
@@ -31,7 +31,7 @@ A portlet skin does not need  to be  included as part of the portal skin and can
 {note}
 
 h2. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
-The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in Platform.
+The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
 
 h2. Name files and folder {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
 
@@ -136,5 +136,4 @@ Main entry CSS:{{/webapp/skin/PortletThemes/Stylesheet.css}}
 {{/webapp/skin/PortletThemes/background}}
 
 {{/webapp/skin/PortletThemes/icons}}
-
 

@@ -8,8 +8,7 @@ h2. Assumptions {anchor:id=DEV.CreateYourOwnPortal.Assumptions}
 - If you see any folder/file which does not exist, you should create a new one.
 
 h2. Customize portal's layout {anchor:id=DEV.CreateYourOwnPortal.CustomizePortalLayout}
-{note:title=Configuration}
-
+{note}
 This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
 {note}
 
@@ -121,13 +120,13 @@ This section is related to the configuration. You can see a sample [here|http://
 h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 If you want your skin to be applied for every page, do as follows:
 
-*Step 1:* Go to *Sites Explorer* portlet > *Shared* drive > *CSS* folder.
-*Step 2:* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
+*1.* Go to *Sites Explorer* portlet > *Shared* drive > *CSS* folder.
+*2.* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
 
 If you want your skin to be applied for your *MySite* page only, do as follows:
 
-*Step 1:* Open the browser > *Sites Explorer* portlet > *Sites management* drive > *MySite/css* folder.
-*Step 2:* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
+*1.* Open the browser > *Sites Explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
 {warning:title=Warning}
 This document should contain *ONLY* the stylesheet for the page and portal level.
@@ -213,8 +212,8 @@ h2. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeC
 
 To customize the CLV template's style, do as follows:
 
-*Step 1:* Go to *Sites explorer* portlet > *Sites management* drive > *MySite/css* folder.
-*Step 2:* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
+*1.* Go to *Sites explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
 {warning:title=Warning}
 This document should contain *ONLY* the stylesheet for *THIS* template. If you have another template, you should create a new CSS document.
@@ -235,7 +234,7 @@ This document should contain *ONLY* the stylesheet for *THIS* template. If you h
 /* ... */
 {code}
 
-*Step 3:* Export the document and now you have an XML file.
+*3.* Export the document and now you have an XML file.
 
 Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into database.
 
@@ -442,5 +441,4 @@ To import this XML into database, you can set up for the deployment like this:
   </init-params>  
  </component-plugin> 
 </external-component-plugins>
-{code}.
-
+{code}

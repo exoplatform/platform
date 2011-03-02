@@ -1,12 +1,12 @@
 h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
-The current color of Admin bar is dark blue and yellow. However, you can change the color to match your brand colors. Read below to find out how.
+The current color of Admin bar is dark blue and yellow. However, you can change the color to match your brand colors.
 
 The Admin bar looks like this:
 
 !admin_bar.png!
 
 
-The style of Admin bar is defined in the *stylesheet.css* located in {{src/main/webapp/skin/officeSkin/UIToolbarContainer}}
+The style of Admin bar is defined in the *stylesheet.css* located in src/main/webapp/skin/officeSkin/UIToolbarContainer.
 
 The CSS code below shows how to modify the Admin bar to look like this:
 
@@ -90,7 +90,7 @@ h2. Change the content of the Admin bar {anchor:id=DEV.CreateYourOwnPortal.Chang
 
 The Admin bar is a special container composed of portlets. It is defined in {{WEB-INF/conf/portal/portal/sharedlayout.xml}}. In the illustration above, each circle represents a portlet defined in the Admin bar and configured in *sharedlayout.xml*
 
-It is possible to override the whole Admin bar, by adding it into an extension at : custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml}}.
+It is possible to override the whole Admin bar, by adding it into an extension at: custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml.
 
 The *sharedlayout.xml* configures the current displayed portlets on the Admin bar. For example, to remove the dashboard menu, you will need to remove the following block:
 
@@ -108,5 +108,3 @@ The *sharedlayout.xml* configures the current displayed portlets on the Admin ba
   </container>
 ...
 {code}
-.
-

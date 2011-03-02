@@ -1,4 +1,4 @@
-GateIn 3.1 provides support for skinning the entire User Interface (UI) of portal, including all common portal elements, custom skins and window decorator for individual portlets. Skins are designed to help you pack and reuse common graphic resources.
+GateIn provides support for skinning the entire User Interface (UI) of portal, including all common portal elements, custom skins and window decorator for individual portlets. Skins are designed to help you pack and reuse common graphic resources.
 
 h2. Select skins within the configuration files {anchor:id=DEV.CreateYourOwnPortal.SelectSkinWithinConfigurationFiles}
 The default skin can be set in the portal configuration files. The skin configured as default is used by GateIn as the administrator starts/restarts the server.
@@ -186,7 +186,7 @@ The CSS stylesheet for the default portal needs to have the following updated wi
 
 h3. Create new window styles {anchor:id=DEV.CreateYourOwnPortal.CreateNewWindowStyles}
 Window style is the CSS applied to the window decorator. When the administrator selects a new application to add to a page, he can decide which style of decorator surrounding the window if any.
-h4. Configure window style(s) {anchor:id=DEV.CreateYourOwnPortal.ConfigureWindowStyles}
+h4. Configure window styles {anchor:id=DEV.CreateYourOwnPortal.ConfigureWindowStyles}
 Window style is defined within the _gatein-resources.xml_ file used by the SkinService to deploy the window style into the portal. Window styles can belong to a window style category. This category and window styles need to be specified in the resources file.
 The following gatein-resource.xml fragment will add MyThemeBlue and MyThemeRed to the MyTheme category.
 {code}
@@ -320,12 +320,11 @@ The extension mechanism of GateIn 3.1 enables the skin definition to be replaced
 
 To do so, do as follows:
 
-*Step 1:* Create a web application whose _gatein-resources.xml_ contains the same content as the above xml block, except the element <css-path> is modified.
+*1.* Create a web application whose _gatein-resources.xml_ contains the same content as the above xml block, except the element <css-path> is modified.
 
-*Step 2:* Register the artifact in the dependencies list of extended Portal Container.
+*2.* Register the artifact in the dependencies list of extended Portal Container.
 
-*Step 3:* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
+*3.* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
 
 By the time those lines are written out, the control of loading order required in the third step relies totally on the Web Container Integration (WCI), hence the conflict may occur. That would be resolved by the concept of portal skin priority introduced in the coming version of GateIn.
-
 

@@ -1,4 +1,4 @@
-When working with eXo, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
+When working with eXo Platform, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
 To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
 
 
@@ -265,7 +265,7 @@ To add a new language, you need to add the corresponding language node in the _l
 
 For example, to add Italian, do as follows:
 
-*Step 1:* Add the following node to the _locale-config.xml_ file. 
+*1.* Add the following node to the _locale-config.xml_ file.
 
 {code:xml}
 <locale-config>
@@ -276,13 +276,13 @@ For example, to add Italian, do as follows:
 </locale-config>
 {code}
 
-*Step 2:* Create a new _resource bundle_ as *_{{{webui_it.properties}}}_* in the _myextension.war/WEB-INF/classes/locale/portal_ folder. 
+*2.* Create a new _resource bundle_ as *_{{{webui_it.properties}}}_* in the _myextension.war/WEB-INF/classes/locale/portal_ folder.
 
 {note}
 This step is necessary because the Resource Bundle Service of the portal will find keys and values in the _resource bundle_ of each corresponding language. 
 {note}
 
-*Step 3:* Restart the server.
+*3.* Restart the server.
 
 To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, you will see Italian as shown:
 
@@ -297,7 +297,7 @@ To remove an existing language, you need to delete the relevant language node in
 
 For example, to remove French, do as follows:
 
-*Step 1:* Find and remove the following node from the _locale-config.xml_ file.
+*1.* Find and remove the following node from the _locale-config.xml_ file.
 
 {code:xml}
 <locale-config>
@@ -308,13 +308,13 @@ For example, to remove French, do as follows:
 </locale-config>
 {code}
 
-*Step 2:* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
+*2.* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
 
 {note}
 It is recommended to do this step to delete unnecessary data in the application.
 {note}
  
-*Step 3:* Restart the server.
+*3.* Restart the server.
 
 To check if the French removal takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, French which is shown in the *Illustration 1* has not existed on the *Interface Language Setting* window. 
 
@@ -332,9 +332,9 @@ This can be done entirely within your extension by customizing the *gatein-resou
 
 To add a JavaScript library, for example jQuery, do as follows:
 
-*Step 1*: Create _war:/WEB-INF/gatein-resources.xml_ file.
+*1.* Create _war:/WEB-INF/gatein-resources.xml_ file.
 
-*Step 2*: Add the following line to the _gatein-resources.xml_ file.
+*2.* Add the following line to the _gatein-resources.xml_ file.
 {code}
  <javascript>
   <param>
@@ -351,4 +351,3 @@ _<js-module>_ is the namespace of your JavaScript.
 _<js-path>_ is the path to your JavaScript file.
 
 <js-priority> is an optional tag. This tag is used to indicate the loading order of JavaScript files across all the platform. Its value is integer type. If its value is not negative (>=0), the loading priority is sorted by the descending order. If its value is negative (<0), the loading priority of the JavaScript file depends on the loading order of the web app (the .war file) containing the JavaScript file.
-

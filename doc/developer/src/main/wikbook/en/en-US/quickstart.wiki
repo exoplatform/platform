@@ -1,14 +1,13 @@
+This section aims at helping you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
 
-This section will help you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
-
-h1. Requirements  {anchor:id=DEV.SetupYourProject.Requirements}
+*Requirements:*
 
 * JDK (Java Development Kit) 6.0 
 * SVN 1.6+
 * Maven 2.2.1+
 * Tomcat 6.0.26 or JBoss 5.1.0
 
-h1. Install and configure Maven {anchor:id=DEV.SetupYourProject.Install&ConfigureMaven}
+*Install and configure Maven:*
 
 You need to add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
@@ -22,24 +21,22 @@ set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
 export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 {code}
 
-
-h1. Maven settings {anchor:id=DEV.SetupYourProject.MavenSettings}
+*Maven settings:*
 
 Do as follows:
 
-*Step 1:* Save the file {{settings.xml}} in {{HOME/.m2/settings.xml}}
+*1.* Save the file {{settings.xml}} in {{HOME/.m2/settings.xml}}.
 
-*Step 2:* Edit and change the {{local-properties}} profile, including:
+*2.* Edit and change the {{local-properties}} profile, including:
 
 * {{exo.projects.directory.dependencies}} contains the application servers, and openfire.
 
 * each {{exo.projects.app.AS-NAME.version}} contains the name and version of the application servers.
 
-Note: 
-
+{note}
 If the settings.xml file has been existing, you can merge them all together. You will need the followings:
 
 * The local-properties profile, which defines properties used to build application server distributions of our products.
 
 * The [repository|http://repository.exoplatform.org/public] to download our dependencies.
-
+{note}

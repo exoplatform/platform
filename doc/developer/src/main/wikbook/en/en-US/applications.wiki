@@ -1,7 +1,6 @@
 
 h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationIntergration}
 
-
 To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located in {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
 
 Here is an example of a portlet configuration inside {{pages.xml}}:
@@ -39,21 +38,20 @@ Here is an example of a portlet configuration inside {{pages.xml}}:
 </portlet-application>
 {code}
 
-Here are details of this configuration:
+Details:
 
-|| XML tag name || Description || Example ||
-| {{application-ref}} | The name of the webapp that contains the portlet. | |
-| {{portlet-ref}} | The name of the portlet. | |
-| {{title}} | The title of the page, HTML speaking. | |
-| {{access-permission}} | Who can access the portlet. | \*:platform/users (membership:group) |
-| {{show-info-bar}} | Show the top bar with the portlet title. | |
-| {{show-application-state}} | Show the collapse/expand icons. | |
-| {{show-application-mode}} | Show the change portlet mode icon. | |
+|| XML tag name || Description ||
+| {{application-ref}} | The name of the webapp that contains the portlet. |
+| {{portlet-ref}} | The name of the portlet. |
+| {{title}} | The title of the page, HTML speaking. |
+| {{access-permission}} | Who can access the portlet. |
+| {{show-info-bar}} | Show the top bar with the portlet title. |
+| {{show-application-state}} | Show the collapse/expand icons. |
+| {{show-application-mode}} | Show the change portlet mode icon. |
 | {{preferences}} | Contain a list of {{preferences}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. To learn more, refer to [eXo JCR and Extension Services Reference|http://platform.demo.exoplatform.org/docs/refguide/html/jcr/index.html] | |
 
 
-h1. Developing your own applications {anchor:id=DEV.WorkWithApplications.DevelopeYourOwnApplications}
-
+h1. Develop your own applications {anchor:id=DEV.WorkWithApplications.DevelopeYourOwnApplications}
 
 h2. Gadget vs Portlet {anchor:id=DEV.WorkWithContent.GadgetvsPortlet}
 
@@ -64,7 +62,7 @@ More information on developing gadgets and portlets can be found in the GateIn R
 * [Portlet development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Portlet_development]
 * [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development]
 
-h2. Gadget development quickstart with IDE {anchor:id=DEV.WorkWithApplications}
+h2. Gadget development quickstart with eXo IDE {anchor:id=DEV.WorkWithApplications}
 
 eXo Platform facilitates easy gadget development, via its powerful, web-based IDE. You can learn more about the basic principles of gadget development [here|http://code.google.com/apis/gadgets/docs/gs.html].
 
@@ -87,6 +85,5 @@ For example, the JSF Bridge allows you to transparently deploy your existing JSF
 The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks, such as RichFaces and Seam. 
 
 [http://jboss.org/portletbridge/docs.html]
-
 
 

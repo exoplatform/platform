@@ -385,4 +385,3 @@ You can view the file here: _$PLF-HOME_/samples/acme-website/webapp/src/main/web
 
 As you can see, the value-params enable you to define the repository, workspace, name of the tree and its JCR path. You can then configure permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
 
-
