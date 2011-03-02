@@ -1,7 +1,6 @@
 When working with eXo Platform, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
 To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
 
-
 h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
 
 A custom extension contains two mandatory items:
@@ -32,7 +31,6 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 
 For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
-
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
@@ -98,7 +96,6 @@ The {{portal.xml}} file describes the layout and portlets common to all pages of
   </portal-layout>
 </portal-config>
 {code}
-
 
 As you can see, each portlet can be configured with a set of preferences, which will be further detailed in Chapter 6. The tag <page-body> </page-body> is a placeholder for the different pages of your portal. When the user opens a new portal page, all portlets of the portal layout (portal.xml) are remained, whereas the content of <page-body> switches to the page opened by the user.
 
@@ -252,7 +249,6 @@ Example:
 </page>
 {code}
 
-
 h1. Add/remove languages {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
 
 All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Each language consists of information related to key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ files with keys specified in the _locale-config.xml_ file.
@@ -324,6 +320,7 @@ To check if the French removal takes effect, simply click the *Change Language* 
 *Illustration 2: Interface Language Setting without French*
 
 h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
+
 {include:document="customize/How_to_create_custom_look_and_feel.wiki"}
 
 h1. Add JavaScript to your portal

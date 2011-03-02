@@ -108,3 +108,5 @@ The *sharedlayout.xml* configures the current displayed portlets on the Admin ba
   </container>
 ...
 {code}
+
+.
