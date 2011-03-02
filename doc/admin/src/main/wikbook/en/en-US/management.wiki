@@ -551,4 +551,3 @@ eXo Collaboration provides the following Job instances:
 |{{PopupReminderJob}}|Show pop-up reminders in the Calendar application.|
 |{{ReminderJob}}|Send email reminders in the Calendar application.|
 |{{messageToHistoricalMessageJob}}|Save messages in the Chat application in the data storage of eXo Collaboration.|
-

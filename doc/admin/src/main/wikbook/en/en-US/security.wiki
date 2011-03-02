@@ -1,20 +1,19 @@
 
-h2. Changing the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
+h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
 
-The JAAS realm will be used by all eXo apps and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl]
+The JAAS realm is used by all eXo Platform applications and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl].
 
-By default, Platform uses a JAAS realm named "gatein-domain". If your IT operations rules require you to use another JAAS realm, you will need to modify several files so that eXo can work on your JAAS realm.
+By default, eXo Platform uses the JAAS realm named "gatein-domain". If your IT operation rules require you to use another JAAS realm, you will need to modify several files so that eXo Platform can work on your JAAS realm.
 
-
-Since the security configuration is highly dependent of the app server we'll cover each application sever separately. 
-
+Since the security configuration is highly dependent of the app server, each application sever is represented separately.
 
 
-h3. Tomcat {anchor:id=ADM.Security.Tomcat}
+h2. Tomcat {anchor:id=ADM.Security.Tomcat}
 
-In the Tomcat bundle, the jaas configuration is controled by this $TOMCAT_HOME/conf/jaas.conf:
+In the Tomcat bundle, the JAAS configuration is controled by the $TOMCAT_HOME/conf/jaas.conf:
+
 {code:title=conf/jaas.conf}
 gatein-domain {
   org.exoplatform.web.security.PortalLoginModule required;
@@ -24,13 +23,12 @@ gatein-domain {
 {code}
 
 Replace gatein-domain by your own domain name.
+
 {tip}
-Learn more about the syntax in the [JAAS tutorial |http://download.oracle.com/javase/1.4.2/docs/guide/security/jaas/tutorials/LoginConfigFile.html].
-Read more about realms in tomcat in the [Tomcat Realm Howto|http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html] {tip}
+To learn more about the syntax, or realms in Tomcat, refer to the [JAAS tutorial|http://download.oracle.com/javase/1.4.2/docs/guide/security/jaas/tutorials/LoginConfigFile.html] or [Tomcat Realm How-To|http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html] respectively.
+{tip}
 
-h3. JBoss {anchor:id=ADM.Security.JBoss}
-
-For JBoss, you need to edit the default jaas security domain in {{02portal.war!WEB-INF/jboss-web.xml}}
+For JBoss, you need to edit the default jaas security domain in the 02portal.war!WEB-INF/jboss-web.xml file.
 
 {code:xml|02portal.war!WEB-INF/jboss-web.xml}
 <jboss-web>
@@ -38,7 +36,7 @@ For JBoss, you need to edit the default jaas security domain in {{02portal.war!W
 </jboss-web>
 {code}
 
-Additionnaly, you need to edit the {{application-policy}} to match the {{security-domain}} in {{gatein.ear!META-INF/gatein-jboss-beans.xml}}.
+Additionally, you need to edit the application-policy to match the security-domain in the gatein.ear!META-INF/gatein-jboss-beans.xml.
 
 {code:xml|title=gatein.ear!META-INF/gatein-jboss-beans.xml}
 <deployment xmlns="urn:jboss:bean-deployer:2.0">
@@ -64,31 +62,30 @@ Additionnaly, you need to edit the {{application-policy}} to match the {{securit
 {code}
 
 {tip}
-Read More about JBoss security configuration in [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service]
+To learn more about the JBoss security configuration, refer to [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service]
 {tip}
 
+h2. Common Changes {anchor:id=ADM.Security.Common_Changes}
 
-h3. Common Changes {anchor:id=ADM.Security.Common_Changes}
+Finally, you need to do some common changes on both app servers.
 
-Finally, there are some common changes to do on both app servers.
+h3. configuration.properties
+First, change the JAAS realm to match your own security constraints and then identify the entry named "exo.security.domain" inside the configuration.properties file.
 
-h4. configuration.properties{anchor:id=ADM.Security.configuration.properties}
-
-First, edit the change it need to change the  JAAS realm to fit your own security contraints, 
-LInside configuration.properties, identifythe entry named "exo.security.domain"
 {code}
 # Realm name
 exo.security.domain=gatein-domain
 {code}
 
 {note}
-Internally, eXo will use this setting to set a new variable named "portal.container.realm" that is then used in kernel configuration files such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
+Internally, eXo Platform uses this setting to set a new variable named "portal.container.realm" that is then used in the Kernel configuration files, such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
 {note}
 
 
-h4. portal.war {anchor:id=ADM.Security.Portal.war}
+h3. portal.war {anchor:id=ADM.Security.Portal.war}
 
-Inside {{portal.war}}, you should declare in the web.xml file the realm name:
+Inside portal.war, you should declare in the web.xml file the realm name:
+
 {code:xml|title=portal.war!WEB-INF/web.xml}
 <login-config>
   <auth-method>FORM</auth-method> 
@@ -99,9 +96,10 @@ Inside {{portal.war}}, you should declare in the web.xml file the realm name:
 	</login-config>
 {code}
 
-h4. rest.war {anchor:id=ADM.Security.rest.war}
+h3. rest.war {anchor:id=ADM.Security.rest.war}
 
-{{rest.war}} also needs to be modified to provide properly secured REST services.
+You also need to modify {{rest.war}} to provide properly secured REST services.
+
 {code:xml|title=rest.war!WEB-INF/web.xml}
 <login-config>
   <auth-method>BASIC</auth-method> 
@@ -109,7 +107,7 @@ h4. rest.war {anchor:id=ADM.Security.rest.war}
 </login-config>
 {code}
 
-{note}This change is very important as it allows to secure the downlaod of files via WEBDAV.{note}
+{note}This change is very important, allowing you to secure the file downloads via WEBDAV.{note}
 
 
 
