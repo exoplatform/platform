@@ -111,6 +111,23 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
+  <page>
+    <name>portalnavigation</name>
+    <title>Portal Navigation</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>    
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>PortalNavigationPortlet</portlet-ref>
+      </portlet>
+      <title>Portal Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
 	
 
 
