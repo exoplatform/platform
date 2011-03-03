@@ -30,6 +30,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <test-connect-timeout>150000</test-connect-timeout>
     <test-response-timeout>500000</test-response-timeout>
     <test-think-time>3000</test-think-time>
+    <test-max-userid>9</test-max-userid>
+    <test-userid-prefix>bench.user</test-userid-prefix>
+    <test-user-password>exo</test-user-password>
+    <test-use-demo-account>true</test-use-demo-account>
   </properties>
   <profiles>
     <profile><id>WARMUP</id><properties><test-duration>300</test-duration><test-threadcount>1</test-threadcount></properties></profile>
@@ -259,18 +263,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                       <name>expConnectTimeOut</name>
                       <value>${test-connect-timeout}</value>
                     </property>
-		    <property>
-                      <name>expLoginUserId</name>
-                      <value>${test-login-user-id}</value>
-                    </property>
-		    <property>
-                      <name>expLoginUserPassword</name>
-                      <value>${test-login-user-password}</value>
-                    </property>
-		    <property>
-                      <name>expLoginUserSequence</name>
-                      <value>${test-login-user-sequence}</value>
-                    </property>
+		    <property><name>expMaxUserId</name><value>${test-max-userid}</value></property>
+		    <property><name>expUserIdPrefix</name><value>${test-userid-prefix}</value></property>
+		    <property><name>expUserPassword</name><value>${test-user-password}</value></property>\
+		    <property><name>expUseDemoAccount</name><value>${test-use-demo-account}</value></property>
                   </sysproperties>
                 </configuration>
                 <goals>
