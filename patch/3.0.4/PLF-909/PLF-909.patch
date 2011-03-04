@@ -1,0 +1,72 @@
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/navigation.xml
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/navigation.xml	(revision 66977)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/navigation.xml	(working copy)
+@@ -37,5 +37,12 @@
+       <visibility>SYSTEM</visibility>
+ 	    <page-reference>portal::default::groupnavigation</page-reference>
+ 	</node>
++	<node>
++      <uri>portalnavigation</uri>
++      <name>portalnavigation</name>
++      <label>#{portal.default.portalnavigation}</label>
++      <visibility>SYSTEM</visibility>
++      <page-reference>portal::default::portalnavigation</page-reference>      
++    </node>
+   </page-nodes>
+   </node-navigation>
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/pages.xml
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/pages.xml	(revision 66977)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/conf/default-website/portal/portal/default/pages.xml	(working copy)
+@@ -111,6 +111,23 @@
+       <show-info-bar>false</show-info-bar>
+     </portlet-application>
+   </page>
++  <page>
++    <name>portalnavigation</name>
++    <title>Portal Navigation</title>
++    <access-permissions>*:/platform/users</access-permissions>
++    <edit-permission>*:/platform/administrators</edit-permission>    
++    <portlet-application>
++      <portlet>
++        <application-ref>exoadmin</application-ref>
++        <portlet-ref>PortalNavigationPortlet</portlet-ref>
++      </portlet>
++      <title>Portal Navigation</title>
++      <access-permissions>Everyone</access-permissions>
++      <show-info-bar>false</show-info-bar>
++      <show-application-state>false</show-application-state>
++      <show-application-mode>false</show-application-mode>
++    </portlet-application>
++  </page>
+ 	
+ 
+ 
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default.properties
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default.properties	(revision 66977)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default.properties	(working copy)
+@@ -19,3 +19,4 @@
+ 
+ portal.office.welcome=Welcome
+ portal.default.groupnavigation=Group Navigation
++portal.default.portalnavigation=Portal Navigation
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_en.properties
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_en.properties	(revision 66977)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_en.properties	(working copy)
+@@ -18,3 +18,4 @@
+ #
+ portal.default.welcome=Welcome
+ portal.default.groupnavigation=Group Navigation
++portal.default.portalnavigation=Portal Navigation
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_fr.properties
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_fr.properties	(revision 66977)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_fr.properties	(working copy)
+@@ -18,3 +18,4 @@
+ #
+ portal.default.welcome=Bienvenue
+ portal.default.groupnavigation=Navigation de Groupe
++portal.default.portalnavigation=Navigation de Site
