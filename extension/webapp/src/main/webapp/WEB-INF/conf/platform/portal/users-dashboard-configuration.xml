@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	
+	<component>
+		<type>org.exoplatform.platform.gadgets.services.UserDashboardConfigurationService</type>
+		<init-params>
+			<value-param>
+				<name>dashboardTabName</name>
+				<description>The default name of the dashboard page</description>
+				<value>Tab_0</value>
+			</value-param>
+			<value-param>
+				<name>dashboardTabLabel</name>
+				<description>The default label of the dashboard page</description>
+				<value>Click &amp; Type Page Name</value>
+			</value-param>
+			<value-param>
+				<name>dashboardPageTemplate</name>
+				<description>The default dashboard page template</description>
+				<value>dashboard</value><!-- e.g portal.war/WEB-INF/conf/portal/template/pages/dashboard -->
+			</value-param>
+			<value-param>
+				<name>involvedUsers</name>
+				<description>Indicates if the service will populate gadgets for a single user or for all users</description>
+				<value>separate-users</value><!-- should be one of these values: separate-users, all-users -->
+			</value-param>
+			<!-- if separate-users is used, object params should be of type org.exoplatform.platform.gadgets.services.UserDashboardConfigurationService.UserDashboardConfig -->
+			<!-- if all-users is used, object params should be of type org.exoplatform.application.gadget.Gadget -->
+			<object-param>
+				<name>involvedUsersUser1</name>
+				<description>The service will prepopulate dashboard for this user</description>
+				<object type="org.exoplatform.platform.gadgets.services.UserDashboardConfigurationService$UserDashboardConfiguration">
+					<field name="userId">
+						<string>john</string>
+					</field>
+					<field name="gadgets">
+						<collection type="java.util.ArrayList">
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Assigned to Me</string>
+									</field>
+									<field name="url">
+										<string>http://jira.exoplatform.org/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:assigned-to-me-gadget/gadgets/assigned-to-me-gadget.xml</string>
+									</field>
+									<field name="title">
+										<string>Assigned to Me</string>
+									</field>
+									<field name="description">
+										<string>Displays all unresolved issues assigned to me.</string>
+									</field>
+									<field name="referenceUrl">
+										<string></string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Road Map</string>
+									</field>
+									<field name="url">
+										<string>http://jira.exoplatform.org/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:road-map-gadget/gadgets/roadmap-gadget.xml</string>
+									</field>
+									<field name="title">
+										<string>Road Map</string>
+									</field>
+									<field name="description">
+										<string>Display upcoming versions for specified projects.</string>
+									</field>
+									<field name="referenceUrl">
+										<string></string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Issue Statistics</string>
+									</field>
+									<field name="url">
+										<string>http://jira.exoplatform.org/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:stats-gadget/gadgets/stats-gadget.xml</string>
+									</field>
+									<field name="title">
+										<string>Issue Statistics</string>
+									</field>
+									<field name="description">
+										<string>Issue Statistics.</string>
+									</field>
+									<field name="referenceUrl">
+										<string></string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Activity Stream</string>
+									</field>
+									<field name="url">
+										<string>http://jira.exoplatform.org/rest/gadgets/1.0/g/com.atlassian.streams.streams-jira-plugin:activitystream-gadget/gadgets/activitystream-gadget.xml</string>
+									</field>
+									<field name="title">
+										<string>Activity Stream</string>
+									</field>
+									<field name="description">
+										<string>Lists recent activity in a single project, or in all projects.</string>
+									</field>
+									<field name="referenceUrl">
+										<string></string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Build Status</string>
+									</field>
+									<field name="url">
+										<string>http://exogadgets.appspot.com/static/hudson/hudson.gadget.xml</string>
+									</field>
+									<field name="title">
+										<string>Build Status</string>
+									</field>
+									<field name="description">
+										<string>Hudson Build Status</string>
+									</field>
+									<field name="referenceUrl">
+										<string></string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Code coverage and Test success</string>
+									</field>
+									<field name="url">
+										<string>http://exogadgets.appspot.com/static/sonar/gadget-code-coverage-test-success.xml</string>
+									</field>
+									<field name="title">
+										<string>Sonar - Code coverage and Test success</string>
+									</field>
+									<field name="description">
+										<string>Sonar gadget.</string>
+									</field>
+									<field name="referenceUrl">
+										<string>http://www.exoplatform.com</string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Code overview</string>
+									</field>
+									<field name="url">
+										<string>http://exogadgets.appspot.com/static/sonar/gadget-code-overview.xml</string>
+									</field>
+									<field name="title">
+										<string>Sonar - Code overview</string>
+									</field>
+									<field name="description">
+										<string>Sonar gadget.</string>
+									</field>
+									<field name="referenceUrl">
+										<string>http://www.exoplatform.com</string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Comments and Duplication</string>
+									</field>
+									<field name="url">
+										<string>http://exogadgets.appspot.com/static/sonar/gadget-comments-duplications.xml</string>
+									</field>
+									<field name="title">
+										<string>Sonar - Comments and Duplication</string>
+									</field>
+									<field name="description">
+										<string>Sonar gadget.</string>
+									</field>
+									<field name="referenceUrl">
+										<string>http://www.exoplatform.com</string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>Rules compliance</string>
+									</field>
+									<field name="url">
+										<string>http://exogadgets.appspot.com/static/sonar/gadget-rules.xml</string>
+									</field>
+									<field name="title">
+										<string>Sonar - Rules compliance</string>
+									</field>
+									<field name="description">
+										<string>Sonar gadget.</string>
+									</field>
+									<field name="referenceUrl">
+										<string>http://www.exoplatform.com</string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+						</collection>
+					</field>
+				</object>
+			</object-param>
+			<object-param>
+				<name>involvedUsersUser2</name>
+				<description>The service will prepopulate dashboard for this user</description>
+				<object type="org.exoplatform.platform.gadgets.services.UserDashboardConfigurationService$UserDashboardConfiguration">
+					<field name="userId">
+						<string>mary</string>
+					</field>
+					<field name="gadgets">
+						<collection type="java.util.ArrayList">
+							<value>
+								<object type="org.exoplatform.application.gadget.Gadget">
+									<field name="name">
+										<string>AdWords gadget</string>
+									</field>
+									<field name="url">
+										<string>http://www.youcalc.com/apps/1239973753131/igoogle.xml</string>
+									</field>
+									<field name="title">
+										<string>AdWords gadget</string>
+									</field>
+									<field name="description">
+										<string>One dashboard that gives a complete overview of the performance of your campaigns, ad groups, keywords, and ads.
+										Quickly identify low performing campaigns and drill down to see which ad groups, ads or keywords need to be optimized. 
+										Dual-axis charts let you compare any two metrics in one chart. "Impressions" growth may be looking good on a campaign, 
+										but if e.g. conversions are decreasing, campaign performance is going the wrong way. Drill down through adgroups, 
+										keywords and ads by clicking the charts. On each chart, click once to get a sortable list of data, which your can export 
+										to Excel/CSV/XML. Allows for MCC accounts switching, to easily analyze several AdWords accounts (for SEM experts). 
+										Your AdWords login credentials are sent directly to the Google AdWords API, nothing is stored on youcalc.</string>
+									</field>
+									<field name="referenceUrl">
+										<string>http://www.youcalc.com/apps/1239973753131</string>
+									</field>
+									<field name="isLocal">
+										<boolean>false</boolean>
+									</field>
+								</object>
+							</value>
+						</collection>
+					</field>
+				</object>
+			</object-param>
+			<!-- if all-users, here is a sample configuration
+			<object-param>
+				<name>involvedUsersGadget1</name>
+				<description>The service will prepopulate this gadget for all users</description>
+				<object type="org.exoplatform.application.gadget.Gadget">
+					<field name="name">
+						<string>Calculator</string>
+					</field>
+					<field name="isLocal">
+						<boolean>true</boolean>
+					</field>
+				</object>
+			</object-param>
+			<object-param>
+				<name>involvedUsersGadget2</name>
+				<description>The service will prepopulate this gadget for all users</description>
+				<object type="org.exoplatform.application.gadget.Gadget">
+					<field name="name">
+						<string>Date &amp; Time</string>
+					</field>
+					<field name="url">
+						<string>http://www.google.com/ig/modules/datetime.xml</string>
+					</field>
+					<field name="title">
+						<string>Date &amp; Time</string>
+					</field>
+					<field name="description">
+						<string>Add a clock to your page. Click edit to change it to the color of your choice.</string>
+					</field>
+					<field name="referenceUrl">
+						<string></string>
+					</field>
+					<field name="isLocal">
+						<boolean>false</boolean>
+					</field>
+				</object>
+			</object-param>
+			-->
+		</init-params>
+	</component>
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>new.user.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener</type>
+			<description>populate gadgets for specified users</description>
+		</component-plugin>
+	</external-component-plugins>
+	
+</configuration>
