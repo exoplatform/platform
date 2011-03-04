@@ -1,0 +1,121 @@
+<div class="UIFormWithTitle">
+  <div class="TitleBar"><%=_ctx.appRes(uicomponent.getId() + ".title")%></div>
+	<% uiform.begin() %>
+  <div class="HorizontalLayout">	  
+		<table class="UIFormGrid">	
+			<tr>	          					
+			  <td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.id")%></td>
+			  <td class="FieldComponent">
+				  <%
+					 String[] fieldId = ["jcrPath=/node", "mixintype=mix:affectedNodeTypes", "editable=false", "visible=if-not-null"] ;
+					 uicomponent.addMixinField("id", fieldId) ;  
+				  %>
+				</td>
+			</tr>
+			<tr>
+			  <td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.name")%></td>
+			  <td class="FieldComponent">
+				  <% 
+					String[] fieldName = ["jcrPath=/node/exo:name", "validate=empty"];
+					uicomponent.addTextField("actionName", fieldName);
+				  %>
+				</td>
+			</tr>		          					
+			<tr>
+			  <td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.lifecycle")%></td>
+			  <td class="FieldComponent">
+			  <% 
+          String[] fieldLifecycle = ["jcrPath=/node/exo:lifecyclePhase", 
+                                     "options=node_added",
+                                     "multiValues=false", "onchange=true","size=1","validate=empty"] ;
+          uicomponent.addSelectBoxField("lifecycle", fieldLifecycle) ;
+        %>
+				</td>
+			</tr>
+			<tr>		          					
+			  <td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.isDeep")%></td>
+			  <td class="FieldComponent">	
+			  <% 
+					String[] fieldDeep = ["jcrPath=/node/exo:isDeep", "defaultValues=true"];         
+					uicomponent.addCheckBoxField("isDeep", fieldDeep);
+			  %>
+			  </td>
+			</tr>
+			<tr>		          					
+  			<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.nodetypes")%></td>
+  			<td class="FieldComponent">	
+  			<% 
+    			String[] fieldnodetypes = ["jcrPath=/node/exo:nodeTypeName", "selectorAction=selectNodeTypes", "multiValues=true", "selectorClass=org.exoplatform.ecm.webui.nodetype.selector.UINodeTypeSelector", "selectorIcon=SelectPath24x24Icon", "validate=empty", "editable=false"];         
+    			uicomponent.addActionField("nodetypes", fieldnodetypes);
+  			%>
+  			</td>
+			</tr>
+			<tr>		          					
+			<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.description")%></td>
+			<td class="FieldComponent">	
+			<% 
+			String[] fieldDescription = ["jcrPath=/node/exo:description"];         
+			uicomponent.addTextAreaField("description", fieldDescription);
+			%>
+			</td>
+			</tr>
+			<tr>                       
+  			<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.affectedNodeTypeNames")%></td>
+        <td class="FieldComponent">
+        <% 
+          String[] fieldAffectedNodetypes = ["jcrPath=/node/exo:affectedNodeTypeNames", "selectorAction=selectAffectedNodeTypes", "multiValues=true", "selectorClass=org.exoplatform.ecm.webui.nodetype.selector.UINodeTypeSelector", "selectorIcon=SelectPath24x24Icon", "validate=empty", "editable=false"];
+          uicomponent.addActionField("affectedNodetypes", fieldAffectedNodetypes);
+        %>
+      </tr>	
+			<tr>                        
+				<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.navigationNode")%></td>
+				<td class="FieldComponent"> 
+				<% 
+				  String[] fieldNavigationNode = ["jcrPath=/node/exo:navigationNode"];
+				  uicomponent.addTextField("navigationNode", fieldNavigationNode);
+				%>
+				</td>
+			</tr>
+			<tr>
+			  <td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.index")%></td>
+			  <td class="FieldComponent">
+				  <% 
+					String[] fieldIndex = ["jcrPath=/node/exo:index", "validate=number"];
+					uicomponent.addTextField("index", fieldIndex);
+				  %>
+				</td>
+			</tr>
+			<tr>                        
+				<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.clickable")%></td>
+				<td class="FieldComponent"> 
+				<% 
+				String[] fieldClickable = ["jcrPath=/node/exo:clickable", "defaultValues=false"];         
+				uicomponent.addCheckBoxField("clickable", fieldClickable);
+				%>
+				</td>
+			</tr>
+			<tr>                        
+				<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.page")%></td>
+				<td class="FieldComponent"> 
+				<% 
+				  String[] fieldPage = ["jcrPath=/node/exo:page"];
+				  uicomponent.addTextField("page", fieldPage);
+				%>
+				</td>
+			</tr>
+			<tr>                        
+				<td class="FieldLabel"><%=_ctx.appRes("PopulateToMenu.dialog.label.childrenPage")%></td>
+				<td class="FieldComponent"> 
+				<% 
+				  String[] fieldChildrenPage = ["jcrPath=/node/exo:childrenPage"];
+				  uicomponent.addTextField("childrenPage", fieldChildrenPage);
+				%>
+				</td>
+			</tr>
+ 		</table>
+		<%/* start render action*/%>
+		<%uiform.processRenderAction()%>
+		<%/* end render action*/%>
+  </div>
+  <%uiform.end()%>
+</div>

@@ -1,0 +1,156 @@
+<%
+  def node = uicomponent.getNode();
+  StringBuilder sB;
+%>
+<table class="UIGrid">      	 			
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.action-name")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:name")){%>
+  			<%=node.getProperty("exo:name").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.isDeep")%></td>
+    <td>
+    <%if(node.hasProperty("exo:isDeep")){%>
+      <%=node.getProperty("exo:isDeep").getString()%>
+    <%}%> 
+    </td>
+  </tr>
+    <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.nodeTypeName")%></td>
+    <td>
+    <%if(node.hasProperty("exo:nodeTypeName")){
+      sB = new StringBuilder();
+      def values = node.getProperty("exo:nodeTypeName").getValues();          
+      for(value in values) {
+        sB.append(value.getString()).append(",");
+      } 
+      if (sB.length() > 0) {
+        %>
+        <%= sB.deleteCharAt(sB.length()-1)%>        
+      <%
+        }
+      }%>
+    </td> 
+  </tr>
+    <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.lifecycle")%></td>
+    <td>
+      <%if(node.hasProperty("exo:lifecyclePhase")){
+        sB = new StringBuilder();
+        def values = node.getProperty("exo:lifecyclePhase").getValues();          
+        for(value in values) {
+          sB.append(value.getString()).append(",");
+        } 
+        if (sB.length() > 0) {
+          %>
+          <%= sB.deleteCharAt(sB.length()-1)%>        
+        <%
+          }
+        }%>
+    </td>         
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.affectedNodeTypeNames")%></td>
+    <td>
+    <%if(node.hasProperty("exo:affectedNodeTypeNames")){
+      sB = new StringBuilder();
+      def values = node.getProperty("exo:affectedNodeTypeNames").getValues();          
+      for(value in values) {
+        sB.append(value.getString()).append(",");
+      } 
+      if (sB.length() > 0) {
+      %>
+        <%= sB.deleteCharAt(sB.length()-1)%>        
+      <%
+        }
+      }%>
+    </td> 
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.navigationNode")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:navigationNode")){%>
+  			<%=node.getProperty("exo:navigationNode").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.index")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:index")){%>
+  			<%=node.getProperty("exo:index").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.clickable")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:clickable")){%>
+  			<%=node.getProperty("exo:clickable").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.page")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:page")){%>
+  			<%=node.getProperty("exo:page").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.childrenPage")%></td>
+    <td>
+  		<%if(node.hasProperty("exo:childrenPage")){%>
+  			<%=node.getProperty("exo:childrenPage").getString()%>
+  		<%}%>	
+ 		</td>
+  </tr>
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.lifecycle")%></td>
+    <td>
+      <%if(node.hasProperty("exo:lifecyclePhase")){
+        sB = new StringBuilder();
+        def values = node.getProperty("exo:lifecyclePhase").getValues();          
+        for(value in values) {
+          sB.append(value.getString()).append(",");
+        } 
+        if (sB.length() > 0) {
+          %>
+          <%= sB.deleteCharAt(sB.length()-1)%>        
+        <%
+          }
+        }%>
+    </td>         
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.affectedNodeTypeNames")%></td>
+    <td>
+    <%if(node.hasProperty("exo:affectedNodeTypeNames")){
+      sB = new StringBuilder();
+      def values = node.getProperty("exo:affectedNodeTypeNames").getValues();          
+      for(value in values) {
+        sB.append(value.getString()).append(",");
+      } 
+      if (sB.length() > 0) {
+        %>
+        <%= sB.deleteCharAt(sB.length()-1)%>        
+      <%
+        }
+      }%>
+    </td> 
+  </tr>
+  <tr>
+    <td style="width:25%"><%=_ctx.appRes("PopulateToMenu.view.label.description")%></td>
+    <td>
+      <% if(node.hasProperty("exo:description")) {%>
+        <%=node.getProperty("exo:description").getString()%>
+      <%}%>
+     </td>
+  </tr>
+</table>

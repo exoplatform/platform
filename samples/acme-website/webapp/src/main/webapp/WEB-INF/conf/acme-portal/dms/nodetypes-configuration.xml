@@ -18,4 +18,28 @@
 			</propertyDefinition>
 		</propertyDefinitions>
 	</nodeType>
+	<nodeType name="exo:populateToMenu" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+      <supertype>exo:scriptAction</supertype>
+    </supertypes>
+    <propertyDefinitions>
+      <propertyDefinition name="exo:script" requiredType="String" autoCreated="true" mandatory="true"
+        onParentVersion="COPY" protected="true" multiple="false">
+        <valueConstraints/>
+        <defaultValues>
+          <defaultValue>ecm-explorer/action/PopulateToHomePageMenu.groovy</defaultValue>
+        </defaultValues>
+      </propertyDefinition>
+      <propertyDefinition name="exo:navigationNode" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY"
+        protected="false" multiple="false"/>
+		<propertyDefinition name="exo:index" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY"
+        protected="false" multiple="false"/>
+		<propertyDefinition name="exo:clickable" requiredType="Boolean" autoCreated="false" mandatory="false" onParentVersion="COPY"
+        protected="false" multiple="false"/>
+		<propertyDefinition name="exo:page" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY"
+        protected="false" multiple="false"/>
+		<propertyDefinition name="exo:childrenPage" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY"
+        protected="false" multiple="false"/>
+    </propertyDefinitions>
+  </nodeType>
 </nodeTypes>

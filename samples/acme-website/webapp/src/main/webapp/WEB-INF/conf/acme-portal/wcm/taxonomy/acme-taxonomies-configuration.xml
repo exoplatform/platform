@@ -20,14 +20,17 @@
 
 -->
 
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+<configuration 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
   <external-component-plugins>
-    <target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
+    <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
     <component-plugin>
-      <name>Initial taxonomy tree for each site</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.wcm.category.CreateTaxonomyPlugin</type>
+      <name>TaxonomyPlugin</name>
+      <set-method>addTaxonomyPlugin</set-method>
+      <type>org.exoplatform.services.cms.taxonomy.impl.TaxonomyPlugin</type>
       <init-params>
         <value-param>
           <name>autoCreateInNewRepository</name>
@@ -43,12 +46,12 @@
         </value-param>
         <value-param>
           <name>path</name>
-          <value>/sites content/live/{portalName}/categories</value>
+          <value>/sites content/live/acme/categories</value>
         </value-param>
         <value-param>
           <name>treeName</name>
-          <value>{treeName}</value>
-        </value-param>
+          <value>acme</value>
+		</value-param>
         <object-param>
           <name>permission.configuration</name>
           <object type="org.exoplatform.services.cms.taxonomy.impl.TaxonomyConfig">

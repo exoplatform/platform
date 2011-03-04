@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+  
+  <component>
+    <key>org.exoplatform.services.cms.actions.ActionServiceContainer</key>
+    <type>org.exoplatform.services.cms.actions.impl.ActionServiceContainerImpl</type>
+  </component>    
+  
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.actions.ActionServiceContainer</target-component>      
+      <component-plugin>
+        <name>exo:scriptAction</name>   
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.cms.actions.impl.ScriptActionPlugin</type>
+        <init-params>
+          <object-param>
+            <name>predefined.actions</name>
+            <description>description</description>
+            <object type="org.exoplatform.services.cms.actions.impl.ActionConfig">
+              <field  name="repository"><string>repository</string></field>
+              <field  name="workspace"><string>collaboration</string></field>
+              <field  name="actions">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+                      <field  name="type"><string>exo:populateToMenu</string></field>
+                      <field  name="name"><string>populateToHomePageMenu</string></field>                  
+                      <field  name="description"><string>populate content to home page menu</string></field>
+                      <field  name="srcWorkspace"><string>collaboration</string></field>
+                      <field  name="srcPath"><string>/sites content/live/acme/categories</string></field>
+                      <field  name="isDeep"><boolean>true</boolean></field>
+                      <field  name="lifecyclePhase">
+                        <collection type="java.util.ArrayList">
+							<value>
+								<string>node_added</string>
+							</value>
+                        </collection>
+                      </field>
+                      <field  name="roles"><string>*:/platform/administrators</string></field>
+					  <field  name="variables">
+                        <string>exo:navigationNode=news;exo:index=1000;exo:clickable=false;exo:page=catalog;exo:childrenPage=detail</string>
+                      </field>
+                      <field  name="mixins">
+                        <collection type="java.util.ArrayList">
+                          <value>
+                           <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Mixin">
+                            <field  name="name"><string>mix:affectedNodeTypes</string></field>
+                            <field  name="properties">
+                             <string>exo:affectedNodeTypeNames=exo:taxonomy,exo:taxonomyLink,exo:webContent,exo:product</string>
+                            </field>
+                           </object>
+                          </value>    
+                        </collection>
+                      </field>                  
+                    </object>  
+                  </value>
+                </collection>   
+              </field>  
+            </object>
+          </object-param>
+        </init-params>    
+      </component-plugin>      
+ </external-component-plugins>
+
+</configuration>

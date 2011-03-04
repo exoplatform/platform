@@ -29,10 +29,13 @@
   
   <import profiles="friendly">war:/conf/acme-portal/wcm/content-configuration.xml</import>
   <import>war:/conf/acme-portal/dms/nodetypes-templates-configuration.xml</import>
+  <import>war:/conf/acme-portal/dms/dms-scripts-configuration.xml</import>
+  <import>war:/conf/acme-portal/dms/dms-actions-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/system-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/application-templates-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/newsletter-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/deployment/acme-deployment-configuration.xml</import>
+  <import>war:/conf/acme-portal/wcm/deployment/template-deployment-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml</import>
   <import>war:/conf/acme-portal/wcm/taxonomy/events-taxonomies-configuration.xml</import>
 </configuration>

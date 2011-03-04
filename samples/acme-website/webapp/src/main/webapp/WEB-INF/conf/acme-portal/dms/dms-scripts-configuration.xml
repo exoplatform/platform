@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+   
+<component>
+	<key>org.exoplatform.services.cms.scripts.ScriptService</key>
+	<type>org.exoplatform.services.cms.scripts.impl.ScriptServiceImpl</type>
+</component>
+    
+   <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.scripts.ScriptService</target-component>
+    	<component-plugin>
+        <name>manage.script.plugin</name>
+        <set-method>addScriptPlugin</set-method>
+        <type>org.exoplatform.services.cms.scripts.impl.ScriptPlugin</type>
+        <description>Nothing</description>
+		    <init-params>
+				<value-param>
+					<name>autoCreateInNewRepository</name>
+					<value>true</value>
+				</value-param>	        
+				<value-param>
+					<name>repository</name>
+					<value>repository</value>
+				</value-param>
+				<value-param>
+					<name>predefinedScriptsLocation</name>
+					<value>war:/conf/acme-portal/dms/artifacts</value>
+				</value-param>
+				<object-param>
+					<name>predefined.scripts</name>
+					<description>description</description>
+					<object type="org.exoplatform.services.cms.impl.ResourceConfig">
+						<field  name="resources">
+							<collection type="java.util.ArrayList">
+								<!-- ecm-explorer/action -->		              
+								<value>
+									<object type="org.exoplatform.services.cms.impl.ResourceConfig$Resource">
+										<field  name="name"><string>ecm-explorer/action/PopulateToHomePageMenu.groovy</string></field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+		    </init-params>
+		</component-plugin>
+  </external-component-plugins>
+  
+</configuration>
