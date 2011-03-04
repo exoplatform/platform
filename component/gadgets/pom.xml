@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.component</artifactId>
+		<version>3.5.0-M2-SNAPSHOT</version>
+	</parent>
+	<groupId>org.exoplatform.platform</groupId>
+	<artifactId>exo.platform.component.gadgets</artifactId>
+	<packaging>jar</packaging>
+	<name>eXo Platform - Component Gadgets</name>
+	<description>Populate gadgets for user dashboard and GadgetRegistry</description>
+	<dependencies>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<version>${jcr.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ws</groupId>
+			<artifactId>exo.ws.rest.core</artifactId>
+			<version>${org.exoplatform.ws.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.container</artifactId>
+			<version>${org.exoplatform.kernel.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.core</groupId>
+			<artifactId>exo.core.component.organization.api</artifactId>
+			<version>${org.exoplatform.core.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.component.application-registry</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,93 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+	<component>
+		<type>org.exoplatform.platform.gadgets.services.PopulateGadgetRegisryService</type>
+		<init-params>
+			<value-param>
+				<name>gadgetsCategoryName</name>
+				<description>The gadgets category name</description>
+				<value>Gadgets</value>
+			</value-param>
+			<value-param>
+				<name>gadgetsCategoryAccessPermission </name>
+				<description>Access Permission Settings</description>
+				<value>*:/platform/users</value><!-- could be manager:/platform/web-contributors,member:/developers -->
+			</value-param>
+			<object-param>
+				<name>populateGadget1</name>
+				<description>The service will populate this gadget for all users</description>
+				<object type="org.exoplatform.application.gadget.Gadget">
+					<field name="name">
+						<string>CNN</string>
+					</field>
+					<field name="url">
+						<string>http://www.gstatic.com/ig/modules/third_party/cnn/cnn.xml</string>
+					</field>
+					<field name="title">
+						<string>CNN.com</string>
+					</field>
+					<field name="description">
+						<string>CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.</string>
+					</field>
+					<field name="referenceUrl">
+						<string>http://cnn.com/</string>
+					</field>
+					<field name="isLocal">
+						<boolean>false</boolean>
+					</field>
+				</object>
+			</object-param>
+			<object-param>
+				<name>populateGadget2</name>
+				<description>The service will populate this gadget for all users</description>
+				<object type="org.exoplatform.application.gadget.Gadget">
+					<field name="name">
+						<string>Google News</string>
+					</field>
+					<field name="url">
+						<string>http://www.google.com/ig/modules/tabnews.xml</string>
+					</field>
+					<field name="title">
+						<string>Google News</string>
+					</field>
+					<field name="description">
+						<string>Customizable news gadget that shows different news sections in separate tabs.</string>
+					</field>
+					<field name="referenceUrl">
+						<string>http://news.google.com/</string>
+					</field>
+					<field name="isLocal">
+						<boolean>false</boolean>
+					</field>
+				</object>
+			</object-param>
+			<object-param>
+				<name>populateGadget3</name>
+				<description>The service will populate this gadget for all users</description>
+				<object type="org.exoplatform.application.gadget.Gadget">
+					<field name="name">
+						<string>Google Translate</string>
+					</field>
+					<field name="url">
+						<string>http://www.google.com/ig/modules/dictionary.xml</string>
+					</field>
+					<field name="title">
+						<string>Google Translate</string>
+					</field>
+					<field name="description">
+						<string>Google Translation gadget can translate between common languages in the world.</string>
+					</field>
+					<field name="referenceUrl">
+						<string>http://translate.google.com/</string>
+					</field>
+					<field name="isLocal">
+						<boolean>false</boolean>
+					</field>
+				</object>
+			</object-param>
+		</init-params>
+	</component>
+
+</configuration>
