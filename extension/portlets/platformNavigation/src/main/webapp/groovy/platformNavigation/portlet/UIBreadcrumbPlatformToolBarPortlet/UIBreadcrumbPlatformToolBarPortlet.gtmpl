@@ -1,0 +1,149 @@
+<%
+  import org.exoplatform.portal.config.model.PageNavigation;
+  import org.exoplatform.portal.config.model.PageNode;
+  import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.webui.organization.OrganizationUtils;
+  
+  import org.exoplatform.portal.config.DataStorage;
+  import org.exoplatform.portal.config.model.PortalConfig;
+
+  def rcontext = _ctx.getRequestContext();
+  def portalURI = Util.getPortalRequestContext().getPortalURI();
+  def homeUrl = uicomponent.getBaseURI() + "/" + uicomponent.getAccessMode() + "/" + uicomponent.getHomeURI();
+  String ownerType = Util.getUIPortal().getOwnerType();
+  String path = uicomponent.getOwnerURI();
+  String label = uicomponent.getOwnerLabel();
+  boolean isUserNavigation = false;
+
+%>
+<style>
+.UIBreadcrumbPortlet {
+	padding-bottom: 2px !important;
+	padding: 0 15px;
+	background: none;//#20263f;
+    color: black;//#9f9e9e;
+}
+.UIBreadcrumbPortlet a{
+    color: #0000CC;//#ffcb05;
+    cursor: pointer;
+    text-decoration: underline;
+    /*vertical-align: bottom;*/
+}
+</style>
+<div id="$uicomponent.id">
+	<div class="UIBreadcrumbPortlet">
+		<!-- Home &nbsp;&nbsp;&nbsp;&nbsp;-->
+		<a href="<%=homeUrl%>"><%=_ctx.appRes("UIBreadcrumbPlatformToolBarPortlet.label.home")%></a>
+	<%
+		
+		if (PortalConfig.USER_TYPE.equals(ownerType)) {
+			isUserNavigation = true;
+		}
+		
+		//<!-- Owner -->
+		if(!isUserNavigation){
+			%>
+			&nbsp;>&nbsp;<a href="<%=portalURI + path%>"><%=label%></a>
+			<%
+		}else{
+		%>
+		&nbsp;>&nbsp;<%=label%>
+		<%
+		}
+
+		//<!-- Path > To > Page -->
+		String[] navigationPath = Util.getPortalRequestContext().getNodePath().split("/");
+		if(navigationPath.length > 2){
+			//e.g node path = /node1/node2/node3
+			PageNode tmpPageNode = null;
+			ArrayList<PageNode> pageNavigationNodes_ = uicomponent.getSelectedNavigationNodes();
+			//render first node
+			for(PageNode pn : pageNavigationNodes_){
+				if(navigationPath[1].equals(pn.getName())){
+					//gets the first PageNode "node1"
+					tmpPageNode = pn;
+					if(pn.getPageReference() != null){
+						renderPathToPage(pn);
+					}else{
+						%>
+						&nbsp;>&nbsp;<%=pn.getName()%>
+						<%
+					}
+				break;
+				}
+			  }
+			  //render nodes
+			  if(tmpPageNode != null){
+			  for(int i = 2; i < navigationPath.length - 1; i++){
+				  //browse children of "node1"
+				for(PageNode p : tmpPageNode.getNodes()){
+					if(navigationPath[i].equals(p.getName())){
+						// see if a navigation node have a page node
+						if(p.getPageReference() != null){
+							renderPathToPage(p);
+						}else{
+							%>
+							&nbsp;>&nbsp;<%=p.getName()%>
+							<%
+						}
+					tmpPageNode = p;
+					break;
+					}
+				}
+			  }
+		  }
+			  //render last node
+			  if(tmpPageNode != null){
+			  for(PageNode p : tmpPageNode.getNodes()){
+					if(navigationPath[navigationPath.length - 1].equals(p.getName())){
+						// see if a navigation node have a page node
+						if(p.getPageReference() != null){
+							renderSelectedPageNode(p);
+						}else{
+							%>
+							&nbsp;>&nbsp;<%=p.getName()%>
+							<%
+						}
+					tmpPageNode = p;
+					break;
+					}
+				}
+			}
+		}else{
+			PageNode pageNode = uicomponent.getSelectedPageNode();
+			renderSelectedPageNode(pageNode);
+		}
+		
+		void renderPathToPage(PageNode pageNode_) {
+			def portalURI = Util.getPortalRequestContext().getPortalURI();
+			if(pageNode_.getLabel() != null && pageNode_.getLabel().indexOf("{") > 0){
+				//label is of type #{a.b.c}
+				def pageNodeLabel = pageNode_.getLabel().substring(pageNode_.getLabel().indexOf("{") + 1, pageNode_.getLabel().indexOf("}"));
+				%>
+				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getUri()%>"><%=_ctx.appRes(pageNodeLabel)%></a>
+				<%
+			}else{
+				%>
+				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getUri()%>"><%=pageNode_.getName();%></a>
+				<%
+			}
+		}
+		
+		void renderSelectedPageNode(PageNode pageNode_) {
+			def portalURI = Util.getPortalRequestContext().getPortalURI();
+			if(pageNode_.getLabel() != null && pageNode_.getLabel().indexOf("{") > 0){
+				//label is of type #{a.b.c}
+				def selectedPageNodeLabel = pageNode_.getLabel().substring(pageNode_.getLabel().indexOf("{") + 1, pageNode_.getLabel().indexOf("}"));
+				%>
+				&nbsp;>&nbsp;<%=_ctx.appRes(selectedPageNodeLabel)%>
+				<%
+			}else{
+				%>
+				&nbsp;>&nbsp;<%=pageNode_.getName();%>
+				<%
+			}
+		}
+
+%>
+	</div>
+</div>

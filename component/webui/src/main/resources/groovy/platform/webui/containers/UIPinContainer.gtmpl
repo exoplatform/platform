@@ -24,7 +24,8 @@
 
 		<%if(uicomponent.isPinned()) {%>
 		toolbarContainerElement.style.position = "fixed";
-		platformAdminToolbarContainerElement.style.paddingBottom = "31px";
+		/*PLF-966 change "31px" to "48px";*/
+		platformAdminToolbarContainerElement.style.paddingBottom = "48px";
 		<%} else {%>
 		platformAdminToolbarContainerElement.style.paddingBottom = "";
 		toolbarContainerElement.style.position = "relative";
