@@ -35,4 +35,51 @@
       <scope>runtime</scope>
     </dependency>
   </dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<!-- defines the needed properties -->
+								<property name="platform.version" value="${project.version}" />
+								<tstamp>
+									<format property="platform.buildtime" pattern="yyyyMMdd" />
+								</tstamp>
+								<property name="platform.buildtime" value="${maven.build.timestamp}" />
+								<loadfile property="platform.revision" srcFile="../../.svn/entries"><!-- should point to the project main POM-->
+									<filterchain>
+									<headfilter lines="1" skip="3"/>
+									<deletecharacters chars="\n"/>
+									</filterchain>
+								</loadfile>			
+								<property name="packagePath" value="src/main/java/org/exoplatform/commons/platform/info/impl"/>
+								<property name="packageName" value="org.exoplatform.commons.platform.info.impl"/>
+								<property name="importStatement" value="org.exoplatform.commons.platform.info.PlatformInfo"/>
+								<property name="className" value="PlatformInfoImpl"/>
+								<property name="fileName" value="${className}.java"/>
+								<!-- generates the class -->
+								<echo file="${basedir}/${packagePath}/${fileName}" message="package ${packageName};${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message="import ${importStatement};${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message="public final class ${className} implements PlatformInfo {${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message=" public String getVersion() { return &quot;${platform.version}&quot; ;}${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message=" public String getBuildNumber() { return &quot;${platform.buildtime}&quot; ;}${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message=" public String getRevision() { return &quot;${platform.revision}&quot; ;}${line.separator}" />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message="}${line.separator}" />
+							</target>
+						</configuration>
+						<goals>
+						  <goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

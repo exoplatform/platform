@@ -2,6 +2,13 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 	
+	<component>
+		<key>org.exoplatform.commons.platform.info.PlatformInfo</key>
+		<type>org.exoplatform.commons.platform.info.impl.PlatformInfoImpl</type>
+	</component>
+	<component>
+		<type>org.exoplatform.commons.platform.services.rest.PlatformInformationRESTService</type>
+	</component>
 	<!-- Defines the builtin Modules -->
 	<component>
 		<type>org.exoplatform.commons.platform.modules.ModuleRegistry</type>
