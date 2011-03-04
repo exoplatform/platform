@@ -174,7 +174,7 @@ To successfully export your current organization model data, please follow these
 The organizational model data is now exported in a zip file that contains an organization model data as a set on XML files.
 
 {info:title=Structure of the generated zip file}
-* configuration.xml : main entry of the externalized configuration, to be used for your PortalContainer.
+* org.exoplatform.services.organization.OrganizationService.xml : main entry of the externalized configuration, to be used for your PortalContainer.
 * a sub-folder "OrganizationDataModel" which contains a configuration file for groups , membership types and a configuration file for users (set of files, each file have a number of users and memberships declarations)
 * a sub-folder "profiles" which contains a configuration file per user's profile
 * a sub-folder "users" which contains a configuration file per user serialization
@@ -221,7 +221,7 @@ by the PicketLinkIDM implementation
 * If you have defined *org.exoplatform.services.cms.drives.impl.NewGroupListener* as component-plugin for this Service, please make sure to change the parameter "allowCreateFolder" defined in init-params (see details [here|PLF:Migration Guide] paragraph *ECM drives*):
 ** open the file configuration.xml
 ** find the value-param *allowCreateFolder* for components of type *org.exoplatform.services.cms.drives.impl.NewGroupListener*
-** edit the value *Both* to *nt:folder,nt:unstructured*
+** change the value *Both* to *nt:folder,nt:unstructured
 ** add the value-param *allowNodeTypesOnTree* (allowNodeTypesOnTree field declaration is mandatory: added in Platform)
 || AIO || PLF ||
 | {code:xml}
