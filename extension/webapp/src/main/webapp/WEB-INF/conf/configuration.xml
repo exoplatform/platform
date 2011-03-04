@@ -16,6 +16,8 @@
   
   <!-- Add Favicon filter-->
   <import>war:/conf/platform/portal/web-filter-configuration.xml</import>
+  <!-- Configure User Dashboard  -->
+  <import>war:/conf/platform/portal/users-dashboard-configuration.xml</import>
 
   <!-- Redefine TransactionService timeout-->
   <import>war:/conf/platform/common/common-configuration.xml</import>
