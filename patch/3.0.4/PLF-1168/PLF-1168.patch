@@ -1,0 +1,14 @@
+Index: migration/aio/src/main/java/org/exoplatform/platform/migration/aio/backup/exporter/SystemWorkspaceStreamExporter.java
+===================================================================
+--- migration/aio/src/main/java/org/exoplatform/platform/migration/aio/backup/exporter/SystemWorkspaceStreamExporter.java	(revision 66979)
++++ migration/aio/src/main/java/org/exoplatform/platform/migration/aio/backup/exporter/SystemWorkspaceStreamExporter.java	(working copy)
+@@ -32,9 +32,6 @@
+       if (currentLevel == 2 && !getExportName(node, false).equals("jcr:versionStorage") && !getExportName(node, false).equals("exo:ecm")) {
+         return;
+       }
+-      if (currentLevel == 3 && !getExportName(node, false).equals("business processes")) {
+-        return;
+-      }
+       entering(node, currentLevel);
+       if ((maxLevel == -1) || (currentLevel < maxLevel)) {
+         currentLevel++;

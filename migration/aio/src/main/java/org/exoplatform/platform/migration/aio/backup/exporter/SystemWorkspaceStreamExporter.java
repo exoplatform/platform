@@ -32,9 +32,6 @@ public class SystemWorkspaceStreamExporter extends WorkspaceSystemViewStreamExpo
       if (currentLevel == 2 && !getExportName(node, false).equals("jcr:versionStorage") && !getExportName(node, false).equals("exo:ecm")) {
         return;
       }
-      if (currentLevel == 3 && !getExportName(node, false).equals("business processes")) {
-        return;
-      }
       entering(node, currentLevel);
       if ((maxLevel == -1) || (currentLevel < maxLevel)) {
         currentLevel++;
