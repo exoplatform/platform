@@ -1,0 +1,12 @@
+Index: extension/webapp/src/main/webapp/WEB-INF/conf/jcr/jcr-configuration.xml
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/conf/jcr/jcr-configuration.xml	(revision 66750)
++++ extension/webapp/src/main/webapp/WEB-INF/conf/jcr/jcr-configuration.xml	(working copy)
+@@ -103,6 +103,7 @@
+           <value>war:/conf/wsrp/producer-configuration-nodetypes.xml</value>
+           <value>war:/conf/wsrp/producer-registrations-nodetypes.xml</value>
+           <value>war:/conf/wsrp/producer-pc-nodetypes.xml</value>
++          <value>war:/conf/wsrp/migration-nodetypes.xml</value>
+  		    </values-param>
+  		  </init-params>
+  		</component-plugin>
