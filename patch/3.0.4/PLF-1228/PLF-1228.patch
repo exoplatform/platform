@@ -1,0 +1,52 @@
+Index: component/common/pom.xml
+===================================================================
+--- component/common/pom.xml	(revision 66091)
++++ component/common/pom.xml	(working copy)
+@@ -17,7 +17,7 @@
+     </dependency>
+     <dependency>
+       <groupId>org.exoplatform.portal</groupId>
+-      <artifactId>exo.portal.component.web</artifactId>
++      <artifactId>exo.portal.component.web.api</artifactId><!-- changed in 3.2 -->
+       <version>${org.exoplatform.portal.version}</version>
+       <scope>provided</scope>
+     </dependency>
+Index: extension/portlets/platformNavigation/pom.xml
+===================================================================
+--- extension/portlets/platformNavigation/pom.xml	(revision 66091)
++++ extension/portlets/platformNavigation/pom.xml	(working copy)
+@@ -12,7 +12,7 @@
+   <dependencies>
+     <dependency>
+       <groupId>org.exoplatform.portal</groupId>
+-      <artifactId>exo.portal.component.web</artifactId>
++      <artifactId>exo.portal.component.web.api</artifactId><!-- changed in 3.2 -->
+       <version>${org.exoplatform.portal.version}</version>
+       <scope>provided</scope>
+     </dependency>
+Index: packaging/pkg/pom.xml
+===================================================================
+--- packaging/pkg/pom.xml	(revision 66091)
++++ packaging/pkg/pom.xml	(working copy)
+@@ -900,7 +900,7 @@
+     
+     <dependency>
+       <groupId>org.exoplatform.portal</groupId>
+-      <artifactId>exo.portal.component.dashboard</artifactId>
++      <artifactId>exo.portal.webui.dashboard</artifactId><!-- changed in 3.2 -->
+       <version>${org.exoplatform.portal.version}</version>
+       <type>jar</type>
+     </dependency>
+Index: pom.xml
+===================================================================
+--- pom.xml	(revision 66091)
++++ pom.xml	(working copy)
+@@ -28,7 +28,7 @@
+     <org.exoplatform.ws.version>2.1.8-GA-SNAPSHOT</org.exoplatform.ws.version>
+     <org.exoplatform.jcr.version>1.12.8-GA-SNAPSHOT</org.exoplatform.jcr.version>
+     <org.exoplatform.jcr-services.version>1.12.8-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
+-    <org.exoplatform.portal.version>3.1.8-PLF-SNAPSHOT</org.exoplatform.portal.version>
++    <org.exoplatform.portal.version>3.1.8-REBASED-SNAPSHOT</org.exoplatform.portal.version>
+     <org.exoplatform.cs.version>2.1.4-SNAPSHOT</org.exoplatform.cs.version>
+     <org.exoplatform.ks.version>2.1.4-SNAPSHOT</org.exoplatform.ks.version>
+     <org.exoplatform.ecms.version>2.1.4-SNAPSHOT</org.exoplatform.ecms.version>
