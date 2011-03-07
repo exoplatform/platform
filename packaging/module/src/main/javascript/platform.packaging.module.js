@@ -51,6 +51,7 @@ function getModule(params)
    module.extension.webapp = 
       new Project("org.exoplatform.platform", "exo.platform.extension.webapp", "war", module.version).
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.webui", "jar", module.version)).
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.gadgets", "jar", module.version)).
       // xCMIS dependencies
       addDependency(new Project("org.xcmis", "xcmis-renditions", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-restatom", "jar", xcmisVersion)).

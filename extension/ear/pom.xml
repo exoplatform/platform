@@ -28,6 +28,11 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.gadgets</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.webapp</artifactId>
       <version>${project.version}</version>
       <type>war</type>
