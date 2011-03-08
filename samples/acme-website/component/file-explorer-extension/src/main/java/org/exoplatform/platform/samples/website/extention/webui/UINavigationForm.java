@@ -65,12 +65,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 	/** The Constant NAVIGATION_CONTROLS. */
 	public static final String NAVIGATION_CONTROLS = "NavigationControls";
 
-	/** The Constant IS_CLICKABLE_ENABLE. */
-	public static final String IS_CLICKABLE_ENABLE = "ClickableEnable";
-
-	/** The Constant IS_CLICKABLE_DISABLE. */
-	public static final String IS_CLICKABLE_DISABLE = "ClickableDisable";
-
 	/** The Constant IS_CLICKABLE. */
 	public static final String IS_CLICKABLE = "Clickable";
 
@@ -118,7 +112,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 	private String navigationNode_ = "";
 
 	/** The clickable value. */
-	private String clickable_ = IS_CLICKABLE_DISABLE;
+	private boolean isClickable = false;
 
 	/** The list targetPage value. */
 	private String listTargetPage_ = "";
@@ -178,9 +172,9 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 			if (currentNode.hasProperty("exo:clickable")) {
 				if (currentNode.getProperty("exo:clickable").getBoolean()) {
-					clickable_ = IS_CLICKABLE_ENABLE;
+				  isClickable = true;
 				} else
-					clickable_ = IS_CLICKABLE_DISABLE;
+				  isClickable = false;
 			}
 
 			if (currentNode.hasProperty("exo:page")) {
@@ -230,11 +224,8 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		uiFormIndexValueStringInput.addValidator(NumberFormatValidator.class);
 
 		/** clickable field */
-		List<SelectItemOption<String>> clickableOptions = new ArrayList<SelectItemOption<String>>();
-		clickableOptions.add(new SelectItemOption<String>(IS_CLICKABLE_ENABLE, IS_CLICKABLE_ENABLE));
-		clickableOptions.add(new SelectItemOption<String>(IS_CLICKABLE_DISABLE, IS_CLICKABLE_DISABLE));
-		UIFormRadioBoxInput uiFormClickableValueRadioBoxInput = new UIFormRadioBoxInput(IS_CLICKABLE, IS_CLICKABLE, clickableOptions);
-		uiFormClickableValueRadioBoxInput.setValue(clickable_);
+		UIFormCheckBoxInput<Boolean> uiFormClickableValueCheckBoxInput = new UIFormCheckBoxInput<Boolean>(IS_CLICKABLE, IS_CLICKABLE, false);
+		uiFormClickableValueCheckBoxInput.setChecked(isClickable);
 
 		/** TARGET PAGE */
 		UIFormStringInput uiFormTargetPageValueStringInput = new UIFormStringInput(LIST_TARGET_PAGE_STRING_INPUT, LIST_TARGET_PAGE_STRING_INPUT,
@@ -274,7 +265,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		addChild(uiFormVisibleValueCheckBoxInput);
 		addChild(navigationNodeInputSet);
 		addChild(uiFormIndexValueStringInput);
-		addChild(uiFormClickableValueRadioBoxInput);
+		addChild(uiFormClickableValueCheckBoxInput);
 		addChild(targetPageInputSet);
 		addChild(uiFormShowClvByValueStringInput);
 		addChild(detailTargetPageInputSet);
@@ -342,17 +333,17 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				// if navigation node is selected, default values of
 				// "index and clickable" are saved
 				long index = 1000;
-				String clickableValue = IS_CLICKABLE_ENABLE;
+				boolean isClickable = true;
 				String listTargetPage = uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).getValue();
 				String paramListTargetPage = uiNavigationForm.getUIStringInput(LIST_SHOW_CLV_BY_STRING_INPUT).getValue();
 
 				if (navigationNode.equals("")) {
 					index = Long.parseLong(uiNavigationForm.getUIStringInput(INDEX).getValue());
-					clickableValue = uiNavigationForm.<UIFormRadioBoxInput> getUIInput(IS_CLICKABLE).getValue();
+					isClickable = (Boolean)uiNavigationForm.<UIFormCheckBoxInput<Boolean>> getUIInput(IS_CLICKABLE).getValue();
 				}
 
 				node.setProperty("exo:index", index);
-				node.setProperty("exo:clickable", (clickableValue.equals(IS_CLICKABLE_ENABLE)));
+				node.setProperty("exo:clickable", isClickable);
 				node.setProperty("exo:page", listTargetPage);
 				node.setProperty("exo:pageParamId", paramListTargetPage);
 
@@ -537,10 +528,10 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 			uiNavigationForm.getUIStringInput(NAVIGATION_NODE_STRING_INPUT).setValue("");
 			// if NAVIGATION_NODE_STRING_INPUT is not selected other fields must
 			// be enabled
-			uiNavigationForm.getUIStringInput(INDEX).setEnable(true);
-			((UIFormRadioBoxInput) uiNavigationForm.getUIInput(IS_CLICKABLE)).setEnable(true);
-			uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).setEnable(true);
-			uiNavigationForm.getUIStringInput(DETAIL_SHOW_CLV_BY_STRING_INPUT).setEnable(true);
+//			uiNavigationForm.getUIStringInput(INDEX).setEnable(true);
+//			((UIFormCheckBoxInput) uiNavigationForm.getUIInput(IS_CLICKABLE)).setEnable(true);
+//			uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).setEnable(true);
+//			uiNavigationForm.getUIStringInput(DETAIL_SHOW_CLV_BY_STRING_INPUT).setEnable(true);
 			event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationForm);
 		}
 	}
@@ -578,8 +569,8 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 			/*
 			if (selectField == NAVIGATION_NODE_STRING_INPUT) {
 				getUIStringInput(INDEX).setEnable(false);
-				((UIFormRadioBoxInput) getUIInput(IS_CLICKABLE)).setValue(IS_CLICKABLE_DISABLE);
-				((UIFormRadioBoxInput) getUIInput(IS_CLICKABLE)).setEnable(false);
+				((UIFormCheckBoxInput) getUIInput(IS_CLICKABLE)).setChecked(false);
+				((UIFormCheckBoxInput) getUIInput(IS_CLICKABLE)).setEnable(false);
 				getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).setEnable(false);
 				getUIStringInput(DETAIL_SHOW_CLV_BY_STRING_INPUT).setEnable(false);
 			}
