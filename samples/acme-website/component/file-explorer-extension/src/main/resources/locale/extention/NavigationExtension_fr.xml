@@ -19,7 +19,7 @@
 		<label>
 			<Node>Dossier parent :</Node>
 			<Visible>Visible :</Visible>
-			<NavigationNodeInputSet>Noeud de navigation :</NavigationNodeInputSet>
+			<NavigationNodeInputSet>La navigation parent cible :</NavigationNodeInputSet>
 			<Index>Index</Index>
 			<Clickable>Clickable :</Clickable>
 			<NavigationControls>Paramètres de navigation</NavigationControls>

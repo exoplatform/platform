@@ -19,7 +19,7 @@
 		<label>
 			<Node>Parent's folder :</Node>
 			<Visible>Visible :</Visible>
-			<NavigationNodeInputSet>Navigation node :</NavigationNodeInputSet>
+			<NavigationNodeInputSet>Target parent navigation :</NavigationNodeInputSet>
 			<Index>Index</Index>
 			<Clickable>Clickable :</Clickable>
 			<NavigationControls>Navigation Controls</NavigationControls>
