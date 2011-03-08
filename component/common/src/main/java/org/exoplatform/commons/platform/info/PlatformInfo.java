@@ -18,24 +18,55 @@
  */
 package org.exoplatform.commons.platform.info;
 
+import java.io.IOException;
+import java.util.Properties;
+
 /**
  * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>
  * @version $Revision$
  */
-public interface PlatformInfo {
+public final class PlatformInfo {
+  private static final String filterPropertiesPath = "conf/portal/filter.properties";
 
   /**
-   * This method return the platform version read from the parent POM.
+   * @return an empty string if the properties file is not found, otherwise the platform.version property.
+   * This method return the platform version.
    */
-  public String getVersion();
+  public static String getVersion() {
+    Properties properties = new Properties();
+    try {
+      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      return properties.getProperty("platform.version");
+    } catch (IOException e) {
+      return "";
+    }
+  }
 
   /**
+   * @return an empty string if the properties file is not found, otherwise the platform.buildNumber property.
    * This method return the build number of the platform.
    */
-  public String getBuildNumber();
+  public static String getBuildNumber() {
+    Properties properties = new Properties();
+    try {
+      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      return properties.getProperty("platform.buildNumber");
+    } catch (IOException e) {
+      return "";
+    }
+  }
 
   /**
-   * This method return the current revison of the platform read from the svn directory from the parent POM.
+   * @return an empty string if the properties file is not found, otherwise the platform.revision property.
+   * This method return the current revison of the platform.
    */
-  public String getRevision();
+  public static String getRevision() {
+    Properties properties = new Properties();
+    try {
+      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      return properties.getProperty("platform.revision");
+    } catch (IOException e) {
+      return "";
+    }
+  }
 }

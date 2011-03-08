@@ -39,11 +39,9 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 public class PlatformInformationRESTService implements ResourceContainer {
 
   private Log logger = ExoLogger.getLogger(this.getClass());
-  private PlatformInfo platformInfo;
+//  private PlatformInfo platformInfo;
 
-  public PlatformInformationRESTService(PlatformInfo platformInfo) {
-    this.platformInfo = platformInfo;
-  }
+  public PlatformInformationRESTService() {}
 
   /**
    * This method return a JSON Object with the platform required informations.
@@ -56,13 +54,13 @@ public class PlatformInformationRESTService implements ResourceContainer {
     cacheControl.setNoStore(true);
     try {
       JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
-      jsonPlatformInfo.setPlatformVersion(platformInfo.getVersion());
-      jsonPlatformInfo.setPlatformBuildNumber(platformInfo.getBuildNumber());
-      jsonPlatformInfo.setPlatformRevision(platformInfo.getRevision());
+      jsonPlatformInfo.setPlatformVersion(PlatformInfo.getVersion());
+      jsonPlatformInfo.setPlatformBuildNumber(PlatformInfo.getBuildNumber());
+      jsonPlatformInfo.setPlatformRevision(PlatformInfo.getRevision());
 
       if (logger.isDebugEnabled()) {
-        logger.debug("Getting Platform Informations: eXo Platform (v" + platformInfo.getVersion() + " - build "
-            + platformInfo.getBuildNumber() + " - rev. " + platformInfo.getRevision());
+        logger.debug("Getting Platform Informations: eXo Platform (v" + PlatformInfo.getVersion() + " - build "
+            + PlatformInfo.getBuildNumber() + " - rev. " + PlatformInfo.getRevision());
       }
 
       return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
