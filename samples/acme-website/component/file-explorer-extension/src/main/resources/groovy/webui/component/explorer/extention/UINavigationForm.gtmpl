@@ -59,10 +59,6 @@
 						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
 						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.DETAIL_TARGET_PAGE_INPUT_SET) %></td>
 						</tr>
-						<tr>
-						  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DETAIL_SHOW_CLV_BY_STRING_INPUT) %></td>
-						  <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.DETAIL_SHOW_CLV_BY_STRING_INPUT) %></td>
-						</tr>
 					</table>
 				</td>
 			</tr>

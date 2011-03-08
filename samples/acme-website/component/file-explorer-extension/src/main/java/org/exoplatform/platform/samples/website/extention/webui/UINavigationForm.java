@@ -1,8 +1,5 @@
 package org.exoplatform.platform.samples.website.extention.webui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -19,13 +16,11 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupComponent;
 import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
-import org.exoplatform.webui.form.UIFormRadioBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 import org.exoplatform.webui.form.validator.NumberFormatValidator;
@@ -85,9 +80,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 	/** The Constant DETAIL_TARGET_PAGE_SELECTOR_POPUP_WINDOW. */
 	public final static String DETAIL_TARGET_PAGE_SELECTOR_POPUP_WINDOW = "DetailTargetPageSelectorPopupWindow";
-
-	/** The Constant DETAIL_SHOW_CLV_BY_STRING_INPUT. */
-	public static final String DETAIL_SHOW_CLV_BY_STRING_INPUT = "DetailShowCLVByStringInput";
 
 	/** The Constant LIST. */
 	public static final String LIST = "List";
@@ -248,10 +240,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		detailTargetPageInputSet.setActionInfo(DETAIL_TARGET_PAGE_STRING_INPUT, new String[] { "SelectDetailTargetPage", "RemoveDetailTargetPage" });
 		detailTargetPageInputSet.addUIFormInput(uiFormDetailTargetPageValueStringInput);
 
-		/** DETAIL_SHOW CLV BY */
-
-		UIFormStringInput uiFormDetailShowClvByValueStringInput = new UIFormStringInput(DETAIL_SHOW_CLV_BY_STRING_INPUT,
-				DETAIL_SHOW_CLV_BY_STRING_INPUT, detailShowClvBy_);
 		/*
 		if (!navigationNode_.equals("")) {
 			uiFormIndexValueStringInput.setEnable(false);
@@ -267,7 +255,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		addChild(uiFormClickableValueCheckBoxInput);
 		addChild(targetPageInputSet);
 		addChild(detailTargetPageInputSet);
-		addChild(uiFormDetailShowClvByValueStringInput);
 
 		setActions(new String[] { "Save", "Cancel" });
 
@@ -349,8 +336,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				String detailTargetPage = uiNavigationForm.getUIStringInput(DETAIL_TARGET_PAGE_STRING_INPUT).getValue();
 				node.setProperty("exo:childrenPage", detailTargetPage);
 
-				String detailParamName = uiNavigationForm.getUIStringInput(DETAIL_SHOW_CLV_BY_STRING_INPUT).getValue();
-				node.setProperty("exo:childrenPageParamId", detailParamName);
+				node.setProperty("exo:childrenPageParamId", "content-id");
 			} else {
 				if (hasNavigableMixinType) {
 					node.removeMixin("exo:navigable");
