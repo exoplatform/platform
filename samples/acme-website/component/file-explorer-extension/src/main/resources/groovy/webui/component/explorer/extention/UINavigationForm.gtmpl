@@ -20,10 +20,16 @@
               <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
               <td class="FieldComponent" colspan="6"><% uiform.renderField(uicomponent.NAVIGATION_NODE_INPUT_SET) %></td>
             </tr>
-			<tr>
-              <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.INDEX) %></td>
-              <td class="FieldComponent" colspan="3"><% uiform.renderField(uicomponent.INDEX) %></td>
-            </tr>
+			<%
+			if(uicomponent.getChildById(uicomponent.INDEX) != null){
+			%>
+				<tr>
+				  <td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.INDEX) %></td>
+				  <td class="FieldComponent" colspan="3"><% uiform.renderField(uicomponent.INDEX) %></td>
+				</tr>
+			<%
+			}
+			%>
           </table>
 	  </div>
 	  <div class="FormContainer">

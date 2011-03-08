@@ -101,7 +101,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 	/** The popup id. */
 	private String popupId;
 
-	String nameValue_ = null;
+	private String nameValue_;
 
 	private boolean isVisible = false;
 
@@ -128,6 +128,8 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 	/** The currentNode value. */
 	private Node currentNode;
+	
+	private boolean renderIndexField;
 
 	public UINavigationForm() throws Exception {
 	}
@@ -162,9 +164,12 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		boolean hasNavigableMixinType = currentNode.isNodeType("exo:navigable");
 		if (hasNavigableMixinType) {
 		  isVisible = true;
-			if (currentNode.hasProperty("exo:index")) {
-				index_ = currentNode.getProperty("exo:index").getLong();
-			}
+		  if(currentNode.getParent().isNodeType("exo:navigable")){
+		    if (currentNode.hasProperty("exo:index")) {
+		      index_ = currentNode.getProperty("exo:index").getLong();
+		      }
+		    renderIndexField = true;
+		    }
 
 			if (currentNode.hasProperty("exo:navigationNode")) {
 				navigationNode_ = currentNode.getProperty("exo:navigationNode").getString();
@@ -264,7 +269,9 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		addChild(uiFormNameValueStringInput);
 		addChild(uiFormVisibleValueCheckBoxInput);
 		addChild(navigationNodeInputSet);
-		addChild(uiFormIndexValueStringInput);
+		if (renderIndexField){
+		  addChild(uiFormIndexValueStringInput);
+		  }
 		addChild(uiFormClickableValueCheckBoxInput);
 		addChild(targetPageInputSet);
 		addChild(uiFormShowClvByValueStringInput);
@@ -338,7 +345,9 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				String paramListTargetPage = uiNavigationForm.getUIStringInput(LIST_SHOW_CLV_BY_STRING_INPUT).getValue();
 
 				if (navigationNode.equals("")) {
-					index = Long.parseLong(uiNavigationForm.getUIStringInput(INDEX).getValue());
+				  if(uiNavigationForm.getUIStringInput(INDEX) != null){
+				    index = Long.parseLong(uiNavigationForm.getUIStringInput(INDEX).getValue());
+				    }
 					isClickable = (Boolean)uiNavigationForm.<UIFormCheckBoxInput<Boolean>> getUIInput(IS_CLICKABLE).getValue();
 				}
 

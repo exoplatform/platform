@@ -20,7 +20,7 @@
 			<Node>Parent's folder :</Node>
 			<Visible>Visible :</Visible>
 			<NavigationNodeInputSet>Target parent navigation :</NavigationNodeInputSet>
-			<Index>Index</Index>
+			<Index>Display order :</Index>
 			<Clickable>Clickable :</Clickable>
 			<NavigationControls>Navigation Controls</NavigationControls>
 			<ListTargetPageFormInputSet>Page for list :</ListTargetPageFormInputSet>

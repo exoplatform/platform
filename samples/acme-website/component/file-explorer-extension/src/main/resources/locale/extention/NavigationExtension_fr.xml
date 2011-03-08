@@ -20,7 +20,7 @@
 			<Node>Dossier parent :</Node>
 			<Visible>Visible :</Visible>
 			<NavigationNodeInputSet>La navigation parent cible :</NavigationNodeInputSet>
-			<Index>Index</Index>
+			<Index>Ordre d'affichage :</Index>
 			<Clickable>Clickable :</Clickable>
 			<NavigationControls>Paramètres de navigation</NavigationControls>
 			<ListTargetPageFormInputSet>Page pour les listes :</ListTargetPageFormInputSet>
