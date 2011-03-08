@@ -24,6 +24,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormRadioBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
@@ -48,12 +49,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 	/** The Constant IS_VISIBLE. */
 	public static final String IS_VISIBLE = "Visible";
-
-	/** The Constant IS_VISIBLE_ENABLE. */
-	public static final String IS_VISIBLE_ENABLE = "VisibleEnable";
-
-	/** The Constant IS_VISIBLE_DISABLE. */
-	public static final String IS_VISIBLE_DISABLE = "VisibleDisable";
 
 	/** The Constant NAVIGATION_NODE_STRING_INPUT. */
 	public static final String NAVIGATION_NODE_STRING_INPUT = "NavigationNode";
@@ -114,7 +109,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 	String nameValue_ = null;
 
-	private String visibleValue_ = IS_VISIBLE_DISABLE;
+	private boolean isVisible = false;
 
 	/** The index value. */
 	private long index_ = 1000;
@@ -172,7 +167,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 
 		boolean hasNavigableMixinType = currentNode.isNodeType("exo:navigable");
 		if (hasNavigableMixinType) {
-			visibleValue_ = IS_VISIBLE_ENABLE;
+		  isVisible = true;
 			if (currentNode.hasProperty("exo:index")) {
 				index_ = currentNode.getProperty("exo:index").getLong();
 			}
@@ -218,11 +213,8 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		uiFormNameValueStringInput.setEditable(false);
 
 		/** visible field */
-		List<SelectItemOption<String>> visibleOptions = new ArrayList<SelectItemOption<String>>();
-		visibleOptions.add(new SelectItemOption<String>(IS_VISIBLE_ENABLE, IS_VISIBLE_ENABLE));
-		visibleOptions.add(new SelectItemOption<String>(IS_VISIBLE_DISABLE, IS_VISIBLE_DISABLE));
-		UIFormRadioBoxInput uiFormVisibleValueRadioBoxInput = new UIFormRadioBoxInput(IS_VISIBLE, IS_VISIBLE, visibleOptions);
-		uiFormVisibleValueRadioBoxInput.setValue(visibleValue_);
+		UIFormCheckBoxInput<Boolean> uiFormVisibleValueCheckBoxInput = new UIFormCheckBoxInput<Boolean>(IS_VISIBLE, IS_VISIBLE, false);
+		uiFormVisibleValueCheckBoxInput.setChecked(isVisible);
 
 		/** navigation node field */
 		UIFormStringInput uiFormNavigationNodeValueStringInput = new UIFormStringInput(NAVIGATION_NODE_STRING_INPUT, NAVIGATION_NODE_STRING_INPUT,
@@ -279,7 +271,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		}
 		*/
 		addChild(uiFormNameValueStringInput);
-		addChild(uiFormVisibleValueRadioBoxInput);
+		addChild(uiFormVisibleValueCheckBoxInput);
 		addChild(navigationNodeInputSet);
 		addChild(uiFormIndexValueStringInput);
 		addChild(uiFormClickableValueRadioBoxInput);
@@ -329,10 +321,10 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 			}
 
 			
-			String visibleValue = uiNavigationForm.<UIFormRadioBoxInput> getUIInput(IS_VISIBLE).getValue();
+			boolean isVisible = (Boolean) uiNavigationForm.<UIFormCheckBoxInput<Boolean>> getUIInput(IS_VISIBLE).getValue();
 			
 			boolean hasNavigableMixinType = node.isNodeType("exo:navigable");
-			if (IS_VISIBLE_ENABLE.equals(visibleValue)) {
+			if (isVisible) {
 				if (!hasNavigableMixinType) {
 					if (node.canAddMixin("exo:navigable")) {
 						node.addMixin("exo:navigable");
@@ -376,7 +368,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 			}
 			node.save();
 			
-			propagateVisibility(node, IS_VISIBLE_ENABLE.equals(visibleValue));
+			propagateVisibility(node, isVisible);
 			
 			node.getSession().save();
 
