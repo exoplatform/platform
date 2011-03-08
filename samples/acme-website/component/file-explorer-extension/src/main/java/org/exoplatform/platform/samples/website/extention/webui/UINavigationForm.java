@@ -77,9 +77,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 	/** The Constant LIST_TARGET_PAGE_SELECTOR_POPUP_WINDOW. */
 	public final static String LIST_TARGET_PAGE_SELECTOR_POPUP_WINDOW = "ListTargetPageSelectorPopupWindow";
 
-	/** The Constant LIST_SHOW_CLV_BY_STRING_INPUT. */
-	public static final String LIST_SHOW_CLV_BY_STRING_INPUT = "ListShowCLVByStringInput";
-
 	/** The Constant DETAIL_TARGET_PAGE_STRING_INPUT. */
 	public final static String DETAIL_TARGET_PAGE_STRING_INPUT = "DetailTargetPageStringInput";
 
@@ -242,11 +239,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		targetPageInputSet.setActionInfo(LIST_TARGET_PAGE_STRING_INPUT, new String[] { "SelectListTargetPage", "RemoveListTargetPage" });
 		targetPageInputSet.addUIFormInput(uiFormTargetPageValueStringInput);
 
-		/** SHOW CLV BY */
-
-		UIFormStringInput uiFormShowClvByValueStringInput = new UIFormStringInput(LIST_SHOW_CLV_BY_STRING_INPUT, LIST_SHOW_CLV_BY_STRING_INPUT,
-				listShowClvBy_);
-
 		/** DETAIL_TARGET PAGE */
 
 		UIFormStringInput uiFormDetailTargetPageValueStringInput = new UIFormStringInput(DETAIL_TARGET_PAGE_STRING_INPUT,
@@ -274,7 +266,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 		  }
 		addChild(uiFormClickableValueCheckBoxInput);
 		addChild(targetPageInputSet);
-		addChild(uiFormShowClvByValueStringInput);
 		addChild(detailTargetPageInputSet);
 		addChild(uiFormDetailShowClvByValueStringInput);
 
@@ -342,7 +333,6 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				long index = 1000;
 				boolean isClickable = true;
 				String listTargetPage = uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).getValue();
-				String paramListTargetPage = uiNavigationForm.getUIStringInput(LIST_SHOW_CLV_BY_STRING_INPUT).getValue();
 
 				if (navigationNode.equals("")) {
 				  if(uiNavigationForm.getUIStringInput(INDEX) != null){
@@ -354,7 +344,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				node.setProperty("exo:index", index);
 				node.setProperty("exo:clickable", isClickable);
 				node.setProperty("exo:page", listTargetPage);
-				node.setProperty("exo:pageParamId", paramListTargetPage);
+				node.setProperty("exo:pageParamId", "folder-id");
 
 				String detailTargetPage = uiNavigationForm.getUIStringInput(DETAIL_TARGET_PAGE_STRING_INPUT).getValue();
 				node.setProperty("exo:childrenPage", detailTargetPage);
