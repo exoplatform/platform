@@ -42,7 +42,7 @@
                       </field>
                       <field  name="roles"><string>*:/platform/administrators</string></field>
 					  <field  name="variables">
-                        <string>exo:navigationNode=news;exo:index=1000;exo:clickable=false;exo:page=catalog;exo:childrenPage=detail</string>
+                        <string>exo:navigationNode=products;exo:index=1000;exo:clickable=false;exo:page=catalog;exo:childrenPage=detail</string>
                       </field>
                       <field  name="mixins">
                         <collection type="java.util.ArrayList">
