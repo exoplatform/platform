@@ -37,10 +37,6 @@
   </dependencies>
   <properties>
   <timestamp>${maven.build.timestamp}</timestamp>
-  	<!--maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format-->
-	<!--platform.version>${project.version}</platform.version>
-	<platform.buildNumber>${maven.build.timestamp}</platform.buildNumber>
-	<platform.revision>${buildNumber}</platform.revision-->
   </properties>
 	<build>
 	<plugins>
@@ -59,25 +55,6 @@
 				<timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
 			</configuration>	
 		</plugin>
-		<!--plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<version>2.3.1</version>
-			<configuration>
-				<useDefaultManifestFile>true</useDefaultManifestFile>
-				<timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
-				<archive>
-					<manifest>
-						<addClasspath>true</addClasspath>
-					</manifest>
-					<manifestEntries>
-						<platform.version>${project.version}</platform.version>
-						<platform.buildNumber>${maven.build.timestamp}</platform.buildNumber>
-						<platform.revision>${buildNumber}</platform.revision>
-					</manifestEntries>
-			</archive>
-        </configuration>
-      </plugin-->
 	</plugins>
 	<resources>
 		<resource>
