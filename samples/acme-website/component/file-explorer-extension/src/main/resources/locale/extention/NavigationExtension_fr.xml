@@ -17,7 +17,7 @@
 	</UIPopupWindow>
 	<UINavigationForm>
 		<label>
-			<Node>Catégorie :</Node>
+			<Node>Dossier parent :</Node>
 			<Visible>Visible :</Visible>
 			<NavigationNodeInputSet>Noeud de navigation :</NavigationNodeInputSet>
 			<Index>Index</Index>
