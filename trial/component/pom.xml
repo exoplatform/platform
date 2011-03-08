@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.parent</artifactId>
+		<version>3.5.0-M2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.platform.trial.service</artifactId>
+	<packaging>jar</packaging>
+	<name>eXo Trial Services</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.exoplatform.kernel</groupId>
+			<artifactId>exo.kernel.container</artifactId>
+			<version>${org.exoplatform.kernel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.platform</groupId>
+			<artifactId>exo.platform.component.common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.core</groupId>
+			<artifactId>exo.core.component.document</artifactId>
+			<version>${org.exoplatform.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.component.web.api</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+		</dependency>
+	</dependencies>
+</project>

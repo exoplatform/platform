@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.parent</artifactId>
+    <version>3.5.0-M2-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.trial</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Lead Capture Config</name>
+  <modules>
+    <module>component</module>
+    <module>webapp</module>
+  </modules>
+</project>

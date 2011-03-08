@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<component>
+		<type>org.exoplatform.trial.TrialService</type>
+		<init-params>
+			<value-param>
+				<name>delayPeriod</name>
+				<value>30</value>
+			</value-param>
+			<value-param>
+				<name>KeyContent</name>
+				<value>Platform 3.0.0-GA - 30 days Trial</value>
+			</value-param>
+			<value-param>
+				<name>registrationFormUrl</name>
+				<value>http://www.exoplatform.com/company/public/website/services/buy-now</value>
+			</value-param>
+		</init-params>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+		<component-plugin>
+			<name>Trial Filter</name>
+			<set-method>addFilterDefinitions</set-method>
+			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Trial Filter</name>
+					<object type="org.exoplatform.web.filter.FilterDefinition">
+						<field name="filter">
+							<object type="org.exoplatform.trial.TrialFilter"/>
+						</field>
+						<field name="patterns">
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value>
+									<string>.*</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
