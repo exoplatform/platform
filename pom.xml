@@ -69,7 +69,7 @@
     <org.jsecurity.version>0.9.0</org.jsecurity.version>
     <xml-apis.version>1.3.04</xml-apis.version>
     <org.chromattic.version>1.0.4</org.chromattic.version>
-    <org.gatein.pc.version>2.1.1-GA</org.gatein.pc.version>
+    <org.gatein.pc.version>2.2.0-GA</org.gatein.pc.version>
     <org.gatein.common.version>2.0.3-GA</org.gatein.common.version>
     <org.gatein.wci.version>2.0.2-GA</org.gatein.wci.version>
     <org.jboss.version>2.2.9.GA</org.jboss.version>

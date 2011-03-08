@@ -1149,7 +1149,6 @@
       <version>${org.gatein.pc.version}</version>
       <type>jar</type>
     </dependency>
-    <!-- 2.1.1-GA-->
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-deprecated-portlet-browsecontent</artifactId>
