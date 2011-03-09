@@ -9,7 +9,7 @@
 		}
 %>
 <div id="PlatformAdminToolbarContainer">
-	<div id="UIToolbarContainer">
+	<div id="UIToolbarContainer" class="UIWorkingWorkspace">
 	<%
 		uicomponent.renderChild(UIPinContainer.class);
 		List<UIComponent> components = uicomponent.getChildren();

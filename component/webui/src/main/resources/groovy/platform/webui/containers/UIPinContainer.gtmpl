@@ -30,8 +30,5 @@
 		platformAdminToolbarContainerElement.style.paddingBottom = "";
 		toolbarContainerElement.style.position = "relative";
 		<%}%>
-		
-		var workingWorkspaceElement = document.getElementById("UIWorkingWorkspace");
-		toolbarContainerElement.style.width = workingWorkspaceElement.offsetWidth+"px";
 	</script>
 </div>
