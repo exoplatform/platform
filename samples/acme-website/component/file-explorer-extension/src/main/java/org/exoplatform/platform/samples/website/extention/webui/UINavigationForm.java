@@ -318,7 +318,7 @@ public class UINavigationForm extends UIForm implements UIPopupComponent, UISele
 				// if navigation node is selected, default values of
 				// "index and clickable" are saved
 				long index = 1000;
-				boolean isClickable = true;
+				boolean isClickable = false;
 				String listTargetPage = uiNavigationForm.getUIStringInput(LIST_TARGET_PAGE_STRING_INPUT).getValue();
 
 				if (navigationNode.equals("")) {
