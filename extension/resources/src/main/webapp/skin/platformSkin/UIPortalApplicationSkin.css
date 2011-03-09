@@ -21,6 +21,7 @@
 @import url(UIToolbarContainer/Stylesheet.css);
 @import url(UITabPaneDashboard/Stylesheet.css);
 @import url(UICLVFolderMode/Stylesheet.css);
+@import url(UIBreadcrumb/Stylesheet.css);
 
 
 *, div, table, th, tr, td, img, form {

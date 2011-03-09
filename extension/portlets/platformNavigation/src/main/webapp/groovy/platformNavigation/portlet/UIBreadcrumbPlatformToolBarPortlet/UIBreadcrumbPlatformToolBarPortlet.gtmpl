@@ -16,20 +16,7 @@
   boolean isUserNavigation = false;
 
 %>
-<style>
-.UIBreadcrumbPortlet {
-	padding-bottom: 2px !important;
-	padding: 0 15px;
-	background: white;//#20263f;
-    color: black;//#9f9e9e;
-}
-.UIBreadcrumbPortlet a{
-    color: #0000CC;//#ffcb05;
-    cursor: pointer;
-    text-decoration: underline;
-    /*vertical-align: bottom;*/
-}
-</style>
+
 <div id="$uicomponent.id">
 	<div class="UIBreadcrumbPortlet">
 		<!-- Home &nbsp;&nbsp;&nbsp;&nbsp;-->
