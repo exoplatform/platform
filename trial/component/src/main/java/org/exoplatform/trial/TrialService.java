@@ -28,8 +28,8 @@ public class TrialService implements Startable {
   public static Calendar remindDate;
   private ScheduledExecutorService executor;
 
-  public TrialService(PlatformInfo platformInfo, InitParams params) {
-    Utils.productNameAndVersion = PRODUCT_NAME + " " + platformInfo.getVersion();
+  public TrialService(InitParams params) {
+    Utils.productNameAndVersion = PRODUCT_NAME + " " + PlatformInfo.getVersion();
     Utils.registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
     Utils.KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
     String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
