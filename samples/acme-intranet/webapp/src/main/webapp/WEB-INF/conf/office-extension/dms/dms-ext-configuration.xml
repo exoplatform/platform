@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
+		<component-plugin>
+			<name>Delete Node Action</name>
+			<set-method>registerUIExtensionPlugin</set-method>
+			<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>DeleteNode</name>
+					<object type="org.exoplatform.webui.ext.UIExtension">
+						<field name="type">
+							<string>org.exoplatform.ecm.dms.UIActionBar</string>
+						</field>
+						<field name="name">
+							<string>DeleteNode</string>
+						</field>
+						<field name="component">
+							<string>org.exoplatform.platform.webui.extension.DeleteNodeComponent</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

@@ -99,3 +99,6 @@ a {
 .UIWorkingWorkspace .UIPresentationContainer a:hover {
 	text-decoration: none;
 }
+.DeleteNodeIcon {
+    background: url("/ecmexplorer/skin/icons/16x16/DefaultSkin/DustBin.gif") no-repeat scroll left center transparent;
+}

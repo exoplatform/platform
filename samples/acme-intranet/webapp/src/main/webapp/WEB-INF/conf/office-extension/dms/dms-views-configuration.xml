@@ -43,7 +43,7 @@
                     <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
                       <field name="tabName"><string>Actions</string></field>
                       <field name="buttons">
-                      	<string>upload; addFolder; editDocument; taggingDocument; vote; Comment; viewMetadatas; 
+                      	<string>upload; addFolder; deleteNode; editDocument; taggingDocument; vote; Comment; viewMetadatas; 
                       	</string>
                       </field>
                     </object>
