@@ -93,7 +93,6 @@
  		      <name>autoCreatedInNewRepository</name>
  		      <description>Node types configuration file</description>
  		      <value>jar:/conf/ext-nodetypes-config.xml</value>
- 		      <value>jar:/conf/organization-nodetypes.xml</value>
  		      <value>jar:/conf/gatein-nodetypes.xml</value>
  		      <value>jar:/conf/mop-nodetypes.xml</value>
  		      <value>jar:/conf/application-nodetypes.xml</value>
@@ -103,6 +102,7 @@
           <value>war:/conf/wsrp/producer-configuration-nodetypes.xml</value>
           <value>war:/conf/wsrp/producer-registrations-nodetypes.xml</value>
           <value>war:/conf/wsrp/producer-pc-nodetypes.xml</value>
+          <value>war:/conf/wsrp/migration-nodetypes.xml</value>
  		    </values-param>
  		  </init-params>
  		</component-plugin>
