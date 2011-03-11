@@ -115,7 +115,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/acme/web contents/site artifacts/Signin</value>
+                <value>/sites content/live/acme/web contents/site artifacts/Signin_en</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

@@ -37,6 +37,31 @@
       <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
       <description>XML Deployment Plugin</description>
       <init-params>
+		<object-param>
+			<name>ACME French translations directory</name>
+            <description>Deployment Descriptor</description>
+            <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+				<field name="target">
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+						<field name="repository">
+							<string>repository</string>
+						</field>
+						<field name="workspace">
+							<string>collaboration</string>
+						</field>
+						<field name="nodePath">
+							<string>/sites content/live/acme/web contents/site artifacts</string>
+						</field>
+					</object>
+				</field>
+				<field name="sourcePath">
+					<string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/FrenchTranslations.xml</string>
+				</field>
+                <field name="cleanupPublication">
+					<boolean>true</boolean>
+				</field>
+			</object>
+		</object-param>
         <object-param>
           <name>ACME Logo data</name>
           <description>Deployment Descriptor</description>
@@ -112,7 +137,7 @@
             </field>
           </object>
         </object-param>
-        <object-param>
+        <!--object-param>
           <name>ACME Signin data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -136,7 +161,57 @@
               <boolean>true</boolean>
             </field>               
           </object>
-        </object-param>
+        </object-param-->
+		<object-param>
+			<name>ACME Signin_en data</name>
+            <description>Deployment Descriptor</description>
+            <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+				<field name="target">
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+						<field name="repository">
+							<string>repository</string>
+						</field>
+						<field name="workspace">
+							<string>collaboration</string>
+						</field>
+						<field name="nodePath">
+							<string>/sites content/live/acme/web contents/site artifacts</string>
+						</field>
+					</object>
+				</field>
+				<field name="sourcePath">
+					<string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin_en.xml</string>
+				</field>
+                <field name="cleanupPublication">
+					<boolean>true</boolean>
+				</field>
+			</object>
+		</object-param>
+		<!--object-param>
+			<name>ACME Signin_fr data</name>
+            <description>Deployment Descriptor</description>
+            <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+				<field name="target">
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+						<field name="repository">
+							<string>repository</string>
+						</field>
+						<field name="workspace">
+							<string>collaboration</string>
+						</field>
+						<field name="nodePath">
+							<string>/sites content/live/acme/web contents/site artifacts</string>
+						</field>
+					</object>
+				</field>
+				<field name="sourcePath">
+					<string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Signin_fr.xml</string>
+				</field>
+                <field name="cleanupPublication">
+					<boolean>true</boolean>
+				</field>
+			</object>
+		</object-param-->
         <object-param>
           <name>ACME Searchbox data</name>
           <description>Deployment Descriptor</description>
