@@ -40,16 +40,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <!-- -->
       <profile><id>PLF_PERF_01_AllScenarios-3.0.x-simplified</id><properties><scenario.file.name>PLF_PERF_01_AllScenarios-3.0.x-simplified.jmx</scenario.file.name></properties></profile>
       <profile><id>PLF_PERF_02_Social-3.0.x-simplified</id><properties><scenario.file.name>PLF_PERF_02_Social-3.0.x-simplified.jmx</scenario.file.name></properties></profile>
-      <profile><id>PLF_PERF_03_EcmsBasicRun</id><properties><scenario.file.name>PLF_PERF_03_EcmsBasicRun.jmx</scenario.file.name></properties></profile>
+      <profile><id>PLF_PERF_03_ECMS-Public</id><properties><scenario.file.name>PLF_PERF_03_ECMS-Public.jmx</scenario.file.name></properties></profile>
       <profile><id>PLF_PERF_04_SocialRead-3.0.x</id><properties><scenario.file.name>PLF_PERF_04_SocialRead-3.0.x.jmx</scenario.file.name></properties></profile>
       <profile><id>PLF_PERF_05_Login</id><properties><scenario.file.name>PLF_PERF_05_Login.jmx</scenario.file.name></properties></profile>
-      <profile><id>WithDefaultUserId</id>
-	<properties>
-	  <test-login-user-id>demo</test-login-user-id>
-	  <test-login-user-password>gtn</test-login-user-password>
-	  <test-login-user-sequence></test-login-user-sequence>
-	</properties>
-      </profile>
     <!-- -->
     <profile><id>1VU</id><properties><test-threadcount>1</test-threadcount></properties></profile>
     <profile><id>2VUs</id><properties><test-threadcount>2</test-threadcount></properties></profile>
