@@ -45,7 +45,6 @@
             <id>WARMUP</id>
             <properties>
                 <test-duration>300</test-duration>
-                <test-threadcount>1</test-threadcount>
                 <scenario.file.name>PLF_PERF_04_SocialRead-3.0.x.jmx</scenario.file.name>
             </properties>
         </profile>
