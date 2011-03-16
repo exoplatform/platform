@@ -271,12 +271,12 @@
 	<ul class="ui-tabs-nav ClearFix">
 		<li class="ui-state-default">
 			<!-- Begin Benefits head section -->
-			<a class="ArrowCtrl" href="#tab-benefits">Benefits</a>
+			<a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
 			<!-- End Benefits head section -->
 		</li>
 		<li class="ui-tabs-selected">
 			<!-- Begin Features head section -->
-			<a class="ArrowCtrl" href="#tab-features">Features</a>
+			<a class="ArrowCtrl" href="#tab-features"><%=_ctx.appRes("Product.view.label.features")%></a>
 			<!-- End Features head section -->
 		</li>
 	</ul>
@@ -355,7 +355,7 @@
 		</div>
 		<% } %>
 		<div class="BoxContAct">
-			<h1>See it in action</h1>
+			<h1><%=_ctx.appRes("Product.view.label.seeItInAction")%></h1>
 			<div class="jQProDetailPage">
 				<div class="jQBoxContAct">
 					<div class="jQProBoxTL">
@@ -436,7 +436,7 @@
 
 <div class="ResourBoxL">
 	<div class="ResourBoxR">
-		<div class="ResourBoxC">Resources</div>
+		<div class="ResourBoxC"><%=_ctx.appRes("Product.view.label.resources")%></div>
 	</div>
 </div>
 
@@ -590,7 +590,7 @@ if(originalNode.hasNode("documents")){
 	<% } %>
 	
 		<div class="BoxContainer">
-			<div class="TitleBar">Videos</div>
+			<div class="TitleBar"><%=_ctx.appRes("Product.view.label.videos")%></div>
 			<div class="ContentBlock ClearFix">
 				<%
 				//A valid expression has pattern repository:workspace:path

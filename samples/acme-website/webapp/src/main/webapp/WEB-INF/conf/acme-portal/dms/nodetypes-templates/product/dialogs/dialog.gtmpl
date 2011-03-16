@@ -27,7 +27,7 @@
 	<div class="HorizontalLayout">
 		<table class="UIFormGrid">
 		    <tr>
-				<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.name")%></td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.name")%></td>
 				<td class="FieldComponent">
 				<%
 				String[] productFieldName = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable","editable=if-null","validate=name,empty"] ;
@@ -44,7 +44,7 @@
 		        </td>
 		    </tr>
 			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.title")%></td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.title")%></td>
 				<td class="FieldComponent">
 				<%
 					String[] productFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
@@ -53,7 +53,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.illustrationImage")%></td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.illustrationImage")%></td>
 				<td class="FieldComponent">
 					<%						
 						String illustration = "illustration";
@@ -81,7 +81,7 @@
 				</td>			
 			</tr>
 			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("WebContent.dialog.label.Summary")%></td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
 				<td class="FieldComponent">
 				<%
 					String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=Basic", ""] ;
@@ -91,7 +91,7 @@
 			</tr>
 			<tr>
 				<td class="FieldLabel">
-					<div class="WebContentMain">Benefits</div>
+					<div class="WebContentMain"><%=_ctx.appRes("Product.dialog.label.benefits")%></div>
 				</td>
 				<td class="FieldComponent">
 				<div class="UIFCKEditor">
@@ -104,7 +104,7 @@
 			</tr>
 			<tr>
 				<td class="FieldLabel">
-					<div class="WebContentMain">Features</div>
+					<div class="WebContentMain"><%=_ctx.appRes("Product.dialog.labelfeatures")%></div>
 				</td>
 				<td class="FieldComponent">
 				<div class="UIFCKEditor">
