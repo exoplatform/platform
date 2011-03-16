@@ -90,9 +90,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="FieldLabel">
-					<div class="WebContentMain"><%=_ctx.appRes("Product.dialog.label.benefits")%></div>
-				</td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.benefits")%></td>
 				<td class="FieldComponent">
 				<div class="UIFCKEditor">
 				<%
@@ -103,9 +101,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="FieldLabel">
-					<div class="WebContentMain"><%=_ctx.appRes("Product.dialog.labelfeatures")%></div>
-				</td>
+				<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.features")%></td>
 				<td class="FieldComponent">
 				<div class="UIFCKEditor">
 				<%
