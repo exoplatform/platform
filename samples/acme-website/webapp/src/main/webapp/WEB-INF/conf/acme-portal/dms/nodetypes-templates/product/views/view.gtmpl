@@ -73,6 +73,14 @@
 		if(value != null) return Boolean.parseBoolean(value);
 		return false;
 	}
+	
+	public String getAccessMode() {
+		if (Util.getPortalRequestContext().getAccessPath() == 1) {
+			return "private";
+		}else{
+			return "public";
+		}
+	}
   
 	public List<Node> getRenderedContentNodes(String path) throws Exception {
 		PortletRequestContext portletRequestContext = WebuiRequestContext.getCurrentInstance();
@@ -151,7 +159,7 @@
 									def mimeType = contentNode.getProperty("jcr:mimeType").getString();
 									// DISPLAY PREVIEW ONLY FOR PDF DOCUMENTS
 									if (mimeType.equals("application/pdf")){
-									def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/private/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
+									def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/" + getAccessMode() + "/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
 								%>
 									<a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" /></a>
 								<%
