@@ -7,6 +7,14 @@
 		<servlet-name>UnlockServlet</servlet-name>
 		<servlet-class>org.exoplatform.trial.UnlockServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>PingBackServlet</servlet-name>
+		<servlet-class>org.exoplatform.trial.PingBackServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PingBackServlet</servlet-name>
+		<url-pattern>/PingBackServlet</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UnlockServlet</servlet-name>
 		<url-pattern>/UnlockServlet</url-pattern>

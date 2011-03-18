@@ -100,6 +100,16 @@
 		</div>
 	</div>
 	
+	<% 	if(!Utils.loopfuseFormDisplayed){ %>
+		<iframe src="<%=Utils.pingBackUrl%>" style="display:none;" id="pingBackUrlFrame" onload="setFormDisplayed()"></iframe>
+		<iframe src="about:blank" style="display:none;" id="pingBackUrlActivation"></iframe>
+		<script>
+			function setFormDisplayed() {
+				var pingBackUrlActivationElement = document.getElementById("pingBackUrlActivation");
+				pingBackUrlActivationElement.src="/trial/PingBackServlet";
+			}
+		</script>
+	<% } %>
 </div>
 </body>
 </html>

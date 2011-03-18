@@ -21,12 +21,18 @@ public class TrialFilter implements Filter, org.exoplatform.web.filter.Filter {
   public void init(FilterConfig config) throws ServletException {}
 
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-    if (TrialFilter.unlocked || isIgnoredRequest(((HttpServletRequest) request).getRequestURI())) {
+    if (Utils.daysBeforeExpire > 0  && !isIgnoredRequest(((HttpServletRequest) request).getRequestURI())) {
+      if (((HttpServletRequest) request).getRequestURI().endsWith(".js")) {
+        response.setContentType("text/javascript");
+        response.getWriter().println("window.location.href='/trial/lcf/delay.jsp'; ");
+        chain.doFilter(request, response);
+        return;
+      }
+      ((HttpServletResponse) response).sendRedirect("/trial/lcf/delay.jsp");
+    } else if (TrialFilter.unlocked || isIgnoredRequest(((HttpServletRequest) request).getRequestURI())) {
       chain.doFilter(request, response);
     } else {
-      HttpServletRequest httpServletRequest = ((HttpServletRequest) request);
-      TrialFilter.calledUrl = "http://" + httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + "/"
-          + PortalContainer.getCurrentPortalContainerName();
+      TrialFilter.calledUrl = "/" + PortalContainer.getCurrentPortalContainerName();
       if (((HttpServletRequest) request).getRequestURI().endsWith(".js")) {
         response.setContentType("text/javascript");
         response.getWriter().println("function readCookie(name) {");

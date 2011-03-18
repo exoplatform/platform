@@ -26,10 +26,14 @@ public class Utils {
   public static String registrationFormUrl;
   public final static int DEFAULT_DELAY_PERIOD = 30;
   public static int delayPeriod = DEFAULT_DELAY_PERIOD;
+  public static int daysBeforeExpire = 0;
+  public static boolean loopfuseFormDisplayed = false;
   public static String KEY_CONTENT;
   public static boolean outdated = false;
+  public static String pingBackUrl;
   public static final String LEAD_CAPTURE_KEY = "UnlockKey";
   public static final String REMIND_DATE = "remindDate";
+  public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
   public static final String LAST_START_DATE = "LSTD";
   public final static String USER_HOME = System.getProperty("user.home");
   public final static String EXO_HOME_FOLDER = USER_HOME + "/.eXo";
@@ -64,41 +68,63 @@ public class Utils {
 
   public static void writeHashCode(String hashMD5) throws InvalidPropertiesFormatException, IOException {
     Properties properties = new Properties();
-    if (new File(Utils.CONFIG_FILE_LOCATION).exists()) {
-      InputStream inputStream = new FileInputStream(Utils.CONFIG_FILE_LOCATION);
+    if (new File(CONFIG_FILE_LOCATION).exists()) {
+      InputStream inputStream = new FileInputStream(CONFIG_FILE_LOCATION);
       properties.loadFromXML(inputStream);
       inputStream.close();
     } else {
-      if (!new File(Utils.EXO_HOME_FOLDER).exists()) {
-        new File(Utils.EXO_HOME_FOLDER).mkdirs();
+      if (!new File(EXO_HOME_FOLDER).exists()) {
+        new File(EXO_HOME_FOLDER).mkdirs();
       }
-      properties.put(Utils.LEAD_CAPTURE_KEY, "");
-      OutputStream outputStream = new FileOutputStream(Utils.CONFIG_FILE_LOCATION);
-      properties.storeToXML(outputStream, Utils.CONFIG_FILE_LOCATION);
+      properties.put(LEAD_CAPTURE_KEY, "");
+      OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
+      properties.storeToXML(outputStream, CONFIG_FILE_LOCATION);
+      outputStream.close();
     }
     properties.put(LEAD_CAPTURE_KEY, hashMD5);
     OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
-    properties.storeToXML(outputStream, CONFIG_FILE_LOCATION);
+    properties.storeToXML(outputStream, "");
     outputStream.close();
   }
 
   public static void writeRemindDate(String remindDateStringBase64) throws InvalidPropertiesFormatException, IOException {
     Properties properties = new Properties();
-    if (new File(Utils.CONFIG_FILE_LOCATION).exists()) {
-      InputStream inputStream = new FileInputStream(Utils.CONFIG_FILE_LOCATION);
+    if (new File(CONFIG_FILE_LOCATION).exists()) {
+      InputStream inputStream = new FileInputStream(CONFIG_FILE_LOCATION);
       properties.loadFromXML(inputStream);
       inputStream.close();
     } else {
-      if (!new File(Utils.EXO_HOME_FOLDER).exists()) {
-        new File(Utils.EXO_HOME_FOLDER).mkdirs();
+      if (!new File(EXO_HOME_FOLDER).exists()) {
+        new File(EXO_HOME_FOLDER).mkdirs();
       }
-      properties.put(Utils.LEAD_CAPTURE_KEY, "");
-      OutputStream outputStream = new FileOutputStream(Utils.CONFIG_FILE_LOCATION);
-      properties.storeToXML(outputStream, Utils.CONFIG_FILE_LOCATION);
+      properties.put(LEAD_CAPTURE_KEY, "");
+      OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
+      properties.storeToXML(outputStream, CONFIG_FILE_LOCATION);
+      outputStream.close();
     }
     properties.put(REMIND_DATE, remindDateStringBase64);
     OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
-    properties.storeToXML(outputStream, CONFIG_FILE_LOCATION);
+    properties.storeToXML(outputStream, "");
+    outputStream.close();
+  }
+
+  public static void writePingBackFormDisplayed() throws InvalidPropertiesFormatException, IOException {
+    Properties properties = new Properties();
+    if (new File(CONFIG_FILE_LOCATION).exists()) {
+      InputStream inputStream = new FileInputStream(CONFIG_FILE_LOCATION);
+      properties.loadFromXML(inputStream);
+      inputStream.close();
+    } else {
+      if (!new File(EXO_HOME_FOLDER).exists()) {
+        new File(EXO_HOME_FOLDER).mkdirs();
+      }
+      properties.put(LEAD_CAPTURE_KEY, "");
+      OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
+      properties.storeToXML(outputStream, CONFIG_FILE_LOCATION);
+    }
+    properties.put(LOOP_FUSE_FORM_DISPLAYED, Boolean.toString(Utils.loopfuseFormDisplayed));
+    OutputStream outputStream = new FileOutputStream(CONFIG_FILE_LOCATION);
+    properties.storeToXML(outputStream, "");
     outputStream.close();
   }
 
@@ -111,12 +137,12 @@ public class Utils {
   }
 
   public static String computeRemindDateFromTodayBase64() {
-    if (Utils.delayPeriod <= 0 || Utils.outdated) {
+    if (delayPeriod <= 0 || outdated) {
       return "";
     }
     Calendar remindDate = Calendar.getInstance();
-    remindDate.add(Calendar.DAY_OF_MONTH, Utils.delayPeriod);
-    return Utils.formatDateBase64(remindDate);
+    remindDate.add(Calendar.DAY_OF_MONTH, delayPeriod);
+    return formatDateBase64(remindDate);
   }
 
 }

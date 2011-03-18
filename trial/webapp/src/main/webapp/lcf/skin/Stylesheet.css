@@ -185,3 +185,7 @@ visibility: hidden;
 	background:transparent url(background/UIExoSubscriptionUser.png) repeat-x center -224px;
 	line-height: 27px;
 }
+
+.largeText {
+	font-size:16px;
+}

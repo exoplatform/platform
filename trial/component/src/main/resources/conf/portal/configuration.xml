@@ -15,6 +15,10 @@
 				<name>registrationFormUrl</name>
 				<value>http://www.exoplatform.com/company/public/website/services/buy-now</value>
 			</value-param>
+			<value-param>
+				<name>pingBackUrl</name>
+				<value>http://www.exoplatform.com/company/public/website/platform/e-01011000-01101111</value>
+			</value-param>
 		</init-params>
 	</component>
 	<external-component-plugins>

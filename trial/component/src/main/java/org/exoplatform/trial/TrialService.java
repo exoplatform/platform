@@ -31,6 +31,7 @@ public class TrialService implements Startable {
   public TrialService(InitParams params) {
     Utils.productNameAndVersion = PRODUCT_NAME + " " + PlatformInfo.getVersion();
     Utils.registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
+    Utils.pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
     Utils.KEY_CONTENT = ((ValueParam) params.get("KeyContent")).getValue().trim();
     String tmpValue = ((ValueParam) params.get("delayPeriod")).getValue();
     Utils.delayPeriod = tmpValue == null ? Utils.DEFAULT_DELAY_PERIOD : Integer.parseInt(tmpValue);
@@ -63,6 +64,7 @@ public class TrialService implements Startable {
       }
       properties.put(Utils.LEAD_CAPTURE_KEY, "");
       properties.put(Utils.REMIND_DATE, "");
+      properties.put(Utils.LOOP_FUSE_FORM_DISPLAYED, "false");
       OutputStream outputStream;
       try {
         outputStream = new FileOutputStream(Utils.CONFIG_FILE_LOCATION);
@@ -116,12 +118,21 @@ public class TrialService implements Startable {
     }
     TrialFilter.unlocked = hashMD5Added != null && !hashMD5Added.equals("") && hashMD5Added.equals(keyContent);
     if (!TrialFilter.unlocked) {
+      String loopfuseFormDisplayedString = properties.getProperty(Utils.LOOP_FUSE_FORM_DISPLAYED);
+      if (loopfuseFormDisplayedString != null && loopfuseFormDisplayedString.equals("")) {
+        Utils.loopfuseFormDisplayed = Boolean.parseBoolean(loopfuseFormDisplayedString);
+      } else {
+        Utils.loopfuseFormDisplayed = false;
+      }
       String remindDateString = properties.getProperty(Utils.REMIND_DATE);
       if (remindDateString == null || remindDateString.equals("")) {
+        // No trial delay was requested
         return;
       } else {
+        // Trial delay was already requested
         try {
           remindDate = Utils.parseDateBase64(remindDateString);
+          TrialService.this.computeUnlockedInformation();
         } catch (ParseException exception) {
           throw new RuntimeException("Error while decoding the file content.", exception);
         }
@@ -130,7 +141,7 @@ public class TrialService implements Startable {
           public void run() {
             TrialService.this.computeUnlockedInformation();
           }
-        }, 0, 1, TimeUnit.DAYS);
+        }, 1, 1, TimeUnit.DAYS);
       }
     }
   }
@@ -146,6 +157,7 @@ public class TrialService implements Startable {
       TrialFilter.unlocked = false;
     } else { // Reminder Date is not yet outdated
       TrialFilter.unlocked = true;
+      Utils.daysBeforeExpire = (int) TimeUnit.MILLISECONDS.toDays(remindDate.getTimeInMillis() - today.getTimeInMillis());
     }
   }
 
