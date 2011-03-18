@@ -99,6 +99,8 @@ You need to learn how to configure eXo Platform data sources and your app server
 The steps below will show you how to configure eXo to use a MySQL database. You will need to adapt them to your actual production environment.
 {info}
 
+{tip}Refer to the Database FAQ below to find out our sample configuration files for MySQL and other DB systems.{tip}
+
 h3. Prepare your database server {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
 You need to prepare two database schema, then do as follows:
@@ -152,7 +154,7 @@ Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-
 * Change the URL to access your DataBase: {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
 
 The code now should look like:
-{code:xml}
+{code:language=xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
@@ -218,7 +220,7 @@ The configuration should now look like:
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
-...  
+<!-- ...  -->
    <no-tx-datasource>
       <jndi-name>exo-jcr_portal</jndi-name>
       <connection-url>jdbc:mysql://_$host_:3306/_$dbname-jcr_</connection-url>
@@ -268,6 +270,43 @@ eXo Platform automatically appends the portal container name ("_portal" by defau
 In this step, you need to change the name under which the data sources are bound in the JNDI tree by the app server. This is a dependent application sever.
 
 h2. Database Configuration FAQ {anchor:id=ADM.Configuration.Data_base_configuration.xml}
+
+h3. How to configure eXo Platform to connect to other Database systems
+
+Configuring eXo Platform to connect to other DB is easy. We provide you sample configuration files in the folders:
+* eXo Platform-3.5.x.zip/conf/db/
+** mysql
+** oracle
+** postgres
+
+In each folder, you'll find two sample xml files:
+* gatein-ds.xml for JBoss
+* server.xml for Tomcat
+
+Each file contains 2 preconfigured datasources. For example (JCR datasource in mysql/server.xml):
+{code:language=xml}
+<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+          maxActive="128" maxIdle="32" maxWait="10000"
+          testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
+          username="${db.username}" password="${db.password}" driverClassName="com.mysql.jdbc.Driver"
+          url="jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"/>
+{code}
+
+You just have to replace the variables with the expected value:
+|| Variable || Expected value ||
+| db.username | The username that connects to the database |
+| db.password | The password for the above user |
+| db.host | The hostname or IP address of the DB server |
+| db.port | The port on which to connect to the DB |
+| db.jcr.name | The DB name for the JCR datasource |
+| db.idm.name | The DB name for the IDM datasource |
+
+Don't forget to add the JDBC connector JAR in the classpath of your application server.
+
+You can download the official JDBC connector JARs from the following websites:
+* http://www.mysql.com/downloads/connector/j/
+* http://jdbc.postgresql.org/download.html
+* http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
 
 h3. How to remove the idle MySQL connections {anchor:id=ADM.Configuration.How_to_remove_idle_MySQL_Connnections}
 
