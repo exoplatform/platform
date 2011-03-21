@@ -79,7 +79,6 @@
     <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.jcrom.version>1.2</org.jcrom.version>
 	<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
-    <rome.version>0.9</rome.version><!-- needed for exo-api-impl test -->
 	
 	<!-- Begin wiki properties -->
   <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
@@ -189,7 +188,6 @@
     </dependencies>
   </dependencyManagement>
   <modules>
-    <module>api</module>
     <module>component</module>
     <module>extension</module>
     <module>server</module>
