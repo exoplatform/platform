@@ -26,7 +26,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.commons.platform.info.PlatformInfo;
+import org.exoplatform.component.product.ProductInformations;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -39,9 +39,11 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 public class PlatformInformationRESTService implements ResourceContainer {
 
   private Log logger = ExoLogger.getLogger(this.getClass());
-//  private PlatformInfo platformInfo;
+  private ProductInformations platformInformations;
 
-  public PlatformInformationRESTService() {}
+  public PlatformInformationRESTService(ProductInformations productInformations) {
+    this.platformInformations = productInformations;
+  }
 
   /**
    * This method return a JSON Object with the platform required informations.
@@ -54,13 +56,13 @@ public class PlatformInformationRESTService implements ResourceContainer {
     cacheControl.setNoStore(true);
     try {
       JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
-      jsonPlatformInfo.setPlatformVersion(PlatformInfo.getVersion());
-      jsonPlatformInfo.setPlatformBuildNumber(PlatformInfo.getBuildNumber());
-      jsonPlatformInfo.setPlatformRevision(PlatformInfo.getRevision());
+      jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
+      jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
+      jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
 
       if (logger.isDebugEnabled()) {
-        logger.debug("Getting Platform Informations: eXo Platform (v" + PlatformInfo.getVersion() + " - build "
-            + PlatformInfo.getBuildNumber() + " - rev. " + PlatformInfo.getRevision());
+        logger.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
+            + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
       }
 
       return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();

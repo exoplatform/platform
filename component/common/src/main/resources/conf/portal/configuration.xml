@@ -3,6 +3,10 @@
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 	
 	<component>
+		<key>org.exoplatform.component.product.ProductInformations</key>
+		<type>org.exoplatform.commons.platform.info.ProductInformationsImpl</type>
+	</component>
+	<component>
 		<type>org.exoplatform.commons.platform.services.rest.PlatformInformationRESTService</type>
 	</component>
 	<!-- Defines the builtin Modules -->
