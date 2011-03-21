@@ -23,7 +23,7 @@ function getModule(params)
    var commonVersion = "${org.gatein.common.version}";
    var wsrpVersion = "${org.gatein.wsrp.version}";
    var shindigVersion = "${org.shindig.version}";
-   var cometVersion = "${org.exoplatform.commons.version}";
+   var commonsVersion = "${org.exoplatform.commons.version}";
    var coreVersion = "${org.exoplatform.core.version}";
    var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
    var ideVersion = "${org.exoplatform.ide.version}";
@@ -32,15 +32,15 @@ function getModule(params)
    var crashVersion = "${org.crsh.version}";
 
    // fck editor required for KS & CS
-   module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", cometVersion);
+   module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
    module.fck.deployName = "fck";
    
    // cometd required by KS & CS
-   module.cometd = new Project("org.exoplatform.commons", "exo.platform.commons.comet.webapp", "war", cometVersion).
+   module.cometd = new Project("org.exoplatform.commons", "exo.platform.commons.comet.webapp", "war", commonsVersion).
    addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
    addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
    addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.comet.service", "jar", cometVersion));  	
+   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.comet.service", "jar", commonsVersion));
    module.cometd.deployName = "cometd";
 	
    // main portal container config	
@@ -83,7 +83,8 @@ function getModule(params)
 
    // platform commons
    module.component = {};
-   module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version);
+   module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version).
+   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.product", "jar", commonsVersion));
       
    
    module.patch = {};
