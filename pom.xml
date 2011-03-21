@@ -31,7 +31,7 @@
    <org.exoplatform.gwtframework.version>1.0.3</org.exoplatform.gwtframework.version>
    <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
    <org.exoplatform.ide.version>1.0.3</org.exoplatform.ide.version>
-   <org.exoplatform.commons.version>1.0.3</org.exoplatform.commons.version>
+   <org.exoplatform.commons.version>1.1.0-Beta01-SNAPSHOT</org.exoplatform.commons.version>
    <org.xcmis.version>1.1.3</org.xcmis.version>   
    <org.exoplatform.cs.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.cs.version>
    <org.exoplatform.ks.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.ks.version>
@@ -79,6 +79,7 @@
     <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.jcrom.version>1.2</org.jcrom.version>
 	<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
+    <rome.version>0.9</rome.version><!-- needed for exo-api-impl test -->
 	
 	<!-- Begin wiki properties -->
   <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
