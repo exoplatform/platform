@@ -15,7 +15,7 @@ public class ProductInformationsImpl implements ProductInformations{
   public String getVersion() {
     Properties properties = new Properties();
     try {
-      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      properties.load(this.getClass().getClassLoader().getResourceAsStream(filterPropertiesPath));
       return properties.getProperty("platform.version");
     } catch (IOException e) {
       return "";
@@ -29,7 +29,7 @@ public class ProductInformationsImpl implements ProductInformations{
   public String getBuildNumber() {
     Properties properties = new Properties();
     try {
-      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      properties.load(this.getClass().getClassLoader().getResourceAsStream(filterPropertiesPath));
       return properties.getProperty("platform.buildNumber");
     } catch (IOException e) {
       return "";
@@ -43,7 +43,7 @@ public class ProductInformationsImpl implements ProductInformations{
   public String getRevision() {
     Properties properties = new Properties();
     try {
-      properties.load(PlatformInfo.class.getClassLoader().getResourceAsStream(filterPropertiesPath));
+      properties.load(this.getClass().getClassLoader().getResourceAsStream(filterPropertiesPath));
       return properties.getProperty("platform.revision");
     } catch (IOException e) {
       return "";
