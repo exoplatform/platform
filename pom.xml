@@ -163,7 +163,7 @@
     </dependencies>
   </dependencyManagement>
   <modules>
-    <module>api</module>
+    <!--module>api</module-->
     <module>component</module>
     <module>web</module>
     <module>webui</module>
