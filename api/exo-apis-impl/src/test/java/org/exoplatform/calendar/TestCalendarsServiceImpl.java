@@ -30,7 +30,7 @@ import org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig;
 import org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig.JcrPath;
 import org.testng.annotations.Test;
 
-import com.ibm.icu.util.Calendar;
+import java.util.Calendar;
 
 @ConfiguredBy( {
 		@ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/jcr/jcr-configuration.xml"),
