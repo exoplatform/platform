@@ -23,20 +23,20 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.kernel.version>2.2.8-GA</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.3.8-GA</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.1.8-GA</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.12.8-GA</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.12.8-GA</org.exoplatform.jcr-services.version>
-    <org.exoplatform.portal.version>3.1.8-PLF</org.exoplatform.portal.version>
-    <org.exoplatform.cs.version>2.1.4</org.exoplatform.cs.version>
-    <org.exoplatform.ks.version>2.1.4</org.exoplatform.ks.version>
-    <org.exoplatform.ecms.version>2.1.4</org.exoplatform.ecms.version>
-    <org.exoplatform.social.version>1.1.4</org.exoplatform.social.version>
-    <org.exoplatform.commons.version>1.0.4</org.exoplatform.commons.version>
-    <org.exoplatform.gwtframework.version>1.0.4</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.0.4</org.exoplatform.ide.version>
-    <org.xcmis.version>1.1.4</org.xcmis.version>   
+    <org.exoplatform.kernel.version>2.2.9-GA-SNAPSHOT</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.9-GA-SNAPSHOT</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.1.9-GA-SNAPSHOT</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.12.9-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.12.9-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
+    <org.exoplatform.portal.version>3.1.9-PLF-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.cs.version>2.1.5-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.ks.version>2.1.5-SNAPSHOT</org.exoplatform.ks.version>
+    <org.exoplatform.ecms.version>2.1.5-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>1.1.5-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.commons.version>1.0.5-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.gwtframework.version>1.0.5-SNAPSHOT</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.0.5-SNAPSHOT</org.exoplatform.ide.version>
+    <org.xcmis.version>1.1.5-SNAPSHOT</org.xcmis.version>   
     <org.crsh.version>1.0.0-beta15</org.crsh.version>
     <org.exoplatform.exopackage.version>1.1.0</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
