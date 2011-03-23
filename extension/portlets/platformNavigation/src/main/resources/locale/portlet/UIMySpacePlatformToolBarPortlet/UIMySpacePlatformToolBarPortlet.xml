@@ -6,6 +6,7 @@
         </label>
 		<find>Find Spaces
 		</find>
-		<manage>Manage groups</manage>
+		<manage>Organize Groups</manage>
+		<edit>Edit Navigations</edit>
 	</UIMySpacePlatformToolBarPortlet>
 </bundle>

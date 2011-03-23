@@ -154,7 +154,7 @@
 											<string>the /developers group</string>
 										</field>
 										<field  name="label">
-											<string>Developers</string>
+											<string>Development</string>
 										</field>
 									</object>
 								</value>         
@@ -186,7 +186,7 @@
 											<string>the /platform/administrators group</string>
 										</field>
 										<field  name="label">
-											<string>Administrator</string>
+											<string>Administration</string>
 										</field>
 									</object>
 								</value>
@@ -234,7 +234,7 @@
 											<string>the /platform/web-contributors group</string>
 										</field>
 										<field name="label">
-											<string>Content Manager</string>
+											<string>Content Management</string>
 										</field>
 									</object>
 								</value>

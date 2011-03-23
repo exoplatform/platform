@@ -2,7 +2,7 @@
 <bundle>
   <administration>
     <siteExplorer>Sites Explorer</siteExplorer>
-    <wcmAdmin>Sites Administration</wcmAdmin>
+    <wcmAdmin>Content Administration</wcmAdmin>
     <newslettermanager>Newsletter Manager</newslettermanager>
     <formgenerator>Form Generator</formgenerator>
 	<workflowAdministration>Business Process Admin</workflowAdministration>

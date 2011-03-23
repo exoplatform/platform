@@ -247,6 +247,18 @@
 					
 					
 				} %>
+
+				<% 
+				for(navigation in groupNavigations) {
+					if (navigation.getOwnerId().indexOf("spaces")<0){
+						renderGroupPageNavigation(navigation);
+					}
+				}
+				%>
+			
+			<div class="TitleBar">
+				<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
+			</div>
 				<% if (renderSpacesLink()) { %>
 				<div class="SubBlock">
                        
@@ -255,14 +267,6 @@
                             </div>               
                  </div>
 				<% } %>
-<% for(navigation in groupNavigations) {
-				if (navigation.getOwnerId().indexOf("spaces")<0){
-					renderGroupPageNavigation(navigation);
-					
-                	
-					}
-				} %>				
-			
 			<% if(hasPermission){ %>
 			<div class="SubBlock">
                        
