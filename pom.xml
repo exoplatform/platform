@@ -28,10 +28,10 @@
    <org.exoplatform.ws.version>2.2.0-Beta03</org.exoplatform.ws.version>
    <org.exoplatform.jcr.version>1.14.0-Beta03</org.exoplatform.jcr.version>
    <org.exoplatform.jcr-services.version>1.14.0-Beta03</org.exoplatform.jcr-services.version>
-   <org.exoplatform.gwtframework.version>1.0.3</org.exoplatform.gwtframework.version>
    <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
-   <org.exoplatform.ide.version>1.0.3</org.exoplatform.ide.version>
    <org.exoplatform.commons.version>1.1.0-Beta01-SNAPSHOT</org.exoplatform.commons.version>
+   <org.exoplatform.gwtframework.version>1.1.0-Beta02-SNAPSHOT</org.exoplatform.gwtframework.version>
+   <org.exoplatform.ide.version>1.1.0-dev02-SNAPSHOT</org.exoplatform.ide.version>
    <org.xcmis.version>1.1.3</org.xcmis.version>   
    <org.exoplatform.cs.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.cs.version>
    <org.exoplatform.ks.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.ks.version>
@@ -78,13 +78,13 @@
     <asm.version>1.5.3</asm.version>
     <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.jcrom.version>1.2</org.jcrom.version>
-	<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
+    <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
 	
 	<!-- Begin wiki properties -->
   <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
   <org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
   <gwt.version>2.0.4</gwt.version>
-  <smartgwt.version>2.0</smartgwt.version>
+  <!-- smartgwt.version>2.3-nb01</smartgwt.version -->
   <net.sourceforge.htmlcleaner.version>2.1</net.sourceforge.htmlcleaner.version>
     <!--dependencies which Code Macro depends on-->
   <jython-standalone.version>2.5.2b1-xwiki</jython-standalone.version>

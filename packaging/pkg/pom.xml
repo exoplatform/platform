@@ -219,6 +219,7 @@
 		    <type>jar</type>
 		  </dependency-->
     <!-- ////////////// Deploy dependencies ////////////// -->
+
     <!-- IDE dependencies -->
     <dependency>
       <groupId>org.exoplatform.gwt</groupId>
@@ -228,21 +229,9 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-gadget-server</artifactId>
+      <artifactId>exo-ide-client-gadget </artifactId>
       <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-netvibes-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-groovy-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
+      <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
@@ -251,17 +240,30 @@
       <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-client</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>war</type>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.script.groovy</artifactId>
       <version>${org.exoplatform.core.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-gadget-server</artifactId>
+      <version>${org.exoplatform.ide.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-netvibes-server</artifactId>
+      <version>${org.exoplatform.ide.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-groovy-server</artifactId>
+      <version>${org.exoplatform.ide.version}</version>
+      <type>jar</type>
+    </dependency>
+
     <!-- xCMIS dependencies -->
     <dependency>
       <groupId>org.xcmis</groupId>
@@ -1450,7 +1452,7 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
     </dependency>
-	<!-- wiki dependencies -->
+    <!-- wiki dependencies -->
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.wiki.service</artifactId>

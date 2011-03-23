@@ -1,20 +1,92 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-    <component-plugin>
-      <name>add.nodeType</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-      <init-params>
-        <values-param>
-          <name>autoCreatedInNewRepository</name>
-          <description>Node types configuration file</description>
-          <value>jar:/conf/ide-nodetypes.xml</value>
-        </values-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
+
+   <external-component-plugins>
+      <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
+      <component-plugin>
+         <name>Sample RepositoryServiceConfiguration Plugin</name>
+         <set-method>addConfig</set-method>
+         <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
+         <init-params>
+            <value-param>
+               <name>conf-path</name>
+               <description>JCR configuration file</description>
+               <value>war:/conf/platform/ide-repository-configuration.xml</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
+   </external-component-plugins>
+
+   <external-component-plugins>
+      <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+      <component-plugin>
+         <name>add.namespaces</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+         <init-params>
+            <properties-param>
+               <name>namespaces</name>
+               <property name="exoide" value="http://exoplatform.org/ide/1.1.x/" />
+            </properties-param>
+         </init-params>
+      </component-plugin>
+      <component-plugin>
+         <name>add.nodeType</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+         <init-params>
+            <values-param>
+               <name>autoCreatedInNewRepository</name>
+               <description>Node types configuration file</description>
+               <value>jar:/conf/code-assitant-nodetypes.xml</value>
+               <value>jar:/conf/ide-nodetypes.xml</value>
+            </values-param>
+         </init-params>
+      </component-plugin>
+   </external-component-plugins>
+
+   <external-component-plugins>
+      <target-component>org.exoplatform.services.rest.impl.RequestHandlerImpl</target-component>
+      <component-plugin>
+         <name>ws.rs.method.filter</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.rest.impl.method.MethodInvokerFilterComponentPlugin</type>
+      </component-plugin>
+      <component-plugin>
+         <name>ws.rs.entity.provider</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.rest.impl.provider.EntityProviderComponentPlugin</type>
+         <init-params>
+            <value-param>
+               <name>ws.rest.ext.HierarchicalPropertyEntityProvider</name>
+               <value>org.exoplatform.services.rest.ext.provider.HierarchicalPropertyEntityProvider</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
+      <component-plugin>
+         <name>ws.rs.request.filter</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.rest.impl.RequestFilterComponentPlugin</type>
+         <init-params>
+            <value-param>
+               <name>ws.rs.request.method-override-filter</name>
+               <value>org.exoplatform.services.rest.ext.filter.MethodOverrideFilter</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
+       <component-plugin>
+         <name>ws.rs.method.filter</name>
+         <set-method>addPlugin</set-method>
+         <type>org.exoplatform.services.rest.impl.method.MethodInvokerFilterComponentPlugin</type>
+         <init-params>
+            <value-param>
+               <name>method.developer.access.filter</name>
+               <value>org.exoplatform.ide.groovy.DevelopmentResourceMethodFilter</value>
+            </value-param>
+         </init-params>
+      </component-plugin>
+   </external-component-plugins>
+
 </configuration>
 

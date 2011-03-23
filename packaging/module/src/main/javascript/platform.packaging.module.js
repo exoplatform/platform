@@ -97,14 +97,14 @@ function getModule(params)
    module.ide.smartgwt =
        new Project("org.exoplatform.gwt", "exo-gwtframework-smartgwt", "war", gwtframeworkVersion);
    module.ide.smartgwt.deployName = "SmartGWT";
-   
+
    module.ide.webapp =
-       new Project("org.exoplatform.ide", "exo-ide-client", "war", ideVersion).
+       new Project("org.exoplatform.ide", "exo-ide-client-gadget", "war", ideVersion).
         addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", coreVersion)).
         addDependency(module.ide.smartgwt).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-gadget-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-netvibes-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-groovy-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-gadget-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-netvibes-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-groovy-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion)).
         addDependency(new Project("org.apache.commons", "commons-compress", "jar", "1.0"));
    module.ide.webapp.deployName = "IDE";

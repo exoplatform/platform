@@ -2,6 +2,20 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
+   <component>
+      <type>org.exoplatform.services.rest.ext.proxy.ProxyService</type>
+   </component>
+
+   <!-- disabled temporary, until CS-4886 will be fixed -->
+   <!-- component>
+      <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
+   </component -->
+
+   <component>
+      <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
+   </component>
+
    <component>
       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
       <init-params>
@@ -20,6 +34,14 @@
    </component>
 
    <component>
+      <type>org.exoplatform.services.jcr.ext.script.groovy.JcrGroovyCompiler</type>
+   </component>
+
+   <component>
+      <type>org.exoplatform.services.jcr.ext.script.groovy.JcrGroovyClassLoaderProvider</type>
+   </component>
+
+   <!-- component>
       <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</type>
       <init-params>
          <object-param>
@@ -38,9 +60,9 @@
             </object>
          </object-param>
       </init-params>
-   </component>
+   </component -->
 
-   <external-component-plugins>
+   <!-- external-component-plugins>
       <target-component>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</target-component>
       <component-plugin>
          <name>add groovy repo</name>
@@ -55,9 +77,9 @@
             </properties-param>
          </init-params>
       </component-plugin>
-   </external-component-plugins>
+   </external-component-plugins -->
 
-   <external-component-plugins>
+   <!-- external-component-plugins>
       <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
       <component-plugin>
          <name>Sample RepositoryServiceConfiguration Plugin</name>
@@ -71,7 +93,7 @@
             </value-param>
          </init-params>
       </component-plugin>
-   </external-component-plugins>
+   </external-component-plugins -->
 </configuration>
 
 
