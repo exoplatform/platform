@@ -1,0 +1,71 @@
+<%	
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.util.Util ;
+	import org.exoplatform.wcm.webui.Utils;
+	import org.exoplatform.portal.application.PortalRequestContext ;
+
+	def rcontext = _ctx.getRequestContext();
+
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.portal.UIPortalNavigation');
+	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+
+	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
+	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPage");
+	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.EditSiteLayout");
+	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigationLayout");
+	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
+	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
+
+	String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
+
+	String quiEditClass = "QuickEditUnchecked";
+	PortalRequestContext context = Util.getPortalRequestContext();
+	Boolean quickEdit = (Boolean)context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
+	if(quickEdit != null && quickEdit) {
+	  quiEditClass = "QuickEditChecked"
+	}
+
+	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation();
+	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
+	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
+%>
+<script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
+<div class="UIAdminToolbarPortlet" id="$uicomponent.id" >
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer" >
+			<div class="UITab NormalToolbarTab">
+				<div class="">
+					<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
+				</div>
+				<div class="MenuItemContainer" style="display:none;">
+					<div class="SubBlock">
+						<div class="MenuItem">
+							<a href="<%=uicomponent.event("ChangeEditing")%>" title="" class="ItemIcon $quiEditClass">$quickEditLabel</a>
+						</div>
+						<% if(userCouldEditPage){ %>
+							<div class="MenuItem">
+								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
+							</div>
+						<% } %>
+						<% if(userCouldEditPortal){ %>
+							<div class="MenuItem">	
+								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon EditSiteIcon">$editSiteLayout</a>
+							</div>
+						<% } %>
+						<% if(userCouldEditNavigation){ %>
+							<div class="MenuItem">	
+								<a href="<%=manageSiteURI%>" title="<%=manageSiteURI%>" class="ItemIcon ManageSite">$editNavigation</a>
+							</div>
+							<hr width="100%" style="width:100%;" />
+							<div class="MenuItem">	
+								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
+							</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

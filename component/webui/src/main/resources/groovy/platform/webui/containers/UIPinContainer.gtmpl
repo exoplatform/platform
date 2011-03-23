@@ -1,21 +1,7 @@
-<%
-	import org.exoplatform.commons.utils.ExpressionUtil;
-	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-%>
-<style type="text/css">
-	.PinToolbarContainer {
-		height: 25px;
-		margin: 6px 0 0 12px;
-		width: 31px;
-		cursor: hand;
-	}
-</style>
 <div id="<%=uicomponent.getId()%>">
-	<div class="PinToolbarContainer FloatLeft">
-		<a href="<%=uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned()))%>">
-			<img src="<%=uicomponent.isPinned() ? "/eXoPlatformResources/skin/toolbarPin/unpin.png":"/eXoPlatformResources/skin/toolbarPin/pin.png"%>"/>
-		</a>
-	</div>
+	<a href="<%=uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned()))%>">
+		<img src="<%=uicomponent.isPinned() ? "/eXoPlatformResources/skin/toolbarPin/unpin.png":"/eXoPlatformResources/skin/toolbarPin/pin.png"%>"/>
+	</a>
 
 	<script type="text/javascript">
 	
@@ -23,12 +9,11 @@
 		var toolbarContainerElement = document.getElementById("UIToolbarContainer");
 
 		<%if(uicomponent.isPinned()) {%>
-		toolbarContainerElement.style.position = "fixed";
-		/*PLF-966 change "31px" to "48px";*/
-		platformAdminToolbarContainerElement.style.paddingBottom = "48px";
+		 toolbarContainerElement.style.position = "fixed";
+		 platformAdminToolbarContainerElement.style.paddingBottom = "45px";
 		<%} else {%>
-		platformAdminToolbarContainerElement.style.paddingBottom = "";
-		toolbarContainerElement.style.position = "relative";
+		 platformAdminToolbarContainerElement.style.paddingBottom = "";
+		 toolbarContainerElement.style.position = "relative";
 		<%}%>
 	</script>
 </div>

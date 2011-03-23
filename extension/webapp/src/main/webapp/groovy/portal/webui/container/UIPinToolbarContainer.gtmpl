@@ -4,25 +4,23 @@
 	import org.exoplatform.webui.core.UIComponent;
 
 	if(uicomponent.hasPermission()) {
-		if(uicomponent.getChild(UIPinContainer.class) == null) {
-			uicomponent.addChild(UIPinContainer.class, null, null);
+		def uiToolbarContainer = uicomponent.getChildById("UIToolbarContainer");
+		if(uiToolbarContainer.getChildById("PinToolbarContainer") != null && uiToolbarContainer.getChildById("PinToolbarContainer").getChild(UIPinContainer.class) == null) {
+			uiToolbarContainer.getChildById("PinToolbarContainer").addChild(UIPinContainer.class, null, null);
 		}
 %>
 <div id="PlatformAdminToolbarContainer">
 	<div id="UIToolbarContainer" class="UIWorkingWorkspace">
 	<%
-		uicomponent.renderChild(UIPinContainer.class);
 		List<UIComponent> components = uicomponent.getChildren();
 		for (component in components) {
-		  if (!(component instanceof UIPinContainer)) {
 			try {
 			  uicomponent.renderChild(component);
 			} catch (Exception exception) {
 			  throw new RuntimeException(exception);
 			}
-		  }
 		}
 	%>
 	</div>
 </div>
-	<% } %>
+<% } %>

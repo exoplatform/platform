@@ -1,4 +1,6 @@
 <%	
+	import java.util.List;
+
 	import org.exoplatform.portal.config.model.PageNavigation;
 	import org.exoplatform.portal.config.model.PageNode;
 	import org.exoplatform.web.application.JavascriptManager;
@@ -13,7 +15,9 @@
 	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 	
 	def portalURI = Util.getPortalRequestContext().getPortalURI();
-	void renderPortalNavigations() {
+	List allPortalNames = uicomponent.getAllPortalNames();
+	
+	void renderPortalNavigations(List allPortalNames) {
 			 
 			print """
 					<div style="position: absolute; display:none" class="MenuItemContainer">
@@ -21,13 +25,10 @@
 			""";
 			
 			boolean isCurrent = false;
-			boolean hasPermission = uicomponent.hasCreatePortalPermission();
 			String clazz = "";
 			String href = "#";
-			 String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
-			 def manage=_ctx.appRes("UIUserPlatformToolBarSitePortlet.manage");
-			for(int i = 0; i < uicomponent.getAllPortalNames().size(); i++) {
-				String portal = uicomponent.getAllPortalNames().get(i);
+			for(int i = 0; i < allPortalNames.size(); i++) {
+				String portal = allPortalNames.get(i);
  				if(portal.equals(uicomponent.getCurrentPortal())) {
 					isCurrent = true;
 			 	} else isCurrent = false;
@@ -49,17 +50,6 @@
 					</div>
 				""";
 			}
-			if(hasPermission){
-			 print """
-						<div class="MenuItem SiteIcon" >
-							<div class="">						
-					
-				<a href="$manageSiteURI" class="ManageSite">$manage</a>
-			 						
-							</div>
-						</div>
-					""";	
-					}
 			print """
 					</div>
 				</div>
@@ -131,20 +121,27 @@
 		print """
 			</div>
 		""" ;			
-	}	
-%> 
+	}
+%>
 
-<div class="UIUserToolBarSitePortlet" id="$uicomponent.id" >
-	<div class="UIHorizontalTabs">
-			<div class="TabsContainer">
-				<div class="UITab NormalToolbarTab">
-					<div class="">
-								<a class="ArrowIcon TBIcon" href="<%= portalURI + "portalnavigation" %>">
-										 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
-								</a>
+<% if(allPortalNames.size() > 1) { %>
+	<div class="UIUserToolBarSitePortlet" id="$uicomponent.id">
+		<div class="UIHorizontalTabs">
+				<div class="TabsContainer">
+					<div class="UITab NormalToolbarTab">
+						<div class="">
+									<a class="ArrowIcon TBIcon" href="#">
+											 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
+									</a>
+						</div>
+						<% try{
+							renderPortalNavigations(allPortalNames);
+						}catch(Exception exp) {
+						  exp.printStackTrace();
+						}
+						%>
 					</div>
-					<% renderPortalNavigations() %>
 				</div>
-			</div>
-	</div>		
-</div>	
+		</div>		
+	</div>
+<% } %>

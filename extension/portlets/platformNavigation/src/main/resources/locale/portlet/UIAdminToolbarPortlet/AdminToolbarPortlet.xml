@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+      <action>
+         <AddPage>Add Page</AddPage>
+         <EditPage>Page Layout</EditPage>
+         <EditSiteLayout>Portal Layout</EditSiteLayout>
+         <EditNavigationLayout>Navigation</EditNavigationLayout>
+         <Content>Content</Content>
+         <Editor>Edit</Editor>
+      </action>
+   </UIAdminToolbarPortlet>
+</bundle>

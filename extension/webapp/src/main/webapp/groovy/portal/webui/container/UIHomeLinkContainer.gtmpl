@@ -1,0 +1,8 @@
+<%
+	import org.exoplatform.portal.webui.util.Util ;
+%>
+<div id="<%=uicomponent.id%>">
+	<a href="<%=Util.getPortalRequestContext().getPortalURI()%>">
+		<img src="/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.gif"/>
+	</a>
+</div>

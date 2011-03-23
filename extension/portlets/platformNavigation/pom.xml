@@ -28,6 +28,12 @@
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
+	<dependency>
+		<groupId>org.exoplatform.ecms</groupId>
+		<artifactId>exo-ecms-core-webui</artifactId>
+		<version>${org.exoplatform.ecms.version}</version>
+		<scope>provided</scope>
+	</dependency>
   </dependencies>
   <build>
     <finalName>platformNavigation</finalName>

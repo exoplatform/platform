@@ -21,6 +21,21 @@
 	height: 31px;
 }
 
+.UIWorkingWorkspace #UIToolbarContainer .PinToolbarContainerTDContainer {
+	height: 25px;
+	margin: 6px 0 0 12px;
+	width: 31px;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
+}
+
+.UIWorkingWorkspace #UIToolbarContainer .HomeLinkTDContainer {
+    line-height: 31px;
+    margin-left: 5px;/* orientation=lt */
+    margin-right: 5px;/* orientation=rt */
+    vertical-align: middle;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
 	background: #20263f;	
 	height: 31px;
@@ -132,6 +147,10 @@
 	_display:inline-block;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a {
+	padding: 0;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
 	color: #8F8F8F;
 }
@@ -172,6 +191,14 @@
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .SiteIcon {
 	background: url('background/ToolbarContainer.png') no-repeat scroll 5px -184px transparent; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat scroll 100% -184px transparent; /* orientation=rt */	
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .QuickEditChecked {
+	background: url('background/checked.png') no-repeat scroll 10px 7px transparent;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .QuickEditUnchecked {
+	background: url('background/unchecked.png') no-repeat scroll 10px 7px transparent;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .AddPageIcon {

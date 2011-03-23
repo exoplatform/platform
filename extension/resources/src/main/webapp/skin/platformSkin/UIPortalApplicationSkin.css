@@ -56,7 +56,7 @@ a {
 }
 
 #UIPortalApplication .UIWorkingWorkspace {
-	width: auto;
+	width: 100%;
 	background: white !important;
 }
 

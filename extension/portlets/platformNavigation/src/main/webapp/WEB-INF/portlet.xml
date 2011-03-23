@@ -4,6 +4,31 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">	
 	
+   <portlet>
+      <description xml:lang="EN">Administration Toolbar Portlet</description>
+      <portlet-name>PlatformAdminToolbarPortlet</portlet-name>
+      <display-name xml:lang="EN">Platform Administration Toolbar Portlet</display-name>
+      <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+
+      <init-param>
+         <name>webui.configuration</name>
+         <value>/WEB-INF/conf/portlet/AdminToolbarPortlet/webui/configuration.xml</value>
+      </init-param>
+
+      <expiration-cache>0</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>help</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <resource-bundle>locale.portlet.UIAdminToolbarPortlet.AdminToolbarPortlet</resource-bundle>
+      <portlet-info>
+         <title>Platform Administration Toolbar Portlet</title>
+         <short-title>Platform Administration Toolbar</short-title>
+         <keywords>gatein_internal</keywords>
+      </portlet-info>
+   </portlet>
+	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
 		<portlet-name>UIUserPlatformToolBarPortlet</portlet-name>
