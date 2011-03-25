@@ -1,5 +1,5 @@
 
-h1. Document types {anchor:id=DEV.WorkWithContent.DocumentType}
+h1. Document types {anchor:id=DEV.WorkWithContent.DocumentTypes}
 
 Each document type is represented by a node type in the JCR. Therefore, to create a new document type, you have to add a new node type. There are two ways to do this: through XML configuration files, or through the administration portlet.
 
@@ -36,6 +36,7 @@ The templates are applied to a node type or a metadata mixin type. There are two
 * *views*: are html fragments used to display nodes.
 
 From the ECM admin portlet, Manage Template lists all existing node types that have been associated to Dialog and/or View templates. These templates can be attached to permissions (in the usual membership:group form), so that a specific one is displayed according to user rights (which can be useful in a content validation workflow activity).
+
 
 h1. Document type {anchor:id=DEV.WorkWithContent.DocumentType}
 
