@@ -1,4 +1,4 @@
-h2. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent} 
+h2. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets} 
 
 The complete skinning of a page can be decomposed into three main parts:
 
