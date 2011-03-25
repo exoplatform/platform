@@ -36,37 +36,37 @@ These APIs are provided to give an "early look" at which will be available in up
 
 h2. Platform APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.PlatformAPIs}
 
-h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
+h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.PlatformAPIs.JavaAPIs}
 
 *[Portlet API|/docs/refguide/html/bk02ch04.html#sect-Reference_Guide-Portlet_Primer] (JSR 168 and JSR 286)*: A Java standard that defines how to write portlets. This is the way to develop Java applications that are integrated into eXo Platform.
 
-*[WSRP 1.0|/docs/refguide/html/bk02ch07.html] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
+*[WSRP 1.0|/docs/refguide/html/bk02ch07.html#d0e22908] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
 
-*[JAX-RS|/docs/refguide/html/ch-introduction-to-rest.html] (JSR 311)*: A standard API that provides support for creating REST-like services.
+*[JAX-RS|/docs/refguide/html/ch-introduction-to-rest.html#d0e16091] (JSR 311)*: A standard API that provides support for creating REST-like services.
 
-*[JCR|/docs/refguide/html/ch-intro.html] (JSR 170)*: A standard API that provides access to a content repository.
+*[JCR|/docs/refguide/html/ch-intro.html#d0e32] (JSR 170)*: A standard API that provides access to a content repository.
 
-*[JCR Service Extensions|/docs/refguide/html/ch-jcr-extensions.html]*: A set of APIs that provide extended functionalities for the JCR, such as observation, permissions, and access to a repository.
+*[JCR Service Extensions|/docs/refguide/html/ch-jcr-extensions.html#d0e512]*: A set of APIs that provide extended functionalities for the JCR, such as observation, permissions, and access to a repository.
 
 *[Java EE 6|http://www.oracle.com/technetwork/java/javaee/overview/index.html]*: eXo Platform supports the Java EE 5 APIs, so you can develop applications using this standard.
 
-*[Cache|/docs/refguide/html/ch-cache.html]*: An API used for data caching.
+*[Cache|/docs/refguide/html/ch-cache.html#d0e13527]*: An API used for data caching.
 
 *[Event and Listener|/docs/refguide/html/ch-understanding-listeners-service.html#d0e13199]*: An API for listening and sending events within eXo Platform.
 
-*[Organization|/docs/refguide/html/ch-organization-service.html]*: An API and SPI for accessing user, group and membership information.
+*[Organization|/docs/refguide/html/ch-organization-service.html#Overview]*: An API and SPI for accessing user, group and membership information.
 
 *[Portal Container Definition|/docs/refguide/html/ch-service-configuration-for-beginners.html#d0e10881]*: This API is used to configure your portal.
 
-*[Taxonomy|/docs/refguide/html/bk03ch07.html#CONTref.JavaServices.TaxonomyService]*: An API that allows you to organize your content.
+*[Taxonomy|/docs/refguide/html/bk03ch07.html#d0e31107]*: An API that allows you to organize your content.
 
-*[Link Management|/docs/refguide/html/bk03ch07.html#CONTref.JavaServices.LinkManager]*: An API that provides a way to manage links when developing WCM features.
+*[Link Management|/docs/refguide/html/bk03ch07.html#d0e32137]*: An API that provides a way to manage links when developing WCM features.
 
-*[Publication Management|/docs/refguide/html/bk03ch07.html#CONTref.JavaServices.PublicationManager]*: An API that provides different ways to manage the publication of content when developing WCM features.
+*[Publication Management|/docs/refguide/html/bk03ch07.html#d0e32615]*: An API that provides different ways to manage the publication of content when developing WCM features.
 
-*[WCM Composer|/docs/refguide/html/bk03ch07.html#CONTref.JavaServices.WCMComposer]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
+*[WCM Composer|/docs/refguide/html/bk03ch07.html#d0e32794]*: An API to get contents to show in the website. Cache management is used in this service, as well as methods to update the contents cache.
 
-*[Template WCM|/docs/refguide/html/bk03ch03.html#CONTref.Configuration.Templates]*: An API to provide views and dialogs to node types (system or document).
+*[Template WCM|/docs/refguide/html/bk03ch03.html#d0e28096]*: An API to provide views and dialogs to node types (system or document).
 
 *[XML Configuration|/docs/refguide/html/ch-services-wiring.html#d0e13100]*: A set of DTD for configuring the eXo Platform.
 
@@ -76,24 +76,24 @@ h3. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
 h3. Web Services {anchor:id=DEV.eXoPlatformSupportedAPIs.WebServices}
 
-*[CMIS|/docs/refguide/html/bk05.html]*: A standard API that gives access to the content repository via REST and SOAP Web services.
+*[CMIS|/docs/refguide/html/bk05ch01.html]*: A standard API that gives access to the content repository via REST and SOAP Web services.
 
-*[FTP|/docs/refguide/html/ch-ftp.html]*: A standard protocol for exchanging documents.
+*[FTP|/docs/refguide/html/ch-ftp.html#d0e6985]*: A standard protocol for exchanging documents.
 
 *[OpenSocial 0.8 REST Protocol|http://www.opensocial.org/Technical-Resources/opensocial-spec-v081/restful-protocol.html]*: A standard API for accessing the social graph and activity streams.
 
-*[WebDAV|/docs/refguide/html/ch-webdav.html]*: A standard protocol for exchanging document over HTTP.
+*[WebDAV|/docs/refguide/html/ch-webdav.html#d0e6757]*: A standard protocol for exchanging document over HTTP.
 
 h2. Provisional APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs}
 
-h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
+h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs}
 
 *UI Extensions*: An API to plug new actions into the eXo Platform UI.
 
 *[DocumentExplorer Toolbar|http://wiki.exoplatform.com/xwiki/bin/view/ECM/UI%20Extension%20Framework#HCreateyourUIAction]*
 
-*[ECM Admin|/docs/refguide/html/bk03ch06.html#CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration]*
+*[ECM Admin|/docs/refguide/html/bk03ch06.html#d0e30590]*
 
-*[Activity Sharing|/docs/refguide/html/bk08ch03.html#SOCref.DevelopersReferences.UIExtensions]*
+*[Activity Sharing|/docs/refguide/html/bk08ch03.html#Developer_document.Create the activity plug-in]*
 
 
