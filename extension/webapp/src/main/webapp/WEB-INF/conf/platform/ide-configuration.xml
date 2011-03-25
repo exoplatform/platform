@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-   
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
    <component>
       <type>org.exoplatform.ide.IDEServiceApplication</type>
       <init-params>
@@ -11,9 +10,9 @@
             <value>dev-monit</value>
          </value-param>
          <value-param>
-         	<name>discoverable</name>
-         	<value>true</value>
-         </value-param>         
+            <name>discoverable</name>
+            <value>true</value>
+         </value-param>
       </init-params>
    </component>
 
@@ -30,7 +29,7 @@
                   <boolean>true</boolean>
                </field>
                <field name="jarEntries">
-                  <collection type="java.util.ArrayList">                  
+                  <collection type="java.util.ArrayList">
                      <value>
                         <object type="org.exoplatform.ide.groovy.codeassistant.bean.JarEntry">
                            <field name="jarPath">
@@ -51,7 +50,7 @@
                   </collection>
                </field>
                <field name="jarDocs">
-                  <collection type="java.util.ArrayList">                  
+                  <collection type="java.util.ArrayList">
                      <value>
                         <object type="org.exoplatform.ide.groovy.codeassistant.bean.JarEntry">
                            <field name="jarPath">
@@ -76,63 +75,37 @@
       </init-params>
    </component>
 
+   <component>
+      <type>org.exoplatform.ide.shindig.oauth.RestSecurityTokenGenerator</type>
+      <init-params>
+         <value-param>
+            <name>keyFile</name>
+            <description>shindig key file locaton</description>
+            <value>../gatein/conf/gadgets/key.txt</value>
+         </value-param>
+      </init-params>
+   </component>
 
-  <!-- IDE 1.0 -->
-  <!-- component>
-    <type>org.exoplatform.ide.upload.LoopbackContentService</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.ide.download.DownloadContentService</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.ide.discovery.RepositoryDiscoveryService</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.ide.groovy.GroovyScriptServiceApplication</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.ide.upload.UploadServiceApplication</type>
-  </component -->
-
-  <component>
-    <type>org.exoplatform.ide.shindig.oauth.RestSecurityTokenGenerator</type>
-    <init-params>
-       <value-param>
-         <name>keyFile</name>
-         <description>shindig key file locaton</description>
-         <value>../gatein/conf/gadgets/key.txt</value>
-       </value-param>
-    </init-params>
-  </component>
-
-  <!-- component>
-    <type>org.exoplatform.ide.conversationstate.RestConversationState</type>
-  </component -->
-
-  <component>
-    <type>org.exoplatform.ide.service.gatein.RestGadgetRegistryService</type>
-  </component>
+   <component>
+      <type>org.exoplatform.ide.service.gatein.RestGadgetRegistryService</type>
+   </component>
 
    <component>
       <key>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</key>
       <type>org.exoplatform.ide.groovy.GroovyScriptService</type>
       <component-plugins>
          <component-plugin>
-         <name>add groovy repo</name>
-         <set-method>addPlugin</set-method>
-         <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScriptAddRepoPlugin</type>
-         <init-params>
-            <properties-param>
-               <name>repo1</name>
-               <property name="repository" value="repository" />
-               <property name="workspace" value="dev-monit" />
-               <property name="path" value="/" />
-            </properties-param>
-         </init-params>
+            <name>add groovy repo</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScriptAddRepoPlugin</type>
+            <init-params>
+               <properties-param>
+                  <name>repo1</name>
+                  <property name="repository" value="repository" />
+                  <property name="workspace" value="dev-monit" />
+                  <property name="path" value="/" />
+               </properties-param>
+            </init-params>
          </component-plugin>
       </component-plugins>
       <init-params>

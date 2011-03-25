@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 
    <component>
@@ -11,10 +10,6 @@
    <!-- component>
       <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
    </component -->
-
-   <component>
-      <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
-   </component>
 
    <component>
       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
@@ -34,6 +29,10 @@
    </component>
 
    <component>
+      <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
+   </component>
+
+   <component>
       <type>org.exoplatform.services.jcr.ext.script.groovy.JcrGroovyCompiler</type>
    </component>
 
@@ -41,59 +40,6 @@
       <type>org.exoplatform.services.jcr.ext.script.groovy.JcrGroovyClassLoaderProvider</type>
    </component>
 
-   <!-- component>
-      <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</type>
-      <init-params>
-         <object-param>
-            <name>observation.config</name>
-            <object type="org.exoplatform.services.jcr.ext.script.groovy.ObservationListenerConfiguration">
-               <field name="repository">
-                  <string>repository</string>
-               </field>
-               <field name="workspaces">
-                  <collection type="java.util.ArrayList">
-                     <value>
-                        <string>dev-monit</string>
-                     </value>
-                  </collection>
-               </field>
-            </object>
-         </object-param>
-      </init-params>
-   </component -->
-
-   <!-- external-component-plugins>
-      <target-component>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</target-component>
-      <component-plugin>
-         <name>add groovy repo</name>
-         <set-method>addPlugin</set-method>
-         <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScriptAddRepoPlugin</type>
-         <init-params>
-            <properties-param>
-               <name>repo1</name>
-               <property name="repository" value="repository" />
-               <property name="workspace" value="dev-monit" />
-               <property name="path" value="/" />
-            </properties-param>
-         </init-params>
-      </component-plugin>
-   </external-component-plugins -->
-
-   <!-- external-component-plugins>
-      <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
-      <component-plugin>
-         <name>Sample RepositoryServiceConfiguration Plugin</name>
-         <set-method>addConfig</set-method>
-         <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
-         <init-params>
-            <value-param>
-               <name>conf-path</name>
-               <description>JCR configuration file</description>
-               <value>war:/conf/platform/ide-repository-configuration.xml</value>
-            </value-param>
-         </init-params>
-      </component-plugin>
-   </external-component-plugins -->
 </configuration>
 
 
