@@ -37,27 +37,6 @@
       <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
       <description>this listener init the portal configuration</description>
       <init-params>
-        <!--value-param>
-          <name>default.portal</name>
-          <description>The default portal for checking db is empty or not</description>
-          <value>classic</value>
-        </value-param-->
-        <object-param>
-          <name>site.templates.location</name>
-          <description>description</description>
-          <object type="org.exoplatform.portal.config.SiteConfigTemplates">
-            <field name="location">
-              <string>war:/conf/acme-portal/portal</string>
-            </field>
-            <field name="portalTemplates">
-              <collection type="java.util.HashSet">
-                <value>
-                  <string>acme</string>
-                </value>
-              </collection>
-            </field>
-          </object>
-        </object-param>
         <object-param>
           <name>portal.configuration</name>
           <description>description</description>

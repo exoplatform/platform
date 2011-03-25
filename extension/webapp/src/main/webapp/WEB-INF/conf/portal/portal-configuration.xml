@@ -125,7 +125,6 @@
 	              <collection type="java.util.HashSet">
 					<value>
 	                  <string>classic</string>
-	                  <!--string>default</string-->
 	                </value>
 				</collection>
 	            </field>

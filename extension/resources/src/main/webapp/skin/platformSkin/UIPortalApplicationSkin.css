@@ -102,3 +102,24 @@ a {
 .DeleteNodeIcon {
     background: url("/ecmexplorer/skin/icons/16x16/DefaultSkin/DustBin.gif") no-repeat scroll left center transparent;
 }
+
+.UIItemSelector .ItemDetailList .TemplateContainer .ACMEPortalImage {
+    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+    height: 235px;
+    margin: 3px auto;
+    width: 296px;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .IntranetPortalImage {
+    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+    height: 235px;
+    margin: 3px auto;
+    width: 296px;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .BasicPortalImage {
+    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+    height: 235px;
+    margin: 3px auto;
+    width: 296px;
+}

@@ -14,12 +14,17 @@
   <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
   <import>war:/conf/platform/ide-configuration.xml</import>
   
+  <!-- portal templates configuration-->
+  <import>war:/conf/platform/portal/portal-configuration.xml</import>
   <!-- Add Favicon filter-->
   <import>war:/conf/platform/portal/web-filter-configuration.xml</import>
   <!-- Configure User Dashboard  -->
   <import>war:/conf/platform/portal/users-dashboard-configuration.xml</import>
   <!-- Configure the profile contact provider -->
   <import>war:/conf/platform/ks/profile-configuration.xml</import>
+
+  <!-- Add portal templates artifacts -->
+  <import>war:/conf/platform/wcm/deployment/template-deployment-configuration.xml</import>
 
   <!-- Redefine TransactionService timeout-->
   <import>war:/conf/platform/common/common-configuration.xml</import>
