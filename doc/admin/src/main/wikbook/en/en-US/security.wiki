@@ -24,6 +24,12 @@ gatein-domain {
 
 Replace gatein-domain by your own domain name.
 
+{note}
+The PortalLoginModule module was designed to support the 'Remember me' feature. The password wrapped in PasswordCallback is the cookie token key.
+The PortalLoginModule module uses the token key to retrieve Credential object from CookieTokenService, then injects the correct username/password into the shared state (accessible from subsequent login modules). For the moment, to keep the authentication work properly, the PortalLoginModule module is mandatory. On the other hand, to ensure that correct password is visible to other login modules, it should be the first one in the JAAS configuration file. 
+Custom login module could retrieve the real password through the shared state instead of PasswordCallback.
+{note}
+
 {tip}
 To learn more about the syntax, or realms in Tomcat, refer to the [JAAS tutorial|http://download.oracle.com/javase/1.4.2/docs/guide/security/jaas/tutorials/LoginConfigFile.html] or [Tomcat Realm How-To|http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html] respectively.
 {tip}
