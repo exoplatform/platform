@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.packaging</artifactId>
+    <version>3.5.0-M2-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.packaging.demo</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Packaging Demo</name>
+  <dependencies>
+    <dependency>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.packaging.assembly</artifactId>
+		<version>${project.version}</version>
+        <type>zip</type>
+        <classifier>tomcat</classifier>
+    </dependency>
+  </dependencies>
+<profiles>
+    <profile>
+      <id>distrib</id>
+  <build>
+    <finalName>Platform-${project.version}-Demo</finalName>
+    <plugins>
+<!-- Unpack Tomcat base -->
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>01-unpack-dependencies</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <artifactItems>
+                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.packaging.assembly</artifactId>
+				  <classifier>tomcat</classifier>
+				  <type>zip</type>
+                  <version>${project.version}</version>
+                  <outputDirectory>target/tomcat-demo</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+<!-- Create Demo -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>02-prepare-demo</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <unzip src="${project.build.directory}/tomcat-demo/webapps/portal.war" dest="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <replace file="${project.build.directory}/tomcat-demo/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
+				  <replacetoken><![CDATA[</body>]]></replacetoken>
+				  <replacevalue><![CDATA[<script src="http://www.google-analytics.com/ga.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-1292368-16");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+</body>]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-demo/webapps/portal.war" basedir="${project.build.directory}/tomcat-demo/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-demo/webapps/portal" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+    </profile>
+  </profiles>
+</project>
