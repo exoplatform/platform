@@ -94,8 +94,8 @@
   </script>]]></replacevalue>
 				</replace>
                 <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
-				  <replacetoken><![CDATA[<distributable />]]></replacetoken>
-				  <replacevalue><![CDATA[<distributable />
+				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
+				  <replacevalue><![CDATA[<distributable/>
 
    <!-- Begin - Lead Capture Filter -->
    <filter>
@@ -231,8 +231,25 @@
 		  </configuration>
 		</configuration>
       </plugin-->
-    </plugins>
-  </build>
+      <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>06-assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/tomcat-trial-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+		</plugins>
+	  </build>
     </profile>
   </profiles>
 </project>
