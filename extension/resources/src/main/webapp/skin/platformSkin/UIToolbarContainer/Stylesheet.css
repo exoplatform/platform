@@ -210,7 +210,7 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .QuickEditUnchecked {
-	background: url('background/unchecked.png') no-repeat 10px 7px;
+	background: url('background/unchecked.png') no-repeat 3px 8px;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .AddPageIcon {
