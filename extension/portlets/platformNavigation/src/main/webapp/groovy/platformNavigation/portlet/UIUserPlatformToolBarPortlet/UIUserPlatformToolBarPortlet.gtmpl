@@ -80,8 +80,9 @@ void renderLink() {
 				  } // end for				   
 				} // end if
 				
-
+				
        			print """
+						<hr width="100%" style="width:100%; color: #999999;" />
 						<div class="MenuItem">
 							<div class="$clazz">						
 								<a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>				
@@ -109,7 +110,7 @@ void renderLink() {
 <div class="UIUserToolBarPortlet" id="$uicomponent.id">
     <div class="UIHorizontalTabs">
         <div class="TabsContainer" style="position: relative">
-            <div class="UITab NormalToolbarTab">
+            <div class="UITab">
                 <div class="">
                             <a class="ArrowIcon TBIcon" href="#">
                                    $user.fullName

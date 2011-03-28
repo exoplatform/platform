@@ -58,7 +58,7 @@
 							<div class="MenuItem">	
 								<a href="<%=manageSiteURI%>" title="<%=manageSiteURI%>" class="ItemIcon ManageSite">$editNavigation</a>
 							</div>
-							<hr width="100%" style="width:100%;" />
+							<hr width="100%" style="width:100%; color: #999999;" />
 							<div class="MenuItem">	
 								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
 							</div>
