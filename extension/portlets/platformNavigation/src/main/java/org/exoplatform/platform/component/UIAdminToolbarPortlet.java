@@ -19,7 +19,13 @@
 
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.wcm.webui.Utils;
@@ -41,12 +47,16 @@ import org.exoplatform.webui.event.EventListener;
     }
 )
 public class UIAdminToolbarPortlet extends UIPortletApplication {
+  
+  private UserACL userACL = null;
+  
   public UIAdminToolbarPortlet() throws Exception {
     PortalRequestContext context = Util.getPortalRequestContext();
     Boolean quickEdit = (Boolean)context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
     if(quickEdit == null) {
       context.getRequest().getSession().setAttribute(Utils.TURN_ON_QUICK_EDIT, false);
     }
+    userACL = getApplicationComponent(UserACL.class);
   }
 
   public PageNavigation getSelectedNavigation() throws Exception {
@@ -63,6 +73,40 @@ public class UIAdminToolbarPortlet extends UIPortletApplication {
 
   public boolean hasEditPermissionOnPage() throws Exception {
     return Utils.hasEditPermissionOnPage();
+  }
+  
+  public boolean hasCreatePortalPermission() throws Exception {
+    List<String> AllowedToEditPortalNames = getAllowedToEditPortalNames();
+    return userACL.hasCreatePortalPermission() || AllowedToEditPortalNames.size()> 0;
+  }
+
+  private List<String> getAllowedToEditPortalNames() throws Exception {
+    List<String> allowedPortalList = new ArrayList<String>();
+
+    UserPortalConfigService dataStorage = getApplicationComponent(UserPortalConfigService.class);
+
+    List<String> portals = dataStorage.getAllPortalNames();
+    for (String portalName : portals) {
+      try {
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        if (portalConfig != null) {
+          allowedPortalList.add(portalName);
+        } else {
+          if (log.isDebugEnabled()) {
+            log.debug(getRemoteUser() + " has no permission to access " + portalName);
+          }
+        }
+      } catch (Exception exception) {
+        if (log.isDebugEnabled()) {
+          log.debug("Can't access to the portal " + portalName);
+        }
+      }
+    }
+    return allowedPortalList;
+  }
+
+  private String getRemoteUser() {
+    return Util.getPortalRequestContext().getRemoteUser();
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
