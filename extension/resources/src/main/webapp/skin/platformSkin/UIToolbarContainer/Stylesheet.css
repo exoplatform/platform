@@ -157,6 +157,10 @@
 }
 
 /**********************************/
+.UIToolbarContainer .ToolbarContainer a {
+    padding: 0px;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
 	color: #FFD400;
 	font-weight: normal;
