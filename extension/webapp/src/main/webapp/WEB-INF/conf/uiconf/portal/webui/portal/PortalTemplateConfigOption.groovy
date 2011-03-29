@@ -36,9 +36,9 @@ List options = new ArrayList();
   );
   options.add(intranet);
   
-  SelectItemCategory basic = new SelectItemCategory("BasicPortal");
+  SelectItemCategory basic = new SelectItemCategory("EmptyPortal");
   basic.addSelectItemOption(
-      new PortalTemplateConfigOption("BasicPortal", "basic", "Basic Portal", "BasicPortal").addGroup("/platform/guests")
+      new PortalTemplateConfigOption("EmptyPortal", "empty", "Empty Portal", "EmptyPortal").addGroup("/platform/guests")
   );
   options.add(basic);
   

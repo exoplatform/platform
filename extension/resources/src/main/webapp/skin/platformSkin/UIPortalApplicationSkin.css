@@ -117,7 +117,7 @@ a {
     width: 296px;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .BasicPortalImage {
+.UIItemSelector .ItemDetailList .TemplateContainer .EmptyPortalImage {
     background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
     height: 235px;
     margin: 3px auto;
