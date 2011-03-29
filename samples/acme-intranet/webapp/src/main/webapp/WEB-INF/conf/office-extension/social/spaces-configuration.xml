@@ -250,4 +250,42 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
+		<component-plugin>
+			<name>Default Spaces Content Deployment</name>
+			<set-method>addSpaceListener</set-method>
+			<type>org.exoplatform.platform.common.space.plugin.XMLDeploymentPlugin</type>
+			<description>XML Deployment Plugin</description>
+			<init-params>
+				<object-param>
+					<name>Welcome Content</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="repository">
+									<string>repository</string>
+								</field>
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<!-- relative node path to the space root path-->
+								<field name="nodePath">
+									<string>/Documents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/office-extension/social/artifacts/SpaceWelcome.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
 </configuration>

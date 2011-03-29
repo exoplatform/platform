@@ -28,6 +28,24 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
+	<dependency>
+		<groupId>org.exoplatform.ecms</groupId>
+		<artifactId>exo-ecms-core-services</artifactId>
+		<version>${org.exoplatform.ecms.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.exoplatform.social</groupId>
+		<artifactId>exo.social.component.common</artifactId>
+		<version>${org.exoplatform.social.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.exoplatform.social</groupId>
+		<artifactId>exo.social.component.core</artifactId>
+		<version>${org.exoplatform.social.version}</version>
+		<scope>provided</scope>
+	</dependency>
     <dependency>
       <groupId>javax.portlet</groupId>
       <artifactId>portlet-api</artifactId>
