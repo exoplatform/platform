@@ -74,10 +74,14 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector port="8080" protocol="HTTP/1.1" 
-               maxThreads="150" connectionTimeout="20000" 
-               redirectPort="8443" URIEncoding="UTF-8"
-               emptySessionPath="true"/>
+    <Connector port="8080" protocol="HTTP/1.1" maxHttpHeaderSize="8192"
+               maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+               enableLookups="false" redirectPort="8443" acceptCount="100"
+               connectionTimeout="20000" disableUploadTimeout="true"
+               compression="on" URIEncoding="UTF-8" emptySessionPath="true"
+               compressionMinSize="2048"
+               noCompressionUserAgents=".*MSIE 6.*"
+               compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript"/>
 
     <!-- Define a SSL HTTP/1.1 Connector on port 8443
          This connector uses the JSSE configuration, when using APR, the 
