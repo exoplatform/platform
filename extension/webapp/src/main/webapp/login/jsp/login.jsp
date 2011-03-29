@@ -90,7 +90,7 @@
 			}
 
 			.UILogin .LoginContent .CenterLoginContent {
-			  height: 170px;
+			  height: 157px;
 			}
 
 			.UILogin .LoginContent input {
@@ -114,7 +114,7 @@
 			
 			.UILogin .LoginContent .LoginButton {
 			  height: 25px ;
-			  padding: 8px 0 5px;
+			  padding: 3px 0 5px;
 			}
 
 			.UILogin .LoginContent .LoginButtonContainer {
@@ -157,7 +157,7 @@
     <div class="UILogin">
       <div class="LoginHeader"></div>
       <div class="LoginContent">
-				<div style="height: 22px;line-height: 22px;">
+				<div style="line-height: 12px; padding: 6px 3px 0 0; height: 27px; font-size: 11px;">
 					<%/*Begin form*/%>
           <%
             if(username.length() > 0 || password.length() > 0) {
