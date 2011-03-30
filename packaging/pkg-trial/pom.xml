@@ -9,18 +9,23 @@
   <artifactId>exo.platform.packaging.trial</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Trial</name>
+
+<profiles>
+  <profile>
+  <id>distrib</id>
+
   <dependencies>
 <!-- lead capture filter -->
     <dependency>
-      <groupId>org.exoplatform.leadcapture</groupId>
-      <artifactId>exo.leadcapture.web.client.application</artifactId>
-      <version>${org.exoplatform.leadcapture.version}</version>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.trial.webapp</artifactId>
+      <version>${project.version}</version>
       <type>war</type>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.leadcapture</groupId>
-      <artifactId>exo.leadcapture.client</artifactId>
-      <version>${org.exoplatform.leadcapture.version}</version>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.trial.service</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
 		<groupId>org.exoplatform.platform</groupId>
@@ -30,9 +35,7 @@
         <classifier>tomcat</classifier>
     </dependency>
   </dependencies>
-<profiles>
-    <profile>
-      <id>distrib</id>
+
   <build>
     <finalName>Platform-${project.version}-Trial</finalName>
     <plugins>
@@ -45,7 +48,7 @@
 <!--
  | Step 01: download and unpack the base Tomcat package
 -->
-            <id>01-unpack-dependencies</id>
+            <id>00-copy-as-tomcat</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
@@ -59,7 +62,7 @@
 					<classifier>tomcat</classifier>
 					<type>zip</type>
 		    		<version>${project.version}</version>
-		            <outputDirectory>target/tomcat-trial</outputDirectory>
+		            <outputDirectory>${project.build.directory}/tomcat-trial</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -67,6 +70,40 @@
         </executions>
       </plugin>
 <!-- Create Trial -->
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>01-copy-leadcapture-filter</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.trial.webapp</artifactId>
+				  <version>${project.version}</version>
+				  <type>war</type>
+                  <outputDirectory>${project.build.directory}/tomcat-trial/webapps</outputDirectory>
+                  <destFileName>trial.war</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.trial.service</artifactId>
+				  <version>${project.version}</version>
+                  <outputDirectory>${project.build.directory}/tomcat-trial/lib</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+              <!-- other configurations here -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.6</version>
@@ -93,21 +130,6 @@
     _lf_remora();
   </script>]]></replacevalue>
 				</replace>
-                <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
-				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
-				  <replacevalue><![CDATA[<distributable/>
-
-   <!-- Begin - Lead Capture Filter -->
-   <filter>
-	  <filter-name>LeadCaptionFilter</filter-name>
-	  <filter-class>org.exoplatform.capture.client.LeadCaptionFilter</filter-class>
-   </filter>
-   <filter-mapping>
-	  <filter-name>LeadCaptionFilter</filter-name>
-	  <url-pattern>/*</url-pattern>
-   </filter-mapping>
-   <!-- End - Lead Capture Filter -->]]></replacevalue>
-				</replace>
                 <zip destfile="${project.build.directory}/tomcat-trial/webapps/portal.war" basedir="${project.build.directory}/tomcat-trial/webapps/portal" />
                 <delete dir="${project.build.directory}/tomcat-trial/webapps/portal" />
                 <!-- disable configuration persister to allow start and restart on different computers PLF-1109 -->
@@ -131,23 +153,6 @@
 				</replace>
                 <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-trial/webapps/plf" />
                 <delete dir="${project.build.directory}/tomcat-trial/webapps/plf" />
-                <dependencyfilesets prefix="lcfdeps." />
-                <copy tofile="${project.build.directory}/tomcat-trial/webapps/capture.war">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.web.client.application:war" />
-                </copy>
-                <copy todir="${project.build.directory}/tomcat-trial/lib">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
-                </copy>
-                <mkdir dir="${project.build.directory}/tomcat-trial/lib/lcf" />
-                <unzip dest="${project.build.directory}/tomcat-trial/lib/lcf">
-                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
-                </unzip>
-                <replace file="${project.build.directory}/tomcat-trial/lib/lcf/conf/portal/configuration.xml">
-				  <replacetoken><![CDATA[<value>Platform 3.0.0-GA</value>]]></replacetoken>
-				  <replacevalue><![CDATA[<value>Platform ${project.version}</value>]]></replacevalue>
-				</replace>
-                <zip destfile="${project.build.directory}/tomcat-trial/lib/exo.leadcapture.client-${org.exoplatform.leadcapture.version}.jar" basedir="${project.build.directory}/tomcat-trial/lib/lcf" />
-                <delete dir="${project.build.directory}/tomcat-trial/lib/lcf" />
                 <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
                 <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties" token="gatein.data.dir=" value="#gatein.data.dir=" />
                 <!-- uses the gatein.data.dir to store the db at the correct location, in tomcat-trial/gatein/data -->
