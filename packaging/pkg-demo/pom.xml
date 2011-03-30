@@ -9,7 +9,12 @@
   <artifactId>exo.platform.packaging.demo</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Demo</name>
-  <dependencies>
+ 
+<profiles>
+ <profile>
+  <id>distrib</id>
+
+ <dependencies>
     <dependency>
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.packaging.assembly</artifactId>
@@ -18,9 +23,7 @@
         <classifier>tomcat</classifier>
     </dependency>
   </dependencies>
-<profiles>
-    <profile>
-      <id>distrib</id>
+
   <build>
     <finalName>Platform-${project.version}-Demo</finalName>
     <plugins>
