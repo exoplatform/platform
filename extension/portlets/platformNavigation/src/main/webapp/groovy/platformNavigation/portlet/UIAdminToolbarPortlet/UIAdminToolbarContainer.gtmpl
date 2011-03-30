@@ -18,8 +18,6 @@
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
 
-	String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
-
 	String quiEditClass = "QuickEditUnchecked";
 	PortalRequestContext context = Util.getPortalRequestContext();
 	Boolean quickEdit = (Boolean)context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
@@ -57,7 +55,7 @@
 						<% } %>
 						<% if(userCouldManagePortals){ %>
 							<div class="MenuItem">	
-								<a href="<%=manageSiteURI%>" title="<%=manageSiteURI%>" class="ItemIcon ManageSite">$editNavigation</a>
+								<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon ManageSite">$editNavigation</a>
 							</div>
 						<% } %>
 						<% if(userCouldEditNavigation){ %>
@@ -71,4 +69,5 @@
 			</div>
 		</div>
 	</div>
+	<%uicomponent.renderChildren();%>
 </div>

@@ -157,7 +157,12 @@
 }
 
 /**********************************/
-.UIToolbarContainer .ToolbarContainer a {
+.UIToolbarContainer .ToolbarContainer .HomeLink {
+    padding: 0px;
+}
+
+
+.UIToolbarContainer .ToolbarContainer .PinLink {
     padding: 0px;
 }
 
