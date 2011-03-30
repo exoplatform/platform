@@ -6,10 +6,9 @@
       <type>org.exoplatform.services.rest.ext.proxy.ProxyService</type>
    </component>
 
-   <!-- disabled temporary, until CS-4886 will be fixed -->
-   <!-- component>
+   <component>
       <type>org.exoplatform.services.rest.ext.service.RestServicesListApplication</type>
-   </component -->
+   </component>
 
    <component>
       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
