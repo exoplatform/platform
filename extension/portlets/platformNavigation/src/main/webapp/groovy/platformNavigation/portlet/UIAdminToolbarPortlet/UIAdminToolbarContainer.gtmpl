@@ -28,7 +28,6 @@
 	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation();
 	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
-	boolean userCouldManagePortals = uicomponent.hasCreatePortalPermission();
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 <div class="UIAdminToolbarPortlet" id="$uicomponent.id" >
@@ -53,12 +52,10 @@
 								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon EditSiteIcon">$editSiteLayout</a>
 							</div>
 						<% } %>
-						<% if(userCouldManagePortals){ %>
+						<% if(userCouldEditNavigation){ %>
 							<div class="MenuItem">	
 								<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon ManageSite">$editNavigation</a>
 							</div>
-						<% } %>
-						<% if(userCouldEditNavigation){ %>
 							<hr width="100%" style="width:100%; color: #999999;" />
 							<div class="MenuItem">	
 								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>

@@ -22,6 +22,7 @@ package org.exoplatform.platform.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -35,15 +36,45 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
-
-@ComponentConfig(
-       lifecycle = UIApplicationLifecycle.class, 
-       template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet.gtmpl"
-)
+@ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet.gtmpl")
 public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
   public Log log = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
 
-  public UIUserPlatformToolBarSitePortlet() throws Exception {}
+  private UserACL userACL = null;
+
+  public UIUserPlatformToolBarSitePortlet() throws Exception {
+    userACL = getApplicationComponent(UserACL.class);
+  }
+
+  public boolean hasEditOrCreatePortalPermission() throws Exception {
+    List<String> AllowedToEditPortalNames = getAllowedToEditPortalNames();
+    return userACL.hasCreatePortalPermission() || AllowedToEditPortalNames.size() > 0;
+  }
+
+  private List<String> getAllowedToEditPortalNames() throws Exception {
+    List<String> allowedPortalList = new ArrayList<String>();
+
+    UserPortalConfigService dataStorage = getApplicationComponent(UserPortalConfigService.class);
+
+    List<String> portals = dataStorage.getAllPortalNames();
+    for (String portalName : portals) {
+      try {
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        if (portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig())) {
+          allowedPortalList.add(portalName);
+        } else {
+          if (log.isDebugEnabled()) {
+            log.debug(getRemoteUser() + " has no permission to access " + portalName);
+          }
+        }
+      } catch (Exception exception) {
+        if (log.isDebugEnabled()) {
+          log.debug("Can't access to the portal " + portalName);
+        }
+      }
+    }
+    return allowedPortalList;
+  }
 
   public List<String> getAllPortalNames() throws Exception {
     List<String> allowedPortalList = new ArrayList<String>();
