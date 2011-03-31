@@ -9,6 +9,11 @@
   <artifactId>exo.platform.packaging.jboss</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging JBoss</name>
+
+<profiles>
+  <profile>
+  <id>distrib</id>
+
   <dependencies>
     <dependency>
 		<groupId>org.exoplatform.platform</groupId>
@@ -18,9 +23,7 @@
         <classifier>ears</classifier>
     </dependency>
   </dependencies>
-<profiles>
-    <profile>
-      <id>distrib</id>
+
   <build>
     <finalName>Platform-${project.version}-JBoss</finalName>
     <plugins>
