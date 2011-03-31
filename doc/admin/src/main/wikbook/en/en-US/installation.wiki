@@ -34,7 +34,7 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 {screen}
 
 
-*3.* Start up eXo Platform by using one of the following built-in scripts. {anchor:id=ADM.Installation.JBoss_EARS_Startup_scripts}
+*3.* Start up eXo Platform by using one of the following built-in scripts.
 
 eXo Platform comes with several builtin startup scripts:
 * Linux & OS X: {{start{{{_}}}eXo.sh}}.
