@@ -22,6 +22,7 @@
 			<groupId>org.exoplatform.ws</groupId>
 			<artifactId>exo.ws.rest.core</artifactId>
 			<version>${org.exoplatform.ws.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.kernel</groupId>

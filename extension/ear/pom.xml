@@ -134,8 +134,48 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.frameworks.servlet</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.framework.web</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform</groupId>
+          <artifactId>exo-jcr-services</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-beanutils</groupId>
+          <artifactId>commons-beanutils</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-codec</groupId>
+          <artifactId>commons-codec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-chain</groupId>
+          <artifactId>commons-chain</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>javax.annotation</groupId>
           <artifactId>jsr250-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.objectweb.carol</groupId>
+          <artifactId>carol</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.ws</groupId>
@@ -169,6 +209,14 @@
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.apache.tika</groupId>
+          <artifactId>tika-parsers</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.tika</groupId>
+          <artifactId>tika-core</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -198,12 +246,52 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.json</groupId>
+          <artifactId>json</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>picocontainer</groupId>
+          <artifactId>picocontainer</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>org.exoplatform.portal</groupId>
           <artifactId>exo.portal.component.application-registry</artifactId>
         </exclusion>
         <exclusion>
+          <groupId>aopalliance</groupId>
+          <artifactId>aopalliance</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>org.gatein.shindig</groupId>
           <artifactId>shindig-common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.gatein.shindig</groupId>
+          <artifactId>shindig-social-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.gatein.shindig</groupId>
+          <artifactId>shindig-gadgets</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.gatein.shindig</groupId>
+          <artifactId>shindig-features</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.jcr</groupId>
@@ -229,6 +317,22 @@
       <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
+        <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>concurrent</groupId>
           <artifactId>concurrent</artifactId>
@@ -322,6 +426,30 @@
       <type>jar</type>
       <exclusions>
         <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.frameworks.json</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.ext</artifactId>
+        </exclusion>
+        <exclusion>
           <groupId>org.exoplatform.ws</groupId>
           <artifactId>exo.ws.rest.core</artifactId>
         </exclusion>
@@ -376,6 +504,10 @@
         <exclusion>
           <groupId>javax.annotation</groupId>
           <artifactId>jsr250-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-all</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
