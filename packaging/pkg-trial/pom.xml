@@ -48,7 +48,7 @@
 <!--
  | Step 01: download and unpack the base Tomcat package
 -->
-            <id>00-copy-as-tomcat</id>
+            <id>01-copy-as-tomcat</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
