@@ -193,6 +193,7 @@
     <module>server</module>
     <module>doc</module>
     <module>samples</module>
+    <module>trial</module>
     <module>packaging</module>
     <module>testsuite</module>
   </modules>
