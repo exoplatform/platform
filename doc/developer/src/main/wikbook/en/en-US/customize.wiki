@@ -15,19 +15,19 @@ Once you have modified the sample extension to build your own portal, use "maven
 
 To deploy your extension in Tomcat, do as follows:
 
-*Step 1:* Add the file sample-ext.war from the {{sample/extension/war/target/}} to the directory {{tomcat/webapps}}.
+*1.* Add the file sample-ext.war from the {{sample/extension/war/target/}} to the directory {{tomcat/webapps}}.
 
-*Step 2:* Add the folder {{starter}} from {{starter/war/target/}} to the directory {{tomcat/webapps}}.
+*2.* Add the folder {{starter}} from {{starter/war/target/}} to the directory {{tomcat/webapps}}.
 
-*Step 3:* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
+*3.* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
 
 {note}
 This will only work if the starter.war is the last .war file to be loaded, so you may need to rename it if your war files are loaded in the alphabetical order.
 {note}
 
-*Step 4:* Add the .jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
+*4.* Add the .jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
 
-*Step 5:* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
+*5.* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
 
 
 For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].

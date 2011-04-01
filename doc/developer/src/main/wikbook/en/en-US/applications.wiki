@@ -3,8 +3,7 @@ h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationInter
 
 To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located in {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
 
-Here is an example of a portlet configuration inside {{pages.xml}}:
-
+Here is an example of the portlet configuration inside {{pages.xml}}:
 
 {code:language=xml}
 <portlet-application>

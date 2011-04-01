@@ -1,7 +1,7 @@
 h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
 The current color of Admin bar is dark blue and yellow. However, you can change the color to match your brand colors.
 
-The Admin bar looks like this: abacaswdcohodj
+The Admin bar looks like this:
 
 !admin_bar.png!
 
