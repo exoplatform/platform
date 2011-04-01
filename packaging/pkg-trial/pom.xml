@@ -39,16 +39,15 @@
   <build>
     <finalName>Platform-${project.version}-Trial</finalName>
     <plugins>
-<!-- Unpack Tomcat base -->
        <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
 <!--
- | Step 01: download and unpack the base Tomcat package
+ | Step 00: download and unpack the base Tomcat package
 -->
-            <id>01-copy-as-tomcat</id>
+            <id>00-copy-as-tomcat</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
@@ -67,14 +66,9 @@
               </artifactItems>
             </configuration>
           </execution>
-        </executions>
-      </plugin>
-<!-- Create Trial -->
-<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.2</version>
-        <executions>
+<!--
+ | Step 01: copy lead capture filter artifacts
+-->
           <execution>
             <id>01-copy-leadcapture-filter</id>
             <phase>prepare-package</phase>
@@ -98,12 +92,10 @@
                   <outputDirectory>${project.build.directory}/tomcat-trial/lib</outputDirectory>
                 </artifactItem>
               </artifactItems>
-              <!-- other configurations here -->
             </configuration>
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.6</version>
