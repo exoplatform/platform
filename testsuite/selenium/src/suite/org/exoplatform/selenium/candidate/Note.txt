@@ -15,7 +15,7 @@ CS NOTES:
 KS NOTES:
 
 Preparation:
-- Need to create page /portal/private/intranet/answers which contains Answer Portlet.
+- Need to create page /portal/private/intranet/answers which contains Answer Portlet and FAQ Portlet.
 
 
 
