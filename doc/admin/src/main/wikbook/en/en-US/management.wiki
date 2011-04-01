@@ -46,6 +46,13 @@ PortalContainer manages all objects and configurations of a given portal.
 |{{getRegisteredComponentNames}}|Return the list of all registered component names.|
 |{{isStarted}}|Check if the portal container is started or not. The portal container is only started once all its components have been started.|
 
+{note}
+PortalContainer can be controlled through the following path:  
+
+* http://localhost:8080/rest/management/pcontainer.
+{note}
+
+
 h2. Cache management view  {anchor:id=ADM.Management.Cache_management_view}
 
 eXo Platform uses caches at several levels. Monitoring them can provide the critical performance information, especially useful for tuning the server. Each cache is exposed with statistics and management operations. 
@@ -71,6 +78,7 @@ eXo Platform uses caches at several levels. Monitoring them can provide the crit
 |{{getMaxSize}}|Return the maximum capacity of the cache.|
 |{{setMaxSize}}|Set the maximum capacity of the cache.|
 |{{getCacheSize}}|Return the number of entries in the cache.|
+
 
 h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
@@ -136,6 +144,14 @@ PicketLinkIDMCacheService is the default implementation for the organization mod
 |{{invalidateAll}}|Invalidate all caches.|
 |{{invalidate(namespace)}}|Invalidate a specific cache namespace.|
 
+{note}
+PicketLinkIDMCacheService can be controlled through the following path:  
+
+* http://localhost:8080/rest/management/plidmcache.
+
+However, the REST View managements of Cache instances and CacheManager are not currently exposed in this version.
+{note}
+
 h2. eXo Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
 
 eXo Content provides a management view for three following services:
@@ -198,7 +214,7 @@ h3. WCMService {anchor:id=ADM.Management.WCMService}
 |{{setPortletExpirationCache(expirationCache)}}|Set the expiration period of portlet cache by entering the value into the *expirationCache* field.|
 
 {note}
-WCMComposer, FriendlyService, and WCMService can be controlled through the following paths of relevant REST services:  
+WCMComposer, FriendlyService, and WCMService can be controlled through the following paths respectively:  
 
 * http://localhost:8080/rest/management/wcmcomposerservice/.
 
@@ -282,6 +298,10 @@ h3. Workspace {anchor:id=ADM.Management.Workspace}
 ||Operation||Description||
 |{{getName}}|Return the workspace container name.|
 |{{getRegisteredComponentNames}}|Return the list of registered component names in the workspace.|
+
+{note}
+Currently, the REST View managements of SessionRegistry, LockManager, Repository and Workspace are not exposed in this version.  
+{note}
 
 
 h2. Portal management view {anchor:id=ADM.Management.Portal_management_view}
@@ -402,6 +422,22 @@ Various applications are exposed to provide relevant statistics.
 |{{getFastestApplications}}|Return the list of the 10 fastest applications.|
 |{{getApplicationList}}|Return the list of application identifiers classified in the alphabetic order.|
 
+
+{note}
+Template statistics, Template management, Skin management, Portal statistics and Application statistics can be controlled through the following paths respectively:  
+
+* http://localhost:8080/rest/management/templatestatistics.
+
+* http://localhost:8080/rest/management/templateservice.
+
+* http://localhost:8080/rest/management/skinservice.
+
+* http://localhost:8080/rest/management/portalstatistic.
+
+* http://localhost:8080/rest/management/applicationstatistic
+
+However, the REST View management of TokenStore is currently not exposed in this version.
+{note}
 
 h2. eXo Knowledge management view {anchor:id=ADM.Management.eXo_Knowledge_management_view}
 
@@ -531,13 +567,19 @@ The Storage management view enables you to get storage information in eXo Knowle
 |{{getWorkspace}}|Return the name of workspace of the Forum Storage.|
 |{{getPath}}|Return the JCR data path of the Forum Storage.|
 
+
+{note}
+Currently, the REST View managements of Forum, Job, Plugin, Storage are not exposed in this version.
+{note}
+
+
 h2. eXo Collaboration management view {anchor:id=ADM.Management.eXo_Collaboration_management_view}
 
 eXo Collaboration provides a management view, enabling you to view some state information of Jobs used in CS. 
 
 
 ||Attribute||Description||
-|{{DataMap}}|The map containing the state information for Job instances.|
+|{{DataMap}}|The map containing the state information for the Job instances.|
 |{{Name}}|The name of the Job.|
 
 {example}{example}
@@ -551,3 +593,7 @@ eXo Collaboration provides the following Job instances:
 |{{PopupReminderJob}}|Show pop-up reminders in the Calendar application.|
 |{{ReminderJob}}|Send email reminders in the Calendar application.|
 |{{messageToHistoricalMessageJob}}|Save messages in the Chat application in the data storage of eXo Collaboration.|
+
+{note}
+Currently, the REST View management of eXo Collaboration is not exposed.
+{note}
