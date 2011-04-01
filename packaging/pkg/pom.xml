@@ -1233,6 +1233,20 @@
       <version>${org.chromattic.version}</version>
       <type>jar</type>
     </dependency>
+
+    <dependency>
+		<groupId>org.chromattic</groupId>
+		<artifactId>chromattic.apt</artifactId>
+		<version>${org.chromattic.version}</version>
+		<type>jar</type>
+	</dependency><!-- 1.1.0-beta2-->
+
+	<dependency>
+		<groupId>org.chromattic</groupId>
+		<artifactId>chromattic.ext</artifactId>
+		<version>${org.chromattic.version}</version>
+		<type>jar</type>
+	</dependency><!-- 1.1.0-beta2-->
     
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
