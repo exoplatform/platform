@@ -12,6 +12,12 @@ CS NOTES:
 - SNF_CS_25, SNF_CS_27, SNF_CS_28, SNF_CS_29 : It may be failed because of the checkmail function is slow or on stable
 
 
+KS NOTES:
+
+Preparation:
+- Need to create page /portal/private/intranet/answers which contains Answer Portlet.
+
+
 
 
 
