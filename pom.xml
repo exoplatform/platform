@@ -54,7 +54,7 @@
     <net.oauth.version>20080621</net.oauth.version>
     <cglib.version>2.2</cglib.version>
     <commons-pool.version>1.2</commons-pool.version>
-    <org.reflext.version>1.0.0</org.reflext.version>
+    <org.reflext.version>1.1.0-beta12</org.reflext.version>
     <antlr.version>2.7.6rc1</antlr.version>
     <org.fontbox.version>0.1.0</org.fontbox.version>
     <commons-dbcp.version>1.2.1</commons-dbcp.version>
