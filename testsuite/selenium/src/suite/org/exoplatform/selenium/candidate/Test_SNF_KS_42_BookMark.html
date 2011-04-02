@@ -177,29 +177,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAt</td>
 	<td>//div[@id='UIBreadcumbs']//div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UICategories']//div[@title='Cate1_SNF_KS_42']</td>
+	<td>link=Cate1_SNF_KS_42</td>
 	<td></td>
 </tr>
 <tr>
 	<td>contextMenu</td>
-	<td>//div[@id='UICategories']//div[@title='Cate1_SNF_KS_42']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>//div[@id='UICategoryContainer']//div[@title='Cate1_SNF_KS_42']//a[@class='ItemIcon AddLinkToBookIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>componentExoContextMenu</td>
 	<td>link=Cate1_SNF_KS_42</td>
-	<td>contextmenu</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -207,13 +197,38 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAt</td>
 	<td>link=Bookmark</td>
 	<td></td>
 </tr>
 <tr>
-	<td>mouseDownRight</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[4]/div/div/div/div/div[6]/a</td>
+	<td>verifyElementPresent</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr/td[2]/a</td>
+	<td>Cate1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr/td[2]/a</td>
+	<td>Cate1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
 	<td></td>
 </tr>
 <tr>
@@ -237,13 +252,48 @@
 	<td></td>
 </tr>
 <tr>
-	<td>componentExoContextMenu</td>
+	<td>contextMenu</td>
 	<td>link=For1_SNF_KS_42</td>
-	<td>contextmenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Bookmark</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>//div[@class='ItemIcon AddLinkToBookIcon']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr[2]/td[2]/a</td>
+	<td>For1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr[2]/td[2]/a</td>
+	<td>For1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
 	<td></td>
 </tr>
 <tr>
@@ -332,9 +382,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>componentExoContextMenu</td>
+	<td>contextMenu</td>
 	<td>link=Top1_SNF_KS_42</td>
-	<td>contextmenu</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -344,6 +394,36 @@
 <tr>
 	<td>click</td>
 	<td>//div[@class='ItemIcon AddLinkToBookIcon']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Bookmarks</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr[3]/td[2]/a</td>
+	<td>Top1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//form[@id='UIShowBookMarkForm']/div[2]/table/tbody/tr[3]/td[2]/a</td>
+	<td>Top1_SNF_KS_42</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
 	<td></td>
 </tr>
 <tr>
@@ -582,11 +662,16 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAt</td>
 	<td>link=Top1_SNF_KS_42</td>
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Bookmark</td>
 	<td></td>
@@ -603,7 +688,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='OpenBookMark']/div/div/div/div/a/span</td>
+	<td>//div[@id='OpenBookMark']/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
