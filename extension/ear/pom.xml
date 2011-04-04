@@ -32,6 +32,12 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+	  <groupId>org.exoplatform.platform</groupId>
+	  <artifactId>exo.platform.upgrade.plugins</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.webapp</artifactId>
       <version>${project.version}</version>

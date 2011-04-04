@@ -10,7 +10,7 @@
 	<name>eXo Platform - Upgrade</name>
 	<url>http://www.exoplatform.org</url>
 	<modules>
-		<!-- module>plugins</module-->
+		<module>plugins</module>
 		<module>sample</module>
 	</modules>
 </project>

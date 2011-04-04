@@ -1635,6 +1635,12 @@
 <dependency><groupId>org.apache.jackrabbit</groupId><artifactId>jackrabbit-webdav</artifactId><version>${org.apache.jackrabbit.version}</version><type>jar</type></dependency><!-- 1.6.4-->
 <dependency><groupId>org.apache.jackrabbit</groupId><artifactId>jackrabbit-jcr-commons</artifactId><version>${org.apache.jackrabbit.version}</version><type>jar</type></dependency><!-- 1.6.4-->
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.webui.ext</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency>
+    <dependency>
+	  <groupId>org.exoplatform.platform</groupId>
+	  <artifactId>exo.platform.upgrade.plugins</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
   </dependencies>
   
   

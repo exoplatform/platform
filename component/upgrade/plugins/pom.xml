@@ -34,15 +34,15 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>**/*.xml</include>
 					<include>**/*.properties</include>
+					<include>**/*.xml</include>
 				</includes>
-			</testResource>
-		</testResources>
+			</resource>
+		</resources>
 	</build>
 </project>

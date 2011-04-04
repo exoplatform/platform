@@ -5,7 +5,7 @@
 		<init-params>
 			<value-param>
 				<name>product.versions.declaration.file</name>
-				<value>war:/conf/platform/upgrade/platform.properties</value>
+				<value>jar:/conf/platform.properties</value>
 			</value-param>
 		</init-params>
 	</component>
