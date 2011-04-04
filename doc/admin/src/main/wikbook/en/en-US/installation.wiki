@@ -10,6 +10,7 @@ This is a ready-made package on top of the Tomcat 6 application server, so you s
 eXo Platform leverages the application server on which it is deployed. This means that you only need to start and stop your application with the default commands.
 
 * On Linux and OS X:   {screen}$TOMCAT_HOME/start_eXo.sh{screen}
+
 * On Windows:          {screen}%TOMCAT_HOME%\\start_eXo.bat{screen}
 
 The server has started when you see the following message in your log/console:
@@ -21,13 +22,14 @@ INFO: Server startup in 353590 ms
 *2.* Shut down the server.
 
 * On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
+
 * On Windows:        {screen}%TOMCAT_HOME%\\stop_eXo.bat {screen}
 
 If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing Ctrl+C or by killing with the {noformat}-9{noformat} command. To perform the *kill* action automatically, you can type {{{stop_eXo.sh -force}}} that is only available on Linux and OS X systems.
 
 {screen}Tomcat did not stop in time. The PID file was not removed.{screen}
 
-The server has stopped successfully when you see the following message in your log/console:
+The server has been stopped successfully when you see the following message in your log/console:
 
 {screen}
 INFO: Stopping Coyote HTTP/1.1 on http-8080
@@ -36,10 +38,14 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 
 *3.* Start up eXo Platform by using one of the following built-in scripts.
 
-eXo Platform comes with several builtin startup scripts:
+eXo Platform comes with several built-in startup scripts:
+
 * Linux & OS X: {{start{{{_}}}eXo.sh}}.
+
 * Windows: {{start{{{_}}}eXo.bat}}.
+
 * Linux and OS X in the developer mode: {{bin/gatein-dev.sh}}.
+
 * Windows in the developer mode: {{bin/gatein-dev.bat}}.
 
 In the normal mode, the {{start{{{_}}}eXo}} scripts launch eXo Platform with the following JVM options:
@@ -57,12 +63,12 @@ Details:
 
 | {{-Xms}} | Minimal Heap Size (defaults to 256 MB). |
 | {{-Xmx}} | Maximal Heap Size (defaults to 1 GB). |
-| {{-Djava.security.auth.login.config | Path to the JAAS security file where the security domains are and JAAS authentication modules are declared. |
-| {{-Dexo.conf.dir.name}} | Path where eXo will start looking at {{configuration.properties}} and {{configuration.xml}}. |
+| {{-Djava.security.auth.login.config | Path to the JAAS security file where the security domains and JAAS authentication modules are declared. |
+| {{-Dexo.conf.dir.name}} | Path where eXo Platform will start looking at {{configuration.properties}} and {{configuration.xml}}. |
 | {{-Dexo.profiles}} | List of comma-separated profiles of eXo Plaform to activate. |
 
 
-In the developer mode, the {{gatein-dev}} scripts launch eXo Platform in the developer mode with a few more JVM options.
+In the developer mode, the {{gatein-dev}} scripts launch eXo Platform in the developer mode with a few JVM options.
 
 {screen}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
@@ -75,15 +81,15 @@ Details:
 
 | {noformat}-Dcom.sun.management.jmxremote{noformat} | Activate the JMX remoting. |
 | {noformat}-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n{noformat} | Enable the remote debugging. |
-| {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log to the console what .xml file loads. |
-| {noformat}-Dexo.product.developing=true{noformat} | Deactivate Javascript and CSS merging for easier debugging. |
+| {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log to the console which the .xml file loads. |
+| {noformat}-Dexo.product.developing=true{noformat} | Deactivate Javascript and CSS merging for debugging more easily. |
 
 
 Now, you can start and run the eXo Platform demo, but you will need to adjust these values for a production setup.
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
-We provide EARs packages to deploy in your existing JBoss application server. They are located in the folder {{bin/jboss5-eap-ears/}}.
+eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are located in the {{bin/jboss5-eap-ears/}} folder.
 
 To install eXo Platform on JBoss, follow these steps:
 
@@ -104,11 +110,13 @@ To install eXo Platform on JBoss, follow these steps:
 *2.* Create a folder: jboss-root/server/default/conf/gatein and then copy these files to this folder.
 
 - configuration.properties
+
 - configuration.xml
 
 *3.* Copy these files to {{jboss-root/bin}}.
 
 - exokey.pem
+
 - oauthkey.pem
 
 *4.* Configure JVM parameters.
@@ -138,19 +146,20 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 *Adapt to your needs:*
 
 - To use another implementation of SAX, change the class names in the EXO_XML variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
+
 - To debug the application, simply add $REMOTE_DEBUG to the JAVA_OPTS variable.
 
 *5.* Add the eXo Platform logging categories to jboss-root/server/default/conf/jboss-log4j.xml.
 
 {code:xml}
-   <!-- Limit the JSR170 categories -->
-   <category name="exo.jcr">
-      <priority value="INFO"/>
-   </category>
-   <!-- Limit the JSR-168 and JSR-286 categories -->
-   <category name="org.exoplatform.services">
-      <priority value="INFO"/>
-   </category>
+<!-- Limit the JSR170 categories -->
+<category name="exo.jcr">
+  <priority value="INFO" />
+</category>
+<!-- Limit the JSR-168 and JSR-286 categories -->
+<category name="org.exoplatform.services">
+  <priority value="INFO" />
+</category>
 {code}
 
 *6.* Start up the server.
@@ -183,7 +192,7 @@ h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
 
 eXo Platform comes with different runtime profiles, enabling you to customize what modules you want to enable/disable in each eXo Platform instance.
 
-{{start{{{_}}}eXo}} commands accept a comma-separated list of profiles. The following profiles are supported:
+The {{start{{{_}}}eXo}} commands accept a comma-separated list of profiles. The following profiles are supported:
 
 || Profile || Description ||
 | {{collaboration}} | Enable the eXo Collaboration module. |

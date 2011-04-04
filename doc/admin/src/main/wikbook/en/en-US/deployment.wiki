@@ -1,7 +1,7 @@
 
-h1. Remove the sample applications {anchor:id=ADM.Clustering.How_to_remove_sample_application}
+h1. Remove sample applications {anchor:id=ADM.Clustering.How_to_remove_sample_application}
 
-eXo Platform comes with two sample portals that showcase the capabilities of the product. However, once implementing your own extensions, you may not need the sample applications. In some cases, you usually want to remove them before deploying your system in production.
+eXo Platform comes with two sample portals that show the capabilities of the product. However, once implementing your own extensions, you may not need the sample applications. In some cases, you usually want to remove them before deploying your system in production.
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
@@ -30,7 +30,7 @@ Crash is a complementary tool for development and maintenance. As it opens telne
 
 To remove the docs webapp/crash, do as follows:
 
-*1.* Stop the serve by using the command: {{shutdown.sh}}.
+*1.* Stop the serve by using the {{shutdown.sh}} command.
 
 *2.* Delete the relevant file.
 
@@ -42,7 +42,7 @@ To remove the docs webapp/crash, do as follows:
 
 h1. Deploy a custom extension {anchor:id=ADM.Clustering.Deploy_custom_extension}
 
-Extensions are packaged as the Java EE web applications and packaged as the normal .war files. To deploy the custom extension, you may do as for any other web-app.
+Extensions are packaged as the Java EE web applications and packaged as the normal .war files. To deploy the custom extension, you may do as for any other web apps.
 
 In Tomcat, this ends up by copying the war archive to the {{webapps}} folder.
 
@@ -66,11 +66,12 @@ h2. Base configuration for Apache {anchor:id=ADM.Clustering.Base_Configuration_f
 
 First, you need to configure a new virtual host in Apache HTTPD for the application server.
 This is the simplest example of a virtual host:
+
 {code}
-        <VirtualHost *:80>
-                ServerName      Enter your server DNS name here
-                RedirectMatch permanent "^/?$" "/portal/"
-        </VirtualHost>
+<VirtualHost *:80>
+  ServerName      Enter your server DNS name here
+  RedirectMatch permanent "^/?$" "/portal/"
+</VirtualHost>
 {code}
 You can find more information on the Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/].
 
@@ -81,6 +82,7 @@ With the _glue_ method, it is necessary to configure the Apache HTTP daemon to w
 For this connection type, you need to include the *mod{{{_}}}proxy* module in the HTTP daemon configuratinon file.
 This can be found in the *httpd.conf* file, which is usually located at *_/etc/httpd/conf/_*.  However, depending on your OS, this path may vary.
 You will then need to add some directives to your virtual host configuration.
+
 {code}
 ProxyRequests   Off
 ProxyPass	 "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
@@ -95,15 +97,15 @@ Details:
 In the above example, the HTTP daemon will work in the *reverse proxy* mode (ProxyRequests Off) and will redirect all requests to the tcp port 8080 on the localhost.
 So, the configuration of a virtual host looks like the following:
 {code}
-        <VirtualHost *:80>
-                ServerName      Enter your server DNS name here
-                RedirectMatch	permanent "^/?$" "/portal/"
-		ProxyRequests   Off
-		ProxyPass	 "/" http://localhost:8080/
-		ProxyPassReverse "/" http://localhost:8080/
-        </VirtualHost>
+<VirtualHost *:80>
+  ServerName      Enter your server DNS name here
+  RedirectMatch	permanent "^/?$" "/portal/"
+  ProxyRequests   Off
+  ProxyPass	 "/" http://localhost:8080/
+  ProxyPassReverse "/" http://localhost:8080/
+</VirtualHost>
 {code}
-For more detail about *mod{{{_}}}proxy*, refer to this [documentation|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
+For more detail on *mod{{{_}}}proxy*, refer to this [documentation|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
 
 
 h2. Connect via AJP protocol {anchor:id=ADM.Clustering.Connection_via_AJP_protocol}
@@ -122,6 +124,7 @@ h3. AJP proxy module {anchor:id=ADM.Clustering.AJP_proxy_module}
 
 Make sure that *mod{{{_}}}proxy{{{_}}}ajp.so* is included in the list of loadable modules.
 Add the following to your virtual host configuration setting:
+
 {code}
 ProxyPass / ajp://localhost:8009/
 {code}
@@ -129,56 +132,58 @@ ProxyPass / ajp://localhost:8009/
 In this example, the app server is located on the same host as the Apache HTTP daemon, and accepts incoming connections on the port 8009 (the default setting for the Tomcat application server).
 You can find the full list of virtual host configurations here:
 {code}
-        <VirtualHost *:80>
-                ServerName      Enter your server DNS name here
-                RedirectMatch	permanent "^/?$" "/portal/"
-		ProxyRequests   Off
-		ProxyPass	/ ajp://localhost:8009/
-        </VirtualHost>
+<VirtualHost *:80>
+  ServerName      Enter your server DNS name here
+  RedirectMatch	permanent "^/?$" "/portal/"
+  ProxyRequests   Off
+  ProxyPass	/ ajp://localhost:8009/
+</VirtualHost>
 {code}
 
 h3. Apache Tomcat's AJP connector {anchor:id=ADM.Clustering.Apache_Tomcat's_AJP_connector}
 
 *1.* Download AJP connector module [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/].
 
-*2.* Move the downloaded *mod{{{_}}}jk.so* file into the HTTPD's module directory, for example: */etc/httpd/modules*. The directory may be different, depending on the OS.
+*2.* Move the downloaded *mod{{{_}}}jk.so* file to the HTTPD's module directory, for example: */etc/httpd/modules*. The directory may be different, depending on the OS.
 
 *3.* Create the configuration file for the mod\_jk.conf module.
-  {code}
-	LoadModule    jk_module  modules/mod_jk.so
-	<IfModule jk_module>
-	  # ---- Where to find workers.properties
-          JkWorkersFile   conf.d/workers.properties
-	  # ---- Where to put jk logs
-	  JkLogFile       logs/mod_jk.log
-	  # ---- Set the jk log level [debug/error/info]
-	  JkLogLevel    info
-	  # ---- Select the timestamp log format
-	  JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
-	  JkRequestLogFormat "%w %R %T"
-	  # ---- Send everything for context /examples to worker named worker1 (ajp13)
-	  JkMountFileReload       "0"
-	</IfModule>
-  {code}
 
-For more details, see [Tomcat documentation|http://tomcat.apache.org/connectors-doc/reference/apache.html].
+{code}
+LoadModule    jk_module  modules/mod_jk.so
+<IfModule jk_module>
+  # ---- Where to find workers.properties
+        JkWorkersFile   conf.d/workers.properties
+  # ---- Where to put jk logs
+  JkLogFile       logs/mod_jk.log
+  # ---- Set the jk log level [debug/error/info]
+  JkLogLevel    info
+  # ---- Select the timestamp log format
+  JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
+  JkRequestLogFormat "%w %R %T"
+  # ---- Send everything for context /examples to worker named worker1 (ajp13)
+  JkMountFileReload       "0"
+</IfModule>
+{code}
 
-*4.* Place the *mod{{{_}}}jk.conf* file into the directory where other configuration files for Apache HTTP daemon are located. For example, */etc/httpd/conf.d/*
+For more details, see the [Tomcat documentation|http://tomcat.apache.org/connectors-doc/reference/apache.html].
 
-*5.* Create the workers.properties file, which defines [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for HTTP daemon.
-  {code}
-	worker.list=status, WORKER_NAME
-	# Main status worker
-	worker.stat.type=status
-	worker.stat.read_only=true
-	worker.stat.user=admin
-	# Your AJP worker configuration
-	worker.WORKER_NAME.type=ajp13
-	worker.WORKER_NAME.host=localhost
-	worker.WORKER_NAME.port=8109
-	worker.WORKER_NAME.socket_timeout=120
-	worker.WORKER_NAME.socket_keepalive=true
-  {code}
+*4.* Place the *mod{{{_}}}jk.conf* file into the directory where other configuration files for Apache HTTP daemon are located. For example, */etc/httpd/conf.d/*.
+
+*5.* Create the workers.properties file, which defines [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for the HTTP daemon.
+
+{code}
+worker.list=status, WORKER_NAME
+# Main status worker
+worker.stat.type=status
+worker.stat.read_only=true
+worker.stat.user=admin
+# Your AJP worker configuration
+worker.WORKER_NAME.type=ajp13
+worker.WORKER_NAME.host=localhost
+worker.WORKER_NAME.port=8109
+worker.WORKER_NAME.socket_timeout=120
+worker.WORKER_NAME.socket_keepalive=true
+{code}
 
 {note}
 In the example above, you can change *WORKER_NAME* to any value.
@@ -189,12 +194,12 @@ In the example above, you can change *WORKER_NAME* to any value.
 *7.* Update the virtual host configuration:
 
 {code}
-        <VirtualHost *:80>
-                ServerName      Enter your server DNS name here
-                RedirectMatch	permanent "^/?$" "/portal/"
-		ProxyRequests   Off
-                JkMount         /*	WORKER_NAME
-        </VirtualHost>
+<VirtualHost *:80>
+  ServerName      Enter your server DNS name here
+  RedirectMatch	permanent "^/?$" "/portal/"
+  ProxyRequests   Off
+  JkMount         /*	WORKER_NAME
+</VirtualHost>
 {code}
 
 h1. Configure the session timeout for the web server {anchor:id=ADM.Clustering.Configure_session_time-out_for_web_server}
@@ -203,18 +208,21 @@ The session timeout defines the validation period of a session.
 In the portal environment, such as eXo Platform, it is highly recommended that all web applications have the same session timeout value:
 
 * Tomcat
-* JBoss
-The session timeout is configurable individually for each web application in the *web.xml file:
-{code}
-<!-- ==================== Default Session Configuration ================= --> 
-   <!-- You can set the default session timeout (in minutes) for all newly   --> 
-   <!-- created sessions by modifying the value below.                       --> 
 
-   <session-config> 
-      <session-timeout>30</session-timeout> 
-   </session-config>
+* JBoss
+
+The session timeout is configurable individually for each web application in the *web.xml file:
+
+{code:xml}
+<!-- ==================== Default Session Configuration ================= --> 
+<!-- You can set the default session timeout (in minutes) for all newly   --> 
+<!-- created sessions by modifying the value below.                       --> 
+<session-config> 
+  <session-timeout>30</session-timeout> 
+</session-config>
 {code}
-h2. Server Tomcat {anchor:id=ADM.Clustering.Server_tomcat}
+
+h2. Tomcat server {anchor:id=ADM.Clustering.TomcatServer}
 
 In the Tomcat bundle, this file is located at *{{{$TOMCAT_HOME/conf/web.xml}}}*. To configure the session timeout of Server Tomcat, do as follows:
 
@@ -226,14 +234,14 @@ In the Tomcat bundle, this file is located at *{{{$TOMCAT_HOME/conf/web.xml}}}*.
 
 *4.* Save and then restart the server by the command {{gatein.sh}}.
 
-h2. JBoss server {anchor:id=ADM.Clustering.Server_JBoss}
+h2. JBoss server {anchor:id=ADM.Clustering.JBossServer}
 
-In the JBoss server, this file is located at *{{{$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml}}}*. To configure the session-timeout of the JBoss server, do as follows:
+In the JBoss server, this file is located at *{{{$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml}}}*. To configure the session timeout of the JBoss server, do as follows:
 
 *1.* Stop the server by using the shutdown.sh command.
 
 *2.* Open the web.xml file.
 
-*3.* Change the value of the session-timeout.
+*3.* Change the value of the session timeout.
 
 *4.* Save and restart the server.

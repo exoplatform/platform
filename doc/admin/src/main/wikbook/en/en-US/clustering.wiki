@@ -2,21 +2,24 @@ h1. About Platform clustering {anchor:id=ADM.Clustering.About_Platform_Clusterin
 
 h2. When should you consider clustering? {anchor:id=ADM.Clustering.When_consider_clustering}
 
-Installing eXo Platform in the cluster mode should be considered in the following cases:
+You should consider installing eXo Platform in the cluster mode in the following cases:
 
-* Load Balancing: when a single single server node is not enough to handle the load.
+* Load Balancing: when a single server node is not enough to handle the load.
+
 * High Availability: when you want to avoid a single point of failure by having redundant nodes.
 
-These characteristics should be handled by the overall architecture of your system. Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes. Also, high availability on the data layer can be typically achieved using the native replication implemented by RDBMS.
+These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes. Also, the High Availability on the data layer can be typically achieved using the native replication implemented by RDBMS.
 
-In this chapter, we will cover only the changes needed by eXo Platform to work in a cluster.
+In this chapter, only the changes which are necessary for eXo Platform to work in the cluster mode are covered.
 
 h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_system}
 
-In eXo Platform, the persistence mostly relies on JCR, which is a middleware between the eXo applications (including the portal) and the database. Hence this component must be configured to work in cluster.
+In eXo Platform, the persistence mostly relies on JCR, which is a middleware between the eXo Platform applications (including the Portal) and the database. Hence, this component must be configured to work in the cluster mode.
 
-The embedded JCR server requires a portion of its state to be shared on a file system shared among cluster nodes:
+The embedded JCR server requires a portion of its state to be shared on a file system shared among the cluster nodes:
+
 * The values storage.
+
 * The index.
 
 All nodes must have the read/write access to the shared file system.
@@ -35,16 +38,16 @@ gatein.jcr.config.type=cluster
 gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
 {code}
 
-This will tell the JCR to enable the automatic network replication and discovery between other cluster nodes.
+In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
 
-Next, configure the path for the shared filesystem:
+Next, configure the path for the shared file system:
 
 {code}
 gatein.jcr.storage.data.dir=/PATH/TO/SHARED/FS/values
 gatein.jcr.index.data.dir=/PATH/TO/SHARED/FS/index
 {code}
 
-The path is shared, so all nodes will need read/write access to this path.
+The path is shared, so all nodes will need the read/write access to this path.
 
 h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
@@ -66,44 +69,46 @@ h1. Cluster management {anchor:id=ADM.Clustering.Cluster_management}
 
 h2. Cluster profile {anchor:id=ADM.Clustering.Cluster_profile}
 
-
 You need to indicate the cluster kernel profile to eXo Platform.
 This can be done by editing {{gatein.sh}} like this: 
+
 {code}
 EXO_PROFILES="-Dexo.profiles=default,cluster"
 {code}
-or using the start_eXo script:
+
+or use the start_eXo script:
+
 {code}
 ./start_eXo.sh default,cluster
 {code}
 
 h2. Initial Startup {anchor:id=ADM.Clustering.Initial_startup}
 
-For the very first startup of your JCR cluster, you should only start a single node. This node will initialise the internal JCR database and create the system workspace. Once this first node is definitely started, you can start the other nodes.
+For the very first startup of your JCR cluster, you should only start a single node. This node will initialize the internal JCR database and create the system workspace. Once this first node is definitely started, you can start the other nodes.
 
-{note}This constraint is only for the very first start. Once the initialization has been done, you can start nodes in any order{note}
+{note}This constraint is only for the very first start. Once the initialization has been done, you can start nodes in any order.{note}
 
 
 h2. Startup and shutdown {anchor:id=ADM.Clustering.Startup_and_shutdown}
 
 Nodes of the cluster will automatically try to join others at startup. Once they discover each other, they will synchronize their state.
-During the synchronization the node is not ready to serve requests.
+During the synchronization, the node is not ready to serve requests.
 
 
 
-h1. Clustering FAQ {anchor:id=ADM.Clustering.Clustering_FAQ}
+h1. FAQ of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
 
-h2. How to migrate from local to the cluster mode? {anchor:id=ADM.Clustering.How_to_migrate_from_local_to_cluter_mode}
+Q1. How to migrate from local to the cluster mode? 
 
 If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
 
-* Update the configuration to cluster mode as explained above on your main server.
-* Use the same configuration on other cluster nodes.
-* Move the index and value storage to the shared file system.
-* Start the cluster.
+*1.* Update the configuration to the cluster mode as explained above on your main server.
+*2.* Use the same configuration on other cluster nodes.
+*3.* Move the index and value storage to the shared file system.
+*4.* Start the cluster.
 
-h2. Why is startup failed with the "Port value out of range" error? {anchor:id=ADM.Clustering.Port_value_out_of_range_error}
+Q2. Why is startup failed with the "Port value out of range" error?
 
 On Linux, your startup is failed if you encounter the following error:
 
@@ -111,25 +116,24 @@ On Linux, your startup is failed if you encounter the following error:
 [INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
 {code}
 
-This problem arises under specific circumstances when JGroups, the networking library behind the clustering, attempts to detect the IP to use for communication with other nodes.
+This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
 
 Need to verify:
 
 
-* The host name is a valid IP address, served by one of the network device of your machine, such as eth0, eth1.
+* The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
 
 * The host name is NOT defined as localhost or 127.0.0.1.
 
-h2. How to solve the "failed sending message to null" error? {anchor:id=ADM.Clustering.Solve_failed_sending_message_to_null} 
+Q3. How to solve the "failed sending message to null" error?
 
-When starting up in the cluster mode on Linux and you encounter the following error:
+If you encounter the following error when starting up in the cluster mode on Linux:
+
 {code}
 Dec 15, 2010 6:11:31 PM org.jgroups.protocols.TP down
 SEVERE: failed sending message to null (44 bytes)
 java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
 {code}
 
-You must remember that clustering on Linux only works with IPv4.
-{code} -Djava.net.preferIPv4Stack=true {code}
-is mandatory for running in the cluster mode on Linux.
+You must remember that clustering on Linux only works with IPv4 {code} -Djava.net.preferIPv4Stack=true {code} is mandatory for running in the cluster mode on Linux.
 

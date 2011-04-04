@@ -2,6 +2,7 @@
 h1. eXo Platform Configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 
 In eXo Platform, the configuration is performed in a folder whose location is controlled by a system property named exo.conf.dir. By default, the gatein.sh startup script sets this property as follows:
+
 {code}
 -Dexo.conf.dir.name=gatein/conf
 {code}
@@ -17,16 +18,16 @@ So the main entry point for the eXo Platform configuration is /gatein/conf/. Thi
 
 h2. Portal Containers, Customization and Configurations {anchor:id=ADM.Configuration.Portal_Containers_Customization_and_Configuration}
 
-This section explains some parts of the eXo Platform internals, so that you can understand the roles of these configuration files.
+This section explains some parts of the eXo Platform internals so that you can understand the roles of these configuration files.
 
 The eXo Platform Kernel collects runtime components in the portal containers.
 A portal container holds all components to run a portal instance. It serves portal pages under the servlet context for its name. 
 
-The default portal container in eXo Platform is simply called "portal". This explains why the default URL for the samples is http://localhost:8080/portal.
+The default portal container in eXo Platform is simply called "portal". This explains why the default URL of the samples is http://localhost:8080/portal.
 
 The default portal container can be configured directly inside exo.conf.dir.
 
-But eXo Platform is capable of running several portal instances simultaneously on the same server. 
+However, eXo Platform is capable of running several portal instances simultaneously on the same server. 
 Each instance can be configured and customized independently via files located at: /gatein/conf/portal/$PORTAL{{{_}}}NAME, where $PORTAL{{{_}}}NAME is the name of the portal container.
 
 {note}
@@ -34,7 +35,7 @@ The name of the configuration file can be altered.
 Please refer to the section dedicated to _PortalContainerDefinition_  in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
 {note}
 
-Services that run inside a portal container are declared via the xml configuration files like configuration.xml. Such files exists in jars, wars and below {{exo.conf.dir}}.
+Services that run inside a portal container are declared via the xml configuration files like configuration.xml. Such files exist in jars, wars and below {{exo.conf.dir}}.
 
 The .xml configuration files also serve as the main way to customize the portal via the multiple plugins offered by the eXo Platform components.
 
@@ -70,18 +71,19 @@ However, this file is the last loaded by the kernel. It has a higher priority ov
 
 This may turn handy services or configurations that are not exposed in configuration.properties.
 
-For example, you could decide to change the default transaction timeout for 2 minutes with this piece of xml:
+For example, you can decide to change the default transaction timeout for 2 minutes with this piece of xml:
+
 {code:xml}
 <component> 
-    <key>org.exoplatform.services.transaction.TransactionService</key> 
-    <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type> 
-    <init-params> 
-      <value-param> 
-        <name>timeout</name> 
-        <value>120</value> 
-      </value-param> 
-    </init-params> 
-  </component>
+  <key>org.exoplatform.services.transaction.TransactionService</key> 
+  <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type> 
+  <init-params> 
+    <value-param> 
+      <name>timeout</name> 
+      <value>120</value> 
+    </value-param> 
+  </init-params> 
+</component>
 {code}
 
 h1. Database Configuration {anchor:id=ADM.Configuration.Database_Configuration}
@@ -96,7 +98,7 @@ If you intend to bring your eXo Platform to production, the embedded hsql databa
 You need to learn how to configure eXo Platform data sources and your app server. If you need to change the data sources name, read *Change the datasources names* below.
 
 {info}
-The steps below will show you how to configure eXo to use a MySQL database. You will need to adapt them to your actual production environment.
+The steps below will show you how to configure eXo Platform to use a MySQL database. You need to adapt them to your actual production environment.
 {info}
 
 {tip}Refer to the Database FAQ below to find out our sample configuration files for MySQL and other DB systems.{tip}
@@ -110,7 +112,7 @@ You need to prepare two database schema, then do as follows:
 *2.* Verify that MySQL is running: {code}sudo /etc/init.d/mysqld status{code}
 
 *3.* Connect to MySQL: {code}mysql -u root -p{code}
-In this step, you will be prompted for entering the password.
+In this step, you will be prompted for entering your password.
 
 *4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr _$dbname-jcr_). For example:
 
@@ -121,12 +123,12 @@ In this step, you will be prompted for entering the password.
 {code}grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';{code}
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
 
-*5.* Verify that both databases were created: {code}show databases;{code}
+*5.* Verify that both databases were created successfully: {code}show databases;{code}
 
 *6.* Quit the server with the *exit* command.
 
 {note}
-eXo Platform does not require tables to be created before it starts because these tables are created automatically on the first startup. If you prefer to run the DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
+eXo Platform does not require tables to be created before it starts because these tables are created automatically on the first startup. If you want to run the DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
 {note}
 
 h3. Configure eXo Platform {anchor:id=ADM.Configuration.Configure_eXo_Platform}
@@ -140,21 +142,22 @@ In Tomcat, the data sources configuration requires you to edit two files:
 * starter.xml
 
 {tip}
-Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on JNDI resources binding in Tomcat.
+Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on the JNDI resources binding in Tomcat.
 {tip}
 
-* To edit the *server.xml_*
+* To edit the *server.xml_*:
 
 *1.* Open the file following the *$TOMCAT_HOME/conf/server.xml* path.
 
 *2.* Declare the binding of the data sources in the GlobalNaming context:
 
-* Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+* Change the driver from {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
 * Change the username and password to the values set above.
-* Change the URL to access your DataBase: {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
+* Change the URL to access your DataBase from {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}.
 
 The code now should look like:
-{code:language=xml}
+
+{code:xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="20" maxIdle="10" maxWait="10000"
@@ -177,9 +180,9 @@ In this step, you need to add the MySQL connector to Tomcat by adding *mysql-con
 
 *1.* Open the *starter.xml* file to the *$TOMCAT_HOME/conf/Catalina/localhost/starter.xml* path.
 
-*2.* Declare resource links that make your datasources accessible to the starter webapp which is used when starting eXo Platform.
+*2.* Declare the resource links that make your datasources accessible to the starter webapp which is used when starting eXo Platform.
 
-{code:language=xml}
+{code:xml}
 <ResourceLink name="exo-jcr_portal"
                 global="exo-jcr_portal"
                 type="javax.sql.DataSource"/>
@@ -192,7 +195,9 @@ In this step, you need to add the MySQL connector to Tomcat by adding *mysql-con
 h4. JBoss {anchor:id=ADM.Configuration.JBoss}
 
 To configure the data source for eXo Platform under the JBoss, do as follows:
+
 * Edit server.xml
+
 * Add the JDBC driver
 
 *1.* Edit the gatein-ds.xml file.
@@ -202,11 +207,14 @@ To configure the data source for eXo Platform under the JBoss, do as follows:
 *ii.* Declare the binding of the data sources in the GlobalNaming context:
 
 * Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+
 * Change the username and password to the values set earlier.
-* Change the URL to access your database: {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
+
+* Change the URL to access your database: {code:xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
 
 The configuration should now look like:
-{code:language=xml}
+
+{code:xml}
 <datasources>
     <no-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
@@ -237,14 +245,16 @@ The configuration should now look like:
 {code}
 
 *2.* Add the JDBC driver.
-In this step, you need to add the  MySQL connector library in JBoss by adding *mysql-connector-java-5.1.x.jar* to *$JBOSS_**HOME/server/default/lib/*.
+In this step, you need to add the MySQL connector library in JBoss by adding *mysql-connector-java-5.1.x.jar* to *$JBOSS_**HOME/server/default/lib/*.
 
 {tip}You can get the latest MySQL connector [here|http://dev.mysql.com/downloads/connector/j/{tip}
 
-*3.* Rename the data source:
+*3.* Rename the data source.
 
 By default, eXo Platform defines two data sources:
+
 * exo-jcr{{{_}}}portal - for the Java Content Repository (JCR).
+
 * exo-idm{{{_}}}portal - for the organizational model.
 
 You may want to rename the data source as follows:
@@ -269,22 +279,25 @@ eXo Platform automatically appends the portal container name ("_portal" by defau
 
 In this step, you need to change the name under which the data sources are bound in the JNDI tree by the app server. This is a dependent application sever.
 
-h2. Database Configuration FAQ {anchor:id=ADM.Configuration.Data_base_configuration.xml}
+h2. FAQs of Database Configuration {anchor:id=ADM.Configuration.FAQDatabaseConfiguration}
 
-h3. How to configure eXo Platform to connect to other Database systems
+Q1. How to configure eXo Platform to connect to other database systems
 
-Configuring eXo Platform to connect to other DB is easy. We provide you sample configuration files in the folders:
+Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
+
 * eXo Platform-3.5.x.zip/conf/db/
+
 ** mysql
+
 ** oracle
+
 ** postgres
 
-In each folder, you'll find two sample xml files:
-* gatein-ds.xml for JBoss
-* server.xml for Tomcat
+In each folder, you will find two sample xml files: gatein-ds.xml for JBoss and server.xml for Tomcat.
 
 Each file contains 2 preconfigured datasources. For example (JCR datasource in mysql/server.xml):
-{code:language=xml}
+
+{code:xml}
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
           maxActive="128" maxIdle="32" maxWait="10000"
           testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
@@ -292,25 +305,27 @@ Each file contains 2 preconfigured datasources. For example (JCR datasource in m
           url="jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"/>
 {code}
 
-You just have to replace the variables with the expected value:
-|| Variable || Expected value ||
-| db.username | The username that connects to the database |
-| db.password | The password for the above user |
-| db.host | The hostname or IP address of the DB server |
-| db.port | The port on which to connect to the DB |
-| db.jcr.name | The DB name for the JCR datasource |
-| db.idm.name | The DB name for the IDM datasource |
+You simply replace the variables with the expected value:
 
-Don't forget to add the JDBC connector JAR in the classpath of your application server.
+|| Variables || Expected values ||
+| db.username | The username that connects to the database. |
+| db.password | The password for the above user. |
+| db.host | The hostname or IP address of the DB server. |
+| db.port | The port to connect to the DB. |
+| db.jcr.name | The DB name for the JCR datasource. |
+| db.idm.name | The DB name for the IDM datasource. |
+
+Please remember to add the JDBC connector JAR in the classpath of your application server.
 
 You can download the official JDBC connector JARs from the following websites:
+
 * http://www.mysql.com/downloads/connector/j/
 * http://jdbc.postgresql.org/download.html
 * http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
 
-h3. How to remove the idle MySQL connections {anchor:id=ADM.Configuration.How_to_remove_idle_MySQL_Connnections}
+Q2. How to remove the idle MySQL connections
 
-Some RDBMS, like MySQL, close idle connections after a while (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors like:
+Some RDBMSs, like MySQL, close idle connections after a period (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors like:
 
 {code}
 org.hibernate.SessionException: Session is closed!
@@ -318,16 +333,20 @@ at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java
 at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342)
 {code}
 
-To avoid this, you can use DBCP to monitor idle connections and drop them when they are invalid, with the parameters *testWhileIdle*, *timeBetweenEvictionRunsMillis* and *validationQuery*.
+To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the parameters *testWhileIdle*, *timeBetweenEvictionRunsMillis* and *validationQuery*.
 
 The validation query is specific to your RDBMS. For example, on MySQL, you would use:
 
-{code:xml}
+{code}
 testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
 {code}
 
+In which,
+
 * *testWhileIdle* activates idle connections monitoring.
+
 * *timeBetweenEvictionRunsMillis* defines the time interval between two checks in milliseconds (5 minutes in the example).
+
 * *validationQuery* provides a simple SQL command to validate the connection to the RDBMS.
 
 You can add these parameters to the data source configuration file of your application server, for example: conf/server.xml on Tomcat.
@@ -335,7 +354,9 @@ You can add these parameters to the data source configuration file of your appli
 For more details on the configuration, or some examples on other RDBMS and applications servers, please refer to:
 
 * http://markmail.org/message/a3bszoyqbvi5qer4
+
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
+
 * http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
 
 
@@ -359,13 +380,14 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent.
 
 || Variable || Content || Temporary ||
-| {{gatein.data.dir}} | JTA transactional data. | Yes |
-| {{gatein.jcr.data.dir}} | JCR swap data. | Yes |
-| {{gatein.jcr.storage.data.dir}} | Binary value storage for JCR.| No |
-| {{gatein.jcr.index.data.dir}} | Lucene index for JCR. | No |
+| {{gatein.data.dir}} | JTA transactional data. | V |
+| {{gatein.jcr.data.dir}} | JCR swap data. | V |
+| {{gatein.jcr.storage.data.dir}} | Binary value storage for JCR.| X |
+| {{gatein.jcr.index.data.dir}} | Lucene index for JCR. | X |
 
-Each variable can be defined as an absolute or relative path.
-The default configuration combines them to obtain a compact tree: 
+Each variable can be defined as an absolute or a relative path.
+The default configuration combines them to obtain a compact tree:
+
 {code}
 /gatein       # gatein.data.dir
   /data
@@ -431,6 +453,7 @@ The embedded WebDAV server lets you control the cache-control http header that t
 This is useful for fine-tuning your website.
 
 The configuration property is: {{exo.webdav.cache-control}}
+
 {screen}
 exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 {screen}
@@ -441,7 +464,7 @@ h1. Chat Server {anchor:id=ADM.Configuration,Chat_Server}
 
 h2. XMPPMessenger {anchor:id=ADM.Configuration.XMPPMessenger}
 
-If you change the host name and port for the chat server, you will need to edit two properties:
+If you change the host name and port for the Chat server, you will need to edit two properties:
 
 {screen}
 # IP or hostname for the eXo Chat XMPP server
@@ -456,14 +479,21 @@ h2. Chat server configuration {anchor:id=ADM.Configuration.Chat_server_configura
 The standalone Chat server is configured in the $CHATSERVER/conf/openfire.xml file.
 
 Configuration is based on properties expressed in the XML syntax. For example, to set the prop.name.is.blah=value property, you would write this xml snippet:
+
+{code:xml}
+<prop>
+  <name>
+    <is>
+      <blah>value</blah>
+    </is>
+  </name>
+</prop>
 {code}
-<prop><name><is><blah>value</blah></is></name></prop>
-{code}
 
 
-Openfire has an extensive list of configuration properties. Please read the list of all properties in [Openfire documentation | http://community.igniterealtime.org/docs/DOC-1061].
+Openfire has an extensive list of configuration properties. Please read the list of all properties in [Openfire documentation | http://community.igniterealtime.org/docs/DOC-1061] for more details.
 
-The chat server is an openfire server bundled with plugins and configurations that allow connectivity to eXo Platform.
+The Chat server is an Openfire server bundled with plugins and configurations that allow connectivity to eXo Platform.
 The following properties are used to configure it.
 
 
@@ -503,21 +533,21 @@ h3. Ports {anchor:id=ADM.Configuration.Ports}
 To run the chat server properly, several ports must be opened in the firewall.
 
 || Port || Type || Description ||
-| 5222 (1) | Client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with {{exo.chat.port}} property. |
+| 5222 (1) | Client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with the {{exo.chat.port}} property. |
 | 9090 && 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities behind a NAT. |
 
 
 h1. Log-in {anchor:id=ADM.Configuration.Logging}
 
-Logging in eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
+The login to eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
 
-By default, logging is configured to:
+By default, the login is configured to:
 
 * log errors and warnings on the console.
-* log info level statements in */gatein/logs/gatein-YYYY-MM-DD.log*.
+* logs */gatein/logs/gatein-YYYY-MM-DD.log*.
 
-In Tomcat, the logging is configured via the *conf/logging.properties* file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
+In Tomcat, the login is configured via the *conf/logging.properties* file. Please refer to [Tomcat's Logging Documentation|http://tomcat.apache.org/tomcat-6.0-doc/logging.html] for more information on how to adjust this file to your needs.
 
 
 h1. JCR {anchor:id=ADM.Configuration.JCR}
@@ -562,6 +592,6 @@ h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configurati
 In eXo Platform, the user "root" is defined as the super-admin by default.
 You could override this configuration by modifying the system property named {{exo.super.user}} defined in configuration.properties.
 
-h2. eXo Platform default users list definition {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
+h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
 
-In eXo Platform, the default users list, excluding Super-admin user, is defined in "Acme WebSite" & "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
+In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" & "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.

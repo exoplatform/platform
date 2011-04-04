@@ -18,7 +18,7 @@ The files are organized in catalogs (folders) or used in different media to the 
 
 Also, be sure that your available backup solution of Operating System and Database software are always used, allowing you to simplify the backup organization and avoid mistakes and data loss.
 
-In the pre-backup, you need to stop the whole the eXo Platform server. 
+In the pre-backup, you need to stop the whole eXo Platform server. 
 
 {warning}
 In case of the eXo Platform clustering, every node should be stopped before the backup is performed.
@@ -37,12 +37,12 @@ The backup of eXo Platform consists of the following parts:
 In the pre-backup, it is recommended that you prepare for tools, such as scripts, to restore data quickly and safely. 
 
 {note}
-eXo Platform indicates to one Portal application in this context, what is set by default. However, if your eXo Platform instance runs several portals, each of which has its own JCR, Organization and Transaction services, you should back up data of each portal separately. 
+eXo Platform indicates to one Portal application in this context, which is set by default. However, if your eXo Platform instance runs several portals, each of which has its own JCR, Organization and Transaction services, you should back up data of each portal separately. 
 
 Information provided in this chapter only describes the backup of the single-portal Platform. The backup can be repeated for each portal in your system. 
 Only two types of JCR files are important in the backup: index and value storages. 
 
-The {{gatein.jcr.data.dir}} folder ({{$gatein.data.dir/jcr}} by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in database (see the JCR configuration guide) and has no meaning for backup.
+The {{gatein.jcr.data.dir}} folder ({{$gatein.data.dir/jcr}} by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database (see the JCR configuration guide) and has no meaning for backup.
 {note}
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
@@ -54,7 +54,7 @@ To learn more about the basic principles of eXo Platform backup and how to creat
 ** JCR database - _jcrdb_.
 ** Organization service database - _idmdb_.
 
-* The eXo Platform files are on network mounted storage _/mnt/netfs/platform_:
+* The eXo Platform files are on the network mounted storage _/mnt/netfs/platform_:
 ** JCR value storage files in _/mnt/netfs/platform/jcr/values_.
 ** JCR index files in _/mnt/netfs/platform/jcr/index_.
 ** Transaction service stored in _/mnt/netfs/platform/jta_.
@@ -65,7 +65,7 @@ To learn more about the basic principles of eXo Platform backup and how to creat
 
 It is a general case when the backup is organized in the two-cycle rotation: backup files are stored everyday and older data are stored weekly, and the data storage history will be planned for three years.
 
-To implement this approach, the daily backups is run (at night when the site is not in use) and store result files (database and JCR files) on the network storage in the following structure:
+To implement this approach, the daily backup is run (at night when the site is not in use) and store result files (database and JCR files) on the network storage in the following structure:
 
 * {{{/my_plf_backup/2010/...}}} - The archive folder of the previous year.
 * {{{/my_plf_backup/current/}}} - The archive folder of the current year.
@@ -120,14 +120,14 @@ To back up eXo Platform, do the following main steps:
 *4.* Start the eXo Platform server.
 
 {note}
-In case of eXo Platform clustering, start the backup to steps in Chapter 7. Clustering.
+In case of the eXo Platform clustering, start the backup to the steps described in Chapter 7. Clustering.
 {note}
 
 h1. Restore {anchor:id=ADM.Backup.Perform_restore} 
 
 Restoring from the backup can be used in several cases, such as failure, or site duplication. Similar to the backup, it is important to stop the whole eXo Platform before restoring. Next, do the main steps to start restoring from the backup of eXo Platform:
 
-*1.* Unarchive the backup files from backup storage to the temporary location.
+*1.* Unarchive the backup files from the backup storage to the temporary location.
 
 *2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the Chapter 2. Installation.
 
@@ -142,17 +142,17 @@ Restoring from the backup can be used in several cases, such as failure, or site
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start restoring to the steps order in Chapter 7. Clustering.
+In case of the eXo Platform clustering, start restoring to the steps described in Chapter 7. Clustering.
 {note}
  
 h1. Third-party tools {anchor:id=ADM.Backup.Third_party_tools}
 
 Steps described above are based on the whole backup of data. However, the [incremental backup approach|http://en.wikipedia.org/wiki/Incremental_backup] allows you to
-preserve data by creating multiple copies that are based on the differences in those data. The successive copy of data only contains the portion which has changed since the preceding copy has been created.
+preserve data by creating multiple copies that are based on the differences in those data. The successive copy of data only contains the portion which has been changed since the preceding copy has been created.
 
 In steps described above, it is also possible to implement an incremental backup against the eXo Platform data.
 
-Users of the Unix platforms can use the {{rsync}} tool for files synchronization and implement the incremental backup for JCR value and index files; meanwhile, Microsoft Windows users can use the Backup utility ({{Ntbackup.exe}}).  
+Users of the Unix platforms can use the {{rsync}} tool for files synchronization and implement the incremental backup for JCR value and index files. Meanwhile, Microsoft Windows users can use the Backup utility ({{Ntbackup.exe}}).  
 
 These tools can be used in conjunction with a database incremental backup feature of your RDBMS to implement the eXo Platform incremental backup solution. However, all backup targets described above should be counted. 
 

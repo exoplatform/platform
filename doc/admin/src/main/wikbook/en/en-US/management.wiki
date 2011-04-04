@@ -21,7 +21,7 @@ h2. REST interface {anchor:id=ADM.Management.REST_interface}
 
 The built-in REST Management Provider of eXo Platform makes some of the MBeans operations accessible as REST endpoints. Administrators can handle the system simply with a browser without performing any complex configurations.
 
-Only members of the platform/administrators group are given permission to work on the REST management. The authentication requires you to login by your own account.
+Only members of the platform/administrators group are given permission to work on the REST management. The authentication requires you to log in by your own account.
 
 The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through the REST request is [http://localhost:8080/rest/management/skinservice/getSkinList].
 			
