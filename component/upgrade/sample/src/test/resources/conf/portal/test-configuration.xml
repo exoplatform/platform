@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<component>
+		<type>org.exoplatform.commons.info.ProductInformations</type>
+		<init-params>
+			<value-param>
+				<name>product.versions.declaration.file</name>
+				<value>classpath:/conf/product_new.properties</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<key>org.exoplatform.services.resources.LocaleConfigService</key>
+		<type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
+		<init-params>
+			<value-param>
+				<name>locale.config.file</name>
+				<value>classpath:/conf/common/locales-config.xml</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<type>org.exoplatform.groovyscript.text.TemplateStatisticService</type>
+		<init-params>
+			<value-param>
+				<name>name</name>
+				<value>false</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<type>org.exoplatform.groovyscript.text.TemplateService</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.cms.templates.TemplateService</key>
+		<type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.cms.CmsService</key>
+		<type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.cms.link.NodeFinder</key>
+		<type>org.exoplatform.services.cms.link.impl.NodeFinderImpl</type>
+	</component>
+	<component>
+		<type>org.exoplatform.services.cms.impl.DMSConfiguration</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.cms.documents.DocumentTypeService</key>
+		<type>org.exoplatform.services.cms.documents.impl.DocumentTypeServiceImpl</type>
+	</component>
+	<component>
+		<key>org.exoplatform.services.cms.lock.LockService</key>
+		<type>org.exoplatform.services.cms.lock.impl.LockServiceImpl</type>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+		<component-plugin>
+			<name>addPaths</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>
+			<init-params>
+				<object-param>
+					<name>cms.configuration</name>
+					<description>configuration for the cms path</description>
+					<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+						<field name="repository">
+							<string>repository</string>
+						</field>
+						<field name="workspaces">
+							<collection type="java.util.ArrayList">
+								<value>
+									<string>dms-system</string>
+								</value>
+							</collection>
+						</field>
+						<field name="jcrPaths">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+										<field name="alias">
+											<string>exoECMSystemPath</string>
+										</field>
+										<field name="path">
+											<string>/exo:ecm</string>
+										</field>
+										<field name="permissions">
+											<collection type="java.util.ArrayList">
+												<value>
+													<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+														<field name="identity">
+															<string>*:/platform/administrators</string>
+														</field>
+														<field name="read">
+															<string>true</string>
+														</field>
+														<field name="addNode">
+															<string>true</string>
+														</field>
+														<field name="setProperty">
+															<string>true</string>
+														</field>
+														<field name="remove">
+															<string>true</string>
+														</field>
+													</object>
+												</value>
+												<value>
+													<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+														<field name="identity">
+															<string>any</string>
+														</field>
+														<field name="read">
+															<string>true</string>
+														</field>
+														<field name="addNode">
+															<string>false</string>
+														</field>
+														<field name="setProperty">
+															<string>false</string>
+														</field>
+														<field name="remove">
+															<string>false</string>
+														</field>
+													</object>
+												</value>
+											</collection>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+										<field name="alias">
+											<string>templatesPath</string>
+										</field>
+										<field name="path">
+											<string>/exo:ecm/templates</string>
+										</field>
+										<field name="permissions">
+											<collection type="java.util.ArrayList">
+												<value>
+													<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+														<field name="identity">
+															<string>*:/platform/administrators</string>
+														</field>
+														<field name="read">
+															<string>true</string>
+														</field>
+														<field name="addNode">
+															<string>true</string>
+														</field>
+														<field name="setProperty">
+															<string>true</string>
+														</field>
+														<field name="remove">
+															<string>true</string>
+														</field>
+													</object>
+												</value>
+											</collection>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
+	<import>classpath:/conf/dms/test-templates-configuration.xml</import>
+</configuration>

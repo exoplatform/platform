@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+		<component-plugin>
+			<name>ECMS-NodeType-Templates</name>
+			<set-method>addUpgradePlugin</set-method>
+			<type>org.exoplatform.ecms.upgrade.UpgradeNodeTypesTemplatesService</type>
+			<description>eXo ECMS NodeType Templates Upgrade Plugin</description>
+			<init-params>
+				<value-param>
+					<name>product.group.id</name>
+					<description>The groupId of the product</description>
+					<value>org.exoplatform.ecms</value>
+				</value-param>
+				<values-param>
+					<name>plugin-names</name>
+					<description>The list of TemplatePlugin names to upgrade</description>
+					<value>addTemplates</value>
+					<!--value></value> <value></value -->
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

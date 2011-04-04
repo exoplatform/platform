@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales-config>
+  <!--
+    Check http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt for locale code 
+    The encoding parameter will be used for the request  response stream.
+    The input-encoding parameter will be used for request setCharacterEncoding(..) 
+
+    encoding: ISO-8859-1 
+  -->
+  <locale-config>
+    <locale>fr</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the French locale</description>
+  </locale-config>
+  
+  <locale-config>
+    <locale>en</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for English locale</description>
+  </locale-config>    
+
+</locales-config>

@@ -1,0 +1,122 @@
+<%
+  String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ; 
+  String[] hiddenField2 = ["jcrPath=/node/jcr:content/jcr:encoding", "visible=false", "UTF-8"] ;
+  String[] hiddenField4 = ["jcrPath=/node/jcr:content/jcr:lastModified", "visible=false"] ;
+  String[] hiddenField5 = ["jcrPath=/node/jcr:content/dc:date", "visible=false"] ;
+  uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
+  uicomponent.addHiddenField("hiddenInput2", hiddenField2) ;
+  uicomponent.addCalendarField("hiddenInput4", hiddenField4) ;
+  uicomponent.addCalendarField("hiddenInput5", hiddenField5) ;
+%>
+<div class="UIForm FormLayout">  
+	<% uiform.begin() %>
+  <div class="HorizontalLayout">
+	  <table class="UIFormGrid">
+				<tr>
+				  <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.name")%></td>
+				  <td class="FieldComponent">
+			      <%
+			        String[] fieldName = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable,mix:i18n", "editable=if-null", "validate=empty,name"] ;
+			        uicomponent.addTextField("name", fieldName) ; 
+			      %>
+				  </td>
+				</tr>
+				<%if(!uicomponent.getId().equals("UILanguageDialogForm")){%>
+					<tr>
+			      <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.categories")%></td>
+			      <td class="FieldComponent">
+				      <% 
+				        String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true"];
+				        uicomponent.addTextField("categories", fieldCategories);
+				      %>
+				    </td>
+				  </tr>
+			  <%}%>
+				<%
+				if(!uicomponent.isEditing()){%>
+						<tr>		          					
+				      <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.mimeType")%></td>
+				      <td class="FieldComponent">
+					      <%
+					        String[] mimetype = ["jcrPath=/node/jcr:content/jcr:mimeType", "text/html", "options=text/html,text/plain", "onchange=true"] ;
+					        uicomponent.addSelectBoxField("mimetype", mimetype) ;
+					      %>
+					    </td>
+			    	</tr>
+	    	<%}%>
+				<tr>
+				  <td class="FieldLabel"><%=_ctx.appRes("File.dialog.label.content")%></td>
+				  <td class="FieldComponent">
+							<%
+								if(uicomponent.isEditing()) { 
+									def curNode = uicomponent.getNode() ;
+									if(curNode.hasNode("jcr:content")) {
+										def content = curNode.getNode("jcr:content") ;
+										String mimeType = content.getProperty("jcr:mimeType").getString() ;
+										if(mimeType.startsWith("text")){
+											if(mimeType.equals("text/html")) {
+												String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+					             				uicomponent.addRichtextField("contentHtml", fieldSummary) ;			
+												//uicomponent.removeComponent("content");
+											} else {
+												String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+				          						uicomponent.addTextAreaField("content", fieldSummary) ;
+											}
+										} else {
+										%>
+											<div style="font-size:12px; font-weight: bold; line-height: 17px;">
+									    	<%=_ctx.appRes("File.dialog.label.re-upload")%>
+									    </div>
+										<%
+										}
+									} else {
+										String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+				                        uicomponent.addRichtextField("contentHtml", fieldSummary) ;						
+									}
+								} else {	
+									String selectValue = uicomponent.getSelectBoxFieldValue("mimetype") ;		
+									if(selectValue != null && selectValue.equals("text/html")) {	
+										String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+				          	            uicomponent.addRichtextField("contentHtml", fieldSummary) ;
+										uicomponent.removeComponent("contentPlain");
+									} else if(selectValue != null && selectValue.equals("text/plain")){
+										String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+				          	            uicomponent.addTextAreaField("contentPlain", fieldSummary) ;
+										uicomponent.removeComponent("contentHtml");
+									} else {
+										String[] fieldSummary = ["jcrPath=/node/jcr:content/jcr:data", "validate=empty"] ;
+				          	            uicomponent.addRichtextField("contentHtml", fieldSummary) ;	
+										uicomponent.removeComponent("contentPlain");							  
+									}
+								}
+							%>
+				  </td>
+				</tr>				
+		</table>	     
+		<%/* start render action*/%>
+		<div class="UIAction"> 
+	    <table class="ActionContainer">
+	    	<tr>
+	    		<td>
+			      <% for(action in uicomponent.getActions()) { 
+			      		 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+								 String link = uicomponent.event(action) ;
+			      %>
+		          <div onclick="$link" class="ActionButton LightBlueStyle">
+								<div class="ButtonLeft">
+								  <div class="ButtonRight">
+									  <div class="ButtonMiddle">
+									    <a href="javascript:void(0);">$actionLabel</a>
+							      </div>
+							    </div>
+						    </div>
+							</div>
+			      <%}%>          
+	      	</td>
+	      </tr>
+	    </table>
+	  </div>
+	  <%/* end render action*/%>
+  </div>
+  <%uiform.end()%>
+</div>

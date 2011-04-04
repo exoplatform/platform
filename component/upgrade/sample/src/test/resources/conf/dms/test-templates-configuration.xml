@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.cms.templates.TemplateService</target-component>
+		<component-plugin>
+			<name>addTemplates</name>
+			<set-method>addTemplates</set-method>
+			<type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
+			<init-params>
+				<value-param>
+					<name>autoCreateInNewRepository</name>
+					<value>true</value>
+				</value-param>
+				<value-param>
+					<name>storedLocation</name>
+					<value>jar:/conf/dms/artifacts/templates</value>
+				</value-param>
+				<value-param>
+					<name>repository</name>
+					<value>repository</value>
+				</value-param>
+				<object-param>
+					<name>template.configuration</name>
+					<description>configuration for the localtion of templates to inject in jcr</description>
+					<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">
+						<field name="nodeTypes">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
+										<field name="nodetypeName">
+											<string>nt:file</string>
+										</field>
+										<field name="documentTemplate">
+											<boolean>true</boolean>
+										</field>
+										<field name="label">
+											<string>File</string>
+										</field>
+										<field name="referencedView">
+											<collection type="java.util.ArrayList">
+												<value>
+													<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+														<field name="templateFile">
+															<string>/file/views/view1.gtmpl</string>
+														</field>
+														<field name="roles">
+															<string>*</string>
+														</field>
+													</object>
+												</value>
+												<value>
+													<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+														<field name="templateFile">
+															<string>/file/views/admin_view.gtmpl</string>
+														</field>
+														<field name="roles">
+															<string>*:/platform/administrators</string>
+														</field>
+													</object>
+												</value>
+											</collection>
+										</field>
+										<field name="referencedDialog">
+											<collection type="java.util.ArrayList">
+												<value>
+													<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+														<field name="templateFile">
+															<string>/file/dialogs/dialog1.gtmpl</string>
+														</field>
+														<field name="roles">
+															<string>*</string>
+														</field>
+													</object>
+												</value>
+												<value>
+													<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+														<field name="templateFile">
+															<string>/file/dialogs/admin_dialog.gtmpl</string>
+														</field>
+														<field name="roles">
+															<string>*:/platform/administrators</string>
+														</field>
+													</object>
+												</value>
+											</collection>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<name>FilterContentTypeFolder</name>
+			<set-method>addContentTypeFilterPlugin</set-method>
+			<type>org.exoplatform.services.cms.templates.ContentTypeFilterPlugin</type>
+			<description>this plugin is used to filter node type for folder</description>
+			<init-params>
+				<value-param>
+					<name>repository</name>
+					<value>repository</value>
+				</value-param>
+				<object-param>
+					<name>nt:unstructured</name>
+					<description>allow all document node type for this folder</description>
+					<object type="org.exoplatform.services.cms.templates.ContentTypeFilterPlugin$FolderFilterConfig">
+						<field name="folderType">
+							<string>nt:unstructured</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>nt:folder</name>
+					<description>allow all document node type for this folder</description>
+					<object type="org.exoplatform.services.cms.templates.ContentTypeFilterPlugin$FolderFilterConfig">
+						<field name="folderType">
+							<string>nt:folder</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

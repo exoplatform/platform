@@ -17,7 +17,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.exoplatform.component.product.ProductInformations;
+import org.exoplatform.commons.info.MissingProductInformationException;
+import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.picocontainer.Startable;
@@ -28,7 +29,7 @@ public class TrialService implements Startable {
   public static Calendar remindDate;
   private ScheduledExecutorService executor;
 
-  public TrialService(ProductInformations productInformations, InitParams params) {
+  public TrialService(ProductInformations productInformations, InitParams params) throws MissingProductInformationException {
     Utils.productNameAndVersion = PRODUCT_NAME + " " + productInformations.getVersion();
     Utils.registrationFormUrl = ((ValueParam) params.get("registrationFormUrl")).getValue();
     Utils.pingBackUrl = ((ValueParam) params.get("pingBackUrl")).getValue();
