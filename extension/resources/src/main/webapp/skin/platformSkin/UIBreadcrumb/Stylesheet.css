@@ -18,14 +18,16 @@
  */
 
 .UIBreadcrumbPortlet {
-	padding-bottom: 2px;
-	padding: 0 15px;
-	background: white;
-    color: black;
+	padding: 8px 15px 8px 35px;
+    color: #999999;
+	background:#20263F url('background/Breadcrumb.gif') no-repeat 15px center;
 }
-.UIBreadcrumbPortlet a{
-    color: #0000CC;
+.UIBreadcrumbPortlet a {
+    color: #9999cc;
     cursor: pointer;
-    text-decoration: underline;
     /*vertical-align: bottom;*/
+}
+
+.UIBreadcrumbPortlet a: hover {
+	text-decoration: underline;
 }
