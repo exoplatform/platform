@@ -211,7 +211,7 @@
 														<string>usecase</string>
 													</key>
 													<value>
-														<string>jailed</string>
+														<string>parameterize</string>
 													</value>
 												</entry>
 												<entry>
@@ -220,6 +220,14 @@
 													</key>
 													<value>
 														<string>{modifiedGroupId}</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>nodePath</string>
+													</key>
+													<value>
+														<string>Documents</string>
 													</value>
 												</entry>
 												<entry>
@@ -236,6 +244,46 @@
 													</key>
 													<value>
 														<string>true</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>showActionBar</string>
+													</key>
+													<value>
+														<string>true</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>showFilterBar</string>
+													</key>
+													<value>
+														<string>true</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>showTopBar</string>
+													</key>
+													<value>
+														<string>true</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>categoryMandatoryWhenFileUpload</string>
+													</key>
+													<value>
+														<string>false</string>
+													</value>
+												</entry>
+												<entry>
+													<key>
+														<string>editInNewWindow</string>
+													</key>
+													<value>
+														<string>false</string>
 													</value>
 												</entry>
 											</map>
@@ -273,7 +321,7 @@
 								</field>
 								<!-- relative node path to the space root path-->
 								<field name="nodePath">
-									<string>/Documents</string>
+									<string>/SharedData</string>
 								</field>
 							</object>
 						</field>
