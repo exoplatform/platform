@@ -15,8 +15,9 @@
 
   <properties>
     <org.selenium.server.version>1.0.1</org.selenium.server.version>
+    <org.seleniumhq.selenium.version>2.0a5</org.seleniumhq.selenium.version>
     <org.selenium.maven-plugin.version>1.0.1</org.selenium.maven-plugin.version>
-    <org.exoplatform.selegen.version>0.9.2</org.exoplatform.selegen.version>
+    <org.exoplatform.selegen.version>2.0.0-SNAPSHOT</org.exoplatform.selegen.version>
 
     <!-- configuration values for Selegen -->
     <selenium.port>8444</selenium.port><!-- 4444 (selenium RC default) is used by JBoss -->
@@ -44,6 +45,12 @@
       <groupId>org.seleniumhq.selenium.server</groupId>
       <artifactId>selenium-server</artifactId>
       <version>${org.selenium.server.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>${org.seleniumhq.selenium.version}</version>
     </dependency>
 
     <!-- eXo User Extensions -->
