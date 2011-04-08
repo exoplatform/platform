@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+<!--	<external-component-plugins>-->
+<!--		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>-->
+<!--		<component-plugin>-->
+<!--			<name>Upgrade-Gadgets</name>-->
+<!--			<set-method>addUpgradePlugin</set-method>-->
+<!--			<type>org.exoplatform.platform.upgrade.plugins.UpgradeLocalGadgetsPlugin</type>-->
+<!--			<description>Gadgets Upgrade Plugin</description>-->
+<!--			<init-params>-->
+<!--				<value-param>-->
+<!--					<name>product.group.id</name>-->
+<!--					<description>The groupId of the product</description>-->
+<!--					<value>org.exoplatform.platform</value>-->
+<!--				</value-param>-->
+<!--				<object-param>-->
+<!--					<name>Calculator</name>-->
+<!--					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">-->
+<!--						<field name="name">-->
+<!--							<value>-->
+<!--								<string>Calculator</string>-->
+<!--							</value>-->
+<!--						</field>-->
+<!--						<field name="path">-->
+<!--							<value>-->
+<!--								<string>war:/gadgets/Calculator/Calculator.xml</string>-->
+<!--							</value>-->
+<!--						</field>-->
+<!--					</object>-->
+<!--				</object-param>-->
+<!--			</init-params>-->
+<!--		</component-plugin>-->
+<!--	</external-component-plugins>-->
+</configuration>
