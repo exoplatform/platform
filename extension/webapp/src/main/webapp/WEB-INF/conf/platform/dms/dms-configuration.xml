@@ -2,7 +2,14 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
-<component>
+
+  <!-- This is temporary workarouhnd for xCMSI 1.2. Component CmisRestApplication should be removed from xCMIS jar and be well configured in WCM -->
+  <component>
+    <key>org.xcmis.restatom.CmisRestApplication</key>
+    <type>org.xcmis.restatom.CmisRestApplicationSingle</type>
+  </component>
+
+  <component>
 	  <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
 	  <type>org.exoplatform.services.cms.webdav.WebDavServiceImpl</type>
   <init-params>
