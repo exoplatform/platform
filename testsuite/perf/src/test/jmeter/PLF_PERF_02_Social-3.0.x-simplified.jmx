@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="ThreadCount" elementType="Argument">
             <stringProp name="Argument.name">ThreadCount</stringProp>
-            <stringProp name="Argument.value">${__P(expThreadCount,10)}</stringProp>
+            <stringProp name="Argument.value">${__P(expThreadCount,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
             <stringProp name="Argument.name">LoopCount</stringProp>
-            <stringProp name="Argument.value">${__P(expLoopCount,1000000)}</stringProp>
+            <stringProp name="Argument.value">${__P(expLoopCount,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
@@ -24,7 +24,7 @@
           </elementProp>
           <elementProp name="Server" elementType="Argument">
             <stringProp name="Argument.name">Server</stringProp>
-            <stringProp name="Argument.value">${__P(expHost,magellanic.testlab.exoplatform.vn)}</stringProp>
+            <stringProp name="Argument.value">${__P(expHost,localhost)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Port" elementType="Argument">
@@ -8360,7 +8360,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <stringProp name="TestPlan.comments">${inivationPortalComponentId}&amp;amp</stringProp>
                     <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                     <stringProp name="RegexExtractor.refname">inivationPortalComponentId</stringProp>
-                    <stringProp name="RegexExtractor.regex">\&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/private/intranet/connections/invitations/.*\?portal:componentId=([a-zA-Z0-9\-]+)&amp;amp</stringProp>
+                    <stringProp name="RegexExtractor.regex">\&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/private/intranet/connections/invitations/.*\?portal:componentId=([a-zA-Z0-9\-]+)&amp;</stringProp>
                     <stringProp name="RegexExtractor.template">$1$</stringProp>
                     <stringProp name="RegexExtractor.default">xxxinivationPortalComponentIdxxx</stringProp>
                     <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -8370,7 +8370,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <stringProp name="TestPlan.comments">objectId=a4fb776c7f00010101b3ebe82e9f3794</stringProp>
                     <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                     <stringProp name="RegexExtractor.refname">invitationObjectId</stringProp>
-                    <stringProp name="RegexExtractor.regex">\&lt;a href=&quot;#&quot; class=&quot;StopIcon&quot; title=&quot;Deny&quot; onclick=&quot;javascript:ajaxGet\(&apos;/portal/private/intranet/connections/invitations/.*op=Deny&amp;amp;objectId=([0-9a-zA-Z]+)&amp;</stringProp>
+                    <stringProp name="RegexExtractor.regex">onclick=&quot;javascript:ajaxGet\(&apos;/portal/private/intranet/connections/invitations/.*op=Deny&amp;amp;objectId=([0-9a-zA-Z]+)&amp;</stringProp>
                     <stringProp name="RegexExtractor.template">$1$</stringProp>
                     <stringProp name="RegexExtractor.default">xxxinvitationObjectIdxxx</stringProp>
                     <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -8991,6 +8991,44 @@ return &quot;continue variable=true&quot;;</stringProp>
         <stringProp name="CounterConfig.format">000</stringProp>
         <boolProp name="CounterConfig.per_user">true</boolProp>
       </CounterConfig>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree for Error" enabled="true">
         <boolProp name="ResultCollector.error_logging">true</boolProp>
