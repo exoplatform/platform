@@ -9,33 +9,32 @@ This chapter introduces concepts of Container and Services with an overview befo
 
 h2. Containers {anchor:id=DEV.eXoArchitecturePremer.Containers}
 
-A container is always required to access a service, because the eXo kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
+A container is always required to access a service, because the eXo Kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
 
 eXo Platform provides two types of containers: RootContainer and PortalContainer.
 
 The RootContainer holds the low level components. It is automatically started before the PortalContainer. You will rarely interact directly with the RootContainer except when you activate your own extension.
 The PortalContainer is created for each portal (one or several portals). All services started by this container will run as embedded in the portal. It also gives access to components of its parent RootContainer.
 
-In your code, if you need to invoke a service of a container, you can use the ExoContainerContext helper from any location. The code below shows you a utility method that you can use to invoke any eXo service.
+In your code, if you need to invoke a service of a container, you can use the ExoContainerContext helper from any location. The code below shows you a utility method that you can use to invoke any eXo Platform service.
 
-{code:language=java}
-
+{code:java}
 public class ExoUtils {
-
   /**
-   * Get a service from the portal container
-   * @param type : component type
-   * @return the concrete instance retrieved in the container using the type as key
-   */
+  * Get a service from the portal container
+  * @param type : component type
+  * @return the concrete instance retrieved in the container using the type as key
+  */
   public <T>T getService(Class<T> type) {
     return (T)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(type);
   }
-  
 }
 {code}
+
 Then, invoking becomes as easy as:
-{code:language=java}
-  OrganizationService orgService = ExoUtils.getService(OrganizationService.class)
+
+{code:java}
+OrganizationService orgService = ExoUtils.getService(OrganizationService.class)
 {code}
 
 h2. Services {anchor:id=DEV.eXoArchitecturePremer.Services}
@@ -63,11 +62,11 @@ h3. Kernel XML Schema {anchor:id=DEV.eXoArchitecturePremer.KernalXMLSchema}
 
 Containers configuration files must comply with the kernel configuration grammar. Thus, all configurations will contain an XSD declaration like this:
 
-{code:language=xml}
+{code:xml}
 <configuration
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
-xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 </configuration>
 {code}
 
@@ -79,14 +78,14 @@ The service registration within the container is done with the <component> eleme
 
 For example, open the exo-ecms-core-services-x.y.z.jar file. Next, open the /conf/portal/configuration.xml file. You will see:
 
-{code:language=xml}
-  <component>
-    <type>org.exoplatform.services.deployment.ContentInitializerService</type>
-  </component>
-  <component>
-    <key>org.exoplatform.services.cms.CmsService</key>
-    <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
-  </component>	
+{code:xml}
+<component>
+  <type>org.exoplatform.services.deployment.ContentInitializerService</type>
+</component>
+<component>
+  <key>org.exoplatform.services.cms.CmsService</key>
+  <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
+</component>	
 {code}
 
 Each component has a {{key}} which matches the qualified Java interface name (org.exoplatform.services.cms.CmsService).
@@ -112,34 +111,32 @@ h4. Value-param {anchor:id=DEV.eXoArchitecturePremer.Value-param}
 
 You can use the value-param to pass a single value to the service.
 
-
-{code:language=xml}
+{code:xml}
 <component>
-    <key>org.exoplatform.services.resources.LocaleConfigService</key>
-    <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
-      <init-params>
-        <value-param>
-          <name>locale.config.file</name>
-          <value>war:/conf/common/locales-config.xml</value>
-        </value-param>
-      </init-params>
-  </component>
+  <key>org.exoplatform.services.resources.LocaleConfigService</key>
+  <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
+  <init-params>
+    <value-param>
+      <name>locale.config.file</name>
+      <value>war:/conf/common/locales-config.xml</value>
+    </value-param>
+  </init-params>
+</component>
 {code}
 
 
 The LocaleConfigService service accesses the value of value-param in its constructor.
 
-{code:language=java}
+{code:java}
 package org.exoplatform.services.resources.impl;
-public class LocaleConfigServiceImpl implements LocaleConfigService
-{
-public LocaleConfigServiceImpl(InitParams params, ConfigurationManager cmanager) throws Exception
-   {
-      configs_ = new HashMap<String, LocaleConfig>(10);
-      String confResource = params.getValueParam("locale.config.file").getValue();
-      InputStream is = cmanager.getInputStream(confResource);
-      parseConfiguration(is);
-   }
+public class LocaleConfigServiceImpl implements LocaleConfigService {
+  public LocaleConfigServiceImpl(InitParams params, ConfigurationManager cmanager) throws Exception {
+    configs_ = new HashMap<String, LocaleConfig>(10);
+    String confResource = params.getValueParam("locale.config.file").getValue();
+    InputStream is = cmanager.getInputStream(confResource);
+    parseConfiguration(is);
+  }
+}
 {code}
 
 
@@ -147,7 +144,7 @@ h4. Object-param {anchor:id=DEV.eXoArchitecturePremer.Object-param}
 
 For the object-param component, you can look at the LDAP service:
 
-{code:language=xml}
+{code:xml}
 <component>
   <key>org.exoplatform.services.ldap.LDAPService</key>
   <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
@@ -174,19 +171,22 @@ The object-param is used to create an object (which is actually a Java Bean) pas
 
 You can see how the service accesses the object in the code below:
 
-{code:language=java}
+{code:java}
 package org.exoplatform.services.ldap.impl;
 
 public class LDAPServiceImpl implements LDAPService {
-// ...
-public LDAPServiceImpl(InitParams params) {
-  LDAPConnectionConfig config = (LDAPConnectionConfig) params.getObjectParam("ldap.config").getObject();
-// ...
+  // ...
+  public LDAPServiceImpl(InitParams params) {
+    LDAPConnectionConfig config = (LDAPConnectionConfig) params.getObjectParam("ldap.config").getObject();
+    ...
+  }
+  // ...
+}
 {code}
 
 The passed object is LDAPConnectionConfig, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your Java Bean and calls all setters whose values are configured in the configuration file.
 
-{code:language=java}
+{code:java}
 package org.exoplatform.services.ldap.impl;
 
 public class LDAPConnectionConfig {
@@ -200,6 +200,7 @@ public class LDAPConnectionConfig {
   private int maxConnection;
   private String referralMode = "follow";
   // ...
+}
 {code}
 
 h4. Rest of parameter types {anchor:id=DEV.eXoArchitecturePremer.RestOfParameterTypes}
@@ -214,7 +215,7 @@ Plugins enable you to provide the structured configuration from outside the orig
 
 You can have a look at the configuration of the TaxonomyPlugin of the TaxonomyService as below:
 
-{code:language=xml}
+{code:xml}
 <external-component-plugins>
   <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
   <component-plugin>
@@ -261,7 +262,7 @@ The extension mechanism makes possible to extend or even override portal resourc
 The most elegant way to reuse configuration for different coexisting portals is by way of extension mechanism - by inheriting resources and configuration from existing web archives, and just adding extra resources to it, and overriding those that need to be changed by including modified copies.
 
 {note}
-Starter is a web application that has been added to create and start all the portals, such as portal containers, at the same time once all the other web applications have already been started. In fact, all other web applications can potentially defined several things at startup, such as skins, javascripts, google gadgets and configuration files. The loading order is important as we can define skins or configuration files or a javascript again from a web application 1. This could depend on another Javascript from a web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged Javascript file.
+Starter is a web application that has been added to create and start all the portals, such as portal containers, at the same time once all the other web applications have already been started. In fact, all other web applications can potentially defined several things at startup, such as skins, Javascripts, Google gadgets and configuration files. The loading order is important as we can define skins or configuration files or a Javascript again from a web application 1. This could depend on another Javascript from a web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged Javascript file.
 {note}
 
 If you ship servlets or servlet filters as part of your portal extension, and if you need to access specific resources of portal at any time during processing of the servlet or filter request, you need to make sure the servlet/filter is associated with the current container. The proper way to do that is to make your servlet extend org.exoplatform.container.web.AbstractHttpServlet class. This will not only properly initialize the current PortalContainer for you, but  also  set  the  current  thread's  context  classloader  to  one  that  looks  for  resources in associated web applications in the order specified by Dependencies configuration (as explained in the Extension mechanism section).
@@ -295,20 +296,19 @@ If you need to customize your portal by adding a new extension and/or a new port
 
 First, you need to tell eXo Platform to load {{WEB-INF/conf/configuration.xml}} of your extension, you need to declare it as a {{PortalContainerConfigOwner}}. Next, open the file {{WEB-INF/web.xml}} of your extension and add a listener:
 
-{code:language=xml}
+{code:xml}
 <web-app>
   <display-name>my-portal</display-name>
-  <listener>
-   <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
-  </listener>
-<!-- ... -->
+    <listener>
+      <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
+    </listener>
+  <!-- ... -->
 </web-app>
 {code}
 
 You need to register your extension in the portal container. This is done by the *.xml* configuration file like this: 
 
-{code:language=xml}
-
+{code:xml}
 <external-component-plugins>
   <target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
   <component-plugin>
@@ -319,16 +319,16 @@ You need to register your extension in the portal container. This is done by the
       <object-param>
         <name>change</name>
         <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
-          <field name="dependencies">
-            <collection type="java.util.ArrayList">
-              <value>
-                <string>my-portal</string>
-              </value>
-              <value>
-                <string>my-portal-resources</string>
-              </value>              
-            </collection>
-          </field>
+        <field name="dependencies">
+          <collection type="java.util.ArrayList">
+            <value>
+              <string>my-portal</string>
+            </value>
+            <value>
+              <string>my-portal-resources</string>
+            </value>              
+          </collection>
+        </field>
         </object>
       </object-param> 
       <value-param>
@@ -349,37 +349,37 @@ In your portal, if you want to add your own property file to support localizatio
 
 - Add an external plugin declaration to the *.xml* configuration file.	  
 
-{code}
+{code:xml}
 <external-component-plugins>
-                <!-- The full qualified name of the ResourceBundleService -->
-                <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
-                <component-plugin>
-                        <!-- The name of the plugin -->
-                        <name>Sample ResourceBundle Plugin</name>
-                        <!-- The name of the method to call on the ResourceBundleService in order to register the ResourceBundles -->
-                        <set-method>addResourceBundle</set-method>
-                        <!-- The full qualified name of the BaseResourceBundlePlugin -->
-                        <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
-                        <init-params>
-                                <!--values-param>
-                                        <name>classpath.resources</name>
-                                        <description>The resources that start with the following package name should be load from file system</description>
-                                        <value>locale.portlet</value>
-                                </values-param-->
-                                <values-param>
-                                        <name>init.resources</name>
-                                        <description>Store the following resources into the db for the first launch </description>
-                                        <value>locale.portal.sample</value>
-                                </values-param>
-                                <values-param>
-                                        <name>portal.resource.names</name>
-                                        <description>The properties files of the portal , those file will be merged
-                                                into one ResoruceBundle properties </description>
-                                        <value>locale.portal.sample</value>
-                                </values-param>
-                        </init-params>
-                </component-plugin>
-        </external-component-plugins>
+  <!-- The full qualified name of the ResourceBundleService -->
+  <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+  <component-plugin>
+    <!-- The name of the plugin -->
+    <name>Sample ResourceBundle Plugin</name>
+    <!-- The name of the method to call on the ResourceBundleService in order to register the ResourceBundles -->
+    <set-method>addResourceBundle</set-method>
+    <!-- The full qualified name of the BaseResourceBundlePlugin -->
+    <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+    <init-params>
+      <!--values-param>
+        <name>classpath.resources</name>
+        <description>The resources that start with the following package name should be load from file system</description>
+        <value>locale.portlet</value>
+      </values-param-->
+      <values-param>
+        <name>init.resources</name>
+        <description>Store the following resources into the db for the first launch </description>
+        <value>locale.portal.sample</value>
+      </values-param>
+      <values-param>
+        <name>portal.resource.names</name>
+        <description>The properties files of the portal , those file will be merged
+        into one ResoruceBundle properties </description>
+        <value>locale.portal.sample</value>
+      </values-param>
+    </init-params>
+  </component-plugin>
+</external-component-plugins>
 {code}
 
 h1. Java Content Repository {anchor:id=DEV.eXoArchitecturePremer.JavaContentRepository}
@@ -395,7 +395,7 @@ A content repository consists of one or more workspaces. Each workspace contains
 
 To access the repository's content from a service:
 
-{code:language=java}
+{code:java}
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
@@ -412,7 +412,7 @@ Session session = sessionProvider.getSession(workspace, manageableRepository);
 
 You can use the session object to retrieve your node content.
 
-{code}
+{code:java}
 String path = "/"; // put your node path here
 Node node = (Node) session.getItem(path);
 {code}
@@ -421,40 +421,44 @@ The javax.jcr.Repository object can be obtained via one of the following ways:
 
 -- Using the eXo Container "native" mechanism. All Repositories are kept with a single RepositoryService component. So it can be obtained from eXo Container as below:
 
-{code}
+{code:java}
 RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
-  Repository repository = repositoryService.getRepository("repositoryName");
+Repository repository = repositoryService.getRepository("repositoryName");
 {code}
 
 -- Using the eXo Container "native" mechanism with a thread local saved "current" repository (especially if you plan to use a single repository which covers more than 90% of usecases)
 
-{code}
+{code:java}
 // set current repository at initial time
-  RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
-  repositoryService.setCurrentRepositoryName("repositoryName");
-  ....
-  // retrieve and use this  repository
-  Repository repository = repositoryService.getCurrentRepository();
+RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
+repositoryService.setCurrentRepositoryName("repositoryName");
+....
+// retrieve and use this  repository
+Repository repository = repositoryService.getCurrentRepository();
 {code}
 
 -- Using JNDI as specified in JSR-170.
 
-{code}
+{code:java}
 Context ctx = new InitialContext();
-Repository repository =(Repository) ctx.lookup("repositoryName"
+Repository repository =(Repository) ctx.lookup("repositoryName");
 {code}
 
 Next, you need to log in the server to get a Session object by either of two ways:
 
 -- Creating a Credential object, for example:
 
+{code:java}
 Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
 
 Session jcrSession = repository.login(credentials, "production");
+{code}
 
 -- Logging in by using:
 
+{code:java}
 Session jcrSession = repository.login("production");
+{code}
 
 This way is only applied when you run an implementation of eXo Platform embedded in the portal.
 
@@ -475,4 +479,4 @@ Data are stored in properties, which may hold simple values, such as numbers, st
 
 The JCR API provides methods to define node types and node properties, create or delete nodes, and add or delete properties to an existing node.
 
-You can refer to "Chapter 6.2.3 Node Read Methods" in the JCR Specification document.
+You can refer to Section 6.2.3. Node Read Methods in the JCR Specification document.

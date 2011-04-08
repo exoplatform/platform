@@ -12,6 +12,7 @@ This section aims at helping you apply eXo Platform to your projects successfull
 You need to add a system environment variable MAVEN_OPTS (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
 * Windows:*
+
 {code}
 set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
 {code}

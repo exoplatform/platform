@@ -7,21 +7,22 @@ To learn more about how to use the administration portlet, refer to the [Adminis
 
 Otherwise, you can create a new document type by configuring the file {{/nodetypes-configuration.xml}} in your extension.
 
-{code}
-<nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName=""> <supertypes>
-<supertype>exo:article</supertype>
-</supertypes>
-<propertyDefinitions>
-<propertyDefinition name="text" requiredType="String" autoCreated="true" mandatory="true" onParentVersion="COPY"
-protected="false" multiple="false">
-<valueConstraints/>
-</propertyDefinition>
-<propertyDefinition name="date" requiredType="Date" autoCreated="false" mandatory="true" onParentVersion="COPY"
-protected="false" multiple="false">
-<valueConstraints/>
-</propertyDefinition>
+{code:xml}
+<nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName=""> 
+  <supertypes>
+    <supertype>exo:article</supertype>
+  </supertypes>
+  <propertyDefinitions>
+    <propertyDefinition name="text" requiredType="String" autoCreated="true" mandatory="true" onParentVersion="COPY"
+    protected="false" multiple="false">
+      <valueConstraints/>
+    </propertyDefinition>
+    <propertyDefinition name="date" requiredType="Date" autoCreated="false" mandatory="true" onParentVersion="COPY"
+    protected="false" multiple="false">
+      <valueConstraints/>
+    </propertyDefinition>
 
-</propertyDefinitions>
+  </propertyDefinitions>
 </nodeType>
 {code}
 
@@ -60,13 +61,13 @@ By placing interceptors in your template, you will be able to execute a Groovy s
 
 To place interceptors, use the following fragment:
 
-{code}
+{code:groovy}
 <% uicomponent.addInterceptor("ecm-explorer/interceptor/PreNodeSaveInterceptor.groovy", "prev");%>
 {code}
 
 Interceptor Groovy scripts are managed in the 'Manage Script' section in the ECM admin portlet. They must implement the CmsScript interface. Pre-save interceptors obtain input values within the context:
 
-{code}
+{code:java}
 public class PreNodeSaveInterceptor implements CmsScript {
 
   public PreNodeSaveInterceptor() {
@@ -81,14 +82,15 @@ public class PreNodeSaveInterceptor implements CmsScript {
     }
   }
 
-  public void setParams(String[] params) {}
+  public void setParams(String[] params) {
+  }
 
 }
 {code}
 
 Whereas the post-save interceptor are passed the path of the saved node in the context:
 
-{code}
+{code:java}
 <% uicomponent.addInterceptor("ecm-explorer/interceptor/PostNodeSaveInterceptor.groovy", "post");%>
 
 public class PostNodeSaveInterceptor implements CmsScript {
@@ -102,14 +104,16 @@ public class PostNodeSaveInterceptor implements CmsScript {
     println("Post node save interceptor, created node: "+path);
   }
 
-  public void setParams(String[] params) {}
+  public void setParams(String[] params) {
+  }
+}
 {code}
 
 h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFields}
 
 In the next code sample, each argument is composed of a set of keys and values. The order of arguments are not important and only the key matters. That example defines a field with the id as "hiddenField2", which will generate a hidden field. The value of this field will be automatically set to UTF-8 and no visible field will be printed on the form.
 
-{code}
+{code:groovy}
 String[] hiddenField2 = ["jcrPath=/node/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
 uicomponent.addHiddenField("hiddenInput2", hiddenField2);
 {code}
@@ -120,7 +124,7 @@ h3. Non-value field {anchor:id=DEV.WorkWithContent.Non-ValueField}
 
 You cannot either see the non-value field on the form or input value for them. Its value will be automatically created or defined when you are managing templates.
 
-{code}
+{code:groovy}
 String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"] ;
 uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
 {code}
@@ -129,7 +133,7 @@ h3. Non-editable fields {anchor:id=DEV.WorkWithContent.Non-EditableFields}
 
 It is possible to create widgets that are non-editable (and then only used to print some information).
 
-{code}
+{code:java}
 String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);
 {code}
 
@@ -141,16 +145,16 @@ By defining these arguments, the node and its children are created with the corr
 
 See the following example:
 
-{code}
+{code:groovy}
 String[] hiddenField = ["jcrPath=/node/jcrcontent", "nodetype=nt:resource", "mixintype=exo:rss-enable", "visible=false"] ;
- uicomponent.addHiddenField("hiddenInput", hiddenField) ; 
+uicomponent.addHiddenField("hiddenInput", hiddenField) ; 
 {code}
 
 h3. Hidden field with default value {anchor:id=DEV.WorkWithContent.HiddenFieldWithDefaultValue}
 
 In the previous sample, the value was automatically created and set according to the current date. However, it is also possible to set a default value for a field.
 
-{code}
+{code:groovy}
 String[] hiddenField = ["jcrPath=/node/jcrcontent/jcr:mimeType", "image/jpeg"] ;
 uicomponent.addHiddenField("hiddenInput", hiddenField) ;
 {code}
@@ -159,7 +163,7 @@ h3. Visible without null fields {anchor:id=DEV.WorkWithContent.VisibleWithoutNul
 
 It is possible to tell that a widget should be visible only if its value is not null or when the form is used to edit the node which has been existing.
 
-{code}
+{code:groovy}
 String nameArgs[] = ["jcrPath=/node", "mixintype=mix:votable", "visible=if-not-null"];
 uicomponent.addMixinField("name", nameArgs ) 
 {code}
@@ -170,13 +174,13 @@ Widgets are natively part of the Platform product to provide a simple and easy w
 
 The "What You See Is What You Get" widget is one of the most powerful tools. It renders an advanced javascript text editor with many functionalities, including the ability to dynamically upload images or flash assets into a JCR workspace and then to refer to them from the created HTML text.
 
-{code}
+{code:groovy}
 String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=basic"] ;
 uicomponent.addWYSIWYGField("summary", fieldSummary) ;
 {code}
 
 
-{code}
+{code:groovy}
 String[] fieldContent = ["jcrPath=/node/exo:text", "options=toolbar:CompleteWCM,'height:410px'", ""] ;
 uicomponent.addRichtextField("content", fieldContent)
 {code}
@@ -191,7 +195,7 @@ By default, there are three options for the toolbar:
 
 There is also a simple text area widget, which has text-input area only: 
 
-{code}
+{code:groovy}
 String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
 uicomponent.addTextAreaField("description", descriptionArgs) ;
 {code}
@@ -200,7 +204,7 @@ h3. Simple select box widget {anchor:id=DEV.WorkWithContent.SimpleSelectBoxWidge
 
 The select box widget enables you to render a select box with static values. These values are enumerated in a comma-separated list in the "options" argument. The argument with no key (here "text/html") is selected by default.
 
-{code}
+{code:groovy}
 String[] mimetype = ["jcrPath=/node/jcrcontent/jcr:mimeType", "text/html", "options=text/html,text/plain"] ;
 uicomponent.addSelectBoxField("mimetype", mimetype) ;
 {code}
@@ -213,14 +217,14 @@ h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSe
 
 In many cases, the previous solution with static options is not good enough and one would like to have the select box checked dynamically. That is what we provide thanks to the introduction of a Groovy script as shown in the code fragment below.
 
-{code}
+{code:groovy}
 String[] args = ["jcrPath=/node/exodestWorkspace", "script=ecm-explorer/widget/FillSelectBoxWithWorkspaces:groovy", "scriptParams=production"];
 uicomponent.addSelectBoxField("destWorkspace", args) ;
 {code}
 
 The script itself implements the CMS Script interface and the cast is done to get the select box object as shown in the script code which fills the select box with the existing JCR workspaces.
 
-{code}
+{code:java}
 import java.util.List ;
 import java.util.ArrayList ;
 
@@ -251,7 +255,9 @@ public class FillSelectBoxWithWorkspaces implements CmsScript {
     selectBox.setOptions(options);
   }
 
-  public void setParams(String[] params) {}
+  public void setParams(String[] params) {
+  }
+}
 {code}
 
 {note}
@@ -265,21 +271,20 @@ One of the most advanced functionalities of this syntax is the ability to plug y
 
 In the generated form, you will see an icon which is configurable thanks to the selectorIcon argument. The syntax is a bit more complex but not much.
 
-{code}
-String[] groupArgs = ["jcrPath=/node/exogroup",
-    "selectorClass=org:exoplatform:ecm:webui:selector:UIGroupMemberSelector"];
+{code:groovy}
+String[] groupArgs = ["jcrPath=/node/exogroup", "selectorClass=org:exoplatform:ecm:webui:selector:UIGroupMemberSelector"];
 uicomponent.addActionField("group", groupArgs);
 {code}
 
 You can plug your own component using the selectorClass argument. It must follow the eXo UIComponent mechanism and implements the interface ComponentSelector:
 
-{code}
+{code:java}
 package org.exoplatform.ecm.webui.selector;
 
 import org.exoplatform.webui.core.UIComponent;
 public interface ComponentSelector {
-public UIComponent getSourceComponent();
-public void setSourceComponent(UIComponent uicomponent, String[] initParams) ;    
+  public UIComponent getSourceComponent() ;
+  public void setSourceComponent(UIComponent uicomponent, String[] initParams) ;    
 }
 
 {code}
@@ -295,79 +300,93 @@ The Template service enables you to create dialogs and view templates for each n
 
 .../webapps/portal/WEB-INF/conf/ecm/ecm-templates-configuration.xml
 
-{code}
+{code:xml}
 <component>
-    <key>org.exoplatform.services.cms.templates.TemplateService</key>
-    <type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
-    ..............
-  </component>
+  <key>org.exoplatform.services.cms.templates.TemplateService</key>
+  <type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
+  ..............
+</component>
 {code}
 
 As usual, one can register a plugin inside the service. This plugin initializes default dialogs and views template of any node type as nt:file, exo:article, exo:workflowAction, exo:sendMailAction, and more.
 
-{code}
+{code:xml}
 <component-plugins>
-        <component-plugin>
-          <name>addTemplates</name>
-          <set-method>addTemplates</set-method>
-          <type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
-          .........
-        </component-plugin>
-      </component-plugins>
+  <component-plugin>
+    <name>addTemplates</name>
+    <set-method>addTemplates</set-method>
+    <type>org.exoplatform.services.cms.templates.impl.TemplatePlugin</type>
+    .........
+  </component-plugin>
+</component-plugins>
 {code}
 
 With init-parameters as:
 
-{code}
+{code:xml}
 <init-params>
-	<value-param>
-		<name>autoCreateInNewRepository</name>
-		<value>true</value>
-	</value-param>
-	<value-param>
-		<name>storedLocation</name>
-		<value>war:/conf/ecm/artifacts/templates</value>
-	</value-param>
-	<value-param>
-		<name>repository</name>
-		<value>repository</value>
-	</value-param>	        
+  <value-param>
+    <name>autoCreateInNewRepository</name>
+    <value>true</value>
+  </value-param>
+  <value-param>
+    <name>storedLocation</name>
+    <value>war:/conf/ecm/artifacts/templates</value>
+  </value-param>
+  <value-param>
+    <name>repository</name>
+    <value>repository</value>
+  </value-param>
   <object-param>
-	<name>template.configuration</name>
-	<description>configuration for the localtion of templates to inject in jcr</description>
-	<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">            	
-	  <field  name="nodeTypes">
-		<collection type="java.util.ArrayList">               
-		  <value>
-			<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
-			  <field  name="nodetypeName"><string>exo:article</string></field>
-			  <field  name="documentTemplate"><boolean>true</boolean></field>
-			  <field  name="label"><string>Article</string></field>
-			  <field  name="referencedView">
-				<collection type="java.util.ArrayList">
-				  <value>
-					<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">             
-					  <field name="templateFile"><string>/article/views/view1.gtmpl</string></field>
-					  <field name="roles"><string>*</string></field>                
-					</object>                               
-				  </value>  
-				</collection>
-			  </field>                  
-			  <field  name="referencedDialog">
-				<collection type="java.util.ArrayList">
-				  <value>
-					<object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">             
-					  <field name="templateFile"><string>/article/dialogs/dialog1.gtmpl</string></field>
-					  <field name="roles"><string>*</string></field>                
-					</object>                                                   
-				  </value>  
-				</collection>
-			  </field>                                    
-			</object>
-		  </value>                  
-		</collection>
-	  </field>
-	</object>
+    <name>template.configuration</name>
+    <description>configuration for the localtion of templates to inject in jcr</description>
+    <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">
+      <field name="nodeTypes">
+        <collection type="java.util.ArrayList">
+          <value>
+            <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$NodeType">
+              <field name="nodetypeName">
+                <string>exo:article</string>
+              </field>
+              <field name="documentTemplate">
+                <boolean>true</boolean>
+              </field>
+              <field name="label">
+                <string>Article</string>
+              </field>
+              <field name="referencedView">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                      <field name="templateFile">
+                        <string>/article/views/view1.gtmpl</string>
+                      </field>
+                      <field name="roles">
+                        <string>*</string>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+              <field name="referencedDialog">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig$Template">
+                      <field name="templateFile">
+                        <string>/article/dialogs/dialog1.gtmpl</string>
+                      </field>
+                      <field name="roles">
+                        <string>*</string>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </value>
+        </collection>
+      </field>
+    </object>
   </object-param>
 </init-params>    
 {code}

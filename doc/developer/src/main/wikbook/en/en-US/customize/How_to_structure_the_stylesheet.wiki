@@ -40,7 +40,7 @@ For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet
 
 h2. Folder structure {anchor:id=DEV.CreateYourOwnPortal.FolderStructure}
 *Portal skin*
-The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transfered more quickly as a single file instead of many smaller files included with every page render.
+The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transferred more quickly as a single file instead of many smaller files included with every page render.
 
 *The general folder structure for portal skin:*
 

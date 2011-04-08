@@ -44,11 +44,9 @@ The configuration of "classic" portal can be found in the {{/src/main/webapp/WEB
 
 The {{portal.xml}} file describes the layout and portlets common to all pages of the portal.
 
-{code}<?xml version="1.0" encoding="ISO-8859-1"?>
-<portal-config
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+{code:xml}
+<portal-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0" xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
   <portal-name>classic</portal-name>
   <locale>en</locale>
   <access-permissions>Everyone</access-permissions>
@@ -56,9 +54,9 @@ The {{portal.xml}} file describes the layout and portlets common to all pages of
   <properties>
     <entry key="sessionAlive">onDemand</entry>
   </properties>
-    
-     <portal-layout>
-      <portlet-application>
+
+  <portal-layout>
+    <portlet-application>
       <portlet>
         <application-ref>web</application-ref>
         <portlet-ref>BannerPortlet</portlet-ref>
@@ -71,28 +69,28 @@ The {{portal.xml}} file describes the layout and portlets common to all pages of
         </preferences>
       </portlet>
       <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
 
-      <portlet-application>
-      <portlet>
-       ...
-      </portlet>
-      </portlet-application>
-        
-      <portlet-application>
+    <portlet-application>
       <portlet>
         ...
       </portlet>
-      </portlet-application>
-      
-      <page-body> </page-body>
-      
-     <portlet-application>
-       <portlet>
-         ...
-       </portlet>
-     </portlet-application>
+    </portlet-application>
+
+    <portlet-application>
+      <portlet>
+        ...
+      </portlet>
+    </portlet-application>
+
+    <page-body> </page-body>
+
+    <portlet-application>
+      <portlet>
+        ...
+      </portlet>
+    </portlet-application>
   </portal-layout>
 </portal-config>
 {code}
@@ -105,43 +103,43 @@ The {{pages.xml}} file is used to describe the content of pages of your portal. 
 
 This is the example of pages.xml of the classic portal.
 
-{code}
+{code:xml}
 <page>
-    <name>homepage</name>
-    <title>Home Page</title>
+  <name>homepage</name>
+  <title>Home Page</title>
+  <access-permissions>Everyone</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <container id="ClassicBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
     <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <container id="ClassicBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+    <container id="ClassicLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <access-permissions>Everyone</access-permissions>
-      <container id="ClassicLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
+        <portlet>
+          <application-ref>presentation</application-ref>
+          <portlet-ref>SingleContentViewer</portlet-ref>
+          <preferences>
+            <preference>
+              <name>repository</name>
+              <value>repository</value>
+              <read-only>false</read-only>
+            </preference>
+            ...
+            <preference>
+              <name>ShowTitle</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+          </preferences>
+        </portlet>
+        <title>Introduce</title>
         <access-permissions>Everyone</access-permissions>
-        <portlet-application>
-          <portlet>
-            <application-ref>presentation</application-ref>
-            <portlet-ref>SingleContentViewer</portlet-ref>
-            <preferences>
-              <preference>
-                <name>repository</name>
-                <value>repository</value>
-                <read-only>false</read-only>
-              </preference>
-              ...
-              <preference>
-                <name>ShowTitle</name>
-                <value>false</value>
-                <read-only>false</read-only>
-              </preference>
-            </preferences>
-          </portlet>
-          <title>Introduce</title>
-          <access-permissions>Everyone</access-permissions>
-          <show-info-bar>false</show-info-bar>
-          <show-application-state>false</show-application-state>
-          <show-application-mode>false</show-application-mode>
-        </portlet-application>
-      </container>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
     </container>
-  </page>
+  </container>
+</page>
 {code}
 
 {note}
@@ -157,23 +155,23 @@ If the pattern #{} is used, the link label will be loaded from the portal resour
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
 <node-navigation>
-<owner-type>portal</owner-type>
-<owner-id>classic</owner-id>
-<priority>1</priority>
-<page-nodes>
-<node>
-<uri>home</uri>
-<name>home</name>
-<label>#{portal.classic.home}</label>
-<page-reference>portal::classic::homepage</page-reference>
-</node>
-<node>
-<uri>webexplorer</uri>
-<name>webexplorer</name>
-<label>#{portal.classic.webexplorer}</label>
-<page-reference>portal::classic::webexplorer</page-reference>
-</node>
-</page-nodes>
+  <owner-type>portal</owner-type>
+  <owner-id>classic</owner-id>
+  <priority>1</priority>
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <name>home</name>
+      <label>#{portal.classic.home}</label>
+      <page-reference>portal::classic::homepage</page-reference>
+    </node>
+    <node>
+      <uri>webexplorer</uri>
+      <name>webexplorer</name>
+      <label>#{portal.classic.webexplorer}</label>
+      <page-reference>portal::classic::webexplorer</page-reference>
+    </node>
+  </page-nodes>
 </node-navigation>
 {code}
 
@@ -198,29 +196,27 @@ GateIn supports 4 types of page visibility: DISPLAYED, HIDDEN, SYSTEM, TEMPORAL.
 
 {code:xml}
 <node>
-...
-<visibility>TEMPORAL</visibility>
-<startpublicationdate>01/13/2011 12:46:38</startpublicationdate>
-<endpublicationdate>01/20/2011 18:46:42</endpublicationdate>
+  ...
+  <visibility>TEMPORAL</visibility>
+  <startpublicationdate>01/13/2011 12:46:38</startpublicationdate>
+  <endpublicationdate>01/20/2011 18:46:42</endpublicationdate>
 </node>
 {code}
 
 Below is an example of using <visibility>HIDDEN</visibility> to hide a page:
 
 {code:xml}
-<node-navigation
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
-    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0"> 
-    <page-nodes>
-      <node>
+<node-navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0" xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+  <page-nodes>
+    <node>
       <uri>sitemap</uri>
       <name>sitemap</name>
       <label>#{portal.classic.sitemap}</label>
       <visibility>HIDDEN</visibility>
       <page-reference>portal::classic::sitemap</page-reference>
     </node>
- ...
+    ...
   </page-nodes>
 </node-navigation>
 {code}
@@ -235,17 +231,17 @@ You can easily restrict the access of selected pages and navigation nodes to cer
 As you know, the permission on a page has two types: access permission and edit permission. 
 
 To configure them, edit {{pages.xml}} and put tags <access-permissions> and <edit-permission>.
-Currently, eXo Platform supports several access persmissions but only one edit permission. It means that you can configure to make many groups to have the same permission but you can only set one group for edit permission. 
+Currently, eXo Platform supports several access permissions but only one edit permission. It means that you can configure to make many groups to have the same permission but you can only set one group for edit permission. 
 
 Example:
 
 {code:xml}
 <page>
- <name>newStaff</name>
- <title>New Staff</title>
- <access-permissions>manager:/organization/management/executive-board;member:/organization/management/executive-board</access-permissions>
- <edit-permission>manager:/organization/management/executive-board</edit-permission>
- ...
+  <name>newStaff</name>
+  <title>New Staff</title>
+  <access-permissions>manager:/organization/management/executive-board;member:/organization/management/executive-board</access-permissions>
+  <edit-permission>manager:/organization/management/executive-board</edit-permission>
+  ...
 </page>
 {code}
 
@@ -265,10 +261,10 @@ For example, to add Italian, do as follows:
 
 {code:xml}
 <locale-config>
-    <locale>it</locale>
-    <output-encoding>UTF-8</output-encoding>
-    <input-encoding>UTF-8</input-encoding>
-    <description>Default configuration for Italian locale</description>
+  <locale>it</locale>
+  <output-encoding>UTF-8</output-encoding>
+  <input-encoding>UTF-8</input-encoding>
+  <description>Default configuration for Italian locale</description>
 </locale-config>
 {code}
 
@@ -297,10 +293,10 @@ For example, to remove French, do as follows:
 
 {code:xml}
 <locale-config>
-    <locale>fr</locale>
-    <output-encoding>UTF-8</output-encoding>
-    <input-encoding>UTF-8</input-encoding>
-    <description>Default configuration for france locale</description>
+  <locale>fr</locale>
+  <output-encoding>UTF-8</output-encoding>
+  <input-encoding>UTF-8</input-encoding>
+  <description>Default configuration for france locale</description>
 </locale-config>
 {code}
 
@@ -331,16 +327,16 @@ To add a JavaScript library, for example jQuery, do as follows:
 
 *1.* Create _war:/WEB-INF/gatein-resources.xml_ file.
 
-*2.* Add the following line to the _gatein-resources.xml_ file.
-{code}
- <javascript>
+
+{code:xml}
+<javascript>
   <param>
-   <js-module>jQuery</js-module>
-   <js-path>/javascript/jQuery.js</js-path>
-   <js-priority>0</js-priority>
+    <js-module>jQuery</js-module>
+    <js-path>/javascript/jQuery.js</js-path>
+    <js-priority>0</js-priority>
   </param>
- </javascript>
- {code}
+</javascript>
+{code}
 Details:
 
 _<js-module>_ is the namespace of your JavaScript.

@@ -2,7 +2,7 @@ This chapter will provide you explanations about some technical terms that we us
 
 * *Container Template*: Templates are used to contain UI components in a specific layout and display them on the portal page.
 * *ConversationState*: The *ConversationState* object stores all information about the state of the current user. This *ConversationState* object also stores acquired attributes of an Identity which is a set of principals to identify a user.
-* *Data container*: Data container implements the physical data storage. It enables different types of backend (like RDB, FS files, etc) to be used as a storage for JCR data. With the main Data Container, other storages for persisted Property Values can be configured and used. eXo JCR persistent data container can work in two configuration modes.
+* *Data container*: Data container implements the physical data storage. It enables different types of backend (such as RDB, FS files) to be used as a storage for JCR data. With the main Data Container, other storages for persisted Property Values can be configured and used. eXo JCR persistent data container can work in two configuration modes.
 ** *Multi-database*: One database for each workspace (used in standalone eXo JCR service mode).
 ** *Single-database*: All workspaces persisted in one database (used in embedded eXo JCR service mode, e.g., in eXo portal).
 The data container uses the JDBC driver to communicate with the actual database software, for example, any JDBC-enabled data storage can be used with eXo JCR implementation.
@@ -15,14 +15,14 @@ The data container uses the JDBC driver to communicate with the actual database 
 * *eXo Cache*: All applications on the top of eXo JCR that need a cache, can rely on an _org.exoplatform.services.cache.ExoCache_ instance managed by the _org.exoplatform.services.cache.CacheService_.
 * *eXoContainer*: eXoContainer behaves like a class loader that is responsible for loading services/components. The eXoContainer class is inherited by all the containers, including RootContainer, PortalContainer, and StandaloneContainer. It itself inherits from a PicoContainer that is a framework which allows eXo to apply the IoC Inversion of Control principles. 
 * *External Plugin*: The External Plugin allows adding configuration for services and components easily.
-* *Folksonomy*: A folksonomy is a system of classification derived from the practice and a method of collaboratively creating and managing tags to annotate and categorize content. This practice is also known as collaborative tagging social classification social indexing and social tagging. (Source: http //en wikipedia org).
+* *Folksonomy*: A folksonomy is a system of classification derived from the practice and a method of collaboratively creating and managing tags to annotate and categorize content. This practice is also known as collaborative tagging social classification social indexing and social tagging. (Source: http://en.wikipedia.org).
 * *Gadget*: Gadgets are web-based software components based on HTML, CSS, and JavaScript. They allow developers to easily write useful web applications that work anywhere on the web without modification. (Source: opensocial.org)
 * *Groovy template*: This template is widely used in eXo UI framework. It leverages the usage of Groovy language, a scripting language for Java. The template file consists of HTML code and groovy code blocks.
 * *JCR WebDav*: JCR WebDav is a service that allows a JCR repository to be accessed via WebDav.
 * *JobSchedulerService*: JobschedulerService defines a job to execute a given number of times during a given period. It is a service that is in charge of unattended background executions commonly known for historical reasons as batch processing. 
 * *JodConverter*: JodConverter (Java OpenDocument Converter) is a tool that converts documents into different office formats and vice versa.
 * * JCR Item*: JCR Item can be a node or a property.
-* *ListenerService*: Inside eXo, an event mechanism allows triggering and listening to events under specific conditions. This mechanism is used in several places in eXo, such as login/logout time, create/update users, and groups.
+* *ListenerService*: Inside eXo Platform, an event mechanism allows triggering and listening to events under specific conditions. This mechanism is used in several places in eXo Platform, such as login/logout time, create/update users, and groups.
 * *LockManager*: LockManager stores lock objects so it can give a lock object or can release it. Also, LockManager is responsible for removing Locks that live too long. 
 * *Namespace*: The name of a node and property may have a prefix delimited by a single ':' colon character that indicates the namespace of the item.(Source JSR 170). Namespace is used to avoid naming conflict. 
 * *Navigation node*: A node is like a label of the link to page on the Navigation bar. By clicking a node, the page content is displayed. A node maps a URI and a portal page for the portal's navigation system. 
@@ -38,7 +38,7 @@ The data container uses the JDBC driver to communicate with the actual database 
 * *Path constraint*: A path constraint restricts the result node to a scope specified by a path expression. The following path constraints must be supported exact child nodes descendants and descendants or self. (Source: JCR 170). 
 * *Permission*: The permission settings control which actions users can or cannot perform within the portal and are set by the portal administrators. Permission types specify what a user can do within the portal. 
 * *Portal Page*: A portal page can consist of one or more various portlets. Their layout is defined by container templates. To display a portal page, this page must be mapped to a navigation node. 
-* *Portal skin*: Portal skins are graphic styles that display an attractive user interface. Each skin has its own characteristics with different backgrounds, icons, color, etc. 
+* *Portal skin*: Portal skins are graphic styles that display an attractive user interface. Each skin has its own characteristics with different backgrounds, icons, color, and more. 
 * *PortalContainer*: This kind of container is created at the startup of the portal web application in the init method of the PortalController servlet. 
 * *Portlet*: A portlet is a web-based application that provides a specific piece of content to be included as part of a portal page. In other words, portlets are pluggable user interface components that provide a presentation layer to information systems. There are two following types of portlet:
 ** *Functional Portlets*: support all functions within the portal. They are integrated into the portal that can be accessed through toolbar links.

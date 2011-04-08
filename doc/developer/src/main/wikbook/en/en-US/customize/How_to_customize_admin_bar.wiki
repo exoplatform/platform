@@ -5,81 +5,82 @@ The Admin bar looks like this:
 
 !admin_bar.png!
 
-
 The style of Admin bar is defined in the *stylesheet.css* located in src/main/webapp/skin/officeSkin/UIToolbarContainer.
 
 The CSS code below shows how to modify the Admin bar to look like this:
 
 !modified_admin_bar.png!
 
-{code}
+{code:css}
 /*toolbar background color*/
-.UIWorkingWorkspace .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
-	background: #20263f;	
-	height: 31px;
-	border: none;
+.UIWorkingWorkspace .UIToolbarContainer .NormalContainerBlock .ToolbarContainer
+  {
+  background: #20263f;
+  height: 31px;
+  border: none;
 }
 
 /*toolbar text color*/
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
-	color: white;
-	font-weight: normal;
-	padding: 0 12px;
-	display: block;
-	white-space: nowrap;
-	background: none;
-	margin-left: 0;
-	zoom: 1;
+  color: white;
+  font-weight: normal;
+  padding: 0 12px;
+  display: block;
+  white-space: nowrap;
+  background: none;
+  margin-left: 0;
+  zoom: 1;
 }
 /*toolbar text color when hover*/
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a:hover {
-	color: #8F8F8F;
+  color: #8F8F8F;
 }
 
 /*background color of drop-down menu*/
-.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer {	
-	border: 1px solid transparent;
-	background: #20263f;
-	margin-top: 0;
+.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer {
+  border: 1px solid transparent;
+  background: #20263f;
+  margin-top: 0;
 }
 
 /*background color and border color of drop-down menu*/
-UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {	
-	border-top: 1px solid #414760;
-	border-bottom: none;
-	background: #20263f;
-	opacity: 1;
-	height: 28px;
-	line-height: 28px;
-	text-align: left;
+UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {
+  border-top: 1px solid #414760;
+  border-bottom: none;
+  background: #20263f;
+  opacity: 1;
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
 }
 
 /*text color of menu items*/
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
-	padding: 0 24px 0 35px; /* orientation=lt */
-	padding: 0 35px 0 24px; /* orientation=rt */
-	font-family: "Lucida Sans";
-	font-size: 12px;
-	color: white;
-	display: block;
-	font-weight: normal;
-	white-space: nowrap;
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a
+  {
+  padding: 0 24px 0 35px; /* orientation=lt */
+  padding: 0 35px 0 24px; /* orientation=rt */
+  font-family: "Lucida Sans";
+  font-size: 12px;
+  color: white;
+  display: block;
+  font-weight: normal;
+  white-space: nowrap;
 }
 
 /*text color of menu items when hover*/
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a:hover {
-	color: #92918f;
-	background-color: transparent;
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a:hover
+  {
+  color: #92918f;
+  background-color: transparent;
 }
 
 /*color of title bar text and background in drop-down menu*/
 .UIWorkingWorkspace .UIToolbarContainer .TitleBar {
-	color: #20263f;
-	background: #92a9b9;
-	font-weight: bold;
-	padding: 0px 5px;
+  color: #20263f;
+  background: #92a9b9;
+  font-weight: bold;
+  padding: 0px 5px;
 }
-
 {code}
 
 h2. Change the content of the Admin bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
@@ -96,16 +97,16 @@ The *sharedlayout.xml* configures the current displayed portlets on the Admin ba
 
 {code:xml}
 ...
-   <container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      <portlet-application>
-         <portlet>
-            <application-ref>exoadmin</application-ref>
-            <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
-         </portlet>
-         <access-permissions>Everyone</access-permissions>
-         <show-info-bar>false</show-info-bar>
-      </portlet-application>
-  </container>
+<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  <portlet-application>
+    <portlet>
+      <application-ref>exoadmin</application-ref>
+      <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
+    </portlet>
+    <access-permissions>Everyone</access-permissions>
+    <show-info-bar>false</show-info-bar>
+  </portlet-application>
+</container>
 ...
 {code}
 

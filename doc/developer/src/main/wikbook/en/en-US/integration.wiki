@@ -40,7 +40,7 @@ h2. Memberships, Groups and Users {anchor:id=DEV.SystemIntegration.MembershipsGr
 
 The predefined membership types are specified in the *membershipType* field of the OrganizationConfig plugin parameter.
 
-{code}
+{code:xml}
 <field name="membershipType">
   <collection type="java.util.ArrayList">
     <value>
@@ -62,14 +62,14 @@ The predefined membership types are specified in the *membershipType* field of t
           <string>owner membership type</string>
         </field>
       </object>
-     </value>
-   </collection>
+    </value>
+  </collection>
 </field>
 {code}
 
 The predefined groups are specified in the *group* field of the OrganizationConfig plugin parameter.
 
-{code}
+{code:xml}
 <field name="group">
   <collection type="java.util.ArrayList">
     <value>
@@ -111,27 +111,51 @@ The predefined groups are specified in the *group* field of the OrganizationConf
 
 The predefined users are specified in the *membershipType* field of the OrganizationConfig plugin parameter.
 
-{code}
+{code:xml}
 <field name="user">
   <collection type="java.util.ArrayList">
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-        <field name="userName"><string>root</string></field>
-        <field name="password"><string>exo</string></field>
-        <field name="firstName"><string>root</string></field>
-        <field name="lastName"><string>root</string></field>
-        <field name="email"><string>exoadmin@localhost</string></field>
-        <field name="groups"><string>member:/admin,member:/user,owner:/portal/admin</string></field>
+        <field name="userName">
+          <string>root</string>
+        </field>
+        <field name="password">
+          <string>exo</string>
+        </field>
+        <field name="firstName">
+          <string>root</string>
+        </field>
+        <field name="lastName">
+          <string>root</string>
+        </field>
+        <field name="email">
+          <string>exoadmin@localhost</string>
+        </field>
+        <field name="groups">
+          <string>member:/admin,member:/user,owner:/portal/admin</string>
+        </field>
       </object>
     </value>
     <value>
       <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-        <field name="userName"><string>exo</string></field>
-        <field name="password"><string>exo</string></field>
-        <field name="firstName"><string>site</string></field>
-        <field name="lastName"><string>site</string></field>
-        <field name="email"><string>exo@localhost</string></field>
-        <field name="groups"><string>member:/user</string></field>
+        <field name="userName">
+          <string>exo</string>
+        </field>
+        <field name="password">
+          <string>exo</string>
+        </field>
+        <field name="firstName">
+          <string>site</string>
+        </field>
+        <field name="lastName">
+          <string>site</string>
+        </field>
+        <field name="email">
+          <string>exo@localhost</string>
+        </field>
+        <field name="groups">
+          <string>member:/user</string>
+        </field>
       </object>
     </value>
     ...
@@ -161,13 +185,23 @@ Firstly, start by connection settings which will tell eXo how to connect to your
       <name>ldap.config</name>
       <description>Default ldap config</description>
       <object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">
-        <field name="providerURL"><string>ldap://127.0.0.1:389,10.0.0.1:389</string></field>
-        <field name="rootdn"><string>CN=Manager,DC=exoplatform,DC=org</string></field>
-        <field name="password"><string>secret</string></field>
-        <!-- field  name="authenticationType"><string>simple</string></field-->           
-        <field name="version"><string>3</string></field>
-        <field  name="referralMode"><string>follow</string></field>      	    
-        <!-- field  name="serverName"><string>active.directory</string></field-->
+        <field name="providerURL">
+          <string>ldap://127.0.0.1:389,10.0.0.1:389</string>
+        </field>
+        <field name="rootdn">
+          <string>CN=Manager,DC=exoplatform,DC=org</string>
+        </field>
+        <field name="password">
+          <string>secret</string>
+        </field>
+        <!-- field name="authenticationType"><string>simple</string></field -->
+        <field name="version">
+          <string>3</string>
+        </field>
+        <field name="referralMode">
+          <string>follow</string>
+        </field>
+        <!-- field name="serverName"><string>active.directory</string></field -->
       </object>
     </object-param>
   </init-params>
@@ -186,7 +220,7 @@ h2.  Organization Service Configuration {anchor:id=DEV.SystemIntegration.Organiz
 Next, you need to configure the eXo *OrganizationService* to show how the directory is structured and how to interact with it.
 This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribute.mapping* in file *ldap-configuration.xml* (by default located at _portal.war/WEB-INF/conf/organization_)
 
-{code}
+{code:xml}
 <component>
   <key>org.exoplatform.services.organization.OrganizationService</key>
   <type>org.exoplatform.services.organization.ldap.OrganizationServiceImpl</type>
@@ -201,7 +235,7 @@ This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribut
       <name>ldap.attribute.mapping</name>
       <description>ldap attribute mapping</description>
       <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">
-      [...]
+        [...]
     </object-param>
   </init-params>
   [...]
@@ -210,9 +244,13 @@ This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribut
 
 *ldap.attribute.mapping* maps your LDAP to eXo. At first, there are two main parameters to configure in it:
 
-{code}
-<field name="baseURL"><string>dc=exoplatform,dc=org</string></field>
-<field name="ldapDescriptionAttr"><string>description</string></field>
+{code:xml}
+<field name="baseURL">
+  <string>dc=exoplatform,dc=org</string>
+</field>
+<field name="ldapDescriptionAttr">
+  <string>description</string>
+</field>
 {code}
 
 * *baseURL*: root dn for eXo organizational entities. This entry can't be created by eXo and must exist in directory already.
@@ -229,9 +267,15 @@ h4. Main parameters {anchor:id=DEV.SystemIntegration.MainParameters}
 Here are the main parameters to map eXo users to your directory:
 
 {code:xml}
-<field name="userURL"><string>ou=users,ou=portal,dc=exoplatform,dc=org</string></field>
-<field name="userObjectClassFilter"><string>objectClass=person</string></field>
-<field name="userLDAPClasses"><string>top,person,organizationalPerson,inetOrgPerson</string></field>
+<field name="userURL">
+  <string>ou=users,ou=portal,dc=exoplatform,dc=org</string>
+</field>
+<field name="userObjectClassFilter">
+  <string>objectClass=person</string>
+</field>
+<field name="userLDAPClasses">
+  <string>top,person,organizationalPerson,inetOrgPerson</string>
+</field>
 {code}
 
 * *userURL*: base dn for users. Users are created in a flat structure under this base with a *dn* of the form: *ldap.userDN.key=username,userURL*
@@ -277,13 +321,26 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
 
 h4. User mapping {anchor:id=DEV.SystemIntegration.UserMapping}
 The following parameters maps LDAP attributes to eXo User java objects attributes.
+
 {code:xml}
-<field name="userUsernameAttr"><string>uid</string></field>
-<field name="userPassword"><string>userPassword</string></field>
-<field name="userFirstNameAttr"><string>givenName</string></field>
-<field name="userLastNameAttr"><string>sn</string></field>        
-<field name="userDisplayNameAttr"><string>displayName</string></field>
-<field name="userMailAttr"><string>mail</string></field>
+<field name="userUsernameAttr">
+  <string>uid</string>
+</field>
+<field name="userPassword">
+  <string>userPassword</string>
+</field>
+<field name="userFirstNameAttr">
+  <string>givenName</string>
+</field>
+<field name="userLastNameAttr">
+  <string>sn</string>
+</field>
+<field name="userDisplayNameAttr">
+  <string>displayName</string>
+</field>
+<field name="userMailAttr">
+  <string>mail</string>
+</field>
 {code}
 
 * *userUsernameAttr*: user name (login)
@@ -311,10 +368,16 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
 h3. Groups {anchor:id=DEV.SystemIntegration.Groups}
 eXo Platform groups can be mapped to organizational or applicative groups defined in your directory.
 
-{code}
-<field name="groupsURL"><string>ou=groups,ou=portal,dc=exoplatform,dc=org</string></field>
-<field name="groupLDAPClasses"><string>top,organizationalUnit</string></field>
-<field name="groupObjectClassFilter"><string>objectClass=organizationalUnit</string></field>
+{code:xml}
+<field name="groupsURL">
+  <string>ou=groups,ou=portal,dc=exoplatform,dc=org</string>
+</field>
+<field name="groupLDAPClasses">
+  <string>top,organizationalUnit</string>
+</field>
+<field name="groupObjectClassFilter">
+  <string>objectClass=organizationalUnit</string>
+</field>
 {code}
 
 * *groupsURL*: base dn for eXo groups
@@ -336,7 +399,7 @@ When a new group is created, an entry will be also created with the given object
 The classes must define at least the required attributes: *ou*, *description* and *l*.
 
 {info}
-*l* attribute corresponds to the *City* property in OU property editor
+The *l* attribute corresponds to the *City* property in OU property editor
 {info}
                         
 Example: Adding the group _human-resources_ could produce: 
@@ -354,6 +417,7 @@ ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
 * *groupObjectClassFilter*: filter is used under _groupsURL_ branch to distinguish eXo groups from other entries. You can also use a complex filter if you need.
             
 Example: groups _WebDesign_, _WebDesign/Graphists_ and _sales_ could be retrieved in:
+
 {code}           
 l=Paris,dc=sites,dc=mycompany,dc=com
   ...
@@ -370,10 +434,16 @@ l=London,dc=sites,dc=mycompany,dc=com
 h3. Membership types {anchor:id=DEV.SystemIntegration.MembershipTypes}
 Membership types are the possible roles that can be assigned to users in groups.
 
-{code}
-<field name="membershipTypeURL"><string>ou=memberships,ou=portal,dc=exoplatform,dc=org</string></field>          
-<field name="membershipTypeLDAPClasses"><string>top,organizationalRole</string></field>
-<field name="membershipTypeNameAttr"><string>cn</string></field>
+{code:xml}
+<field name="membershipTypeURL">
+  <string>ou=memberships,ou=portal,dc=exoplatform,dc=org</string>
+</field>
+<field name="membershipTypeLDAPClasses">
+  <string>top,organizationalRole</string>
+</field>
+<field name="membershipTypeNameAttr">
+  <string>cn</string>
+</field>
 {code}          
 
 * *membershipTypeURL*: base dn for membership types storage.
@@ -430,18 +500,28 @@ ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
 {code}
 
 The parameters to configure memberships are:
-{code}
-<field name="membershipLDAPClasses"><string>top,groupOfNames</string></field>
-<field name="membershipTypeMemberValue"><string>member</string></field>                              
-<field name="membershipTypeRoleNameAttr"><string>cn</string></field>
-<field name="membershipTypeObjectClassFilter"><string>objectClass=organizationalRole</string></field>
+
+{code:xml}
+<field name="membershipLDAPClasses">
+  <string>top,groupOfNames</string>
+</field>
+<field name="membershipTypeMemberValue">
+  <string>member</string>
+</field>
+<field name="membershipTypeRoleNameAttr">
+  <string>cn</string>
+</field>
+<field name="membershipTypeObjectClassFilter">
+  <string>objectClass=organizationalRole</string>
+</field>
 {code}
 
 * *membershipLDAPClasses*: the commas are used to separate the list of classes for creating memberships.
 When a new membership is created, an entry will be also created with the given _objectClass_ attributes.
 The classes must at least define the attribute designated by _membershipTypeMemberValue_.
           
-Example: Adding membership _validator_ would produce: 
+Example: Adding membership _validator_ would produce:
+
 {code}           
 cn=validator,ou=human-resources,ou=groups,ou=portal,dc=exoplatform,dc=org
   objectclass: top
@@ -477,11 +557,11 @@ You can use rather complex filters.
 Example: Here is a filter used for a customer that needs to trigger a dynlist overlay on openldap.
            
 
-  {code}(&amp;amp;(objectClass=ExoMembership)(membershipURL=&#42;)) {code}
+{code}(&amp;amp;(objectClass=ExoMembership)(membershipURL=&#42;)) {code}
           
 
 {note}
- Pay attention to the xml escaping of the '&' (and) operator.
+Please pay attention to the xml escaping of the '&' (and) operator.
 {note}
 
 
@@ -489,80 +569,82 @@ h3. User profiles {anchor:id=DEV.SystemIntegration.UserProfiles}
 eXo User profiles also have entries in the LDAP but the actual storage is still done with the hibernate service.
 You will need the following parameters:
 
-{code}
-<field name="profileURL"><string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string></field>
-<field name="profileLDAPClasses"><string>top,organizationalPerson</string></field>
+{code:xml}
+<field name="profileURL">
+  <string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string>
+</field>
+<field name="profileLDAPClasses">
+  <string>top,organizationalPerson</string>
+</field>
 {code}
 
 * *profileURL*: base dn to store user profiles
 * *profileLDAPClasses*: Classes used to when creating user profiles
 
 h2. Active Directory sample configuration {anchor:id=DEV.SystemIntegration.ActiveDirectorySampleConfiguration}
-Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*
+Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*. 
+
+{code:xml}
+[...]
+<component>
+  <key>org.exoplatform.services.ldap.LDAPService</key>
+  [..]
+  <object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">         
+  <!-- for multiple ldap servers, use comma seperated list of host:port (Ex. ldap://127.0.0.1:389,10.0.0.1:389) -->
+  <!-- whether or not to enable ssl, if ssl is used ensure that the javax.net.ssl.keyStore & java.net.ssl.keyStorePassword properties are set -->
+  <!-- exo portal default installed javax.net.ssl.trustStore with file is java.home/lib/security/cacerts-->
+  <!-- ldap service will check protocol, if protocol is ldaps, ssl is enable (Ex. for enable ssl: ldaps://10.0.0.3:636 ;for disable ssl: ldap://10.0.0.3:389 ) -->
+  <!-- when enable ssl, ensure server name is *.directory and port (Ex. active.directory) -->	  		 
+    <field  name="providerURL"><string>ldaps://10.0.0.3:636</string></field>
+    <field  name="rootdn"><string>CN=Administrator,CN=Users, DC=exoplatform,DC=org</string></field>
+    <field  name="password"><string>site</string></field> 		
+    <field  name="version"><string>3</string></field>	            
+    <field  name="referralMode"><string>ignore</string></field>     	       	       
+    <field  name="serverName"><string>active.directory</string></field>    	       	  
+  </object>
+  [..]
+</component>
+<component>
+  <key>org.exoplatform.services.organization.OrganizationService</key>
+  [...]
+  <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">                
+    [...]
+    <field  name="userAuthenticationAttr"><string>mail</string></field>
+    <field  name="userUsernameAttr"><string>sAMAccountName</string></field>
+    <field  name="userPassword"><string>unicodePwd</string></field> 
+    <field  name="userLastNameAttr"><string>sn</string></field>
+    <field  name="userDisplayNameAttr"><string>displayName</string></field>
+    <field  name="userMailAttr"><string>mail</string></field>
+    [..]
+    <field  name="membershipTypeLDAPClasses"><string>top,group</string></field>
+    <field  name="membershipTypeObjectClassFilter"><string>objectClass=group</string></field>
+    [..]
+    <field  name="membershipLDAPClasses"><string>top,group</string></field>
+    <field  name="membershipObjectClassFilter"><string>objectClass=group</string></field>
+  </object>
+  [...]  
+</component>  
+{code}
 
 {info}
 There is a Microsoft limitation: password can not be set in AD via unsecured connection you have to use the LDAPs protocol.
 {info}
 
 Here is how to use LDAPs protocol with the Active Directory:
-{code}
-1. setup AD to use SSL:
 
-    * add Active Directory Certificate Services role
-    * install right certificate for DC machine
+*1.* Set up AD to use SSL:
 
-2. enable Java VM to use certificate from AD:
+*i.* Add the Active Directory Certificate Services role.
 
-    * import root CA used in AD, to keystore, something like
+*ii.* Install the right certificate for the DC machine.
 
-      keytool -importcert -file 2008.cer -keypass changeit -keystore /home/user/java/jdk1.6/jre/lib/security/cacerts
+*2.* Enable Java VM to use the certificate from AD:
 
-    * set java options
+*i.* Import the root CA used in AD, to keystore, such as: keytool -importcert -file 2008.cer -keypass changeit -keystore /home/user/java/jdk1.6/jre/lib/security/cacerts
 
-      JAVA_OPTS="${JAVA_OPTS} -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStore=/home/user/java/jdk1.6/jre/lib/security/ca"
-{code}
+*ii.* Set Java options as below:
 
-{code:xml}
-[...]
-  <component>
-  <key>org.exoplatform.services.ldap.LDAPService</key>
-[..]
-        <object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">         
-         <!-- for multiple ldap servers, use comma seperated list of host:port (Ex. ldap://127.0.0.1:389,10.0.0.1:389) -->
-	 <!-- whether or not to enable ssl, if ssl is used ensure that the javax.net.ssl.keyStore & java.net.ssl.keyStorePassword properties are set -->
-	 <!-- exo portal default installed javax.net.ssl.trustStore with file is java.home/lib/security/cacerts-->
-	 <!-- ldap service will check protocol, if protocol is ldaps, ssl is enable (Ex. for enable ssl: ldaps://10.0.0.3:636 ;for disable ssl: ldap://10.0.0.3:389 ) -->
-	 <!-- when enable ssl, ensure server name is *.directory and port (Ex. active.directory) -->	  		 
-	 <field  name="providerURL"><string>ldaps://10.0.0.3:636</string></field>
- 	 <field  name="rootdn"><string>CN=Administrator,CN=Users, DC=exoplatform,DC=org</string></field>
-	 <field  name="password"><string>site</string></field> 		
-	 <field  name="version"><string>3</string></field>	            
-    	 <field  name="referralMode"><string>ignore</string></field>     	       	       
-    	 <field  name="serverName"><string>active.directory</string></field>    	       	  
-      	</object>
-[..]
-  </component>
-  <component>
-    <key>org.exoplatform.services.organization.OrganizationService</key>
-    [...]
-        <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">                
-          [...]
-          <field  name="userAuthenticationAttr"><string>mail</string></field>
-          <field  name="userUsernameAttr"><string>sAMAccountName</string></field>
-          <field  name="userPassword"><string>unicodePwd</string></field> 
-          <field  name="userLastNameAttr"><string>sn</string></field>
-          <field  name="userDisplayNameAttr"><string>displayName</string></field>
-          <field  name="userMailAttr"><string>mail</string></field>
-          [..]
-          <field  name="membershipTypeLDAPClasses"><string>top,group</string></field>
-          <field  name="membershipTypeObjectClassFilter"><string>objectClass=group</string></field>
-          [..]
-          <field  name="membershipLDAPClasses"><string>top,group</string></field>
-          <field  name="membershipObjectClassFilter"><string>objectClass=group</string></field>
-        </object>
-        [...]  
-</component>  
-{code}
+  JAVA_OPTS="${JAVA_OPTS} -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStore=/home/user/java/jdk1.6/jre/lib/security/ca"
 
 h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDM}
 eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships.
@@ -573,38 +655,30 @@ The project exo.core defines the API for Organization Service, and the eXo Platf
 The configuration to switch between various Organization Service implementations can be found in {{portal.war/WEB-INF/conf/configuration.xml}}:
 
 {code:xml}
-<!--PicketLink IDM integration-->
-   <import>war:/conf/organization/idm-configuration.xml</import>
+<!--PicketLink IDM integration -->
+<import>war:/conf/organization/idm-configuration.xml</import>
 
-   <!--Former exo implementations-->
-   <!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import>-->
-   <!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
-   <!--for organization service used active directory which is user lookup server -->
-   <!--
-      <import>war:/conf/organization/exoactivedirectory-configuration.xml</import>
-   -->
-   <!--for organization service used ldap server which is user lookup server -->
-   <!--
-     <import>war:/conf/ldap-configuration.xml</import>
-   -->
+<!--Former exo implementations -->
+<!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import> -->
+<!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
+<!--for organization service used active directory which is user lookup server -->
+<!-- <import>war:/conf/organization/exoactivedirectory-configuration.xml</import> -->
+<!--for organization service used ldap server which is user lookup server -->
+<!-- <import>war:/conf/ldap-configuration.xml</import> -->
 {code}
 
 If you want to switch between different implementations, you just need to uncomment the corresponding <import> and leave others commented:
 
 {code:xml}
-<!--PicketLink IDM integration-->
-    <import>war:/conf/ldap-configuration.xml</import>
-   <!--
-	<import>war:/conf/organization/idm-configuration.xml</import>
-	-->
-   <!--Former exo implementations-->
-   <!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import>-->
-   <!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
-   <!--for organization service used active directory which is user lookup server -->
-   <!--
-      <import>war:/conf/organization/exoactivedirectory-configuration.xml</import>
-   -->
-   <!--for organization service used ldap server which is user lookup server -->
+<!--PicketLink IDM integration -->
+<import>war:/conf/ldap-configuration.xml</import>
+<!-- <import>war:/conf/organization/idm-configuration.xml</import> -->
+<!--Former exo implementations -->
+<!--<import>war:/conf/organization/exo/hibernate-configuration.xml</import> -->
+<!-- <import>war:/conf/organization/exo/jdbc-configuration.xml</import> -->
+<!--for organization service used active directory which is user lookup server -->
+<!-- <import>war:/conf/organization/exoactivedirectory-configuration.xml</import> -->
+<!--for organization service used ldap server which is user lookup server -->
 {code}
 
 

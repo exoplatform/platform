@@ -59,31 +59,31 @@ After being created as mentioned above, your desired global stylesheet can be in
 *4.* Add the code below to the file where all global stylesheets will be initialized for your site, such as *acme-deployment-configuration.xml* in the folder "/acme-website/WEB-INF/conf/acme-portal/wcm/deployment/".
 
 {code:xml}
-   <object-param>
-          <name>ACME Stylesheet Green data</name>
-          <description>Deployment Descriptor</description>
-          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
-            <field name="target">
-              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
-                <field name="repository">
-                  <string>repository</string>
-                </field>
-                <field name="workspace">
-                  <string>collaboration</string>
-                </field>
-                <field name="nodePath">
-                  <string>/sites content/live/acme/css</string>
-                </field>
-              </object>
-            </field>
-            <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetOrange.xml</string>
-            </field>
-            <field name="cleanupPublication">
-              <boolean>true</boolean>
-            </field>              
-          </object>
-        </object-param>
+<object-param>
+  <name>ACME Stylesheet Green data</name>
+  <description>Deployment Descriptor</description>
+  <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+    <field name="target">
+      <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+        <field name="repository">
+          <string>repository</string>
+        </field>
+        <field name="workspace">
+          <string>collaboration</string>
+        </field>
+        <field name="nodePath">
+          <string>/sites content/live/acme/css</string>
+        </field>
+      </object>
+    </field>
+    <field name="sourcePath">
+      <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/StylesheetOrange.xml</string>
+    </field>
+    <field name="cleanupPublication">
+      <boolean>true</boolean>
+    </field>
+  </object>
+</object-param>
 {code}
 
 *5.* Save the file where you have added the code in *Step 4* and clean data created in the previous start-up.
