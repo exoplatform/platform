@@ -31,9 +31,7 @@ import org.exoplatform.application.gadget.EncodingDetector;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
-import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
-import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
@@ -107,14 +105,18 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
         OLD_GADGET_URL, configurationManager);
     gadgetImporter.doImport();
 
-    GadgetDefinition gadgetDefinition = gadgetRegistryService.getRegistry().getGadget(GADGET_NAME);
-    log.info("Gadget name : " + gadgetDefinition.getName());
-    log.info("Gadget Reference URL : " + gadgetDefinition.getReferenceURL());
-    log.info("Gadget file name : " + ((LocalGadgetData) gadgetDefinition.getData()).getFileName());
-    log.info("Gadget source : " + ((LocalGadgetData) gadgetDefinition.getData()).getSource());
-    log.info("Gadget children : " + ((LocalGadgetData) gadgetDefinition.getData()).getResources().getChildren());
-
-    Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
+    Source source = null;
+    int i = 0;
+    while (i++ < 10000) {
+      try {
+        source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
+      } catch (Exception exception) {
+        log.error("Can't get gadget content, itration = " + i);
+      }
+    }
+    if (source == null) {
+      throw new IllegalStateException("Can't get gadget content");
+    }
     assertEquals(getFileContent(OLD_GADGET_URL), source.getTextContent());
 
     lifeCycle.closeContext(true);
