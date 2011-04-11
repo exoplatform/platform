@@ -31,7 +31,9 @@ import org.exoplatform.application.gadget.EncodingDetector;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
+import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
@@ -107,13 +109,20 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
 
     Source source = null;
     int i = 0;
-    while (i++ < 10000) {
+//    while (i++ < 100) {
       try {
+        GadgetDefinition gadgetDefinition = gadgetRegistryService.getRegistry().getGadget(GADGET_NAME);
+        log.info("Gadget name : " + gadgetDefinition.getName());
+        log.info("Gadget Reference URL : " + gadgetDefinition.getReferenceURL());
+        log.info("Gadget file name : " + ((LocalGadgetData) gadgetDefinition.getData()).getFileName());
+        log.info("Gadget children : " + ((LocalGadgetData) gadgetDefinition.getData()).getResources().getChildren());
+        log.info("Gadget source : " + ((LocalGadgetData) gadgetDefinition.getData()).getSource());
+
         source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
       } catch (Exception exception) {
-        log.error("Can't get gadget content, itration = " + i);
+        log.error("Can't get gadget content, iteration = " + i);
       }
-    }
+//    }
     if (source == null) {
       throw new IllegalStateException("Can't get gadget content");
     }
