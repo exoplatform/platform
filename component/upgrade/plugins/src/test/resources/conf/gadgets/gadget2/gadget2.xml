@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs author="eXoPlatform"
-		title="Calendar"
-		directory_title="Calendar"
-		title_url="http://www.exoplatform.org"
-		description="What date is it? Use this cool calendar to keep track of the date in style. You can switch easily between daily, monthly or yearly view."
-		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Calendar.png"
-		height="205">
+	<ModulePrefs author="eXoPlatform" title="test" directory_title="test" title_url="http://www.exoplatform.org" description="Test gadget." height="205">
 		<Locale lang="en" language_direction="rtl"/>
 	</ModulePrefs>
 	<Content type="html">1.0-new</Content>

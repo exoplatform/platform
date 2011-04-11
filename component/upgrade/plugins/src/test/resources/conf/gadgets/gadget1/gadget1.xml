@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-   <ModulePrefs author="eXoPlatform"
-                title="test"
-                directory_title="Calculator"
-                title_url="http://www.exoplatform.org"
-                description="This simple and useful calculator lets you perform most of the basic arithmetic operations."
-                thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Calculator.png"
-                height="227">
-      <Locale lang="en" language_direction="rtl"/>
-   </ModulePrefs>
-   <Content type="html">1.0-old</Content>
+	<ModulePrefs author="eXoPlatform" title="test" directory_title="test" title_url="http://www.exoplatform.org" description="Test gadget." height="205">
+		<Locale lang="en" language_direction="rtl"/>
+	</ModulePrefs>
+	<Content type="html">1.0-old</Content>
 </Module>
