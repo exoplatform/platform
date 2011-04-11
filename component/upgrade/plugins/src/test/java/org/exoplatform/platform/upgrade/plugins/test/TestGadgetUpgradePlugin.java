@@ -99,7 +99,7 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
     lifeCycle.openContext();
 
     LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(GADGET_NAME, gadgetRegistryService.getRegistry(),
-        OLD_GADGET_URL, configurationManager);
+        OLD_GADGET_URL, configurationManager, container);
     gadgetImporter.doImport();
 
     Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
@@ -136,7 +136,8 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
   public String getFileContent(String filePath) throws IOException {
     InputStream in;
     try {
-      if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:") && !filePath.startsWith("system:")) {
+      if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:")
+          && !filePath.startsWith("system:")) {
         filePath = "file:/" + filePath;
       }
       in = configurationManager.getInputStream(filePath);

@@ -9,15 +9,19 @@ import java.util.List;
 
 import org.exoplatform.application.gadget.LocalImporter;
 import org.exoplatform.application.gadget.impl.GadgetRegistry;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.gatein.common.io.IOTools;
 
 public class LocalGadgetImporter extends LocalImporter {
-  ConfigurationManager configurationManager;
+  private ConfigurationManager configurationManager;
+  private PortalContainer container;
 
-  public LocalGadgetImporter(String name, GadgetRegistry registry, String gadgetPath, ConfigurationManager configurationManager) {
+  public LocalGadgetImporter(String name, GadgetRegistry registry, String gadgetPath, ConfigurationManager configurationManager,
+      PortalContainer container) {
     super(name, registry, gadgetPath, true);
     this.configurationManager = configurationManager;
+    this.container = container;
   }
 
   @Override
@@ -38,8 +42,17 @@ public class LocalGadgetImporter extends LocalImporter {
   @Override
   public String getParent(String resourcePath) throws IOException {
     try {
-      File file = new File(configurationManager.getURL(resourcePath).getPath());
-      return file.getParent();
+      if (!resourcePath.startsWith("war:") && !resourcePath.startsWith("classpath:") && !resourcePath.startsWith("jar:")) {
+        File file = new File(resourcePath);
+        return file.getParent();
+      } else if (resourcePath.startsWith("war:")) {
+        resourcePath = resourcePath.replace("war:", "");
+        File file = new File(container.getPortalContext().getRealPath(resourcePath)).getParentFile();
+        return file.getAbsolutePath();
+      } else {
+        File file = new File(configurationManager.getURL(resourcePath).getPath());
+        return file.getParent();
+      }
     } catch (Exception exception) {
       exception.printStackTrace();
     }
@@ -52,13 +65,18 @@ public class LocalGadgetImporter extends LocalImporter {
     try {
       if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:")
           && !filePath.startsWith("system:")) {
-        if(filePath.startsWith("")) {
+        if (filePath.startsWith("")) {
           filePath = "file:" + filePath;
         } else {
           filePath = "file:/" + filePath;
         }
       }
-      in = configurationManager.getInputStream(filePath);
+      if (filePath.startsWith("war:")) {
+        filePath = filePath.replace("war:", "");
+        in = container.getPortalContext().getResourceAsStream(filePath);
+      } else {
+        in = configurationManager.getInputStream(filePath);
+      }
     } catch (Exception exception) {
       return null;
     }

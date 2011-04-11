@@ -85,6 +85,7 @@ function getModule(params)
    // platform commons
    module.component = {};
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version).
+   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.upgrade", "jar", commonsVersion)).
    addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.product", "jar", commonsVersion));
       
    

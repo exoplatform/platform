@@ -8,6 +8,7 @@ import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -45,22 +46,31 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
       lifeCycle.openContext();
 
       for (GadgetUpgrade gadgetUpgrade : gadgets) {
-        Gadget gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
-        if (gadget == null) {
-          log.warn("Can't upgrade gadget " + gadgetUpgrade.getName() + ". It doesn't exit.");
-          continue;
+        try {
+          Gadget gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
+          if (gadget == null) {
+            log.warn("Can't find gadget '" + gadgetUpgrade.getName() + "'.");
+            continue;
+          }
+          log.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
+
+          gadgetRegistryService.getRegistry().removeGadget(gadgetUpgrade.getName());
+
+          LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(),
+              gadgetRegistryService.getRegistry(), gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
+          gadgetImporter.doImport();
+
+          gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
+          if (gadget != null) {
+            log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
+          } else {
+            log.warn("Gadget " + gadgetUpgrade.getName()
+                + " wasn't upgraded. It will be imported automatically with GadgetDeployer Service.");
+          }
+        } catch (Exception exception) {
+          log.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
         }
-        log.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
-
-        gadgetRegistryService.getRegistry().removeGadget(gadgetUpgrade.getName());
-        LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(),
-            gadgetRegistryService.getRegistry(), gadgetUpgrade.getPath(), configurationManager);
-        gadgetImporter.doImport();
-
-        log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
       }
-    } catch (Exception exception) {
-      log.error("Error while proceeding gadgets upgrade.", exception);
     } finally {
       if (lifeCycle != null) {
         lifeCycle.closeContext(true);
