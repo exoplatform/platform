@@ -31,7 +31,9 @@ import org.exoplatform.application.gadget.EncodingDetector;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
+import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
@@ -39,17 +41,20 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.platform.upgrade.plugins.LocalGadgetImporter;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.test.BasicTestCase;
 import org.gatein.common.io.IOTools;
 
 public class TestGadgetUpgradePlugin extends BasicTestCase {
+  private static final Log log = ExoLogger.getLogger(TestGadgetUpgradePlugin.class);
 
   private GadgetRegistryServiceImpl gadgetRegistryService;
 
   private static final String OLD_PRODUCT_INFORMATIONS_FILE = "classpath:/conf/product_old.properties";
 
-  private static final String OLD_GADGET_URL = "classpath:/conf/gadgets/gadget1/gadget1.xml";
-  private static final String NEW_GADGET_URL = "classpath:/conf/gadgets/gadget2/gadget2.xml";
+  private static final String OLD_GADGET_URL = "classpath:/conf/gadgets/gadget1/test.xml";
+  private static final String NEW_GADGET_URL = "classpath:/conf/gadgets/gadget2/test.xml";
 
   private static final String GADGET_NAME = "test";
 
@@ -102,6 +107,13 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
         OLD_GADGET_URL, configurationManager);
     gadgetImporter.doImport();
 
+    GadgetDefinition gadgetDefinition = gadgetRegistryService.getRegistry().getGadget(GADGET_NAME);
+    log.info("Gadget name : " + gadgetDefinition.getName());
+    log.info("Gadget Reference URL : " + gadgetDefinition.getReferenceURL());
+    log.info("Gadget file name : " + ((LocalGadgetData) gadgetDefinition.getData()).getFileName());
+    log.info("Gadget source : " + ((LocalGadgetData) gadgetDefinition.getData()).getSource());
+    log.info("Gadget children : " + ((LocalGadgetData) gadgetDefinition.getData()).getResources().getChildren());
+
     Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
     assertEquals(getFileContent(OLD_GADGET_URL), source.getTextContent());
 
@@ -136,7 +148,8 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
   public String getFileContent(String filePath) throws IOException {
     InputStream in;
     try {
-      if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:") && !filePath.startsWith("system:")) {
+      if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:")
+          && !filePath.startsWith("system:")) {
         filePath = "file:/" + filePath;
       }
       in = configurationManager.getInputStream(filePath);
