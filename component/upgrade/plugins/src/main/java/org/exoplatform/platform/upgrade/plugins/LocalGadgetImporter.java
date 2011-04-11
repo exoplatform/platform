@@ -52,7 +52,11 @@ public class LocalGadgetImporter extends LocalImporter {
     try {
       if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:")
           && !filePath.startsWith("system:")) {
-        filePath = "file:/" + filePath;
+        if(filePath.startsWith("")) {
+          filePath = "file:" + filePath;
+        } else {
+          filePath = "file:/" + filePath;
+        }
       }
       in = configurationManager.getInputStream(filePath);
     } catch (Exception exception) {

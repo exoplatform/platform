@@ -269,7 +269,7 @@
 							<string>test</string>
 						</field>
 						<field name="path">
-							<string>classpath:/conf/gadgets/gadget2/test.xml</string>
+							<string>classpath:/conf/gadgets/gadget2/gadget2.xml</string>
 						</field>
 					</object>
 				</object-param>
