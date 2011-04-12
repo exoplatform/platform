@@ -109,7 +109,7 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
       Boolean cleanupPublication = deploymentDescriptor.getCleanupPublication();
 
       InputStream inputStream = configurationManager.getInputStream(sourcePath);
-      ManageableRepository repository = repositoryService.getRepository(deploymentDescriptor.getTarget().getRepository());
+      ManageableRepository repository = repositoryService.getCurrentRepository();
       Session session = sessionProvider.getSession(deploymentDescriptor.getTarget().getWorkspace(), repository);
       String targetNodePath = deploymentDescriptor.getTarget().getNodePath();
       if (targetNodePath.indexOf("/") == 0) {
