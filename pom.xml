@@ -29,14 +29,14 @@
    <org.exoplatform.jcr.version>1.14.0-Beta03</org.exoplatform.jcr.version>
    <org.exoplatform.jcr-services.version>1.14.0-Beta03</org.exoplatform.jcr-services.version>
    <org.exoplatform.portal.version>3.2.0-PLF-Beta2</org.exoplatform.portal.version>
-   <org.exoplatform.commons.version>1.1.0-Beta01-SNAPSHOT</org.exoplatform.commons.version>
+   <org.exoplatform.commons.version>1.1.0-Beta01</org.exoplatform.commons.version>
    <org.exoplatform.gwtframework.version>1.1.0-Beta02</org.exoplatform.gwtframework.version>
    <org.exoplatform.ide.version>1.1.0-Beta02</org.exoplatform.ide.version>
    <org.xcmis.version>1.2-beta1</org.xcmis.version>
-   <org.exoplatform.cs.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.cs.version>
-   <org.exoplatform.ks.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.ks.version>
-   <org.exoplatform.ecms.version>2.2.0-Beta2-SNAPSHOT</org.exoplatform.ecms.version>
-   <org.exoplatform.social.version>1.2.0-Beta2-SNAPSHOT</org.exoplatform.social.version>    
+   <org.exoplatform.cs.version>2.2.0-Beta2</org.exoplatform.cs.version>
+   <org.exoplatform.ks.version>2.2.0-Beta2</org.exoplatform.ks.version>
+   <org.exoplatform.ecms.version>2.2.0-Beta2</org.exoplatform.ecms.version>
+   <org.exoplatform.social.version>1.2.0-Beta2</org.exoplatform.social.version>    
    <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
     <org.crsh.version>1.0.0-beta15</org.crsh.version>
     <org.exoplatform.exopackage.version>1.1.0</org.exoplatform.exopackage.version>
