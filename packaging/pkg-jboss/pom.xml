@@ -12,7 +12,7 @@
 
 <profiles>
   <profile>
-  <id>distrib</id>
+  <id>pkg-jboss</id>
 
   <dependencies>
     <dependency>
