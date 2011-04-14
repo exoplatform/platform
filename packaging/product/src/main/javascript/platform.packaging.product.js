@@ -70,6 +70,9 @@ function getProduct(version) {
   // acme social intranet
   product.addDependencies(platform.sample.acmeIntranet.webapp);
   
+    // acme social intranet portlet
+  product.addDependencies(platform.sample.acmeIntranet.portlet);
+  
   /* IDE */
   product.addDependencies(platform.ide.webapp);
   

@@ -132,6 +132,9 @@ function getModule(params)
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.config", "jar", module.version));
    module.sample.acmeIntranet.webapp.deployName = "acme-intranet";
    
+   module.sample.acmeIntranet.portlet =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.portlet", "war", module.version);
+   module.sample.acmeIntranet.portlet.deployName = "acme-intranet-portlet";
+   
     // default website
    module.sample.defaultWebsite = {};
    
