@@ -12,6 +12,7 @@
   <modules>
     <module>config</module>
     <module>webapp</module>
+    <module>portlet</module>
     <module>ear</module>
   </modules>
 </project>

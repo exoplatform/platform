@@ -1,0 +1,57 @@
+/**
+ * Copyright (C) 2003-20010 eXo Platform SAS.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see<http://www.gnu.org/licenses/>.
+ */
+ 
+ .UISpaceSummaryInfoPortlet {
+    background : white;
+	border-style: solid;
+    border-width: medium;
+	border-radius:10px;
+	-moz-border-radius:10px; /* Firefox 3.6 and earlier */
+	-webkit-border-radius:10px; /* Safari */
+}
+ 
+.UISpaceSummaryInfoPortlet .UIHeaderSection {
+	font-size: 27px;
+	font-weight: bold;
+	color: black;
+	padding: 10px;
+}
+
+.UISpaceSummaryInfoPortlet .UISpaceSummary {
+	margin: 5px 0 30px;
+}
+
+.UISpaceSummaryInfoPortlet .UISpaceSummary .UISpaceLogo  img.top{
+	float: left;
+	width: 40px;
+	height: 40px;
+}
+
+.UISpaceSummaryInfoPortlet .UISpaceSummary .UISpaceInfo {
+	padding-left: 110px;
+}
+
+.UISpaceSummaryInfoPortlet .UISpaceSummary .UISpaceInfo .UISpaceDescription {
+	color: #595959;
+	padding-top: 5px;
+}
+
+.UISpaceSummaryInfoPortlet .UISpaceSummary .UISpaceInfo .UISpaceAdminAvatar img.buttom {
+	height: 35px;
+	width: 35px;
+	vertical-align:text-bottom;
+}

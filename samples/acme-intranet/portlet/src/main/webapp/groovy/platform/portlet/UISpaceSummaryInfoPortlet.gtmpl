@@ -1,0 +1,98 @@
+<%
+/*
+    Copyright (C) 2003-2010 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+*/
+%>
+<%
+import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.social.webui.ResourceLinkProvider;
+
+UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
+def uicomponentId = uicomponent.getId();
+def isSpace = uicomponent.isSpace();
+def spaceDisplayName = uicomponent.getSpaceDisplayName();
+def spaceDescription = uicomponent.getSpaceDescription();
+def spaceImageSource = uicomponent.getSpaceImageSource();
+if (spaceImageSource == null) {
+	spaceImageSource = ResourceLinkProvider.SPACE_DEFAULT_AVATAR_URL;
+}
+def spaceMembersNumber = uicomponent.getSpaceMembersNumber();
+def spaceMembersURL = uicomponent.getSpaceFullURL() + "/" + "members";
+def administratorsLabel = _ctx.appRes("${uicomponentId}.label.administrators");
+def membersLabel = _ctx.appRes("${uicomponentId}.label.members");
+def administratorsList = uicomponent.getAdministrators();
+
+%>
+
+<link rel="stylesheet" type="text/css" href="/acme-intranet-portlet/skin/SpaceSummaryInfoPortlet/DefaultSkin/Stylesheet.css" ></link>
+
+<div class="UISpaceSummaryInfoPortlet" id="$uicomponentId">
+	<%
+	if(!isSpace){
+	%>
+		<div class="UIHeaderSection">
+			<h2><%=_ctx.appRes("${uicomponentId}.label.warning")%></h2>
+		</div>
+	<%
+	}else{
+	%>
+		<div class="UIHeaderSection">
+			<h2>$spaceDisplayName</h2>
+		</div>
+	<div class="UISpaceSummary" >
+
+		<div class="UISpaceLogo">
+			<img class="top" src="$spaceImageSource" />
+		</div>
+		<div class="UISpaceInfo" >
+			<div class="UISpaceDescription">$spaceDescription</div>
+				<!-- Members section -->
+				<a href="${spaceMembersURL}">$spaceMembersNumber&nbsp;$membersLabel</a>
+				<!-- End Members section -->
+				<!-- Administrators section -->
+				<div>
+					$administratorsLabel&nbsp;:&nbsp;
+					<%
+					if (administratorsList.size() > 0) {
+						for(user in administratorsList) {
+							def userName = user.getFullName();
+							def administratorIdentity = uicomponent.getIdentity(user.getUserName());
+							def adminProfileURL = uicomponent.getURI() + "/activities/" + administratorIdentity.getRemoteId();
+							def administratorImageSource = administratorIdentity.profile.avatarUrl;
+							if (!administratorImageSource){
+								administratorImageSource = ResourceLinkProvider.PROFILE_DEFAULT_AVATAR_URL;
+							}
+					%>
+					<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
+						<img class="buttom" src="$administratorImageSource" title="$userName"/>
+					</a>
+
+					<%
+						}
+						if (iteratorAdministrators.getAvailablePage() > 1) {
+							uicomponent.renderUIComponent(iteratorAdministrators) ;
+						}
+					} else { 
+					%>
+						<div class="UIHeaderSection"><h2><%=_ctx.appRes(uicomponent.getId() + ".label.noAdmin")%></h2></div>
+
+					<% } %>
+				</div>
+				<!-- End Administrators section -->
+		</div>
+	</div>
+</div>
+<%}%>
