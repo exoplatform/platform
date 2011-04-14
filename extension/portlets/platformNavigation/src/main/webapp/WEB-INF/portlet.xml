@@ -31,7 +31,7 @@
 	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
-		<portlet-name>UIUserPlatformToolBarPortlet</portlet-name>
+		<portlet-name>UserInfoPortlet</portlet-name><!--PLF-308-->
 		<display-name xml:lang="EN">UIUserPlatformToolBarPortlet</display-name>
 		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
 		<init-param>

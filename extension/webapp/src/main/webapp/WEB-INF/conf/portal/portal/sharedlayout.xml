@@ -73,7 +73,7 @@
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>
-						<portlet-ref>UIUserPlatformToolBarPortlet</portlet-ref>
+						<portlet-ref>UserInfoPortlet</portlet-ref><!--PLF-308-->
 					</portlet>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
