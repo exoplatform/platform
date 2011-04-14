@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.5.0-M2-SNAPSHOT</version>
+    <version>3.5.0-M2</version>
   </parent>
   <artifactId>exo.platform.packaging.trial</artifactId>
   <packaging>pom</packaging>
@@ -131,16 +131,16 @@
 				  <replacetoken><![CDATA[<properties-param>
         <name>working-conf</name>
         <description>working-conf</description>
-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
-        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param>]]></replacetoken>
 				  <replacevalue><![CDATA[<!-- properties-param>
         <name>working-conf</name>
         <description>working-conf</description>
-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
-        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param -->]]></replacevalue>
 				</replace>
                 <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-trial/webapps/plf" />
