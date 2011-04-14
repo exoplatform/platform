@@ -17,10 +17,7 @@
     along with this program; if not, see<http://www.gnu.org/licenses/>.
 
 -->
-<configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
-   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
@@ -89,7 +86,7 @@
 											<boolean>false</boolean>
 										</field>
 										<field name="order">
-											<int>2</int>
+											<int>7</int>
 										</field>
 										<field name="uri">
 											<string>settings</string>
@@ -111,7 +108,7 @@
 											<boolean>true</boolean>
 										</field>
 										<field name="order">
-											<int>3</int>
+											<int>5</int>
 										</field>
 										<field name="uri">
 											<string>members</string>
@@ -127,7 +124,7 @@
 											<string>CalendarPortlet</string>
 										</field>
 										<field name="appTitle">
-											<string>Calendar</string>
+											<string>Agenda</string>
 										</field>
 										<field name="removable">
 											<boolean>true</boolean>
@@ -149,13 +146,13 @@
 											<string>ForumPortlet</string>
 										</field>
 										<field name="appTitle">
-											<string>Forum</string>
+											<string>Discussions</string>
 										</field>
 										<field name="removable">
 											<boolean>true</boolean>
 										</field>
 										<field name="order">
-											<int>5</int>
+											<int>2</int>
 										</field>
 										<field name="uri">
 											<string>forum</string>
@@ -199,7 +196,7 @@
 											<boolean>true</boolean>
 										</field>
 										<field name="order">
-											<int>7</int>
+											<int>3</int>
 										</field>
 										<field name="uri">
 											<string>documents</string>
@@ -336,4 +333,21 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
+		<component-plugin>
+		  <name>SpaceFileExplorerInitializer</name>
+		  <set-method>addSpaceListener</set-method>
+		  <type>org.exoplatform.platform.common.space.listeners.CustomizeSpaceHomePageListener</type>
+		  <init-params>
+			<properties-param>
+			  <name>welcomeSCVCustomPreferences</name>
+			  <description>Customized Preferences for Single Content Viewer Portlet</description>
+			  <property name="nodeIdentifier" value="/Groups{spaceGroupId}/SharedData/welcome"/>
+			</properties-param>
+		  </init-params>
+		</component-plugin>
+	</external-component-plugins>
+	
 </configuration>
