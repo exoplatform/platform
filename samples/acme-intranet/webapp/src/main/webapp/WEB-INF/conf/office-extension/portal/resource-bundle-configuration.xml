@@ -48,6 +48,7 @@
 			        <value>locale.navigation.portal.intranet</value>
         			<value>locale.navigation.group.platform.web-contributors</value>
 					<value>locale.navigation.group.organization.employees</value>
+					<value>locale.navigation.group.developers</value>
 				</values-param>
 			</init-params>
 		</component-plugin>

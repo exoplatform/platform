@@ -31,3 +31,7 @@
 .UIBreadcrumbPortlet a: hover {
 	text-decoration: underline;
 }
+
+.UIBreadcrumbPortlet a.OwnerCap {
+	text-transform:capitalize;
+}
