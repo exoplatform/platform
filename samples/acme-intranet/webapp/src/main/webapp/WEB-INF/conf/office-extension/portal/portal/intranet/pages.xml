@@ -272,7 +272,7 @@
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
         </portlet-application>
-		<portlet-application>
+		<!--portlet-application>
       <portlet>
         <application-ref>presentation</application-ref>
         <portlet-ref>SingleContentViewer</portlet-ref>
@@ -329,7 +329,7 @@
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
-    </portlet-application>
+    </portlet-application-->
 
 
 		</container>

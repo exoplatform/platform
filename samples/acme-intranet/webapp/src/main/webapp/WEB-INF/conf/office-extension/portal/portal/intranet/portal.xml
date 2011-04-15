@@ -247,7 +247,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Footer</value>
+            <value>/sites content/live/intranet/web contents/site artifacts/Footer</value>
             <read-only>false</read-only>
           </preference>
           <preference>
