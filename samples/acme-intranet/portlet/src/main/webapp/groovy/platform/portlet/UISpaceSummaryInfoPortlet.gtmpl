@@ -18,7 +18,7 @@
 %>
 <%
 import org.exoplatform.webui.core.UIPageIterator;
-import org.exoplatform.social.webui.ResourceLinkProvider;
+import org.exoplatform.social.core.service.LinkProvider;
 
 UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
 def uicomponentId = uicomponent.getId();
@@ -27,7 +27,7 @@ def spaceDisplayName = uicomponent.getSpaceDisplayName();
 def spaceDescription = uicomponent.getSpaceDescription();
 def spaceImageSource = uicomponent.getSpaceImageSource();
 if (spaceImageSource == null) {
-	spaceImageSource = ResourceLinkProvider.SPACE_DEFAULT_AVATAR_URL;
+	spaceImageSource = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
 }
 def spaceMembersNumber = uicomponent.getSpaceMembersNumber();
 def spaceMembersURL = uicomponent.getSpaceFullURL() + "/" + "members";
@@ -73,7 +73,7 @@ def administratorsList = uicomponent.getAdministrators();
 							def adminProfileURL = uicomponent.getURI() + "/activities/" + administratorIdentity.getRemoteId();
 							def administratorImageSource = administratorIdentity.profile.avatarUrl;
 							if (!administratorImageSource){
-								administratorImageSource = ResourceLinkProvider.PROFILE_DEFAULT_AVATAR_URL;
+								administratorImageSource = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
 							}
 					%>
 					<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
