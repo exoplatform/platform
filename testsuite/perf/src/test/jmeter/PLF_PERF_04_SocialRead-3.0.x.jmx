@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="ThreadCount" elementType="Argument">
             <stringProp name="Argument.name">ThreadCount</stringProp>
-            <stringProp name="Argument.value">${__P(expThreadCount,1)}</stringProp>
+            <stringProp name="Argument.value">${__P(expThreadCount,9)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
@@ -19,17 +19,17 @@
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
             <stringProp name="Argument.name">Duration</stringProp>
-            <stringProp name="Argument.value">${__P(expDuration,100)}</stringProp>
+            <stringProp name="Argument.value">${__P(expDuration,60)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Server" elementType="Argument">
             <stringProp name="Argument.name">Server</stringProp>
-            <stringProp name="Argument.value">${__P(expHost,plfqa.testlab.exoplatform.vn)}</stringProp>
+            <stringProp name="Argument.value">${__P(expHost,192.168.3.5)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,18180)}</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,28080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ImportanceAssertionHighlightString" elementType="Argument">
@@ -40,6 +40,26 @@
           <elementProp name="RampUpPeriod" elementType="Argument">
             <stringProp name="Argument.name">RampUpPeriod</stringProp>
             <stringProp name="Argument.value">${__P(expRampup,300)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MaxUserId" elementType="Argument">
+            <stringProp name="Argument.name">MaxUserId</stringProp>
+            <stringProp name="Argument.value">${__P(expMaxUserId,9)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserIdPrefix" elementType="Argument">
+            <stringProp name="Argument.name">UserIdPrefix</stringProp>
+            <stringProp name="Argument.value">${__P(expUserIdPrefix,testuser)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserPassword" elementType="Argument">
+            <stringProp name="Argument.name">UserPassword</stringProp>
+            <stringProp name="Argument.value">${__P(expUserPassword,exo)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UseDemoAccount" elementType="Argument">
+            <stringProp name="Argument.name">UseDemoAccount</stringProp>
+            <stringProp name="Argument.value">${__P(expUseDemoAccount,true)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -149,14 +169,19 @@
             <stringProp name="Argument.value">Add new Users</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="LoginUserId" elementType="Argument">
-            <stringProp name="Argument.name">LoginUserId</stringProp>
-            <stringProp name="Argument.value">bench.user</stringProp>
+          <elementProp name="LoginId" elementType="Argument">
+            <stringProp name="Argument.name">LoginId</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="LoginUserPassword" elementType="Argument">
-            <stringProp name="Argument.name">LoginUserPassword</stringProp>
-            <stringProp name="Argument.value">exo</stringProp>
+          <elementProp name="UserType" elementType="Argument">
+            <stringProp name="Argument.name">UserType</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LoginSequence" elementType="Argument">
+            <stringProp name="Argument.name">LoginSequence</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -196,7 +221,62 @@
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Startup Controller" enabled="true">
             <stringProp name="BeanShellSampler.query">vars.put(&quot;continue&quot;,&quot;true&quot;);
-log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;));
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+int LoginId ;
+int LoginSequence = eval(vars.get(&quot;LoginSequence&quot;));
+int IterationCounter = eval(vars.get(&quot;IterationCounter&quot;));
+int UserType =  (IterationCounter % 3);
+
+LoginId=(IterationCounter-UserType)/3;
+	if (UserType==0) {;}
+	else if (UserType==1)
+		{LoginId = 1000 + LoginId;}
+	else if (UserType==2)
+		{LoginId = 3000 + LoginId;}
+
+
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+LoginId.toString());
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
+ResponseCode=2*100;
+ResponseMessage=&quot;initialize continue variable&quot;;
+return &quot;continue variable=true&quot;;;;</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${RampUpPeriod}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Old BeanShell Startup Controller" enabled="false">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;continue&quot;,&quot;true&quot;);
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+vars.get(&quot;UserId&quot;));
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
 ResponseCode=2*100;
 ResponseMessage=&quot;initialize continue variable&quot;;
 return &quot;continue variable=true&quot;;</stringProp>
@@ -298,14 +378,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
+                    <stringProp name="Argument.value">${UserName}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
+                    <stringProp name="Argument.value">${UserPassword}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -493,7 +573,62 @@ return &quot;continue variable=true&quot;;</stringProp>
         <hashTree>
           <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Startup Controller" enabled="true">
             <stringProp name="BeanShellSampler.query">vars.put(&quot;continue&quot;,&quot;true&quot;);
-log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;));
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+int LoginId ;
+int LoginSequence = eval(vars.get(&quot;LoginSequence&quot;));
+int IterationCounter = eval(vars.get(&quot;IterationCounter&quot;));
+int UserType =  (IterationCounter % 3);
+
+LoginId=(IterationCounter-UserType)/3;
+	if (UserType==0) {;}
+	else if (UserType==1)
+		{LoginId = 1000 + LoginId;}
+	else if (UserType==2)
+		{LoginId = 3000 + LoginId;}
+
+
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+LoginId.toString());
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
+ResponseCode=2*100;
+ResponseMessage=&quot;initialize continue variable&quot;;
+return &quot;continue variable=true&quot;;;;</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${RampUpPeriod}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Old BeanShell Startup Controller" enabled="false">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;continue&quot;,&quot;true&quot;);
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+vars.get(&quot;UserId&quot;));
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
 ResponseCode=2*100;
 ResponseMessage=&quot;initialize continue variable&quot;;
 return &quot;continue variable=true&quot;;</stringProp>
@@ -595,14 +730,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
+                    <stringProp name="Argument.value">${UserName}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
+                    <stringProp name="Argument.value">${UserPassword}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2484,6 +2619,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <stringProp name="Argument.name">ajaxRequest</stringProp>
                     <stringProp name="Argument.value">true</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                 </collectionProp>
               </elementProp>
@@ -2588,6 +2724,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                     <stringProp name="Argument.name">ajaxRequest</stringProp>
                     <stringProp name="Argument.value">true</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                 </collectionProp>
               </elementProp>
@@ -2712,7 +2849,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </RegexExtractor>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${LoginUserId})" enabled="false">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5110.GetPrevstatus (/portal/rest/xmpp/getprevstatus/${UserName}" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2888,7 +3025,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/private/intranet/connections/myConnections/${UserName}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2996,7 +3133,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/rest/xmpp/getprevstatus/${UserName}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3331,7 +3468,7 @@ return &quot;continue variable=true&quot;;</stringProp>
         <stringProp name="variableName">UNIQUEREQUESTNUMBER3</stringProp>
       </RandomVariableConfig>
       <hashTree/>
-      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="LoginUserSequence" enabled="true">
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="LoginUserSequence" enabled="false">
         <stringProp name="maximumValue">9</stringProp>
         <stringProp name="minimumValue">0</stringProp>
         <stringProp name="outputFormat"></stringProp>
@@ -3339,6 +3476,15 @@ return &quot;continue variable=true&quot;;</stringProp>
         <stringProp name="randomSeed"></stringProp>
         <stringProp name="variableName">LoginUserSequence</stringProp>
       </RandomVariableConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+        <stringProp name="CounterConfig.start">0</stringProp>
+        <stringProp name="CounterConfig.end"></stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">IterationCounter</stringProp>
+        <stringProp name="CounterConfig.format"></stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
       <hashTree/>
     </hashTree>
   </hashTree>
