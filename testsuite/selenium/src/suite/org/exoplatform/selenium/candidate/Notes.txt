@@ -1,0 +1,7 @@
+****************** KS Notes
+PREPARATION before running tests : 
+Need to create 2 pages: /portal/private/intranet/answers and /portal/private/intranet/faq
+
+WIP (work in progress) :
+Wiki scripts are not available yet.
+ 

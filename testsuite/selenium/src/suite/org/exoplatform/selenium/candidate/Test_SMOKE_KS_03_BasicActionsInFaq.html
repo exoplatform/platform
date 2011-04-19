@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SMOKE_KS_03_BasicActionsInFaq</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SMOKE_KS_03_BasicActionsInFaq</td></tr>
+</thead><tbody>
+<tr>
+	<td>echo</td>
+	<td>Step 1: Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Step 2: Create data from Answer porlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/answers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>Smoke_03_Category</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Description for Smoke_03</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add sub-category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>Sub-Category</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Description for Sub-Category</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add Question-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Submit question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>QuestionTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>QuestionTitle</td>
+	<td>Smoke_03_Question</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>The detail of Smoke_03_Question</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>EmailAddress</td>
+	<td>root@localhost.vn</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Smoke_03_Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Smoke_03_Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add answer-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Smoke_03_Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Answer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Answer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='QuestionRespone___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='QuestionRespone___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Answer for Smoke_03</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Answer for Smoke_03</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Answer for Smoke_03</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Step 3: Browse Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/faq</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Step 4: Browse Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sub-Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Step 5: Browse Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Smoke_03_Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Smoke_03_Question</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Answer for Smoke_03</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Answer for Smoke_03</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Delete Test data-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/answers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='categories']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>contextMenu</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this category ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Verify present of category after delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/faq</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Smoke_03_Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Step 6: Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
