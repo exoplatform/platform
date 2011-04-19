@@ -47,21 +47,25 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platform/portlet/UISpaceSummaryInfoPortlet.gtmpl")
 public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
 
-  private Space space;
-  private boolean isSpace = true;
-  private List<User> administratorsList;
+  private static final Integer ITEMS_PER_PAGE = 5;
+  private static final String IDENTITY_PROVIDER_ID = "organization";
+  private static final String ITERATOR_ADMINISTRATORS_ID = "UIIteratorAdministrators";
+  private Space space = null;
+  private boolean isSpace = false;
+  private List<User> administratorsList = null;
   private final UIPageIterator iteratorAdministrators;
-  private final String ITERATOR_ADMINISTRATORS_ID = "UIIteratorLeader";
-  private final Integer ITEMS_PER_PAGE = 5;
   private Log log = ExoLogger.getLogger(this.getClass());
 
   public UISpaceSummaryInfoPortlet() throws Exception {
     iteratorAdministrators = createUIComponent(UIPageIterator.class, null, ITERATOR_ADMINISTRATORS_ID);
     addChild(iteratorAdministrators);
     space = getApplicationComponent(SpaceService.class).getSpaceByUrl(SpaceUtils.getSpaceUrl());
-    if (space == null) {
-      isSpace = false;
-      log.error("No Space Found. Please check the portlet's SPACE_URL preference");
+    if (space != null) {
+      isSpace = true;
+    }else{
+      if(log.isDebugEnabled()){
+        log.debug("Can not add the portlet to this page navigation.\nSPACE_URL preference could not be set.");
+      }
     }
   }
 
@@ -98,33 +102,38 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @throws Exception 
    */
   public String getSpaceImageSource() throws Exception {
-    String imgSrc = null;
     if (space != null) {
-      imgSrc = space.getAvatarUrl();
-//      if(imgSrc == null){
-//        imgSrc = LinkProvider.buildAvatarImageUri(space.getAvatarAttachment());
-//      }
-      return imgSrc;
+      return space.getAvatarUrl();
+    }else{
+      return ""; 
     }
-    return "";
   }
 
   /**
    * Gets the number of members of a space.
    * 
    * @return number of members
+   * @throws SpaceException 
    */
   public int getSpaceMembersNumber() throws SpaceException {
-    return SpaceUtils.countMembers(space);
+    if(space != null){
+      return SpaceUtils.countMembers(space);
+    }else{
+      return 0;
+    }
   }
 
   /**
    * Gets the full URL of a space.
    * 
-   * @return the full URL
+   * @return the full URL or an empty String
    */
   public String getSpaceFullURL() {
-    return Util.getPortalRequestContext().getPortalURI() + space.getUrl();
+    if(space != null){
+      return Util.getPortalRequestContext().getPortalURI() + space.getUrl();
+    }else{
+      return "";
+    }
   }
 
   /**
@@ -145,7 +154,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @return user identity
    */
   public Identity getIdentity(String userId) {
-    return getApplicationComponent(IdentityManager.class).getOrCreateIdentity("organization", userId, true);
+    return getApplicationComponent(IdentityManager.class).getOrCreateIdentity(IDENTITY_PROVIDER_ID, userId, true);
   }
 
   /**

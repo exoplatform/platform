@@ -20,20 +20,8 @@
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.social.core.service.LinkProvider;
 
-UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
-def uicomponentId = uicomponent.getId();
 def isSpace = uicomponent.isSpace();
-def spaceDisplayName = uicomponent.getSpaceDisplayName();
-def spaceDescription = uicomponent.getSpaceDescription();
-def spaceImageSource = uicomponent.getSpaceImageSource();
-if (spaceImageSource == null) {
-	spaceImageSource = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
-}
-def spaceMembersNumber = uicomponent.getSpaceMembersNumber();
-def spaceMembersURL = uicomponent.getSpaceFullURL() + "/" + "members";
-def administratorsLabel = _ctx.appRes("${uicomponentId}.label.administrators");
-def membersLabel = _ctx.appRes("${uicomponentId}.label.members");
-def administratorsList = uicomponent.getAdministrators();
+def uicomponentId = uicomponent.getId();
 
 %>
 
@@ -48,6 +36,18 @@ def administratorsList = uicomponent.getAdministrators();
 		</div>
 	<%
 	}else{
+		UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
+		def spaceDisplayName = uicomponent.getSpaceDisplayName();
+		def spaceDescription = uicomponent.getSpaceDescription();
+		def spaceImageSource = uicomponent.getSpaceImageSource();
+		if (spaceImageSource == null) {
+			spaceImageSource = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
+		}
+		def spaceMembersNumber = uicomponent.getSpaceMembersNumber();
+		def spaceMembersURL = uicomponent.getSpaceFullURL() + "/" + "members";
+		def administratorsList = uicomponent.getAdministrators();
+		def administratorsLabel = _ctx.appRes("${uicomponentId}.label.administrators");
+		def membersLabel = _ctx.appRes("${uicomponentId}.label.members");
 	%>
 		<div class="UIHeaderSection">
 			<h2>$spaceDisplayName</h2>
