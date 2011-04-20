@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+               xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
+  <component>
+    <key>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</key>
+    <type>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</type>
+  </component> 
+
+  <component>
+    <key>org.exoplatform.services.organization.idm.PicketLinkIDMService</key>
+    <type>org.exoplatform.services.organization.idm.PicketLinkIDMServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>config</name>
+        <value>jar:/conf/portal/idm-config.xml</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.organization.idm.PicketLinkIDMOrganizationServiceImpl</type>
+    <init-params>
+      <object-param>
+        <name>configuration</name>
+        <object type="org.exoplatform.services.organization.idm.Config">
+          <field name="useParentIdAsGroupType">
+            <boolean>true</boolean>
+          </field>
+          <field name="groupTypeMappings">
+            <map type="java.util.HashMap">
+              <entry>
+                <key><string>/</string></key>
+                <value><string>root_type</string></value>
+              </entry>
+              <entry>
+                <key><string>/platform/*</string></key>
+                <value><string>platform_type</string></value>
+              </entry>
+              <entry>
+                <key><string>/platform/users</string></key>
+                <value><string>users_type</string></value>
+              </entry>
+               <entry>
+                <key><string>/organization/acme/france</string></key>
+                <value><string>france_type</string></value>
+              </entry>
+              <entry>
+                <key><string>/toto/*</string></key>
+                <value><string>toto_type</string></value>
+              </entry>
+            </map>
+          </field>
+          <!-- If this option is used then each Membership created with MembrshipType that is
+               equal to value specified here will be stored in PicketLink IDM as simple
+               Group-User association-->
+          <field name="associationMembershipType">
+            <string>member</string>
+          </field>
+          <!-- if "associationMembershipType" option is used and this option is set to true
+                then Membership with MembershipType configured to be stored as PicketLink IDM association
+                will not be stored as PicketLink IDM Role -->
+          <field name="ignoreMappedMembershipType">
+            <boolean>false</boolean>
+          </field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.database.HibernateService</key>
+    <jmx-name>database:type=HibernateService</jmx-name>
+    <type>org.exoplatform.services.database.impl.HibernateServiceImpl</type>
+    <init-params>
+      <properties-param>
+        <name>hibernate.properties</name>
+        <description>Default Hibernate Service</description>
+        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        <!--<property name="hibernate.show_sql" value="true"/>-->
+        <!--<property name="hibernate.use_sql_comments" value="true"/>-->
+        <!--<property name="hibernate.format_sql" value="true"/>-->
+        <property name="hibernate.current_session_context_class" value="thread"/>
+        <property name="hibernate.jdbc.batch_size" value="0"/>
+        <property name="hibernate.cache.use_second_level_cache" value="true"/>
+        <property name="hibernate.cache.use_query_cache" value="true"/>
+        <!--CHANGEME HashtableCacheProvider shold not be used in production env-->
+        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:${basedir}/target/temp/data/exodb${container.name.suffix}"/>
+        <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+        <property name="hibernate.connection.autocommit" value="true"/>
+        <property name="hibernate.connection.username" value="sa"/>
+        <property name="hibernate.connection.password" value=""/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+        <property name="hibernate.c3p0.min_size" value="5"/>
+        <property name="hibernate.c3p0.max_size" value="20"/>
+        <property name="hibernate.c3p0.timeout" value="1800"/>
+        <property name="hibernate.c3p0.max_statements" value="50"/>
+      </properties-param>
+    </init-params>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.database.HibernateService</target-component>
+    <component-plugin>
+      <name>add.hibernate.mapping</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
+      <init-params>
+        <values-param>
+          <name>hibernate.mapping</name>
+          <value>mappings/HibernateRealm.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectCredentialBinaryValue.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectAttributeBinaryValue.hbm.xml</value>
+          <value>mappings/HibernateIdentityObject.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectCredential.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectCredentialType.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectAttribute.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectType.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectRelationship.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectRelationshipType.hbm.xml</value>
+          <value>mappings/HibernateIdentityObjectRelationshipName.hbm.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>

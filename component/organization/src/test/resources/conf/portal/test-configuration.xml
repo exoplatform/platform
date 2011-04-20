@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (C) 2009 eXo Platform SAS. This is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. You should have received a copy of the GNU Lesser General Public License along with this software; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: http://www.fsf.org. -->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	<component>
+		<key>org.exoplatform.portal.config.UserACL</key>
+		<type>org.exoplatform.portal.config.UserACL</type>
+		<init-params>
+			<value-param>
+				<name>super.user</name>
+				<description>administrator</description>
+				<value>demo</value>
+			</value-param>
+			<value-param>
+				<name>portal.administrator.groups</name>
+				<description>administrator</description>
+				<value>/users</value>
+			</value-param>
+			<value-param>
+				<name>portal.administrator.mstype</name>
+				<description>administrator</description>
+				<value>member</value>
+			</value-param>
+			<value-param>
+				<name>portal.creator.groups</name>
+				<description>groups with membership type have permission to manage portal</description>
+				<value>*:/users</value>
+			</value-param>
+			<value-param>
+				<name>navigation.creator.membership.type</name>
+				<description>specific membership type have full permission with group navigation</description>
+				<value>member</value>
+			</value-param>
+			<value-param>
+				<name>guests.group</name>
+				<description>guests group</description>
+				<value>/users</value>
+			</value-param>
+			<values-param>
+				<name>mandatory.groups</name>
+				<description>Groups that can not be deleted.</description>
+				<value>/users</value>
+			</values-param>
+			<values-param>
+				<name>mandatory.mstypes</name>
+				<description>Membership type that can not be deleted.</description>
+				<value>member</value>
+			</values-param>
+		</init-params>
+	</component>
+	<import>classpath:/conf/portal/idm-configuration.xml</import>
+	<import>classpath:/conf/portal/organization-configuration.xml</import>
+	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
+</configuration>

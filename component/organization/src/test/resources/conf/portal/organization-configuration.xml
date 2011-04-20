@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (C) 2009 eXo Platform SAS. This is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version. This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details. You should have received a copy of the GNU Lesser General Public License along with this software; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: http://www.fsf.org. -->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>init.service.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
+			<description>this listener populate organization data for the first launch</description>
+			<init-params>
+				<value-param>
+					<name>checkDatabaseAlgorithm</name>
+					<description>check database</description>
+					<value>empty</value>
+				</value-param>
+				<value-param>
+					<name>printInformation</name>
+					<description>Print information init database</description>
+					<value>true</value>
+				</value-param>
+				<object-param>
+					<name>configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.services.organization.OrganizationConfig">
+						<field name="membershipType">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+										<field name="type">
+											<string>member</string>
+										</field>
+										<field name="description">
+											<string>member membershipt type</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+						<field name="group">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+										<field name="name">
+											<string>users</string>
+										</field>
+										<field name="parentId">
+											<string></string>
+										</field>
+										<!--<field name="type"><string>hierachy</string></field> -->
+										<field name="description">
+											<string>the /users group</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+						<field name="user">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$User">
+										<field name="userName">
+											<string>demo</string>
+										</field>
+										<field name="password">
+											<string>exo</string>
+										</field>
+										<field name="firstName">
+											<string>demo</string>
+										</field>
+										<field name="lastName">
+											<string>demo</string>
+										</field>
+										<field name="email">
+											<string>demo@localhost</string>
+										</field>
+										<field name="groups">
+											<string>member:/users</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<name>new.user.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.organization.impl.NewUserEventListener</type>
+			<description>this listener assign group and membership to a new created user</description>
+			<init-params>
+				<object-param>
+					<name>configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.services.organization.impl.NewUserConfig">
+						<field name="group">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
+										<field name="groupId">
+											<string>/users</string>
+										</field>
+										<field name="membership">
+											<string>member</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+						<field name="ignoredUser">
+							<collection type="java.util.HashSet">
+								<value>
+									<string>demo</string>
+								</value>
+								<value>
+									<string>admin</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+	<!--component>
+		<type>org.exoplatform.platform.component.organization.OrganizationIntegartionService</type>
+		<init-params>
+			<value-param>
+				<name>workspace</name>
+				<value>collaboration</value>
+			</value-param>
+			<value-param>
+				<name>homePath</name>
+				<value>/</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<type>org.exoplatform.platform.component.organization.OrganizationIntegrationREST</type>
+	</component>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>organization.initializer.group.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.platform.component.organization.NewGroupListener</type>
+			<description>description</description>
+		</component-plugin>
+		<component-plugin>
+			<name>organization.initializer.user.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.platform.component.organization.NewUserListener</type>
+			<description>description</description>
+		</component-plugin>
+		<component-plugin>
+			<name>organization.initializer.membership.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.platform.component.organization.NewMembershipListener</type>
+			<description>description</description>
+		</component-plugin>
+		<component-plugin>
+			<name>organization.initializer.profile.event.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.platform.component.organization.NewProfileListener</type>
+			<description>description</description>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
+		<component-plugin>
+			<name>OrgInitializerCronJob</name>
+			<set-method>addCronJob</set-method>
+			<type>org.exoplatform.services.scheduler.CronJob</type>
+			<description>Initialize added Organization Model objects added by an UIother tha eXo UI</description>
+			<init-params>
+				<properties-param>
+					<name>cronjob.info</name>
+					<description>Invoke initializer periodically</description>
+					<property name="jobName" value="OrgInitializerCronJob"/>
+					<property name="groupName" value="group"/>
+					<property name="job" value="org.exoplatform.platform.component.organization.OrganizationIntegrationJob"/>
+					<property name="expression" value="0 45 23 * * ? *"/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+    <component-plugin>
+      <name>exo.core.security.ConversationRegistry.register</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.platform.component.organization.AuthenticationLoginListener</type>
+    </component-plugin>
+  </external-component-plugins -->
+</configuration>

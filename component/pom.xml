@@ -14,5 +14,6 @@
     <module>gadgets</module>
 	<module>webui</module>
 	<module>upgrade</module>
+	<module>organization</module>
   </modules>
 </project>
