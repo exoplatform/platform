@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="http://localhost:8080/portal/public/classic/" />
-<title>Test_SNF_KS_11_defaultportal_SendQuestion</title>
+<link rel="selenium.base" href="" />
+<title>Test_SNF_KS_11_ksdemo_SendQuestion</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_KS_11_defaultportal_SendQuestion</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_11_ksdemo_SendQuestion</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -52,13 +52,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-Add Question-</td>
+	<td>open</td>
+	<td>/portal/private/intranet/answers</td>
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/private/intranet/answers</td>
+	<td>echo</td>
+	<td>-Add Question-</td>
 	<td></td>
 </tr>
 <tr>
@@ -82,13 +82,18 @@
 	<td>Question for Send</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
 	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,22 +118,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id=&quot;AddQuestion&quot;]//div[@class=&quot;UIAction&quot;]//div[@class=&quot;ButtonMiddle&quot;]</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>//div[@id=&quot;AddQuestion&quot;]//div[@class=&quot;UIAction&quot;]//div[@class=&quot;ButtonMiddle&quot;]</td>
+	<td>mouseDown</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -172,33 +177,33 @@
 	<td>flowerhaui@gmail.com</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UISendMailForm']//table[@class='ActionContainer']//td//div[@class='ButtonMiddle']</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//form[@id='UISendMailForm']//table[@class='ActionContainer']//td//div[@class='ButtonMiddle']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>//div[@id='UIAnswersPortlet']//table[@class='ActionContainer']//td//div[@class='ButtonMiddle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>//div[@id='UIAnswersPortlet']/div[3]/div/div[2]//div[3]/div/table/tbody/tr/td//div[@class='ButtonMiddle']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>//div[@id='UIAnswersPortlet']/div[3]/div/div[2]//div[3]/div/table/tbody/tr/td//div[@class='ButtonMiddle']</td>
+	<td>waitForElementPresent</td>
+	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Delete Question-</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='AnswersViewContent']/div/div/div[2]/div/div/div/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr/td[4]/a/div[@class='Delete']</td>
+	<td>-Delete Test Data-</td>
 	<td></td>
 </tr>
 <tr>
@@ -217,23 +222,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>Question for Send</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=Question for Send</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>Question for Send</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
+	<td>verifyElementNotPresent</td>
+	<td>link=Question for Send</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

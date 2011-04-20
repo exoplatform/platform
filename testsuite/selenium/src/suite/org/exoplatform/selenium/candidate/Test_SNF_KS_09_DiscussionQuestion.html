@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="http://localhost:8080/ksdemo/public/classic/" />
+<link rel="selenium.base" href="http://localhost:8080/portal/public/intranet/" />
 <title>Test_SNF_KS_09_ksdemo_DiscussionQuestion</title>
 </head>
 <body>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,7 +58,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Add category &amp; forum for discuss</td>
+	<td>- In Forum portlet create a category and a forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>----Add Category</td>
 	<td></td>
 </tr>
 <tr>
@@ -84,12 +89,12 @@
 <tr>
 	<td>type</td>
 	<td>CategoryTitle</td>
-	<td>SNF_KS_Cate 09</td>
+	<td>Cate_SNF_KS_09</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>Description</td>
-	<td>SNF_KS_Cate 09 Desc</td>
+	<td>This category/forum is used to test Discuss in forum - a functionality in Answers</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -113,22 +118,32 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>SNF_KS_Cate 09</td>
+	<td>Cate_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>SNF_KS_Cate 09</td>
+	<td>Cate_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='AddForum']/div/div/div/div/a/span</td>
+	<td>echo</td>
+	<td>----Add Forum-</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='AddForum']/div/div/div/div/a/span</td>
+	<td>link=Cate_SNF_KS_09</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[3]/div/div/div/div/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div/div/div/div/a/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -139,16 +154,31 @@
 <tr>
 	<td>type</td>
 	<td>ForumTitle</td>
-	<td>Forum for Discuss</td>
+	<td>For_SNF_KS_09</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>This category/forum is used to test Discuss in forum - a functionality in Answers</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Save</td>
+	<td>//form[@id='UIForumForm']/div[4]/table//div[1]/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Save</td>
+	<td>//form[@id='UIForumForm']/div[4]/table//div[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>For_SNF_KS_09</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>For_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +253,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td>link=OK</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAnswersPortlet']//a[text()='OK']</td>
+	<td>link=OK</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,17 +268,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Page</td>
+	<td>link=Page Layout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Page</td>
+	<td>link=Page Layout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPage']/div/div/div/div/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -258,21 +288,21 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[2]/div[1]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
+	<td>//div[contains(@id,'UIPortlet-')]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAt</td>
+	<td>//div[contains(@id,'UIPortlet-')]/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div[1]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>//div[2]/div[1]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
 	<td></td>
 </tr>
@@ -282,11 +312,16 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
 	<td>EnableDiscuss</td>
 	<td></td>
 </tr>
 <tr>
+	<td>verifyValue</td>
+	<td>EnableDiscuss</td>
+	<td>on</td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//img[@title='Select forum']</td>
 	<td></td>
@@ -298,12 +333,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum for Discuss</td>
+	<td>link=For_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum for Discuss</td>
+	<td>link=For_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
@@ -378,7 +413,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -388,12 +423,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum for Discuss</td>
+	<td>link=For_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum for Discuss</td>
+	<td>link=For_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
@@ -402,13 +437,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>link=Question for Discuss</td>
+	<td>verifyTextPresent</td>
+	<td>Question for Discuss</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-Delete Test Data-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-----Delete Question</td>
 	<td></td>
 </tr>
 <tr>
@@ -418,22 +458,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@class='DecoratorMC']//table[@class='DisablePrint']//td[4]/a</td>
+	<td>link=Question for Discuss</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@class='DecoratorMC']//table[@class='DisablePrint']//td[4]/a</td>
+	<td>contextMenu</td>
+	<td>link=Question for Discuss</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIDeleteQuestion']//table[@class='ActionContainer']//div</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Delete</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIDeleteQuestion']//table[@class='ActionContainer']//div</td>
+	<td>//form[@id='UIDeleteQuestion']/div[3]/table/tbody/tr/td/div[1]/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -447,28 +492,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-----Delete Category in Forum</td>
+	<td></td>
+</tr>
+<tr>
 	<td>open</td>
 	<td>/portal/private/intranet/forum</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_Cate 09</td>
+	<td>link=Cate_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_Cate 09</td>
+	<td>link=Cate_SNF_KS_09</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UICategory']/div[3]/div/div/div/div[4]/div[1]/div/div/div/div/div</td>
+	<td>UICategory</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UICategory']/div[3]/div/div/div/div[4]/div[1]/div/div/div/div/div</td>
+	<td>//form[@id='UICategory']//div[@class='ManageCategoryButton']</td>
 	<td></td>
 </tr>
 <tr>
@@ -487,8 +537,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Cate_SNF_KS_09</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>link=Cate_SNF_KS_09</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-Inativate Discuss Function-</td>
+	<td>-Inactivate Discuss Function-</td>
 	<td></td>
 </tr>
 <tr>
@@ -498,12 +558,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Page</td>
+	<td>link=Page Layout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Page</td>
+	<td>link=Page Layout</td>
 	<td></td>
 </tr>
 <tr>
@@ -532,7 +592,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>click</td>
 	<td>//div[2]/div[1]/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
 	<td></td>
 </tr>
@@ -542,14 +602,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>uncheck</td>
 	<td>EnableDiscuss</td>
 	<td></td>
 </tr>
 <tr>
+	<td>verifyValue</td>
+	<td>EnableDiscuss</td>
+	<td>off</td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save</td>
-	<td></td>
+	<td>off</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -594,6 +659,11 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

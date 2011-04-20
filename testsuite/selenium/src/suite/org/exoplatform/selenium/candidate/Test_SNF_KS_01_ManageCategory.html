@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="http://localhost:8080/ksdemo/public/classic/" />
+<link rel="selenium.base" href="http://localhost:8080/portal/public/intranet/" />
 <title>Test_SNF_KS_01_ksdemo_ManageCategory</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/intranet</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div[@class='ButtonMiddle']/a</td>
+	<td>//div[@id='UIPortalLoginFormAction']//a[text()=&quot;Sign in&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -63,17 +63,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Add Category-</td>
+	<td>-Category</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td>link=Category</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Select Add Category on Menu</td>
 	<td></td>
 </tr>
 <tr>
@@ -82,7 +87,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>mouseDown</td>
 	<td>link=Add category</td>
 	<td></td>
 </tr>
@@ -118,12 +123,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIUserSelector']/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
+	<td>//form[@id='UIUserSelector']//div[contains(text(),&quot;Add&quot;)]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIUserSelector']/div[2]/div[2]/table/tbody/tr/td/a[1]/div/div/div</td>
+	<td>//form[@id='UIUserSelector']//div[contains(text(),&quot;Add&quot;)]</td>
 	<td></td>
 </tr>
 <tr>
@@ -152,88 +157,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_01</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=SNF_KS_01</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add category</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAt</td>
-	<td>link=Add category</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>eventCategoryName</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>eventCategoryName</td>
-	<td>SNF_KS_02</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>description</td>
-	<td>SNF_KS_02</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_02</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=SNF_KS_02</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-Edit Category-</td>
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_01</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=SNF_KS_01</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td>link=Category</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
+	<td>link=Category</td>
 	<td></td>
 </tr>
 <tr>
@@ -242,7 +187,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>mouseDown</td>
 	<td>//div[@id='FAQCategroManager']//div[@class='MenuItem']</td>
 	<td></td>
 </tr>
@@ -268,12 +213,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UICategoryForm']/div[2]/div/div/table//div[1]/div/div/div</td>
+	<td>//form[@id='UICategoryForm']//a[text()=&quot;Save&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UICategoryForm']/div[2]/div/div/table//div[1]/div/div/div</td>
+	<td>//form[@id='UICategoryForm']//a[text()=&quot;Save&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -283,12 +228,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIBreadcumbs']/div/table/tbody/tr/td/div/a</td>
+	<td>//div[@id='UIBreadcumbs']/div/table/tbody/tr/td[1]/div/a/img</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIBreadcumbs']/div/table/tbody/tr/td/div/a</td>
+	<td>//div[@id='UIBreadcumbs']/div/table/tbody/tr/td[1]/div/a/img</td>
 	<td></td>
 </tr>
 <tr>
@@ -306,34 +251,55 @@
 	<td>-Move Category-</td>
 	<td></td>
 </tr>
-<tr>
-	<td>contextMenu</td>
-	<td>//div[@id='AnswersContainer']//a[@title='SNF_KS_01 Update']</td>
-	<td></td>
-</tr>
+<!--Under SNF_KS_01 create SNF_KS_01_A then move it to Home-->
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[6]/div/div/div/div/div[7]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[6]/div/div/div/div/div[7]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[contains(text(),'SNF_KS_02')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>doubleClick</td>
-	<td>//a[contains(text(),'SNF_KS_02')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementNotPresent</td>
 	<td>link=SNF_KS_01 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SNF_KS_01 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDown</td>
+	<td>link=Add category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_01_A</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>SNF_KS_01_A</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_01_A</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=SNF_KS_01_A</td>
 	<td></td>
 </tr>
 <tr>
@@ -342,23 +308,33 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a/span</td>
+	<td>contextMenu</td>
+	<td>link=SNF_KS_01_A</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_01 Update</td>
+	<td>link=Move</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>link=SNF_KS_01 Update</td>
+	<td>clickAt</td>
+	<td>link=Move</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@ondblclick,'java')]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>doubleClick</td>
+	<td>//a[contains(@ondblclick,'java')]/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=SNF_KS_01_A</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,27 +344,42 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@alt='categories']</td>
+	<td>link=Delete</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//img[@alt='categories']</td>
+	<td>clickAt</td>
+	<td>link=Delete</td>
 	<td></td>
 </tr>
 <tr>
-	<td>contextMenu</td>
-	<td>//div[@id='AnswersContainer']//a[@title='SNF_KS_02']</td>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this category ?</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[4]/div/div/div/div/div[6]/a</td>
+	<td>//a[@title=&quot;SNF_KS_01_A&quot;]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>mouseDownRight</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[4]/div/div/div/div/div[6]/a</td>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_KS_01 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>contextMenu</td>
+	<td>//a[@title=&quot;SNF_KS_01_A&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Delete</td>
 	<td></td>
 </tr>
 <tr>
@@ -398,12 +389,12 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>SNF_KS_02</td>
+	<td>SNF_KS_01_A</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>SNF_KS_02</td>
+	<td>SNF_KS_01_A</td>
 	<td></td>
 </tr>
 <tr>
@@ -414,6 +405,11 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

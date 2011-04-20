@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_KS_14_defaultportal_SortRateAnswer</title>
+<title>Test_SNF_KS_14_ksdemo_SortRateAnswer</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_KS_14_defaultportal_SortRateAnswer</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_14_ksdemo_SortRateAnswer</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -62,8 +62,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Submit question</td>
+	<td>waitForTextPresent</td>
+	<td>Submit question</td>
 	<td></td>
 </tr>
 <tr>
@@ -142,8 +142,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
 	<td>selectFrame</td>
 	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,7 +172,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>click</td>
 	<td>link=Save</td>
 	<td></td>
 </tr>
@@ -207,7 +217,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>click</td>
 	<td>link=Save</td>
 	<td></td>
 </tr>
@@ -252,7 +262,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>click</td>
 	<td>link=Save</td>
 	<td></td>
 </tr>
@@ -297,13 +307,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-More check on Rate Answer-</td>
+	<td>click</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
+	<td>echo</td>
+	<td>-More check on Rate Answer-</td>
 	<td></td>
 </tr>
 <tr>
@@ -313,12 +323,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -392,7 +402,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>click</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
@@ -403,12 +413,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -463,23 +473,38 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>AnswersViewContent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[1]//div[@class='AnswerContent']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[1]//div[@class='AnswerContent']</td>
 	<td>Answer 2</td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[2]//div[@class='AnswerContent']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[2]//div[@class='AnswerContent']</td>
 	<td>Answer 3</td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[3]//div[@class='AnswerContent']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[3]//div[@class='AnswerContent']</td>
 	<td>Answer 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='TitleResponseContent']//a</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -488,21 +513,31 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>AnswersViewContent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[1]//div[@class='AnswerContent']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[1]//div[@class='AnswerContent']</td>
 	<td>Answer 1</td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[2]//div[@class='AnswerContent']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[2]//div[@class='AnswerContent']</td>
 	<td>Answer 3</td>
 </tr>
 <tr>
-	<td>verifyText</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[3]//div[@class='AnswerContent']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>//div[@id='AnswersViewContent']//div[@class='ResponseContainer']/div[2]/div/div[3]//div[@class='AnswerContent']</td>
 	<td>Answer 2</td>
 </tr>
@@ -527,7 +562,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
+	<td>click</td>
 	<td>//form[@id='UIDeleteQuestion']/div[3]/table/tbody/tr/td/div/div/div/div[@class='ButtonMiddle']</td>
 	<td></td>
 </tr>

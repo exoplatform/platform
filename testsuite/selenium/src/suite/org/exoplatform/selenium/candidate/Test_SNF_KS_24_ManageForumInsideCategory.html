@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_KS_24_defaultportal_ManageForumInsideCategory</title>
+<title>Test_SNF_KS_24_ksdemo_ManageForumInsideCategory</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_KS_24_defaultportal_ManageForumInsideCategory</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_24_ksdemo_ManageForumInsideCategory</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -79,12 +79,12 @@
 <tr>
 	<td>type</td>
 	<td>CategoryTitle</td>
-	<td>SNF_KS_24_Cate 1</td>
+	<td>Cate1_SNF_KS_24</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>Description</td>
-	<td>SNF_KS_24_Cate 1 Desc</td>
+	<td>add new category</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -108,32 +108,22 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>SNF_KS_24_Cate 1</td>
+	<td>Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>SNF_KS_24_Cate 1</td>
+	<td>Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div[1]/a</td>
+	<td>//div[@id='AddCategory']/div/div/div/div/a/span</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a/span</td>
+	<td>//div[@id='AddCategory']/div/div/div/div/a/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,12 +134,12 @@
 <tr>
 	<td>type</td>
 	<td>CategoryTitle</td>
-	<td>SNF_KS_24_Cate 2</td>
+	<td>Cate2_SNF_KS_24</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>Description</td>
-	<td>SNF_KS_24_Cate 2 Desc</td>
+	<td>add new category</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -173,12 +163,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>SNF_KS_24_Cate 2</td>
+	<td>Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>SNF_KS_24_Cate 2</td>
+	<td>Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -188,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -224,7 +214,7 @@
 <tr>
 	<td>type</td>
 	<td>ForumTitle</td>
-	<td>Forum In Category Test</td>
+	<td>For1_SNF_KS_24</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -243,22 +233,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Forum In Category Test</td>
+	<td>For1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Forum In Category Test</td>
+	<td>For1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -304,7 +294,7 @@
 <tr>
 	<td>type</td>
 	<td>ForumTitle</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -323,12 +313,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -378,12 +368,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -403,12 +393,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -453,12 +443,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -478,12 +468,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -504,11 +494,6 @@
 <tr>
 	<td>click</td>
 	<td>//form[@id='UICategory']//div[@class='ManageCategoryButton']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Close</td>
 	<td></td>
 </tr>
 <tr>
@@ -528,12 +513,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -553,12 +538,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -603,12 +588,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Forum In Category Test Edit</td>
+	<td>link=For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -628,12 +613,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -668,47 +653,47 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 2</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 2</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[2]/div/div/div/div[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 2</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=SNF_KS_24_Cate 2</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIBreadcumbs']//div[1]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Remove Forum-</td>
+	<td>-Remove Forum Inside Category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate2_SNF_KS_24</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
@@ -748,12 +733,12 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>Forum In Category Test Edit</td>
+	<td>For1_SNF_KS_24_Edit</td>
 	<td></td>
 </tr>
 <tr>
@@ -762,6 +747,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>//div[2]/div/div/div/div[1]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate1_SNF_KS_24</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate1_SNF_KS_24</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UICategory</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>//form[@id='UICategory']//div[@class='ManageCategoryButton']</td>
 	<td></td>
@@ -787,23 +792,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>SNF_KS_24_Cate 2</td>
+	<td>waitForElementNotPresent</td>
+	<td>Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>SNF_KS_24_Cate 2</td>
+	<td>Cate1_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=SNF_KS_24_Cate 1</td>
+	<td>link=Cate2_SNF_KS_24</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UICategory</td>
 	<td></td>
 </tr>
 <tr>
@@ -832,18 +842,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>SNF_KS_24_Cate 1</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>SNF_KS_24_Cate 1</td>
+	<td>link=Cate2_SNF_KS_24</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

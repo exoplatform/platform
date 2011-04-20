@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_KS_20_defaultportal_UserSettingInAnswers</title>
+<title>Test_SNF_KS_20_ksdemo_UserSettingInAnswers</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_KS_20_defaultportal_UserSettingInAnswers</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_20_ksdemo_UserSettingInAnswers</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -72,8 +72,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>QuestionTitle</td>
+	<td>waitForTextPresent</td>
+	<td>Question</td>
 	<td></td>
 </tr>
 <tr>
@@ -82,13 +82,18 @@
 	<td>Question in English</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
 	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,18 +122,8 @@
 	<td>label=French</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//option[@value='French']</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//option[@value='French']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>QuestionTitle</td>
 	<td></td>
 </tr>
 <tr>
@@ -137,13 +132,18 @@
 	<td>Question in French</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
 	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -217,13 +217,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
+	<td>waitForTextPresent</td>
 	<td>French Description</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=English</td>
+	<td>verifyTextPresent</td>
+	<td>French Description</td>
 	<td></td>
 </tr>
 <tr>
@@ -242,13 +242,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>English Description</td>
+	<td></td>
+</tr>
+<tr>
 	<td>verifyTextPresent</td>
 	<td>English Description</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Add category-</td>
+	<td>-Add Category-</td>
 	<td></td>
 </tr>
 <tr>
@@ -279,7 +284,17 @@
 <tr>
 	<td>type</td>
 	<td>eventCategoryName</td>
-	<td>SNF_KS_20_Category 1</td>
+	<td>SNF_KS_20</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>SNF_KS_20 des</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -292,13 +307,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
-	<td>SNF_KS_20_Category 1</td>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
-	<td>SNF_KS_20_Category 1</td>
+	<td>verifyElementPresent</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
@@ -307,29 +322,34 @@
 	<td></td>
 </tr>
 <tr>
-	<td>contextMenu</td>
-	<td>//div[@id='AnswersContainer']//a[@title='SNF_KS_20_Category 1']</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[4]/div/div/div/div/div[8]/a</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>mouseDownRight</td>
-	<td>//div[@id='AnswersContainer']/div/div/div[4]/div/div/div/div/div[8]/a</td>
+	<td>mouseOver</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
+	<td>contextMenu</td>
+	<td>link=SNF_KS_20</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Watch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[2]/div[3]/div/div/div/div/div[2]</td>
 	<td>You are watching this category, you will be notified about all changes.</td>
-	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
+	<td>verifyText</td>
+	<td>//div[2]/div[3]/div/div/div/div/div[2]</td>
 	<td>You are watching this category, you will be notified about all changes.</td>
-	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -387,18 +407,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//tr[4]/td[2]/div</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//tr[4]/td[2]/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIUserWatchManager']/div[2]//div[1]//td[2]/div/div</td>
+	<td>UIUserWatchManager</td>
 	<td></td>
 </tr>
 <tr>
@@ -457,13 +472,18 @@
 	<td>XQuestion for sort</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
 	<td>//iframe[@id='Question___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -512,13 +532,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>//div[3]/div/div[1]/div[1]/div[2]/a</td>
+	<td>verifyTextPresent</td>
 	<td>XQuestion for sort</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Delete Question</td>
+	<td>-Delete data-</td>
 	<td></td>
 </tr>
 <tr>
@@ -552,11 +572,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Question in English</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>link=Question in English</td>
 	<td></td>
@@ -583,37 +598,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Delete category-</td>
+	<td>-Delete Category-</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=SNF_KS_20_Category 1</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=SNF_KS_20_Category 1</td>
+	<td>mouseOver</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=//div[@onclick=&quot;eXo.faq.UIAnswersPortlet.viewTitle('FAQCategroManager');&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='FAQCategroManager']//div[@class='UIRightPopupMenuContainer']/div[3]</td>
+	<td>contextMenu</td>
+	<td>link=SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAt</td>
-	<td>//div[@id='FAQCategroManager']//div[@class='UIRightPopupMenuContainer']/div[3]</td>
+	<td>link=Delete</td>
 	<td></td>
 </tr>
 <tr>
@@ -623,17 +628,72 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>SNF_KS_20_Category 1</td>
+	<td>SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>SNF_KS_20_Category 1</td>
+	<td>SNF_KS_20</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>echo</td>
+	<td>-Reset User Settings-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>order-by</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>order-by</td>
+	<td>label=Created date</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>order-type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>order-type</td>
+	<td>label=Ascending</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

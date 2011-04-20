@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_KS_19_defaultportal_ViewUserProfile</title>
+<title>Test_SNF_KS_19_ksdemo_ViewUserProfile</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_KS_19_defaultportal_ViewUserProfile</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_19_ksdemo_ViewUserProfile</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -87,7 +87,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
 	<td>ViewAuthorInfor</td>
 	<td></td>
 </tr>
@@ -107,8 +107,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=Submit question</td>
+	<td>waitForTextPresent</td>
+	<td>Submit question</td>
 	<td></td>
 </tr>
 <tr>
@@ -127,8 +127,8 @@
 	<td>Question for View Profile</td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='Question___Frame']</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,12 +158,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id=&quot;AddQuestion&quot;]//div[@class=&quot;UIAction&quot;]//div[@class=&quot;ButtonMiddle&quot;]</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>//div[@id=&quot;AddQuestion&quot;]//div[@class=&quot;UIAction&quot;]//div[@class=&quot;ButtonMiddle&quot;]</td>
+	<td>mouseDown</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -202,11 +202,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@class='FAQContent']//div[@class='ProfileContainer']//a</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//div[@class='FAQContent']//div[@class='ProfileContainer']//a</td>
 	<td></td>
@@ -228,12 +223,12 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIViewUserProfile']/div[3]/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//form[@id='UIViewUserProfile']//a[text()='Close']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Delete Question-</td>
+	<td>-Delete Test Data-</td>
 	<td></td>
 </tr>
 <tr>
@@ -297,7 +292,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>uncheck</td>
 	<td>ViewAuthorInfor</td>
 	<td></td>
 </tr>
@@ -312,13 +307,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
+	<td>click</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>

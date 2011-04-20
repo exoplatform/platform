@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="http://localhost:8080/ksdemo/public/classic/" />
+<link rel="selenium.base" href="http://localhost:8080/portal/public/intranet/" />
 <title>Test_SNF_KS_28_ksdemo_BasicActionsInTopic</title>
 </head>
 <body>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,12 +263,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit</td>
+	<td>//div[@class='ItemIcon EditTopicIcon']//a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit</td>
+	<td>//div[@class='ItemIcon EditTopicIcon']//a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
@@ -412,13 +412,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAt</td>
 	<td>link=For1_SNF_KS_28</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>waitForElementPresent</td>
+	<td>link=Top1_SNF_KS_28_Update</td>
 	<td></td>
 </tr>
 <tr>
@@ -457,8 +457,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>2000</td>
+	<td>waitForElementPresent</td>
+	<td>link=For2_SNF_KS_28</td>
 	<td></td>
 </tr>
 <tr>
@@ -574,6 +574,11 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
 	<td></td>
 </tr>
 </tbody></table>
