@@ -9,6 +9,6 @@
   <import>war:/conf/default-website/portal/portal-configuration.xml</import>
 
   <import>war:/conf/default-website/wcm/deployment/default-deployment-configuration.xml</import>
- 
+  <import>war:/conf/default-website/wcm/taxonomy/default-taxonomies-configuration.xml</import>
 
 </configuration>
