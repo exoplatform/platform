@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_KS_46_ksdemo_SortSetting</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_KS_46_ksdemo_SortSetting</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div[@class='ButtonMiddle']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add Category for Test-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>CategoryTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>CategoryTitle</td>
+	<td>Cate1_SNF_KS_46</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>Category 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add Forum for Sorting-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[3]/div/div/div/div/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/div/div/div/div/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ForumTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ForumTitle</td>
+	<td>For1_SNF_KS_46</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>Test forum sorting</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIForumForm']/div[4]/table//div[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIForumForm']/div[4]/table//div[1]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>For1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>For1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ForumTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ForumTitle</td>
+	<td>XSort Forum</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>XSort Forum</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=XSort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=XSort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ForumTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ForumTitle</td>
+	<td>ASort Forum</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>ASort Forum</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=ASort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=ASort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Change sort setting-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='Administrations']/div/div[1]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='Administrations']/div/div[1]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='Administrations']/div/div[2]/div/div/div/div[2]/div/div/div[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='Administrations']/div/div[2]/div/div/div/div[2]/div/div/div[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>forumSortBy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>forumSortBy</td>
+	<td>label=Name</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>topicSortBy</td>
+	<td>label=Name</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>forumSortByType</td>
+	<td>label=Descending</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>topicSortByType</td>
+	<td>label=Descending</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Check Sorting Forum-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UICategory']/div[4]/div/table/tbody/tr/td[3]/span/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//form[@id='UICategory']/div[4]/div/table/tbody/tr/td[3]/span/a</td>
+	<td>XSort Forum</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Add topics and check topic sorting-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=XSort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=XSort Forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ThreadTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ThreadTitle</td>
+	<td>A Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>A Topic</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>A Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>A Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ThreadTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ThreadTitle</td>
+	<td>H Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>H Topic</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>H Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>H Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Start topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ThreadTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ThreadTitle</td>
+	<td>X Topic</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Topic</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>X Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>X Topic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@class='ActionLink TitleBold PopupMenu']</td>
+	<td>X Topic</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Delete test data-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UICategory']//div[@class='ManageCategoryButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UICategory']//div[@class='ManageCategoryButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this category?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Cate1_SNF_KS_46</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Reset value for sort setting-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='Administrations']/div/div[1]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='Administrations']/div/div[1]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='Administrations']/div/div[2]/div/div/div/div[2]/div/div/div[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='Administrations']/div/div[2]/div/div/div/div[2]/div/div/div[1]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>forumSortBy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>forumSortBy</td>
+	<td>label=Name</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>topicSortBy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>topicSortBy</td>
+	<td>label=Date of last post</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>forumSortByType</td>
+	<td>label=Ascending</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
