@@ -20,6 +20,13 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
+/**
+ * This Listener is invoked when a User is updated/added. Its purpose is to
+ * ensure that OrganizationServiceIntegration don't apply Organization
+ * Model Data listeners twice.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class NewUserListener extends UserEventListener {
 
   private RepositoryService repositoryService;
@@ -28,14 +35,18 @@ public class NewUserListener extends UserEventListener {
     this.repositoryService = repositoryService;
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postSave(User user, boolean isNew) throws Exception {
     if (!Util.hasUserFolder(repositoryService, user)) {
       Util.createUserFolder(repositoryService, user);
     }
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postDelete(User user) throws Exception {
     if (Util.hasUserFolder(repositoryService, user)) {
       Util.deleteUserFolder(repositoryService, user);

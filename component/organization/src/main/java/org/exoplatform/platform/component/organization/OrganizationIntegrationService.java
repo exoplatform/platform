@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2003-2007 eXo Platform SAS.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see<http://www.gnu.org/licenses/>.
+ */
 package org.exoplatform.platform.component.organization;
 
 import java.util.ArrayList;
@@ -12,8 +28,6 @@ import java.util.Map;
 import javax.jcr.Session;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
@@ -44,15 +58,21 @@ import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
 import org.picocontainer.Startable;
 
+/**
+ * This Service create Organization Model profiles, for User & Groups not
+ * created via eXo OrganizationService.
+ * 
+ * @author Boubaker KHANFIR
+ */
 @Managed
 @ManagedDescription("Platform Organization Model Integration Service")
-@NameTemplate({ @Property(key = "name", value = "OrganizationIntegartionService"),
+@NameTemplate({ @Property(key = "name", value = "OrganizationIntegrationService"),
     @Property(key = "service", value = "extensions"), @Property(key = "type", value = "platform") })
-@RESTEndpoint(path = "OrganizationIntegartionService")
-public class OrganizationIntegartionService implements Startable {
+@RESTEndpoint(path = "OrganizationIntegrationService")
+public class OrganizationIntegrationService implements Startable {
 
   private static final int USERS_PAGE_SIZE = 10;
-  private static final Log LOG = ExoLogger.getLogger(OrganizationIntegartionService.class);
+  private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationService.class);
   private static final Comparator<org.exoplatform.container.xml.ComponentPlugin> COMPONENT_PLUGIN_COMPARATOR = new Comparator<org.exoplatform.container.xml.ComponentPlugin>() {
     public int compare(org.exoplatform.container.xml.ComponentPlugin o1, org.exoplatform.container.xml.ComponentPlugin o2) {
       return o1.getPriority() - o2.getPriority();
@@ -78,7 +98,7 @@ public class OrganizationIntegartionService implements Startable {
   private PortalContainer container;
   private boolean requestStarted = false;
 
-  public OrganizationIntegartionService(OrganizationService organizationService, RepositoryService repositoryService,
+  public OrganizationIntegrationService(OrganizationService organizationService, RepositoryService repositoryService,
       ConfigurationManager manager, PortalContainer container, InitParams initParams) {
     this.organizationService = organizationService;
     this.repositoryService = repositoryService;
@@ -91,14 +111,14 @@ public class OrganizationIntegartionService implements Startable {
     int nbExternalComponentPlugins = 0;
     try {
       ExternalComponentPlugins organizationServiceExternalComponentPlugins = manager.getConfiguration()
-          .getExternalComponentPlugins(OrganizationIntegartionService.class.getName());
+          .getExternalComponentPlugins(OrganizationIntegrationService.class.getName());
 
       if (organizationServiceExternalComponentPlugins != null
           && organizationServiceExternalComponentPlugins.getComponentPlugins() != null) {
         nbExternalComponentPlugins = organizationServiceExternalComponentPlugins.getComponentPlugins().size();
       }
 
-      Component organizationServiceComponent = manager.getComponent(OrganizationIntegartionService.class);
+      Component organizationServiceComponent = manager.getComponent(OrganizationIntegrationService.class);
 
       if (organizationServiceComponent != null && organizationServiceComponent.getComponentPlugins() != null) {
         nbExternalComponentPlugins += organizationServiceComponent.getComponentPlugins().size();
@@ -112,14 +132,13 @@ public class OrganizationIntegartionService implements Startable {
       try {
         ExternalComponentPlugins organizationServiceExternalComponentPlugins = manager.getConfiguration()
             .getExternalComponentPlugins(OrganizationService.class.getName());
-        addComponentPlugin(organizationServiceExternalComponentPlugins.getComponentPlugins(),
-            ExoContainerContext.getCurrentContainer());
+        addComponentPlugin(organizationServiceExternalComponentPlugins.getComponentPlugins());
 
         Component organizationServiceComponent = manager.getComponent(OrganizationService.class);
         List<org.exoplatform.container.xml.ComponentPlugin> organizationServicePlugins = organizationServiceComponent
             .getComponentPlugins();
         if (organizationServicePlugins != null) {
-          addComponentPlugin(organizationServicePlugins, ExoContainerContext.getCurrentContainer());
+          addComponentPlugin(organizationServicePlugins);
         }
       } catch (Exception e) {
         LOG.error("Failed to add OrganizationService plugins", e);
@@ -144,8 +163,32 @@ public class OrganizationIntegartionService implements Startable {
     }
   }
 
-  public void addComponentPlugin(List<org.exoplatform.container.xml.ComponentPlugin> plugins, ExoContainer container)
-      throws Exception {
+  public void start() {
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      Util.init(session);
+
+      invokeAllGroupsListeners();
+    } catch (Exception e) {
+      LOG.error(e);
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
+    }
+  }
+
+  public void stop() {}
+
+  /**
+   * Add a list of OrganizationService listeners into
+   * OrganizationIntegrationService
+   * 
+   * @param plugins
+   *          List of OrganizationService ComponentPlugins
+   */
+  public void addComponentPlugin(List<org.exoplatform.container.xml.ComponentPlugin> plugins) {
     if (plugins == null)
       return;
     Collections.sort(plugins, COMPONENT_PLUGIN_COMPARATOR);
@@ -164,43 +207,31 @@ public class OrganizationIntegartionService implements Startable {
     }
   }
 
-  public void start() {
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      Util.init(session);
-
-      invokeAllGroupsListeners();
-    } catch (Exception e) {
-      LOG.error(e);
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
+  /**
+   * Add a selected OrganizationService listener to
+   * OrganizationIntegrationService
+   * 
+   * @param listener
+   */
+  public synchronized void addListenerPlugin(ComponentPlugin listener) {
+    if (listener instanceof OrganizationServiceInitializer) {
+      return;
+    } else if (listener instanceof UserEventListener) {
+      userDAOListeners_.put(listener.getName(), (UserEventListener) listener);
+    } else if (listener instanceof GroupEventListener) {
+      groupDAOListeners_.put(listener.getName(), (GroupEventListener) listener);
+    } else if (listener instanceof MembershipEventListener) {
+      membershipDAOListeners_.put(listener.getName(), (MembershipEventListener) listener);
+    } else if (listener instanceof UserProfileEventListener) {
+      userProfileListeners_.put(listener.getName(), (UserProfileEventListener) listener);
+    } else {
+      LOG.warn("Unknown listener type : " + listener.getClass());
     }
   }
 
-  @Managed
-  @ManagedDescription("invoke all groups listeners")
-  @Impact(ImpactType.WRITE)
-  public void invokeAllGroupsListeners() {
-    startRequest();
-    try {
-      LOG.info("Apply groups listeners");
-      List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
-      Collections.sort(groups, GROUP_COMPARATOR);
-      for (Group group : groups) {
-        applyGroupListeners(group);
-      }
-    } catch (Exception e) {
-      LOG.error("Error occured when invoking listeners of all groups.", e);
-    }
-    endRequest();
-
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
-  }
-
+  /**
+   * Apply OrganizationService listeners on all Groups
+   */
   @Managed
   @ManagedDescription("invoke all organization model listeners")
   @Impact(ImpactType.WRITE)
@@ -234,23 +265,64 @@ public class OrganizationIntegartionService implements Startable {
     startRequest();
   }
 
+  /**
+   * Apply OrganizationService listeners to all Organization Model Elements
+   * (Users, Groups, Profile & Memberships)
+   */
+  @Managed
+  @ManagedDescription("invoke all groups listeners")
+  @Impact(ImpactType.WRITE)
+  public void invokeAllGroupsListeners() {
+    startRequest();
+    try {
+      LOG.info("Apply groups listeners");
+      List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
+      Collections.sort(groups, GROUP_COMPARATOR);
+      for (Group group : groups) {
+        applyGroupListeners(group);
+      }
+    } catch (Exception e) {
+      LOG.error("Error occured when invoking listeners of all groups.", e);
+    }
+    endRequest();
+
+    // TODO: delete this instruction when EXOGTN-347 will be fixed
+    startRequest();
+  }
+
+  /**
+   * Apply OrganizationService listeners on selected groups
+   * 
+   * @param groupId
+   *          The group Identifier
+   */
   @Managed
   @ManagedDescription("invoke a group listeners")
   @Impact(ImpactType.WRITE)
-  public void applyGroupListeners(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId) throws Exception {
+  public void applyGroupListeners(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId) {
     startRequest();
-    Group group = organizationService.getGroupHandler().findGroupById(groupId);
-    applyGroupListeners(group);
+    try {
+      Group group = organizationService.getGroupHandler().findGroupById(groupId);
+      applyGroupListeners(group);
+    } catch (Exception e) {
+      LOG.error("Error occured when invoking listeners of group: " + groupId, e);
+    }
     endRequest();
 
     // TODO: delete this instruction when EXOGTN-347 will be fixed
     startRequest();;
   }
 
+  /**
+   * Apply OrganizationService listeners on selected User
+   * 
+   * @param username
+   *          The user name
+   */
   @Managed
   @ManagedDescription("invoke a user listeners")
   @Impact(ImpactType.WRITE)
-  public void applyUserListeners(@ManagedDescription("User name") @ManagedName("username") String username) throws Exception {
+  public void applyUserListeners(@ManagedDescription("User name") @ManagedName("username") String username) {
     startRequest();
     try {
       User user = organizationService.getUserHandler().findUserByName(username);
@@ -279,24 +351,6 @@ public class OrganizationIntegartionService implements Startable {
 
     // TODO: delete this instruction when EXOGTN-347 will be fixed
     startRequest();
-  }
-
-  public void stop() {}
-
-  public synchronized void addListenerPlugin(ComponentPlugin listener) throws Exception {
-    if (listener instanceof OrganizationServiceInitializer) {
-      return;
-    } else if (listener instanceof UserEventListener) {
-      userDAOListeners_.put(listener.getName(), (UserEventListener) listener);
-    } else if (listener instanceof GroupEventListener) {
-      groupDAOListeners_.put(listener.getName(), (GroupEventListener) listener);
-    } else if (listener instanceof MembershipEventListener) {
-      membershipDAOListeners_.put(listener.getName(), (MembershipEventListener) listener);
-    } else if (listener instanceof UserProfileEventListener) {
-      userProfileListeners_.put(listener.getName(), (UserProfileEventListener) listener);
-    } else {
-      LOG.warn("Unknown listener type : " + listener.getClass());
-    }
   }
 
   private void applyMembershipsListeners(String username) {
@@ -331,15 +385,15 @@ public class OrganizationIntegartionService implements Startable {
     endRequest();
   }
 
-  private void applyUserProfileListeners(String username) throws Exception {
+  private void applyUserProfileListeners(String username) {
     startRequest();
-    UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-    if (userProfile == null) {
-      userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
-      organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
-      userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-    }
     try {
+      UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+      if (userProfile == null) {
+        userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
+        organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
+        userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+      }
       if (!Util.hasProfileFolder(repositoryService, userProfile)) {
         LOG.info("\tApply listeners for user prfile: " + username);
         Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
@@ -368,9 +422,9 @@ public class OrganizationIntegartionService implements Startable {
         try {
           Group parentGroup = organizationService.getGroupHandler().findGroupById(group.getParentId());
           applyGroupListeners(parentGroup);
-        } catch (Exception exception) {
+        } catch (Exception e) {
           LOG.warn("Error occured while attempting to get parent of " + group.getId()
-              + " Group. Listeners will not be applied on parent " + group.getParentId());
+              + " Group. Listeners will not be applied on parent " + group.getParentId(), e);
         }
       }
       if (!Util.hasGroupFolder(repositoryService, group)) {

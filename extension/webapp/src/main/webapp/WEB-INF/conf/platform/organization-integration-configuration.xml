@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
 	<component>
-		<type>org.exoplatform.platform.component.organization.OrganizationIntegartionService</type>
+		<type>org.exoplatform.platform.component.organization.OrganizationIntegrationService</type>
 		<init-params>
 			<value-param>
 				<name>workspace</name>

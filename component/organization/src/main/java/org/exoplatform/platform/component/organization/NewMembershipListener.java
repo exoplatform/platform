@@ -20,6 +20,13 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 
+/**
+ * This Listener is invoked when a Mambership is updated/added. Its purpose
+ * is to ensure that OrganizationServiceIntegration don't apply
+ * Organization Model Data listeners twice.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class NewMembershipListener extends MembershipEventListener {
 
   private RepositoryService repositoryService;
@@ -28,14 +35,18 @@ public class NewMembershipListener extends MembershipEventListener {
     this.repositoryService = repositoryService;
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postSave(Membership m, boolean isNew) throws Exception {
     if (!Util.hasMembershipFolder(repositoryService, m)) {
       Util.createMembershipFolder(repositoryService, m);
     }
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postDelete(Membership m) throws Exception {
     if (Util.hasMembershipFolder(repositoryService, m)) {
       Util.deleteMembershipFolder(repositoryService, m);

@@ -15,8 +15,8 @@ import org.exoplatform.platform.component.organization.NewGroupListener;
 import org.exoplatform.platform.component.organization.NewMembershipListener;
 import org.exoplatform.platform.component.organization.NewProfileListener;
 import org.exoplatform.platform.component.organization.NewUserListener;
-import org.exoplatform.platform.component.organization.OrganizationIntegartionService;
 import org.exoplatform.platform.component.organization.OrganizationIntegrationREST;
+import org.exoplatform.platform.component.organization.OrganizationIntegrationService;
 import org.exoplatform.platform.component.organization.Util;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
@@ -44,18 +44,18 @@ public class TestOrganizationIntegration extends BasicTestCase {
   public void testIntegrationService() throws Exception {
     verifyFoldersCreation(false);
 
-    OrganizationIntegartionService organizationIntegartionService = container
-        .createComponent(OrganizationIntegartionService.class);
-    container.registerComponentInstance(organizationIntegartionService);
+    OrganizationIntegrationService organizationIntegrationService = container
+        .createComponent(OrganizationIntegrationService.class);
+    container.registerComponentInstance(organizationIntegrationService);
 
     NewUserListener userListener = container.createComponent(NewUserListener.class);
-    organizationIntegartionService.addListenerPlugin(userListener);
+    organizationIntegrationService.addListenerPlugin(userListener);
     NewProfileListener profileListener = container.createComponent(NewProfileListener.class);
-    organizationIntegartionService.addListenerPlugin(profileListener);
+    organizationIntegrationService.addListenerPlugin(profileListener);
     NewMembershipListener membershipListener = container.createComponent(NewMembershipListener.class);
-    organizationIntegartionService.addListenerPlugin(membershipListener);
+    organizationIntegrationService.addListenerPlugin(membershipListener);
     NewGroupListener groupListener = container.createComponent(NewGroupListener.class);
-    organizationIntegartionService.addListenerPlugin(groupListener);
+    organizationIntegrationService.addListenerPlugin(groupListener);
 
     OrganizationIntegrationREST organizationIntegrationREST = container.createComponent(OrganizationIntegrationREST.class);
 
@@ -107,7 +107,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
       }
     }
     List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
-    Collections.sort(groups, OrganizationIntegartionService.GROUP_COMPARATOR);
+    Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
     for (Group group : groups) {
       assertEquals(creationAssertionValue, Util.hasGroupFolder(repositoryService, group));
     }

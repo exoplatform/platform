@@ -27,7 +27,7 @@ import org.exoplatform.services.organization.UserProfile;
 
 public class Util {
 
-  final public static String ORGANIZATION_INITIALIZATIONS = "organizationInitializers";
+  final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
   final public static String USERS_FOLDER = "users";
   final public static String GROUPS_FOLDER = "groups";
   final public static String MEMBERSHIPS_FOLDER = "memberships";

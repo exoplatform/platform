@@ -20,6 +20,13 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
 
+/**
+ * This Listener is invoked when a User Profile is updated/added. Its
+ * purpose is to ensure that OrganizationServiceIntegration don't apply
+ * Organization Model Data listeners twice.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class NewProfileListener extends UserProfileEventListener {
 
   private RepositoryService repositoryService;
@@ -28,14 +35,18 @@ public class NewProfileListener extends UserProfileEventListener {
     this.repositoryService = repositoryService;
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postSave(UserProfile user, boolean isNew) throws Exception {
     if (!Util.hasProfileFolder(repositoryService, user)) {
       Util.createProfileFolder(repositoryService, user);
     }
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postDelete(UserProfile user) throws Exception {
     if (Util.hasProfileFolder(repositoryService, user)) {
       Util.deleteProfileFolder(repositoryService, user);

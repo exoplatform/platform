@@ -23,23 +23,30 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.ConversationRegistry;
 import org.exoplatform.services.security.ConversationState;
 
+/**
+ * After a user login first time, this listener gets his data initialized.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class AuthenticationLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
   private static final Log LOG = ExoLogger.getLogger(AuthenticationLoginListener.class);
 
-  private OrganizationIntegartionService integartionService;
+  private OrganizationIntegrationService organizationIntegrationService;
 
-  public AuthenticationLoginListener(OrganizationIntegartionService integartionService) throws Exception {
-    this.integartionService = integartionService;
+  public AuthenticationLoginListener(OrganizationIntegrationService organizationIntegrationService) throws Exception {
+    this.organizationIntegrationService = organizationIntegrationService;
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
     String userId = event.getData().getIdentity().getUserId();
     if (LOG.isDebugEnabled()) {
       LOG.debug("Apply listeners for user" + userId);
     }
-    integartionService.applyUserListeners(userId);
+    organizationIntegrationService.applyUserListeners(userId);
     if (LOG.isDebugEnabled()) {
       LOG.debug("User listeners applied for " + userId);
     }

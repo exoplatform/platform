@@ -21,13 +21,19 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.scheduler.BaseJob;
 import org.exoplatform.services.scheduler.JobContext;
 
+/**
+ * This is a scheduled job that invoke all OrganizationService listeners on
+ * Users & Groups.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class OrganizationIntegrationJob extends BaseJob {
 
   private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
-  private OrganizationIntegartionService organizationIntegartionService;
+  private OrganizationIntegrationService organizationIntegrationService;
 
-  public OrganizationIntegrationJob(OrganizationIntegartionService organizationIntegartionService) {
-    this.organizationIntegartionService = organizationIntegartionService;
+  public OrganizationIntegrationJob(OrganizationIntegrationService organizationIntegrationService) {
+    this.organizationIntegrationService = organizationIntegrationService;
   }
 
   /**
@@ -35,7 +41,7 @@ public class OrganizationIntegrationJob extends BaseJob {
    */
   public void execute(JobContext context) throws Exception {
     LOG.info("File plan job started");
-    organizationIntegartionService.invokeAllListeners();
+    organizationIntegrationService.invokeAllListeners();
     LOG.info("Organization Listeners Initializer job done");
   }
 }

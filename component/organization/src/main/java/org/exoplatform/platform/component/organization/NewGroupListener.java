@@ -20,6 +20,13 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
 
+/**
+ * This Listener is invoked when a Group is updated/added. Its purpose is
+ * to ensure that OrganizationServiceIntegration don't apply Organization
+ * Model Data listeners twice.
+ * 
+ * @author Boubaker KHANFIR
+ */
 public class NewGroupListener extends GroupEventListener {
 
   private RepositoryService repositoryService;
@@ -28,14 +35,18 @@ public class NewGroupListener extends GroupEventListener {
     this.repositoryService = repositoryService;
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postSave(Group group, boolean isNew) throws Exception {
     if (!Util.hasGroupFolder(repositoryService, group)) {
       Util.createGroupFolder(repositoryService, group);
     }
   }
 
-  @Override
+  /**
+   * {@inheritDoc}
+   */
   public void postDelete(Group group) throws Exception {
     if (Util.hasGroupFolder(repositoryService, group)) {
       Util.deleteGroupFolder(repositoryService, group);
