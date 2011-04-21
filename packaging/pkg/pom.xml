@@ -136,14 +136,6 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>pom</type>
     </dependency>
-    <!--
-      <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-delivery-dms-wcm-assembly</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>pom</type>
-	</dependency>
--->
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
@@ -535,13 +527,6 @@
     </dependency>
     
     <dependency>
-      <groupId>commons-digester</groupId>
-      <artifactId>commons-digester</artifactId>
-      <version>${commons-digester.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.service</artifactId>
       <version>${org.exoplatform.social.version}</version>
@@ -647,13 +632,6 @@
     </dependency>
     
     <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
-      <version>${commons-pool.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
@@ -696,13 +674,6 @@
     </dependency>
     
     <dependency>
-      <groupId>antlr</groupId>
-      <artifactId>antlr</artifactId>
-      <version>${antlr.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-viewer</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
@@ -723,25 +694,11 @@
       <type>jar</type>
     </dependency>
     
-    <!--dependency>
-      <groupId>org.fontbox</groupId>
-      <artifactId>fontbox</artifactId>
-      <version>${org.fontbox.version}</version>
-      <type>jar</type>
-    </dependency-->
-    
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-gadget-publication</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <type>war</type>
-    </dependency>
-    
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>${commons-dbcp.version}</version>
-      <type>jar</type>
     </dependency>
     
     <dependency>
@@ -1049,13 +1006,6 @@
     </dependency>
     
     <dependency>
-      <groupId>stax</groupId>
-      <artifactId>stax-api</artifactId>
-      <version>${stax.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exo.tool.webunit</artifactId>
       <version>${org.exoplatform.tool.version}</version>
@@ -1066,13 +1016,6 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.framework.command</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
-      <type>jar</type>
-    </dependency>
-    
-    <dependency>
-      <groupId>javassist</groupId>
-      <artifactId>javassist</artifactId>
-      <version>${javassist.version}</version>
       <type>jar</type>
     </dependency>
     
@@ -1161,13 +1104,6 @@
       <artifactId>exo.social.extension.war</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <type>war</type>
-    </dependency>
-    
-    <dependency>
-      <groupId>commons-collections</groupId>
-      <artifactId>commons-collections</artifactId>
-      <version>${commons-collections.version}</version>
-      <type>jar</type>
     </dependency>
     
     <dependency>
@@ -1345,12 +1281,6 @@
       <type>war</type>
     </dependency>
     <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.common</artifactId>
       <version>${project.version}</version>
@@ -1463,12 +1393,6 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.mail.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.jcrom</groupId>
-      <artifactId>jcrom</artifactId>
-      <version>${org.jcrom.version}</version>
       <type>jar</type>
     </dependency>
     <dependency><groupId>org.exoplatform.ecms</groupId><artifactId>exo-ecms-core-parser</artifactId><version>${org.exoplatform.ecms.version}</version><type>jar</type></dependency>

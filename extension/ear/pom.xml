@@ -1037,7 +1037,7 @@
           <artifactId>commons-chain</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>hsqldb</groupId>
+          <groupId>org.hsqldb</groupId>
           <artifactId>hsqldb</artifactId>
         </exclusion>
         <exclusion>
