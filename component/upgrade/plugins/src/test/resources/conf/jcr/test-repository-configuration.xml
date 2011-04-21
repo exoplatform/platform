@@ -127,58 +127,6 @@
 						</persister>
 					</lock-manager>
 				</workspace>
-
-				<!-- DMS system -->
-				<workspace name="dms-system">
-					<container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
-						<properties>
-							<property name="source-name" value="jdbcexo"/>
-							<property name="dialect" value="hsqldb"/>
-							<property name="multi-db" value="false"/>
-							<property name="max-buffer-size" value="200k"/>
-							<property name="swap-directory" value="target/temp/swap/dms-system_portal"/>
-						</properties>
-						<value-storages>
-							<value-storage id="dms-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-								<properties>
-									<property name="path" value="target/temp/values/dms-system_portal"/>
-								</properties>
-								<filters>
-									<filter property-type="Binary"/>
-								</filters>
-							</value-storage>
-						</value-storages>
-					</container>
-					<initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
-						<properties>
-							<property name="root-nodetype" value="nt:unstructured"/>
-							<property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove"/>
-						</properties>
-					</initializer>
-					<cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.LinkedWorkspaceStorageCacheImpl">
-						<properties>
-							<property name="max-size" value="20k"/>
-							<property name="live-time" value="1h"/>
-						</properties>
-					</cache>
-					<query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
-						<properties>
-							<property name="index-dir" value="target/temp/jcrlucenedb/dms-system_portal"/>
-							<property name="support-highlighting" value="true"/>
-							<property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt"/>
-							<property name="spellchecker-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.spell.LuceneSpellChecker"/>
-							<property name="synonymprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.synonym.WordNetSynonyms"/>
-						</properties>
-					</query-handler>
-					<lock-manager>
-						<time-out>15m</time-out>
-						<persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-							<properties>
-								<property name="path" value="target/temp/lock/dms-system_portal"/>
-							</properties>
-						</persister>
-					</lock-manager>
-				</workspace>
 			</workspaces>
 		</repository>
 	</repositories>
