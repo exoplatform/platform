@@ -52,6 +52,15 @@
 					<timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<systemPropertyVariables>
+						<exo.properties.url>classpath:/conf/configuration.properties </exo.properties.url>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
 		</plugins>
 		<testResources>
 			<testResource>
