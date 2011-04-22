@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE MBeanType SYSTEM "commo.dtd">
+
+<MBeanType
+ Name          = "ExoAuthenticator"
+ DisplayName   = "ExoAuthenticator"
+ Package       = "org.exoplatform.services.security.jaas.weblogic.authentication"
+ Extends       = "weblogic.management.security.authentication.Authenticator"
+ Description   = "This MBean represents the custom authenticator for ExoPlatform"
+>
+
+ <MBeanAttribute
+  Name          = "ProviderClassName"
+  Type          = "java.lang.String"
+  Writeable     = "false"
+  Default       = "&quot;org.exoplatform.services.security.jaas.weblogic.authentication.ExoAuthenticationProviderImpl&quot;"
+ />
+
+ <MBeanAttribute
+  Name        = "Description"
+  Type        = "java.lang.String"
+  Writeable   = "false"
+  Default     = "&quot;Provider that performs authentication for ExoPlatform&quot;"
+  Description = "A short description of the ExoPlatform Authentication provider."
+ />
+
+ <MBeanAttribute
+  Name        = "Version"
+  Type        = "java.lang.String"
+  Writeable   = "false"
+  Default     = "&quot;1.0&quot;"
+  Description = "The version number of the ExoPlaftorm Authentication provider."
+ />
+
+ <MBeanAttribute
+  Name        = "LoginModuleClass"
+  Type        = "java.lang.String"
+  Writeable   = "true"
+  Default     = "&quot;&quot;"
+  Description = "The login module class of the ExoPlaftorm Authentication provider."
+ />
+
+</MBeanType>

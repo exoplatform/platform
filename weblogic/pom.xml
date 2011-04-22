@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>  
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.parent</artifactId>
+    <version>3.0.5-SNAPSHOT</version>
+  </parent>  
+  
+  <artifactId>weblogic</artifactId>
+  <packaging>pom</packaging>
+  <name>Weblogic</name>
+  <description>Weblogic</description>
+
+  <properties>
+	<com.bea.weblogic.version>10.3.4.0</com.bea.weblogic.version>
+	<com.bea.weblogic.security.version>6.1.0.0</com.bea.weblogic.security.version>
+	<com.bea.weblogic.mbean.maker.version>1.5.0.0</com.bea.weblogic.mbean.maker.version>
+	<com.bea.weblogic.descriptor.version>1.9.0.0</com.bea.weblogic.descriptor.version>
+	<com.bea.weblogic.utils.version>1.9.0.0</com.bea.weblogic.utils.version>
+  </properties>
+
+  <modules>
+	  <module>integration</module>
+  </modules>
+
+</project>

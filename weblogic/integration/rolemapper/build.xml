@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<project name="ExoRoleMapper" default="generateprovider" basedir=".">
+
+	<!-- global properties -->
+
+	<property environment="env" />
+
+	<property name="BEA_HOME" value="/opt/wls1034_dev" />
+	<property name="JAVA_HOME" value="/opt/java/jdk" />
+	<property name="WL_HOME" value="${BEA_HOME}/wlserver" />
+	<property name="lib" value="${WL_HOME}/server/lib" />
+	<property name="mbeantypes" value="${lib}/mbeantypes" />
+	<property name="jarfile" value="exo-weblogic-rolemapper-1.0.jar" />
+	<property name="modules" value="${BEA_HOME}/modules" />
+	<property name="work_dir" location="." />
+
+	<property name="src_dir" value="${work_dir}/src" />
+	<property name="test_src_dir" value="${src_dir}/tests" />
+	<property name="provider_src_dir" value="${src_dir}" />
+	<property name="build_dir" value="${work_dir}/build" />
+	<property name="class_dir" value="${work_dir}/classes" />
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Build This Provider                                               -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<!-- ================================= 
+          target: preparebuild              
+         ================================= -->
+    <target name="preparebuild">
+		<!-- Set up the build directories -->
+		<mkdir dir="${build_dir}" />
+		<mkdir dir="${class_dir}" />
+
+		<!-- Only copy over the commo dtd and sample provider xml files for now -->
+		<copy todir="${build_dir}" flatten="true">
+			<fileset dir="${lib}">
+				<include name="commo.dtd" />
+			</fileset>
+		</copy>
+		<copy todir="${build_dir}" flatten="true">
+			<fileset dir="${provider_src_dir}">
+				<include name="**/*.xml" />
+				<include name="**/ExoRoleMapperProviderImpl.java" />
+                <include name="**/ExoSecurityRoleImpl.java" />
+			</fileset>
+		</copy>
+    </target>
+
+		
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: mbean                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="generatembean" depends="clean, preparebuild">
+		
+		<java classname="weblogic.management.commo.WebLogicMBeanMaker" fork="true" failonerror="true">
+			<classpath>
+				<!--<pathelement path="${classpath}" />-->
+				<pathelement path="${lib}/weblogic.jar" />
+				<!--<pathelement path="${lib}/wlManagementMBean.jar" />-->
+				<pathelement location="${modules}/com.bea.core.mbean.maker_1.5.0.0.jar" />
+				<pathelement location="${mbeantypes}/cssWlSecurityProviders.jar" />
+				<pathelement location="${JAVA_HOME}/lib/tools.jar" />
+			</classpath>
+
+			<jvmarg line="-Dfiles=${src_dir} -DMDFDIR=${build_dir} -DpreserveStubs=true -DcreateStubs=true" />
+		</java>
+
+    </target>
+
+		
+	<target name="generateprovider" depends="clean, preparebuild">
+
+		<!-- Build the sample security providers' jar file -->
+		<java classname="weblogic.management.commo.WebLogicMBeanMaker" fork="true" failonerror="true">
+			<classpath>
+				<!--<pathelement path="${classpath}" />-->
+				<pathelement path="${lib}/weblogic.jar" />
+				<!--<pathelement path="${lib}/wlManagementMBean.jar" />-->
+				<pathelement location="${modules}/com.bea.core.mbean.maker_1.5.0.0.jar" />
+				<pathelement location="${mbeantypes}/cssWlSecurityProviders.jar" />
+				<pathelement location="${JAVA_HOME}/lib/tools.jar" />
+			</classpath>
+
+			<jvmarg line="-Dfiles=${build_dir} -DMDFDIR=${build_dir} -DMJF=${build_dir}/${jarfile} -DpreserveStubs=true -DcreateStubs=true" />
+		</java>
+			
+		<!-- Deploy the sample security providers -->
+		<copy todir="${mbeantypes}" flatten="true">
+			<fileset dir="${build_dir}">
+				<include name="${jarfile}" />
+			</fileset>
+		</copy>
+
+
+	</target>
+
+	<target name="clean">
+		<delete quiet="true" dir="${build_dir}" />
+		<delete quiet="true" dir="${class_dir}" />
+		<delete quiet="true" file="${mbeantypes}/${jarfile}" />
+	</target>
+
+</project>
