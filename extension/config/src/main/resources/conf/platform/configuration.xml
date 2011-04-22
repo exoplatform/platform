@@ -20,7 +20,7 @@
       <!-- The name of the default security realm -->
       <value-param>
         <name>default.realm.name</name>
-		<value>${exo.security.domain}</value> 
+        <value>${exo.security.domain}</value>
       </value-param>
       <object-param>
         <name>default.portal.definition</name>
@@ -138,8 +138,8 @@
               </value>
               <value>
                 <string>authoring-apps</string>
-              </value>              
-              
+              </value>
+
               <value profiles="workflow,all">
                 <string>ecmworkflow-extension</string>
               </value>
@@ -164,8 +164,6 @@
                 <string>social-extension</string>
               </value>
 
-
-
               <!-- Knowledge -->
               <value profiles="knowledge,all,default">
                 <string>ksResources</string>
@@ -179,7 +177,7 @@
               <value profiles="knowledge,all,default">
                 <string>poll</string>
               </value>
-			  <value profiles="knowledge,all,default">
+              <value profiles="knowledge,all,default">
                 <string>wiki</string>
               </value>
               <value profiles="knowledge,all,default">
@@ -193,11 +191,6 @@
               <value profiles="ide,all,default">
                 <string>IDE</string>
               </value>
-              <!-- TODO we need an IDE extension war to bundle configuration and easy desactivation
-              <value profiles="ide,all,default">
-                <string>ide-extension</string>
-              </value>
-               -->
                             
               <!-- Contains shared layout -->
               <value>

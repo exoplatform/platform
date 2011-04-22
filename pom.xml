@@ -23,21 +23,21 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-   <org.exoplatform.kernel.version>2.3.0-CR1</org.exoplatform.kernel.version>
-   <org.exoplatform.core.version>2.4.0-CR1</org.exoplatform.core.version>
-   <org.exoplatform.ws.version>2.2.0-CR1</org.exoplatform.ws.version>
-   <org.exoplatform.jcr.version>1.14.0-CR1</org.exoplatform.jcr.version>
-   <org.exoplatform.jcr-services.version>1.14.0-CR1</org.exoplatform.jcr-services.version>
-   <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
-   <org.exoplatform.commons.version>1.1.0-Beta02-SNAPSHOT</org.exoplatform.commons.version>
-   <org.exoplatform.gwtframework.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.gwtframework.version>
-   <org.exoplatform.ide.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.ide.version>
-   <org.xcmis.version>1.2-beta1</org.xcmis.version>
-   <org.exoplatform.cs.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.cs.version>
-   <org.exoplatform.ks.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.ks.version>
-   <org.exoplatform.ecms.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.ecms.version>
-   <org.exoplatform.social.version>1.2.0-Beta3-SNAPSHOT</org.exoplatform.social.version>    
-   <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
+    <org.exoplatform.kernel.version>2.3.0-CR1</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.4.0-CR1</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.2.0-CR1</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.14.0-CR1</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.14.0-CR1</org.exoplatform.jcr-services.version>
+    <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.commons.version>1.1.0-Beta02-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.gwtframework.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.ide.version>
+    <org.xcmis.version>1.2-beta1</org.xcmis.version>
+    <org.exoplatform.cs.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.ks.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.ks.version>
+    <org.exoplatform.ecms.version>2.2.0-Beta3-SNAPSHOT</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>1.2.0-Beta3-SNAPSHOT</org.exoplatform.social.version>
+    <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
     <org.crsh.version>1.0.0-beta15</org.crsh.version>
     <org.exoplatform.exopackage.version>1.1.1</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
@@ -74,24 +74,23 @@
     <org.hsqldb.version>2.0.0</org.hsqldb.version>
 	
 	<!-- Begin wiki properties -->
-  <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
-  <org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
-  <gwt.version>2.0.4</gwt.version>
-  <!-- smartgwt.version>2.3-nb01</smartgwt.version -->
-  <net.sourceforge.htmlcleaner.version>2.1</net.sourceforge.htmlcleaner.version>
+    <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
+    <org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
+    <gwt.version>2.0.4</gwt.version>
+    <!-- smartgwt.version>2.3-nb01</smartgwt.version -->
+    <net.sourceforge.htmlcleaner.version>2.1</net.sourceforge.htmlcleaner.version>
     <!--dependencies which Code Macro depends on-->
-  <jython-standalone.version>2.5.2b1-xwiki</jython-standalone.version>
-  <pygments.version>1.3.1-xwiki</pygments.version>
-  <!--column-macro.version>1.1-SNAPSHOT</column-macro.version-->
-    
-  <org.suigeneris.version>0.4.2</org.suigeneris.version>
-  <ecs.version>1.4.2</ecs.version>
+    <jython-standalone.version>2.5.2b1-xwiki</jython-standalone.version>
+    <pygments.version>1.3.1-xwiki</pygments.version>
+
+    <org.suigeneris.version>0.4.2</org.suigeneris.version>
+    <ecs.version>1.4.2</ecs.version>
     <!--dependencies which org.xwiki.platform:xwiki-core-properties depends on-->
-  <javax.validation.version>1.0.0.GA</javax.validation.version>
-  <hibernate-validator.version>4.0.0.GA</hibernate-validator.version>
-  <!-- End wiki properties -->        
-  
-  <commons-httpclient.version>3.1</commons-httpclient.version>
+    <javax.validation.version>1.0.0.GA</javax.validation.version>
+    <hibernate-validator.version>4.0.0.GA</hibernate-validator.version>
+    <!-- End wiki properties -->
+
+    <commons-httpclient.version>3.1</commons-httpclient.version>
     <!-- ***************************************************** -->
     <!-- Plugin versions (waiting for an upgrade in exo parent -->
     <!-- ***************************************************** -->
@@ -130,12 +129,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-archetype-plugin</artifactId>
-          <version>${version.archetype.plugin}</version>          
-        </plugin>      
+          <version>${version.archetype.plugin}</version>
+        </plugin>
         <plugin>
           <groupId>org.wikbook</groupId>
           <artifactId>wikbook.maven</artifactId>
-          <version>${version.wikbook.plugin}</version>          
+          <version>${version.wikbook.plugin}</version>
         </plugin>
         <plugin>
           <groupId>com.agilejava.docbkx</groupId>
@@ -145,7 +144,7 @@
         <plugin>
           <groupId>com.artofsolving</groupId>
           <artifactId>jodconverter-maven-plugin</artifactId>
-          <version>${version.jodconverter.plugin}</version>          
+          <version>${version.jodconverter.plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.jmeter</groupId>
@@ -155,7 +154,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>xml-maven-plugin</artifactId>
-          <version>${version.xml.plugin}</version>          
+          <version>${version.xml.plugin}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -168,11 +167,11 @@
         <version>${org.exoplatform.kernel.version}</version>
         <scope>provided</scope>
       </dependency>
-	  <dependency>
-	    <groupId>org.exoplatform.commons</groupId>
-	    <artifactId>exo.platform.commons.webui.ext</artifactId>
-	    <version>${org.exoplatform.commons.version}</version>
-	  </dependency>
+      <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>exo.platform.commons.webui.ext</artifactId>
+        <version>${org.exoplatform.commons.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.hsqldb</groupId>
         <artifactId>hsqldb</artifactId>

@@ -28,24 +28,24 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-	<dependency>
-		<groupId>org.exoplatform.ecms</groupId>
-		<artifactId>exo-ecms-core-services</artifactId>
-		<version>${org.exoplatform.ecms.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.exoplatform.social</groupId>
-		<artifactId>exo.social.component.common</artifactId>
-		<version>${org.exoplatform.social.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>org.exoplatform.social</groupId>
-		<artifactId>exo.social.component.core</artifactId>
-		<version>${org.exoplatform.social.version}</version>
-		<scope>provided</scope>
-	</dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-core-services</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.common</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.core</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>javax.portlet</groupId>
       <artifactId>portlet-api</artifactId>
@@ -61,35 +61,35 @@
     </dependency>
   </dependencies>
   <properties>
-  <timestamp>${maven.build.timestamp}</timestamp>
+    <timestamp>${maven.build.timestamp}</timestamp>
   </properties>
-	<build>
-	<plugins>
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>buildnumber-maven-plugin</artifactId>
-			<executions>
-			  <execution>
-				<phase>initialize</phase>
-				<goals>
-				  <goal>create</goal>
-				</goals>
-			  </execution>
-			</executions>
-			<configuration>
-				<timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
-			</configuration>	
-		</plugin>
-	</plugins>
-	<resources>
-		<resource>
-			<directory>src/main/resources</directory>
-			<filtering>true</filtering>
-			<includes>
-				<include>**/*.xml</include>
-				<include>**/*.properties</include>
-			</includes>
-		</resource>
-	</resources>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <timestampFormat>{0, date,yyyyMMdd}</timestampFormat>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
 </project>

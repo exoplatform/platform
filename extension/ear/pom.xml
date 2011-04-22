@@ -32,14 +32,14 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-	  <groupId>org.exoplatform.platform</groupId>
-	  <artifactId>exo.platform.upgrade.plugins</artifactId>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.upgrade.plugins</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
     </dependency>
     <dependency>
-	  <groupId>org.exoplatform.platform</groupId>
-	  <artifactId>exo.platform.component.organization</artifactId>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.organization</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
     </dependency>
@@ -61,12 +61,12 @@
       <artifactId>exo.platform.commons.component.product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
     </dependency>
-	<dependency>
-		<groupId>org.exoplatform.commons</groupId>
-		<artifactId>exo.platform.commons.component.upgrade</artifactId>
-		<version>${org.exoplatform.commons.version}</version>
-	</dependency>
-	<dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.component.upgrade</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui.ext</artifactId>
       <version>${org.exoplatform.commons.version}</version>
@@ -1099,7 +1099,8 @@
         <exclusion>
           <groupId>org.gatein.common</groupId>
           <artifactId>common-common</artifactId>
-        </exclusion>        <exclusion>
+        </exclusion>
+        <exclusion>
           <groupId>org.gatein.common</groupId>
           <artifactId>common-logging</artifactId>
         </exclusion>
@@ -1290,188 +1291,188 @@
   </dependencies>
   <build>
     <finalName>platform-extension</finalName>
-        <plugins>
-	      <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-ear-plugin</artifactId>
-		<configuration>
-		  <displayName>platform-extension</displayName>
-		  <defaultLibBundleDir>lib</defaultLibBundleDir>
-		  <modules>
-		    <webModule>
-		      <groupId>org.exoplatform.platform</groupId>
-		      <artifactId>exo.platform.extension.webapp</artifactId>
-		      <contextRoot>platform-extension</contextRoot>
-		      <bundleFileName>platform-extension.war</bundleFileName>
-		    </webModule>
-		    <webModule>
-		      <groupId>org.exoplatform.platform</groupId>
-		      <artifactId>exo.platform.extension.resources</artifactId>
-		      <contextRoot>eXoPlatformResources</contextRoot>
-		      <bundleFileName>eXoPlatformResources.war</bundleFileName>
-		    </webModule>
-                    <webModule>
-		      <groupId>org.exoplatform.platform</groupId>
-		      <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
-		      <contextRoot>platformNavigation</contextRoot>
-		      <bundleFileName>platformNavigation.war</bundleFileName>
-		    </webModule>
-                    <!-- IDE -->
-                    <webModule>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-client-gadget </artifactId>
-		      <contextRoot>IDE</contextRoot>
-		      <bundleFileName>IDE.war</bundleFileName>
-		    </webModule>
-                    <webModule>
-                      <groupId>org.exoplatform.gwt</groupId>
-                      <artifactId>exo-gwtframework-smartgwt</artifactId>
-                      <contextRoot>SmartGWT</contextRoot>
-		      <bundleFileName>SmartGWT.war</bundleFileName>
-		    </webModule>
-                    <jarModule>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-extension-gadget-server</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-extension-netvibes-server</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-                      <groupId>org.exoplatform.ide</groupId>
-                      <artifactId>exo-ide-extension-groovy-server</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.exoplatform.ide</groupId>
-		      <artifactId>exo-ide-server</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.exoplatform.core</groupId>
-                      <artifactId>exo.core.component.script.groovy</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <!-- Commons -->
-                    <jarModule>
-		      <groupId>org.exoplatform.commons</groupId>
-		      <artifactId>exo.platform.commons.webui.ext</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.exoplatform.commons</groupId>
-		      <artifactId>exo.platform.commons.comet.service</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <webModule>
-                      <groupId>org.exoplatform.commons</groupId>
-                      <artifactId>exo.platform.commons.comet.webapp</artifactId>
-		      <contextRoot>cometd</contextRoot>
-		      <bundleFileName>cometd.war</bundleFileName>
-		    </webModule>
-                    <webModule>
-                      <groupId>org.exoplatform.commons</groupId>
-                      <artifactId>exo.platform.commons.fck</artifactId>
-		      <contextRoot>fck</contextRoot>
-		      <bundleFileName>fck.war</bundleFileName>
-		    </webModule>
-                    <!-- xCMIS -->
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-renditions</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-restatom</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-search-model</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-search-parser-cmis</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-search-service</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.xcmis</groupId>
-		      <artifactId>xcmis-spi</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.exoplatform.ecms</groupId>
-                      <artifactId>exo-ecms-ext-xcmis-sp</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.abdera</groupId>
-                      <artifactId>abdera-client</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.abdera</groupId>
-                      <artifactId>abdera-core</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.abdera</groupId>
-                      <artifactId>abdera-i18n</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.abdera</groupId>
-                      <artifactId>abdera-parser</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.abdera</groupId>
-                      <artifactId>abdera-server</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.antlr</groupId>
-                      <artifactId>antlr-runtime</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.ws.commons.axiom</groupId>
-                      <artifactId>axiom-api</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.ws.commons.axiom</groupId>
-                      <artifactId>axiom-impl</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>jaxen</groupId>
-                      <artifactId>jaxen</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <jarModule>
-		      <groupId>org.apache.lucene</groupId>
-                      <artifactId>lucene-regex</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-                    <!-- Extension config -->
-		    <jarModule>
-		      <groupId>org.exoplatform.platform</groupId>
-		      <artifactId>exo.platform.extension.config</artifactId>
-		      <includeInApplicationXml>true</includeInApplicationXml>
-		    </jarModule>
-		  </modules>
-		</configuration>
-	      </plugin>
-	    </plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <displayName>platform-extension</displayName>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+          <modules>
+            <webModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.extension.webapp</artifactId>
+              <contextRoot>platform-extension</contextRoot>
+              <bundleFileName>platform-extension.war</bundleFileName>
+            </webModule>
+            <webModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.extension.resources</artifactId>
+              <contextRoot>eXoPlatformResources</contextRoot>
+              <bundleFileName>eXoPlatformResources.war</bundleFileName>
+            </webModule>
+            <webModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
+              <contextRoot>platformNavigation</contextRoot>
+              <bundleFileName>platformNavigation.war</bundleFileName>
+            </webModule>
+            <!-- IDE -->
+            <webModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-client-gadget </artifactId>
+              <contextRoot>IDE</contextRoot>
+              <bundleFileName>IDE.war</bundleFileName>
+            </webModule>
+            <webModule>
+              <groupId>org.exoplatform.gwt</groupId>
+              <artifactId>exo-gwtframework-smartgwt</artifactId>
+              <contextRoot>SmartGWT</contextRoot>
+              <bundleFileName>SmartGWT.war</bundleFileName>
+            </webModule>
+            <jarModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-extension-gadget-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-extension-netvibes-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-extension-groovy-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.core</groupId>
+              <artifactId>exo.core.component.script.groovy</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <!-- Commons -->
+            <jarModule>
+              <groupId>org.exoplatform.commons</groupId>
+              <artifactId>exo.platform.commons.webui.ext</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.commons</groupId>
+              <artifactId>exo.platform.commons.comet.service</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <webModule>
+              <groupId>org.exoplatform.commons</groupId>
+              <artifactId>exo.platform.commons.comet.webapp</artifactId>
+              <contextRoot>cometd</contextRoot>
+              <bundleFileName>cometd.war</bundleFileName>
+            </webModule>
+            <webModule>
+              <groupId>org.exoplatform.commons</groupId>
+              <artifactId>exo.platform.commons.fck</artifactId>
+              <contextRoot>fck</contextRoot>
+              <bundleFileName>fck.war</bundleFileName>
+            </webModule>
+            <!-- xCMIS -->
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-renditions</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-restatom</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-search-model</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-search-parser-cmis</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-search-service</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.xcmis</groupId>
+              <artifactId>xcmis-spi</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.ecms</groupId>
+              <artifactId>exo-ecms-ext-xcmis-sp</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.abdera</groupId>
+              <artifactId>abdera-client</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.abdera</groupId>
+              <artifactId>abdera-core</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.abdera</groupId>
+              <artifactId>abdera-i18n</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.abdera</groupId>
+              <artifactId>abdera-parser</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.abdera</groupId>
+              <artifactId>abdera-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.antlr</groupId>
+              <artifactId>antlr-runtime</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.ws.commons.axiom</groupId>
+              <artifactId>axiom-api</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.ws.commons.axiom</groupId>
+              <artifactId>axiom-impl</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>jaxen</groupId>
+              <artifactId>jaxen</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.apache.lucene</groupId>
+              <artifactId>lucene-regex</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <!-- Extension config -->
+            <jarModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.extension.config</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+          </modules>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
