@@ -26,9 +26,11 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.UINavigationManagement;
 import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
+import org.exoplatform.portal.webui.page.UIPageNodeForm;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -36,20 +38,37 @@ import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
 
-@ComponentConfig(
-    template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl",
-    events = {
-      @EventConfig(listeners = UIAdminToolbarContainer.ChangeEditingActionListener.class),
-      @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class)
-    }
-)
+
+@ComponentConfigs({
+  @ComponentConfig(
+      template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl",
+      events = {
+        @EventConfig(listeners = UIAdminToolbarContainer.ChangeEditingActionListener.class),
+        @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class)
+      }
+  ),
+  @ComponentConfig(type = UIPageNodeForm.class, lifecycle = UIFormLifecycle.class,
+      template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class),
+        @EventConfig(listeners = UIAdminToolbarContainer.BackActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageNodeForm.SwitchPublicationDateActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageNodeForm.SwitchVisibleActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageNodeForm.ClearPageActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageNodeForm.CreatePageActionListener.class, phase = Phase.DECODE)
+      }
+  )
+})
 public class UIAdminToolbarContainer extends UIPortletApplication {
 
   public UIAdminToolbarContainer() throws Exception {
@@ -156,4 +175,33 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
   }
 
+  static public class BackActionListener extends EventListener<UIPageNodeForm>
+  {
+
+     public void execute(Event<UIPageNodeForm> event) throws Exception
+     {
+        UIPageNodeForm uiPageNodeForm = event.getSource();
+        PageNavigation contextNavigation = uiPageNodeForm.getContextPageNavigation();
+        UIAdminToolbarContainer uiAdminToolbarContainer = uiPageNodeForm.getAncestorOfType(UIAdminToolbarContainer.class);
+        UIPopupWindow uiNavigationPopup = uiAdminToolbarContainer.getChild(UIPopupWindow.class);
+        UINavigationManagement navigationManager = uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
+        navigationManager.setOwner(contextNavigation.getOwnerId());
+        navigationManager.setOwnerType(contextNavigation.getOwnerType());
+        UINavigationNodeSelector selector = navigationManager.getChild(UINavigationNodeSelector.class);
+        
+        selector.setEdittedNavigation(uiPageNodeForm.getContextPageNavigation());
+        selector.initTreeData();
+        
+        if (uiPageNodeForm.getSelectedParent() instanceof PageNode)
+        {
+           PageNode selectedParent = (PageNode)uiPageNodeForm.getSelectedParent();
+           selector.selectPageNodeByUri(selectedParent.getUri());
+        }
+        
+        uiNavigationPopup.setUIComponent(navigationManager);
+        uiNavigationPopup.setWindowSize(400, 400);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup.getParent());
+     }
+
+  }
 }

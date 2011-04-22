@@ -67,7 +67,7 @@
 	line-height: 31px;
 	font-weight: normal;
 	text-align: left;
-	float: none;
+	float: left;
 	width: auto !important;
 	padding-right: 0;
 }
