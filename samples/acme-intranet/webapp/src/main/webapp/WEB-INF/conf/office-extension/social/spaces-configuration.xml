@@ -327,5 +327,20 @@
 		  </init-params>
 		</component-plugin>
 	</external-component-plugins>
+	<external-component-plugins>
+		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
+		<component-plugin>
+		  <name>SpaceDriveViewInitializer</name>
+		  <set-method>addSpaceListener</set-method>
+		  <type>org.exoplatform.platform.common.space.listeners.CustomizeSpaceDriveListener</type>
+		  <description>This listener will add space manager permission to the given view</description>
+		  <init-params>
+			<value-param>
+				<name>space.drive.view</name>
+				<value>Spacemanagement-Document-View</value>
+			</value-param>
+		  </init-params>
+		</component-plugin>
+	</external-component-plugins>
 	
 </configuration>

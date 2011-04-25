@@ -52,6 +52,31 @@
               </field>
 		        </object>
 		      </object-param>  
+			<object-param>	      
+				<name>Spacemanagement-Document-View</name>
+				<description>View configuration for Space Managers</description>
+				<object type="org.exoplatform.services.cms.views.ViewConfig">		          
+					<field name="name"><string>Spacemanagement-Document-View</string></field>
+					<!-- 
+					should be portal.administrator.mstype:portal.administrator.groups 
+					for more details see portal.war/WEB-INF/conf/portal/portal-configuration.xml
+					-->
+					<field name="permissions"><string>manager:/platform/administrators</string></field>
+					<field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>	
+					<field name="tabList">
+					<collection type="java.util.ArrayList">
+						<value>
+						<object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+							<field name="tabName"><string>Actions</string></field>
+							<field name="buttons">
+								<string>addDocument; editDocument; upload; addFolder; manageVersions; managePublications; manageCategories; manageRelations; viewProperties; exportNode; importNode</string>
+							</field>
+						</object>
+						</value>
+					</collection>
+					</field>
+				</object>
+			</object-param>  
 	      </init-params>	
       </component-plugin> 
   </external-component-plugins>
