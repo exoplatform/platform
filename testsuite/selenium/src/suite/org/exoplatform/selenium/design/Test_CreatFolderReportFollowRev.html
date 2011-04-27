@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://ci.exoplatform.org/" />
+<title>Test_CreatFolderReportFollowRev</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_CreatFolderReportFollowRev</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//td[@id='login-field']/span/a/b</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>j_username</td>
+	<td>linh_vu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_username</td>
+	<td>linh_vu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>j_password</td>
+	<td>YghuBei</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//button[text()='log in']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Go to PACKAGING</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'PACKAGING')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'PACKAGING')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Choose platform-3.0.x-pkg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='projectstatus']//a[@href='job/platform-3.0.x-pkg/']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//table[@id='projectstatus']//a[@href='job/platform-3.0.x-pkg/']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Recent Changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Recent Changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Recent Changes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Store Rev</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='main-panel']//li[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>//td[@id='main-panel']//li[1]@value</td>
+	<td>newsetRev</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Get date current</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>now = new Date(); now.getFullYear();</td>
+	<td>Year</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>now = new Date(); months=now.getMonth()+1; if (months&lt;10){months=&quot;0&quot;+months};</td>
+	<td>Month</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>now = new Date(); dates=now.getDate();if (dates&lt;10){dates=&quot;0&quot;+dates};</td>
+	<td>Date</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Year + Month + Date</td>
+	<td>currentday</td>
+</tr>
+<tr>
+	<td>CreateFolderReport</td>
+	<td>currentday</td>
+	<td>newsetRev</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
