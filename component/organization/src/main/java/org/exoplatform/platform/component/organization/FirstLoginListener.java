@@ -28,13 +28,13 @@ import org.exoplatform.services.security.ConversationState;
  * 
  * @author Boubaker KHANFIR
  */
-public class AuthenticationLoginListener extends Listener<ConversationRegistry, ConversationState> {
+public class FirstLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
-  private static final Log LOG = ExoLogger.getLogger(AuthenticationLoginListener.class);
+  private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
 
   private OrganizationIntegrationService organizationIntegrationService;
 
-  public AuthenticationLoginListener(OrganizationIntegrationService organizationIntegrationService) throws Exception {
+  public FirstLoginListener(OrganizationIntegrationService organizationIntegrationService) throws Exception {
     this.organizationIntegrationService = organizationIntegrationService;
   }
 
@@ -46,7 +46,7 @@ public class AuthenticationLoginListener extends Listener<ConversationRegistry, 
     if (LOG.isDebugEnabled()) {
       LOG.debug("Apply listeners for user" + userId);
     }
-    organizationIntegrationService.applyUserListeners(userId);
+    organizationIntegrationService.invokeUserListeners(userId, EventType.ADDED.toString());
     if (LOG.isDebugEnabled()) {
       LOG.debug("User listeners applied for " + userId);
     }

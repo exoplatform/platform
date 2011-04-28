@@ -16,6 +16,8 @@
  */
 package org.exoplatform.platform.component.organization;
 
+import javax.jcr.Session;
+
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
@@ -39,8 +41,16 @@ public class NewUserListener extends UserEventListener {
    * {@inheritDoc}
    */
   public void postSave(User user, boolean isNew) throws Exception {
-    if (!Util.hasUserFolder(repositoryService, user)) {
-      Util.createUserFolder(repositoryService, user);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (!Util.hasUserFolder(session, user.getUserName())) {
+        Util.createUserFolder(session, user.getUserName());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 
@@ -48,8 +58,16 @@ public class NewUserListener extends UserEventListener {
    * {@inheritDoc}
    */
   public void postDelete(User user) throws Exception {
-    if (Util.hasUserFolder(repositoryService, user)) {
-      Util.deleteUserFolder(repositoryService, user);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (Util.hasUserFolder(session, user.getUserName())) {
+        Util.deleteUserFolder(session, user.getUserName());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 }

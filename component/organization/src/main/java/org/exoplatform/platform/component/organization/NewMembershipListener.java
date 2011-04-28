@@ -16,6 +16,8 @@
  */
 package org.exoplatform.platform.component.organization;
 
+import javax.jcr.Session;
+
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
@@ -39,8 +41,16 @@ public class NewMembershipListener extends MembershipEventListener {
    * {@inheritDoc}
    */
   public void postSave(Membership m, boolean isNew) throws Exception {
-    if (!Util.hasMembershipFolder(repositoryService, m)) {
-      Util.createMembershipFolder(repositoryService, m);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (!Util.hasMembershipFolder(session, m)) {
+        Util.createMembershipFolder(session, m);
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 
@@ -48,8 +58,16 @@ public class NewMembershipListener extends MembershipEventListener {
    * {@inheritDoc}
    */
   public void postDelete(Membership m) throws Exception {
-    if (Util.hasMembershipFolder(repositoryService, m)) {
-      Util.deleteMembershipFolder(repositoryService, m);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (Util.hasMembershipFolder(session, m)) {
+        Util.deleteMembershipFolder(session, m);
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 }

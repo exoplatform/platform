@@ -16,6 +16,8 @@
  */
 package org.exoplatform.platform.component.organization;
 
+import javax.jcr.Session;
+
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
@@ -39,8 +41,16 @@ public class NewGroupListener extends GroupEventListener {
    * {@inheritDoc}
    */
   public void postSave(Group group, boolean isNew) throws Exception {
-    if (!Util.hasGroupFolder(repositoryService, group)) {
-      Util.createGroupFolder(repositoryService, group);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (!Util.hasGroupFolder(session, group.getId())) {
+        Util.createGroupFolder(session, group.getId());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 
@@ -48,8 +58,16 @@ public class NewGroupListener extends GroupEventListener {
    * {@inheritDoc}
    */
   public void postDelete(Group group) throws Exception {
-    if (Util.hasGroupFolder(repositoryService, group)) {
-      Util.deleteGroupFolder(repositoryService, group);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (Util.hasGroupFolder(session, group.getId())) {
+        Util.deleteGroupFolder(session, group.getId());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 }

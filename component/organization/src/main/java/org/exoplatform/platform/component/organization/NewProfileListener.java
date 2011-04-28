@@ -16,6 +16,8 @@
  */
 package org.exoplatform.platform.component.organization;
 
+import javax.jcr.Session;
+
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
@@ -39,8 +41,16 @@ public class NewProfileListener extends UserProfileEventListener {
    * {@inheritDoc}
    */
   public void postSave(UserProfile user, boolean isNew) throws Exception {
-    if (!Util.hasProfileFolder(repositoryService, user)) {
-      Util.createProfileFolder(repositoryService, user);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (!Util.hasProfileFolder(session, user.getUserName())) {
+        Util.createProfileFolder(session, user.getUserName());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 
@@ -48,8 +58,16 @@ public class NewProfileListener extends UserProfileEventListener {
    * {@inheritDoc}
    */
   public void postDelete(UserProfile user) throws Exception {
-    if (Util.hasProfileFolder(repositoryService, user)) {
-      Util.deleteProfileFolder(repositoryService, user);
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (Util.hasProfileFolder(session, user.getUserName())) {
+        Util.deleteProfileFolder(session, user.getUserName());
+      }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
     }
   }
 }

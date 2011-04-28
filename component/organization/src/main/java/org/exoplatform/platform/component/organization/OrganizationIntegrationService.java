@@ -56,6 +56,10 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
+import org.exoplatform.services.organization.impl.GroupImpl;
+import org.exoplatform.services.organization.impl.MembershipImpl;
+import org.exoplatform.services.organization.impl.UserImpl;
+import org.exoplatform.services.organization.impl.UserProfileImpl;
 import org.picocontainer.Startable;
 
 /**
@@ -168,8 +172,6 @@ public class OrganizationIntegrationService implements Startable {
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
       Util.init(session);
-
-      invokeAllGroupsListeners();
     } catch (Exception e) {
       LOG.error(e);
     } finally {
@@ -193,7 +195,6 @@ public class OrganizationIntegrationService implements Startable {
       return;
     Collections.sort(plugins, COMPONENT_PLUGIN_COMPARATOR);
     for (org.exoplatform.container.xml.ComponentPlugin plugin : plugins) {
-
       try {
         Class<?> pluginClass = Class.forName(plugin.getType());
         ComponentPlugin cplugin = (ComponentPlugin) container.createComponent(pluginClass, plugin.getInitParams());
@@ -208,12 +209,13 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   /**
-   * Add a selected OrganizationService listener to
-   * OrganizationIntegrationService
+   * Add a listener instance to dedicated list of one organization element.
    * 
    * @param listener
+   *          have to extends UserEventListener, GroupEventListener,
+   *          MembershipEventListener or UserProfileEventListener.
    */
-  public synchronized void addListenerPlugin(ComponentPlugin listener) {
+  public void addListenerPlugin(ComponentPlugin listener) {
     if (listener instanceof OrganizationServiceInitializer) {
       return;
     } else if (listener instanceof UserEventListener) {
@@ -234,28 +236,17 @@ public class OrganizationIntegrationService implements Startable {
    */
   @Managed
   @ManagedDescription("invoke all organization model listeners")
-  @Impact(ImpactType.WRITE)
+  @Impact(ImpactType.READ)
   public void invokeAllListeners() {
+    LOG.info("All groups, users, profiles and memberships listeners invocation");
+
     startRequest();
     try {
-      PageList<User> users = organizationService.getUserHandler().getUserPageList(USERS_PAGE_SIZE);
-      int availablePages = users.getAvailablePage();
+      invokeGroupsListeners(EventType.ADDED.toString());
+      invokeGroupsListeners(EventType.DELETED.toString());
 
-      LOG.info("Apply listeners for all users");
-      for (int i = 1; i <= availablePages; i++) {
-        List<User> tmpUsers = users.getPage(i);
-        for (User user : tmpUsers) {
-          applyUserListeners(user.getUserName());
-          startRequest();
-        }
-      }
-
-      LOG.info("Apply listeners for all groups");
-      List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
-      Collections.sort(groups, GROUP_COMPARATOR);
-      for (Group group : groups) {
-        applyGroupListeners(group);
-      }
+      invokeUsersListeners(EventType.ADDED.toString());
+      invokeUsersListeners(EventType.DELETED.toString());
     } catch (Exception e) {
       LOG.error(e);
     }
@@ -266,23 +257,85 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   /**
-   * Apply OrganizationService listeners to all Organization Model Elements
-   * (Users, Groups, Profile & Memberships)
+   * Invoke Groups listeners to all Organization Model Elements
+   * 
+   * @param eventType
+   *          ADDED/DELETED/UPDATED
+   * @throws Exception
+   *           JCR or IDM operation failure
    */
   @Managed
   @ManagedDescription("invoke all groups listeners")
-  @Impact(ImpactType.WRITE)
-  public void invokeAllGroupsListeners() {
+  @Impact(ImpactType.READ)
+  public void invokeGroupsListeners(
+      @ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType) throws Exception {
+    LOG.info("All Groups listeners invocation, operation= " + eventType);
+
     startRequest();
-    try {
-      LOG.info("Apply groups listeners");
-      List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
-      Collections.sort(groups, GROUP_COMPARATOR);
-      for (Group group : groups) {
-        applyGroupListeners(group);
+
+    List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
+    // Invoke listeners on groups, starting from parent groups to children
+    Collections.sort(groups, GROUP_COMPARATOR);
+
+    EventType event = EventType.valueOf(eventType);
+    switch (event) {
+      case DELETED: {
+        // Invoke delete listeners on groups, starting from children groups
+        // to parent
+        Collections.reverse(groups);
+        // Search for deleted groups, and invoke
+        // GroupEventListener#preDelete and #postDelete
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedGroups = Util.getActivatedGroups(session);
+          for (Group group : groups) {
+            activatedGroups.remove(group.getId());
+          }
+          for (String groupId : activatedGroups) {
+            invokeGroupListeners(groupId, eventType);
+          }
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
       }
-    } catch (Exception e) {
-      LOG.error("Error occured when invoking listeners of all groups.", e);
+      case UPDATED: {
+        // Search for added groups that aren't yet integrated
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedGroups = Util.getActivatedGroups(session);
+          for (String groupId : activatedGroups) {
+            invokeGroupListeners(groupId, eventType);
+          }
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
+      case ADDED: {
+        // Search for added groups that aren't yet integrated
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedGroups = Util.getActivatedGroups(session);
+          for (Group group : groups) {
+            if (!activatedGroups.contains(group.getId())) {
+              invokeGroupListeners(group.getId(), eventType);
+            }
+          }
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
     }
     endRequest();
 
@@ -291,26 +344,126 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   /**
-   * Apply OrganizationService listeners on selected groups
+   * Apply OrganizationService listeners on a selected group.
    * 
    * @param groupId
    *          The group Identifier
+   * @param eventType
+   *          ADDED/UPDATED/DELETED
    */
   @Managed
   @ManagedDescription("invoke a group listeners")
   @Impact(ImpactType.WRITE)
-  public void applyGroupListeners(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId) {
+  public void invokeGroupListeners(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
+      @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
+    LOG.info("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
     startRequest();
-    try {
-      Group group = organizationService.getGroupHandler().findGroupById(groupId);
-      applyGroupListeners(group);
-    } catch (Exception e) {
-      LOG.error("Error occured when invoking listeners of group: " + groupId, e);
+    EventType event = EventType.valueOf(eventType);
+    switch (event) {
+      case DELETED: {
+        {
+          Session session = null;
+          try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+
+            List<Group> groups = Util.getActivatedChildrenGroup(session, groupId);
+
+            Collections.sort(groups, GROUP_COMPARATOR);
+            Collections.reverse(groups);
+            for (Group group : groups) {
+              invokeDeleteGroupListeners(group.getId());
+            }
+          } catch (Exception e) {
+
+          } finally {
+            if (session != null) {
+              session.logout();
+            }
+          }
+          invokeDeleteGroupListeners(groupId);
+        }
+        break;
+      }
+      case ADDED:
+      case UPDATED: {
+        try {
+          Group group = organizationService.getGroupHandler().findGroupById(groupId);
+          if (group == null) {
+            LOG.warn("\t\t" + groupId + " group wasn't found.");
+            return;
+          }
+          invokeListenersToSavedGroup(group, event.equals(EventType.ADDED));
+        } catch (Exception e) {
+          LOG.error("\t\t" + "Error occured while invoking listeners of group: " + groupId, e);
+        }
+        break;
+      }
     }
     endRequest();
 
     // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();;
+    startRequest();
+  }
+
+  private void invokeDeleteGroupListeners(String groupId) {
+    try {
+      Group group = organizationService.getGroupHandler().findGroupById(groupId);
+      if (group != null) {
+        LOG.warn("\t\tGroup exists: can't invoke delete listeners on the existant group : " + groupId);
+        return;
+      }
+    } catch (Exception exception) {
+      LOG.error("\t\tException while trying to get a group instance with id : " + groupId + ", it may has been deleted."
+          + exception.getMessage());
+    }
+
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (!Util.hasGroupFolder(session, groupId)) {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("\t\tGroup doesn't existed or has been already deleted.");
+        }
+        return;
+      }
+      List<Membership> memberships = Util.getActivatedMembershipsRelatedToGroup(session, groupId);
+      for (Membership membership : memberships) {
+        // Memberships could be managed internally in eXo Datasource,
+        // so synchronize with the remote Datasources by removing all
+        // memberships of deleted group
+        Membership tmpMembership = organizationService.getMembershipHandler().removeMembership(membership.getId(), true);
+        if (tmpMembership == null) { // if the Membership doesn't exist
+                                     // in datasource, then it's not
+                                     // deleted, and so listeners
+                                     // aren't triggered, in this case
+                                     // force the listeners execution
+          invokeMembershipListeners(membership.getUserName(), membership.getGroupId(), membership.getMembershipType(),
+              EventType.DELETED.toString());
+        }
+      }
+
+    } catch (Exception exception) {
+      LOG.error("\t\tCouldn't process deletion of Memberships related to the group : " + groupId, exception);
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
+    }
+    GroupImpl group = new GroupImpl(groupId);
+    group.setId(groupId);
+    Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
+    for (GroupEventListener groupEventListener : groupDAOListeners) {
+      try {
+        groupEventListener.preDelete(group);
+      } catch (Exception e) {
+        LOG.warn("\t\tFailed to call preDelete on " + group.getId() + " Group, listener = " + groupEventListener.getClass(), e);
+      }
+      try {
+        groupEventListener.postDelete(group);
+      } catch (Exception e) {
+        LOG.warn("\t\tFailed to call postDelete on " + group.getId() + " Group, listener = " + groupEventListener.getClass(), e);
+      }
+    }
   }
 
   /**
@@ -321,126 +474,534 @@ public class OrganizationIntegrationService implements Startable {
    */
   @Managed
   @ManagedDescription("invoke a user listeners")
-  @Impact(ImpactType.WRITE)
-  public void applyUserListeners(@ManagedDescription("User name") @ManagedName("username") String username) {
-    startRequest();
-    try {
-      User user = organizationService.getUserHandler().findUserByName(username);
-      if (user.getCreatedDate() == null) {
-        user.setCreatedDate(new Date());
-      }
-      if (!Util.hasUserFolder(repositoryService, user)) {
-        LOG.info("\tApply listeners for user: " + username);
-        Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
-        for (UserEventListener userEventListener : userDAOListeners) {
-          try {
-            userEventListener.preSave(user, true);
-            startRequest();
-            userEventListener.postSave(user, true);
-          } catch (Exception e) {
-            LOG.warn("Failed to initialize " + username + " User with listener : " + userEventListener.getClass(), e);
+  @Impact(ImpactType.READ)
+  public void invokeUsersListeners(
+      @ManagedDescription("Event type: added/updated/deleted") @ManagedName("eventType") String eventType) {
+    LOG.info("All users listeners invocation, eventType = " + eventType);
+    EventType event = EventType.valueOf(eventType);
+    Session session = null;
+    switch (event) {
+      case DELETED: {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("\tSearch for deleted users and invoke related listeners.");
+        }
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedUsers = Util.getActivatedUsers(session);
+
+          PageList<User> users = organizationService.getUserHandler().getUserPageList(USERS_PAGE_SIZE);
+          int availablePages = users.getAvailablePage();
+
+          for (int i = 1; i <= availablePages; i++) {
+            List<User> tmpUsers = users.getPage(i);
+            for (User user : tmpUsers) {
+              activatedUsers.remove(user.getUserName());
+            }
+          }
+          for (String username : activatedUsers) {
+            invokeUserListeners(username, eventType);
+          }
+        } catch (Exception e) {
+          LOG.error("\t\tUnknown error was occured while preparing to proceed users deletion", e);
+        } finally {
+          if (session != null) {
+            session.logout();
           }
         }
+        break;
       }
-    } catch (Exception e) {
-      LOG.warn("Failed to initialize " + username + " User", e);
-    }
-    endRequest();
-    applyUserProfileListeners(username);
-    applyMembershipsListeners(username);
-
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
-  }
-
-  private void applyMembershipsListeners(String username) {
-    startRequest();
-    try {
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
-      for (Object objectMembership : memberships) {
-        Membership membership = (Membership) objectMembership;
-        Group group = organizationService.getGroupHandler().findGroupById(membership.getGroupId());
-        applyGroupListeners(group);
+      case UPDATED: {
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("\tAll users update invocation: Search for already existing users in Datasource and that are already integrated.");
+        }
         try {
-          if (!Util.hasMembershipFolder(repositoryService, membership)) {
-            LOG.info("\tApply listeners for membership : " + membership.getId());
-            Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
-            for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
-              try {
-                membershipEventListener.preSave(membership, true);
-                membershipEventListener.postSave(membership, true);
-              } catch (Exception e) {
-                LOG.warn("Failed to initialize " + username + " Membership (" + membership.getId() + ") listener = "
-                    + membershipEventListener.getClass(), e);
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedUsers = Util.getActivatedUsers(session);
+          for (String username : activatedUsers) {
+            invokeUserListeners(username, eventType);
+          }
+        } catch (Exception e) {
+          LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
+      case ADDED: {
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          List<String> activatedUsers = Util.getActivatedUsers(session);
+
+          if (LOG.isDebugEnabled()) {
+            LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
+          }
+          PageList<User> users = organizationService.getUserHandler().getUserPageList(USERS_PAGE_SIZE);
+          int availablePages = users.getAvailablePage();
+
+          for (int i = 1; i <= availablePages; i++) {
+            List<User> tmpUsers = users.getPage(i);
+            for (User user : tmpUsers) {
+              if (!activatedUsers.contains(user.getUserName())) {
+                invokeUserListeners(user.getUserName(), eventType);
               }
             }
           }
         } catch (Exception e) {
-          LOG.warn("Failed to initialize " + username + " Membership (" + membership.getId() + ")", e);
+          LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
         }
+        break;
       }
-    } catch (Exception e) {
-      LOG.warn("Failed to initialize " + username + " Memberships listeners", e);
+    }
+  }
+
+  /**
+   * Apply OrganizationService listeners on selected User
+   * 
+   * @param username
+   *          The user name
+   * @param eventType
+   *          ADDED/UPDATED/DELETED
+   */
+  @Managed
+  @ManagedDescription("invoke a user listeners")
+  @Impact(ImpactType.READ)
+  public void invokeUserListeners(@ManagedDescription("User name") @ManagedName("username") String username,
+      @ManagedDescription("Event type") @ManagedName("eventType") String eventType) {
+    LOG.info("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
+    EventType event = EventType.valueOf(eventType);
+    startRequest();
+    switch (event) {
+      case DELETED: {
+        User user = null;
+        try {
+          user = organizationService.getUserHandler().findUserByName(username);
+        } catch (Exception e) {
+          LOG.warn("\t\tError occured while verifying if user is present in Datasource or not."
+              + " This may not cause a problem :" + e.getMessage());
+        }
+        if (user != null) {
+          LOG.warn("\t\tUser exists: can't invoke delete listeners on the existant user : " + username);
+          return;
+        }
+        invokeUserMembershipsListeners(username, event);
+        invokeUserProfileListeners(username, event);
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          if (Util.hasUserFolder(session, username)) {
+            LOG.info("\t\tProceed user deletion: " + username);
+            user = new UserImpl(username);
+            Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
+            for (UserEventListener userEventListener : userDAOListeners) {
+              try {
+                userEventListener.preDelete(user);
+              } catch (Exception e) {
+                LOG.error(
+                    "\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
+              }
+              try {
+                startRequest();
+                userEventListener.postDelete(user);
+              } catch (Exception e) {
+                LOG.error(
+                    "\t\tFailed to call postDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
+              }
+            }
+          }
+        } catch (Exception e) {
+          LOG.error("\t\tFailed to initialize " + username + " User", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        endRequest();
+        break;
+      }
+      case ADDED:
+      case UPDATED: {
+        Session session = null;
+        try {
+          boolean isNew = event.equals(EventType.ADDED);
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          if (!isNew || !Util.hasUserFolder(session, username)) {
+            User user = organizationService.getUserHandler().findUserByName(username);
+            if (user.getCreatedDate() == null) {
+              user.setCreatedDate(new Date());
+            }
+            Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
+            for (UserEventListener userEventListener : userDAOListeners) {
+              try {
+                userEventListener.preSave(user, isNew);
+              } catch (Exception e) {
+                LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
+                    e);
+              }
+              try {
+                startRequest();
+                userEventListener.postSave(user, isNew);
+              } catch (Exception e) {
+                LOG.warn("\t\tFailed to call postSave for " + username + " User with listener : " + userEventListener.getClass(),
+                    e);
+              }
+            }
+          }
+        } catch (Exception e) {
+          LOG.warn("\t\tFailed to call listeners for " + username + " User", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        endRequest();
+        invokeUserProfileListeners(username, event);
+        invokeUserMembershipsListeners(username, event);
+        break;
+      }
+    }
+    // TODO: delete this instruction when EXOGTN-347 will be fixed
+    startRequest();
+  }
+
+  /**
+   * trigger ADD,UPDATE or DELETE membership listeners. The membership is
+   * identified by the username, groupId and membershipType.
+   * 
+   * @param username
+   * @param groupId
+   * @param membershipType
+   * @param eventType
+   */
+  @Managed
+  @ManagedDescription("invoke a user listeners")
+  @Impact(ImpactType.READ)
+  public void invokeMembershipListeners(@ManagedDescription("User name") @ManagedName("username") String username,
+      @ManagedDescription("group identifier") @ManagedName("groupId") String groupId,
+      @ManagedDescription("membership type") @ManagedName("membershipType") String membershipType,
+      @ManagedDescription("event type") @ManagedName("eventType") String eventType) {
+    LOG.info("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
+        + username + ":" + groupId);
+
+    EventType event = EventType.valueOf(eventType);
+    startRequest();
+    switch (event) {
+      case DELETED: {
+        try {
+          Membership membership = null;
+          try {
+            membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username, groupId,
+                membershipType);
+          } catch (Exception e) {
+            LOG.warn("\t\tError occured while verifying if membership is present in Datasource or not. This may not cause a problem :"
+                + e.getMessage());
+          }
+          if (membership != null) {
+            LOG.warn("\t\tMembership exists: can't invoke delete listeners on the existant membership : " + membership.getId());
+            return;
+          }
+          {
+            membership = new MembershipImpl();
+            ((MembershipImpl) membership).setGroupId(groupId);
+            ((MembershipImpl) membership).setUserName(username);
+            ((MembershipImpl) membership).setMembershipType(membershipType);
+            ((MembershipImpl) membership).setId(Util.computeId(membership));
+          }
+          try {
+            Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
+            for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
+              try {
+                membershipEventListener.preDelete(membership);
+              } catch (Exception e) {
+                LOG.error("\t\tFailed to call preDelete on " + username + " Membership (" + membership.getId() + ") listener = "
+                    + membershipEventListener.getClass(), e);
+              }
+              try {
+                membershipEventListener.postDelete(membership);
+              } catch (Exception e) {
+                LOG.error("\t\tFailed to call postDelete on " + username + " Membership (" + membership.getId() + ") listener = "
+                    + membershipEventListener.getClass(), e);
+              }
+            }
+          } catch (Exception e) {
+            LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
+          }
+        } catch (Exception e) {
+          LOG.error("\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+        }
+        break;
+      }
+      case ADDED:
+      case UPDATED: {
+        boolean isNew = EventType.ADDED.equals(eventType);
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          Membership membership = organizationService.getMembershipHandler().findMembershipByUserGroupAndType(username, groupId,
+              membershipType);
+          try {
+            if (!Util.hasGroupFolder(session, groupId)) {
+              invokeGroupListeners(groupId, EventType.ADDED.toString());
+            }
+            if (!Util.hasUserFolder(session, username)) {
+              invokeUserListeners(username, EventType.ADDED.toString());
+            }
+            if (membership != null && (!isNew || !Util.hasMembershipFolder(session, membership))) {
+              Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
+              for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
+                try {
+                  membershipEventListener.preSave(membership, isNew);
+                } catch (Exception e) {
+                  LOG.error("\t\tFailed to call preSave on Membership (" + membership.getId() + ",isNew = " + isNew
+                      + ") listener = " + membershipEventListener.getClass(), e);
+                }
+                try {
+                  membershipEventListener.postSave(membership, isNew);
+                } catch (Exception e) {
+                  LOG.error("\t\tFailed to call postSave on Membership (" + membership.getId() + ") listener = "
+                      + membershipEventListener.getClass(), e);
+                }
+              }
+            }
+          } catch (Exception e) {
+            LOG.error("\t\tFailed to call listeners on Membership (" + membership.getId() + ")", e);
+          }
+        } catch (Exception e) {
+          LOG.error("\t\tFailed to call listeners on " + username + " Memberships listeners", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
     }
     endRequest();
   }
 
-  private void applyUserProfileListeners(String username) {
+  private void invokeUserMembershipsListeners(String username, EventType eventType) {
+    LOG.info("\t\tMemberships listeners invocation, operation= " + eventType + ", for user= " + username);
     startRequest();
-    try {
-      UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-      if (userProfile == null) {
-        userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
-        organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
-        userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
-      }
-      if (!Util.hasProfileFolder(repositoryService, userProfile)) {
-        LOG.info("\tApply listeners for user prfile: " + username);
-        Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
-        for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
+    switch (eventType) {
+      case DELETED: {
+        Session session = null;
+        try {
+          Collection userMemberships = null;
           try {
-            if (userProfile.getUserInfoMap() == null) {
-              userProfile.setUserInfoMap(new HashMap<String, String>());
+            userMemberships = organizationService.getMembershipHandler().removeMembershipByUser(username, true);
+          } catch (Exception exception) {
+            LOG.error("\t\t\tCouldn't process deletion of Memberships related to the user : " + username, exception);
+          }
+          if (userMemberships == null || userMemberships.isEmpty()) {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            List<Membership> memberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+            for (Membership membership : memberships) {
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType.toString());
             }
-            userProfileEventListener.preSave(userProfile, true);
-            userProfileEventListener.postSave(userProfile, true);
+          } else { // Delete all related Memberships
+            LOG.error("\t\t\tUser " + username + " was deleted, but some memberships are always existing : " + userMemberships);
+          }
+        } catch (Exception e) {
+          LOG.error("\t\t\tUnknown error was occured while preparing to proceed membership deletion", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
+      case ADDED:
+      case UPDATED: {
+        boolean isNew = EventType.ADDED.equals(eventType);
+        Session session = null;
+        Collection memberships = null;
+        List<Membership> activatedMemberships = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
+          activatedMemberships = Util.getActivatedMembershipsRelatedToUser(session, username);
+        } catch (Exception e) {
+          LOG.error("\t\t\tFailed to call Membership listeners for user : " + username, e);
+          throw new IllegalStateException(e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        for (Object membershipObject : memberships) {
+          Membership membership = (Membership) membershipObject;
+          boolean isAlreadyIntegrated = contains(membership, activatedMemberships);
+          if (isNew) {
+            if (!isAlreadyIntegrated) {
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType.toString());
+            } else {
+              if (LOG.isDebugEnabled()) {
+                LOG.debug("\t\t\t" + membership.getId() + " Membership is already integrated");
+              }
+            }
+          } else {
+            if (isAlreadyIntegrated) {
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(), eventType.toString());
+            } else {
+              if (LOG.isDebugEnabled()) {
+                LOG.debug("\t\t\t" + membership.getId()
+                    + " Membership is not yet added, add invoke listeners with parameter isNew=true");
+              }
+              invokeMembershipListeners(username, membership.getGroupId(), membership.getMembershipType(),
+                  EventType.ADDED.toString());
+            }
+          }
+        }
+        break;
+      }
+    }
+    endRequest();
+  }
+
+  private boolean contains(Membership membership, List<Membership> activatedMemberships) {
+    if (membership == null || activatedMemberships == null || activatedMemberships.size() == 0) {
+      return false;
+    }
+    for (Membership tmpMembership : activatedMemberships) {
+      if (tmpMembership.getId().equals(membership.getId())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void invokeUserProfileListeners(String username, EventType eventType) {
+    LOG.info("\t\tProfile listeners invocation, operation= " + eventType + ", for user= " + username);
+    startRequest();
+    switch (eventType) {
+      case ADDED:
+      case UPDATED: {
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+          boolean isNew = EventType.ADDED.equals(eventType);
+          UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+          if (userProfile == null) {
+            userProfile = organizationService.getUserProfileHandler().createUserProfileInstance(username);
+            organizationService.getUserProfileHandler().saveUserProfile(userProfile, isNew);
+            userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
+          }
+          if (!isNew || !Util.hasProfileFolder(session, username)) {
+            Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
+            for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
+              if (userProfile.getUserInfoMap() == null) {
+                userProfile.setUserInfoMap(new HashMap<String, String>());
+              }
+              try {
+                userProfileEventListener.preSave(userProfile, isNew);
+              } catch (Exception e) {
+                LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
+                    + userProfileEventListener.getClass(), e);
+              }
+              try {
+                userProfileEventListener.postSave(userProfile, isNew);
+              } catch (Exception e) {
+                LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
+                    + userProfileEventListener.getClass(), e);
+              }
+            }
+          }
+        } catch (Exception e) {
+          LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
+      case DELETED: {
+        Session session = null;
+        try {
+          session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+
+          UserProfile userProfile = null;
+          try {
+            userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
           } catch (Exception e) {
-            LOG.warn("Failed to initialize " + username + " User profile with listener : " + userProfileEventListener.getClass(),
+            LOG.warn("\t\t\tError occured while verifying if userProfile is present in Datasource or not. This may not cause a problem :"
+                + e.getMessage());
+          }
+          if (userProfile != null) {
+            organizationService.getUserProfileHandler().removeUserProfile(username, true);
+          } else if (Util.hasProfileFolder(session, username)) {
+            userProfile = new UserProfileImpl(username);
+            userProfile.setUserInfoMap(new HashMap<String, String>());
+            Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
+            for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
+              try {
+                userProfileEventListener.preDelete(userProfile);
+              } catch (Exception e) {
+                LOG.warn("\t\t\tFailed to call preSave on " + username + " User profile with listener : "
+                    + userProfileEventListener.getClass(), e);
+              }
+              try {
+                userProfileEventListener.postDelete(userProfile);
+              } catch (Exception e) {
+                LOG.warn("\t\t\tFailed to call postSave on " + username + " User profile with listener : "
+                    + userProfileEventListener.getClass(), e);
+              }
+            }
+          }
+        } catch (Exception e) {
+          LOG.warn("\t\t\tFailed to call listeners on " + username + " User profile", e);
+        } finally {
+          if (session != null) {
+            session.logout();
+          }
+        }
+        break;
+      }
+    }
+    endRequest();
+  }
+
+  private void invokeListenersToSavedGroup(Group group, boolean isNew) {
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      if (group.getParentId() != null && !group.getParentId().isEmpty()) {
+        try {
+          Group parentGroup = organizationService.getGroupHandler().findGroupById(group.getParentId());
+          invokeListenersToSavedGroup(parentGroup, isNew);
+        } catch (Exception e) {
+          LOG.warn("\t\tError occured while attempting to get parent of " + group.getId()
+              + " Group. Listeners will not be applied on parent " + group.getParentId(), e);
+        }
+      }
+      if (!isNew || !Util.hasGroupFolder(session, group.getId())) {
+        Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
+        for (GroupEventListener groupEventListener : groupDAOListeners) {
+          try {
+            groupEventListener.preSave(group, isNew);
+          } catch (Exception e) {
+            LOG.warn("\t\t\tFailed to call preSave on " + group.getId() + " Group, listener = " + groupEventListener.getClass(),
+                e);
+          }
+          try {
+            groupEventListener.postSave(group, isNew);
+          } catch (Exception e) {
+            LOG.warn("\t\t\tFailed to call postSave on " + group.getId() + " Group, listener = " + groupEventListener.getClass(),
                 e);
           }
         }
       }
     } catch (Exception e) {
-      LOG.warn("Failed to initialize " + username + " User profile", e);
-    }
-    endRequest();
-  }
-
-  private void applyGroupListeners(Group group) {
-    try {
-      if (group.getParentId() != null && !group.getParentId().isEmpty()) {
-        try {
-          Group parentGroup = organizationService.getGroupHandler().findGroupById(group.getParentId());
-          applyGroupListeners(parentGroup);
-        } catch (Exception e) {
-          LOG.warn("Error occured while attempting to get parent of " + group.getId()
-              + " Group. Listeners will not be applied on parent " + group.getParentId(), e);
-        }
+      LOG.warn("\t\t\tFailed to call listeners for " + group.getId() + " Group.", e);
+    } finally {
+      if (session != null) {
+        session.logout();
       }
-      if (!Util.hasGroupFolder(repositoryService, group)) {
-        LOG.info("\tApply listeners for group: " + group.getId());
-        Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
-        for (GroupEventListener groupEventListener : groupDAOListeners) {
-          try {
-            groupEventListener.preSave(group, true);
-            groupEventListener.postSave(group, true);
-          } catch (Exception e) {
-            LOG.warn("Failed to initialize " + group.getId() + " Group, listener = " + groupEventListener.getClass(), e);
-          }
-        }
-      }
-    } catch (Exception e) {
-      LOG.warn("Failed to initialize " + group.getId() + " Group listeners", e);
     }
   }
 
@@ -464,4 +1025,5 @@ public class OrganizationIntegrationService implements Startable {
       requestStarted = true;
     }
   }
+
 }
