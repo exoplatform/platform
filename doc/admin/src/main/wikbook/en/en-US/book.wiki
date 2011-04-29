@@ -29,3 +29,7 @@ h1. Clustering {anchor:id=ADM.Clustering}
 h1. Deployment {anchor:id=ADM.Deployment}
 
 {include:document=deployment.wiki|syntax=confluence/1.0}
+
+h1. Integration {anchor:id=ADM.Integration}
+
+{include:document=integration.wiki|syntax=confluence/1.0}
