@@ -40,8 +40,8 @@ public class OrganizationIntegrationJob extends BaseJob {
    * {@inheritDoc}
    */
   public void execute(JobContext context) throws Exception {
-    LOG.info("File plan job started");
+    LOG.info("Organization Integration scheduled job start.");
     organizationIntegrationService.invokeAllListeners();
-    LOG.info("Organization Listeners Initializer job done");
+    LOG.info("Organization Integration scheduled job end.");
   }
 }

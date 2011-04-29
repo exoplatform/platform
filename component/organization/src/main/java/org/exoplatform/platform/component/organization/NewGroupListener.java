@@ -41,6 +41,9 @@ public class NewGroupListener extends GroupEventListener {
    * {@inheritDoc}
    */
   public void postSave(Group group, boolean isNew) throws Exception {
+    if (!isNew) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);

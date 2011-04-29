@@ -41,6 +41,9 @@ public class NewUserListener extends UserEventListener {
    * {@inheritDoc}
    */
   public void postSave(User user, boolean isNew) throws Exception {
+    if (!isNew) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);

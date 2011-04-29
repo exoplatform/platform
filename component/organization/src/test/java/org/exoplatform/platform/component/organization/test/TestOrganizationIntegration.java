@@ -79,6 +79,12 @@ public class TestOrganizationIntegration extends BasicTestCase {
 
       verifyUserFoldersCreation("root", true);
 
+      deleteMembership("member:root:/organization/management/executive-board");
+      verifyMembershipFoldersCreation("root", "/organization/management/executive-board", "member", true);
+      organizationIntegrationService.invokeMembershipListeners("root", "/organization/management/executive-board",
+          EventType.DELETED.toString());
+      verifyMembershipFoldersCreation("root", "/organization/management/executive-board", "member", false);
+
       deleteUser("root");
       organizationIntegrationService.invokeUserListeners("root", EventType.DELETED.toString());
 
@@ -133,6 +139,16 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (session != null) {
         session.logout();
       }
+    }
+  }
+
+  private void deleteMembership(String membershipId) throws Exception {
+    if (organizationService instanceof ComponentRequestLifecycle) {
+      ((ComponentRequestLifecycle) organizationService).startRequest(container);
+    }
+    organizationService.getMembershipHandler().removeMembership(membershipId, true);
+    if (organizationService instanceof ComponentRequestLifecycle) {
+      ((ComponentRequestLifecycle) organizationService).endRequest(container);
     }
   }
 
@@ -221,6 +237,27 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
       }
+    } finally {
+      if (session != null) {
+        session.logout();
+      }
+    }
+  }
+
+  private void verifyMembershipFoldersCreation(String username, String groupId, String membershipType, boolean assertionCondition)
+      throws Exception {
+    Session session = null;
+    try {
+      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+      MembershipImpl membership = new MembershipImpl();
+      {
+        membership.setMembershipType(membershipType);
+        membership.setUserName(username);
+        membership.setGroupId(groupId);
+        membership.setId(Util.computeId(membership));
+      }
+      assertEquals(assertionCondition, Util.hasMembershipFolder(session, membership));
+      session.save();
     } finally {
       if (session != null) {
         session.logout();

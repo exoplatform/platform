@@ -41,6 +41,9 @@ public class NewMembershipListener extends MembershipEventListener {
    * {@inheritDoc}
    */
   public void postSave(Membership m, boolean isNew) throws Exception {
+    if (!isNew) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);

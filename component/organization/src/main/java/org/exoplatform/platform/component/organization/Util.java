@@ -32,8 +32,8 @@ import org.exoplatform.services.organization.impl.MembershipImpl;
 
 public class Util {
 
-  private static final String SPECIAL_CHARACTER_REPLACEMENT = "___";
-  private static final String MEMBERSHIP_SEPARATOR = "---";
+  final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
+  final public static String MEMBERSHIP_SEPARATOR = "---";
   final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
   final public static String USERS_FOLDER = "users";
   final public static String GROUPS_FOLDER = "groups";
@@ -133,10 +133,11 @@ public class Util {
   }
 
   public static boolean hasMembershipFolder(Session session, Membership membership) throws Exception {
-    return getMembershipsFolder(session).hasNode(
-        membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getMembershipType().toString().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getUserName());
+    boolean hasNode = Util.getMembershipsFolder(session).hasNode(
+        membership.getGroupId().replace("/", Util.SPECIAL_CHARACTER_REPLACEMENT) + Util.MEMBERSHIP_SEPARATOR
+            + membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
+            + Util.MEMBERSHIP_SEPARATOR + membership.getUserName());
+    return hasNode;
   }
 
   public static boolean hasGroupFolder(Session session, String groupId) throws Exception {
@@ -155,19 +156,19 @@ public class Util {
 
   public static void createMembershipFolder(Session session, Membership membership) throws Exception {
     createFolder(getMembershipsFolder(session), membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT)
-        + MEMBERSHIP_SEPARATOR + membership.getMembershipType().toString().replace("*", SPECIAL_CHARACTER_REPLACEMENT)
+        + MEMBERSHIP_SEPARATOR + membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT)
         + MEMBERSHIP_SEPARATOR + membership.getUserName());
     createFolder(
         getGroupNode(session, membership.getGroupId()),
-        membership.getMembershipType().toString().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
+        membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
             + membership.getUserName());
     createFolder(getUserNode(session, membership.getUserName()),
-        membership.getMembershipType().toString().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
+        membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
             + membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT));
     session.save();
   }
 
-  private static Node getUserNode(Session session, String username) throws PathNotFoundException, RepositoryException, Exception {
+  public static Node getUserNode(Session session, String username) throws PathNotFoundException, RepositoryException, Exception {
     return getUsersFolder(session).getNode(username);
   }
 
@@ -189,8 +190,23 @@ public class Util {
   public static void deleteMembershipFolder(Session session, Membership membership) throws Exception {
     getMembershipsFolder(session).getNode(
         membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getMembershipType().toString().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
+            + membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
             + membership.getUserName()).remove();
+
+    String membershipGroupFolderName = membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
+        + Util.MEMBERSHIP_SEPARATOR + membership.getUserName();
+    if (hasGroupFolder(session, membership.getGroupId())
+        && getGroupNode(session, membership.getGroupId()).hasNode(membershipGroupFolderName)) {
+      getGroupNode(session, membership.getGroupId()).getNode(membershipGroupFolderName).remove();
+    }
+
+    String membershipUserFolderName = membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
+        + Util.MEMBERSHIP_SEPARATOR + membership.getGroupId().replace("/", Util.SPECIAL_CHARACTER_REPLACEMENT);
+    if (hasUserFolder(session, membership.getUserName())
+        && getUserNode(session, membership.getUserName()).hasNode(membershipUserFolderName)) {
+
+      getUserNode(session, membership.getUserName()).getNode(membershipUserFolderName).remove();
+    }
     session.save();
   }
 
@@ -199,7 +215,7 @@ public class Util {
     session.save();
   }
 
-  private static Node getGroupNode(Session session, String groupId) throws PathNotFoundException, RepositoryException, Exception {
+  public static Node getGroupNode(Session session, String groupId) throws PathNotFoundException, RepositoryException, Exception {
     return getGroupsFolder(session).getNode(groupId.replace("/", SPECIAL_CHARACTER_REPLACEMENT));
   }
 

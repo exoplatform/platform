@@ -41,6 +41,9 @@ public class NewProfileListener extends UserProfileEventListener {
    * {@inheritDoc}
    */
   public void postSave(UserProfile user, boolean isNew) throws Exception {
+    if (!isNew) {
+      return;
+    }
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
