@@ -148,7 +148,9 @@ public class OrganizationIntegrationService implements Startable {
         LOG.error("Failed to add OrganizationService plugins", e);
       }
     } else {
-      LOG.info("This component has already " + nbExternalComponentPlugins + " ExternalComponentPlugins");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("This component has already " + nbExternalComponentPlugins + " ExternalComponentPlugins");
+      }
     }
     if (initParams != null) {
       if (initParams.containsKey("workspace")) {
@@ -238,18 +240,30 @@ public class OrganizationIntegrationService implements Startable {
   @ManagedDescription("invoke all organization model listeners. Becarefull, this could takes a lot of time.")
   @Impact(ImpactType.READ)
   public void syncAll() {
-    LOG.info("All groups, users, profiles and memberships listeners invocation.");
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("All groups, users, profiles and memberships listeners invocation.");
+    }
 
     startRequest();
     try {
-      LOG.info(" Search for non integrated Groups.");
+
+      if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for non integrated Groups.");
+      }
       syncAllGroups(EventType.ADDED.toString());
-      LOG.info(" Search for deleted Groups, but remain integrated.");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for deleted Groups, but remain integrated.");
+      }
+
       syncAllGroups(EventType.DELETED.toString());
 
-      LOG.info(" Search for non integrated Users.");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for non integrated Users.");
+      }
       syncAllUsers(EventType.ADDED.toString());
-      LOG.info(" Search for deleted Users, but remain integrated.");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug(" Search for deleted Users, but remain integrated.");
+      }
       syncAllUsers(EventType.DELETED.toString());
     } catch (Exception e) {
       LOG.error(e);
@@ -273,7 +287,9 @@ public class OrganizationIntegrationService implements Startable {
   @Impact(ImpactType.READ)
   public void syncAllGroups(@ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType)
       throws Exception {
-    LOG.info("All Groups listeners invocation, operation= " + eventType);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("All Groups listeners invocation, operation= " + eventType);
+    }
 
     startRequest();
 
@@ -360,7 +376,10 @@ public class OrganizationIntegrationService implements Startable {
   @Impact(ImpactType.WRITE)
   public void syncGroup(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
       @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
-    LOG.info("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
+
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
+    }
     startRequest();
     EventType event = EventType.valueOf(eventType);
     switch (event) {
@@ -419,7 +438,10 @@ public class OrganizationIntegrationService implements Startable {
   @ManagedDescription("invoke all users listeners")
   @Impact(ImpactType.READ)
   public void syncAllUsers(@ManagedDescription("Event type: added/updated/deleted") @ManagedName("eventType") String eventType) {
-    LOG.info("All users listeners invocation, eventType = " + eventType);
+
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("All users listeners invocation, eventType = " + eventType);
+    }
     EventType event = EventType.valueOf(eventType);
     Session session = null;
     switch (event) {
@@ -515,7 +537,9 @@ public class OrganizationIntegrationService implements Startable {
   @Impact(ImpactType.READ)
   public void syncUser(@ManagedDescription("User name") @ManagedName("username") String username,
       @ManagedDescription("Event type") @ManagedName("eventType") String eventType) {
-    LOG.info("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
+    }
     EventType event = EventType.valueOf(eventType);
     startRequest();
     switch (event) {
@@ -537,7 +561,9 @@ public class OrganizationIntegrationService implements Startable {
         try {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           if (Util.hasUserFolder(session, username)) {
-            LOG.info("\t\tProceed user deletion: " + username);
+            if (LOG.isDebugEnabled()) {
+              LOG.debug("\t\tProceed user deletion: " + username);
+            }
             user = new UserImpl(username);
             Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
             for (UserEventListener userEventListener : userDAOListeners) {
@@ -625,7 +651,10 @@ public class OrganizationIntegrationService implements Startable {
   public void syncMembership(@ManagedDescription("User name") @ManagedName("username") String username,
       @ManagedDescription("group identifier") @ManagedName("groupId") String groupId,
       @ManagedDescription("event type") @ManagedName("eventType") String eventType) {
-    LOG.info("Memberships listeners invocation, operation= " + eventType + ", for membership=" + username + ":" + groupId);
+
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("Memberships listeners invocation, operation= " + eventType + ", for membership=" + username + ":" + groupId);
+    }
 
     EventType event = EventType.valueOf(eventType);
     startRequest();
@@ -741,8 +770,11 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   private void invokeMembershipListeners(String username, String groupId, String membershipType, EventType eventType) {
-    LOG.info("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
-        + username + ":" + groupId);
+
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
+          + username + ":" + groupId);
+    }
 
     startRequest();
     switch (eventType) {
@@ -901,7 +933,10 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   private void invokeUserMembershipsListeners(String username, EventType eventType) {
-    LOG.info("\t\tMemberships listeners invocation, operation= " + eventType + ", for user= " + username);
+
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("\t\tMemberships listeners invocation, operation= " + eventType + ", for user= " + username);
+    }
     startRequest();
     switch (eventType) {
       case DELETED: {
@@ -991,7 +1026,9 @@ public class OrganizationIntegrationService implements Startable {
   }
 
   private void invokeUserProfileListeners(String username, EventType eventType) {
-    LOG.info("\t\tProfile listeners invocation, operation= " + eventType + ", for user= " + username);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("\t\tProfile listeners invocation, operation= " + eventType + ", for user= " + username);
+    }
     startRequest();
     switch (eventType) {
       case ADDED:
