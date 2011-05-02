@@ -237,20 +237,20 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke all organization model listeners. Becarefull, this could takes a lot of time.")
   @Impact(ImpactType.READ)
-  public void invokeAllListeners() {
+  public void syncAll() {
     LOG.info("All groups, users, profiles and memberships listeners invocation.");
 
     startRequest();
     try {
       LOG.info(" Search for non integrated Groups.");
-      invokeGroupsListeners(EventType.ADDED.toString());
+      syncAllGroups(EventType.ADDED.toString());
       LOG.info(" Search for deleted Groups, but remain integrated.");
-      invokeGroupsListeners(EventType.DELETED.toString());
+      syncAllGroups(EventType.DELETED.toString());
 
       LOG.info(" Search for non integrated Users.");
-      invokeUsersListeners(EventType.ADDED.toString());
+      syncAllUsers(EventType.ADDED.toString());
       LOG.info(" Search for deleted Users, but remain integrated.");
-      invokeUsersListeners(EventType.DELETED.toString());
+      syncAllUsers(EventType.DELETED.toString());
     } catch (Exception e) {
       LOG.error(e);
     }
@@ -271,8 +271,8 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke all groups listeners")
   @Impact(ImpactType.READ)
-  public void invokeGroupsListeners(
-      @ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType) throws Exception {
+  public void syncAllGroups(@ManagedDescription("Scan for added or deleted groups") @ManagedName("eventType") String eventType)
+      throws Exception {
     LOG.info("All Groups listeners invocation, operation= " + eventType);
 
     startRequest();
@@ -297,7 +297,7 @@ public class OrganizationIntegrationService implements Startable {
             activatedGroups.remove(group.getId());
           }
           for (String groupId : activatedGroups) {
-            invokeGroupListeners(groupId, eventType);
+            syncGroup(groupId, eventType);
           }
         } finally {
           if (session != null) {
@@ -313,7 +313,7 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           List<String> activatedGroups = Util.getActivatedGroups(session);
           for (String groupId : activatedGroups) {
-            invokeGroupListeners(groupId, eventType);
+            syncGroup(groupId, eventType);
           }
         } finally {
           if (session != null) {
@@ -330,7 +330,7 @@ public class OrganizationIntegrationService implements Startable {
           List<String> activatedGroups = Util.getActivatedGroups(session);
           for (Group group : groups) {
             if (!activatedGroups.contains(group.getId())) {
-              invokeGroupListeners(group.getId(), eventType);
+              syncGroup(group.getId(), eventType);
             }
           }
         } finally {
@@ -358,7 +358,7 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke a group listeners")
   @Impact(ImpactType.WRITE)
-  public void invokeGroupListeners(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
+  public void syncGroup(@ManagedDescription("Group Id") @ManagedName("groupId") String groupId,
       @ManagedDescription("Event type ADDED, UPDATED or DELETED") @ManagedName("eventType") String eventType) {
     LOG.info("\tGroup listeners invocation, operation= " + eventType + ", for group= " + groupId);
     startRequest();
@@ -418,8 +418,7 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke all users listeners")
   @Impact(ImpactType.READ)
-  public void invokeUsersListeners(
-      @ManagedDescription("Event type: added/updated/deleted") @ManagedName("eventType") String eventType) {
+  public void syncAllUsers(@ManagedDescription("Event type: added/updated/deleted") @ManagedName("eventType") String eventType) {
     LOG.info("All users listeners invocation, eventType = " + eventType);
     EventType event = EventType.valueOf(eventType);
     Session session = null;
@@ -442,7 +441,7 @@ public class OrganizationIntegrationService implements Startable {
             }
           }
           for (String username : activatedUsers) {
-            invokeUserListeners(username, eventType);
+            syncUser(username, eventType);
           }
         } catch (Exception e) {
           LOG.error("\t\tUnknown error was occured while preparing to proceed users deletion", e);
@@ -461,7 +460,7 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           List<String> activatedUsers = Util.getActivatedUsers(session);
           for (String username : activatedUsers) {
-            invokeUserListeners(username, eventType);
+            syncUser(username, eventType);
           }
         } catch (Exception e) {
           LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
@@ -487,7 +486,7 @@ public class OrganizationIntegrationService implements Startable {
             List<User> tmpUsers = users.getPage(i);
             for (User user : tmpUsers) {
               if (!activatedUsers.contains(user.getUserName())) {
-                invokeUserListeners(user.getUserName(), eventType);
+                syncUser(user.getUserName(), eventType);
               }
             }
           }
@@ -514,7 +513,7 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke a user listeners")
   @Impact(ImpactType.READ)
-  public void invokeUserListeners(@ManagedDescription("User name") @ManagedName("username") String username,
+  public void syncUser(@ManagedDescription("User name") @ManagedName("username") String username,
       @ManagedDescription("Event type") @ManagedName("eventType") String eventType) {
     LOG.info("\tUser listeners invocation, operation= " + eventType + ", for user= " + username);
     EventType event = EventType.valueOf(eventType);
@@ -623,7 +622,7 @@ public class OrganizationIntegrationService implements Startable {
   @Managed
   @ManagedDescription("invoke a membership listeners")
   @Impact(ImpactType.READ)
-  public void invokeMembershipListeners(@ManagedDescription("User name") @ManagedName("username") String username,
+  public void syncMembership(@ManagedDescription("User name") @ManagedName("username") String username,
       @ManagedDescription("group identifier") @ManagedName("groupId") String groupId,
       @ManagedDescription("event type") @ManagedName("eventType") String eventType) {
     LOG.info("Memberships listeners invocation, operation= " + eventType + ", for membership=" + username + ":" + groupId);
@@ -741,7 +740,7 @@ public class OrganizationIntegrationService implements Startable {
     endRequest();
   }
 
-  public void invokeMembershipListeners(String username, String groupId, String membershipType, EventType eventType) {
+  private void invokeMembershipListeners(String username, String groupId, String membershipType, EventType eventType) {
     LOG.info("\tMembership listeners invocation, operation= " + eventType + ", for membership= " + membershipType + ":"
         + username + ":" + groupId);
 
@@ -802,10 +801,10 @@ public class OrganizationIntegrationService implements Startable {
               membershipType);
           try {
             if (!Util.hasGroupFolder(session, groupId)) {
-              invokeGroupListeners(groupId, EventType.ADDED.toString());
+              syncGroup(groupId, EventType.ADDED.toString());
             }
             if (!Util.hasUserFolder(session, username)) {
-              invokeUserListeners(username, EventType.ADDED.toString());
+              syncUser(username, EventType.ADDED.toString());
             }
             if (membership != null && (!isNew || !Util.hasMembershipFolder(session, membership))) {
               Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();

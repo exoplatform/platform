@@ -16,13 +16,13 @@ h2. Purpose
 
 This document shows how to connect Platform to an already populated organizational datasource (LDAP Server, MS ActiveDirectory, Database, ...).
 To make Platform work properly with _Predefined organizational data_, it is necessary to initialize some backend settings for each _organizational element_.
-For example, each uses requires to have a public and private drive initialize for him.
+For example, each user requires to have his own public and private drives.
 
-The operations involved in synchronizing Platform's backend with the organizational entities is what we call *organizational model integration*.
+The operations involved in synchronizing Platform's backend with the organizational entities are what we call *organizational model integration*.
 
 h2. How to use it
 
-When provisioning of the organizational datasource is not managed by Platform, it must be notified of any change (addition, deletion, update) done to organizational entities in order reflect this in the backend settings.
+When the provisioning of the organizational datasource is not managed by Platform, it must be notified of any change (addition, deletion, update) done to organizational entities in order reflect this in the backend settings.
 
 Platform provides several means to perform these notifications. Pickup the appropriate usecase corresponding to your needs.
 
@@ -30,30 +30,31 @@ h3. Integration execution use cases
 
 h4. Platform startup
 
-At platform startup, only groups are integrated into Platform. That's because the groups are limited in number and cannot cause an excess in startup time. Unlike the time that could put the integration of users, because the number of users can exceed a few thousands.
-
-That's why users are integrated in Platform at first login operation.
+At platform startup, no _organizational element_ is integrated.
 
 h4. User login
 
-When a user login, its profile, memberships and related groups are automatically integrated.
-So in order to manage/interact with a user, it has to be activated.
+When a user logs in, its profile, memberships and related groups are automatically integrated.
+So to manage/interact with a user, it has to be activated by logging in once, or activated manually (See below paragraph).
 
 h4. Manual Sync
 
 You could enforce the integration of some _organizational elements_ via REST or JMX.
 
-The operation that you could perform are:
+The operations that you could perform are:
 * invokeAllListeners: synchronize and integrate all organizational elements. {note}
 Be careful, this could take few hours for organizational datasource that contains thousands of users.
 {note}
-* invokeAllGroupsListeners: synchronize and integrate all groups stored in the datasource.
-* applyGroupListeners: synchronize and integrate a specific group.
-* applyUserListeners: synchronize and integrate a specific user with its memberships, profile and related groups.
+* invokeGroupsListeners: synchronize and integrate all groups stored in the datasource.
+* invokeGroupListeners: synchronize and integrate a selected group stored in the datasource.
+* invokeUsersListeners: synchronize and integrate all users stored in the datasource.
+* invokeUserListeners: synchronize and integrate a selected user stored in the datasource.
+* invokeMembershipListeners: synchronize and integrate a specific membership.
 
-h4. Scheduled Sync
+h4. Scheduled/Periodic Sync
 
 You can choose the periodic integration of the whole _organizational elements_ that aren't integrated yet. This feature isn't activated automatically in Platform distribution. To do so, you will have to add this configuration: {code:xml}
+
 <external-component-plugins>
 	<target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
 	<component-plugin>
@@ -79,8 +80,8 @@ You have to modify the *expression* property value according to the [CRON Expres
 
 h5. Using REST
 
-To use the exposed REST methods, you 'll have to login first with an administrator user.
-Then use one of those links:
+The organization integration management API is also exposed as REST.
+You 'll have to login first with an administrator user, then use one of those links:
 
 # /portal/rest/management/orgsync/invokeUserListeners?username=USERNAME&eventType=EVENT
 #* USERNAME : Select a username.
@@ -115,7 +116,7 @@ You could, also, request for the sunchronization operation on all groups.
 
 h5. Using JMX
 
-To access to the Integration Service features via JMX, you could use JMX console for example:
-give the MBean in order to make it easier for an admin to copy/paste in his console.
+To access to the Integration Service features via JMX, you could use [JConsole|http://download.oracle.com/javase/6/docs/technotes/guides/management/jconsole.html] for example.
+The name of the MBean is: exo:portal="portal",service=extensions,name=OrganizationIntegrationService,type=platform.
 
 !integration/jmx_console.png!

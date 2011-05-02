@@ -57,41 +57,40 @@ public class TestOrganizationIntegration extends BasicTestCase {
     Session session = null;
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      organizationIntegrationService.invokeGroupListeners("/organization/management/executive-board", EventType.ADDED.toString());
-      organizationIntegrationService.invokeGroupListeners("/organization/management/executive-board",
-          EventType.DELETED.toString());
+      organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.ADDED.toString());
+      organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.DELETED.toString());
 
       assertTrue(Util.hasGroupFolder(session, "/organization"));
       assertTrue(Util.hasGroupFolder(session, "/organization/management"));
       assertTrue(Util.hasGroupFolder(session, "/organization/management/executive-board"));
 
-      organizationIntegrationService.invokeGroupsListeners(EventType.DELETED.toString());
+      organizationIntegrationService.syncAllGroups(EventType.DELETED.toString());
 
       assertTrue(Util.hasGroupFolder(session, "/organization"));
       assertTrue(Util.hasGroupFolder(session, "/organization/management"));
       assertTrue(Util.hasGroupFolder(session, "/organization/management/executive-board"));
 
-      organizationIntegrationService.invokeUserListeners("root", EventType.ADDED.toString());
+      organizationIntegrationService.syncUser("root", EventType.ADDED.toString());
 
       verifyUserFoldersCreation("root", true);
 
-      organizationIntegrationService.invokeUserListeners("root", EventType.DELETED.toString());
+      organizationIntegrationService.syncUser("root", EventType.DELETED.toString());
 
       verifyUserFoldersCreation("root", true);
 
       deleteMembership("member:root:/organization/management/executive-board");
       verifyMembershipFoldersCreation("root", "/organization/management/executive-board", "member", true);
-      organizationIntegrationService.invokeMembershipListeners("root", "/organization/management/executive-board",
+      organizationIntegrationService.syncMembership("root", "/organization/management/executive-board",
           EventType.DELETED.toString());
       verifyMembershipFoldersCreation("root", "/organization/management/executive-board", "member", false);
 
       deleteUser("root");
-      organizationIntegrationService.invokeUserListeners("root", EventType.DELETED.toString());
+      organizationIntegrationService.syncUser("root", EventType.DELETED.toString());
 
       verifyUserFoldersCreation("root", false);
 
       deleteGroup("/organization");
-      organizationIntegrationService.invokeGroupListeners("/organization", EventType.DELETED.toString());
+      organizationIntegrationService.syncGroup("/organization", EventType.DELETED.toString());
 
       assertFalse(Util.hasGroupFolder(session, "/organization"));
       assertFalse(Util.hasGroupFolder(session, "/organization/management"));
@@ -107,7 +106,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
         assertFalse(Util.hasMembershipFolder(session, membership));
       }
 
-      organizationIntegrationService.invokeAllListeners();
+      organizationIntegrationService.syncAll();
       verifyFoldersCreation(true);
 
       if (organizationService instanceof ComponentRequestLifecycle) {
@@ -129,7 +128,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
       }
-      organizationIntegrationService.invokeAllListeners();
+      organizationIntegrationService.syncAll();
 
       assertFalse(Util.getGroupsFolder(session).hasNodes());
       assertFalse(Util.getMembershipsFolder(session).hasNodes());

@@ -46,7 +46,7 @@ public class FirstLoginListener extends Listener<ConversationRegistry, Conversat
     if (LOG.isDebugEnabled()) {
       LOG.debug("Apply listeners for user" + userId);
     }
-    organizationIntegrationService.invokeUserListeners(userId, EventType.ADDED.toString());
+    organizationIntegrationService.syncUser(userId, EventType.ADDED.toString());
     if (LOG.isDebugEnabled()) {
       LOG.debug("User listeners applied for " + userId);
     }

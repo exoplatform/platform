@@ -41,7 +41,7 @@ public class OrganizationIntegrationJob extends BaseJob {
    */
   public void execute(JobContext context) throws Exception {
     LOG.info("Organization Integration scheduled job start.");
-    organizationIntegrationService.invokeAllListeners();
+    organizationIntegrationService.syncAll();
     LOG.info("Organization Integration scheduled job end.");
   }
 }
