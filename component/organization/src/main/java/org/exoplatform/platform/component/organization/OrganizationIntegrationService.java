@@ -174,6 +174,12 @@ public class OrganizationIntegrationService implements Startable {
     try {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
       Util.init(session);
+
+      // Search for Groups that aren't yet integrated
+      syncAllGroups(EventType.ADDED.toString());
+
+      // Search for Groups that are deleted from Organization Datasource
+      syncAllGroups(EventType.DELETED.toString());
     } catch (Exception e) {
       LOG.error(e);
     } finally {

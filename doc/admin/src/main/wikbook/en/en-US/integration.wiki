@@ -30,7 +30,8 @@ h3. Integration execution use cases
 
 h4. Platform startup
 
-At platform startup, no _organizational element_ is integrated.
+At platform startup, all groups are synchronized, which means that the groups that have been added/deleted will be integrated.
+This is a mandatory operation, because some of Platform features (such as Social) requires that some system groups integration (such as *spaces* Social system group).
 
 h4. User login
 
