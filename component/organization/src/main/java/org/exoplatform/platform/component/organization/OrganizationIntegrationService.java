@@ -925,7 +925,7 @@ public class OrganizationIntegrationService implements Startable {
     GroupImpl group = new GroupImpl(groupId);
     group.setId(groupId);
     Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
-    LOG.info("Invoke " + groupId + "Group deletion listeners.");
+    LOG.info("Invoke " + groupId + " Group deletion listeners.");
     for (GroupEventListener groupEventListener : groupDAOListeners) {
       try {
         groupEventListener.preDelete(group);
@@ -1142,7 +1142,7 @@ public class OrganizationIntegrationService implements Startable {
         }
       }
       if (!isNew || !Util.hasGroupFolder(session, group.getId())) {
-        LOG.info("Invoke " + group.getId() + "Group deletion listeners.");
+        LOG.info("Invoke " + group.getId() + " Group deletion listeners.");
         Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
         for (GroupEventListener groupEventListener : groupDAOListeners) {
           try {
