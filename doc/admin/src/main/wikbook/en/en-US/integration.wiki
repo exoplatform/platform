@@ -84,31 +84,31 @@ h5. Using REST
 The organization integration management API is also exposed as REST.
 You 'll have to login first with an administrator user, then use one of those links:
 
-# /portal/rest/management/orgsync/invokeUserListeners?username=USERNAME&eventType=EVENT
+# /portal/rest/management/orgsync/syncUser?username=USERNAME&eventType=EVENT
 #* USERNAME : Select a username.
 #* EVENT : choose one of those values.
 #** *ADDED* : Choose this option, if the user isn't yet integrated in Platform. this will integrate the user and its related memberships & groups.
 #** *UPDATED* : Choose this option, if a user field or membership has been modified/added/deleted. This will update the user's Platform intgrated Profile and all its related memberships.
 #** *DELETED* : Choose this option, if the user has been deleted from Organization Datasource. So it will delete user's Platform profile.
-# /portal/rest/management/orgsync/invokeUsersListeners?eventType=EVENT
+# /portal/rest/management/orgsync/syncAllUser?eventType=EVENT
 You could, also, request for the sunchronization operation on all users.
 #* EVENT : choose one of those values
 #** *ADDED* : Search for users that are added in the Organization datasource, but not yet integrated. Those users will be integrated.
 #** *UPDATED* : Search for users that are present in the Organization datasource and already integrated in Platform. Those profiles will be updated.
 #** *DELETED* : Search for users that are deleted from the Organization datasource, but their profiles still always existing in Platform. And so delete those profiles.
-# /portal/rest/management/orgsync/invokeGroupListeners?groupId=GROUP_ID&eventType=EVENT
+# /portal/rest/management/orgsync/syncGroup?groupId=GROUP_ID&eventType=EVENT
 #* GROUP_ID: Select a groupId, such as : /platform/users.
 #* EVENT
 #** *ADDED* : Choose this option, if the group isn't yet integrated in Platform. this will integrate the group.
 #** *UPDATED* : This option is not used.
 #** *DELETED* : Choose this option, if the group has been deleted from Organization Datasource. So it will delete group's Platform profile.
-# /portal/rest/management/orgsync/invokeGroupsListeners?eventType=EVENT
+# /portal/rest/management/orgsync/syncAllGroups?eventType=EVENT
 You could, also, request for the sunchronization operation on all groups.
 #* EVENT
 #** *ADDED* : Search for groups that are added in the Organization datasource, but not yet integrated. Those groups will be integrated.
 #** *UPDATED* : This option is not used.
 #** *DELETED* : Search for groups that are deleted from the Organization datasource, but its profiles still always existing in Platform. And so delete those profiles.
-# /portal/rest/management/orgsync/invokeMembershipListeners?groupId=GROUP_ID&username=USERNAME&eventType=EVENT
+# /portal/rest/management/orgsync/syncMembership?groupId=GROUP_ID&username=USERNAME&eventType=EVENT
 #* GROUP_ID: Select a groupId, such as : /platform/users.
 #* USERNAME : Select a username.
 #** *ADDED* : Search for memberships that are added in the Organization datasource, but not yet integrated. Those memberships will be integrated.
