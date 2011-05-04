@@ -114,6 +114,7 @@ You could, also, request for the sunchronization operation on all groups.
 #** *ADDED* : Search for memberships that are added in the Organization datasource, but not yet integrated. Those memberships will be integrated.
 #** *UPDATED* : This option is not used.
 #** *DELETED* : Search for memberships that are deleted from the Organization datasource. So this will synchronize user's memberships related to the selected group.
+# /portal/rest/management/orgsync/syncAll : This will synchronize all groups and users.
 
 h5. Using JMX
 
