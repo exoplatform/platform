@@ -239,11 +239,38 @@
 		<% if (!groupNavigations.isEmpty()) { %>
 
 			<div style="display:none" class="MenuItemContainer">
-				<% for(navigation in groupNavigations) {
-					if (navigation.getOwnerId().indexOf("spaces")<0){  
+				<% 
+				def MY_SPACES_MAX_NUMBER = 10;
+				def mySpacesDisplayed = 0;
+				for(navigation in groupNavigations) {
+					if (navigation.getOwnerId().indexOf("spaces")<0 || mySpacesDisplayed == -1){  
 						break;
 					}
-					renderGroupPageNavigation(navigation);
+					if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
+						mySpacesDisplayed += 1;
+						renderGroupPageNavigation(navigation);
+					}else{
+						mySpacesDisplayed = -1;
+						def moreSpacesLabel = _ctx.appRes("UIMySpacePlatformToolBarPortlet.more");
+						def moreSpacesLink = Util.getPortalRequestContext().getPortalURI() + "spaces" ;
+						print """
+						<div class="SubBlock">
+							<div class="MenuItem">
+								""" ;
+								if (renderSpacesLink()){
+								print """
+								<a href="$moreSpacesLink">$moreSpacesLabel</a>
+								""" ;
+								}else{
+								print """
+								<a href="#">$moreSpacesLabel</a>
+								""" ;
+								}
+								print """
+							</div>
+						</div>
+						""" ;
+					}
 				} %>
 
 				<% 
