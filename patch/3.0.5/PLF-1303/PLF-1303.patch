@@ -1,0 +1,51 @@
+Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java
+===================================================================
+--- extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(revision 68948)
++++ extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(working copy)
+@@ -35,7 +35,7 @@
+         template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl"
+ )
+ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
+-    private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
++    private static final String SPACE_SETTINGS = "settings";
+ 
+     private SpaceService spaceService = null;
+     private OrganizationService organizationService = null;
+@@ -121,11 +121,10 @@
+         // space is deleted
+         if (space == null) return false;
+         if (spaceService.hasEditPermission(space, remoteUser)) return true;
+-        String appName = applicationNode.getName();
+-        if (!appName.contains(SPACE_SETTING_PORTLET)) {
+-            return true;
++       if (SPACE_SETTINGS.equals(applicationNode.getName())) {
++            return false;
+         }
+-        return false;
++        return true;
+     }
+ 
+     public PageNode getSelectedPageNode() throws Exception {
+@@ -160,4 +159,4 @@
+       return groupNavigationPermitted;
+     }
+ 
+-}
+\ No newline at end of file
++}
+Index: extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl
+===================================================================
+--- extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl	(revision 68948)
++++ extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl	(working copy)
+@@ -194,7 +194,10 @@
+ 					<div class="SubBlock">
+ 			""" ;
+ 				for(int j = 0; j < node.getChildren().size(); j++) {
+-					renderPageNode(node.getChildren().get(j), j%2 == 0);
++					def childNode = node.getChildren().get(j);
++					if (uicomponent.isRender(node, childNode)) {
++						renderPageNode(childNode, j%2 == 0);
++					}
+ 				}
+ 			print """
+ 					</div>

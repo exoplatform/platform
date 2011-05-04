@@ -194,7 +194,10 @@
 					<div class="SubBlock">
 			""" ;
 				for(int j = 0; j < node.getChildren().size(); j++) {
-					renderPageNode(node.getChildren().get(j), j%2 == 0);
+					def childNode = node.getChildren().get(j);
+					if (uicomponent.isRender(node, childNode)) {
+						renderPageNode(childNode, j%2 == 0);
+					}
 				}
 			print """
 					</div>
