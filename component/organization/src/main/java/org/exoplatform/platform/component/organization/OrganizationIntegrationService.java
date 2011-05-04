@@ -567,9 +567,7 @@ public class OrganizationIntegrationService implements Startable {
         try {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           if (Util.hasUserFolder(session, username)) {
-            if (LOG.isDebugEnabled()) {
-              LOG.debug("\t\tProceed user deletion: " + username);
-            }
+            LOG.info("Invoke user deletion: " + username);
             user = new UserImpl(username);
             Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
             for (UserEventListener userEventListener : userDAOListeners) {
@@ -609,6 +607,7 @@ public class OrganizationIntegrationService implements Startable {
             if (user.getCreatedDate() == null) {
               user.setCreatedDate(new Date());
             }
+            LOG.info("Invoke " + username + " user synchronization ");
             Collection<UserEventListener> userDAOListeners = userDAOListeners_.values();
             for (UserEventListener userEventListener : userDAOListeners) {
               try {
@@ -806,6 +805,7 @@ public class OrganizationIntegrationService implements Startable {
             ((MembershipImpl) membership).setId(Util.computeId(membership));
           }
           try {
+            LOG.info("Invoke " + membership.getId() + " Membership deletion listeners.");
             Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
             for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
               try {
@@ -845,6 +845,7 @@ public class OrganizationIntegrationService implements Startable {
               syncUser(username, EventType.ADDED.toString());
             }
             if (membership != null && (!isNew || !Util.hasMembershipFolder(session, membership))) {
+              LOG.info("Invoke " + membership.getId() + " Membership synchronization.");
               Collection<MembershipEventListener> membershipDAOListeners = membershipDAOListeners_.values();
               for (MembershipEventListener membershipEventListener : membershipDAOListeners) {
                 try {
@@ -924,6 +925,7 @@ public class OrganizationIntegrationService implements Startable {
     GroupImpl group = new GroupImpl(groupId);
     group.setId(groupId);
     Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
+    LOG.info("Invoke " + groupId + "Group deletion listeners.");
     for (GroupEventListener groupEventListener : groupDAOListeners) {
       try {
         groupEventListener.preDelete(group);
@@ -1050,6 +1052,7 @@ public class OrganizationIntegrationService implements Startable {
             userProfile = organizationService.getUserProfileHandler().findUserProfileByName(username);
           }
           if (!isNew || !Util.hasProfileFolder(session, username)) {
+            LOG.info("Invoke " + username + " user profile synchronization.");
             Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
             for (UserProfileEventListener userProfileEventListener : userProfileListeners) {
               if (userProfile.getUserInfoMap() == null) {
@@ -1093,6 +1096,7 @@ public class OrganizationIntegrationService implements Startable {
           if (userProfile != null) {
             organizationService.getUserProfileHandler().removeUserProfile(username, true);
           } else if (Util.hasProfileFolder(session, username)) {
+            LOG.info("Invoke " + username + " user profile deletion listeners.");
             userProfile = new UserProfileImpl(username);
             userProfile.setUserInfoMap(new HashMap<String, String>());
             Collection<UserProfileEventListener> userProfileListeners = userProfileListeners_.values();
@@ -1138,6 +1142,7 @@ public class OrganizationIntegrationService implements Startable {
         }
       }
       if (!isNew || !Util.hasGroupFolder(session, group.getId())) {
+        LOG.info("Invoke " + group.getId() + "Group deletion listeners.");
         Collection<GroupEventListener> groupDAOListeners = groupDAOListeners_.values();
         for (GroupEventListener groupEventListener : groupDAOListeners) {
           try {
