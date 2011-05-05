@@ -50,7 +50,7 @@ cd ./bin
 
 # shutdown.sh -force -> it makes a Kill -9 on the process
 if [ -r ./shutdown.sh ]; then
-	exec ./shutdown.sh $@
+	exec ./shutdown.sh $1
 else
 	echo shutdown.sh is missing.
 fi
