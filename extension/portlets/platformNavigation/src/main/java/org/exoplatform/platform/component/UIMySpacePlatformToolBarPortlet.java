@@ -35,7 +35,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
         template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl"
 )
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
-    private static final String SPACE_SETTINGS = "settings";
+    private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
 
     private SpaceService spaceService = null;
     private OrganizationService organizationService = null;
@@ -121,10 +121,11 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         // space is deleted
         if (space == null) return false;
         if (spaceService.hasEditPermission(space, remoteUser)) return true;
-       if (SPACE_SETTINGS.equals(applicationNode.getName())) {
-            return false;
+        String appName = applicationNode.getName();
+        if (!appName.contains(SPACE_SETTING_PORTLET)) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     public PageNode getSelectedPageNode() throws Exception {
