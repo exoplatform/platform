@@ -1267,6 +1267,13 @@
     </dependency>
 
     <dependency>
+      <groupId>org.jcrom</groupId>
+      <artifactId>jcrom</artifactId>
+      <version>${jcrom.version}</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-authoring-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
