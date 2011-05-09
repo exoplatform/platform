@@ -17,6 +17,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-Login</td>
 	<td></td>
@@ -132,11 +137,30 @@
 	<td>currentday</td>
 </tr>
 <tr>
+	<td>storeEval</td>
+	<td>now = new Date(); hh=now.getHours();if (hh&lt;10){hh=&quot;0&quot;+hh};</td>
+	<td>hh</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>now = new Date(); mm=now.getMinutes();if (mm&lt;10){hh=&quot;0&quot;+mm};</td>
+	<td>mm</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>hh + mm</td>
+	<td>hhmm</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${hhmm}</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CreateFolderReport</td>
 	<td>currentday</td>
 	<td>newsetRev</td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
