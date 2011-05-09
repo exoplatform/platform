@@ -1,0 +1,473 @@
+h1. Why to use a navigation by content
+
+The main navigation of the sample acme-website is a page node based navigation. Users are obliged to navigate from a page to another or browse site contents inside one page (will be explained in next section).
+We added this new feature to be able to navigate in site's contents directly from a contextual menu.
+
+h1. Actual content navigation
+
+One of the powerful features of the _eXo Web Content Management_ that comes out with _eXoPlatform3_ is the possibility to navigate in site contents using taxonomies.
+This functionality can easily be added in a page with the help of two _Content List Viewer_ portlets as follows (an already configured example can be found in the *News* page of the sample acme-website acme/news):
+N.B: we will use the following node _/site contents/live/acme/events/All_ for this example
+
+- login to the sample acme-website
+- add a page, say "Events"
+- parametrize this page in order to have a two column container
+- add two content list portlets
+- first portlet:
+
+!navigation_by_content_feature/browseByCLV.png!
+
+** Folder path = _/site contents/live/acme/events/All_
+** Header = _Browse by:_
+** Template = _CatgoryTree.gtmpl_
+** Contextual Folder = _Disabled_
+** Show in page = _Events_
+** With = _folder-id_
+- second portlet:
+
+!navigation_by_content_feature/showListCLV.png!
+
+** Folder path = _/site contents/live/acme/events/All_
+** Template = _OneColumnCLVTemplate.gtmpl_
+** Contextual Folder = _Enabled_
+** Show in page = _Details_
+** With = _content-id_
+- the created page (Events) now looks like:
+
+!navigation_by_content_feature/eventsPage.png!
+
+You can now navigate from the left portlet to see contents displayed in the right portlet.
+
+The new navigation by content feature will traduce this example in a contextual menu.
+
+h1. Navigation by content
+
+
+h2. How to
+
+We need to attach our root folder/node to some page node from the home page (the menu item that will hold our new contextual menu):
+
+* go to the Content Explorer page and navigate under /site contents/live/acme/events/All
+* hit the content navigation button
+* fill the navigation form fields as follows:
+** _Visible_ = true (this node will be navigable)
+** _Target parent navigation_ = Events (the contextual menu will be attached to Events menu item)
+** _Clickable_ = false (this node will not be clickable)
+** _Page for list_ = catalog (this page is a system page that contains a content list viewer portlet and will be used to display list child nodes)
+** _Page for detail_ = detail (this page is a system page that contains a single content viewer portlet and will be used to display detail child nodes)
+* save changes
+* go back to the home page acme/overview
+* you can see the changes from the Events menu item:
+
+!navigation_by_content_feature/contextualMenu.png!
+
+- _Visible_: the node /site contents/live/acme/events/All is navigable and its child nodes are rendered in the contextual menu.
+- _Target parent navigation_: the node /site contents/live/acme/events/All is attached to the site menu item _Events_.
+- _Clickable_: the node /site contents/live/acme/events/All itself is not clickable but all its child nodes are.
+- _Page for list_: list child nodes (if a child node is a directory/folder) will be rendered in this page:
+hit *Earth* menu item from the contextual menu and see that contents of the _Earth_ directory are rendered in a separate page (catalog):
+
+!navigation_by_content_feature/listEarth.png!
+
+- _Page for detail_ detail child nodes (if a child node is a sample content) will be rendered in this page:
+hit *Power 1 - Fire* menu item from the contextual menu and see that _Fire_ content in displayed in a separate page (detail):
+
+!navigation_by_content_feature/event1.png!
+
+h2. Use it
+
+You can for example restrict the visibility of some contents:
+
+- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
+- hit the content navigation button
+- uncheck field visible and save
+- go back to home page and see that Fire sub menu is not displayed in the contextual menu
+
+You can also sort elements of the contextual menu:
+
+- go to the Content Explorer page and navigate under /site contents/live/acme/events/All
+- select /site contents/live/acme/events/All/Earth node
+- hit the content navigation button
+- set the field Display order to 1 and save
+- select /site contents/live/acme/events/All/Water node
+- hit the content navigation button
+- set the field Display order to 2 and save
+- select /site contents/live/acme/events/All/Air node
+- hit the content navigation button
+- set the field Display order to 3 and save
+- go back to home page and see that the display order from the contextual menu is sorted: Earth, Water, Air (notice that Fire sub menu is not displayed because we set it to invisible in the previous example)
+
+You can get back a node to the contextual menu (if you already remove it) and attach it to another page:
+
+- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
+- hit the content navigation button
+- fill the navigation form fields as follows:
+** Visible = true
+** Target parent navigation = News
+** Clickable = false
+** Page for list = catalog
+** Page for detail = detail
+- save changes
+- go back to the home page acme/overview and see that Fire node is attached to News menu item from the site menu:
+
+!navigation_by_content_feature/fireNode.png!
+
+Now what if you create a new content, will it be added directly to the contextual menu?
+Till now the response is no.
+To achieve that, we need to add the populateToMenu ECM action that could add newly added contents to the contextual menu:
+- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
+- hit the Manage Actions button and add the exo:populateToMenu action:
+
+!navigation_by_content_feature/populateToMenuAction.png!
+
+- create a document under /site contents/live/acme/events/All/Fire (upload a file for example) and publish it
+- go back to home page and see that the newly added document (must be published) is added in the contextual menu:
+
+!navigation_by_content_feature/docPDF.png!
+
+The sample acme-website comes with an already configured navigation by content menu:
+
+!navigation_by_content_feature/productsMenu.png!
+
+You can hit the Vision sub menu and see contents of vision directory rendered is the page _catalog_ :
+
+!navigation_by_content_feature/visionSubMenuList.png!
+
+Choose for example the X-Ray content and see the newly implemented reach content that uses new visual effects
+- "Benefits" and "Features" tabs:
+
+!navigation_by_content_feature/benefits.png!
+
+- Coverflow section:
+
+!navigation_by_content_feature/coverflow.png!
+
+- Related documents:
+
+!navigation_by_content_feature/relatedDocuments.png!
+
+h2. How to create a new product
+
+- go to the Content Explorer page and navigate under somePath/someDirectory
+- hit the Add Document button
+- choose _Product_
+- fill the product dialog form:
+** Name
+** Title
+** Illustration Image
+** Summary
+** Benefits
+** Features
+- save changes
+Now lets improve our newly created product, say "sampleProduct":
+- go under somePath/someDirectory/sampleProduct/medias/images
+- upload some images and publish them:
+
+!navigation_by_content_feature/sampleProductImages.png!
+
+- go under somePath/someDirectory/sampleProduct/medias/videos
+- upload a video and publish it:
+
+!navigation_by_content_feature/sampleProductVideos.png!
+
+- go under somePath/someDirectory/sampleProduct/documents
+- create two directories: _Sales materials_ and _Technical documentation_
+- under each subfolder upload a pdf document and publish it:
+
+!navigation_by_content_feature/sampleProductDocuments.png!
+
+- now you can add the sampleProduct to some category or add it to a Content List Portlet
+- the newly created product is ready to be displayed in some page, don't forget to publish it
+- you can select this content from a CLV:
+
+!navigation_by_content_feature/sampleProductCLV.png!
+
+- the content will be displayed in a detail page as follows:
+
+!navigation_by_content_feature/sampleProductDetail.png!
+
+h3. Product content development
+
+The product content is composed of fields and folders:
+
+Fields
+- Name
+- Title
+- Illustration Image
+- Summary
+- Benefits
+- Features
+Folders
+- documents
+- medias/images
+- medias/videos
+
+Folders are created within the product content when the name field is created.
+This can be achieved as follows (from the product dialog.gtmpl)
+{code:html}
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.name")%></td>
+	<td class="FieldComponent">
+	<%
+	String[] productFieldName = ["jcrPath=/node", "mixintype=mix:votable,mix:commentable","editable=if-null","validate=name,empty"] ;
+	uicomponent.addTextField("name", productFieldName) ;
+	String[] documentsFolder = ["jcrPath=/node/documents", "nodetype=nt:folder","mixintype=exo:documentFolder", "defaultValues=documents"] ;
+	String[] mediasFolder = ["jcrPath=/node/medias", "nodetype=exo:multimediaFolder", "defaultValues=medias"] ;
+	String[] imagesFolder = ["jcrPath=/node/medias/images", "nodetype=nt:folder", "defaultValues=images"] ;
+	String[] videoFolder = ["jcrPath=/node/medias/videos", "nodetype=nt:folder", "defaultValues=videos"] ;
+	uicomponent.addHiddenField("documentsFolder", documentsFolder);
+	uicomponent.addHiddenField("mediasFolder", mediasFolder);
+	uicomponent.addHiddenField("imagesFolder", imagesFolder);
+	uicomponent.addHiddenField("videoFolder", videoFolder);
+	%>
+	</td>
+</tr>
+{code}
+Other fields are created almost in the same way:
+_Title_
+{code:html}
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.title")%></td>
+	<td class="FieldComponent">
+	<%
+		String[] productFieldTitle = ["jcrPath=/node/exo:title", "validate=empty", "editable=if-null"];
+		uicomponent.addTextField("title", productFieldTitle) ;
+	%>
+	</td>
+</tr>
+{code}
+_Illustration Image_
+{code:html}
+<%
+private void setUploadFields(name) {
+	String[] illustrationHiddenField1 = ["jcrPath=/node/medias/images/illustration", "nodetype=nt:file", "mixintype=mix:referenceable", "defaultValues=illustration"];
+	String[] illustrationHiddenField2 = ["jcrPath=/node/medias/images/illustration/jcr:content", "nodetype=nt:resource", "mixintype=dc:elementSet", "visible=false"];
+	String[] illustrationHiddenField3 = ["jcrPath=/node/medias/images/illustration/jcr:content/jcr:encoding", "visible=false", "UTF-8"];
+	String[] illustrationHiddenField4 = ["jcrPath=/node/medias/images/illustration/jcr:content/jcr:lastModified", "visible=false"];
+	String[] illustrationHiddenField5 = ["jcrPath=/node/medias/images/illustration/jcr:content/dc:date", "visible=false"];
+	uicomponent.addHiddenField("illustrationHiddenField1", illustrationHiddenField1);
+	uicomponent.addHiddenField("illustrationHiddenField2", illustrationHiddenField2);
+	uicomponent.addHiddenField("illustrationHiddenField3", illustrationHiddenField3);
+	uicomponent.addCalendarField("illustrationHiddenField4", illustrationHiddenField4);
+	uicomponent.addCalendarField("illustrationHiddenField5", illustrationHiddenField5);
+	String[] fieldImage = ["jcrPath=/node/medias/images/illustration/jcr:content/jcr:data"] ;
+	uicomponent.addUploadField(name, fieldImage) ;
+}
+%>
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.illustrationImage")%></td>
+	<td class="FieldComponent">
+		<%
+			String illustration = "illustration";
+			if(ProductNode != null && ProductNode.hasNode("medias/images/illustration") && (uicomponent.findComponentById(illustration) == null)) {
+				def imageNode = ProductNode.getNode("medias/images/illustration") ;
+				def resourceNode = imageNode.getNode("jcr:content");
+				if(resourceNode.getProperty("jcr:data").getStream().available() > 0) {
+					def imgSrc = uicomponent.getImage(imageNode, "jcr:content");
+					def actionLink = uicomponent.event("RemoveData", "/medias/images/illustration/jcr:content");
+					%>
+						<div>
+							<image src="$imgSrc" width="100px" height="80px"/>
+							<a onclick="$actionLink">
+								<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
+							</a>
+						</div>
+					<%
+				} else {
+					setUploadFields(illustration);
+				}
+			} else {
+				setUploadFields(illustration);
+			}
+		%>
+	</td>
+</tr>
+{code}
+_Summary_
+{code:html}
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
+	<td class="FieldComponent">
+	<%
+		String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=Basic", ""] ;
+		uicomponent.addRichtextField("summary", fieldSummary) ;
+	%>
+	</td>
+</tr>
+{code}
+_Benefits_
+{code:html}
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.benefits")%></td>
+	<td class="FieldComponent">
+	<div class="UIFCKEditor">
+	<%
+		String[] productFieldBenefits = ["jcrPath=/node/exo:productBenefits", "options=toolbar:CompleteWCM", ""] ;
+		uicomponent.addRichtextField("productBenefits", productFieldBenefits) ;
+	%>
+	</div>
+	</td>
+</tr>
+{code}
+_Features_
+{code:html}
+<tr>
+	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.features")%></td>
+	<td class="FieldComponent">
+	<div class="UIFCKEditor">
+	<%
+		String[] productFieldFeatures = ["jcrPath=/node/exo:productFeatures", "options=toolbar:CompleteWCM", ""] ;
+		uicomponent.addRichtextField("productFeatures", productFieldFeatures) ;
+	%>
+	</div>
+	</td>
+</tr>
+{code}
+
+Now lets look at the product's view form.
+Illustration image, title and summary are grouped together:
+{code:html}
+<!-- Hot news -->
+<div class="BigNews ClearFix">
+	<!-- Begin illustrative image -->
+		<%
+		RESTImagesRendererService imagesRenderer = uicomponent.getApplicationComponent(RESTImagesRendererService.class);
+		def imageURI = imagesRenderer.generateImageURI(currentNode.getNode("medias/images/illustration"),null);
+		if (imageURI != null){
+		%>
+	<a class="Image"><img width="93" src="$imageURI" alt=""></a>
+		<%
+		}
+		%>
+	<div class="Content">
+	<!-- Begin title -->
+	<%
+	  if(currentNode.hasProperty("exo:title")) {
+		def title = currentNode.getProperty("exo:title").getString();
+		%>
+		<a href="#" class="Title">$title</a>
+		<div class="Index1">$title</div>
+		<%
+	  }
+	%>
+	<!-- End title -->
+	<!-- Begin summary -->
+		<%
+		if(currentNode.hasProperty("exo:summary")) {
+		def summary = currentNode.getProperty("exo:summary").getString();
+		%>
+		<div class="Summary">$summary</div>
+		<%
+		}
+		%>
+	<!-- End summary -->
+	</div>
+</div>
+{code}
+Benefits and Features fields are rendered in two tabs. It uses the jQuery library (already integrated in eXoPlatform3):
+{code:html}
+<div id="sectionsTabs" class="ui-tabs">
+	<ul class="ui-tabs-nav ClearFix">
+		<li class="ui-state-default">
+			<!-- Begin Benefits head section -->
+			<a class="ArrowCtrl" href="#tab-benefits"><%=_ctx.appRes("Product.view.label.benefits")%></a>
+			<!-- End Benefits head section -->
+		</li>
+		<li class="ui-tabs-selected">
+			<!-- Begin Features head section -->
+			<a class="ArrowCtrl" href="#tab-features"><%=_ctx.appRes("Product.view.label.features")%></a>
+			<!-- End Features head section -->
+		</li>
+	</ul>
+	<div id="tab-benefits">
+	  <%
+		  if(currentNode.hasProperty("exo:productBenefits")) {
+			def benefits = currentNode.getProperty("exo:productBenefits").getString();
+			print benefits;
+		  }
+	  %>
+	</div>
+	<div id="tab-features">
+	  <%
+		  if(currentNode.hasProperty("exo:productFeatures")) {
+			def features = currentNode.getProperty("exo:productFeatures").getString();
+			print features;
+		  }
+	  %>
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery.noConflict();
+	jQuery(document).ready(function() {
+		jQuery("#sectionsTabs").tabs();
+	});
+</script>
+{code}
+Another jQuery based feature is the display of the product's images (coverflow) from the images folder:
+{code:html}
+<div class="jQProBoxC">
+<!-- Begin jCarouselLite part -->
+<button class="jQprev">&nbsp;</button>
+<div class="jCarouselLite">
+	<ul>
+	   <%
+             FOR IMAGE IN PRODUCT'S IMAGE FOLDER
+		String imgSrc = "";
+		/*
+		GET THE IMAGE PATH
+		imgSrc = GET THE IMAGE PATH;
+		*/
+		%>
+		<li><img src="$imgSrc" width="204" height="200"/></li>
+		<%
+	    %>
+	</ul>
+</div>
+<button class="jQnext">&nbsp;</button>
+<!-- End jCarouselLite part -->
+</div>
+<script type="text/javascript">
+jQuery.noConflict();
+   jQuery(document).ready(function(){
+  //jQuery.noConflict();
+	jQuery(".jCarouselLite").jCarouselLite({
+	btnNext: ".jQprev",
+	btnPrev: ".jQnext",
+	//auto: 500,
+	//speed: 500
+});
+});
+</script>
+{code}
+Documents and videos are simply displayed within the view form as follows:
+- get the node's path (document or video)
+- use some customizes css classes to display a link for this node.
+
+Labels and/or messages displayed in the dialog and the view form are localized.
+Notice the use of this instruction:
+{code:html}
+<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
+[...]
+<h1><%=_ctx.appRes("Product.view.label.seeItInAction")%></h1>
+{code}
+This is achieved by adding locale files.
+For example:
+{code:xml}
+	<Product>
+		<view>
+			<label>
+				<benefits>Benefits</benefits>
+				<features>Features</features>
+				<seeItInAction>See it in action</seeItInAction>
+				<resources>Resources</resources>
+				<videos>Videos</videos>
+			</label>
+		</view>
+	</Product>
+{code}
+Make sure to add the locale files in the resource bundle configuration (if locale files(dialogs and views) are under classes/locale/wcm directory):
+{code:xml}
+<value>locale.wcm.dialogs</value>
+<value>locale.wcm.views</value>
+{code}
