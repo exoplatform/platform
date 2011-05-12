@@ -2,11 +2,13 @@ body {
 	background:transparent url(../background/BannerRepeat.gif) repeat-x top;
 	font-family:Lucida Sans,Tahoma,Verdana,Arial,Helvetica,sans-serif;
 	font-size:12px;
-	height:100%;
-	margin:0 auto;
-	overflow-x:auto;
+	margin:0;
 	padding:0px;
-    max-width: 860px;
+}
+
+.UIPageBody {	
+	width: 860px;
+	margin: auto;
 }
 
 .chapter > .section {
