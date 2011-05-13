@@ -588,11 +588,6 @@
                 <read-only>false</read-only>
               </preference>
               <preference>
-                <name>contextualFolder</name>
-                <value>contextualEnable</value>
-                <read-only>false</read-only>
-              </preference>      
-              <preference>
                 <name>showScvWith</name>
                 <value>content-id</value>
                 <read-only>false</read-only>
