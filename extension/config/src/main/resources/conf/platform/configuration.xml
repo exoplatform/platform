@@ -197,6 +197,9 @@
                 <string>platform-extension</string>
               </value>
               <value>
+                <string>platformNavigation</string>
+              </value>
+              <value>
                 <string>eXoPlatformResources</string>
               </value>
             </collection>
