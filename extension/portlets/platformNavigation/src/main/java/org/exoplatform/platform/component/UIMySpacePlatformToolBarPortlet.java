@@ -29,10 +29,16 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
         lifecycle = UIApplicationLifecycle.class,
-        template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl"
+        template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl",
+        events = { 
+          @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.UpdateGroupNavigationActionListener.class) 
+        }
 )
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
@@ -160,4 +166,13 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       return groupNavigationPermitted;
     }
 
+    public static class UpdateGroupNavigationActionListener extends EventListener<UIMySpacePlatformToolBarPortlet> {
+
+      @Override
+      public void execute(Event<UIMySpacePlatformToolBarPortlet> event) throws Exception {
+        // This event is only a trick for updating the MySpacePlatformToolBar Portlet
+        }
+    
+    }
+    
 }
