@@ -37,7 +37,7 @@ import org.exoplatform.webui.event.EventListener;
         lifecycle = UIApplicationLifecycle.class,
         template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl",
         events = { 
-          @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.UpdateGroupNavigationActionListener.class) 
+          @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.NavigationChangeActionListener.class) 
         }
 )
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
@@ -166,7 +166,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       return groupNavigationPermitted;
     }
 
-    public static class UpdateGroupNavigationActionListener extends EventListener<UIMySpacePlatformToolBarPortlet> {
+    public static class NavigationChangeActionListener extends EventListener<UIMySpacePlatformToolBarPortlet> {
 
       @Override
       public void execute(Event<UIMySpacePlatformToolBarPortlet> event) throws Exception {

@@ -96,7 +96,7 @@
 			<short-title>UIMySpacePlatformToolBarPortlet</short-title>
 		</portlet-info>
 		<supported-processing-event>
-			<name>UpdateGroupNavigation</name>
+			<name>NavigationChange</name>
 		</supported-processing-event>
 	</portlet>
     <!-- FIN PLF-488-->
@@ -168,6 +168,6 @@
 		</portlet-info>
 	</portlet>
 	<event-definition>
-	  <name>UpdateGroupNavigation</name>
+	  <name>NavigationChange</name>
 	</event-definition>
 </portlet-app>
