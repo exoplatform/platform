@@ -1,0 +1,230 @@
+Index: migration/plf/src/main/resources/conf/portal/configuration.xml
+===================================================================
+--- migration/plf/src/main/resources/conf/portal/configuration.xml	(revision 69415)
++++ migration/plf/src/main/resources/conf/portal/configuration.xml	(working copy)
+@@ -1,5 +1,26 @@
+ <?xml version="1.0" encoding="ISO-8859-1"?>
+ <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
++       <component>
++               <type>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</type>
++               <component-plugins>
++                       <component-plugin>
++                               <name>resource.bundle.handler</name>
++                               <set-method>addHandler</set-method>
++                               <type>org.exoplatform.platform.migration.common.handler.impl.ResourceBundleHandler</type>
++                       </component-plugin>
++                       <component-plugin>
++                               <name>organization.model.handler</name>
++                               <set-method>addHandler</set-method>
++                               <type>org.exoplatform.platform.migration.common.handler.impl.OrganizationServiceHandler</type>
++                               <init-params>
++                                       <value-param>
++                                               <name>max-users-per-file</name>
++                                               <value>100</value>
++                                       </value-param>
++                               </init-params>
++                       </component-plugin>
++               </component-plugins>
++       </component>
+ 	<component>
+ 		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
+ 		<type>org.exoplatform.platform.migration.plf.component.ContainerParamExtractorImpl</type>
+@@ -30,4 +51,4 @@
+ <!--			<type>org.exoplatform.platform.migration.plf.handler.impl.UserPortalConfigHandler</type>-->
+ <!--		</component-plugin>-->
+ 	</external-component-plugins>
+-</configuration>
+\ No newline at end of file
++</configuration>
+Index: migration/aio/src/main/resources/conf/portal/configuration.xml
+===================================================================
+--- migration/aio/src/main/resources/conf/portal/configuration.xml	(revision 69415)
++++ migration/aio/src/main/resources/conf/portal/configuration.xml	(working copy)
+@@ -1,5 +1,26 @@
+ <?xml version="1.0" encoding="ISO-8859-1"?>
+ <configuration>
++        <component>
++               <type>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</type>
++               <component-plugins>
++                       <component-plugin>
++                               <name>resource.bundle.handler</name>
++                               <set-method>addHandler</set-method>
++                               <type>org.exoplatform.platform.migration.common.handler.impl.ResourceBundleHandler</type>
++                       </component-plugin>
++                       <component-plugin>
++                               <name>organization.model.handler</name>
++                               <set-method>addHandler</set-method>
++                               <type>org.exoplatform.platform.migration.common.handler.impl.OrganizationServiceHandler</type>
++                               <init-params>
++                                       <value-param>
++                                               <name>max-users-per-file</name>
++                                               <value>100</value>
++                                       </value-param>
++                               </init-params>
++                       </component-plugin>
++               </component-plugins>
++        </component>
+ 	<component>
+ 		<key>org.exoplatform.platform.migration.common.component.ContainerParamExtractor</key>
+ 		<type>org.exoplatform.platform.migration.aio.component.ContainerParamExtractorImpl</type>
+@@ -86,4 +107,4 @@
+ 			<type>org.exoplatform.platform.migration.aio.handler.impl.TaxonomyHandler</type>
+ 		</component-plugin>
+ 	</external-component-plugins>
+-</configuration>
+\ No newline at end of file
++</configuration>
+Index: migration/common/src/main/resources/conf/portal/configuration.xml
+===================================================================
+--- migration/common/src/main/resources/conf/portal/configuration.xml	(revision 69415)
++++ migration/common/src/main/resources/conf/portal/configuration.xml	(working copy)
+@@ -1,24 +0,0 @@
+-<?xml version="1.0" encoding="ISO-8859-1"?>
+-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+-	<component>
+-		<type>org.exoplatform.platform.migration.common.component.MarshallConfigurationService</type>
+-		<component-plugins>
+-			<component-plugin>
+-				<name>resource.bundle.handler</name>
+-				<set-method>addHandler</set-method>
+-				<type>org.exoplatform.platform.migration.common.handler.impl.ResourceBundleHandler</type>
+-			</component-plugin>
+-			<component-plugin>
+-				<name>organization.model.handler</name>
+-				<set-method>addHandler</set-method>
+-				<type>org.exoplatform.platform.migration.common.handler.impl.OrganizationServiceHandler</type>
+-				<init-params>
+-					<value-param>
+-						<name>max-users-per-file</name>
+-						<value>100</value>
+-					</value-param>
+-				</init-params>
+-			</component-plugin>
+-		</component-plugins>
+-	</component>
+-</configuration>
+\ No newline at end of file
+Index: migration/common/src/main/resources/binding.xml
+===================================================================
+--- migration/common/src/main/resources/binding.xml	(revision 69415)
++++ migration/common/src/main/resources/binding.xml	(working copy)
+@@ -1,118 +0,0 @@
+-<binding>
+-	<format type="java.lang.String[]" serializer="org.exoplatform.portal.config.serialize.JibxArraySerialize.serializeStringArray" deserializer="org.exoplatform.portal.config.serialize.JibxArraySerialize.deserializeStringArray"/>
+-	<mapping name="application" label="application" class="org.exoplatform.platform.migration.common.aio.object.Application">
+-		<value name="instance-id" field="instanceId"/>
+-		<value name="id" usage="optional" field="id" style="attribute"/>
+-		<value name="application-type" field="applicationType" usage="optional"/>
+-		<value name="theme" usage="optional" field="theme"/>
+-		<value name="title" usage="optional" field="title"/>
+-		<value name="show-info-bar" field="showInfoBar" usage="optional"/>
+-		<value name="show-application-state" field="showApplicationState" usage="optional"/>
+-		<value name="show-application-mode" field="showApplicationMode" usage="optional"/>
+-		<value name="description" field="description" usage="optional"/>
+-		<value name="icon" field="icon" usage="optional"/>
+-		<value name="width" usage="optional" field="width"/>
+-		<value name="height" usage="optional" field="height"/>
+-		<structure field="properties" usage="optional"/>
+-	</mapping>
+-	<mapping name="page-body" class="org.exoplatform.platform.migration.common.aio.object.PageBody">
+-	</mapping>
+-	<mapping name="container" label="container" class="org.exoplatform.platform.migration.common.aio.object.Container">
+-		<value name="id" usage="optional" field="id" style="attribute"/>
+-		<value name="name" usage="optional" field="name"/>
+-		<value name="title" field="title" usage="optional"/>
+-		<value name="icon" field="icon" usage="optional"/>
+-		<value name="template" field="template" usage="optional" style="attribute"/>
+-		<value name="factory-id" field="factoryId" usage="optional"/>
+-		<value name="decorator" field="decorator" usage="optional" style="attribute"/>
+-		<value name="description" field="description" usage="optional"/>
+-		<value name="width" usage="optional" field="width" style="attribute"/>
+-		<value name="height" usage="optional" field="height" style="attribute"/>
+-		<collection field="children" ordered="false">
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.Container" usage="optional"/>
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.Application" usage="optional"/>
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.PageBody" usage="optional"/>
+-		</collection>
+-	</mapping>
+-	<mapping name="page" class="org.exoplatform.platform.migration.common.aio.object.Page">
+-		<value name="page-id" field="pageId" usage="optional"/>
+-		<value name="owner-type" field="ownerType"/>
+-		<value name="owner-id" field="ownerId"/>
+-		<value name="name" field="name"/>
+-		<value name="title" field="title" usage="optional"/>
+-		<value name="factory-id" field="factoryId" usage="optional"/>
+-		<value name="access-permissions" field="accessPermissions" usage="optional"/>
+-		<value name="edit-permission" field="editPermission" usage="optional"/>
+-		<value name="show-max-window" field="showMaxWindow" usage="optional"/>
+-		<value name="creator" field="creator" usage="optional"/>
+-		<value name="modifier" field="modifier" usage="optional"/>
+-		<collection field="children" ordered="false">
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.Container" usage="optional"/>
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.Application" usage="optional"/>
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.PageBody" usage="optional"/>
+-		</collection>
+-	</mapping>
+-	<mapping name="node" class="org.exoplatform.platform.migration.common.aio.object.PageNode">
+-		<value name="uri" field="uri"/>
+-		<value name="name" field="name"/>
+-		<value name="label" field="label" usage="optional" set-method="setLabel"/>
+-		<value name="icon" field="icon" usage="optional"/>
+-		<value name="start-publication-date" field="startPublicationDate" usage="optional"/>
+-		<value name="end-publication-date" field="endPublicationDate" usage="optional"/>
+-		<value name="show-publication-date" field="showPublicationDate" usage="optional"/>
+-		<value name="visible" field="visible" usage="optional" default="true"/>
+-		<value name="page-reference" field="pageReference" usage="optional"/>
+-		<collection field="children" usage="optional" item-type="org.exoplatform.platform.migration.common.aio.object.PageNode"/>
+-	</mapping>
+-	<mapping name="portal-config" class="org.exoplatform.platform.migration.common.aio.object.PortalConfig" ordered="false">
+-		<value name="portal-name" field="name"/>
+-		<value name="locale" field="locale"/>
+-		<!--<value name="factory-id" field="factoryId" usage="optional"/>-->
+-		<value name="access-permissions" field="accessPermissions" usage="optional"/>
+-		<value name="edit-permission" field="editPermission" usage="optional"/>
+-		<value name="skin" field="skin" usage="optional"/>
+-		<value name="title" field="title" usage="optional"/>
+-		<value name="creator" field="creator" usage="optional"/>
+-		<value name="modifier" field="modifier" usage="optional"/>
+-		<structure name="portal-layout" using="container" field="portalLayout" usage="optional"/>
+-	</mapping>
+-	<mapping name="page-set" class="org.exoplatform.platform.migration.common.aio.object.Page$PageSet">
+-		<collection field="pages" item-type="org.exoplatform.platform.migration.common.aio.object.Page"/>
+-	</mapping>
+-	<mapping name="node-navigation" class="org.exoplatform.platform.migration.common.aio.object.PageNavigation">
+-		<value name="owner-type" field="ownerType"/>
+-		<value name="owner-id" field="ownerId"/>
+-		<value name="priority" field="priority" usage="optional"/>
+-		<value name="creator" field="creator" usage="optional"/>
+-		<value name="modifier" field="modifier" usage="optional"/>
+-		<value name="description" field="description" usage="optional"/>
+-		<collection name="page-nodes" field="pageNodes" usage="optional" item-type="org.exoplatform.platform.migration.common.aio.object.PageNode"/>
+-	</mapping>
+-	<mapping name="portlet-preferences-set" class="org.exoplatform.platform.migration.common.aio.object.PortletPreferences$PortletPreferencesSet">
+-		<collection field="portlets" item-type="org.exoplatform.platform.migration.common.aio.object.PortletPreferences"/>
+-	</mapping>
+-	<mapping class="org.exoplatform.platform.migration.common.aio.object.Preference" name="preference" label="preference">
+-		<value name="name" field="name" usage="optional"/>
+-		<collection field="values" item-type="java.lang.String">
+-			<value name="value" style="element"/>
+-		</collection>
+-		<value name="read-only" field="readOnly" usage="optional"/>
+-	</mapping>
+-	<mapping class="org.exoplatform.platform.migration.common.aio.object.PortletPreferences" name="portlet-preferences" label="portlet-preferences">
+-		<value name="owner-type" field="ownerType"/>
+-		<value name="owner-id" field="ownerId"/>
+-		<value name="window-id" field="windowId"/>
+-		<collection field="preferences" item-type="org.exoplatform.platform.migration.common.aio.object.Preference"/>
+-		<value name="preferences-validator" field="preferencesValidator" usage="optional"/>
+-	</mapping>
+-	<mapping name="gadgets" label="gadgets" class="org.exoplatform.platform.migration.common.aio.object.Gadgets">
+-		<value name="owner-type" field="ownerType"/>
+-		<value name="owner-id" field="ownerId"/>
+-		<value name="access-permissions" field="accessPermissions" usage="optional"/>
+-		<value name="edit-permission" field="editPermission" usage="optional"/>
+-		<collection field="children" ordered="false">
+-			<structure map-as="org.exoplatform.platform.migration.common.aio.object.Container" usage="optional"/>
+-		</collection>
+-	</mapping>
+-	<mapping class="org.exoplatform.portal.config.model.Properties" name="properties" marshaller="org.exoplatform.portal.config.serialize.JibxPropertiesMapper" unmarshaller="org.exoplatform.portal.config.serialize.JibxPropertiesMapper"/>
+-</binding>
+\ No newline at end of file
