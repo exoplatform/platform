@@ -36,7 +36,7 @@ echo *****************
 if "%1" == "" (
 	set EXO_PROFILES=-Dexo.profiles=default
 ) else (
-	set EXO_PROFILES=-Dexo.profiles=%1
+	set EXO_PROFILES=-Dexo.profiles=%*
 )
 
 if exist gatein.bat (
