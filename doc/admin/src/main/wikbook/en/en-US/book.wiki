@@ -32,3 +32,7 @@ h1. Deployment {anchor:id=ADM.Deployment}
 
 {include:document=deployment.wiki|syntax=confluence/1.0}
 
+h1. How to upgrade Platform {anchor:id=ADM.Upgrade}
+
+{include:document=upgrade.wiki|syntax=confluence/1.0}
+

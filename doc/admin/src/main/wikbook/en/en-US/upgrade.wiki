@@ -1,4 +1,106 @@
-h1. Upgrading from All In One
-{note}
-TODO 
-{note}
+h1. Purpose
+
+Updating your Platform server is fairly easy but remains critical. This document present the detailed steps to upgrade Platform server.
+
+h1. Modifications details between versions
+
+h2. Modifications between Platform v.3.0.1 and 3.0.2
+
+*[ECMS Application templates|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch03.html#d0e28054]*
+
+It is about some Groovy template files (.gtmpl) stored in the JCR. These templates are used by the *Content List Portlet* and *Category Navigation Portlet* to diplay content lists in a pagination mode.
+There are four template types available, including:
+
+- *Content List* templates.
+- *Parameterized Content List* templates.
+- *Category Navigation* templates.
+- *Paginator* templates.
+
+In Platform 3.0.1, those templates are stored in the same location in the JCR. But in Platform 3.0.3, their locations are separated to be clearer for the end user.
+
+See the {{Templates Structure Upgrade Notice}} in the document located in *DeliveryFolder/upgrade-notes/PLF302_CLV_Templates_Structure_Upgrade_Notice.pdf*.
+
+h2. Modifications between Platform v.3.0.2 to 3.0.3
+
+*Gadgets*
+
+Gadgets predefined in Platform are stored in the JCR, so if you have already used Platform in the production mode, delete those gadgets to get the new ones defined in the new Platform package. However, in case of the development mode, meaning that JCR database could be removed, those gadgets are auto-refreshed when upgrading server.
+
+
+# Modified gadgets:
+#* *Upcoming Events*.
+#* *To-do* is renamed to *Todo*.
+#* *IDE*.
+#* *Poll*.
+#* *Status Update* is renamed to *Activity Stream*.
+#* *Viewer Friends Gadgets* is renamed to *My Connections*.
+#* *Upcoming tasks* is renamed to *My Tasks*.
+#* *RSSFetch* is renamed to *SocialRssReader*.
+# Deleted gadgets:
+#* *Published Documents*.
+#* *Last Edited Documents*.
+#* *My documents*.
+#* *ApplicationRegistryGadget*.
+#* *Social Hello World*.
+#* *Code Sharing*.
+#* *RssFetcherGadget*.
+#* *Clock*.
+#* *CodeRunner - OpenSocial Deve...*.
+#* *Space List*.
+# Added gadgets:
+#* None.
+
+See the instructions below to refresh those gadgets in production mode.
+
+h2. Modifications between Platform v.3.0.3 and 3.0.4
+
+* It is not required to make any modifications.
+
+h1. Steps to upgrade
+
+h2. Development mode
+
+In this mode, you are supposed to use Platform with a clean database, which mean you can delete the database tables without impacting your development. Also, try following steps in the section *Production mode* below.
+
+# Stop the Platform server.
+# Clean up your JCR database tables (Drop JCR Datasource tables).
+# Backup your files before proceeding to the upgrade.
+# Replace the old eXo Platform binaries with the new ones:
+## Tomcat: make sure that the new Tomcat content is used.
+## JBoss: replace the old EAR package with the new ones, including the *gatein.ear* folder.
+# Apply modifications defined in *DeliveryFolder/upgrade-notes/PLF302_CLV_Templates_Structure_Upgrade_Notice.pdf* in your custom configuration files.
+# Plug your custom configuration files and your custom datasources configuration into the new server.
+# Start the Platform Server to complete the upgrade.
+
+h2. Production mode
+
+In this mode, you are supposed to keep your existing JCR data. Follow these steps:
+
+# Stop the Platform server.
+# Backup your Database and files before proceeding to the upgrade.
+# Replace the old eXo Platform binaries with the new ones.
+# Plug your custom configuration files and your custom datasources configuration into the new server.
+# Deploy crash web application is not deployed.
+# Start the new Platform Server.
+# Connect to Platform [CRaSH|http://crsh.googlecode.com/svn/doc/1.0.0-beta18/html/index.html] console by using the Telnet or SSH console to update gadgets predefined in Platform: {code}
+   telnet localhost 5000
+   connect -c portal -u root -p gtn portal-system
+   rm /production/app:gadgets/app:eventslist
+   rm /production/mop:workspace/mop:customizations/mop:Todo
+   rm /production/app:gadgets/app:Todo
+   select * from mop:workspaceclone where mop:contentid='Todo' | set mop:contentid "To-do"
+   rm /production/mop:workspace/mop:customizations/mop:RSSFetch
+   rm /production/app:gadgets/app:RSSFetch
+   select * from mop:workspaceclone where mop:contentid='RSSFetch' | set mop:contentid "SocialRssReader"
+   rm /production/app:gadgets/app:IDE
+   rm /production/app:gadgets/app:pollslist
+   rm /production/app:gadgets/app:Activities
+   rm /production/app:gadgets/app:ViewerFriends
+   rm /production/app:gadgets/app:taskslist
+   commit
+{code}
+# Restart the Platform Server to complete the upgrade.
+# The modifications defined in *DeliveryFolder/upgrade-notes/PLF302_CLV_Templates_Structure_Upgrade_Notice.pdf* are automatically applied (See the section *Can you safely upgrade?*):
+{quote}
+Assuming you use a Platform 3.0.1 version, you can safely upgrade with no impact on your existing website. All impacted data will be migrated automatically at startup.
+{quote}
