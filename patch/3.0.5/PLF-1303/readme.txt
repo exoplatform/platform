@@ -8,18 +8,15 @@ The Proposal
 Problem description
 
 What is the problem to fix?
-
 We expect that only moderator user can see this option in toolbar.
 At the moment, if we are not moderator and click on space setting into toolbar, a blank page will be displayed.
-
 Expected: if you're not manager of a space, its space settings page node must not be displayed.
 Fix description
 
 How is the problem fixed?
+* See if the current user have edit permissions on the space. If not, we will not render the SpaceSettings link in the Space menu.
 
-*Someone who can access the setting portlet (as an application in created space) if he has manager role. So to display the link or not base on checking the role of viewer. Before, we check the permission with the "SpaceSettingPortlet" as name. This issue made some changes in the name of application so the returned result in checking is not right longer. To fix we check the node name with value "settings" instead of "SpaceSettingPortlet".
-
-Patch files:PLF-1303.patch
+Patch files: PLF-1303.patch
 
 Tests to perform
 

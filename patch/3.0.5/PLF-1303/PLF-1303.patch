@@ -1,6 +1,6 @@
 Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java
 ===================================================================
---- extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(revision 68948)
+--- extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(revision 69134)
 +++ extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(working copy)
 @@ -35,7 +35,7 @@
          template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl"
@@ -11,22 +11,47 @@ Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platf
  
      private SpaceService spaceService = null;
      private OrganizationService organizationService = null;
-@@ -121,11 +121,10 @@
-         // space is deleted
-         if (space == null) return false;
-         if (spaceService.hasEditPermission(space, remoteUser)) return true;
+@@ -109,23 +109,23 @@
+     }
+ 
+     public boolean isRender(PageNode spaceNode, PageNode applicationNode) throws SpaceException {
+-        if(spaceService == null) {
+-          return false;
++        if(spaceService != null) {
++          String remoteUser = getUserId();
++          String spaceUrl = spaceNode.getUri();
++          if (spaceUrl.contains("/")) {
++              spaceUrl = spaceUrl.split("/")[0];
++          }
++          Space space = spaceService.getSpaceByUrl(spaceUrl);
++          if (space != null) {
++            if (spaceService.hasEditPermission(space, remoteUser)) {
++              return true;
++            }
++            if (SPACE_SETTINGS.equals(applicationNode.getName())) {
++                return false;
++            }
++          }
+         }
+-        String remoteUser = getUserId();
+-        String spaceUrl = spaceNode.getUri();
+-        if (spaceUrl.contains("/")) {
+-            spaceUrl = spaceUrl.split("/")[0];
+-        }
+-        Space space = spaceService.getSpaceByUrl(spaceUrl);
+-        // space is deleted
+-        if (space == null) return false;
+-        if (spaceService.hasEditPermission(space, remoteUser)) return true;
 -        String appName = applicationNode.getName();
 -        if (!appName.contains(SPACE_SETTING_PORTLET)) {
 -            return true;
-+       if (SPACE_SETTINGS.equals(applicationNode.getName())) {
-+            return false;
-         }
+-        }
 -        return false;
 +        return true;
      }
  
      public PageNode getSelectedPageNode() throws Exception {
-@@ -160,4 +159,4 @@
+@@ -160,4 +160,4 @@
        return groupNavigationPermitted;
      }
  
@@ -35,11 +60,13 @@ Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platf
 +}
 Index: extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl
 ===================================================================
---- extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl	(revision 68948)
+--- extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl	(revision 69134)
 +++ extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl	(working copy)
-@@ -194,7 +194,10 @@
+@@ -193,8 +193,12 @@
+ 				<div class="MenuItemContainer" style="position: absolute; display:none">
  					<div class="SubBlock">
  			""" ;
++				/** PLF-1303 */
  				for(int j = 0; j < node.getChildren().size(); j++) {
 -					renderPageNode(node.getChildren().get(j), j%2 == 0);
 +					def childNode = node.getChildren().get(j);
