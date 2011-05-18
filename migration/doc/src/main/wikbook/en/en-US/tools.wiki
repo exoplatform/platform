@@ -197,8 +197,7 @@ The first step is to wire the exported OrganizationDataInitializer configuration
 *** profiles/
 *** users/
 *** org.exoplatform.services.organization.OrganizationService.xml
-* rename the org.exoplatform.services.organization.OrganizationService.xml file to configuration.xml
-* Replace the implementation by PicketLinkIDM implementation (or any other types of implementation) in the configuration.xml file :
+* Replace the implementation by PicketLinkIDM implementation (or any other types of implementation) in the org.exoplatform.services.organization.OrganizationService.xml file :
 
 e.g: replace the hibernate implementation by the PicketLinkIDM one:
 {code:xml}
@@ -218,38 +217,9 @@ by the PicketLinkIDM implementation
 [...]
 </component>
 {code}
-* If you have defined *org.exoplatform.services.cms.drives.impl.NewGroupListener* as component-plugin for this Service, please make sure to change the parameter "allowCreateFolder" defined in init-params (see details [here|PLF:Migration Guide] paragraph *ECM drives*):
-** open the file configuration.xml
-** find the value-param *allowCreateFolder* for components of type *org.exoplatform.services.cms.drives.impl.NewGroupListener*
-** change the value *Both* to *nt:folder,nt:unstructured
-** add the value-param *allowNodeTypesOnTree* (allowNodeTypesOnTree field declaration is mandatory: added in Platform)
-|| AIO || PLF ||
-| {code:xml}
-[...]
-<type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
-[...]
-<value-param>
- <name>allowCreateFolder</name>
- <value>Both</value>
-</value-param>
-[...]
-{code} | {code:xml}
-[...]
-<type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
-[...]
-<value-param>
-  <name>allowCreateFolder</name>
-  <value>nt:folder,nt:unstructured</value>
-</value-param>
-<value-param>
-  <name>allowNodeTypesOnTree</name>
-  <value>*</value>
-</value-param>
-[...]
-{code} |
-
-* Start your server
-
+* Delete all component plugins declared in {{org.exoplatform.services.organization.OrganizationService.xml}} file.
+* Rename the file {{org.exoplatform.services.organization.OrganizationService.xml}} to {{configuration.xml}}.
+* Start your server.
 {tip}
 _profiles/_ and _users/_ folders are not needed at this stage, you can remove these folders before you start the server.
 {tip}
