@@ -1570,6 +1570,18 @@
       <version>${commons-httpclient.version}</version>
     </dependency>
     <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+      <version>${commons-pool.version}</version>
+      <type>jar</type>
+    </dependency><!-- 1.2-->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>${commons-dbcp.version}</version>
+      <type>jar</type>
+    </dependency><!-- 1.2.1-->
+    <dependency>
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-common</artifactId>
       <version>${org.gatein.shindig.version}</version>
