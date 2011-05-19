@@ -48,7 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Dashboard</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,12 +103,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +118,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
@@ -123,17 +133,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_54</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_54</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_54</td>
 	<td></td>
 </tr>
 <tr>
@@ -152,8 +167,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>searchTerm</td>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -162,43 +177,28 @@
 	<td>Test_SNF_PRL_54</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>searchOption</td>
-	<td></td>
-</tr>
-<tr>
 	<td>select</td>
 	<td>searchOption</td>
 	<td>label=Title</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>30000</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete page --</td>
+	<td>--Delete page</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Delete Page']</td>
+	<td>//td/div[@title='Test_SNF_PRL_54']/following::img[@title='Delete Page']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[@title='Delete Page']</td>
+	<td>//td/div[@title='Test_SNF_PRL_54']/following::img[@title='Delete Page']</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,22 +213,17 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>No result found.</td>
+	<td>No result found. </td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>No result found.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>No result found. </td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[contains(@onclick,'componentId=_')]//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
@@ -239,6 +234,11 @@
 <tr>
 	<td>verifyTextNotPresent</td>
 	<td>Test_SNF_PRL_54</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

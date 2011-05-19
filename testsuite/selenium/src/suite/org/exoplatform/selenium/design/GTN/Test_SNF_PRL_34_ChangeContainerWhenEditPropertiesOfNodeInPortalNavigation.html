@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -67,13 +72,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Edit Navigation: intranet</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Add Node</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +123,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
@@ -152,8 +167,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Quick Search']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Select Page</td>
 	<td></td>
 </tr>
 <tr>
@@ -164,6 +189,11 @@
 <tr>
 	<td>click</td>
 	<td>xpath=//img[@title='Select Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -674,6 +704,11 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Edit Navigation: intranet</td>
 	<td></td>
 </tr>
 </tbody></table>

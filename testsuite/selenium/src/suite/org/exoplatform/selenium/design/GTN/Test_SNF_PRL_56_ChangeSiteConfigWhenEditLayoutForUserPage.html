@@ -47,8 +47,23 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Dashboard</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,12 +108,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +123,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
@@ -123,17 +138,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_56</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_56</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_56</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,8 +217,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Properties']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//div[@id='UIMaskWorkspace']/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Properties']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -218,27 +248,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposer']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposer']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete new tab</td>
+	<td>-- Delete new tab: Test_SNF_PRL_56</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UITabPaneDashboard']/div/div/div/div/div/div[2]/div/div/div/div/a/img</td>
+	<td>//span[text()='Test_SNF_PRL_56']/following::a[contains(@href,'Test_SNF_PRL_56')]/img[@alt='DEL']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UITabPaneDashboard']/div/div/div/div/div/div[2]/div/div/div/div/a/img</td>
+	<td>//span[text()='Test_SNF_PRL_56']/following::a[contains(@href,'Test_SNF_PRL_56')]/img[@alt='DEL']</td>
 	<td></td>
 </tr>
 <tr>
@@ -249,6 +279,11 @@
 <tr>
 	<td>assertConfirmation</td>
 	<td>Really want to remove this dashboard?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>

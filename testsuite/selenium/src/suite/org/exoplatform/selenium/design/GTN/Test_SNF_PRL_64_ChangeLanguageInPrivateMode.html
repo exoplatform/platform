@@ -47,8 +47,18 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Change Language</td>
 	<td></td>
 </tr>
 <tr>
@@ -74,6 +84,11 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UITabContent']//a[text()=&quot;French&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Apply</td>
 	<td></td>
 </tr>
 <tr>
@@ -134,6 +149,11 @@
 <tr>
 	<td>verifyTextPresent</td>
 	<td>My Spaces</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

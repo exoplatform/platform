@@ -48,7 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Manage groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,13 +67,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Edit Navigator of Administrator : 3</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
+	<td>//td/div[text()='Administrator']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
+	<td>//td/div[text()='Administrator']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,12 +118,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Search and Select Page</td>
 	<td></td>
 </tr>
 <tr>
@@ -142,23 +162,38 @@
 	<td>label=Title</td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>echo</td>
+	<td>-- Quick Search</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[2]/td[5]/div/img</td>
+	<td>//form[@id='UIPageSearch']//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[2]/td[5]/div/img</td>
+	<td>//form[@id='UIPageSearch']//a[@title='Quick Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td/div[@title='Organization Management']/following::td/div/img[@title='Select Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td/div[@title='Organization Management']/following::td/div/img[@title='Select Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -188,12 +223,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>//a[@title='Test_SNF_PRL_46']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>//a[@title='Test_SNF_PRL_46']</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,32 +248,47 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Portal Administration']</td>
+	<td>//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Portal Administration']</td>
+	<td>//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify Result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'administration/Test_SNF_PRL_46')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@onmousedown,'administration/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -248,22 +298,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//div[contains(@onclick,'objectId=Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//div[contains(@onclick,'objectId=Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Test_SNF_PRL_46']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Test_SNF_PRL_46']</td>
 	<td></td>
 </tr>
 <tr>
@@ -278,47 +328,52 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- paste node to new place--</td>
+	<td>-- paste node to ADD NEW USERS--</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Portal Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div[2]/div[3]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Add new Users']</td>
+	<td>//a[@title='Add new Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Add new Users']</td>
+	<td>//a[@title='Add new Users']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--verify result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -328,22 +383,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Test_SNF_PRL_46</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Test_SNF_PRL_46</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>//a[contains(@onmousedown,'administration/newStaff/Test_SNF_PRL_46')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -357,13 +412,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Level Up</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[1]/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[1]/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
@@ -393,12 +453,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Manage Pages']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//div[@id='UINavigationNodeSelector']//a[@title='Manage Pages']</td>
 	<td></td>
 </tr>
 <tr>
@@ -408,17 +468,17 @@
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveUp16x16Icon']</td>
+	<td>//a[contains(text(),'Move Up')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveUp16x16Icon']</td>
+	<td>//a[contains(text(),'Move Up')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -427,18 +487,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test_SNF_PRL_46</td>
+	<td></td>
+</tr>
+<tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveDown16x16Icon']</td>
+	<td>//a[contains(text(),'Move Down')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveDown16x16Icon']</td>
+	<td>//a[contains(text(),'Move Down')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -458,12 +523,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
@@ -513,12 +578,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
@@ -568,12 +633,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_46']</td>
+	<td>link=Test_SNF_PRL_46</td>
 	<td></td>
 </tr>
 <tr>
@@ -604,6 +669,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>
