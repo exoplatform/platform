@@ -23,11 +23,11 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.kernel.version>2.3.0-CR1</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.0-CR1</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.0-CR1</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.0-CR1</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.0-CR1</org.exoplatform.jcr-services.version>
+    <org.exoplatform.kernel.version>2.3.0-CR2</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.4.0-CR2</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.2.0-CR2</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.14.0-CR2</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.14.0-CR2</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
     <org.exoplatform.commons.version>1.1.0-Beta02-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.gwtframework.version>
@@ -70,11 +70,11 @@
     <org.testng.version>5.10</org.testng.version>
     <asm.version>1.5.3</asm.version>
     <jcrom.version>1.2</jcrom.version><!-- Used by CS -->
-    <org.slf4j.version>1.6.1</org.slf4j.version>
+    <org.slf4j.version>1.5.6</org.slf4j.version>
     <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
     <org.hsqldb.version>2.0.0</org.hsqldb.version>
 	
-	<!-- Begin wiki properties -->
+    <!-- Begin wiki properties -->
     <org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
     <org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
     <gwt.version>2.0.4</gwt.version>
