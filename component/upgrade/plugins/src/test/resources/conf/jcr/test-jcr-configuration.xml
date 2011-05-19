@@ -23,12 +23,18 @@
 		<type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
 	</component>
 	<component>
+      <key>org.exoplatform.services.jcr.ext.distribution.DataDistributionManager</key>
+      <type>org.exoplatform.services.jcr.ext.distribution.impl.DataDistributionManagerImpl</type>
+    </component>
+	<component>
 		<key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
 		<type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
 	</component>
 	<component>
 		<type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
 	</component>
+	DataDistributionManager
+	
 	<external-component-plugins>
 		<target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
 		<component-plugin>
