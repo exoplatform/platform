@@ -18,4 +18,13 @@ Wiki scripts are not available yet.
 - The cases related to Chat is  not recorded. It should be tested manually because it needs the interaction of at least 2 browsers
 - SNF_CS_25, SNF_CS_27, SNF_CS_28, SNF_CS_29 : It may be failed because of the checkmail function is slow or on stable
 ****************** End of CS Notes
+
+****************** Social Notes
+Before running the scripts
+- Import All Applications
+- Need to be create NewStaff + ManagementUser page at root node before
+Note: 
+- Test_SNF_SOC_02 and Test_SNF_SOC_11 can not be run on Googlechrome and safariproxy browsers due to keyPress problem
+- Test_SNF_SOC_26_ChangeUserProfile and Test_SNF_SOC_27_ViewUserProfile run very slow in IE brosers
+****************** End of Social Notes
  
