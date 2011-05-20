@@ -104,17 +104,22 @@ public class ContentNavigationService implements ResourceContainer {
 			while(iterRawNodes.hasNext()) {
 				Node node = (Node) iterRawNodes.next();
 				// check if this content is published
-				if(wcmComposer.getContent(repository, workspace, node.getPath(), filters, WCMCoreUtils.getUserSessionProvider()) != null) {
-					NavigableNode navigableNode = new NavigableNode(node);
+//				if(wcmComposer.getContent(repository, workspace, node.getPath(), filters, WCMCoreUtils.getUserSessionProvider()) != null) {
+				  NavigableNode navigableNode = new NavigableNode(node);
 					navigableNode.setNavigationNode(node.hasProperty("exo:navigationNode") ? node.getProperty("exo:navigationNode").getValue().getString() : "");
 					navigableNode.setClickable(node.hasProperty("exo:clickable") ? node.getProperty("exo:clickable").getValue().getBoolean() : false);
 					navigableNode.setListUri(node.hasProperty("exo:page") ? node.getProperty("exo:page").getValue().getString() : "");
 					navigableNode.setListParam(node.hasProperty("exo:pageParamId") ? node.getProperty("exo:pageParamId").getValue().getString() : "");
 					navigableNode.setDetailUri(node.hasProperty("exo:childrenPage") ? node.getProperty("exo:childrenPage").getValue().getString() : "");
 					navigableNode.setDetailParam(node.hasProperty("exo:childrenPageParamId") ? node.getProperty("exo:childrenPageParamId").getValue().getString() : "");
+					if(wcmComposer.getContent(repository, workspace, node.getPath(), filters, WCMCoreUtils.getUserSessionProvider()) == null){
+					  navigableNode.setViewableNode(false);
+					}else{
+					  navigableNode.setViewableNode(true);
+					}
 					allNodes.add(navigableNode);
 				}
-			}
+//			}
 			
 			// loop on all exo:navigable nodes
 			Iterator<NavigableNode> itNavigablenode = allNodes.iterator();
@@ -127,7 +132,8 @@ public class ContentNavigationService implements ResourceContainer {
 					JsonMenuNode jsonMenuNode = new JsonMenuNode();
 					jsonMenuNode.setLabel(navigableNode.getNode().getName());
 					jsonMenuNode.setUri(navigableNode.isClickable() ? navigableNode.getNavigationNode() : "#");
-
+					jsonMenuNode.setViewable(navigableNode.isViewableNode());
+					
 					jsonMenuNode.setNavigationNode(navigableNode.getNavigationNode());
 					
 					// add child nodes
@@ -301,7 +307,16 @@ public class ContentNavigationService implements ResourceContainer {
 			jsonSubMenuNode.setIndex(node.getProperty("exo:index").getLong());
 		} else {
 			jsonSubMenuNode.setIndex(Integer.MAX_VALUE);
-		}		
+		}
+		/**/
+		try {
+      jsonSubMenuNode.setViewable(navigableNode.isViewableNode());
+    } catch (Exception e) {
+      if(logger.isDebugEnabled()){
+        logger.debug("Can not get isViewableNode property for navigableNode " + navigableNode.getNode().getPath());
+      }
+    }
+    /**/
 		
 		return jsonSubMenuNode;
 	}
@@ -360,6 +375,8 @@ public class ContentNavigationService implements ResourceContainer {
 		private long index;
 		private String pageParamId;
 		private String contentPath;
+		/** is the menu node viewable or not*/
+		private boolean isViewable;
 
 		private List<JsonMenuNode> nodes;
 
@@ -436,6 +453,15 @@ public class ContentNavigationService implements ResourceContainer {
 
 		public int compareTo(JsonMenuNode o) {
 			return (int) (this.index - o.index);
-		}	
+		}
+
+    public boolean isViewable() {
+      return isViewable;
+    }
+
+    public void setViewable(boolean isViewable) {
+      this.isViewable = isViewable;
+    }
+
 	}
 }

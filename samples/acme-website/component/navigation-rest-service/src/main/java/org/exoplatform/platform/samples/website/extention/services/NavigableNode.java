@@ -10,6 +10,8 @@ public class NavigableNode {
 	private String listParam;
 	private String detailUri;
 	private String detailParam;
+	/** allows to know if the node is viewable or not*/
+	private boolean isViewableNode;
 	
 	public NavigableNode(Node node) {
 		super();
@@ -58,4 +60,24 @@ public class NavigableNode {
 	public void setDetailParam(String detailParam) {
 		this.detailParam = detailParam;
 	}
+
+	 /**
+   * Allows to know if the node is viewable or not
+   * using {@link} WCMComposer}
+   * @return true is the node is viewable, else false
+	 * @throws Exception the exception
+   */
+  public boolean isViewableNode() throws Exception {
+//    if (WCMCoreUtils.getService(WCMComposer.class).getContent(repository, workspace, getNode().getPath(), filters, WCMCoreUtils.getUserSessionProvider()) != null) {
+//      isViewableNode = true;
+//    } else {
+//      isViewableNode = false;
+//    }
+    return isViewableNode;
+  }
+
+  public void setViewableNode(boolean isViewableNode) {
+    this.isViewableNode = isViewableNode;
+  }
+
 }
