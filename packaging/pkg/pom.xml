@@ -220,7 +220,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-client-gadget </artifactId>
+      <artifactId>exo-ide-client-gadget</artifactId>
       <version>${org.exoplatform.ide.version}</version>
       <type>war</type>
     </dependency>
@@ -389,12 +389,6 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.webui.ext</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <type>jar</type>
     </dependency>
@@ -839,13 +833,6 @@
       <artifactId>jcr</artifactId>
       <version>${jcr.version}</version>
       <type>jar</type>
-    </dependency>
-
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.webui.ext</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -1581,13 +1568,13 @@
       <artifactId>commons-pool</artifactId>
       <version>${commons-pool.version}</version>
       <type>jar</type>
-    </dependency><!-- 1.2-->
+    </dependency>
     <dependency>
       <groupId>commons-dbcp</groupId>
       <artifactId>commons-dbcp</artifactId>
       <version>${commons-dbcp.version}</version>
       <type>jar</type>
-    </dependency><!-- 1.2.1-->
+    </dependency>
     <dependency>
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-common</artifactId>
