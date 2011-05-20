@@ -25,6 +25,38 @@
   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 
+  <component profiles="cluster">
+    <key>org.exoplatform.services.rpc.RPCService</key>
+    <type>org.exoplatform.services.rpc.impl.RPCServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>jgroups-configuration</name>
+        <value>jar:/conf/portal/cluster/udp-mux.xml</value>
+        <value>${gatein.jcr.jgroups.config}</value>
+      </value-param>
+      <value-param>
+        <name>jgroups-cluster-name</name>
+        <value>RPCService-Cluster</value>
+      </value-param>
+      <value-param>
+        <name>jgroups-default-timeout</name>
+        <value>0</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component profiles="cluster">
+    <key>PropertyManagerConfigurator</key>
+    <type>org.exoplatform.container.PropertyConfigurator</type>
+    <init-params>
+      <properties-param>
+        <name>properties</name>
+        <description>Filter used to notify changes in the jcr index</description>
+        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter"/>
+      </properties-param>
+    </init-params>
+  </component>
+
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
     <component-plugin>
