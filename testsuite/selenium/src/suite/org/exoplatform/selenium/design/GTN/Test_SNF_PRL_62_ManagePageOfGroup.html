@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,12 +143,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIMaskWorkspace']//div[text()=&quot;Page Layout&quot;]</td>
+	<td>//div[text()=&quot;Page Layout&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIMaskWorkspace']//div[text()=&quot;Page Layout&quot;]</td>
+	<td>//div[text()=&quot;Page Layout&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -153,12 +158,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIMaskWorkspace']/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
+	<td>//div[text()='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIMaskWorkspace']/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/div/div</td>
+	<td>//div[text()='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,12 +243,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -298,12 +303,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -328,12 +338,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -343,12 +353,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[contains(@onclick,&quot;Test_SNF_PRL_62&quot;) and @title=&quot;Delete Page&quot;]</td>
+	<td>//img[@title=&quot;Delete Page&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[contains(@onclick,&quot;Test_SNF_PRL_62&quot;) and @title=&quot;Delete Page&quot;]</td>
+	<td>//img[@title=&quot;Delete Page&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -362,13 +372,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>Test_SNF_PRL_62</td>
+	<td>waitForTextPresent</td>
+	<td>No result found. </td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>Test_SNF_PRL_62</td>
+	<td>verifyTextPresent</td>
+	<td>No result found. </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(@onclick,'componentId=_')]//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(@onclick,'componentId=_')]//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

@@ -132,6 +132,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Search and Select Page</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Search and Select Page</td>
 	<td></td>
@@ -163,11 +168,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
 	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
@@ -183,12 +183,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//img[@title='Select Page']</td>
+	<td>//td/div[@title='Community Management']/following::td/div/img[@title='Select Page']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//img[@title='Select Page']</td>
+	<td>//td/div[@title='Community Management']/following::td/div/img[@title='Select Page']</td>
 	<td></td>
 </tr>
 <tr>
@@ -257,33 +257,43 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Edit Navigation: intranet</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Choose Node : Test_SNF_PRL_34</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_34']</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_34']</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
@@ -298,7 +308,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -363,53 +373,23 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[@id='UIPortalComposerTab']//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[@id='UIPortalComposerTab']//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
+	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>UIPortalApplication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>UIPortalApplication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View mode</td>
-	<td></td>
+	<td>//div[contains(text(),'Community Management')]</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -418,12 +398,12 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[text()='Container' and @class='ContainerIcon']/following::a[@title='Edit Container']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[1]</td>
+	<td>//div[text()='Container' and @class='ContainerIcon']/following::a[@title='Edit Container']</td>
 	<td></td>
 </tr>
 <tr>
@@ -473,12 +453,12 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
+	<td>//div[text()='Test_SNF_PRL_34'] /..//div[@title='Hold this area to drag this container']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[1]</td>
+	<td>//div[text()='Test_SNF_PRL_34'] /..//div[@title='Hold this area to drag this container']</td>
 	<td>//div[contains(text(),&quot;Community Management&quot;)]</td>
 </tr>
 <tr>
@@ -543,17 +523,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div[2]</td>
-	<td>Test_SNF_PRL_34</td>
+	<td>//div[text()='Test_SNF_PRL_34'] /following::a[@title='Delete Container']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[text()='Test_SNF_PRL_34'] /following::a[@title='Delete Container']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//div[text()='Test_SNF_PRL_34'] /following::a[@title='Delete Container']</td>
 	<td></td>
 </tr>
 <tr>
@@ -568,12 +548,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title=&quot;Finish&quot;]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//div[@id='UIPageEditor']//a[@title=&quot;Finish&quot;]</td>
 	<td></td>
 </tr>
 <tr>
@@ -627,38 +607,38 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Edit Navigation: intranet</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_34']</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_34']</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
 	<td></td>
 </tr>
 <tr>
@@ -683,7 +663,17 @@
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_34']</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[@title='Test_SNF_PRL_34']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -697,6 +687,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
@@ -704,11 +699,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Edit Navigation: intranet</td>
 	<td></td>
 </tr>
 </tbody></table>

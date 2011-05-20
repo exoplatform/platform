@@ -47,8 +47,18 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Manage sites</td>
 	<td></td>
 </tr>
 <tr>
@@ -62,13 +72,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Edit Navigation: intranet</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISiteManagement']/table[3]/tbody/tr/td[3]/a[2]</td>
+	<td>//td/div[text()='intranet']/following::td/a[text()='Edit Navigation']</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,17 +118,22 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Choose Page Selector--</td>
+	<td>-- Page Selector--</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Search and Select Page</td>
 	<td></td>
 </tr>
 <tr>
@@ -148,12 +168,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -164,6 +184,11 @@
 <tr>
 	<td>click</td>
 	<td>//img[@title='Select Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -193,12 +218,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>link=Test_SNF_PRL_32</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>link=Test_SNF_PRL_32</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,37 +238,52 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- paste node to new place--</td>
+	<td>-- paste node to new place : home</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Home']</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Home']</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--verify Result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -253,17 +293,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -278,37 +323,62 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- paste node to new place--</td>
+	<td>-- paste node to new place: welcome</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div[1]/a</td>
+	<td>//a[@title='Welcome']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div[1]/a</td>
+	<td>//a[@title='Welcome']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div[1]/a</td>
+	<td>//a[@title='Welcome']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div[1]/a</td>
+	<td>//a[@title='Welcome']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='NavigationNodePopupMenu']/div/div[2]/div/div/div[7]/a</td>
+	<td>//div[@id='NavigationNodePopupMenu']//a[contains(text(),'Paste Node')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Verify Result</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -318,32 +388,32 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Test_SNF_PRL_32</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Test_SNF_PRL_32</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -358,12 +428,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[1]/a</td>
+	<td>//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[1]/a</td>
+	<td>//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
@@ -393,32 +463,32 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[22]/div/a</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Test_SNF_PRL_32</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveUp16x16Icon']</td>
+	<td>//a[@class='ItemIcon MoveUp16x16Icon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveUp16x16Icon']</td>
+	<td>//a[@class='ItemIcon MoveUp16x16Icon']</td>
 	<td></td>
 </tr>
 <tr>
@@ -427,18 +497,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveDown16x16Icon']</td>
+	<td>//a[@class='ItemIcon MoveDown16x16Icon']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//div[@id='UINavigationNodeSelector']//div[@id='NavigationNodePopupMenu']//a[@class='ItemIcon MoveDown16x16Icon']</td>
+	<td>//a[@class='ItemIcon MoveDown16x16Icon']</td>
 	<td></td>
 </tr>
 <tr>
@@ -448,22 +523,87 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete Node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete Node</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForConfirmationPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this node?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[contains(@onclick,'objectId=Test_SNF_PRL_32')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete node is copied--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Home']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Home']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -488,57 +628,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete node is copied--</td>
+	<td>-- verify Dele</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
+	<td>waitForElementNotPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[2]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Test_SNF_PRL_32</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Test_SNF_PRL_32</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Delete Node</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Delete Node</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmationPresent</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertConfirmation</td>
-	<td>Are you sure you want to delete this node?</td>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(@onmousedown,'home/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -558,22 +658,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon NodeSelected' and @title='Test_SNF_PRL_32']</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -597,6 +697,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementNotPresent</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[contains(@onmousedown,'welcome/Test_SNF_PRL_32')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Save</td>
 	<td></td>
@@ -604,6 +714,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>

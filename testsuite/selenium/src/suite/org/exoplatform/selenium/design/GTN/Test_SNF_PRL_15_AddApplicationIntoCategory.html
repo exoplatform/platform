@@ -47,13 +47,23 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Go to Application Registry--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Applications Registry</td>
 	<td></td>
 </tr>
 <tr>
@@ -68,12 +78,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[1]/div[1]</td>
+	<td>//div[@id='UIApplicationOrganizer']//div[.='Add Category']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[1]/div[1]</td>
+	<td>//div[@id='UIApplicationOrganizer']//div[.='Add Category']</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,12 +113,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[2]/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[.='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[2]/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[.='Permission Setting']</td>
 	<td></td>
 </tr>
 <tr>
@@ -149,21 +159,16 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Test_SNF_PRL_15</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Test_SNF_PRL_15</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Add application into category--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test_SNF_PRL_15</td>
 	<td></td>
 </tr>
 <tr>
@@ -173,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[3]</td>
+	<td>//a[@title='Add application to category']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[3]</td>
+	<td>//a[@title='Add application to category']</td>
 	<td></td>
 </tr>
 <tr>
@@ -199,7 +204,7 @@
 <tr>
 	<td>type</td>
 	<td>displayName</td>
-	<td>Test_SNF_PRL_15</td>
+	<td>Test_SNF_PRL_15_tmp</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -213,12 +218,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Test_SNF_PRL_15</td>
+	<td>Test_SNF_PRL_15_tmp</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Test_SNF_PRL_15</td>
+	<td>Test_SNF_PRL_15_tmp</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,17 +233,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Delete category']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[7]/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Delete category']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

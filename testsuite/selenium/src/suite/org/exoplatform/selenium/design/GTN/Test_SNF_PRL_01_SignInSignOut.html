@@ -57,8 +57,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -72,23 +77,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>windowMaximize</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Login by Manager--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,8 +117,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>echo</td>
+	<td>--Login : John Smith</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -134,16 +144,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>windowMaximize</td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>
@@ -172,8 +172,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>echo</td>
+	<td>--Login : Mary Williams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,6 +192,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
@@ -194,16 +204,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>windowMaximize</td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>
@@ -232,8 +232,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>echo</td>
+	<td>--Login : Jack Miller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -244,6 +249,11 @@
 <tr>
 	<td>verifyTextPresent</td>
 	<td>Jack Miller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

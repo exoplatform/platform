@@ -47,8 +47,23 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Applications Registry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Applications Registry</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,12 +88,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageNodeSelector']/div/div/div[2]/div/div/div/div[1]/a</td>
+	<td>//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageNodeSelector']/div/div/div[2]/div/div/div/div[1]/a</td>
+	<td>//a[@title='Up Level']</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,12 +118,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 2']</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,13 +132,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPageCreationWizard']/div/div[3]/div/div/div/div[2]/div/table/tbody/tr/td/div[2]/div/div/div</td>
+	<td>//a[@title='Step 3']</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,17 +153,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPageEditor']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForLocation</td>
+	<td>*/portal/private/intranet/administration/Test_SNF_PRL_44</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/administration/Test_SNF_PRL_44</td>
+	<td>*/portal/private/intranet/administration/Test_SNF_PRL_44</td>
 	<td></td>
 </tr>
 <tr>
@@ -203,12 +228,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -219,12 +244,12 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
+	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
 	<td>//div[@id='oneRow']/div</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div/div[1]/div</td>
+	<td>//div[@class='VIEW-BLOCK VIEW-PORTLET']</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -233,12 +258,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[1]/div/div/div/div</td>
+	<td>//div[contains(text(),'Applications')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[1]/div/div/div/div</td>
+	<td>//div[contains(text(),'Applications')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -248,43 +273,13 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='Gadgets/Calculator']/div/div/img</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div</td>
+	<td>//div[@id='Gadgets/Calculator']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div[@id='Gadgets/Calculator']/div/div/img</td>
-	<td>//div[2]/div/div/div/div/div/div[2]/div/div/div/div/div[1]/div/div/div[1]/div/div/div</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View Mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View Mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>UIPortalApplication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>UIPortalApplication</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Switch View Mode</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Switch View Mode</td>
-	<td></td>
+	<td>//div[@id='Gadgets/Calculator']</td>
+	<td>//div[@class='UIRowContainer EmptyContainer']</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -293,17 +288,17 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/div[2]</td>
-	<td>Calculator</td>
+	<td>//a[@title='Delete Portlet']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//a[@title='Delete Portlet']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//a[@title='Delete Portlet']</td>
 	<td></td>
 </tr>
 <tr>
@@ -323,27 +318,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposerTab']/div[1]/div/div[2]/div/div/div/div</td>
+	<td>//div[contains(text(),'Containers')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/div[2]</td>
-	<td>Container</td>
+	<td>//a[@title='Delete Container']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//a[@title='Delete Container']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div/div/div[2]/div/div/div/div/div/div/a[2]</td>
+	<td>//a[@title='Delete Container']</td>
 	<td></td>
 </tr>
 <tr>
@@ -363,12 +358,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPortalComposer']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPortalComposer']/div[1]/div/div/div/a[2]</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -388,13 +388,13 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
-	<td>Edit Navigation</td>
+	<td>//td/div[text()='Administrator']/following::td/a[text()='Edit Navigation']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[3]/tbody/tr/td[3]/a[1]</td>
-	<td>Edit Navigation</td>
+	<td>//td/div[text()='Administrator']/following::td/a[text()='Edit Navigation']</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -403,12 +403,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Test_SNF_PRL_44']</td>
+	<td>//a[@title='Test_SNF_PRL_44']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@class='NodeIcon DefaultPageIcon' and @title='Test_SNF_PRL_44']</td>
+	<td>//a[@title='Test_SNF_PRL_44']</td>
 	<td></td>
 </tr>
 <tr>
@@ -483,12 +483,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -528,12 +528,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[contains(@onclick,'componentId=_')]//a[text()='OK']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[5]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[contains(@onclick,'componentId=_')]//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>

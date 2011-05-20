@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,8 +62,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Edit Navigation</td>
 	<td></td>
 </tr>
 <tr>
@@ -69,6 +84,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Edit Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Add Node</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,12 +123,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Search and Select Page</td>
 	<td></td>
 </tr>
 <tr>
@@ -129,7 +154,7 @@
 <tr>
 	<td>type</td>
 	<td>searchTerm</td>
-	<td>Organization Management</td>
+	<td>Community Management</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -143,12 +168,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIPageSearch']/div[2]/a</td>
+	<td>//a[@title='Quick Search']</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,6 +184,11 @@
 <tr>
 	<td>click</td>
 	<td>xpath=//img[@title='Select Page']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,12 +208,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationManagement']/div[3]/table/tbody/tr/td[2]/div/div/div/div/a</td>
+	<td>//a[.='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationManagement']/div[3]/table/tbody/tr/td[2]/div/div/div/div/a</td>
+	<td>//a[.='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -212,6 +242,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Manage groups</td>
 	<td></td>
@@ -228,22 +263,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
@@ -282,13 +317,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- showMaxWindow</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//input[@class='checkbox']</td>
+	<td>showMaxWindow</td>
 	<td></td>
 </tr>
 <tr>
 	<td>check</td>
-	<td>xpath=//input[@class='checkbox']</td>
+	<td>showMaxWindow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -299,6 +344,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -308,12 +358,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@class='EdittedSaveButton']</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//a[@class='EdittedSaveButton']</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
@@ -327,13 +377,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test_SNF_PRL_47</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Test_SNF_PRL_47</td>
 	<td></td>
 </tr>
 <tr>
+	<td>waitForLocation</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_47</td>
+	<td></td>
+</tr>
+<tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_47</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_47</td>
 	<td></td>
 </tr>
 <tr>
@@ -342,6 +402,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Manage groups</td>
 	<td></td>
@@ -358,22 +423,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
@@ -407,13 +472,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Uncheck : showMaxWindow</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>showMaxWindow</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>uncheck</td>
 	<td>showMaxWindow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -424,6 +499,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -433,12 +513,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@class='EdittedSaveButton']</td>
+	<td>//a[@title='Finish']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=//a[@class='EdittedSaveButton']</td>
+	<td>//a[@title='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -452,18 +537,33 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Test_SNF_PRL_47</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Test_SNF_PRL_47</td>
 	<td></td>
 </tr>
 <tr>
+	<td>waitForLocation</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_47</td>
+	<td></td>
+</tr>
+<tr>
 	<td>assertLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/Test_SNF_PRL_47</td>
+	<td>*/portal/private/intranet/Test_SNF_PRL_47</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Delete this node--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage groups</td>
 	<td></td>
 </tr>
 <tr>
@@ -483,12 +583,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UINavigationNodeSelector']/div/div/div/div[2]/div/div/div[3]/div/a</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
@@ -498,12 +598,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
 	<td></td>
 </tr>
 <tr>
@@ -528,7 +628,17 @@
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>xpath=//a[@title='Test_SNF_PRL_47']</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[@title='Test_SNF_PRL_47']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -539,6 +649,11 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Logout</td>
 	<td></td>
 </tr>
 <tr>
