@@ -31,7 +31,6 @@
     <init-params>
       <value-param>
         <name>jgroups-configuration</name>
-        <value>jar:/conf/portal/cluster/udp-mux.xml</value>
         <value>${gatein.jcr.jgroups.config}</value>
       </value-param>
       <value-param>
