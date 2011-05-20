@@ -27,7 +27,7 @@ Also always use your Operating System and Database software available backup sol
 
 Plan Platform backup operations taking in account full stop of the Platform server(s). 
 {warning}
-In case of Platform cluster every node should be stopped before a backup will be perfoamed.
+In case of Platform cluster every node should be stopped before a backup will be performed.
 {warning}
 
 Platform backup consists of following parts:
@@ -103,7 +103,7 @@ For files backup we have a shell script running on the Platform server. This scr
 Restore procedure planned as a manual operation.
 
 {note}
-Example script implementation outside of the scope of this guide.
+Example script implementation is outside of the scope of this guide.
 {note}
 
 h2. Perform backup {anchor:id=ADM.Backup.Perform_backup}
@@ -120,7 +120,7 @@ Main steps should be performed to backup eXo Platform:
 * Start Platform
 
 {note}
-In case of Platform cluster, start it in an order according the Clustering chapter steps.
+In case of Platform cluster, start it in an order according the Clustering documentation.
 {note}
 
 h2. Perform restore {anchor:id=ADM.Backup.Perform_restore} 
