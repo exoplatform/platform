@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal/public/classic/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Login : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
@@ -151,7 +156,6 @@
 	<td>link=Sign out</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
