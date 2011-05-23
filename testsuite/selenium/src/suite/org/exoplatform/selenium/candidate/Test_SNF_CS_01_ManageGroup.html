@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[@id='UIPresentationContainer']//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div/div/div[1]</td>
+	<td>//div[@id='UIPresentationContainer']//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -53,17 +53,12 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']/div/div/div[@class='ButtonMiddle']/a</td>
+	<td>link=Sign in</td>
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/private/intranet/calendar</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href,'portal/private/intranet/calendar')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,27 +68,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add Calendar group</td>
+	<td>- Add Calendar group</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@onclick='eXo.calendar.UICalendarPortlet.showMainMenu(this, event);']</td>
+	<td>//div[@title='Calendar actions']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@onclick='eXo.calendar.UICalendarPortlet.showMainMenu(this, event);']</td>
+	<td>//div[@title='Calendar actions']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='tmpMenuElement']/div/div[2]/div/div/div[1]/a</td>
+	<td>//div[@id='tmpMenuElement']//a[contains(@href,'AddCalendarCategory')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='tmpMenuElement']/div/div[2]/div/div/div[1]/a</td>
+	<td>//div[@id='tmpMenuElement']//a[contains(@href,'AddCalendarCategory')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -131,9 +126,10 @@
 	<td>-- Edit Group</td>
 	<td></td>
 </tr>
+<!--aaaaaaaaaaaa-->
 <tr>
 	<td>click</td>
-	<td>//div[@id='UICategoryList']//tr[2]//img[@class='EditIcon']</td>
+	<td>//img[contains(@onclick,'Test_01_group')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -204,6 +200,16 @@
 <tr>
 	<td>close</td>
 	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick=&quot;javascript:ajaxGet('/portal/private/intranet/calendar?portal:componentId=4a502dc7-6d26-440f-abd8-3b6dc01d55aa&amp;portal:type=action&amp;uicomponent=UICalendarPopupWindow&amp;op=ClosePopup&amp;ajaxRequest=true')&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@onclick='eXo.calendar.UICalendarPortlet.showMainMenu(this, event);']</td>
 	<td></td>
 </tr>
 </tbody></table>
