@@ -595,3 +595,61 @@ You could override this configuration by modifying the system property named {{e
 h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
 
 In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" & "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
+
+h1. Gadget Proxy Configuration
+
+In Platform we could to allow gadgets to load remote resources. However this could be a potential security risk, as it will make the Gadget deployey as an open web proxy.
+This implies configuring ProxyFilterService.
+
+h2. How to configure
+
+The default configuration is set to something like this:
+
+{code:xml}
+<component>
+  <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
+  <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
+  <init-params>
+    <values-param>
+      <!-- The white list -->
+      <name>white-list</name>
+      <!-- Accept anything not black listed -->
+      <value>*</value>
+    </values-param>
+    <values-param>
+      <name>black-list</name>
+      <value>*.evil.org</value>
+    </values-param>
+  </init-params>
+</component>
+{code}
+
+This configuration can be added into *<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml*.
+* *<GATEIN\_CONF\_DIR>*= _TOMCAT_HOME/gatein/conf/_ if you are using tomcat and _JBOSS_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
+* *<PORTAL\_CONTAINER\_NAME>*= the name of the used portal container, by default it's set to {{portal}}.
+
+h2. How does it work
+
+The proxy service allow accessing any site which matches the {{white-list}} domains, unless it belongs to the {{black-list}}.
+If the site is not defined in neither the white list nor black list, access will be denied.
+Multiple values can be added for each list and wildcards can also be used.
+
+h2. Example of configuration
+
+{code:xml}
+<component>
+   <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
+   <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
+    <init-params>
+      <values-param>
+        <name>white-list</name>
+        <value>*.example.com</value>
+        <value>www.example.net</value>
+      </values-param>
+      <values-param>
+        <name>black-list</name>
+        <value>evil.example.com</value>
+      </values-param>
+    </init-params>
+  </component>
+{code}
