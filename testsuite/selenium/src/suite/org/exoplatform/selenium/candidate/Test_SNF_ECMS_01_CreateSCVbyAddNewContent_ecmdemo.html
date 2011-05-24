@@ -132,9 +132,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>waitForElementPresent</td>
+	<td>//select[@name='selectTemplate']</td>
 	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//select[@name='selectTemplate']</td>
+	<td>Article</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -153,12 +158,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//td[@id='cke_contents_summary']/iframe[1]</td>
+	<td>//td[@id='cke_contents_summary']/iframe</td>
 	<td></td>
 </tr>
 <tr>
 	<td>selectFrame</td>
-	<td>//td[@id='cke_contents_summary']/iframe[1]</td>
+	<td>//td[@id='cke_contents_summary']/iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -498,12 +503,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Page Management</td>
+	<td>link=Page Manager</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Page Management</td>
+	<td>link=Page Manager</td>
 	<td></td>
 </tr>
 <!--if use underscore _ in page name ==> bug. find functions will be not active.-->
