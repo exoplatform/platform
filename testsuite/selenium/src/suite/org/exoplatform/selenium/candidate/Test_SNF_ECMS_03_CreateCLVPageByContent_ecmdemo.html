@@ -262,26 +262,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertAlert</td>
-	<td>This content is successfully added into the list content.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- verify Text</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>repository:collaboration:/sites content/live/acme/documents/offices.jpg</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Save</td>
 	<td></td>
@@ -318,12 +298,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UICLVPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div/a</td>
+	<td>//div[@id='UICLVPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -448,12 +428,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[5]/div/div[2]//div[3]//table[@class='ActionContainer']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[4]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[5]/div/div[2]//div[3]//table[@class='ActionContainer']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -462,23 +442,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Sites</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=My Sites</td>
+	<td>open</td>
+	<td>/portal/private/acme</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit Navigation</td>
+	<td>link=Navigation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit Navigation</td>
+	<td>link=Navigation</td>
 	<td></td>
 </tr>
 <tr>

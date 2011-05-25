@@ -188,38 +188,93 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>verify data is changed.</td>
+	<td>re-login and verify data is changed.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Contenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Contenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[1]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 1</td>
+	<td>Flight</td>
 </tr>
 <tr>
 	<td>verifyText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[1]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 1</td>
+	<td>Flight</td>
 </tr>
 <tr>
 	<td>waitForText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[3]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 2</td>
+	<td>Fire</td>
 </tr>
 <tr>
 	<td>verifyText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[3]/div[2]/div[2]/a</td>
-	<td>Upcoming Power 2</td>
+	<td>Fire</td>
 </tr>
 <tr>
 	<td>waitForText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[2]/div[2]/div[2]/a</td>
-	<td>Power Pack 1</td>
+	<td>New: Speed</td>
 </tr>
 <tr>
 	<td>verifyText</td>
 	<td>//div[@id='UICLVPresentation']/div[1]/div[2]/div[2]/div[2]/div[2]/a</td>
-	<td>Power Pack 1</td>
+	<td>New: Speed</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -318,42 +373,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>verify information that is stored</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Conditions and Requirements</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Conditions and Requirements</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>How to join us</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>How to join us</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Where we are</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Where we are</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Log out</td>
+	<td>logout and verify information that is stored</td>
 	<td></td>
 </tr>
 <tr>
@@ -364,6 +384,36 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Conditions and Requirements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Conditions and Requirements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>How to join us</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>How to join us</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Where we are</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Where we are</td>
 	<td></td>
 </tr>
 </tbody></table>
