@@ -1107,12 +1107,6 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all-minimal</artifactId>
-      <version>1.5.4</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
       <groupId>org.apache.abdera</groupId>
       <artifactId>abdera-client</artifactId>
       <version>0.4.0-incubating</version>
