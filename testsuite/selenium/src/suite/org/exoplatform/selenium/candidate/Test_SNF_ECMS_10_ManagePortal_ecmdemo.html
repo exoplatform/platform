@@ -63,12 +63,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Site</td>
+	<td>link=Manage sites</td>
 	<td></td>
 </tr>
 <tr>
@@ -94,12 +94,12 @@
 <tr>
 	<td>waitForElementPresent</td>
 	<td>name</td>
-	<td>NewPortal</td>
+	<td>NewPortal_SNF_ECMS_10</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>NewPortal</td>
+	<td>NewPortal_SNF_ECMS_10</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -138,12 +138,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Customers</td>
+	<td>link=Platform</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Customers</td>
+	<td>link=Platform</td>
 	<td></td>
 </tr>
 <tr>
@@ -193,12 +193,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Platform']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Platform']</td>
 	<td></td>
 </tr>
 <tr>
@@ -208,12 +208,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div[1]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div[1]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,12 +243,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>NewPortal</td>
+	<td>NewPortal_SNF_ECMS_10</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>NewPortal</td>
+	<td>NewPortal_SNF_ECMS_10</td>
 	<td></td>
 </tr>
 <tr>
@@ -308,12 +308,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Platform']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Platform']</td>
 	<td></td>
 </tr>
 <tr>
@@ -323,12 +323,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div[1]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='PermissionSelector']/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div[1]/div/a</td>
+	<td>//div[@id='PermissionSelector']//a[text()='Administration']</td>
 	<td></td>
 </tr>
 <tr>
@@ -383,7 +383,7 @@
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>NewPortal</td>
+	<td>NewPortal_SNF_ECMS_10</td>
 	<td></td>
 </tr>
 <tr>
@@ -393,17 +393,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAt</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>platform</td>
+	<td>waitForElementPresent</td>
+	<td>link=Login</td>
 	<td></td>
 </tr>
 </tbody></table>
