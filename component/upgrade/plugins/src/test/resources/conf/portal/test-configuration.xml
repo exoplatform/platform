@@ -261,6 +261,11 @@
 					<description>The groupId of the product</description>
 					<value>org.exoplatform.platform</value>
 				</value-param>
+				<value-param>
+					<name>plugin.execution.order</name>
+					<description>The plugin execution order</description>
+					<value>1</value>
+				</value-param>
 				<object-param>
 					<name>test-gadget</name>
 					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
