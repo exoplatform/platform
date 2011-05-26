@@ -53,7 +53,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Create newletter</td>
+	<td>--- Create new category</td>
 	<td></td>
 </tr>
 <tr>
@@ -64,6 +64,141 @@
 <tr>
 	<td>click</td>
 	<td>link=Newsletter Manager</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>CategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>CategoryName</td>
+	<td>Cat_SNF_ECMS_13</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>CategoryTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>CategoryTitle</td>
+	<td>Cat_SNF_ECMS_13</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@alt='Select user']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Select user']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='UIListUsers']/tbody/tr[5]/td[5]/div//img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='UIListUsers']/tbody/tr[5]/td[5]/div//img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cat_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cat_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Create new subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=New Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Subscription</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>SubcriptionName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>SubcriptionName</td>
+	<td>Subs_SNF_ECMS_13</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>SubcriptionTitle</td>
+	<td>Subs_SNF_ECMS_13</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='SelectUser']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='UIListUsers']/tbody/tr[5]/td[5]/div//img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='UIListUsers']/tbody/tr[5]/td[5]/div//img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Create newsletter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Subs_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Subs_SNF_ECMS_13</td>
 	<td></td>
 </tr>
 <tr>
@@ -88,12 +223,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=28</td>
+	<td>link=10</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=28</td>
+	<td>link=10</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,12 +243,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -133,26 +268,11 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=The market</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=The market</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
 	<td>basic-template</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
 	<td>basic-template</td>
 	<td></td>
 </tr>
@@ -223,12 +343,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=29</td>
+	<td>link=20</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=29</td>
+	<td>link=20</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,12 +363,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,18 +387,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
 	<td>basic-template</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UINewsletterEntryManager']/div[2]/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UINewsletterEntryManager']/div[2]/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -308,17 +418,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/div/div/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div/div[3]/div/table/tbody/tr/td/div/div/div/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>//div[@id='UINewsletterManagerPortlet']//div[@class='ActionButton LightBlueStyle' and contains(@onclick,'javascript:ajaxGet')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -327,7 +432,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>check</td>
 	<td>UIWCMNewsletterEntryManagerCheckAll</td>
 	<td></td>
 </tr>
@@ -359,6 +464,56 @@
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure you want to delete this newsletter?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Delete category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Cat_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cat_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UISubscriptions']/div/div[3]/div/div[1]/div[3]/table/tbody/tr/td/div/div/div/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this category ?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Cat_SNF_ECMS_13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Cat_SNF_ECMS_13</td>
 	<td></td>
 </tr>
 <tr>
