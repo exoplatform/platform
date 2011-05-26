@@ -38,7 +38,7 @@ li {
 	line-height: 28px;
 	padding: 0 0 0 15px;
 	color: #424242;
-	font-size: 14px;
+	font-size: 14px!important;
 	font-weight: bold;
 	text-shadow: 1px 1px #ffe79e;
 }
@@ -214,14 +214,14 @@ li {
 
 .ProDetailPage .ProBoxControl h3 {
     color: #6D6D6D;
-    font-size: 16px;
+    font-size: 16px!important;
 	font-weight: normal;
 }
 
 .ProDetailPage .BoxContainer .TitleBar {
 	background: url("/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x left top;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 18px!important;
     line-height: 30px;
     padding-left: 20px;
 }
@@ -235,7 +235,7 @@ li {
 	text-align: center;
 	border-bottom: 1px solid #bfbfbf;
     color: #4c4c4c;
-    font-size: 30px;
+    font-size: 30px!important;
 	margin: 0 340px;
     padding-bottom: 16px;
 	font-weight: normal;
@@ -254,7 +254,7 @@ li {
 	background: url('/eXoDMSResources/skin/DefaultSkin/skinIcons/16x16/icons/NodeTypes/pdf.gif') no-repeat left top;
 	color: #595959;
     float: left;
-    font-size: 13px;
+    font-size: 13px!important;
     height: auto;
     line-height: 16px;
     padding-left: 22px;
@@ -302,7 +302,7 @@ li {
 	display: block;
 	color: #424242;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 14px!important;
 	padding: 0 24px 0 10px;
 	margin-right: 12px;
 }
@@ -356,7 +356,7 @@ li {
 }
 
 .ProDetailPage .BigNews .Content .Title {
-	font-size: 27px;
+	font-size: 27px!important;
 	font-weight: bold;
 	color: #424242;
 	padding: 0;
@@ -409,7 +409,7 @@ li {
 .ProDetailPage .ResourBoxC {
 	background: url('/acme-websiteResources/skin/acmeSkin/ProductStyle/background/ProDetailBg.png') repeat-x left -259px;
 	height: 50px;
-	font-size: 36px;
+	font-size: 36px!important;
 	color: #ff9c00;
 	text-align: left;
 	margin-bottom: 10px;

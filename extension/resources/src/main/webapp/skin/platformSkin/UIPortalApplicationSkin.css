@@ -24,11 +24,11 @@
 @import url(UIBreadcrumb/Stylesheet.css);
 
 
-*, div, table, th, tr, td, img, form {
+div, table, th, tr, td, img, form {
 	padding: 0px; margin: 0px;
 	outline: none;
 	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 11px!important;
 }
 
 body {

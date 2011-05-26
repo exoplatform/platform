@@ -20,11 +20,13 @@
 .UIBreadcrumbPortlet {
 	padding: 8px 15px 8px 35px;
     color: #999999;
+	font-size: 12px!important;
 	background:#20263F url('background/Breadcrumb.gif') no-repeat 15px center;
 }
 .UIBreadcrumbPortlet a {
     color: #9999cc;
     cursor: pointer;
+	font-size: 12px!important;
     /*vertical-align: bottom;*/
 }
 

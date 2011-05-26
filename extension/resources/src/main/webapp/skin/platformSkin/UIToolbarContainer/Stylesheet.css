@@ -45,7 +45,7 @@
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
 	padding: 0 24px 0 20px; /* orientation=lt */
 	padding: 0 20px 0 24px; /* orientation=rt */
-	font-size: 12px;
+	font-size: 12px!important;
 	color: #20263f;
 	display: block;
 	font-weight: normal;
@@ -108,7 +108,7 @@
 .UIWorkingWorkspace .UIToolbarContainer .TitleBar {
 	color: #20263f;
 	background: none;
-	font-size: 13px;
+	font-size: 13px!important;
 	font-weight: bold;
 	border-top: 1px solid #999999;
 	padding: 0px 10px;
@@ -176,6 +176,7 @@
 	margin-left: 0;
 	zoom: 1;
 	_display:inline-block;
+	font-size:12px!important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a.ArrowIcon {
