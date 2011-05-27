@@ -1,0 +1,26 @@
+Index: packaging/module/src/main/javascript/platform.packaging.module.js
+===================================================================
+--- packaging/module/src/main/javascript/platform.packaging.module.js	(revision 69744)
++++ packaging/module/src/main/javascript/platform.packaging.module.js	(working copy)
+@@ -58,6 +58,8 @@
+       addDependency(new Project("org.xcmis", "xcmis-search-parser-cmis", "jar", xcmisVersion)).
+       addDependency(new Project("org.xcmis", "xcmis-search-service", "jar", xcmisVersion)).
+       addDependency(new Project("org.xcmis", "xcmis-spi", "jar", xcmisVersion)).
++      addDependency(new Project("org.apache.tika", "tika-core", "jar", "0.7")).    
++      addDependency(new Project("org.apache.tika", "tika-parsers", "jar", "0.7")).
+       addDependency(new Project("org.exoplatform.ecms", "exo-ecms-ext-xcmis-sp", "jar", ecmsVersion)).
+       addDependency(new Project("org.apache.abdera", "abdera-client", "jar", "0.4.0-incubating")).
+       addDependency(new Project("org.apache.abdera", "abdera-core", "jar", "0.4.0-incubating")).
+Index: pom.xml
+===================================================================
+--- pom.xml	(revision 69744)
++++ pom.xml	(working copy)
+@@ -36,7 +36,7 @@
+     <org.exoplatform.commons.version>1.0.5-SNAPSHOT</org.exoplatform.commons.version>
+     <org.exoplatform.gwtframework.version>1.0.5-SNAPSHOT</org.exoplatform.gwtframework.version>
+     <org.exoplatform.ide.version>1.0.5-SNAPSHOT</org.exoplatform.ide.version>
+-    <org.xcmis.version>1.1.5-SNAPSHOT</org.xcmis.version>   
++    <org.xcmis.version>1.2.1</org.xcmis.version>   
+     <org.crsh.version>1.0.0-beta15</org.crsh.version>
+     <org.exoplatform.exopackage.version>1.1.0</org.exoplatform.exopackage.version>
+     <!-- default workflow engine is bonita. Can also be jbpm -->
