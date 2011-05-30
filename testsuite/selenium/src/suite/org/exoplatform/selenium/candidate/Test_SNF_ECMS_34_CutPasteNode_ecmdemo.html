@@ -98,42 +98,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>2000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Go to Action tab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Add Content&nbsp;&nbsp;folder</td>
+	<td>-- Add folder 1</td>
 	<td></td>
 </tr>
 <tr>
@@ -154,7 +119,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Content Folder</td>
+	<td>SNF_ECMS_34_folder1</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -163,7 +128,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add Content&nbsp;&nbsp;folder1</td>
+	<td>-- Add Content&nbsp;&nbsp;folder 2</td>
 	<td></td>
 </tr>
 <tr>
@@ -184,7 +149,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Content Folder1</td>
+	<td>SNF_ECMS_34_folder2</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -198,17 +163,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Cut Content Folder to Content Folder1</td>
+	<td>--Move Folder 1 to Folder2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_34_folder1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_34_folder1</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +188,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder1</td>
+	<td>link=SNF_ECMS_34_folder2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=Content Folder1</td>
+	<td>link=SNF_ECMS_34_folder2</td>
 	<td></td>
 </tr>
 <tr>
@@ -247,23 +212,38 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextNotPresent</td>
+	<td>SNF_ECMS_34_folder1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_ECMS_34_folder1</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>--Delete Content Folder1</td>
+	<td>--Delete Folder 2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder1</td>
+	<td>link=SNF_ECMS_34_folder2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=Content Folder1</td>
+	<td>link=SNF_ECMS_34_folder2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -274,6 +254,16 @@
 <tr>
 	<td>click</td>
 	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>SNF_ECMS_34_folder2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_ECMS_34_folder2</td>
 	<td></td>
 </tr>
 <tr>
