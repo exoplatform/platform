@@ -88,7 +88,12 @@ function getModule(params)
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version).
    addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.upgrade", "jar", commonsVersion)).
    addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.product", "jar", commonsVersion));
-      
+
+   module.common = {};
+   module.common.webui = new Project("org.exoplatform.commons", "exo.platform.commons.webui", "jar", commonsVersion);
+
+   module.common.resources = new Project("org.exoplatform.commons", "exo.platform.commons.resources", "war", commonsVersion);
+   module.common.resources.deployName = "CommonsResources";
    
    module.patch = {};
    module.patch.tomcat =
