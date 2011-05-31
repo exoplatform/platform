@@ -98,6 +98,12 @@
                     <include name="**" />
                   </fileset>
                 </copy>
+                <!-- copy stylesheet resources -->
+                <copy todir="${wikbook.target}/src/resources/images">
+                  <fileset dir="src/main/wikbook/images">
+                    <include name="**" />
+                  </fileset>
+                </copy>
               </preProcess>
             </configuration>
             <executions>
