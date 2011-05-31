@@ -43,5 +43,24 @@
     <description>Default configuration for the french locale</description>
   </locale-config>
 
-  
+  <locale-config>
+    <locale>pt_BR</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the portuguese locale</description>
+  </locale-config>
+
+  <locale-config>
+    <locale>ja</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the japanese locale</description>
+  </locale-config>
+
+  <locale-config>
+    <locale>it</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the italian locale</description>
+  </locale-config>
 </locales-config>
