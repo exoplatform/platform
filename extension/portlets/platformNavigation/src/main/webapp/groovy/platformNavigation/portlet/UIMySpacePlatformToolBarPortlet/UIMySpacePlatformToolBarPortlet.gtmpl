@@ -43,15 +43,6 @@
   def findSpacesLink = portalURI + "publicSpace";
   boolean hasPermission = uicomponent.hasPermission();
  
-
-  void renderSpacePageNavigation(PageNavigation navigation) {
-    nodes = navigation.getNodes();
-    if(nodes.size() < 1) return;
-    for(int i = 0; i < nodes.size(); i++) {
-      renderPageNode(nodes.get(i), i%2 == 0);
-    }
-  }
-
   void renderPageNode(PageNode node, boolean flag) {
     PageNode selectedNode = uicomponent.getSelectedPageNode();
     def tabStyleNavigation = "";
@@ -91,11 +82,6 @@
       """;
         for(int j = 0; j < node.getChildren().size(); j++) {
           PageNode childNode = node.getChildren().get(j);
-          /** PLF-971 : we do not separate between group and space navigation, these navigations are rendered in the same level
-          /* this test is no more needed
-          */
-          //def isRender = uicomponent.isRender(node, childNode);
-          //if (isRender) 
           renderPageNode(childNode, j%2 == 0);
         }
       print """
@@ -124,9 +110,7 @@
 
 	}
 
-	/** PLF-488 : construction de la navigation exoadmin:UserToolbarGroupPortlet dans la nouvelle portlet UIMySpace*/
-
-	  void renderGroupPageNavigation(PageNavigation navigation) {
+	void renderSpacePageNavigation(PageNavigation navigation) {
             nodes = navigation.getNodes() ;
             if(nodes.size() < 1) return ;
             String navTitle = OrganizationUtils.getGroupLabel(navigation.ownerId);
@@ -142,19 +126,7 @@
                         </div>
             """ ;
                     }
-                    else {
-            print """
-                        <div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
-                        <div class="SubBlock">
-                            """ ;
-                            for(int i = 0; i < nodes.size(); i++) {
-                                renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
-                            }
-                            print """
-                        </div>
-            """ ;
-            }
-    }
+             }
 	void renderPageNodeGroup(PageNode node, boolean flag) {
 		PageNode selectedNode = uicomponent.getSelectedPageNode();
 		String tabStyleNavigation = "";
@@ -218,64 +190,56 @@
   <div class="UIHorizontalTabs">
     <div class="TabsContainer">
       <div class="UITab NormalToolbarTab">
-        <div class="">
-		<%
+       		<%
 			if (renderSpacesLink()) {
 		%>
-			  <a class="EditorIcon TBIcon" href="<%= spacesLink %>">
-		
-		        <%                } 
-				else            {
-				%>
-				<a class="EditorIcon TBIcon" href="#">
-				 <%            }
-                 %>
-				<!--
-				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
-				/** _ctx.appRes("UIMySpacesToolBarPortlet.label.myspaces")**/
-				-->
-				 <%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%>
-			  </a>
-		</div>
+	<div class="">
+		  <a class="EditorIcon TBIcon" href="<%= spacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%></a>
+	</div>
 
 	  <!-- Merge exoadmin:  navigation-->
 
 		<% if (!groupNavigations.isEmpty()) { %>
 
 			<div style="display:none" class="MenuItemContainer">
-				<% for(navigation in groupNavigations) {
-				if (navigation.getOwnerId().indexOf("spaces")<0){  
-                	break;
+				<% 
+				def MY_SPACES_MAX_NUMBER = 10;
+				def mySpacesDisplayed = 0;
+				for(navigation in groupNavigations) {
+					if (navigation.getOwnerId().indexOf("spaces") < 0 || mySpacesDisplayed == -1){
+						break;
 					}
-					renderGroupPageNavigation(navigation);
+					/** PLF-1521 */
+						if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
+							mySpacesDisplayed += 1;
+							renderSpacePageNavigation(navigation);
+						}else{
+							def portalContextPath = Util.getPortalRequestContext().getPortalURI().split("/")[1];
+							def portalContextAccessPath = Util.getPortalRequestContext().getPortalURI().split("/")[2];
+							mySpacesDisplayed = -1;
+							def moreSpacesLabel = _ctx.appRes("UIMySpacePlatformToolBarPortlet.more");
+							def moreSpacesLink = spacesLink;
+							print """
+							<div class="SubBlock">
+								<div class="MenuItem">
+									<a href="$moreSpacesLink">$moreSpacesLabel</a>
+								</div>
+							</div>
+							""" ;
+						}
 					
 					
 				} %>
 				<% if (renderSpacesLink()) { %>
 				<div class="SubBlock">
-                       
-                            <div class="MenuItem">   
-                                <a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
-                            </div>               
-                 </div>
+						<div class="MenuItem">   
+							<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
+						</div>               
+					</div>
 				<% } %>
-<% for(navigation in groupNavigations) {
-				if (navigation.getOwnerId().indexOf("spaces")<0){
-					renderGroupPageNavigation(navigation);
-					
-                	
-					}
-				} %>				
-			
-			<% if(hasPermission){ %>
-			<div class="SubBlock">
-                       
-                            <div class="MenuItem">   
-                                <a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.manage")%></a>
-                            </div>               
-            </div>
-			<% } %>
+
 			</div>
+			<% } %>
 		<% } %>
 	   <!-- FIN -->
 

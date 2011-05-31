@@ -72,6 +72,28 @@
 		</portlet-info>
 	</portlet>
     <!-- FIN PLF-488-->
+	<portlet>
+		<description xml:lang="EN">PlatformNavigation Portlet</description>
+		<portlet-name>UIMyGroupsPlatformToolBarPortlet</portlet-name>
+		<display-name xml:lang="EN">UIMyGroupsPlatformToolBarPortlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<!-- must match the path to configuration file -->
+			<value>/WEB-INF/conf/portlet/UIMyGroupsPlatformToolBarPortlet/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.UIMyGroupsPlatformToolBarPortlet.UIMyGroupsPlatformToolBarPortlet</resource-bundle>
+		<portlet-info>
+			<title>UIMyGroupsPlatformToolBarPortlet</title>
+			<short-title>UIMyGroupsPlatformToolBarPortlet</short-title>
+		</portlet-info>
+	</portlet>
 	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
