@@ -178,6 +178,12 @@
                     <resource>
                       <directory>target/org.exoplatform.ks/images</directory>
                     </resource>
+                    <resource>
+                      <directory>target/resources/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>target/org.gatein.doc/images</directory>
+                    </resource>
                   </resources>
                 </configuration>
               </execution>
