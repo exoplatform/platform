@@ -281,16 +281,13 @@ In this step, you need to change the name under which the data sources are bound
 
 h2. FAQs of Database Configuration {anchor:id=ADM.Configuration.FAQDatabaseConfiguration}
 
-Q1. How to configure eXo Platform to connect to other database systems
+Q1. *How to configure eXo Platform to connect to other database systems*
 
 Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
 
 * eXo Platform-3.5.x.zip/conf/db/
-
 ** mysql
-
 ** oracle
-
 ** postgres
 
 In each folder, you will find two sample xml files: gatein-ds.xml for JBoss and server.xml for Tomcat.
@@ -323,7 +320,7 @@ You can download the official JDBC connector JARs from the following websites:
 * http://jdbc.postgresql.org/download.html
 * http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
 
-Q2. How to remove the idle MySQL connections
+Q2. *How to remove the idle MySQL connections*
 
 Some RDBMSs, like MySQL, close idle connections after a period (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors like:
 

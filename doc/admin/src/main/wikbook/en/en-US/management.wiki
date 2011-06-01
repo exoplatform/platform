@@ -39,7 +39,6 @@ PortalContainer manages all objects and configurations of a given portal.
 |{{RegisteredComponentNames}}|The list of the registered component names.|
 |{{Started}}|Indicate the portal container is started or not.|
 
-{example}{example}
 ||Operation||Description||
 |{{getConfigurationXML}}|Return configuration information of the portal container calculated by the loading mechanism. The returned value is an XML document in the eXo Kernel format.|
 |{{getName}}|Return the portal container name.|
@@ -67,7 +66,7 @@ eXo Platform uses caches at several levels. Monitoring them can provide the crit
 |{{Size}}|The number of entries in the cache.|
 |{{TimeToLive}}|The valid period of the cache entry in seconds. If the value is set to *-1*, the entries are never expired.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{clearCache()|Evict all entries from the cache. This method can be used to force a programmatic flush of the cache.|
 |{{getName}}|Return the cache name.|
@@ -169,7 +168,7 @@ WCMComposer is responsible for assembling pages, and is key for serving pages ef
 |{{UsedOrderBy}}|The list of OrderBy properties accessible in the composer.|
 |{{UsedPrimaryTypes}}|The list of primary types accessible in the composer.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{cleanTemplates}}|Clean all templates in the composer.|
 |{{setCached(iscached)}}|Enable/Disable caching in the composer.|
@@ -191,7 +190,7 @@ FriendlyService is to make URIs more friendly.
 |{{Friendlies}}|The list of registered Friendly URIs.|
 |{{ServletName}}|The name of the servlet referenced in the service.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{addFriendly(friendlyUri, unfriendlyUri)}}|Add a new Frienly Uri to the list with two parameters: friendlyUri and unfrienlyUri. The value entered in the *friendlyUri* field replaces that of the *unfriendlyUri* field.|
 |{{removeFriendly(friendlyUri)}}|Remove a friendly URI from the list by entering that Uri into the *friendlyUri* field.|
@@ -208,7 +207,7 @@ h3. WCMService {anchor:id=ADM.Management.WCMService}
 ||Attribute||Description||
 |{{PortletExpirationCache}}|The expiration period of portlet cache in seconds.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getPortletExpirationCache}}|Return the expiration period of porlet cache in seconds.|
 |{{setPortletExpirationCache(expirationCache)}}|Set the expiration period of portlet cache by entering the value into the *expirationCache* field.|
@@ -235,7 +234,7 @@ h3. SessionRegistry {anchor:id=ADM.Management.Session_Registry}
 |{{TimeOut}}|The expiration period of a JCR session.|
 |{{Size}}|The number of currently active sessions.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{runCleanup}}|Clean all JCR sessions timed out.|
 |{{getTimeOut}}|Return the timeout of a JCR session.|
@@ -251,7 +250,7 @@ LockManager stores lock objects and is reponsible for removing expired locks.
 ||Attribute||Description||
 |{{NumLocks}}|The number of active locks.|
 
-{example}{example}
+
 ||Operation||Desription||
 |{{cleanExpiredLocks}}|Remove all expired JCR locks.|
 |{{getNumLocks}}|Return the number of active JCR locks.|
@@ -281,7 +280,7 @@ h3. Repository {anchor:id=ADM.Management.Repository}
 |{{Name}}|The name of the repository container.|
 |{{RegisteredComponentNames}}|The list of registered component names in the repository.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getName}}|Return the repository container name.|
 |{{getRegisteredComponentNames}}|Return the list of registered component names in the repository.|
@@ -294,7 +293,7 @@ h3. Workspace {anchor:id=ADM.Management.Workspace}
 |{{Name}}|The name of the workspace container.|
 |{{RegisteredComponentNames}}|The list of registered component names in the workspace.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getName}}|Return the workspace container name.|
 |{{getRegisteredComponentNames}}|Return the list of registered component names in the workspace.|
@@ -318,7 +317,7 @@ Template statistics exposes various templates used by the portal and its compone
 |{{MostExecutedTemplates}}|The list of the 10 most used templates.|
 |{{FastestTemplates}}|The list of 10 fastest templates.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getAverageTime(templateId)}}|Return the average rendering time of a specified template in seconds.|
 |{{getExecutionCount(templateId)}}|Return the number of times the specified template has been executed.|
@@ -348,7 +347,7 @@ h3. Skin management {anchor:id=ADM.Management.Skin_management}
 ||Attribute||Description||
 |{{SkinList}}|The list of loaded skins by the skin service.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{reloadSkin(skinId)}}|Force a reload of the specified skin and the operation.|
 |{{reloadSkins}}|Force a reload of the loaded skins.|
@@ -363,7 +362,7 @@ h3. TokenStore {anchor:id=ADM.Management.TokenStore}
 |{{ValidityTime}}|The expiration period of one specific token in seconds.|
 |{{PeriodTime}}|The expiration daemon period of one specific token in seconds. The token is deleted after the specified period.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{cleanExpiredTokens}}|Remove all expired tokens.|
 |{{size}}|Return the number of tokens, including valid tokens and expired tokens undeleted yet.|
@@ -389,7 +388,7 @@ h3. Portal statistics {anchor:id=ADM.Management.Portal_statistic}
 ||Attribute||Description||
 |{{PortalList}}|The list of identifiers of loaded portals.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getThroughput(portalId)}}|Return the number of requests for the specified portal per second.|
 |{{getAverageTime(portalId)}}|Return the average execution time of the specified portal in seconds.|
@@ -411,7 +410,7 @@ Various applications are exposed to provide relevant statistics.
 |{{MostExecutedApplications}}|The list of the 10 most executed applications.|
 |{{FastestApplications}}|The list of the 10 fastest applications.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getAverageTime(applicationId)}}|Return the average time spent of the specified application.|
 |{{getExecutionCount(applicationId)}}|Return the number of times the specified application has been executed.|
@@ -455,7 +454,7 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 |{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in eXo Knowledge.|
 |{{OnlineUsers}}|The list of currently online users.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{countOnlineUsers}}|Return the number of currently online users.|
 |{{hasForumAdminRole(String username)}}|Check if the user is the forum administrator or not.|
@@ -476,7 +475,7 @@ The Job management view enables you to view state information of Jobs used in eX
 |{{DataMap}}|The map containing the state information for Job instances.|
 |{{Name}}|The name of the Job.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getName}}|Return the names of Job instances.|
 |{{getDataMap}}|Return the state information of Job instances.|
@@ -506,7 +505,7 @@ h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 |{{Name}}|The name of RoleRulesPlugin.|
 |{{RuleNames|The list of possible rule names; for example, the rule defining administrators is named ADMIN.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{addRule}}|Add a rule. For example, to add the ADMIN rule for the 'demo' user, you need to input two parameters: ADMIN in the p1 and demo in the p2.|
 |{{getRules}}|Return the list of rules defining the user with the role inputed in p1.|
@@ -523,7 +522,7 @@ h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 ||Attribute||Description||
 |{{BBCodes}}|The list of BBCodes defined in the plugin.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: URL, JUSTIFY, B, HIGHLIGHT, I, U, RIGHT, EMAIL, LIST, EMAIL, COLOR, URL, CODE, CENTER, CODE, QUOTE, LIST, CSS, LEFT, FONT, GOTO, QUOTE, SIZE, SLIDESHARE, IMG.|
 
@@ -534,7 +533,7 @@ h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 ||Attribute||Description||
 |{{Location}}|The location where the Forum export file is stored.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getLocation}}|Return the location where the Forum export file is stored, for example *war:/data/forum/data-full-forum.zip*.|
 
@@ -545,7 +544,7 @@ h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 ||Attribute||Description||
 |{{Location}}|The location where the FAQ export file is stored.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getLocation}}|Return the location where the FAQ export file is stored, for example *war:/data/Technical-FAQ.zip*.|
 |{{isForceXML}}|Indicate if the data loaded from the FAQ export file should override any data found in the existing database.|
@@ -561,7 +560,7 @@ The Storage management view enables you to get storage information in eXo Knowle
 |{{Repository}}|The name of repository containing the workspace where Forum data are stored.|
 |{{Workspace}}|The name of workspace containing Forum data.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getRepository}}|Return the name of repository of the Forum Storage.|
 |{{getWorkspace}}|Return the name of workspace of the Forum Storage.|
@@ -582,7 +581,7 @@ eXo Collaboration provides a management view, enabling you to view some state in
 |{{DataMap}}|The map containing the state information for the Job instances.|
 |{{Name}}|The name of the Job.|
 
-{example}{example}
+
 ||Operation||Description||
 |{{getName}}|Return the name of Job instances.|
 |{{getDataMap}}|Return the state information of Job instances.|

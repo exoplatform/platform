@@ -99,7 +99,7 @@ During the synchronization, the node is not ready to serve requests.
 h1. FAQ of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
 
-Q1. How to migrate from local to the cluster mode? 
+Q1. *How to migrate from local to the cluster mode?* 
 
 If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
 
@@ -108,7 +108,7 @@ If you intend to migrate your production system from local (non-cluster) to the 
 *3.* Move the index and value storage to the shared file system.
 *4.* Start the cluster.
 
-Q2. Why is startup failed with the "Port value out of range" error?
+Q2. *Why is startup failed with the "Port value out of range" error?*
 
 On Linux, your startup is failed if you encounter the following error:
 
@@ -125,7 +125,7 @@ Need to verify:
 
 * The host name is NOT defined as localhost or 127.0.0.1.
 
-Q3. How to solve the "failed sending message to null" error?
+Q3. *How to solve the "failed sending message to null" error?*
 
 If you encounter the following error when starting up in the cluster mode on Linux:
 

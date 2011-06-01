@@ -110,11 +110,12 @@
    </xsl:template>     
 
 <!-- TOC -->
+<xsl:param name="toc.section.depth" select="5"/>
 <xsl:param name="generate.toc">
 set toc
 book toc
 article toc
-chapter toc
+chapter
 qandadiv toc
 qandaset toc
 sect1 nop
@@ -462,16 +463,16 @@ Version: 1.74.0
   </xsl:if>
 </xsl:template>
 
-  <xsl:template match="programlisting[@role='XML']|programlisting[@role='JAVA']|programlisting[@role='XHTML']|programlisting[@role='JSP']|programlisting[@role='CSS']">
+  <xsl:template match="programlisting">
     
-    <xsl:variable name="role">
-      <xsl:value-of select="s:toUpperCase(string(@role))" xmlns:s="java:java.lang.String"/>
+    <xsl:variable name="language">
+      <xsl:value-of select="s:toUpperCase(string(@language))" xmlns:s="java:java.lang.String"/>
     </xsl:variable>
     
     <xsl:variable name="factory" select="rf:instance()"/>
-    <xsl:variable name="hiliter" select="rf:getRenderer($factory, string($role))"/>
+    <xsl:variable name="hiliter" select="rf:getRenderer($factory, string($language))"/>
 
-    <pre class="{$role}">
+    <pre class="{$language}">
     <xsl:choose>
       <xsl:when test="$hiliter">
             <xsl:for-each select="node()">
@@ -479,7 +480,7 @@ Version: 1.74.0
                 <xsl:when test="self::text()">
                   <xsl:variable name="child.content" select="."/>
           
-                  <xsl:value-of select="jhr:highlight($hiliter, $role, string($child.content), 'UTF-8', true())"
+                  <xsl:value-of select="jhr:highlight($hiliter, $language, string($child.content), 'UTF-8', true())"
             xmlns:jhr="com.uwyn.jhighlight.renderer.Renderer" disable-output-escaping="yes"/>
           </xsl:when>
                 <xsl:otherwise>
