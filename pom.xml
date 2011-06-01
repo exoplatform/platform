@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform</groupId>
     <artifactId>exo.parent</artifactId>
-    <version>7</version>
+    <version>7.1</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
@@ -19,7 +19,7 @@
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
-    <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-private-snapshots</exo.snapshots.repo.url>
+    <exo.snapshots.repo.url>dav:http://repository.exoplatform.org/content/repositories/exo-private-snapshots</exo.snapshots.repo.url>
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
