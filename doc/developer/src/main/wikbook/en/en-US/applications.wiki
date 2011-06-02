@@ -1,5 +1,5 @@
 
-h1. Application integration
+h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationIntergration}
 
 To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located in {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
 
@@ -51,9 +51,9 @@ Here are details of this configuration:
 | {{preferences}} | Contain a list of {{preferences}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. To learn more, refer to [eXo JCR and Extension Services Reference|http://platform.demo.exoplatform.org/docs/refguide/html/jcr/index.html] | |
 
 
-h1. Developing your own applications
+h1. Develope your own applications {anchor:id=DEV.WorkWithApplications.DevelopeYourOwnApplications}
 
-h2. Gadget vs Portlet
+h2. Gadget vs Portlet {anchor:id=DEV.WorkWithContent.GadgetvsPortlet}
 
 It is important to understand distinctions between gadgets and portlets. Portlets are user interface components that provide fragments of markup code from the server side, while gadgets generate dynamic web content on the client side. With Gadgets, small applications can be built quickly, and mashed up on the client side using lightweight Web-Oriented Architecture (WOA) technologies, like REST or RSS.
 
@@ -62,12 +62,12 @@ More information on developing gadgets and portlets can be found in the GateIn R
 * [Portlet development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Portlet_development]
 * [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development]
 
-h2. Gadget development quickstart with IDE
+h2. Gadget development quickstart with IDE {anchor:id=DEV.WorkWithApplications}
 
 eXo Platform facilitates easy gadget development, via its powerful, web-based IDE. You can learn more about the basic principles of gadget development [here|http://code.google.com/apis/gadgets/docs/gs.html].
 
 
-h2. Portlet Bridges
+h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}
 
 The Portlet Bridge is:
 

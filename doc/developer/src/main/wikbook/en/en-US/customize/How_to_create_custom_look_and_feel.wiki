@@ -1,10 +1,10 @@
-h2. Structure stylesheet
+h2. Structure stylesheet {anchor:id=DEV.CreateYourOwnPortal.StructureStylesheet}
 {include:document="How_to_structure_the_stylesheet.wiki"}
-h2. Configure skin in Gatein
+h2. Configure skin in GateIn {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkinInGatein}
 {include:document="Configure_GateIn_skin.wiki"}
-h2. Configure skin in WCM
+h2. Configure skin in WCM {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkinInWCM}
 {include:document="How_to_config_skin_in_WCM.wiki"}
-h2. Create and apply Global style sheet
+h2. Create and apply Global stylesheet {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet}
 {include:document="Globalstylesheet.wiki"}
-h2. How to customize the Admin bar
+h2. How to customize the Admin bar {anchor:id=DEV.CreateYourOwnPortal.CustomizeAdminbar}
 {include:document="How_to_customize_admin_bar.wiki"}

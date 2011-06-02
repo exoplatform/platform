@@ -1,13 +1,13 @@
-h1. Overview of architecture
+h1. Overview of architecture {anchor:id=DEV.eXoArchitecturePremer.Overview}
 
-h1. Kernel
+h1. Kernel {anchor:id=DEV.eXoArchitecturePremer.Kernel}
 
 All eXo services are built around the eXo kernel, or the service management layer, which manages the configuration and the execution of all components.
 The main kernel object is the eXo Container, a micro-container that glues services together through dependency injection. The container is responsible for loading services/components.
 
 This chapter will introduce the concepts of Container and Services, and will give you an overview before configuring basic services.
 
-h2. Containers
+h2. Containers {anchor:id=DEV.eXoArchitecturePremer.Containers}
 
 A container is always required to access a service, because the eXo kernel relies on dependency injection. This means that the life cycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
 
@@ -34,12 +34,12 @@ public class ExoUtils {
   
 }
 {code}
-Then, invoking becomes as easy as :
+Then, invoking becomes as easy as:
 {code:language=java}
   OrganizationService orgService = ExoUtils.getService(OrganizationService.class)
 {code}
 
-h2. Services
+h2. Services {anchor:id=DEV.eXoArchitecturePremer.Services}
 
 Containers are used to gain access to services. Important characteristics of services are:
 
@@ -53,15 +53,13 @@ For example, in the lib/folder, you can find services for databases, caching, ld
 * exo.kernel.component.cache-x.y.z.jar
 * exo.core.component.organization.ldap-x.y.z.jar
 
-
-
-h2. Service configuration
+h2. Service configuration {anchor:id=DEV.eXoArchitecturePremer.ServiceConfiguration}
 
 To declare a service, you must add an *.xml* configuration file to a specific place. This file can be in the jar file, in a webapp or in the external configuration directory. If you write a new component for the eXo Container, you should always provide a default configuration in your jar file. This default configuration must be in the file /conf/portal/configuration.xml in your jar.  
 
 A configuration file can specify several services, so there can be several services in one jar file.
 
-h3. Kernel XML Schema
+h3. Kernel XML Schema {anchor:id=DEV.eXoArchitecturePremer.KernalXMLSchema}
 
 Containers configuration files must comply with the kernel configuration grammar. Thus, all configurations will contain an XSD declaration like this:
 
@@ -75,7 +73,7 @@ xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
 The {{kernel_1_1.xsd}} file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
 
-h3. Components
+h3. Components {anchor:id=DEV.eXoArchitecturePremer.Components}
 
 The service registration within the container is done with the {{<component>}} element.
 
@@ -98,7 +96,7 @@ The specific implementation class of the component ({{CmsServiceImpl}}) is defin
 If a service does not have a separate interface, the {{<type>}} will be used as the key in the container. This is the case of{{ContentInitializerService}}. 
 
 
-h3. Parameters
+h3. Parameters {anchor:id=DEV.eXoArchitecturePremer.Parameters}
 
 You can provide initial parameters for your service by defining them in the configuration file. The followings are different parameters:
 
@@ -110,10 +108,9 @@ You can provide initial parameters for your service by defining them in the conf
 * native-array
 
 
-h4. Value-param
+h4. Value-param {anchor:id=DEV.eXoArchitecturePremer.Value-param}
 
 You can use the value-param to pass a single value to the service.
-
 
 {code:language=xml}
 <component>
@@ -127,7 +124,6 @@ You can use the value-param to pass a single value to the service.
       </init-params>
   </component>
 {code}
-
 
 The LocaleConfigService service accesses to the value of value-param in its constructor.
 
@@ -145,7 +141,7 @@ public LocaleConfigServiceImpl(InitParams params, ConfigurationManager cmanager)
 {code}
 
 
-h4. Object-param
+h4. Object-param {anchor:id=DEV.eXoArchitecturePremer.Object-param}
 
 For the object-param component, you can look at the LDAP service:
 
@@ -204,11 +200,11 @@ public class LDAPConnectionConfig {
   // ...
 {code}
 
-h4. Rest of parameter types
+h4. Rest of parameter types {anchor:id=DEV.eXoArchitecturePremer.RestOfParameterTypes}
 
 Other possible parameter types are Collection, Map and Native Array. See the exhaustive reference in the kernel reference guide.
 
-h2. Plugins
+h2. Plugins {anchor:id=DEV.eXoArchitecturePremer.Plugins}
 
 Some components may want to offer some extensibilities. For this, they use a plugin mechanism based on the injection method. To offer an extension point for plugins, a component needs to provide a public method that takes an instance of {{org.exoplatform.container.xml.ComponentPlugin}} as a parameter.
 
@@ -232,7 +228,7 @@ The {{<target-component>}} defines components that host the extension point. The
 
 The content of <init-params> is interpreted by the TaxonomyPlugin object.
 
-h2. Configuration loading sequence
+h2. Configuration loading sequence {anchor:id=ADM.eXoArchitecturePremer.ConfigureLoadingSequence}
 
 The kernel startup follows a well-defined sequence to load configuration files. The objects are initialized in the container only after the whole loading sequence is done. Hence, by placing your configuration in the upper location of the sequence, you can override a component declaration by yourself. You will typically do this when you want to provide your own implementation of a component, or declare custom init-params.
 
@@ -254,7 +250,7 @@ The loading sequence involves loading successively configurations for the RootCo
 * $PORTAL is the name of the portal container. By default, the name is unique that is called 'portal'.
 {note}
 
-h1. GateIn extensions
+h1. GateIn extensions {anchor:id=DEV.eXoArchitecturePremer.GateInExtensions}
 
 GateIn extensions are special *.war* files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer. To create your own portal, you will have to create a GateIn extension.
 
@@ -271,7 +267,7 @@ If you ship servlets or servlet filters as part of your portal extension, and if
 Similarly for filters,  make  sure  your filter class extends org.exoplatform.container.web.AbstractFilter. Both AbstractHttpServlet and AbstractFilter have the method getContainer(), which returns the current PortalContainer.
 
 
-h2. Default Portal Container
+h2. Default Portal Container {anchor:id=DEV.eXoArchitecturePremer.defaultPortalContainer}
 
 eXo Platform comes with a pre-configured PortalContainer named "portal". This portal container configuration ties the core and extended services stack. The default Portal Container is started from {{portal.war}} and naturally maps to the {{/portal}} url.
 
@@ -289,7 +285,7 @@ This is valid only for resources but not for java classes.
 
 The next part explains what to do to make a simple extension for "portal" container.
 
-h2. Register Extension
+h2. Register Extension {anchor:id=DEV.eXoArchitecturePremer.RegisterExtension}
 
 The webapps are loaded in the order defined in the list of dependencies of the {{PortalContainerDefinition}}. You then need to deploy the *starter.war*; otherwise, the webapps will be loaded in the default application server's order', such as the loading order of the Application Server.
 
@@ -384,14 +380,14 @@ In your portal, if you want to add your own property file to support localizatio
         </external-component-plugins>
 {code}
 
-h1. Java Content Repository
+h1. Java Content Repository {anchor:id=DEV.eXoArchitecturePremer.JavaContentRepository}
 
 All data in eXo Platform is stored in a Java Content Repository (JCR). JCR is a Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Object Database tailored to the storage, searching, and retrieval of hierarchical data. It is useful to content management systems, which require storage of objects associated with metadata. A JCR also provides versioning, transactions, observations of changes in data, and import or export of data in XML. The data in JCR is stored hierarchically in a tree of nodes with associated properties.
 
 Also, the JCR is primarily used as an internal storage engine. Accordingly, eXo Content lets you manipulate JCR data directly in several places. 
 
 
-h2. Repositories and workspaces
+h2. Repositories and workspaces {anchor:id=DEV.eXoArchitecturePremer.Repositories&Workspaces}
 
 A content repository consists of one or more workspaces. Each workspace contains a tree of items.
 
@@ -469,7 +465,7 @@ In embedded cases, the implementation will directly leverage the organization an
 -- Call Session.logout() explicitly to release resources assigned to the session.
 -- When designing your application, you should take care of the Session policy inside your application. Two strategies are possible: Stateless (Session per business request) and Stateful (Session per User) or some mixes.
 
-h2. Tree structure: working with nodes and properties
+h2. Tree structure: working with nodes and properties {anchor:id=DEV.eXoArchitecturePremer.WorkingWithNodes&Properties}
 
 Every node can only have one primary node type. The primary node type defines names, types and other characteristics of the properties and child nodes that a node is allowed (or required) to have. Every node has a special property called jcr:primaryType that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (for example, more child nodes, properties and their respective names and types).
 
@@ -478,6 +474,3 @@ Data is stored in properties, which may hold simple values, such as numbers and 
 The JCR API provides methods to define node types and node properties, create or delete nodes, and add or delete properties to an existing node.
 
 You can refer to "Chapter 6.2.3 Node Read Methods" in the JCR Specification document.
-
-
-

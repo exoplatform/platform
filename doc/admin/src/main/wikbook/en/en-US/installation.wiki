@@ -1,7 +1,7 @@
 eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory.
 
 
-h1. Installing the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
+h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
 The easiest way to install eXo Platform is to take the default bundle.
 This is a ready-made package on top of Tomcat 6 application server, so you simply need to copy the {{bin/tomcat6-bundle/}} directory to your server.
@@ -39,16 +39,16 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 
 h2. Startup scripts {anchor:id=ADM.Installation.JBoss_EARS_Startup_scripts}
 
-eXo comes with several builtin startup scripts :
-* {{start{{{_}}}eXo.sh}} : start eXo on Linux and OS X 
-* {{start{{{_}}}eXo.bat}} : start eXo on Windows
-* bin/gatein-dev.sh : start eXo on Linux and OS X in developer mode 
-* bin/gatein-dev.bat : start eXo on Windows in developer mode 
+eXo comes with several builtin startup scripts:
+* {{start{{{_}}}eXo.sh}}: start eXo on Linux and OS X 
+* {{start{{{_}}}eXo.bat}}: start eXo on Windows
+* bin/gatein-dev.sh: start eXo on Linux and OS X in developer mode 
+* bin/gatein-dev.bat: start eXo on Windows in developer mode 
 
 
 h3. Normal Mode {anchor:id=ADM.Installation.Normal_Mode}
 
-{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options :
+{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options:
 {screen}
 -Xms256m 
 -Xmx1024m 
@@ -83,13 +83,13 @@ h3. Developer mode {anchor:id=ADM.Installation.Developer_mode}
 || {{-Dexo.product.developing=true}} | deactivates javascript and css merging for easier debugging |
 
 
-h1. Installing the JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
+h1. Install the JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
 We provide EARs packages to deploy in your existing JBoss application server. They are located in the folder {{bin/jboss5-eap-ears/}}.
 
 To install eXo Platform on JBoss, follow these steps:
 
-h2. Copy files in {{jboss-root/server/default/deploy}}
+*1.* Copy files in {{jboss-root/server/default/deploy}}
 - gatein-ds.xml
 - gatein.ear (it must remain a folder named gatein.ear)
 - starter-gatein.ear
@@ -102,17 +102,17 @@ h2. Copy files in {{jboss-root/server/default/deploy}}
 - gatein-wcm-extension-plf.ear
 - gatein-workflow-extension-plf.ear
 
-h2. Create a folder {{jboss-root/server/default/conf/gatein}}
+*2.* Create a folder {{jboss-root/server/default/conf/gatein}}
 
 Copy these files:
 - configuration.properties
 - configuration.xml
 
-h2. Copy these files in {{jboss-root/bin}}
+*3.* Copy these files in {{jboss-root/bin}}
 - exokey.pem
 - oauthkey.pem
 
-h2. Configure JVM parameters {anchor:id=ADM.Installation.Configure_JVM_Parameters}
+*4.* Configure JVM parameters {anchor:id=ADM.Installation.Configure_JVM_Parameters}
 
 On *Linux*, add these lines at the end of {{jboss-root/bin/run.conf}}:
 {code}
@@ -138,7 +138,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 - You can use another implementation of SAX by changing the class names in the {noformat}EXO_XML{noformat} variable, for example: {{com.sun.xml.internal.stream.XMLOutputFactoryImpl}}
 - To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} in the {noformat}JAVA_OPTS{noformat} variable
 
-h2. Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.xml}}
+*5.* Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.xml}}
 {code:xml}
    <!-- Limit the JSR170 categories -->
    <category name="exo.jcr">
@@ -150,7 +150,7 @@ h2. Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.x
    </category>
 {code}
 
-h2. Startup {anchor:id=ADM.Installation.JBoss_EARS_Startup}
+*6.* Start up {anchor:id=ADM.Installation.JBoss_EARS_Startup}
 
 * On Linux and OS X:   {screen}$JBOSS_HOME/bin/run.sh{screen}
 * On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
@@ -160,7 +160,7 @@ The server has started when you see the following message in your log/console:
 INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.0.1 (build: ...)] Started in 3m:29s:259ms
 {screen}
 
-h2. Shutdown {anchor:id=ADM.Installation.JBoss_EARS_Shutdown}
+*7.* Shut down {anchor:id=ADM.Installation.JBoss_EARS_Shutdown}
 
 * On Linux and OS X: {screen}$JBOSS_HOME/bin/shutdown.sh{screen}
 * On Windows:        {screen}%JBOSS_HOME%\\bin\\shutdown.bat {screen}
@@ -191,9 +191,8 @@ Additionally, you can use these composite profiles:
 || {{default}} | contains all except workflow (gatein,ide,wcm,collaboration,social,knowledge)  |
 || {{all}} | all available modules  |
 
-For example : 
+For example: 
 {screen}
 ./start_eXo.sh default,workflow #  start all modules including workflow
 ./start_eXo.sh collaboration,knowledge #  start exo with gatein,wcm, collaboration and knowledge enabled
 ./start_eXo.sh minimal,social # start with social, gatein and wcm{screen}
-

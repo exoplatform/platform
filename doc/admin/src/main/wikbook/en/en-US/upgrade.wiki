@@ -1,10 +1,10 @@
-h1. Purpose
+h1. Purpose {anchor:id=ADM.Upgrade.Purpose}
 
 Updating your Platform server is fairly easy but remains critical. This document present the detailed steps to upgrade Platform server.
 
-h1. Modifications details between versions
+h1. Modifications details between versions {anchor:id=ADM.Upgrade.Modification_details}
 
-h2. Modifications between Platform v.3.0.1 and 3.0.2
+h2. Modifications between Platform v.3.0.1 and 3.0.2 {anchor:id=ADM.Upgrade.Modification_details.3.0.1_3.0.2}
 
 *[ECMS Application templates|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch03.html#d0e28054]*
 
@@ -20,7 +20,7 @@ In Platform 3.0.1, those templates are stored in the same location in the JCR. B
 
 See the {{Templates Structure Upgrade Notice}} in the document located in *DeliveryFolder/upgrade-notes/PLF302_CLV_Templates_Structure_Upgrade_Notice.pdf*.
 
-h2. Modifications between Platform v.3.0.2 to 3.0.3
+h2. Modifications between Platform v.3.0.2 to 3.0.3 {anchor:id=ADM.Upgrade.Modification_details.3.0.2_3.0.3}
 
 *Gadgets*
 
@@ -52,13 +52,13 @@ Gadgets predefined in Platform are stored in the JCR, so if you have already use
 
 See the instructions below to refresh those gadgets in production mode.
 
-h2. Modifications between Platform v.3.0.3 and 3.0.4
+h2. Modifications between Platform v.3.0.3 and 3.0.4 {anchor:id=ADM.Upgrade.Modification_details.3.0.3_3.0.4}
 
 * It is not required to make any modifications.
 
-h1. Steps to upgrade
+h1. Steps to upgrade {anchor:id=ADM.Upgrade.Steps_Upgrade}
 
-h2. Development mode
+h2. Development mode {anchor:id=ADM.Upgrade.Development_mode}
 
 In this mode, you are supposed to use Platform with a clean database, which mean you can delete the database tables without impacting your development. Also, try following steps in the section *Production mode* below.
 
@@ -72,7 +72,7 @@ In this mode, you are supposed to use Platform with a clean database, which mean
 # Plug your custom configuration files and your custom datasources configuration into the new server.
 # Start the Platform Server to complete the upgrade.
 
-h2. Production mode
+h2. Production mode {anchor:id=ADM.Upgrade.Production_mode}
 
 In this mode, you are supposed to keep your existing JCR data. Follow these steps:
 

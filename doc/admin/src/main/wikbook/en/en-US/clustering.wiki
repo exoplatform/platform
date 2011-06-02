@@ -1,12 +1,12 @@
 
 h1. About Platform clustering {anchor:id=ADM.Clustering.About_Platform_Clustering}
 
-h2. When should you consider clustering ? {anchor:id=ADM.Clustering.When_consider_clustering}
+h2. When should you consider clustering? {anchor:id=ADM.Clustering.When_consider_clustering}
 
 Installing eXo platform in cluster mode should be considered in the following cases:
 
-* Load Balancing : when a single single server node is not enough to handle the load
-* High Availability : when you want to avoid a single point of failure by having redundant nodes 
+* Load Balancing: when a single single server node is not enough to handle the load
+* High Availability: when you want to avoid a single point of failure by having redundant nodes 
 
 These characteristics should be handled by the overall architecture of your system. Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes. Also, high availability on the data layer can be typically achieved using the native replication implemented by RDBMS.
 
@@ -50,7 +50,7 @@ gatein.jcr.index.data.dir=/PATH/TO/SHARED/FS/index
 
 The path is shared, so all nodes will need read/write access to this path.
 
-h2. advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
+h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
 The cluster mode is preconfigured to work out of the box. It relies on the JBoss Cache configuration.
 
@@ -99,24 +99,24 @@ During the synchronization the node is not ready to serve requests.
 
 h1. Clustering FAQ {anchor:id=ADM.Clustering.Clustering_FAQ}
 
-h2. How do I migrate from local to cluster mode ? {anchor:id=ADM.Clustering.How_to_migrate_from_local_to_cluter_mode}
+h2. How to migrate from local to cluster mode? {anchor:id=ADM.Clustering.How_to_migrate_from_local_to_cluter_mode}
 
-If you intend to migrate your production system from local (non cluster) mode to cluster, follow these steps :
+If you intend to migrate your production system from local (non cluster) mode to cluster, follow these steps:
 
 * Update the configuration to cluster mode as explained above on your main server
 * Use the same configuration on other cluster nodes
 * Move the index and value storage to the shared file system
 * Start the cluster
 
-h2. Why is startup failing with a _Port value out of range_ error ? {anchor:id=ADM.Clustering.Port_value_out_of_range_error}
+h2. Why is startup failed with a _Port value out of range_ error? {anchor:id=ADM.Clustering.Port_value_out_of_range_error}
 
-On Linux Platforms, if you encounter an error at startup like this :
+On Linux Platforms, if you encounter an error at startup like this:
 {code}
 [INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
 {code}
 
 This problem arise under specific circumstances when JGroups, the networking library behind the clustering, attempts to detect the IP to use for communication with other nodes.
-Verify that : 
+Verify that: 
 * the hostname is a valid IP address, served by one of the network device of your machine (ie: eth0, eth1...).
 * the hostname is NOT defined as localhost or 127.0.0.1
 

@@ -1,4 +1,4 @@
-h2. Change the color scheme
+h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
 The current color of Admin bar is dark blue and yellow. However, you can change the color to match your brand colors. Read below to find out how.
 
 The Admin bar looks like this:
@@ -82,7 +82,7 @@ UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {
 
 {code}
 
-h2. Change the content of the Admin bar
+h2. Change the content of the Admin bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
 
 !admin_bar_portlets.png!
 

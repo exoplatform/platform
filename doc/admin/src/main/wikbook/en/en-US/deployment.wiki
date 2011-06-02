@@ -8,7 +8,7 @@ Before deploying your system in production, you will want to remove these sample
 The instructions below assume that you are using the hsqldb embedded database configuration.
 {caution}
 
-h2. Removing Acme Website {anchor:id=ADM.Clustering.Remove_Acme}
+h2. Remove Acme Website {anchor:id=ADM.Clustering.Remove_Acme}
 The Acme site is a sample extension that demonstrates an example of intranet you could implement with eXo platform. 
 Once you have implemented your own extension, you will not likely need the acme website anymore.
 To remove the Acme site, do as follows:
@@ -19,7 +19,7 @@ To remove the Acme site, do as follows:
 # Delete {{gatein/data}}
 # Restart
 
-h2. Removing Acme Social Intranet {anchor:id=ADM.Clustering.Romove_Acme_Social_Intranet}
+h2. Remove Acme Social Intranet {anchor:id=ADM.Clustering.Romove_Acme_Social_Intranet}
 The Acme Social Intranet is a sample extension that demonstrates an example of intranet you could implement with eXo platform. 
 Once you have implemented your own extension, you will not likely need the Social Intranet anymore.
 To remove the Acme Social Instranet, do as follows:	
@@ -30,7 +30,7 @@ To remove the Acme Social Instranet, do as follows:
 # Delete {{gatein/data}}
 # Restart
 
-h2. Removing the docs webapp {anchor:id=ADM.Clustering.Remove_docs_webapp}
+h2. Remove the docs webapp {anchor:id=ADM.Clustering.Remove_docs_webapp}
 The docs are bundled as a convenience to be easily browsable while your portal is started. For production deployments, you will likely not need them.
 The docs webapp consists in a file *docs.war* located in {{tomcat/webapps}} and in {{jboss/server/default/deploy}}. In jboss, it is actually a folder named *docs.war*.
 
@@ -40,7 +40,7 @@ To remove docs, webapp do as follows:
 # Delete file of folder *docs.war*
 # Restart
 
-h2. Removing crash {anchor:id=ADM.Clustering.Remove_crash}
+h2. Remove crash {anchor:id=ADM.Clustering.Remove_crash}
 Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, we strongly advise to remove crash for your production deployments
 Crash consists in a file *crash.war* in {{tomcat/webapps}}. 
 

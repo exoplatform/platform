@@ -2,7 +2,7 @@ eXo Platform is a fully supported and commercially licensed product based on eXo
 
 eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applications servers, and can be used with most relational database systems, including MySQL and Oracle. 
 
-h1. Welcome to eXo Platform
+h1. Welcome to eXo Platform {anchor:id=DEV.Introduction.Welcome}
 
 eXo Platform 3.0 is composed of Core and Extended Services. 
 
@@ -21,7 +21,7 @@ eXo Platform 3.0 is composed of Core and Extended Services.
 ** *eXo Collaboration* is a productivity tool to extend your Java applications. With eXo Collaboration, you can now add intuitive and powerful Mail, Chat, Calendar and Address Book functionalities as a seamless extension to your portal-based web applications. 
 ** *eXo Knowledge* is an effective tool to enhance your company's internal productivity and creativity while building a valuable knowledge for your clients. With eXo Knowledge, you can add applications, including Forum, Answers and FAQ, to your portal-based applications for collecting, organizing and publishing knowledge from communities of experts and users. 
 
-h1. Who should read this guide? 
+h1. Who should read this guide? {anchor:id=DEV.Introduction.IntendedReader}
 
 This guide is intended for systems integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portal.
 

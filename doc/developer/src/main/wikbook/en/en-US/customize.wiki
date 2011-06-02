@@ -2,7 +2,7 @@ When working with eXo, it is important not to modify the source code. This will 
 To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
 
 
-h1. Create your extension project
+h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
 
 A custom extension contains two mandatory items:
 
@@ -34,11 +34,11 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
 
 
-h1. Structure of portal, pages and menus
+h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
 You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.
 
-h2. Page layout
+h2. Page layout {anchor:id=DEV.CreateYourOwnPortal.PageLayout}
 
 The configuration of "classic" portal can be found in the {{/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic}} directory of your extension webapp.
 
@@ -187,7 +187,7 @@ This navigation tree is shown and reused in different portlets, such as sitemap,
 For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' is the name of node (<name>fileexplorer</name>).
 {note}
 
-h2. Visibility of pages
+h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
 You can easily restrict the visibility of selected pages and navigation nodes to certain groups and users. You just need to create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and user to which you want to give permission:
 
@@ -197,13 +197,13 @@ You can easily restrict the visibility of selected pages and navigation nodes to
 
 
 
-h1. Add/remove languages
+h1. Add/remove languages {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
 
 All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Each language consists of information related to key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ files with keys specified in the _locale-config.xml_ file.
 
 All languages defined in the _locale-config.xml_ file are listed in *Interface Language Settings*. 
 
-h2. Add a new language
+h2. Add a new language {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
 
 To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as key of the added node.
 
@@ -237,7 +237,7 @@ To check if the added language takes effect, simply click the *Change Language* 
 
 *Illustration 1: Italian display on Interface Language Setting*
 
-h2. Remove languages
+h2. Remove languages {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
 
 To remove an existing language, you need to delete the relevant language node in the _locale-config.xml_ file and all files containing the suffix name as the key of language.
 
@@ -268,13 +268,12 @@ To check if the French removal takes effect, simply click the *Change Language* 
 
 
 
-
 *Illustration 2: Interface Language Setting without French*
 
-h1. Create custom look and feel
+h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
 {include:document="customize/How_to_create_custom_look_and_feel.wiki"}
 
-h1. Add JavaScript to your portal
+h1. Add JavaScript to your portal {anchor:id=DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal}
 
 This can be done entirely within your extension by customizing the *gatein-resources.xml* configuration.
 

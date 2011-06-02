@@ -502,7 +502,7 @@ h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 |{{getAllRules}}|Return all rules added to the plugin.|
 
 
-h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
+h4. BBCodePlugin {anchor:id=ADM.Management.BBCodePlugin}
 
 * The JMX name template of BBCodePlugin MBeans: {{exo:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"}}.
 

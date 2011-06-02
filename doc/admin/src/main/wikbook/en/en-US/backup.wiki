@@ -1,4 +1,4 @@
-h1. How to backup Platform {anchor:id=ADM.Backup.How_to_backup_Platform}
+h1. How to back up eXo Platform {anchor:id=ADM.Backup.How_to_backup_Platform}
 
 eXo Platform instance backup involves backing up the databases and the filesystems for JCR index and value storage.
 JCR backup should be done off-line. Allmost all data under {{gatein.data.dir}} should be backuped (find details below in "Plan backup" paragraph). 
@@ -25,9 +25,10 @@ Organization of the files in catalogs (folders) or use of different media is up 
 But it is highly recommended to apply a [Backup rotation scheme|http://en.wikipedia.org/wiki/Backup_rotation_scheme] to make the backup implementation effective and reliable.
 Also always use your Operating System and Database software available backup solutions. It will simplify backup organization and help to avoid mistakes and data lost.
 
-Plan Platform backup operations taking in account full stop of the Platform server(s). 
+Plan Platform backup operations taking in account full stop of the Platform server(s).
+ 
 {warning}
-In case of Platform cluster every node should be stopped before a backup will be performed.
+In case of Platform cluster, every node should be stopped before a backup will be performed.
 {warning}
 
 Platform backup consists of following parts:

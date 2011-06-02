@@ -1,5 +1,5 @@
 
-h2. Changing the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
+h2. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
 
@@ -71,7 +71,7 @@ Read More about JBoss security configuration in [JBoss Web Docs|http://docs.redh
 h3. Common Changes {anchor:id=ADM.Security.Common_Changes}
 Finally, there are some common changes to do on both app servers.
 
-h4. configuration.properties
+h4. configuration.properties {anchor:id=ADM.Security.Configuration.properties}
 First, change the JAAS realm to match your own security constraints, 
 inside the configuration.properties file, identify the entry named "exo.security.domain
 {code}
@@ -106,6 +106,3 @@ h4. rest.war {anchor:id=ADM.Security.rest.war}
 {code}
 
 {note}This change is very important as it allows to secure the downlaod of files via WEBDAV.{note}
-
-
-

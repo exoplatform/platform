@@ -59,7 +59,7 @@ In case your project does not want to use "portal" as the default portal, this f
 Details on how to configure a new portal container are out of the scope of this guide but is extensively covered in the kernel reference guide.
 {note}
 
-h2. portal/portal/configuration.xml 
+h2. portal/portal/configuration.xml {anchor:id=ADM.Configuration.portal/portal/configuration.xml}
 
 This file is empty by default. This is where further customizations can be placed. Generally, custom configurations are provided by extension wars.
 But this file is the last loaded by the kernel. It has a higher priority over any other configuration file, including extensions. So it let's you override any internal component configuration.
@@ -85,7 +85,7 @@ h1. Database Configuration {anchor:id=ADM.Configuration.Database_Configuration}
 eXo Platform relies on the application server for its database access, so the database must be configured as a datasource at the AS level. 
 That datasource is obtained by accessing the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
 
-h2. Connecting to a production database {anchor:id=ADM.Configuration.Connect_To_A_Production_Database}
+h2. Connect to a production database {anchor:id=ADM.Configuration.Connect_To_A_Production_Database}
 
 If you intend to bring your eXo to production, the embedded hsql database will not be appropriate and you will need to configure your app server to use another one.
 You will learn how to configure eXo datasources and in your appserver. If you need to change the datasources name, read _Changing the datasources names_ below.
@@ -94,7 +94,7 @@ You will learn how to configure eXo datasources and in your appserver. If you ne
 The steps below will show you how to configure eXo to use a MySQL database. You will need to adapt them to your actual production environement.
 {info}
 
-h3. Preparing your database server {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
+h3. Prepare your database server {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
 You need to prepare two database schema and a technical user to access them.
 
@@ -118,13 +118,13 @@ You need to prepare two database schema and a technical user to access them.
 {note}eXo Platform does not require tables to be created before it starts because it is capable of doing it automatically on the first startup. If you prefer to run a DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
 {note}
 
-h3. Configuring eXo Platform {anchor:id=ADM.Configuration.Configure_eXo_Platform}
+h3. Configure eXo Platform {anchor:id=ADM.Configuration.Configure_eXo_Platform}
 
 Now that the database is ready, you need to configure eXo to be able to connect to it. The steps depend on the application server. We provide instructions for Tomcat and JBoss
 
 h4. Tomcat bundle {anchor:id=ADM.Configuration.Tomcat_Bundle}
 
-Configuring a datasource for eXo under Tomcat involves two steps : 
+Configuring a datasource for eXo under Tomcat involves two steps: 
 * Edit gatein-ds.xml
 * Add the JDBC driver
 
@@ -132,12 +132,12 @@ h5. Edit server.xml {anchor:id=ADM.Configuration.Edit_Server.xml}
 
 Edit *_$TOMCAT_HOME/conf/server.xml_*
 
-To declare the binding of the datasources in the GlobalNaming context : 
+To declare the binding of the datasources in the GlobalNaming context: 
 # Change the driver : {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
 # Change the username and password to the values set above
 # Change the url to access your DataBase : {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}
 
-The code now should look like :
+The code now should look like:
 {code:language=xml}
 <!-- eXo JCR Datasource for portal -->
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
@@ -162,7 +162,8 @@ Add *mysql-connector-java-5.1.x.jar* to *_$TOMCAT_HOME/lib/_*
 h5. JBoss {anchor:id=ADM.Configuration.JBoss}
 
 
-Configuring a datasource for eXo under JBoss involves two steps : 
+Configuring a datasource for eXo under JBoss involves two steps:
+
 * Edit server.xml
 * Add the JDBC driver
 
@@ -172,12 +173,12 @@ h5. Edit gatein-ds.xml {anchor:id=ADM.Configuration.Edit_Gatein-ds.xml}
 
 Open *_$JBOSS_HOME/server/default/deploy/gatein-ds.xml_*
 
-To declare the binding of the datasources in the GlobalNaming context : 
-# Change the driver : {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+To declare the binding of the datasources in the GlobalNaming context: 
+# Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
 # Change the username and password to the values set earlier
-# Change the url to access your DataBase : {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
+# Change the url to access your DataBase: {code:language=xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:language=xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
 
-The configuration should now look like :
+The configuration should now look like:
 {code:language=xml}
 <datasources>
     <no-tx-datasource>
@@ -213,7 +214,7 @@ You need to add the  MySQL connector library in JBoss.
 Add *mysql-connector-java-5.1.x.jar* to *_$JBOSS_HOME/server/default/lib/_*
 {tip}You can get the latest MySQL connector from : http://dev.mysql.com/downloads/connector/j/{tip}
 
-h2. Changing the datasources names {anchor:id=ADM.Configuration.Change_the_data_source_name}
+h2. Change the datasources names {anchor:id=ADM.Configuration.Change_the_data_source_name}
 
 By default, eXo Platform defines two datasources: 
 * {{exo-jcr{{{_}}}portal}} - for the Java Content Repository (JCR).
@@ -243,7 +244,7 @@ h3. Change the datasource name in the application server {anchor:id=ADM.Configur
 
 Now, you need to change the name under which the datasources are bound in the JNDI tree by the app server. This is application sever dependent.
 
-h4. Tomcat bundle 
+h4. Tomcat bundle {anchor:id=ADM.Configuration.Change_the_datasource_name_in_application_server.Tomcat_bundle}
 
 In Tomcat, the datasources configuration requires to edit two files  :
 * server.xml
@@ -259,7 +260,7 @@ h4. server.xml {anchor:id=ADM.Configuration.Server.xml}
 
 {screen}$TOMCAT_HOME/conf/server.xml{screen}
 
-Declare the binding of the datasources in the GlobalNaming context : 
+Declare the binding of the datasources in the GlobalNaming context: 
 
 {code:language=xml}
 <!-- eXo JCR Datasource for portal -->
@@ -296,7 +297,7 @@ We declare resource links that make our datasources accessible to the starter we
 
 h2. Database configuration FAQ {anchor:id=ADM.Configuration.Data_base_configuration.xml}
 
-h3. How do I remove idle MySQL connections {anchor:id=ADM.Configuration.How_to_remove_idle_MySQL_Connnections}
+h3. How to remove idle MySQL connections {anchor:id=ADM.Configuration.How_to_remove_idle_MySQL_Connnections}
 
 Some RDBMS, like MySQL, close idle connections after a while (8h by default on MySQL). Thus, a connection from the pool will be invalid and of course any application SQL command will fail, resulting in errors like:
 {code}
@@ -531,7 +532,7 @@ h1. Users configurations {anchor:id=ADM.Configuration.Users_configuration}
 
 h2. Super User configuration {anchor:id=ADM.Configuration.Super_user_configuration}
 
-In eXo platform 3, we have defined the user "root" as super admin by default.
+In eXo Platform 3, we have defined the user "root" as super admin by default.
 You could override this configuration, by modifying the system property named {{exo.super.user}} defined in configuration.properties.
 
 h2. eXo Platform default users list definition {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
