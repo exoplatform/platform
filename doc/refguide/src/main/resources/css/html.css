@@ -3,6 +3,7 @@ body {
 	background:transparent url(../background/BannerRepeat.gif) repeat-x top;
 	font-family:Lucida Sans,Tahoma,Verdana,Arial,Helvetica,sans-serif;
 	font-size:14px;
+        text-align: justify
 	margin:0;
 	padding:0px;
 }
