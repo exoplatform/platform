@@ -7,7 +7,7 @@ h1. Glossary {anchor:id=DEV.Glossary}
 
 {include:document=glossary.wiki|syntax=confluence/1.0}
 
-h1. Setting Up Your Project {anchor:id=DEV.SettingUpYourProject}
+h1. Set Up Your Project {anchor:id=DEV.SettingUpYourProject}
 
 {include:document=quickstart.wiki|syntax=confluence/1.0}
 
@@ -15,15 +15,15 @@ h1. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePrimer}
 
 {include:document=architecture.wiki|syntax=confluence/1.0}
 
-h1. Creating Your Own Portal {anchor:id=DEV.CreatingYourOwnPortal}
+h1. Create Your Own Portal {anchor:id=DEV.CreatingYourOwnPortal}
 
 {include:document=customize.wiki|syntax=confluence/1.0}
 
-h1. Working with Content {anchor:id=DEV.WorkingwithContent}
+h1. Work with Content {anchor:id=DEV.WorkingwithContent}
 
 {include:document=content.wiki|syntax=confluence/1.0}
 
-h1. Working with Applications {anchor:id=DEV.WorkingwithApplications}
+h1. Work with Applications {anchor:id=DEV.WorkingwithApplications}
 
 {include:document=applications.wiki|syntax=confluence/1.0}
 

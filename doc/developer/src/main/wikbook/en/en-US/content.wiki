@@ -51,7 +51,7 @@ The checkbox 'Document Type' is to define if the node type should be a Document 
 
 Templates are written using Groovy Templates and will require some experiences with JCR API and HTML notions.
 
-h1. The Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
+h1. Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
 
 Dialogs are Groovy Templates that generate forms by mixing static HTML fragments and Groovy calls to the components responsible for building the UI at runtime. As a result, you will get a simple but powerful syntax.
 

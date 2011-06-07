@@ -33,7 +33,7 @@ A portlet skin does not need  to be  included as part of the portal skin and can
 h2. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
 
-h2. Name files and folder {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
+h2. Name files and folders {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
 
 The id and class names are defined after the WebUI components name and portlets name with the 'UI-' as prefix. The same rule is applied for folder that contains components and portlets. It will help you find and edit correct files easily. 
 For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet and the UI component will be named as UIToolbarContainer, or UIVerticalTab.
@@ -136,4 +136,3 @@ Main entry CSS:{{/webapp/skin/PortletThemes/Stylesheet.css}}
 {{/webapp/skin/PortletThemes/background}}
 
 {{/webapp/skin/PortletThemes/icons}}
-

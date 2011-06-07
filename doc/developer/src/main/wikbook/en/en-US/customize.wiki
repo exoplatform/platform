@@ -182,7 +182,7 @@ This navigation tree is shown and reused in different portlets, such as sitemap,
 For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' is the name of node (<name>fileexplorer</name>).
 {note}
 
-h2. Visibility of pages
+h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
 When you configure the navigation.xml file, sometimes you need to set the visibility of page (node).
 
@@ -221,7 +221,7 @@ Below is an example of using <visibility>HIDDEN</visibility> to hide a page:
 </node-navigation>
 {code}
 
-h2. Page access permission
+h2. Page access permission {anchor:id=DEV.CreateYourOwnPortal.PagesAccessPermission}
 You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and user to which you want to give permission:
 
 *sample-ext/portal/group/group-name/your files*
@@ -319,7 +319,7 @@ h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomL
 
 {include:document="customize/How_to_create_custom_look_and_feel.wiki"}
 
-h1. Add JavaScript to your portal
+h1. Add JavaScript to your portal {anchor:id=DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal}
 
 This can be done entirely within your extension by customizing the *gatein-resources.xml* configuration.
 
