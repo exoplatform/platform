@@ -40,7 +40,7 @@ h3. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[Portlet API|/docs/refguide/html/bk02ch04.html#sect-Reference_Guide-Portlet_Primer] (JSR 168 and JSR 286)*: A Java standard that defines how to write portlets. This is the way to develop Java applications that are integrated into eXo Platform.
 
-*[WSRP 1.0|/docs/refguide/html/bk02ch07.html#d0e23958] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
+*[WSRP 1.0|/docs/refguide/html/bk02ch07.html#wsrp-Introduction] on JBoss*: A network protocol for integrating remote portlets into eXo Platform.
 
 *[JAX-RS|/docs/refguide/html/ch-introduction-to-rest.html#d0e17006] (JSR 311)*: A standard API that provides support for creating REST-like services.
 
@@ -76,7 +76,7 @@ h3. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
 h3. Web Services {anchor:id=DEV.eXoPlatformSupportedAPIs.WebServices}
 
-*[CMIS|/docs/refguide/html/bk05ch01.html#d0e37041]*: A standard API that gives access to the content repository via REST and SOAP Web services.
+*[CMIS|/docs/refguide/html/bk05.html#CMIS.Administrator.Guide]*: A standard API that gives access to the content repository via REST and SOAP Web services.
 
 *[FTP|/docs/refguide/html/ch-ftp.html#d0e7058]*: A standard protocol for exchanging documents.
 
