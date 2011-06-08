@@ -53,7 +53,7 @@
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
               <artifactId>exo.platform.sample.acme-intranet.portlet</artifactId>
-              <contextRoot>acme-intranet</contextRoot>
+              <contextRoot>acme-intranet-portlet</contextRoot>
               <bundleFileName>acme-intranet-portlet.war</bundleFileName>
             </webModule>
           </modules>
