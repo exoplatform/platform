@@ -43,7 +43,7 @@ Additionally, the .xml files may contain variables that are populated via proper
 Hence, the configuration.properties serves as exposing some selected variables that are necessary to configure eXo Platform in a server environment.
 
 
-h2. configuration.properties {anchor:id=ADM.Configuration.Configuration.properties}
+* *configuration.properties* {anchor:id=ADM.Configuration.Configuration.properties}
 
 
 The system configuration is mostly done in the configuration.properties file.
@@ -52,7 +52,7 @@ In most cases, this should be the only file for the system administrator to conf
 In the Tomcat bundle, this file is located at /gatein/conf/configuration.properties.
 
 
-h2. configuration.xml {anchor:id=ADM.Configuration.Configuration.xml}
+* *configuration.xml* {anchor:id=ADM.Configuration.Configuration.xml}
 
 This file contains the built-in configuration for the "portal" portal container.
 
@@ -64,7 +64,7 @@ In case you do not want to use "portal" as the default portal for your project, 
 To learn more about how to configure a new portal container, please refer to the kernel reference guide.
 {note}
 
-h2. portal/portal/configuration.xml {anchor:id=ADM.Configuration.portal/portal/configuration.xml}
+* *portal/portal/configuration.xml* {anchor:id=ADM.Configuration.portal/portal/configuration.xml}
 
 This file is empty by default. This is where further customizations can be placed. Generally, custom configurations are provided by extension wars.
 However, this file is the last loaded by the kernel. It has a higher priority over any other configuration files, including extensions. So, you can override any internal component configuration.
@@ -103,7 +103,7 @@ The steps below will show you how to configure eXo Platform to use a MySQL datab
 
 {tip}Refer to the Database FAQ below to find out our sample configuration files for MySQL and other DB systems.{tip}
 
-h3. Prepare your database server {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
+*Step 1.* Prepare your database server {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
 You need to prepare two database schema, then do as follows:
 
@@ -131,11 +131,11 @@ In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs o
 eXo Platform does not require tables to be created before it starts because these tables are created automatically on the first startup. If you want to run the DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
 {note}
 
-h3. Configure eXo Platform {anchor:id=ADM.Configuration.Configure_eXo_Platform}
+*Step 2.* Configure eXo Platform {anchor:id=ADM.Configuration.Configure_eXo_Platform}
 
 After the database is ready, you need to configure eXo Platform to connect to it. The configuration steps may be different, depending on the application server. Here, instructions are for Tomcat and JBoss.
 
-h4. Tomcat bundle {anchor:id=ADM.Configuration.Tomcat_Bundle}
+* Tomcat bundle {anchor:id=ADM.Configuration.Tomcat_Bundle}
 
 In Tomcat, the data sources configuration requires you to edit two files:
 * server.xml
@@ -145,15 +145,15 @@ In Tomcat, the data sources configuration requires you to edit two files:
 Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on the JNDI resources binding in Tomcat.
 {tip}
 
-* To edit the *server.xml_*:
+* To edit the server.xml file:
 
-*1.* Open the file following the *$TOMCAT_HOME/conf/server.xml* path.
+*1.* Open the file following the {noformat}$TOMCAT_HOME/conf/server.xml{noformat} path.
 
 *2.* Declare the binding of the data sources in the GlobalNaming context:
 
-* Change the driver from {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+* Change the driver from {noformat}org.hsqldb.jdbcDriver{noformat} to {noformat}com.mysql.jdbc.Driver{noformat}.
 * Change the username and password to the values set above.
-* Change the URL to access your DataBase from {code}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{code} to {code}"jdbc:mysql://_$host_:3306/_$dbname_"{code}.
+* Change the URL to access your DataBase from {noformat}"jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal"{noformat} to {noformat}"jdbc:mysql://_$host_:3306/_$dbname_"{noformat}.
 
 The code now should look like:
 
@@ -174,11 +174,11 @@ The code now should look like:
 {code}
 
 *3.* Add the JDBC driver.
-In this step, you need to add the MySQL connector to Tomcat by adding *mysql-connector-java-5.1.x.jar* to *_$TOMCAT_HOME/lib/*.
+In this step, you need to add the MySQL connector to Tomcat by adding {noformat}mysql-connector-java-5.1.x.jar{noformat} to {noformat}_$TOMCAT_HOME/lib/{noformat}.
 
-* To edit the *starter.xml* file: {example}{example}
+* To edit the *starter.xml* file: 
 
-*1.* Open the *starter.xml* file to the *$TOMCAT_HOME/conf/Catalina/localhost/starter.xml* path.
+*1.* Open the *starter.xml* file to the {noformat}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{noformat} path.
 
 *2.* Declare the resource links that make your datasources accessible to the starter webapp which is used when starting eXo Platform.
 
@@ -192,7 +192,7 @@ In this step, you need to add the MySQL connector to Tomcat by adding *mysql-con
                 type="javax.sql.DataSource"/>
 {code}
 
-h4. JBoss {anchor:id=ADM.Configuration.JBoss}
+* JBoss {anchor:id=ADM.Configuration.JBoss}
 
 To configure the data source for eXo Platform under the JBoss, do as follows:
 
@@ -202,15 +202,15 @@ To configure the data source for eXo Platform under the JBoss, do as follows:
 
 *1.* Edit the gatein-ds.xml file.
 
-*i.* Open the file following the *$JBOSS_HOME/server/default/deploy/gatein-ds.xml* path.
+*i.* Open the file following the {noformat}$JBOSS_HOME/server/default/deploy/gatein-ds.xml{noformat} path.
 
 *ii.* Declare the binding of the data sources in the GlobalNaming context:
 
-* Change the driver: {code}org.hsqldb.jdbcDriver{code} to {code}com.mysql.jdbc.Driver{code}
+* Change the driver: {noformat}org.hsqldb.jdbcDriver{noformat} to {noformat}com.mysql.jdbc.Driver{noformat}
 
 * Change the username and password to the values set earlier.
 
-* Change the URL to access your database: {code:xml}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{code} to {code:xml}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{code}
+* Change the URL to access your database: {noformat}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{noformat} to {noformat}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{noformat}.
 
 The configuration should now look like:
 
@@ -281,11 +281,11 @@ In this step, you need to change the name under which the data sources are bound
 
 h2. FAQs of Database Configuration {anchor:id=ADM.Configuration.FAQDatabaseConfiguration}
 
-Q1. *How to configure eXo Platform to connect to other database systems*
+Q1. How to configure eXo Platform to connect to other database systems? {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Connect_to_other_database_system}
 
 Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
 
-* eXo Platform-3.5.x.zip/conf/db/
+* {noformat}eXo Platform-3.5.x.zip/conf/db/{noformat}
 ** mysql
 ** oracle
 ** postgres
@@ -320,7 +320,7 @@ You can download the official JDBC connector JARs from the following websites:
 * http://jdbc.postgresql.org/download.html
 * http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
 
-Q2. *How to remove the idle MySQL connections*
+Q2. How to remove the idle MySQL connections? {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Remove_idle_MySQL_connections}
 
 Some RDBMSs, like MySQL, close idle connections after a period (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors like:
 
@@ -400,8 +400,8 @@ h1. Mail Server {anchor:id=ADM.Configuration.MailServer}
 
 eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
 
-The Email service can use any SMTP account that needs to be configured in /server/default/conf/gatein/configuration.properties (Or $TOMCAT_HOME/
-gatein/conf/configuration.properties if you are using Tomcat).
+The Email service can use any SMTP account that needs to be configured in /server/default/conf/gatein/configuration.properties (Or {noformat}$TOMCAT_HOME/
+gatein/conf/configuration.properties{noformat} if you are using Tomcat).
 
 The relevant section looks like:
 
@@ -534,6 +534,11 @@ To run the chat server properly, several ports must be opened in the firewall.
 | 9090 && 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities behind a NAT. |
 
+h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
+eXo Platform allows users to view documents of various types directly on the content explorer through the OpenOffice server. To do so, the OpenOffice application must be available in your local device first. Next, start the OpenOffice server by running the command below:
+
+{screen}soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard{screen}
+
 
 h1. Log-in {anchor:id=ADM.Configuration.Logging}
 
@@ -591,16 +596,14 @@ You could override this configuration by modifying the system property named {{e
 
 h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
 
-In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" & "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
+In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" and "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
 
-h1. Gadget Proxy Configuration
+h1. Gadget Proxy Configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
 
-In Platform we could to allow gadgets to load remote resources. However this could be a potential security risk, as it will make the Gadget deployey as an open web proxy.
+In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployey as an open web proxy.
 This implies configuring ProxyFilterService.
 
-h2. How to configure
-
-The default configuration is set to something like this:
+The default configuration is set as below:
 
 {code:xml}
 <component>
@@ -623,15 +626,15 @@ The default configuration is set to something like this:
 
 This configuration can be added into *<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml*.
 * *<GATEIN\_CONF\_DIR>*= _TOMCAT_HOME/gatein/conf/_ if you are using tomcat and _JBOSS_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
-* *<PORTAL\_CONTAINER\_NAME>*= the name of the used portal container, by default it's set to {{portal}}.
+* *<PORTAL\_CONTAINER\_NAME>*= the name of the used portal container, by default it is set to {{portal}}.
 
-h2. How does it work
+h2. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
 
 The proxy service allow accessing any site which matches the {{white-list}} domains, unless it belongs to the {{black-list}}.
 If the site is not defined in neither the white list nor black list, access will be denied.
 Multiple values can be added for each list and wildcards can also be used.
 
-h2. Example of configuration
+The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
 
 {code:xml}
 <component>
