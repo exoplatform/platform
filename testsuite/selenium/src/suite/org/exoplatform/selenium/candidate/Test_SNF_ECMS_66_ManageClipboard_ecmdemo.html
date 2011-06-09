@@ -83,17 +83,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,11 +117,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Actions</td>
 	<td></td>
@@ -129,11 +124,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -423,12 +413,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -463,12 +458,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>

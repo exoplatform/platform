@@ -62,8 +62,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>waitForElementPresent</td>
+	<td>link=Content Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Content Administration</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,12 +123,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Set any permission']</td>
+	<td>//img[@title='Set any Permission']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[@title='Set any permission']</td>
+	<td>//img[@title='Set any Permission']</td>
 	<td></td>
 </tr>
 <tr>
@@ -193,12 +198,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[4]/td[5]/div/img[2]</td>
+	<td>//tr[2]/td[5]/div/img[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[4]/td[5]/div/img[2]</td>
+	<td>//tr[2]/td[5]/div/img[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -297,7 +302,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>waitForElementPresent</td>
+	<td>Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
 	<td>Test</td>
 	<td></td>
 </tr>
@@ -312,7 +322,12 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>waitForElementPresent</td>
+	<td>link=Sites Explorer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>link=Sites Explorer</td>
 	<td></td>
 </tr>
@@ -328,12 +343,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Management</td>
+	<td>link=Shared Site</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sites Management</td>
+	<td>link=Shared Site</td>
 	<td></td>
 </tr>
 <tr>
@@ -347,13 +362,58 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@title='Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Test']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=test1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=test1</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-- Remove new view for drive</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>waitForElementPresent</td>
+	<td>link=Content Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Content Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -382,12 +442,22 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>waitForElementPresent</td>
 	<td>//div[@id='EditDriveManagerPopup']/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
+	<td>//div[@id='EditDriveManagerPopup']/div/div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
 	<td>Test</td>
 	<td></td>
 </tr>
@@ -408,12 +478,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[4]/td[5]/div/img[3]</td>
+	<td>link=2</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[4]/td[5]/div/img[3]</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//tr[2]/td[5]/div/img[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//tr[2]/td[5]/div/img[3]</td>
 	<td></td>
 </tr>
 <tr>
@@ -422,18 +502,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='UIECMAdminPortlet']/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div/div/div[2]</td>
+	<td>waitForTextNotPresent</td>
+	<td>Test</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
+	<td>verifyTextNotPresent</td>
+	<td>Test</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>

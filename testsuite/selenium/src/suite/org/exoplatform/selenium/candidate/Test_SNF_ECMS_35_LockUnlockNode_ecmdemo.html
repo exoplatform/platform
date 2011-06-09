@@ -92,46 +92,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>--Go to Detail View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Go to Action tab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAt</td>
-	<td>link=Actions</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Add Folder</td>
 	<td></td>
@@ -149,7 +109,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>AA</td>
+	<td>SNF_ECMS_35_folder</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -173,12 +133,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -198,12 +158,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,17 +173,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Delete Lock</td>
+	<td>--Delete folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -233,7 +193,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -253,18 +213,18 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>link=AA</td>
+	<td>link=SNF_ECMS_35_folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>--Logout</td>
-	<td>--Logout</td>
+	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>

@@ -88,12 +88,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -117,11 +117,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Actions</td>
 	<td></td>
@@ -132,13 +127,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>-- Add Content&nbsp;&nbsp;folder aa</td>
+	<td>-- Add Content&nbsp;&nbsp;folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +149,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>aa</td>
+	<td>SNF_ECMS_37</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -169,51 +159,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Add Content folder bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Add Folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>name</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name</td>
-	<td>bb</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +168,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
+	<td>link=SNF_ECMS_37</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=aa</td>
+	<td>link=SNF_ECMS_37</td>
 	<td></td>
 </tr>
 <tr>
@@ -258,57 +203,47 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to the node to add symlink</td>
+	<td>--Browse to the node sites content/live/acme/documents</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=sites content</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Go to r o ot</td>
+	<td>link=sites content</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=live</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Go to private</td>
+	<td>link=live</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='acme']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>//div[text()='acme']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[9]/td[2]/a/div</td>
+	<td>//table[@class='UIGrid']//tr[4]/td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[9]/td[2]/a/div</td>
+	<td>//table[@class='UIGrid']//tr[4]/td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -327,33 +262,53 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>--Delete Content Folder aa</td>
+	<td>--verify the symlink</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>link=aa</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>link=documents.lnk</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>link=documents.lnk</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=metro.pdf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=metro.pdf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete Content Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_ECMS_37</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>link=SNF_ECMS_37</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,57 +323,12 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>link=aa</td>
+	<td>link=SNF_ECMS_37</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>link=aa</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete content folder bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>mouseDownRight</td>
-	<td>link=bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Delete</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>link=bb</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>link=bb</td>
+	<td>link=SNF_ECMS_37</td>
 	<td></td>
 </tr>
 <tr>

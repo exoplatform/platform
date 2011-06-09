@@ -83,17 +83,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -152,9 +152,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>3000</td>
+	<td>waitForElementPresent</td>
+	<td>selectTemplate</td>
 	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selectTemplate</td>
+	<td>label=Article</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -352,8 +357,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>

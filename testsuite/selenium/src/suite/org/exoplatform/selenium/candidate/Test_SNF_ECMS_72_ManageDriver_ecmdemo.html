@@ -63,12 +63,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sites Administration</td>
+	<td>link=Content Administration</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>click</td>
+	<td>link=Content Administration</td>
 	<td></td>
 </tr>
 <tr>
@@ -88,7 +88,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add driver</td>
+	<td>-- Add drive</td>
 	<td></td>
 </tr>
 <tr>
@@ -119,7 +119,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Test</td>
+	<td>.aaa_SNF_ECMS_72</td>
 </tr>
 <tr>
 	<td>select</td>
@@ -178,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//img[@title='Set any permission']</td>
+	<td>//img[@title='Set any Permission']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//img[@title='Set any permission']</td>
+	<td>//img[@title='Set any Permission']</td>
 	<td></td>
 </tr>
 <tr>
@@ -293,27 +293,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Edit Driver</td>
+	<td>--Edit Drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=3</td>
+	<td>link=1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=3</td>
+	<td>link=1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[1]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[1]</td>
+	<td>//div[@id='UIDriveList']//tr[1]/td[7]/div/img[1]</td>
 	<td></td>
 </tr>
 <tr>
@@ -373,22 +373,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Test</td>
+	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Test</td>
+	<td>//div[@id='UISideBar']/div/div[1]/div[2]/div[1]/div/div/div/a/div</td>
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>--Delete Drive ----</td>
+	<td>waitForElementPresent</td>
+	<td>link=.aaa_SNF_ECMS_72</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sites Administration</td>
+	<td>click</td>
+	<td>link=.aaa_SNF_ECMS_72</td>
 	<td></td>
 </tr>
 <tr>
@@ -398,12 +398,37 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[2]</td>
+	<td>link=Content Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Content Administration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete Drive ----</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDriveList']/table/tbody/tr[9]/td[7]/div/img[2]</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIDriveList']//tr[1]/td[7]/div/img[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIDriveList']//tr[1]/td[7]/div/img[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -413,12 +438,12 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>Test</td>
+	<td>.aaa_SNF_ECMS_72</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>Test</td>
+	<td>.aaa_SNF_ECMS_72</td>
 	<td></td>
 </tr>
 <tr>

@@ -78,37 +78,42 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Go to Private drive</td>
+	<td>-- Go to Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title='Admin View']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Create new folder</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Documents</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Documents</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -148,32 +153,52 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Filter by Items</td>
+	<td>-- Filter Music</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>link=Admin</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify folder is displayed</td>
+	<td>link=Admin</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[4]/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//div[4]/div/div/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Music</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Music</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--folder SNF_ECMS_65 disappears from center right pane</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
 	<td></td>
 </tr>
 <tr>
@@ -183,27 +208,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
+	<td>link=Music</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAllItems']/div/div[2]/div/div[1]/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Remove document</td>
+	<td>link=Music</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Documents</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Documents</td>
+	<td>verifyElementPresent</td>
+	<td>//div[text()='SNF_ECMS_65']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Remove test data</td>
 	<td></td>
 </tr>
 <tr>
@@ -218,12 +243,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>

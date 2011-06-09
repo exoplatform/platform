@@ -58,7 +58,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--Open&nbsp;&nbsp;drive pane</td>
 	<td></td>
 </tr>
 <tr>
@@ -73,17 +73,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,37 +103,52 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to System tab</td>
+	<td>--Go to Actions tab and create a folder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Admin</td>
+	<td>link=Actions</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Admin</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>SNF_ECMS_55</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Add permission for node</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Choose folder Picture to set permission</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Pictures</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Pictures</td>
 	<td></td>
 </tr>
 <tr>
@@ -149,6 +164,16 @@
 <tr>
 	<td>click</td>
 	<td>link=Info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_ECMS_55</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=SNF_ECMS_55</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,17 +288,62 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[2]/td[6]/div/img[2]</td>
+	<td>//tr[1]/td[6]/div/img[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[2]/td[6]/div/img[2]</td>
+	<td>//tr[1]/td[6]/div/img[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertConfirmation</td>
 	<td>Do you want to remove this permission?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete the folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_ECMS_55</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>link=SNF_ECMS_55</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>

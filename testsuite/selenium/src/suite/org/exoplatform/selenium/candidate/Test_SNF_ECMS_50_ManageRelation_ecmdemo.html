@@ -83,7 +83,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,12 +93,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -163,6 +163,16 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>selectTemplate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selectTemplate</td>
+	<td>label=Article</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>title</td>
 	<td></td>
 </tr>
@@ -189,7 +199,7 @@
 <tr>
 	<td>type</td>
 	<td>//html/body</td>
-	<td>Lam Y khue, Em yeu chi</td>
+	<td>Test_SNF_ECMS_50_Summary</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -204,7 +214,7 @@
 <tr>
 	<td>typeKeys</td>
 	<td>//html/body</td>
-	<td>Tai sao chi lai tu` troi em chu', Em muon het len. EM YEU CHI</td>
+	<td>Test_SNF_ECMS_50_Content</td>
 </tr>
 <tr>
 	<td>selectFrame</td>
@@ -388,32 +398,62 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=Users</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=Users</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=r___</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=r___</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=ro___</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIOneNodePathSelector']/div/div[3]/div/div/div/div/div/div[2]/a/div</td>
+	<td>link=ro___</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=roo___</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=roo___</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Public</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -423,22 +463,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[2]/td[2]/a/div</td>
+	<td>//table[@class='UIGrid']//tr[2]//td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISelectPathPanel']/table/tbody/tr[2]/td[2]/a/div</td>
+	<td>//table[@class='UIGrid']//tr[2]//td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>/Users/root/Private/Kofax</td>
+	<td>Public/Kofax</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>/Users/root/Private/Kofax</td>
+	<td>Public/Kofax</td>
 	<td></td>
 </tr>
 <tr>
@@ -597,8 +637,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -637,8 +682,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>

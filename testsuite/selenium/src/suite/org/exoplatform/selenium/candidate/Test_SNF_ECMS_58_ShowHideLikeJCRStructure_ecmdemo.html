@@ -83,17 +83,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,6 +113,71 @@
 </tr>
 <tr>
 	<td>echo</td>
+	<td>--Add an article</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>selectTemplate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>selectTemplate</td>
+	<td>label=Article</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>SNF_ECMS_58</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save as Draft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
 	<td>--Go to Infor tab</td>
 	<td></td>
 </tr>
@@ -127,53 +192,148 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>Hide Like JCR Structure</td>
+	<td>waitForTextPresent</td>
+	<td>Summary is empty</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>IconListHideElement</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>IconListHideElement</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='ListHideContainer']/div[1]/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='ListHideContainer']/div[1]/div/div/div/div/a</td>
+	<td>verifyTextPresent</td>
+	<td>Summary is empty</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Show Like JCR Structure</td>
+	<td>--Show JCR</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>IconListHideElement</td>
+	<td>link=Show/Hide Like JCR Structure</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>IconListHideElement</td>
+	<td>link=Show/Hide Like JCR Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--article content no longer displays</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Summary is empty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Summary is empty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--there is a Save session icon (it looks like a floppy disk)</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='ListHideContainer']/div[1]/div/div/div/div/a</td>
+	<td>//a[@title='Save Session']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='ListHideContainer']/div[1]/div/div/div/div/a</td>
+	<td>//a[@title='Save Session']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIJCRExplorerPortlet']//div[3]//div[@class='ActionButton LightBlueStyle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIJCRExplorerPortlet']//div[3]//div[@class='ActionButton LightBlueStyle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Hide JCR Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Show/Hide Like JCR Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Show/Hide Like JCR Structure</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Summary is empty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Summary is empty</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//a[@title='Save Session']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//a[@title='Save Session']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--delete test data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_ECMS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>link=SNF_ECMS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']//a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@class='MenuItem']//a[contains(text(),'Delete')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPopupWindow']/div/div[2]/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>SNF_ECMS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_ECMS_58</td>
 	<td></td>
 </tr>
 <tr>

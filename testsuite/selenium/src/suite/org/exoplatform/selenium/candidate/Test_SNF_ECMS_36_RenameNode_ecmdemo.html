@@ -98,47 +98,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Go to Detail View</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAt</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[1]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Go to Action tab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[3]/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[3]/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Add folder aa</td>
+	<td>--Add folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +119,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>aa</td>
+	<td>SNF_ECMS_36</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -178,12 +138,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=aa</td>
+	<td>link=SNF_ECMS_36</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=aa</td>
+	<td>link=SNF_ECMS_36</td>
 	<td></td>
 </tr>
 <tr>
@@ -199,7 +159,7 @@
 <tr>
 	<td>type</td>
 	<td>nameField</td>
-	<td>bb</td>
+	<td>SNF_ECMS_36_renamed</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -208,27 +168,27 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete bb</td>
+	<td>-- Delete SNF_ECMS_36_renamed</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=bb</td>
+	<td>link=SNF_ECMS_36_renamed</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=bb</td>
+	<td>link=SNF_ECMS_36_renamed</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,12 +203,12 @@
 </tr>
 <tr>
 	<td>waitForElementNotPresent</td>
-	<td>link=bb</td>
+	<td>link=SNF_ECMS_36_renamed</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementNotPresent</td>
-	<td>link=bb</td>
+	<td>link=SNF_ECMS_36_renamed</td>
 	<td></td>
 </tr>
 <tr>

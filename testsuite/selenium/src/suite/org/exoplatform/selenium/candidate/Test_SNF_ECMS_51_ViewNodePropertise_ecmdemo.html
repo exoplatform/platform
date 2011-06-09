@@ -68,7 +68,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open&nbsp;&nbsp;driver pane</td>
+	<td>--Open&nbsp;&nbsp;drive pane</td>
 	<td></td>
 </tr>
 <tr>
@@ -83,17 +83,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Open Private driver</td>
+	<td>--Open Public drive</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Private</td>
+	<td>link=Public</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +159,7 @@
 <tr>
 	<td>type</td>
 	<td>name</td>
-	<td>Content Folder</td>
+	<td>SNF_ECMS_51</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -198,12 +198,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
 	<td></td>
 </tr>
 <tr>
@@ -273,17 +273,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Delete</td>
+	<td>//div[@class='MenuItem']/a[contains(text(),'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -298,12 +303,12 @@
 </tr>
 <tr>
 	<td>waitForTextNotPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextNotPresent</td>
-	<td>link=Content Folder</td>
+	<td>link=SNF_ECMS_51</td>
 	<td></td>
 </tr>
 <tr>
