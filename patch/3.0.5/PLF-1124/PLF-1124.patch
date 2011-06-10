@@ -1,0 +1,1168 @@
+Index: migration/doc/src/main/wikbook/en/en-US/guide.wiki
+===================================================================
+--- migration/doc/src/main/wikbook/en/en-US/guide.wiki	(revision 70372)
++++ migration/doc/src/main/wikbook/en/en-US/guide.wiki	(working copy)
+@@ -2,46 +2,46 @@
+ 
+ h1. Preamble
+ 
+-This guide will help you migrating your project from eXo All In One 1.6 to eXo Platform 3.0.
++This guide helps you migrate your project from eXo All In One 1.6 to eXo Platform 3.0.
+ 
+ h2. Prerequisites
+ 
+ 
+ * You need to use the latest version of eXo All In One before migration.
+-* Have a full access or a full copy of your portal server in sequence
+-* Read the [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/index.html]
++* Have a full access or a full copy of your portal server in sequence.
++* Read the [Developers Guide|http://docs.exoplatform.org/PLF30/developer/html/index.html].
+ 
+ h2. Questions to ask
+ 
+ Before you start anything, you need to gather the requirements for your migration project.
+-Start by getting the answers to the following questions :
+-* Do you need to migrate a project sources ?
+-* Do you have a portal running in production ?
+-* Have you performed live changes on portal or ECM ? Would you like to keep these changes ?
+-* have you developed a custom application on top of JCR ?
+-* Have you configured a dedicated JCR workspace ?
+-* Which eXo APIs is your code  using ?
+-* Have you overridden any eXo file ?
+-* Which kernel configurations have you customized ?
++Start by getting the answers for the following questions :
++* Do you need to migrate project sources ?
++* Do you have a portal running in a production mode ?
++* Have you performed live changes on Portal or ECM? Would you like to keep these changes?
++* have you developed a custom application on the top of JCR?
++* Have you configured a dedicated JCR workspace?
++* Which eXo APIs is your code  using?
++* Have you overridden any eXo file?
++* Which Kernel configurations have you customized?
+ 
+ 
+ h2. Prepare your extension project
+ 
+-You will need to create a brand new project and migrate your old one into it. Platform introduced a new way to package your project customization called _extensions_.
+-By using WAR extension configuration approach, you will be able to overload eXo default files defined in WARs, such as gtmpl, favicon, xml, jsp files.
+-If you don't understand what that means, get back to [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html] to learn how to bootstrap the basic structure for your extension project.
++You need to create a brand new project and migrate your old one into it. Platform introduced a new way to package your project customization called _extensions_.
++By using WAR extension configuration approach, you can overload Platform's default files defined in WARs, such as gtmpl, favicon, xml, jsp files.
++If you do not understand what that means, get back to [Developers Guide|http://docs.exoplatform.org/PLF30/developer/html/ch04.html] to learn how to bootstrap the basic structure for your extension project.
+ 
+ h3. Move configurations into your extension war
+ 
+-The extension mechanism allows to load xml configuration files from your extension war.
++The extension mechanism allows loading .xml configuration files from your extension war.
+ Previously, you had to wire the loading of your xml configurations through the external configuration directory via import statements.
+-Now, you can place all your xml files in your extension webapp. eXo Platform will read and load from your {{WEB-INF/conf/configuration.xml}}.
++Now, you can place all your .xml files in your extension webapp. eXo Platform will read and load from your {{WEB-INF/conf/configuration.xml}}.
+ 
+-Read more on this in the [Developers Guide|http://platform.demo.exoplatform.org/docs/developer/html/ch03.html].
++Read more on this in the [Developers Guide|http://docs.exoplatform.org/PLF30/developer/html/ch03.html].
+ 
+ {tip:title=What if you need to modify something in portal.war ?}
+-In most cases, you should not even need to do it. But if you are still tempted to alter an xml file of portal.war, that's simple : *don't do it\!*
+-The extension mechanism lets you virtually override any file from portal.war by placing a file in your extension at the exact same location. For example to override, {{portal.war\!WEB-INF/conf/database/configuration.xml}}, simply place a your file in {{myextension.war\!WEB-INF/conf/database/configuration.xml}}.
++In most cases, you do not even need to do it. But if you are still tempted to alter an .xml file of the *portal.war*, that is simple : *don't do it\!*
++The extension mechanism lets you virtually override any file from portal.war by placing a file in your extension at the exact same location. For example, to override {{portal.war\!WEB-INF/conf/database/configuration.xml}}, simply place a your file in {{myextension.war\!WEB-INF/conf/database/configuration.xml}}.
+ {tip}
+ 
+ {note:title=Files Paths changes}
+@@ -56,12 +56,12 @@
+ h3. Check files encoding
+ 
+ eXo Platform expects UTF-8 as the encoding of all files especially for Resource Bundles (.properties).
+-For xml files, you can specify the encoding, otherwise, convert them to UTF-8.
++For .xml files, you can specify the encoding, otherwise, convert them to UTF-8.
+ 
+ 
+ h3. Guidelines for maven projects
+ 
+-Although it is not strictly required, eXo recommends you to use [Apache Maven 2.2|http://maven.apache.org/docs/2.2.1/release-notes.html] to build your project. You will benefit of the eXo maven repository for all eXo libraries and their dependencies.
++Although it is not strictly required, you are recommended to use [Apache Maven 2.2|http://maven.apache.org/docs/2.2.1/release-notes.html] to build your project. You will benefit of the eXo maven repository for all eXo libraries and their dependencies.
+ 
+ 
+ 
+@@ -69,7 +69,7 @@
+ h4. Configure eXo Public Repository
+ 
+ You need to upgrade your maven environment to match Platform.
+-Configure the eXo maven repository url either in your settings.xml or within your maven proxy :
++Configure the eXo maven repository URL either in your settings.xml or within your maven proxy :
+ 
+ {code:xml}
+ <repository>
+@@ -87,7 +87,7 @@
+ 
+ h4. Upgrade to java6
+ 
+-PLF is compatible with JAVA 1.6 and higher, so if you have 1.5 compiler level declaration in your parent POM, you will have to upgrade it like this:
++Platform is compatible with JAVA 1.6 and higher, so if you have 1.5 compiler level declaration in your parent POM, you will have to upgrade it like this:
+ 
+ {code:xml}
+  <plugins>
+@@ -104,7 +104,7 @@
+ 
+ h4. Update dependencies versions
+ 
+-The versions of all eXo maven artifacts have all been upgraded and you need to pickup the right versions in your pom.
++The versions of all eXo maven artifacts have all been upgraded and you need to pickup the right versions in your POM file.
+ There are several ways to pull a dependency in maven. A common pattern is to combine {{<dependencyManagement>}} and use properties for version numbers. For example, your properties section could look like :
+ {code:lang=xml|title=Versions of eXo dependencies for Platform 3.0.3}
+   <properties>
+@@ -130,8 +130,8 @@
+ 
+ h4. Changes in ECM dependencies
+ 
+-ECM dependencies have changed significantly. The table below should help you to match old and new GAVs :
+-|| AIO || PLF ||
++ECM dependencies have changed significantly. The table below helps you match old and new Maven artifacts :
++|| AIO || Platform ||
+ | {code:xml}
+ <dependency>
+   <groupId>org.exoplatform.ecm.dms.core</groupId>
+@@ -185,27 +185,26 @@
+ 
+ h2. Prepare eXo XML customizations
+ 
+-As you know, most of the customization in AIO is done via xml files. It is still the case in PLF, but they have evolved.
+-The list of available components and plugins has changed, and the xml files layout has also evolved.
++As you know, most of the customization in AIO is done via .xml files. It is still the case in Platform, but they have evolved.
++The list of available components and plugins has changed, and the .xml files layout has also evolved.
+ 
+ h4. Make yourself a favor, keep only needed changes
+ 
+-When it comes to xml configuration files, a common practice observed in AIO projects, is to copy-paste it then customize some init-params and plug it from the external configuration directory.
+-Doing this, usually duplicates some {{component}} declarations. Most of the time, it does not hurt much.
++When it comes to .xml configuration files, a common practice observed in AIO projects is to copy and paste it, then customize some init-params and plug it from the external configuration directory.
+ 
+-But, in PLF, these components may have been moved away or renamed. And so, there is a risk that you attempt to load a component at the wrong place, or worse, the container may attempt to load a component that no longer exists.
++Doing this usually duplicates some {{component}} declarations. Most of the time, it does not hurt as much. *But* in Platform, these components may have been moved away or renamed. And so, there is a risk that you attempt to load a component at the wrong place, or worse, the container may attempt to load a component that no longer exists.
+ 
+-Before you start migrating your xml files, cleanup your custom xml configuration files using this
++Before you start migrating your .xml files, clean up your customized .xml configuration files using this
+ rule : *Keep only* {{{*}components{*}}} *and* {{{*}external-component-plugins{*}}} *that your really need to customize. Remove anything that was blindly copy-pasted*.
+ 
+ {tip}
+-You could use the *Export all Components* functionality described in the _Migration Tools Guide_
++You could use the *Export all Components* function described in the _Migration Tools Guide_
+ {tip}
+ 
+ 
+-h4. Add XSD declaration for kernel configuration files
++h4. Add XSD declaration for Kernel configuration files
+ 
+-There is now an XSD for kernel configuration files. You can use it to validate the grammar of your xml files. So, change the  root {{<configuration>}} element of your ml files to this :
++There is now an XSD for Kernel configuration files. You can use it to validate the grammar of your .xml files. So, change the  root {{<configuration>}} element of your .xml files to this :
+ {code:xml}
+ <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+ 	...
+@@ -218,11 +217,10 @@
+ 
+ Customizing pages and navigations is done by the component named {{org.exoplatform.portal.config.UserPortalConfigService}}.
+ 
+-In AIO, you had to redefine the {{component}} entirely. In Platform, there is now an {{external-component-plugin}}, that you can call from your extension in order to add your own customizations. See [this chapter|http://community.jboss.org/wiki/Portalcontainers#How_to_add_new_Portal_Configurations_Navigations_Pages_or_Portlet_Preferences_to_my_portal_] for further information.
++In AIO, you have to redefine the {{component}} entirely. In Platform, there is now an {{external-component-plugin}}, that you can call from your extension in order to add your own customizations. See [this chapter|http://community.jboss.org/wiki/Portalcontainers#How_to_add_new_Portal_Configurations_Navigations_Pages_or_Portlet_Preferences_to_my_portal_] for further information.
+ 
+-Transform your component declaration into an external-component-plugin declaration
+-
+-|| AIO || PLF ||
++Transform your component declaration into an external-component-plugin declaration:
++|| AIO || Platform ||
+ | {code:xml}
+ <component>
+ 	<key>org.exoplatform.portal.config.UserPortalConfigService</key>
+@@ -252,8 +250,8 @@
+ 
+ h2. Portal metadata descriptors
+ 
+-Use _Migration Tools_ (see, the Migration Tools Guide, section {{Portal Configuration Migration}} ) to export and convert automatically AIO Portal metadata descriptors.
+-The following paragraphs describe more about what was changed in PLF Portal metadata descriptors:
++Use _Migration Tools_ (see, the Migration Tools Guide, section {{Portal Configuration Migration}} ) to automatically export and convert AIO Portal metadata descriptors.
++The following paragraphs describe more about what was changed in Platform Portal metadata descriptors:
+ 
+ {warning}
+ Some modifications are not made automatically by the {{Migration Tools}}, please read the following details to pick up what to modify manually (See Warnings below).
+@@ -262,26 +260,26 @@
+ h3. navigation.xml
+ 
+ The navigation.xml file contains the navigations of your portal.
+-In AIO, a node could be visible or invisible. Gatein has extended the concept of visibility.
+-AIO's visibility maps as follow in PLF :
+-|| AIO || PLF ||
++In AIO, a node could be visible or invisible. GateIn has extended the concept of visibility.
++AIO's visibility maps as follow in Platform :
++|| AIO || Platform ||
+ | {code:xml}<visible>false</visible>{code} | {code:xml}<visibility>HIDDEN</visibility>{code} |
+ | {code:xml}<visible>true</visible>{code} | {code:xml}<visibility>DISPLAYED</visibility>{code} |
+ 
+ {tip}
+-Refer to this [Gatein Objects Schema |http://anonsvn.jboss.org/repos/gatein/portal/trunk/component/portal/src/main/java/gatein_objects_1_1.xsd] file to see the possible "visibility" element values
++Refer to this [GateIn Objects Schema |http://anonsvn.jboss.org/repos/gatein/portal/trunk/component/portal/src/main/java/gatein_objects_1_1.xsd] file to see the possible "visibility" element values
+ {tip}
+ 
+ h3. pages.xml
+ 
+-pages.xml contains the definition of the structure of each page.
++The pages.xml contains the definition of the structure of each page.
+ 
+ h4. container
+ 
+-Gatein introduced the ability to define fine grained permissions on the blocks of a page. To make sure all your blocks are visible you need to grant access permissions to everyone.
++GateIn introduces the ability to define fine grained permissions on the blocks of a page. To make sure all your blocks are visible, you need to grant access permissions to everyone.
+ 
+-Containers are invisible structural elements that you use in the layout out of your page.
+-|| AIO || PLF ||
++Containers are invisible structural elements that you use in the layout of your page.
++|| AIO || Platform ||
+ | {code:xml}<container><!-- ... --></container>{code} | {code:xml}
+ <container>
+   <access-permissions>Everyone</access-permissions>
+@@ -289,14 +287,14 @@
+ </container>{code} |
+ 
+ 
+-h4. application
++h4. Application
+ 
+-Applications are applicative blocks such as portlets.
+-In AIO, portlets used the element {{<application>}}. In Platform, this element has changed to {{<portlet-application>}}
++Applications are applicative blocks, such as portlets.
++In AIO, portlets use the element {{<application>}}. In Platform, this element has changed to {{<portlet-application>}}
+ Like containers, applications can now have access permissions.
+ You need to append {{<access-permission>}} before the closing tag {{</portlet-application>}}:
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}<application><!-- ... --></application>{code} | {code:xml}
+ <portlet-application>
+   <!-- ... -->
+@@ -305,10 +303,10 @@
+ 
+ h4. instance-id
+ 
+-In AIO, the instance-id was a string identifier for the window, indicating what portlet to instantiate.
++In AIO, the instance-id is a string identifier for the window, indicating what portlet to instantiate.
+ In Platform, this has been simplified largely, only the application and the portlet names are needed:
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}<application>
+   <instance-id>owner-type#owner-id:/application/portlet/window-id</instance-id>
+ </application>{code} | {code:xml}<portlet-application>
+@@ -338,7 +336,7 @@
+ 
+ h4. Remove unnecessary elements
+ 
+-Some elements in AIO were redundant, this has been simplified in Gatein. Remove the following elements :
++Some elements in AIO are redundant, this has been simplified in GateIn. Remove the following elements :
+ * {{<modifier>}}
+ * {{<factory-id>}}
+ * {{<page-id>}}
+@@ -348,18 +346,18 @@
+ 
+ h3. portal.xml
+ 
+-The {{portal.xml}} file defines the structure of your portal. Its content is similar to {{pages.xml}}.
++The {{portal.xml}} file defines the structure of your portal. Its content is similar to the {{pages.xml}} file.
+ Apply the same conversion that you applied to {{pages.xml}}
+ 
+ You also need to remove {{<creator>}} that was unused and got removed.
+ 
+ h3. portlet-preferences.xml
+ 
+-The {{portlet-preferences.xml}} is used to configure portlet instances preferences. This will not be necessary in PLF, because the portlet preferences are now inlined in {{pages.xml}}.
++The {{portlet-preferences.xml}} is used to configure portlet instances preferences. This is not be necessary in Platform, because the portlet preferences are now inlined in the {{pages.xml}}.
+ 
+-To migrate your portlet-preferences.xml, extract the {{<portlet-preferences>}} blocks and insert them in the corresponding {{<portlet-application>}} of {{pages.xml}}.
++To migrate your portlet-preferences.xml, extract the {{<portlet-preferences>}} blocks and insert them in the corresponding {{<portlet-application>}} of the {{pages.xml}}.
+ 
+-|| AIO (portlet-preferences.xml) || PLF (pages.xml) ||
++|| AIO (portlet-preferences.xml) || Platform (pages.xml) ||
+ | {code:xml}
+ <portlet-preferences>
+   <owner-type>portal</owner-type>
+@@ -388,10 +386,10 @@
+ </portlet-application>
+ {code} |
+ 
+-h3. group and portal navigations pages
++h3. Group and Portal navigations pages
+ 
+ In Platform, the edition of group and portal navigations is implemented by portlets.
+-Hence, if you want to enable that feature in your portal, you will need to add these pages in {{pages.xml}} and link them to navigation nodes in {{navigation.xml}}. Read more about it in [GateIn Reference Guide|http://platform.demo.exoplatform.org/docs/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Portal_Navigation_Configuration-Portal_Navigation].
++Hence, if you want to enable that feature in your portal, you will need to add these pages in the {{pages.xml}} and link them to navigation nodes in the {{navigation.xml}}. Read more about it in [GateIn Reference Guide|http://docs.exoplatform.org/PLF30/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Portal_Navigation_Configuration-Portal_Navigation].
+ 
+ Group navigations are managed by the {{GroupNavigationPortlet}} :
+ 
+@@ -443,7 +441,7 @@
+ 
+ h3. Renamed portlets and preferences
+ 
+-Several built-in portlet applications have been renamed since AIO. Convert the following "application-ref" : portlets was modified in PLF):
++Several built-in portlet applications have been renamed since AIO. Convert the following "application-ref" : portlets are modified in Platform):
+ * FileExplorerPortlet : <application-ref>ecmexplorer</application-ref>
+ * BrowseContentPortlet: <application-ref>ecmbrowsecontent</application-ref>
+ * ECMAdminPortlet: <application-ref>ecmadmin</application-ref>
+@@ -455,8 +453,8 @@
+ h2. Resource Bundles
+ 
+ You may have defined some custom Resource Bundles, it is no longer used/defined in a component configuration, you 've to change it into an external component plugin. In this external component plugin you will have to define only your own Resource Bundles,
+-which means, Resource Bundles declaration shouldn't be declared in your configuration:
+-|| AIO || PLF ||
++which means, Resource Bundles declaration should not be declared in your configuration:
++|| AIO || Platform ||
+ | {code:xml}
+ <component>
+ <key>org.exoplatform.services.resources.ResourceBundleService</key>
+@@ -485,7 +483,7 @@
+ {code} |
+ 
+ {info}
+-The implementation of *ResourceBundleService* has been changed so that Resource Bundles are no longer stored in the jcr, so the "Internationalization Portlet" is removed from PLF.
++The implementation of *ResourceBundleService* has been changed so that Resource Bundles are no longer stored in the JCR, so the "Internationalization Portlet" is removed from Platform.
+ {info}
+ 
+ If you have made some modifications in Resource Bundles in your AIO Server, you could extract all the Resource Bundles stored in the JCR by using the Migration Tools (see the Migration Tools Guide, section {{Resource Bundles Migration}}).
+@@ -494,7 +492,7 @@
+ 
+ The Application Registry application can be configured to predefine categories and permissions on portlets and gadgets. If you have customized this configuration, you need to migrate.
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}
+ 
+ <component>
+@@ -515,7 +513,7 @@
+ 
+ <component>
+   <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+-<!-- PLF "ApplicationRegistryService" implementation -->
++<!-- Platform "ApplicationRegistryService" implementation -->
+   <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
+ ...
+ <!-- "applicationType" is replaced by "type"-->
+@@ -546,11 +544,11 @@
+ 
+ h3. SessionProvider
+ 
+-If you have implemented custom code against JCR API, you probably used the {{SessionProvider}} to obtain JCR sessions.
++If you have implemented custom code against JCR API, you probably use the {{SessionProvider}} to obtain JCR sessions.
+ 
+-In Platform, all http requests now execute all JCR queries with a same {{SessionProvider}} instance. So if there is some SessionProvider closing instructions in your custom Groovy Templates, you may see warning messages like _"SessionProvider already closed"_.
++In Platform, all HTTP requests now execute all JCR queries with the same {{SessionProvider}} instance. So if there is some SessionProvider closing instructions in your custom Groovy Templates, you may see warning messages like _"SessionProvider already closed"_.
+ 
+-Below are some examples of those problematic instructions:
++The following is some examples of those problematic instructions:
+ {code}
+ finally  {
+      sessionProviderService.removeSessionProvider(null);
+@@ -568,12 +566,12 @@
+ h3. Groovy templates
+ 
+ In your gtmpl files, replace Groovy markers :
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | $someVariable | <%=someVariable%> |
+ 
+ h3. OrganizationService
+ 
+-If you are programming against the {{OrganizationService}} using PicketLink IDM implementation (which is the new default implementation used in PLF), you will need to wrap your code with {{startRequest()}} and {{stopRequest()}}. This will ensure that your code is executed within a tranaction.
++If you are programming against the {{OrganizationService}} using PicketLink IDM implementation (which is the new default implementation used in Platform), you will need to wrap your code with {{startRequest()}} and {{stopRequest()}}. This will ensure that your code is executed within a transaction.
+ {code:java}
+ {
+    ((ComponentRequestLifecycle)organizationService).startRequest(PortalContainer.getInstance());
+@@ -628,15 +626,15 @@
+ * JSR-301 = Portlet 1.0 (JSR-168) + JSF 1.2
+ * JSR-329 = Portlet 2.0 (JSR-286) + JSF 1.2
+ 
+-You will have to include the new JSR 329 libraries (depending on the implementation you are using). Nothing specific to integrate you JSF portlets in PLF.
++You will have to include the new JSR 329 libraries (depending on the implementation you are using). Nothing specific to integrate your JSF portlets in Platform.
+ {tip}
+ Find more information in the web about [JSF Bridges implementations|http://www.portletfaces.org/doc/1.3.0/docbook/en-US/html_single/index.html#d4e1097]
+ {tip}
+ h3. Struts portlets
+ 
+-The descriptor file of struts portlet (WEB-INF/portlet.xml) needs be to updated :
++The descriptor file of struts portlet (WEB-INF/portlet.xml) needs to be updated :
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml} <portlet>
+    ...
+    <init-param>
+@@ -674,13 +672,13 @@
+ h2. ECM portlets
+ 
+ Some WCM portlets are deprecated, such as {{Parameterized Content List Viewer Portlet}} (PCLV), {{Category Navigation Porlet}} (CN) and {{Parameterized Content Viewer Portlet}}(PCV).
+-See available WCM Porlets in ECMS Developers Guide [here|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch02.html].
++See available WCM Porlets in ECMS Developers Guide [here|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch02.html].
+ 
+ h2. ECM actions
+ 
+-If you have defined an ECM action, or Taxonomy Action then you have to change the type and the value of the field lifecyclePhase as follow:
++If you have defined an ECM action, or Taxonomy Action, you have to change the type and the value of the field lifecyclePhase as follows:
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}
+   <external-component-plugins>
+     <target-component>org.exoplatform.services.cms.actions.ActionServiceContainer</target-component>
+@@ -701,7 +699,7 @@
+ ...
+ 		<object type="org.exoplatform.services.cms.actions.impl.ActionConfig$Action">
+ ...
+-		<!--PLF "lifecyclePhase" field declaration-->
++		<!--Platform "lifecyclePhase" field declaration-->
+ 		  <field  name="lifecyclePhase">
+ 			<collection type="java.util.ArrayList">
+ 			 <value><string>node_added</string></value>
+@@ -713,9 +711,9 @@
+ </external-component-plugins>
+ {code} |
+ 
+-And same thing for {{TaxonomyPlugin}} declaration:
++And the same thing for {{TaxonomyPlugin}} declaration:
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}
+ <external-component-plugins>
+   <target-component>org.exoplatform.services.cms.taxonomy.TaxonomyService</target-component>
+@@ -736,7 +734,7 @@
+ ...
+   <object type="org.exoplatform.services.cms.actions.impl.ActionConfig$TaxonomyAction">
+ ...
+-	 <!--PLF "lifecyclePhase" field declaration-->
++	 <!--Platform "lifecyclePhase" field declaration-->
+ 	 <field  name="lifecyclePhase">
+ 	  <collection type="java.util.ArrayList">
+ 	   <value>
+@@ -750,7 +748,7 @@
+ </external-component-plugins>
+ {code} |
+ 
+-{{org.exoplatform.services.cms.actions.impl.ActionConfig}} can now accept a set of mixins. An interesting one is {{mix:affectedNodetype}}. It allows to filter the nodetype on which the action is triggered.
++{{org.exoplatform.services.cms.actions.impl.ActionConfig}} can now accept a set of mixins. An interesting one is {{mix:affectedNodetype}}. It allows filtering the nodetype on which the action is triggered.
+ 
+ {code}
+ <component-plugin>
+@@ -787,7 +785,7 @@
+ 
+ {{allowCreateFolders}} field declaration has been modified in the ECMS Drives declaration configuration:
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}
+    <external-component-plugins>
+       <target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
+@@ -806,7 +804,7 @@
+ ...
+ 		<type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+ ...
+-            <!-- PLF "allowCreateFolders" field declaration -->
++            <!-- Platform "allowCreateFolders" field declaration -->
+             <field name="allowCreateFolders">
+               <string>nt:folder,nt:unstructured</string>
+             </field>
+@@ -814,12 +812,12 @@
+    </external-component-plugins>
+ {code} |
+ 
+-* If you have defined *org.exoplatform.services.cms.drives.impl.NewGroupListener* as a component-plugin for this Service, please make sure to change the parameter "allowCreateFolder" defined in init-params:
++* If you have defined *org.exoplatform.services.cms.drives.impl.NewGroupListener* as a component plugin, please make sure to change the parameter "allowCreateFolder" defined in init-params:
+ ** open the file configuration.xml
+ ** find the value-param *allowCreateFolder* for components of type *org.exoplatform.services.cms.drives.impl.NewGroupListener*
+ ** edit the value *Both* to *nt:folder,nt:unstructured*
+ ** add the value-param *allowNodeTypesOnTree* (allowNodeTypesOnTree field declaration is mandatory: added in Platform)
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:xml}
+ [...]
+ <type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
+@@ -847,7 +845,7 @@
+ h2. Publication lifecycle
+ 
+ In Platform, the default publication public has changed to a new one, more flexible called {{Authoring}} plugin. The old {{StageAndVersion}} is now deprecated.
+-It is recommended that you upgrade to the new plugin. Read more about the new [Authoring extension|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch06.html#d0e30488] in ECMS reference guide.
++It is recommended that you should upgrade to the new plugin. Read more about the new [Authoring extension|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch06.html#d0e30488] in ECMS reference guide.
+ 
+ To migrate gracefully, it is possible to define a lifecycle that behaves identically to the StageAndVersion plugin. Use the Migration Tools (see Migration Tools Guide, section {{WCM Contents Publication Migration}}).
+ 
+@@ -855,14 +853,14 @@
+ 
+ Replace folksonomy service :
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {{import org.exoplatform.services.cms.folksonomy.FolksonomyService}} | {{org.exoplatform.services.cms.folksonomy.NewFolksonomyService}} |
+ 
+ h2. ECM templates migration
+ 
+ For ECM groovy templates, follow this :
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {{uicomponent.isShowHeader()}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_HEADER)}}
+ or {{uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER)}} |
+ | {{uicomponent.showRefreshButton(_)}} | {{uicomponent.isShowField(UIPCLVPortlet.SHOW_REFRESH_BUTTON)}}
+@@ -882,7 +880,7 @@
+ 
+ h3. CKEditor
+ 
+-PLF comes with a new version  of the WYSIWYG editor called CKEditor 3. Previous version was called fckeditor 2. FCKEditor is still there for compatibility, but it is possible to use CKEditor in document dialogs forms.
++Platform comes with a new version  of the WYSIWYG editor called CKEditor 3. Previous version was called fckeditor 2. FCKEditor is still there for compatibility, but it is possible to use CKEditor in document dialogs forms.
+ 
+ h4. Dialog forms
+ 
+@@ -896,7 +894,7 @@
+ 
+ h4. CKEditor templates
+ 
+-The method to add custom CKEditor templates has changed with the new version. Instead of defining your templates in an XML format in the file fcktemplates.xml you now have to define them in JavaScript.
++The method to add custom CKEditor templates has changed with the new version. Instead of defining your templates in an XML format in the file fcktemplates.xml, you now have to define them in JavaScript.
+ To do so :
+ - create a custom javascript file in your extension (for example /myResourcesExtension/javascript/my-ckeditor-templates-defintion.js) containing the definition of your custom CKeditor templates. The script must call the CKEditor.addTemplates method as described in the CKEditor documentation ([http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Templates]).
+ - then add the following script in your dialog forms or in a global JavaScript file :
+@@ -907,17 +905,16 @@
+ 
+ h2. ECM UI extension migrations
+ 
+-If you have defined a new UI Extension using this page [UI Extension Framework|http://wiki.exoplatform.org/xwiki/bin/view/ECM/UI%20Extension%20Framework], please refer [to this page|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch06.html#d0e30284] to know how to redefine it in ECMS.
++If you have defined a new UI Extension using this page [UI Extension Framework|http://wiki.exoplatform.org/xwiki/bin/view/ECM/UI%20Extension%20Framework], please refer [to this page|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch06.html#d0e30284] to know how to redefine it in ECMS.
+ 
+ h1. Graphic Chart Migration
+ 
+-In Platform, css and javascript integration adopts a new descriptor. Please refer to the [skinning|http://platform.demo.exoplatform.org/docs/developer/html/ch04.html#d0e1318] paragraph of the Developer guide. You can also read the [Skinning|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Skinning_Portal] & [Javascript|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Javascript_Configuration] Configuration Chapters in the Reference guide of GateIn.
++In Platform, CSS and JavaScript integration adopts a new descriptor. Please refer to the [skinning|http://docs.exoplatform.org/PLF30/developer/html/ch04.html#d0e1318] paragraph of the Developer guide. You can also read the [Skinning|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Skinning_Portal] & [Javascript|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Development.html#sect-Reference_Guide-Javascript_Configuration] Configuration Chapters in the Reference guide of GateIn.
+ 
+ h2. Changes in web.xml of webapps
+ 
+-Web resources WARs (images, css and Javascript) had some specific listeners declared in its web.xml files, this should be modified as following table shows
+-
+-|| AIO || PLF ||
++Web resources WARs (images, CSS and JavaScript) had some specific listeners declared in its web.xml files, this should be modified as the following table:
++|| AIO || Platform ||
+ | {code:xml}
+ 	<filter>
+ 		<filter-name>ResourceRequestFilter</filter-name>
+@@ -927,7 +924,7 @@
+ 		<filter-name>ResourceRequestFilter</filter-name>
+ 		<url-pattern>/*</url-pattern>
+ 	</filter-mapping>
+-  <!-- PLF don't use this part anymore -->
++  <!-- Platform don't use this part anymore -->
+   <listener>
+     <listener-class>org.exoplatform.portal.webui.skin.SkinConfigListener</listener-class>
+   </listener>
+@@ -951,7 +948,7 @@
+ 
+ h2. new deployment descriptor : gatein-resource.xml
+ 
+-Each war containing webresouces such as css or javascript for your graphic charter, will now require you to use a new file named {{gatein-resources.xml}}.
++Each war containing web resources, such as CSS or JavaScript for your graphic charter will now require you to use a new file named {{gatein-resources.xml}}.
+ 
+ Add a file named "gatein-resources.xml" to *CustomerResourcesWAR*/WEB-INF/ with this empty content:
+ {code:xml}
+@@ -965,9 +962,9 @@
+ 
+ h2. Javascripts
+ 
+-In AIO, you used to load a javascript file thank to a descriptor called {{conf/script/groovy/JavascriptScript.groovy}}, it can be directly mapped to a {{<javascript>}} block in {{gatein-resources.xml}}.
++In AIO, you load a JavaScript file thank to a descriptor called {{conf/script/groovy/JavascriptScript.groovy}}, it can be directly mapped to a {{<javascript>}} block in {{gatein-resources.xml}}.
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {code:java}
+ JavascriptService.addJavascript("module.name", "/path/to/file.js", ServletContext);
+ {code} | {code:xml}
+@@ -982,10 +979,10 @@
+ 
+ h2. CSS
+ 
+-In AIO, you used to declare a css thank to a descriptor called {{conf/script/groovy/SkinConfigScript.groovy}}.
++In AIO, you declare a CSS thank to a descriptor called {{conf/script/groovy/SkinConfigScript.groovy}}.
+ The content of this file is mapped to different blocks in {{gatein-resources.xml}}.
+ 
+-|| AIO || PLF ||
++|| AIO || Platform ||
+ | {color:grey}Portal Skin{color} |
+ | {code:java}SkinService.addPortalSkin("skinModule","skinName", "/path/to/file.css", ServletContext);{code} | {code:xml}
+ <portal-skin>
+@@ -1020,24 +1017,24 @@
+ 
+ Once their content is migrated, you can delete your {{JavascriptScript.groovy}} and {{SkinConfigScript.groovy}} files.
+ 
+-{info}Some of the eXo built-in containers(such as UIContainer.gtmpl) have evolved. As a consequence, the DOM structure is different and, depending on how your css were written, you may need to update them.{info}
++{info}Some of the eXo built-in containers(such as UIContainer.gtmpl) have evolved. As a consequence, the DOM structure is different and, depending on how your CSS were written, you may need to update them.{info}
+ {tip}Don't use numbers as ids for containers because the prefix _UIContainer-_ will not be added automatically.{tip}
+ 
+ h1. Organization Data Model Migration
+ 
+-The organization model is made of users, users profiles, groups, memberships and membership types. This data is managed by the OrganizationService.
++The organization model is made of users, users profiles, groups, memberships and membership types. These data are managed by the OrganizationService.
+ This service has different implementations that depend on the type of datasource (it can be a directory or a database). In Platform, the service interface has been maintained, but the implementation has been replaced by a new one based on picketlink IDM. The database implementation has a new DB schema and thus requires data migration. See the Migration Tools Guide, section *Organization Service Migration*
+ 
+ h1. Data Migration
+ 
+ If you have already used AIO in a production environment, you may have defined some specific contents, such as WebContents, files, KS and CS data.
+-In order to copy all those informations in the new Platform server, you could use the Migration Tools Guide, section *Collaboration workspace Content Migration*.
++In order to copy all those informations in the new Platform server, you could use the {{Migration Tools Guide}}, section *Collaboration workspace Content Migration*.
+ 
+ h1. Server Environment Migration
+ 
+ h2. Data sources
+ 
+-Platform uses two datasources, one for the JCR, and another one for the organization model. The name of these datasources in controlled in {{configuration.properties}}. AIO comes with a single datasource, configured by default in {{portal.war\!WEB-INF/conf/database/database-configuration.xml}}. You don't need to override this file anymore in Platform. Instead, please refer to the [Administrators Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html] to learn how to setup datasources.
++Platform uses two datasources, one for the JCR, and another one for the organization model. The name of these datasources in controlled in {{configuration.properties}}. AIO comes with a single datasource, configured by default in {{portal.war\!WEB-INF/conf/database/database-configuration.xml}}. You don't need to override this file anymore in Platform. Instead, please refer to the [Administrators Guide|http://docs.exoplatform.org/PLF30/admin/html/index.html] to learn how to setup datasources.
+ 
+ {tip:title=Use a single datasource}
+ In Platform, you could point the two datasource definitions to use only one.
+Index: migration/doc/src/main/wikbook/en/en-US/tools.wiki
+===================================================================
+--- migration/doc/src/main/wikbook/en/en-US/tools.wiki	(revision 70372)
++++ migration/doc/src/main/wikbook/en/en-US/tools.wiki	(working copy)
+@@ -2,25 +2,25 @@
+ 
+ h1. Preamble
+ 
+-PLF 3.0 provides a set of tools to migrate user and system data from your AIO instance to your new PLF 3.0 instance
++Platform 3.0 provides a set of tools to migrate user and system data from your AIO instance to your new Platform 3.0 instance
+ 
+-*Who should read this document ?*
++*Who should read this document?*
+ 
+-You should need this guide if you are in the process of upgrading your system from AIO 1.6 to PLF 3.0 and have data to migrate.
++You should use this guide if you are in the process of upgrading your system from AIO 1.6 to Platform 3.0 and have data to migrate.
+ 
+ h1. Install the migration libraries
+ 
+-The main migration tool provided is called the _Configuration Marshaller_. This tool is capable of inspecting the source (AIO) kernel components and performing a set of migration tasks, typically exporting in a format that can be easily reinjected in the Platform 3.0 instance.
++The main migration tool provided is called the _Configuration Marshaller_. This tool is capable of inspecting the source (AIO) Kernel components and performing a set of migration tasks, typically exporting in a format that can be easily reinjected in the Platform 3.0 instance.
+ 
+ The Marshaller is a pluggable service that exposes a REST interface. So most of the interaction with this tool will consist of hitting specific URLs to execute specific migration tasks.
+ 
+-The migration tool provide several services that you may need for your migration :
+-* Export of Portal configuration metadata files (Pages & Navigations)
+-* Export of Application Registry configurations
+-* Export of Resource Bundles data
+-* Export of ECM Administration configurations, metadatas and templates.
+-* Convert Portal configuration metadata files to GateIN format
+-* Export Organization DATA and Import it in Platform server.
++The migration tool provide several services that you may need for your migration:
++* Export of Portal configuration metadata files (Pages & Navigations).
++* Export of Application Registry configurations.
++* Export of Resource Bundles data.
++* Export of ECM Administration configurations, metadata and templates.
++* Convert Portal configuration metadata files to GateIn format.
++* Export Organization data and import them in Platform server.
+ * Backup/Restore Collaboration data nodes and its related version History nodes.
+ 
+ Some libraries need to be installed. Two for your source AIO server and two others to deploy on your target Platform server.
+@@ -31,37 +31,37 @@
+ 
+ *Step 1: Deploy the source migration library on your AIO instance*
+ 
+-# Stop your AIO server instance
++# Stop your AIO server instance.
+ # Obtain the libraries bundled with this documentation exo.platform.migration.aio-VERSION.jar and exo.platform.migration.common-VERSION.jar.
+-# Drop libraries in the classpath (for example under lib/ for Tomcat)
+-# Startup and watch the console, you should see the service starting like this :
++# Drop libraries in the classpath (for example under lib/ for Tomcat).
++# Start up and watch the console, you will see the service starting like this:
+ {code}
+ [INFO] ResourceBinder - Bind new ResourceContainer: org.exoplatform.platform.migration.aio.rest.MarshallConfigurationREST
+ {code}
+ 
+ After the server startup is complete, you could access to this service by typing this URL _<SERVER_NAME>:<SERVER_PORT>/portal/rest/containersConfiguration/_.
+ 
+-*Step 2 : Deploy the target migration library on your PLF instance*
++*Step 2: Deploy the target migration library on your Platform instance*
+ 
+ # Stop your Platform server instance
+-# Obtain the libraries bundled with this documentation exo.platform.migration.plf-VERSION.jar and exo.platform.migration.common-VERSION.jar.
++# Obtain the libraries bundled with this documentation exo.platform.migration.Platform-VERSION.jar and exo.platform.migration.common-VERSION.jar.
+ # Drop libraries in the classpath (for example under lib/ for Tomcat)
+-# Startup and watch the console, you should see the service starting like this :
++# Start up and watch the console, you will see the service starting like this:
+ 
+ {code}
+-new resource /containersConfiguration : class org.exoplatform.platform.migration.plf.rest.MarshallConfigurationREST
++new resource /containersConfiguration: class org.exoplatform.platform.migration.plf.rest.MarshallConfigurationREST
+ {code}
+ 
+ After the server startup is complete, you could access to this service by typing this URL: _<SERVER_NAME>:<SERVER_PORT>/rest/containersConfiguration/_.
+ 
+ h1. How to use this tool
+ 
+-The Marshaller provides a feature that allows to retrieve *kernel configurations of components* loaded in the eXo containers.
++The Marshaller provides a feature that allows to retrieve *Kernel configurations of components* loaded in the eXo containers.
+ It is capable of retrieving all *components* and their configured *external-component-plugins*.
+ 
+-This is very handy to capture customizations before reintroducing in your PLF extension project.
++This is very handy to capture customizations before reintroducing in your Platform extension project.
+ 
+-Once the migration library is deployed in your AIO instance, hit : [<SERVER_NAME>:<SERVER_PORT>/rest/containersConfiguration/], this will list all containers on this server :
++Once the migration library is deployed in your AIO instance, hit: [<SERVER_NAME>:<SERVER_PORT>/rest/containersConfiguration/], this will list all containers on this server:
+ 
+ !list-containers.png!
+ 
+@@ -69,11 +69,11 @@
+ 
+ The first link will list all services of the root container, and the second will list all components of the portal container.
+ 
+-Clicking on the second one will result in something like that :
++Clicking on the second one will result in something like that:
+ 
+ !portalContainerComponents.png!
+ 
+-Clicking on each component will return the kernel configuration for this component. For example, click on [org.exoplatform.services.naming.InitialContextInitializer|<SERVER_NAME>:<SERVER_PORT>/portal/rest/containersConfiguration/getComponentConfiguration/?containerId=portal&componentKey=org.exoplatform.services.naming.InitialContextInitializer], you should get something like this:
++Clicking on each component will return the Kernel configuration for this component. For example, click on [org.exoplatform.services.naming.InitialContextInitializer|<SERVER_NAME>:<SERVER_PORT>/portal/rest/containersConfiguration/getComponentConfiguration/?containerId=portal&componentKey=org.exoplatform.services.naming.InitialContextInitializer], you will get something like this:
+ 
+ {code:xml}
+ <?xml version="1.0" encoding="UTF-8"?>
+@@ -95,22 +95,22 @@
+ 
+ h2. Migration Managed components
+ 
+-On some components, clicking on the link will return a zip file instead of the xml file. These components are said _Migration Managed_. A special hook intercepts the generic marshaling process to perform more than just dumping the kernel component.
++On some components, clicking on the link will return a .zip file instead of the .xml file. These components are said _Migration Managed_. A special hook intercepts the generic marshaling process to perform more than just dumping the Kernel component.
+ 
+-The format of the zip file depends on the component and additional steps are needed for successfully migrating that component.
++The format of the .zip file depends on the component and additional steps are needed for successfully migrating that component.
+ The format and steps are explained in the chapters below.
+ 
+ We also propose a full export feature.
+ 
+ h2. Export all Components
+ 
+-This link will generate all configurations of the selected container. This feature will be helpful in order to get the components for whom the user has modified some configurations.
+-Example: exporting all components of the PortalContainer from both fresh delivered AIO package and customized one will help the user to find the components that needs to be migrated from old system _AIO_ to new system _PLF_. The user will not need to migrate all components.
+-This feature will generate a zip file containing all kernel configuration of components from the selected container.
+-{info:title=Structure of the generated zip file}
+-A set of zip and xml files, where each file contains the kernel configuration of all components from the selected container.
++This link will generate all configurations of the selected container. This feature will be helpful for a user, who has modified some configurations, to get the component.
++Example: exporting all components of the PortalContainer from both fresh delivered AIO package and customized one will help the user to find the components that needs to be migrated from old system _AIO_ to new system _Platform_. The user will not need to migrate all components.
++This feature will generate a .zip file containing all Kernel configuration of components from the selected container.
++{info:title=Structure of the generated .zip file}
++A set of zip and .xml files, where each file contains the Kernel configuration of all components from the selected container.
+ {info}
+-The zip file looks like:
++The .zip file looks like:
+ 
+ !ExoContainer_Configuration_portal.png!
+ 
+@@ -123,16 +123,16 @@
+ This migration tool will allow you to change the adopted {{OrganizationService}} implementation.
+ For example, this will be very helpful if you attempt to use the PicketLink IDM implementation instead of Hibernate, LDAP or Active Directory implementation.
+ 
+-This tool consists of exporting data from the source (AIO) server and reimporting in the target (PLF) server.
++This tool consists of exporting data from the source (AIO) server and reimporting in the target (Platform) server.
+ 
+ h4. Export the organizational model data from AIO
+ 
+-The approach here is to dump the source model data (membership types, groups, and users) as a set of XML configurations for the {{OrganizationDatabaseInitializer}}. It makes the export agnostic to the actual datasource (LDAP or DB).
++The approach here is to dump the source model data (membership types, groups, and users) as a set of XML configurations for the {{OrganizationDatabaseInitializer}}. It makes the export agnostic to the actual datasource (LDAP or database).
+ 
+-The dump is performed by an interceptor plugin of the Marshaller that :
++The dump is performed by an interceptor plugin of the Marshaller that:
+ # extracts the organizational model data (membership types, groups, and users) from the current datasource.
+ # creates a set of xml configurations for the _OrganizationDatabaseInitializer_.
+-# generates a zip file of all xml configurations (to be used as an externalized configuration for the appropriate PortalContainer _<YOUR_PORTAL_CONTAINER_NAME>_)
++# generates a .zip file of all xml configurations (to be used as an externalized configuration for the appropriate PortalContainer _<YOUR_PORTAL_CONTAINER_NAME>_)
+ # serializes Users and Users Profiles into separate files in a custom format.
+ 
+ {info}
+@@ -140,13 +140,13 @@
+ {info}
+ 
+ *Configuration*
+-The org service interceptor generates three main entries that will be easily injected in the target server :
++The org service interceptor generates three main entries that will be easily injected in the target server:
+ * membership types and groups as a set of configurations for the {{OrganizationDataBaseInitializer}}
+ * users as a set of configurations for the OrganizationDataBaseInitializer
+-* the customized configuration of all external-component-plugins of the OrganizationService : this entry contains an import for the two other entries (membership types , groups and users)
++* the customized configuration of all external-component-plugins of the OrganizationService: this entry contains an import for the two other entries (membership types , groups and users)
+ 
+ {tip}
+-Users are dumped in batches of 100 users. You can define a different size of these batches in <migration-library>/conf/portal/configuration.xml :
++Users are dumped in batches of 100 users. You can define a different size of these batches in <migration-library>/conf/portal/configuration.xml:
+ {code:xml}
+ [...]
+ <component-plugin>
+@@ -164,34 +164,34 @@
+ {code}
+ {tip}
+ 
+-To successfully export your current organization model data, please follow these steps :
++To successfully export your current organization model data, please follow these steps:
+ # hit _<YOUR_SERVER>:<YOUR_PORT>/portal/rest/containersConfiguration_ as URL
+-# click on the _PortalContainer : portal_ link
+-# Find and click on the _org.exoplatform.services.organization.OrganizationService_ link :
++# click on the _PortalContainer :portal_ link
++# Find and click on the _org.exoplatform.services.organization.OrganizationService_ link:
+ !orgService1.png!
+-# save the zip file in a predefined location
++# save the .zip file in a predefined location
+ 
+-The organizational model data is now exported in a zip file that contains an organization model data as a set on XML files.
++The organizational model data is now exported in a .zip file that contains an organization model data as a set on .xml files.
+ 
+-{info:title=Structure of the generated zip file}
+-* org.exoplatform.services.organization.OrganizationService.xml : main entry of the externalized configuration, to be used for your PortalContainer.
++{info:title=Structure of the generated .zip file}
++* org.exoplatform.services.organization.OrganizationService.xml: main entry of the externalized configuration, to be used for your PortalContainer.
+ * a sub-folder "OrganizationDataModel" which contains a configuration file for groups , membership types and a configuration file for users (set of files, each file have a number of users and memberships declarations)
+ * a sub-folder "profiles" which contains a configuration file per user's profile
+ * a sub-folder "users" which contains a configuration file per user serialization
+ {info}
+ 
+-The content of the zip file looks like:
++The content of the .zip file looks like:
+ 
+ !orgModelDataZipLayout.png!
+ 
+ The zip can now be used to import the organization data in.
+ 
+-h4. Import the organizational model data in PLF
++h4. Import the organizational model data in Platform
+ 
+-h4. Import of Groups, Membership Types and Users in PLF
++h4. Import of Groups, Membership Types and Users in Platform
+ 
+ The first step is to wire the exported OrganizationDataInitializer configurations in the external configuration directory.
+-* Extract the content of exported zip file to <TOMCAT_HOME>/gatein/conf/portal/<YOUR_PORTAL_CONTAINER_NAME> to get this structure :
++* Extract the content of exported .zip file to <TOMCAT_HOME>/gatein/conf/portal/<YOUR_PORTAL_CONTAINER_NAME> to get this structure:
+ ** <TOMCAT_HOME>/gatein/conf/portal/<YOUR_PORTAL_CONTAINER_NAME>
+ *** OrganizationDataModel/
+ *** profiles/
+@@ -224,7 +224,7 @@
+ _profiles/_ and _users/_ folders are not needed at this stage, you can remove these folders before you start the server.
+ {tip}
+ 
+-On startup, the portal container will load the organization model data from <TOMCAT_HOME>/gatein/conf/portal/<YOUR_PORTAL_CONTAINER_NAME>/configuration.xml :
++On startup, the portal container will load the organization model data from <TOMCAT_HOME>/gatein/conf/portal/<YOUR_PORTAL_CONTAINER_NAME>/configuration.xml:
+ {code:xml}
+ [...]
+   <import>OrganizationDataModel/Groups-MembershipTypes.xml</import>
+@@ -250,16 +250,16 @@
+ {code}
+ {tip}
+ 
+-h4. Manual import of user profiles in PLF.
++h4. Manual import of user profiles in Platform.
+ 
+-Users profiles need to be imported manually.
++Users' profiles need to be imported manually.
+ 
+-Assuming the file org.exoplatform.services.organization.OrganizationService.zip was exported at
+-*/home/root/Downloads/org.exoplatform.services.organization.OrganizationService.zip*, follow these steps to import user profiles :
+-# Start the server and hit _/<YOUR_PORTAL_CONTAINER_NAME>/<YOUR_REST_CONTEXT_NAME>/userProfiles_, you should see :
++Assume that the file org.exoplatform.services.organization.OrganizationService.zip was exported at
++*/home/root/Downloads/org.exoplatform.services.organization.OrganizationService.zip*, follow these steps to import user profiles:
++# Start the server and hit _/<YOUR_PORTAL_CONTAINER_NAME>/<YOUR_REST_CONTEXT_NAME>/userProfiles_, you will see:
+ !userProfiles1.png!
+ # Insert _/home/root/Downloads/org.exoplatform.services.organization.OrganizationService.zip_ in the submit form
+-# Click on the submit button. An import with success message appears :
++# Click on the submit button. An import with success message appears:
+ !userProfiles2.png!
+ 
+ {tip}
+@@ -268,38 +268,38 @@
+ 
+ h3. User Portal Configuration Migration
+ 
+-The User Portal Configuration is made of navigation, pages, portlet preferences and Gadgets.
++the user's portal configuration consists of navigation, pages, portlet preferences and Gadgets.
+ 
+ h4. Export portal configuration from AIO
+ 
+ The approach here is to dump the UserPortalConfig data (navigation, pages and portlet-preferences and by user, group and portal) as a set of XML configurations for the {{UserPortalConfigService}}.
+ 
+-The dump is performed by an interceptor plugin of the Marshaller that :
++The dump is performed by an interceptor plugin of the Marshaller that:
+ # extracts the UserPortalConfig data from the datasource.
+ # creates an set of xml configurations for the _UserPortalConfigService_.
+-# generates a zip file of all xml configurations (to be used as an externalized configuration for the PortalContainer _portal_)
++# generates a .zip file of all xml configurations (to be used as an externalized configuration for the PortalContainer _portal_)
+ 
+-To successfully export your current UserPortalConfig data, please follow these steps :
++To successfully export your current UserPortalConfig data, please follow these steps:
+ # hit _<YOUR_SERVER>:<YOUR_PORT>/portal/rest/containersConfiguration_
+ # click on the _PortalContainer :portal_ link
+-# Find and click on the _org.exoplatform.portal.config.UserPortalConfigService_ link :
++# Find and click on the _org.exoplatform.portal.config.UserPortalConfigService_ link:
+ !userPortalConfig1.png!
+-# save the zip file in a predefined location
++# save the .zip file in a predefined location
+ 
+-{info:title=Structure of the generated zip file}
++{info:title=Structure of the generated .zip file}
+ * a configuration file of UserPortalConfigService component declaration with all customized external-component-plugins of the {{UserPortalConfigService}}.
+ * a sub-folder "group" which contains configuration files for groups navigation
+ * a sub-folder "portal" which contains configuration files for portal navigation
+ * a sub-folder "user" which contains configuration files for navigation per user (users who have a separate navigation)
+ {info}
+ 
+-The content of the zip file looks like:
++The content of the .zip file looks like:
+ 
+ !UserPortalConfig2.png!
+ 
+-The zip needs some modifications (to fit the structure of UserPortalConfig in PLF) before that it can be used to import the UserPortalConfig data in.
++The zip needs some modifications (to fit the structure of UserPortalConfig in Platform) before that it can be used to import the UserPortalConfig data in.
+ 
+-h4. Import of portal configuration in PLF
++h4. Import of portal configuration in Platform
+ 
+ For the conversion of the exported metadata (users, groups and portals navigations), we have added a new REST Service.
+ Steps to convert Portal Config metadata files:
+@@ -323,41 +323,41 @@
+ h3. Resource Bundles Migration
+ 
+ The Resource Bundles are the files that contain translation for the user interface of the portal.
+-In AIO, an UI was provided to edit the Resource Bundles. This UI has not been maintained as the Resource Bundles are no longer persistent in PLF.
+-Since, the UI has significantly evolved between AIO and PLF, there are little chances that you can reuse the translated Resource Bundles in PLF.
++In AIO, an UI was provided to edit the Resource Bundles. This UI has not been maintained as the Resource Bundles are no longer persistent in Platform.
++Since, the UI has significantly evolved between AIO and Platform, there are little chances that you can reuse the translated Resource Bundles in Platform.
+ However, we provide a service that lets you retrieve your AIO Resource Bundles.
+ 
+ h4. Export Resource Bundles from AIO
+ 
+ The approach here is to dump the Resource Bundle data as a set of XML configurations and Properties files for the {{ResourceBundleService}}.
+ 
+-The dump is performed by an interceptor plugin of the Marshaller that :
++The dump is performed by an interceptor plugin of the Marshaller that:
+ 
+ # extracts the Resource Bundle data from the datasource.
+-# creates an xml file of customized configurations for the _ResourceBundleService_.
++# creates an .xml file of customized configurations for the _ResourceBundleService_.
+ # creates a set of Properties files for locale.
+-# generates a zip file of all created files (to be used as an externalized configuration for the PortalContainer _portal_)
++# generates a .zip file of all created files (to be used as an externalized configuration for the PortalContainer _portal_)
+ 
+-To successfully export your current Resource Bundle data, please follow these steps :
++To successfully export your current Resource Bundle data, please follow these steps:
+ # hit _<YOUR_SERVER>:<YOUR_PORT>/portal/rest/containersConfiguration_
+ # click on the _PortalContainer :portal_ link
+-# Find and click on the _org.exoplatform.services.resources.ResourceBundleService_ link :
++# Find and click on the _org.exoplatform.services.resources.ResourceBundleService_ link:
+ 
+ !resourceBundle1.png!
+ 
+-# save the zip file in a predefined location :
++# save the .zip file in a predefined location:
+ 
+ !resourceBundle2.png!
+ 
+-{info:title=Structure of the generated zip file}
++{info:title=Structure of the generated .zip file}
+ * a configuration file of all customized external-component-plugins of the {{ResourceBundleService}}.
+-* a sub-folder "locale" which contains locales for portal navigation.
++* a sub-folder "locale" which contains locales for the portal navigation.
+ {info}
+ 
+-h4. Integrate Custom Resource Bundles in PLF
++h4. Integrate Custom Resource Bundles in Platform
+ 
+-As explained above, there is no way to import exported resources bundles, as this feature has disappeared in PLF.
+-There is also no mapping between the AIO resource bundle keys and the PLF resource bundle keys.
++As explained above, there is no way to import exported resources bundles, as this feature has disappeared in Platform.
++There is also no mapping between the AIO resource bundle keys and the Platform resource bundle keys.
+ So, if you have translated your AIO instance, be prepared for a complementary translation effort.
+ 
+ Finally, your custom Resource Bundles will need to be hooked as a plugin of the ResourceBundleService.
+@@ -367,32 +367,32 @@
+ 
+ The Application Registry is where administrators define access and edit permissions for applications deployed in the server. This can be customized and edited online and this data is persistent. The migration approach consists of exporting the configurations found in the AIO instance in the native xml format for the external component plugin.
+ 
+-Application Registry data migration can be exported via the generic use of the Marshaller  :
++Application Registry data migration can be exported via the generic use of the Marshaller:
+ # Hit {{/portal/rest/containersConfiguration}}
+ # click on the {{PortalContainer :portal}} link
+-# click on the {{org.exoplatform.application.registry.ApplicationRegistryService}} link :
++# click on the {{org.exoplatform.application.registry.ApplicationRegistryService}} link:
+ 
+ !appReg1.png!
+ 
+-# save this configuration in a separate file :
++# save this configuration in a separate file:
+ 
+ !appReg2.png!
+ 
+ {note}
+-The generated XML file isn't compatible with PLF (only AIO), so to know how to convert it, please refer to the Migration guide.
++The generated .xml file isn't compatible with Platform (only AIO), so to know how to convert it, please refer to the Migration guide.
+ {note}
+ 
+ h2. ECM Configuration and Templates Confiuration
+ 
+ h3. NodeTypes & Namespaces Migration
+ 
+-The NodeTypes could be managed by UI, so that administrators could add new NodeType definitions interactively. This tool will allow you to export all persistent NodeType definitions. And to know exactly what was changed by UI, or even by customized configuration, you could use this Tool on an AIO standalone, then use it on your custom project, and finally compare the two exported configurations.
++The NodeTypes could be managed by UI, so that administrators could add new NodeTypes definitions interactively. This tool will allow you to export all persistent NodeTypes definitions. And to know exactly what was changed by UI, or even by customized configuration, you could use this Tool on an AIO standalone, then use it on your custom project, and finally compare the two exported configurations.
+ 
+ This migration tool module intercepts the configuration of the service {{org.exoplatform.services.jcr.RepositoryService}} and add the adequate Plugin to define all *NodeTypes* and *namespaces* definition.
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.jcr.RepositoryService.zip}}, which contains:
+-* {{org.exoplatform.services.jcr.RepositoryService.xml}} : The computed RepositoryService configuration with its plugins.
+-* {{nodeTypes}} : a folder that contains the list of namespaces as sub-folders, each sub-folder contains the set of XML files, each XML file represents a NodeType definition.
++* {{org.exoplatform.services.jcr.RepositoryService.xml}}: The computed RepositoryService configuration with its plugins.
++* {{nodeTypes}}: a folder that contains the list of namespaces as sub-folders, each sub-folder contains the set of .xml files, each .xml file represents a NodeType definition.
+ !nodeTypes.png!
+ 
+ h3. DocumentType Templates Migration
+@@ -401,11 +401,11 @@
+ 
+ This migration tool module intercepts the configuration of the service {{org.exoplatform.services.cms.templates.TemplateService}} and allows you to convert all those persistent templates to XML configurations. This is useful when you attempt to:
+ * Export persistent configurations from a server in a production environment
+-* Determines what was modified by custom configurations made on AIO
++* Determine what was modified by custom configurations made on AIO
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.cms.templates.TemplateService.zip}} that contains:
+-* {{org.exoplatform.services.cms.templates.TemplateService.xml}} : The computed TemplateService configuration with its plugins.
+-* {{nodetype-templates}} : a folder that contains Gtmpl and Skins templates files for each DocumentType.
++* {{org.exoplatform.services.cms.templates.TemplateService.xml}}: The computed TemplateService configuration with its plugins.
++* {{nodetype-templates}}: a folder that contains Gtmpl and Skins templates files for each DocumentType.
+ !documentTypeTemplates.png!
+ 
+ h3. Application Templates Migration
+@@ -417,26 +417,26 @@
+ * Parameterized Content List Viewer Templates.
+ 
+ Those templates are manageable by UI and by configuration.
+-This migration tool module  intercepts the configuration of the service {{org.exoplatform.services.cms.views.ApplicationTemplateManagerService}} and allows you to convert all those persistent templates to XML configurations. This is useful when you attempt to:
++This migration tool module intercepts the configuration of the service {{org.exoplatform.services.cms.views.ApplicationTemplateManagerService}} and allows you to convert all those persistent templates to XML configurations. This is useful when you attempt to:
+ * Export persistent configurations from a server in a production environment.
+-* Determines what was modified by custom configurations made on AIO.
++* Determine what was modified by custom configurations made on AIO.
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.cms.views.ApplicationTemplateManagerService.zip}} that contains:
+-* {{org.exoplatform.services.cms.views.ApplicationTemplateManagerService.xml}} : The computed ApplicationTemplateManagerService configuration with its plugins.
+-* {{application-templates}} : a folder that contains a set of groovy templates (*.gtmpl files) for each portlet.
++* {{org.exoplatform.services.cms.views.ApplicationTemplateManagerService.xml}}: The computed ApplicationTemplateManagerService configuration with its plugins.
++* {{application-templates}}: a folder that contains a set of groovy templates (*.gtmpl files) for each portlet.
+ !applicationTemplates.png!
+ 
+ h3. Metadata Templates Migration
+ 
+ The Metadata Templates represents the dialog and view definitions for a NodeType that is a metadata. Those templates are manageable by UI and by configuration.
+ 
+-This migration tool module  intercepts the configuration of the service {{org.exoplatform.services.cms.metadata.MetadataService}} and allows you to convert all those persistent templates to XML configurations. This is useful when you attempt to:
++This migration tool module intercepts the configuration of the service {{org.exoplatform.services.cms.metadata.MetadataService}} and allows you to convert all those persistent templates to XML configurations. This is useful when you attempt to:
+ * Export persistent configurations from a server in a production environment
+-* Determines what was modified by custom configurations made on AIO
++* Determine what was modified by custom configurations made on AIO
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.cms.metadata.MetadataService.zip}} that contains:
+-* {{org.exoplatform.services.cms.metadata.MetadataService.xml}} : The computed MetadataService configuration with its plugins.
+-* {{matadata-templates}} : a folder that contains Gtmpl templates files for each Metadata.
++* {{org.exoplatform.services.cms.metadata.MetadataService.xml}}: The computed MetadataService configuration with its plugins.
++* {{matadata-templates}}: a folder that contains Gtmpl templates files for each Metadata.
+ !metadataTemplates.png!
+ 
+ h3. ECM Views Migration
+@@ -449,8 +449,8 @@
+ * The Views of the ECMExplorerPortlet with the sets of buttons on each View.
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.cms.views.ManageViewService.zip}} that contains:
+-* {{org.exoplatform.services.cms.views.ManageViewService.xml}} : The computed ManageViewServiceconfiguration with its plugins.
+-* {{templates}} : a folder that contains Gtmpl templates files for each View Template definition.
++* {{org.exoplatform.services.cms.views.ManageViewService.xml}}: The computed ManageViewServiceconfiguration with its plugins.
++* {{templates}}: a folder that contains Gtmpl templates files for each View Template definition.
+ !viewTemplates.png!
+ 
+ h3. Groovy Scripts Migration
+@@ -462,8 +462,8 @@
+ * Widget scripts are used to fill WebUI components, such as select box options in a dynamic way.
+ 
+ The format of the exported configuration is a Zip file named {{org.exoplatform.services.cms.scripts.ScriptService.zip}} that contains:
+-* {{org.exoplatform.services.cms.scripts.ScriptService.xml}} : The computed ScriptServiceconfiguration with its plugins.
+-* {{scripts}} : a folder that contains the GroovyScript files.
++* {{org.exoplatform.services.cms.scripts.ScriptService.xml}}: The computed ScriptServiceconfiguration with its plugins.
++* {{scripts}}: a folder that contains the GroovyScript files.
+ !scripts.png!
+ 
+ h3. ECM Drives Migration
+@@ -472,15 +472,15 @@
+ 
+ This migration tool module computes the configuration of the service {{org.exoplatform.services.cms.drives.ManageDriveService}} and allows you to export all Drives definitions in an AIO in production mode.
+ 
+-The format of the exported configuration is an XML file named {{org.exoplatform.services.cms.drives.ManageDriveService.xml}} that contains the computed ManageDriveService configuration with Drives definitions.
++The format of the exported configuration is an .xml file named {{org.exoplatform.services.cms.drives.ManageDriveService.xml}} that contains the computed ManageDriveService configuration with Drives definitions.
+ 
+ h3. Shared JCR Queries Migration
+ 
+ The "Shared JCR Queries" are the shared JCR Queries that all users could execute from ECMExplorerPortlet interface.
+ 
+-This migration tool module  computes the configuration of the service {{org.exoplatform.services.cms.queries.QueryService}} and allows you to export all Query definitions in an AIO in production mode.
++This migration tool module computes the configuration of the service {{org.exoplatform.services.cms.queries.QueryService}} and allows you to export all Query definitions in an AIO in production mode.
+ 
+-The format of the exported configuration is an XML file named {{org.exoplatform.services.cms.queries.QueryService.xml}} that contains the computed QueryService configuration with all shared Query definitions.
++The format of the exported configuration is an .xml file named {{org.exoplatform.services.cms.queries.QueryService.xml}} that contains the computed QueryService configuration with all shared Query definitions.
+ 
+ h3. Folksonomies Style Migration
+ 
+@@ -488,25 +488,25 @@
+ 
+ The Stylesheet defintion and the number of documents are modifiable by the UI. So this migration tool module  computes the configuration of the service {{org.exoplatform.services.cms.folksonomy.FolksonomyService}} and allows you to export it.
+ 
+-The format of the exported configuration is an XML file named {{org.exoplatform.services.cms.folksonomy.FolksonomyService.xml}} that contains the computed FolksonomyService configuration with all stylesheet definitions with the associated occurrences.
++The format of the exported configuration is an .xml file named {{org.exoplatform.services.cms.folksonomy.FolksonomyService.xml}} that contains the computed FolksonomyService configuration with all stylesheet definitions with the associated occurrences.
+ 
+ h3. Taxonomy Trees Migration
+ 
+ The "Taxonomy Trees" are the definition of WCM Categories that could be used over all the ECMS Portlets.
+ The Taxonomy definitions and Trees could be added, modified or even deleted by UI.
+ 
+-This migration tool module  computes, from the JCR, the configuration of the service {{org.exoplatform.services.cms.taxonomy.TaxonomyService}} and allows you to export it.
++This migration tool module computes, from the JCR, the configuration of the service {{org.exoplatform.services.cms.taxonomy.TaxonomyService}} and allows you to export it.
+ 
+-The format of the exported configuration is an XML file named {{org.exoplatform.services.cms.taxonomy.TaxonomyService.xml}} that contains the computed TaxonomyService configuration with all taxonomies Trees, permissions and actions.
++The format of the exported configuration is an .xml file named {{org.exoplatform.services.cms.taxonomy.TaxonomyService.xml}} that contains the computed TaxonomyService configuration with all taxonomies Trees, permissions and actions.
+ 
+ h2. Data Migration
+ 
+ h3. Collaboration workspace Content Migration
+ 
+-The main goal of this RESTfull Service is to migrate the totality of an AIO Collaboration workspace, to PLF compliant collaboration&knowledge workspaces.
++The main goal of this RESTfull Service is to migrate the totality of an AIO Collaboration workspace, to Platform compliant collaboration&knowledge workspaces.
+ So it is only useful in case of you have already a collaboration workspace in an AIO server, that is in production or pre-production environment. Otherwise, if your AIO project is in a development phase, you will probably not need to use this tool.
+ {info}
+-This tool will generate the Forum and FAQ data in a separate workspace backup. This workspace name is {{knowledge}}, which refers the workspace used for FAQ&Forum in PLF.
++This tool will generate the Forum and FAQ data in a separate workspace backup. This workspace name is {{knowledge}}, which refers the workspace used for FAQ&Forum in Platform.
+ {info}
+ 
+ Steps:
+@@ -521,7 +521,7 @@
+ [INFO] BackupService - system backup done successfully!
+ {code}
+ After that, you will get two sub-folders in the chosen location:
+-# Collaboration backup : the whole workspace was backed up, but you could modify this migration tool configuration in order to delete some WCM configuration nodes. Those nodes will allow enable/disable those services "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService". The configuration looks like this: {code:xml}
++# Collaboration backup: the whole workspace was backed up, but you could modify this migration tool configuration in order to delete some WCM configuration nodes. Those nodes will allow enable/disable those services "WCMContentInitializerService", "ContentInitializerService", "NewsletterInitializationService". The configuration looks like this: {code:xml}
+ ...
+ <component>
+ 	<type>org.exoplatform.platform.migration.aio.backup.AIOBackupMigrationService</type>
+@@ -533,16 +533,16 @@
+ 	</init-params>
+ </component>
+ ...
+-{code} If you set this init param {{delete.wcm.services.log.nodes}} to false, on PLF startup, those services will not load configurations, and will not deploy configured artifacts. This could be useful, if you don't want to add default data by configuration. Learn more about ECMS [auto deployed artifacts|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch03.html#d0e26140].
+-# System backup: System backup : Only a portion of the system workspace is backed up:
++{code} If you set this init param {{delete.wcm.services.log.nodes}} to false, on Platform startup, those services will not load configurations, and will not deploy configured artifacts. This could be useful, if you don't want to add default data by configuration. Learn more about ECMS [auto deployed artifacts|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch03.html#d0e26140].
++# System backup : Only a portion of the system workspace is backed up:
+ * Version History nodes.
+ * Bonita business processes definitions nodes
+-# Knowledge backup : the content of PLF knowledge workspace. This data is generated from AIO Collaboration workspace, it contains the FAQ&Forum data nodes (Categories, posts ...).
+-# In PLF, use this [documentation|http://platform.demo.exoplatform.org/docs/refguide/html/ch-exojcr-backup-service.html#d0e7239] steps to perform a restore for each workspace, [download this configuration|^repository-configuration.zip] to put in "TOMCAT/gatein/conf/portal/portal/" as an example.
++# Knowledge backup: the content of Platform knowledge workspace. This data is generated from AIO Collaboration workspace, it contains the FAQ&Forum data nodes (Categories, posts ...).
++# In Platform, use this [documentation|http://docs.exoplatform.org/PLF30/refguide/html/ch-exojcr-backup-service.html#d0e7239] steps to perform a restore for each workspace, [download this configuration|^repository-configuration.zip] to put in "TOMCAT/gatein/conf/portal/portal/" as an example.
+ 
+ h3. WCM Contents Publication Migration
+ 
+-In PLF, the default publication plugin has changed to a new one that is more flexible, it's called 'Authoring plugin'. The old one, StageAndVersion, is now deprecated.
++In Platform, the default publication plugin has changed to a new one that is more flexible, it's called 'Authoring plugin'. The old one, StageAndVersion, is now deprecated.
+ It is recommended that you upgrade to the new plugin. Read more about the new Authoring plugin in ECMS reference guide.
+ 
+ Although, it is possible to configure much more sophisticated lifecycles, you can migrate transparently for your users by configuring a lifecycle that reproduces the states of the StageAndVersion plugin:
