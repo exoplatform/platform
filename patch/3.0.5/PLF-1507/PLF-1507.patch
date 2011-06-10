@@ -1,6 +1,6 @@
 Index: migration/assembly/pom.xml
 ===================================================================
---- migration/assembly/pom.xml	(revision 70310)
+--- migration/assembly/pom.xml	(revision 70357)
 +++ migration/assembly/pom.xml	(working copy)
 @@ -30,13 +30,24 @@
  				</dependency>
@@ -30,7 +30,7 @@ Index: migration/assembly/pom.xml
  						<artifactId>maven-assembly-plugin</artifactId>
 Index: migration/assembly/src/main/assembly/migration-distribution.xml
 ===================================================================
---- migration/assembly/src/main/assembly/migration-distribution.xml	(revision 70310)
+--- migration/assembly/src/main/assembly/migration-distribution.xml	(revision 70357)
 +++ migration/assembly/src/main/assembly/migration-distribution.xml	(working copy)
 @@ -8,28 +8,40 @@
  	<includeBaseDirectory>false</includeBaseDirectory>
@@ -184,10 +184,8 @@ Index: migration/bos/config/src/main/resources/portal/portal/repository-configur
 ===================================================================
 --- migration/bos/config/src/main/resources/portal/portal/repository-configuration.xml	(revision 0)
 +++ migration/bos/config/src/main/resources/portal/portal/repository-configuration.xml	(revision 0)
-@@ -0,0 +1,141 @@
+@@ -0,0 +1,139 @@
 +<repository-service default-repository="repository">
-+
-+
 +  <repositories>
 +    <repository name="repository" system-workspace="system" default-workspace="collaboration">
 +      <security-domain>${portal.container.realm}</security-domain>
@@ -330,7 +328,7 @@ Index: migration/bos/pom.xml
 ===================================================================
 --- migration/bos/pom.xml	(revision 0)
 +++ migration/bos/pom.xml	(revision 0)
-@@ -0,0 +1,36 @@
+@@ -0,0 +1,18 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<project xmlns="http://maven.apache.org/POM/4.0.0"
 +	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -349,24 +347,7 @@ Index: migration/bos/pom.xml
 +    <module>tool</module>
 +  </modules>	
 +</project>
-+<?xml version="1.0" encoding="UTF-8"?>
-+<project xmlns="http://maven.apache.org/POM/4.0.0"
-+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-+	<modelVersion>4.0.0</modelVersion>
-+	<parent>
-+		<groupId>org.exoplatform.platform</groupId>
-+		<artifactId>exo.platform.migration</artifactId>
-+		<version>3.0.5-SNAPSHOT</version>
-+	</parent>
-+	<artifactId>exo.platform.migration.bos</artifactId>
-+	<packaging>pom</packaging>
-+	<name>eXo Platform - Migration Tools - BOS Part</name>
-+  <modules>
-+    <module>config</module>
-+    <module>tool</module>
-+  </modules>	
-+</project>
+\ No newline at end of file
 Index: migration/bos/tool/pom.xml
 ===================================================================
 --- migration/bos/tool/pom.xml	(revision 0)
@@ -515,76 +496,7 @@ Index: migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/e
 ===================================================================
 --- migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/WorkspaceStreamExporter.java	(revision 0)
 +++ migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/WorkspaceStreamExporter.java	(revision 0)
-@@ -0,0 +1,138 @@
-+/*
-+ * Copyright (C) 2010 eXo Platform SAS.
-+ *
-+ * This is free software; you can redistribute it and/or modify it
-+ * under the terms of the GNU Lesser General Public License as
-+ * published by the Free Software Foundation; either version 2.1 of
-+ * the License, or (at your option) any later version.
-+ *
-+ * This software is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-+ * Lesser General Public License for more details.
-+ *
-+ * You should have received a copy of the GNU Lesser General Public
-+ * License along with this software; if not, write to the Free
-+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
-+ */
-+package org.exoplatform.platform.migration.bos.exporter;
-+
-+import javax.jcr.NamespaceException;
-+import javax.jcr.NamespaceRegistry;
-+import javax.jcr.RepositoryException;
-+import javax.xml.stream.XMLStreamException;
-+import javax.xml.stream.XMLStreamWriter;
-+
-+import org.exoplatform.services.jcr.dataflow.ItemDataConsumer;
-+import org.exoplatform.services.jcr.impl.Constants;
-+import org.exoplatform.services.jcr.impl.core.value.ValueFactoryImpl;
-+import org.exoplatform.services.jcr.impl.xml.exporting.WorkspaceSystemViewStreamExporter;
-+
-+/**
-+ * Created by The eXo Platform MEA Author : Anouar Chattouna anouar.chattouna@exoplatform.com June 08, 2011
-+ */
-+
-+public class WorkspaceStreamExporter extends WorkspaceSystemViewStreamExporter {
-+
-+  private static final String JOS_PREFIX = "jos";
-+  private static final String JOS_URI = "http://nl.ijs.si/jos/";
-+
-+  /**
-+   * Ensures a workspace backup: See {@link WorkspaceSystemViewStreamExporter}.
-+   */
-+  public WorkspaceStreamExporter(XMLStreamWriter writer, ItemDataConsumer dataManager, NamespaceRegistry namespaceRegistry,
-+      ValueFactoryImpl systemValueFactory, boolean skipBinary, boolean noRecurse) throws NamespaceException, RepositoryException {
-+    super(writer, dataManager, namespaceRegistry, systemValueFactory, skipBinary, noRecurse);
-+  }
-+
-+  /**
-+   * Redefines the URI of the "jos" prefix. See {@link org.exoplatform.services.jcr.impl.xml.exporting.StreamExporter#startPrefixMapping()}.
-+   */
-+  protected void startPrefixMapping() throws RepositoryException, XMLStreamException {
-+    String[] prefixes = getNamespaceRegistry().getPrefixes();
-+    for (String prefix : prefixes) {
-+      // skeep xml prefix
-+      if ((prefix == null) || (prefix.length() < 1) || prefix.equals(Constants.NS_XML_PREFIX)) {
-+        continue;
-+      }
-+      // edit jos prefix
-+      if (prefix.equals(JOS_PREFIX)) {
-+        writer.writeNamespace(prefix, JOS_URI);
-+        continue;
-+      }
-+      writer.writeNamespace(prefix, getNamespaceRegistry().getURI(prefix));
-+
-+    }
-+  }
-+
-+}
+@@ -0,0 +1,69 @@
 +/*
 + * Copyright (C) 2010 eXo Platform SAS.
 + *
@@ -855,7 +767,7 @@ Index: migration/bos/tool/src/main/resources/conf/portal/configuration.xml
 +</configuration>
 Index: migration/doc/src/main/wikbook/en/en-US/book.wiki
 ===================================================================
---- migration/doc/src/main/wikbook/en/en-US/book.wiki	(revision 70310)
+--- migration/doc/src/main/wikbook/en/en-US/book.wiki	(revision 70357)
 +++ migration/doc/src/main/wikbook/en/en-US/book.wiki	(working copy)
 @@ -1,7 +1,11 @@
 -h1. Migration Guide
@@ -980,7 +892,7 @@ Index: migration/doc/src/main/wikbook/en/en-US/bos-tools.wiki
 +{code}
 Index: migration/pom.xml
 ===================================================================
---- migration/pom.xml	(revision 70310)
+--- migration/pom.xml	(revision 70357)
 +++ migration/pom.xml	(working copy)
 @@ -13,6 +13,7 @@
      <module>common</module>
