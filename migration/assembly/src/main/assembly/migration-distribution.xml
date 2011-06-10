@@ -8,40 +8,28 @@
 	<includeBaseDirectory>false</includeBaseDirectory>
 	<dependencySets>
 		<dependencySet>
-			<outputDirectory>aio/lib</outputDirectory>
+			<outputDirectory>lib</outputDirectory>
 			<includes>
 				<include>org.exoplatform.platform:exo.platform.migration.common:jar</include>
 			</includes>
 		</dependencySet>
 		<dependencySet>
-			<outputDirectory>aio/lib</outputDirectory>
+			<outputDirectory>lib</outputDirectory>
 			<includes>
 				<include>org.exoplatform.platform:exo.platform.migration.aio:jar</include>
 			</includes>
 		</dependencySet>
 		<dependencySet>
-			<outputDirectory>aio/lib</outputDirectory>
+			<outputDirectory>lib</outputDirectory>
 			<includes>
 				<include>org.exoplatform.platform:exo.platform.migration.plf:jar</include>
 			</includes>
-		</dependencySet>	
+		</dependencySet>
 		<dependencySet>
 			<unpack>true</unpack>
 			<includes>
 				<include>org.exoplatform.platform:exo.platform.migration.doc:zip</include>
 			</includes>
 		</dependencySet>
-		<dependencySet>
-			<outputDirectory>bos/lib</outputDirectory>
-			<includes>
-				<include>org.exoplatform.platform:exo.platform.migration.bos.tool:jar</include>
-			</includes>
-		</dependencySet>	
-		<dependencySet>
-			<outputDirectory>bos/config</outputDirectory>
-			<includes>
-				<include>org.exoplatform.platform:exo.platform.migration.bos.config:zip</include>
-			</includes>
-		</dependencySet>		
 	</dependencySets>
 </assembly>
