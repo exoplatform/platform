@@ -1,6 +1,6 @@
 Index: migration/assembly/pom.xml
 ===================================================================
---- migration/assembly/pom.xml	(revision 70298)
+--- migration/assembly/pom.xml	(revision 70310)
 +++ migration/assembly/pom.xml	(working copy)
 @@ -30,13 +30,24 @@
  				</dependency>
@@ -30,7 +30,7 @@ Index: migration/assembly/pom.xml
  						<artifactId>maven-assembly-plugin</artifactId>
 Index: migration/assembly/src/main/assembly/migration-distribution.xml
 ===================================================================
---- migration/assembly/src/main/assembly/migration-distribution.xml	(revision 70298)
+--- migration/assembly/src/main/assembly/migration-distribution.xml	(revision 70310)
 +++ migration/assembly/src/main/assembly/migration-distribution.xml	(working copy)
 @@ -8,28 +8,40 @@
  	<includeBaseDirectory>false</includeBaseDirectory>
@@ -77,11 +77,255 @@ Index: migration/assembly/src/main/assembly/migration-distribution.xml
 +		</dependencySet>		
  	</dependencySets>
  </assembly>
+Index: migration/bos/config/pom.xml
+===================================================================
+--- migration/bos/config/pom.xml	(revision 0)
++++ migration/bos/config/pom.xml	(revision 0)
+@@ -0,0 +1,35 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++	<modelVersion>4.0.0</modelVersion>
++	<parent>
++		<groupId>org.exoplatform.platform</groupId>
++		<artifactId>exo.platform.migration.bos</artifactId>
++		<version>3.0.5-SNAPSHOT</version>
++	</parent>
++	<artifactId>exo.platform.migration.bos.config</artifactId>
++	<packaging>pom</packaging>
++	<name>eXo Platform - Migration - BOS Part - configurations</name>
++			<build>
++				<finalName>bos-migration-guide-${project.version}</finalName>
++				<plugins>
++					<plugin>
++						<artifactId>maven-assembly-plugin</artifactId>
++						<executions>
++							<execution>
++								<id>distribution</id>
++								<phase>package</phase>
++								<goals>
++									<goal>single</goal>
++								</goals>
++								<configuration>
++									<descriptors>
++										<descriptor>src/main/assembly/config-archive.xml</descriptor>
++									</descriptors>
++									<appendAssemblyId>false</appendAssemblyId>
++								</configuration>
++							</execution>
++						</executions>
++					</plugin>
++				</plugins>
++			</build>
++</project>
+Index: migration/bos/config/src/main/assembly/config-archive.xml
+===================================================================
+--- migration/bos/config/src/main/assembly/config-archive.xml	(revision 0)
++++ migration/bos/config/src/main/assembly/config-archive.xml	(revision 0)
+@@ -0,0 +1,15 @@
++<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
++  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
++	<id>bos-config-archive</id>
++	<formats>
++		<format>zip</format>
++	</formats>
++	<includeBaseDirectory>false</includeBaseDirectory>
++	<fileSets>
++		<fileSet>
++			<directory>src/main/resources</directory>
++			<outputDirectory>/</outputDirectory>
++		</fileSet>
++	</fileSets>
++</assembly>
+Index: migration/bos/config/src/main/resources/portal/portal/configuration.xml
+===================================================================
+--- migration/bos/config/src/main/resources/portal/portal/configuration.xml	(revision 0)
++++ migration/bos/config/src/main/resources/portal/portal/configuration.xml	(revision 0)
+@@ -0,0 +1,38 @@
++<?xml version="1.0" encoding="ISO-8859-1"?>
++<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
++  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
++	<component>
++		<key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
++		<type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl</type>
++		<init-params>
++			<properties-param>
++				<name>backup-properties</name>
++				<property name="default-incremental-job-period" value="3600" />
++				<!-- set default incremental periond = 60 minutes -->
++				<property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.FullBackupJob" />
++				<property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
++				<property name="backup-dir" value="../temp/backup" />
++			</properties-param>
++		</init-params>
++	</component>
++	<external-component-plugins>
++		<!-- The full qualified name of the RepositoryServiceConfiguration -->
++		<target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
++		<component-plugin>
++			<!-- The name of the plugin -->
++			<name>Sample RepositoryServiceConfiguration Plugin</name>
++			<!-- The name of the method to call on the RepositoryServiceConfiguration in order to add the RepositoryServiceConfigurations -->
++			<set-method>addConfig</set-method>
++			<!-- The full qualified name of the RepositoryServiceConfigurationPlugin -->
++			<type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
++			<init-params>
++				<value-param>
++					<name>conf-path</name>
++					<description>JCR configuration file</description>
++					<value>repository-configuration.xml</value>
++				</value-param>
++			</init-params>
++		</component-plugin>
++	</external-component-plugins>
++</configuration>
 Index: migration/bos/config/src/main/resources/portal/portal/repository-configuration.xml
 ===================================================================
 --- migration/bos/config/src/main/resources/portal/portal/repository-configuration.xml	(revision 0)
 +++ migration/bos/config/src/main/resources/portal/portal/repository-configuration.xml	(revision 0)
-@@ -0,0 +1,141 @@
+@@ -0,0 +1,282 @@
++<repository-service default-repository="repository">
++
++
++  <repositories>
++    <repository name="repository" system-workspace="system" default-workspace="collaboration">
++      <security-domain>${portal.container.realm}</security-domain>
++      <access-control>optional</access-control>
++      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
++      <workspaces>
++		<!-- System data -->
++		<workspace name="system">
++          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
++            <properties>
++              <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
++              <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
++              <property name="multi-db" value="false"/>
++              <property name="update-storage" value="true"/>
++              <property name="max-buffer-size" value="204800"/>
++              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/system${container.name.suffix}"/>
++            </properties>
++            <value-storages>
++              <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
++                <properties>
++                  <property name="path" value="${gatein.jcr.storage.data.dir}/system${container.name.suffix}"/>
++                </properties>
++                <filters>
++                  <filter property-type="Binary"/>
++                </filters>
++              </value-storage>
++            </value-storages>
++          </container>
++		  <initializer class="org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer">
++			<properties>
++				<property name="restore-path" value="../temp/backup/system"/>
++			</properties>
++		  </initializer>
++          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
++            <properties>
++              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcr-${container.name.suffix}-system" />
++            </properties>
++          </cache>
++          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
++            <properties>
++              <property name="index-dir" value="${gatein.jcr.index.data.dir}/system${container.name.suffix}"/>
++              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
++              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcrindexer-${container.name.suffix}-system" />
++              <property name="max-volatile-time" value="60" />
++            </properties>
++          </query-handler>
++          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
++            <properties>
++              <property name="time-out" value="15m" />
++              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcrlock-${container.name.suffix}-system" />
++              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlock_system" />
++              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
++              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
++              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
++              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
++              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
++              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
++              <property name="jbosscache-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
++            </properties>
++          </lock-manager>
++        </workspace>
++        <!-- cmis1 data -->
++        <workspace name="cmis1">
++          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
++            <properties>
++              <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
++              <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
++              <property name="multi-db" value="false"/>
++              <property name="update-storage" value="true"/>
++              <property name="max-buffer-size" value="204800"/>
++              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/cmis1${container.name.suffix}"/>
++            </properties>
++            <value-storages>
++              <value-storage id="cmis1" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
++                <properties>
++                  <property name="path" value="${gatein.jcr.storage.data.dir}/cmis1${container.name.suffix}"/>
++                </properties>
++                <filters>
++                  <filter property-type="Binary"/>
++                </filters>
++              </value-storage>
++            </value-storages>
++          </container>
++		  <initializer class="org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer">
++			<properties>
++				<property name="restore-path" value="../temp/backup/cmis1"/>
++			</properties>
++		  </initializer>
++          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
++            <properties>
++              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcr-${container.name.suffix}-cmis1" />
++            </properties>
++          </cache>
++          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
++            <properties>
++              <property name="index-dir" value="${gatein.jcr.index.data.dir}/cmis1${container.name.suffix}"/>
++              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
++              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcrindexer-${container.name.suffix}-cmis1" />
++              <property name="max-volatile-time" value="60" />
++            </properties>
++          </query-handler>
++          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
++            <properties>
++              <property name="time-out" value="15m" />
++              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
++              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
++              <property name="jgroups-multiplexer-stack" value="true" />
++              <property name="jbosscache-cluster-name" value="jcrlock-${container.name.suffix}-cmis1" />
++              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlock_cmis1" />
++              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
++              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
++              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
++              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
++              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
++              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
++              <property name="jbosscache-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
++            </properties>
++          </lock-manager>
++        </workspace>
++      </workspaces>
++    </repository>
++  </repositories>
++</repository-service>
 +<repository-service default-repository="repository">
 +
 +
@@ -227,7 +471,7 @@ Index: migration/bos/pom.xml
 ===================================================================
 --- migration/bos/pom.xml	(revision 0)
 +++ migration/bos/pom.xml	(revision 0)
-@@ -0,0 +1,18 @@
+@@ -0,0 +1,36 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<project xmlns="http://maven.apache.org/POM/4.0.0"
 +	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -246,11 +490,173 @@ Index: migration/bos/pom.xml
 +    <module>tool</module>
 +  </modules>	
 +</project>
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
++	<modelVersion>4.0.0</modelVersion>
++	<parent>
++		<groupId>org.exoplatform.platform</groupId>
++		<artifactId>exo.platform.migration</artifactId>
++		<version>3.0.5-SNAPSHOT</version>
++	</parent>
++	<artifactId>exo.platform.migration.bos</artifactId>
++	<packaging>pom</packaging>
++	<name>eXo Platform - Migration Tools - BOS Part</name>
++  <modules>
++    <module>config</module>
++    <module>tool</module>
++  </modules>	
++</project>
+Index: migration/bos/tool/pom.xml
+===================================================================
+--- migration/bos/tool/pom.xml	(revision 0)
++++ migration/bos/tool/pom.xml	(revision 0)
+@@ -0,0 +1,31 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
++	<modelVersion>4.0.0</modelVersion>
++	<parent>
++		<groupId>org.exoplatform.platform</groupId>
++		<artifactId>exo.platform.migration.bos</artifactId>
++		<version>3.0.5-SNAPSHOT</version>
++	</parent>
++	<artifactId>exo.platform.migration.bos.tool</artifactId>
++	<packaging>jar</packaging>
++	<name>eXo Platform - Migration Tools - BOS Part - library</name>
++	<dependencies>
++		<dependency>
++			<groupId>org.exoplatform.kernel</groupId>
++			<artifactId>exo.kernel.container</artifactId>
++			<version>${org.exoplatform.kernel.version}</version>
++		</dependency>
++		<dependency>
++			<groupId>org.exoplatform.jcr</groupId>
++			<artifactId>exo.jcr.component.core</artifactId>
++			<version>${org.exoplatform.jcr.version}</version>
++		</dependency>
++		<dependency>
++			<groupId>org.exoplatform.jcr</groupId>
++			<artifactId>exo.jcr.component.ext</artifactId>
++			<version>${org.exoplatform.jcr.version}</version>
++		</dependency>
++	</dependencies>	
++</project>
+Index: migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/SystemWorkspaceStreamExporter.java
+===================================================================
+--- migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/SystemWorkspaceStreamExporter.java	(revision 0)
++++ migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/SystemWorkspaceStreamExporter.java	(revision 0)
+@@ -0,0 +1,103 @@
++/*
++ * Copyright (C) 2010 eXo Platform SAS.
++ *
++ * This is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU Lesser General Public License as
++ * published by the Free Software Foundation; either version 2.1 of
++ * the License, or (at your option) any later version.
++ *
++ * This software is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this software; if not, write to the Free
++ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
++ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
++ */
++package org.exoplatform.platform.migration.bos.exporter;
++
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.List;
++
++import javax.jcr.NamespaceException;
++import javax.jcr.NamespaceRegistry;
++import javax.jcr.RepositoryException;
++import javax.xml.stream.XMLStreamWriter;
++
++import org.exoplatform.services.jcr.dataflow.ItemDataConsumer;
++import org.exoplatform.services.jcr.datamodel.InternalQName;
++import org.exoplatform.services.jcr.datamodel.NodeData;
++import org.exoplatform.services.jcr.datamodel.PropertyData;
++import org.exoplatform.services.jcr.impl.Constants;
++import org.exoplatform.services.jcr.impl.core.value.ValueFactoryImpl;
++import org.exoplatform.services.jcr.impl.dataflow.NodeDataOrderComparator;
++import org.exoplatform.services.jcr.impl.dataflow.PropertyDataOrderComparator;
++
++/**
++ * Created by The eXo Platform MEA Author : Anouar Chattouna anouar.chattouna@exoplatform.com June 07, 2011
++ */
++
++public class SystemWorkspaceStreamExporter extends WorkspaceStreamExporter {
++
++  private static final String JCR_SYSTEM = "system";
++  private static final String JCR_VERSION_STORAGE = "versionStorage";
++
++  /**
++   * Ensures a system backup: Not all contents of system workspace will be backed up, but only the Version History nodes.
++   */
++  public SystemWorkspaceStreamExporter(XMLStreamWriter writer, ItemDataConsumer dataManager, NamespaceRegistry namespaceRegistry,
++      ValueFactoryImpl systemValueFactory, boolean skipBinary, boolean noRecurse) throws NamespaceException, RepositoryException {
++    super(writer, dataManager, namespaceRegistry, systemValueFactory, skipBinary, noRecurse);
++  }
++
++  /**
++   * Redefines the {@Link NodeData} visit behavior. See {@link org.exoplatform.services.jcr.dataflow.ItemDataVisitor#visit(NodeData)}. 
++   * This way we will ensure that the workspace system export will preserve only data from node jcr:root/jcr:systemjcr:versionStorage
++   */
++  public void visit(NodeData node) throws RepositoryException {
++    try {
++
++      // ignore if level==1 and name is not "jcr:system"
++      if (currentLevel == 1 && !getExportName(node, false).equals(Constants.NS_JCR_PREFIX + ":" + JCR_SYSTEM)) {
++        return;
++      }
++      // ignore if level==2 and name is not "jcr:versionStorage"
++      if (currentLevel == 2 && !getExportName(node, false).equals(Constants.NS_JCR_PREFIX + ":" + JCR_VERSION_STORAGE)) {
++        return;
++      }
++
++      entering(node, currentLevel);
++
++      if ((maxLevel == -1) || (currentLevel < maxLevel)) {
++        currentLevel++;
++        List<PropertyData> properties = new ArrayList<PropertyData>(dataManager.getChildPropertiesData(node));
++        // Sorting properties
++        Collections.sort(properties, new PropertyDataOrderComparator());
++        for (PropertyData data : properties) {
++          InternalQName propName = data.getQPath().getName();
++          if (Constants.JCR_LOCKISDEEP.equals(propName) || Constants.JCR_LOCKOWNER.equals(propName)) {
++            continue;
++          }
++          data.accept(this);
++        }
++        if (!isNoRecurse() && (currentLevel > 0)) {
++          List<NodeData> nodes = new ArrayList<NodeData>(dataManager.getChildNodesData(node));
++          // Sorting nodes
++          Collections.sort(nodes, new NodeDataOrderComparator());
++          for (NodeData data : nodes) {
++            data.accept(this);
++          }
++        }
++        currentLevel--;
++      }
++      leaving(node, currentLevel);
++    } catch (RepositoryException re) {
++      currentLevel = 0;
++      throw re;
++    }
++  }
++
++}
 Index: migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/WorkspaceStreamExporter.java
 ===================================================================
 --- migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/WorkspaceStreamExporter.java	(revision 0)
 +++ migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/exporter/WorkspaceStreamExporter.java	(revision 0)
-@@ -0,0 +1,69 @@
+@@ -0,0 +1,138 @@
 +/*
 + * Copyright (C) 2010 eXo Platform SAS.
 + *
@@ -320,9 +726,277 @@ Index: migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/e
 +  }
 +
 +}
++/*
++ * Copyright (C) 2010 eXo Platform SAS.
++ *
++ * This is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU Lesser General Public License as
++ * published by the Free Software Foundation; either version 2.1 of
++ * the License, or (at your option) any later version.
++ *
++ * This software is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this software; if not, write to the Free
++ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
++ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
++ */
++package org.exoplatform.platform.migration.bos.exporter;
++
++import javax.jcr.NamespaceException;
++import javax.jcr.NamespaceRegistry;
++import javax.jcr.RepositoryException;
++import javax.xml.stream.XMLStreamException;
++import javax.xml.stream.XMLStreamWriter;
++
++import org.exoplatform.services.jcr.dataflow.ItemDataConsumer;
++import org.exoplatform.services.jcr.impl.Constants;
++import org.exoplatform.services.jcr.impl.core.value.ValueFactoryImpl;
++import org.exoplatform.services.jcr.impl.xml.exporting.WorkspaceSystemViewStreamExporter;
++
++/**
++ * Created by The eXo Platform MEA Author : Anouar Chattouna anouar.chattouna@exoplatform.com June 08, 2011
++ */
++
++public class WorkspaceStreamExporter extends WorkspaceSystemViewStreamExporter {
++
++  private static final String JOS_PREFIX = "jos";
++  private static final String JOS_URI = "http://nl.ijs.si/jos/";
++
++  /**
++   * Ensures a workspace backup: See {@link WorkspaceSystemViewStreamExporter}.
++   */
++  public WorkspaceStreamExporter(XMLStreamWriter writer, ItemDataConsumer dataManager, NamespaceRegistry namespaceRegistry,
++      ValueFactoryImpl systemValueFactory, boolean skipBinary, boolean noRecurse) throws NamespaceException, RepositoryException {
++    super(writer, dataManager, namespaceRegistry, systemValueFactory, skipBinary, noRecurse);
++  }
++
++  /**
++   * Redefines the URI of the "jos" prefix. See {@link org.exoplatform.services.jcr.impl.xml.exporting.StreamExporter#startPrefixMapping()}.
++   */
++  protected void startPrefixMapping() throws RepositoryException, XMLStreamException {
++    String[] prefixes = getNamespaceRegistry().getPrefixes();
++    for (String prefix : prefixes) {
++      // skeep xml prefix
++      if ((prefix == null) || (prefix.length() < 1) || prefix.equals(Constants.NS_XML_PREFIX)) {
++        continue;
++      }
++      // edit jos prefix
++      if (prefix.equals(JOS_PREFIX)) {
++        writer.writeNamespace(prefix, JOS_URI);
++        continue;
++      }
++      writer.writeNamespace(prefix, getNamespaceRegistry().getURI(prefix));
++
++    }
++  }
++
++}
+Index: migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/service/BOSBackupService.java
+===================================================================
+--- migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/service/BOSBackupService.java	(revision 0)
++++ migration/bos/tool/src/main/java/org/exoplatform/platform/migration/bos/service/BOSBackupService.java	(revision 0)
+@@ -0,0 +1,183 @@
++/*
++ * Copyright (C) 2010 eXo Platform SAS.
++ *
++ * This is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU Lesser General Public License as
++ * published by the Free Software Foundation; either version 2.1 of
++ * the License, or (at your option) any later version.
++ *
++ * This software is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this software; if not, write to the Free
++ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
++ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
++ */
++package org.exoplatform.platform.migration.bos.service;
++
++import java.io.File;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.net.URL;
++import java.util.ArrayList;
++import java.util.Calendar;
++
++import javax.jcr.PathNotFoundException;
++import javax.jcr.RepositoryException;
++import javax.xml.stream.XMLOutputFactory;
++import javax.xml.stream.XMLStreamException;
++import javax.xml.stream.XMLStreamWriter;
++
++import org.exoplatform.management.annotations.Managed;
++import org.exoplatform.management.annotations.ManagedDescription;
++import org.exoplatform.management.annotations.ManagedName;
++import org.exoplatform.management.jmx.annotations.NameTemplate;
++import org.exoplatform.management.jmx.annotations.Property;
++import org.exoplatform.platform.migration.bos.exporter.SystemWorkspaceStreamExporter;
++import org.exoplatform.platform.migration.bos.exporter.WorkspaceStreamExporter;
++import org.exoplatform.services.jcr.RepositoryService;
++import org.exoplatform.services.jcr.config.RepositoryConfigurationException;
++import org.exoplatform.services.jcr.config.RepositoryEntry;
++import org.exoplatform.services.jcr.config.WorkspaceEntry;
++import org.exoplatform.services.jcr.core.ManageableRepository;
++import org.exoplatform.services.jcr.core.WorkspaceContainerFacade;
++import org.exoplatform.services.jcr.datamodel.ItemData;
++import org.exoplatform.services.jcr.datamodel.NodeData;
++import org.exoplatform.services.jcr.ext.backup.BackupConfig;
++import org.exoplatform.services.jcr.ext.backup.BackupManager;
++import org.exoplatform.services.jcr.ext.backup.impl.FileNameProducer;
++import org.exoplatform.services.jcr.impl.Constants;
++import org.exoplatform.services.jcr.impl.core.LocationFactory;
++import org.exoplatform.services.jcr.impl.core.NamespaceRegistryImpl;
++import org.exoplatform.services.jcr.impl.core.SessionDataManager;
++import org.exoplatform.services.jcr.impl.core.SessionImpl;
++import org.exoplatform.services.jcr.impl.core.value.ValueFactoryImpl;
++import org.exoplatform.services.jcr.impl.dataflow.persistent.LocalWorkspaceDataManagerStub;
++import org.exoplatform.services.jcr.impl.util.io.FileCleanerHolder;
++import org.exoplatform.services.jcr.impl.xml.exporting.BaseXmlExporter;
++import org.exoplatform.services.log.ExoLogger;
++import org.exoplatform.services.log.Log;
++import org.picocontainer.Startable;
++import org.xml.sax.SAXException;
++
++/**
++ * Created by The eXo Platform MEA Author : Anouar Chattouna anouar.chattouna@exoplatform.com June 03, 2011
++ */
++
++@Managed
++@ManagedDescription("BOS Backup Service")
++@NameTemplate( { @Property(key = "name", value = "BOSBackupService"), @Property(key = "service", value = "bonita-ext"),
++    @Property(key = "type", value = "platform") })
++public class BOSBackupService implements Startable {
++
++  private RepositoryService repositoryService;
++  private RepositoryEntry defaultRepositoryEntry;
++  private String defaultRepositoryName;
++  private final Log logger = ExoLogger.getLogger(this.getClass().getName());
++
++  public BOSBackupService(RepositoryService repositoryService) {
++    this.repositoryService = repositoryService;
++  }
++
++  @Managed
++  @ManagedDescription("Exports the repository data to a backup location")
++  /**
++   * Executes the repository backup.
++   * 
++   * @param backupLocation
++   */
++  public void doBackup(@ManagedName("backupLocation") String backupLocation) {
++
++    logger.info("Starting the backup operation.. Repository: " + defaultRepositoryName);
++    try {
++      // in a standalone container there is one repository, the default one.
++      ManageableRepository repository = repositoryService.getDefaultRepository();
++      ArrayList<WorkspaceEntry> workspaceEntries = defaultRepositoryEntry.getWorkspaceEntries();
++      String systemWorkspaceName = defaultRepositoryEntry.getSystemWorkspaceName();
++      for (WorkspaceEntry workspace : workspaceEntries) {
++        String workspaceName = workspace.getName();
++        SessionImpl session = (SessionImpl) repository.getSystemSession(workspaceName);
++        // set the backup configuration options
++        BackupConfig config = new BackupConfig();
++        config.setBackupType(BackupManager.FULL_BACKUP_ONLY);
++        config.setRepository(defaultRepositoryEntry.getName());
++        config.setWorkspace(workspaceName);
++        // make sure that the backupLocation is well set.
++        if (backupLocation != null) {
++          config.setBackupDir(new File(backupLocation + File.separator + workspaceName));
++        } else {
++          logger.warn("Bachup operation aborted...");
++          throw new IOException("The backupLocation field should not be empty!");
++        }
++        Calendar timeStamp = Calendar.getInstance();
++        URL url = createStorage(config, timeStamp);
++        FileOutputStream fos = new FileOutputStream(url.getFile());
++        try {
++          WorkspaceContainerFacade workspaceContainer = repository.getWorkspaceContainer(workspaceName);
++          LocalWorkspaceDataManagerStub workspaceDataManager = (LocalWorkspaceDataManagerStub) workspaceContainer
++              .getComponent(LocalWorkspaceDataManagerStub.class);
++          SessionDataManager dataManager = new SessionDataManager(session, workspaceDataManager);
++          LocationFactory factory = new LocationFactory(((NamespaceRegistryImpl) repository.getNamespaceRegistry()));
++          WorkspaceEntry wsConfig = (WorkspaceEntry) workspaceContainer.getComponent(WorkspaceEntry.class);
++          FileCleanerHolder cleanerHolder = (FileCleanerHolder) workspaceContainer.getComponent(FileCleanerHolder.class);
++          ValueFactoryImpl valueFactoryImpl = new ValueFactoryImpl(factory, wsConfig, cleanerHolder);
++          XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
++          XMLStreamWriter streamWriter = outputFactory.createXMLStreamWriter(fos, Constants.DEFAULT_ENCODING);
++          ItemData srcItemData = dataManager.getItemData(Constants.ROOT_UUID);
++          if (srcItemData == null) {
++            throw new PathNotFoundException("Root node not found");
++          }
++          if (!workspace.getName().equals(systemWorkspaceName)) {
++            // export data from the workspace as system view
++            // session.exportWorkspaceSystemView(fos, false, false);
++            BaseXmlExporter exporter = new WorkspaceStreamExporter(streamWriter, dataManager, repository.getNamespaceRegistry(),
++                valueFactoryImpl, false, false);
++            exporter.export((NodeData) srcItemData);        
++          } else {
++            // if the workspace is the system workspace, proceed differently:
++            // not all contents will be exported, but only the Version History nodes
++            BaseXmlExporter exporter = new SystemWorkspaceStreamExporter(streamWriter, dataManager, repository
++                .getNamespaceRegistry(), valueFactoryImpl, false, false);
++            exporter.export((NodeData) srcItemData);
++          }
++        } catch (XMLStreamException e) {
++          logger.error("Full backup failed... " + e);
++        } catch (SAXException e) {
++          logger.error("Full backup failed... " + e);
++        } finally {
++          session.logout();
++        }
++        logger.info("Full backup succeeded: " + url.getPath());
++      }
++    } catch (IOException e) {
++      logger.error("Full backup failed... " + e);
++    } catch (RepositoryException e) {
++      logger.error("Full backup failed... " + e);
++    } catch (RepositoryConfigurationException e) {
++      logger.error("Full backup failed... " + e);
++    }
++  }
++
++  private URL createStorage(BackupConfig config, Calendar timeStamp) throws IOException {
++    FileNameProducer fileNameProducer = new FileNameProducer(config.getRepository(), config.getWorkspace(), config.getBackupDir()
++        .getAbsolutePath(), timeStamp, true);
++    return new URL("file:" + fileNameProducer.getNextFile().getAbsolutePath());
++  }
++
++  public void start() {
++    logger.info("BOS Backup Service started");
++    defaultRepositoryName = repositoryService.getConfig().getDefaultRepositoryName();
++    try {
++      defaultRepositoryEntry = repositoryService.getConfig().getRepositoryConfiguration(defaultRepositoryName);
++    } catch (RepositoryConfigurationException e) {
++      logger.error("Cannot proceed BOS Backup Service initialization... " + e);
++    }
++  }
++
++  public void stop() {
++    logger.info("BOS Backup Service stopped");
++  }
++}
+Index: migration/bos/tool/src/main/resources/conf/portal/configuration.xml
+===================================================================
+--- migration/bos/tool/src/main/resources/conf/portal/configuration.xml	(revision 0)
++++ migration/bos/tool/src/main/resources/conf/portal/configuration.xml	(revision 0)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="ISO-8859-1"?>
++<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
++   <component>
++      <type>org.exoplatform.platform.migration.bos.service.BOSBackupService</type>
++   </component>
++</configuration>
 Index: migration/doc/src/main/wikbook/en/en-US/book.wiki
 ===================================================================
---- migration/doc/src/main/wikbook/en/en-US/book.wiki	(revision 70298)
+--- migration/doc/src/main/wikbook/en/en-US/book.wiki	(revision 70310)
 +++ migration/doc/src/main/wikbook/en/en-US/book.wiki	(working copy)
 @@ -1,7 +1,11 @@
 -h1. Migration Guide
@@ -342,7 +1016,58 @@ Index: migration/doc/src/main/wikbook/en/en-US/bos-tools.wiki
 ===================================================================
 --- migration/doc/src/main/wikbook/en/en-US/bos-tools.wiki	(revision 0)
 +++ migration/doc/src/main/wikbook/en/en-US/bos-tools.wiki	(revision 0)
-@@ -0,0 +1,51 @@
+@@ -0,0 +1,102 @@
++{toc}
++
++h1. Preamble
++
++PLF 3.0 provides a set of tools to migrate system data from your BOS-5.5 standalone instance to your new PLF 3.0 + Bonita instance.
++
++So the entire old package will not be used, but it will serve as a backup of his old system.
++
++h1. Requirements
++
++. BOS-5.5 standalone server
++. Platform + Bonita server
++
++In this document we will use *<BOS-Server>* for BOS-5.5 standalone server and *<PLF-Server>* for Platform + Bonita server.
++
++h1. Install the migration libraries
++
++_This section provides step-by-step instructions for the backup procedure from a running BOS 5.5 standalone to Platform + Bonita._
++
++# Stop the running BOS-Server.
++# Copy the the BOS Migration Tool library, located in _/bos/lib/exo.platform.migration.bos.tool-<VERSION>.jar_ into the xcmis lib directory of BOS-Server.
++# Start again the BOS-Server, in the log file (i.e: <BOS-Server>/logs/catalina.out) you should see a message indicating that the backup service is started:
++{code}
++BOSBackupService: BOS Backup Service started
++{code}
++# Access the server via _JMX_: in this example we will use _jconsole_ as a JMX client.
++# Choose *exo* > *platform* > *bonita-ext* > *BOSBackupService* MBeans.
++. We will proceed for the backup in a chosen location, say */exo-work/BOS-5.5/backup/*
++# In the _JMX_ client, fill the _backupLocation_ field with appropriate value: */exo-work/BOS-5.5/backup/cmis1*
++!bos/jconsole1.png!
++# Hit *doBackup*, you should see a *Method successfully invoked* message
++!bos/backup-ok.png!
++.In the log file (i.e: <BOS-Server>/logs/catalina.out) you should see a message indicating the backup success:
++{code}
++BOSBackupService: Starting the backup operation.. Repository: db1
++BOSBackupService: Full backup succeeded: /exo-work/BOS-5.5/backup/system/db1_system-20110608_061330.0
++BOSBackupService: Full backup succeeded: /exo-work/BOS-5.5/backup/cmis1/db1_cmis1-20110608_061330.0
++{code}
++
++. The backup procedure is now finished, we will go for a restore operation from the PLF-Server.
++# Copy the whole backup folder */exo-work/BOS-5.5/backup/* to <PLF-Server>/temp
++# Use the configuration archive located in _/bos/config/exo.platform.migration.bos.config-<VERSION>.zip_ and extract it in "<PLF-Server>/gatein/conf".
++
++# Start your server.
++. You should see that the workspaces are well initialized from the restore files
++{code}
++Jun 8, 2011 12:48:39 PM org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer initWorkspace
++INFO: Workspace system restored from file <PLF-Server>/bin/../temp/backup/system/db1_system-20110608_061330.0 in 0.269sec
++Jun 8, 2011 12:48:39 PM org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer initWorkspace
++INFO: Workspace cmis1 restored from file <PLF-Server>/bin/../temp/backup/cmis1/db1_cmis1-20110608_061330.0 in 0.181sec
++{code}
 +{toc}
 +
 +h1. Preamble
@@ -396,7 +1121,7 @@ Index: migration/doc/src/main/wikbook/en/en-US/bos-tools.wiki
 +{code}
 Index: migration/pom.xml
 ===================================================================
---- migration/pom.xml	(revision 70298)
+--- migration/pom.xml	(revision 70310)
 +++ migration/pom.xml	(working copy)
 @@ -13,6 +13,7 @@
      <module>common</module>
