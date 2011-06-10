@@ -1,11 +1,7 @@
-h1. AIO Migration Guide
+h1. Migration Guide
 
 {include:document=guide.wiki|syntax=confluence/1.0}
 
-h1. AIO Migration Tools 
+h1. Migration Tools 
 
 {include:document=tools.wiki|syntax=confluence/1.0}
-
-h1. BOS Migration Tools
-
-{include:document=bos-tools.wiki|syntax=confluence/1.0}
