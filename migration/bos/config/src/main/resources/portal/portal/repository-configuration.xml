@@ -1,0 +1,139 @@
+<repository-service default-repository="repository">
+  <repositories>
+    <repository name="repository" system-workspace="system" default-workspace="collaboration">
+      <security-domain>${portal.container.realm}</security-domain>
+      <access-control>optional</access-control>
+      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
+      <workspaces>
+		<!-- System data -->
+		<workspace name="system">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+              <property name="multi-db" value="false"/>
+              <property name="update-storage" value="true"/>
+              <property name="max-buffer-size" value="204800"/>
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/system${container.name.suffix}"/>
+            </properties>
+            <value-storages>
+              <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/system${container.name.suffix}"/>
+                </properties>
+                <filters>
+                  <filter property-type="Binary"/>
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+		  <initializer class="org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer">
+			<properties>
+				<property name="restore-path" value="../temp/backup/system"/>
+			</properties>
+		  </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcr-${container.name.suffix}-system" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/system${container.name.suffix}"/>
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcrindexer-${container.name.suffix}-system" />
+              <property name="max-volatile-time" value="60" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcrlock-${container.name.suffix}-system" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlock_system" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+        <!-- cmis1 data -->
+        <workspace name="cmis1">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+              <property name="multi-db" value="false"/>
+              <property name="update-storage" value="true"/>
+              <property name="max-buffer-size" value="204800"/>
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/cmis1${container.name.suffix}"/>
+            </properties>
+            <value-storages>
+              <value-storage id="cmis1" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/cmis1${container.name.suffix}"/>
+                </properties>
+                <filters>
+                  <filter property-type="Binary"/>
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+		  <initializer class="org.exoplatform.services.jcr.impl.core.BackupWorkspaceInitializer">
+			<properties>
+				<property name="restore-path" value="../temp/backup/cmis1"/>
+			</properties>
+		  </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcr-${container.name.suffix}-cmis1" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/cmis1${container.name.suffix}"/>
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcrindexer-${container.name.suffix}-cmis1" />
+              <property name="max-volatile-time" value="60" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jgroups-multiplexer-stack" value="true" />
+              <property name="jbosscache-cluster-name" value="jcrlock-${container.name.suffix}-cmis1" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlock_cmis1" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+      </workspaces>
+    </repository>
+  </repositories>
+</repository-service>

@@ -13,6 +13,7 @@
     <module>common</module>
     <module>aio</module>
     <module>plf</module>
+    <module>bos</module>
     <module>doc</module>
     <module>assembly</module>
   </modules>

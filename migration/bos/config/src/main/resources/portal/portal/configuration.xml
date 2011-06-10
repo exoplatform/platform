@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	<component>
+		<key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
+		<type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl</type>
+		<init-params>
+			<properties-param>
+				<name>backup-properties</name>
+				<property name="default-incremental-job-period" value="3600" />
+				<!-- set default incremental periond = 60 minutes -->
+				<property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.FullBackupJob" />
+				<property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
+				<property name="backup-dir" value="../temp/backup" />
+			</properties-param>
+		</init-params>
+	</component>
+	<external-component-plugins>
+		<!-- The full qualified name of the RepositoryServiceConfiguration -->
+		<target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>Sample RepositoryServiceConfiguration Plugin</name>
+			<!-- The name of the method to call on the RepositoryServiceConfiguration in order to add the RepositoryServiceConfigurations -->
+			<set-method>addConfig</set-method>
+			<!-- The full qualified name of the RepositoryServiceConfigurationPlugin -->
+			<type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
+			<init-params>
+				<value-param>
+					<name>conf-path</name>
+					<description>JCR configuration file</description>
+					<value>repository-configuration.xml</value>
+				</value-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
