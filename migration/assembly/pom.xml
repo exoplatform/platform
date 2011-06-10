@@ -30,13 +30,24 @@
 				</dependency>
 				<dependency>
 					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.migration.bos.tool</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.migration.bos.config</artifactId>
+					<version>${project.version}</version>
+					<type>zip</type>
+				</dependency>
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
 					<artifactId>exo.platform.migration.doc</artifactId>
 					<version>${project.version}</version>
 					<type>zip</type>
 				</dependency>
 			</dependencies>
 			<build>
-				<finalName>aio-migration-toolkit-${project.version}</finalName>
+				<finalName>migration-toolkit-${project.version}</finalName>
 				<plugins>
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
