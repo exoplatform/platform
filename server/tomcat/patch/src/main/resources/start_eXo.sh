@@ -51,7 +51,7 @@ cd ./bin
 if [ "$1" = "" ] ; then 
 	EXO_PROFILES="-Dexo.profiles=default"
 else
-	EXO_PROFILES="-Dexo.profiles=$1"
+	EXO_PROFILES="-Dexo.profiles=$*"
 fi
 
 
