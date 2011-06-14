@@ -32,6 +32,11 @@
         <name>portalNames</name>
         <value>acme</value>
       </values-param>
+      <!-- set the access to administration menu of the newsletter -->
+      <values-param>
+   		<name>administrators</name>
+        <value>john</value>
+      </values-param>
       <object-param>
 		<!-- Add "a-" in order to display this category first of all -->
         <name>a-general</name>
