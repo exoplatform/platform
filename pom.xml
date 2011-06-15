@@ -39,7 +39,7 @@
     <org.exoplatform.social.version>1.2.0-Beta3-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
     <org.crsh.version>1.0.0-beta15</org.crsh.version>
-    <org.exoplatform.exopackage.version>1.1.1</org.exoplatform.exopackage.version>
+    <org.exoplatform.exopackage.version>1.1.2</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
     <exo.workflow.engine>jbpm</exo.workflow.engine>
     <!-- workflow implementations -->
