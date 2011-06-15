@@ -8,14 +8,14 @@
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
-  <version>3.0.5-SNAPSHOT</version>
+  <version>3.0.5</version>
   <packaging>pom</packaging>
   <name>eXo Platform</name>
   <description>Parent POM for platform projects.</description>
   <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/branches/3.0.x</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/platform/branches/3.0.x</url>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/tags/3.0.5</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/tags/3.0.5</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/platform/tags/3.0.5</url>
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
