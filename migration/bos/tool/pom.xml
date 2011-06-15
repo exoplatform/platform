@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.migration.bos</artifactId>
-		<version>3.0.5</version>
+		<version>3.0.6-SNAPSHOT</version>
 	</parent>
 	<artifactId>exo.platform.migration.bos.tool</artifactId>
 	<packaging>jar</packaging>
