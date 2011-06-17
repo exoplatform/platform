@@ -166,6 +166,14 @@
     padding: 0px;
 }
 
+.UIToolbarContainer .ToolbarContainer a {
+	display: block;
+	padding: 0px; /* orientation=lt */
+	padding: 0px; /* orientation=rt */
+	white-space: nowrap;
+	color: #3e3e3e;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a.TBIcon {
 	color: #FFD400;
 	font-weight: normal;

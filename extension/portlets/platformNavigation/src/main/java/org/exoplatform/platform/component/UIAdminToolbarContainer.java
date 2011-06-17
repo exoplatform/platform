@@ -171,6 +171,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       popUp.setUIComponent(naviManager);
       popUp.setShowMask(true);
       popUp.setShow(true);
+      popUp.setWindowSize(400, 400);
       context.addUIComponentToUpdateByAjax(uicomp);
     }
   }
