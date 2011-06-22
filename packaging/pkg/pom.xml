@@ -1400,17 +1400,53 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.extension.webos-ext</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>    
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.resources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
+    <!-- WebOS dependencies -->
     <dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.extension.war</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <type>war</type>
+    </dependency>
+	<dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.portlet.webosadmin</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <type>war</type>
+    </dependency>
+	<dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.web.webosResources</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.component.web</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <type>jar</type>
+    </dependency> 
+    <dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.webui.webos</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <type>jar</type>
+    </dependency>
+	<dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.calendar.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
       <type>jar</type>
     </dependency>
-
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.mail.service</artifactId>

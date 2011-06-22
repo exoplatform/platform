@@ -8,6 +8,7 @@ function getModule(params)
    var core = params.core;
    var jcr = params.eXoJcr;
    var ws = params.ws;
+   var webos = params.webos;
    var module = new Module();
    module.version = "${project.version}";
    module.relativeMavenRepo = "org/exoplatform/platform";
@@ -30,6 +31,7 @@ function getModule(params)
    var xcmisVersion = "${org.xcmis.version}";
    var ecmsVersion = "${org.exoplatform.ecms.version}";
    var crashVersion = "${org.crsh.version}";
+   var webosVersion = "${org.exoplatform.webos.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
@@ -77,6 +79,9 @@ function getModule(params)
    module.extension.resources = 
       new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);
    module.extension.resources.deployName = "eXoPlatformResources";
+   module.extension.webosext = 
+      new Project("org.exoplatform.platform", "exo.platform.extension.webos-ext", "war", module.version);
+   module.extension.webosext.deployName = "platform-webos-extension";   
    
    
    module.extension.portlets = {};
@@ -152,6 +157,23 @@ function getModule(params)
    module.crash = {};
    module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
    module.crash.webapp.deployName = "crash";
+   
+   // eXo WebOS
+   module.webos = {};
+   
+   module.webos.webosadmin =
+       new Project("org.exoplatform.webos", "exo.webos.portlet.webosadmin", "war", webosVersion);
+   module.webos.webosadmin.deployName = "webosadmin";
+   module.webos.webosResources =
+       new Project("org.exoplatform.webos", "exo.webos.web.webosResources", "war", webosVersion);
+   module.webos.webosResources.deployName = "webosResources";   
+   module.webos.ext =
+       new Project("org.exoplatform.webos", "exo.webos.extension.war", "war", webosVersion).
+        addDependency(new Project("org.exoplatform.webos", "exo.webos.component.web", "jar", webosVersion)).
+        addDependency(new Project("org.exoplatform.webos", "exo.webos.webui.webos", "jar", webosVersion)).
+        addDependency(module.webos.webosadmin).
+        addDependency(module.webos.webosResources);
+   module.webos.ext.deployName = "webos-ext";   
 
    
    return module;

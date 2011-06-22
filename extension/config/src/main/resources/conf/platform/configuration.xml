@@ -56,7 +56,17 @@
               <value>
                 <string>fck</string>
               </value>
-
+              
+              <!-- webos -->
+			  <value profiles="webos,all">
+				<string>webos-ext</string>
+			  </value>
+			  <value profiles="webos,all">
+				<string>webosadmin</string>
+			  </value>
+			  <value profiles="webos,all">
+				<string>webosResources</string>
+			  </value>	
               <!-- collab -->
               <value profiles="collaboration,all,default">
                 <string>cs-extension</string>
@@ -196,6 +206,10 @@
               <value>
                 <string>platform-extension</string>
               </value>
+              <!-- overrides the platform-extension sharedlayout -->
+			  <value profiles="webos,all">
+				<string>platform-webos-extension</string>
+			  </value>              
               <value>
                 <string>platformNavigation</string>
               </value>

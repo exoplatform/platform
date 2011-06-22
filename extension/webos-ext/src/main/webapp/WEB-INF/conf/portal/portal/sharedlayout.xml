@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+	<container template="war:/groovy/portal/webui/container/UIPinToolbarContainer.gtmpl">
+		<access-permissions>*:/platform/users</access-permissions>
+		<container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+			<access-permissions>*:/platform/users</access-permissions>
+			<container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl"></container>
+			<container id="UserToolBarSitePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIUserPlatformToolBarSitePortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
+			<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIMySpacePlatformToolBarPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>Everyone</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>			
+			<container id="UserToolBarDesktopPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>webosadmin</application-ref>
+						<portlet-ref>UserToolbarDesktopPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>Everyone</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
+			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
+					</portlet>
+					<access-permissions>*:/platform/users; editor:/platform/web-contributors</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
+			<container id="PinToolbarContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			</container>
+			<container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UserInfoPortlet</portlet-ref><!--PLF-308-->
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
+		</container>
+		<container id="BreadcrumbPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<portlet-application>
+				<portlet>
+					<application-ref>platformNavigation</application-ref>
+					<portlet-ref>UIBreadcrumbPlatformToolBarPortlet</portlet-ref>
+				</portlet>
+				<access-permissions>*:/platform/users</access-permissions>
+				<show-info-bar>false</show-info-bar>
+			</portlet-application>
+		</container>
+
+	</container>
+
+	<site-body/>
+</container>

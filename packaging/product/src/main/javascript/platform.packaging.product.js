@@ -53,6 +53,7 @@ function getProduct(version) {
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config); 
   product.addDependencies(platform.extension.webapp); // includes xCMIS dependencies
+  product.addDependencies(platform.extension.webosext);
   product.addDependencies(platform.extension.resources);
   product.addDependencies(platform.component.common);
   product.addDependencies(platform.extension.portlets.platformNavigation);
@@ -77,6 +78,8 @@ function getProduct(version) {
   
   /* IDE */
   product.addDependencies(platform.ide.webapp);
+  /* WebOS */
+  product.addDependencies(platform.webos.ext);
   
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);

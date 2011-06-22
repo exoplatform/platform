@@ -29,6 +29,7 @@
     <org.exoplatform.jcr.version>1.14.0-CR2</org.exoplatform.jcr.version>
     <org.exoplatform.jcr-services.version>1.14.0-CR2</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.webos.version>2.0.0-SNAPSHOT</org.exoplatform.webos.version>
     <org.exoplatform.commons.version>1.1.0-Beta02-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.ide.version>
