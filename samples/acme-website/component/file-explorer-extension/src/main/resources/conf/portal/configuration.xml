@@ -79,10 +79,6 @@
 					<name>predefinedViewsLocation</name>
 					<value>war:/conf/wcm-artifacts</value>
 				</value-param>
-				<value-param>
-					<name>repository</name>
-					<value>repository</value>
-				</value-param>
 				 <object-param>
 		          <name>WCM-View</name>
 		          <description>View configuration of WCM administrator</description>

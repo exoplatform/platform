@@ -26,10 +26,6 @@
 	        	<name>predefinedViewsLocation</name>
 	        	<value>war:/conf/dms-extension/dms/artifacts</value>
 	        </value-param>	        
-	        <value-param>
-	        	<name>repository</name>
-	        	<value>repository</value>
-	        </value-param>
           <object-param>	      
 		        <name>Timeline-View-document</name>
 		        <description>View configuration for System workspace</description>

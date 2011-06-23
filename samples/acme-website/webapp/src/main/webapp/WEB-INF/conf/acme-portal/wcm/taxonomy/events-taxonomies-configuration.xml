@@ -36,10 +36,6 @@
           <value>false</value>
         </value-param>
         <value-param>
-          <name>repository</name>
-          <value>repository</value>
-        </value-param>
-        <value-param>
           <name>workspace</name>
           <value>collaboration</value>
         </value-param>

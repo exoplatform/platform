@@ -43,7 +43,7 @@ public class ContentNavigationService implements ResourceContainer {
 
 	private static Log logger = ExoLogger.getExoLogger(ContentNavigationService.class);
 	
-	private String repository = null;
+//	private String repository = null;
 	private String workspace = null;
 	private RepositoryService repositoryService_;
 	private ManageableRepository manageableRepository_;
@@ -51,7 +51,7 @@ public class ContentNavigationService implements ResourceContainer {
 	public ContentNavigationService(RepositoryService rService, TemplateService templateService, InitParams params) {
 		this.repositoryService_ = rService;
 
-		repository = params.getValueParam("repository").getValue();
+		//repository = params.getValueParam("repository").getValue();
 		workspace = params.getValueParam("workspace").getValue();
 	}
 
@@ -67,12 +67,13 @@ public class ContentNavigationService implements ResourceContainer {
 		List<JsonMenuNode> jsonMenuNodes = new ArrayList<JsonMenuNode>();
 
 		try {
-			if (repository != null && !repository.equals("")) {
-				manageableRepository_ = repositoryService_.getRepository(repository);
-			} else {
-				manageableRepository_ = repositoryService_.getDefaultRepository();
-				repository = manageableRepository_.getConfiguration().getName();
-			}
+//			if (repository != null && !repository.equals("")) {
+//				manageableRepository_ = repositoryService_.getRepository(repository);
+//			} else {
+//				manageableRepository_ = repositoryService_.getDefaultRepository();
+//				repository = manageableRepository_.getConfiguration().getName();
+//			}
+                       manageableRepository_ = repositoryService_.getCurrentRepository();
 
 			// open jcr session
 			Session session = manageableRepository_.getSystemSession(workspace);
@@ -112,7 +113,7 @@ public class ContentNavigationService implements ResourceContainer {
 					navigableNode.setListParam(node.hasProperty("exo:pageParamId") ? node.getProperty("exo:pageParamId").getValue().getString() : "");
 					navigableNode.setDetailUri(node.hasProperty("exo:childrenPage") ? node.getProperty("exo:childrenPage").getValue().getString() : "");
 					navigableNode.setDetailParam(node.hasProperty("exo:childrenPageParamId") ? node.getProperty("exo:childrenPageParamId").getValue().getString() : "");
-					if(wcmComposer.getContent(repository, workspace, node.getPath(), filters, WCMCoreUtils.getUserSessionProvider()) == null){
+					if(wcmComposer.getContent(manageableRepository_.getConfiguration().getName(), workspace, node.getPath(), filters, WCMCoreUtils.getUserSessionProvider()) == null){
 					  navigableNode.setViewableNode(false);
 					}else{
 					  navigableNode.setViewableNode(true);

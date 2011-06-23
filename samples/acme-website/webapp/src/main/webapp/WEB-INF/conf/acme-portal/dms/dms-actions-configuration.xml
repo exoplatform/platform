@@ -21,7 +21,6 @@
             <name>predefined.actions</name>
             <description>description</description>
             <object type="org.exoplatform.services.cms.actions.impl.ActionConfig">
-              <field  name="repository"><string>repository</string></field>
               <field  name="workspace"><string>collaboration</string></field>
               <field  name="actions">
                 <collection type="java.util.ArrayList">

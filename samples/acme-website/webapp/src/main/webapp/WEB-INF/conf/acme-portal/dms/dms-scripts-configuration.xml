@@ -23,10 +23,6 @@
 					<value>true</value>
 				</value-param>	        
 				<value-param>
-					<name>repository</name>
-					<value>repository</value>
-				</value-param>
-				<value-param>
 					<name>predefinedScriptsLocation</name>
 					<value>war:/conf/acme-portal/dms/artifacts</value>
 				</value-param>

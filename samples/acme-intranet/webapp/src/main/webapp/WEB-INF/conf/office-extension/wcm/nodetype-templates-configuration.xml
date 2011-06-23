@@ -43,10 +43,6 @@
           <name>storedLocation</name>
           <value>war:/conf/office-extension/wcm/nodetype-templates</value>
         </value-param>
-        <value-param>
-          <name>repository</name>
-          <value>repository</value>
-        </value-param>
         <object-param>
           <name>template.configuration</name>
           <description>configuration for the localtion of nodetypes templates to inject in jcr</description>
