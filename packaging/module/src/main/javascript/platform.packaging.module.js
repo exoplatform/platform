@@ -79,10 +79,6 @@ function getModule(params)
    module.extension.resources = 
       new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);
    module.extension.resources.deployName = "eXoPlatformResources";
-   module.extension.webosext = 
-      new Project("org.exoplatform.platform", "exo.platform.extension.webos-ext", "war", module.version);
-   module.extension.webosext.deployName = "platform-webos-extension";   
-   
    
    module.extension.portlets = {};
    module.extension.portlets.platformNavigation =  new Project("org.exoplatform.platform", "exo.platform.extension.portlets.platformNavigation", "war", module.version);
@@ -173,8 +169,7 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.webos", "exo.webos.webui.webos", "jar", webosVersion)).
         addDependency(module.webos.webosadmin).
         addDependency(module.webos.webosResources);
-   module.webos.ext.deployName = "webos-ext";   
-
+   module.webos.ext.deployName = "webos-ext";
    
    return module;
 }

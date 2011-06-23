@@ -199,6 +199,7 @@ The {{start{{{_}}}eXo}} commands accept a comma-separated list of profiles. The 
 | {{knowledge}} | Enable the eXo Knowledge module.|
 | {{social}} | Enable the eXo Social module. |
 | {{workflow}} | Enable the workflow add-ons within the eXo Content module.|
+| {{webos}} | Enable the eXo WebOS module.|
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
@@ -209,5 +210,6 @@ Additionally, you can use these composite profiles:
 For example:
 
 * ./start_eXo.sh default,workflow: Start all modules, including workflow.
+* ./start_eXo.sh default,webos: Start all modules, including webos.
 * ./start_eXo.sh collaboration,knowledge: Start eXo Platform with GateIn, eXo Content, eXo Collaboration and eXo Knowledge enabled.
 * ./start_eXo.sh minimal,social: Start with eXo Social, GateIn and eXo Content.

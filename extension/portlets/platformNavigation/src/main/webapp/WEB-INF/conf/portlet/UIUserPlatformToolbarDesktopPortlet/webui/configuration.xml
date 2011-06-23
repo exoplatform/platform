@@ -19,4 +19,15 @@
 
 -->
 
-<Context path="/platform-webos-extension" docBase="platform-webos-extension" debug="0" reloadable="true" crossContext="true"/>
+<webui-configuration>  
+  <annotation-classes>
+  </annotation-classes>  
+   
+  <application>     
+    <ui-component-root>org.exoplatform.platform.component.UIUserPlatformToolbarDesktopPortlet</ui-component-root>    
+    <state-manager>org.exoplatform.webui.application.portlet.ParentAppStateManager</state-manager>
+    <application-lifecycle-listeners>       
+      <listener>org.exoplatform.portal.application.PortletStatisticLifecycle</listener>       
+    </application-lifecycle-listeners>
+  </application>
+</webui-configuration>

@@ -51,12 +51,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>exo.platform.extension.webos-ext</artifactId>
-      <version>${project.version}</version>
-      <type>war</type>
-    </dependency>    
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.resources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
@@ -1305,12 +1299,6 @@
               <contextRoot>platform-extension</contextRoot>
               <bundleFileName>platform-extension.war</bundleFileName>
             </webModule>
-            <webModule>
-              <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.extension.webos-ext</artifactId>
-              <contextRoot>platform-webos-extension</contextRoot>
-              <bundleFileName>platform-webos-extension.war</bundleFileName>
-            </webModule>            
             <webModule>
               <groupId>org.exoplatform.platform</groupId>
               <artifactId>exo.platform.extension.resources</artifactId>

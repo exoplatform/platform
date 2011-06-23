@@ -23,6 +23,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform.webos</groupId>
+      <artifactId>exo.webos.webui.webos</artifactId>
+      <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>
+    </dependency>	
+    <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.core</artifactId>
       <version>${org.exoplatform.social.version}</version>

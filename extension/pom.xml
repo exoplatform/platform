@@ -12,7 +12,6 @@
   <modules>
     <module>config</module>
     <module>webapp</module>
-    <module>webos-ext</module>
     <module>resources</module>
     <module>portlets</module>
     <module>ear</module>

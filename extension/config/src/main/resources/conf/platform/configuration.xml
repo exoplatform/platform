@@ -205,11 +205,7 @@
               <!-- Contains shared layout -->
               <value>
                 <string>platform-extension</string>
-              </value>
-              <!-- overrides the platform-extension sharedlayout -->
-			  <value profiles="webos,all">
-				<string>platform-webos-extension</string>
-			  </value>              
+              </value>            
               <value>
                 <string>platformNavigation</string>
               </value>

@@ -167,6 +167,39 @@
 			<short-title>Breadcrumb</short-title>
 		</portlet-info>
 	</portlet>
+   <portlet>
+      <description xml:lang="EN">Desktop Portlet</description>
+      <portlet-name>UIUserPlatformToolbarDesktopPortlet</portlet-name>
+      <display-name xml:lang="EN">Platform Toolbar Desktop Portlet</display-name>
+      <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+
+      <init-param>
+         <name>webui.configuration</name>
+         <value>/WEB-INF/conf/portlet/UIUserPlatformToolbarDesktopPortlet/webui/configuration.xml</value>
+      </init-param>
+
+      <expiration-cache>0</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>help</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+	  <resource-bundle>locale.portlet.UIUserPlatformToolbarDesktopPortlet.UIUserPlatformToolbarDesktopPortlet</resource-bundle>
+      <portlet-info>
+         <title>User Platform ToolBar Desktop Portlet</title>
+         <short-title>Desktop Portlet</short-title>
+         <keywords>gatein_internal</keywords>
+      </portlet-info>
+
+      <security-role-ref>
+         <role-name>admin</role-name>
+         <role-link>admin</role-link>
+      </security-role-ref>
+
+      <supported-processing-event>
+         <name>NavigationChange</name>
+      </supported-processing-event>
+   </portlet>	
 	<event-definition>
 	  <name>NavigationChange</name>
 	</event-definition>

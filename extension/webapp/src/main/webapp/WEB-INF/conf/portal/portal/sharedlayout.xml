@@ -49,8 +49,8 @@
 			<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<portlet-application>
 					<portlet>
-						<application-ref>exoadmin</application-ref>
-						<portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UIUserPlatformToolbarDesktopPortlet</portlet-ref>
 					</portlet>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
