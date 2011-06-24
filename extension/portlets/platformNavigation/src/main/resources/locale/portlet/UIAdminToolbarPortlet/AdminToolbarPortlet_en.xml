@@ -6,7 +6,7 @@
          <EditPage>Page Layout</EditPage>
          <EditSiteLayout>Portal Layout</EditSiteLayout>
          <EditNavigationLayout>Navigation</EditNavigationLayout>
-         <Content>Contenu</Content>
+         <Content>Content</Content>
          <Editor>Edit</Editor>
       </action>
    </UIAdminToolbarPortlet>
