@@ -510,7 +510,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${org.slf4j.version}</version>
-      <scope>test</scope>
+      <type>jar</type>
     </dependency>
     
     <dependency>
@@ -1465,22 +1465,12 @@
       <artifactId>exo.ks.eXoApplication.wiki.service</artifactId>
       <version>${org.exoplatform.ks.version}</version>
       <type>jar</type>
-    </dependency><!-- 2.2.0-SNAPSHOT-->
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.wiki.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
       <type>war</type>
-    </dependency><!-- 2.2.0-SNAPSHOT-->
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-servlet</artifactId>
-      <version>${gwt.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>${gwt.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.validation</groupId>
