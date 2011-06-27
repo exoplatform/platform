@@ -1,0 +1,1 @@
+WARNING : Each demo creates a separate portal container, which adds significant memory overhead. These demos are samples for evaluation purpose only. They are not supported for production deployment. Production deployments are expected to be done on the default portal container.

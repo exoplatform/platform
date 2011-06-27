@@ -18,5 +18,6 @@
     <module>pkg-jbosseap</module>
     <module>pkg-jboss</module>
     <module>delivery</module>
+    <module>pkg-jbossepp</module>
   </modules>
 </project>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.packaging</artifactId>
+    <version>3.5.0-M3-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.packaging.jbosseppsp</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Packaging JBossEPPSP EARs</name>
+
+<profiles>
+    <profile>
+      <id>distrib</id>
+  <build>
+    <finalName>exo-platform-for-eppsp-${project.version}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <!-- Extract jbosseap.ear, default-website.ear and platform-extension.ear -->
+          <execution>
+             <id>01-ears-unpack-dependencies</id>
+             <phase>prepare-package</phase>
+             <goals>
+               <goal>unpack</goal>
+             </goals>
+             <configuration>
+               <artifactItems>
+				<artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.packaging.jbosseap</artifactId>
+				  <version>${project.version}</version>                                
+				  <type>zip</type>
+                                  <classifier>ears</classifier>
+                                  <outputDirectory>${project.build.directory}/jbosseap</outputDirectory>
+				</artifactItem>
+                                <!-- extracts the docs webapp-->
+				<artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.doc.bundle</artifactId>
+				  <version>${project.version}</version>
+				  <type>war</type>
+                                  <outputDirectory>${project.build.directory}/docs</outputDirectory>
+				</artifactItem>
+                                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.sample.default-website.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+                                  <outputDirectory>${project.build.directory}/default-website</outputDirectory>
+				</artifactItem>
+                                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.extension.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+                                  <outputDirectory>${project.build.directory}/platform-extension</outputDirectory>
+				</artifactItem>
+
+               </artifactItems>
+             </configuration>
+           </execution>
+          <!-- Copy the EARs to jbossepp/addons/binaries and jbossepp/demos/binaries-->
+          <execution>
+            <id>02-ears-copy-ears</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/jbossepp/addons/binaries</outputDirectory>
+              <artifactItems>
+				<artifactItem>
+				  <groupId>org.exoplatform.cs</groupId>
+				  <artifactId>exo.cs.extension.ear</artifactId>
+				  <version>${org.exoplatform.cs.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+				<artifactItem>
+				  <groupId>org.exoplatform.ecms</groupId>
+				  <artifactId>exo-ecms-packaging-workflow-ear</artifactId>
+				  <version>${org.exoplatform.ecms.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+				<artifactItem>
+				  <groupId>org.exoplatform.ks</groupId>
+				  <artifactId>exo.ks.extension.ear</artifactId>
+				  <version>${org.exoplatform.ks.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+				<artifactItem>
+				  <groupId>org.exoplatform.social</groupId>
+				  <artifactId>exo.social.extension.ear</artifactId>
+				  <version>${org.exoplatform.social.version}</version>
+				  <type>ear</type>
+				</artifactItem>
+                                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.sample.acme-website.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+                                  <outputDirectory>${project.build.directory}/jbossepp/demos/binaries</outputDirectory>
+				</artifactItem>
+                                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.doc.bundle</artifactId>
+				  <version>${project.version}</version>
+				  <type>war</type>
+                                  <outputDirectory>${project.build.directory}/jbossepp/demos/binaries</outputDirectory>
+				</artifactItem>
+                                <artifactItem>
+				  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.sample.acme-intranet.ear</artifactId>
+				  <version>${project.version}</version>
+				  <type>ear</type>
+                                  <outputDirectory>${project.build.directory}/jbossepp/demos/binaries</outputDirectory>
+				</artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/jbossepp</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/main/resources/</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>02-prepare-EPP</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>                 
+                 <mkdir dir="${project.build.directory}/jbossepp/addons/conf"/>
+                 <mkdir dir="${project.build.directory}/jbossepp/demos/conf"/>                 
+                 <copy todir="${project.build.directory}/jbossepp/docs">
+                     <fileset dir="${project.build.directory}/docs"/>
+                 </copy>
+                 <copy todir="${project.build.directory}/jbossepp/addons/conf">
+                     <fileset dir="${project.build.directory}/jbosseap/bin" />
+                 </copy>
+                 <copy todir="${project.build.directory}/jbossepp/addons/conf">
+                     <fileset dir="${project.build.directory}/jbosseap/server/default/conf/gatein" />
+                 </copy>
+                 <copy file="${project.build.directory}/jbosseap/server/default/deploy/jbossweb.sar/server.xml" todir="${project.build.directory}/jbossepp/addons/conf"/>
+                 <unzip src="${project.build.directory}/default-website/default-website.war" dest="${project.build.directory}/default-website/unzip" />
+                 <delete file="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml"/>
+                 <copy file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml" todir="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default"/>
+                 <delete file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml"/>
+                 <delete file="${project.build.directory}/default-website/default-website.war"/>
+                 <zip destfile="${project.build.directory}/default-website/default-website.war" basedir="${project.build.directory}/default-website/unzip" />
+                 <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/default-website/unzip"/>
+                 </delete>
+                 <zip destfile="${project.build.directory}/jbossepp/demos/binaries/default-website.ear" basedir="${project.build.directory}/default-website" />
+
+                 <unzip src="${project.build.directory}/platform-extension/platform-extension.war" dest="${project.build.directory}/platform-extension/unzip" />
+                 <replace file="${project.build.directory}/platform-extension/unzip/WEB-INF/conf/platform/portal/web-filter-configuration.xml" token="org.exoplatform.web.filter.RedefinableResourceFilter" value="org.exoplatform.commons.platform.RedefinableResourceFilter"/>
+                 <delete file="${project.build.directory}/platform-extension/platform-extension.war"/>
+                 <zip destfile="${project.build.directory}/platform-extension/platform-extension.war" basedir="${project.build.directory}/platform-extension/unzip" />
+                 <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/platform-extension/unzip"/>
+                 </delete>
+                 <zip destfile="${project.build.directory}/jbossepp/addons/binaries/platform-extension.ear" basedir="${project.build.directory}/platform-extension" />
+                 <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/platform-extension"/>
+                 </delete>
+                 <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/default-website"/>
+                 </delete>
+                 <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/docs"/>
+                 </delete>
+                <delete includeEmptyDirs="true">
+                     <fileset dir="${project.build.directory}/jbosseap"/>
+                 </delete>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+       <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/ears-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+    </plugins>
+  </build>
+    </profile>
+  </profiles>
+</project>
