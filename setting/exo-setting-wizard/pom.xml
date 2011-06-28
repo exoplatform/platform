@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- POM file generated with GWT webAppCreator -->
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.exoplatform.setting</groupId>
+    <artifactId>exo-setting-parent</artifactId>
+    <version>1.2.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.exoplatform.setting</groupId>
+  <artifactId>exo-setting-wizard</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>eXo Platform - Wizard</name>
+
+  <properties>
+    <maven.compiler.source>1.5</maven.compiler.source>
+    <maven.compiler.target>1.5</maven.compiler.target>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- Generate compiled stuff in the folder used for developing mode -->
+    <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+    <plugins>
+
+      <!-- GWT Maven Plugin -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>${gwt.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
+          documentation at codehaus.org -->
+        <configuration>
+          <runTarget>wizard.html</runTarget>
+          <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <logLevel>INFO</logLevel>
+          <skipTests>${gwt.test.skip}</skipTests>
+        </configuration>
+      </plugin>
+
+      <!-- Copy static web files before executing gwt:run -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>exploded</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <webappDirectory>${webappDirectory}</webappDirectory>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

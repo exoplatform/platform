@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform</groupId>
+    <artifactId>exo.platform.parent</artifactId>
+    <version>3.5.0-M3-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.exoplatform.setting</groupId>
+  <artifactId>exo-setting-parent</artifactId>
+  <version>1.2.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Settings</name>
+  
+  
+  <properties>
+    <!-- Repositories URLs -->
+    <!-- eXo Modules -->
+    <!-- Third parties -->
+    <gwt.version>2.3.0</gwt.version>
+    <gwt.maven.plugin.version>2.3.0</gwt.maven.plugin.version>
+    <gwt.test.skip>true</gwt.test.skip>
+  </properties>
+  
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-servlet</artifactId>
+        <version>${gwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-user</artifactId>
+        <version>${gwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt-dev</artifactId>
+        <version>${gwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.7</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>gwt-maven-plugin</artifactId>
+          <version>${gwt.maven.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  
+  <modules>
+    <module>exo-setting-wizard</module>
+  </modules>
+  
+  
+</project>

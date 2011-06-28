@@ -1,0 +1,2 @@
+serviceClass: org.exoplatform.setting.client.service.WizardService
+path: 8E79E519C93093F18C4E8BA599F4017C.gwt.rpc
