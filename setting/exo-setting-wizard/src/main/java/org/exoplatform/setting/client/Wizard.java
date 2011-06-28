@@ -32,7 +32,6 @@ public class Wizard implements EntryPoint {
   /**
    * This is the entry point method.
    */
-  @Override
   public void onModuleLoad() {
 
     Window.setTitle(constants.setupWizard());
