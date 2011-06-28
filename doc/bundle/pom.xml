@@ -33,10 +33,29 @@
         </dependency>
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user</artifactId>
+          <artifactId>exo.platform.doc.user.gatein</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.user.social</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.user.collaboration</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.user.knowledge</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
+
         <!--dependency>
           <groupId>org.gatein.doc</groupId>
           <artifactId>gatein-reference-guide-en</artifactId>
@@ -92,17 +111,16 @@
                         <include name="html/" />
                       </patternset>
                       <mapper type="regexp" from="^html/(.*)$" to="\1" />
-                    </unzip-->                    
+                    </unzip-->
                     <mkdir dir="${project.build.directory}/work/user" />
                     <unzip dest="${project.build.directory}/work/user">
-                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.user:zip" />
+                      <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.user.gatein:zip" />
                     </unzip>
                   </target>
                 </configuration>
               </execution>
             </executions>
           </plugin>
-          <!-- PLF-986: bundle the WCM user guide in docbook -->
 		  <plugin>
 		    <groupId>org.apache.maven.plugins</groupId>
 		    <artifactId>maven-dependency-plugin</artifactId>
@@ -115,6 +133,7 @@
 		        </goals>
 		        <configuration>
 		          <artifactItems>
+          <!-- PLF-986: bundle the WCM user guide in docbook -->
 		            <artifactItem>
 		              <groupId>org.exoplatform.ecms</groupId>
 		              <artifactId>exo-ecms-docs-userguide</artifactId>
@@ -122,6 +141,37 @@
 		              <type>pdf</type>
 		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
 		              <destFileName>eXo-Content-User-Guide.pdf</destFileName>
+                      <!-- overwrites the original one -->
+		              <overWrite>true</overWrite>
+		            </artifactItem>
+          <!-- PLF-1721: bundle the Social, Collaboration and Knowledge user guides in wikbook -->
+                    <artifactItem>
+		              <groupId>org.exoplatform.platform</groupId>
+		              <artifactId>exo.platform.doc.user.social</artifactId>
+		              <version>${project.version}</version>
+		              <type>pdf</type>
+		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <destFileName>eXo-Social-User-Guide.pdf</destFileName>
+                      <!-- overwrites the original one -->
+		              <overWrite>true</overWrite>
+		            </artifactItem>
+                    <artifactItem>
+		              <groupId>org.exoplatform.platform</groupId>
+		              <artifactId>exo.platform.doc.user.collaboration</artifactId>
+		              <version>${project.version}</version>
+		              <type>pdf</type>
+		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <destFileName>eXo-Collaboration-User-Guide.pdf</destFileName>
+                      <!-- overwrites the original one -->
+		              <overWrite>true</overWrite>
+		            </artifactItem>
+                    <artifactItem>
+		              <groupId>org.exoplatform.platform</groupId>
+		              <artifactId>exo.platform.doc.user.knowledge</artifactId>
+		              <version>${project.version}</version>
+		              <type>pdf</type>
+		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <destFileName>eXo-Knowledge-User-Guide.pdf</destFileName>
                       <!-- overwrites the original one -->
 		              <overWrite>true</overWrite>
 		            </artifactItem>

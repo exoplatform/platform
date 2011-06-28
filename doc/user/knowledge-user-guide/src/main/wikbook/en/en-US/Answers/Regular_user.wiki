@@ -1,0 +1,437 @@
+h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
+
+h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
+After accessing Answers, you can see all categories in the left pane. To view details of a category, simply left-click it to open its details in the right pane.
+
+!images/Details_category.png|align="center"!
+
+Here, you can view all activated questions of this category, some basic information of questions, such as authors, scores, number of answers. 
+
+To view details of a question, simply click it to open its details, including its content, answers and comments, uploaded files, preview the attached image, or download the attached files and images as shown below:
+
+!images/details_question.png|align="center"!
+
+*See Also:*
+
+* [Search|#KSuser.Answer_Regular_user.Search]
+* [Print|#Answer_user_guide.View_details.Print]
+h3. Search {anchor:id=KSuser.Answer_Regular_user.Search}
+With the *Search* function, you can find your desired item, such as categories, questions, answers, or comments easily. In the Answers application, you can do your searches to specific search conditions easily through two types: Quick search and Advanced search.
+
+h4. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
+You can do quick searches easily by entering specific keywords into the Search area. All items containing the text matching your search term will be returned in the Search results form.
+
+*1.* Enter a keyword into the *Search* field at the right corner of the breadcrumb.
+
+!images/Search_function.png|align="center"!
+
+*2.* Click !images/Search_icon.png!, or press the *Enter* key to perform your search.
+
+The *Search results* window will open with all matching categories and questions as below:
+
+!images/Search_results_answers.png|align="center"!
+
+Details:
+|!images/Answered_question_icon.png!|The question has been answered.|
+|!images/unanswered_question_icon.png!|The question has not been answered.|
+|!images/category_icon.png!|The category containing your entered keywords.|
+|!images/View_icon.png!|Click this icon to link to a question or details of a category.|
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Advanced search|#KSuser.Answer_Regular_user.Advanced_search]
+
+h4. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
+
+The Advanced Search allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
+
+*1.* Click !images/Advance_search_icon.png! on the Search area.
+
+*2.* Define some search criteria in the Advanced Search form, depending on your choice in the *Search in* field.
+
+There are some main Advanced Search forms:
+* Search in both categories and entries/questions by unselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
+!images/search_both_answers.png|align="center"! 
+    
+* Search in categories by selecting *Category* from the drop-down menu. You will do a search with some specific criteria to find expected categories. Search results will only include categories.
+!images/Category_search_answers.png|align="center"! 
+  
+* Search in entries/questions to find your expected questions, answers or comments by selecting *Entries* from the drop-down menu.
+!images/Search_entries_answers.png|align="center"!
+
+*3.* Click the *Search* button to launch the search. All items matching your criteria will be listed in the search results pane below the Search form that is not similar as that of Quick search.
+
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Quick search|#KSuser.Answer_Regular_user.Basic_search]
+
+h3. Print {anchor:id=Answer_user_guide.View_details.Print}
+*To print all questions with their answers of a category and of its sub-categories*:
+
+*1.* Select one parent category from the Categories list on the left pane.
+
+*2.* Click the *Print* button on the action bar under the selected category.
+
+!images/Print_action_bar.png|align="center"!
+
+*3.* Click the *Print* button to accept printing or *Close* to quit the *Print Preview* form without printing.
+
+*To print details of a question*:
+
+*1.* Click your desired question.
+
+*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details as below.
+
+!images/Print_details_question.png|align="center"!
+
+*3.* Select the *Print* button to accept printing or *Close* to quit the *Print* form.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+
+h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
+The Answers application allows you to raise your questions on any issue and help you find best answers. 
+
+*To submit a question*:
+
+*1.* Right-click the category/sub-category where you want to submit your question and then select !images/Submit_question_bt.png! from the drop-down menu; 
+
+Or go into the category that you want to submit question, then click !images/Submit_question_bt.png! on the Action bar.
+
+The *Submit question* form appears as below:
+
+!images/Submit_question_form.png|align="center"!
+
+*2.* Type your question into the *Question* field. 
+
+Also:
+
+* i. Give details to your question into the *Details* field.
+  
+  
+* ii. Select your desired language left-clicking !images/arrow_icon1.png! to open the drop-down menu.
+  
+  
+* iii. Enter your email in the valid format, such as: username@abc.com, into the *Email* form.
+  
+  
+* iv. Attach different-typed files to your question by clicking the *Attach a file* link. To remove the attached files, click the corresponding *Remove* link next to the file attachments.
+
+  
+*3.* Click *Save* to complete submitting your question. 
+
+A message will appear informing that your question has been added successfully. If the moderation option was ticked when your selected category was created by the owner, there will be a message informing that your question needs to be approved before being displayed in that category.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Edit your question|#KSuser.Answer_Regular_user.Edit_question]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
+* [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
+* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
+
+h3. Edit your questions {anchor:id=KSuser.Answer_Regular_user.Edit_question}
+Regular users can only edit their own questions. 
+
+*To edit a question*:
+
+*1.* Open the *Edit question* form by following one of these ways:
+
+*The first way*: Right-click the question that you want to edit and then select *Edit* from drop-down menu.
+
+*The second way*: Click a question, then select !images/Edit_icon.png! as below:
+
+!images/Edit_question_panel.png|align="center"!
+
+*2.* Make changes to your question. You can add more or remove the language options, attach files, approve or disapprove the question and its answers.
+
+*3.* Click *Save* to save all the changes.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
+* [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
+* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
+
+h2. Answer a question {anchor:id=KSuser.Answer_Regular_user.Answer_questions}
+
+A question may have multiple answers and each can be moderated separately.
+
+*To answer a question*:
+
+*1.* Open the *Answer question* form by following one of these approaches:
+
+*The first way*: Right-click the question you want to answer and select *Answer question*:
+
+!images/Answer_question_menu.png|align="center"!
+
+*The second way*: Open a question, then click *Answer*.
+
+!images/Answer_panel_btn.png|align="center"!
+
+*2.* Enter your answer into the *Answer* field.
+
+*3.* Select/Deselect the *Approved* and *Activated* checkboxes if you want to approve this question (optional). If this question is in the category that requires moderation, the *Approved* checkbox  will be selected by default.
+
+The *Activated* option enables your answer to be shown or hidden. By default, an answer is always shown.	
+
+*4.* Click !images/Plus_icon.png! to link the question to reference entries (optional).
+
+*5.* Click *Save* to submit your answer.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Edit your answer|#KSuser.Answer_Regular_user.Edit_answers]
+* [Vote for an answer|#KSuser.Answer_Regular_user.Vote_for_answer]
+
+h3. Edit your answers {anchor:id=KSuser.Answer_Regular_user.Edit_answers}
+Regular users can only edit their answers. 
+
+*To edit an answer*:
+
+*1.* Click !images/Edit_icon.png! on the top right of the answer that you want to edit.
+
+*2.* Make changes to your selected answer.
+
+*3.* Click *Save* to save all the changes.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Vote for an answer|#KSuser.Answer_Regular_user.Vote_for_answer]
+
+h2. Comment on a question {anchor:id=KSuser.Answer_Regular_user.Comment_question}
+
+You can leave comments on a question when you are not sure about the answer, or want to give your ideas. Then, the moderator can promote your comment to answer if necessary.
+
+*To leave a comment*:
+
+*1.* Follow one of these following ways:
+
+*The first way*: Click the question you want to leave comments, then select the *Comment* button.
+
+*The second way*: Right-click a specific question and select *Comment* from the drop-down menu.
+
+*2.* Type your answer in the text-input field.
+
+*3.* Click *Save* to finish.
+
+{note}
+Comments can be written in different languages. If a question is posted in multiple languages, it can also have comments in multiple languages.
+{note} 
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
+* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
+h2. Send a question to others {anchor:id=KSuser.Answer_Regular_user.Send_questions} 
+
+When you find a question interesting, you can share it with others easily. Regular users cannot send pending questions.
+
+*To send a question to others*:
+
+*1.* Follow one of these following ways:
+
+*The first way*: Right-click the question that you want to send and select *Send* from the drop-down menu.
+
+*The second way*: Click your desired question and select !images/Send_question_icon.png!.
+
+*2.* Enter the receiver's email address into the *To* field.
+
+
+!images/Send_question_form.png|align="center"!
+
+
+*3.* Select the display language for the question content. English is set by default. 
+
+*4.* Click *Send*. 
+
+{note}
+* Add CC / Add BCC enables you to send this message to multiple receivers. Use *Add CC* if you want all receivers to refer to this message. Use *Add BCC* if you want all receivers to get this message but cannot see emails of other receivers.
+* If the submitted question has been existing in another language, you can select your desired language from the *Language* drop-down list. If you change the language, the question's subject and the message content will be changed accordingly.
+* The users with email addresses in the *To, CC* and *BBC* fields will receive this message. The receivers can click the *here* link in the content of the message to view the question in details in the Answers application.
+{note}
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
+* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
+
+h2. Discuss a question in forum {anchor:id=KSuser.Answer_Regular_user.Discuss_question}
+
+This feature is not enabled by default. Only *Administrators* can activate this feature.
+
+When you want further discussion on a question rather than getting quick replies from Answers, you can make that question posted in Forum as a new topic. 
+The topic created in Forum will have the same title and content as your question in Answers. All the comments will become posts in that topic. Once there is a new reply in that Forum topic, 
+your question in Answers will be updated correspondingly.
+
+*To discuss or view the question discussion*:
+
+*The first way*: Open the question and click !images/Discuss_forum_icon.png! on the top left of the question pane.
+
+!images/Discuss_question_panel.png|align="center"!
+
+*The second way*: Right-click a specific question and select *Discuss in forum*:
+
+!images/Discuss_menu.png|align="center"!
+
+The topic posted in Forum needs to be approved by the Administrators or Moderators before you can view it. To go to that topic, right-click the question title and select *Discuss in forum* from the drop-down menu again.
+
+!images/Discuss_forum.png|align="center"!
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
+* [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
+* [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
+
+h2. Rate a question {anchor:id=KSuser.Answer_Regular_user.Rate_question}
+
+If you want to evaluate the quality of the question, you can use the intuitive rating feature provided by *Answers* to the five-star scale with the ascending level from the left to the right.
+
+*To rate a question*:
+
+*1.* Open the question which you want to rate.
+
+*2.* Click the star on the top left of the question content.
+
+!images/Unrated_stars.png|align="center"!
+
+After being rated, the vote statistics will be updated. 
+
+!images/Rated_stars.png|align="center"!
+
+*3.* Click *OK* on the confirmation message.
+
+{note}
+Each user can only rate a question once. Rating is not available to anonymous users.
+{note}
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
+* [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
+* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+
+h2. Vote for an answer {anchor:id=KSuser.Answer_Regular_user.Vote_for_answer}
+
+You can vote for an answer that you find interesting and useful.
+
+!images/Vote.png|align="center"!
+
+If you think the answer is good, click the thumb-up icon. If you think the answer is not good, click the thumb-down icon. 
+
+{note}
+You cannot vote for an option twice but changing your voting is possible.
+{note}
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
+* [Edit your answer|#KSuser.Answer_Regular_user.Edit_answers]
+
+h2. Watch/Unwatch a category {anchor:id=KSuser.Answer_Regular_user.Watch_unwatch}
+The *Watch* feature allows you to keep track of all changes in a specific categories. You will get all the updates via mail notifications if you enable the *watch* function on a category.
+
+To watch a category, right-click a category in the categories list and select *Watch* from the drop-down menu. For the Administrator/Moderator, the watched category will be marked with !images/Watch_icon.png!.
+
+!images/Category_watch.png|align="center"!
+
+If you do not want to receive any email notifications about the watched categories, right-click your desired category in the *Categories* pane, then select *Unwatch* from the drop-down menu.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+h2. Subscribe to RSS feeds {anchor:id=KSuser.Answer_Regular_user.Get_RSS}
+
+You can get the latest questions in a category by getting the corresponding feed links, then use your favorite RSS client to read. 
+
+*To get the RSS link of a category*:
+
+*1.* Click the category you want to get the RSS feed.
+
+*2.* Click the *RSS* button on the Action bar.
+
+!images/answer_RSS_btn.png|align="center"!
+
+The RSS information page will appear on another tab. Depending on the browser you are using, this page may be displayed differently. Use the RSS link provided in this new page to put in the RSS reader of your choice.
+
+!images/Rss_example_answers.png|align="center"!
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+h2. Edit user settings {anchor:id=KSuser.Answer_Regular_user.Edit_user_settings}
+
+When going to user settings, you can [change how Answers will display the entries|#Answer_user_settings.Change_display_settings], [manage your subscriptions|#Answer_user_settings.Change_avatar] and [change avatar|#Answer_user_settings.Change_avatar] here. 
+
+*To change your user settings*:
+
+Click !images/Settings_btn.png! on the Action bar. The *Settings* form will appear:
+
+!images/Settings_form.png|align="center"!
+
+Now you can:
+
+*Change the display settings*: {anchor:id=Answer_user_settings.Change_display_settings}
+
+You can select to display entries by created date/alphabetical order and sorted by ascending/descending type or by popularity.
+
+*Manage watches*: {anchor:id=Answer_user_settings.Manage_watches}
+
+*1.* Click !images/Watch_icon.png! to open the *User Watch Manager* form:
+
+!images/Watch_manager_form.png|align="center"!
+
+*2.* Click the category title if you would like to view the details or click !images/Unwatch_icon.png! to unwatch the corresponding category.
+
+*Change your avatar*: {anchor:id=Answer_user_settings.Change_avatar}
+
+*1.* Click the *Update* link to open the *Upload File* form.
+
+*2.* Locate and upload your desired file.
+
+*3.* Click *Save* to save the changes.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+h2. View public user profile {anchor:id=KSuser.Answer_Regular_user.View_public_user_profile}
+
+The function is for all users, even when you are not logged in (guest). To view a specific user's profile, click his username. The profile of that
+user will be displayed:
+
+!images/User_profile_form.png|align="center"!
+
+This form shows the selected user's profile, including the join date and the last login time.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]

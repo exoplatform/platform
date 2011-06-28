@@ -1,0 +1,161 @@
+h1. Administrator {anchor:id=Answer_user_guide.Administrator} 
+The Administrators have the global role and take care of the entire management tasks.
+
+h2. Set up Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
+
+When adding a portlet to a page, you have to configure this portlet to make it work in your desired way.
+
+*To configure the Answers portlet*:
+
+*1.* Go to *My Space --> Portal Administration --> Manage Page* on the Administration bar.
+
+*2.* Click !images/Edit_icon2.png! that corresponds to the answers page:
+
+!images/Manage_page.png|align="center"!
+
+Now, you should be in the page edit mode:
+
+!images/Answer_portlet_edit_mode.png|align="center"!
+
+*3.* Hover the mouse over the Answer portlet, then click !images/Edit_porlet_icon.png! on the quick toolbar that appears.
+
+*4.* Make changes in the *Answer Portlet* form.
+
+!images/Answer_porlet_edit_form.png|align="center"!
+
+In this form, you can:
+
+- [Change the display mode|#KSuser.Moderator.Change_display_mode]
+- [Customize email notification template|#KSuser.Moderator.Customize_Email_template]
+- [Enable the "Discuss in forum" feature|#KSuser.Moderator.Enable_discuss_in_forum]
+
+h3. Change the display mode {anchor:id=KSuser.Answer_Moderator.Change_display_mode}
+
+In the *Display Mode* tab, you can set all the default display properties of the Answers application, including:
+
+* *Display*: Display all entries in the Answers application. 
+** *'All'*: all entries, including: approved and unapproved entries/questions, are displayed in a list when users view.
+** *'Approved'*: Only approved entries are displayed in the list when users view.
+* *Order by*: The order to display all entries in the Answers application. 
+* *Created Date*: Entries in the list are displayed to the entries' created date order.
+* *Alphabet/Index*: Entries in the list are displayed to the alphabet order.
+
+The type of sorting entries in the list may be: *Ascending* or *Descending*. 
+
+* *Enable votes and comments*: Enable votes and comments to be available in Answers. If the *Enable vote and comments* checkbox is selected, users can comment and vote in Answers. If not, these functions are disabled.
+* *Anonymous users may submit questions*: Enable anonymous users to submit question in Answers or not. If the *Anonymous users may submit question* checkbox is selected, anonymous users are entitled to submit questions. If not, anonymous users can not submit questions.
+* *Enable automatic RSS*: Enable the RSS feeds function to be available in Answers or not. If the *Enable automatic RSS* option is selected, users can get RSS information in Answers. If not, the RSS function is disabled.
+* *Display avatars*: Enable avatars to be viewed in Answers or not. If the *Display avatars* checkbox is selected, the avatar of eXo members are shown in Answers. If not, they are hidden.
+* *User Post Question in root:* Enable users to post questions in the root category or not.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
+* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+* [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
+	
+h3. Customize email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
+When there are new questions or answers in the category or topic that a user has watched, the use will receive the email notification. 
+In the *Email notifications* tab, change content of the email notification manually or edit the template for each email notifications. 
+
+!images/Answer_porlet_edit_form2.png|align="center"!
+
+* *New question tab*: The content of the email notification.
+* *Edit/answer tab*: The content of the email notification that has been answered or edited.
+* *Move question tab*: The content of the email notification that notifies about the question that has been moved to another category.
+
+Followings are variables that you can use in your template:
+
+*{noformat}&categoryName_{noformat}*: will be replaced by the watched category.
+
+*{noformat}&questionContent_{noformat}*: will be replaced by the content of the new questions.
+
+*{noformat}&questionResponse_{noformat}*: will be replaced by the content of the new questions' reply.
+
+These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png!.
+You can use the text editor to format the template as you wish.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
+* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+* [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
+h3. Enable the Discuss In Forum feature {anchor:id=KSuser.Answer_Moderator.Enable_discuss_in_forum}
+
+In the *Discussion* tab, enable/disable the *Discuss in forum* function in Answers and set the default forum for this function by selecting/deselecting the checkbox.
+
+!images/Answer_porlet_edit_form3.png|align="center"!
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
+* [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
+* [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
+h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderator.Define_discuss_category}
+
+*1.* Click !images/Plus_icon.png! to open the *Select a forum* form in the Discussion tab.
+
+!images/Select_forum_form.png|align="center"!
+
+*2.* Click a specific category/forum title to select it.
+
+*3.* Click *Save* to accept saving changes in the *Discussion* tab.
+
+*Select the category scoping*:
+
+In the *Category scoping* tab, show/hide categories in Answers. The hidden category is not displayed in Answers.
+
+!images/Answer_porlet_edit_form4.png|align="center"!
+
+To hide/show any category, simply deselect/select its checkbox and click *Save*.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
+* [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
+* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+h2. Set up FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet}
+
+The FAQ portlet can be added to a page for users to view questions and answers quickly and easily.
+
+!images/FAQ_screen.png|align="center"!
+
+The Edit Mode of the FAQ portlet enables you to set the properties to display questions and answers in the View mode.
+
+*To configure the FAQ portlet*:
+
+*1.* Go to *My Space > Portal Administration > Manage Page* on the Administration bar.
+
+*2.* Click !images/Edit_icon2.png! that corresponds to the FAQ page in the page list. Now, you should be in the page edit mode.
+
+*3.* Hover your cursor over the FAQ portlet and click !images/edit_icon3.png! in the quick edit toolbar that appears.
+
+!images/FAQ_portlet_edit.png|align="center"!
+
+ *i.* In the *Displaying Category* tab, you can control what categories will be displayed.
+ 
+ !images/FAQ_portlet_edit_form.png|align="center"!
+
+ *ii.* In the *Edit Template* tab, you can use CSS to customize the FAQ template. 
+
+!images/FAQ_portlet_edit_form2.png|align="center"!
+
+This is an example of the FAQ template after applying the new style.
+
+!images/FAQ_template_edit.png|align="center"!
+
+ *iii.* In the *Preference* tab, you can enable or disable the bookmarkable URLs in Answers.
+
+!images/FAQ_portlet_edit_form3.png|align="center"!
+
+By not using Ajax, the Answers will generate plain URLs in the links. The added benefit will be bookmarkability and better SEO as the links will be permalinks.
+Using Ajax, the links will be javascript-based and generate Ajax calls. This should make browsing faster because the whole page is not reloaded.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Set up FAQ portlet|#KSuser.Answer_Administrator.Set_up_Answers_portlet]

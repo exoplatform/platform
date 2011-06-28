@@ -1,0 +1,79 @@
+The RSS (Really Simply Syndication) application of eXo Collaboration allows you to keep track of all news of your favorite website. 
+
+*When you read this section, you can understand the following functions:*
+* [RSS Interface|#CSUser_guide.How_to_use_RSS.Rss_interface]
+* [Add a category|#CSUser_guide.How_to_use_RSS.Add_category]
+* [Edit a category|#CSUser_guide.How_to_use_RSS.Edit_category]
+* [Delete a category|#CSUser_guide.How_to_use_RSS.Delete_category]
+
+h1. RSS Interface {anchor:id="CSUser_guide.How_to_use_RSS.Rss_interface}
+To access to the *RSS Feed Reader* application, click *RSS* on the administration bar:
+!images/rss.png|align="center"!
+
+The *RSS Feed Reader* page appears:
+
+!images/rss_feed_reader.png|align="center"!
+
+h1. Add a category {anchor:id="CSUser_guide.How_to_use_RSS.Add_category}
+In the RSS application of eXo Collaboration, RSS feed is added to a category that allows you to easily manage your feeds.
+
+*To add a category to manage RSS feeds:*
+
+*1.* Click RSS on the administration bar to open the *RSS feed reader* page.
+
+*2.* Click !images/plus_rss_icon.png! on the *RSS Feed Reader* page:
+
+!images/rss_feed_reader_navigation.png|align="center"!
+
+The *Add/Edit Content Node* form appears.
+
+!images/add_edit_content_node.png|align="center"!
+
+Details:
+
+||Field||Description||
+|*Id*| The identity of the content node. It is unique and required.|
+|*URL*|The RSS feed link of the website that you want to subscribe to the category.|
+|*Label*|The display name of the category.|
+|*Description*|The description of the category.|
+|*Type*|The type of the content node. There are two types:{example}{example} *RSS*:  displays the content of a RSS feed. {example}{example} *DESC*: is like a category that contains RSS feeds.|
+
+*3.* Enter an id for the content node.
+
+*4.* Enter an RSS link in the *URL* field. It is required for *RSS* type.
+
+i. To have an RSS link of a site, click !images/rss_icon1.png! on the site to open a page with a lot of  data on it.
+
+ii. Copy the URL of the page on the address bar of the browser.
+
+iii. Paste it to the URL field.
+
+Some examples about RSS links:
+
+http://vietnam-beauty.com/index.php?format=feed&type=rss
+
+http://blog.exoplatform.org/feed/
+
+*5.* Optionally, enter the description for the content node.
+
+*6.* Select RSS type or DESC type.
+
+*7.* Click *Save* to commit.
+
+h1. Edit a category {anchor:id="CSUser_guide.How_to_use_RSS.Edit_category"}
+
+*1.* Select the category you want to edit.
+
+*2.* Click !images/edit_rss_icon.png! on the *RSS Feed Reader* page to open the Add/Edit Content Node.
+
+*3.* Changes the information in the fields as you want, except the Id field.
+
+*4.* Click *Save* to commit your changes.
+
+h1. Delete a category {anchor:id="CSUser_guide.How_to_use_RSS.Delete_category"}
+
+*1.* Select the category you want to delete.
+
+*2.* Click !images/delete_rss_icon.png! on the *RSS Feed Reader* page.
+
+*3.* Click *OK* on the confirmation message.

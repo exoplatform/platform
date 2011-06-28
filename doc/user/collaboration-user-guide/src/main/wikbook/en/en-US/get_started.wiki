@@ -1,0 +1,54 @@
+*eXo Collaboration* is an application offering reliable and robust capabilities of Email, Address Book, Calendar and Chat that helps people achieve their goals and enhance their productivity in the corporate environment. 
+
+In particular: 
+
+* *Address book* is a contact manager, allowing you to organize all the contact information. You can use the contact information with other Collaboration applications, such as Mail, Calendar and Chat. The integration of Address book and other applications in eXo Collaboration will help you enhance your group productivity in collaborative environment. 
+* *Calendar* allows you to schedule appointments and meetings, establish recurring activities, create multiple calendars and share calendars with others. With Calendar, it is easy to keep track of all important events/tasks and collaborate with other people, all in one place.
+* *Mail* is a webmail application of eXo Collaboration. Mail is smoothly integrated with Address book and Calendar. You can add contacts, create address books or schedule the work right in Mail. 
+* *Chat* allows you to communicate with other users in you contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your Address book to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
+
+This guide describes normal and advanced features of eXo Collaboration through in-depth examples and simple explanations for you to follow. After the overall introduction to eXo Collaboration and its applications in *Chapter 1. Get Started With eXo Collaboration*, the guide focuses on the following chapters, each of which is dedicated to one main application of eXo Collaboration.
+
+|[How To Use Mail?|#CSUser_guide.How_to_use_Mail]|Actions covered in the Mail application with basic and advanced steps.|
+|[How To Use Address Book?|#CSUser_guide.How_to_use_Address_book]|Basic actions on how to manage contacts and address books.|
+|[How To Use Calendar?|#CSUser_guide.How_to_use_Calendar]|Actions on calendars, events, tasks and another optional features of RSS, Calendar settings, calendar groups and categories.|
+|[How To Use Chat?|#CSUser_guide.How_to_use_Chat]|Common functions when chatting, such as adding/removing contacts, sending chat texts, or creating chat rooms.|
+|[How To Use RSS?|#CSUser_guide.How_to_use_RSS]|How to keep track of changes through the RSS application and to manage RSS feeds via categories.|
+
+h1. User Interface features {anchor:id="CSUser_guide.Get_started.User_interface_features"}
+The eXo Collaboration interface is featured with many easy-to-use features.
+
+* *Drop-down menus*
+Some action buttons have a small down-arrow icon next to them. Click directly the button to see many options.
+
+!images/drop_down_menu.png|align="center"!
+
+* *Right-click menus*
+Right-click the items (such as folders, emails) to display a set of functions for you to do on that item. This is an example of the right-click menu on an email of the Mail application.
+
+!images/right_click_menus.png|align="center"!
+
+* *Drag and drop*
+Select one item, such as email, task, event, contact and then drag and drop it to another object, such as mail folder, or address book.
+
+!images/drag_drop_function.png|align="center"!
+h1. Access applications in eXo Collaboration {anchor:id="CSUser_guide.Get_started.Access_applications"}
+
+h2. From Chat bar {anchor:id="CSUser_guide.Get_started.Access_applications_from_chat_bar"}
+eXo Collaboration features a bar locating at the bottom that helps you access your desired application quickly.
+That is, when you are in the Address book homepage and want to go to Calendar to add a new event, simply click the Calendar icon at the bottom.
+
+!images/chat_bar.png|align="center"!
+
+Not like other applications in eXo Collaboration which have most common actions done via the context menu, the Chat bar allows you to do common actions directly, such as creating chat rooms, adding new friends, changing status. This bar is also the dock for all the minimized chat windows. You will see the notification about new chat messages in this bar when the related chat windows are minimized. This will be very convenient when you have to keep the conversation with many colleagues or in different chat rooms.
+
+h2. From Space {anchor:id="CSUser_guide.Get_started.Access_applications_from_space"}
+eXo Collaboration is an extended service of eXo Platform, so when being deployed into eXo Platform, you can access eXo Collaboration applications from the side navigation of a Space.
+
+!images/access_from_space.png|align="center"!
+
+This side navigation may be differently displayed, depending on each space. The applications on the side pane can be added by the Space Administrator.
+
+{note}
+Remember that you can also access applications of Space via the administration bar.
+{note}

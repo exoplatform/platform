@@ -1,0 +1,4 @@
+The user guide has provided a thorough explanation of basic terms and features within eXo Social. Now, you have known how to use People, Activities and Spaces easily and effectively. To learn more and contribute to the open source development, please see the followings:
+* [Learn more about eXo Platform 3.5|http://www.exoplatform.com/company/en/platform/exo-platform-35].
+* [Video demos, tutorial and more in the eXo Resource Center|http://www.exoplatform.com/company/public/website/resource-center].
+* [Access another eXo documents in the eXo Wiki|http://wiki.exoplatform.com/xwiki/bin/view/Main/WebHome/].

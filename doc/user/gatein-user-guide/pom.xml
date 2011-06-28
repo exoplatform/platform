@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.doc.user</artifactId>
+    <version>3.5.0-M3-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>exo.platform.doc.user.gatein</artifactId>
+  <packaging>pom</packaging>
+  <name>GateIn User Guide</name>
+  <dependencies>
+    <dependency>
+      <groupId>com.artofsolving</groupId>
+      <artifactId>jodconverter</artifactId>
+      <version>${version.jodconverter.plugin}</version>
+    </dependency>
+  </dependencies>
+  <profiles>
+    <!-- Predefined settings for Linux environment (Fedora 64b used by CI server). Feel free to override them in your maven settings.xml to use your local installation. -->
+    <profile>
+      <id>unix</id>
+      <activation>
+        <os>
+          <family>unix</family>
+        </os>
+      </activation>
+      <properties>
+        <kill.exec>killall</kill.exec>
+        <openoffice.directory>/usr/lib64/openoffice.org3</openoffice.directory>
+        <openoffice.bin.path>program</openoffice.bin.path>
+        <openoffice.server.exec>soffice.bin</openoffice.server.exec>
+      </properties>
+    </profile>
+    <!-- Predefined settings for Windows environment. Feel free to override them in your maven settings.xml to use your local installation. -->
+    <profile>
+      <id>windows</id>
+      <activation>
+        <os>
+          <family>windows</family>
+        </os>
+      </activation>
+      <properties>
+        <kill.exec>taskkill</kill.exec>
+        <openoffice.directory>C:/Program Files/OpenOffice.org 3</openoffice.directory>
+        <openoffice.bin.path>program</openoffice.bin.path>
+        <openoffice.server.exec>soffice.exe</openoffice.server.exec>
+      </properties>
+    </profile>
+    <!-- Predefined settings for MacOSX environment. Feel free to override them in your maven settings.xml to use your local installation. -->
+    <profile>
+      <id>mac</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <properties>
+        <kill.exec>killall</kill.exec>
+        <openoffice.directory>/Applications/OpenOffice.org.app</openoffice.directory>
+        <openoffice.bin.path>Contents/MacOS</openoffice.bin.path>
+        <openoffice.server.exec>soffice.bin</openoffice.server.exec>
+      </properties>
+    </profile>
+    <profile>
+      <id>distrib</id>
+      <properties>
+        <openoffice.server.exec.path>${openoffice.directory}/${openoffice.bin.path}/${openoffice.server.exec}</openoffice.server.exec.path>
+      </properties>
+      <build>
+        <plugins>
+          <!-- Ensure your environment is correctly setup -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>check-environment-ready</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireFilesExist>
+                      <files>
+                        <file>${openoffice.directory}/</file>
+                      </files>
+                      <message>!!!! The directory "${openoffice.directory}" doesn't exist. Did you installed OpenOffice 3 ? Did you set the property "openoffice.directory" to setup the path of directory where you installed it ?</message>
+                    </requireFilesExist>
+                    <requireFilesExist>
+                      <files>
+                        <file>${openoffice.directory}/${openoffice.bin.path}/</file>
+                      </files>
+                      <message>!!!! The directory "${openoffice.directory}/${openoffice.bin.path}" doesn't exist. Are you sure OpenOffice 3 is correctly setup ? Did you set the property "openoffice.bin.path" to setup the path of subdirectory where OpenOffice binaries are ?</message>
+                    </requireFilesExist>
+                    <requireFilesExist>
+                      <files>
+                        <file>${openoffice.directory}/${openoffice.bin.path}/${openoffice.server.exec}</file>
+                      </files>
+                      <message>!!!! The executable "${openoffice.directory}/${openoffice.bin.path}/${openoffice.server.exec}" doesn't exist. Are you sure OpenOffice 3 is correctly setup ? Did you set the property "openoffice.server.exec" to setup the name of the OpenOffice server binary ?</message>
+                    </requireFilesExist>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>reserve-ports</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>reserve-network-port</goal>
+                </goals>
+                <configuration>
+                  <portNames>
+                    <portName>openoffice.server.port</portName>
+                  </portNames>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>            
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>start-oo</id>
+                <phase>initialize</phase>
+                <configuration>
+                  <tasks>
+                    <echo>Opening Open Office</echo>
+                    <echo>Path : "${openoffice.server.exec.path}"</echo>
+                    <exec failonerror="false" spawn="true" executable="${openoffice.server.exec.path}">
+                      <arg line="-nologo" />
+                      <arg line="-headless" />
+                      <arg line="-nofirststartwizard" />
+                      <arg line="-accept='socket,host=localhost,port=${openoffice.server.port};urp;'" />
+                      <!-- It is important to keep ' around line parameter to use " inside -->
+                    </exec>
+                    <echo>Waiting for Open Office</echo>
+                    <waitfor maxwait="180" maxwaitunit="second">
+                        <socket server="localhost" port="${openoffice.server.port}" />
+                    </waitfor>
+                    <echo>Open Office headless is ready</echo>
+                  </tasks>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>stop-oo</id>
+                <phase>process-resources</phase>
+                <configuration>
+                  <tasks>
+                    <echo>Stopping Open Office</echo>
+                    <exec failonerror="false" spawn="true" executable="${kill.exec}">
+                      <arg line="${openoffice.server.exec}" />
+                    </exec>
+                    <echo>Open Office is stopped</echo>
+                  </tasks>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.artofsolving</groupId>
+            <artifactId>jodconverter-maven-plugin</artifactId>
+            <configuration>
+              <sourceDirectory>${basedir}/src/main/resources</sourceDirectory>
+              <outputDirectory>${basedir}/target/openoffice</outputDirectory>
+              <include>**/*.odt</include>
+              <outputFormat>pdf</outputFormat>
+              <port>${openoffice.server.port}</port>
+            </configuration>
+            <executions>
+              <execution>
+                <id>convert</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>convert</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>                        
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>docs</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
+                  </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>          
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

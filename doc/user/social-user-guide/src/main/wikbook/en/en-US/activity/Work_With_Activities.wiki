@@ -1,0 +1,88 @@
+All activities of users are displayed in user's or Space's Activities Stream.
+To enter Activities, hover your mouse over your user profile (for example, John Kelvin) on the administration bar and select *Activities*:
+
+!images/activities.png|align=center!
+
+In *Activities*, you can follow various activities, including:
+
+* All updates related to people who have connected with you in the *Connections* tab.
+
+* All updates of spaces where you are a member or manager in the *Spaces* tab.
+
+* All your own activities in the *My Status* tab, such as your profile updates, link updates or another activities pushed by yourself.
+
+* Activities of any people who are using eXo Social by clicking their usernames. However, for people to whom you have not connected, you only can view their activities but cannot post any activities, comments or like on their space.
+
+In addition, when being integrated in eXo Platform, you can keep track of activities of a space application. For example, whenever there is a new post in the Space Forum application, it will be updated in the activities stream.
+
+The actions described in this section are those which you can do on activities stream of yourself, of your connections or of any spaces where you are a member or manager, depending on the accessed tab.
+
+
+h1. Update Status     {anchor:id=Soc_User_Guide.Activity_Management.Update_Status}
+
+By entering your status message, you can tell people what are you doing on or ask for their helps or ideas. Thereafter, your colleagues who are connected with you can see your updates in their connections.
+
+*1.* Enter your current status in the *Status Update* form.
+ 
+!images/status_update.png|align=center!
+
+*2.* Click *Share* to accept sharing your status.
+
+*3.* Click *My Status* below the *Status Update* form to see your own activities.
+
+!images/your_activities.png|align=center!
+
+h1. Share links      {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
+You can share your preferred links to external websites as follows:
+
+*1.* Click !images/Share_link_icon.png!.
+
+!images/share_link.png|align=center!
+
+*2.* Enter the link into the *Attach field* and press *Attach*. If the link address is correct, it will be attached, then shown below the *Attach* icon with the overall introduction.
+
+If you do not want the thumbnail to be displayed, select the *Use no thumbnail*	checkbox. Similarly, deselect the checkbox to display the thumbnail. Also, if there is more than one thumbnail, you can click blue arrows to change the thumbnail.
+
+*3.* Click *Share* to share the entered link with your connections. The link will be displayed in *My Status*:
+
+!images/share_link2.png|align=center!
+
+h1. Delete activities/comments   {anchor:id=Soc_User_Guide.Activity_Management.Delete_Activity}
+
+You are allowed to delete your activities/comments that you created, those in your activities stream and in the space where your are the manager.
+
+To delete your activity, do as follows:
+
+*1.* Click *My Status* to view all your own activities.
+
+*2.* Select one profile containing the activity you want to delete, then hover your mouse and click !images/Delete_activity_icon.png!. The confirmation message will be displayed.
+
+*3.* Click *OK* to accept deleting, or *Cancel* to discard without deleting your selected activity:
+
+!images/delete_activities.png|align=center!
+
+h1. Comment on activities {anchor:id=Soc_User_Guide.Activity_Management.Comment}
+This action allows you to get ideas, answers, and any additional information when your collaborators respond to your status updates. Besides, you yourself give your ideas about any contacts' status updates by doing as follows:
+
+*1.* Click *Connection* below the *Status Update* to see all activities of your established contacts.
+
+*2.* Select one profile containing the activity you want to comment.
+
+*3.* Click *Comment* in the bottom line of the profile. The *Comment* form will appear below.
+
+!images/comment.png|align=center!
+
+4. Enter your comment into the *Comment* form and press the *Comment* button.
+Your comment will be displayed right below the profile.
+
+h1. Like/Unlike activities/comments   {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
+The function allows you to show your interest by selecting Like and/or Unlike activities as follows:
+
+*1.* Select the profile containing the activity you want to like or unlike.
+
+*2.* Click *Like* beside *Comment*.
+After you have selected *Like*, the text 'You like this' will be displayed below and *Like* will be turned into *Unlike*.
+
+!images/like.png|align=center!
+
+You can *Unlike* one activity in the same way as steps when selecting *Like*.

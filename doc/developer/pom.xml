@@ -29,6 +29,11 @@
   <artifactId>exo.platform.doc.developer</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Developers Guide</name>
+
+  <profiles>
+    <profile>
+      <id>distrib</id>
+
   <dependencies>
     <dependency>
       <groupId>org.wikbook</groupId>
@@ -47,9 +52,7 @@
       <version>${org.exoplatform.kernel.version}</version>
     </dependency>
   </dependencies>
-  <profiles>
-    <profile>
-      <id>distrib</id>
+
       <properties>
         <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
         <wikbook.source>${project.basedir}/src/main/wikbook</wikbook.source>

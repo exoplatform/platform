@@ -1,0 +1,246 @@
+h1. Glossary {anchor:id=Soc_User_Guide.Get_Started.Glossary}
+
+To get started with eXo Social, it is more useful to learn about some terms often used when approaching eXo Social as below.
+
+* *User profile* is an information page for each eXo Social user that includes information of account, avatar, contact, experiences.
+* *Connections* is the page displaying information about relations among eXo Social users, including established connections, incoming and outgoing invitations.
+* *Connection request* is the act of asking or expressing a connection desire that can be accepted, or denied by receivers. The requests also can be canceled by inviters.
+* *Space request* is the act of asking the managers or creators of spaces to give permissions to join their spaces. 
+* *Activity* is an application where users can do many actions, such as publishing their own respective activity streams, showing recent activities or updates, new connections or updating status and more.
+* *Activity Stream* is a set of recent activities, providing users with the ability to communicate in the stream of data. With this application, eXo Social allows users to organize and share information in the flow of data effectively.
+* *Space* is a working environment where you can manage users and communities more conveniently. It enables you to regroup people by various interests or projects and to leverage any existing application, such as portlets or gadgets.
+* *Space manager* is a user with special rights within a space. The manager can monitor the list of members, configuration and install applications. When any user creates a space, he/she automatically becomes the space's manager who can validate space subscription requests.
+* *Dashboard* is one portlet hosting mini-applications known as gadgets. The dashboard shows data from various components which can be RSS feed, calendar, calculator, To-do and more. 
+* *Space application* is one application used in the Space application of eXo Social. One space can contain one or more applications which can be shared among users.
+
+h1. Account  {anchor:id=Soc_User_Guide.Get_Started.Account}
+
+h2. Register your account {anchor:id=Soc_User_Guide.Get_Started.Account.Create_Your_Account}
+As a guest, you can visit eXo Social but are limited to several contents and applications. To access more contents or perform some functionalities, you first need to register by yourself and contact the portal administrator to gain certain permissions.
+
+*1.* Click *Register* on the top right corner of the eXo Social homepage.
+
+*2.* Fill in the *Register New Account* form. The asterisk (*) mark indicates mandatory fields.
+
+!images/Register_new_account.png!
+
+The mandatory fields which are marked with the asterisk (*) include:
+
+||Field||Description||
+|*User name*| The name used to log in that must be unique with with its length from 3 to 30 characters. Only alpha, digit, and underscore characters are allowed. |
+|*Password*| The authentication string between 6 and 30 characters, including spaces.|
+|*Confirm Password*| Retype the password above. Values in both Password and Confirm Password fields must be identical.|
+|*First Name*| The user's first name which must be between 1 and 45 characters. |
+|*Last Name*| The user's last name which must be between 1 and 45 characters. |
+|*Email Address*| The user's email that must be in the correct form, for example: username@abc.com.|
+
+*3.* Click !images/Find_icon.png! next to the *User Name* field to check if the selected username is available or not.
+
+*4.* Enter the validation text into the textbox.
+
+*5.* Click *Subscribe* to accept adding your new account, or *Reset* to clear all entered values. 
+
+Your registration is unsuccessful if one of the error messages occurs, such as:
+
+* User name is existing or User Name is invalid.
+
+* Password has less than 6 characters.
+
+* Password and Confirm Password are not the same.
+
+* Email Address is in a invalid format.
+
+* Required fields are blank (empty).
+
+* Text verification isn't correct.
+
+After creating your new account successfully, you should contact your administrator to ask for appropriate permissions for your account.
+
+{note}
+Be sure to enter your email address correctly. In case of forgetting your user name or password, you can recover it from this email address.
+{note}
+
+h2. Sign in & Sign out   {anchor:id=Soc_User_Guide.Get_Started.Signin_Signout}
+
+To sign in to eXo Social, do as follows: 
+
+*1.* Go to the eXo Social homepage by entering the appropriate URL into the address bar of your browser. For example: http://localhost:8080/socialdemo/.
+
+*2.* Click the *Sign in* link at the top right of the page.
+
+*3.* Input your registered user name and password in the *Sign in* form.
+
+!images/SignIn.png!
+
+*4.* Select the *Remember My Login* checkbox for the first time if you want to automatically return to the eXo Social page without signing in again. This feature enables you to be automatically authenticated to avoid doing an explicit authentication when you access the eXo Social.
+
+*5.* Click *Sign in* to submit the form, or *Discard* to quit.
+
+{note}
+In case the username does not exist or the username/password is invalid, you will be returned to the Sign In form with an alert message to sign in again. To attempt your login again, re-enter your username and password. 
+{note}
+
+After signing in successfully, you will be redirected to the eXo Social homepage and welcomed with your full name on the top right corner of the page.
+
+
+!images/Administration_bar.png!
+
+
+
+
+To end your authenticated session, simply hover your cursor over the eXo icon on the top left corner of the page and select *Sign out* from the drop-down menu.
+
+
+!images/Sign_Out.png!
+
+
+
+{note}
+From the eXo drop-down menu, you also can change language and skin of eXo Social by clicking each relevant icon.
+{note}
+
+
+h2. Retrieve username/password {anchor:id=Soc_User_Guide.Get_Started.Retrieve_Username}
+In case you forget your account or password, you can recover as follows:
+
+*1.* Click the *'Forget your User Name/Password?'* link beneath the *Password* field when singing in. 
+
+*2.* Select the appropriate option and click *Next*. You will be prompted to provide your identity, depending on your choice.
+
+!images/Retrieve_Options.png!
+
+*3.* Enter your Username/Email in the form.
+
+*4.* Click *Send* to submit your entered values.
+
+
+After you submit the form, an email will be sent to your email address with the requested information. 
+
+If you forget your password, you will be sent a new password temporarily. Your original password will not be valid after this email is sent. You will be directed to a page to update your password for the next time you sign in. 
+
+
+h1. User profile         {anchor:id=Soc_User_Guide.Get_Started.User_Profile}
+
+By default, your profile is just initialized with basic account information entered in the *Registration* form. Therefore, if you only want to view or edit basic information on account and password, directly left-click your display name at the top right corner of the page.
+
+The *Account Profile* form is displayed with information you have set previously.
+
+!images/Account_profile.png!
+
+Here, you can change your account information in the *Account Profile* tab, except for *User Name*. These changes will be automatically synchronized with details in the *Basic information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
+
+If you want to view and update more details, go to the *Profile* page by following either of two ways:
+
+*The first way*: Hover your cursor over your name at the top right corner of the page and then select *Profile* from the drop-down menu.
+
+*The second way*: Go to the activities page first and select the *Profile* tab. 
+
+The *Profile* page is displayed as below:
+
+!images/Profile_page.png!
+
+
+From here, you can:
+
+* [Modify your contact information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], including basic information, contact details, and experiences.
+
+* [Upload your avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
+
+* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
+
+To view the profile of another eXo Social user, go to one of the following pages: *People* or *Connections* or *Activities* and then click the appropriate user name to be directed to his/her profile. Regardless of being an administrator, you do not have right to edit profiles of another people.
+
+*See Also:*
+
+* [Account|#Soc_User_Guide.Get_Started.Account].
+
+* [Work with Connections|#Soc_User_Guide.Work_With_Connections].
+
+* [Work with Activities|#Soc_User_Guide.Work_With_Activities].
+
+* [Work with Spaces|#Soc_User_Guide.Work_With_Spaces].
+
+* [Work with Dashboard|#Soc_User_Guide.Work_With_Dashboard].
+
+
+h2. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_Information}
+
+Your own information is visible to all people using the eXo Social network. You can change information in each pane or all panes as follows:
+
+*1.* Click !images/Info_edit_icon.png! in the corresponding pane.
+
+*2.* Change your desired information. In both *Contact* and *Experiences* panes, click !images/Plus_icon.png! corresponding to one field you want to add more than one information or !images/Remove_icon.png! to remove your inputted information.
+
+*3.* Click !images/Accept_icon.png! to accept all changes, or !images/Cancel_icon.png! to close the edit form without any changes.
+
+After you have clicked !images/Accept_icon.png!, there will be a notification message of your successful update.
+
+*4.* Click *OK* to finish.
+
+The followings are changeable information in each pane.
+
+*Basic information:*
+||Basic information||Description||
+|First name | The first name which is required with the length from 1 to 45 characters. |
+|Last name| The last name which is required with the length from 1 to 45 characters. |
+|Email| The email address which must be in a valid format, for example: JohnKelvin@gmail.com. Note that spaces between characters are not accepted.|
+
+*Contact:*
+||Contact||Description||
+|Gender| The gender of user. Select your gender from the select box, either Male or Female.|
+|Phone| The phone number at work, home or at other sites which must be between 3 to 20 numeric characters.|
+|Instant Messaging| Nickname of either IM services that must be between 3 to 60 characters. |
+|Urls| The website address which must be in the correct format, for example: http://exoplatform.com/. |
+
+*Experiences:*
+||Experiences||Description||
+|Organization| Where you have worked. This field is limited from 3 to 90 characters. |
+|Position| The job title which is limited from 3 to 90 characters. |
+|Job Details| Brief description of your job without any character-related limitations. |
+|Skills Used| Skills used without any limitations. |
+|Start Date| The starting date of your work which must be in the format: MM/DD/YYYY. |
+|End Date| The ending date of your work which must be in the format: MM/DD/YYYY.|
+|Still in this position| Indicate that the user is still being at the described position. |
+
+*See Also:*
+
+* [Upload your avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
+
+* [Update current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
+
+
+h2. Upload your profile avatar         {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar}
+
+You easily upload a photo to your profile or to your spaces where you own or manage.
+
+*1.* Click *Change Avatar* to open the *Avatar Upload* form:
+
+!images/Avatar_upload_form.png!
+
+*2.* Click *Browse...* to open the folder containing the image you want to upload and select that image. The uploaded photo must be smaller than 2 MBs.
+
+*3.* Click *Confirm* to open the *Avatar Preview* form to see some related information, such as file name, file type and image size.
+
+!images/Avatar_preview_form.png!
+
+*4.* Click *Save* to accept your changes.
+
+{note}
+Your image will be automatically resized to a specified value.
+{note}
+
+h2. Update your current position {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position}
+
+*1.* Click the *Edit* link.
+
+!images/Current_position_edit1.png!
+
+The form to update the current information will appear:
+
+!images/Current_position_edit2.png!
+
+*2.* Enter your new position which is limited from 3 to 30 characters and click *Save*. Your current position will be immediately updated.
+
+{note}
+* Information entered in the Position field is only used for providing more details, not for searching. Meanwhile, information entered in the *Skills Used* field will be retrieved when you do the Search function.
+{note}

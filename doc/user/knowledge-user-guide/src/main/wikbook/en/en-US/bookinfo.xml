@@ -1,0 +1,20 @@
+<bookinfo>
+  <title>eXo Knowledge User Guide</title>
+  <edition>1.0</edition>
+  <pubsnumber>1</pubsnumber>
+  <productname>eXo Knowledge</productname>
+  <productnumber>1.0</productnumber>
+  <copyright>
+    <year>2011</year>
+    <holder>eXo Platform</holder>
+  </copyright>
+  <authorgroup>
+    <author>
+      <firstname>eXo</firstname>
+      <surname>Platform</surname>
+      <affiliation>
+        <shortaffil>Acme</shortaffil>
+      </affiliation>
+    </author>
+  </authorgroup>
+</bookinfo>

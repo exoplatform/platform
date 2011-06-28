@@ -1,0 +1,14 @@
+It is our hope that information stated above is valuable to you, our customers and users in the process of experiencing eXo Collaboration.
+This user manual has provided a thorough explanation of features and terminologies within all the applications of eXo Collaboration. Now, you can take advantage of all features in Collaboration to support and enhance your collaborative work.
+
+You may have more questions or want to get involved in the eXo community. The following links can connect you with resources to learn more and contribute to the open source development process.
+
+* [Learn more about eXo Platform 3.0|http://www.exoplatform.com/company/public/website/platform]
+
+* [Video demos, tutorial and more in the eXo Resource Center|http://www.exoplatform.com/company/public/website/resource-center]
+
+* [Access another eXo documents in the eXo Wiki|http://wiki.exoplatform.com/xwiki/bin/view/Main/WebHome/]
+
+* [Ask question about the applications in the Forums|http://forums.exoplatform.org/portal/public/classic/]
+
+All users of eXo Collaboration as well as other eXo products are provided with technical support. We will answer all of your questions and listen to your wishes. If you have any problems installing or using eXo Collaboration, you can join [eXo Forum|http://forum.exoplatform.com/portal/public/classic/] where you will find very useful information and discussion about eXo products.

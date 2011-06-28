@@ -116,7 +116,7 @@
     <version.surefire.plugin>2.6</version.surefire.plugin>
     <version.versions.plugin>1.2</version.versions.plugin>
     <version.war.plugin>2.1</version.war.plugin>
-    <version.wikbook.plugin>0.9.30</version.wikbook.plugin>
+    <version.wikbook.plugin>0.9.32</version.wikbook.plugin>
     <version.xml.plugin>1.0-beta-3</version.xml.plugin>
     <!-- ********************* -->
     <!-- Build settings        -->

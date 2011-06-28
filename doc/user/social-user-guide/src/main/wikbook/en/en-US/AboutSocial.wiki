@@ -1,0 +1,50 @@
+h1. What is eXo Social {anchor:id=Soc_User_Guide.Preface.What_eXo_Social}
+eXo Social gives rich experiences to your end-users via many options that are similar to social networks, such as Facebook and Linkedln. With eXo Social, you can establish more meaningful connection and improve your communication and collaboration.
+
+By turning your company directory into a social network, eXo Social allows you to add details, including experiences, skills and team information, to profiles of yourself and another contacts.
+
+Besides, eXo Social provides built-in JavaScript client libraries for OpenSocial API that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
+
+As an extended service of eXo Platform, eXo Platform allows built-in applications and other extended services to be added to collaboration features within the eXo Social network, providing many capabilities, such as Calendar, Address Book, Chat, Email, and more. 
+
+
+h2. About this guide {anchor:id=Soc_User_Guide.Preface.What_eXo_Social.About_This_Guide}
+
+The eXo Social User Guide is a reference for all users who want to learn more about features of eXo Social. Basically, features of eXo Social are remained, regardless of being implemented as a standalone application or one extended service of eXo Platform. This guide is based on the standalone eXo Social deployment. Before reading this guide, you should be aware of installing eXo Social and should know how to navigate between applications, and to use drop-down menus or to drag and drop actions. 
+
+This guide is divided into the following 5 chapters:
+
+||Chapters||Description||
+|[Get Started with eXo Social|#Soc_User_Guide.Get_Started_With_eXoSocial]|Introduction to eXo Social, resources and terms often used in eXo Social, how to manage accounts and edit your profile.|
+|[Work with Connections|#Soc_User_Guide.Work_With_Connections]|How to work with connections, such as searching contacts, sending connection requests.|
+|[Work with Activities|#Soc_User_Guide.Work_With_Activities]|Instructions of doing actions on the activities stream, including status and link updates, activities/comments, liking/disliking.|
+|[Work with Spaces|#Soc_User_Guide.Work_With_Spaces]|Basic actions in the Space application, such as creating a new space, joining or leaving the space, and more.|
+|[Work with Dashboard|#Soc_User_Guide.Work_With_Dashboard]|Introductions to basic actions performed in the Dashboard workspace, such as adding gadgets or managing tabs in the Dashboard bar.|
+
+
+h2. Resources {anchor:id=Soc_User_Guide.Preface.What_eXo_Social.Resources}
+
+*Information*
+
+- [eXo Homepage|http://www.exoplatform.com]
+- [eXo Wiki|http://wiki.exoplatform.com]
+
+*Support*
+
+- [Forums|http://forums.exoplatform.org]
+
+- [Support/Training/Consulting services|http://exoplatform.com/company/public/website/services]
+
+*Download*
+
+- [eXo Content|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-content]
+- [eXo Development tools|http://www.exoplatform.com/company/public/website/platform/exo-core-services/exo-development-tools]
+- [GateIn Portal Framework|http://www.exoplatform.com/company/public/website/platform/exo-core-services/gatein-portal-framework]
+- [eXo Collaboration|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-collaboration]
+- [eXo Knowledge|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-knowledge]
+- [eXo Social|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-social]
+
+*Resource Center*
+
+- [Video demos, tutorials, webinar archives, features & benefits tables and more|http://www.exoplatform.com/company/public/website/resource-center]
+

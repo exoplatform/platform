@@ -1,0 +1,541 @@
+*When you read this chapter, you can do the following actions:*
+
+* [View your contacts in either of two modes: List and vCards|#CSUser_guide.How_to_use_Address_book.View_contacts]
+* [Edit contact details|#CSUser_guide.How_to_use_Address_book.Edit_contact_details]
+* [Create new contacts|#CSUser_guide.How_to_use_Address_book.Create_new_contact]
+* [Tag a contact|#CSUser_guide.How_to_use_Address_book.Tag_contact]
+* [Edit|#CSUser_guide.How_to_use_Address_book.Edit_tag] [,or delete the created tag|#CSUser_guide.How_to_use_Address_book.Delete_tag]
+* [Send mails to your contacts|#CSUser_guide.How_to_use_Address_book.Send_mail_to_contact]
+* [Copy and paste contacts|#CSUser_guide.How_to_use_Address_book.Copy_paste_contact]
+* [Move contacts|#CSUser_guide.How_to_use_Address_book.Move_contact]
+* [Export contacts|#CSUser_guide.How_to_use_Address_book.Export_contacts]
+* [Import contacts|#CSUser_guide.How_to_use_Address_book.Import_contacts]
+* [Print contacts|#CSUser_guide.How_to_use_Address_book.Print_contacts]
+* [Share contacts|#CSUser_guide.How_to_use_Address_book.Share_contacts]
+* [Delete contacts|#CSUser_guide.How_to_use_Address_book.Delete_contact]
+* [Search for contacts with two options: Quick and Advanced searches|#CSUser_guide.How_to_use_Address_book.Search_for_contacts]
+* [Manage address books, including|#CSUser_guide.How_to_use_Address_book.Manage_address.book]:
+** [Create a new address book|#CSUser_guide.How_to_use_Address_book.Create_address_book]
+** [Edit an address book|#CSUser_guide.How_to_use_Address_book.Edit_address_book]
+** [Remove an address book|#CSUser_guide.How_to_use_Address_book.Remove_address_book]
+** [Export address books|#CSUser_guide.How_to_use_Address_book.Export_address_book]
+** [Import address books|#CSUser_guide.How_to_use_Address_book.Import_address_book]
+** [Share address books|#CSUser_guide.How_to_use_Address_book.Share_an_address_book]
+** [Grant permissions on public address books|#CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book]
+* [Print address books|#CSUser_guide.How_to_use_Address_book.Print_address_book]
+
+Before starting to use Address Book, you should familiarize yourself with the Address Book interface, which has six basic elements:
+!images/address_book_interface.png|align="center"!
+
+||Number||Details||
+|!images/No1.png!|The *Toolbar* allows you to add a new contact/address book, import/export an address book, view and customize the layout.|
+|!images/No2.png!|The *Action bar* allows quick access to actions on contacts, such as moving, deleting, copying, printing, adding tags to selected contacts.|
+|!images/No3.png!|The *Contacts list* shows all contacts in a specific address book.|
+|!images/No4.png!|The *Contact view pane* displays details of the selected contact.|
+|!images/No5.png!|The *Navigation pane* contains search pane, address books list and tags list.|
+|!images/No6.png!|The *Search pane* which allows you to do the quick and advanced searches to find contacts.|
+
+The layout can also be customized. You can hide or show specific parts of the Address book interface.
+To change the layout, click !images/layout_button.png! on the main toolbar, then select the layout you want to hide or display in the drop-down menu.
+
+h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contacts"}
+At present, your contacts can be viewed in 2 modes: *List* or *vCards*.
+
+!images/Contact_View_menu.png|align="center"!
+
+*List view*:
+
+The list view displays all contacts in the list pane and detailed information of the selected contact in the Contact view pane. On the main toolbar, click !images/Contact_View_btn.png!, then select *List* from the drop-down menu.
+
+The contacts are displayed in a list as below:
+
+!images/Contact_List_View_example.png|align="center"!
+
+*vCards view*:
+
+Vcard is a file format standard for electronic business cards. It is a powerful new means of Personal Data Interchange that is automating the traditional business card. On the main toolbar, click !images/Contact_View_btn.png!, then select *vCards* from the drop-down menu.
+
+The contacts are displayed in separate cards as below:
+
+!images/Contact_Vcard_View_example.png|align="center"!
+
+h2. Edit contact details {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_contact_details"}
+You can update information of contacts whenever you like. 
+
+*1.* Right-click an available contact in the list, then select *Edit* from the drop-down menu. The *Edit Contact* form will appear with current information of selected contact.
+
+*2.* Make your desired changes, then click *Save* to accept.
+
+{note}
+You can only edit a contact of your personal and shared address books (if you have the permission to edit).
+{note}
+
+{tip}
+You can also edit contact details in Mail. For more information, see the [Edit contact details|#Edit_contact_details] section.
+{tip}
+
+h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contact"}
+*The first way*: Click !images/add_contact_button.png! on the main toolbar.
+
+*The second way*: Right-click an address book, and click *Add* from the drop-down menu.
+
+{tip}
+You can also add a new contact from the Mail application as covered in the [Add a new contact|#Add_new_contact] section.
+{tip}
+
+Follow one of these methods above and the *Add/Edit Contact* window will appear:
+
+!images/add_edit_contact.png|align="center"!
+
+*1.* Input information into the *Add/Edit Contact* form.
+
+*2.* Click *Save* to accept adding a new contact.
+
+*To change contact's avatar*: 
+
+If you want to change contact's avatars, go to the *Profile* tab. Click *Update* to upload photos from your computer. To remove your uploaded image, simply click *Delete* below the avatar picture.
+
+*To add contact's email address*: 
+
+Click !images/plus_icon.png! next to the *Email* field if you want to add more email addresses for the contact. 
+
+Add your new email address by clicking !images/plus_icon.png!, or remove one by clicking !images/remove_icon.png!. 
+
+*To add contact's instant message information*:
+
+In the *IM Contact* tab, you can enter information about contact chat identity. (IM stands for instant message). The default text messaging (chat) service is the Chat application of eXo Collaboration, but you can select other services by clicking !images/plus_down_arrow.png! and select a service from the drop-down menu:
+
+!images/add_edit_contact_IM.png|align="center"!
+
+You can add further information in the *Work*, *Home* and *Note* tabs.
+
+
+h1. Tag a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Tag_contact"}
+
+*The first way*: Right-click the relevant contact, and select *Tag* from the drop-down menu.
+
+*The second way*: Select the contacts by selecting its respective checkboxes, then click !images/tag_contacts_icon.png! on the action bar:
+
+!images/tag_contact.png|align="center"!
+
+*The third way*: Drag and drop contacts to a specific tag in the Tags list in the left pane.
+
+After following one of these methods above, the *Add/Remove Tag* form will appear:
+
+!images/add_remove_tag.png|align="center"!
+
+In this form you can add new tag, remove or reassign tag to contact.
+
+{note}
+To add new tag quickly, click "Add new tag" at the Tag pane.
+
+!images/tag_panel.png!
+{note}
+
+
+h2. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
+*1.* Right-click a tag in the tag space and select *Edit* from the drop-down menu.
+
+*2.* Make changes to the tag in the *Edit tag* form, then click *Save* to accept the changes.
+
+
+h2. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
+*1.* Right-click a tag you want to delete, then click *Delete* from the drop-down menu.
+
+*2.* Click *OK* in the confirmation message that appears.
+
+
+h1. Send mail to a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Send_mail_to_contact"}
+
+{note}
+This function allows you to send a mail directly to one or more contacts in your address book. To take this action, you firstly need to:
+
+*1.* Have at least one account in Mail.
+
+*2.* Have the email address of the contact which you want to send mail.
+
+3*.* Email address of the selected account will be used to send mail to a contact.
+{note}
+
+*To send mail to a contact*:
+
+*1.* Select the *Email* function. You can do this steps in different ways:
+
+*The first way*: Right-click the contact which you want to send a mail to and select *Email* from the drop-down menu.
+
+*The second way*: Select the contacts that you want to send mail by selecting the respective checkboxes, then click !images/mail_icon.png! on the action bar.
+
+*The third way*: Right-click the address book and select *Email* from the drop-down menu. By this way, you will send mail to all contacts in that address book.
+
+After following one of these above methods, the *Send mail* form will appear:
+
+!images/Send_email_form.png!
+
+*2.* Input the recipient email address if needed.
+
+When the mail address you are typing matches one or more addresses in your Address book, the list of matching mail addresses will appear and you can select your desired address quickly.
+
+!images/to_email3.png|align="center"!
+
+*3.* Enter the subject and content of your message.
+
+*4.* Click the *Send Mail* button.
+
+
+h1. Copy/Paste a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Copy_paste_contact"}
+If you would like to make the copies of contacts from an address book to store in another, the copy/paste feature should be useful.
+
+*The first way*: Select the multiple contacts to copy by checking their respective checkboxes, then click !images/paste_icon.png! on the action bar.
+
+*The second way*: Copy all contacts in an address book by right-clicking that address book, then select *Copy* from the drop-down menu, then right-click the destination address book that you want to move selected contacts to and click *Paste*.
+
+
+h1. Move a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Move_contact"}
+It is simple for you to move one or more contacts from one address book to another.
+
+*To move a contact:*
+
+*The first way*: Right-click a contact and select *Move* from the drop-down menu.
+
+*The second way*: Select contact you want to move then click !images/move_button.png! on the action bar.
+
+The *Move contact* form will appear:
+
+!images/move_contact.png|align="center"!
+
+Click the destination address book where the contact will be moved to.
+
+*The third way*: Use the "drag-drop" function to move one or more contacts to the new address book.
+
+!images/drapg_drop_contact.png|align="center"!
+
+Switching to the vCard view will help you drag and drop more easily.
+
+{note}
+You can only move contacts of personal or shared address book if you have the edit permission. You cannot move contacts in the address book which you do not have the edit permission or contacts in a public address book.
+{note}
+
+
+h1. Export contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Export_contacts"}
+This feature allows you to export one or more contacts into a file to be used in another address book applications. These exported contacts will have the same information in all address book you use. You can export a single contact or multiple contacts flexibly.
+
+*To export contacts:*
+
+*1.* Right-click one contacts or address book, then click *Export* from the drop-down menu.
+
+The *Export Contacts* form will appear:
+
+!images/export_contacts.png|align="center"!
+
+*2.* Select contacts to export by selecting the respective checkboxes.
+
+*3.* Enter the file name and select the export format. (At the moment, only x-vcard is supported).
+
+*4.* Click *Export all* to export all contacts in all pages or click the *Export only selected* button to export selected contacts.
+
+
+h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contacts"}
+This function allows you to import one or more contacts from your computer to a selected address book.
+
+*To import contacts:*
+
+*The first way*: Click !images/import_button.png! on the toolbar.
+
+*The second way*: Right-click a personal or shared address book which you have the permission to edit, then click *Import* from the drop-down menu. By this way, you can quickly select the destination address book for the imported contacts,
+
+Follow one of these methods above to open the *Import contact* form.
+
+!images/import_contacts.png|align="center"!
+
+
+*1.* Select an address book that you want to import contacts to or click !images/plus_icon.png! to quickly create new address book. 
+
+*2.* Select the file format in the *Import format* field.
+
+*3.* Browse to the file in your computer and click !images/upload_icon.png! to upload the selected file.
+
+*4.* Click *Save* to complete. You will see the notification on the top left corner as the contact importing completed.
+
+
+h1. Print contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Print_contacts"}
+The Print function allows you to print information of the selected contacts. You can print one or more contacts at the same time.
+
+*To print one contact:*
+
+*1.* Right-click a contact you want to print then click *Print* from the drop-down menu.
+
+The single contact print preview will appear with the detailed information:
+
+!images/detailed_information.png|align="center"!
+
+*2.* Click the *Print* button to print.
+
+When you are in vCards view, the process is a little bit different. Firstly, you have to click *View Details* to display the detailed information. After that, click *Print* to print the selected contact.
+
+*To Print multi-contacts*:
+
+*1.* Select contacts you want to print by ticking its respective checkboxes, and then click !images/print_icon.png! on the action bar:
+
+!images/print_contacts.png|align="center"!
+
+The multiple contacts print preview will appear with summary information:
+
+!images/print_preview.png|align="center"!
+
+*2.* Click *Print* to print selected contact(s).
+
+
+h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contacts"}
+This function allows you to share contact(s) with other users or groups. The shared user/group(s) may have view permission or edit permission on the shared contacts.
+
+* *View permission* allows other users to view, copy, export, print, move and delete but cannot delete your shared contacts. The shared users cannot make changes on the information of the shared contacts if they have view permission only. However, they can move and delete shared contacts.
+
+* *Edit permission* allows other users to view, copy, export, print, move and delete and also edit the shared contacts.
+
+
+{note}
+The shared users can move or delete the shared contacts from their address book only. The original shared contact still exists in the other shared user's contact view. The shared contact is only deleted completely and no longer sharing with all shared if the creator/author of the shared contact removes it.
+{note}
+
+*To share contacts with other users:*
+
+*1.* Right-click the contact you want to share and click *Share* from the drop-down menu or drag and drop this contact to *Shared Address* book in the *Address book* pane:
+
+!images/Share_contact_with_others.png|align="center"!
+
+The *Share contact to other users* form will appear:
+
+!images/Share_contact_with_others_form.png|align="center"!
+
+*2.* Select the user or group of users that you would like to share. To select users that you want to share, click !images/user_selector_icon.png!:
+
+!images/user_selector.png|align="center"!
+
+The *User selector* form will appear. Select user(s) to share, then click *Add*.
+
+To share a contact with group of users, click !images/group_selector_icon.png!. The *Group Selector* form will appear:
+
+!images/group_selector.png|align="center"!
+
+Select the group from the left pane, then select its child group in the right pane.
+
+*3.* Click *Save* to finish.
+
+Check the '*Can edit?*' checkbox if you want to grant edit permission. User in Group having edit permission can view export, import, add, edit and delete the shared contact while the others do not have edit permission can view and export only.
+
+The shared users/groups will be updated in the *Share Address book to other users* form:
+
+!images/share_contact.png|align="center"!
+
+Click !images/edit_icon.png! if you want to change the edit right of specific user/group(s). Click !images/remove_icon1.png! to remove the respective user/group.
+
+h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contact"}
+*The first way*:
+
+*1.* Right-click a contact you want to remove, then click *Delete* from the drop-down menu.
+
+*2.* Click *Delete* on the confirmation message that appears.
+
+*The second way*:
+
+*1.* Delete multiple contacts by checking their respective checkboxes then click !images/remove_icon.png! on the action bar.
+
+*2.* Click *Delete* on the confirmation message that appears.
+
+h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contacts"}
+
+The search contact function allows finding contacts easily and quickly. There are two search modes: [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search] and [Advanced search|#CSUser_guide.How_to_use_Address_book.Advanced_search].
+
+
+h2. Quick search {anchor:id="CSUser_guide.How_to_use_Address_book.Quick_search"}
+This function allows you to do a quick search with specific keywords in all your contacts. All contacts having text matching with your search team will be displayed in the *Search Result* dialog.
+
+*To quick search for contacts:*
+
+*1.* Enter the search term in the *Search* box.
+
+*2.* Click !images/search_icon.png!.
+
+!images/search.png!
+
+The search results will be displayed in the right pane.
+
+
+h2. Advanced search {anchor:id="CSUser_guide.How_to_use_Address_book.Advanced_search"}
+When you want to refine your search further, you can use the Advanced search. This function allows you to conduct a search using a variety of criteria that helps you limit the search results.
+
+*1.* Click !images/advanced_search_icon.png! next to the search box. The *Advanced Search* form will appear:
+
+!images/advanced_search.png|align="center"!
+
+*2.* Define your search criteria. You can set the search criteria by: Simple text, full name, first Name, last name, nick name, job title, email and gender.
+
+*3.* Click the *Search* button to search. All contacts which satisfy your criteria will be shown in the *Search Result* dialog.
+
+
+h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.book"}
+By default, there are 3 categories of address books:
+
+*Personal address book* is the address book that can be viewed by its creator:
+
+* *My contacts* is the default personal address book which contains your default contact matching with your registration information.
+
+* *Collected Address book* contains all email contacts updated automatically during using Mail application. For example, when you receive an email sent from a new sender address which does not exist in your address book, this address will be automatically added to the Collected Address book.
+
+*Shared address book*: This address book can be shared with other users. In Address book, it is stored in the Shared list. The shared address book can be viewed and updated by shared users if they are granted edit permission.
+
+*Group address book*: This address book is shared by group and can be viewed by members in that group. In Address book, the group address book contains default contacts of the other users in different groups and can be viewed only.
+
+
+h2. Create an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Create_address_book"}
+
+*The first way*: Click !images/address_book_button.png! on the main toolbar.
+
+*The second way*: Click !images/down_arrow_icon.png! in the Address Book bar and select *Add* from the drop-down menu:
+
+!images/add_contact.png|align="center"!
+
+The *Add/Edit Address book* form appears:
+
+!images/add_edit_address_book.png|align="center"!
+
+Type the name and description for your new address book, then click *Save* to finish.
+
+{tip}
+You can also create a new address book from Mail. For more information, see [Add a new address book|#Add_address_book] in the Mail user guide section.
+{tip}
+
+
+h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_address_book"}
+
+*1.* Right-click an existing address book and select *Edit* from the drop-down menu:
+
+*2.* The *Add/Edit Address book* form will be displayed. Make changes to your address book then click *Save* to accept changes.
+
+{note}You can only edit a personal address book or a shared address book that you have the edit permission. You cannot edit a group address book. {note}
+
+
+h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remove_address_book"}
+*1.* Right-click an existing address book, and then select *Delete* from the drop-down menu.
+
+*2.* Click *OK* on the confirmation message to accept deleting the address book.
+
+{note}You cannot delete your default and group address book.{note}
+
+
+h2. Export an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Export_address_book"}
+*1.* Open the *Export Address books* form. There are two ways to do this step:
+
+*The first way*: Click !images/export_button.png! in the main toolbar.
+
+*The second way*: Click !images/down_arrow_icon.png! in the address books pane and select *Export* from the drop-down menu.
+
+The *Export Address books* form will appear with a list of all existing address books:
+
+*2.* Select the checkbox corresponding to the address books that you want to export. Click the top checkbox will select all the address books.
+
+*3.* Enter the file name and select the export format for the imported file (e.g: x-vcard).
+
+*4.* Click *Export All* to start exporting all the address books or click *Export Selected* to export the selected ones only.
+
+
+h2. Import an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Import_address_book"}
+Once you export your address books, your retrieve them easily at any time. Others can also import your address book to store in their address book. The process to import address books is simple as exporting address books.
+
+*1.* Open the *Import Address books* form. There are two ways to do this step:
+
+*The first way*: Click the *Import* button in the main toolbar.
+
+*The second way*: Click !images/down_arrow_icon.png! in the address books pane and select *Import* from the drop-down menu.
+
+Follow one of these methods above and the *Import Address Books* form will appear:
+
+!images/import_address_books.png|align="center"!
+
+*2.* Select the address book that you want to store the imported address book contact. You are also able to create a new address book.
+
+*3.* Select the import format. At the moment, only x-card is supported.
+
+*4.* Click *Browse* and locate the address book file to import.
+
+*5.* Click !images/upload_icon.png! to start importing.
+
+*6.* Click *Save* to finish.
+
+
+h2. Share an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Share_an_address_book"}
+
+This feature allows you to share personal address books with individual user or a group of users. They can view, export, add, edit or delete a shared address book (if they have the edit permission). The shared address book is distinguished from other address books by a hand symbol:
+
+!images/Shared_address_book.png|align="center"!
+
+*To share a personal address book:*
+
+*1.* Right-click the address book you want to share and click *Share* from the drop-down menu.
+
+The *Share address book* form will appear.
+
+*2.* Select users or group of users to share.
+
+*To share with individual user*:
+
+*1.* Click !images/user_selector_icon.png!, the *User Selector* form will appear:
+
+!images/User_selector2.png|align="center"!
+
+*2.* Select users to share by clicking on the respective checkbox(s).
+
+You can also select specific users by User name, Last name, First name, Email. Type the search term in the search box then click !images/search_icon.png! to search.
+
+*3.* Click the *Add* to add selected users to the shared list,
+
+*To share with group of users*:
+
+*1.* Click !images/group_selector_icon.png!. The *Group Selector* form will appear:
+
+!images/Group_selector.png|align="center"!
+
+*2.* Select a group in the left pane, then select its child group in the right pane.
+
+*3.* Click *Save* to finish.
+
+Click the "*Can edit?*" checkbox if you want to grant edit permission to the selected user/group. After sharing, all the shared users/groups will be listed in this form:
+
+!images/Share_calendar_form.png|align="center"!
+
+You can click !images/edit_icon.png! to change the edit permission or !images/remove_icon1.png! to remove specific user/group from the list.
+
+
+h2. Grant permissions on a public address book {anchor:id="CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book"}
+You can specify users, groups and memberships to grant the read/manage access to the public address book that you manage.
+
+* A user without the read permission cannot see the address book.
+
+* A user with the management permission is allowed to edit/rename and manage permissions on the address book.
+
+By default, any member of a group has the read permission. The manager has the management permission on the group. Only the creator of a public address book can grant permission.
+
+*To grant permission on an address book:*
+
+*1.* Right-click your public address book and select *Permission* from the drop-down menu.
+
+The *Permissions* form appears:
+
+!images/Address_book_permission_form.png|align="center"!
+
+*2.* Now you can start selecting certain users or groups to grant the permissions. Simply click !images/user_selector_icon.png! to select a user, or click !images/group_selector_icon.png! to select a group. The respective User selector or Group selector form will appear. Now, you have to select a user or group of users to grant the permission. The process is similar with [Share an address book|#Share_an_address_book].
+
+Select the *'Can manage?'* checkbox if you would like to grant the management permission to the selected users/group.
+
+h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_book"}
+This function allows you to print summary information of contacts in form of visit cards. You can also print all contacts in an address book at the same time.
+
+*To print an address book:*
+
+*1.* Right-click the address book which you want to print and select *Print* from the drop-down menu.
+
+The print preview page will appear:
+
+!images/print_preview1.png|align="center"!
+
+*2.* Click the *Print* button to start printing.

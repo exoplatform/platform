@@ -1,0 +1,88 @@
+The concept "team work" becomes very familiar in business environments. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Social develops the
+Space application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project. 
+
+To access a space, click *Spaces* on the administration bar:
+
+!images/spaces.png|align=center!
+
+The Space page appears as below:
+
+!images/space_page.png|align=center!
+
+The Space navigation on the left pane includes: 
+
+* *My Spaces*: lists spaces where you have the role as a member or a manager. 
+
+* *Invitations*: lists spaces where you are invited to become members by space managers.
+
+* *Pendings*: lists spaces where you have requested to become their members.  
+
+* *Publics*: lists all spaces which have been created with the Visibility value as Visible.
+
+{note}
+In eXo Social, root is an administrator who has the highest permission and can see all spaces whether root is a member or not.
+{note}
+
+h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
+After redirecting to the Space application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
+
+*1.* Click !images/Add_new_space_icon.png! at the top of the *Space* page.
+
+*2.* Enter a space name, description and select the priority level in the *Settings* tab of the *Add new space* form.
+There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations corresponding to each selected preference value.
+
+!images/add_new_space_settings.png|align=center!
+
+*3.* Select an access level in the *Visibility* tab.
+
+!images/add_new_space_visibility.png|align=center!
+
+*Visibility*: By default, the *Visibility* value is set to be *Visible*.
+
+* Visible: The space is always visible in the public spaces list.
+* Hidden: The space is not visible in the public spaces list.
+
+*Registration*: By default, the *Registration* value is set as *Validation*. There will be an explanation text (within two round brackets) corresponding to each your selection. 
+
+* Open: The users sending their requests can join the space without any validation.
+* Validation: The membership must be validated by the space manager.
+* Close: The user cannot request for joining, but only the space manager can invite him.
+
+*4.* Select all members of a specific group for your space where you are already 'manager' in the *Invite users from group* tab.
+One of the two following cases occurs when you select this tab.
+
+* *The first instance*: You have been already the manager of a group. It means that you have created at least a space. 
+The *Invite users from group* tab will be displayed as below:
+
+!images/add_new_space_invite_users.png|align=center!
+
+*i.* Tick the *Select a target group for this space* checkbox to open the selection form.
+
+*ii.* Select the group in the left pane, then select the child group in the right pane to accept your selection.
+
+!images/add_new_space_select_user.png|align=center!
+
+You will see your selected group as below:
+
+!images/add_new_space_select_group.png|align=center!
+
+{note}
+To remove the selected groups, untick the *Select a target group for this space* checkbox.
+{note}
+
+After you have selected one existing group, all users in that group will be invited to join your newly created space.
+
+* *The second instance*: You have not been a manager of any group yet. It means that the space you are creating is the first one, and you cannot select a target group as described in the illustration below:
+
+!images/add_new_space_invite_users1.png!
+
+{note}
+After being created, your space will be automatically added to the drop-down menu of Spaces from the administration bar. You can access this space by clicking there.
+{note}
+
+*5.* Click *Create* to complete creating a new space.
+After creating a new space, you will see it in the spaces list. Click and start exploring the space.
+
+{note}
+When more than two space characters are inputted between words, these spaces will be converted to ONLY ONE space when being displayed. With space characters at the beginning and end of space names, these space characters will be omitted.
+{note}

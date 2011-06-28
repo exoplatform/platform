@@ -1,0 +1,25 @@
+h1. Overview of eXo Social {anchor:id=Soc_User_Guide.Overview}
+
+h2. About eXo Social {anchor:id=Soc_User_Guide.About_Social}
+{include:document="AboutSocial.wiki"}
+
+h2. Get Started with eXo Social {anchor:id=Soc_User_Guide.Get_Started_With_eXoSocial}
+{include:document="Get_started.wiki"}
+
+h1. Work with Connections   {anchor:id=Soc_User_Guide.Work_With_Connections}
+{include:document="Work_With_Connections.wiki"}
+
+h1. Work with Activities  {anchor:id=Soc_User_Guide.Work_With_Activities}
+{include:document="activity/Work_With_Activities.wiki"}
+
+h1. Work with Spaces {anchor:id=Soc_User_Guide.Work_With_Spaces}
+{include:document="space/create_space.wiki"}
+{include:document="space/leave_space.wiki"}
+{include:document="space/edit_space.wiki"}
+
+
+h1. Work with Dashboard {anchor:id=Soc_User_Guide.Work_With_Dashboard}
+{include:document="dashboard/Work_With_Dashboard.wiki"}
+
+h1. Next Step {anchor:id=Soc_User_Guide.Next_Step}
+{include:document="next_step.wiki"}

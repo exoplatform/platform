@@ -1,0 +1,46 @@
+Before using the features in Answers, you should get familiar with the Answers interface. Once you have logged in and accessed Answers, the interface looks like this:
+
+!images/Answer_screen.png!
+
+|!images/no1.png!| The *Status* pane displays information of the currently viewed category, including the total number of open questions, pending questions and the total questions.|
+|!images/no2.png!| The *Categories* pane lists all categories in the hierarchical system. With one click on your desired category, you will be directed to the Answers viewing pane.|
+|!images/no3.png!| The *Breadcrumb* bar is to navigate between categories and sub-categories easily. This bar also includes the search box with simple and advanced options.|
+|!images/no4.png!| The *Action* bar is to add categories, questions, and to manage questions, import, export, print, and do settings.|
+|!images/no5.png!| The *Answers Viewing* pane displays all questions and information about score and the number of answers of each question in the selected category.|
+
+Remember that this interface may look different for each user group. Some actions for  advanced users will not be shown in the interface when you log in as a regular user.
+
+The following table summarizes actions which each user group can execute in Answers.
+|| Features || Description ||  Administrator  ||  Moderator  ||  Owner  ||   User   ||  Guest  ||
+| [View details of the Answers application|#Answer_user_guide.View_details] | See all categories in Answer and their activated questions, details of a question (its content, its answers, uploaded files, image preview). | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Download attachments|#Answer_user_guide.View_details] | Download attachments included in questions or answers. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Submit a question|#KSuser.Answer_Regular_user.Submit_question] | Submit a question with an attachment in multiple languages. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Send a question|#KSuser.Answer_Regular_user.Send_questions] | Send a question via email. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Print|#Answer_user_guide.View_details.Print] | Print all questions with their answers of a category and of its sub-categories, or print details of a question. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Search|#KSuser.Answer_Regular_user.Search] | Simple and advanced searches for a specific category or question. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [Watch/Unwatch a category|#KSuser.Answer_Regular_user.Watch_unwatch] | Watch a category to receive email notifications on new questions or any changes. If you do not want to receive email notifications any longer, unwatch the category. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [RSS|#KSuser.Answer_Regular_user.Get_RSS] | Subscribe by RSS. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |
+| [View user profile|#KSuser.Answer_Regular_user.View_public_user_profile] | View the profile of a specific user: questions, answers or comments. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! |!images/Yes_icon2.png! |
+| [User settings|#KSuser.Answer_Regular_user.Edit_user_settings] | Define user preferences: Sort type, Sort by. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! |
+| [Comment on a question|#KSuser.Answer_Regular_user.Comment_question] | Give opinions on a specific question in multiple languages. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! |
+| [Vote|#KSuser.Answer_Regular_user.Vote_for_answer] | Vote for questions and answers by rating stars. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! |
+| [Discuss in forum|#KSuser.Answer_Regular_user.Discuss_question] | Discuss a question in the forum. When a question is discussed, it becomes a topic in Forum. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! |
+| [Manage a category|#KSuser.Answer_Moderator.Manage_categories] | Add, edit, delete and move categories. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Export|#KSuser.Answer_Moderator.Export&import_categories] | Export answers in the format of a .xml or .zip file to back up data. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Import|#KSuser.Answer_Moderator.Export&import_categories] | Import data into Answers from a .xml or .zip file. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Moderate a question|#KSuser.Answer_Moderator.Moderate_question] | Add or edit a question in multiple languages, delete and move questions. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Answer a question|#KSuser.Answer_Regular_user.Answer_questions] | Give an answer for a question in the rich text format. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Multiple answers|#KSuser.Answer_Regular_user.Answer_questions] | A question can have multiple answers in multiple languages. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Link to another entry|#KSuser.Answer_Regular_user.Answer_questions] | Link one question to another entry. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions] | Activate/inactivate a specific question. Inactivated questions are hidden and regular users cannot view. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]| Set the approved/disapproved status to a specific question. The disapproved question is hidden in the Approve mode and normal users cannot view the unapproved question. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Activate/Inactivate an answer|#KSuser.Answer_Moderator.Approve&Activate_answers] | Set the activated/inactivated status to a specific answer. The inactivated answer is hidden and normal users cannot view the inactivated answer. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve&Activate_answers] | Approve/disapprove a specific answer. The disapproved answer is also hidden and regular users cannot view. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments] | Promote a comment to be an answer of a question. | !images/Yes_icon2.png! | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Initialize Answers|#KSuser.Answer_Moderator.Add_categories]| Create a category and assign the moderator role. | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Set properties of Answers|#KSuser.Answer_Administrator.Set_up_Answers_portlet]| Define basic properties (for example, Order Type, Order by, Notify content, theme, icon) and advanced properties (for example, enabling RSS, vote, comment) and more. | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+| [Set up the FAQ portlet|#KSuser.Answer_Moderator.Set_up_FAQ_portlet]| Add and configure the FAQ portlet on the page.| !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+
+{note}
+*Owners* are those posting questions or answers. Actually, they are regular users but can perform some extra actions on their questions or answers.
+{note}

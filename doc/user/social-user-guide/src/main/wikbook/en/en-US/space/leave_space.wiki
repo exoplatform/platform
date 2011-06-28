@@ -1,0 +1,89 @@
+
+h1. Join or Leave a space      {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
+To join a space:
+
+*The first instance*: For spaces without validation required, click !images/Ask_join_space.png! corresponding to your desired space in the *Publics* tab. You will automatically become their members.
+
+
+*The second instance*: For spaces with validation required, after clicking !images/Ask_join_space.png!, you have to wait for the validation from the space's owner who can accept or deny your request. 
+
+To leave the space, simply click !images/Leave_space_icon.png!.
+
+If you are the only leader of that space, the message which informs that you cannot leave a space will appear:
+
+!images/leave_space.png|align=center!
+
+However, when you are only a member invited by the leader, you can leave the space by clicking !images/Leave_space_icon.png!. 
+
+{note}
+After you have left a space, the space will not exist in *My Spaces*, but in *Publics* in the left pane.
+{note}
+
+h1. View details of a space {anchor:id=Soc_User_Guide.Space_Management.View_Details_Of_Space}
+
+To view one detailed page of a space, you must become its member first. Then, do either of the two following ways to view the space.
+
+*The first way*: Hover your mouse over *Spaces* on the administration bar and select your desired space from the drop-down menu.
+
+*The second way*: After entering the *My Spaces* pane within the *Spaces* application, left-click your desired space. 
+
+The detailed page of the space displays information about the space. The functions you can perform depend on your granted permissions or whether you are the space's creator or not.
+
+As a normal user, you can:
+
+* [Ask for joining the public space or leave the space|#Soc_User_Guide.Space_Management.Join_Space].
+
+* [Accept or deny to join a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem].
+
+* [Invite colleagues to take part in your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem].
+
+Besides, as a space manager or creator, you can:
+
+* [Edit the space settings, including name, description and priority level, avatar|#Soc_User_Guide.Space_Management.Edit_Space].
+
+* [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility]
+
+* [Invite new members to join your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem]
+
+* [Accept/Deny requests for joining a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem]
+
+* [Promote/Demote roles of space members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem]
+
+* [Remove members from your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem]
+
+
+h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
+
+Only the space manager can delete their spaces by clicking !images/Delete_icon.png! to delete all information and navigations related to that space.
+
+h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.Search}
+
+The Search function in the *Spaces* application allows you to find various types of spaces as follows:
+
+* Spaces where you take part as a member or manager in the *My Spaces* tab.
+
+* Spaces where you are invited to become members by the spaces managers in the *Invitations* tab.
+
+* Spaces where you have requested to become their members in the *Pendings* tab.
+
+* Public spaces which have been created with the *Visible* selected for the Visibility value. 
+
+After assessing your desired spaces tab, you can search it by *Name* and *Description* or *Alphabets*.
+
+* To search by name/description, follow these steps: 
+
+*1.* Enter the key word into the *Find Space* field.
+
+*2.* Press the *Enter* key or click !images/Search_icon.png!.
+
+* To search by alphabets, simply click a specific letter that spaces' name contains it. 
+
+The found spaces will be listed in the *Spaces Found* pane.
+
+h1. Accept/Deny invitations      {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
+
+This function enables you to accept and/or deny invitations that you received from others. Spaces which are being waited for acceptance will be listed in the *Invitations* space:
+
+!images/accept_deny_invitation.png|align=center!
+
+If you want to accept, click !images/Accept_invitation_icon.png!. If not, click !images/Deny_invitation_icon.png!.
