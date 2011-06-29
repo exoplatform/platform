@@ -19,5 +19,6 @@
     <module>pkg-jboss</module>
     <module>delivery</module>
     <module>pkg-jbossepp</module>
+    <module>source</module>
   </modules>
 </project>
