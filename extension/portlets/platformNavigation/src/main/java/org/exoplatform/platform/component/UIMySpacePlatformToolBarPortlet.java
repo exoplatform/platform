@@ -10,15 +10,22 @@ package org.exoplatform.platform.component;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.SiteType;
+import org.exoplatform.portal.mop.navigation.Scope;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.Membership;
@@ -26,10 +33,11 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -47,6 +55,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     private OrganizationService organizationService = null;
     private String userId = null;
     private boolean groupNavigationPermitted = false;
+    private UserNodeFilterConfig mySpaceFilterConfig;
     
     
     /**
@@ -75,23 +84,27 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
           }
         }
       }
+      UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
+//      builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.HIDDEN).withTemporalCheck();
+      mySpaceFilterConfig = builder.build();
     }
 
 
-    public List<PageNavigation> getGroupNavigations() throws Exception {
+    public List<UserNavigation> getGroupNavigations() throws Exception {
       String remoteUser = getUserId();
       UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
-      List<PageNavigation> allNavigations = userPortalConfig.getNavigations();
-      List<PageNavigation> computedNavigations = null;
+      UserPortal userPortal = getUserPortal();
+      List<UserNavigation> allNavigations = userPortal.getNavigations();
+      List<UserNavigation> computedNavigations = null;
       if (spaceService != null) {
-        computedNavigations = new ArrayList<PageNavigation>(allNavigations);
+        computedNavigations = new ArrayList<UserNavigation>(allNavigations);
         List<Space> spaces = spaceService.getAccessibleSpaces(remoteUser);
-        Iterator<PageNavigation> navigationItr = computedNavigations.iterator();
+        Iterator<UserNavigation> navigationItr = computedNavigations.iterator();
         String ownerId;
         String[] navigationParts;
         Space space;
         while (navigationItr.hasNext()) {
-          ownerId = navigationItr.next().getOwnerId();
+          ownerId = navigationItr.next().getKey().getName();
           if (ownerId.startsWith("/spaces")) {
             navigationParts = ownerId.split("/");
             space = spaceService.getSpaceByUrl(navigationParts[2]);
@@ -104,11 +117,11 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
           }
         }
       } else { // Social Services aren't loaded in the current PortalContainer
-        computedNavigations = new ArrayList<PageNavigation>();
+        computedNavigations = new ArrayList<UserNavigation>();
       }
-      for (PageNavigation navigation : allNavigations) {
-        if ((navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) && (navigation.getOwnerId().indexOf("spaces") < 0)) {
-          computedNavigations.add(PageNavigationUtils.filter(navigation, remoteUser));
+      for (UserNavigation navigation : allNavigations) {
+        if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE)) && (navigation.getKey().getName().indexOf("spaces") < 0)) {
+          computedNavigations.add(navigation);
         }
       }
       return computedNavigations;
@@ -134,8 +147,8 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       return true;  
     }
 
-    public PageNode getSelectedPageNode() throws Exception {
-        return Util.getUIPortal().getSelectedNode();
+    public UserNode getSelectedPageNode() throws Exception {
+        return Util.getUIPortal().getSelectedUserNode();
     }
 
     /**
@@ -149,17 +162,78 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         }
         return userId;
     }
-
-    public List<PageNavigation> getNavigations() throws Exception {
-        List<PageNavigation> result = new ArrayList<PageNavigation>();
-        UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-        List<PageNavigation> navigations = uiPortalApp.getNavigations();
-
-        for (PageNavigation pageNavigation : navigations) {
-            if (pageNavigation.getOwnerType().equals("portal"))
-                result.add(pageNavigation);
+    
+    boolean renderSpacesLink() throws Exception {
+      UserNavigation nav = getCurrentPortalNavigation();
+      Collection<UserNode> userNodes = getUserNodes(nav);
+      for (UserNode node : userNodes) {
+        if (node.getURI().equals("spaces")) {
+          return true;
         }
-        return result;
+      }
+      return false;
+    }
+
+    private UserNavigation getCurrentPortalNavigation(){
+      List<UserNavigation> userNavigation = getUserPortal().getNavigations();
+      for(UserNavigation nav : userNavigation){
+        if(nav.getKey().getType().equals(SiteType.PORTAL)){
+          return nav;
+        }
+      }
+      return null;
+    }
+    
+    private List<UserNavigation> getAllGroupUserNavigation(){
+      List<UserNavigation> groupNavigation = new LinkedList<UserNavigation>();
+      List<UserNavigation> userNavigation = getUserPortal().getNavigations();
+      for(UserNavigation nav : userNavigation){
+        if(nav.getKey().getType().equals(SiteType.GROUP)){
+          groupNavigation.add(nav);
+        }
+      }
+      return groupNavigation;
+    }
+    
+    public UserNavigation getCurrentUserNavigation() throws Exception
+    {
+       WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
+       return getNavigation(SiteKey.user(rcontext.getRemoteUser()));
+    }
+
+    private UserNavigation getNavigation(SiteKey userKey)
+    {
+       UserPortal userPortal = getUserPortal();
+       return userPortal.getNavigation(userKey);
+    }
+
+    private UserPortal getUserPortal()
+    {
+       UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
+       return uiPortalApplication.getUserPortalConfig().getUserPortal();
+    }
+    
+    public Collection<UserNode> getUserNodes(UserNavigation nav)
+    {
+       UserPortal userPortall = getUserPortal();
+       if (nav != null)
+       {
+          try
+          {
+             UserNode rootNode = userPortall.getNode(nav, Scope.ALL, mySpaceFilterConfig, null);
+             return rootNode.getChildren();
+          }
+          catch (Exception exp)
+          {
+             log.warn(nav.getKey().getName() + " has been deleted");
+          }
+       }
+       return Collections.emptyList();
+    }
+    
+    private UserNode getSelectedNode() throws Exception
+    {
+       return Util.getUIPortal().getSelectedUserNode();
     }
 
     public boolean hasPermission() throws Exception {

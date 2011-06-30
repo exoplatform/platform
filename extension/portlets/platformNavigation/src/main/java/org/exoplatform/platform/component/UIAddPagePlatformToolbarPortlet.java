@@ -1,8 +1,7 @@
 package org.exoplatform.platform.component;
 
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -29,18 +28,9 @@ public class UIAddPagePlatformToolbarPortlet extends UIPortletApplication
    {
    }
 
-   public PageNavigation getSelectedNavigation() throws Exception
+   public UserNavigation getSelectedNavigation() throws Exception
    {
-      return Util.getUIPortal().getSelectedNavigation();
-      
-      /*
-      PageNavigation nav = Util.getUIPortal().getSelectedNavigation();
-      if (nav != null)
-         return nav;
-      if (Util.getUIPortal().getNavigations().size() < 1)
-         return null;
-      return Util.getUIPortal().getNavigations().get(0);
-      */
+      return Util.getUIPortal().getUserNavigation(); 
    }
 
    @Override
@@ -57,17 +47,12 @@ public class UIAddPagePlatformToolbarPortlet extends UIPortletApplication
 
    private boolean hasEditPermissionOnNavigation() throws Exception
    {
-      PageNavigation selectedNavigation = getSelectedNavigation();
-      UIPortalApplication portalApp = Util.getUIPortalApplication();
-      UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
-      if (selectedNavigation == null || userACL == null)
+      UserNavigation selectedNavigation = getSelectedNavigation();
+      if (selectedNavigation == null)
       {
          return false;
       }
-      else
-      {
-         return userACL.hasEditPermission(selectedNavigation);
-      }
+      return selectedNavigation.isModifiable();
    }
    
    private boolean hasEditPermissionOnPortal() throws Exception

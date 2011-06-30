@@ -1,7 +1,7 @@
 <%
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.web.application.JavascriptManager;
 
 def rcontext = _ctx.getRequestContext() ;
@@ -29,7 +29,8 @@ void renderLink() {
 		def changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
 		def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 		
-		def navigations = uicomponent.getNavigations();
+		//def navigations = uicomponent.getNavigations();
+		def nodes = uicomponent.getUserNodes(uicomponent.getCurrentPortalNavigation());
 
  		String clazz = "";
  		
@@ -38,12 +39,9 @@ void renderLink() {
 					<div class="SubBlock">
 				""";
 				
-				if(navigations != null) {
-				 for(nav in navigations) {
-					 def pageNodes = nav.getNodes();
-				
-					 for(PageNode node in pageNodes) {
-					 	if (node.getUri() == "profile") {
+				if(!nodes.isEmpty()) {			 
+					 for(UserNode node in nodes) {
+					 	if (node.getURI() == "profile") {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
@@ -51,7 +49,7 @@ void renderLink() {
 										</div>
 									</div>
 								""";
-			       		} else if (node.getUri() == "activities") {
+			       		} else if (node.getURI() == "activities") {
 							print """
 									<div class="MenuItem">
 										<div class="$clazz">						
@@ -59,7 +57,7 @@ void renderLink() {
 										</div>
 									</div>
 								""";
-			       		} else if (node.getUri() == "connections") {
+			       		} else if (node.getURI() == "connections") {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
@@ -67,7 +65,7 @@ void renderLink() {
 										</div>
 									</div>
 								""";
-			       		} else if (node.getUri() == "people") {
+			       		} else if (node.getURI() == "people") {
 			         		print """
 									<div class="MenuItem">
 										<div class="$clazz">						
@@ -76,8 +74,7 @@ void renderLink() {
 									</div>
 								""";
 			       		} // end if				   
-					  } // end for
-				  } // end for				   
+					  } // end for				   
 				} // end if
 				
 				

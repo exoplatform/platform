@@ -1,12 +1,16 @@
 <%
-	import org.exoplatform.container.ExoContainer;
-	import org.exoplatform.portal.config.model.PageNavigation;
-	import org.exoplatform.portal.config.model.PageNode;
-	import org.exoplatform.web.application.JavascriptManager;
+    import org.exoplatform.portal.mop.user.UserNavigation;
+    import org.exoplatform.portal.mop.user.UserNode;
+    import org.exoplatform.portal.mop.Visibility;
 	import org.exoplatform.portal.webui.util.Util ;
-	//import org.exoplatform.webui.organization.OrganizationUtils;
-	//import org.exoplatform.portal.mop.Visibility;
+	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.webos.webui.page.UIDesktopPage;
+	import org.exoplatform.webui.organization.OrganizationUtils;
+    
+	import java.util.Collection;
+    
+	import javax.portlet.MimeResponse;
+	import javax.portlet.ResourceURL;
 
 	def rcontext = _ctx.getRequestContext() ;
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -15,125 +19,131 @@
 	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
 	def portalURI = Util.getPortalRequestContext().getPortalURI();
-	void renderDashboards(){
-		PageNavigation userNavigation = uicomponent.getCurrentUserNavigation();
-		if(userNavigation == null){
-			return;
-		}
-
-		nodes = userNavigation.getNodes();
-		int size = nodes.size();
-		if(size < 1){
-			return;
-		}
+	void renderDashboards(Collection nodes){
 		String clazz = "";
 
 		print """
-			<div style="display:none" class="MenuItemContainer">
-				<div class="SubBlock">
+		<div style="display:none" class="MenuItemContainer">
+		<div class="SubBlock">
 		""";
-					for(int i = 0; i < size; i++) {
-						renderPageNode( nodes.get(i), i%2 == 0);
-					}
-		print """
-				</div>
-			</div>
+		int idx = 0;
+		for(UserNode node : nodes) {
+			renderPageNode(node, idx++ % 2 == 0);
+		}
+			   print """
+		</div>
+		</div>
 		""" ;
 	}
 
-	void renderPageNode(PageNode node, boolean flag) {
-	  if (uicomponent.isWebOSNode(node)) return;
-		PageNode selectedNode = uicomponent.getSelectedPageNode();
+	void renderPageNode(UserNode node, boolean flag) {
+		if (uicomponent.isWebOSNode(node)) return;
+		UserNode selectedNode = uicomponent.getSelectedNode();
 		String tabStyleNavigation = "";
-		if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
-				tabStyleNavigation = "SelectedItem";
+		if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
+			tabStyleNavigation = "SelectedItem";
 		}
 
 		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
-		String	href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+		String href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
 		String icon = node.getIcon();
 		if(icon == null) icon = "DefaultPageIcon";
 		def resolvedLabel = node.getLabel();
-		/*
-		if ("Tab_Default".equals(node.getName()))
-		{
-				resolvedLabel = _ctx.appRes("UIUserPlatformToolbarDesktopPortlet.page." + node.getLabel());
-		}
-		*/
-	
+		/*if ("Tab_Default".equals(node.getName())){
+			resolvedLabel = _ctx.appRes("UIUserToolbarDesktopPortlet.page." + node.getLabel());
+		}*/
+
 		boolean toolong = (resolvedLabel.length() > 60);
 		String label = ( toolong ? resolvedLabel.substring(0, 57) + "..." : resolvedLabel);
 		String title = "";
 		if(toolong) title = "title='$resolvedLabel'";
 		else title = "";
+				
+		def getNodeURL = "";
+		if (hasChild) {
+			MimeResponse res = _ctx.getRequestContext().getResponse();
+			ResourceURL resourceURL = res.createResourceURL();
+			resourceURL.setResourceID(res.encodeURL(node.getURI()));
+			getNodeURL = "exo:getNodeURL='" + resourceURL.toString() + "'";
+		}
+			
 		print """
-			<div class="MenuItem $tabStyleNavigation">
-				<div class="$clazz">
-		""";
-						if(node.pageReference != null) {
-								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
-						} else {
-								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
-						}
-		print """
-				</div>
-		""" ;
-		if(hasChild) {
-			print """
+		<div class="MenuItem $tabStyleNavigation" $getNodeURL>
+			<div class="$clazz">
+				""";
+				if(node.pageRef != null) {
+					print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+				} else {
+					print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+				}
+				print """
+			</div>
+			""" ;
+			if(hasChild) {
+				print """
 				<div class="MenuItemContainer">
 					<div class="SubBlock">
-			""" ;
-				for(int j = 0; j < node.getChildren().size(); j++) {
-					renderPageNode(node.getChildren().get(j), j%2 == 0);
-				}
-			print """
+						""" ;
+						for(int j = 0; j < node.getChildren().size(); j++) {
+							renderPageNode(node.getChildren().get(j), j%2 == 0);
+						}
+						print """
 					</div>
 				</div>
-			""" ;
-
-		}
-		print """
-			</div>
+				""" ;
+			}
+			print """
+		</div>
 		""" ;
-	}
-	
-	boolean isWebOsProfileActivated() {
-		return (ExoContainer.getProfiles().contains("webos") || ExoContainer.getProfiles().contains("all"));
 	}
 %>
 
 <%
+	def userNodes = uicomponent.getUserNodes(uicomponent.getCurrentUserNavigation());
 	String defaultDashboardPage = uicomponent.DEFAULT_TAB_NAME;
 	boolean webosProfile = uicomponent.isWebOsProfileActivated();
+    String dashboardLink;
+    String desktopLink;
+    if (uicomponent.hasDashboardNode()) {
+       dashboardLink = portalURI + defaultDashboardPage;
+    } else {
+       dashboardLink = uicomponent.url("AddDefaultDashboard", defaultDashboardPage);
+    }
+    
+    if (uicomponent.isWebOSCreated()) {
+       desktopLink = portalURI + UIDesktopPage.NODE_NAME;
+    } else {
+       desktopLink = uicomponent.url("CreateWebOS");
+    }
 %>
-	<div class="UIUserToolBarDesktopPortlet" id="$uicomponent.id">
-		<div class="UIHorizontalTabs">
-			<div class="TabsContainer">
-				<div class="UITab NormalToolbarTab">
-					<div class="">
-						<a class="DashboardIcon TBIcon" href="<%= uicomponent.url("AddDefaultDashboard", defaultDashboardPage); %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.dashboard")%></a>
-					</div>
-					<% renderDashboards(); %>
+<div class="UIUserToolBarDesktopPortlet" id="$uicomponent.id">
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer">
+			<div class="UITab NormalToolbarTab">
+				<div class="">
+					<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.dashboard")%></a>
+				</div>
+				<% renderDashboards(userNodes); %>
+			</div>
+		</div>
+	<%
+	if(webosProfile) {
+	%>		
+		<div class="TabsContainer">
+			<div class="UITab NormalToolbarTab">
+				<div>
+					<% if (uicomponent.isWebOSCreated()) { %>
+						<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
+					<% } else { %>
+						<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>								
+					<% } %>
 				</div>
 			</div>
-			<%
-			if(webosProfile) {
-			%>
-				<div class="TabsContainer">
-					 <div class="UITab NormalToolbarTab">
-							<div>
-								<% if (uicomponent.isWebOSCreated()) { %>
-									<a class="DashboardIcon TBIcon" href="<%= portalURI + UIDesktopPage.NODE_NAME %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
-								<% } else { %>
-									<a class="DashboardIcon TBIcon" href="<%= uicomponent.url("CreateWebOS") %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>								
-								<% } %>
-							</div>
-					 </div>
-				</div>
-		  <%
-		  }
-		  %>
 		</div>
+	<%
+	}
+	%>
 	</div>
+</div>

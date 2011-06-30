@@ -16,7 +16,7 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+	<dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
@@ -40,6 +40,12 @@
 		<version>${org.exoplatform.ecms.version}</version>
 		<scope>provided</scope>
 	</dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.webui</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>  	
   </dependencies>
   <build>
     <finalName>platformNavigation</finalName>

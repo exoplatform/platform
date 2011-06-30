@@ -39,7 +39,7 @@
 				      <tr class="$rowClass">
 				        <td>
 				        <%
-						  String nodeName = node.getUri();
+						  String nodeName = node.getURI();
 						  String nodeTypeIcon = "NodeIcon DefaultPageIcon";
 				          def clazz = "Text"
 				        %>
@@ -47,7 +47,7 @@
 				          <div class="$clazz <%=nodeTypeIcon%>">$nodeName</div>
 				        </td>
 				        <td>
-		              <a href="<%=uicomponent.event("Select", URLEncoder.encode(node.getUri(), "utf-8"))%>">
+		              <a href="<%=uicomponent.event("Select", URLEncoder.encode(node.getURI(), "utf-8"))%>">
 		                <div class="Select16x16Icon" style="margin-left:15px;"></div>
 		              </a>
 				        </td>

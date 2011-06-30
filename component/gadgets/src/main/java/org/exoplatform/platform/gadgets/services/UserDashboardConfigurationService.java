@@ -18,6 +18,8 @@
  */
 package org.exoplatform.platform.gadgets.services;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,11 +33,18 @@ import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Dashboard;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.TransientApplicationState;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.portal.mop.navigation.Scope;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
@@ -51,6 +60,7 @@ public class UserDashboardConfigurationService {
   private static String INVOLVED_USERS;
   private static final String SEPARATE_INVOLVED_USERS = "separate-users";
   private static final String ALL_INVOLVED_USERS = "all-users";
+  private final UserNodeFilterConfig filterConfig;
   private DataStorage dataStorageService = null;
   private UserPortalConfigService userPortalConfigService = null;
   private GadgetRegistryService gadgetRegistryService = null;
@@ -86,6 +96,11 @@ public class UserDashboardConfigurationService {
     this.dataStorageService = dataStorageService;
     this.userPortalConfigService = userPortalConfigService;
     this.gadgetRegistryService = gadgetRegistryService;
+    
+    UserNodeFilterConfig.Builder scopeBuilder = UserNodeFilterConfig.builder();
+    scopeBuilder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
+    scopeBuilder.withTemporalCheck();
+    filterConfig = scopeBuilder.build();
   }
 
   /**
@@ -102,10 +117,10 @@ public class UserDashboardConfigurationService {
         if (userId.equals(userDashboardConfig.getUserId())) {
           Page dashboardPage = getUserDashboardPage(userId);
           if (dashboardPage == null) {
-            PageNavigation pageNavigation = getUserPageNavigation(userId);
-            if (pageNavigation.getNodes().size() < 1) {
-              createUserDashboard(pageNavigation);
-            }
+////            Collection<UserNode> nodes = getNavigationNodes(getUserNavigation(userId));
+//            if (nodes.size() < 1) {
+              createUserDashboard(userId);
+//            }
             dashboardPage = getUserDashboardPage(userId);
             configureUserDashboard(dashboardPage, userDashboardConfig.getGadgets());
           }
@@ -115,10 +130,10 @@ public class UserDashboardConfigurationService {
       // if all users, prepopulate all users dashboard
       Page dashboardPage = getUserDashboardPage(userId);
       if (dashboardPage == null) {
-        PageNavigation pageNavigation = getUserPageNavigation(userId);
-        if (pageNavigation.getNodes().size() < 1) {
-          createUserDashboard(pageNavigation);
-        }
+//        Collection<UserNode> nodes = getNavigationNodes(getUserNavigation(userId));
+//        if (nodes.size() < 1) {
+          createUserDashboard(userId);
+//        }
         dashboardPage = getUserDashboardPage(userId);
         configureUserDashboard(dashboardPage, allUsersConfig);
       }
@@ -126,15 +141,15 @@ public class UserDashboardConfigurationService {
 
   }
 
-  /**
-   * Return the {@link PageNavigation} of user that name is provided <br/>
-   * 
-   * @param userId
-   *          The user name.
-   * @throws Exception
-   */
-  private PageNavigation getUserPageNavigation(String userId) throws Exception {
-    return dataStorageService.getPageNavigation(PortalConfig.USER_TYPE + "::" + userId);
+  private UserNavigation getUserNavigation(String userId) throws Exception {
+     UserPortal userPortal = getUserPortal();
+     return userPortal.getNavigation(SiteKey.user(userId));
+  }
+  
+
+  private UserPortal getUserPortal() {
+     UIPortalApplication uiApp = Util.getUIPortalApplication();
+     return uiApp.getUserPortalConfig().getUserPortal();
   }
 
   /**
@@ -147,35 +162,54 @@ public class UserDashboardConfigurationService {
   private Page getUserDashboardPage(String userId) throws Exception {
     return dataStorageService.getPage(PortalConfig.USER_TYPE + "::" + userId + "::" + DEFAULT_TAB_NAME);
   }
+  
+  private Collection<UserNode> getNavigationNodes(UserNavigation nav) throws Exception {
+     UserPortal userPortal = getUserPortal();
+     if (nav != null)
+     {
+        try 
+        {
+           UserNode rootNodes =  userPortal.getNode(nav, Scope.CHILDREN, filterConfig, null);
+           return rootNodes.getChildren();
+        } 
+        catch (Exception ex)
+        {
+          logger.warn(nav.getKey().getName() + " has been deleted");
+        }
+     }
+     return Collections.emptyList();
+  }
 
   /**
-   * Creates a dashboard page for user that name will be retrieved from provided PageNavigation object param
+   * Creates a dashboard page for a given user
    * 
-   * @param userPageNavigation
-   *          The user's page navigation.
+   * @param userId The user's ID.
    */
-  private void createUserDashboard(PageNavigation userPageNavigation) {
+  private void createUserDashboard(String userId) {
     try {
-      // creates the dashboard page
-      Page page = userPortalConfigService.createPageTemplate(DASHBOARD_PAGE_TEMPLATE, userPageNavigation.getOwnerType(),
-          userPageNavigation.getOwnerId());
+      
+      UserPortal userPortal = getUserPortal();
+      UserNavigation userNav = getUserNavigation(userId);
+      if (userNav == null)
+      {
+         return;
+      }
+      SiteKey siteKey = userNav.getKey();
+      Page page = userPortalConfigService.createPageTemplate(DASHBOARD_PAGE_TEMPLATE, siteKey.getTypeName(), siteKey.getName());
       page.setTitle(DEFAULT_TAB_NAME);
       page.setName(DEFAULT_TAB_NAME);
-      // creates the dashboard pageNode
-      PageNode pageNode = new PageNode();
-      pageNode.setName(DEFAULT_TAB_NAME);
-      pageNode.setLabel(DEFAULT_TAB_LABEL);
-      pageNode.setResolvedLabel(DEFAULT_TAB_LABEL);
-      pageNode.setUri(DEFAULT_TAB_NAME);
-      pageNode.setPageReference(page.getPageId());
-      // add the pageNode to the pageNavogation
-      userPageNavigation.addNode(pageNode);
-      // create page and save pageNavigation
       dataStorageService.create(page);
-      dataStorageService.save(userPageNavigation);
+
+      UserNode rootNode = userPortal.getNode(userNav, Scope.CHILDREN, filterConfig, null);
+      UserNode tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
+      tabNode.setLabel(DEFAULT_TAB_NAME);            
+      tabNode.setPageRef(page.getPageId());
+
+      userPortal.saveNode(rootNode, null);
+      
     } catch (Exception e) {
       if (logger.isDebugEnabled()) {
-        logger.debug("Error while creating the user dashboard page for: " + userPageNavigation.getOwnerId(), e);
+        logger.debug("Error while creating the user dashboard page for: " + userId, e);
       }
     }
   }

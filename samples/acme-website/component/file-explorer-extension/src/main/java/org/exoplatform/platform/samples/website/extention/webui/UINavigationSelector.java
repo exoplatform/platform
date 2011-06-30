@@ -3,7 +3,7 @@ package org.exoplatform.platform.samples.website.extention.webui;
 import javax.jcr.Node;
 
 import org.exoplatform.ecm.webui.tree.UIBaseNodeTreeSelector;
-import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 @ComponentConfig(template = "classpath:groovy/webui/component/explorer/extention/UINavigationSelector.gtmpl")
@@ -18,15 +18,15 @@ public class UINavigationSelector extends UIBaseNodeTreeSelector {
 
 		UINavigationTreeBuilder builder = getChild(UINavigationTreeBuilder.class);
 		UINavigationSelectPanel uiNavigationSelectPanel = getChild(UINavigationSelectPanel.class);
-		uiNavigationSelectPanel.setPageNavigation(builder.getEdittedNavigation());
+		uiNavigationSelectPanel.setUserNavigation(builder.getEdittedNavigation());
 		uiNavigationSelectPanel.updateGrid();
 
 	}
 
-	public void onChange(final PageNode currentNode, Object context) throws Exception {
+	public void onChange(final UserNode currentNode, Object context) throws Exception {
 
 		UINavigationSelectPanel uiNavigationSelectPanel = getChild(UINavigationSelectPanel.class);
-		uiNavigationSelectPanel.setSelectedPageNode_(currentNode);
+		uiNavigationSelectPanel.setSelectedUserNode_(currentNode);
 		uiNavigationSelectPanel.updateGrid();
 	}
 

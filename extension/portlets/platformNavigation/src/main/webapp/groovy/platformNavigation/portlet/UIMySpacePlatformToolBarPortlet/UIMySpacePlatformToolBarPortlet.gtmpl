@@ -21,10 +21,13 @@
 */
 %>
 <%
-  import org.exoplatform.portal.config.model.PageNavigation;
-  import org.exoplatform.portal.config.model.PageNode;
+  import org.exoplatform.portal.mop.user.UserNavigation;
+  import org.exoplatform.portal.mop.user.UserNode;
   import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.portal.mop.Visibility;
   import org.exoplatform.webui.organization.OrganizationUtils;
+  
+  import java.util.Collection;
 
   /** PLF-488 : */
   import org.exoplatform.web.application.JavascriptManager;
@@ -42,26 +45,20 @@
   def spacesLink = portalURI + "spaces";
   def findSpacesLink = portalURI + "publicSpace";
   boolean hasPermission = uicomponent.hasPermission();
- 
 
-  void renderSpacePageNavigation(PageNavigation navigation) {
-    nodes = navigation.getNodes();
-    if(nodes.size() < 1) return;
-    for(int i = 0; i < nodes.size(); i++) {
-      renderPageNode(nodes.get(i), i%2 == 0);
+  void renderPageNode(UserNode node, boolean flag) {
+    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+      return;
     }
-  }
-
-  void renderPageNode(PageNode node, boolean flag) {
-    PageNode selectedNode = uicomponent.getSelectedPageNode();
+    UserNode selectedNode = uicomponent.getSelectedPageNode();
     def tabStyleNavigation = "";
-    if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+    if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
       tabStyleNavigation = "SelectedItem";
     }
-    def hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
+    def hasChild = node.getChildrenCount() > 0;
     def clazz = "";
     if(hasChild) clazz = "ArrowIcon";
-    def href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+    def href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
     def icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
     def toolong = (node.resolvedLabel.length() > 60);
@@ -76,7 +73,7 @@
       <div class="MenuItem $tabStyleNavigation">
         <div class="$clazz">
     """;
-    if(node.pageReference != null) {
+    if(node.pageRef != null) {
       print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
     } else {
       print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
@@ -89,14 +86,14 @@
         <div class="MenuItemContainer" style="position: absolute; display:none">
           <div class="SubBlock">
       """;
-        for(int j = 0; j < node.getChildren().size(); j++) {
-          PageNode childNode = node.getChildren().get(j);
+		int j = 0;
+        for(UserNode childNode : node.getChildren()) {
           /** PLF-971 : we do not separate between group and space navigation, these navigations are rendered in the same level
           /* this test is no more needed
           */
           //def isRender = uicomponent.isRender(node, childNode);
           //if (isRender) 
-          renderPageNode(childNode, j%2 == 0);
+          renderPageNode(childNode, j++ %2 == 0);
         }
       print """
           </div>
@@ -107,36 +104,23 @@
       </div>
     """;
   }
-   boolean renderSpacesLink(){
-
-		def navigations = uicomponent.getNavigations();
-		if(navigations != null) {
-			for(nav in navigations) {
-				def pageNodes = nav.getNodes();
-				for(PageNode node in pageNodes) {
-					if (node.getUri() == "spaces") {
-						return true;
-					}
-				}
-			}
-			return false;
-		}
-
-	}
 
 	/** PLF-488 : construction de la navigation exoadmin:UserToolbarGroupPortlet dans la nouvelle portlet UIMySpace*/
 
-	  void renderGroupPageNavigation(PageNavigation navigation) {
-            nodes = navigation.getNodes() ;
-            if(nodes.size() < 1) return ;
-            String navTitle = OrganizationUtils.getGroupLabel(navigation.ownerId);
-            String spacesNavigations= navigation.getOwnerId();
+	  void renderGroupPageNavigation(UserNavigation navigation) {
+			def nodes = uicomponent.getUserNodes(navigation);
+			if(nodes.isEmpty()) return ;
+			def ownerId = navigation.getKey().getName();
+			String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
+			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
+            String spacesNavigations= navigation.getKey().getName();
             if(spacesNavigations.indexOf("spaces") > 0) {
                         print """
                         <div class="SubBlock">
                             """ ;
-                            for(int i = 0; i < nodes.size(); i++) {
-                                renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
+                            int idx =0;
+                            for(UserNode node : nodes) {
+                                renderPageNodeGroup(node, idx++ %2 == 0 ) ;
                             }
                             print """
                         </div>
@@ -144,27 +128,31 @@
                     }
                     else {
             print """
-                        <div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
+                        <div class="TitleBar"><div style="width: 99%" title="$ownerId">$navTitle</div></div>
                         <div class="SubBlock">
                             """ ;
-                            for(int i = 0; i < nodes.size(); i++) {
-                                renderPageNodeGroup(nodes.get(i), i%2 == 0 ) ;
+                            int idx = 0;
+                            for(UserNode node : nodes) {
+								renderPageNodeGroup(node, idx++ %2 == 0 ) ;
                             }
                             print """
                         </div>
             """ ;
             }
     }
-	void renderPageNodeGroup(PageNode node, boolean flag) {
-		PageNode selectedNode = uicomponent.getSelectedPageNode();
+	void renderPageNodeGroup(UserNode node, boolean flag) {
+	    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+	      return;
+	    }
+		UserNode selectedNode = uicomponent.getSelectedNode();
 		String tabStyleNavigation = "";
-		if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+		if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
 				tabStyleNavigation = "SelectedItem";
 		}
-		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
+		boolean hasChild = node.getChildrenCount() > 0;
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
-		String	href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+		String	href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
 
 		String icon = node.getIcon();
 		if(icon == null) icon = "DefaultPageIcon";
@@ -179,7 +167,7 @@
 			<div class="MenuItem $tabStyleNavigation">
 				<div class="$clazz">
 		""";
-						if(node.pageReference != null) {
+						if(node.pageRef != null) {
 								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
 
 						} else {
@@ -193,11 +181,12 @@
 				<div class="MenuItemContainer" style="position: absolute; display:none">
 					<div class="SubBlock">
 			""" ;
-				for(int j = 0; j < node.getChildren().size(); j++) {
-					def childNode = node.getChildren().get(j);
-					if (uicomponent.isRender(node, childNode)) {
-						renderPageNode(childNode, j%2 == 0);
-					}
+				int idx = 0;
+				for(UserNode child : node.getChildren()) {
+		            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+		              continue;
+		            }
+					renderPageNode(child, idx++ % 2 == 0);
 				}
 			print """
 					</div>
@@ -219,7 +208,7 @@
       <div class="UITab NormalToolbarTab">
         <div class="">
 		<%
-			if (renderSpacesLink()) {
+			if (uicomponent.renderSpacesLink()) {
 		%>
 			  <a class="EditorIcon TBIcon" href="<%= spacesLink %>">
 		
@@ -239,14 +228,15 @@
 
 	  <!-- Merge exoadmin:  navigation-->
 
-		<% if (!groupNavigations.isEmpty()) { %>
+		<% 
+		if (!groupNavigations.isEmpty()) { %>
 
 			<div style="display:none" class="MenuItemContainer">
 				<% 
 				def MY_SPACES_MAX_NUMBER = 10;
 				def mySpacesDisplayed = 0;
 				for(navigation in groupNavigations) {
-					if (navigation.getOwnerId().indexOf("spaces")<0 || mySpacesDisplayed == -1){  
+					if (navigation.getKey().getName().indexOf("spaces")<0 || mySpacesDisplayed == -1){  
 						break;
 					}
 					if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
@@ -260,7 +250,7 @@
 						<div class="SubBlock">
 							<div class="MenuItem">
 								""" ;
-								if (renderSpacesLink()){
+								if (uicomponent.renderSpacesLink()){
 								print """
 								<a href="$moreSpacesLink">$moreSpacesLabel</a>
 								""" ;
@@ -278,7 +268,7 @@
 
 				<% 
 				for(navigation in groupNavigations) {
-					if (navigation.getOwnerId().indexOf("spaces")<0){
+					if (navigation.getKey().getName().indexOf("spaces")<0){
 						renderGroupPageNavigation(navigation);
 					}
 				}
@@ -287,7 +277,7 @@
 			<div class="TitleBar">
 				<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
 			</div>
-				<% if (renderSpacesLink()) { %>
+				<% if (uicomponent.renderSpacesLink()) { %>
 				<div class="SubBlock">
                        
                             <div class="MenuItem">   

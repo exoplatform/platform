@@ -20,16 +20,23 @@
 package org.exoplatform.platform.component;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.portal.mop.navigation.Scope;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -41,8 +48,12 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
   public Log log = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
 
   private UserACL userACL = null;
+  private UserNodeFilterConfig userFilterConfig;
 
   public UIUserPlatformToolBarSitePortlet() throws Exception {
+    UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
+    builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
+    userFilterConfig = builder.build();
     userACL = getApplicationComponent(UserACL.class);
   }
 
@@ -59,7 +70,8 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+//        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(), PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig())) {
           allowedPortalList.add(portalName);
         } else {
@@ -84,7 +96,8 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+//        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(), PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null) {
           allowedPortalList.add(portalName);
         } else {
@@ -109,26 +122,45 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     return Util.getPortalRequestContext().getPortalURI().replace(getCurrentPortal(), portalName);
   }
 
-  public PageNavigation getCurrentPortalNavigation() throws Exception {
-    PageNavigation navi = getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + getCurrentPortal());
-    String remoteUser = getRemoteUser();
-    return PageNavigationUtils.filter(navi, remoteUser);
+  public UserNavigation getCurrentPortalNavigation() throws Exception {
+    return getNavigation(SiteKey.portal(getCurrentPortal()));
+  
   }
 
   private String getRemoteUser() {
     return Util.getPortalRequestContext().getRemoteUser();
   }
 
-  private PageNavigation getPageNavigation(String owner) throws Exception {
-    List<PageNavigation> allNavigations = Util.getUIPortalApplication().getUserPortalConfig().getNavigations();
-    for (PageNavigation nav : allNavigations) {
-      if (nav.getOwner().equals(owner))
-        return nav;
-    }
-    return null;
+  public UserNode getSelectedPageNode() throws Exception {
+    return Util.getUIPortal().getSelectedUserNode();
   }
+  
+  private UserPortal getUserPortal() {
+    UIPortalApplication uiApp = Util.getUIPortalApplication();
+    return uiApp.getUserPortalConfig().getUserPortal();
+ }
 
-  public PageNode getSelectedPageNode() throws Exception {
-    return Util.getUIPortal().getSelectedNode();
+  private UserNavigation getNavigation(SiteKey userKey)
+  {
+     UserPortal userPortal = getUserPortal();
+     return userPortal.getNavigation(userKey);
+  }
+  
+  public Collection<UserNode> getUserNodes(UserNavigation nav)
+  {
+     UserPortal userPortall = getUserPortal();
+     if (nav != null)
+     {
+        try
+        {
+           UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
+           return rootNode.getChildren();
+        }
+        catch (Exception exp)
+        {
+           log.warn(nav.getKey().getName() + " has been deleted");
+        }
+     }
+     return Collections.emptyList();
   }
 }

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -11,15 +12,17 @@ import java.util.ResourceBundle;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
+import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.SiteType;
+import org.exoplatform.portal.mop.navigation.Scope;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.container.UIContainer;
-import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector.TreeNodeData;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
@@ -33,12 +36,12 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(events = @EventConfig(listeners = UINavigationTreeBuilder.ChangeNodeActionListener.class))
 public class UINavigationTreeBuilder extends UIContainer {
 
-  private PageNavigation edittedNavigation;
+  private UserNavigation edittedNavigation;
 
-  private TreeNodeData   edittedTreeNodeData;
+  private TreeNode   edittedTreeNodeData;
 
   /** The current node. */
-  protected PageNode     currentNode; 
+  protected UserNode     currentNode; 
 
   /**
    * Instantiates a new uI navigation tree builder.
@@ -50,15 +53,19 @@ public class UINavigationTreeBuilder extends UIContainer {
     UITree uiTree = addChild(UINavigationTree.class, null, UINavigationTree.class.getSimpleName() + hashCode());
     uiTree.setIcon("DefaultPageIcon");
     uiTree.setSelectedIcon("DefaultPageIcon");
-    uiTree.setBeanIdField("uri");
+    uiTree.setBeanIdField("URI");
     uiTree.setBeanLabelField("encodedResolvedLabel");
     uiTree.setBeanIconField("icon");
     uiTree.setUIRightClickPopupMenu(null);
 
-    DataStorage dataService = getApplicationComponent(DataStorage.class);
-    PageNavigation edittedNavigation = dataService.getPageNavigation(PortalConfig.PORTAL_TYPE, getSiteName());
+    UserNavigation edittedNavigation = getUserPortal().getNavigation(SiteKey.portal(getSiteName()));
     setEdittedNavigation(edittedNavigation);
     initTreeData();
+  }
+
+  private UserPortal getUserPortal() {
+    UserPortal userPortal = Util.getUIPortalApplication().getUserPortalConfig().getUserPortal();
+    return userPortal;
   }
   
   public String getSiteName() throws UnsupportedEncodingException{
@@ -90,52 +97,53 @@ public class UINavigationTreeBuilder extends UIContainer {
       return;
     }
     if (edittedTreeNodeData == null) {
-      edittedTreeNodeData = new TreeNodeData(edittedNavigation);
-//      if (edittedTreeNodeData.getNode() != null) {
-//         selectPageNodeByUri(edittedTreeNodeData.getNode().getUri());
-//      }
+      edittedTreeNodeData = new TreeNode(edittedNavigation, Util.getUIPortal().getSelectedUserNode());
     }
 
     UITree tree = getChild(UITree.class);
-    tree.setSibbling(edittedNavigation.getNodes());
+    tree.setSibbling(getNodes(edittedNavigation));
+  }
+
+  private Collection<UserNode> getNodes(UserNavigation navigation) {
+    return getUserPortal().getNode(navigation, Scope.ALL, null, null).getChildren();
   }
 
   private void localizeNavigation(Locale locale) {
     LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).getLocaleConfig(locale.getLanguage());
 
-    String ownerType = edittedNavigation.getOwnerType();
-    if (!PortalConfig.USER_TYPE.equals(ownerType)) {
-      String ownerId = edittedNavigation.getOwnerId();
-      if (PortalConfig.GROUP_TYPE.equals(ownerType)) {
+    SiteType ownerType = edittedNavigation.getKey().getType();
+    if (!SiteType.USER.equals(ownerType)) {
+      String ownerId = edittedNavigation.getKey().getName();
+      if (SiteType.GROUP.equals(ownerType)) {
         // Remove the trailing '/' for a group
         ownerId = ownerId.substring(1);
       }
-      ResourceBundle res = localeConfig.getNavigationResourceBundle(ownerType, ownerId);
-      for (PageNode node : edittedNavigation.getNodes()) {
+      ResourceBundle res = localeConfig.getNavigationResourceBundle(ownerType.getName(), ownerId);
+      for (UserNode node : getNodes(edittedNavigation)) {
         resolveLabel(res, node);
       }
     }
   }
 
-  private void resolveLabel(ResourceBundle res, PageNode node) {
-    node.setResolvedLabel(res);
+  private void resolveLabel(ResourceBundle res, UserNode node) {
+//    node.setResolvedLabel(res);
     if (node.getChildren() == null) {
       return;
     }
-    for (PageNode childNode : node.getChildren()) {
+    for (UserNode childNode : node.getChildren()) {
       resolveLabel(res, childNode);
     }
   }
 
-  public void selectPageNodeByUri(String uri) {
+  public void selectUserNodeByUri(String uri) {
     if (edittedTreeNodeData == null) {
       return;
     }
     UITree tree = getChild(UITree.class);
-    List<?> sibbling = tree.getSibbling();
+    Collection<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
-    edittedTreeNodeData.setNode(searchPageNodeByUri(edittedTreeNodeData.getPageNavigation(), uri));
+    edittedTreeNodeData.setPageRef(searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri).getPageRef());
     if (edittedTreeNodeData.getNode() != null) {
       tree.setSelected(edittedTreeNodeData.getNode());
       tree.setChildren(edittedTreeNodeData.getNode().getChildren());
@@ -146,46 +154,46 @@ public class UINavigationTreeBuilder extends UIContainer {
     tree.setSibbling(sibbling);
   }
 
-  public PageNode searchPageNodeByUri(PageNavigation pageNav, String uri) {
+  public UserNode searchUserNodeByUri(UserNavigation pageNav, String uri) {
     if (pageNav == null || uri == null) {
       return null;
     }
-    List<PageNode> pageNodes = pageNav.getNodes();
+    Collection<UserNode> UserNodes = getNodes(pageNav);
     UITree uiTree = getChild(UITree.class);
-    for (PageNode ele : pageNodes) {
-      PageNode returnPageNode = searchPageNodeByUri(ele, uri, uiTree);
-      if (returnPageNode == null) {
+    for (UserNode ele : UserNodes) {
+      UserNode returnUserNode = searchUserNodeByUri(ele, uri, uiTree);
+      if (returnUserNode == null) {
         continue;
       }
       if (uiTree.getSibbling() == null) {
-        uiTree.setSibbling(pageNodes);
+        uiTree.setSibbling(UserNodes);
       }
-      return returnPageNode;
+      return returnUserNode;
     }
     return null;
   }
 
-  private PageNode searchPageNodeByUri(PageNode pageNode, String uri, UITree tree) {
-    if (pageNode.getUri().equals(uri)) {
-      return pageNode;
+  private UserNode searchUserNodeByUri(UserNode userNode, String uri, UITree tree) {
+    if (userNode.getURI().equals(uri)) {
+      return userNode;
     }
-    List<PageNode> children = pageNode.getChildren();
+    Collection<UserNode> children = userNode.getChildren();
     if (children == null) {
       return null;
     }
-    for (PageNode ele : children) {
-      PageNode returnPageNode = searchPageNodeByUri(ele, uri, tree);
-      if (returnPageNode == null) {
+    for (UserNode ele : children) {
+      UserNode returnUserNode = searchUserNodeByUri(ele, uri, tree);
+      if (returnUserNode == null) {
         continue;
       }
       if (tree.getSibbling() == null) {
         tree.setSibbling(children);
       }
       if (tree.getParentSelected() == null) {
-        tree.setParentSelected(pageNode);
+        tree.setParentSelected(userNode);
       }
-      edittedTreeNodeData.setParentNode(pageNode);
-      return returnPageNode;
+      edittedTreeNodeData.getParent().setPageRef(userNode.getPageRef());
+      return returnUserNode;
     }
     return null;
   }
@@ -199,7 +207,7 @@ public class UINavigationTreeBuilder extends UIContainer {
   public void buildTree() throws Exception {
     NodeIterator sibbling = null;
     UINavigationTree tree = getChild(UINavigationTree.class);
-    PageNode selectedNode = getSelectedPageNode();
+    UserNode selectedNode = getSelectedUserNode();
     tree.setSelected(selectedNode);
  
     if (sibbling != null) {
@@ -249,7 +257,7 @@ public class UINavigationTreeBuilder extends UIContainer {
    */
   public void changeNode(String uri, Object context) throws Exception {
 
-    currentNode = searchPageNodeByUri(edittedTreeNodeData.getPageNavigation(), uri);
+    currentNode = searchUserNodeByUri(edittedTreeNodeData.getPageNavigation(), uri);
     broadcastOnChange(currentNode, context);
   }
 
@@ -260,33 +268,33 @@ public class UINavigationTreeBuilder extends UIContainer {
    * @param requestContext the request context
    * @throws Exception the exception
    */
-  public void broadcastOnChange(PageNode navigationNode, Object context) throws Exception {
+  public void broadcastOnChange(UserNode navigationNode, Object context) throws Exception {
     UINavigationSelector nodeTreeSelector = getAncestorOfType(UINavigationSelector.class);
     nodeTreeSelector.onChange(navigationNode, context);
   }
 
-  public void setEdittedNavigation(PageNavigation _filteredEdittedNavigation) throws Exception {
+  public void setEdittedNavigation(UserNavigation _filteredEdittedNavigation) throws Exception {
     this.edittedNavigation = _filteredEdittedNavigation;
   }
 
-  public PageNavigation getEdittedNavigation() {
+  public UserNavigation getEdittedNavigation() {
     return this.edittedNavigation;
   }
 
-  public TreeNodeData getSelectedNode() {
+  public TreeNode getSelectedNode() {
     return edittedTreeNodeData;
   }
 
-  public PageNavigation getSelectedNavigation() {
+  public UserNavigation getSelectedNavigation() {
     return edittedTreeNodeData == null ? null : edittedTreeNodeData.getPageNavigation();
   }
 
-  public PageNode getSelectedPageNode() {
+  public UserNode getSelectedUserNode() {
     return edittedTreeNodeData == null ? null : edittedTreeNodeData.getNode();
   }
 
   public String getUpLevelUri() {
-    return edittedTreeNodeData.getParentNode().getUri();
+    return edittedTreeNodeData.getParent().getURI();
   }
   
   /**
@@ -310,7 +318,7 @@ public class UINavigationTreeBuilder extends UIContainer {
     public void execute(Event<UITree> event) throws Exception {
       UINavigationTreeBuilder builder = event.getSource().getParent();
       String uri = event.getRequestContext().getRequestParameter(OBJECTID);
-      builder.selectPageNodeByUri(uri);
+      builder.selectUserNodeByUri(uri);
       builder.changeNode(uri, event.getRequestContext());
       UINavigationSelector nodeTreeSelector = builder.getAncestorOfType(UINavigationSelector.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(nodeTreeSelector);

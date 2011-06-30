@@ -1,11 +1,13 @@
 <%
-  import org.exoplatform.portal.config.model.PageNavigation;
-  import org.exoplatform.portal.config.model.PageNode;
+  import org.exoplatform.portal.mop.user.UserNavigation;
+  import org.exoplatform.portal.mop.user.UserNode;
   import org.exoplatform.portal.webui.util.Util;
   import org.exoplatform.webui.organization.OrganizationUtils;
   
   import org.exoplatform.portal.config.DataStorage;
   import org.exoplatform.portal.config.model.PortalConfig;
+  
+  import java.util.Collection;
 
   def rcontext = _ctx.getRequestContext();
   def portalURI = Util.getPortalRequestContext().getPortalURI();
@@ -50,16 +52,16 @@
 		String[] navigationPath = Util.getPortalRequestContext().getNodePath().split("/");
 		if(navigationPath.length > 2){
 			//e.g node path = /node1/node2/node3
-			PageNode tmpPageNode = null;
-			ArrayList<PageNode> pageNavigationNodes_ = uicomponent.getSelectedNavigationNodes();
+			UserNode tmpPageNode = null;
+			Collection<UserNode> pageNavigationNodes_ = uicomponent.getUserNodes(Util.getUIPortal().getSelectedUserNode().getNavigation());
 			//render first node
-			for(PageNode pn : pageNavigationNodes_){
+			for(UserNode pn : pageNavigationNodes_){
 				if(navigationPath[1].equals(pn.getName())){
 					//gets the first PageNode "node1"
 					tmpPageNode = pn;
 					//do not render first node if isSpaceNavigation
 					if(!uicomponent.isSpaceNavigation()){
-						if(pn.getPageReference() != null){
+						if(pn.getPageRef() != null){
 							renderPathToPage(pn);
 						}else{
 							%>
@@ -75,10 +77,10 @@
 			  if(tmpPageNode != null){
 			  for(int i = 2; i < navigationPath.length - 1; i++){
 				  //browse children of "node1"
-				for(PageNode p : tmpPageNode.getNodes()){
+				for(UserNode p : tmpPageNode.getChildren()){
 					if(navigationPath[i].equals(p.getName())){
 						// see if a navigation node have a page node
-						if(p.getPageReference() != null){
+						if(p.getPageRef() != null){
 							renderPathToPage(p);
 						}else{
 							%>
@@ -93,10 +95,10 @@
 		  }
 			  //render last node
 			  if(tmpPageNode != null){
-			  for(PageNode p : tmpPageNode.getNodes()){
+			  for(UserNode p : tmpPageNode.getChildren()){
 					if(navigationPath[navigationPath.length - 1].equals(p.getName())){
 						// see if a navigation node have a page node
-						if(p.getPageReference() != null){
+						if(p.getPageRef() != null){
 							renderSelectedPageNode(p);
 						}else{
 							%>
@@ -109,11 +111,11 @@
 				}
 			}
 		}else{
-			PageNode pageNode = uicomponent.getSelectedPageNode();
+			UserNode pageNode = uicomponent.getSelectedPageNode();
 			renderSelectedPageNode(pageNode);
 		}
 		
-		void renderPathToPage(PageNode pageNode_) {
+		void renderPathToPage(UserNode pageNode_) {
 			def portalURI = Util.getPortalRequestContext().getPortalURI();
 			if(pageNode_.getLabel() != null){
 				def pageNodeLabel = pageNode_.getLabel();
@@ -131,7 +133,7 @@
 			}
 		}
 		
-		void renderSelectedPageNode(PageNode pageNode_) {
+		void renderSelectedPageNode(UserNode pageNode_) {
 			def portalURI = Util.getPortalRequestContext().getPortalURI();
 			if(pageNode_.getLabel() != null){
 				def selectedPageNodeLabel = pageNode_.getLabel();

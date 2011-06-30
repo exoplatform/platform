@@ -21,16 +21,19 @@ package org.exoplatform.platform.component;
 
 import java.util.UUID;
 
+import org.exoplatform.platform.webui.navigation.TreeNode;
+import org.exoplatform.platform.webui.navigation.UINavigationManagement;
+import org.exoplatform.platform.webui.navigation.UINavigationNodeSelector;
+import org.exoplatform.platform.webui.navigation.UIPageNodeForm;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.UINavigationManagement;
-import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
-import org.exoplatform.portal.webui.page.UIPageNodeForm;
+import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.SiteType;
+import org.exoplatform.portal.mop.user.UserNavigation;
+import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -45,8 +48,8 @@ import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 
 @ComponentConfigs({
@@ -82,7 +85,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     editNavigation.setId(editNavigation.getId() + "-" + UUID.randomUUID().toString().replaceAll("-", ""));
   }
 
-  public PageNavigation getSelectedNavigation() throws Exception {
+  public UserNavigation getSelectedNavigation() throws Exception {
     return Utils.getSelectedNavigation();
   }
 
@@ -129,7 +132,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   static public class EditNavigationActionListener extends EventListener<UIAdminToolbarContainer> {
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       UIAdminToolbarContainer uicomp = event.getSource();
-      PageNavigation edittedNavigation = Utils.getSelectedNavigation();
+      UserNavigation edittedNavigation = Utils.getSelectedNavigation();
 
       WebuiRequestContext context = event.getRequestContext();
       UIApplication uiApplication = context.getUIApplication();
@@ -140,10 +143,11 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       }
 
       UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
-      if (edittedNavigation.getOwnerType().equals(PortalConfig.PORTAL_TYPE)) {
+      if (edittedNavigation.getKey().getType().equals(SiteType.PORTAL)) {
         String portalName = Util.getPortalRequestContext().getPortalOwner();
         UserPortalConfigService configService = uicomp.getApplicationComponent(UserPortalConfigService.class);
-        UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, context.getRemoteUser());
+//        UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, context.getRemoteUser());
+        UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, context.getRemoteUser(), PortalRequestContext.USER_PORTAL_CONTEXT);
         if (userPortalConfig == null) {
           uiApplication.addMessage(new ApplicationMessage("UISiteManagement.msg.portal-not-exist", new String[] { portalName }));
           return;
@@ -152,8 +156,8 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
           uiApplication.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null));
           return;
         }
-      } else if (edittedNavigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) {
-        if (!userACL.hasEditPermission(edittedNavigation)) {
+      } else if (edittedNavigation.getKey().getType().equals(PortalConfig.GROUP_TYPE)) {
+        if (!userACL.hasEditPermissionOnNavigation(SiteKey.group(edittedNavigation.getKey().getTypeName()))) {
           uiApplication.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null));
           return;
         }
@@ -161,18 +165,19 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
 
       UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
       UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
-      naviManager.setOwner(edittedNavigation.getOwnerId());
-      naviManager.setOwnerType(edittedNavigation.getOwnerType());
-
+      naviManager.setOwner(edittedNavigation.getKey().getName());
+      naviManager.setOwnerType(edittedNavigation.getKey().getTypeName());
+      UserPortal userPortal = Util.getUIPortalApplication().getUserPortalConfig().getUserPortal();
       UINavigationNodeSelector selector = naviManager.getChild(UINavigationNodeSelector.class);
       selector.setEdittedNavigation(edittedNavigation);
+      selector.setUserPortal(userPortal);
       selector.initTreeData();
 
       popUp.setUIComponent(naviManager);
       popUp.setShowMask(true);
       popUp.setShow(true);
       popUp.setWindowSize(400, 400);
-      context.addUIComponentToUpdateByAjax(uicomp);
+      context.addUIComponentToUpdateByAjax(uicomp); 
     }
   }
 
@@ -182,26 +187,22 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
      public void execute(Event<UIPageNodeForm> event) throws Exception
      {
         UIPageNodeForm uiPageNodeForm = event.getSource();
-        PageNavigation contextNavigation = uiPageNodeForm.getContextPageNavigation();
+        UserNavigation contextNavigation = uiPageNodeForm.getContextPageNavigation();
         UIAdminToolbarContainer uiAdminToolbarContainer = uiPageNodeForm.getAncestorOfType(UIAdminToolbarContainer.class);
-        UIPopupWindow uiNavigationPopup = uiAdminToolbarContainer.getChild(UIPopupWindow.class);
+        
         UINavigationManagement navigationManager = uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
-        navigationManager.setOwner(contextNavigation.getOwnerId());
-        navigationManager.setOwnerType(contextNavigation.getOwnerType());
+        navigationManager.setOwner(contextNavigation.getKey().getName());
+        navigationManager.setOwnerType(contextNavigation.getKey().getName());
+        
         UINavigationNodeSelector selector = navigationManager.getChild(UINavigationNodeSelector.class);
+        TreeNode selectedParent = (TreeNode) uiPageNodeForm.getSelectedParent();
+        selector.selectNode(selectedParent);
         
-        selector.setEdittedNavigation(uiPageNodeForm.getContextPageNavigation());
-        selector.initTreeData();
-        
-        if (uiPageNodeForm.getSelectedParent() instanceof PageNode)
-        {
-           PageNode selectedParent = (PageNode)uiPageNodeForm.getSelectedParent();
-           selector.selectPageNodeByUri(selectedParent.getUri());
-        }
-        
+        UIPopupWindow uiNavigationPopup = uiAdminToolbarContainer.getChild(UIPopupWindow.class);
         uiNavigationPopup.setUIComponent(navigationManager);
         uiNavigationPopup.setWindowSize(400, 400);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup.getParent());
+
      }
 
   }

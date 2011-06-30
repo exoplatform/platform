@@ -11,7 +11,7 @@ import org.exoplatform.webui.core.UITree;
 @ComponentConfig(template = "system:/groovy/webui/core/UITree.gtmpl", events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class))
 /**
  * This class extend <code>org.exoplatform.webui.core.UITree</code> to render
- * node tree for <code>org.exoplatform.portal.config.model.PageNode</code>
+ * node tree for <code>org.exoplatform.portal.config.model.UserNode</code>
  */
 public class UINavigationTree extends UITree {
 
