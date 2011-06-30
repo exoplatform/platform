@@ -63,7 +63,7 @@
     <org.jvnet.jaxb2.maven2.version>0.1</org.jvnet.jaxb2.maven2.version>
     <org.jsecurity.version>0.9.0</org.jsecurity.version>
     <xml-apis.version>1.3.04</xml-apis.version>
-    <org.chromattic.version>1.1.0-beta5</org.chromattic.version>
+    <org.chromattic.version>1.1.0-beta6</org.chromattic.version>
     <org.gatein.pc.version>2.2.0-GA</org.gatein.pc.version>   <!-- upgraded since switched to portal 3.2 -->
     <org.gatein.wci.version>2.0.2-GA</org.gatein.wci.version> <!-- upgraded since switched to portal 3.2 -->
     <org.jboss.version>2.2.9.GA</org.jboss.version>
