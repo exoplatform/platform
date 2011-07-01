@@ -124,11 +124,11 @@
 					pageNodeLabel = pageNodeLabel.substring(pageNode_.getLabel().indexOf("{") + 1, pageNode_.getLabel().indexOf("}"));
 				}
 				%>
-				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getUri()%>"><%=_ctx.appRes(pageNodeLabel)%></a>
+				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getURI()%>"><%=_ctx.appRes(pageNodeLabel)%></a>
 				<%
 			}else{
 				%>
-				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getUri()%>"><%=pageNode_.getName();%></a>
+				&nbsp;>&nbsp;<a href="<%=portalURI + pageNode_.getURI()%>"><%=pageNode_.getName();%></a>
 				<%
 			}
 		}
