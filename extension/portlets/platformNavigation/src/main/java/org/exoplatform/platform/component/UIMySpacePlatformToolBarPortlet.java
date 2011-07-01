@@ -105,8 +105,11 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
         Space space;
         while (navigationItr.hasNext()) {
           ownerId = navigationItr.next().getKey().getName();
-          if (ownerId.startsWith("/spaces")) {
+          if (ownerId.startsWith("/spaces/")) {
             navigationParts = ownerId.split("/");
+            if(navigationParts.length < 3){
+              continue;
+            }
             space = spaceService.getSpaceByUrl(navigationParts[2]);
             if (space == null)
               navigationItr.remove();
