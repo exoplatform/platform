@@ -4,6 +4,7 @@
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+  <display-name>exo-settings-wizard</display-name>
 
   <!-- Default page to serve -->
   <welcome-file-list>
