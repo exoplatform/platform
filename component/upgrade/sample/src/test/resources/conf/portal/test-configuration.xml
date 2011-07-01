@@ -32,6 +32,10 @@
 		<type>org.exoplatform.groovyscript.text.TemplateService</type>
 	</component>
 	<component>
+		<key>org.exoplatform.services.jcr.ext.distribution.DataDistributionManager</key>
+		<type>org.exoplatform.services.jcr.ext.distribution.impl.DataDistributionManagerImpl</type>
+	</component>
+	<component>
 		<key>org.exoplatform.services.cms.templates.TemplateService</key>
 		<type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
 	</component>
