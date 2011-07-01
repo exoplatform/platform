@@ -18,9 +18,9 @@
  */
 package org.exoplatform.platform.gadgets.services;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.UUID;
 
 import org.exoplatform.application.gadget.Gadget;
@@ -28,28 +28,31 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Dashboard;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.TransientApplicationState;
 import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.Visibility;
+import org.exoplatform.portal.mop.navigation.NavigationContext;
+import org.exoplatform.portal.mop.navigation.NavigationState;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
+import org.exoplatform.portal.mop.user.UserPortalContext;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
-import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 /**
- * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>
+ * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
+ *         Chattouna</a>
  * @version $Revision$
  */
 public class UserDashboardConfigurationService {
@@ -96,7 +99,7 @@ public class UserDashboardConfigurationService {
     this.dataStorageService = dataStorageService;
     this.userPortalConfigService = userPortalConfigService;
     this.gadgetRegistryService = gadgetRegistryService;
-    
+
     UserNodeFilterConfig.Builder scopeBuilder = UserNodeFilterConfig.builder();
     scopeBuilder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
     scopeBuilder.withTemporalCheck();
@@ -104,7 +107,8 @@ public class UserDashboardConfigurationService {
   }
 
   /**
-   * Gets or creates the user's dashboard page, and configures its dashboard.
+   * Gets or creates the user's dashboard page, and configures its
+   * dashboard.
    * 
    * @param userId
    *          The user name.
@@ -112,15 +116,13 @@ public class UserDashboardConfigurationService {
    */
   public void prepaopulateUserDashboard(String userId) throws Exception {
     if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
-      // if separate users, check if userId exist in the list, then prepopulate its dashboard
+      // if separate users, check if userId exist in the list, then
+      // prepopulate its dashboard
       for (UserDashboardConfiguration userDashboardConfig : separateUsersconfig) {
         if (userId.equals(userDashboardConfig.getUserId())) {
           Page dashboardPage = getUserDashboardPage(userId);
           if (dashboardPage == null) {
-////            Collection<UserNode> nodes = getNavigationNodes(getUserNavigation(userId));
-//            if (nodes.size() < 1) {
-              createUserDashboard(userId);
-//            }
+            createUserDashboard(userId);
             dashboardPage = getUserDashboardPage(userId);
             configureUserDashboard(dashboardPage, userDashboardConfig.getGadgets());
           }
@@ -130,10 +132,7 @@ public class UserDashboardConfigurationService {
       // if all users, prepopulate all users dashboard
       Page dashboardPage = getUserDashboardPage(userId);
       if (dashboardPage == null) {
-//        Collection<UserNode> nodes = getNavigationNodes(getUserNavigation(userId));
-//        if (nodes.size() < 1) {
-          createUserDashboard(userId);
-//        }
+        createUserDashboard(userId);
         dashboardPage = getUserDashboardPage(userId);
         configureUserDashboard(dashboardPage, allUsersConfig);
       }
@@ -142,57 +141,49 @@ public class UserDashboardConfigurationService {
   }
 
   private UserNavigation getUserNavigation(String userId) throws Exception {
-     UserPortal userPortal = getUserPortal();
-     return userPortal.getNavigation(SiteKey.user(userId));
+    UserPortal userPortal = getUserPortal(userId);
+    UserNavigation userNavigation = userPortal.getNavigation(SiteKey.user(userId));
+    if (userNavigation == null) {
+      NavigationContext navigationContextt = new NavigationContext(SiteKey.user(userId), new NavigationState(1));
+      userPortalConfigService.getNavigationService().saveNavigation(navigationContextt);
+      userPortal = getUserPortal(userId);
+      userNavigation = userPortal.getNavigation(SiteKey.user(userId));
+    }
+    return userNavigation;
   }
-  
 
-  private UserPortal getUserPortal() {
-     UIPortalApplication uiApp = Util.getUIPortalApplication();
-     return uiApp.getUserPortalConfig().getUserPortal();
+  private UserPortal getUserPortal(String userId) throws Exception {
+    UserPortalConfig portalConfig = userPortalConfigService.getUserPortalConfig(userPortalConfigService.getDefaultPortal(),
+        userId, NULL_CONTEXT);
+    return portalConfig.getUserPortal();
   }
 
   /**
-   * Return the {@link Page} that have a dashbord of user that name is provided <br/>
+   * Return the {@link Page} that have a dashbord of user that name is
+   * provided <br/>
    * 
    * @param userId
    *          The user name.
    * @throws Exception
    */
   private Page getUserDashboardPage(String userId) throws Exception {
-    return dataStorageService.getPage(PortalConfig.USER_TYPE + "::" + userId + "::" + DEFAULT_TAB_NAME);
-  }
-  
-  private Collection<UserNode> getNavigationNodes(UserNavigation nav) throws Exception {
-     UserPortal userPortal = getUserPortal();
-     if (nav != null)
-     {
-        try 
-        {
-           UserNode rootNodes =  userPortal.getNode(nav, Scope.CHILDREN, filterConfig, null);
-           return rootNodes.getChildren();
-        } 
-        catch (Exception ex)
-        {
-          logger.warn(nav.getKey().getName() + " has been deleted");
-        }
-     }
-     return Collections.emptyList();
+    return dataStorageService.getPage(SiteType.USER.getName() + "::" + userId + "::" + DEFAULT_TAB_NAME);
   }
 
   /**
    * Creates a dashboard page for a given user
    * 
-   * @param userId The user's ID.
+   * @param userId
+   *          The user's ID.
    */
   private void createUserDashboard(String userId) {
     try {
-      
-      UserPortal userPortal = getUserPortal();
+
+      UserPortal userPortal = getUserPortal(userId);
       UserNavigation userNav = getUserNavigation(userId);
-      if (userNav == null)
-      {
-         return;
+      if (userNav == null) {
+        logger.warn("User navigation for '" + userId + "' cannot be found. Cannot prePopulate gadgets in user's dashboard.");
+        return;
       }
       SiteKey siteKey = userNav.getKey();
       Page page = userPortalConfigService.createPageTemplate(DASHBOARD_PAGE_TEMPLATE, siteKey.getTypeName(), siteKey.getName());
@@ -202,11 +193,11 @@ public class UserDashboardConfigurationService {
 
       UserNode rootNode = userPortal.getNode(userNav, Scope.CHILDREN, filterConfig, null);
       UserNode tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
-      tabNode.setLabel(DEFAULT_TAB_NAME);            
+      tabNode.setLabel(DEFAULT_TAB_NAME);
       tabNode.setPageRef(page.getPageId());
 
       userPortal.saveNode(rootNode, null);
-      
+
     } catch (Exception e) {
       if (logger.isDebugEnabled()) {
         logger.debug("Error while creating the user dashboard page for: " + userId, e);
@@ -236,12 +227,10 @@ public class UserDashboardConfigurationService {
         Application<org.exoplatform.portal.pom.spi.gadget.Gadget> gadgetApplication = Application.createGadgetApplication();
         gadgetApplication.setStorageName(UUID.randomUUID().toString());
         gadgetApplication.setState(new TransientApplicationState<org.exoplatform.portal.pom.spi.gadget.Gadget>(gadget.getName()));
-        // if(!gadget.isLocal()){
         // check if the gadget was saved elsewhere
         if (gadgetRegistryService.getGadget(gadget.getName()) == null) {
           gadgetRegistryService.saveGadget(gadget);
         }
-        // }
         Container column = (Container) dashboard.getChildren().get(colIndex);
         column.getChildren().add(gadgetApplication);
         colIndex = colIndex + 1 == dashboard.getChildren().size() ? 0 : colIndex + 1;
@@ -276,4 +265,14 @@ public class UserDashboardConfigurationService {
     }
   }
 
+  // Don't need a portal context because webui isn't used
+  private static final UserPortalContext NULL_CONTEXT = new UserPortalContext() {
+    public ResourceBundle getBundle(UserNavigation navigation) {
+      return null;
+    }
+
+    public Locale getUserLocale() {
+      return Locale.ENGLISH;
+    }
+  };
 }
