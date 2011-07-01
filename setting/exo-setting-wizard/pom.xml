@@ -66,6 +66,7 @@
           <hostedWebapp>${webappDirectory}</hostedWebapp>
           <logLevel>INFO</logLevel>
           <skipTests>${gwt.test.skip}</skipTests>
+          <force>true</force>
         </configuration>
       </plugin>
 
