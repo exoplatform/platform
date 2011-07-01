@@ -361,6 +361,7 @@ h1. File system paths {anchor:id=ADM.Configuration.File_system_paths}
 eXo Platform requires the read/write access to several paths in the local file system.
 
 {code}
+# Main file system directory
 gatein.data.dir=../gatein/data
 
 # path for any JCR data 

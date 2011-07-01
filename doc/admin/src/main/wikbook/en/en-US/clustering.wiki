@@ -31,38 +31,66 @@ h1. Cluster setup {anchor:id=ADM.Clustering.Cluster_setup}
 
 The switch to a cluster configuration is done in  {{configuration.properties}}. This {{configuration.properties} file must be set in the same way on all the cluster nodes.
 
-First, switch the JCR to the cluster mode.
+First, point {{exo.shared.dir}} variable to a network directory shared between cluster nodes.
+{code}
+exo.shared.dir=/PATH/TO/SHARED/FS
+{code}
+
+The path is shared, so all nodes will need the read/write access to this path.
+
+Then, switch the JCR to the cluster mode.
 
 {code}
 gatein.jcr.config.type=cluster
-gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
 {code}
 
 In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
 
-Next, configure the path for the shared file system:
-
-{code}
-gatein.jcr.storage.data.dir=/PATH/TO/SHARED/FS/values
-gatein.jcr.index.data.dir=/PATH/TO/SHARED/FS/index
-{code}
-
-The path is shared, so all nodes will need the read/write access to this path.
 
 h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
 The cluster mode is preconfigured to work out of the box. It relies on the JBoss Cache configuration.
 
+On Tomcat:
+{code}
+# JBossCache configuration
+gatein.jcr.jbosscache.config=file:${catalina.home}/${exo.conf.dir.name}/jcr/jbosscache
+
+# JCR cache configuration
+gatein.jcr.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/cache-config.xml
+gatein.jcr.cache.expiration.time=15m
+
+# JCR Locks configuration
+gatein.jcr.lock.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/lock-config.xml
+
+# JCR Index configuration
+gatein.jcr.index.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/indexer-config.xml
+
+# JGroups configuration
+gatein.jcr.jgroups.config=${gatein.jcr.jbosscache.config}/cluster/jgroups-udp.xml
+{code}
+
+On JBoss Application Server:
 {code}
 # JCR cache configuration
-gatein.jcr.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/config.xml
+gatein.jcr.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
+gatein.jcr.cache.expiration.time=15m
 
 # JCR Locks configuration
 gatein.jcr.lock.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
 
 # JCR Index configuration
-gatein.jcr.index.cache.config=classpath:/conf/jcr/jbosscache/cluster/indexer-config.xml
-gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
+gatein.jcr.index.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/indexer-config.xml
+
+# JGroups configuration
+gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/jgroups-udp.xml
+{code}
+
+Optionally, if you need dedicated physical storages, it is possible to configure paths for the shared file system for JCR storage and index separately:
+
+{code}
+gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
+gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 {code}
 
 h1. Cluster management {anchor:id=ADM.Clustering.Cluster_management}
