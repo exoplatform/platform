@@ -107,15 +107,13 @@ To install eXo Platform on JBoss, follow these steps:
 - gatein-wcm-extension-plf.ear
 - gatein-workflow-extension-plf.ear
 
-*2.* Create a folder: jboss-root/server/default/conf/gatein and then copy these files to this folder.
+*2.* Create a folder: {{jboss-root/server/default/conf/gatein}} and then copy these files to this folder.
 
 - configuration.properties
 
 - configuration.xml
 
-*3.* Copy these files to {{jboss-root/bin}}.
-
-- exokey.pem
+*3.* Copy this file to {{jboss-root/server/default/conf/gatein/gadgets}}.
 
 - oauthkey.pem
 
@@ -144,10 +142,8 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
-
-- To use another implementation of SAX, change the class names in the EXO_XML variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
-
-- To debug the application, simply add $REMOTE_DEBUG to the JAVA_OPTS variable.
+* To use another implementation of SAX, change the class names in the EXO_XML variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
+* To debug the application, simply add $REMOTE_DEBUG to the JAVA_OPTS variable.
 
 *5.* Add the eXo Platform logging categories to jboss-root/server/default/conf/jboss-log4j.xml.
 
