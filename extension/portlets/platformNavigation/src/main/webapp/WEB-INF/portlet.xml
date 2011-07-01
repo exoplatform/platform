@@ -123,28 +123,6 @@
 		<short-title>UIUserPlatformToolBarSitePortlet</short-title>
 	</portlet-info>
 	</portlet>
-	<portlet>
-		<description xml:lang="EN">Breadcrumb Portlet</description>
-		<portlet-name>UIBreadcrumbPlatformToolBarPortlet</portlet-name>
-		<display-name xml:lang="EN">UIBreadcrumbPlatformToolBarPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UIBreadcrumbPlatformToolBarPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UIBreadcrumbPlatformToolBarPortlet.UIBreadcrumbPlatformToolBarPortlet</resource-bundle>
-		<portlet-info>
-			<title>Platform Breadcrumb Portlet</title>
-			<short-title>Breadcrumb</short-title>
-		</portlet-info>
-	</portlet>
    <portlet>
       <description xml:lang="EN">Desktop Portlet</description>
       <portlet-name>UIUserPlatformToolbarDesktopPortlet</portlet-name>
