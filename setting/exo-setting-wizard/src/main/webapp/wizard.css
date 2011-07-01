@@ -32,3 +32,33 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+.cw-DockPanel td {
+  border: 1px solid #BBBBBB;
+  padding: 5px;
+}
+
+.blockHeader {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.blockDescription {
+  font-size: 10px;
+  font-weight: italic;
+  color: #bbb;
+}
+
+.blockAction td {
+	border: 0;
+}
+
+.gwt-Button {
+  spacing: 5px;	
+}
+
+.errorMessage {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
