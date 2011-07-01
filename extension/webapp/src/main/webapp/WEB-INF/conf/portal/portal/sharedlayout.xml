@@ -25,8 +25,11 @@
 		<access-permissions>*:/platform/users</access-permissions>
 		<container id="UIToolbarContainer" template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
 			<access-permissions>*:/platform/users</access-permissions>
-			<container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl"></container>
+			<container id="HomeLink" template="war:/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
+			</container>
 			<container id="UserToolBarSitePortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>
@@ -37,6 +40,7 @@
 				</portlet-application>
 			</container>
 			<container id="SpacesToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>
@@ -47,6 +51,7 @@
 				</portlet-application>
 			</container>
 			<container id="UserToolBarDashboardPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>
@@ -57,12 +62,13 @@
 				</portlet-application>
 			</container>
 			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/administrators</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>
 						<portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
 					</portlet>
-					<access-permissions>*:/platform/users; editor:/platform/web-contributors</access-permissions>
+					<access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
 					<show-info-bar>false</show-info-bar>
 				</portlet-application>
 			</container>

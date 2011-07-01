@@ -274,9 +274,11 @@
 				}
 				%>
 			
+				<% if (uicomponent.renderSpacesLink() || hasPermission) { %>
 			<div class="TitleBar">
 				<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
 			</div>
+				<% } %>
 				<% if (uicomponent.renderSpacesLink()) { %>
 				<div class="SubBlock">
                        
