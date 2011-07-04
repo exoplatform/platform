@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.server.jboss</artifactId>
-    <version>3.5.0-M3</version>
+    <version>3.5.0-M4-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.server.jboss.patch</artifactId>
   <packaging>jar</packaging>
