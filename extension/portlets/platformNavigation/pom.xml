@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.extension.portlets</artifactId>
-    <version>3.5.0-M3-SNAPSHOT</version>
+    <version>3.5.0-M3</version>
   </parent>
   <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
   <packaging>war</packaging>
