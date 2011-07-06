@@ -42,7 +42,7 @@
   </dependencies>
 
   <build>
-    <finalName>exo-settings-setup</finalName>
+    <finalName>exo-settings-wizard</finalName>
     <!-- Generate compiled stuff in the folder used for developing mode -->
     <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
@@ -56,6 +56,7 @@
         <executions>
           <execution>
             <goals>
+              <goal>clean</goal>
               <goal>compile</goal>
             </goals>
           </execution>

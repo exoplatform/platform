@@ -5,6 +5,17 @@
 
 <web-app>
   <display-name>exo-settings-wizard</display-name>
+  
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>wizardService</servlet-name>
+    <servlet-class>org.exoplatform.setting.server.service.WizardServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>wizardService</servlet-name>
+    <url-pattern>/wizardsrv</url-pattern>
+  </servlet-mapping>
 
   <!-- Default page to serve -->
   <welcome-file-list>

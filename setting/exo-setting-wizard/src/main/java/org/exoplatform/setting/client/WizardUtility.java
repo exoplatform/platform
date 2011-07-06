@@ -13,4 +13,16 @@ public class WizardUtility {
     return stepId;
   }
   
+  public static int getNextStepId(int stepId) {
+    return stepId + 1;
+  }
+  
+  public static int getPreviousStepId(int stepId) {
+    int newStepId = 0;
+    if(stepId > 0) {
+      newStepId = stepId - 1;
+    }
+    return newStepId;
+  }
+  
 }

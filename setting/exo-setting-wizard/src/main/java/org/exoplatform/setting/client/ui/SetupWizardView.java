@@ -1,13 +1,13 @@
 package org.exoplatform.setting.client.ui;
 
-import org.exoplatform.setting.client.WizardGui;
-import org.exoplatform.setting.client.WizardUtility;
+import java.util.HashMap;
+import java.util.Map;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
+import org.exoplatform.setting.client.WizardGui;
+
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -18,39 +18,48 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class SetupWizardView extends WizardView {
   
+  private TextBox data1;
+  private TextBox data2;
   
-  public SetupWizardView(WizardGui gui) {
+  public SetupWizardView(WizardGui gui, int stepNumber) {
     super(gui,
-          "Step 0 - Setup", 
-          "We have detected <br /> the following environement on your server.");
+          "Setup", 
+          "We have detected the following environement on your server.",
+          stepNumber);
   }
 
   @Override
   protected Widget buildStepToolbar() {
     
     FlowPanel panel = new FlowPanel();
-    
-    Button buttonNext = new Button();
-    buttonNext.setText("Next");
-    buttonNext.getElement().setId("toStep1");
-    
-    // Button event
-    buttonNext.addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
-        Button clickedButton = (Button) event.getSource();
-        int toStepId = WizardUtility.getToStepId(clickedButton.getElement().getId());
-        gui.displayScreen(toStepId);
-      }
-    });
-    
-    panel.add(buttonNext);
+    panel.add(prepareNextButton());
     
     return panel;
   }
 
   @Override
   protected Widget buildStepContent() {
-    return new HTML("Step 0");
+    
+    data1 = new TextBox();
+    data2 = new TextBox();
+
+    Grid advancedOptions = new Grid(2, 2);
+    advancedOptions.setCellSpacing(6);
+    advancedOptions.setHTML(0, 0, "Name: ");
+    advancedOptions.setWidget(0, 1, data1);
+    advancedOptions.setHTML(1, 0, "Description: ");
+    advancedOptions.setWidget(1, 1, data2);
+    
+    return advancedOptions;
+  }
+
+  @Override
+  protected void storeDatas(int toStep) {
+    Map<String, String> datas = new HashMap<String, String>();
+    datas.put("name", data1.getText());
+    datas.put("description", data2.getText());
+    
+    gui.storeDatas(datas, toStep);
   }
   
 }

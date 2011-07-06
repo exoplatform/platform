@@ -1,17 +1,19 @@
 package org.exoplatform.setting.client;
 
 import java.util.LinkedList;
+import java.util.Map;
 
 import org.exoplatform.setting.client.i18n.WizardConstants;
 import org.exoplatform.setting.client.service.WizardService;
 import org.exoplatform.setting.client.service.WizardServiceAsync;
 import org.exoplatform.setting.client.ui.SetupTypeWizardView;
 import org.exoplatform.setting.client.ui.SetupWizardView;
+import org.exoplatform.setting.client.ui.WizardDialogBox;
 import org.exoplatform.setting.client.ui.WizardView;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -29,23 +31,21 @@ public class WizardGui implements EntryPoint {
   private WizardConstants constants = GWT.create(WizardConstants.class);
   
   private LinkedList<WizardView> views;
-  private Label errorMsgLabel = new Label();
+  private WizardDialogBox errorDialogBox;
 
   /**
    * This is the entry point method.
    */
   public void onModuleLoad() {
-
-    // Error message label init
-    errorMsgLabel.setStyleName("errorMessage");
-    errorMsgLabel.setVisible(false);
+    
+    // Create the dialog box
+    errorDialogBox = new WizardDialogBox();
 
     // Views init
     views = new LinkedList<WizardView>();
-    views.add(new SetupWizardView(this));
-    views.add(new SetupTypeWizardView(this));
+    views.add(new SetupWizardView(this, 0));
+    views.add(new SetupTypeWizardView(this, 1));
     
-    RootPanel.get("mainBlock").add(errorMsgLabel);
     for(Widget view : views) {
       RootPanel.get("mainBlock").add(view);
     }
@@ -62,10 +62,9 @@ public class WizardGui implements EntryPoint {
   public void displayScreen(int index) {
     
     if(index < 0 || index >= views.size()) {
-      displayError("Screen doesn't exist.");
+      displayError("Screen #" + index + " doesn't exist.");
     }
     else {
-      hideError();
       
       // Fetch all screens to set visible false
       for(Widget view : views) {
@@ -77,17 +76,41 @@ public class WizardGui implements EntryPoint {
     }
   }
   
-  public void storeDatas() {
-    // TODO
+  /**
+   * Display an error in a dialog box
+   * @param error
+   */
+  public void displayError(String error) {
+    errorDialogBox.displayError(error);
   }
   
-  private void displayError(String errorMsg) {
-    errorMsgLabel.setText("Error: " + errorMsg);
-    errorMsgLabel.setVisible(true);
+  /**
+   * Display an error in a dialog box
+   * @param error
+   */
+  public void displayMessage(String message) {
+    errorDialogBox.displayMessage(message);
   }
   
-  private void hideError() {
-    errorMsgLabel.setText("");
-    errorMsgLabel.setVisible(false);
+  /**
+   * Stores datas into server side
+   * @param datas
+   */
+  public void storeDatas(Map<String, String> datas, int toStep) {
+    
+    AsyncCallback<Integer> callback = new AsyncCallback<Integer>() {
+
+      public void onFailure(Throwable arg0) {
+        displayError(arg0.getMessage());
+      }
+
+      public void onSuccess(Integer arg0) {
+        displayMessage(arg0.toString());
+        //displayScreen(arg0);
+      }
+    };
+    
+    // Call service to store datas
+    wizardService.storeDatas(datas, toStep, callback);
   }
 }
