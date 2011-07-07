@@ -62,7 +62,7 @@
 				</portlet-application>
 			</container>
 			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>*:/platform/administrators</access-permissions>
+				<access-permissions>*:/platform/administrators; editor:/platform/web-contributors</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>platformNavigation</application-ref>

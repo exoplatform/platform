@@ -19,11 +19,11 @@ package org.exoplatform.platform.component;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.exoplatform.platform.component.social.UIComposer;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
-import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -32,84 +32,60 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+
 /**
- * Portlet manages profile.<br> 
- *
+ * Portlet manages profile.<br>
  */
-@ComponentConfig(
-    lifecycle = UIApplicationLifecycle.class, 
-   
-    template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet.gtmpl"	
-)
+@ComponentConfig(lifecycle = UIApplicationLifecycle.class,
+
+template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet.gtmpl")
 public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
-  
-  private UserNodeFilterConfig userFilterConfig;
+
+  private String currentPortalName = null;
+  private boolean socialPortal = false;
 
   public UIUserPlatformToolBarPortlet() throws Exception {
-    UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-//    builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
-    userFilterConfig = builder.build();
-  }
-  
-  public User getUser() throws Exception {
-	  OrganizationService service = getApplicationComponent(OrganizationService.class);
-	  String userName = Util.getPortalRequestContext().getRemoteUser();
-	  User user = service.getUserHandler().findUserByName(userName);
-	  return user;
+    addChild(UIComposer.class, null, null);
   }
 
-  /**
-   * gets UserNavigation list
-   * @return UserNavigation
-   * @throws Exception
-   */
-//  public List<UserNavigation> getNavigations() throws Exception {
-//    UserPortal userPortal = getUserPortal();
-//    List<UserNavigation> navigations = userPortal.getNavigations();
-//    List<UserNavigation> result = new ArrayList<UserNavigation>();
-//    
-//	for (UserNavigation nav : navigations) {
-//		if(nav.getKey().getType().equals(SiteType.PORTAL))
-//			result.add(nav);
-//	  }
-//    return result;
-//  }
+  public User getUser() throws Exception {
+    OrganizationService service = getApplicationComponent(OrganizationService.class);
+    String userName = Util.getPortalRequestContext().getRemoteUser();
+    User user = service.getUserHandler().findUserByName(userName);
+    return user;
+  }
+
   private String getCurrentPortalName() {
     return Util.getPortalRequestContext().getPortalOwner();
   }
-  
-  public UserNavigation getCurrentPortalNavigation() throws Exception
-  {
-     return getNavigation(SiteKey.portal(getCurrentPortalName()));
+
+  public boolean isSocialPortal() {
+    if (currentPortalName != null && getCurrentPortalName().equals(currentPortalName)) {
+      return socialPortal;
+    }
+    currentPortalName = getCurrentPortalName();
+    UserPortal userPortal = getUserPortal();
+    UserNavigation userNavigation = userPortal.getNavigation(SiteKey.portal(currentPortalName));
+    UserNode portalNode = userPortal.getNode(userNavigation, Scope.CHILDREN, null, null);
+    socialPortal = portalNode.getChild("spaces") != null;
+    return socialPortal;
   }
 
-  private UserNavigation getNavigation(SiteKey userKey)
-  {
-     UserPortal userPortal = getUserPortal();
-     return userPortal.getNavigation(userKey);
+  private UserPortal getUserPortal() {
+    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
+    return uiPortalApplication.getUserPortalConfig().getUserPortal();
   }
 
-  private UserPortal getUserPortal()
-  {
-     UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-     return uiPortalApplication.getUserPortalConfig().getUserPortal();
-  }
-  
-  public Collection<UserNode> getUserNodes(UserNavigation nav)
-  {
-     UserPortal userPortall = getUserPortal();
-     if (nav != null)
-     {
-        try
-        {
-           UserNode rootNode = userPortall.getNode(nav, Scope.CHILDREN, userFilterConfig, null);
-           return rootNode.getChildren();
-        }
-        catch (Exception exp)
-        {
-           log.warn(nav.getKey().getName() + " has been deleted");
-        }
-     }
-     return Collections.emptyList();
+  public Collection<UserNode> getUserNodes(UserNavigation nav) {
+    UserPortal userPortall = getUserPortal();
+    if (nav != null) {
+      try {
+        UserNode rootNode = userPortall.getNode(nav, Scope.CHILDREN, null, null);
+        return rootNode.getChildren();
+      } catch (Exception exp) {
+        log.warn(nav.getKey().getName() + " has been deleted");
+      }
+    }
+    return Collections.emptyList();
   }
 }

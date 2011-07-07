@@ -10,6 +10,12 @@
   <packaging>war</packaging>
   <name>eXo Platform - Navigation Portlet</name>
   <dependencies>
+	<dependency>
+		<groupId>org.exoplatform.commons</groupId>
+		<artifactId>exo.platform.commons.webui.ext</artifactId>
+		<version>${org.exoplatform.commons.version}</version>
+		<scope>provided</scope>
+	</dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web.api</artifactId>
@@ -27,7 +33,13 @@
       <artifactId>exo.webos.webui.webos</artifactId>
       <version>${org.exoplatform.webos.version}</version>
       <scope>provided</scope>
-    </dependency>	
+    </dependency>
+    <dependency>
+	  <groupId>org.exoplatform.social</groupId>
+	  <artifactId>exo.social.component.webui</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.core</artifactId>
@@ -45,7 +57,13 @@
       <artifactId>exo.platform.component.webui</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
-    </dependency>  	
+    </dependency>
+    <dependency>
+      <groupId>org.gatein.shindig</groupId>
+      <artifactId>shindig-social-api</artifactId>
+      <version>${org.gatein.shindig.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>platformNavigation</finalName>

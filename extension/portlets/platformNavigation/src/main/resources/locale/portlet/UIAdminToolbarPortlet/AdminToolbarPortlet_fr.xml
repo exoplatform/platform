@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
    <UIAdminToolbarPortlet>
-      <action>
-         <AddPage>Ajouter une Page</AddPage>
-         <EditPage>Mise en page de la page</EditPage>
-         <EditSiteLayout>Mise en page du portail</EditSiteLayout>
-         <EditNavigationLayout>Navigation</EditNavigationLayout>
-         <Content>Contenu</Content>
-         <Editor>Editer</Editor>
-      </action>
+		<action>
+			<AddPage>Ajouter une Page</AddPage>
+			<EditNavigation>Navigation</EditNavigation>
+			<Content>Contenu</Content>
+			<Editor>Editer</Editor>
+			<Page>Page</Page>
+			<Site>Site</Site>
+			<Layout>Mise en page</Layout>
+		</action>
+		<ManageSites>Gestion des sites</ManageSites>
+		<ManageGroupSites>Gestion des sites des groupes</ManageGroupSites>
    </UIAdminToolbarPortlet>
 </bundle>

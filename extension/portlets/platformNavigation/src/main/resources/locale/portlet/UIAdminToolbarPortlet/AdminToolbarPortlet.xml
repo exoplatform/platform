@@ -3,11 +3,14 @@
    <UIAdminToolbarPortlet>
       <action>
          <AddPage>Add Page</AddPage>
-         <EditPage>Page Layout</EditPage>
-         <EditSiteLayout>Portal Layout</EditSiteLayout>
-         <EditNavigationLayout>Navigation</EditNavigationLayout>
+         <EditNavigation>Navigation</EditNavigation>
          <Content>Content</Content>
          <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
+         <Layout>Layout</Layout>
       </action>
+		<ManageSites>Manage sites</ManageSites>
+		<ManageGroupSites>Manage group sites</ManageGroupSites>
    </UIAdminToolbarPortlet>
 </bundle>

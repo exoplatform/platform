@@ -274,27 +274,17 @@
 				}
 				%>
 			
-				<% if (uicomponent.renderSpacesLink() || hasPermission) { %>
-			<div class="TitleBar">
-				<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
-			</div>
-				<% } %>
 				<% if (uicomponent.renderSpacesLink()) { %>
-				<div class="SubBlock">
-                       
-                            <div class="MenuItem">   
-                                <a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
-                            </div>               
-                 </div>
+					<div class="TitleBar">
+						<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
+					</div>
+					<div class="SubBlock">
+						   
+								<div class="MenuItem">   
+									<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
+								</div>               
+					 </div>
 				<% } %>
-			<% if(hasPermission){ %>
-			<div class="SubBlock">
-                       
-                            <div class="MenuItem">   
-                                <a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.manage")%></a>
-                            </div>               
-            </div>
-			<% } %>
 			</div>
 		<% } %>
 	   <!-- FIN -->

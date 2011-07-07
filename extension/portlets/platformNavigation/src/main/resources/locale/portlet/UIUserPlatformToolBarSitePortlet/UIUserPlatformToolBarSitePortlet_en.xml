@@ -2,6 +2,5 @@
 <bundle>
 	<UIUserPlatformToolBarSitePortlet>
 		<title>My Sites</title>
-		<manage>Manage sites</manage>
 	</UIUserPlatformToolBarSitePortlet>
 </bundle>

@@ -50,18 +50,6 @@
 					</div>
 				""";
 			}
-			if(hasPermission){
-				String manageSiteURI = Util.getPortalRequestContext().getPortalURI()+"portalnavigation";
-				String manageLabel=_ctx.appRes("UIUserPlatformToolBarSitePortlet.manage");
-				print """
-							<hr width="100%" style="width:100%; color: #999999;" />
-							<div class="MenuItem SiteIcon">
-								<div class="">
-									<a href="$manageSiteURI" class="ManageSite">$manageLabel</a>
-								</div>
-							</div>
-				""";
-			}
 			print """
 					</div>
 				</div>
