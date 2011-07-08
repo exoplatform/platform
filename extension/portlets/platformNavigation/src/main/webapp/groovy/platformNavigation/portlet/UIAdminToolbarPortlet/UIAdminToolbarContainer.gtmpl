@@ -17,7 +17,6 @@
 	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
-
 	String portalURI = Util.getPortalRequestContext().getPortalURI();
 
 	String quiEditClass = "QuickEditUnchecked";
@@ -32,6 +31,11 @@
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
     boolean displayManageSitesPermission = uicomponent.isPortaNavigation() && uicomponent.hasManageSitesPermission();
     boolean displayManageGroupSitesPermission = uicomponent.isGroupNavigation() && uicomponent.hasManageGroupSitesPermission();
+	
+  	String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
+  	if(displayManageGroupSitesPermission) {
+  	  siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.GroupSite");
+  	}
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 <script type="text/javascript">
@@ -68,6 +72,11 @@
 												$addPageLabel
 											</a>
 										</div>
+										<% if(uicomponent.hasManagePagesPermission()){ %>
+											<div class="MenuItem">   
+												<a href="<%= portalURI + "administration/pageManagement" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
+											</div>
+										<% } %>
 									</div>
 								</div>
 							</div>
@@ -75,7 +84,7 @@
 						<% if(userCouldEditPortal || userCouldEditNavigation || hasManageSitesPermission || hasManageGroupSitesPermission) { %>
 							<div class="MenuItem">
 								<div class="ArrowIcon">
-									<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Site")%></a>
+									<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
 								</div>
 
 								<div class="MenuItemContainer">

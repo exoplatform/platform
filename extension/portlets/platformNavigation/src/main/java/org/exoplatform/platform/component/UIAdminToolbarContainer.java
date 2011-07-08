@@ -111,7 +111,11 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   public boolean isUserNavigation() throws Exception {
     return SiteType.USER.equals(getSelectedNavigation().getKey().getType());
   }
-
+  
+  public boolean hasManagePagesPermission() {
+    UserACL userACL = getApplicationComponent(UserACL.class);
+    return userACL.isUserInGroup(userACL.getAdminGroups());
+  }
 
   public boolean hasManageSitesPermission() throws Exception {
     if (hasManageSitesPermission != null) {

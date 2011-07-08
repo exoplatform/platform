@@ -80,12 +80,21 @@
 	    	uinavigationComposer.composer.style.color = uinavigationComposer.focusColor;
 			uinavigationComposer.composer.style.height = "50px";
 	    } else {
-	    	var navigationShareButtonElement = eXo.social.Util.getElementById('NavigationShareButton');
-	    	navigationShareButtonElement.id = 'ShareButton';
 	    	uinavigationComposer = new eXo.social.webui.UIComposer($params);
-	    	navigationShareButtonElement.id = 'NavigationShareButton';
 			uinavigationComposer.composer.style.height = "50px";
 	    }
+	  }
+	  function refreshNavigation() {
+	    var composerExists = false;
+	    try{
+			composerExists = (''+uicomposer != ''+undefined);
+		} catch(e){}
+		if(composerExists){
+			location.reload(true);
+		} else {
+			initNavigationUIComposer();
+			uinavigationComposer.composer.value = '$defaultInput';
+		}
 	  }
   </script>
   <style>
@@ -137,6 +146,6 @@
 	    </div>
     </div>
     <br />
-	<input class="NavigationShareButton" id="NavigationShareButton" type="button" onclick="try {<%= uicomponent.event("PostMessage");%>;} catch(e) {alert(e);};initNavigationUIComposer();" onBlur="initNavigationUIComposer()" value="$shareLabel" />
+	<input class="NavigationShareButton" id="ShareButton" type="button" onclick="try {<%= uicomponent.event("PostMessage");%>;} catch(e) {alert(e);};refreshNavigation();" value="$shareLabel" />
   <% uiform.end()%>
 </div>

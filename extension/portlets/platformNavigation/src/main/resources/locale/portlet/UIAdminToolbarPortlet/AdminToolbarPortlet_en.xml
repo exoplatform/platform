@@ -9,6 +9,8 @@
 			<Page>Page</Page>
 			<Site>Site</Site>
 			<Layout>Layout</Layout>
+			<ManagePages>Manage Pages</ManagePages>
+		 	<GroupSite>Group Site</GroupSite>
 		</action>
 		<ManageSites>Manage sites</ManageSites>
 		<ManageGroupSites>Manage group sites</ManageGroupSites>
