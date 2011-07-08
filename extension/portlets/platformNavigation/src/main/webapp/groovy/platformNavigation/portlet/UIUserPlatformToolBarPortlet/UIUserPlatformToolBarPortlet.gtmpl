@@ -3,6 +3,7 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.web.application.JavascriptManager;
+import org.exoplatform.platform.component.social.UINavigationComposer;
 
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -32,7 +33,7 @@ String clazz = "";
 <div class="UIUserToolBarPortlet" id="$uicomponent.id">
     <div class="UIHorizontalTabs">
         <div class="TabsContainer" style="position: relative">
-            <div class="UITab">
+            <div id="UserNavigationTabsContainer" class="UITab">
                 <div class="">
 					<a class="ArrowIcon TBIcon" href="#">
 						   $user.fullName
@@ -41,33 +42,31 @@ String clazz = "";
 				<div style="position: absolute; display:none;width:350px;" class="MenuItemContainer">
 					<div class="SubBlock">
 						<%if(uicomponent.isSocialPortal()) {%>
-							<div style="width: 100%;">
-								<%uicomponent.renderChildren()%>
-							</div>
-							<br/>
-							<div class="MenuItem" style="float: left;width: 50%;">
-								<div class="$clazz">						
-									<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
+      						<% uicomponent.renderChild(UINavigationComposer.class) %>
+							<div style="float: left;width: 80%;">
+								<div class="MenuItem" style="float: left;width: 40%;">
+									<div class="$clazz">
+										<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
+									</div>
+								</div>
+								<div class="MenuItem" style="float: right;width: 60%;">
+									<div class="$clazz">						
+										<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
+									</div>
+								</div>
+								<br/>
+								<div class="MenuItem" style="float: left;width: 40%;">
+									<div class="$clazz">						
+										<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
+									</div>
+								</div>
+								<div class="MenuItem" style="float: right;width: 60%;">
+									<div class="$clazz">
+										<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
+									</div>
 								</div>
 							</div>
-							<div class="MenuItem" style="float: right;width: 50%;">
-								<div class="$clazz">						
-									<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
-								</div>
-							</div>
-							<br/>
-							<div class="MenuItem" style="float: left;width: 50%;">
-								<div class="$clazz">						
-									<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
-								</div>
-							</div>
-							<div class="MenuItem" style="float: right;width: 50%;">
-								<div class="$clazz">
-									<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
-								</div>
-							</div>
-							<br/>
-							<hr width="100%" style="width:100%; color: #999999;" />
+							<hr width="100%" style="width:100%; color: #999999;clear: both;" />
 						<%}%>
 						<div class="MenuItem" style="float: left;width: 50%;">
 							<div class="$clazz">						

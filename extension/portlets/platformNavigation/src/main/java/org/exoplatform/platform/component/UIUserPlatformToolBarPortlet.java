@@ -19,7 +19,7 @@ package org.exoplatform.platform.component;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.exoplatform.platform.component.social.UIComposer;
+import org.exoplatform.platform.component.social.UINavigationComposer;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
@@ -45,7 +45,9 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   private boolean socialPortal = false;
 
   public UIUserPlatformToolBarPortlet() throws Exception {
-    addChild(UIComposer.class, null, null);
+    if (isSocialPortal()) {
+      addChild(UINavigationComposer.class, null, null);
+    }
   }
 
   public User getUser() throws Exception {

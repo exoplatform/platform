@@ -17,14 +17,11 @@
 package org.exoplatform.platform.component.social;
 
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.social.core.activity.model.ExoSocialActivity;
-import org.exoplatform.social.core.activity.model.ExoSocialActivityImpl;
-import org.exoplatform.social.core.application.PeopleService;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.social.webui.Utils;
 import org.exoplatform.social.webui.composer.UIActivityComposerContainer;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -32,15 +29,17 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 
-@ComponentConfig(lifecycle = UIFormLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIComposer.gtmpl", events = { @EventConfig(listeners = UIComposer.PostMessageActionListener.class) })
-public class UIComposer extends org.exoplatform.social.webui.composer.UIComposer {
+@ComponentConfig(lifecycle = UIFormLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UINavigationComposer.gtmpl", events = { @EventConfig(listeners = UINavigationComposer.PostMessageActionListener.class) })
+public class UINavigationComposer extends org.exoplatform.social.webui.composer.UIComposer {
 
   public static final String ACTIVITY_TYPE = "DEFAULT_ACTIVITY";
 
   private UIFormTextAreaInput messageInput;
   private UIActivityComposerContainer composerContainer;
+  private Identity ownerIdentity;
+  private String defaultInput;
 
-  public UIComposer() throws Exception {
+  public UINavigationComposer() throws Exception {
     // add textbox for inputting message
     messageInput = getChild(UIFormTextAreaInput.class);
     messageInput.setId("navigationComposerInput");
@@ -53,37 +52,38 @@ public class UIComposer extends org.exoplatform.social.webui.composer.UIComposer
 
     setPostContext(PostContext.USER);
     this.isActivityStreamOwner(true);
+    ownerIdentity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
+        Util.getPortalRequestContext().getRemoteUser(), true);
+    defaultInput = getLabel("UIComposer.input.What_Are_You_Working_On");
   }
 
-  public static class PostMessageActionListener extends EventListener<UIComposer> {
+  public Identity getOwnerIdentity() {
+    return this.ownerIdentity;
+  }
+
+  public String getAvatarURL() {
+    String ownerAvatar = ownerIdentity.getProfile().getAvatarUrl();
+    if (ownerAvatar == null || ownerAvatar.isEmpty()) {
+      ownerAvatar = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
+    }
+    return ownerAvatar;
+  }
+
+  public String getDefaultInput() {
+    return this.defaultInput;
+  }
+
+  public static class PostMessageActionListener extends EventListener<UINavigationComposer> {
     @Override
-    public void execute(Event<UIComposer> event) throws Exception {
-      UIComposer uiComposer = event.getSource();
+    public void execute(Event<UINavigationComposer> event) throws Exception {
+      UINavigationComposer uiComposer = event.getSource();
       String message = (uiComposer.getMessage() == null) ? "" : uiComposer.getMessage();
-
-      String defaultInput = "";
-      if (uiComposer.getPostContext() == PostContext.SPACE) {
-        defaultInput = event.getRequestContext().getApplicationResourceBundle()
-            .getString(uiComposer.getId() + ".input.Write_Something");
-      } else {
-        defaultInput = event.getRequestContext().getApplicationResourceBundle()
-            .getString(uiComposer.getId() + ".input.What_Are_You_Working_On");
-      }
-
-      if (message.equals(defaultInput)) {
+      if (message.equals(uiComposer.getDefaultInput())) {
         message = "";
       }
-
+      Utils.getActivityManager().saveActivity(uiComposer.getOwnerIdentity(), ACTIVITY_TYPE, message);
       UIFormTextAreaInput messageInput = uiComposer.getChild(UIFormTextAreaInput.class);
       messageInput.setValue("");
-      // post activity via the current activity composer
-      WebuiRequestContext requestContext = event.getRequestContext();
-      Identity ownerIdentity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
-          Util.getPortalRequestContext().getRemoteUser());
-      ExoSocialActivity activity = new ExoSocialActivityImpl(Utils.getViewerIdentity().getId(), PeopleService.PEOPLE_APP_ID,
-          message, null);
-      activity.setType(ACTIVITY_TYPE);
-      Utils.getActivityManager().saveActivity(ownerIdentity, activity);
     }
   }
 }
