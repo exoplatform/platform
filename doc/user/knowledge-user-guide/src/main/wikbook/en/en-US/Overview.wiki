@@ -4,7 +4,7 @@ eXo Knowledge is one of the applications of eXo Platform. This is a suite of app
 
 *Answers and FAQ*
 
-Answers is a collaborative Question & Answer system similar to Yahoo Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. FAQ takes this content as input and publish it in a clean and quickly browsable manner. You can point a FAQ portlet to one or several Answers categories. As a portlet is published, it is impossible to edit questions and answers in FAQ.
+Answers is a collaborative Question & Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. FAQ takes this content as input and publish it in a clean and quickly browsable manner. You can point a FAQ portlet to one or several Answers categories. As a publishing portlet, it is impossible to edit questions and answers in FAQ.
 
 *Forum*
 
@@ -12,7 +12,7 @@ Forum is designed for the group discussion and user-generated content in which p
 
 *Wiki*
 
-Wiki is an enterprise wiki application focused on content productivity for portal users as a tool to forge the unstructured knowledge. Wiki allows you to create and edit pages by using a simplified markup language or a WYSIWYG editor. With this application, your company can use Wiki as an internal reference, such as work policy, or a public wiki for a comprehensive product information. Wiki along with other eXo Knowledge applications, such as Answers, and Forum will complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
+Wiki is an enterprise wiki application focused on content productivity for portal users as a tool to forge the unstructured knowledge. Wiki allows you to create and edit pages by using a simplified markup language or a WYSIWYG editor. With this application, your company can use Wiki as an internal reference, such as work policy, or a public wiki for a comprehensive product information. Wiki along with other eXo Knowledge applications, such as Answers and Forum will complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
  
 h3. About this document  {anchor:id=KSuser.Overview.AboutDocument}
 
@@ -22,9 +22,9 @@ This user guide is divided into four main parts:
 
 ||Chapters||Main content||
 |[Overview Of eXo Knowledge|#KS_overview]|Introduction to eXo Knowledge, and user roles in different groups, and then ways to access various applications of eXo Knowledge.|
-|[How To Use Answers|#Answer_user_guide]|Actions in the Answers application, such as submiting, commenting or answering a question, and more.|
-|[How To Use Forum|#Forum_user_guide]|Actions in the Forum application, related to topics, posts, bookmarks, and more.|
-|[How To Use Wiki|#Wiki_user_guide]|Introduction to Wiki, such as page hierarchy, syntaxes; and how to work with pages, attachments, and more.|
+|[How To Use Answers?|#Answer_user_guide]|Actions in the Answers application, such as submiting, commenting or answering a question, and more.|
+|[How To Use Forum?|#Forum_user_guide]|Actions in the Forum application, related to topics, posts, bookmarks, and more.|
+|[How To Use Wiki?|#Wiki_user_guide]|Introduction to Wiki, such as page hierarchy, syntaxes; and how to work with pages, attachments, and more.|
 
 For each section describing specific functions of an application, instructions are arranged to the user groups:
 actions performed by regular users, those by moderators and administrators and the administration actions for the administrators only.
@@ -49,7 +49,7 @@ h3. References {anchor:id=KSuser.Overview.References}
 *Resource Center*
 - [Video demos, tutorials, webinar archives, features & benefits tables, and more|http://www.exoplatform.com/company/public/website/resource-center].
 
-h1. Get Started with eXo Knowledge {anchor:id=KSuser.Overview.GetStartedWitheXoKnowledge}
+h1. Get started with eXo Knowledge {anchor:id=KSuser.Overview.GetStartedWitheXoKnowledge}
 h2. User roles {anchor:id=KSuser.Overview.User_roles}
 In eXo Knowledge, user groups may have different privileges to perform actions. Some actions can be limited to some specific user groups. 
 eXo Knowledge uses a concept of User group, which is designed to give the advanced users the ability to control and assign what functions or features that other users can and cannot do within the application. There are four user groups: administrator, moderator, regular user and guest.

@@ -7,7 +7,7 @@ Only administrators can do categories-related management tasks. To manage forums
 
 !images/forum_portlet_structure.png|align="center"!
 
-h3. Add new categories {anchor:id=Forum_Administrator.Manage_categories.Add_categories}
+h3. Add a new category {anchor:id=Forum_Administrator.Manage_categories.Add_categories}
 Only when you are assigned as *administrator*, you can do this function. Normally, one category is created as public that allows everyone to access without any restrictions. Meanwhile, one [restricted category|#Manage_categories.Add_categories.Add_restricted_categories] only allows specific users/groups/memberships to access. Also, you can assign moderators to your category and specify a set of permissions for members in the category.
 
 *To add a new category:*
@@ -50,7 +50,7 @@ iii. Enter the names of all users/user groups/memberships that are going to be t
 *3.* Click *Save* to finish.
 
 
-h3. Edit categories {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
+h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
 
 *1.* Select a category to edit, then click !images/Manage_category_btn.png! on the Action bar when you are in the categories list.
 
@@ -60,8 +60,7 @@ h3. Edit categories {anchor:id=Forum_Administrator.Manage_categories.Edit_catego
 
 *4.* Click *Save* to save your changes.
 
-
-h3. Delete categories {anchor:id=Forum_Administrator.Manage_categories.Delete_categories}
+h3. Delete a category {anchor:id=Forum_Administrator.Manage_categories.Delete_categories}
 
 *1.* Select a category to edit, then click !images/Manage_category_btn.png! on the Action bar when you are in the categories list.
 
@@ -69,10 +68,9 @@ h3. Delete categories {anchor:id=Forum_Administrator.Manage_categories.Delete_ca
 
 *3.* Click *OK* in the confirmation message.
 
-
 h2.  Manage forums {anchor:id=Forum_user_guide.Forum_Administrator.Manage_forums}
 
-h3. Add new forums {anchor:id=Forum_Administrator.Manage_forums.Add_forums}
+h3. Add a new forum {anchor:id=Forum_Administrator.Manage_forums.Add_forums}
 When creating a new  forum, you can also configure the forum notification settings and specify the permissions for members in that forum.
 
 *To add a new forum to a specific category:*
@@ -108,7 +106,7 @@ When creating a forum, you can set moderation-related options as follows:
 |*Moderate topics*|By default, new topics must be always approved and visible to everyone. If this option is selected, new topics will be pending for approval before being viewable.|
 
 
-h3. Delete forums {anchor:id=Forum_Administrator.Manage_forums.Delete_forums}
+h3. Delete a forum {anchor:id=Forum_Administrator.Manage_forums.Delete_forums}
 Only *administrators* can perform this action. When a forum is removed, all of its topics will then be deleted.
 
 *1.* Go into the forum you want to remove.
@@ -124,7 +122,7 @@ To take this action, click !images/users_icon.png! on the Forum Administrator ba
 
 Now, you can search for specific users to edit their profiles or remove them from Forum.
 
-h3. Promote users {anchor:id=Forum_Administrator.Manage_Users.Promote_users}
+h3. Promote a user {anchor:id=Forum_Administrator.Manage_Users.Promote_users}
 
 The administrator can edit profiles of members and promote any user to administrator or moderator.
 
@@ -154,7 +152,6 @@ Go to the *Settings* tab in the *User Management* form:
 
 Now you can modify the forum settings that the selected user has set in their User settings. See [User settings|#Forum_user_guide.Forum_regular_user.User_settings] for the detailed descriptions in the User Settings form.
 
-
 h3. Ban users {anchor:id=Forum_Administrator.Manage_Users.Ban_users}
 There are other methods to ban users from the Forum application or specific forums, categories.
 In case you know the username of the user who violated your forum policies, you can search and ban this user quickly.
@@ -173,11 +170,11 @@ In the *User Management* form, go to the *Ban user* tab:
 |*Bans log*|Other log information.|
 |*Ban date*|The date when the ban takes effect.|
 
-*See also*:
+*See also:*
 * [Ban IPs for moderators|#Forum-user_guide.Forum_Moderator.Ban_IPs]
 * [Ban IPs for administrators|#Forum_Administrator.Administrative_tasks.Ban_IPs]
 
-h3. Remove users {anchor:id=Forum_Administrator.Manage_Users.Remove_users}
+h3. Remove a user {anchor:id=Forum_Administrator.Manage_Users.Remove_users}
 
 {warning}
 If a user is removed from Forum, it means that he is also removed from eXo Knowledge.
@@ -219,7 +216,7 @@ In this section, you are going to learn how to perform all of these administrati
 * [Back up Category/Forum|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums]
 
 
-h3.Set up sort settings {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_sort_settings}
+h3. Set up sort settings {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_sort_settings}
 Click !images/Aministration_btn.png! on the Forum Administration bar and click *Sort Settings* from the drop-down menu. The *Sort Settings* form opens. 
 Now, you can set properties for how forums and topics are sorted in Forum:
 
@@ -234,12 +231,12 @@ Now, you can set properties for how forums and topics are sorted in Forum:
 * *Direction*: Sort topics in the Ascending or Descending order.
 
 
-h3. Define censored keywords {anchor:id=Forum_Administrator.Administrative_tasks.Define_censored_keywords}
+h3. Define a censored keyword {anchor:id=Forum_Administrator.Administrative_tasks.Define_censored_keywords}
 Censored keywords are those which are specified as inappropriate in the Forum application. If any topics or posts contain either of censored keywords, they will be hidden until being verified by Administrators or Moderators. Click !images/Aministration_btn.png! on the Forum Administration bar and click *Censor Keywords* from the drop-down menu:
 
 !images/admin_forum_censor_keyword.png|align="center"!
 
-h3. Customize email notification template {anchor:id=Forum_Administrator.Administrative_tasks.Customize_email_template}
+h3. Customize an email notification template {anchor:id=Forum_Administrator.Administrative_tasks.Customize_email_template}
 
 If there are new posts in the category or topic that a user has watched, the user will receive the email notification like this:
 
@@ -284,7 +281,7 @@ Followings are variables which can be used in the template:
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png!.
 You can use the text editor to format the template as you wish.
 
-h3. Customize BBCodes {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
+h3. Customize a BBCode {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
 By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[LINK]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]"{noformat}. You can add, edit or delete the BBCode tags.
 
 Click !images/Aministration_btn.png! on the Forum Administration bar and click *BBCode* from the drop-down menu to open the *BBCode Manager* form.
@@ -293,13 +290,12 @@ Click !images/Aministration_btn.png! on the Forum Administration bar and click *
 
 Here, you can do the following actions:
 
-* [Add new BBCodes|#Administrative_tasks.Customize_BBCodes.Add_new_BBCodes].
-* [Edit BBCodes|#Administrative_tasks.Customize_BBCodes.Edit_BBCodes].
-* [Delete BBCodes|#Administrative_tasks.Customize_BBCodes.Delete_BBCodes].
-* [Activate/Deactivate BBCodes|#Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes].
+* [Add a new BBCode|#Administrative_tasks.Customize_BBCodes.Add_new_BBCodes].
+* [Edit a BBCode|#Administrative_tasks.Customize_BBCodes.Edit_BBCodes].
+* [Delete a BBCode|#Administrative_tasks.Customize_BBCodes.Delete_BBCodes].
+* [Activate/Deactivate a BBCode|#Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes].
 
-
-h4. Add new BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_BBCodes}
+h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_BBCodes}
 
 *1.* Click !images/Aministration_btn.png! on the Forum Administration bar and click *Add BBCode* from the drop-down menu. 
 
@@ -320,7 +316,7 @@ h4. Add new BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_BB
 
 *3.* Click *Preview* to preview your created BBCode tag, or click *Save* to finish.
 
-h4. Edit BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes}
+h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes}
 
 *1.* Click !images/Edit_icon2.png! corresponding to the relevant BBCodes tag. 
 
@@ -331,11 +327,11 @@ h4. Edit BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes}
 *3.* Click *Preview* to preview the BBCodes tag after being edited, or click *Save* to finish your changes.
 
 
-h4. Delete BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Delete_BBCodes}
+h4. Delete a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Delete_BBCodes}
 
 Simply click !images/Remove_icon.png! corresponding to the BBCodes you want to delete and then select *OK* in the confirmation message to accept your deletion.
 
-h4. Activate/Deactivate BBCodes {anchor:id=Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes}
+h4. Activate/Deactivate a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes}
 
 Any BBCode can be activated/deactivated.
 
@@ -346,7 +342,7 @@ Any BBCode can be activated/deactivated.
 * To deactivate an existing BBCode tag, simply deselect the relevant checkbox. The entered BBCode will be displayed as the plain text.
 
 
-h3. Set up auto-prune {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_auto-prune}
+h3. Set up the auto-prune {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_auto-prune}
 The pruning allows you to clean a large amount of obsolete and inactivate topics based on criteria.
 
 *1.* Click !images/Aministration_btn.png! on the Forum Administration bar and click !images/Pruning_btn.png! from the drop-down menu to open the Auto Prune form.
@@ -368,7 +364,7 @@ The pruning allows you to clean a large amount of obsolete and inactivate topics
 
 After setting the prune successfully, the auto-prune will be run automatically on the forum that has been set to check for the inactivate topics.
 
-h3. Create topic types {anchor:id=Forum_Administrator.Administrative_tasks.Create_topic_types}
+h3. Create a topic type {anchor:id=Forum_Administrator.Administrative_tasks.Create_topic_types}
 The topic type is the visual indication for other users to know what is topic about at a glance. When creating new topic, users can select the topic type that they are going to start. The *Administrator* can define these topic types.
 
 !images/admin_forum_new_topic.png|align="center"!
@@ -397,7 +393,6 @@ You will see the new topic type has been added:
 
 * To delete the topic type, click !images/Remove_icon.png!.
 
-
 h3. Ban IPs {anchor:id=Forum_Administrator.Administrative_tasks.Ban_IPs}
 The Administrator can ban IP addresses that may be used by users who abuse the forum functions or violate the forum rules and policies. All Banned IPs can not be used to add posts to the Forum. 
 Any user who uses banned IPs to add post, will be recognized as the banned user. As a result, the banned user can only view and is prevented from most of basic actions to the forum, such as adding topics, posting, or rating.
@@ -417,12 +412,10 @@ Besides, you can also filter the banned IPs if the Banned IPs are too many.
 
 To filter banned IPs, enter a part of the IPs address into filter text box, all IP matching with filter term will be displayed.
 
-
-h3. Back up categories & forums {anchor:id=Forum_Administrator.Administrative_tasks.Back_up_categories_forums}
+h3. Back up a category & forum {anchor:id=Forum_Administrator.Administrative_tasks.Back_up_categories_forums}
 The export function is a best way to back up data in the Forum application. This function enables you to export categories and forums in the Forum application into the .zip or .xml file. When a category/forum is exported, all its forum, topics, posts and its properties are exported exactly. The exported file can be used to import into the Forum application.
 
-
-h4. Export categories {anchor:id=Administrative_tasks.Backup_categories_forums.Export_categories}
+h4. Export a category {anchor:id=Administrative_tasks.Backup_categories_forums.Export_categories}
 
 *1.* Click !images/Aministration_btn.png! on the Forum Administration bar.
 
@@ -440,7 +433,7 @@ h4. Export categories {anchor:id=Administrative_tasks.Backup_categories_forums.E
 
 *4.* Click *Save*.
 
-h4. Export forums {anchor:id=Administrative_tasks.Backup_categories_forums.Export_forums}
+h4. Export a forum {anchor:id=Administrative_tasks.Backup_categories_forums.Export_forums}
 This function is used to export forums and all topics inside the Forum application in the .xml or .zip format.
 
 *The first way*:
@@ -471,8 +464,7 @@ This function is used to export forums and all topics inside the Forum applicati
 
 *5.* Click *Save* to get and store the exported file in your local device.
 
-
-h4. Import categories {anchor:id=Administrative_tasks.Backup_categories_forums.Import_categories}
+h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.Import_categories}
 
 *1.* Click !images/Aministration_btn.png! on the Forum Administrator bar, then click *Import* from the drop-down menu to open the *Import Category* form.
 
@@ -482,8 +474,7 @@ h4. Import categories {anchor:id=Administrative_tasks.Backup_categories_forums.I
 
 *3.* Click *Save*. After being imported successfully, all categories and forums data will be displayed properly in Forum.
 
-
-h4. Import forums {anchor:id=Administrative_tasks.Backup_categories_forums.Import_forums}
+h4. Import a forum {anchor:id=Administrative_tasks.Backup_categories_forums.Import_forums}
 
 *1.* Go into one category, then click !images/Manage_category_btn.png! on the Action bar.
 
@@ -495,11 +486,10 @@ h4. Import forums {anchor:id=Administrative_tasks.Backup_categories_forums.Impor
 
 After being imported successfully, the forum and topics data will be displayed properly in the Forum homepage.
 
-
-h2.  Set up Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
+h2.  Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
 When adding the Forum portlet, you have to configure the portlet settings to make it work in your desired way.
 
-*1.* Go to *My Space > Portal Administration > Manage Page* on the Administration bar.
+*1.* Go to *My Space > Portal Administration > Manage Page* on the administration bar.
 
 !images/admin_forum_administration_page.png|align="center"!
 
@@ -513,9 +503,8 @@ The settings form allows you configure the Forum portlet in various aspects:
 
 !images/admin_forum_edit_mode.png|align="center"!
 
-h3. Specify category scoping {anchor:id=Forum_Administrator.Set_up_Forums.Specify_category_scoping}
+h3. Specify the category scoping {anchor:id=Forum_Administrator.Set_up_Forums.Specify_category_scoping}
 In the *Scoping* tab, you can show/hide categories and forums in the Forum portlet by selecting or deselecting their respective checkboxes.
-
 
 h3. Enable/Disable Forum components {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_Forum-components}
 In the *Panels* tab, you can enable/disable some components in the Forum portlet.
@@ -536,7 +525,7 @@ The following components can be enabled/disabled:
 
 !images/forum_components.png!
 
-h3. Enable/Disable bookmarkable Forum URLs {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs}
+h3. Enable/Disable a bookmarkable Forum URL {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs}
 
 Before doing this function, you first need to have a knowledge of Ajax. Ajax (Asynchronous JavaScript and XML) is used in the Forum application that aims at updating a whole webpage or a part of the webpage.
 
@@ -549,7 +538,7 @@ This feature defines how the links are generated in the Forum portlet. You can s
 * Using Ajax, the links will be Javascript based and generate Ajax calls. This makes your browsing faster because the whole page is not reloaded.
 
 
-h3. Add the last post gadget {anchor:id=Forum_Administrator.Set_up_Forums.Add_the_last_post_gadget}
+h3. Add a last post gadget {anchor:id=Forum_Administrator.Set_up_Forums.Add_the_last_post_gadget}
 This useful gadget displays the last posts in Forum, so that you can follow the activities in forum easily right in your Space. You can also go to the last post by simply clicking the post. Like other gadgets, you can add Last Post gadget to Dashboard by following these simple steps:
 
 *1.* Click *Dashboard* on the Administration bar.

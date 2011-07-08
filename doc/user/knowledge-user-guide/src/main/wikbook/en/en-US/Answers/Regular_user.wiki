@@ -7,7 +7,7 @@ After accessing Answers, you can see all categories in the left pane. To view de
 
 Here, you can view all activated questions of this category, some basic information of questions, such as authors, scores, number of answers. 
 
-To view details of a question, simply click it to open its details, including its content, answers and comments, uploaded files, preview the attached image, or download the attached files and images as shown below:
+To view details of a question, simply click it to open its details, including its content, answers and comments, uploaded files, preview the attached image, or download the attached files and images as shown below: {anchor:id=Answer_user_guide.View_details.question}
 
 !images/details_question.png|align="center"!
 
@@ -129,14 +129,14 @@ A message will appear informing that your question has been added successfully. 
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [Edit your question|#KSuser.Answer_Regular_user.Edit_question]
+* [Edit a question|#KSuser.Answer_Regular_user.Edit_question]
 * [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
 * [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
 * [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
 * [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
 * [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
 
-h3. Edit your questions {anchor:id=KSuser.Answer_Regular_user.Edit_question}
+h3. Edit a question {anchor:id=KSuser.Answer_Regular_user.Edit_question}
 Regular users can only edit their own questions. 
 
 *To edit a question*:
@@ -192,10 +192,10 @@ The *Activated* option enables your answer to be shown or hidden. By default, an
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
-* [Edit your answer|#KSuser.Answer_Regular_user.Edit_answers]
+* [Edit an answer|#KSuser.Answer_Regular_user.Edit_answers]
 * [Vote for an answer|#KSuser.Answer_Regular_user.Vote_for_answer]
 
-h3. Edit your answers {anchor:id=KSuser.Answer_Regular_user.Edit_answers}
+h3. Edit an answer {anchor:id=KSuser.Answer_Regular_user.Edit_answers}
 Regular users can only edit their answers. 
 
 *To edit an answer*:
@@ -355,7 +355,7 @@ You cannot vote for an option twice but changing your voting is possible.
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
-* [Edit your answer|#KSuser.Answer_Regular_user.Edit_answers]
+* [Edit an answer|#KSuser.Answer_Regular_user.Edit_answers]
 
 h2. Watch/Unwatch a category {anchor:id=KSuser.Answer_Regular_user.Watch_unwatch}
 The *Watch* feature allows you to keep track of all changes in a specific categories. You will get all the updates via mail notifications if you enable the *watch* function on a category.
@@ -390,7 +390,7 @@ The RSS information page will appear on another tab. Depending on the browser yo
 * [View details of Answers|#Answer_user_guide.View_details]
 h2. Edit user settings {anchor:id=KSuser.Answer_Regular_user.Edit_user_settings}
 
-When going to user settings, you can [change how Answers will display the entries|#Answer_user_settings.Change_display_settings], [manage your subscriptions|#Answer_user_settings.Change_avatar] and [change avatar|#Answer_user_settings.Change_avatar] here. 
+When going to user settings, you can [change how Answers will display the entries|#Answer_user_settings.Change_display_settings], [manage your subscriptions|#Answer_user_settings.Manage_watches] and [change your avatar|#Answer_user_settings.Change_avatar] here. 
 
 *To change your user settings*:
 
@@ -410,7 +410,7 @@ You can select to display entries by created date/alphabetical order and sorted 
 
 !images/Watch_manager_form.png|align="center"!
 
-*2.* Click the category title if you would like to view the details or click !images/Unwatch_icon.png! to unwatch the corresponding category.
+*2.* Click the category title if you would like to view details or click !images/Unwatch_icon.png! to unwatch the corresponding category.
 
 *Change your avatar*: {anchor:id=Answer_user_settings.Change_avatar}
 

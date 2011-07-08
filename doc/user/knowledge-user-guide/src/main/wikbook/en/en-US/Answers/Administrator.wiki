@@ -17,7 +17,7 @@ Now, you should be in the page edit mode:
 
 !images/Answer_portlet_edit_mode.png|align="center"!
 
-*3.* Hover the mouse over the Answer portlet, then click !images/Edit_porlet_icon.png! on the quick toolbar that appears.
+*3.* Hover your cursor over the Answer portlet, then click !images/Edit_porlet_icon.png! on the quick toolbar that appears.
 
 *4.* Make changes in the *Answer Portlet* form.
 
@@ -25,9 +25,9 @@ Now, you should be in the page edit mode:
 
 In this form, you can:
 
-- [Change the display mode|#KSuser.Moderator.Change_display_mode]
-- [Customize email notification template|#KSuser.Moderator.Customize_Email_template]
-- [Enable the "Discuss in forum" feature|#KSuser.Moderator.Enable_discuss_in_forum]
+- [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
+- [Customize email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
+- [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 
 h3. Change the display mode {anchor:id=KSuser.Answer_Moderator.Change_display_mode}
 
@@ -52,7 +52,7 @@ The type of sorting entries in the list may be: *Ascending* or *Descending*.
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
-* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+* [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 	
 h3. Customize email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
@@ -80,9 +80,9 @@ You can use the text editor to format the template as you wish.
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
-* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+* [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
-h3. Enable the Discuss In Forum feature {anchor:id=KSuser.Answer_Moderator.Enable_discuss_in_forum}
+h3. Enable the "Discuss in forum" feature {anchor:id=KSuser.Answer_Moderator.Enable_discuss_in_forum}
 
 In the *Discussion* tab, enable/disable the *Discuss in forum* function in Answers and set the default forum for this function by selecting/deselecting the checkbox.
 
@@ -94,6 +94,7 @@ In the *Discussion* tab, enable/disable the *Discuss in forum* function in Answe
 * [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
 * [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
+
 h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderator.Define_discuss_category}
 
 *1.* Click !images/Plus_icon.png! to open the *Select a forum* form in the Discussion tab.
@@ -117,7 +118,7 @@ To hide/show any category, simply deselect/select its checkbox and click *Save*.
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
 * [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
-* [Enable the Discuss In Forum feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+* [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 h2. Set up FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet}
 
 The FAQ portlet can be added to a page for users to view questions and answers quickly and easily.
@@ -158,4 +159,4 @@ Using Ajax, the links will be javascript-based and generate Ajax calls. This sho
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [Set up FAQ portlet|#KSuser.Answer_Administrator.Set_up_Answers_portlet]
+* [Set up the FAQ portlet|#KSuser.Answer_Administrator.Set_up_Answers_portlet]

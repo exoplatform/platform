@@ -129,19 +129,19 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 *4.* Click *Preview* to see before submitting, or *Submit* to finish your topic.
 
 {note}
-If the moderation feature is on for a forum, it means that new topics must be reviewed and approved by a moderator before they are published. 
+If the moderation feature is activated for a forum, it means that new topics must be reviewed and approved by a moderator before they are published. 
 Once a new message is posted in a moderated forum, the Forum will tell you that the topic must be approved before being published.
 {note}
 
 When creating a topic, you can also add extra properties to this topic: {anchor:id=topic_properties}
 
-* [Select the topic icon|#Forum_regular_user.Topics.Start_topics.Select_topic_icon].
-* [Make the topic sticky|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
+* [Select a topic icon|#Forum_regular_user.Topics.Start_topics.Select_topic_icon].
+* [Make a topic sticky|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
 * [Select the topic status, state and enable the post moderation|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
 * [Control who can view or post in your topic|#Forum_regular_user.Topics.Start_topics.Select_topic_permission].
 
 
-h4. Select the topic icon {anchor:id=Forum_regular_user.Topics.Start_topics.Select_topic_icon}
+h4. Select a topic icon {anchor:id=Forum_regular_user.Topics.Start_topics.Select_topic_icon}
 
 When posting a new topic, you may also assign an icon to the topic for the quick visual identification as follows:
 
@@ -178,7 +178,7 @@ To set the "post" or "view" right to certain users, enter usernames manually in 
 
 * Click !images/Select_group_icon.png! to select groups.
 
-h3. Edit your topics {anchor:id=Forum_regular_user.Topics.Edit_topics}
+h3. Edit a topic {anchor:id=Forum_regular_user.Topics.Edit_topics}
 
 Follow this method when you are in your topic.
 
@@ -235,7 +235,7 @@ Each user can only vote for a topic once. The function is disabled in closed top
 {note}
 
 
-h3. Tag/Untag topics {anchor:id=Forum_regular_user.Topics.Tag-Untag_topics}
+h3. Tag/Untag a topic {anchor:id=Forum_regular_user.Topics.Tag-Untag_topics}
 
 This function is for all logged-in users. Tags are keywords which are used as labels to describe or categorize the topic contents. One topic may have several tag names. Using tags allows you to categorize topics based on the actual content. If used consistently, it could be a better way to find a specific topic than a full-text search.
 
@@ -295,7 +295,7 @@ You can post a reply quickly with plain texts without taking into account its fo
 
 After posting your post, it will be highlighted so you can notice it easily.
 
-*See also*:
+*See also:*
 * [Edit your post|#Forum_regular_user.Posts.Edit_posts]
 
 h3. Post an advanced reply {anchor:id=Forum_regular_user.Posts.Advanced_reply}
@@ -324,7 +324,7 @@ If your post is the last one, its information will be shown at the *Last posts* 
 The icon !images/Arrow_icon.png! in the topic title allows you to jump to the last read post in that topic.
 {info}
 
-*See also*:
+*See also:*
 * [Edit your post|#Forum_regular_user.Posts.Edit_posts]
 
 
@@ -342,11 +342,11 @@ Private posts will not be checked for approval when it is posted in a topic that
 {note}
 
 
-h3. Reply with quote {anchor:id=Forum_regular_user.Posts.Reply_with_quote}
+h3. Reply with a quote {anchor:id=Forum_regular_user.Posts.Reply_with_quote}
 
 You can include a quote from the previous message in your reply to a specific post. This may substantially increase the readability of the discussion topics when it is used correctly.
 
-*To reply with quote*:
+*To reply with a quote*:
 
 *1.* Click !images/Quote_btn.png! under the post you want to quote.
 
@@ -368,7 +368,7 @@ This will generate the quotation BBCodes tag for your message. After getting the
 *3.* Click *Submit* to finish.
 
 
-h3. Edit your posts {anchor:id=Forum_regular_user.Posts.Edit_posts}
+h3. Edit a post {anchor:id=Forum_regular_user.Posts.Edit_posts}
 After submitting your post, and you want to change it, you can do as follows:
 
 *1.* Click !images/Edit_btn.png! under the post you want to edit.
@@ -377,8 +377,7 @@ After submitting your post, and you want to change it, you can do as follows:
 
 *2.* Make changes on the post, then click *Submit* to accept your changes. When you edit a post, you also have the opportunity to upload an attachment, or delete an existing one.
 
-h3. Delete your post {anchor:id=Forum_regular_user.Posts.Delete_posts}
-
+h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 
 *1.* Click !images/Delete_btn.png! under your post that want to delete.
 
@@ -430,7 +429,7 @@ The *Private Messages* form will appear:
 
 *2.* Enter the username of the receivers and type your message title and contents.
 
-3. Click *Save* to send the message.
+*3.* Click *Save* to send the message.
 
 
 h3. Receive a private message {anchor:id=Forum_regular_user.Private_messages.Receive_private_message}
@@ -453,7 +452,7 @@ In which:
 h2. Bookmarks {anchor:id=Forum_regular_user.Public_user_profile.Bookmarks}
 In the Forum application, the *Bookmark* function is to collect links to a category, forum or topic you have visited, so that you can return to that category, forum or topic directly. Bookmarks can be created and managed by yourself.
 
-h3. Add bookmarks {anchor:id=Public_user_profile.Bookmarks.Add_bookmarks}
+h3. Add a bookmark {anchor:id=Public_user_profile.Bookmarks.Add_bookmarks}
 This function is for all logged-in users to save links to categories, forums or topics into the Forum Bookmark.
 
 *To bookmark an object*:
@@ -469,13 +468,13 @@ To view bookmarks, click !images/View_bookmarks.png! on the Action bar. This wil
 
 !images/my_bookmarks.png|align="center"!
 
-h4. Delete bookmarks {anchor:id=Public_user_profile.Bookmarks.Delete_bookmarks}
+h4. Delete a bookmark {anchor:id=Public_user_profile.Bookmarks.Delete_bookmarks}
 
 Simply click !images/Remove_icon.png! corresponding to the link that you want to delete.
 
 The selected bookmarks will be removed from the bookmarks list.
 
-h2. Subscribe to RSS feeds{anchor:id=Forum_user_guide.Forum_regular_user.Subscriptions}
+h2. Subscribe to RSS feeds {anchor:id=Forum_user_guide.Forum_regular_user.Subscriptions}
 This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed, right-click your desired item and then select the *RSS* item from the drop-down menu.
 
 !images/rss.png|align="center"!
@@ -547,7 +546,7 @@ Click !images/Settings_btn.png! on the User bar to go to the *Settings* form. On
 
 * [Edit your subscriptions|#Forum_regular_user.User_settings.Manage_subscriptions].
 
-h3. Edit profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
+h3. Edit a profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
 
 By selecting the *Profile* tab, you can see your personal information and other preferences.
 
@@ -576,7 +575,7 @@ Check/Uncheck the *Show forum jump* to show/hide the *Forum quick navigation* at
 !images/settings_show_forum_jump.png|align="center"!
 
 
-h3. Edit your subscriptions {anchor:id=Forum_regular_user.User_settings.Manage_subscriptions}
+h3. Edit a subscription {anchor:id=Forum_regular_user.User_settings.Manage_subscriptions}
 Go to the *My Subscriptions* tab in the *Settings* form, where you can update or delete existing subscriptions.
 
 !images/settings_my_subscriptions.png|align="center"!

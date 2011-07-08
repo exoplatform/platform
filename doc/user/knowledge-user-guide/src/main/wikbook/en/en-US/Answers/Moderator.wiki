@@ -115,7 +115,7 @@ h3. Move categories {anchor:id=KSuser.Answer_Moderator.Move_categories}
 * [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
 * [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
 
-h3. Export/Import a category {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
+h3. Export/Import categories {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
 
 Both functions can be executed on all categories and questions in the Answers home or a specific category in Answers.
 
@@ -151,13 +151,13 @@ h2. Moderate questions {anchor:id=KSuser.Answer_Moderator.Moderate_question}
 
 In this section, the following topics are covered:
 - [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-- [Edit questions|#Answer_Moderator.Moderate_question.Edit_questions]
-- [Approve/Disapprove questions|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-- [Activate/Deactivate questions|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-- [Delete questions|#Answer_Moderator.Moderate_question.Delete_questions]
-- [Move questions|#Answer_Moderator.Moderate_question.Move_questions]
+- [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
+- [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+- [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+- [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
+- [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
-h3. View all questions {anchor:id=Answer_Moderator.Moderate_question.View_all_questions}
+h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View_all_questions}
 
 Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions. 
 To view all posted questions, click !images/Manage_question_btn.png! on the Action bar to open the *Manage questions* form. Here, you can have the overview of all the posted questions in the category you manage. 
@@ -166,11 +166,12 @@ To view all posted questions, click !images/Manage_question_btn.png! on the Acti
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve|Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate|Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
 * [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
-h3. Edit questions {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
+
+h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
 
 *1.* Select !images/Manage_question_btn.png! on the Action bar to view all the open questions.
 
@@ -183,13 +184,13 @@ h3. Edit questions {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#Answer_Moderator.Moderate_question.View_all_questions]
-* [Approve|Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate|Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
+* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
 * [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
-h3. Approve/Disapprove questions {anchor:id=Answer_Moderator.Moderate_question.Approve&disapprove_questions}
+h3. Approve/Disapprove a question {anchor:id=Answer_Moderator.Moderate_question.Approve&disapprove_questions}
  
 In a category that requires question to be moderated, any new questions will be in the unapproved status and need to be approved before being published. 
 
@@ -216,7 +217,7 @@ To approve/disapprove a question, follow one of these ways:
 
 *The third way*:
 
-*1.* Click !images/Manage_question_btn.png! on the Action bar. The *Manage questions* form will appear:
+*1.* Click !images/Manage_question_btn.png! on the Action bar. The *Manage questions* form appears:
 
 !images/Manage_question_form.png|align="center"!
 
@@ -225,12 +226,13 @@ To approve/disapprove a question, follow one of these ways:
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#Answer_Moderator.Moderate_question.View_all_questions]
+* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Activate|Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
 * [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
-h3. Activate/Deactivate questions {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
+
+h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
 
 When a question is activated, it will be displayed and visible for all users to view. If not, it will be hidden and invisible. 
 
@@ -255,12 +257,12 @@ When a question is activated, it will be displayed and visible for all users to 
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#Answer_Moderator.Moderate_question.View_all_questions]
+* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve|Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
 * [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
-h3. Delete questions {anchor:id=Answer_Moderator.Moderate_question.Delete_questions}
+h3. Delete a question {anchor:id=Answer_Moderator.Moderate_question.Delete_questions}
 
 There are several ways to delete questions:
 
@@ -273,21 +275,21 @@ There are several ways to delete questions:
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#Answer_Moderator.Moderate_question.View_all_questions]
+* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve|Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate|Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
-h3. Move questions {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
+h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 
-*To move question*:
+*To move a question:*
 
 *1.* Open the *Move question* form by following one of two ways:
 
-*The first way*: Right-click your desired question and then select *Move* to in the drop-down menu.
+*The first way*: Right-click your desired question and then select *Move* from the drop-down menu.
 
-*The second way*: Click your desired question and click the !images/Move_question_icon.png! icon.
+*The second way*: Select your desired question and click !images/Move_question_icon.png!.
 
 *2.* Select the category to which you want to move your selected question.
 
@@ -296,7 +298,7 @@ h3. Move questions {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 {note}
 Only the Administrator can move questions to any areas in Answers.
 
-The Moderator will be checked for permission when moving questions. The Moderator can only move questions to the category that he is also the Moderator.
+The Moderator will be checked for permission when moving questions. The Moderator can only move questions to the category where he is also the moderator.
 
 A notification will be only sent to the creator of the question that has been moved.
 {note}
@@ -304,19 +306,20 @@ A notification will be only sent to the creator of the question that has been mo
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#Answer_Moderator.Moderate_question.View_all_questions]
+* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve|Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate|Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
+* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
+* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
 * [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 
-h2. Moderate answers {anchor:id=KSuser.Answer_Moderator.Moderate_answers}
+h2. Moderate an answer {anchor:id=KSuser.Answer_Moderator.Moderate_answers}
 
 In this section, the following topics are covered:
 
-- [Approve/Disapprove & Activate/Deactivate answers|#KSuser.Answer_Moderator.Approve&Activate_answers]
-- [Delete answers|#KSuser.Answer_Moderator.Delete_answers]
-- [Promote comments to answers|#KSuser.Answer_Moderator.Promote_comments]
+- [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
+- [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
+- [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
+- [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 On the top right of an answer, you will see icons that represent actions you can do on that answer.
 
@@ -348,11 +351,11 @@ The deactivated answer is hidden to the regular users while the activated questi
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
 * [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
+* [Promote a comments to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 
-To delete one answer, click the trash icon on the top right of the answer content, then click *OK* in the confirmation message.
+To delete an answer, click the trash icon on the top right of the answer content, then click *OK* in the confirmation message.
 
 *See Also:*
 

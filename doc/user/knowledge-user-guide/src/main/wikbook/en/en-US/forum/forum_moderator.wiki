@@ -4,12 +4,12 @@ Moderators in Forum are responsible for managing contents of posts and replies b
 h2. Moderate forums {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_forums}
 Moderators can manage all the forums inside their assigned category. If you are a moderator of any category, you can do the following actions:
 
-* [Edit forums|#Forum_Moderator.Moderate_forum]
-* [Lock/Unlock forums|#Forum_Moderator.Moderate_forum.Lock-unlock_forum]
-* [Close/Open forums|#Forum_Moderator.Moderate_forum.Close-open_forum]
-* [Move forums|#Forum_Moderator.Moderate_forum.Move_forum]
+* [Edit a forum|#Forum_Moderator.Moderate_forum]
+* [Lock/Unlock a forum|#Forum_Moderator.Moderate_forum.Lock-unlock_forum]
+* [Close/Open a forum|#Forum_Moderator.Moderate_forum.Close-open_forum]
+* [Move a forum|#Forum_Moderator.Moderate_forum.Move_forum]
 
-h3. Edit forums  {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
+h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
 *1.* Go to the relevant forum.
 
@@ -22,7 +22,7 @@ h3. Edit forums  {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 *4.* Click *Save* to save all the changes.
 
 
-h3. Lock/Unlock forums {anchor:id=Forum_Moderator.Moderate_forums.Lock-unlock_forums}
+h3. Lock/Unlock a forum {anchor:id=Forum_Moderator.Moderate_forums.Lock-unlock_forums}
 Locking a forum will prevent all members from creating new topics and posting replies in this forum. All topics in a locked forum will be locked also, but their contents are still viewable. 
 Moderators can only lock/unlock the forum that they manage.
 
@@ -32,8 +32,7 @@ Moderators can only lock/unlock the forum that they manage.
 
 *2.* Click !images/More_actions_btn.png! on the Action bar, then click *Lock/Unlock* from the drop-down menu.
 
-
-h3. Close/Open forums {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
+h3. Close/Open a forum {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
 Closed forums are invisible to regular users. To the Administrators and Moderators, the contents in a closed forum are still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
 
 *To close/open a forum*:
@@ -42,8 +41,7 @@ Closed forums are invisible to regular users. To the Administrators and Moderato
 
 *2.* Click !images/More_actions_btn.png! on the Action bar, then select *Close* or *Open* from the drop-down menu.
 
-
-h3. Move forums {anchor:id=Forum_Moderator.Moderate_forums.Move_forums}
+h3. Move a forum {anchor:id=Forum_Moderator.Moderate_forums.Move_forums}
 
 *To move a forum into another category, do as follows*:
 
@@ -55,22 +53,21 @@ A list of existing categories will appear. Select a destination category to	whic
 
 !images/move_forum_form.png|align="center"!
 
-
 h2. Moderate topics {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_topics}
 The followings are actions that a moderator can execute on topics:
 
-* [Approve topics|#Forum_Moderator.Moderate_topics.Approve_topics]
-* [Edit topics|#Forum_Moderator.Moderate_topics.Edit_topics]
-* [Move topics|#Forum_Moderator.Moderate_topics.Move_topics]
-* [Delete topics|#Forum_Moderator.Moderate_topics.Delete_topics]
-* [Close/Open topics|#Forum_Moderator.Moderate_topics.Close-Open_topics]
-* [Lock/Unlock topics|#Forum_Moderator.Moderate_topics.Lock-Unlock_topics]
-* [Stick/Unstick topics|#Forum_Moderator.Moderate_topics.Stick-Unstick_topics]
+* [Approve a topic|#Forum_Moderator.Moderate_topics.Approve_topics]
+* [Edit a topic|#Forum_Moderator.Moderate_topics.Edit_topics]
+* [Move a topic|#Forum_Moderator.Moderate_topics.Move_topics]
+* [Delete a topic|#Forum_Moderator.Moderate_topics.Delete_topics]
+* [Close/Open a topic|#Forum_Moderator.Moderate_topics.Close-Open_topics]
+* [Lock/Unlock a topic|#Forum_Moderator.Moderate_topics.Lock-Unlock_topics]
+* [Stick/Unstick a topic|#Forum_Moderator.Moderate_topics.Stick-Unstick_topics]
 * [Merge topics|#Forum_Moderator.Moderate_topics.Merge_topics]
-* [Split topics|#Forum_Moderator.Moderate_topics.Split_topics]
+* [Split a topic|#Forum_Moderator.Moderate_topics.Split_topics]
 
 
-h3. Approve topics {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
+h3. Approve a topic {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
 The moderator can approve pending topics in the forum that enables the 'Moderation topic'. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except the Administrator and Moderators of this forum. Pending topic is only viewable when it was approved.
 
 !images/mod_pending_topics.png|align="center"!
@@ -101,8 +98,7 @@ Or if you are in a topic, simply click !images/More_actions_btn.png! on the Acti
 
 *3.* Click *Approve* to accept your approval. Approved posts are shown normally for regular users to view and take some actions.
 
-
-h3. Edit topics {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
+h3. Edit a topic {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
 
 *1.* Select a topic to edit by ticking its respective checkbox.
 
@@ -114,8 +110,7 @@ h3. Edit topics {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
 
 *4.* Edit the topic as you wish. Leave the reason for the editing in the *Reason* field if needed.
 
-
-h3. Close/Open topics {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_topics}
+h3. Close/Open a topic {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_topics}
 Only *Administrators* and *Moderators* can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
 
 *To close or open a topic*:
@@ -128,8 +123,7 @@ When you are in a topic, click !images/More_actions_btn.png! on the Action bar.
 
 The icon of the closed topic will be changed to !images/Closed_topic_icon.png! automatically.
 
-
-h3. Move topics {anchor:id=Forum_Moderator.Moderate_topics.Move_topics}
+h3. Move a topic {anchor:id=Forum_Moderator.Moderate_topics.Move_topics}
 Only *Administrators* and *Moderators* can perform this action. This function is used to move topics from a forum to another one. The Moderators can only move topics between forums that he manages.
 
 *To move a topic*:
@@ -152,17 +146,15 @@ The moderator of a forum will be checked for permission. The moderator can not m
 Therefore, only the forums which the moderator can move topics are shown in the list of destination forums.
 {note}
 
+h3. Delete a topic {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
 
-h3. Delete topics {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
-
-*To delete specific topics*:
+*To delete a specific topic:*
 
 *1.* Select topics by checking their corresponding checkboxes, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
 Or, if you are already in a topic, click !images/More_actions_btn.png! on the Action bar.
 
 *2.* Click *Delete* from the drop-down menu, then click *OK* in the confirmation message.
-
 
 *To delete topics of a specific user*:
 
@@ -178,8 +170,7 @@ All topic posted by the selected user will be displayed:
 
 *3.* Click !images/Delete_icon2.png! corresponding to the desired topic, then click *OK* in the confirmation message.
 
-
-h3.Lock/Unlock topics {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
+h3. Lock/Unlock a topic {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
 This function is for *administrators* and *moderators* only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting reply will be disabled.
 
 *To lock or unlock a topic*:
@@ -190,8 +181,7 @@ Or, click !images/More_actions_btn.png! on the Action bar when you are in a topi
 
 *2.* Click *Lock* or *Unlock* from the drop-down menu that appears.
 
-
-h3. Stick/Unstick topics {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unstick_topics}
+h3. Stick/Unstick a topic {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unstick_topics}
 This function is for *administrators* and *moderator* to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
 
 *To stick or unstick a topic:*
@@ -225,8 +215,7 @@ When there are two or more related topics, you may want to merge these topics in
 
 *6.* Click *Save* to accept. After being merged, selected topics will be joined into one topic. All posts of the other topics are displayed as posts below the main entry.
 
-
-h3. Split topics {anchor:id=Forum_Moderator.Moderate_topics.Split_topics}
+h3. Split a topic {anchor:id=Forum_Moderator.Moderate_topics.Split_topics}
 A topic with more than two posts can be split into separate topics.
 
 *1.* Go into the topic you want to split.
@@ -261,8 +250,7 @@ Followings are actions that a moderator can perform on a post:
 * [Show posts|#Forum_Moderator.Moderate_posts.Show_posts]
 * [Uncensor posts|#Forum_Moderator.Moderate_posts.Uncensor_posts]
 
-
-h3. Approve posts {anchor:id=Forum_Moderator.Moderate_posts.Approve_posts}
+h3. Approve a post {anchor:id=Forum_Moderator.Moderate_posts.Approve_posts}
 
 All posts in a topic that requires post moderation will not be viewable before approval. This function is to approve posts which are pending for approval.
 
@@ -275,7 +263,7 @@ See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pe
 
 *1.* Select the posts to approve.
 
-*2.* Click !images/Moderation_btn.png! on the Action bar and select *Approve* in the drop-down menu.
+*2.* Click !images/Moderation_btn.png! on the Action bar and select *Approve* from the drop-down menu.
 
 *The second way*:
 
@@ -289,8 +277,7 @@ See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pe
 
 Approved posts are shown normally for regular users to view and take some actions.
 
-
-h3. Delete posts {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
+h3. Delete a post {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
 *To delete posts:*
 
 *The first way*:
@@ -307,8 +294,7 @@ h3. Delete posts {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
 
 !images/mod_delete_posts.png|align="center"!
 
-
-h3. Move posts {anchor:id=Forum_Moderator.Moderate_posts.Move_posts}
+h3. Move a post {anchor:id=Forum_Moderator.Moderate_posts.Move_posts}
 You can move posts to a topic of your choice.
 
 *To move posts:*
@@ -319,10 +305,9 @@ You can move posts to a topic of your choice.
 
 *3.* Select a destination topic in the topics list that appears.
 
-The Moderator will be checked for moving permission. He can only move post inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator who have the move permission, are listed for moving.
+The moderator will be checked for moving permission. He can only move post inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator who have the move permission, are listed for moving.
 
-
-h3. Hide posts {anchor:id=Forum_Moderator.Moderate_posts.Hide_posts}
+h3. Hide a post {anchor:id=Forum_Moderator.Moderate_posts.Hide_posts}
 When a post is hidden, only Administrators and Moderators can view and mange it. 
 
 To hide a post, select !images/Moderation_btn.png! on the Action bar and click Hide from the drop-down menu.
@@ -331,8 +316,7 @@ To hide a post, select !images/Moderation_btn.png! on the Action bar and click H
 
 After being hidden, the hidden post is marked by 'hidden!' label and regular users can not view it.
 
-
-h3. Show posts {anchor:id=Forum_Moderator.Moderate_posts.Show_posts}
+h3. Show a post {anchor:id=Forum_Moderator.Moderate_posts.Show_posts}
 You can show a single or multiple hidden posts at the sane time:
 
 *The first way*: Select the post to be unhidden and click !images/Moderation_btn.png! on the Action bar, then click *Show* in the drop-down menu.
@@ -345,8 +329,7 @@ You can show a single or multiple hidden posts at the sane time:
 
 *3.* Click *Show*.
 
-
-h3. Uncensor posts {anchor:id=Forum_Moderator.Moderate_posts.Uncensor_posts}
+h3. Uncensor a post {anchor:id=Forum_Moderator.Moderate_posts.Uncensor_posts}
 The administrator and moderator can censor all topics, posts containing censored keywords. These censored keywords are [specified by administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts 
 containing these keywords will labeled with 'This topic is pending for Censor!' (for topic) or 'hidden!' (for post).
 
@@ -388,7 +371,6 @@ This form lists all the pending topics, posts and the created dates. From here, 
 *2.* Click the *Approve* button to accept approving topic/post.
 
 To delete pending topics/posts, simply click the *Delete this topic/Delete this post* button. The pending topic/post will be removed completely from the pending list and its forum.
-
 
 h2. Ban IPs {anchor:id=Forum-user_guide.Forum_Moderator.Ban_IPs}
 This function allows banning IPs that may be used by users who abuse the forum functions or violate the forum rules and policies.
