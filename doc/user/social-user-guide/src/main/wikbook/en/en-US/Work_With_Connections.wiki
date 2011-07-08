@@ -3,7 +3,7 @@ To go into *Connections*, hover your cursor over the display username (for examp
 
 The Connections page lists all contacts who accepted as your contacts and who are waiting for your acceptance and contacts in request.
 
-!images/Network_information.png!
+!images/Network_information.png|align="center"!
 
 The *Network* pane lists users who have established connections with you. You can remove these connections by clicking !images/RemoveContactButton.png!.	
 
@@ -13,7 +13,7 @@ The *Outgoing* pane lists users to whom you have sent requests for becoming your
 
 Also, by clicking *People* on the administration bar, you can see all contacts who use eXo Social in the *People Found* pane. In this page, you can do many various actions as presented in the following image.
 
-!images/People_Interface.png!
+!images/People_Interface.png|align="center"!
 
 h1. Search for your contact {anchor:id=search_contacts}
 
@@ -27,7 +27,7 @@ To find your desired contact quickly, use the *Search* function. To search for c
 
 *2.* Enter the contact name you want to search into the *Find contact* field. When you type, the application automatically suggests the contact name containing your entered letter. You just need to select one of suggested names from the drop-down list.
 
-!images/Filter_search.png!
+!images/Filter_search.png|align=center!
 
 * To do advanced lookups for your entered name, click *More*. This option allows you to filter your contacts by positions, skills and gender. 
 

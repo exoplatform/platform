@@ -9,13 +9,13 @@ h1. Use Dashboard workspace {anchor:id=Soc_User_Guide.Dashboard_Management.Use_D
 	
 *2.* Click *Add Gadgets* to open the Dashboard Workspace. The Dashboard Workspace lists all available gadgets.
 
-!images/Dashboard_interface.png!
+!images/Dashboard_interface.png|align=center!
 
 
 *3.* Select a gadget in the Dashboard Workspace.
 
 
-!images/Select_gadgets.png!
+!images/Select_gadgets.png|align=center!
 
  	
 *4.* Drag and drop the selected gadget into the Workspace.
@@ -30,7 +30,7 @@ To change preferences of a gadget, for example RSS gadget, do as follows:
 *1.* Click the edit icon to open the edit form of RSS gadget. 
 
 
-!images/Edit_gadget_icon.png!
+!images/Edit_gadget_icon.png|align=center!
 
          
 *2.* Enter your preferred RSS into the FEED URL field and one numeric character (from 1 to 100) in the Items field. The numeric character you entered is the number of items displayed in the RSS gadget.
@@ -63,13 +63,12 @@ The dashboard lets you add your gadgets to multiple tabs. To do so, simply add a
 *1.* Click the plus icon on the Dashboard tabs bar. 
 
 
-!images/Add_tab_name.png!
+!images/Add_tab_name.png|align=center!
 
 
 *2.* Give one name for the tab which appears and then hit the *Enter* key to take effect.
 
 
 To rename your added tab, you first need to select the tab and then double-click the tab name until the textbox appears for you to rename.
-
 
 To delete one tab, simply click !images/Delete_Tab_icon.png! next to each relevant tab and then click *OK* in the confirmation message.

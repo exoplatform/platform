@@ -22,7 +22,7 @@ As a guest, you can visit eXo Social but are limited to several contents and app
 
 *2.* Fill in the *Register New Account* form. The asterisk (*) mark indicates mandatory fields.
 
-!images/Register_new_account.png!
+!images/Register_new_account.png|align=center!
 
 The mandatory fields which are marked with the asterisk (*) include:
 
