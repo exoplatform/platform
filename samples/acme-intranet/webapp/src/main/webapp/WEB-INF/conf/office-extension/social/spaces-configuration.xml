@@ -194,13 +194,13 @@
 								<value>
 									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
 										<field name="portletApp">
-											<string/>
+											<string>wiki</string>
 										</field>
 										<field name="portletName">
-											<string>CalendarPortlet</string>
+											<string>WikiPortlet</string>
 										</field>
 										<field name="appTitle">
-											<string>Agenda</string>
+											<string>Wiki</string>
 										</field>
 										<field name="removable">
 											<boolean>true</boolean>
@@ -209,7 +209,7 @@
 											<int>4</int>
 										</field>
 										<field name="uri">
-											<string>calendar</string>
+											<string>wiki</string>
 										</field>
 									</object>
 								</value>
@@ -238,6 +238,28 @@
 								<value>
 									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
 										<field name="portletApp">
+											<string>calendar</string>
+										</field>
+										<field name="portletName">
+											<string>CalendarPortlet</string>
+										</field>
+										<field name="appTitle">
+											<string>Agenda</string>
+										</field>
+										<field name="removable">
+											<boolean>true</boolean>
+										</field>
+										<field name="order">
+											<int>6</int>
+										</field>
+										<field name="uri">
+											<string>calendar</string>
+										</field>
+									</object>
+								</value>								
+								<value>
+									<object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
+										<field name="portletApp">
 											<string>social-portlet</string>
 										</field>
 										<field name="portletName">
@@ -250,7 +272,7 @@
 											<boolean>false</boolean>
 										</field>
 										<field name="order">
-											<int>6</int>
+											<int>7</int>
 										</field>
 										<field name="uri">
 											<string>settings</string>
