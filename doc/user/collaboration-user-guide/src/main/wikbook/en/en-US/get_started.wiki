@@ -2,12 +2,12 @@
 
 In particular: 
 
-* *Address book* is a contact manager, allowing you to organize all the contact information. You can use the contact information with other Collaboration applications, such as Mail, Calendar and Chat. The integration of Address book and other applications in eXo Collaboration will help you enhance your group productivity in collaborative environment. 
+* *Address Book* is a contact manager, allowing you to organize all the contact information. You can use the contact information with other Collaboration applications, such as Mail, Calendar and Chat. The integration of Address Book and other applications in eXo Collaboration will help you enhance your group productivity in the collaborative environment. 
 * *Calendar* allows you to schedule appointments and meetings, establish recurring activities, create multiple calendars and share calendars with others. With Calendar, it is easy to keep track of all important events/tasks and collaborate with other people, all in one place.
-* *Mail* is a webmail application of eXo Collaboration. Mail is smoothly integrated with Address book and Calendar. You can add contacts, create address books or schedule the work right in Mail. 
-* *Chat* allows you to communicate with other users in you contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your Address book to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
+* *Mail* is a webmail application of eXo Collaboration. Mail is smoothly integrated with Address Book and Calendar. Besides typical features of one Mail application, you can also add contacts, create address books or schedule the work right in Mail. 
+* *Chat* allows you to communicate with other users in you contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your Address Book to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
 
-This guide describes normal and advanced features of eXo Collaboration through in-depth examples and simple explanations for you to follow. After the overall introduction to eXo Collaboration and its applications in *Chapter 1. Get Started With eXo Collaboration*, the guide focuses on the following chapters, each of which is dedicated to one main application of eXo Collaboration.
+This guide describes normal and advanced features of eXo Collaboration through in-depth examples and simple explanations. After the overall introduction to eXo Collaboration and its applications in *Chapter 1. Get Started With eXo Collaboration*, the guide focuses on the following chapters, each of which is dedicated to one main application of eXo Collaboration.
 
 |[How To Use Mail?|#CSUser_guide.How_to_use_Mail]|Actions covered in the Mail application with basic and advanced steps.|
 |[How To Use Address Book?|#CSUser_guide.How_to_use_Address_book]|Basic actions on how to manage contacts and address books.|
@@ -36,7 +36,7 @@ h1. Access applications in eXo Collaboration {anchor:id="CSUser_guide.Get_starte
 
 h2. From Chat bar {anchor:id="CSUser_guide.Get_started.Access_applications_from_chat_bar"}
 eXo Collaboration features a bar locating at the bottom that helps you access your desired application quickly.
-That is, when you are in the Address book homepage and want to go to Calendar to add a new event, simply click the Calendar icon at the bottom.
+That is, when you are in the Address Book homepage and want to go to Calendar to add a new event, simply click the Calendar icon at the bottom.
 
 !images/chat_bar.png|align="center"!
 

@@ -4,7 +4,7 @@
 * [Edit contact details|#CSUser_guide.How_to_use_Address_book.Edit_contact_details]
 * [Create new contacts|#CSUser_guide.How_to_use_Address_book.Create_new_contact]
 * [Tag a contact|#CSUser_guide.How_to_use_Address_book.Tag_contact]
-* [Edit|#CSUser_guide.How_to_use_Address_book.Edit_tag] [,or delete the created tag|#CSUser_guide.How_to_use_Address_book.Delete_tag]
+* [Edit,|#CSUser_guide.How_to_use_Address_book.Edit_tag] [or delete the created tag|#CSUser_guide.How_to_use_Address_book.Delete_tag]
 * [Send mails to your contacts|#CSUser_guide.How_to_use_Address_book.Send_mail_to_contact]
 * [Copy and paste contacts|#CSUser_guide.How_to_use_Address_book.Copy_paste_contact]
 * [Move contacts|#CSUser_guide.How_to_use_Address_book.Move_contact]
@@ -20,7 +20,7 @@
 ** [Remove an address book|#CSUser_guide.How_to_use_Address_book.Remove_address_book]
 ** [Export address books|#CSUser_guide.How_to_use_Address_book.Export_address_book]
 ** [Import address books|#CSUser_guide.How_to_use_Address_book.Import_address_book]
-** [Share address books|#CSUser_guide.How_to_use_Address_book.Share_an_address_book]
+** [Share an address book|#CSUser_guide.How_to_use_Address_book.Share_an_address_book]
 ** [Grant permissions on public address books|#CSUser_guide.How_to_use_Address_book.Grant_permissions_public_address_book]
 * [Print address books|#CSUser_guide.How_to_use_Address_book.Print_address_book]
 
@@ -311,7 +311,7 @@ The *Share contact to other users* form will appear:
 
 !images/user_selector.png|align="center"!
 
-The *User selector* form will appear. Select user(s) to share, then click *Add*.
+The *User selector* form will appear. Select users to share, then click *Add*.
 
 To share a contact with group of users, click !images/group_selector_icon.png!. The *Group Selector* form will appear:
 
@@ -523,7 +523,7 @@ The *Permissions* form appears:
 
 !images/Address_book_permission_form.png|align="center"!
 
-*2.* Now you can start selecting certain users or groups to grant the permissions. Simply click !images/user_selector_icon.png! to select a user, or click !images/group_selector_icon.png! to select a group. The respective User selector or Group selector form will appear. Now, you have to select a user or group of users to grant the permission. The process is similar with [Share an address book|#Share_an_address_book].
+*2.* Now you can start selecting certain users or groups to grant the permissions. Simply click !images/user_selector_icon.png! to select a user, or click !images/group_selector_icon.png! to select a group. The respective User selector or Group selector form will appear. Now, you have to select a user or group of users to grant the permission. The process is similar with [Share an address book|#CSUser_guide.How_to_use_Address_book.Share_an_address_book].
 
 Select the *'Can manage?'* checkbox if you would like to grant the management permission to the selected users/group.
 

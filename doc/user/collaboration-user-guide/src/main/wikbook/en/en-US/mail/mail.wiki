@@ -343,7 +343,7 @@ You can use *CC* and *BCC* to send mail to more than one person easily and quick
 
 *See also*:
 * [Attach files to a message|#Attach_attachment_to_message]
-* [Change the signature of your message|#Add_signature_to_message]
+* [Change the signature of your message|#Change_signature_to_message]
 * [Save a message as draft|#Save_message_as_draft]
 * [Set priority level|#Set_priority_level]
 * [Change message preferences|#Change_message_preferences]

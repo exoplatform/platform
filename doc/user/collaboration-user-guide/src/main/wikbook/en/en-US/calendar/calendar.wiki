@@ -4,7 +4,7 @@
 ** [Shared calendars|#Create_shared_calendar]
 ** [Remote calendars|#Create_remote_calendar]
 * [Edit a calendar|#CSUser_guide.How_to_use_Calendar.Edit_calendar]
-* [Export|#Export_calendar,] [and import a calendar|#Import_calendar]
+* [Export,|#Export_calendar] [and import a calendar|#Import_calendar]
 * [Share a calendar|#CSUser_guide.How_to_use_Calendar.Share_calendar]
 * [Schedule an event|#CSUser_guide.How_to_use_Calendar.Schedule_event]
 ** [View details of an event|#CSUser_guide.How_to_use_Calendar.View_event_details]
@@ -24,7 +24,7 @@
 * [Generate RSS|#CSUser_guide.How_to_use_Calendar.Generate_rss]
 * [Edit calendar settings|#CSUser_guide.How_to_use_Calendar.Edit_calendar_settings]
 * [Manage a calendar group,|#CSUser_guide.How_to_use_Calendar.Manage_calendar_groups] [such as adding new,|#CSUser_guide.How_to_use_Calendar.Add_new_calendar_group] [editing,|#CSUser_guide.How_to_use_Calendar.Edit_calendar_group] [and deleting|#CSUser_guide.How_to_use_Calendar.Delete_calendar_group]
-* [Manage a category,|#CSUser_guide.How_to_use_Calendar.Manage_categories] [such as adding new|#CSUser_guide.How_to_use_Calendar.Add_new_category,] [and editing or deleting|#CSUser_guide.How_to_use_Calendar.Edit_delete_category]
+* [Manage a category,|#CSUser_guide.How_to_use_Calendar.Manage_categories] [such as adding new,|#CSUser_guide.How_to_use_Calendar.Add_new_category] [and editing or deleting|#CSUser_guide.How_to_use_Calendar.Edit_delete_category]
 
 
 h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_views"}
@@ -659,7 +659,7 @@ In fact, exporting an event means exporting a calendar with one event only. Ther
 {note}
 
 *Import an event:* {anchor:id="CSUser_guide.How_to_use_Calendar.Import_event"}
-You can import an event into a specific calendar. The process to import an event is similar with importing a calendar. For more details, see [Import calendars|#Import_calendars].
+You can import an event into a specific calendar. The process to import an event is similar with importing a calendar. For more details, see [Import calendars|#Import_calendar].
 
 h2. Delete an event {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_event"}
 This function allows removing events from a calendar.
@@ -833,9 +833,9 @@ In fact, importing a task means importing a calendar with one task only. Therefo
 
 h2. Delete a task {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_task}
 *1.* Right-click the task you want to delete, then click *Delete* from the drop-down menu.
+.
 
-*2.* Click *OK* in the confirmation message to complete your deletion.
-
+*2.* Click *OK* in the confirmation message to complete your deletion
 * When you are in month view, you have to check the checkboxes in front of the event you want to delete, then click !images/delete_checked_button.png! on the action bar.
 
 A confirmation message will appear. Click *OK* to accept deleting the selected task.
@@ -880,7 +880,7 @@ In this form, you can input your search criteria:
 
 *2.* Define some search criteria in the *Advanced Search* form.
 
-*3.* Click the *Search* button to launch the search. All events/tasks matching with your criteria(s) will be listed in the search result form.
+*3.* Click the *Search* button to launch the search. All events/tasks matching with your criteria will be listed in the search result form.
 
 !images/search_research_form.png|align="center"!
 
