@@ -24,7 +24,7 @@ public class IntranetDefaultPageFilter implements Filter, org.exoplatform.web.fi
       return;
     }
     if (!httpServletRequest.getRequestURI().contains("/portal/public/intranet")
-        || httpServletRequest.getRequestURI().contains("/portal/public/intranet/welcome")) {
+        || httpServletRequest.getRequestURI().contains("/portal/public/intranet/welcome") || httpServletRequest.getRequestURI().contains("/portal/public/intranet/Register")) {
       chain.doFilter(request, response);
       return;
     } else {
