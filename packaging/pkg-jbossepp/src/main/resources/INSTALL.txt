@@ -1,0 +1,95 @@
+Thank you for choosing eXo Platform 3 for JBoss EPP Site Publisher.
+
+This file will guide you through the installation process of the eXo Platform 3 for JBoss EPP-SP.
+
+
+*************
+Prerequisites
+*************
+- a JBoss EPP-SP server, that we will name $eppsp-home in this guide
+- a clean database, eXo Platform will attempt to modify the existing database if any
+
+
+***************************************
+Extract the eXo Platform Addons package
+***************************************
+
+First, you should extract the file eXoPlatform-for-eppsp-x.y.z.zip on your computer. We will refer to the newly created folder with the $plf-home variable in this guide.
+
+You should get a structure as follows:
+eXoPlatform-for-eppsp-x.y.z/
+    * INSTALL.txt           - this file
+    * addons/               - a folder that contains the main addons files
+          o binaries/       - the EARs files
+          o conf/           - the configuration needed to make the addons work
+    * demos/                - a folder that contains demos of eXo Platform, these are not supported
+          o binaries/       - the EARs files of the demos
+    * docs                  - the eXo Platform Addons documentations
+          
+          
+***********************
+Copy the Platform apps
+***********************
+
+Copy the content of $plf-home/addons/binaries into $eppsp-home/server/default/deploy.
+These files will be copied:
+    * exo.cs.extension.ear
+    * exo.ks.extension.ear
+    * exo.platform.extension.ear
+    * exo.social.extension.ear
+    * exo-ecms-packaging-workflow.ear
+    
+And copy the content of $plf-home/addons/demos/binaries into $eppsp-home/server/default/deploy.
+These files will be copied:
+    * exo.platform.office.ear                  - a social intranet with knowledge management and collaborative work features
+    * exo.platform.sample.acme-website.ear     - a full corporate website featuring the power of EPP Site Publisher
+    * exo.platform.sample.default-website.ear  - the landing page with some general information
+    * docs.war                                 - the webapp that contains the docs, to browse within JBoss
+    
+    
+********************
+Configure the server
+********************
+
+To make the addons work, you need to configure a few things. First, copy the content of $plf-home/addons/conf/bin into $eppsp-home/bin:
+    * run.conf
+    * run.bat
+    * exokey.pem
+    * oauthkey.pem
+
+And copy the content of $plf-home/addons/conf/server/default/conf/gatein into $eppsp-home/server/default/conf/gatein
+    * configuration.xml
+
+Now, you have to add only last part of the configuration file $plf-home/addons/conf/configuration.properties 
+into your existing configuration.properties file: $eppsp-home/server/default/conf/gatein/configuration.properties.
+#########
+# OTHER #
+#########
+...
+
+################
+# Chat Server  #
+################
+...
+
+If you have existing Java options, make sure to merge them with ours (run.conf or run.bat).
+To work correctly, eXo Platform 3 needs the following system variables:
+    * -Dexo.profiles=default             - to start the default addons and demos
+    * -Dexo.product.developing=false     - to disable the developer mode, better for production
+    * -Dexo.conf.dir.name=gatein         - the path to the configuration folder
+    * -Dgatein.data.dir=../gatein        - the path to store eXo Platform's data
+
+Finally, activate the SSO in $eppsp-home/server/default/deploy/jbossweb.sar/server.xml.
+Simply uncomment the block <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+You can look at $plf-home/addons/conf/server/default/deploy/jbossweb.sar/server.xml for an example (line 105).
+
+
+************************
+Start using eXo Platform
+************************
+
+You are now ready to start your JBoss server with the usual command line. Once started, you can access the demos via this url:
+http://localhost:8080/portal/
+
+
+

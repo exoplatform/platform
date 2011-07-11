@@ -9,7 +9,7 @@
       <!-- Default files -->
       <fileSet>
          <directory>target/tomcat-trial</directory>
-         <outputDirectory></outputDirectory>
+         <outputDirectory>/tomcat-trial</outputDirectory>
          <excludes>
            <exclude>**/*.sh</exclude>
            <exclude>webapps/docs/</exclude>
@@ -24,7 +24,7 @@
       <!-- Executable files-->
       <fileSet>
          <directory>target/tomcat-trial</directory>
-         <outputDirectory></outputDirectory>
+         <outputDirectory>/tomcat-trial</outputDirectory>
          <includes>
             <include>**/*.sh</include>
          </includes>
@@ -33,7 +33,17 @@
        <!-- ROOT webapp -->
      <fileSet>
         <directory>src/main/ROOT</directory>
-        <outputDirectory>webapps/ROOT</outputDirectory>
+        <outputDirectory>/tomcat-trial/webapps/ROOT</outputDirectory>
      </fileSet>
    </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <includes>
+        <include>org.exoplatform.platform:exo.platform.packaging.assembly:zip:chatserver</include>
+      </includes>
+      <outputDirectory>/exo-chatserver</outputDirectory>
+      <unpack>true</unpack>
+      <useDefaultExcludes>true</useDefaultExcludes>
+    </dependencySet>
+  </dependencySets>
 </assembly>

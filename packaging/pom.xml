@@ -13,6 +13,11 @@
     <module>module</module>
     <module>product</module>
     <module>pkg</module>
+    <module>pkg-demo</module>
+    <module>pkg-trial</module>
+    <module>pkg-jbosseap</module>
+    <module>pkg-jboss</module>
     <module>delivery</module>
+    <module>pkg-jbossepp</module>
   </modules>
 </project>

@@ -34,7 +34,7 @@
     <!-- JBoss EAP EARs -->
     <dependencySet>
       <includes>
-        <include>org.exoplatform.platform:exo.platform.packaging.assembly:zip:ears</include>
+        <include>org.exoplatform.platform:exo.platform.packaging.jbosseap:zip:ears</include>
       </includes>
       <outputDirectory>/bin/jboss5-eap-ears</outputDirectory>
       <unpack>true</unpack>

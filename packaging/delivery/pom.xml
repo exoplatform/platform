@@ -32,7 +32,7 @@
         <!-- JBoss EAP EARs -->
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.packaging.assembly</artifactId>
+          <artifactId>exo.platform.packaging.jbosseap</artifactId>
           <classifier>ears</classifier>
           <version>${project.version}</version>
           <type>zip</type>

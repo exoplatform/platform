@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.packaging</artifactId>
+    <version>3.0.6-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.packaging.trial</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Packaging Trial</name>
+
+  <properties>
+    <cargo.timeout>240000</cargo.timeout>  
+  </properties>
+
+<profiles>
+ <profile>
+  <id>distrib</id>
+  <dependencies>
+<!-- lead capture filter -->
+    <dependency>
+      <groupId>org.exoplatform.leadcapture</groupId>
+      <artifactId>exo.leadcapture.web.client.application</artifactId>
+      <version>${org.exoplatform.leadcapture.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.leadcapture</groupId>
+      <artifactId>exo.leadcapture.client</artifactId>
+      <version>${org.exoplatform.leadcapture.version}</version>
+    </dependency>
+    <dependency>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.packaging.assembly</artifactId>
+		<version>${project.version}</version>
+        <type>zip</type>
+        <classifier>tomcat</classifier>
+    </dependency>
+    <!-- CHAT server -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.packaging.assembly</artifactId>
+          <classifier>chatserver</classifier>
+          <version>${project.version}</version>
+          <type>zip</type>
+        </dependency>
+  </dependencies>
+  <build>
+    <finalName>eXoPlatform-Trial-${project.version}</finalName>
+    <plugins>
+<!-- Unpack Tomcat base -->
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+<!--
+ | Step 01: download and unpack the base Tomcat package
+-->
+            <id>01-copy-as-tomcat</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <artifactItems>
+                <artifactItem>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.packaging.assembly</artifactId>
+					<classifier>tomcat</classifier>
+					<type>zip</type>
+		    		<version>${project.version}</version>
+		            <outputDirectory>${project.build.directory}/tomcat-trial</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+<!-- Create Trial -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+<!--
+ | Step 02: Modify the configuration in portal.war, platform-extension.war
+ |          Prepare the configuration for cargo
+-->
+            <id>02-prepare-trial</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <unzip src="${project.build.directory}/tomcat-trial/webapps/portal.war" dest="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <replace file="${project.build.directory}/tomcat-trial/webapps/portal/groovy/portal/webui/workspace/UIPortalApplicationChildren.gtmpl">
+                  <!-- LoopFuse must be added before the gadgets scripts, so we replace the only div closing element -->
+                  <!-- If this element changes in the future, this script must be updated -->
+				  <replacetoken><![CDATA[</div>]]></replacetoken>
+				  <replacevalue><![CDATA[</div>
+  <script src="http://lfov.net/webrecorder/js/listen.js" type="text/javascript"></script>
+  <script type="text/Javascript">
+    _lf_cid = "LF_df197061";
+    _lf_remora();
+  </script>]]></replacevalue>
+				</replace>
+                <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
+				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
+				  <replacevalue><![CDATA[<distributable/>
+
+   <!-- Begin - Lead Capture Filter -->
+   <filter>
+	  <filter-name>LeadCaptionFilter</filter-name>
+	  <filter-class>org.exoplatform.capture.client.LeadCaptionFilter</filter-class>
+   </filter>
+   <filter-mapping>
+	  <filter-name>LeadCaptionFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   <!-- End - Lead Capture Filter -->]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-trial/webapps/portal.war" basedir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <delete dir="${project.build.directory}/tomcat-trial/webapps/portal" />
+                <!-- disable configuration persister to allow start and restart on different computers PLF-1109 -->
+                <mkdir dir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <unzip src="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" dest="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <replace file="${project.build.directory}/tomcat-trial/webapps/plf/WEB-INF/conf/jcr/jcr-configuration.xml">
+				  <replacetoken><![CDATA[<properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+      </properties-param>]]></replacetoken>
+				  <replacevalue><![CDATA[<!-- properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
+        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+      </properties-param -->]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <delete dir="${project.build.directory}/tomcat-trial/webapps/plf" />
+                <dependencyfilesets prefix="lcfdeps." />
+                <copy tofile="${project.build.directory}/tomcat-trial/webapps/capture.war">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.web.client.application:war" />
+                </copy>
+                <copy todir="${project.build.directory}/tomcat-trial/lib">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
+                </copy>
+                <mkdir dir="${project.build.directory}/tomcat-trial/lib/lcf" />
+                <unzip dest="${project.build.directory}/tomcat-trial/lib/lcf">
+                  <fileset refid="lcfdeps.org.exoplatform.leadcapture:exo.leadcapture.client:jar" />
+                </unzip>
+                <replace file="${project.build.directory}/tomcat-trial/lib/lcf/conf/portal/configuration.xml">
+				  <replacetoken><![CDATA[<value>Platform 3.0.0-GA</value>]]></replacetoken>
+				  <replacevalue><![CDATA[<value>Platform ${project.version}</value>]]></replacevalue>
+				</replace>
+                <zip destfile="${project.build.directory}/tomcat-trial/lib/exo.leadcapture.client-${org.exoplatform.leadcapture.version}.jar" basedir="${project.build.directory}/tomcat-trial/lib/lcf" />
+                <delete dir="${project.build.directory}/tomcat-trial/lib/lcf" />
+                <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties" token="gatein.data.dir=" value="#gatein.data.dir=" />
+                <!-- uses the gatein.data.dir to store the db at the correct location, in tomcat-trial/gatein/data -->
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml" token="../gatein/data" value="${gatein.data.dir}" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          <execution>
+<!--
+ | Step 05: Revert the cargo specific configuration (see below steps 03 and 04)
+-->
+            <id>05-replace-variable</id>
+            <phase>package</phase>
+            <configuration>
+              <target>
+                <!-- replace the gatein.data.dir variable to the original -->
+                <replace file="${project.build.directory}/tomcat-trial/gatein/conf/configuration.properties" token="#gatein.data.dir=" value="gatein.data.dir=" />
+                <!-- remove usage of the variable so tomcat-trial works as normal -->
+                <replace file="${project.build.directory}/tomcat-trial/conf/server.xml" token="${gatein.data.dir}" value="../gatein/data" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.0.5</version>
+        <executions>
+			<execution>
+<!--
+ | Step 03: Start the package with cargo
+-->
+			  <id>03-start-container</id>
+			  <phase>prepare-package</phase>
+			  <goals>
+				<goal>start</goal>
+			  </goals>
+			</execution>
+			<execution>
+<!--
+ | Step 04: Stop the package with cargo
+-->
+			  <id>04-stop-container</id>
+			  <phase>prepare-package</phase>
+			  <goals>
+				<goal>stop</goal>
+			  </goals>
+			</execution>
+		  </executions>
+		<configuration>
+          <wait>false</wait>
+		  <!-- Container configuration -->
+		  <container>
+			<containerId>tomcat6x</containerId>
+			<home>${project.build.directory}/tomcat-trial</home>
+            <type>installed</type>
+            <timeout>${cargo.timeout}</timeout>
+			<systemProperties>
+			  <org.apache.commons.logging.Log>org.apache.commons.logging.impl.SimpleLog</org.apache.commons.logging.Log>
+              <java.security.auth.login.config>../conf/jaas.conf</java.security.auth.login.config>
+              <gatein.data.dir>${project.build.directory}/tomcat-trial/gatein/data</gatein.data.dir>
+              <exo.product.developing>false</exo.product.developing>
+              <exo.conf.dir.name>gatein/conf</exo.conf.dir.name>
+              <exo.profiles>default</exo.profiles>
+			</systemProperties>
+		  </container>
+		  <!-- Configuration to use with the container -->
+		  <configuration>
+            <type>existing</type>
+			<home>${project.build.directory}/tomcat-trial</home>
+		  </configuration>
+		</configuration>
+      </plugin>
+      <plugin>
+	            <artifactId>maven-assembly-plugin</artifactId>
+	            <executions>
+	              <execution>
+	                <id>06-assembly</id>
+	                <phase>package</phase>
+	                <goals>
+	                  <goal>single</goal>
+	                </goals>
+	                <configuration>
+	                  <descriptors>
+	                    <descriptor>src/main/assembly/tomcat-trial-archive.xml</descriptor>
+	                  </descriptors>
+                          <appendAssemblyId>false</appendAssemblyId>
+	                </configuration>
+	              </execution>
+	            </executions>
+	          </plugin>
+    </plugins>
+  </build>
+    </profile>
+  </profiles>
+</project>
