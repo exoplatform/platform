@@ -23,11 +23,11 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.kernel.version>2.3.0-CR2</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.0-CR2</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.0-CR2</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.0-CR2</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.0-CR2</org.exoplatform.jcr-services.version>
+    <org.exoplatform.kernel.version>2.3.0-CR3</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.4.0-CR3</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.2.0-CR3</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.14.0-CR3</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.14.0-CR3</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
     <org.exoplatform.webos.version>2.0.0-SNAPSHOT</org.exoplatform.webos.version>
     <org.exoplatform.commons.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.commons.version>
@@ -40,7 +40,7 @@
     <org.exoplatform.social.version>1.3.0-SNAPSHOT</org.exoplatform.social.version>
     <org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
     <org.crsh.version>1.0.0-beta15</org.crsh.version>
-    <org.exoplatform.exopackage.version>1.1.2</org.exoplatform.exopackage.version>
+    <org.exoplatform.exopackage.version>1.1.3</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
     <exo.workflow.engine>jbpm</exo.workflow.engine>
     <!-- workflow implementations -->
