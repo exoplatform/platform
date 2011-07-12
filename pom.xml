@@ -92,7 +92,7 @@
 
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-pool.version>1.5.5</commons-pool.version>
-    <commons-dbcp.version>1.4</commons-dbcp.version>
+    <commons-dbcp.version>1.2.2</commons-dbcp.version>
     <!-- ***************************************************** -->
     <!-- Plugin versions (waiting for an upgrade in exo parent -->
     <!-- ***************************************************** -->
