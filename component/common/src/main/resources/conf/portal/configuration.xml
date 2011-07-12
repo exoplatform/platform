@@ -46,7 +46,7 @@
 			</component-plugin>					
 		</component-plugins>
 	</component>
-	<external-component-plugins>
+	<!--external-component-plugins>
 		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
 		<component-plugin>
 			<name>Trial Filter</name>
@@ -70,5 +70,5 @@
 				</object-param>
 			</init-params>
 		</component-plugin>
-	</external-component-plugins>
+	</external-component-plugins-->
 </configuration>
