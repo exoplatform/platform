@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.cache.CacheService</target-component>
+		<component-plugin>
+		  <name>addExoCacheConfig</name>
+		  <set-method>addExoCacheConfig</set-method>
+		  <type>org.exoplatform.services.cache.ExoCacheConfigPlugin</type>
+		  <description>Configures the cache for following services</description>
+		  <init-params>
+			<object-param>
+				<name>TemplateService</name>
+ 	 	 	    <description></description>
+ 	 	 	    <object type="org.exoplatform.services.cache.ExoCacheConfig">
+					<field name="name"><string>TemplateService</string></field>
+ 	 	 		    <field name="maxSize"><int>${cache.exo.portal.TemplateService.capacity:3000}</int></field>
+ 	 		        <field name="liveTime"><long>${cache.exo.portal.TemplateService.liveTime:600}</long></field>
+					<field name="distributed"><boolean>false</boolean></field>
+					<field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
+				</object>
+			</object-param>
+			<object-param>
+				<name>ResourceBundleData</name>
+				<description></description>
+				<object type="org.exoplatform.services.cache.ExoCacheConfig">
+					<field name="name"><string>ResourceBundleData</string></field>
+					<field name="maxSize"><int>${cache.exo.portal.ResourceBundleData.capacity:3000}</int></field>
+					<field name="liveTime"><long>${cache.exo.portal.ResourceBundleData.liveTime:600}</long></field>
+					<field name="distributed"><boolean>false</boolean></field>
+					<field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field>
+				</object>
+			</object-param>
+		  </init-params>
+		</component-plugin>
+	</external-component-plugins>	
+</configuration>
