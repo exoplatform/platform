@@ -30,17 +30,10 @@
 	}
 	String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 %>
-<div class="UIAddPagePlatformToolbarPortlet" id="$uicomponent.id" >
-	<div class="UIHorizontalTabs">
-		<div class="TabsContainer" >
-			<div class="UITab NormalToolbarTab">
-			<% if(userCouldEditPage){ %>
-				<div class="">
-					<a class="TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">Add Page</a>
-				</div>
-				<% } %>
-				
-			</div>
-		</div>
-	</div>
-</div>
+<ul class="UIAddPagePlatformToolbarPortlet UIHorizontalTabs" id="$uicomponent.id" >
+	<li class="UITab NormalToolbarTab">
+	<% if(userCouldEditPage){ %>
+		<a class="TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">Add Page</a>
+		<% } %>
+	</li>
+</ul>

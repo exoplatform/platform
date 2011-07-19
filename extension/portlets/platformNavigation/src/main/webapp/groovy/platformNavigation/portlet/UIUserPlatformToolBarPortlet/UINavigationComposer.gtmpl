@@ -55,7 +55,8 @@
   jsManager.addOnLoadJavascript("initNavigationUIComposer");
 %>
 
-  <script type="text/javascript">
+  <li class="$uicomponent.id ClearFix">
+   <script type="text/javascript">
 	  var currentOpenedMenu = null;
 	  function composerFocus() {
 		currentOpenedMenu = eXo.portal.UIPortalNavigation.currentOpenedMenu;
@@ -111,7 +112,6 @@
 	}
 	.UINavigationComposer{
 	    margin: 3px;
-		height: 65px;
 	}
 	.NavigationComposer{
 	    font-size: 11px;
@@ -119,7 +119,7 @@
 	    float: right;
 	}
 	.NavigationComposer textarea{
-	    width: 95%;
+	    max-width: 95%;
 	}
 	.NavigationAvatar{
 		background: url("/social-resources/skin/ShareImages/activity/SOCIntranetBG.png") no-repeat scroll left -78px transparent;
@@ -135,17 +135,14 @@
 	    width: 56px;
 	}
   </style>
-  <div class="$uicomponent.id">
   <% uiform.begin() %>
-    <div>
 		<div class="NavigationAvatar">
 	      <img src="<%= uicomponent.getAvatarURL() %>">
 	    </div>
 		<div class="NavigationComposer">
       		<% uicomponent.renderChild(UIFormTextAreaInput.class) %>
 	    </div>
-    </div>
     <br />
 	<input class="NavigationShareButton" id="ShareButton" type="button" onclick="try {<%= uicomponent.event("PostMessage");%>;} catch(e) {alert(e);};refreshNavigation();" value="$shareLabel" />
   <% uiform.end()%>
-</div>
+</li>

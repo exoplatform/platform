@@ -65,21 +65,16 @@
       title = "";
     }
     print """
-      <div class="MenuItem $tabStyleNavigation">
-        <div class="$clazz">
+      <li class="MenuItem $clazz $tabStyleNavigation">
     """;
     if(node.pageReference != null) {
       print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
     } else {
       print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
     }
-    print """
-        </div>
-    """;
     if(hasChild) {
       print """
-        <div class="MenuItemContainer" style="position: absolute; display:none">
-          <div class="SubBlock">
+        <ul class="MenuItemContainer" style="position: absolute; display:none">
       """;
         for(int j = 0; j < node.getChildren().size(); j++) {
           PageNode childNode = node.getChildren().get(j);
@@ -87,12 +82,11 @@
           if (isRender) renderPageNode(childNode, j%2 == 0);
         }
       print """
-          </div>
-        </div>
+        </ul>
       """;
     }
     print """
-      </div>
+      </li>
     """;
   }
    boolean renderSpacesLink(){
@@ -106,11 +100,6 @@
 					 if (node.getUri() == "spaces") {
 			        return true;
 			       }
-	 
-				   
-				
-				
-				   
 					  }
 					 
 				  }
@@ -119,30 +108,23 @@
 				
 				}
 %> 
-<div class="UIUserToolBarGroupPortlet" id="$uicomponent.id" >
-  <div class="UIHorizontalTabs">
-    <div class="TabsContainer">
-      <div class="UITab NormalToolbarTab">
-        <div class="">
-		 <% if (renderSpacesLink()) { %>
-          <a class="TBIcon" href="<%= spacesLink %>">
-            <%=_ctx.appRes("UISpacePlatformToolBarPortlet.label")%>
-          </a>
-       
-		 <% } %>
-		 <a class="TBIcon" href="#">
-           
-          </a>
-		
-		  </div>
-        <% if (!spaceNavigations.isEmpty()) { %>
-        <div style="display:none" class="MenuItemContainer">
-        <% for(navigation in spaceNavigations) {
-          renderSpacePageNavigation(navigation);
-           } %>
-        </div>
-       <% } %>
-      </div>
-    </div>
-  </div>
-</div>
+<ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id">
+  <li class="UITab NormalToolbarTab">
+	 <% if (renderSpacesLink()) { %>
+	  <a class="TBIcon" href="<%= spacesLink %>">
+		<%=_ctx.appRes("UISpacePlatformToolBarPortlet.label")%>
+	  </a>
+   
+	 <% } %>
+	 <a class="TBIcon" href="#">
+	   
+	  </a>
+	<% if (!spaceNavigations.isEmpty()) { %>
+	<ul style="display:none" class="MenuItemContainer">
+	<% for(navigation in spaceNavigations) {
+	  renderSpacePageNavigation(navigation);
+	   } %>
+	</ul>
+   <% } %>
+  </li>
+</ul>

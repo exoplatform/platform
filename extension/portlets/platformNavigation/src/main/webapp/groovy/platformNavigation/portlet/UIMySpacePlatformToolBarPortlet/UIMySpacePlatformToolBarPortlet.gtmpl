@@ -70,21 +70,17 @@
       title = "";
     }
     print """
-      <div class="MenuItem $tabStyleNavigation">
-        <div class="$clazz">
+      <li class="MenuItem $clazz $tabStyleNavigation">
     """;
     if(node.pageRef != null) {
       print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
     } else {
       print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
     }
-    print """
-        </div>
-    """;
+
     if(hasChild) {
       print """
-        <div class="MenuItemContainer" style="position: absolute; display:none">
-          <div class="SubBlock">
+        <ul class="MenuItemContainer" style="position: absolute; display:none">
       """;
 		int j = 0;
         for(UserNode childNode : node.getChildren()) {
@@ -96,12 +92,11 @@
           renderPageNode(childNode, j++ %2 == 0);
         }
       print """
-          </div>
-        </div>
+        </ul>
       """;
     }
     print """
-      </div>
+      </li>
     """;
   }
 
@@ -115,29 +110,19 @@
 			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
             String spacesNavigations= navigation.getKey().getName();
             if(spacesNavigations.indexOf("spaces") > 0) {
-                        print """
-                        <div class="SubBlock">
-                            """ ;
                             int idx =0;
                             for(UserNode node : nodes) {
                                 renderPageNodeGroup(node, idx++ %2 == 0 ) ;
                             }
-                            print """
-                        </div>
-            """ ;
                     }
                     else {
             print """
-                        <div class="TitleBar"><div style="width: 99%" title="$ownerId">$navTitle</div></div>
-                        <div class="SubBlock">
+                        <li class="TitleBar" title="$ownerId">$navTitle</li>
                             """ ;
                             int idx = 0;
                             for(UserNode node : nodes) {
 								renderPageNodeGroup(node, idx++ %2 == 0 ) ;
                             }
-                            print """
-                        </div>
-            """ ;
             }
     }
 	void renderPageNodeGroup(UserNode node, boolean flag) {
@@ -164,8 +149,7 @@
         EntityEncoder entityEncoder = EntityEncoder.FULL;
 		label = entityEncoder.encode(label);
 		print """
-			<div class="MenuItem $tabStyleNavigation">
-				<div class="$clazz">
+			<li class="MenuItem $clazz $tabStyleNavigation">
 		""";
 						if(node.pageRef != null) {
 								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
@@ -173,13 +157,9 @@
 						} else {
 								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
 						}
-		print """
-				</div>
-		""" ;
 		if(hasChild) {
 			print """
-				<div class="MenuItemContainer" style="position: absolute; display:none">
-					<div class="SubBlock">
+				<ul class="MenuItemContainer" style="position: absolute; display:none">
 			""" ;
 				int idx = 0;
 				for(UserNode child : node.getChildren()) {
@@ -189,24 +169,20 @@
 					renderPageNode(child, idx++ % 2 == 0);
 				}
 			print """
-					</div>
-				</div>
+				</ul>
 			""" ;
 
 		}
 		print """
-			</div>
+			</li>
 		""" ;
 	}
 
 	/** FIN */
 
 %>
-<div class="UIUserToolBarGroupPortlet" id="$uicomponent.id" >
-  <div class="UIHorizontalTabs">
-    <div class="TabsContainer">
-      <div class="UITab NormalToolbarTab">
-        <div class="">
+<ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id" >
+      <li class="UITab NormalToolbarTab">
 		<%
 			if (uicomponent.renderSpacesLink()) {
 		%>
@@ -224,14 +200,13 @@
 				-->
 				 <%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%>
 			  </a>
-		</div>
 
 	  <!-- Merge exoadmin:  navigation-->
 
 		<% 
 		if (!groupNavigations.isEmpty()) { %>
 
-			<div style="display:none" class="MenuItemContainer">
+			<ul style="display:none" class="MenuItemContainer">
 				<% 
 				def MY_SPACES_MAX_NUMBER = 10;
 				def mySpacesDisplayed = 0;
@@ -247,8 +222,7 @@
 						def moreSpacesLabel = _ctx.appRes("UIMySpacePlatformToolBarPortlet.more");
 						def moreSpacesLink = Util.getPortalRequestContext().getPortalURI() + "spaces" ;
 						print """
-						<div class="SubBlock">
-							<div class="MenuItem">
+							<li class="MenuItem">
 								""" ;
 								if (uicomponent.renderSpacesLink()){
 								print """
@@ -260,8 +234,7 @@
 								""" ;
 								}
 								print """
-							</div>
-						</div>
+							</li>
 						""" ;
 					}
 				} %>
@@ -275,21 +248,14 @@
 				%>
 			
 				<% if (uicomponent.renderSpacesLink()) { %>
-					<div class="TitleBar">
-						<div style="width: 99%" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></div>
-					</div>
-					<div class="SubBlock">
-						   
-								<div class="MenuItem">   
-									<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
-								</div>               
-					 </div>
+					<li class="TitleBar" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></li>
+					<li class="MenuItem">   
+						<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
+					</li>               
 				<% } %>
-			</div>
+			</ul>
 		<% } %>
 	   <!-- FIN -->
 
-      </div>
-    </div>
-  </div>
-</div>
+      </li>
+</ul>

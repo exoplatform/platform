@@ -20,8 +20,7 @@
 	void renderPortalNavigations(List allPortalNames, boolean hasPermission) {
 			
 			print """
-					<div style="position: absolute; display:none" class="MenuItemContainer">
-						<div class="SubBlock">
+					<ul style="position: absolute; display:none" class="MenuItemContainer">
 			""";
 			
 			boolean isCurrent = false;
@@ -32,43 +31,38 @@
  				if(portal.equals(uicomponent.getCurrentPortal())) {
 					isCurrent = true;
 			 	} else isCurrent = false;
-				if(isCurrent) clazz = "class='ArrowIcon'";
+				if(isCurrent) clazz = "ArrowIcon";
 				else clazz = "";
 				href = uicomponent.getPortalURI(portal);
                 EntityEncoder entityEncoder = EntityEncoder.FULL;
 				portal = entityEncoder.encode(portal);
 				print """
-					<div class="MenuItem">
-						<div $clazz>
+					<li class="MenuItem $clazz">
 							<a href="$href" class="ItemIcon SiteIcon">$portal</a>
-						</div>
 				""";
 						if(isCurrent) {
 							renderCurrentPortal();
 						}
 				print """
-					</div>
+					</li>
 				""";
 			}
 			print """
-					</div>
-				</div>
+				</ul>
 			""";
 	}
 	
 	void renderCurrentPortal() {
 		def nodes = uicomponent.getUserNodes(uicomponent.getCurrentPortalNavigation());
 		print """
-			<div style="position: absolute; display:none" class="MenuItemContainer">
-				<div class="SubBlock">
+			<ul style="position: absolute; display:none" class="MenuItemContainer">
 		""";
 		int idx = 0;
 		for(UserNode node in nodes) {
 			renderPageNode(node, idx++ % 2 == 0);
 		}
 		print """
-				</div>
-			</div>
+			</ul>
 		""";
 	}
 	
@@ -93,56 +87,44 @@
         EntityEncoder entityEncoder = EntityEncoder.FULL;
 		label = entityEncoder.encode(label);
 		print """
-			<div class="MenuItem $tabStyleNavigation">
-				<div class="$clazz">
+			<li class="MenuItem $tabStyleNavigation $clazz">
 		""";
 						if(node.pageRef != null) {
 								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
 						} else {
 								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
 						}
-		print """
-				</div>
-		""" ;
 		if(hasChild) {
 			print """
-				<div class="MenuItemContainer" style="position: absolute; display:none">			
-					<div class="SubBlock">
+				<ul class="MenuItemContainer" style="position: absolute; display:none">			
 			""" ;
 				int idx = 0;
 				for(UserNode child : node.getChildren()) {
 					renderPageNode(child, idx++ % 2 == 0);
 				}
 			print """
-					</div>
-				</div>
+				</ul>
 			""" ;
 			
 		}
 		print """
-			</div>
+			</li>
 		""" ;			
 	}
 %>
 
 <% if(allPortalNames.size() > 1 || hasPermission) { %>
-	<div class="UIUserToolBarSitePortlet" id="$uicomponent.id">
-		<div class="UIHorizontalTabs">
-				<div class="TabsContainer">
-					<div class="UITab NormalToolbarTab">
-						<div class="">
-									<a class="ArrowIcon TBIcon" href="#">
-											 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
-									</a>
-						</div>
-						<% try{
-							renderPortalNavigations(allPortalNames, hasPermission);
-						}catch(Exception exp) {
-						  exp.printStackTrace();
-						}
-						%>
-					</div>
-				</div>
-		</div>		
-	</div>
+	<ul class="UIUserToolBarSitePortlet UIHorizontalTabs" id="$uicomponent.id">
+		<li class="UITab NormalToolbarTab">
+			<a class="ArrowIcon TBIcon" href="#">
+					 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
+			</a>
+			<% try{
+				renderPortalNavigations(allPortalNames, hasPermission);
+			}catch(Exception exp) {
+			  exp.printStackTrace();
+			}
+			%>
+		</li>
+	</ul>
 <% } %>

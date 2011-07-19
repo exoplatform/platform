@@ -23,16 +23,14 @@
 		String clazz = "";
 
 		print """
-		<div style="display:none" class="MenuItemContainer">
-		<div class="SubBlock">
+		<ul style="display:none" class="MenuItemContainer">
 		""";
 		int idx = 0;
 		for(UserNode node : nodes) {
 			renderPageNode(node, idx++ % 2 == 0);
 		}
 			   print """
-		</div>
-		</div>
+		</ul>
 		""" ;
 	}
 
@@ -70,32 +68,26 @@
 		}
 			
 		print """
-		<div class="MenuItem $tabStyleNavigation" $getNodeURL>
-			<div class="$clazz">
+		<li class="MenuItem $clazz $tabStyleNavigation" $getNodeURL>
 				""";
 				if(node.pageRef != null) {
 					print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
 				} else {
 					print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
 				}
-				print """
-			</div>
-			""" ;
 			if(hasChild) {
 				print """
-				<div class="MenuItemContainer">
-					<div class="SubBlock">
+				<ul class="MenuItemContainer">
 						""" ;
 						for(int j = 0; j < node.getChildren().size(); j++) {
 							renderPageNode(node.getChildren().get(j), j%2 == 0);
 						}
 						print """
-					</div>
-				</div>
+				</ul>
 				""" ;
 			}
 			print """
-		</div>
+		</li>
 		""" ;
 	}
 %>
@@ -118,32 +110,22 @@
        desktopLink = uicomponent.url("CreateWebOS");
     }
 %>
-<div class="UIUserToolBarDesktopPortlet" id="$uicomponent.id">
-	<div class="UIHorizontalTabs">
-		<div class="TabsContainer">
-			<div class="UITab NormalToolbarTab">
-				<div class="">
-					<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.dashboard")%></a>
-				</div>
-				<% renderDashboards(userNodes); %>
-			</div>
-		</div>
-	<%
-	if(webosProfile) {
-	%>		
-		<div class="TabsContainer">
-			<div class="UITab NormalToolbarTab">
-				<div>
-					<% if (uicomponent.isWebOSCreated()) { %>
-						<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
-					<% } else { %>
-						<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>								
-					<% } %>
-				</div>
-			</div>
-		</div>
+<ul class="UIUserToolBarDesktopPortlet UIHorizontalTabs" id="$uicomponent.id">
+	<li class="UITab NormalToolbarTab">
+		<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.dashboard")%></a>
+		<% renderDashboards(userNodes); %>
+	</li>
+<%
+if(webosProfile) {
+%>		
+	<li class="UITab NormalToolbarTab">
+		<% if (uicomponent.isWebOSCreated()) { %>
+			<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
+		<% } else { %>
+			<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>								
+		<% } %>
+	</li>
 	<%
 	}
 	%>
-	</div>
-</div>
+</ul>

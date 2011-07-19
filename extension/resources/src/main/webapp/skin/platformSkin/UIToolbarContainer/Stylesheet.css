@@ -57,9 +57,8 @@
 	background-color: transparent;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .TabsContainer {
+.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs {
 	height: 31px;
-	height: auto;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab {
@@ -72,14 +71,11 @@
 	padding-right: 0;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab:hover .HighlightNavigationTab {
+.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab:hover a {
+	color: #20263f;
 	position: relative;
 	z-index: 2;
 	background: #ffffff;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab:hover a {
-	color: #20263f;
 }
 
 .UIWorkingWorkspace .UIUserToolBarPortlet .UIHorizontalTabs .UITab {
@@ -101,7 +97,7 @@
 	margin-left: -3px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .UITab .SubBlock .MenuItemContainer {
+.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer .MenuItemContainer {
 	margin-left: 0;
 }
 
@@ -131,16 +127,20 @@
 	background-color: #20263f;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .ArrowIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .ArrowIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -664px; /* orientation=lt */
 	background: url('background/ToolbarContainer-rt.gif') no-repeat -5px -664px; /* orientation=rt */
 }
 
-* + html .UIWorkingWorkspace .UIToolbarContainer .MenuItem .ArrowIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .ArrowIcon:hover {	
+	background-color: #20263f;
+}
+
+* + html .UIWorkingWorkspace .UIToolbarContainer .ArrowIcon {
 	display: inline-block;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem:hover > .ArrowIcon  a {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .ArrowIcon:hover > .ItemIcon {
 	color: #ffffff;
 	background-color: transparent;
 }
@@ -187,7 +187,7 @@
 	font-size:12px!important;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a.ArrowIcon {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer a.ArrowIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 	padding: 0 22px 0 12px;

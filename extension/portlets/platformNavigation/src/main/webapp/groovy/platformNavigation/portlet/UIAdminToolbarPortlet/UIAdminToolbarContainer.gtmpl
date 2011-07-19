@@ -41,88 +41,67 @@
 <script type="text/javascript">
 	eXo.env.portal.QuickEdit = '<%=quickEdit%>' ;
 </script>
-<div class="UIAdminToolbarPortlet" id="$uicomponent.id" >
-	<div class="UIHorizontalTabs">
-		<div class="TabsContainer" >
-			<div class="UITab NormalToolbarTab">
-				<div class="">
-					<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
-				</div>
-				<div class="MenuItemContainer" style="display:none;">
-					<div class="SubBlock">
-						<div class="MenuItem">
-							<a href="<%=uicomponent.event("ChangeEditing")%>" title="" class="ItemIcon $quiEditClass">$quickEditLabel</a>
-						</div>
-						<% if(userCouldEditPage){ %>
-							<div class="MenuItem ">
-								<div class="ArrowIcon">
-									<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></a>
-								</div>
-
-								<div class="MenuItemContainer">
-									<div class="SubBlock">
-										<div class="MenuItem">
-											<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
-										</div>
-										<hr width="100%" style="width:100%; color: #999999;" />
-										<div class="MenuItem">	
-											<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">
-												<img src="/eXoPlatformResources/skin/platformSkin/icons/AddContentIcon.png">
-												&nbsp;&nbsp;
-												$addPageLabel
-											</a>
-										</div>
-										<% if(uicomponent.hasManagePagesPermission()){ %>
-											<div class="MenuItem">   
-												<a href="<%= portalURI + "administration/pageManagement" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
-											</div>
-										<% } %>
-									</div>
-								</div>
-							</div>
-						<% } %>
-						<% if(userCouldEditPortal || userCouldEditNavigation || hasManageSitesPermission || hasManageGroupSitesPermission) { %>
-							<div class="MenuItem">
-								<div class="ArrowIcon">
-									<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
-								</div>
-
-								<div class="MenuItemContainer">
-									<div class="SubBlock">
-												<% if(userCouldEditPortal){ %>
-													<div class="MenuItem">	
-														<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon EditSiteIcon">$editSiteLayout</a>
-													</div>
-												<% } %>
-												<% if(userCouldEditNavigation){ %>
-													<div class="MenuItem">	
-														<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon ManageSite">$editNavigation</a>
-													</div>
-												<% } %>
-												<% if(displayManageSitesPermission){ %>
-													<hr width="100%" style="width:100%; color: #999999;" />
-													<div class="SubBlock">
-														<div class="MenuItem">   
-															<a class="ManageSite" href="<%= portalURI + "portalnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
-														</div>               
-													</div>
-												<% } %>
-												<% if(displayManageGroupSitesPermission){ %>
-													<hr width="100%" style="width:100%; color: #999999;" />
-													<div class="SubBlock">
-														<div class="MenuItem">   
-															<a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
-														</div>               
-													</div>
-												<% } %>
-									</div>
-								</div>
-							</div>
-						<% } %>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="$uicomponent.id" >
+	<li class="UITab NormalToolbarTab">
+		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
+		<ul class="MenuItemContainer" style="display:none;">
+			<li class="MenuItem">
+				<a href="<%=uicomponent.event("ChangeEditing")%>" title="" class="ItemIcon $quiEditClass">$quickEditLabel</a>
+			</li>
+			<% if(userCouldEditPage){ %>
+			<li class="MenuItem ArrowIcon">
+				<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></a>
+				<ul class="MenuItemContainer">
+					<li class="MenuItem">
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
+					</li>
+					<hr width="100%" style="width:100%; color: #999999;" />
+					<li class="MenuItem">	
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">
+							<img src="/eXoPlatformResources/skin/platformSkin/icons/AddContentIcon.png">
+							&nbsp;&nbsp;
+							$addPageLabel
+						</a>
+					</li>
+					<% if(uicomponent.hasManagePagesPermission()){ %>
+					<li class="MenuItem">   
+						<a href="<%= portalURI + "administration/pageManagement" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
+					</li>
+					<% } %>
+				</ul>
+			</li>
+			<% } %>
+			<% if(userCouldEditPortal || userCouldEditNavigation || hasManageSitesPermission || hasManageGroupSitesPermission) { %>
+			<li class="MenuItem ArrowIcon">
+				<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
+				<ul class="MenuItemContainer">
+					<% if(userCouldEditPortal){ %>
+					<li class="MenuItem">	
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon EditSiteIcon">$editSiteLayout</a>
+					</li>
+					<% } %>
+					<% if(userCouldEditNavigation){ %>
+					<li class="MenuItem">	
+						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon ManageSite">$editNavigation</a>
+					</li>
+					<% } %>
+					<% if(displayManageSitesPermission){ %>
+					<hr width="100%" style="width:100%; color: #999999;" />
+					<li class="MenuItem">   
+						<a class="ManageSite" href="<%= portalURI + "portalnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
+					</li>               
+					<% } %>
+					<% if(displayManageGroupSitesPermission){ %>
+					<hr width="100%" style="width:100%; color: #999999;" />
+					<li class="MenuItem">   
+						<a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
+					</li>               
+					<% } %>
+				</ul>
+			</li>
+			<% } %>
+		</ul>
+	</li>
 	<%uicomponent.renderChildren();%>
-</div>
+</ul>
+
