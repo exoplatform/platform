@@ -34,7 +34,7 @@
     <org.exoplatform.gwtframework.version>1.1.0-Beta03</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.0-Beta03</org.exoplatform.ide.version>
     <org.xcmis.version>1.2.1</org.xcmis.version>
-    <org.exoplatform.cs.version>2.3.0-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.cs.version>2.2.1-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.2.1-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.2.0-Beta4-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.2.1-SNAPSHOT</org.exoplatform.social.version>
