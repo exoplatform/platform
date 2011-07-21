@@ -14,7 +14,7 @@
 
   <servlet-mapping>
     <servlet-name>wizardService</servlet-name>
-    <url-pattern>/wizardsrv</url-pattern>
+    <url-pattern>/wizard/wizardsrv</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->

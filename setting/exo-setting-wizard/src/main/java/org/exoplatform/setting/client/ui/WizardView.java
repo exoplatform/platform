@@ -1,6 +1,7 @@
 package org.exoplatform.setting.client.ui;
 
 import org.exoplatform.setting.client.WizardGui;
+import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -14,16 +15,17 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
     
 /**
- * Represents a Wizard View
- * <p>
- * Each wizard view is a step into Web Application Setup Wizard
+ * This is a view
  * 
  * @author Clement
  *
  */
 public abstract class WizardView extends HorizontalPanel {
   
+  // Contains principal controller
   protected WizardGui gui;
+  
+  // Current stepNumber
   protected int stepNumber;
   
   /**
@@ -58,7 +60,12 @@ public abstract class WizardView extends HorizontalPanel {
     // Add constructed view
     add(decPanel);
   }
+  
 
+  /*=======================================================================
+   * Screen Factory
+   *======================================================================*/
+  
   /**
    * Header creation
    * @param title
@@ -110,6 +117,23 @@ public abstract class WizardView extends HorizontalPanel {
   }
   
   /**
+   * This method display a screen after his initialization
+   */
+  public void display() {
+    this.initScreen();
+    this.setVisible(true);
+  }
+  
+  public void hide() {
+    this.setVisible(false);
+  }
+  
+
+  /*=======================================================================
+   * Framework abstract methods (need to be redefined by user)
+   *======================================================================*/
+  
+  /**
    * Toolbar creation is to redefine
    * @return
    */
@@ -128,37 +152,85 @@ public abstract class WizardView extends HorizontalPanel {
   protected abstract void storeDatas(int toStep);
   
   /**
+   * Data field verifying
+   * @return
+   */
+  protected abstract void verifyDatas() throws InvalidWizardViewFieldException;
+  
+  /**
+   * Called before screen displaying
+   * @return
+   */
+  public abstract void initScreen();
+  
+  
+  /*=======================================================================
+   * Button factory
+   *======================================================================*/
+
+  /**
    * Constructs a standard previous button
    * <p>
    * If current step is the first step, so we return null
    * @return
    */
   protected Button preparePreviousButton() {
-    Button buttonPrevious = null;
-    if(stepNumber > 0) {
-      buttonPrevious = new Button();
-      buttonPrevious.setText("Previous");
-      buttonPrevious.addClickHandler(new ClickHandler() {
-        public void onClick(ClickEvent event) {
-          storeDatas(stepNumber - 1);
-        }
-      });
-    }
-    return buttonPrevious;
+    return preparePreviousButton("Previous");
   }
   
   /**
+   * Constructs a standard previous button with text string
+   * <p>
+   * If current step is the first step, so return null
+   * @param text
+   * @return build button
+   */
+  protected Button preparePreviousButton(String text) {
+    return prepareButton(text, stepNumber - 1);
+  }
+
+  /**
    * Constructs a standard next button
-   * @return
+   * @return build button
    */
   protected Button prepareNextButton() {
-    Button buttonNext = new Button();
-    buttonNext.setText("Next");
-    buttonNext.addClickHandler(new ClickHandler() {
+    return prepareNextButton("Next");
+  }
+  
+  /***
+   * Constructs a next button with text string
+   * @param text
+   * @return build button
+   */
+  protected Button prepareNextButton(String text) {
+    return prepareButton(text, stepNumber + 1);
+  }
+  
+  /***
+   * Constructs a button with text string and with step target
+   * <p>
+   * Verify datas only on clik "Next" button
+   * <p>
+   * store datas if
+   * @param text
+   * @param toStep
+   * @return build button
+   */
+  protected Button prepareButton(String text, final int toStep) {
+    Button button = new Button();
+    button.setText(text);
+    button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-        storeDatas(stepNumber + 1);
+        try {
+          if(stepNumber < toStep) {
+            verifyDatas();
+          }
+          storeDatas(toStep);
+        } catch (InvalidWizardViewFieldException e) {
+          gui.displayError(e.getWizardMessage());
+        }
       }
     });
-    return buttonNext;
+    return button;
   }
 }

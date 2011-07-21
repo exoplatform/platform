@@ -20,7 +20,7 @@ public class WizardDialogBox extends DialogBox {
 
   public WizardDialogBox() {
     // Create a dialog box and set the caption text
-    this.setGlassEnabled(false);
+    this.setGlassEnabled(true);
     this.setAnimationEnabled(true);
     //this.setModal(false);
     this.ensureDebugId("cwDialogBox");

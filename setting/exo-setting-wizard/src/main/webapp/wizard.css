@@ -27,9 +27,13 @@ h1 {
 }
 
 .dialogDetails {
-  color: green;
+  color: black;
 }
 
 .dialogErrorDetails {
   color: red;
+}
+
+.buttonAction {
+	spacing: 3px;
 }
