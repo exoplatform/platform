@@ -1,6 +1,6 @@
 package org.exoplatform.setting.client.ui;
 
-import org.exoplatform.setting.client.WizardGui;
+import org.exoplatform.setting.client.WizardModule;
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -23,7 +23,7 @@ import com.google.gwt.user.client.ui.Widget;
 public abstract class WizardView extends HorizontalPanel {
   
   // Contains principal controller
-  protected WizardGui gui;
+  protected WizardModule gui;
   
   // Current stepNumber
   protected int stepNumber;
@@ -35,7 +35,7 @@ public abstract class WizardView extends HorizontalPanel {
    * @param description
    * @param stepNumber
    */
-  public WizardView(WizardGui gui, String title, String description, int stepNumber) {
+  public WizardView(WizardModule gui, String title, String description, int stepNumber) {
     
     this.gui = gui;
     this.stepNumber = stepNumber;

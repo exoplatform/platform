@@ -27,7 +27,7 @@ import com.google.gwt.user.client.ui.Widget;
  * <p>
  * This is principal controller
  */
-public class WizardGui implements EntryPoint {
+public class WizardModule implements EntryPoint {
   
   // Create a remote service proxy to talk to the server-side Wizard service.
   private final WizardServiceAsync wizardService = GWT.create(WizardService.class);

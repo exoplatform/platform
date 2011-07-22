@@ -1,6 +1,6 @@
 package org.exoplatform.setting.client.ui;
 
-import org.exoplatform.setting.client.WizardGui;
+import org.exoplatform.setting.client.WizardModule;
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
 import org.exoplatform.setting.client.data.SetupWizardMode;
 
@@ -14,7 +14,7 @@ public class SetupTypeWizardView extends WizardView {
   private RadioButton standard;
   private RadioButton advanced;
   
-  public SetupTypeWizardView(WizardGui gui, int stepNumber) {
+  public SetupTypeWizardView(WizardModule gui, int stepNumber) {
     super(gui,
           "Select a setup type.", 
           "",
