@@ -39,25 +39,29 @@ Depending on your selected object, results which contain the matching keyword wi
 
 * [View details of the Forum application|#Forum_user_guide.Regular_user.View_details]
 * [Advanced search|#Forum_user_guide.Forum_regular_user.Advanced_search]
+
 h4. Advanced search {anchor:id=Forum_user_guide.Forum_regular_user.Advanced_search}
+
 The *Advanced Search* allows users to make a search with the particular criteria corresponding to the object you want to find. Using the Advanced Search, you can find forums/topics/posts exactly. 
 
-The *Advanced Search* icon is placed anywhere in the Forum application. To do the Advanced Search, do as follows:
+The *Advanced Search* icon is placed anywhere in the Forum application. To perform the advanced search, do as follows:
 
 *1.* Click !images/Advance_search_icon.png! at the top right of the Forum homepage when being in the Forum application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the action bar of each selected object.
 
-By default, the *Advanced search* form will be displayed with the "Category" object. However, when you replace the "Category" object with "Forum" or "Post", properties in this form will be different.
+Basing on where you want to search: Category, forum or post", the search criteria will be changed accordingly.
 
 *2.* Define values of properties corresponding to each object that you want to search.
 
 *3.* Click the *Search* button to do search or *Cancel* to quit. Also, click the *Clear Fields* button to reset the inputted values.
 
 The list of the found objects will be displayed in the search result form or there will be an alert message when no objects match with the inputted properties.
-* To find *categories* only, select *Category* from the *Search in* drop-down menu.
+
+* To find in *categories*, select *Category* from the *Search in* drop-down menu.
 
 !images/Search_category_Forum.png|align="center"!
 
 Details:
+
 ||Fields||Meaning||
 |Terms|Keyword related to your desired categories.|
 |Scope| Scale to search. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Title' option, only results matching the object's titles are returned.|
@@ -65,7 +69,7 @@ Details:
 |Created between - and|Created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
 |Moderator|Name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
 
-* To find *forums* only, select *Forum* from the *Search in* drop-down menu.
+* To find in *forums*, select *Forum* from the *Search in* drop-down menu.
 
 !images/Search_forum_Forum.png|align="center"!
 
@@ -77,7 +81,7 @@ Details:
 |Topics|Interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
 |Moderator|Name of the forums' moderators.|
 
-* To find *topics* only, select *Topic* from the *Search in* drop-down menu.
+* To find in *topics*, select *Topic* from the *Search in* drop-down menu.
 
 !images/Search_topic_Forum.png|align="center"!
 
@@ -91,8 +95,7 @@ Details:
 |Posts|Number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
 |Views|Number of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
 
-
-* To find *posts* only, select *Post* from the *Search in* drop-down menu.
+* To find in *posts*, select *Post* from the *Search in* drop-down menu.
 
 !images/Search_posts_Forum.png|align="center"!
 
