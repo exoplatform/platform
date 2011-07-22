@@ -232,9 +232,9 @@ There are two ways to add an attachment to a page:
 
 *The first way:  Use the attachment pane at the bottom of the page*.
 
-*1.* Click the *Upload* button. The upload form appear
+*1.* Click the *Upload* field. The upload window will appear.
 
-*2.* Select a file from your local device and click the *Open* button.
+*2.* Select a file from your local device and click the *Open* button. The File will be uploaded automatically then.
 
 *The second way: Use the WYSIWYG editor (Rich Text editor)*. {anchor:id=Add_attachment_WYSIWYG editor}
 
