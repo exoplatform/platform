@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Assembly</name>
   <dependencies>
+<dependency><groupId>org.exoplatform</groupId><artifactId>exo-jcr-services</artifactId><version>1.14.0-CR3</version><type>jar</type></dependency>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exopackage</artifactId>

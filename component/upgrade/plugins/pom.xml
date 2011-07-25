@@ -13,26 +13,31 @@
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.api</artifactId>
       <version>${org.exoplatform.core.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.core</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.ext</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.application-registry</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
@@ -63,31 +68,37 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.resources</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-gadgets</artifactId>
       <version>${org.gatein.shindig.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.ext</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.core</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>

@@ -23,6 +23,11 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.webui</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -60,11 +65,26 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.kernel</groupId>
+          <artifactId>exo.kernel.commons</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+<scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
