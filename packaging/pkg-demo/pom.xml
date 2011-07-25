@@ -75,6 +75,11 @@
     pageTracker._initData();
     pageTracker._trackPageview();
   </script>
+  <script src="http://lfov.net/webrecorder/js/listen.js" type="text/Javascript"></script>
+  <script type="text/Javascript">
+    _lf_cid = "LF_df197061";
+    _lf_remora();
+  </script>
 </body>]]></replacevalue>
 				</replace>
                 <zip destfile="${project.build.directory}/tomcat-demo/webapps/portal.war" basedir="${project.build.directory}/tomcat-demo/webapps/portal" />
