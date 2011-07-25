@@ -105,7 +105,7 @@ h1. eXo Platform backup {anchor:id=ADM.Backup.Perform_backup}
 
 To back up eXo Platform, do the following main steps:
 
-*1.* Stop the whole eXo Platform instance by using the shell command: {{stop_eXo}}. To see more details, see the Chapter 2. Installation.
+*1.* Stop the whole eXo Platform instance by using the shell command: {noformat}stop_eXo{noformat}. To see more details, see the [Chapter 2. Installation|#ADM.Installation].
 
 *2.* Run the backup procedure, including:
 
@@ -120,7 +120,7 @@ To back up eXo Platform, do the following main steps:
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start the backup to the steps described in Chapter 7. Clustering.
+In case of the eXo Platform clustering, start the backup to the steps described in [Chapter 7. Clustering|#ADM.Clustering].
 {note}
 
 h1. Restore {anchor:id=ADM.Backup.Perform_restore} 
@@ -129,7 +129,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 
 *1.* Unarchive the backup files from the backup storage to the temporary location.
 
-*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the Chapter 2. Installation.
+*2.* Stop the whole eXo Platform instance by using the shell command {noformat}stop_eXo{noformat}. To see more details, see the [Chapter 2. Installation|#ADM.Installation].
 
 *3.* Run the restoring procedure to restore from the backup local files for:
 
@@ -142,7 +142,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start restoring to the steps described in Chapter 7. Clustering.
+In case of the eXo Platform clustering, start restoring to the steps described in [Chapter 7. Clustering|#ADM.Clustering].
 {note}
  
 h1. Third-party tools {anchor:id=ADM.Backup.Third_party_tools}

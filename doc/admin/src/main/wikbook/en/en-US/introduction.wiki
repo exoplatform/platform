@@ -2,18 +2,19 @@ h1. Welcome to eXo Platform {anchor:id=ADM.Introduction.Welcome}
 
 eXo Platform 3.5, the user experience platform for Java, is comprised of Core and Extended Services.
 
-* *Core Services*
-** _GateIn_: a powerful framework for developing portlets and other web-based user interfaces.
-** _eXo Content_: extends portal-based applications with Enterprise Content Management (ECM) capabilities.
-*** _eXo WCM_: Web Content Management services.
-*** _xCMIS_: an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services on top of eXo Content.
-*** _eXo Workflow_: integrated Business Process Management (BPM) capabilities.
-** _eXo IDE_: an intuitive web-based development environment that allows developers to build, test and deploy client applications, such as gadgets and mashups, and REST-ful services online.
-** _CRaSH_: enables easy browsing of JCR trees, and serves as a shell for executing JCR operations.
-* *Extended Services*
-** _eXo Social_: a framework for building gadgets that can display and mash-up activity information for contacts, social networks, applications and services.
-** _eXo Collaboration_: easily adds Mail, Chat, Calendar and Address Book services to portal-based web applications.
-** _eXo Knowledge_: adds Forum, Answers and FAQ functionalities to portal-based applications, for collecting, organizing and sharing user knowledge.
+*Core Services*
+* GateIn: a powerful framework for developing portlets and other web-based user interfaces.
+* eXo Content: extends portal-based applications with Enterprise Content Management (ECM) capabilities.
+** eXo WCM: Web Content Management services.
+** xCMIS: an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services on top of eXo Content.
+** eXo Workflow: integrated Business Process Management (BPM) capabilities.
+* eXo IDE: an intuitive web-based development environment that allows developers to build, test and deploy client applications, such as gadgets and mashups, and REST-ful services online.
+* CRaSH: enables easy browsing of JCR trees, and serves as a shell for executing JCR operations.
+
+*Extended Services*
+* eXo Social: a framework for building gadgets that can display and mash-up activity information for contacts, social networks, applications and services.
+* eXo Collaboration: easily adds Mail, Chat, Calendar and Address Book services to portal-based web applications.
+* eXo Knowledge: adds Forum, Answers and FAQ functionalities to portal-based applications, for collecting, organizing and sharing user knowledge.
 
 eXo Platform is a fully supported and commercially licensed product based on eXo open source projects. Designed for enterprise use, it has been packaged and tested to optimize production readiness and administration.
 
@@ -24,8 +25,8 @@ h1. Who should read this guide? {anchor:id=ADM.Introduction.Intended_Readers}
 
 This guide describes how to get started with eXo Platform, especially for:
 
-* _System Administrators_  who want to use, deploy and manage eXo Platform system in their enterprise.
+* System Administrators who want to use, deploy and manage eXo Platform system in their enterprise.
 
-* _Developers_ who want to know how to leverage eXo Platform in their customer projects. 
+* Developers who want to know how to leverage eXo Platform in their customer projects. 
 
-This document provides explanations for you to do administrative tasks when implementing eXo Platform, such as installment, migration.
+This document provides explanations for you to do administrative tasks when implementing eXo Platform, such as installment, or migration.

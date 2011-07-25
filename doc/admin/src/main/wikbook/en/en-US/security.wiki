@@ -12,7 +12,7 @@ Since the security configuration is highly dependent of the app server, each app
 
 h2. Tomcat {anchor:id=ADM.Security.Tomcat}
 
-In the Tomcat bundle, the JAAS configuration is controled by the $TOMCAT_HOME/conf/jaas.conf:
+In the Tomcat bundle, the JAAS configuration is controled by the {noformat}$TOMCAT_HOME/conf/jaas.conf{noformat}:
 
 {code}
 gatein-domain {
