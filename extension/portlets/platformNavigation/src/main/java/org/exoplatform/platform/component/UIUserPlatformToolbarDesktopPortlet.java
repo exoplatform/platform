@@ -20,6 +20,7 @@ package org.exoplatform.platform.component;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 
 import javax.portlet.EventRequest;
 
@@ -112,11 +113,27 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication
    private boolean hasDashboardNode() throws Exception
    {
       Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
-      if (nodes.size() < 1 || (nodes.size() == 1 && isWebOSNode(nodes.iterator().next())))
+      if (nodes.size() == 0 || (nodes.size() == 1 && isWebOSNode(nodes.iterator().next())))
       {
          return false;
       }
       return true;
+   }
+
+   public String getDashboardURI() throws Exception
+   {
+      Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
+      if(nodes == null || nodes.isEmpty()){
+        return DEFAULT_TAB_NAME;
+      }
+      Iterator<UserNode> nodesIterator = nodes.iterator();
+      while (nodesIterator.hasNext()) {
+        UserNode userNode = (UserNode) nodesIterator.next();
+        if(!isWebOSNode(userNode) && !userNode.getVisibility().equals(Visibility.HIDDEN)){
+          return userNode.getURI();
+        }
+      }
+      return DEFAULT_TAB_NAME;
    }
 
    private boolean isWebOSCreated() throws Exception

@@ -94,14 +94,13 @@
 
 <%
 	def userNodes = uicomponent.getUserNodes(uicomponent.getCurrentUserNavigation());
-	String defaultDashboardPage = uicomponent.DEFAULT_TAB_NAME;
 	boolean webosProfile = uicomponent.isWebOsProfileActivated();
     String dashboardLink;
     String desktopLink;
     if (uicomponent.hasDashboardNode()) {
-       dashboardLink = portalURI + defaultDashboardPage;
+       dashboardLink = portalURI + uicomponent.getDashboardURI();
     } else {
-       dashboardLink = uicomponent.url("AddDefaultDashboard", defaultDashboardPage);
+       dashboardLink = uicomponent.url("AddDefaultDashboard", uicomponent.DEFAULT_TAB_NAME);
     }
     
     if (uicomponent.isWebOSCreated()) {
