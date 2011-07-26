@@ -234,7 +234,7 @@ This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribut
     <object-param>
       <name>ldap.attribute.mapping</name>
       <description>ldap attribute mapping</description>
-      <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">
+      <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping"></object>
         [...]
     </object-param>
   </init-params>
