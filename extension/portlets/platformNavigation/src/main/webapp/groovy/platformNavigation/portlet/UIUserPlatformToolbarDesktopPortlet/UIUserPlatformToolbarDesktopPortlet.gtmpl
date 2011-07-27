@@ -117,17 +117,9 @@
 		<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.dashboard")%></a>
 		<% renderDashboards(userNodes); %>
 	</li>
-<%
-if(webosProfile) {
-%>		
+<%if(webosProfile) {%>		
 	<li class="UITab NormalToolbarTab">
-		<% if (uicomponent.isWebOSCreated()) { %>
-			<a class="DashboardIcon TBIcon" href="<%= dashboardLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
-		<% } else { %>
-			<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>								
-		<% } %>
+			<a class="DashboardIcon TBIcon" href="<%= desktopLink %>"><%=_ctx.appRes("UIUserPlatformToolbarDesktopPortlet.header.desktop")%></a>
 	</li>
-	<%
-	}
-	%>
+<% } %>
 </ul>
