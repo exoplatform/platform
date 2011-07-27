@@ -101,6 +101,7 @@ public class OrganizationIntegrationService implements Startable {
   private RepositoryService repositoryService;
   private PortalContainer container;
   private boolean requestStarted = false;
+  private boolean synchronizeGroups = false;
 
   public OrganizationIntegrationService(OrganizationService organizationService, RepositoryService repositoryService,
       ConfigurationManager manager, PortalContainer container, InitParams initParams) {
@@ -158,6 +159,11 @@ public class OrganizationIntegrationService implements Startable {
       } else {
         LOG.warn("'workspace' init param is empty, use default value: " + Util.WORKSPACE);
       }
+      if (initParams.containsKey("synchronizeGroups")) {
+        synchronizeGroups = Boolean.getBoolean(initParams.getValueParam("synchronizeGroups").getValue());
+      } else {
+        LOG.warn("'synchronizeGroups' init param is empty, use default value: false");
+      }
       if (initParams.containsKey("homePath")) {
         Util.HOME_PATH = initParams.getValueParam("homePath").getValue();
       } else {
@@ -175,11 +181,13 @@ public class OrganizationIntegrationService implements Startable {
       session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
       Util.init(session);
 
-      // Search for Groups that aren't yet integrated
-      syncAllGroups(EventType.ADDED.toString());
+      if (synchronizeGroups) {
+        // Search for Groups that aren't yet integrated
+        syncAllGroups(EventType.ADDED.toString());
 
-      // Search for Groups that are deleted from Organization Datasource
-      syncAllGroups(EventType.DELETED.toString());
+        // Search for Groups that are deleted from Organization Datasource
+        syncAllGroups(EventType.DELETED.toString());
+      }
     } catch (Exception e) {
       LOG.error(e);
     } finally {

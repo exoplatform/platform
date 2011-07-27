@@ -14,6 +14,10 @@
 				<name>homePath</name>
 				<value>/</value>
 			</value-param>
+			<value-param>
+				<name>synchronizeGroups</name>
+				<value>false</value>
+			</value-param>
 		</init-params>
 	</component>
 	<external-component-plugins>
