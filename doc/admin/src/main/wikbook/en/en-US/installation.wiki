@@ -94,15 +94,16 @@ To install eXo Platform on JBoss, follow these steps:
 
 - gatein-ds.xml
 - gatein.ear
-- starter-gatein.ear
-- acme-website.ear
-- office-portal.ear
-- platform-extension.ear
-- exo-collaboration.ear
-- exo-social-extension.ear
-- gatein-exo-ks.ear
-- gatein-wcm-extension-plf.ear
-- gatein-workflow-extension-plf.ear
+- exo-starter-gatein-$version.ear
+- exo-wcm-extension-$version.ear
+- exo-workflow-extension-$version.ear
+- exo-collaboration-extension-$version.ear
+- exo-knowledge-extension-$version.ear
+- exo-social-extension-$version.ear
+- exo-platform-extension-$version.ear
+- exo-social-intranet-$version.ear
+- exo-acme-website-$version.ear
+- exo-default-portal-$version.ear
 
 *2.* Create the *{noformat}jboss-root/server/default/conf/gatein{noformat}* and then copy these files to this folder.
 

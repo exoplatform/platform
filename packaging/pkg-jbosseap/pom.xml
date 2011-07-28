@@ -70,60 +70,70 @@
 				  <groupId>org.exoplatform.portal</groupId>
 				  <artifactId>starter-gatein</artifactId>
 				  <version>${org.exoplatform.portal.version}</version>
+				  <destFileName>exo-starter-gatein-${org.exoplatform.portal.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.cs</groupId>
 				  <artifactId>exo.cs.extension.ear</artifactId>
 				  <version>${org.exoplatform.cs.version}</version>
+				  <destFileName>exo-collaboration-extension-${org.exoplatform.cs.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.ecms</groupId>
 				  <artifactId>exo-ecms-packaging-wcm-ear</artifactId>
 				  <version>${org.exoplatform.ecms.version}</version>
+				  <destFileName>exo-wcm-extension-${org.exoplatform.ecms.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.ecms</groupId>
 				  <artifactId>exo-ecms-packaging-workflow-ear</artifactId>
 				  <version>${org.exoplatform.ecms.version}</version>
+				  <destFileName>exo-workflow-extension-${org.exoplatform.ecms.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.ks</groupId>
 				  <artifactId>exo.ks.extension.ear</artifactId>
 				  <version>${org.exoplatform.ks.version}</version>
+				  <destFileName>exo-knowledge-extension-${org.exoplatform.ks.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.extension.ear</artifactId>
 				  <version>${project.version}</version>
+				  <destFileName>exo-platform-extension-${project.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.sample.acme-website.ear</artifactId>
 				  <version>${project.version}</version>
+				  <destFileName>exo-acme-website-${project.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.sample.default-website.ear</artifactId>
 				  <version>${project.version}</version>
+				  <destFileName>exo-default-portal-${project.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.platform</groupId>
 				  <artifactId>exo.platform.sample.acme-intranet.ear</artifactId>
 				  <version>${project.version}</version>
+				  <destFileName>exo-social-intranet-${project.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
 				  <groupId>org.exoplatform.social</groupId>
 				  <artifactId>exo.social.extension.ear</artifactId>
 				  <version>${org.exoplatform.social.version}</version>
+				  <destFileName>exo-social-extension-${org.exoplatform.social.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
               </artifactItems>
