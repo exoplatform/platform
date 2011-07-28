@@ -8,5 +8,5 @@ h1. How To Use Calendar? {anchor:id="CSUser_guide.How_to_use_Calendar"}
 {include:document="calendar/calendar.wiki"}
 h1. How To Use Chat? {anchor:id="CSUser_guide.How_to_use_Chat"}
 {include:document="chat/chat.wiki"}
-h1. How To Use RSS? {anchor:id="CSUser_guide.How_to_use_RSS"}
+h1. How To Use RSS Reader? {anchor:id="CSUser_guide.How_to_use_RSS"}
 {include:document="rss.wiki"}

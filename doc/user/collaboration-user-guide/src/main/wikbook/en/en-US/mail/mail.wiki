@@ -1,4 +1,4 @@
-*When you read this chapter, you can do the following actions after accessing the Mail application*:
+*After reading this chapter, you should know how to perform these following tasks*:
 
 * [Create and use multiple accounts, so different email addresses can be displayed in the same web interface|#CSUser_guide.How_to_use_Mail.Create_mail_account].
 
@@ -16,9 +16,9 @@
 
 * [Search for messages with Quick search|#Mail_Quick_search] [and Advanced search|#Mail_Advanced_search].
 
-* [Create an event|#Add_event], [or accept/deny to attend one event invitation and import the invitation into your calendar to remind you by one-click|#Mail.Accept_deny_import_event].
+* [Create an event|#Add_event]; [accept/deny an event invitation; import the invitation into your calendar to set reminder|#Mail.Accept_deny_import_event].
 
-* [Add new address books or contacts, edit details of your contacts or delete them from your contacts list right in Mail thanks to the integrated Address Book|#Manage_address_books_in_Mail].
+* [Add new address books or contacts; edit, delete contact details in Mail just like in Address Book|#Manage_address_books_in_Mail].
 
 * [Change mail settings to your desire|#Mail_settings].
 
@@ -86,6 +86,8 @@ h2. Delete your account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_acc
 If you use multiple accounts, you can delete any unused mail accounts.
 
 *1.* Select the account from the accounts list, then click !images/add_mail_acount_icon.png! on the left pane and select *Delete account* from the drop-down menu.
+
+!images/Delete_acc_form.png!
 
 *2.* Click !images/remove_icon.png! corresponding to the account and then select *OK* to confirm your deletion.
 
@@ -196,7 +198,7 @@ Besides downloading attachments to your local system by clicking !images/Downloa
 
 In this form, you can:
 
-||Number||Function||
+|| Fields || Functions ||
 |!images/1.1.png!|Change name of the downloaded file into DMS.|
 |!images/2.png!|Browse user drives/folders.|
 |!images/3.png!|View folders and files of the currently openned drive/folder. In this pane, you can remove the folder clicking *Remove* next to the relevant folder.|
@@ -205,12 +207,14 @@ In this form, you can:
 
 *4.* Click *Save* to finish your saving to DMS, or *Cancel* to quit without saving.
 
+
 h2. View the full headers of a message {anchor:id=View_full_header}
 The header's information is displayed by default, including email addresses of the sender and receivers and the mail subject. If you want to view full headers of a mail, do as follows:
 
 *1.* Open the message which you want to view its full headers.
 
 *2.* Click !images/down_arrow_icon.png! at the right corner of message's content and select *View Full Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
+
 
 h2. Mark a message as read {anchor:id="Mark_as_read"}
 You can mark one or more messages as read by removing the bold format of message.
@@ -231,9 +235,10 @@ After being marked all as read, all unread messages inside the folder will be ma
 
 
 h2. Mark as unread {anchor:id="Mark_as_unread"}
+
 *1.* Select the messages you want to mark as unread.
 
-*2.* Click *Mark as unread* from the *More Actions* menu on the action bar.
+*2.* Click the *More Actions* and select *Mark as unread* from the drop-down menu.
 
 
 h2. Star a message {anchor:id="Star_a_message"}
@@ -323,7 +328,7 @@ The *Contacts* window listing all of your contacts will appear:
 
 Also, select *Send to all* option if you would like to send mail to all contacts or specific groups. Click *Add* to add the selected email addresses to the *To* box or click *Replace* to replace the current email addresses with the new selected email addresses.
 
-*3.* Enter a few words into the *Subject* box to give the topic's general topic to receivers.
+*3.* Enter a few words into the *Subject* box to give the general topic to receivers.
 
 *4.* Enter your message in the text-input field. You can use this toolbar to format the message text:
 
@@ -331,7 +336,7 @@ Also, select *Send to all* option if you would like to send mail to all contacts
 
 Click !images/editor_icon.png! on this toolbar to switch between *Rich text* and *Plain text* editors. If *Rich text* is selected, the message text can be composed with format tools; while the *Plain Text* only allows you to compose a message with the simple text format.
 
-*5.* Click !images/send_mail_icon.png! to send the message when you are satisfied with the content. Click !images/discard_icon.png! to exit the *Compose a new message* form if you want to quit composing.
+*5.* Click !images/send_mail_icon.png! to send the message when you are satisfied with the content. Click !images/discard_icon.png! to exit the *Compose a new message* window if you want to quit composing.
 
 {note}
 You can use *CC* and *BCC* to send mail to more than one person easily and quickly.
@@ -351,9 +356,9 @@ You can use *CC* and *BCC* to send mail to more than one person easily and quick
 h2. Attach files to a message {anchor:id="Attach_attachment_to_message"}
 *1.* Click !images/attach_local_file_icon.png! to open the *Attach files* window.
 
-*2.* Click !images/choose_file_button.png! to select a file on your computer, then click *Open*.
+*2.* Click !images/choose_file_button.png! to select a file on your computer, then click *Open*. The selected file will be then uploaded.
 
-*3.* Click !images/upload_icon.png! to upload the selected files. Go back to the *Compose a new message* window, you will see the attached files shown in the *Attachments* area.
+*3.* Go back to the *Compose a new message* window, you will see the attached files shown in the *Attachments* area.
 
 If you decide not to include an attached file before you send the message, just click !images/remove_icon.png! next to the attached file.
 
@@ -385,7 +390,7 @@ A message signature is an identification text which are automatically inserted a
 You can change this signature by [editing your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
 
 h2. Change message preferences  {anchor:id="Change_message_preferences"}
-Click !images/options_icon.png! to set to another preferences. At present, you only have the Return Receipt option that allows the sender to receive a notification mail to inform that the receiver already read your message. The sender only receives the notification in case the mailbox of the receiver has been configured in the [Mail settings|#Mail_settings].
+Click !images/options_icon.png! to set to another preferences. At present, you only have the Return Receipt option that allows the sender to receive a notification mail to inform that the receiver already read your message. The sender will receive the notification only when the mailbox of the receiver has been configured in the [Mail settings|#Mail_settings].
 
 {note}
 Sent mails will be saved in the *Sent* folder. In case the receipt emails do not exist in your Address book, they will be added automatically to the *Collected Address* in the *Contact* application.
@@ -653,7 +658,7 @@ The *Add/Edit Message Filter* will appear:
 |*Move the message to folder*|The folder to which the messages satisfying with the filter will be moved.|
 |*Apply tag*|All messages matching the filter rules will be applied a tag of your choice.|
 |*Apply for all messages*|The option allows applying the filter to all current messages.|
-|*Execute now*|Take the action righ after editing the filter.|
+|*Execute now*|Take the action right after editing the filter.|
 
 *3.* Define the rules for the new filter.
 

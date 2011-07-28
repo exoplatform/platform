@@ -1,4 +1,4 @@
-*When you read this chapter, you can do the following actions:*
+*After reading this chapter, you should know how to perform these following tasks*:
 
 * [View your contacts in either of two modes: List and vCards|#CSUser_guide.How_to_use_Address_book.View_contacts]
 * [Edit contact details|#CSUser_guide.How_to_use_Address_book.Edit_contact_details]
@@ -252,7 +252,7 @@ Follow one of these methods above to open the *Import contact* form.
 
 *2.* Select the file format in the *Import format* field.
 
-*3.* Browse to the file in your computer and click !images/upload_icon.png! to upload the selected file.
+*3.* Browse to the file in your computer. 
 
 *4.* Click *Save* to complete. You will see the notification on the top left corner as the contact importing completed.
 
@@ -458,9 +458,7 @@ Follow one of these methods above and the *Import Address Books* form will appea
 
 *4.* Click *Browse* and locate the address book file to import.
 
-*5.* Click !images/upload_icon.png! to start importing.
-
-*6.* Click *Save* to finish.
+*5.* Click *Save* to finish.
 
 
 h2. Share an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Share_an_address_book"}

@@ -1,4 +1,6 @@
-*When you read this guide, you can do the followings:*
+*After reading this chapter, you should know how to perform these following tasks*:
+
+
 * [Add a contact to the friends list|#Add_contact_to_friends_list]
 * [Chat with a contact|#CSUser_guide.How_to_use_Chat.Chat_with_contact]
 ** [Compose and send a chat text|#CSUser_guide.How_to_use_Chat.Compose_and_send_chat_text]

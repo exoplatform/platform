@@ -1,13 +1,14 @@
 The RSS (Really Simply Syndication) application of eXo Collaboration allows you to keep track of all news of your favorite website. 
 
-*When you read this section, you can understand the following functions:*
-* [RSS Interface|#CSUser_guide.How_to_use_RSS.Rss_interface]
+*After reading this chapter, you should know how to perform these following tasks*:
+
 * [Add a category|#CSUser_guide.How_to_use_RSS.Add_category]
 * [Edit a category|#CSUser_guide.How_to_use_RSS.Edit_category]
 * [Delete a category|#CSUser_guide.How_to_use_RSS.Delete_category]
 
 h1. RSS Interface {anchor:id="CSUser_guide.How_to_use_RSS.Rss_interface}
-To access to the *RSS Feed Reader* application, click *RSS* on the administration bar:
+
+To access the *RSS Feed Reader* application, click *RSS* on the administration bar:
 !images/rss.png|align="center"!
 
 The *RSS Feed Reader* page appears:

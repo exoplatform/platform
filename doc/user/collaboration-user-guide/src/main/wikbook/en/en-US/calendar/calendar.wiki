@@ -1,4 +1,5 @@
-*When you read contents here, you can do the following actions:*
+*After reading this chapter, you should know how to perform these following tasks*:
+
 * [Create calendars of different types:|#CSUser_guide.How_to_use_Calendar.Create_calendars]
 ** [Personal calendars|#Create_personal_calendar]
 ** [Shared calendars|#Create_shared_calendar]
@@ -61,48 +62,6 @@ The Calendar interface has six basic components:
 In eXo Platform, by default, the left pane of Calendar is hidden. To show this pane, select *Toggle Left Panel* on the toolbar. 
 {note}
 
-h2. Upcoming Events gadget {anchor:id="CSUser_guide.How_to_use_Calendar.Upcoming event gadget"}
-The Upcoming Events gadget is a utility associated with the Calendar application. This gadget is used for listing events of a personal calendar that will happen today. 
-
-*Only administrators can activate this gadget as follows:*
-
-*1.* Go into the page where you want to add the *Upcoming Events* gadget.
-
-*2.* Click *Site Editor* in the administration bar, then select *Edit Page* from the drop-down menu.
-
-*3.* Select the gadget named *Upcoming Events* from the *Page Editor* form. 
-
-*4.* Drag and drop the *Upcoming Events* into the *Edit area* of the selected page.
-
-!images/Upcoming_event_gadget_drag_drop.png|align="center"!
-
-*5.* Click !images/Finish_icon.png! to save your adding.
-
-In your selected page, you will see the *Upcoming events* gadget as below.
-
-!images/Upcoming_events_gadget.png|align="center"!
-
-Click !images/Show_all_button.png! to open the Calendar application in another browser tab.
-
-*The number of events listed in the Upcoming Events gadget can be changed as follows:*
-
-*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open the *Settings* window.
-
-!images/Settings_upcoming_events_gadget.png|align="center"!
-
-||Field||Description||
-|Base url|The path to the Calendar application.|
-|Subscription url|The REST service path.|
-|Date time format|The type of time format for displaying upcoming events.|
-|Calendar|Name of the selected personal calendar. |
-
-*2.* Enter a positive integer corresponding to the number of events displayed into the *Page size* field to your desire.
-
-*3.* Click *Save* to accept your changes.
-
-{note}
-For two fields, including Base url and Subscription url, you should ask administrators for more exact information before making any changes to these fields.
-{note}
 
 h1. Create a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Create_calendars"}
 
@@ -117,6 +76,7 @@ h2. Create a personal calendar {anchor:id="Create_personal_calendar"}
 *The second way*: Right-click a calendar group which exists in the list of personal calendars, then click *Add calendar* from the drop-down menu. By this way, the group for your new calendar is already selected.
 
 *2.* Define details of your new calendar in the *Calendar details* tab.
+
 !images/Calendar_form.png|align="center"!
 
 ||Field||Description||
@@ -183,7 +143,7 @@ h2. Create a remote calendar {anchor:id="Create_remote_calendar"}
 !images/Remote_calendar_form.png|align="center"!
 
 {note}
-The asterisk (*) next to each field means that it is mandatory to input or select values into the field.
+The asterisk (*) indicates mandatory fields.
 {note}
 
 *5.* Enter the display name for the calendar.
@@ -301,9 +261,9 @@ Also:
 
 * Click !images/upload_form_icon.jpg! to to show a form used to import an uploaded file to an existing calendar: 
  
-!images/calendar1.png! 
+!images/calendar1.png!
 
-You can click !images/plus_icon.png! to import the uploaded file to a new calendar.|
+You can click !images/plus_icon.png! to import the uploaded file to a new calendar.
 
 * Give details of the imported calendar in the *Description* field.
 
@@ -988,7 +948,7 @@ After creating a new calendar group, the created group will be displayed in the 
 
 {note}
 In eXo Social, after you have created a Space for a group, a Group Calendar having the same name as that of your group Space will be created automatically. Notice that this feature is only featured in eXo Platform.
-The calendar group without any calendars inside it will not be displayed in *Personal Calendars*. When there is a calendar added, it will be shown.
+The calendar group without any calendars inside it will not be displayed in *Personal Calendars*.
 {note}
 
 
@@ -1006,7 +966,7 @@ The *Calendar groups* form will appear:
 *2.* Make changes to the Calendar group, then click *Save* to accept your changes.
 
 {note}
-When adding a new calendar to one calendar group, you can also add a new calendar group by clicking !images/plus_icon.png! that corresponds to *Group* fields.
+When adding a new calendar to one calendar group, you can also add a new calendar group by clicking respective !images/plus_icon.png! in the *Group* fields.
 {note}
 
 h3. Delete a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group}
@@ -1053,3 +1013,47 @@ The *Event categories* form will be displayed.
 *2.* Click !images/edit_icon.png! corresponding to the category that you want to edit or click the !images/remove_icon.png! icon corresponding to the category you want to delete.
 
 *3.* Complete editing/deleting by clicking *Save*.
+
+
+h2. Upcoming Events gadget {anchor:id="CSUser_guide.How_to_use_Calendar.Upcoming event gadget"}
+The Upcoming Events gadget is a utility associated with the Calendar application. This gadget is used for listing events of a personal calendar that will happen today. 
+
+*Only administrators can activate this gadget as follows:*
+
+*1.* Go into the page where you want to add the *Upcoming Events* gadget.
+
+*2.* Click *Site Editor* in the administration bar, then select *Edit Page* from the drop-down menu.
+
+*3.* Select the gadget named *Upcoming Events* from the *Page Editor* form. 
+
+*4.* Drag and drop the *Upcoming Events* into the *Edit area* of the selected page.
+
+!images/Upcoming_event_gadget_drag_drop.png|align="center"!
+
+*5.* Click !images/Finish_icon.png! to save your adding.
+
+In your selected page, you will see the *Upcoming events* gadget as below.
+
+!images/Upcoming_events_gadget.png|align="center"!
+
+Click !images/Show_all_button.png! to open the Calendar application in another browser tab.
+
+*The number of events listed in the Upcoming Events gadget can be changed as follows:*
+
+*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open the *Settings* window.
+
+!images/Settings_upcoming_events_gadget.png|align="center"!
+
+||Field||Description||
+|Base url|The path to the Calendar application.|
+|Subscription url|The REST service path.|
+|Date time format|The type of time format for displaying upcoming events.|
+|Calendar|Name of the selected personal calendar. |
+
+*2.* Enter a positive integer corresponding to the number of events displayed into the *Page size* field to your desire.
+
+*3.* Click *Save* to accept your changes.
+
+{note}
+For two fields, including Base url and Subscription url, you should ask administrators for more exact information before making any changes to these fields.
+{note}
