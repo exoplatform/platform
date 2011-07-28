@@ -16,7 +16,7 @@
 			</value-param>
 			<value-param>
 				<name>synchronizeGroups</name>
-				<value>false</value>
+				<value>true</value>
 			</value-param>
 		</init-params>
 	</component>
