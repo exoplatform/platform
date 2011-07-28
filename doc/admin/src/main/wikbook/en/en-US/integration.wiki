@@ -25,7 +25,21 @@ Pick up one of the following use cases of integration execution related to your 
 
 h2. eXo Platform start-up {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
 
-At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of eXo Social *space*.
+At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of eXo Social *spaces*.
+
+In case you want to disable groups synchronization at start-up, and proceed manually to the system groups synchronization, you must modify an init param of {{OrganizationIntegrationService}}:
+{code:xml}
+	<component>
+		<type>org.exoplatform.platform.component.organization.OrganizationIntegrationService</type>
+		<init-params>
+			...
+			<value-param>
+				<name>synchronizeGroups</name>
+				<value>false</value>
+			</value-param>
+		</init-params>
+	</component>
+{code}
 
 h2. User login {anchor:id=ADM.Integration.Integrate_organizational_model.User_login}
 
