@@ -71,7 +71,7 @@
 				</ul>
 			</li>
 			<% } %>
-			<% if(userCouldEditPortal || userCouldEditNavigation || hasManageSitesPermission || hasManageGroupSitesPermission) { %>
+			<% if(userCouldEditPortal || userCouldEditNavigation || displayManageSitesPermission || displayManageGroupSitesPermission) { %>
 			<li class="MenuItem ArrowIcon">
 				<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
 				<ul class="MenuItemContainer">
