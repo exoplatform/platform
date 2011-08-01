@@ -1,9 +1,10 @@
-h1. Why to use a navigation by content
+
+h1. Why to use a navigation by content   {anchor:id=DEV.NewFeatures.NavigationByContent.whyUseNavigationByContent}
 
 The main navigation of the sample acme-website is a page node based navigation. Users are obliged to navigate from a page to another or browse site contents inside one page (will be explained in next section).
 We added this new feature to be able to navigate in site's contents directly from a contextual menu.
 
-h1. Actual content navigation
+h1. Actual content navigation {anchor:id=DEV.NewFeatures.NavigationByContent.ContentNavigation}
 
 One of the powerful features of the _eXo Web Content Management_ that comes out with _eXoPlatform3_ is the possibility to navigate in site contents using taxonomies.
 This functionality can easily be added in a page with the help of two _Content List Viewer_ portlets as follows (an already configured example can be found in the *News* page of the sample acme-website acme/news):
@@ -40,10 +41,7 @@ You can now navigate from the left portlet to see contents displayed in the righ
 
 The new navigation by content feature will traduce this example in a contextual menu.
 
-h1. Navigation by content
-
-
-h2. How to
+h1. How to   {anchor:id=DEV.NewFeatures.NavigationByContent.Howto}
 
 We need to attach our root folder/node to some page node from the home page (the menu item that will hold our new contextual menu):
 
@@ -74,7 +72,7 @@ hit *Power 1 - Fire* menu item from the contextual menu and see that _Fire_ cont
 
 !navigation_by_content_feature/event1.png!
 
-h2. Use it
+h1. Use it   {anchor:id=DEV.NewFeatures.NavigationByContent.UseIt}
 
 You can for example restrict the visibility of some contents:
 
@@ -146,7 +144,7 @@ Choose for example the X-Ray content and see the newly implemented reach content
 
 !navigation_by_content_feature/relatedDocuments.png!
 
-h2. How to create a new product
+h2. How to create a new product  {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct}
 
 - go to the Content Explorer page and navigate under somePath/someDirectory
 - hit the Add Document button
@@ -186,7 +184,7 @@ Now lets improve our newly created product, say "sampleProduct":
 
 !navigation_by_content_feature/sampleProductDetail.png!
 
-h3. Product content development
+h2. Product content development  {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.ProductContentDev}
 
 The product content is composed of fields and folders:
 
@@ -324,7 +322,7 @@ _Features_
 </tr>
 {code}
 
-Now lets look at the product's view form.
+Now let's look at the product's view form.
 Illustration image, title and summary are grouped together:
 {code:html}
 <!-- Hot news -->
