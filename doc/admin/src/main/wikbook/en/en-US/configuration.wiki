@@ -50,6 +50,7 @@ The system configuration is mostly done in the configuration.properties file.
 In most cases, this should be the only file for the system administrator to configure.
 
 In the Tomcat bundle, this file is located at /gatein/conf/configuration.properties.
+In the Jboss server, this file is located at server/default/conf/gatein/configuration.properties.
 
 
 * *configuration.xml* {anchor:id=ADM.Configuration.Configuration.xml}
@@ -61,7 +62,7 @@ In most cases, you should not change this file.
 In case you do not want to use "portal" as the default portal for your project, this file can be used to import another PortalContainerDefinition into the root container.
 
 {note}
-To learn more about how to configure a new portal container, please refer to the kernel reference guide.
+To learn more about how to configure a new portal container, please refer to the Kernel reference guide.
 {note}
 
 * *portal/portal/configuration.xml* {anchor:id=ADM.Configuration.portal/portal/configuration.xml}
@@ -586,7 +587,93 @@ Details:
 | *{{gatein.jcr.index.cache.config}}* | The JBoss Cache configuration for the JCR index. |
 | *{{gatein.jcr.jgroups.config}}* | The JGroups configuration to use for the cluster mode. |
 
-For more details on configuring these files, please refer to the JCR reference guide.
+For more details on configuring these files, please refer to the eXo JCR reference guide.
+
+
+h1. Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration}
+
+Please refer to the Chapter 4 of this guide ([Cache management view|/docs/admin/html/ch04.html#ADM.Management.Cache_management_view]) to see the description about the cache configuration.
+
+h2. Portal Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.PortalCacheConfig}
+{code}
+# Portal Cache Configuration - ResourceBundleData 
+cache.exo.portal.ResourceBundleData.Capacity=1000 
+cache.exo.portal.ResourceBundleData.TimeToLive=600 
+
+# Portal Cache Configuration - TemplateService 
+cache.exo.portal.TemplateService.Capacity=1000 
+cache.exo.portal.TemplateService.TimeToLive=600 
+
+# Portal Cache Configuration - MOPSessionManager 
+cache.exo.portal.MOPSessionManager.Capacity=5000 
+cache.exo.portal.MOPSessionManager.TimeToLive=60000 
+cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000 
+{code}
+
+h2. Social Cache Configuration  {anchor:id=ADM.Configuration.CacheConfiguration.SocialCacheConfig}
+{code}
+# Social Cache Configuration - ActivityManager 
+## ActivityManager.ActivityCache 
+cache.exo.social.ActivityManager.ActivityCache.Capacity=3000 
+cache.exo.social.ActivityManager.ActivityCache.TimeToLive=600 
+## ActivityManager.ActivityListCache 
+cache.exo.social.ActivityManager.ActivityListCache.Capacity=300 
+cache.exo.social.ActivityManager.ActivityListCache.TimeToLive=600 
+## ActivityManager.CommentsCache 
+cache.exo.social.ActivityManager.CommentsCache.Capacity=1000 
+cache.exo.social.ActivityManager.CommentsCache.TimeToLive=600 
+
+# Social Cache Configuration - IdentityManager 
+## IdentityManager.IdentityCache 
+cache.exo.social.IdentityManager.IdentityCache.Capacity=500 
+cache.exo.social.IdentityManager.IdentityCache.TimeToLive=600 
+## IdentityManager.IdentityCacheById 
+cache.exo.social.IdentityManager.IdentityCacheById.Capacity=3000 
+cache.exo.social.IdentityManager.IdentityCacheById.TimeToLive=600 
+## IdentityManager.IdentityListCache 
+cache.exo.social.IdentityManager.IdentityListCache.Capacity=300 
+cache.exo.social.IdentityManager.IdentityListCache.TimeToLive=600 
+
+# Social Cache Configuration - RelationshipManager 
+##  RelationshipManager.RelationshipIdCache 
+cache.exo.social.RelationshipManager.RelationshipIdCache.Capacity=300 
+cache.exo.social.RelationshipManager.RelationshipIdCache.TimeToLive=600 
+## RelationshipManager.RelationshipListCache 
+cache.exo.social.RelationshipManager.RelationshipListCache.Capacity=300 
+cache.exo.social.RelationshipManager.RelationshipListCache.TimeToLive=600 
+
+# Social Cache Configuration - SpaceStorage 
+cache.exo.social.SpaceStorage.SpaceCache.Capacity=300 
+cache.exo.social.SpaceStorage.SpaceCache.TimeToLive=600 
+{code}
+
+h2. ECMS Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.ECMSCacheConfig}
+{code}
+# ECMS Cache Configuration - Viewer 
+cache.exo.ecms.Viewer.PDFViewer.Capacity=300 
+cache.exo.ecms.Viewer.PDFViewer.TimeToLive=600 
+
+# ECMS Cache Configuration - Drives 
+cache.exo.ecms.Drives.ManageDrive.Capacity=300 
+cache.exo.ecms.Drives.ManageDrive.TimeToLive=600 
+
+# ECMS Cache Configuration - Scripts 
+cache.exo.ecms.Scripts.ScriptService.Capacity=300 
+cache.exo.ecms.Scripts.ScriptService.TimeToLive=600 
+
+# ECMS Cache Configuration - Templates 
+cache.exo.ecms.Templates.TemplateService.Capacity=300 
+cache.exo.ecms.Templates.TemplateService.TimeToLive=600 
+
+# ECMS Cache Configuration - Webcontent 
+cache.exo.ecms.Webcontent.InitialWebContentPlugin.Capacity=300 
+cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600 
+
+# ECMS Cache Configuration - WCM Composer 
+cache.exo.ecms.WCMComposer.Capacity=300 
+cache.exo.ecms.WCMComposer.TimeToLive=600
+{code}
+ 
 
 h1. Users configurations {anchor:id=ADM.Configuration.Users_configuration}
 
