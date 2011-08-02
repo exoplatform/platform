@@ -410,7 +410,7 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationComposer textarea {
-	width: 168px;
+	max-width: 168px;
 	font-size: 11px;
 	background: #f8f8f8;
 	border: 1px solid #dddddd;
