@@ -16,6 +16,7 @@
  */
 package org.exoplatform.platform.component.organization;
 
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.scheduler.BaseJob;
@@ -28,20 +29,28 @@ import org.exoplatform.services.scheduler.JobContext;
  * @author Boubaker KHANFIR
  */
 public class OrganizationIntegrationJob extends BaseJob {
-
   private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
+  private PortalContainer container = null;
   private OrganizationIntegrationService organizationIntegrationService;
 
-  public OrganizationIntegrationJob(OrganizationIntegrationService organizationIntegrationService) {
-    this.organizationIntegrationService = organizationIntegrationService;
+  public OrganizationIntegrationJob(PortalContainer portalContainer) {
+    this.container = portalContainer;
   }
 
   /**
    * {@inheritDoc}
    */
   public void execute(JobContext context) throws Exception {
-    LOG.info("Organization Integration scheduled job start.");
-    organizationIntegrationService.syncAll();
-    LOG.info("Organization Integration scheduled job end.");
+    LOG.info("Start all Organizational model synchronization.");
+    getOrganizationIntegrationService().syncAll();
+    LOG.info("Organizational model synchronization finished successfully.");
+  }
+
+  public OrganizationIntegrationService getOrganizationIntegrationService() {
+    if (this.organizationIntegrationService == null) {
+      this.organizationIntegrationService = (OrganizationIntegrationService) container
+          .getComponentInstanceOfType(OrganizationIntegrationService.class);
+    }
+    return this.organizationIntegrationService;
   }
 }
