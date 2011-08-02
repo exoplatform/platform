@@ -316,3 +316,106 @@
 	position:relative;
 	z-index:3;
 }
+
+/*************** UIUserToolBarPortlet *****************/
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet {
+	position: relative;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .MenuItemContainer {
+	padding: 10px;
+	position: absolute;
+	width: 230px !important;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .MenuItemContainer li ul {
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .MenuItemContainer li ul li {
+	width: 50%;
+	float: left;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab .MenuItemContainer .MenuItem {
+	height: auto;
+	line-height: auto;
+	margin: 0px;
+	padding-top: 5px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab .MenuItemContainer .MenuItem:hover {
+	background: none;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab .MenuItemContainer .MenuItem a {
+	color: #3372b9;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab .MenuItemContainer .MenuItem a:hover {
+	color: #003672;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab .MenuItemContainer .MenuItem .LogoutIcon {
+	background: url('background/LogoutIcon.gif') no-repeat left center;
+	padding-left: 20px;
+	margin: 0px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .ProfileInfo .ImgProfile {
+	display: block;
+	float: left;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .ProfileInfo .ImgProfile img {
+	width: 40px;
+	-moz-box-shadow: 1px 1px 2px #dddddd;
+	-webkit-box-shadow: 1px 1px 2px #dddddd;
+	box-shadow: 1px 1px 2px #dddddd;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .ProfileInfo .Status {
+	margin: 0px 0px 0px 50px;
+	background: #f8f8f8;
+	border: 1px solid #dddddd;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	padding: 5px;
+	color: #808080;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationAvatar {
+	float: left;
+	-moz-box-shadow: 1px 1px 2px #dddddd;
+	-webkit-box-shadow: 1px 1px 2px #dddddd;
+	box-shadow: 1px 1px 2px #dddddd;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationAvatar img {
+	width: 40px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UINavigationComposer {
+	margin: 0px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationComposer {
+	margin: 0px 0px 0px 50px;
+	color: #808080;
+	line-height: 14px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationComposer textarea {
+	width: 168px;
+	font-size: 11px;
+	background: #f8f8f8;
+	border: 1px solid #dddddd;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	padding: 5px;
+	margin: 0px;
+}

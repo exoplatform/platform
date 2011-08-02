@@ -98,43 +98,6 @@
 		}
 	  }
   </script>
-  <style>
-	.NavigationShareButton {
-	    background: none repeat scroll 0 0 white;
-	    border: 1px solid #D6CFB4;
-	    border-radius: 2px 2px 2px 2px;
-	    cursor: pointer;
-	    float: right;
-	    clear: right;
-	    font-size: 11px;
-	    margin-right: 5px;
-	    padding: 2px 10px;
-	}
-	.UINavigationComposer{
-	    margin: 3px;
-	}
-	.NavigationComposer{
-	    font-size: 11px;
-	    width: 270px;
-	    float: right;
-	}
-	.NavigationComposer textarea{
-	    max-width: 95%;
-	}
-	.NavigationAvatar{
-		background: url("/social-resources/skin/ShareImages/activity/SOCIntranetBG.png") no-repeat scroll left -78px transparent;
-	    float: left;
-	    height: 60px;
-	    margin-right: 4px;
-	    padding-left: 4px;
-	    padding-top: 4px;
-	    width: 60px;
-	}
-	.NavigationAvatar img{
-	    height: 54px;
-	    width: 56px;
-	}
-  </style>
   <% uiform.begin() %>
 		<div class="NavigationAvatar">
 	      <img src="<%= uicomponent.getAvatarURL() %>">
@@ -142,7 +105,5 @@
 		<div class="NavigationComposer">
       		<% uicomponent.renderChild(UIFormTextAreaInput.class) %>
 	    </div>
-    <br />
-	<input class="NavigationShareButton" id="ShareButton" type="button" onclick="try {<%= uicomponent.event("PostMessage");%>;} catch(e) {alert(e);};refreshNavigation();" value="$shareLabel" />
-  <% uiform.end()%>
+	<% uiform.end()%>
 </li>

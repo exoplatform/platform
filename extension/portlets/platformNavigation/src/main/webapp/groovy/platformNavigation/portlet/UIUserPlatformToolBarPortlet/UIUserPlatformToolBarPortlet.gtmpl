@@ -30,41 +30,37 @@ def changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxG
 def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 String clazz = "";
 %>
-<ul class="UIUserToolBarPortlet UIHorizontalTabs" id="$uicomponent.id" style="position: relative">
+<ul class="UIUserToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
 	<li id="UserNavigationTabsContainer" class="UITab">
 		<a class="TBIcon" href="#">
 			   $user.fullName
 		</a>
-		<ul style="position: absolute; display:none;width:350px;" class="MenuItemContainer">
+		<ul style="display:none;" class="MenuItemContainer">
 			<%if(uicomponent.isSocialPortal()) {%>
 				<% uicomponent.renderChild(UINavigationComposer.class) %>
-				<li style="float: left;width: 80%;">
-					<ul>
-					<li class="MenuItem $clazz" style="float: left;width: 50%;">
-						<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
-					</li>
-					<li class="MenuItem $clazz" style="float: right;width: 50%;">
-						<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
-					</li>
-					<br/>
-					<li class="MenuItem $clazz" style="float: left;width: 50%;">
-						<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
-					</li>
-					<li class="MenuItem $clazz" style="float: right;width: 50%;">
-						<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
-					</li>
+				<li>
+					<ul class="ClearFix">
+						<li class="MenuItem $clazz">
+							<a href="$profileLink" class="ToolBarProfileIcon">$labelProfile</a>
+							<a href="$connectionLink" class="ToolBarNetworkIcon">$labelnetwork</a>
+						</li>
+						<li class="MenuItem $clazz">
+							<a href="$activitiesLink" class="ToolBarActivityIcon">$labelActivities</a>
+							<a href="$directoryLink" class="FindPeopleIcon">$labelpeople</a>
+						</li>
 					</ul>
 				</li>
-				<hr width="100%" style="width:100%; color: #999999;clear: both; margin: 0;" />
 			<%}%>
-			<li class="MenuItem $clazz" style="float: left;width: 50%;">
-				<a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>				
-			</li>       
-			<li class="MenuItem $clazz" onclick="$changeLanguageAction" style="float: right;width: 50%;">
-				<a href="#" class="ChangeLanguageIcon">$labellanguage</a>
-			</li>
-			<br/>
-			<hr width="100%" style="width:100%; color: #999999; margin: 0;" />			
+			<li>
+				<ul class="ClearFix">
+					<li class="MenuItem $clazz">
+						<a href="$accountSetting" class="AccountSettingIcon">$labelaccount</a>				
+					</li>       
+					<li class="MenuItem $clazz" onclick="$changeLanguageAction">
+						<a href="#" class="ChangeLanguageIcon">$labellanguage</a>
+					</li>
+				</ul>
+			</li>			
 			<li class="MenuItem $clazz" onclick="eXo.portal.logout();">
 				<a href="#" class="LogoutIcon">$labellogout</a> 						
 			</li>
