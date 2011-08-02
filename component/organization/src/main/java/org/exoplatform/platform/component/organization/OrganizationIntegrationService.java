@@ -620,6 +620,10 @@ public class OrganizationIntegrationService implements Startable {
             for (UserEventListener userEventListener : userDAOListeners) {
               try {
                 userEventListener.preSave(user, isNew);
+              } catch (IllegalStateException e) {
+                endRequest();
+                userEventListener.preSave(user, isNew);
+                startRequest();
               } catch (Exception e) {
                 LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
                     e);
