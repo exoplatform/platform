@@ -1,5 +1,8 @@
 package org.exoplatform.setting.client.ui;
 
+import org.exoplatform.setting.client.i18n.WizardConstants;
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
@@ -18,13 +21,15 @@ public class WizardDialogBox extends DialogBox {
   
   private HTML dialogDetails;
 
+  protected WizardConstants constants = GWT.create(WizardConstants.class);
+
   public WizardDialogBox() {
     // Create a dialog box and set the caption text
     this.setGlassEnabled(true);
     this.setAnimationEnabled(true);
     //this.setModal(false);
     this.ensureDebugId("cwDialogBox");
-    this.setText("Message");
+    this.setText(constants.message());
   
     // Create a table to layout the content
     VerticalPanel dialogContents = new VerticalPanel();
@@ -40,7 +45,7 @@ public class WizardDialogBox extends DialogBox {
   
     // Add a close button at the bottom of the dialog
     Button closeButton = new Button(
-        "Ok", new ClickHandler() {
+        constants.ok(), new ClickHandler() {
           public void onClick(ClickEvent event) {
             hide();
           }
@@ -51,7 +56,7 @@ public class WizardDialogBox extends DialogBox {
   }
   
   public void displayError(String error) {
-    this.setText("Error");
+    this.setText(constants.error());
     displayMessage(error);
   }
   

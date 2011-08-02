@@ -21,8 +21,9 @@
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
-  <source path='shared'/>
+  <source path='shared' excludes="**/*Test.java"/>
   
   <extend-property name="locale" values="fr"/>
+  <extend-property name="locale" values="en"/>
 
 </module>

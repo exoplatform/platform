@@ -20,18 +20,24 @@ import com.google.gwt.user.client.ui.Widget;
 public class ApplySettingsWizardView extends WizardView {
   
   public ApplySettingsWizardView(WizardModule gui, int stepNumber) {
-    super(gui,
-          "Apply settings", 
-          "Please wait a few minutes while your server is restarting." +
-          "<br />You can watch the log file at /var/logs/exo/startup.log",
-          stepNumber);
+    super(gui, stepNumber);
+  }
+
+  @Override
+  protected String getWizardTitle() {
+    return constants.applySettings();
+  }
+
+  @Override
+  protected String getWizardDescription() {
+    return constants.applySettingsDescription();
   }
 
   @Override
   protected Widget buildStepToolbar() {
     
     FlowPanel panel = new FlowPanel();
-    panel.add(prepareButton("Finish", 0));
+    panel.add(prepareButton(constants.finish(), 0));
     
     return panel;
   }

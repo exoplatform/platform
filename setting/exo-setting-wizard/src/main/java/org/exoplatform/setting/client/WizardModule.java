@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.SetupWizardMode;
-import org.exoplatform.setting.client.i18n.WizardConstants;
 import org.exoplatform.setting.client.service.WizardService;
 import org.exoplatform.setting.client.service.WizardServiceAsync;
 import org.exoplatform.setting.client.ui.ApplySettingsWizardView;
@@ -31,9 +30,6 @@ public class WizardModule implements EntryPoint {
   
   // Create a remote service proxy to talk to the server-side Wizard service.
   private final WizardServiceAsync wizardService = GWT.create(WizardService.class);
-
-  // I18n messages & constants
-  private WizardConstants constants = GWT.create(WizardConstants.class);
   
   // GUI elements
   private LinkedList<WizardView> views;

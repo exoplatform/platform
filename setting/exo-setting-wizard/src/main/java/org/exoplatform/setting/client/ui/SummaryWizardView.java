@@ -2,8 +2,6 @@ package org.exoplatform.setting.client.ui;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.exoplatform.setting.client.WizardModule;
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
@@ -26,11 +24,17 @@ public class SummaryWizardView extends WizardView {
   private Grid summary = new Grid();
   
   public SummaryWizardView(WizardModule gui, int stepNumber) {
-    super(gui,
-          "Setup summary", 
-          "We are ready to setup your portal. Please review the information below. " +
-          "<br />We will apply these settings and restart your server.",
-          stepNumber);
+    super(gui, stepNumber);
+  }
+
+  @Override
+  protected String getWizardTitle() {
+    return constants.setupSummary();
+  }
+
+  @Override
+  protected String getWizardDescription() {
+    return constants.weAreReady();
   }
 
   @Override
@@ -41,7 +45,7 @@ public class SummaryWizardView extends WizardView {
     gridToolbar.getColumnFormatter().setWidth(0, "100%");
     gridToolbar.setWidget(0, 0, prepareExportButton());
     gridToolbar.setWidget(0, 1, preparePreviousButton());
-    gridToolbar.setWidget(0, 2, prepareNextButton("Apply"));
+    gridToolbar.setWidget(0, 2, prepareNextButton(constants.apply()));
     
     return gridToolbar;
   }
@@ -79,7 +83,7 @@ public class SummaryWizardView extends WizardView {
     button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         // Todo Export
-        gui.displayMessage("EXPORT: Not yet implemented");
+        gui.displayMessage(constants.notYetImplemented());
       }
     });
     return button;

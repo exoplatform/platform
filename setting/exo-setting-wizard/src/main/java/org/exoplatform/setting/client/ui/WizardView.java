@@ -2,7 +2,9 @@ package org.exoplatform.setting.client.ui;
 
 import org.exoplatform.setting.client.WizardModule;
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.i18n.WizardConstants;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
@@ -27,6 +29,9 @@ public abstract class WizardView extends HorizontalPanel {
   
   // Current stepNumber
   protected int stepNumber;
+
+  // i18n constants
+  protected WizardConstants constants = GWT.create(WizardConstants.class);
   
   /**
    * Initialization
@@ -35,7 +40,7 @@ public abstract class WizardView extends HorizontalPanel {
    * @param description
    * @param stepNumber
    */
-  public WizardView(WizardModule gui, String title, String description, int stepNumber) {
+  public WizardView(WizardModule gui, int stepNumber) {
     
     this.gui = gui;
     this.stepNumber = stepNumber;
@@ -43,8 +48,8 @@ public abstract class WizardView extends HorizontalPanel {
     // Construct a dock panel
     DockPanel dock = new DockPanel();
     dock.setStyleName("cw-DockPanel");
-    dock.add(buildHeader(title), DockPanel.NORTH);
-    dock.add(buildDescription(description), DockPanel.NORTH);
+    dock.add(buildHeader(), DockPanel.NORTH);
+    dock.add(buildDescription(), DockPanel.NORTH);
     dock.add(buildToolbar(), DockPanel.SOUTH);
     dock.add(buildContent(), DockPanel.CENTER);
 
@@ -71,9 +76,9 @@ public abstract class WizardView extends HorizontalPanel {
    * @param title
    * @return
    */
-  protected Widget buildHeader(String title) {
+  protected Widget buildHeader() {
     Label uiTitle = new Label();
-    uiTitle.setText(title);
+    uiTitle.setText(getWizardTitle());
     uiTitle.setStylePrimaryName("blockHeader");
     return uiTitle;
   }
@@ -83,8 +88,8 @@ public abstract class WizardView extends HorizontalPanel {
    * @param description
    * @return
    */
-  protected Widget buildDescription(String description) {
-    HTML desc = new HTML(description);
+  protected Widget buildDescription() {
+    HTML desc = new HTML(getWizardDescription());
     desc.setHeight("40px");
     desc.setStylePrimaryName("blockDescription");
     return desc;
@@ -97,8 +102,10 @@ public abstract class WizardView extends HorizontalPanel {
   protected Widget buildToolbar() {
     HorizontalPanel uiToolbar = new HorizontalPanel();
     uiToolbar.setStylePrimaryName("blockAction");
-    uiToolbar.setWidth("100%"); 
+    uiToolbar.setWidth("100%");
+    uiToolbar.setHeight("60px");
     uiToolbar.setHorizontalAlignment(ALIGN_RIGHT);
+    uiToolbar.setVerticalAlignment(ALIGN_MIDDLE);
     uiToolbar.setSpacing(10);
     uiToolbar.add(buildStepToolbar());
     return uiToolbar;
@@ -132,6 +139,18 @@ public abstract class WizardView extends HorizontalPanel {
   /*=======================================================================
    * Framework abstract methods (need to be redefined by user)
    *======================================================================*/
+
+  /**
+   * Redefine Wizard title
+   * @return
+   */
+  protected abstract String getWizardTitle();
+
+  /**
+   * Redefine Wizard description
+   * @return
+   */
+  protected abstract String getWizardDescription();
   
   /**
    * Toolbar creation is to redefine
@@ -175,7 +194,7 @@ public abstract class WizardView extends HorizontalPanel {
    * @return
    */
   protected Button preparePreviousButton() {
-    return preparePreviousButton("Previous");
+    return preparePreviousButton(constants.previous());
   }
   
   /**
@@ -194,7 +213,7 @@ public abstract class WizardView extends HorizontalPanel {
    * @return build button
    */
   protected Button prepareNextButton() {
-    return prepareNextButton("Next");
+    return prepareNextButton(constants.next());
   }
   
   /***

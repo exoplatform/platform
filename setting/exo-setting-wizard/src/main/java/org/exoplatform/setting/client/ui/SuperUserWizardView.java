@@ -27,10 +27,17 @@ public class SuperUserWizardView extends WizardView {
   private TextBox email;
   
   public SuperUserWizardView(WizardModule gui, int stepNumber) {
-    super(gui,
-          "Super user", 
-          "The super user will have all privileges on your portal",
-          stepNumber);
+    super(gui, stepNumber);
+  }
+
+  @Override
+  protected String getWizardTitle() {
+    return constants.superUser();
+  }
+
+  @Override
+  protected String getWizardDescription() {
+    return constants.superUserDescription();
   }
 
   @Override
@@ -55,13 +62,13 @@ public class SuperUserWizardView extends WizardView {
 
     Grid advancedOptions = new Grid(4, 2);
     advancedOptions.setCellSpacing(6);
-    advancedOptions.setHTML(0, 0, SetupWizardData.USERNAME.getName() + " :");
+    advancedOptions.setHTML(0, 0, constants.userName());
     advancedOptions.setWidget(0, 1, userName);
-    advancedOptions.setHTML(1, 0, SetupWizardData.PASSWORD.getName() + " :");
+    advancedOptions.setHTML(1, 0, constants.password());
     advancedOptions.setWidget(1, 1, password);
-    advancedOptions.setHTML(2, 0, "Confirm " + SetupWizardData.PASSWORD.getName() + ": ");
+    advancedOptions.setHTML(2, 0, constants.confirmPassword());
     advancedOptions.setWidget(2, 1, password2);
-    advancedOptions.setHTML(3, 0, SetupWizardData.EMAIL.getName() + " :");
+    advancedOptions.setHTML(3, 0, constants.email());
     advancedOptions.setWidget(3, 1, email);
     
     return advancedOptions;
@@ -82,19 +89,19 @@ public class SuperUserWizardView extends WizardView {
   protected void verifyDatas() throws InvalidWizardViewFieldException {
     
     if(! WizardFieldVerifier.isValidSuperUserName(userName.getText())) {
-      throw new InvalidWizardViewFieldException("Invalid user name");
+      throw new InvalidWizardViewFieldException(constants.invalidUserName());
     }
     
     if(! WizardFieldVerifier.isValidSuperUserPassword(password.getText())) {
-      throw new InvalidWizardViewFieldException("Invalid password");
+      throw new InvalidWizardViewFieldException(constants.invalidPassword());
     }
     
     if(! WizardFieldVerifier.isValidSuperUserPassword2(password.getText(), password2.getText())) {
-      throw new InvalidWizardViewFieldException("Passwords are different");
+      throw new InvalidWizardViewFieldException(constants.differentPasswords());
     }
 
     if(! WizardFieldVerifier.isValidSuperUserEmail(email.getText())) {
-      throw new InvalidWizardViewFieldException("Invalid email");
+      throw new InvalidWizardViewFieldException(constants.invalidMail());
     }
   }
 

@@ -15,10 +15,17 @@ public class SetupTypeWizardView extends WizardView {
   private RadioButton advanced;
   
   public SetupTypeWizardView(WizardModule gui, int stepNumber) {
-    super(gui,
-          "Select a setup type.", 
-          "",
-          stepNumber);
+    super(gui, stepNumber);
+  }
+
+  @Override
+  protected String getWizardTitle() {
+    return constants.selectSetupType();
+  }
+
+  @Override
+  protected String getWizardDescription() {
+    return "";
   }
 
   @Override
@@ -36,8 +43,8 @@ public class SetupTypeWizardView extends WizardView {
   @Override
   protected Widget buildStepContent() {
 
-    standard = new RadioButton("WizardSetupType", "Standard (Recommended)");
-    advanced = new RadioButton("WizardSetupType", "Advanced");
+    standard = new RadioButton("WizardSetupType", constants.standard());
+    advanced = new RadioButton("WizardSetupType", constants.advanced());
     
     if(gui.getSetupWizardMode().equals(SetupWizardMode.STANDARD)) {
       standard.setValue(true);
@@ -49,10 +56,10 @@ public class SetupTypeWizardView extends WizardView {
     Grid advancedOptions = new Grid(5, 1);
     advancedOptions.setCellSpacing(6);
     advancedOptions.setWidget(0, 0, standard);
-    advancedOptions.setWidget(1, 0, new HTML("Display standard options that most administrators have to configure."));
+    advancedOptions.setWidget(1, 0, new HTML(constants.displayStandard()));
     advancedOptions.getCellFormatter().setHeight(2, 0, "50px");
     advancedOptions.setWidget(3, 0, advanced);
-    advancedOptions.setWidget(4, 0, new HTML("Display all advanced options, like JCR cache & indexer."));
+    advancedOptions.setWidget(4, 0, new HTML(constants.displayAll()));
     
     return advancedOptions;
   }

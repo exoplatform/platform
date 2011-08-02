@@ -1,5 +1,7 @@
 package org.exoplatform.setting.shared.data;
 
+
+
 /**
  * For each property configured by user, there is an enum here.
  * 
@@ -9,20 +11,14 @@ package org.exoplatform.setting.shared.data;
 public enum SetupWizardData {
   
   // Super User
-  USERNAME ("User name", "exo.super.user"),
-  PASSWORD ("Password", "exo.super.user.password"),
-  EMAIL    ("Email", "exo.super.user.email");
+  USERNAME ("exo.super.user"),
+  PASSWORD ("exo.super.user.password"),
+  EMAIL    ("exo.super.user.email");
 
-  private String name;
   private String propertyName;
   
-  private SetupWizardData(String name, String propertyName) {
-    this.name = name;
+  private SetupWizardData(String propertyName) {
     this.propertyName = propertyName;
-  }
-  
-  public String getName() {
-    return this.name;
   }
   
   public String getPropertyName() {
