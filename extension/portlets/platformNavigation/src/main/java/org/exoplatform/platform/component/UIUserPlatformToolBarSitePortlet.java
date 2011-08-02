@@ -52,7 +52,7 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
 
   public UIUserPlatformToolBarSitePortlet() throws Exception {
     UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-    builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
+    builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
     userFilterConfig = builder.build();
     userACL = getApplicationComponent(UserACL.class);
   }

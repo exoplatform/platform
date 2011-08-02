@@ -101,7 +101,7 @@ public class UserDashboardConfigurationService {
     this.gadgetRegistryService = gadgetRegistryService;
 
     UserNodeFilterConfig.Builder scopeBuilder = UserNodeFilterConfig.builder();
-    scopeBuilder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
+    scopeBuilder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
     scopeBuilder.withTemporalCheck();
     filterConfig = scopeBuilder.build();
   }

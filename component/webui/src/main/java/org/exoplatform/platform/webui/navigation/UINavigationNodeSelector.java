@@ -270,7 +270,7 @@ public class UINavigationNodeSelector extends UIContainer
    public void setUserPortal(UserPortal userPortal) throws Exception
    {
       this.userPortal = userPortal;
-      setFilterConfig(UserNodeFilterConfig.builder().withAuthorizationCheck().build());
+      setFilterConfig(UserNodeFilterConfig.builder().withReadWriteCheck().build());
    }
 
    private void setFilterConfig(UserNodeFilterConfig config)

@@ -67,7 +67,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication
    public UIUserPlatformToolbarDesktopPortlet() throws Exception
    {
       UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-      builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
+      builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
       toolbarFilterConfig = builder.build();
    }
 
