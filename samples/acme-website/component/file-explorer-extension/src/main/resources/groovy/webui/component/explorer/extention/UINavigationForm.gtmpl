@@ -66,28 +66,14 @@
         </fieldset>
 	 </div>
 	<!--/table-->
-      <div class="UIAction"> 
-        <table class="ActionContainer">
-        	<tr>
-        		<td>
-		          <% for(action in uicomponent.getActions()) { 
-                	 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
-                   String link = uicomponent.event(action) ;
-          		%>
-          		<div onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-                <div class="ButtonLeft">
-                  <div class="ButtonRight">
-                    <div class="ButtonMiddle">
-                      <a href="javascript:void(0);">$actionLabel</a>
-                    </div>
-                  </div>
-                </div>
-           		</div>
-          		<%}%>        
-          	</td>
-          </tr>  
-        </table>
-      </div>
+	<div class="UIAction">
+		<% for(action in uicomponent.getActions()) { 
+		String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+		String link = uicomponent.event(action) ;
+		%>
+		<a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">$actionLabel</a>
+		<%}%>
+	</div>
 </div>
 </div>
 <%

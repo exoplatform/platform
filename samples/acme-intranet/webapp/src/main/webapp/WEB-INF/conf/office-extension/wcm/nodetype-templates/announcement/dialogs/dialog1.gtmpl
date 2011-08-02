@@ -268,29 +268,15 @@
 						</div>
 					</div>   <!-- End of UITabContentContainer -->     	
 					<div class="UIAction"> 
-						<table align="center" class="ActionContainer">
-							<tr>
-								<td align="center">
-									<% 
-										for(action in uicomponent.getActions()) { 
-											String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
-											String link = uicomponent.event(action) ;
-											%>
-												<a href="$link" class="ActionButton LightBlueStyle">
-													<div class="ButtonLeft">
-														<div class="ButtonRight">
-															<div class="ButtonMiddle">
-																$actionLabel
-															</div>
-														</div>
-													</div>
-												</a>
-											<%
-										}
-									%>          
-								</td>
-							</tr>
-						</table>
+						<% 
+							for(action in uicomponent.getActions()) { 
+								String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
+								String link = uicomponent.event(action) ;
+								%>
+								<a href="$link" class="ActionButton LightBlueStyle">$actionLabel</a>
+								<%
+							}
+						%>
 					</div>  <!-- End of UIAction-->    	
 				</div>  
 		</div>   <!-- End of WorkingAreaWithHelp -->
