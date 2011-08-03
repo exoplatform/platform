@@ -1,0 +1,186 @@
+<%
+/*
+<!--
+
+    Copyright (C) 2003-2007 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+
+-->
+*/
+%>
+<%
+	import org.exoplatform.portal.mop.user.UserNavigation;
+	import org.exoplatform.portal.mop.user.UserNode;
+	import org.exoplatform.portal.webui.util.Util;
+	import org.exoplatform.portal.mop.Visibility;
+	import org.exoplatform.webui.organization.OrganizationUtils;
+
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.gatein.common.text.EntityEncoder;
+	def groupNavigations = uicomponent.getGroupNavigations();
+
+
+	def rcontext = _ctx.getRequestContext();
+	def jsManager = rcontext.getJavascriptManager();
+	jsManager.importJavascript('eXo.portal.UIPortalNavigation');
+	jsManager.importJavascript('eXo.portal.UIAdminToolbar');
+	jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+	def portalURI = Util.getPortalRequestContext().getPortalURI();
+	boolean hasPermission = uicomponent.hasPermission();
+
+  void renderPageNode(UserNode node, boolean flag) {
+    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+      return;
+    }
+    UserNode selectedNode = uicomponent.getSelectedPageNode();
+    def tabStyleNavigation = "";
+    if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
+      tabStyleNavigation = "SelectedItem";
+    }
+    def hasChild = node.getChildrenCount() > 0;
+    def clazz = "";
+    if(hasChild) clazz = "ArrowIcon";
+    def href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+    def icon = node.getIcon();
+    if(icon == null) icon = "DefaultPageIcon";
+    def toolong = (node.resolvedLabel.length() > 60);
+    def label = (toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+    def title = "";
+    if(toolong == true) {
+      title = "title='$node.resolvedLabel'";
+    } else {
+      title = "";
+    }
+    print """
+      <li class="MenuItem $clazz $tabStyleNavigation">
+    """;
+    if(node.pageRef != null) {
+      print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+    } else {
+      print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+    }
+
+    if(hasChild) {
+      print """
+        <ul class="MenuItemContainer" style="position: absolute; display:none">
+      """;
+		int j = 0;
+        for(UserNode childNode : node.getChildren()) {
+          renderPageNode(childNode, j++ %2 == 0);
+        }
+      print """
+        </ul>
+      """;
+    }
+    print """
+      </li>
+    """;
+  }
+
+	  void renderGroupPageNavigation(UserNavigation navigation) {
+			def nodes = uicomponent.getUserNodes(navigation);
+			if(nodes.isEmpty()) return ;
+			def ownerId = navigation.getKey().getName();
+			String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
+			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
+            String spacesNavigations= navigation.getKey().getName();
+            print """
+			<li class="TitleBar" title="$ownerId">$navTitle</li>
+				""" ;
+				int idx = 0;
+				for(UserNode node : nodes) {
+					renderPageNodeGroup(node, idx++ %2 == 0 ) ;
+				}
+    }
+	
+	void renderPageNodeGroup(UserNode node, boolean flag) {
+	    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+	      return;
+	    }
+		UserNode selectedNode = uicomponent.getSelectedNode();
+		String tabStyleNavigation = "";
+		if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
+				tabStyleNavigation = "SelectedItem";
+		}
+		boolean hasChild = node.getChildrenCount() > 0;
+		String clazz = "";
+		if(hasChild) clazz = "ArrowIcon";
+		String	href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+
+		String icon = node.getIcon();
+		if(icon == null) icon = "DefaultPageIcon";
+		boolean toolong = (node.resolvedLabel.length() > 60);
+		String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+		String title = "";
+		if(toolong) title = "title='$node.resolvedLabel'";
+		else title = "";
+        EntityEncoder entityEncoder = EntityEncoder.FULL;
+		label = entityEncoder.encode(label);
+		print """
+			<li class="MenuItem $clazz $tabStyleNavigation">
+		""";
+						if(node.pageRef != null) {
+								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+
+						} else {
+								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+						}
+		if(hasChild) {
+			print """
+				<ul class="MenuItemContainer" style="position: absolute; display:none">
+			""" ;
+				int idx = 0;
+				for(UserNode child : node.getChildren()) {
+		            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+		              continue;
+		            }
+					renderPageNode(child, idx++ % 2 == 0);
+				}
+			print """
+				</ul>
+			""" ;
+
+		}
+		print """
+			</li>
+		""" ;
+	}
+
+%>
+<ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id" >
+      <li class="UITab NormalToolbarTab">
+			<% if(hasPermission){ %>
+				<a class="EditorIcon TBIcon" href="<%= portalURI + "groupnavigation" %>">
+			<% }else{ %>
+				<a class="EditorIcon TBIcon" href="#">
+			<% } %>
+			<%=_ctx.appRes("UIMyGroupsPlatformToolBarPortlet.label")%></a>
+		<% if (!groupNavigations.isEmpty()) { %>
+			<ul style="display:none" class="MenuItemContainer">
+				<% 
+				for(navigation in groupNavigations) {
+					renderGroupPageNavigation(navigation);
+				} 
+				if(hasPermission){ %>
+					<li class="SubBlock">
+						<li class="MenuItem">   
+							<a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIMyGroupsPlatformToolBarPortlet.manage")%></a>
+						</li>               
+					</li>
+				<% } %>
+			</ul>
+		<% } %>
+	</li>
+</ul>

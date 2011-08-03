@@ -115,15 +115,6 @@
                                 renderPageNodeGroup(node, idx++ %2 == 0 ) ;
                             }
                     }
-                    else {
-            print """
-                        <li class="TitleBar" title="$ownerId">$navTitle</li>
-                            """ ;
-                            int idx = 0;
-                            for(UserNode node : nodes) {
-								renderPageNodeGroup(node, idx++ %2 == 0 ) ;
-                            }
-            }
     }
 	void renderPageNodeGroup(UserNode node, boolean flag) {
 	    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
@@ -186,20 +177,7 @@
 		<%
 			if (uicomponent.renderSpacesLink()) {
 		%>
-			  <a class="EditorIcon TBIcon" href="<%= spacesLink %>">
-		
-		        <%                } 
-				else            {
-				%>
-				<a class="EditorIcon TBIcon" href="#">
-				 <%            }
-                 %>
-				<!--
-				/** _ctx.appRes("UISpacesToolBarPortlet.label.Spaces") **/
-				/** _ctx.appRes("UIMySpacesToolBarPortlet.label.myspaces")**/
-				-->
-				 <%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%>
-			  </a>
+		  <a class="EditorIcon TBIcon" href="<%= spacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%></a>
 
 	  <!-- Merge exoadmin:  navigation-->
 
@@ -211,7 +189,7 @@
 				def MY_SPACES_MAX_NUMBER = 10;
 				def mySpacesDisplayed = 0;
 				for(navigation in groupNavigations) {
-					if (navigation.getKey().getName().indexOf("spaces")<0 || mySpacesDisplayed == -1){  
+					if (navigation.getKey().getName().indexOf("spaces") <0 || mySpacesDisplayed == -1){  
 						break;
 					}
 					if(mySpacesDisplayed < MY_SPACES_MAX_NUMBER){
@@ -220,42 +198,27 @@
 					}else{
 						mySpacesDisplayed = -1;
 						def moreSpacesLabel = _ctx.appRes("UIMySpacePlatformToolBarPortlet.more");
-						def moreSpacesLink = Util.getPortalRequestContext().getPortalURI() + "spaces" ;
+						def moreSpacesLink = spacesLink;
 						print """
 							<li class="MenuItem">
 								""" ;
-								if (uicomponent.renderSpacesLink()){
 								print """
 								<a href="$moreSpacesLink">$moreSpacesLabel</a>
 								""" ;
-								}else{
-								print """
-								<a href="#">$moreSpacesLabel</a>
-								""" ;
-								}
 								print """
 							</li>
 						""" ;
 					}
 				} %>
 
-				<% 
-				for(navigation in groupNavigations) {
-					if (navigation.getKey().getName().indexOf("spaces")<0){
-						renderGroupPageNavigation(navigation);
-					}
-				}
-				%>
-			
-				<% if (uicomponent.renderSpacesLink()) { %>
-					<li class="TitleBar" title="<%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.edit")%></li>
 					<li class="MenuItem">   
 						<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
-					</li>               
-				<% } %>
+					</li>
 			</ul>
 		<% } %>
 	   <!-- FIN -->
-
+		        <%
+		        }
+                 %>
       </li>
 </ul>

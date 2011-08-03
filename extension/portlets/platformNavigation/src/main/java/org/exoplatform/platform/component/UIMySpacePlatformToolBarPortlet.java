@@ -18,7 +18,6 @@ import java.util.List;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.Scope;
@@ -119,14 +118,15 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
             navigationItr.remove();
           }
         }
-      } else { // Social Services aren't loaded in the current PortalContainer
-        computedNavigations = new ArrayList<UserNavigation>();
-      }
-      for (UserNavigation navigation : allNavigations) {
-        if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE)) && (navigation.getKey().getName().indexOf("spaces") < 0)) {
-          computedNavigations.add(navigation);
-        }
-      }
+      } 
+//      else { // Social Services aren't loaded in the current PortalContainer
+//        computedNavigations = new ArrayList<UserNavigation>();
+//      }
+//      for (UserNavigation navigation : allNavigations) {
+//        if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE)) && (navigation.getKey().getName().indexOf("spaces") < 0)) {
+//          computedNavigations.add(navigation);
+//        }
+//      }
       return computedNavigations;
     }
 

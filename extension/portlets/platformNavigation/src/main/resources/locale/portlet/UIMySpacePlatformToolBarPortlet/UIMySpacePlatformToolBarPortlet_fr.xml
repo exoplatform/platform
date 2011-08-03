@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
 	<UIMySpacePlatformToolBarPortlet>
-		<label>
-            Mes Espaces
-        </label>
-		<find>Trouver des Espaces
-		</find>
-		<manage>Organisation des Groupes</manage>
-		<more>Plus ...</more>
-		<edit>Editer les Navigations</edit>
+		<label>Mes Espaces</label>
+		<find>Trouver des Espaces</find>
+		<more>Plus...</more>
 	</UIMySpacePlatformToolBarPortlet>
 </bundle>
