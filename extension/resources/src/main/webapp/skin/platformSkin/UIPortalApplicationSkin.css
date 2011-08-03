@@ -103,22 +103,22 @@ a {
     background: url("/ecmexplorer/skin/icons/16x16/DefaultSkin/DustBin.gif") no-repeat scroll left center transparent;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .ACMEPortalImage {
-    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+.UIItemSelector .ItemDetailList .TemplateContainer .acmeImage {
+    background: url("/eXoPlatformResources/skin/platformSkin/platform-portal/acme.png") no-repeat scroll center center transparent;
     height: 235px;
     margin: 3px auto;
     width: 296px;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .IntranetPortalImage {
-    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+.UIItemSelector .ItemDetailList .TemplateContainer .intranetImage {
+    background: url("/eXoPlatformResources/skin/platformSkin/platform-portal/intranet.png") no-repeat scroll center center transparent;
     height: 235px;
     margin: 3px auto;
     width: 296px;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .EmptyPortalImage {
-    background: url("/eXoWCMResources/skin/DefaultSkin/wcm-portal/background/Acme.png") no-repeat scroll center center transparent;
+.UIItemSelector .ItemDetailList .TemplateContainer .emptyImage {
+    background: url("/eXoPlatformResources/skin/platformSkin/platform-portal/empty.png") no-repeat scroll center center transparent;
     height: 235px;
     margin: 3px auto;
     width: 296px;
