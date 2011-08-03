@@ -41,11 +41,7 @@
 			<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
 			<init-params>
 				<values-param>
-					<name>init.resources</name>
-					<value>locale.portal.templates</value>
-				</values-param>
-				<values-param>
-					<name>portal.resource.names</name>
+					<name>application.resource.bundle</name>
 					<value>locale.portal.templates</value>
 				</values-param>
 			</init-params>
