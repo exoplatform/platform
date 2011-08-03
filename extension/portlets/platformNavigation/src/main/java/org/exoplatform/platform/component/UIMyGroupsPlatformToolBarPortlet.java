@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
@@ -53,8 +52,6 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
 
   //return group navigation that does not include any space navigation
   public List<UserNavigation> getGroupNavigations() throws Exception {
-    String remoteUser = getUserId();
-    UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
     UserPortal userPortal = getUserPortal();
     List<UserNavigation> allNavigations = userPortal.getNavigations();
     List<UserNavigation> computedNavigations = new ArrayList<UserNavigation>();

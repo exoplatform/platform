@@ -91,7 +91,6 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
 
     public List<UserNavigation> getGroupNavigations() throws Exception {
       String remoteUser = getUserId();
-      UserPortalConfig userPortalConfig = Util.getUIPortalApplication().getUserPortalConfig();
       UserPortal userPortal = getUserPortal();
       List<UserNavigation> allNavigations = userPortal.getNavigations();
       List<UserNavigation> computedNavigations = null;
@@ -118,15 +117,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
             navigationItr.remove();
           }
         }
-      } 
-//      else { // Social Services aren't loaded in the current PortalContainer
-//        computedNavigations = new ArrayList<UserNavigation>();
-//      }
-//      for (UserNavigation navigation : allNavigations) {
-//        if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE)) && (navigation.getKey().getName().indexOf("spaces") < 0)) {
-//          computedNavigations.add(navigation);
-//        }
-//      }
+      }
       return computedNavigations;
     }
 
