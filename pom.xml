@@ -16,7 +16,6 @@
     <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
     <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
     <url>http://fisheye.exoplatform.org/browse/platform/trunk</url>
-    <!-- url>http://peter.exoplatform.com.ua/git/plf-3.5.x-cloud-1.1.git</url -->
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
@@ -231,6 +230,6 @@
     <module>trial</module>
     <module>packaging</module>
     <module>testsuite</module>
-    <!-- module>cloud</module -->
+    <module>cloud</module>
   </modules>
 </project>
