@@ -5,7 +5,7 @@
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-	<display-name>PlatformNavigation</display-name>
+	<display-name>platformNavigation</display-name>
 	<servlet>
 		<servlet-name>GateInServlet</servlet-name>
 		<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>

@@ -1,4 +1,4 @@
-package org.exoplatform.commons.platform;
+package org.exoplatform.platform.common.portlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,9 +12,9 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Set;
 
+import javax.portlet.PortletConfig;
 import javax.portlet.PortletContext;
 import javax.portlet.PortletException;
-import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.filter.FilterChain;
@@ -25,101 +25,105 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
-import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
-import org.exoplatform.container.configuration.ConfigurationManagerImpl;
+import org.exoplatform.platform.common.module.ModuleRegistry;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 /**
  * This portlet filter ensures that the portlet is active. To be active, a
- * portlet must have its context name declared as a dependency of the current {@link PortalContainer}.
+ * portlet must have its context name declared as a dependency of the
+ * current {@link PortalContainer}.
  */
 public class PortletDisablerFilter implements RenderFilter {
 
-  private static final String DISABLED_HTML = "war:/html/portlet-disabled.html";
+  private static final String PORTLET_DISABLED_DEFAULT_MESSAGE = "Portlet disabled.";
 
-  private static Log          LOG          = ExoLogger.getExoLogger(PortletDisablerFilter.class);
+  private static final String DISABLED_HTML_FILE_PATH = "war:/../portlet-disabled.html";
 
-  private PortletContext              context;
+  private static Log LOG = ExoLogger.getExoLogger(PortletDisablerFilter.class);
 
-  public void destroy() {
-  }
+  private PortletContext context;
+
+  private String messageContent = null;
+
+  public void destroy() {}
 
   public void init(FilterConfig filterConfig) throws PortletException {
     context = filterConfig.getPortletContext();
   }
 
   /**
-   * Serves {@link #DISABLED_JSP} if the portlet is not a valid dependency of the current portal container.
-   */ 
-  public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException,
-                                                                                         PortletException {
-
+   * Serves {@link #DISABLED_JSP} if the portlet is not a valid dependency
+   * of the current portal container.
+   */
+  public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
     boolean isPortletActive = PortalContainer.isScopeValid(PortalContainer.getInstance(), new FakeServletContext());
-
     if (isPortletActive) {
       chain.doFilter(request, response);
-
     } else {
-      LOG.info("portlet" + context.getPortletContextName() + " is currently disabled.");
-      
-      PortalContainer pContainer = PortalContainer.getInstance();
-      ConfigurationManager confManager = new ConfigurationManagerImpl(pContainer.getPortalContext(), null);
-      
-      String html = "";
-      try {
-        InputStream inputStream = confManager.getInputStream(DISABLED_HTML);
-        html = convertStreamToString(inputStream);
-        html = mergeDisabledContent(html);
-      } catch (Exception e) {
-        LOG.error(e.getMessage());
+      PortletConfig portletConfig = (PortletConfig) request.getAttribute("javax.portlet.config");
+      String portletName = portletConfig.getPortletName();
+      String portletID = context.getPortletContextName() + "/" + portletName;
+      LOG.info("The portlet '" + portletID + "' is currently disabled.");
+      if (messageContent == null || messageContent.isEmpty()) {
+        ConfigurationManager confManager = (ConfigurationManager) PortalContainer.getComponent(ConfigurationManager.class);
+        try {
+          InputStream inputStream = confManager.getInputStream(DISABLED_HTML_FILE_PATH);
+          messageContent = convertStreamToString(inputStream);
+        } catch (Exception exception) {
+          messageContent = PORTLET_DISABLED_DEFAULT_MESSAGE;
+          LOG.error("Cannot read message for disabled portlet", exception);
+        }
       }
-      
+      ModuleRegistry moduleRegistry = (ModuleRegistry) PortalContainer.getComponent(ModuleRegistry.class);
+      String portletDisplayName = moduleRegistry.getDisplayName(portletName, request.getLocale());
+      String html = mergeDisabledContent(moduleRegistry, messageContent, portletDisplayName, portletName, portletID);
       response.getWriter().write(html);
-
     }
   }
 
   /**
    * Replace some variables into HTML content
+   * 
    * @param content
    * @return
    */
-  public String mergeDisabledContent(String content) {
+  public String mergeDisabledContent(ModuleRegistry moduleRegistry, String content, String portletDisplayName,
+      String portletName, String portletID) {
     String result = content;
 
-    result = result.replaceAll("\\$\\[portletName\\]", context.getPortletContextName());
-    result = result.replaceAll("\\$\\[requiredProfileName\\]", "");
-    result = result.replaceAll("\\$\\[listUserProfiles\\]", ExoContainer.getProfiles().toString());
-    
+    result = result.replaceAll("ACTIVE_PROFILES", PortalContainer.getProfiles().toString());
+    result = result.replaceAll("APP_NAME", portletDisplayName);
+    result = result.replaceAll("APP_ID", portletName);
+    result = result.replaceAll("PROFILE", moduleRegistry.getModulesForPortlet(portletID).toString());
+
     return result;
   }
-  
+
   public String convertStreamToString(InputStream is) throws IOException {
     /*
-    * To convert the InputStream to String we use the
-    * Reader.read(char[] buffer) method. We iterate until the
-    * Reader return -1 which means there's no more data to
-    * read. We use the StringWriter class to produce the string.
-    */
+     * To convert the InputStream to String we use the Reader.read(char[]
+     * buffer) method. We iterate until the Reader return -1 which means
+     * there's no more data to read. We use the StringWriter class to
+     * produce the string.
+     */
     if (is != null) {
       Writer writer = new StringWriter();
-    
+
       char[] buffer = new char[1024];
       try {
-          Reader reader = new BufferedReader(
-                  new InputStreamReader(is, "UTF-8"));
-          int n;
-          while ((n = reader.read(buffer)) != -1) {
-              writer.write(buffer, 0, n);
-          }
+        Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+        int n;
+        while ((n = reader.read(buffer)) != -1) {
+          writer.write(buffer, 0, n);
+        }
       } finally {
-          is.close();
+        is.close();
       }
       return writer.toString();
-    } else {        
+    } else {
       return "";
     }
   }
@@ -128,14 +132,13 @@ public class PortletDisablerFilter implements RenderFilter {
    * a fake servlet context that gives this portlet servlet context name in
    * return to {@link #getServletContextName()}
    */
-  @SuppressWarnings("unchecked")
   class FakeServletContext implements ServletContext {
 
     public Object getAttribute(String name) {
       return null;
     }
 
-
+    @SuppressWarnings("rawtypes")
     public Enumeration getAttributeNames() {
       return null;
     }
@@ -148,6 +151,7 @@ public class PortletDisablerFilter implements RenderFilter {
       return null;
     }
 
+    @SuppressWarnings("rawtypes")
     public Enumeration getInitParameterNames() {
       return null;
     }
@@ -184,6 +188,7 @@ public class PortletDisablerFilter implements RenderFilter {
       return null;
     }
 
+    @SuppressWarnings("rawtypes")
     public Set getResourcePaths(String path) {
       return null;
     }
@@ -201,28 +206,25 @@ public class PortletDisablerFilter implements RenderFilter {
       return context.getPortletContextName();
     }
 
+    @SuppressWarnings("rawtypes")
     public Enumeration getServletNames() {
       return null;
     }
 
+    @SuppressWarnings("rawtypes")
     public Enumeration getServlets() {
       return null;
     }
 
-    public void log(String msg) {
-    }
+    public void log(String msg) {}
 
-    public void log(Exception exception, String msg) {
-    }
+    public void log(Exception exception, String msg) {}
 
-    public void log(String message, Throwable throwable) {
-    }
+    public void log(String message, Throwable throwable) {}
 
-    public void removeAttribute(String name) {
-    }
+    public void removeAttribute(String name) {}
 
-    public void setAttribute(String name, Object object) {
-    }
+    public void setAttribute(String name, Object object) {}
 
   }
 
