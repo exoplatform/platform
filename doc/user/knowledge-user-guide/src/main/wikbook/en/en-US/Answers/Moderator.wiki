@@ -34,7 +34,7 @@ To perform an action on a category, you can select one of these approaches:
 h3. Add new categories {anchor:id=KSuser.Answer_Moderator.Add_categories}
 
 Notice that only Administrators can initialize Answers by creating first categories and assigning to Moderators for each categories.
-Moderator can only add new categories in a category that he moderates.
+Moderator can only add new sub-categories in a category that he moderates.
 
 *To add a new category*:
 
@@ -42,9 +42,11 @@ Moderator can only add new categories in a category that he moderates.
 
 !images/Add_category_form.png|align="center"!
 
+* *Restricted audience*: Select specific users/groups to be restricted from the category.
 * *Moderate new questions*: Check this option to moderate all newly posted questions before they are viewable.
 * *View question authors*: Check this option if you want information of the question poster to be shown.
 * *Moderate answers*: Check this option to moderate all answers before they are viewable.
+
 
 By default, a category is open for all users without any pre-assigned Moderator. To specify which users/user groups/memberships are restricted from the category or assign the category Moderator, 
 simply enter names of these users/groups/memberships in the Restricted audience/Moderator field manually or you can select one of the respective selectors:

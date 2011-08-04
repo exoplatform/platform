@@ -56,11 +56,15 @@ eXo Knowledge uses a concept of User group, which is designed to give the advanc
 
 *Administrator* is an advanced user, who typically has the highest right when using eXo Knowledge. The Administrator can manage user privileges and he has rights to perform all possible capabilities. For example, in Forum, an administrator can create categories, close/delete, lock/unlock forums; promote a regular user to moderator or create a category that is restricted to a specific user group. 
 
-*Moderator* obtains a subset of administrator's rights that means he has certain allowed capabilities and may perform these advanced actions in a specific area only. For example, a moderator in Forum can only perform advanced actions, like creating new forums, moving/deleting topics in the category that he is assigned as the moderator. The moderator role is assigned by the administrator. 
+*Moderator* obtains a subset of administrator's rights that means he has certain allowed capabilities and may perform these advanced actions in a specific area only. For example, a moderator in of a category in Forum can only perform advanced actions in the category that he is assigned as the moderator. The moderator role is assigned by the administrator. 
 
 *Regular user* is defined as a logged-in user who can only use the basic features of eXo Knowledge. The regular user can be promoted to the advanced user by the administrator.
 
-*Guest (anonymous user)* is an unregistered/unlogged-in user who is often limited to a very few features only of eXo Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics.
+*Guest (anonymous user)* is an unregistered/unlogged-in user who is often limited to a very few features only of eXo Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics. 
+
+{Note}
+Notice that there will be no section dedicated to this user role. For the actions that an anonymous user can perform, you can refer to the table that summarizes all the actions in each applications.
+{Note}
 
 h2. Access applications of eXo Knowledge {anchor:id=KSuser.Overview.Access_applications}
 

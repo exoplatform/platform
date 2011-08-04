@@ -15,83 +15,6 @@ To view details of a question, simply click it to open its details, including it
 
 * [Search|#KSuser.Answer_Regular_user.Search]
 * [Print|#Answer_user_guide.View_details.Print]
-h3. Search {anchor:id=KSuser.Answer_Regular_user.Search}
-With the *Search* function, you can find your desired item, such as categories, questions, answers, or comments easily. In the Answers application, you can do your searches to specific search conditions easily through two types: Quick search and Advanced search.
-
-h4. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
-You can do quick searches easily by entering specific keywords into the Search area. All items containing the text matching your search term will be returned in the Search results form.
-
-*1.* Enter a keyword into the *Search* field at the right corner of the breadcrumb.
-
-!images/Search_function.png|align="center"!
-
-*2.* Click !images/Search_icon.png!, or press the *Enter* key to perform your search.
-
-The *Search results* window will open with all matching categories and questions as below:
-
-!images/Search_results_answers.png|align="center"!
-
-Details:
-|!images/Answered_question_icon.png!|The question has been answered.|
-|!images/unanswered_question_icon.png!|The question has not been answered.|
-|!images/category_icon.png!|The category containing your entered keywords.|
-|!images/View_icon.png!|Click this icon to link to a question or details of a category.|
-
-*See Also:*
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Advanced search|#KSuser.Answer_Regular_user.Advanced_search]
-
-h4. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
-
-The Advanced Search allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
-
-*1.* Click !images/Advance_search_icon.png! on the Search area.
-
-*2.* Define some search criteria in the Advanced Search form, depending on your choice in the *Search in* field.
-
-There are some main Advanced Search forms:
-* Search in both categories and entries/questions by unselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
-!images/search_both_answers.png|align="center"! 
-    
-* Search in categories by selecting *Category* from the drop-down menu. You will do a search with some specific criteria to find expected categories. Search results will only include categories.
-!images/Category_search_answers.png|align="center"! 
-  
-* Search in entries/questions to find your expected questions, answers or comments by selecting *Entries* from the drop-down menu.
-!images/Search_entries_answers.png|align="center"!
-
-*3.* Click the *Search* button to launch the search. All items matching your criteria will be listed in the search results pane below the Search form that is not similar as that of Quick search.
-
-
-*See Also:*
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Quick search|#KSuser.Answer_Regular_user.Basic_search]
-
-h3. Print {anchor:id=Answer_user_guide.View_details.Print}
-*To print all questions with their answers of a category and of its sub-categories*:
-
-*1.* Select one parent category from the Categories list on the left pane.
-
-*2.* Click the *Print* button on the action bar under the selected category.
-
-!images/Print_action_bar.png|align="center"!
-
-*3.* Click the *Print* button to accept printing or *Close* to quit the *Print Preview* form without printing.
-
-*To print details of a question*:
-
-*1.* Click your desired question.
-
-*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details as below.
-
-!images/Print_details_question.png|align="center"!
-
-*3.* Select the *Print* button to accept printing or *Close* to quit the *Print* form.
-
-*See Also:*
-
-* [View details of Answers|#Answer_user_guide.View_details]
 
 h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
 The Answers application allows you to raise your questions on any issue and help you find best answers. 
@@ -108,19 +31,15 @@ The *Submit question* form appears as below:
 
 *2.* Type your question into the *Question* field. 
 
-Also:
+In this form you can also:
 
-* i. Give details to your question into the *Details* field.
+* *i.* Give details to your question into the *Details* field.
   
+* *ii.* Select your desired language left-clicking !images/arrow_icon1.png! to open the drop-down menu.
   
-* ii. Select your desired language left-clicking !images/arrow_icon1.png! to open the drop-down menu.
+* *iii.* Enter your email in the valid format, such as: username@abc.com, into the *Email* form.
   
-  
-* iii. Enter your email in the valid format, such as: username@abc.com, into the *Email* form.
-  
-  
-* iv. Attach different-typed files to your question by clicking the *Attach a file* link. To remove the attached files, click the corresponding *Remove* link next to the file attachments.
-
+* *iv.* Attach different-typed files to your question by clicking the *Attach a file* link. The max size for the attachment is 20Mb. To remove the attached files, click the corresponding *Remove* link next to the file attachments.
   
 *3.* Click *Save* to complete submitting your question. 
 
@@ -423,6 +342,7 @@ You can select to display entries by created date/alphabetical order and sorted 
 *See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
+
 h2. View public user profile {anchor:id=KSuser.Answer_Regular_user.View_public_user_profile}
 
 The function is for all users, even when you are not logged in (guest). To view a specific user's profile, click his username. The profile of that
@@ -431,6 +351,82 @@ user will be displayed:
 !images/User_profile_form.png|align="center"!
 
 This form shows the selected user's profile, including the join date and the last login time.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+
+h2. Search {anchor:id=KSuser.Answer_Regular_user.Search}
+With the *Search* function, you can find your desired item, such as categories, questions, answers, or comments easily. In the Answers application, you can do your searches to specific search conditions easily through two types: Quick search and Advanced search.
+
+h3. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
+You can do quick searches easily by entering specific keywords into the Search area. All items containing the text matching your search term will be returned in the Search results form.
+
+*1.* Enter a keyword into the *Search* field at the right corner of the breadcrumb.
+
+!images/Search_function.png|align="center"!
+
+*2.* Click !images/Search_icon.png!, or press the *Enter* key to perform your search.
+
+The *Search results* window will open with all matching categories and questions as below:
+
+!images/Search_results_answers.png|align="center"!
+
+Details:
+|!images/Answered_question_icon.png!|The question has been answered.|
+|!images/unanswered_question_icon.png!|The question has not been answered.|
+|!images/category_icon.png!|The category containing your entered keywords.|
+|!images/View_icon.png!|Click this icon to link to a question or details of a category.|
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Advanced search|#KSuser.Answer_Regular_user.Advanced_search]
+
+h3. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
+
+The Advanced Search allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
+
+*1.* Click !images/Advance_search_icon.png! on the Search area.
+
+*2.* Define some search criteria in the Advanced Search form. The criteria may vary, depending on where you want to search. 
+
+* Search in both categories and entries/questions by unselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
+!images/search_both_answers.png|align="center"! 
+    
+* Search in categories by selecting *Category* from the drop-down menu. You will do a search with some specific criteria to find expected categories. Search results will only include categories.
+!images/Category_search_answers.png|align="center"! 
+  
+* Search in entries/questions to find your expected questions, answers or comments by selecting *Entries* from the drop-down menu.
+!images/Search_entries_answers.png|align="center"!
+
+*3.* Click the *Search* button to launch the search. All items matching your criteria will be listed in the search results pane below the Search form that is not similar as that of Quick search.
+
+*See Also:*
+
+* [View details of Answers|#Answer_user_guide.View_details]
+* [Quick search|#KSuser.Answer_Regular_user.Basic_search]
+
+h2. Print {anchor:id=Answer_user_guide.View_details.Print}
+*To print all questions with their answers of a category and of its sub-categories*:
+
+*1.* Select one parent category from the Categories list on the left pane.
+
+*2.* Click the *Print* button on the action bar under the selected category.
+
+!images/Print_action_bar.png|align="center"!
+
+*3.* Click the *Print* button to accept printing or *Close* to quit the *Print Preview* form without printing.
+
+*To print details of a question*:
+
+*1.* Click your desired question.
+
+*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details as below.
+
+!images/Print_details_question.png|align="center"!
+
+*3.* Select the *Print* button to accept printing or *Close* to quit the *Print* form.
 
 *See Also:*
 

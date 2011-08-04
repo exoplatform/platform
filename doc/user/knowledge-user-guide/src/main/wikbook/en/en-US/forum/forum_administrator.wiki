@@ -16,7 +16,7 @@ Only when you are assigned as *administrator*, you can do this function. Normall
 
 !images/admin_category_form.png|align="center"!
 
-*2.* Enter the category title into the *Title* field which is required.
+*2.* Enter the category title into the *Title* field which is required. (Special characters are accepted)
 
 Also, you can:
 
@@ -81,7 +81,7 @@ When creating a new  forum, you can also configure the forum notification settin
 
 !images/admin_add_forum.png|align="center"!
 
-*3.* Enter the forum title which is required and description in the corresponding fields in the *Forum* form.
+*3.* Enter the forum title which is required and description in the corresponding fields in the *Forum* form. The forum title must be less than 50 charaters.
 
 !images/admin_add_forum_tab.png|align="center"!
 

@@ -63,37 +63,37 @@ The list of the found objects will be displayed in the search result form or the
 Details:
 
 ||Fields||Meaning||
-|Terms|Keyword related to your desired categories.|
-|Scope| Scale to search. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Title' option, only results matching the object's titles are returned.|
-|User name|Name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
-|Created between - and|Created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
-|Moderator|Name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
+|Terms|The keyword related to your desired categories.|
+|Scope| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Title' option, only results matching the object's titles are returned.|
+|User name| The name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
+|Created between - and| The created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
+|Moderator| The name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
 
 * To find in *forums*, select *Forum* from the *Search in* drop-down menu.
 
 !images/Search_forum_Forum.png|align="center"!
 
 ||Fields||Meaning||
-|Terms|Keyword related to your desired forums.|
-|Status|Status of the forums.|
-|State|State of the forums.|
-|Posts|Interval of forum's posts number you want to search. Simply click and drag your cursor on the slidebar to define the post interval.|
-|Topics|Interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
-|Moderator|Name of the forums' moderators.|
+|Terms|The search keyword.|
+|Status|The status of the forums.|
+|State|The state of the forums.|
+|Posts|The interval of forum's posts number you want to search. Simply click and drag your cursor on the slidebar to define the post interval.|
+|Topics|The interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
+|Moderator|The name of the forums' moderators.|
 
 * To find in *topics*, select *Topic* from the *Search in* drop-down menu.
 
 !images/Search_topic_Forum.png|align="center"!
 
 ||Field||Meaning||
-|Terms|Keyword related to your desired topics.|
-|Type|Type of the topic specified by the topic type name and its icon. It can be selected from the existing list.|
-|Status|Status of the topics.|
-|State|State of the topics.|
-|Created between - and|Created date interval in which you want to search for topics.|
-|Last post between - and|Last post's created date interval in topics in which you want to search.|
-|Posts|Number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
-|Views|Number of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
+|Terms| The search keyword.|
+|Type|The type of the topic specified by the topic type name and its icon. It can be selected from the existing list.|
+|Status|The status of the topics.|
+|State|The state of the topics.|
+|Created between - and| The created date interval in which you want to search for topics.|
+|Last post between - and| The last post's created date interval in topics in which you want to search.|
+|Posts| The number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
+|Views| The mumber of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
 
 * To find in *posts*, select *Post* from the *Search in* drop-down menu.
 
@@ -102,9 +102,9 @@ Details:
 Details:
 
 ||Fields||Meaning||
-|Term|Keyword related to your desired posts.|
-|Scope|Scale to search. With the "Full" option, returned results are those matching both title and content. With the "Title", the results only match the post titles.|
-|Created between - and|Created date interval in which you want to search for posts.|
+|Term|The search keyword.|
+|Scope|The search scale to search. With the "Full" option, returned results are those matching both title and content. With the "Title", the results only match the post titles.|
+|Created between - and| The created date interval in which you want to search for posts.|
 
 *See Also:*
 
@@ -122,9 +122,9 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 
 !images/start_topic.png|align="center"!
 
-*3.* Enter the topic title and content and set [another optional properties|#topic_properties].
+*3.* Enter the topic title, content. The title must be less than 100 characters (special charaters are accepted). You may set [other optional properties|#topic_properties] if you want.
 
-* Click the *Attach a file* link to attach files to your message. Click the trash icon next to the attachment to remove it. 
+* Click the *Attach a file* link to attach files to your message. The max size for the attachment is 20Mb. Click the trash icon next to the attachment to remove it. 
 * Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text, or to insert images, videos, and links.
 
 !images/new_topic.png|align="center"!
@@ -315,7 +315,7 @@ h3. Post an advanced reply {anchor:id=Forum_regular_user.Posts.Advanced_reply}
 
 Optionally, you can:
 
-* Attach files to the topic by clicking the *Attach a file* link.
+* Attach files to the topic by clicking the *Attach a file* link. The max size for the attachment is 20Mb.
 
 * Select an icon or smiley for the post in the *Icons and smileys* tab.
 

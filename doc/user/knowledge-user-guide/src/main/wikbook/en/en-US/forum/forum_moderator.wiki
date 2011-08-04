@@ -4,10 +4,10 @@ Moderators in Forum are responsible for managing contents of posts and replies b
 h2. Moderate forums {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_forums}
 Moderators can manage all the forums inside their assigned category. If you are a moderator of any category, you can do the following actions:
 
-* [Edit a forum|#Forum_Moderator.Moderate_forum]
-* [Lock/Unlock a forum|#Forum_Moderator.Moderate_forum.Lock-unlock_forum]
-* [Close/Open a forum|#Forum_Moderator.Moderate_forum.Close-open_forum]
-* [Move a forum|#Forum_Moderator.Moderate_forum.Move_forum]
+* [Edit a forum|#Forum_Moderator.Moderate_forums.Edit_forums]
+* [Lock/Unlock a forum|#Forum_Moderator.Moderate_forums.Lock-unlock_forums]
+* [Close/Open a forum|#Forum_Moderator.Moderate_forums.Close-open_forums]
+* [Move a forum|#Forum_Moderator.Moderate_forums.Move_forums]
 
 h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
@@ -182,7 +182,10 @@ Or, click !images/More_actions_btn.png! on the Action bar when you are in a topi
 *2.* Click *Lock* or *Unlock* from the drop-down menu that appears.
 
 h3. Stick/Unstick a topic {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unstick_topics}
+
+{note}
 This function is for *administrators* and *moderator* to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
+{note}
 
 *To stick or unstick a topic:*
 

@@ -82,6 +82,7 @@ You can use the text editor to format the template as you wish.
 * [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
 * [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
+
 h3. Enable the "Discuss in forum" feature {anchor:id=KSuser.Answer_Moderator.Enable_discuss_in_forum}
 
 In the *Discussion* tab, enable/disable the *Discuss in forum* function in Answers and set the default forum for this function by selecting/deselecting the checkbox.
@@ -119,6 +120,7 @@ To hide/show any category, simply deselect/select its checkbox and click *Save*.
 * [Change the display mode|#KSuser.Answer_Moderator.Change_display_mode]
 * [Customize the email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
 * [Enable the "Discuss in forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
+
 h2. Set up FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet}
 
 The FAQ portlet can be added to a page for users to view questions and answers quickly and easily.

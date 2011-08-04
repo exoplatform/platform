@@ -74,7 +74,7 @@ The template for your page is displayed:
 
  !images/wiki_available_template.png|align="center"!
 
-*3.* Enter the title for your page.
+*3.* Enter the title for your page. The page title must be unique.
 
 *4.* Enter the content for your page by using *Wiki Markup* or the *Rich Text* editor.
 
