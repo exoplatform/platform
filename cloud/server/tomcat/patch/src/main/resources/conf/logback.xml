@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2010 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration>
+
+   <timestamp key="date" datePattern="yyyy-MM-dd"/>
+   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+      <encoder>
+         <pattern>%d [%thread] %level %mdc %logger - %msg%n</pattern>
+      </encoder>
+   </appender>
+
+
+   <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+      <discriminator>
+         <Key>currentTenant</Key>
+         <DefaultValue>default</DefaultValue>
+      </discriminator>
+      <sift>
+         <appender name="FILE-${currentTenant}" class="ch.qos.logback.core.FileAppender">
+            <File>${catalina.base}/logs/${currentTenant}/tenant.log</File>
+            <Append>true</Append>
+            <encoder>
+               <pattern>%d [%thread] %level %mdc %logger - %msg%n</pattern>
+            </encoder>
+         </appender>
+      </sift>
+   </appender>
+
+   <logger name="org.exoplatform" level="INFO"/>
+
+   <logger name="exo" level="INFO"/>
+
+   <logger name="org.gatein" level="INFO"/>
+
+   <logger name="org.chromattic" level="INFO"/>
+
+   <root level="OFF">
+      <appender-ref ref="SIFT"/>
+      <appender-ref ref="STDOUT"/>
+   </root>
+</configuration>

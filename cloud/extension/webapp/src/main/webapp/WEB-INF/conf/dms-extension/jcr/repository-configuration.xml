@@ -1,0 +1,289 @@
+<repository-service default-repository="${tenant.repository.name}">
+  <repositories>
+    <repository name="${tenant.repository.name}" system-workspace="system" default-workspace="collaboration">
+      <security-domain>${portal.container.realm}</security-domain>
+      <access-control>optional</access-control>
+      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
+      <workspaces>
+        <workspace name="system">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${tenant.repository.name}" />
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+              <property name="multi-db" value="false" />
+              <property name="update-storage" value="true" />
+              <property name="max-buffer-size" value="200k" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/system${container.name.suffix}" />
+            </properties>
+            <value-storages>
+              <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/system${container.name.suffix}" />
+                </properties>
+                <filters>
+                  <filter property-type="Binary" />
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+          <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
+            <properties>
+              <property name="root-nodetype" value="nt:unstructured" />
+              <property name="root-permissions"
+                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+            </properties>
+          </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-cache${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-expiration-time" value="${gatein.jcr.cache.expiration.time}" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/system${container.name.suffix}" />
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-indexer${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="max-volatile-time" value="60" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-lock${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlocks" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${tenant.repository.name}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+
+        <workspace name="collaboration">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${tenant.repository.name}" />
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+              <property name="multi-db" value="false" />
+              <property name="update-storage" value="true" />
+              <property name="max-buffer-size" value="200k" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/collaboration${container.name.suffix}" />
+            </properties>
+            <value-storages>
+              <value-storage id="collaboration" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/collaboration${container.name.suffix}" />
+                </properties>
+                <filters>
+                  <filter property-type="Binary" />
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+          <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
+            <properties>
+              <property name="root-nodetype" value="nt:unstructured" />
+              <property name="root-permissions"
+                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+            </properties>
+          </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-cache${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-expiration-time" value="${gatein.jcr.cache.expiration.time}" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/collaboration${container.name.suffix}" />
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-indexer${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="max-volatile-time" value="60" />
+              <property name="support-highlighting" value="true" />
+              <property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt" />
+              <property name="analyzer" value="org.exoplatform.services.jcr.analyzer.IgnoreAccentAnalyzer" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-lock${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlocks" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${tenant.repository.name}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+
+        <!-- Backup data -->
+        <workspace name="backup">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${tenant.repository.name}" />
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+              <property name="multi-db" value="false" />
+              <property name="update-storage" value="true" />
+              <property name="max-buffer-size" value="200k" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/backup${container.name.suffix}" />
+            </properties>
+            <value-storages>
+              <value-storage id="backup" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/backup${container.name.suffix}" />
+                </properties>
+                <filters>
+                  <filter property-type="Binary" />
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+          <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
+            <properties>
+              <property name="root-nodetype" value="nt:unstructured" />
+              <property name="root-permissions"
+                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+            </properties>
+          </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-cache${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-expiration-time" value="${gatein.jcr.cache.expiration.time}" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/backup${container.name.suffix}" />
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-indexer${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="max-volatile-time" value="60" />
+              <property name="support-highlighting" value="true" />
+              <property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt" />
+              <property name="analyzer" value="org.exoplatform.services.jcr.analyzer.IgnoreAccentAnalyzer" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-lock${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlocks" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${tenant.repository.name}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+
+        <!-- DMS system data -->
+        <workspace name="dms-system">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+            <properties>
+              <property name="source-name" value="${tenant.repository.name}" />
+              <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+              <property name="multi-db" value="false" />
+              <property name="update-storage" value="true" />
+              <property name="max-buffer-size" value="204800" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/dms-system${container.name.suffix}" />
+            </properties>
+            <value-storages>
+              <value-storage id="dms-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+                <properties>
+                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/dms-system${container.name.suffix}" />
+                </properties>
+                <filters>
+                  <filter property-type="Binary" />
+                </filters>
+              </value-storage>
+            </value-storages>
+          </container>
+          <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
+            <properties>
+              <property name="root-nodetype" value="nt:unstructured" />
+              <property name="root-permissions"
+                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+            </properties>
+          </initializer>
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+            <properties>
+              <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-cache${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-expiration-time" value="${gatein.jcr.cache.expiration.time}" />
+            </properties>
+          </cache>
+          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+            <properties>
+              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/dms-system${container.name.suffix}" />
+              <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-indexer${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="max-volatile-time" value="60" />
+              <property name="support-highlighting" value="true" />
+              <property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt" />
+              <property name="analyzer" value="org.exoplatform.services.jcr.analyzer.IgnoreAccentAnalyzer" />
+            </properties>
+          </query-handler>
+          <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
+            <properties>
+              <property name="time-out" value="15m" />
+              <property name="jbosscache-configuration" value="${gatein.jcr.lock.cache.config}" />
+              <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
+              <property name="jbosscache-cluster-name" value="jcr-lock${container.name.suffix}" />
+              <property name="jbosscache-shareable" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.name" value="jcrlocks" />
+              <property name="jbosscache-cl-cache.jdbc.table.create" value="true" />
+              <property name="jbosscache-cl-cache.jdbc.table.drop" value="false" />
+              <property name="jbosscache-cl-cache.jdbc.table.primarykey" value="pk" />
+              <property name="jbosscache-cl-cache.jdbc.fqn.column" value="fqn" />
+              <property name="jbosscache-cl-cache.jdbc.node.column" value="node" />
+              <property name="jbosscache-cl-cache.jdbc.parent.column" value="parent" />
+              <property name="jbosscache-cl-cache.jdbc.datasource" value="${tenant.repository.name}" />
+            </properties>
+          </lock-manager>
+        </workspace>
+      </workspaces>
+    </repository>
+  </repositories>
+</repository-service>

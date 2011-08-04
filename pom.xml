@@ -16,6 +16,7 @@
     <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
     <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
     <url>http://fisheye.exoplatform.org/browse/platform/trunk</url>
+    <!-- url>http://peter.exoplatform.com.ua/git/plf-3.5.x-cloud-1.1.git</url -->
   </scm>
   <properties>
     <!-- SNAPSHOTS must be deployed in our private repository -->
@@ -34,6 +35,7 @@
     <org.exoplatform.gwtframework.version>1.1.0-Beta03</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.0-Beta03</org.exoplatform.ide.version>
     <org.xcmis.version>1.2.1</org.xcmis.version>
+    <org.exoplatform.cloud-management.version>1.1-M1</org.exoplatform.cloud-management.version>
     <org.exoplatform.cs.version>2.2.1-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.2.1-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.2.0-GA-SNAPSHOT</org.exoplatform.ecms.version>
@@ -69,7 +71,8 @@
     <org.jboss.version>2.2.9.GA</org.jboss.version>
     <org.gatein.shindig.version>1.0-r790473-Patch05</org.gatein.shindig.version>
     <org.testng.version>5.10</org.testng.version>
-    <asm.version>1.5.3</asm.version>
+    <!-- asm 3.2 used by Cloud -->
+    <asm.version>3.2</asm.version>
     <jcrom.version>1.2</jcrom.version><!-- Used by CS -->
     <org.slf4j.version>1.5.8</org.slf4j.version>
     <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
@@ -123,6 +126,7 @@
     <!-- ********************* -->
     <!-- maven-release-plugin -->
     <arguments>-Prelease,distrib -Dgatein.working.dir=target -Dmaven.wagon.provider.http=httpclient</arguments>
+    <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
   </properties>
   <build>
     <pluginManagement>
@@ -227,5 +231,6 @@
     <module>trial</module>
     <module>packaging</module>
     <module>testsuite</module>
+    <!-- module>cloud</module -->
   </modules>
 </project>

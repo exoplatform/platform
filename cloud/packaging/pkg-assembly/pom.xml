@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.exoplatform.platform-cloud</groupId>
+    <artifactId>exo.platform.packaging</artifactId>
+    <version>3.5.0-M4-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.packaging.assembly</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Cloud Packaging Assembly</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.packaging.assembly</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.exoplatform.platform-cloud</groupId>
+      <artifactId>exo.platform.server.tomcat.patch</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+  </dependencies>
+          
+  <profiles>
+    <profile>
+      <id>cloud</id>
+      <build>
+        <finalName>Platform-${project.version}</finalName>
+        <plugins>
+      <!-- unpack PLF tomcat and add Cloud stuff -->
+      <!-- plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-platform</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.exoplatform.platform</groupId>
+                  <artifactId>exo.platform.packaging.assembly</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>target/plf-tomcat</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeTypes>js</includeTypes>
+              <stripVersion>true</stripVersion>
+              <outputDirectory>${project.build.directory}/exopackage-conf</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin -->
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/tomcat-cloud-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+<!--
+ |
+ | The distrib profile is called by hudson to generate the official packages:
+ |  - tomcat
+ |  - ears and configuration for JBoss EAP
+ |  - chatserver
+ |
+ -->
+    <!-- profile>
+      <id>distrib</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/tomcat-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/chatserver-archive.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile -->
+  </profiles>
+</project>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+  <component>
+    <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
+    <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
+    <init-params>
+      <value-param>
+        <name>conf-path</name>
+        <description>JCR configuration file</description>
+        <value>war:/conf/jcr/repository-configuration.xml</value>
+      </value-param>
+      <properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="${tenant.repository.name}" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+      </properties-param>
+    </init-params>
+  </component>
+
+  <!-- Configured in Cloud -->
+  <!--
+    component> <key>org.exoplatform.services.jcr.RepositoryService</key>
+    <type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type> </component
+  -->
+
+  <component>
+    <key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
+    <type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
+    <type>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</type>
+    <init-params>
+
+      <value-param>
+        <name>auto-mix-lockable</name>
+        <value>false</value>
+      </value-param>
+
+      <value-param>
+        <name>def-folder-node-type</name>
+        <value>nt:folder</value>
+      </value-param>
+
+      <value-param>
+        <name>def-file-node-type</name>
+        <value>nt:file</value>
+      </value-param>
+
+      <value-param>
+        <name>def-file-mimetype</name>
+        <value>text/plain</value>
+      </value-param>
+
+      <value-param>
+        <name>update-policy</name>
+        <value>create-version</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+      <name>add.namespaces</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+      <init-params>
+        <properties-param>
+          <name>namespaces</name>
+          <property name="dc" value="http://purl.org/dc/elements/1.1/" />
+          <property name="gtn" value="http://www.gatein.org/jcr/gatein/1.0/" />
+          <property name="mop" value="http://www.gatein.org/jcr/mop/1.0/" />
+          <property name="app" value="http://www.gatein.org/jcr/application-registry/1.0/" />
+          <property name="tkn" value="http://www.gatein.org/jcr/token/1.0/" />
+          <property name="wsrp" value="http://www.gatein.org/jcr/wsrp/1.0/" />
+          <property name="pc" value="http://www.gatein.org/jcr/pc/1.0/" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>add.nodeType</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+      <init-params>
+        <values-param>
+          <name>autoCreatedInNewRepository</name>
+          <description>Node types configuration file</description>
+          <value>jar:/conf/ext-nodetypes-config.xml</value>
+          <value>jar:/conf/gatein-nodetypes.xml</value>
+          <value>jar:/conf/mop-nodetypes.xml</value>
+          <value>jar:/conf/application-nodetypes.xml</value>
+          <value>jar:/conf/content-nodetypes.xml</value>
+          <value>jar:/conf/autologin-nodetypes.xml</value>
+          <value>war:/conf/wsrp/consumers-configuration-nodetypes.xml</value>
+          <value>war:/conf/wsrp/producer-configuration-nodetypes.xml</value>
+          <value>war:/conf/wsrp/producer-registrations-nodetypes.xml</value>
+          <value>war:/conf/wsrp/producer-pc-nodetypes.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <!-- DS binding removed in Platform, because we rely on app server datousources definition -->
+  <!--
+    <external-component-plugins>
+    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+    <component-plugin> <name>bind.datasource</name> <set-method>addPlugin</set-method>
+    <type>org.exoplatform.services.naming.BindReferencePlugin</type> <init-params> <value-param>
+    <name>bind-name</name> <value>${gatein.jcr.datasource.name}${container.name.suffix}</value> </value-param>
+    <value-param> <name>class-name</name> <value>javax.sql.DataSource</value> </value-param> <value-param>
+    <name>factory</name> <value>org.apache.commons.dbcp.BasicDataSourceFactory</value> </value-param>
+    <properties-param> <name>ref-addresses</name> <description>ref-addresses</description> <property
+    name="driverClassName" value="${portal.container.gatein.jcr.datasource.driver}"/> <property name="url"
+    value="${portal.container.gatein.jcr.datasource.url}"/> <property name="username"
+    value="${portal.container.gatein.jcr.datasource.username}"/> <property name="password"
+    value="${portal.container.gatein.jcr.datasource.password}"/> </properties-param> </init-params>
+    </component-plugin> </external-component-plugins>
+  -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+    <component-plugin>
+      <name>addPaths</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>
+      <init-params>
+        <object-param>
+          <name>gadgets.root</name>
+          <description>Create gadget root node</description>
+          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+            <field name="repository">
+              <string>repository</string>
+            </field>
+            <field name="workspaces">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <string>portal-system</string>
+                </value>
+              </collection>
+            </field>
+            <field name="jcrPaths">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+                    <field name="alias">
+                      <string>production</string>
+                    </field>
+                    <field name="path">
+                      <string>/production</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+                    <field name="alias">
+                      <string>gadgets</string>
+                    </field>
+                    <field name="path">
+                      <string>/production/app:gadgets</string>
+                    </field>
+                    <field name="nodeType">
+                      <string>app:gadgetregistry</string>
+                    </field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity">
+                              <string>*:/platform/administrators</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>true</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>true</string>
+                            </field>
+                            <field name="remove">
+                              <string>true</string>
+                            </field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity">
+                              <string>any</string>
+                            </field>
+                            <field name="read">
+                              <string>true</string>
+                            </field>
+                            <field name="addNode">
+                              <string>false</string>
+                            </field>
+                            <field name="setProperty">
+                              <string>false</string>
+                            </field>
+                            <field name="remove">
+                              <string>false</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+</configuration>

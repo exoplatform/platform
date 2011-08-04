@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2010 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+  <component>
+    <type>org.exoplatform.services.security.IdentityRegistry </type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.security.ConversationRegistry</type>
+  </component>
+
+   <!-- cloud-multitenant-rest-services -->
+  <component>
+    <key>org.exoplatform.cloudmanagement.CloudApplication</key>
+    <type>org.exoplatform.cloudmanagement.CloudApplication</type>
+  </component>
+
+  <!-- Service with password features. Registers in CloudApplication -->
+  <component>
+    <key>org.exoplatform.cloudmanagement.rest.PasswordService</key>
+    <type>org.exoplatform.cloudmanagement.rest.PasswordService</type>
+    <init-params>
+      <value-param>
+        <name>mail-sender</name>
+        <value><![CDATA[Platform Cloud <exo-plf-cloud-test1@gmail.com>]]></value>
+      </value-param>
+      <value-param>
+        <name>recover-mail-subject</name>
+        <value>Platform Cloud password reminder</value>
+      </value-param>
+      <value-param>
+        <name>recover-mail-template-name</name>
+        <value>template-mail-password-restoring</value>
+      </value-param>
+      <value-param>
+        <name>change-mail-subject</name>
+        <value>Cloud-IDE password changing</value>
+      </value-param>
+      <value-param>
+        <name>change-mail-template-name</name>
+        <value>template-mail-password-changing</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <!--cloud-agent -->
+  <component>
+    <key>org.exoplatform.cloudmanagement.CloudAgentApplication</key>
+    <type>org.exoplatform.cloudmanagement.CloudAgentApplication</type>
+  </component>
+
+  <!-- TenantCreationSupervisor -->
+  <component>
+    <key>org.exoplatform.cloudmanagement.multitenancy.TenantCreationSupervisor</key>
+    <type>org.exoplatform.cloudmanagement.multitenancy.ExoContainerTenantCreationSupervisor</type>
+  </component>
+
+  <!-- RestRepositoryService -->
+  <component>
+    <key>org.exoplatform.services.jcr.ext.repository.RestRepositoryService</key>
+    <type>org.exoplatform.services.jcr.ext.repository.RestRepositoryService</type>
+  </component>
+
+  <!-- RestRegistryService -->
+  <component>
+    <type>org.exoplatform.cloudmanagement.rest.TenancyRESTRegistryService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
+    <init-params>
+      <properties-param>
+        <name>locations</name>
+      </properties-param>
+    </init-params>
+  </component>
+
+  <!-- Plugins for TenantCreationService START -->
+  <component>
+    <type>org.exoplatform.cloudmanagement.multitenancy.CreateNewRepositoryPlugin</type>
+    <description>Create database</description>
+    <init-params>
+      <value-param>
+        <name>priority</name>
+        <value>10</value>
+      </value-param>
+      <value-param>
+        <name>configuration-path</name>
+        <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/platform-tenant-configuration-template.xml</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.cloudmanagement.multitenancy.TenantRegistryPlugin</type>
+    <description>Create database</description>
+    <init-params>
+      <value-param>
+        <name>priority</name>
+        <value>40</value>
+      </value-param>
+      <value-param>
+        <name>registry-repository</name>
+        <!-- Name of repository where information about tenant's will be stored. Should be static. -->
+        <value>${tenant.repository.name}</value>
+      </value-param>
+    </init-params>
+  </component>
+
+   <!-- component>
+      <type>org.exoplatform.cloudmanagement.multitenancy.ChangeRootPasswordPlugin</type>
+      <description>Change root password</description>
+      <init-params>
+         <value-param>
+            <name>priority</name>
+            <value>50</value>
+         </value-param>
+      </init-params>
+   </component -->
+
+  <!-- Plugins for TenantCreationService END -->
+
+  <!-- TemplateResolver configuration -->
+  <component>
+    <key>org.exoplatform.cloudmanagement.multitenancy.TemplateResolver</key>
+    <type>org.exoplatform.cloudmanagement.multitenancy.TemplateResolver</type>
+    <init-params>
+      <value-param>
+        <name>temaplate-mail-invitation</name>
+        <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-invitation-mail.html</value>
+      </value-param>
+      <value-param>                                                                                                                                                                                         
+         <name>template-mail-password-restoring</name>                                                                                                                                                      
+         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-restoring.html</value>                                                                                                                                         
+      </value-param>                                                                                                                                                                                        
+      <value-param>                                                                                                                                                                                         
+         <name>template-mail-password-changing</name>                                                                                                                                                       
+         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-changing.html</value>                                                                                                                                          
+      </value-param>     
+    </init-params>
+  </component>
+
+  <!-- HSQL Configuration -->
+  <component>
+    <key>org.exoplatform.services.database.creator.DBCreator</key>
+    <type>org.exoplatform.services.database.creator.DBCreator</type>
+    <init-params>
+      <properties-param>
+        <name>db-connection</name>
+        <description>database connection properties</description>
+        <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+        <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
+      </properties-param>
+      <properties-param>
+        <name>db-creation</name>
+        <description>database creation properties</description>
+        <property name="scriptPath" value="../${exo.conf.dir.name}/cloud/databases/hsqldb-schema.sql" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
+      </properties-param>
+    </init-params>
+  </component>
+
+  <!-- MySQL configuration -->
+  <!-- component>
+     <key>org.exoplatform.services.database.creator.DBCreator</key>
+     <type>org.exoplatform.services.database.creator.DBCreator</type>
+      <init-params>
+        <properties-param>
+           <name>db-connection</name>
+           <description>database connection properties</description>
+           <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+           <property name="url" value="jdbc:mysql://localhost:3306/"/>
+           <property name="username" value="root"/>
+           <property name="password" value="root"/>
+            <property name="maxActive" value="100" />
+            <property name="maxIdle" value="2" />
+            <property name="initialSize" value="5" />
+        </properties-param>
+        <properties-param>
+           <name>db-creation</name>
+           <description>database creation properties</description>
+           <property name="scriptPath" value="../${exo.conf.dir.name}/cloud/databases/mysqldb-schema.sql"/>
+           <property name="username" value="root"/>
+           <property name="password" value="root"/>
+        </properties-param>
+     </init-params>
+  </component -->
+
+ <!-- Backup service -->
+  <component>
+    <key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
+    <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl
+      </type>
+    <init-params>
+      <properties-param>
+        <name>backup-properties</name>
+        <property name="default-incremental-job-period" value="3600" />
+        <!-- set default incremental periond = 60 minutes -->
+        <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob" />
+        <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
+        <property name="backup-dir" value="${gatein.data.dir}/backup" />
+        <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
+      </properties-param>
+    </init-params>
+  </component>
+
+  <!-- REST service for BackupManager -->
+  <component>
+    <type>org.exoplatform.services.jcr.ext.backup.server.HTTPBackupAgent</type>
+  </component>
+
+  <!-- TenantRegistryPlugin support -->
+  <component>
+    <type>org.exoplatform.services.jcr.ext.repository.RestRepositoryService</type>
+  </component>
+
+  <!-- REST stuff START -->
+  <component>
+    <key>org.exoplatform.services.rest.impl.RequestHandlerImpl</key>
+    <type>org.exoplatform.services.rest.impl.RequestHandlerImpl</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.rest.impl.RequestDispatcher</key>
+    <type>org.exoplatform.services.rest.impl.RequestDispatcher</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.rest.impl.StartableApplication</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.rest.impl.ProvidersRegistry</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.rest.impl.ApplicationRegistry</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.rest.impl.ResourceBinder</key>
+    <type>org.exoplatform.services.rest.impl.ResourceBinder</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.rest.impl.provider.JAXBContextResolver</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.jcr.RepositoryService</key>
+    <type>org.exoplatform.cloudmanagement.multitenancy.TenantRepositoryService</type>
+    <component-plugins>
+      <component-plugin>
+        <name>add.namespaces</name>
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+        <init-params>
+          <properties-param>
+            <name>namespaces</name>
+            <property name="dc" value="http://purl.org/dc/elements/1.1/" />
+            <property name="jos" value="http://www.exoplatform.com/jcr-services/organization-service/1.0/" />
+            <property name="exoide" value="http://exoplatform.org/ide/1.1.x/" />
+          </properties-param>
+        </init-params>
+      </component-plugin>
+      <component-plugin>
+        <name>add.nodeType</name>
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+        <init-params>
+          <values-param>
+            <name>autoCreatedInNewRepository</name>
+            <description>Node types configuration file</description>
+            <value>jar:/conf/organization-nodetypes.xml</value>
+          </values-param>
+        </init-params>
+      </component-plugin>
+    </component-plugins>
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.jcr.ext.repository.creation.RepositoryCreationService</key>
+    <type>org.exoplatform.services.jcr.ext.repository.creation.RepositoryCreationServiceImpl</type>
+  </component>
+
+  <!-- JCR Dependencies END -->
+
+  <component>
+    <key>org.exoplatform.services.naming.InitialContextInitializer</key>
+    <type>org.exoplatform.services.naming.InitialContextInitializer</type>
+    <init-params>
+      <value-param>
+        <name>bindings-store-path</name>
+        <value>${tenant.jcr.data.dir}/bind-references.xml</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <!-- HSQL Configuration -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>${tenant.repository.name}</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+          <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+          <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb/${tenant.repository.name}" />
+          <property name="username" value="sa" />
+          <property name="password" value="" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>${gatein.idm.datasource.name}_portal</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+          <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+          <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/../idm/exo_idm_portal" />
+          <property name="username" value="sa" />
+          <property name="password" value="" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <!-- MySQL Configuration -->
+  <!-- external-component-plugins>
+    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>${tenant.repository.name}</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/${tenant.repository.name}"/>
+            <property name="username" value="root"/>
+            <property name="password" value="root"/>
+            <property name="maxActive" value="100" />
+            <property name="maxIdle" value="2" />
+            <property name="initialSize" value="5" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>${gatein.idm.datasource.name}_portal</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/cloud_idm"/>
+            <property name="username" value="root"/>
+            <property name="password" value="root"/>
+            <property name="maxActive" value="100" />
+            <property name="maxIdle" value="2" />
+            <property name="initialSize" value="5" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins -->
+
+</configuration>

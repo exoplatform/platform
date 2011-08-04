@@ -201,7 +201,7 @@
               <value profiles="ide,all,default">
                 <string>IDE</string>
               </value>
-                            
+                           
               <!-- Contains shared layout -->
               <value>
                 <string>platform-extension</string>

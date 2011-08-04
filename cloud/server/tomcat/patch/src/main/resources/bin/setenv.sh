@@ -1,0 +1,1 @@
+export CLASSPATH="$CATALINA_HOME/lib/cloud-security-1.1-M1.jar:$CATALINA_HOME/conf/"
