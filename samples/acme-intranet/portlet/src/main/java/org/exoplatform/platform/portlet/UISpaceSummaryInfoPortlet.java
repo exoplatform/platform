@@ -50,7 +50,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
   private static final Integer ITEMS_PER_PAGE = 5;
   private static final String IDENTITY_PROVIDER_ID = "organization";
   private static final String ITERATOR_ADMINISTRATORS_ID = "UIIteratorAdministrators";
-  private Space space = null;
+  private SpaceService spaceService = null;
   private boolean isSpace = false;
   private List<User> administratorsList = null;
   private final UIPageIterator iteratorAdministrators;
@@ -59,7 +59,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
   public UISpaceSummaryInfoPortlet() throws Exception {
     iteratorAdministrators = createUIComponent(UIPageIterator.class, null, ITERATOR_ADMINISTRATORS_ID);
     addChild(iteratorAdministrators);
-    space = getApplicationComponent(SpaceService.class).getSpaceByUrl(SpaceUtils.getSpaceUrl());
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if (space != null) {
       isSpace = true;
     }else{
@@ -75,6 +76,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @return space display name or an empty String
    */
   public String getSpaceDisplayName() {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if (space != null) {
       return space.getDisplayName();
     } else {
@@ -88,6 +91,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @return space description or an empty String
    */
   public String getSpaceDescription() {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if (space != null) {
       return space.getDescription();
     } else {
@@ -102,6 +107,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @throws Exception 
    */
   public String getSpaceImageSource() throws Exception {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if (space != null) {
       return space.getAvatarUrl();
     }else{
@@ -116,6 +123,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @throws SpaceException 
    */
   public int getSpaceMembersNumber() throws SpaceException {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if(space != null){
       return SpaceUtils.countMembers(space);
     }else{
@@ -129,6 +138,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @return the full URL or an empty String
    */
   public String getSpaceFullURL() {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if(space != null){
       return Util.getPortalRequestContext().getPortalURI() + space.getUrl();
     }else{
@@ -185,6 +196,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @throws Exception
    */
   public void initAdministrators() throws Exception {
+    SpaceService spaceService = getSpaceService();
+    Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     administratorsList = new ArrayList<User>();
     OrganizationService orgSrc = getApplicationComponent(OrganizationService.class);
     UserHandler userHandler = orgSrc.getUserHandler();
@@ -211,5 +224,18 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
 
   public boolean isSpace() {
     return isSpace;
+  }
+  
+  /**
+   * Gets spaceService
+   *
+   * @return spaceService
+   * @see SpaceService
+   */
+  private SpaceService getSpaceService() {
+    if (spaceService == null) {
+      spaceService = getApplicationComponent(SpaceService.class);
+    }
+    return spaceService;
   }
 }
