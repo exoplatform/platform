@@ -10,7 +10,7 @@
 		<component-plugins>
 			<component-plugin>
 				<name>webos.module.plugin</name>
-				<set-method>addPlugin</set-method>
+				<set-method>addModule</set-method>
 				<type>org.exoplatform.platform.common.module.ModulePlugin</type>
 				<init-params>
 					<object-param>

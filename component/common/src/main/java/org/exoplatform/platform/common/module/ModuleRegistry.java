@@ -78,6 +78,7 @@ public class ModuleRegistry implements Startable {
    */
   private Map<String, LocalizedString> portletDisplayNames = new HashMap<String, LocalizedString>();
 
+  @SuppressWarnings("unchecked")
   public ModuleRegistry(InitParams initParams) {
     if (initParams.containsKey("portlets.managed.by.profile")) {
       portletsManagedByProfile = initParams.getValuesParam("portlets.managed.by.profile").getValues();
@@ -102,16 +103,6 @@ public class ModuleRegistry implements Startable {
     if (modulePlugin != null && modulePlugin.getModule() != null) {
       modulesByName.put(modulePlugin.getModule().getName(), modulePlugin.getModule());
     }
-  }
-
-  /**
-   * Get all available modules
-   * 
-   * @return the list of all modules registered
-   * @see #registerModule(Module)
-   */
-  public Collection<Module> getAvailableModules() {
-    return modulesByName.values();
   }
 
   @Override
@@ -222,15 +213,27 @@ public class ModuleRegistry implements Startable {
     // Read active profiles
     Set<String> portletActiveProfiles = getModulesForPortlet(portletId);
     if (portletActiveProfiles.size() == 1 && portletActiveProfiles.contains(ALL_MODULES_PROFILE)) {
-      return true;
+      isPortletActive = true;
+    } else {
+      Set<String> currentActiveProfiles = PortalContainer.getProfiles();
+      portletActiveProfiles.retainAll(currentActiveProfiles);
+      isPortletActive = !portletActiveProfiles.isEmpty();
     }
-    Set<String> currentActiveProfiles = PortalContainer.getProfiles();
-    portletActiveProfiles.retainAll(currentActiveProfiles);
-    isPortletActive = !portletActiveProfiles.isEmpty();
     isPortletActiveCache.put(portletId, isPortletActive);
     return isPortletActive;
   }
 
   @Override
   public void stop() {}
+
+  /**
+   * Get all available modules
+   * 
+   * @return the list of all modules registered
+   * @see #registerModule(Module)
+   */
+  private Collection<Module> getAvailableModules() {
+    return modulesByName.values();
+  }
+
 }

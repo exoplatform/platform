@@ -7,12 +7,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletContext;
@@ -22,10 +18,6 @@ import javax.portlet.RenderResponse;
 import javax.portlet.filter.FilterChain;
 import javax.portlet.filter.FilterConfig;
 import javax.portlet.filter.RenderFilter;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
@@ -54,8 +46,6 @@ public class PortletDisablerFilter implements RenderFilter {
 
   private Map<String, String> disabledPortletMessages = new HashMap<String, String>();
 
-  public void destroy() {}
-
   public void init(FilterConfig filterConfig) throws PortletException {
     context = filterConfig.getPortletContext();
   }
@@ -65,14 +55,11 @@ public class PortletDisablerFilter implements RenderFilter {
    * of the current portal container.
    */
   public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
-    boolean isPortletActive = PortalContainer.isScopeValid(PortalContainer.getInstance(), new FakeServletContext());
-
     PortletConfig portletConfig = (PortletConfig) request.getAttribute("javax.portlet.config");
     String portletName = portletConfig.getPortletName();
     String portletID = context.getPortletContextName() + "/" + portletName;
-    isPortletActive = isPortletActive && getModuleRegistry().isPortletActive(portletID);
 
-    if (isPortletActive) {
+    if (getModuleRegistry().isPortletActive(portletID)) {
       chain.doFilter(request, response);
     } else {
       LOG.info("The portlet '" + portletID + "' is currently disabled.");
@@ -82,6 +69,8 @@ public class PortletDisablerFilter implements RenderFilter {
       response.getWriter().print(html);
     }
   }
+
+  public void destroy() {}
 
   private String getPortletSpecificMessage(RenderRequest request, String portletName, String portletID) {
     String html = disabledPortletMessages.get(portletID);
@@ -166,106 +155,6 @@ public class PortletDisablerFilter implements RenderFilter {
       moduleRegistry = (ModuleRegistry) PortalContainer.getComponent(ModuleRegistry.class);
     }
     return moduleRegistry;
-  }
-
-  /**
-   * a fake servlet context that gives this portlet servlet context name in
-   * return to {@link #getServletContextName()}
-   */
-  private class FakeServletContext implements ServletContext {
-
-    public Object getAttribute(String name) {
-      return null;
-    }
-
-    @SuppressWarnings("rawtypes")
-    public Enumeration getAttributeNames() {
-      return null;
-    }
-
-    public ServletContext getContext(String uripath) {
-      return null;
-    }
-
-    public String getInitParameter(String name) {
-      return null;
-    }
-
-    @SuppressWarnings("rawtypes")
-    public Enumeration getInitParameterNames() {
-      return null;
-    }
-
-    public int getMajorVersion() {
-      return 0;
-    }
-
-    public String getMimeType(String file) {
-      return null;
-    }
-
-    public int getMinorVersion() {
-      return 0;
-    }
-
-    public RequestDispatcher getNamedDispatcher(String name) {
-      return null;
-    }
-
-    public String getRealPath(String path) {
-      return null;
-    }
-
-    public RequestDispatcher getRequestDispatcher(String path) {
-      return null;
-    }
-
-    public URL getResource(String path) throws MalformedURLException {
-      return null;
-    }
-
-    public InputStream getResourceAsStream(String path) {
-      return null;
-    }
-
-    @SuppressWarnings("rawtypes")
-    public Set getResourcePaths(String path) {
-      return null;
-    }
-
-    public String getServerInfo() {
-      return null;
-    }
-
-    public Servlet getServlet(String name) throws ServletException {
-      return null;
-    }
-
-    // HACK : we
-    public String getServletContextName() {
-      return context.getPortletContextName();
-    }
-
-    @SuppressWarnings("rawtypes")
-    public Enumeration getServletNames() {
-      return null;
-    }
-
-    @SuppressWarnings("rawtypes")
-    public Enumeration getServlets() {
-      return null;
-    }
-
-    public void log(String msg) {}
-
-    public void log(Exception exception, String msg) {}
-
-    public void log(String message, Throwable throwable) {}
-
-    public void removeAttribute(String name) {}
-
-    public void setAttribute(String name, Object object) {}
-
   }
 
 }
