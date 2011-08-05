@@ -2261,7 +2261,7 @@
  |
  -->
     <profile>
-      <id>distrib</id>
+      <id>cloud-distrib</id>
       <build>
         <plugins>
           <!-- create zip archives -->
