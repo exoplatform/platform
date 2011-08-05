@@ -16,10 +16,12 @@
  */
 package org.exoplatform.platform.common.module;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -46,6 +48,8 @@ public class ModuleRegistry implements Startable {
 
   private static final Log LOG = ExoLogger.getExoLogger(ModuleRegistry.class);
 
+  private Map<String, Boolean> isPortletActiveCache = new HashMap<String, Boolean>();
+
   /**
    * modules indexed by name
    * 
@@ -64,11 +68,23 @@ public class ModuleRegistry implements Startable {
   private Map<String, Set<Module>> modulesByPortlet = new HashMap<String, Set<Module>>();
 
   /**
+   * List of portlets that are managed by profile, and aren't considered in
+   * its webapp
+   */
+  private List<String> portletsManagedByProfile;
+
+  /**
    * modules indexed by portlet name
    */
   private Map<String, LocalizedString> portletDisplayNames = new HashMap<String, LocalizedString>();
 
   public ModuleRegistry(InitParams initParams) {
+    if (initParams.containsKey("portlets.managed.by.profile")) {
+      portletsManagedByProfile = initParams.getValuesParam("portlets.managed.by.profile").getValues();
+    } else {
+      portletsManagedByProfile = new ArrayList<String>();
+    }
+
     Iterator<Module> iterator = initParams.getObjectParamValues(Module.class).iterator();
     while (iterator.hasNext()) {
       Module module = iterator.next();
@@ -100,7 +116,7 @@ public class ModuleRegistry implements Startable {
 
   @Override
   public void start() {
-    // Compute Modules by webapp & by portletID (= webapp/portletName )
+    // Compute Modules by webapp & by portletId (= webapp/portletName )
     Collection<Module> modules = getAvailableModules();
     for (Module module : modules) {
       for (String webappName : module.getWebapps()) {
@@ -122,14 +138,16 @@ public class ModuleRegistry implements Startable {
           Set<Module> portletModules = modulesByPortlet.get(portletId);
           if (portletModules == null) {
             portletModules = new HashSet<Module>();
-            modulesByWebapp.put(portletId, portletModules);
+            modulesByPortlet.put(portletId, portletModules);
 
-            // Add related webapp modules to this portletId modules too
-            String[] portletIdSplitted = portletId.split("/");
-            String webappName = portletIdSplitted[0];
-            Set<Module> webappModules = modulesByWebapp.get(webappName);
-            if (webappModules != null && !webappModules.isEmpty()) {
-              portletModules.addAll(webappModules);
+            if (!portletsManagedByProfile.contains(portletId)) {
+              // Add related webapp modules to this portletId modules
+              String[] portletIdSplitted = portletId.split("/");
+              String webappName = portletIdSplitted[0];
+              Set<Module> webappModules = modulesByWebapp.get(webappName);
+              if (webappModules != null && !webappModules.isEmpty()) {
+                portletModules.addAll(webappModules);
+              }
             }
           }
           portletModules.add(module);
@@ -147,10 +165,10 @@ public class ModuleRegistry implements Startable {
       exception.printStackTrace();
     }
   }
-  
+
   public String getDisplayName(String portletName, Locale locale) {
     String portletDisplayName = portletName;
-    if(portletDisplayNames.get(portletName) != null) {
+    if (portletDisplayNames.get(portletName) != null) {
       portletDisplayName = portletDisplayNames.get(portletName).getValue(locale, true).getString();
     }
     return portletDisplayName;
@@ -173,17 +191,19 @@ public class ModuleRegistry implements Startable {
   }
 
   /**
-   * @param portletID
+   * @param portletId
    * @return List of profiles/modules that activate a portlet
    */
-  public Set<String> getModulesForPortlet(String portletID) {
+  public Set<String> getModulesForPortlet(String portletId) {
     Set<String> profileNames = new HashSet<String>();
-    Set<Module> portletModules = modulesByPortlet.get(portletID);
+    Set<Module> portletModules = modulesByPortlet.get(portletId);
     if (portletModules == null || portletModules.isEmpty()) {
-      // Add related webapp modules to this portletId modules too
-      String[] portletIdSplitted = portletID.split("/");
-      String webappName = portletIdSplitted[0];
-      profileNames = getModulesForWebapp(webappName);
+      if (!portletsManagedByProfile.contains(portletId)) {
+        // Add related webapp modules to this portletId modules too
+        String[] portletIdSplitted = portletId.split("/");
+        String webappName = portletIdSplitted[0];
+        profileNames = getModulesForWebapp(webappName);
+      }
     } else {
       for (Module module : portletModules) {
         profileNames.add(module.getName());
@@ -191,6 +211,24 @@ public class ModuleRegistry implements Startable {
     }
     profileNames.add(ALL_MODULES_PROFILE);
     return profileNames;
+  }
+
+  public boolean isPortletActive(String portletId) {
+    // Read from cache
+    Boolean isPortletActive = isPortletActiveCache.get(portletId);
+    if (isPortletActive != null) {
+      return isPortletActive;
+    }
+    // Read active profiles
+    Set<String> portletActiveProfiles = getModulesForPortlet(portletId);
+    if (portletActiveProfiles.size() == 1 && portletActiveProfiles.contains(ALL_MODULES_PROFILE)) {
+      return true;
+    }
+    Set<String> currentActiveProfiles = PortalContainer.getProfiles();
+    portletActiveProfiles.retainAll(currentActiveProfiles);
+    isPortletActive = !portletActiveProfiles.isEmpty();
+    isPortletActiveCache.put(portletId, isPortletActive);
+    return isPortletActive;
   }
 
   @Override

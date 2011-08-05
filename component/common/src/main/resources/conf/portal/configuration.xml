@@ -10,7 +10,7 @@
 		<component-plugins>
 			<component-plugin>
 				<name>webos.module.plugin</name>
-      			<set-method>addPlugin</set-method>
+				<set-method>addPlugin</set-method>
 				<type>org.exoplatform.platform.common.module.ModulePlugin</type>
 				<init-params>
 					<object-param>
@@ -35,6 +35,7 @@
 									</value>
 								</collection>
 							</field>
+							<!-- List of portletId = {webappName}/portletName -->
 							<field name="portlets">
 								<collection type="java.util.ArrayList"/>
 							</field>
@@ -44,6 +45,11 @@
 			</component-plugin>
 		</component-plugins>
 		<init-params>
+			<values-param>
+				<name>portlets.managed.by.profile</name>
+				<description>List of portlets managed by profile, which means that aren't considered in the webapp</description>
+				<value>platformNavigation/UserInfoPortlet</value>
+			</values-param>
 			<object-param>
 				<name>default.webapps</name>
 				<object type="org.exoplatform.platform.common.module.Module">
@@ -132,8 +138,13 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
+						<collection type="java.util.ArrayList">
+							<value>
+								<string>platformNavigation/UserInfoPortlet</string>
+							</value>
+						</collection>
 					</field>
 				</object>
 			</object-param>
@@ -177,6 +188,7 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
 						<collection type="java.util.ArrayList"/>
 					</field>
@@ -198,6 +210,7 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
 						<collection type="java.util.ArrayList"/>
 					</field>
@@ -225,6 +238,7 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
 						<collection type="java.util.ArrayList"/>
 					</field>
@@ -255,38 +269,13 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>social.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>social</string>
-					</field>
-					<field name="description">
-						<string>social profile modules</string>
-					</field>
-					<field name="webapps">
 						<collection type="java.util.ArrayList">
 							<value>
-								<string>social-resources</string>
-							</value>
-							<value>
-								<string>social-portlet</string>
-							</value>
-							<value>
-								<string>social</string>
-							</value>
-							<value>
-								<string>social-extension</string>
+								<string>platformNavigation/UserInfoPortlet</string>
 							</value>
 						</collection>
-					</field>
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
 					</field>
 				</object>
 			</object-param>
@@ -324,6 +313,7 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
 						<collection type="java.util.ArrayList"/>
 					</field>
@@ -348,6 +338,7 @@
 							</value>
 						</collection>
 					</field>
+					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
 						<collection type="java.util.ArrayList"/>
 					</field>

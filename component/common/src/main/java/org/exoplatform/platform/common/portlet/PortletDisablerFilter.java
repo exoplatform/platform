@@ -10,6 +10,8 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import javax.portlet.PortletConfig;
@@ -48,6 +50,10 @@ public class PortletDisablerFilter implements RenderFilter {
 
   private String messageContent = null;
 
+  private ModuleRegistry moduleRegistry = null;
+
+  private Map<String, String> disabledPortletMessages = new HashMap<String, String>();
+
   public void destroy() {}
 
   public void init(FilterConfig filterConfig) throws PortletException {
@@ -60,37 +66,55 @@ public class PortletDisablerFilter implements RenderFilter {
    */
   public void doFilter(RenderRequest request, RenderResponse response, FilterChain chain) throws IOException, PortletException {
     boolean isPortletActive = PortalContainer.isScopeValid(PortalContainer.getInstance(), new FakeServletContext());
+
+    PortletConfig portletConfig = (PortletConfig) request.getAttribute("javax.portlet.config");
+    String portletName = portletConfig.getPortletName();
+    String portletID = context.getPortletContextName() + "/" + portletName;
+    isPortletActive = isPortletActive && getModuleRegistry().isPortletActive(portletID);
+
     if (isPortletActive) {
       chain.doFilter(request, response);
     } else {
-      PortletConfig portletConfig = (PortletConfig) request.getAttribute("javax.portlet.config");
-      String portletName = portletConfig.getPortletName();
-      String portletID = context.getPortletContextName() + "/" + portletName;
       LOG.info("The portlet '" + portletID + "' is currently disabled.");
-      if (messageContent == null || messageContent.isEmpty()) {
-        ConfigurationManager confManager = (ConfigurationManager) PortalContainer.getComponent(ConfigurationManager.class);
-        try {
-          InputStream inputStream = confManager.getInputStream(DISABLED_HTML_FILE_PATH);
-          messageContent = convertStreamToString(inputStream);
-        } catch (Exception exception) {
-          messageContent = PORTLET_DISABLED_DEFAULT_MESSAGE;
-          LOG.error("Cannot read message for disabled portlet", exception);
-        }
-      }
-      ModuleRegistry moduleRegistry = (ModuleRegistry) PortalContainer.getComponent(ModuleRegistry.class);
-      String portletDisplayName = moduleRegistry.getDisplayName(portletName, request.getLocale());
-      String html = mergeDisabledContent(moduleRegistry, messageContent, portletDisplayName, portletName, portletID);
-      response.getWriter().write(html);
+
+      // Get the message from cache
+      String html = getPortletSpecificMessage(request, portletName, portletID);
+      response.getWriter().print(html);
     }
+  }
+
+  private String getPortletSpecificMessage(RenderRequest request, String portletName, String portletID) {
+    String html = disabledPortletMessages.get(portletID);
+    if (html == null || html.isEmpty()) {
+      String portletDisplayName = getModuleRegistry().getDisplayName(portletName, request.getLocale());
+      html = mergeDisabledContent(getModuleRegistry(), getDisablerMessage(), portletDisplayName, portletName, portletID);
+      disabledPortletMessages.put(portletID, html);
+    }
+    return html;
+  }
+
+  private String getDisablerMessage() {
+    if (messageContent == null || messageContent.isEmpty()) {
+      ConfigurationManager confManager = (ConfigurationManager) PortalContainer.getComponent(ConfigurationManager.class);
+      try {
+        InputStream inputStream = confManager.getInputStream(DISABLED_HTML_FILE_PATH);
+        messageContent = convertStreamToString(inputStream);
+      } catch (Exception exception) {
+        messageContent = PORTLET_DISABLED_DEFAULT_MESSAGE;
+        LOG.error("Cannot read message for disabled portlet", exception);
+      }
+    }
+    return messageContent;
   }
 
   /**
    * Replace some variables into HTML content
    * 
    * @param content
-   * @return
+   * @return specific message for the selected portlet, after some
+   *         replacements
    */
-  public String mergeDisabledContent(ModuleRegistry moduleRegistry, String content, String portletDisplayName,
+  private String mergeDisabledContent(ModuleRegistry moduleRegistry, String content, String portletDisplayName,
       String portletName, String portletID) {
     String result = content;
 
@@ -102,7 +126,13 @@ public class PortletDisablerFilter implements RenderFilter {
     return result;
   }
 
-  public String convertStreamToString(InputStream is) throws IOException {
+  /**
+   * @param is
+   *          the InputStream
+   * @return the String content of the input stream
+   * @throws IOException
+   */
+  private String convertStreamToString(InputStream is) throws IOException {
     /*
      * To convert the InputStream to String we use the Reader.read(char[]
      * buffer) method. We iterate until the Reader return -1 which means
@@ -129,10 +159,20 @@ public class PortletDisablerFilter implements RenderFilter {
   }
 
   /**
+   * @return ModuleRegistry component
+   */
+  private ModuleRegistry getModuleRegistry() {
+    if (moduleRegistry == null) {
+      moduleRegistry = (ModuleRegistry) PortalContainer.getComponent(ModuleRegistry.class);
+    }
+    return moduleRegistry;
+  }
+
+  /**
    * a fake servlet context that gives this portlet servlet context name in
    * return to {@link #getServletContextName()}
    */
-  class FakeServletContext implements ServletContext {
+  private class FakeServletContext implements ServletContext {
 
     public Object getAttribute(String name) {
       return null;
