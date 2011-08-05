@@ -21,9 +21,17 @@
 	
 	Node ProductNode = uicomponent.getNode();
 %>
-		
-<div class="UIForm FormLayout">
+
+<div class="UIForm FormLayout FormScrollLayout"> 
 <%uiform.begin()%>  
+		<div class="WorkingAreaWithHelp">
+			<%/* start render action*/%>
+      <% if (uiform.isShowActionsOnTop()) {
+                uiform.processRenderAction()
+             }
+      %>
+
+			<%/* end render action*/%> 
 	<div class="HorizontalLayout">
 		<table class="UIFormGrid">
 		    <tr>
@@ -112,9 +120,11 @@
 				</td>
 			</tr>
 		</table>
-		<%/* start render action*/%>
-		<%uiform.processRenderAction()%>
-		<%/* end render action*/%>
+			     <% if (!uiform.isShowActionsOnTop()) {
+                     uiform.processRenderAction()
+			            }
+			     %>
 		</div>
+		</div>   <!-- End of WorkingAreaWithHelp -->
 		<%uiform.end()%>
 </div>
