@@ -70,8 +70,6 @@
     <org.jboss.version>2.2.9.GA</org.jboss.version>
     <org.gatein.shindig.version>1.0-r790473-Patch05</org.gatein.shindig.version>
     <org.testng.version>5.10</org.testng.version>
-    <!-- asm 3.2 used by Cloud -->
-    <asm.version>3.2</asm.version>
     <jcrom.version>1.2</jcrom.version><!-- Used by CS -->
     <org.slf4j.version>1.5.8</org.slf4j.version>
     <org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->

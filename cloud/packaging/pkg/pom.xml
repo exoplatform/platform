@@ -456,21 +456,18 @@
       <version>${org.exoplatform.cloud-management.version}</version>
       <type>jar</type>
     </dependency>
-
     <dependency>
       <groupId>org.exoplatform.cloud-management</groupId>
       <artifactId>cloud-agent-war</artifactId>
       <version>${org.exoplatform.cloud-management.version}</version>
       <type>war</type>
     </dependency>
-
     <dependency>
       <groupId>org.exoplatform.cloud-management</groupId>
       <artifactId>cloud-admin-war</artifactId>
       <version>${org.exoplatform.cloud-management.version}</version>
       <type>war</type>
     </dependency>
-
     <dependency>
       <groupId>asm</groupId>
       <artifactId>asm</artifactId>
@@ -513,42 +510,17 @@
       <version>3.0.1</version>
       <type>jar</type>
     </dependency>
-    <!-- dependency>
+    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.0</version>
+      <version>${commons-io.version}</version>
     </dependency>
-    <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
-      <version>${commons-pool.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>${commons-dbcp.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
-      <type>jar</type>
-    </dependency -->
-
-    <!-- dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
-      <type>jar</type>
-    </dependency -->
-    
     <!--  for Cloud assembly -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.13</version>
     </dependency>
-
     <!-- for Cloud distro -->
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>

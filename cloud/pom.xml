@@ -10,6 +10,11 @@
   <artifactId>exo.platform.cloud</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Cloud</name>
+  <properties>
+    <!-- dependency versions used by eXo Cloud -->
+    <asm.version>3.2</asm.version>
+    <commons-io.version>2.0</commons-io.version>
+  </properties>
   <modules>
     <module>extension</module>
     <module>server</module>
