@@ -1,98 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
-  <!-- This is temporary workarouhnd for xCMSI 1.2. Component CmisRestApplication should be removed from xCMIS jar and be well configured in WCM -->
   <component>
-    <key>org.xcmis.restatom.CmisRestApplication</key>
-    <type>org.xcmis.restatom.CmisRestApplicationSingle</type>
+    <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
+    <type>org.exoplatform.services.cms.webdav.WebDavServiceImpl</type>
+    <init-params>
+
+      <!-- this parameter indicates the default login and password values
+         used as credentials for accessing the repository -->
+      <!-- value-param>
+        <name>default-identity</name>
+        <value>admin:admin</value>    
+      </value-param -->
+
+      <!-- this is the value of WWW-Authenticate header -->
+      <!-- 
+      <value-param>
+        <name>auth-header</name>
+        <value>Basic realm="eXo-Platform Webdav Server 1.6.1"</value>
+      </value-param>
+      -->
+
+      <!-- default node type which is used for the creation of collections -->
+      <value-param>
+        <name>def-folder-node-type</name>
+        <value>nt:folder</value>
+      </value-param>
+
+      <!-- default node type which is used for the creation of files -->
+      <value-param>
+        <name>def-file-node-type</name>
+        <value>nt:file</value>
+      </value-param>
+
+      <!-- if MimeTypeResolver can't find the required mime type, 
+            which conforms with the file extension, and the mimeType header is absent
+            in the HTTP request header, this parameter is used 
+            as the default mime type-->
+
+      <value-param>
+        <name>def-file-mimetype</name>
+        <value>application/octet-stream</value>
+      </value-param>
+
+      <!-- This parameter indicates one of the three cases when you update the content of the resource by PUT command.
+        In case of "create-version", PUT command creates the new version of the resource if this resource  exists.
+        In case of "replace" - if the resource  exists, PUT command updates the content of the resource and  its last modification date.
+        In case of "add", the PUT command tries to create the new resource with the same name (if the parent node allows same-name siblings).-->
+
+      <value-param>
+        <name>update-policy</name>
+        <value>create-version</value>
+        <!--value>replace</value -->
+        <!-- value>add</value -->
+      </value-param>
+
+      <!--
+        This parameter determines how service responds to a method that attempts to modify file content.
+        In case of "checkout-checkin" value, when a modification request is applied to a checked-in version-controlled resource, the request is  automatically preceded by a checkout and followed by a checkin operation.
+        In case of "checkout" value, when a modification request is applied to a checked-in version-controlled resource, the request is automatically preceded by a checkout operation.
+      -->
+      <value-param>
+        <name>auto-version</name>
+        <value>checkout-checkin</value>
+        <!--value>checkout</value -->
+      </value-param>
+
+      <!--
+        This parameter will define the path to the folder nodes icon.
+      -->
+      <value-param>
+        <name>folder-icon-path</name>
+        <value>/ecmexplorer/skin/icons/16x16/NodeTypes/DefaultSkin/nt-folder.gif</value>
+      </value-param>
+
+      <!--
+        This parameter is responsible for managing Cache-Control header value which will be returned to the client.
+        You can use patterns like "text/*", "image/*" or wildcard to define the type of content.
+       -->
+      <value-param>
+        <name>cache-control</name>
+        <value>${exo.webdav.cache-control}</value>
+      </value-param>
+    </init-params>
   </component>
-
-  <component>
-	  <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
-	  <type>org.exoplatform.services.cms.webdav.WebDavServiceImpl</type>
-  <init-params>
-
-    <!-- this parameter indicates the default login and password values
-         used as credentials for accessing the repository -->
-    <!-- value-param>
-      <name>default-identity</name>
-      <value>admin:admin</value>    
-    </value-param -->
-
-    <!-- this is the value of WWW-Authenticate header -->
- <!-- 
-    <value-param>
-      <name>auth-header</name>
-      <value>Basic realm="eXo-Platform Webdav Server 1.6.1"</value>
-    </value-param>
-    -->
-
-    <!-- default node type which is used for the creation of collections -->
-    <value-param>
-      <name>def-folder-node-type</name>
-      <value>nt:folder</value>
-    </value-param>
-
-    <!-- default node type which is used for the creation of files -->
-    <value-param>
-      <name>def-file-node-type</name>
-      <value>nt:file</value>
-    </value-param>
-
-    <!-- if MimeTypeResolver can't find the required mime type, 
-         which conforms with the file extension, and the mimeType header is absent
-         in the HTTP request header, this parameter is used 
-         as the default mime type-->
-    <value-param>
-      <name>def-file-mimetype</name>
-      <value>application/octet-stream</value>
-    </value-param>
-
-    <!-- This parameter indicates one of the three cases when you update the content of the resource by PUT command.
-         In case of "create-version", PUT command creates the new version of the resource if this resource  exists.
-         In case of "replace" - if the resource  exists, PUT command updates the content of the resource and  its last modification date.
-         In case of "add", the PUT command tries to create the new resource with the same name (if the parent node allows same-name siblings).-->
-
-    <value-param>
-      <name>update-policy</name>
-      <value>create-version</value>
-      <!--value>replace</value -->
-      <!-- value>add</value -->
-    </value-param>
-
-    <!--
-        This parameter determines how service responds to a method that attempts to modify file content.
-        In case of "checkout-checkin" value, when a modification request is applied to a checked-in version-controlled resource, the request is  automatically preceded by a checkout and followed by a checkin operation.
-        In case of "checkout" value, when a modification request is applied to a checked-in version-controlled resource, the request is automatically preceded by a checkout operation.
-    -->         
-    <value-param>
-      <name>auto-version</name>
-      <value>checkout-checkin</value>
-      <!--value>checkout</value -->
-    </value-param>
-
-    <!--
-        This parameter will define the path to the folder nodes icon.
-    --> 
-	<value-param>
-	      <name>folder-icon-path</name>
-	      <value>/ecmexplorer/skin/icons/16x16/NodeTypes/DefaultSkin/nt-folder.gif</value>
-   	</value-param>
-
-    <!--
-        This parameter is responsible for managing Cache-Control header value which will be returned to the client.
-        You can use patterns like "text/*", "image/*" or wildcard to define the type of content.
-    -->  
-    <value-param>
-      <name>cache-control</name>
-      <value>${exo.webdav.cache-control}</value>
-    </value-param>
-
-  </init-params>
-</component>
- 
 </configuration>
+
 
 
