@@ -16,6 +16,7 @@
 	                  tenantServicePath = accessUrl + "/public-tenant-service/";
 	                  infoServicePath =accessSecureUrl + "/info-service/";
 	                  refreshInterval = 10000;
+                          is_chrome  = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 	                  }
 	
 	
@@ -35,6 +36,7 @@
 	
                             if (auth == null) {
 	                    _gel('credentialForm').style.display = "";
+                             (is_chrome) ? gadgets.window.adjustHeight(500) :gadgets.window.adjustHeight();
                            } else {
                               tenants.getStatus();
                             }
@@ -71,7 +73,6 @@
                              _gel('messageString').style.display = "none";
    			     var data = gadgets.json.parse(resp.text);
 
-
                              for (var i = 0; i < data.length; i++) {
                                 var editedDocList = document.getElementById("list");
 				var doc = data[i];
@@ -99,10 +100,8 @@
 				AppClass.className = 'ItemIcon';
                                 editedDocList.style.display = "";
 				editedDocList.appendChild(AppClass);
-
                                }
-			
-				gadgets.window.adjustHeight();
+				(is_chrome) ? gadgets.window.adjustHeight(500) :gadgets.window.adjustHeight();
                            } 
 			}
                          
@@ -115,7 +114,7 @@
                            _gel('idForm').style.display = "none";
                            _gel("list").style.display = "none";
                            _gel('credentialForm').style.display = "none";
-                           gadgets.window.adjustHeight();
+                           (is_chrome) ? gadgets.window.adjustHeight(500) :gadgets.window.adjustHeight();
 			}
 
                          /* Showing form */
@@ -127,7 +126,7 @@
                            _gel("list").style.display = "none";
                           _gel('credentialForm').style.display = "none";
                           
-                           gadgets.window.adjustHeight();
+                           (is_chrome) ? gadgets.window.adjustHeight(350) :gadgets.window.adjustHeight();
 			}
 
                          /* Sending request */
@@ -168,7 +167,7 @@
                            _gel("t_submit").value="Submit";
                            _gel("t_name").value="";
                            _gel("t_email").value="";
-                           gadgets.window.adjustHeight();
+                           (is_chrome) ? gadgets.window.adjustHeight(500) :gadgets.window.adjustHeight();
 			}
 
                       Tenants.prototype.handleConfirmationResponse = function(resp) {
@@ -183,7 +182,7 @@
                            _gel("t_submitId").value="Submit";
                           _gel("t_id").value="";
       
-                           gadgets.window.adjustHeight();
+                          (is_chrome) ? gadgets.window.adjustHeight(350) :gadgets.window.adjustHeight();
 			}
 
                         var tenants = new Tenants();
