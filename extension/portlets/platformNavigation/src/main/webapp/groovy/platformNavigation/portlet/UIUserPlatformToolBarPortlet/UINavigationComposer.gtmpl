@@ -97,12 +97,25 @@
 			uinavigationComposer.composer.value = '$defaultInput';
 		}
 	  }
+	  function shareKeyPress(e) {
+		// look for window.event in case event isn't passed in
+		if (window.event) { e = window.event; }
+		if (e.keyCode == 13) {
+			//For enter.
+			try {
+				<%= uicomponent.event("PostMessage");%>;
+			} catch(e) {
+				alert(e);
+			};
+			refreshNavigation();
+		}
+	}	  
   </script>
   <% uiform.begin() %>
 		<div class="NavigationAvatar">
 	      <img src="<%= uicomponent.getAvatarURL() %>">
 	    </div>
-		<div class="NavigationComposer">
+		<div class="NavigationComposer" onkeypress="shareKeyPress(event);">
       		<% uicomponent.renderChild(UIFormTextAreaInput.class) %>
 	    </div>
 	<% uiform.end()%>
