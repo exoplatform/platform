@@ -96,7 +96,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/Powers</value>
+                <value>repository:collaboration:/sites content/live/acme/web contents</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

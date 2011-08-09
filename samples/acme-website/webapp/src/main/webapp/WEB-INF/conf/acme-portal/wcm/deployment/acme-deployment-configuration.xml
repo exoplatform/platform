@@ -526,7 +526,7 @@
           </object>
         </object-param>
         <object-param>
-          <name>ACME Powers data</name>
+          <name>ACME Powers Fire data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
             <field name="target">
@@ -540,7 +540,227 @@
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers.xml</string>
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Fire.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Flight data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Flight.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Healing data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Healing.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Ice data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Ice.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Immunity data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Immunity.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Invisibility data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Invisibility.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Night Vision data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Night Vision.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Speed data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Speed.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Time Travel data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Time Travel.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers Wind data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/Wind.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>             
+          </object>
+        </object-param>
+        <object-param>
+          <name>ACME Powers X-Ray data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/web contents</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/Powers/X-Ray.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
@@ -965,8 +1185,8 @@
             </field>
           </object>
         </object-param>
-		<!-- put "Powers" in categories -->
-		<!--object-param>
+        <!-- put "Powers" in categories -->
+        <!--object-param>
           <name>invisibilityDefense</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
@@ -978,7 +1198,7 @@
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>healingDefense</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
@@ -990,7 +1210,7 @@
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>immunityDefense</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
@@ -1002,132 +1222,132 @@
             </field>
           </object>
         </object-param-->
-		<object-param>
+        <object-param>
           <name>x-RayVision</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/X-Ray</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/X-Ray</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense/Vision</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>nightVision</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Night</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Night Vision</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Defense/Vision</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>fireAcme</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Fire</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Fire</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>fireNaturalElements</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Fire</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Fire</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Natural Elements</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>iceAcme</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Ice</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Ice</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>iceNaturalElements</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Ice</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Ice</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Natural Elements</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>windNaturalElements</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Wind</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Wind</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Natural Elements</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>speedMovement</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Speed</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Speed</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Movement</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>flightAcme</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Flight</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Flight</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>flightMovement</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Flight</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Flight</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Movement</string>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>timeTravelMovement</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.plugins.LinkDeploymentDescriptor">
             <field name="sourcePath">
-              <string>repository:collaboration:/sites content/live/acme/web contents/Powers/Time Travel</string>
+              <string>repository:collaboration:/sites content/live/acme/web contents/Time Travel</string>
             </field>
             <field name="targetPath">
               <string>repository:collaboration:/sites content/live/acme/categories/acme/Movement</string>
