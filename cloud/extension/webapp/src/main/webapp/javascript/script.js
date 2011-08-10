@@ -16,7 +16,7 @@
 	                  tenantServicePath = accessUrl + "/public-tenant-service/";
 	                  infoServicePath =accessSecureUrl + "/info-service/";
 	                  refreshInterval = 10000;
-                          is_chrome  = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+                          is_chrome  = (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 || navigator.userAgent.toLowerCase().indexOf('safari') > -1);
 	                  }
 	
 	
