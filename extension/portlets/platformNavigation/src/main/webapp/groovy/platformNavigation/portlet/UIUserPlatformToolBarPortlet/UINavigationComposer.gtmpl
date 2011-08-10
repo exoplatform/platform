@@ -21,21 +21,18 @@
 */
 %>
 <%
-  import org.exoplatform.webui.core.UIPopupWindow;
+  
   import org.exoplatform.webui.form.UIFormTextAreaInput;
   import org.exoplatform.social.webui.composer.UIComposer;
-  import org.exoplatform.social.webui.composer.UIActivityComposerContainer;
-  import org.exoplatform.social.webui.composer.UIDefaultActivityComposer;
   import org.exoplatform.social.core.service.LinkProvider;
 
   def requestContext = _ctx.getRequestContext();
 
   def jsManager = requestContext.getJavascriptManager();
   def defaultInput = _ctx.appRes("UIComposer.input.Write_Something");
-  def shareLabel = _ctx.appRes("UIComposer.label.Share");
 
   jsManager.importJavascript("eXo.social.Util", LinkProvider.JAVASCRIPT_RESOURCE_URL);
-  jsManager.importJavascript("eXo.social.webui.UIComposer", LinkProvider.JAVASCRIPT_RESOURCE_URL);
+  jsManager.importJavascript("eXo.social.webui.UINavigationComposer", "/eXoPlatformResources/javascript/");
   def params = """
     {
       composerId: '${uicomponent.getChild(UIFormTextAreaInput.class).getId()}',
@@ -81,7 +78,7 @@
 	    	uinavigationComposer.composer.style.color = uinavigationComposer.focusColor;
 			uinavigationComposer.composer.style.height = "50px";
 	    } else {
-	    	uinavigationComposer = new eXo.social.webui.UIComposer($params);
+	    	uinavigationComposer = new eXo.social.webui.UINavigationComposer($params);
 			uinavigationComposer.composer.style.height = "50px";
 	    }
 	  }
