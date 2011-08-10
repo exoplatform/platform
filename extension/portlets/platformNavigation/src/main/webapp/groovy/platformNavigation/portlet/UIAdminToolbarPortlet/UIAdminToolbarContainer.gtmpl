@@ -9,7 +9,7 @@
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.portal.UIPortalNavigation');
 	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
-	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '_UL");');
 
 	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
@@ -38,10 +38,12 @@
   	}
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
+	
+<div id="<%=uicomponent.getId()%>">
 <script type="text/javascript">
 	eXo.env.portal.QuickEdit = '<%=quickEdit%>' ;
 </script>
-<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="$uicomponent.id" >
+<ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="<%=uicomponent.getId()%>_UL">
 	<li class="UITab NormalToolbarTab">
 		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
 		<ul class="MenuItemContainer" style="display:none;">
@@ -104,4 +106,4 @@
 	</li>
 	<%uicomponent.renderChildren();%>
 </ul>
-
+</div>

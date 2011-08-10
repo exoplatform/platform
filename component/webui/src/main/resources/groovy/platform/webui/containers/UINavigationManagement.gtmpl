@@ -1,0 +1,30 @@
+<%  
+  import org.exoplatform.portal.webui.page.UIPageBrowser;
+  import org.exoplatform.platform.webui.navigation.UINavigationNodeSelector;
+%>
+<div class="UINavigationManagement" id="$uicomponent.id">
+	<div class="TopTitleBar">
+	  <div class="DecoratorBox">
+	    <div class="BarDecorator">
+	      <div class="TopLeftBar">
+	          <div class="TopCenterBar"><span></span></div>
+	      </div>
+	      <div class="MiddleLeftBar">
+	          <div class="MiddleCenterBar" style="background-image: none;">
+	          	<%= uicomponent.getSiteKey().getName();%>
+	          </div>
+	      </div>
+	      <div class="BottomLeftBar">
+	          <div class="BottomCenterBar"><span></span></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
+  <%
+  	uicomponent.renderChild(UINavigationNodeSelector.class);
+  %>
+  <div class="UIAction"> 
+    <a href="javascript:void(0);" onclick="<%=uicomponent.event("AddRootNode")%>" class="ActionButton LightBlueStyle"><%=_ctx.appRes(uicomponent.getId() + ".action.addNode")%></a>
+		<a href="javascript:void(0);" onclick="<%=uicomponent.event("Save")%>" class="ActionButton LightBlueStyle"><%=_ctx.appRes(uicomponent.getId() + ".action.Save")%></a>
+	</div>
+</div>

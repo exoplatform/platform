@@ -246,8 +246,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
 
       UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
       UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
-      naviManager.setOwner(edittedNavigation.getKey().getName());
-      naviManager.setOwnerType(edittedNavigation.getKey().getTypeName());
+      naviManager.setSiteKey(edittedNavigation.getKey());
       UserPortal userPortal = Util.getUIPortalApplication().getUserPortalConfig().getUserPortal();
       UINavigationNodeSelector selector = naviManager.getChild(UINavigationNodeSelector.class);
       selector.setEdittedNavigation(edittedNavigation);
@@ -270,8 +269,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       UIAdminToolbarContainer uiAdminToolbarContainer = uiPageNodeForm.getAncestorOfType(UIAdminToolbarContainer.class);
 
       UINavigationManagement navigationManager = uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
-      navigationManager.setOwner(contextNavigation.getKey().getName());
-      navigationManager.setOwnerType(contextNavigation.getKey().getName());
+      navigationManager.setSiteKey(contextNavigation.getKey());
 
       UINavigationNodeSelector selector = navigationManager.getChild(UINavigationNodeSelector.class);
       TreeNode selectedParent = (TreeNode) uiPageNodeForm.getSelectedParent();
