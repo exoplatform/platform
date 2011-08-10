@@ -10,7 +10,6 @@
 		}
 %>
 <div id="PlatformAdminToolbarContainer">
-	<div id="UIToolbarContainer" class="UIWorkingWorkspace">
 	<%
 		List<UIComponent> components = uicomponent.getChildren();
 		for (component in components) {
@@ -21,6 +20,5 @@
 			}
 		}
 	%>
-	</div>
 </div>
 <% } %>

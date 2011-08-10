@@ -312,7 +312,7 @@
 	height: 31px;
 }
 
-.UIToolbarContainer .SpacesToolbarPortletTDContainer {
+.UIToolbarContainer .SpacesToolbarPortletTDContainer,.UIToolbarContainer .GroupsToolbarPortletTDContainer  {
 	position:relative;
 	z-index:3;
 }
