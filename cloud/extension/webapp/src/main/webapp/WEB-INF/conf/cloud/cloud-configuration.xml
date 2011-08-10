@@ -317,6 +317,10 @@
         <name>bindings-store-path</name>
         <value>${tenant.jcr.data.dir}/bind-references.xml</value>
       </value-param>
+      <value-param>
+ 	<name>overload-context-factory</name>
+ 	<value>true</value>
+      </value-param>
     </init-params>
   </component>
 
