@@ -1,0 +1,61 @@
+<%
+  import org.exoplatform.wcm.webui.Utils;  
+  def rcontext = _ctx.getRequestContext();  
+  def jsManager = rcontext.getJavascriptManager();  
+%>
+<div class="$uicomponent.id">
+	<%uiform.begin()%>
+	<div class="HorizontalLayout">
+		<div class="FormContainer">
+			<table class="UIFormGrid">
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.DESCRIPTION) %></td>
+			    	<td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.DESCRIPTION) %></td>
+			    </tr>
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.KEYWORDS) %></td>
+			    	<td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.KEYWORDS) %></td>
+			    </tr>
+			    <%if(!uicomponent.getOnContent()) { 
+			        if(uicomponent.getIsInherited()) {%>
+			        <tr>
+			    	    <td class="FieldLabel"></td>
+			    	    <td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.ISINHERITED) %> <span style="vertical-align: middle;"><%=uicomponent.getLabel(uicomponent.ISINHERITED) %></span></td>
+			        </tr>
+			        <%}%>
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.ROBOTS) %></td>
+			    	<td class="FieldComponent"><% uiform.renderField(uicomponent.ROBOTS_INDEX) %></td>
+			    	<td class="FieldComponent"><% uiform.renderField(uicomponent.ROBOTS_FOLLOW) %></td>
+			    </tr>
+			    
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.SITEMAP) %></td>
+			    	<td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.SITEMAP) %> <span style="vertical-align: middle;"><%=uicomponent.getLabel(uicomponent.SITEMAP_VISIBLE) %></span></td>
+			    </tr>			    
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.FREQUENCY) %></td>
+			    	<td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.FREQUENCY) %></td>
+			    </tr>
+			    <tr>
+			    	<td class="FieldLabel"><%=uicomponent.getLabel(uicomponent.PRIORITY) %></td>
+			    	<td class="FieldComponent" colspan="2"><% uiform.renderField(uicomponent.PRIORITY) %></td>
+			    </tr>
+			    <script>
+			      priorityField = document.getElementById("priority");
+			      priorityField.onclick = function() { priorityField.value = ""; } ;
+			    </script>
+			    <%}%>			
+			</table>
+			<div class="UIActionSEO"> 				
+				<% for(action in uicomponent.getActions()) { 
+						 String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+						 String link = uicomponent.event(action);
+				%>							
+		 		  <a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle">$actionLabel</a>
+				<%}%>	
+			</div>
+		</div>
+	</div>
+	<%uiform.end()%>
+</div>

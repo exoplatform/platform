@@ -11,8 +11,61 @@
 			<Layout>Mise en page</Layout>
 			<ManagePages>Gestion des pages</ManagePages>
 		 	<GroupSite>Site de groupe</GroupSite>
+			<Properties>Propriétés</Properties>
 		</action>
 		<ManageSites>Gestion des sites</ManageSites>
 		<ManageGroupSites>Gestion des sites des groupes</ManageGroupSites>
    </UIAdminToolbarPortlet>
+  
+  <UISEOForm>
+    <label>	  
+      <description>Description: </description>
+      <keywords>Keywords: </keywords>
+      <language>Language: </language>
+      <robots>Robots: </robots>
+      <sitemap>Sitemap: </sitemap>
+      <sitemapvisible>Visible in sitemap</sitemapvisible>
+	  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority: </priority>
+      <frequency>Frequency: </frequency>  
+      <option>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Yearly</Yearly>
+        <Never>Never</Never>
+      </option> 
+    </label>
+    <tip>
+		<priority>Valid values range from 0.0 to 1.0</priority>
+	</tip>	 	  
+    <action>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
+    </action>
+    <msg>
+      <repository-exception>An unexpected error occurred! Cannot save page meta data.</repository-exception>	
+    </msg>
+	<help> 
+		<priority>The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites—it only lets the search engines know which pages you deem most important for the crawlers. The default priority of a page is 0.5.</priority>
+	</help>	  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  	<title>
+      <UISEOForm>SEO Management</UISEOForm>
+  	</title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  	<title>
+      <seo>SEO Management</seo>
+  	</title>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>The field Priority is invalid float number. Valid values range from 0.0 to 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
 </bundle>

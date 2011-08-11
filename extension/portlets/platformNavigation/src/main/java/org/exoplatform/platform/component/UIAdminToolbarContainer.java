@@ -19,10 +19,18 @@
 
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.UUID;
 
+import javax.jcr.Node;
+
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.platform.component.ecms.UISEOForm;
 import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.platform.webui.navigation.UINavigationManagement;
 import org.exoplatform.platform.webui.navigation.UINavigationNodeSelector;
@@ -39,6 +47,8 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.seo.PageMetadataModel;
+import org.exoplatform.services.seo.SEOService;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiApplication;
@@ -48,18 +58,20 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 @ComponentConfigs({
   @ComponentConfig(
       template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl",
       events = {
         @EventConfig(listeners = UIAdminToolbarContainer.ChangeEditingActionListener.class),
+        @EventConfig(listeners = UIAdminToolbarContainer.AddSEOActionListener.class),
         @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class)
       }
   ),
@@ -80,6 +92,14 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   private String userId = null;
   private Boolean hasManageGroupSitesPermission = null;
   private Boolean hasManageSitesPermission = null;
+  
+  /** The Constant SEO_POPUP_WINDOW. */
+  public static final String SEO_POPUP_WINDOW = "UISEOPopupWindow";
+  private static ArrayList<String> paramsArray = null;
+  //private static String pageParent = null;
+  private String pageReference = null;  
+  PageMetadataModel metaModel = null;
+  private String fullStatus = "Empty";
 
   public UIAdminToolbarContainer() throws Exception {
     PortalRequestContext context = Util.getPortalRequestContext();
@@ -87,6 +107,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     if (quickEdit == null) {
       context.getRequest().getSession().setAttribute(Utils.TURN_ON_QUICK_EDIT, false);
     }
+    addChild(UIPopupContainer.class, null, "UIPopupContainer-" + new Date().getTime());
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, null);
     editNavigation.setWindowSize(400, 400);
     editNavigation.setId(editNavigation.getId() + "-" + UUID.randomUUID().toString().replaceAll("-", ""));
@@ -187,6 +208,70 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       super.processRender(app, context);
     }
   }
+  
+  public String getFullStatus() throws Exception {
+    PortalRequestContext pcontext = Util.getPortalRequestContext();
+    String portalName = pcontext.getPortalOwner();
+    metaModel = null;
+    if (!pcontext.useAjax()) {
+      fullStatus = "Empty";
+      paramsArray = null;
+      String contentParam = null;
+        Enumeration params = pcontext.getRequest().getParameterNames();   
+        if(params.hasMoreElements()) {
+          paramsArray = new ArrayList<String>();
+          while(params.hasMoreElements()) {
+            contentParam = params.nextElement().toString(); 
+            paramsArray.add(pcontext.getRequestParameter(contentParam));          
+          }
+        } 
+    }    
+    ExoContainer container = ExoContainerContext.getCurrentContainer() ;
+    SEOService seoService = (SEOService)container.getComponentInstanceOfType(SEOService.class);
+    pageReference = Util.getUIPortal().getSelectedUserNode().getPageRef();
+    
+    if(pageReference != null) {
+      SiteKey siteKey = Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
+      SiteKey portalKey = SiteKey.portal(portalName);
+      if(siteKey != null && siteKey.equals(portalKey)) {
+        metaModel = seoService.getPageMetadata(pageReference);
+        //pageParent = Util.getUIPortal().getSelectedUserNode().getParent().getPageRef();
+        if(paramsArray != null) {
+          PageMetadataModel tmpModel = seoService.getContentMetadata(paramsArray);
+          if(tmpModel != null) {
+            metaModel = tmpModel;
+          } else {
+            for(int i = 0;i < paramsArray.size();i++) {
+              if(seoService.getContentNode(paramsArray.get(i).toString()) != null ) {
+                metaModel = null;
+                break;
+              }
+            }
+          }
+        }
+      }
+      else fullStatus = "Disabled";
+    }
+    
+    /*if(paramsArray != null) {
+      onContent = true;
+      metaModel = seoService.getContentMetadata(paramsArray);
+    }
+    else {
+      onContent = false;
+      pageReference = Util.getUIPortal().getSelectedUserNode().getPageRef(); 
+      SiteKey siteKey = Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
+      SiteKey portalKey = SiteKey.portal(portalName);
+      if(siteKey != null && siteKey.equals(portalKey)) metaModel = seoService.getPageMetadata(pageReference);
+      else fullStatus = "Disabled";
+    }*/
+    
+    if(metaModel != null){
+      fullStatus = metaModel.getFullStatus(); 
+    }
+
+    return this.fullStatus;
+  }  
 
   public static class ChangeEditingActionListener extends EventListener<UIAdminToolbarContainer> {
 
@@ -207,6 +292,28 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
   }
 
+  public static class AddSEOActionListener extends EventListener<UIAdminToolbarContainer> {
+    public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
+      UIAdminToolbarContainer uiAdminToolbar = event.getSource();
+      UISEOForm uiSEOForm = uiAdminToolbar.createUIComponent(UISEOForm.class, null, null);
+      ExoContainer container = ExoContainerContext.getCurrentContainer() ;
+      SEOService seoService = (SEOService)container.getComponentInstanceOfType(SEOService.class);
+      if(paramsArray != null) {
+        for(int i = 0;i < paramsArray.size();i++) {
+          Node contentNode = seoService.getContentNode(paramsArray.get(i).toString());
+          if(contentNode != null) {
+            uiSEOForm.setOnContent(true);
+            break;
+          }
+        }
+      } else uiSEOForm.setOnContent(false);
+      uiSEOForm.setParamsArray(paramsArray);
+      //uiSEOForm.setPageParent(uiAdminToolbar.pageParent);
+      uiSEOForm.initSEOForm(uiAdminToolbar.metaModel);
+      Utils.createPopupWindow(uiAdminToolbar, uiSEOForm, SEO_POPUP_WINDOW, 400);   
+    }
+  }
+  
   static public class EditNavigationActionListener extends EventListener<UIAdminToolbarContainer> {
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       UIAdminToolbarContainer uicomp = event.getSource();

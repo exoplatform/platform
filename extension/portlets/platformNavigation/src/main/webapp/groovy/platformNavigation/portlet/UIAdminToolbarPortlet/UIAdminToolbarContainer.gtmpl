@@ -36,12 +36,26 @@
   	if(displayManageGroupSitesPermission) {
   	  siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.GroupSite");
   	}
+  	
+	def fullStatus = uicomponent.getFullStatus();	
+	def seo_icon = fullStatus + ".png";
+	def seo_title = (String)_ctx.appRes("UISEOToolbarForm.title.seo");
+	def style = "Enable";
+	if(fullStatus.equals("Disabled")) style = "Disable";
+	
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 	
 <div id="<%=uicomponent.getId()%>">
 <script type="text/javascript">
 	eXo.env.portal.QuickEdit = '<%=quickEdit%>' ;
+  function openSEOForm(event, command) {
+    var evt = event || window.event;
+    var mouse_cordinate = evt.clientY + "," + evt.clientX; 
+    command = command.replace('str', mouse_cordinate);
+    command = command.replace(/~/g,"'");
+    eval(command);
+  }	
 </script>
 <ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="<%=uicomponent.getId()%>_UL">
 	<li class="UITab NormalToolbarTab">
@@ -57,6 +71,15 @@
 					<li class="MenuItem">
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 					</li>
+					<li class="MenuItem">					
+						<%if(fullStatus.equals("Disabled")) {%>
+							<a class="<%=style%>" title="<%=seo_title%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/seo/skin/webui/seo/DefaultSkin/icons/${seo_icon}"></a>
+							<%} else {
+								def onclickURL = "openSEOForm(event, '" + uicomponent.event("AddSEO","str").replace("'","~") + "')";
+							%>	
+								<a class="<%=style%>" title="<%=seo_title%>" onclick="<%=onclickURL%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/seo/skin/webui/seo/DefaultSkin/icons/${seo_icon}"></a>
+							<%}%>
+					</li>	  				
 					<hr width="100%" style="width:100%; color: #999999;" />
 					<li class="MenuItem">	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">
