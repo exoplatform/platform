@@ -1,7 +1,7 @@
 
-h1. eXo Configuration {anchor:id=ADM.Configuration.eXo_Configuration}
+h1. eXo Platform Configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 
-In eXo platform, the configuration is in a folder whose location is controlled by a system property named {{exo.conf.dir}}. By default, the {{gatein.sh}} startup script sets this property as follows :
+In eXo Platform, the configuration is performed in a folder whose location is controlled by a system property named exo.conf.dir. By default, the gatein.sh startup script sets this property as follows:
 {code}
 -Dexo.conf.dir.name=gatein/conf
 {code}
@@ -482,8 +482,16 @@ In order to run properly the chat server needs several ports to be opened in the
 | 9090 && 9091 | Admin Console (http) | The port used for respectively the unsecured and secured Openfire Admin Console access. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities when behind a NAT. |
 
+h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
 
-h1. Logging {anchor:id=ADM.Configuration.Logging}
+eXo Platform allows users to view documents of various types directly on the content explorer through the OpenOffice server. For rendering MS Office files and Open Office files in eXo Platform, JODConverter is used to convert these types to PDF then eXo Platform will render these PDF files. 
+To use this feature, OpenOffice service should be available on your local device first. Next, start the OpenOffice server by running the command below:
+
+{screen}soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard{screen}
+
+Please refer to: [http://www.artofsolving.com|http://www.artofsolving.com] for using JODCONVERTER.
+
+h1. Log-in {anchor:id=ADM.Configuration.Logging}
 
 Logging in eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
 
