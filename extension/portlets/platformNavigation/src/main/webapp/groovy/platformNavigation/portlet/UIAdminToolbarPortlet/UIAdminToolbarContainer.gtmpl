@@ -73,11 +73,11 @@
 					</li>
 					<li class="MenuItem">					
 						<%if(fullStatus.equals("Disabled")) {%>
-							<a class="<%=style%>" title="<%=seo_title%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/seo/skin/webui/seo/DefaultSkin/icons/${seo_icon}"></a>
+							<a class="<%=style%>" title="<%=seo_title%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}"></a>
 							<%} else {
 								def onclickURL = "openSEOForm(event, '" + uicomponent.event("AddSEO","str").replace("'","~") + "')";
 							%>	
-								<a class="<%=style%>" title="<%=seo_title%>" onclick="<%=onclickURL%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/seo/skin/webui/seo/DefaultSkin/icons/${seo_icon}"></a>
+								<a class="<%=style%>" title="<%=seo_title%>" onclick="<%=onclickURL%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%>&nbsp;<img src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}"></a>
 							<%}%>
 					</li>	  				
 					<hr width="100%" style="width:100%; color: #999999;" />
