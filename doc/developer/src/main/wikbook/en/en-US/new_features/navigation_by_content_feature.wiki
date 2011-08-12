@@ -1,3 +1,17 @@
+This chapter presents one new feature of eXo Platform 3.5, so-called Navigation By Content. With this function, users can easily browse content of each page. To make easy for readers, this chapter is divided into the following topics:
+
+[Why to use a navigation by content|#DEV.NewFeatures.NavigationByContent.whyUseNavigationByContent]
+
+[Actual content navigation|#DEV.NewFeatures.NavigationByContent.ContentNavigation]
+
+[How to|#DEV.NewFeatures.NavigationByContent.Howto]
+
+[ Use it|#DEV.NewFeatures.NavigationByContent.UseIt]
+
+* [How to create a new product |#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct]
+
+* [Product content development|#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.ProductContentDev]
+
 
 h1. Why to use a navigation by content   {anchor:id=DEV.NewFeatures.NavigationByContent.whyUseNavigationByContent}
 

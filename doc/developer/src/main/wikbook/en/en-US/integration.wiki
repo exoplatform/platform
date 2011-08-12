@@ -1,4 +1,28 @@
-This chapter will help you integrate eXo Platform 3.5 to your information system.
+This chapter will show you how to integrate eXo Platform 3.5 into your information system through the specific topics below:
+
+[Authentication|#DEV.SystemIntegration.Authentication]
+
+* [Single-Sign-On (SSO)|#DEV.SystemIntegration.SingleSignON]
+
+* [Kerberos SSO on Active Directory|#DEV.SystemIntegration.KerberosSSOOnActiveDirectory]
+
+[Users integration|#DEV.SystemIntegration.UserIntergration]
+
+* [Organization Service|#DEV.SystemIntegration.OrganizationService]
+
+* [Memberships, Groups and Users|#DEV.SystemIntegration.MembershipsGroupsAndUsers]
+
+* [Organization API|#DEV.SystemIntegration.OrganizationAPI]
+
+[LDAP Integration |#DEV.SystemIntegration.LDAPIntergration]
+
+* [Connection Settings|#DEV.SystemIntegration.ConnectionSettings]
+
+* [Active Directory sample configuration |#DEV.SystemIntegration.ActiveDirectorySampleConfiguration]
+
+* [Active Directory sample configuration |#DEV.SystemIntegration.ActiveDirectorySampleConfiguration]
+
+[Email|#DEV.SystemIntegration.Email]
 
 h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 
@@ -582,7 +606,7 @@ You will need the following parameters:
 * *profileLDAPClasses*: Classes used to when creating user profiles
 
 h2. Active Directory sample configuration {anchor:id=DEV.SystemIntegration.ActiveDirectorySampleConfiguration}
-Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*. 
+Here is an alternative configuration for active directory that you can find in *activedirectory-configuration.xml*.
 
 {code:xml}
 [...]

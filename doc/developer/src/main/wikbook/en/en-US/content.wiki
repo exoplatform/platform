@@ -1,3 +1,15 @@
+This chapter presents the issues related to the content in eXo Platform and you can know how to work with the content via the following topics:
+
+[Document types|#DEV.WorkWithContent.DocumentTypes]
+
+[WCM templates|#DEV.WorkWithContent.WCMTemplates]
+
+[Document type|#DEV.WorkWithContent.DocumentType]
+
+[Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
+
+[Taxonomies|#DEV.WorkWithContent.Taxonomies]
+
 
 h1. Document types {anchor:id=DEV.WorkWithContent.DocumentTypes}
 

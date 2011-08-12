@@ -1,6 +1,12 @@
 eXo Platform is a fully supported and commercially licensed product based on eXo open source projects. Designed for use purposes of enterprises, it has been packaged and tested to optimize production readiness and administration.
 
-eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applications servers, and can be used with most relational database systems, including MySQL and Oracle. 
+eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applications servers, and can be used with most relational database systems, including MySQL and Oracle.
+
+This chapter aims at giving you a comprehensive overview about eXo Platform via the following topics:
+
+[Welcome to eXo Platform|#DEV.Introduction.Welcome]
+
+[Who should read this guide?|#DEV.Introduction.IntendedReader]
 
 h1. Welcome to eXo Platform {anchor:id=DEV.Introduction.Welcome}
 

@@ -1,11 +1,35 @@
-h1. Overview of architecture {anchor:id=DEV.eXoArchitecturePremer.Overview}
+With the aim of helping readers further understand about eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more, this chapter is divided into 3 main sections with their sub-topics as follows:
+
+The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part will show you the following main contents:
+
+* [Containers|#DEV.eXoArchitecturePremer.Containers]
+
+* [Services|#DEV.eXoArchitecturePremer.Services]
+
+* [Service configuration|#DEV.eXoArchitecturePremer.ServiceConfiguration]
+
+* [Plugins|#DEV.eXoArchitecturePremer.Plugins]
+
+* [Configuration loading sequence|#ADM.eXoArchitecturePremer.ConfigureLoadingSequence]
+
+The *[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]* part will show you the following main contents:
+
+* [Default Portal Container|#DEV.eXoArchitecturePremer.defaultPortalContainer]
+
+* [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension]
+
+The *[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]* part will show you the following main contents:
+
+* [Repositories and workspaces|#DEV.eXoArchitecturePremer.Repositories&Workspaces]
+
+* [Tree structure: working with nodes and properties|#DEV.eXoArchitecturePremer.WorkingWithNodes&Properties]
 
 h1. Kernel {anchor:id=DEV.eXoArchitecturePremer.Kernel}
 
 All eXo Platform services are built around the eXo Kernel, or the service management layer, which manages the configuration and the execution of all components.
 The main kernel object is the eXo Container, a micro-container that glues services together through the dependency injection. The container is responsible for loading services/components.
 
-This chapter introduces concepts of Container and Services with an overview before configuring basic services.
+This part introduces concepts of Container and Services with an overview before configuring basic services.
 
 h2. Containers {anchor:id=DEV.eXoArchitecturePremer.Containers}
 
@@ -254,7 +278,6 @@ The loading sequence involves loading successively configurations for the RootCo
 {note}
 
 h1. GateIn extensions {anchor:id=DEV.eXoArchitecturePremer.GateInExtensions}
-
 GateIn extensions are special *.war* files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer. To create your own portal, you will have to create a GateIn extension.
 
 The extension mechanism makes possible to extend or even override portal resources in almost plug-and-play way. You simply add a *.war* archive with your custom resources to the war folder and edit the configuration of the PortalContainerConfig service. Customizing a portal does not involve unpacking and repacking the original portal *.war* archives. Instead, you need to create your own *.war* archive with your own configurations, and modify resources. The content of your custom *.war* archive overrides the resources in the original archives.

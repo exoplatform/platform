@@ -1,5 +1,21 @@
 
-eXo Platform comes with a set of APIs to help you build your own applications from eXo services.
+This chapter presents the information about APIs that help you build your own applications from eXo services via the following topics:
+
+[Definitions of API Levels|#DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels]
+
+* [Use Provisional or Experimental APIs|#DEV.eXoPlatformSupportedAPIs.UseProvisionalOrExperimentalAPIs]
+
+[Platform APIs|#DEV.eXoPlatformSupportedAPIs.PlatformAPIs]
+
+* [Java APIs|#DEV.eXoPlatformSupportedAPIs.JavaAPIs]
+
+* [JavaScript APIs|#DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs]
+
+* [Web Services|#DEV.eXoPlatformSupportedAPIs.WebServices]
+
+[Provisional APIs|#DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs}]
+
+* [Java APIs|#DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs]
 
 h2. Definitions of API Levels {anchor:id=DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels}
 

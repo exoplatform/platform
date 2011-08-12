@@ -1,3 +1,16 @@
+Applications play an important role in each eXo service and so it is necessary for you to further understand about them.
+
+This chapter will help you know how to integrate an application into your portal and how to develop your own application:
+
+[Application integration|#DEV.WorkWithApplications.ApplicationIntergration]
+
+[Develop your own applications|#DEV.WorkWithApplications.DevelopeYourOwnApplications]
+
+* [Gadget vs Portlet|#DEV.WorkWithContent.GadgetvsPortlet]
+
+* [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
+
+* [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
 
 h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationIntergration}
 

@@ -1,4 +1,3 @@
-
 h1. Navigation by content {anchor:id=DEV.Cookbook.NavigationByContent}
 {include:document=new_features/navigation_by_content_feature.wiki|syntax=confluence/1.0}
 

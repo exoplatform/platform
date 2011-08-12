@@ -1,6 +1,29 @@
 When working with eXo Platform, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
 To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
 
+This chapter will show you how to create a portal via the following topics:
+
+[Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+
+[Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+
+[Add/remove languages|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+
+[Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+
+* [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
+
+* [Configure skin in GateIn|#DEV.CreateYourOwnPortal.ConfigureSkinInGatein]
+
+* [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
+
+* [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
+
+* [How to customize the Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
+
+[Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+
+
 h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
 
 A custom extension contains two mandatory items:
