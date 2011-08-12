@@ -26,6 +26,7 @@
   import org.exoplatform.portal.webui.util.Util;
   import org.exoplatform.portal.mop.Visibility;
   import org.exoplatform.webui.organization.OrganizationUtils;
+  import org.exoplatform.platform.webui.NavigationURLUtils;
   
   import java.util.Collection;
 
@@ -41,9 +42,9 @@
   jsManager.importJavascript('eXo.portal.UIPortalNavigation');
   jsManager.importJavascript('eXo.portal.UIAdminToolbar');
   jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
-  def portalURI = Util.getPortalRequestContext().getPortalURI();
-  def spacesLink = portalURI + "spaces";
-  def findSpacesLink = portalURI + "publicSpace";
+
+  def spacesLink = NavigationURLUtils.getURLInCurrentPortal("spaces");
+  def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("publicSpace");
   boolean hasPermission = uicomponent.hasPermission();
 
   void renderPageNode(UserNode node, boolean flag) {
@@ -58,7 +59,7 @@
     def hasChild = node.getChildrenCount() > 0;
     def clazz = "";
     if(hasChild) clazz = "ArrowIcon";
-    def href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+    def href = NavigationURLUtils.getURL(node);
     def icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
     def toolong = (node.resolvedLabel.length() > 60);
@@ -128,7 +129,7 @@
 		boolean hasChild = node.getChildrenCount() > 0;
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
-		String	href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+		String	href = NavigationURLUtils.getURL(node);
 
 		String icon = node.getIcon();
 		if(icon == null) icon = "DefaultPageIcon";

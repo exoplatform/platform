@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class)
 public class UIAdminToolbarPortlet extends UIPortletApplication {
+
   public UIAdminToolbarPortlet() throws Exception {
     addChild(UIAdminToolbarContainer.class, null, null);
   }

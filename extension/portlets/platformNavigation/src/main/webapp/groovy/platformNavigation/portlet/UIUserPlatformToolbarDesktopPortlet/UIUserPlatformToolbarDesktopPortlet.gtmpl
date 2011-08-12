@@ -6,6 +6,7 @@
 	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.webos.webui.page.UIDesktopPage;
 	import org.exoplatform.webui.organization.OrganizationUtils;
+	import org.exoplatform.platform.webui.NavigationURLUtils;
     
 	import java.util.Collection;
     
@@ -18,7 +19,6 @@
 	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
 	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
-	def portalURI = Util.getPortalRequestContext().getPortalURI();
 	void renderDashboards(Collection nodes){
 		String clazz = "";
 
@@ -45,7 +45,7 @@
 		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
-		String href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+		String href = NavigationURLUtils.getURL(node);
 		String icon = node.getIcon();
 		if(icon == null) icon = "DefaultPageIcon";
 		def resolvedLabel = node.getResolvedLabel();
@@ -101,13 +101,13 @@
     String dashboardLink;
     String desktopLink;
     if (uicomponent.hasDashboardNode()) {
-       dashboardLink = portalURI + uicomponent.getDashboardURI();
+       dashboardLink = uicomponent.getDashboardURL();
     } else {
        dashboardLink = uicomponent.url("AddDefaultDashboard", uicomponent.DEFAULT_TAB_NAME);
     }
     
     if (uicomponent.isWebOSCreated()) {
-       desktopLink = portalURI + UIDesktopPage.NODE_NAME;
+       desktopLink = NavigationURLUtils.getURLInCurrentPortal(UIDesktopPage.NODE_NAME);
     } else {
        desktopLink = uicomponent.url("CreateWebOS");
     }

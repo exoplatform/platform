@@ -25,6 +25,7 @@
   import org.exoplatform.portal.config.model.PageNode;
   import org.exoplatform.portal.webui.util.Util;
   import org.exoplatform.webui.organization.OrganizationUtils;
+  import org.exoplatform.platform.webui.NavigationURLUtils;
   
   
   def rcontext = _ctx.getRequestContext();
@@ -32,8 +33,8 @@
   jsManager.importJavascript('eXo.portal.UIPortalNavigation');
   jsManager.importJavascript('eXo.portal.UIAdminToolbar');
   jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
-  def portalURI = Util.getPortalRequestContext().getPortalURI();
-  def spacesLink = portalURI + "spaces";
+
+  def spacesLink = NavigationURLUtils.getURLInCurrentPortal("spaces");
   def spaceNavigations = uicomponent.getSpaceNavigations();
   
   void renderSpacePageNavigation(PageNavigation navigation) {
@@ -47,13 +48,13 @@
   void renderPageNode(PageNode node, boolean flag) {
     PageNode selectedNode = uicomponent.getSelectedPageNode();
     def tabStyleNavigation = "";
-    if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+    if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
       tabStyleNavigation = "SelectedItem";
     }
     def hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
     def clazz = "";
     if(hasChild) clazz = "ArrowIcon";
-    def href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+    def href = NavigationURLUtils.getURL(node);
     def icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
     def toolong = (node.resolvedLabel.length() > 60);
@@ -97,7 +98,7 @@
 					 def pageNodes = nav.getNodes();
 				
 					 for(PageNode node in pageNodes) {
-					 if (node.getUri() == "spaces") {
+					 if (node.getURI() == "spaces") {
 			        return true;
 			       }
 					  }

@@ -3,6 +3,7 @@
 	import org.exoplatform.portal.webui.util.Util ;
 	import org.exoplatform.wcm.webui.Utils;
 	import org.exoplatform.portal.application.PortalRequestContext ;
+	import org.exoplatform.platform.webui.NavigationURLUtils;
 
 	def rcontext = _ctx.getRequestContext();
 
@@ -17,7 +18,6 @@
 	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
-	String portalURI = Util.getPortalRequestContext().getPortalURI();
 
 	String quiEditClass = "QuickEditUnchecked";
 	PortalRequestContext context = Util.getPortalRequestContext();
@@ -90,7 +90,7 @@
 					</li>
 					<% if(uicomponent.hasManagePagesPermission()){ %>
 					<li class="MenuItem">   
-						<a href="<%= portalURI + "administration/pageManagement" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
+						<a href="<%= uicomponent.getPageManagementLink()%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
 					</li>
 					<% } %>
 				</ul>
@@ -113,13 +113,13 @@
 					<% if(displayManageSitesPermission){ %>
 					<hr width="100%" style="width:100%; color: #999999;" />
 					<li class="MenuItem">   
-						<a class="ManageSite" href="<%= portalURI + "portalnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
+						<a class="ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("portalnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
 					</li>               
 					<% } %>
 					<% if(displayManageGroupSitesPermission){ %>
 					<hr width="100%" style="width:100%; color: #999999;" />
 					<li class="MenuItem">   
-						<a class="ManageSite" href="<%= portalURI + "groupnavigation" %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
+						<a class="ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
 					</li>               
 					<% } %>
 				</ul>

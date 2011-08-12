@@ -39,6 +39,8 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.web.url.navigation.NavigationResource;
+import org.exoplatform.web.url.navigation.NodeURL;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -70,8 +72,10 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-//        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
-        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(), PortalRequestContext.USER_PORTAL_CONTEXT);
+        // UserPortalConfig portalConfig =
+        // dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(),
+            PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig())) {
           allowedPortalList.add(portalName);
         } else {
@@ -96,8 +100,10 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-//        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser());
-        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(), PortalRequestContext.USER_PORTAL_CONTEXT);
+        // UserPortalConfig portalConfig =
+        // dataStorage.getUserPortalConfig(portalName, getRemoteUser());
+        UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(),
+            PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null) {
           allowedPortalList.add(portalName);
         } else {
@@ -119,12 +125,14 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
   }
 
   public String getPortalURI(String portalName) {
-    return Util.getPortalRequestContext().getPortalURI().replace(getCurrentPortal(), portalName);
+    NodeURL url = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
+    url.setResource(new NavigationResource(portalName));
+    return url.toString();
   }
 
   public UserNavigation getCurrentPortalNavigation() throws Exception {
     return getNavigation(SiteKey.portal(getCurrentPortal()));
-  
+
   }
 
   private String getRemoteUser() {
@@ -134,33 +142,27 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
   public UserNode getSelectedPageNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
-  
+
   private UserPortal getUserPortal() {
     UIPortalApplication uiApp = Util.getUIPortalApplication();
     return uiApp.getUserPortalConfig().getUserPortal();
- }
-
-  private UserNavigation getNavigation(SiteKey userKey)
-  {
-     UserPortal userPortal = getUserPortal();
-     return userPortal.getNavigation(userKey);
   }
-  
-  public Collection<UserNode> getUserNodes(UserNavigation nav)
-  {
-     UserPortal userPortall = getUserPortal();
-     if (nav != null)
-     {
-        try
-        {
-           UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
-           return rootNode.getChildren();
-        }
-        catch (Exception exp)
-        {
-           log.warn(nav.getKey().getName() + " has been deleted");
-        }
-     }
-     return Collections.emptyList();
+
+  private UserNavigation getNavigation(SiteKey userKey) {
+    UserPortal userPortal = getUserPortal();
+    return userPortal.getNavigation(userKey);
+  }
+
+  public Collection<UserNode> getUserNodes(UserNavigation nav) {
+    UserPortal userPortall = getUserPortal();
+    if (nav != null) {
+      try {
+        UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
+        return rootNode.getChildren();
+      } catch (Exception exp) {
+        log.warn(nav.getKey().getName() + " has been deleted");
+      }
+    }
+    return Collections.emptyList();
   }
 }

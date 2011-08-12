@@ -1,8 +1,8 @@
 <%
-	import org.exoplatform.portal.webui.util.Util ;
+	import org.exoplatform.platform.webui.NavigationURLUtils;
 %>
 <div id="<%=uicomponent.id%>">
-	<a href="<%=Util.getPortalRequestContext().getPortalURI()%>" class="HomeLink">
+	<a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
 		<img src="/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png" style="margin-bottom:5px;"/>
 	</a>
 </div>

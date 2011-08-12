@@ -40,16 +40,17 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.input.UICheckBoxInput;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.input.UICheckBoxInput;
 
 /**
- * Created by The eXo Platform SAS Author : eXoPlatform exo@exoplatform.com Jun 17, 2011
+ * Created by The eXo Platform SAS Author : eXoPlatform exo@exoplatform.com
+ * Jun 17, 2011
  */
 @ComponentConfig(lifecycle = UIFormLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UISEOForm.gtmpl", events = {
     @EventConfig(listeners = UISEOForm.SaveActionListener.class),
@@ -118,7 +119,10 @@ public class UISEOForm extends UIForm {
   }
 
   /*
-   * public String getPageParent() { if(pageParent != null && pageParent.length() > 0) return pageParent.trim(); return pageParent; } public void setPageParent(String pageParent) { this.pageParent = pageParent; }
+   * public String getPageParent() { if(pageParent != null &&
+   * pageParent.length() > 0) return pageParent.trim(); return pageParent;
+   * } public void setPageParent(String pageParent) { this.pageParent =
+   * pageParent; }
    */
 
   public UISEOForm() throws Exception {
@@ -153,7 +157,12 @@ public class UISEOForm extends UIForm {
 
     if (!onContent) {
       /*
-       * if(pageParent != null) { if(seoService.getPageMetadata(pageParent) != null && pageModel == null) { setIsInherited(true); UIFormCheckBoxInput<Boolean> isInherited = new UIFormCheckBoxInput<Boolean>(ISINHERITED, ISINHERITED, null); isInherited.setChecked(inherited); addUIFormInput(isInherited); } }
+       * if(pageParent != null) { if(seoService.getPageMetadata(pageParent)
+       * != null && pageModel == null) { setIsInherited(true);
+       * UIFormCheckBoxInput<Boolean> isInherited = new
+       * UIFormCheckBoxInput<Boolean>(ISINHERITED, ISINHERITED, null);
+       * isInherited.setChecked(inherited); addUIFormInput(isInherited); }
+       * }
        */
       List<SelectItemOption<String>> robotIndexItemOptions = new ArrayList<SelectItemOption<String>>();
       String robotsindexOptions = seoService.getRobotsIndexOptions();
@@ -187,7 +196,7 @@ public class UISEOForm extends UIForm {
         robots_follow.setValue(ROBOTS_FOLLOW);
       addUIFormInput(robots_follow);
 
-      UICheckBoxInput visibleSitemapCheckbox = new UICheckBoxInput (SITEMAP, SITEMAP, null);
+      UICheckBoxInput visibleSitemapCheckbox = new UICheckBoxInput(SITEMAP, SITEMAP, null);
       visibleSitemapCheckbox.setChecked(sitemap);
       addUIFormInput(visibleSitemapCheckbox);
 
@@ -259,7 +268,9 @@ public class UISEOForm extends UIForm {
             fullStatus = "Partial";
           metaModel.setFullStatus(fullStatus);
           /*
-           * if(uiForm.isInherited) { if(uiForm.getUIFormCheckBoxInput(ISINHERITED).isChecked()) metaModel.setPageParent(uiForm.pageParent); }
+           * if(uiForm.isInherited) {
+           * if(uiForm.getUIFormCheckBoxInput(ISINHERITED).isChecked())
+           * metaModel.setPageParent(uiForm.pageParent); }
            */
 
           SEOService seoService = uiForm.getApplicationComponent(SEOService.class);

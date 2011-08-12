@@ -7,6 +7,7 @@
 	import org.exoplatform.portal.webui.util.Util ;
 	import org.exoplatform.webui.organization.OrganizationUtils;
 	import org.gatein.common.text.EntityEncoder;
+	import org.exoplatform.platform.webui.NavigationURLUtils;
 	
 	def rcontext = _ctx.getRequestContext() ;
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -14,7 +15,6 @@
 	jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
 	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 	
-	def portalURI = Util.getPortalRequestContext().getPortalURI();
 	List allPortalNames = uicomponent.getAllPortalNames();
 	boolean hasPermission = uicomponent.hasEditOrCreatePortalPermission();
 	void renderPortalNavigations(List allPortalNames, boolean hasPermission) {
@@ -33,7 +33,7 @@
 			 	} else isCurrent = false;
 				if(isCurrent) clazz = "ArrowIcon";
 				else clazz = "";
-				href = uicomponent.getPortalURI(portal);
+				href = NavigationURLUtils.getCurrentPortalURL();
                 EntityEncoder entityEncoder = EntityEncoder.FULL;
 				portal = entityEncoder.encode(portal);
 				print """
@@ -76,7 +76,7 @@
 		boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
-		String	href = Util.getPortalRequestContext().getPortalURI() + node.getURI();
+		String	href = NavigationURLUtils.getURL(node);
 		String icon = node.getIcon();
 		if(icon == null) icon = "DefaultPageIcon";
 		boolean toolong = (node.resolvedLabel.length() > 60);

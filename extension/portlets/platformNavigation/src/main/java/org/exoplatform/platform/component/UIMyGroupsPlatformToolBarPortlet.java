@@ -31,32 +31,36 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
   public UIMyGroupsPlatformToolBarPortlet() throws Exception {
     organizationService = getApplicationComponent(OrganizationService.class);
     UserACL userACL = getApplicationComponent(UserACL.class);
-    //groupNavigationPermitted is set to true if the user is the super user or have the administration rights
+    // groupNavigationPermitted is set to true if the user is the super
+    // user or have the administration rights
     if (getUserId().equals(userACL.getSuperUser())) {
       groupNavigationPermitted = true;
     } else {
       Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
       for (Object object : memberships) {
         Membership membership = (Membership) object;
-        //groupNavigationPermitted is set to true if the user is a manager of group != spaces
-        if (membership.getMembershipType().equals(userACL.getAdminMSType()) && membership.getGroupId().indexOf("spaces") < 0 ) {
+        // groupNavigationPermitted is set to true if the user is a manager
+        // of group != spaces
+        if (membership.getMembershipType().equals(userACL.getAdminMSType()) && membership.getGroupId().indexOf("spaces") < 0) {
           groupNavigationPermitted = true;
           break;
         }
       }
     }
     UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-//  builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED, Visibility.HIDDEN).withTemporalCheck();
+    // builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED,
+    // Visibility.HIDDEN).withTemporalCheck();
     myGroupsFilterConfig = builder.build();
   }
 
-  //return group navigation that does not include any space navigation
+  // return group navigation that does not include any space navigation
   public List<UserNavigation> getGroupNavigations() throws Exception {
     UserPortal userPortal = getUserPortal();
     List<UserNavigation> allNavigations = userPortal.getNavigations();
     List<UserNavigation> computedNavigations = new ArrayList<UserNavigation>();
     for (UserNavigation navigation : allNavigations) {
-      if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE)) && (navigation.getKey().getName().indexOf("spaces") < 0)) {
+      if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE))
+          && (navigation.getKey().getName().indexOf("spaces") < 0)) {
         computedNavigations.add(navigation);
       }
     }
@@ -66,28 +70,22 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
   public UserNode getSelectedPageNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
-  
-  public Collection<UserNode> getUserNodes(UserNavigation nav)
-  {
-     UserPortal userPortall = getUserPortal();
-     if (nav != null)
-     {
-        try
-        {
-           UserNode rootNode = userPortall.getNode(nav, Scope.ALL, myGroupsFilterConfig, null);
-           return rootNode.getChildren();
-        }
-        catch (Exception exp)
-        {
-           log.warn(nav.getKey().getName() + " has been deleted");
-        }
-     }
-     return Collections.emptyList();
+
+  public Collection<UserNode> getUserNodes(UserNavigation nav) {
+    UserPortal userPortall = getUserPortal();
+    if (nav != null) {
+      try {
+        UserNode rootNode = userPortall.getNode(nav, Scope.ALL, myGroupsFilterConfig, null);
+        return rootNode.getChildren();
+      } catch (Exception exp) {
+        log.warn(nav.getKey().getName() + " has been deleted");
+      }
+    }
+    return Collections.emptyList();
   }
-  
-  private UserNode getSelectedNode() throws Exception
-  {
-     return Util.getUIPortal().getSelectedUserNode();
+
+  private UserNode getSelectedNode() throws Exception {
+    return Util.getUIPortal().getSelectedUserNode();
   }
 
   private String getUserId() {
@@ -96,10 +94,10 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
     }
     return userId;
   }
-  private UserPortal getUserPortal()
-  {
-     UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-     return uiPortalApplication.getUserPortalConfig().getUserPortal();
+
+  private UserPortal getUserPortal() {
+    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
+    return uiPortalApplication.getUserPortalConfig().getUserPortal();
   }
 
   public boolean hasPermission() throws Exception {

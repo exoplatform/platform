@@ -4,6 +4,7 @@ import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.platform.component.social.UINavigationComposer;
+import org.exoplatform.platform.webui.NavigationURLUtils;
 
 def rcontext = _ctx.getRequestContext() ;
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -13,7 +14,6 @@ jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicom
 
 def user = uicomponent.getUser();
 
-def portalURI = Util.getPortalRequestContext().getPortalURI();
 def labelActivities = _ctx.appRes("UIUserPlatformToolBarPortlet.label.activities");
 def labelProfile = _ctx.appRes("UIUserPlatformToolBarPortlet.label.profile");
 def labelnetwork = _ctx.appRes("UIUserPlatformToolBarPortlet.label.network");
@@ -22,10 +22,10 @@ def labelaccount = _ctx.appRes("UIUserPlatformToolBarPortlet.label.account");
 def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
 def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
 def remoteUser = Util.getPortalRequestContext().getRemoteUser();
-def activitiesLink = portalURI + "activities";
-def profileLink = portalURI + "profile/" + remoteUser;
-def connectionLink = portalURI + "connections/myConnections/" + remoteUser;
-def directoryLink = portalURI + "people";
+def activitiesLink = NavigationURLUtils.getURLInCurrentPortal("activities");
+def profileLink = NavigationURLUtils.getURLInCurrentPortal("profile") + "/" + remoteUser;
+def connectionLink = NavigationURLUtils.getURLInCurrentPortal("connections") + "/myConnections/" + remoteUser;
+def directoryLink = NavigationURLUtils.getURLInCurrentPortal("people");
 def changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
 def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 String clazz = "";

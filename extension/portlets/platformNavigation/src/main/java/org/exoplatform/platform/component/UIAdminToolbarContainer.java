@@ -31,6 +31,7 @@ import javax.jcr.Node;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.platform.component.ecms.UISEOForm;
+import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.platform.webui.navigation.UINavigationManagement;
 import org.exoplatform.platform.webui.navigation.UINavigationNodeSelector;
@@ -63,41 +64,35 @@ import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfigs({
-  @ComponentConfig(
-      template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl",
-      events = {
+    @ComponentConfig(template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl", events = {
         @EventConfig(listeners = UIAdminToolbarContainer.ChangeEditingActionListener.class),
         @EventConfig(listeners = UIAdminToolbarContainer.AddSEOActionListener.class),
-        @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class)
-      }
-  ),
-  @ComponentConfig(type = UIPageNodeForm.class, lifecycle = UIFormLifecycle.class,
-      template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
-      events = {
+        @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class) }),
+    @ComponentConfig(type = UIPageNodeForm.class, lifecycle = UIFormLifecycle.class, template = "system:/groovy/webui/form/UIFormTabPane.gtmpl", events = {
         @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class),
         @EventConfig(listeners = UIAdminToolbarContainer.BackActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIPageNodeForm.SwitchPublicationDateActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIPageNodeForm.SwitchVisibleActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIPageNodeForm.ClearPageActionListener.class, phase = Phase.DECODE),
-        @EventConfig(listeners = UIPageNodeForm.CreatePageActionListener.class, phase = Phase.DECODE)
-      }
-  )
-})
+        @EventConfig(listeners = UIPageNodeForm.CreatePageActionListener.class, phase = Phase.DECODE) }) })
 public class UIAdminToolbarContainer extends UIPortletApplication {
+
+  private static final String PAGE_MANAGEMENT_URI = "administration/pageManagement";
+  private String pageManagementLink = null;
 
   private String userId = null;
   private Boolean hasManageGroupSitesPermission = null;
   private Boolean hasManageSitesPermission = null;
-  
+
   /** The Constant SEO_POPUP_WINDOW. */
   public static final String SEO_POPUP_WINDOW = "UISEOPopupWindow";
   private static ArrayList<String> paramsArray = null;
-  //private static String pageParent = null;
-  private String pageReference = null;  
+  // private static String pageParent = null;
+  private String pageReference = null;
   PageMetadataModel metaModel = null;
   private String fullStatus = "Empty";
 
@@ -117,6 +112,16 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     return Utils.getSelectedNavigation();
   }
 
+  public String getPageManagementLink() {
+    if (pageManagementLink == null) {
+      UserACL userACL = getApplicationComponent(UserACL.class);
+      String[] adminGroups = userACL.getAdminGroups().split(";");
+      pageManagementLink = NavigationURLUtils.getURL(SiteKey.group(adminGroups[0]), PAGE_MANAGEMENT_URI);
+    }
+    return pageManagementLink;
+
+  }
+
   public boolean hasEditPermissionOnPortal() throws Exception {
     return Utils.hasEditPermissionOnPortal();
   }
@@ -132,7 +137,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   public boolean isUserNavigation() throws Exception {
     return SiteType.USER.equals(getSelectedNavigation().getKey().getType());
   }
-  
+
   public boolean hasManagePagesPermission() {
     UserACL userACL = getApplicationComponent(UserACL.class);
     return userACL.isUserInGroup(userACL.getAdminGroups());
@@ -208,7 +213,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       super.processRender(app, context);
     }
   }
-  
+
   public String getFullStatus() throws Exception {
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     String portalName = pcontext.getPortalOwner();
@@ -217,67 +222,70 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       fullStatus = "Empty";
       paramsArray = null;
       String contentParam = null;
-        Enumeration params = pcontext.getRequest().getParameterNames();   
-        if(params.hasMoreElements()) {
-          paramsArray = new ArrayList<String>();
-          while(params.hasMoreElements()) {
-            contentParam = params.nextElement().toString(); 
-            paramsArray.add(pcontext.getRequestParameter(contentParam));          
-          }
-        } 
-    }    
-    ExoContainer container = ExoContainerContext.getCurrentContainer() ;
-    SEOService seoService = (SEOService)container.getComponentInstanceOfType(SEOService.class);
+      Enumeration params = pcontext.getRequest().getParameterNames();
+      if (params.hasMoreElements()) {
+        paramsArray = new ArrayList<String>();
+        while (params.hasMoreElements()) {
+          contentParam = params.nextElement().toString();
+          paramsArray.add(pcontext.getRequestParameter(contentParam));
+        }
+      }
+    }
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    SEOService seoService = (SEOService) container.getComponentInstanceOfType(SEOService.class);
     pageReference = Util.getUIPortal().getSelectedUserNode().getPageRef();
-    
-    if(pageReference != null) {
+
+    if (pageReference != null) {
       SiteKey siteKey = Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
       SiteKey portalKey = SiteKey.portal(portalName);
-      if(siteKey != null && siteKey.equals(portalKey)) {
+      if (siteKey != null && siteKey.equals(portalKey)) {
         metaModel = seoService.getPageMetadata(pageReference);
-        //pageParent = Util.getUIPortal().getSelectedUserNode().getParent().getPageRef();
-        if(paramsArray != null) {
+        // pageParent =
+        // Util.getUIPortal().getSelectedUserNode().getParent().getPageRef();
+        if (paramsArray != null) {
           PageMetadataModel tmpModel = seoService.getContentMetadata(paramsArray);
-          if(tmpModel != null) {
+          if (tmpModel != null) {
             metaModel = tmpModel;
           } else {
-            for(int i = 0;i < paramsArray.size();i++) {
-              if(seoService.getContentNode(paramsArray.get(i).toString()) != null ) {
+            for (int i = 0; i < paramsArray.size(); i++) {
+              if (seoService.getContentNode(paramsArray.get(i).toString()) != null) {
                 metaModel = null;
                 break;
               }
             }
           }
         }
-      }
-      else fullStatus = "Disabled";
+      } else
+        fullStatus = "Disabled";
     }
-    
-    /*if(paramsArray != null) {
-      onContent = true;
-      metaModel = seoService.getContentMetadata(paramsArray);
-    }
-    else {
-      onContent = false;
-      pageReference = Util.getUIPortal().getSelectedUserNode().getPageRef(); 
-      SiteKey siteKey = Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
-      SiteKey portalKey = SiteKey.portal(portalName);
-      if(siteKey != null && siteKey.equals(portalKey)) metaModel = seoService.getPageMetadata(pageReference);
-      else fullStatus = "Disabled";
-    }*/
-    
-    if(metaModel != null){
-      fullStatus = metaModel.getFullStatus(); 
+
+    /*
+     * if(paramsArray != null) { onContent = true; metaModel =
+     * seoService.getContentMetadata(paramsArray); } else { onContent =
+     * false; pageReference =
+     * Util.getUIPortal().getSelectedUserNode().getPageRef(); SiteKey
+     * siteKey =
+     * Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
+     * SiteKey portalKey = SiteKey.portal(portalName); if(siteKey != null
+     * && siteKey.equals(portalKey)) metaModel =
+     * seoService.getPageMetadata(pageReference); else fullStatus =
+     * "Disabled"; }
+     */
+
+    if (metaModel != null) {
+      fullStatus = metaModel.getFullStatus();
     }
 
     return this.fullStatus;
-  }  
+  }
 
   public static class ChangeEditingActionListener extends EventListener<UIAdminToolbarContainer> {
 
     /*
      * (non-Javadoc)
-      * @see org.exoplatform.webui.event.EventListener#execute(org.exoplatform.webui.event.Event)
+     * @see
+     * org.exoplatform.webui.event.EventListener#execute(org.exoplatform
+     * .webui.event.Event)
      */
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       PortalRequestContext context = Util.getPortalRequestContext();
@@ -296,24 +304,25 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       UIAdminToolbarContainer uiAdminToolbar = event.getSource();
       UISEOForm uiSEOForm = uiAdminToolbar.createUIComponent(UISEOForm.class, null, null);
-      ExoContainer container = ExoContainerContext.getCurrentContainer() ;
-      SEOService seoService = (SEOService)container.getComponentInstanceOfType(SEOService.class);
-      if(paramsArray != null) {
-        for(int i = 0;i < paramsArray.size();i++) {
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
+      SEOService seoService = (SEOService) container.getComponentInstanceOfType(SEOService.class);
+      if (paramsArray != null) {
+        for (int i = 0; i < paramsArray.size(); i++) {
           Node contentNode = seoService.getContentNode(paramsArray.get(i).toString());
-          if(contentNode != null) {
+          if (contentNode != null) {
             uiSEOForm.setOnContent(true);
             break;
           }
         }
-      } else uiSEOForm.setOnContent(false);
+      } else
+        uiSEOForm.setOnContent(false);
       uiSEOForm.setParamsArray(paramsArray);
-      //uiSEOForm.setPageParent(uiAdminToolbar.pageParent);
+      // uiSEOForm.setPageParent(uiAdminToolbar.pageParent);
       uiSEOForm.initSEOForm(uiAdminToolbar.metaModel);
-      Utils.createPopupWindow(uiAdminToolbar, uiSEOForm, SEO_POPUP_WINDOW, 400);   
+      Utils.createPopupWindow(uiAdminToolbar, uiSEOForm, SEO_POPUP_WINDOW, 400);
     }
   }
-  
+
   static public class EditNavigationActionListener extends EventListener<UIAdminToolbarContainer> {
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       UIAdminToolbarContainer uicomp = event.getSource();
