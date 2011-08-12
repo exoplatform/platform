@@ -33,7 +33,7 @@
 			 	} else isCurrent = false;
 				if(isCurrent) clazz = "ArrowIcon";
 				else clazz = "";
-				href = NavigationURLUtils.getCurrentPortalURL();
+				href = NavigationURLUtils.getPortalURL(portal, null);
                 EntityEncoder entityEncoder = EntityEncoder.FULL;
 				portal = entityEncoder.encode(portal);
 				print """

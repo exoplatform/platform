@@ -25,16 +25,13 @@ import org.exoplatform.web.url.navigation.NavigationResource;
 import org.exoplatform.web.url.navigation.NodeURL;
 
 /**
- * Contains some common methods for using as utility.<br>
+ * Contains some utility methods to compute URLs of pages
  */
 public class NavigationURLUtils {
 
   /**
-   * Get the uri.
-   * 
    * @param url
-   * @return
-   * @since 1.2.1
+   * @return URL of the page with selected URI in the current portal
    */
   public static String getURLInCurrentPortal(String uri) {
     RequestContext ctx = RequestContext.getCurrentInstance();
@@ -44,11 +41,7 @@ public class NavigationURLUtils {
   }
 
   /**
-   * Get the uri.
-   * 
-   * @param url
-   * @return
-   * @since 1.2.1
+   * @return URL of the current portal
    */
   public static String getCurrentPortalURL() {
     RequestContext ctx = RequestContext.getCurrentInstance();
@@ -58,11 +51,21 @@ public class NavigationURLUtils {
   }
 
   /**
-   * Get the uri.
-   * 
+   * @param portalName
    * @param url
-   * @return
-   * @since 1.2.1
+   * @return URL of the page with selected URI in the selected portal
+   */
+  public static String getPortalURL(String portalName, String uri) {
+    RequestContext ctx = RequestContext.getCurrentInstance();
+    NodeURL nodeURL = ctx.createURL(NodeURL.TYPE);
+    NavigationResource resource = new NavigationResource(SiteKey.portal(portalName), uri);
+    return nodeURL.setResource(resource).toString();
+  }
+
+  /**
+   * @param siteKey
+   * @param url
+   * @return URL of the page with selected URI in the selected navigation
    */
   public static String getURL(SiteKey siteKey, String uri) {
     RequestContext ctx = RequestContext.getCurrentInstance();
@@ -72,11 +75,8 @@ public class NavigationURLUtils {
   }
 
   /**
-   * Get the space url.
-   * 
    * @param node
-   * @return
-   * @since 1.2.1
+   * @return URL of the selected UserNode
    */
   public static String getURL(UserNode node) {
     RequestContext ctx = RequestContext.getCurrentInstance();
