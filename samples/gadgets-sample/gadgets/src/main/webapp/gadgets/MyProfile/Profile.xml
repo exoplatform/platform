@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="My Profile" author="Damien Lauberton"
+    author_email="damien.lauberton@exoplatform.com"
+    description="My Profile is a gadget to display the current user information for eXo Social."
+    height="100" >
+    <Require feature="opensocial-0.8" />
+    <Require feature="views" />
+    <Require feature="settitle" />
+    <Require feature="minimessage" />
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+  </ModulePrefs>
+  <Content type="html" view="default, home, profile">
+  <![CDATA[   
+  
+  <link rel="stylesheet" type="text/css" href="style/profile.css" />
+  <script type="text/javascript" src="script/profile.js"></script>
+    
+  <script type="text/javascript">
+   gadgets.util.registerOnLoadHandler(init);
+  </script>
+    
+    <!-- View of the gadget  -->
+    <div class="UIGadgetThemes">
+      <div class="TitGad ClearFix">
+        <div class="ContTit">__MSG_title__</div>
+      </div>
+      <div class="GadCont" id="Profil">
+    
+      </div>
+    </div>
+  ]]></Content>
+</Module>

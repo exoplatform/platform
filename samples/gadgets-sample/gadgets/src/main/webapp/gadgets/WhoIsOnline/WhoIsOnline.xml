@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Who Is Online?"
+	description="Display online users"
+	author="Tung Vu Minh"
+	author_email="tungvm@exoplatform.com"
+	thumbnail="images/gadget-online-icon-96x96.png">
+		<Require feature="settitle" />
+		<Require feature="dynamic-height" />
+		<Locale messages="locale/default.xml" />
+		<Locale lang="fr" messages="locale/fr.xml" />
+	</ModulePrefs>
+	<Content type="html">
+		<![CDATA[ 
+			<html>
+				<head>
+					<title>__MSG_title__</title>
+					<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+	
+					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
+	
+					<script>
+						$(function(){
+							init();
+						});
+	
+						function init(){
+							showOnlineUsers();
+							$(document).everyTime("30s", "reloadPage", function() { 
+								showOnlineUsers(); 
+							},0);				
+						}
+	
+						function showOnlineUsers(){
+							var onlineUsersRestURI = "/rest/online/online-users";
+							$.getJSON(onlineUsersRestURI, function(onlineUsersJson){
+								var myContactsRestURI = "/rest/online/my-contacts";
+								var myContacts = new Array();
+								$.getJSON(myContactsRestURI, function(myContactsJson){
+									$.each(myContactsJson.data, function(i, contact){
+										myContacts.push(contact.id);
+									});
+									var myContactsCount = 0, otherCount = 0;
+									var other = new Array(), contactRows = new Array();
+									$.each(onlineUsersJson.data, function(i, user){
+										var idx = $.inArray(user.id, myContacts);
+										if (idx != -1) {
+											var contact = myContactsJson.data[idx];
+											var avatar =	 "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (contact.avatarUrl == null ? "/social-portlet/skin/social/portlet/UIProfilePortlet/DefaultSkin/background/BLAvatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
+											var userInfo = "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<b>" + contact.fullName + "</b>" + "</a>" + 
+													(contact.position == null ? "" : " (" + "<span style='font-size: smaller;'>" + contact.position + "</span>" + ")") + "<br/>" + 
+													(contact.latestActivity == null ? "" : "<i style='font-size: smaller;'>" + contact.latestActivity + "</i>");
+											var newRow = "<tr>" +
+																			"<td style='width: 20px;'>" + avatar + "</td>" +
+																			"<td style='padding-left: 3px;'>" + userInfo + "</td>" + 
+																	 "</tr>";
+	
+											contactRows.push(newRow);
+											myContactsCount++;
+										} else {
+											other.push("<a href='/portal/private/intranet/profile/" + user.id + "' target='_parent'>" + user.fullName + "</a>");
+											otherCount++;
+										}
+									});
+									
+									$("#yourContactsTable tr").remove();
+									$("#otherDiv").empty();
+	
+									$("#yourContactsHeader").html("__MSG_yourConnections__ (" + myContactsCount + ")");
+									$("#yourContactsTable").append(contactRows.join(""));
+									$("#otherHeader").html("__MSG_other__ (" + otherCount + ")");
+									$("#otherDiv").append(other.join(", "));
+									gadgets.window.adjustHeight($("#online-gadget").get(0).offsetHeight);
+								});
+							});
+						}				
+					</script>
+				</head>
+	
+				<body>
+					<div id="online-gadget" class="UIGadgetThemes UIYellowThemes">
+						<div class="TitGad ClearFix">
+							<div class="ContTit">__MSG_title__</div>
+						</div>
+						<div style="margin-left: 16px;">
+							<h3 id="yourContactsHeader" style="margin-bottom: 10px;"></h3>
+							<table id="yourContactsTable" cellpadding="2" style="margin-left: 5px; width:100%">
+								<!--tbody style="height:120px; overflow-x:hidden; overflow-y:auto;">
+								</tbody-->
+							</table>
+							<h3 id="otherHeader" style="padding-top: 5px; margin-bottom: 5px;"></h3>
+							<div id="otherDiv" style="margin-left: 5px;"></div>
+						</div>
+					</div>
+				</body>
+	
+			</html>	
+		]]>
+	</Content>
+</Module>
+

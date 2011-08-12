@@ -3,17 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+    <artifactId>exo.platform.sample.gadgets-sample</artifactId>
     <version>3.5.0-M4-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.sample</artifactId>
-  <packaging>pom</packaging>
-  <name>eXo Platform - Samples</name>
-  <modules>
-    <module>acme-intranet</module>
-    <module>default-website</module>
-    <module>acme-website</module>
-    <module>blank</module>
-    <module>gadgets-sample</module>
-  </modules>
+  <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
+  <packaging>war</packaging>
+  <name>eXo Platform - GadgetResources</name>
+  <description>eXo gadget resources</description>
+  <build>
+    <finalName>exo-gadget-resources</finalName>
+  </build>
 </project>
