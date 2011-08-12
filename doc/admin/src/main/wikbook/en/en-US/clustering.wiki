@@ -1,17 +1,15 @@
 h1. About clustering in eXo Platform {anchor:id=ADM.Clustering.About_Platform_Clustering}
 Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes.
 The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers.
-Simply by adding more nodes to the cluster, your enterprise's performance can be improved much.
-
-A cluster is a set of nodes which are managed together and participate in the workload management.
-Installing eXo Platform in the cluster mode is considered in the following main cases:
+Thanks to adding more nodes to the cluster, eXo Platform's performance can be much improved.
+A cluster is a set of nodes which is managed together and participate in the workload management. Installing eXo Platform in the cluster mode is considered in the following main cases:
 
 * Load Balancing: when a single server node is not enough for handling the load.
 
 * High Availability: if one of nodes is failed, the rest of nodes in the cluster can assume the workload of the system. It means that no access is interrupted.
 
 These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes.
-Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS).
+Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS) or Shared File Systems, such as SAN and NAS.
 
 In this chapter, only the changes which are necessary for eXo Platform to work in the cluster mode are covered.
 
@@ -38,7 +36,6 @@ All nodes must have the read/write access to the shared file system.
 This step is done in the _configuration.properties_ file. This _configuration.properties_ file must be set in the same way on all the cluster nodes.
 
 First, point the _exo.shared.dir_ variable to a network directory shared between cluster nodes.
-
 {code}
 exo.shared.dir=/PATH/TO/SHARED/FS
 {code}
@@ -71,19 +68,27 @@ or use the _start{noformat}_{noformat}eXo_ script:
 
 For the initial startup of your JCR cluster, you should only start a single node. This node will initialize the internal JCR database and create the system workspace. Once the initial node is definitely started, you can start the other nodes.
 
-{note}This constraint is only for the initial start. Once the initialization has been done, you can start nodes in any order.{note}
+{note}
+This constraint is only for the initial start. 
+As above, you can start the nodes in any order, but it should be started fully from the single node. After that, others can start in any order or in parallel.
+{note}
 
-*4.* Start up and shut down. 
-Nodes of the cluster will automatically try to join others at startup. Once they discover each other, they will synchronize their state.
+*4.* Start up and shut down.
+
+Nodes of the cluster will automatically try to join others at startup. Once they have discovered each other, they will synchronize their state.
 During the synchronization, the node is not ready to serve requests.
 
-h1. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
+h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
 The cluster mode is preconfigured to work out of the box. The eXo Platform clustering fully relies on the JBossCache replication which  uses JGroups internally.
 
 The default configuration of JBossCache lies in _exo.portal.component.common-x.x.x.jar_.
 
-Since eXo Platform 3.5-M3, the JCR's JBossCache default configuration is extenalized to the _$CATALINE{noformat}_{noformat}HOME/gatein/conf/jcr/jbosscache_ folder. 
+Since eXo Platform 3.5-M3, the JCR's JBossCache default configuration is externalized to the _$CATALINE{noformat}_{noformat}HOME/gatein/conf/jcr/jbosscache_ folder. 
+
+{note}
+The advanced configuration is optional. It is recommended that you should not do any advanced configuration.
+{note}
 
 h2. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
 
@@ -124,11 +129,11 @@ gatein.jcr.index.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config
 gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/jgroups-udp.xml
 {code}
 
-By default, the nodes discovery is being used, basing on UDP. In fact, JGroups are responsible for the nodes identification through the UDP transport. The administrator can change the configuration about detection and ports in _jgroups-udp.xml_.
+By default, the nodes discovery is based on UDP, in which *JGroups* is responsible for the nodes identification through the UDP transport. The administrator can change the configuration of detection and ports in _jgroups-udp.xml_.
 
 h2. Shared file system {anchor:id=ADM.Clustering.Advanced_configuration.Shared_file_system}
 
-Optionally, if you need the dedicated physical storages, it is possible to configure paths for the shared file system for the JCR storage and index separately:
+Optionally, if you need the dedicated physical storage, it is possible to configure paths for the shared file system for JCR storage and index separately:
 
 {code}
 gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
@@ -137,7 +142,8 @@ gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 
 h1. FAQs of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
-*Q1. How to migrate from local to the cluster mode?* 
+
+Q1. *How to migrate from local to the cluster mode?* 
 
 If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
 
@@ -149,7 +155,7 @@ If you intend to migrate your production system from local (non-cluster) to the 
 
 *4.* Start the cluster.
 
-*Q2. Why is startup failed with the "Port value out of range" error?*
+Q2. *Why is startup failed with the "Port value out of range" error?*
 
 On Linux, your startup is failed if you encounter the following error:
 
@@ -159,13 +165,13 @@ On Linux, your startup is failed if you encounter the following error:
 
 This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
 
-Need to verify:
+You need to verify:
 
 * The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
 
 * The host name is NOT defined as localhost or 127.0.0.1.
 
-*Q3. How to solve the "failed sending message to null" error?*
+Q3. *How to solve the "failed sending message to null" error?*
 
 If you encounter the following error when starting up in the cluster mode on Linux:
 
