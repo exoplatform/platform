@@ -17,6 +17,10 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
+.UIToolbarContainer {
+	width:100%;/*fix for pin button*/
+}
+ 
 .UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .TRContainer {
 	height: 31px;
 }
