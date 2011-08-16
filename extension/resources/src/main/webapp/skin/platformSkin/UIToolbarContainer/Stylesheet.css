@@ -329,7 +329,7 @@
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .MenuItemContainer {
 	padding: 10px;
 	position: absolute;
-	width: 230px !important;
+	width: 230px;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .MenuItemContainer li ul {
@@ -414,7 +414,8 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationComposer textarea {
-	max-width: 168px;
+	max-width: 96%;
+	width: 96%;
 	font-size: 11px;
 	background: #f8f8f8;
 	border: 1px solid #dddddd;
