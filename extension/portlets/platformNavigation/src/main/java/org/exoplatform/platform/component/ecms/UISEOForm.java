@@ -165,14 +165,13 @@ public class UISEOForm extends UIForm {
        * }
        */
       List<SelectItemOption<String>> robotIndexItemOptions = new ArrayList<SelectItemOption<String>>();
-      String robotsindexOptions = seoService.getRobotsIndexOptions();
-      String robotsfollowOptions = seoService.getRobotsFollowOptions();
-      String frequencyOptions = seoService.getFrequencyOptions();
+      List<String> robotsindexOptions = seoService.getRobotsIndexOptions();
+      List<String> robotsfollowOptions = seoService.getRobotsFollowOptions();
+      List<String> frequencyOptions = seoService.getFrequencyOptions();
 
-      if (robotsindexOptions != null && robotsindexOptions.length() > 0) {
-        String[] arrOptions = robotsindexOptions.split(",");
-        for (int i = 0; i < arrOptions.length; i++) {
-          robotIndexItemOptions.add(new SelectItemOption<String>((arrOptions[i])));
+      if(robotsindexOptions != null && robotsindexOptions.size() > 0) {
+        for(int i = 0; i < robotsindexOptions.size(); i++) {
+          robotIndexItemOptions.add(new SelectItemOption<String>((robotsindexOptions.get(i).toString())));
         }
       }
       UIFormSelectBox robots_index = new UIFormSelectBox(ROBOTS_INDEX, null, robotIndexItemOptions);
@@ -183,10 +182,9 @@ public class UISEOForm extends UIForm {
       addUIFormInput(robots_index);
 
       List<SelectItemOption<String>> robotFollowItemOptions = new ArrayList<SelectItemOption<String>>();
-      if (robotsfollowOptions != null && robotsfollowOptions.length() > 0) {
-        String[] arrOptions = robotsfollowOptions.split(",");
-        for (int i = 0; i < arrOptions.length; i++) {
-          robotFollowItemOptions.add(new SelectItemOption<String>((arrOptions[i])));
+      if(robotsfollowOptions != null && robotsfollowOptions.size() > 0) {        
+        for(int i = 0; i < robotsfollowOptions.size(); i++) {
+          robotFollowItemOptions.add(new SelectItemOption<String>((robotsfollowOptions.get(i).toString())));
         }
       }
       UIFormSelectBox robots_follow = new UIFormSelectBox(ROBOTS_FOLLOW, null, robotFollowItemOptions);
@@ -209,10 +207,9 @@ public class UISEOForm extends UIForm {
       addUIFormInput(uiPrority.addValidator(FloatNumberValidator.class));
 
       List<SelectItemOption<String>> frequencyItemOptions = new ArrayList<SelectItemOption<String>>();
-      if (frequencyOptions != null && frequencyOptions.length() > 0) {
-        String[] arrOptions = frequencyOptions.split(",");
-        for (int i = 0; i < arrOptions.length; i++) {
-          frequencyItemOptions.add(new SelectItemOption<String>(arrOptions[i], (arrOptions[i])));
+      if(frequencyOptions != null && frequencyOptions.size() > 0) {
+        for(int i = 0; i < frequencyOptions.size(); i++) {
+          frequencyItemOptions.add(new SelectItemOption<String>(frequencyOptions.get(i).toString(),(frequencyOptions.get(i).toString())));              
         }
       }
       UIFormSelectBox frequencySelectbox = new UIFormSelectBox(FREQUENCY, null, frequencyItemOptions);
