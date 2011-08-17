@@ -41,14 +41,15 @@ a {
 	color: #28175a;
 }
 
-
-.UIPageBody .BLPagebody {
-	display: none;
-}
-
 .UIWorkingWorkspace .UIPageBody {
 	padding-top: 1px;
 	width: auto;
+	background: transparent;
+}
+
+.UIWorkingWorkspace .UIPageBody .VIEW-PAGEBODY {
+	background: transparent;
+	padding-bottom: 8px;
 }
 
 .UIPageBody .VIEW-PAGEBODY .UIPage {
