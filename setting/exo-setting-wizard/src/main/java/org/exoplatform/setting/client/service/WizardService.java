@@ -12,4 +12,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface WizardService extends RemoteService {
   
   Integer storeDatas(Map<String, String> datas, Integer toStep);
+  Map<String, String> getSystemProperties();
 }

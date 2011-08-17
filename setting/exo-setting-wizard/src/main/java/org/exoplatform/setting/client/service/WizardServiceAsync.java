@@ -8,4 +8,5 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 public interface WizardServiceAsync {
   
   void storeDatas(Map<String, String> datas, Integer toStep, AsyncCallback<Integer> callback);
+  void getSystemProperties(AsyncCallback<Map<String, String>> callback);
 }

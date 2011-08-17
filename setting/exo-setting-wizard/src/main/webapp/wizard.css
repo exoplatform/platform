@@ -37,3 +37,7 @@ h1 {
 .buttonAction {
 	spacing: 3px;
 }
+
+.loadingImage {
+	padding-top: 200px;
+}
