@@ -17,8 +17,8 @@ public class SetupTypeWizardView extends WizardView {
   private RadioButton standard;
   private RadioButton advanced;
   
-  public SetupTypeWizardView(SetupWizardController controller, int stepNumber) {
-    super(controller, stepNumber);
+  public SetupTypeWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+    super(controller, stepNumber, mode);
   }
 
   @Override

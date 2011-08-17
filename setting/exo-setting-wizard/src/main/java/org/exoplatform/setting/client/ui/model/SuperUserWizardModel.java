@@ -1,7 +1,5 @@
 package org.exoplatform.setting.client.ui.model;
 
-import java.util.Map;
-
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 
 public class SuperUserWizardModel extends WizardModel {

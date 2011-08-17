@@ -3,6 +3,7 @@ package org.exoplatform.setting.client.ui.view;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.i18n.WizardConstants;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.client.ui.model.WizardModel;
@@ -33,6 +34,9 @@ public abstract class WizardView extends HorizontalPanel {
   
   // Current stepNumber
   protected int stepNumber;
+  
+  // Wizard Mode
+  protected SetupWizardMode mode;
 
   // i18n constants
   protected WizardConstants constants = GWT.create(WizardConstants.class);
@@ -44,10 +48,11 @@ public abstract class WizardView extends HorizontalPanel {
    * @param description
    * @param stepNumber
    */
-  public WizardView(SetupWizardController controller, int stepNumber) {
+  public WizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
     
     this.controller = controller;
     this.stepNumber = stepNumber;
+    this.mode = mode;
   }
   
 
@@ -267,5 +272,9 @@ public abstract class WizardView extends HorizontalPanel {
    */
   protected WizardModel getModel() {
     return controller.getModel(stepNumber);
+  }
+
+  public SetupWizardMode getMode() {
+    return mode;
   }
 }

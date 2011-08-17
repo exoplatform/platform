@@ -3,6 +3,7 @@ package org.exoplatform.setting.client.ui.view;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.shared.data.SetupWizardData;
 
@@ -11,15 +12,15 @@ import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * View corresponding to <b>STEP 0 - Setup</b>
+ * View Apply Setting
  * 
  * @author Clement
  *
  */
 public class ApplySettingsWizardView extends WizardView {
   
-  public ApplySettingsWizardView(SetupWizardController controller, int stepNumber) {
-    super(controller, stepNumber);
+  public ApplySettingsWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+    super(controller, stepNumber, mode);
   }
 
   @Override

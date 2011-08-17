@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.shared.WizardFieldVerifier;
 import org.exoplatform.setting.shared.data.SetupWizardData;
@@ -26,8 +27,8 @@ public class SuperUserWizardView extends WizardView {
   private TextBox password2;
   private TextBox email;
   
-  public SuperUserWizardView(SetupWizardController controller, int stepNumber) {
-    super(controller, stepNumber);
+  public SuperUserWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+    super(controller, stepNumber, mode);
   }
 
   @Override

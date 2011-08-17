@@ -3,6 +3,7 @@ package org.exoplatform.setting.client.ui.view;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.shared.data.SetupWizardData;
 
@@ -22,8 +23,8 @@ public class SummaryWizardView extends WizardView {
   
   private Grid summary = new Grid();
   
-  public SummaryWizardView(SetupWizardController controller, int stepNumber) {
-    super(controller, stepNumber);
+  public SummaryWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+    super(controller, stepNumber, mode);
   }
 
   @Override

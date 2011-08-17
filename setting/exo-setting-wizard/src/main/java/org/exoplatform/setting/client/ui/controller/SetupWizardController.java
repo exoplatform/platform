@@ -31,11 +31,13 @@ public class SetupWizardController {
   // Create a remote service proxy to talk to the server-side Wizard service.
   private final WizardServiceAsync wizardService = GWT.create(WizardService.class);
   
+  private int currentScreenDisplayed;
+  
   // GUI elements
   private LinkedList<WizardView> views;
   private LinkedList<WizardModel> models;
   private LinkedList<Integer> loadedModels;
-  private int nbScreens = 0;
+  private int nbModels = 0;
   private WizardDialogBox messageDialogBox;
   
   // Client Mode to show/hide some screens
@@ -65,13 +67,13 @@ public class SetupWizardController {
     
     // Views init
     views = new LinkedList<WizardView>();
-    views.add(new SystemInfoWizardView(this, 0));
-    views.add(new SetupTypeWizardView(this, 1));
-    views.add(new SuperUserWizardView(this, 2));
-    views.add(new SummaryWizardView(this, 3));
-    views.add(new ApplySettingsWizardView(this, 4));
+    views.add(new SystemInfoWizardView(this, 0, SetupWizardMode.STANDARD));
+    views.add(new SetupTypeWizardView(this, 1, SetupWizardMode.STANDARD));
+    views.add(new SuperUserWizardView(this, 2, SetupWizardMode.ADVANCED));
+    views.add(new SummaryWizardView(this, 3, SetupWizardMode.ADVANCED));
+    views.add(new ApplySettingsWizardView(this, 4, SetupWizardMode.STANDARD));
     
-    nbScreens = models.size();
+    nbModels = models.size();
     
     executeModels();
   }
@@ -93,7 +95,7 @@ public class SetupWizardController {
     loadedModels.add(screenNumber);
     
     // All models are loaded, so we can display Setup Wizard
-    if(loadedModels.size() == nbScreens) {
+    if(loadedModels.size() == nbModels) {
       buildViews();
       displaySetupWizard();
     }
@@ -143,18 +145,30 @@ public class SetupWizardController {
    */
   public void displayScreen(int index) {
     
-    if(index < 0 || index >= views.size()) {
-      displayError("Screen #" + index + " doesn't exist.");
+    // In case of setup mode is STANDARD, ADVANCED screens are not displayed, we try to display next/previous screen
+    if(setupWizardMode.equals(SetupWizardMode.STANDARD) && views.get(index).getMode().equals(SetupWizardMode.ADVANCED)) {
+      
+      // Compute toStep
+      int toStep = (currentScreenDisplayed < index) ? index + 1 : index - 1;
+      if(toStep < views.size() && toStep >= 0) {
+        displayScreen(toStep);
+      }
     }
     else {
-
-      // Hide all screens
-      for(WizardView view : views) {
-        view.hide();
+      if(index < 0 || index >= views.size()) {
+        displayError("Screen #" + index + " doesn't exist.");
       }
-      
-      WizardView activeView = views.get(index);
-      activeView.display();
+      else {
+        // Hide all screens
+        for(WizardView view : views) {
+          view.hide();
+        }
+        
+        currentScreenDisplayed = index;
+        
+        WizardView activeView = views.get(index);
+        activeView.display();
+      }
     }
   }
   

@@ -3,6 +3,7 @@ package org.exoplatform.setting.client.ui.view;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
+import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.client.ui.model.SystemInfoWizardModel;
 import org.exoplatform.setting.shared.WizardUtility;
@@ -26,8 +27,8 @@ public class SystemInfoWizardView extends WizardView {
   private Grid systemInfoOptions;
   private SystemInfoWizardModel model;
   
-  public SystemInfoWizardView(SetupWizardController controller, int stepNumber) {
-    super(controller, stepNumber);
+  public SystemInfoWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+    super(controller, stepNumber, mode);
     
     model = (SystemInfoWizardModel) getModel();
   }
