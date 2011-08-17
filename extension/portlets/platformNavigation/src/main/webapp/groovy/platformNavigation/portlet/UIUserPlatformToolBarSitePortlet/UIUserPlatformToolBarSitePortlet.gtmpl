@@ -113,7 +113,15 @@
 	}
 %>
 
-<% if(allPortalNames.size() > 1 || hasPermission) { %>
+<% if(allPortalNames.isEmpty()) { %>
+	<ul class="UIUserToolBarSitePortlet UIHorizontalTabs" id="$uicomponent.id">
+		<li class="UITab NormalToolbarTab">
+			<a class="ArrowIcon TBIcon" href="#">
+					 <%=_ctx.appRes("UIUserPlatformToolBarSitePortlet.title")%>
+			</a>
+		</li>
+	</ul>
+<% } else if(allPortalNames.size() > 1) { %>
 	<ul class="UIUserToolBarSitePortlet UIHorizontalTabs" id="$uicomponent.id">
 		<li class="UITab NormalToolbarTab">
 			<a class="ArrowIcon TBIcon" href="#">
@@ -127,4 +135,19 @@
 			%>
 		</li>
 	</ul>
-<% } %>
+<% } else if (allPortalNames.size() == 1){
+	String portal = allPortalNames.get(0);
+	href = NavigationURLUtils.getPortalURL(portal, null);
+	%>
+		<ul class="UIUserToolBarSitePortlet UIHorizontalTabs" id="$uicomponent.id">
+		<li class="UITab NormalToolbarTab">
+			<a class="ArrowIcon TBIcon" href="$href" style="text-transform: capitalize;">
+					 <%=portal%>
+			</a>
+			<%
+			renderCurrentPortal();
+			%>
+
+		</li>
+	</ul>
+	<%} %>
