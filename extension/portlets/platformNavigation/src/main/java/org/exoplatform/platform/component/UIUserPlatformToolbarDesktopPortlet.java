@@ -74,8 +74,12 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
   }
 
   public UserNavigation getCurrentUserNavigation() throws Exception {
+    return getNavigation(SiteKey.user(getCurrentUser()));
+  }
+
+  public String getCurrentUser() {
     WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
-    return getNavigation(SiteKey.user(rcontext.getRemoteUser()));
+    return rcontext.getRemoteUser();
   }
 
   private UserNavigation getNavigation(SiteKey userKey) {
@@ -190,14 +194,15 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
           logger.debug("Parsed nodeName is null, hence use Tab_0 as default name");
           _nodeName = DEFAULT_TAB_NAME;
         }
+        UserPortalConfigService _configService = toolbarPortlet.getApplicationComponent(UserPortalConfigService.class);
         UserPortal userPortal = toolbarPortlet.getUserPortal();
         UserNavigation userNavigation = toolbarPortlet.getCurrentUserNavigation();
         if (userNavigation == null) {
-          return;
+          _configService.createUserSite(toolbarPortlet.getCurrentUser());
+          userNavigation = toolbarPortlet.getCurrentUserNavigation();
         }
 
         SiteKey siteKey = userNavigation.getKey();
-        UserPortalConfigService _configService = toolbarPortlet.getApplicationComponent(UserPortalConfigService.class);
         Page page = _configService.createPageTemplate(PAGE_TEMPLATE, siteKey.getTypeName(), siteKey.getName());
         page.setTitle(_nodeName);
         page.setName(_nodeName);
@@ -213,7 +218,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
         prContext.getResponse().sendRedirect(NavigationURLUtils.getURL(dashboardNode));
       } catch (Exception ex) {
-        logger.info("Could not create default dashboard page", ex);
+        logger.error("Could not create default dashboard page", ex);
       }
     }
   }
