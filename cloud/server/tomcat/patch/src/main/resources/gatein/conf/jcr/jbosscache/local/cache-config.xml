@@ -23,9 +23,6 @@
    <!-- Configure the TransactionManager -->
    <transaction transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
 
-   <!-- Enable batching -->
-   <invocationBatching enabled="true" />
-
    <!-- Eviction configuration -->
    <eviction wakeUpInterval="5000">
      <default algorithmClass="org.jboss.cache.eviction.ExpirationAlgorithm"  actionPolicyClass="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.ParentNodeEvictionActionPolicy" 

@@ -222,7 +222,6 @@
         <!-- set default incremental periond = 60 minutes -->
         <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob" />
         <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
-        <property name="backup-dir" value="${gatein.data.dir}/backup" />
         <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
       </properties-param>
     </init-params>
