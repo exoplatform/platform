@@ -183,6 +183,32 @@
                     </field>
                   </object>
                 </value>
+                <value>
+                  <object type="org.exoplatform.application.registry.Application">
+                    <field name="categoryName">
+                      <string>Contents</string>
+                    </field>
+                    <field name="applicationName">
+                      <string>ContentListViewerByQueryPortlet</string>
+                    </field>
+                    <field name="displayName">
+                      <string>Contents By Query</string>
+                    </field>
+                    <field name="type">
+                      <string>portlet</string>
+                    </field>
+                    <field name="contentId">
+                      <string>presentation/ContentListViewerByQueryPortlet</string>
+                    </field>
+                    <field name="accessPermissions">
+                      <collection type="java.util.ArrayList" item-type="java.lang.String">
+                        <value>
+                          <string>Everyone</string>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
               </collection>
             </field>
           </object>
