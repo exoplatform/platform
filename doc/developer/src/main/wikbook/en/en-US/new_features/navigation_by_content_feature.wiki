@@ -1,221 +1,263 @@
-This chapter presents one new feature of eXo Platform 3.5, so-called Navigation By Content. With this function, users can easily browse content of each page. To make easy for readers, this chapter is divided into the following topics:
-
-[Why to use a navigation by content|#DEV.NewFeatures.NavigationByContent.whyUseNavigationByContent]
-
-[Actual content navigation|#DEV.NewFeatures.NavigationByContent.ContentNavigation]
-
-[How to|#DEV.NewFeatures.NavigationByContent.Howto]
-
-[ Use it|#DEV.NewFeatures.NavigationByContent.UseIt]
-
-* [How to create a new product |#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct]
-
-* [Product content development|#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.ProductContentDev]
-
-
-h1. Why to use a navigation by content   {anchor:id=DEV.NewFeatures.NavigationByContent.whyUseNavigationByContent}
-
-The main navigation of the sample acme-website is a page node based navigation. Users are obliged to navigate from a page to another or browse site contents inside one page (will be explained in next section).
-We added this new feature to be able to navigate in site's contents directly from a contextual menu.
+h1. What is Navigation By Content? {anchor:id=DEV.NewFeatures.NavigationByContent.whatisNavigationByContent}
+*Navigation By Content* is a feature which allows users to browse content of each page easily. 
+With this feature, users experiencing eXo Platform can navigate from a page to another or browse site content inside one page directly from a contextual menu.
 
 h1. Actual content navigation {anchor:id=DEV.NewFeatures.NavigationByContent.ContentNavigation}
 
-One of the powerful features of the _eXo Web Content Management_ that comes out with _eXoPlatform3_ is the possibility to navigate in site contents using taxonomies.
-This functionality can easily be added in a page with the help of two _Content List Viewer_ portlets as follows (an already configured example can be found in the *News* page of the sample acme-website acme/news):
-N.B: we will use the following node _/site contents/live/acme/events/All_ for this example
+One of the powerful features of Enterprise Content Management System (ECMS) that comes out with eXo Platform 3.5 is the ability to navigate in site contents using taxonomies.
+This functionality can easily be added in a page with the help of two *Content List Viewer* (CLV) portlets. The pre-configured example can be found in the *News* page of the sample ACME website.
+In this example, the */site contents/live/acme/events/All* node will be used.
 
-- login to the sample acme-website
-- add a page, say "Events"
-- parametrize this page in order to have a two column container
-- add two content list portlets
-- first portlet:
+*To add "Actual content navigation" to a page:*
 
-!navigation_by_content_feature/browseByCLV.png!
+*1.* Log into the sample ACME website.
 
-** Folder path = _/site contents/live/acme/events/All_
-** Header = _Browse by:_
-** Template = _CatgoryTree.gtmpl_
-** Contextual Folder = _Disabled_
-** Show in page = _Events_
-** With = _folder-id_
-- second portlet:
+*2.* Add a new page, for example "Events".
 
-!navigation_by_content_feature/showListCLV.png!
+*3.* Parameterize this page with the two-column container.
 
-** Folder path = _/site contents/live/acme/events/All_
-** Template = _OneColumnCLVTemplate.gtmpl_
-** Contextual Folder = _Enabled_
-** Show in page = _Details_
-** With = _content-id_
-- the created page (Events) now looks like:
+*4.* Add two content list portlets.
 
-!navigation_by_content_feature/eventsPage.png!
+*i. First portlet:*
+
+!images/navigation_by_content_feature/browseByCLV.png|align="center"!
+
+In which:
+
+* *Folder path* = /site contents/live/acme/events/All
+* *Header* = Browse by:
+* *Template* = CatgoryTree.gtmpl
+* *Contextual Folder* = Disabled
+* *Show in page* = Events
+* *With* = folder-id
+
+*ii. Second portlet:*
+
+!images/navigation_by_content_feature/showListCLV.png|align="center"!
+
+In which:
+
+* *Folder path* = /site contents/live/acme/events/All
+* *Template* = OneColumnCLVTemplate.gtmpl
+* *Contextual Folder* = Enabled
+* *Show in page* = Details
+* *With* = content-id
+
+As a result, the created "Events" page will look like:
+
+!images/navigation_by_content_feature/eventsPage.png!
 
 You can now navigate from the left portlet to see contents displayed in the right portlet.
 
-The new navigation by content feature will traduce this example in a contextual menu.
+The new *Navigation By Content* feature will traduce this example in a contextual menu.
 
-h1. How to   {anchor:id=DEV.NewFeatures.NavigationByContent.Howto}
+h1. How-Tos {anchor:id=DEV.NewFeatures.NavigationByContent.Howto}
 
-We need to attach our root folder/node to some page node from the home page (the menu item that will hold our new contextual menu):
+*You need to attach your root folder/node to some page nodes from the homepage (the drop-down menu holds your new contextual menu):*
 
-* go to the Content Explorer page and navigate under /site contents/live/acme/events/All
-* hit the content navigation button
-* fill the navigation form fields as follows:
-** _Visible_ = true (this node will be navigable)
-** _Target parent navigation_ = Events (the contextual menu will be attached to Events menu item)
-** _Clickable_ = false (this node will not be clickable)
-** _Page for list_ = catalog (this page is a system page that contains a content list viewer portlet and will be used to display list child nodes)
-** _Page for detail_ = detail (this page is a system page that contains a single content viewer portlet and will be used to display detail child nodes)
-* save changes
-* go back to the home page acme/overview
-* you can see the changes from the Events menu item:
+*1.* Go to the *Content Explorer* page and navigate to */site contents/live/acme/events/All*.
 
-!navigation_by_content_feature/contextualMenu.png!
+*2.* Click the *Content Navigation* button.
 
-- _Visible_: the node /site contents/live/acme/events/All is navigable and its child nodes are rendered in the contextual menu.
-- _Target parent navigation_: the node /site contents/live/acme/events/All is attached to the site menu item _Events_.
-- _Clickable_: the node /site contents/live/acme/events/All itself is not clickable but all its child nodes are.
-- _Page for list_: list child nodes (if a child node is a directory/folder) will be rendered in this page:
-hit *Earth* menu item from the contextual menu and see that contents of the _Earth_ directory are rendered in a separate page (catalog):
+*3.* Fill values into the navigation form, including:
 
-!navigation_by_content_feature/listEarth.png!
+* *Visible* = true. This node will be navigable.
 
-- _Page for detail_ detail child nodes (if a child node is a sample content) will be rendered in this page:
-hit *Power 1 - Fire* menu item from the contextual menu and see that _Fire_ content in displayed in a separate page (detail):
+* *Target parent navigation* = Events. The contextual menu will be attached to the *Events* drop-down menu.
 
-!navigation_by_content_feature/event1.png!
+* *Clickable* = false. This node will not be clickable.
 
-h1. Use it   {anchor:id=DEV.NewFeatures.NavigationByContent.UseIt}
+* *Page for list* = catalog. This page is a system page that contains a content list viewer portlet and will be used to display the list of child nodes.
 
-You can for example restrict the visibility of some contents:
+* *Page for detail* = detail. This page is a system page that contains a single content viewer portlet and will be used to display details of child nodes.
 
-- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
-- hit the content navigation button
-- uncheck field visible and save
-- go back to home page and see that Fire sub menu is not displayed in the contextual menu
+*4.* Save changes, then go back to the *Acme/Overview* homepage.
 
-You can also sort elements of the contextual menu:
+You will see changes from the *Events* drop-down menu.
 
-- go to the Content Explorer page and navigate under /site contents/live/acme/events/All
-- select /site contents/live/acme/events/All/Earth node
-- hit the content navigation button
-- set the field Display order to 1 and save
-- select /site contents/live/acme/events/All/Water node
-- hit the content navigation button
-- set the field Display order to 2 and save
-- select /site contents/live/acme/events/All/Air node
-- hit the content navigation button
-- set the field Display order to 3 and save
-- go back to home page and see that the display order from the contextual menu is sorted: Earth, Water, Air (notice that Fire sub menu is not displayed because we set it to invisible in the previous example)
+!images/navigation_by_content_feature/contextualMenu.png|align="center"!
 
-You can get back a node to the contextual menu (if you already remove it) and attach it to another page:
+In which:
 
-- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
-- hit the content navigation button
-- fill the navigation form fields as follows:
-** Visible = true
-** Target parent navigation = News
-** Clickable = false
-** Page for list = catalog
-** Page for detail = detail
-- save changes
-- go back to the home page acme/overview and see that Fire node is attached to News menu item from the site menu:
+* *Visible*: The */site contents/live/acme/events/All* node is navigable and its child nodes are rendered in the contextual menu.
 
-!navigation_by_content_feature/fireNode.png!
+* *Target parent navigation*: The */site contents/live/acme/events/All* node is attached to the site menu item called *Events*.
 
-Now what if you create a new content, will it be added directly to the contextual menu?
-Till now the response is no.
-To achieve that, we need to add the populateToMenu ECM action that could add newly added contents to the contextual menu:
-- go to the Content Explorer page and navigate under /site contents/live/acme/events/All/Fire
-- hit the Manage Actions button and add the exo:populateToMenu action:
+* *Clickable*: The */site contents/live/acme/events/All* node is not clickable but all its child nodes are clickable.
 
-!navigation_by_content_feature/populateToMenuAction.png!
+* *Page for list*: The list of child nodes (if a child node is *directory/folder*) will be rendered in the following page.
 
-- create a document under /site contents/live/acme/events/All/Fire (upload a file for example) and publish it
-- go back to home page and see that the newly added document (must be published) is added in the contextual menu:
+Click the *Earth* menu item from the contextual menu and see that contents of the _Earth_ directory are rendered in a separate page (catalog):
 
-!navigation_by_content_feature/docPDF.png!
+!images/navigation_by_content_feature/listEarth.png|align="center"!
 
-The sample acme-website comes with an already configured navigation by content menu:
+* *Page for detail*: The details of child nodes (if a child node is a sample content) will be rendered in this page:
 
-!navigation_by_content_feature/productsMenu.png!
+Select the *Power 1 - Fire* menu item from the contextual menu to see the *Fire* content which is displayed in a separate page (details):
 
-You can hit the Vision sub menu and see contents of vision directory rendered is the page _catalog_ :
+!images/navigation_by_content_feature/event1.png|align="center"!
 
-!navigation_by_content_feature/visionSubMenuList.png!
+h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent}
 
-Choose for example the X-Ray content and see the newly implemented reach content that uses new visual effects
-- "Benefits" and "Features" tabs:
+*To restrict the visibility of some contents:*
 
-!navigation_by_content_feature/benefits.png!
+*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
 
-- Coverflow section:
+*2.* Click the *Content Navigation* button.
 
-!navigation_by_content_feature/coverflow.png!
+*3.* Uncheck the field visible and save.
 
-- Related documents:
+*4.* Go back to the homepage and see that Fire sub-menu is not displayed in the contextual menu.
 
-!navigation_by_content_feature/relatedDocuments.png!
+*To sort elements of the contextual menu:*
 
-h2. How to create a new product  {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct}
+*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All*.
 
-- go to the Content Explorer page and navigate under somePath/someDirectory
-- hit the Add Document button
-- choose _Product_
-- fill the product dialog form:
-** Name
-** Title
-** Illustration Image
-** Summary
-** Benefits
-** Features
-- save changes
-Now lets improve our newly created product, say "sampleProduct":
-- go under somePath/someDirectory/sampleProduct/medias/images
-- upload some images and publish them:
+*2.* Select the */site contents/live/acme/events/All/Earth* node.
 
-!navigation_by_content_feature/sampleProductImages.png!
+*3.* Click the *Content Navigation* button.
 
-- go under somePath/someDirectory/sampleProduct/medias/videos
-- upload a video and publish it:
+*4.* Set the *Display order* field to 1 and save.
 
-!navigation_by_content_feature/sampleProductVideos.png!
+*5.* Select the */site contents/live/acme/events/All/Water* node.
 
-- go under somePath/someDirectory/sampleProduct/documents
-- create two directories: _Sales materials_ and _Technical documentation_
-- under each subfolder upload a pdf document and publish it:
+*6.* Click the *Content Navigation* button.
 
-!navigation_by_content_feature/sampleProductDocuments.png!
+*7.* Set the *Display order* field to 2 and save.
 
-- now you can add the sampleProduct to some category or add it to a Content List Portlet
-- the newly created product is ready to be displayed in some page, don't forget to publish it
-- you can select this content from a CLV:
+*8.* Select the */site contents/live/acme/events/All/Air* node.
 
-!navigation_by_content_feature/sampleProductCLV.png!
+*9.* Click the *Content Navigation* button.
 
-- the content will be displayed in a detail page as follows:
+*10.* Set the *Display order* field to 3 and save.
 
-!navigation_by_content_feature/sampleProductDetail.png!
+*11.* Go back to the homepage and see that the display order from the contextual menu is sorted to Earth, Water, Air. Note that the Fire sub-menu is not displayed because it is set to "invisible" in the previous example.
 
-h2. Product content development  {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.ProductContentDev}
+*To restore a node to the contextual menu (if you already remove it) and attach it to another page:*
+
+*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
+
+*2.* Click the *Content Navigation* button.
+
+*3.* Fill values into the navigation form fields, including:
+
+* *Visible* = true
+* *Target parent navigation* = News
+* *Clickable* = false
+* *Page for list* = catalog
+* *Page for detail* = detail
+
+*4.* Save changes and go back to the *Acme/Overview* homepage and see that the Fire node is attached to the *News* drop-down menu from the site menu:
+
+!images/navigation_by_content_feature/fireNode.png|align="center"!
+
+However, if you want to add your newly created content directly to the contextual menu, you need to add the *populateToMenu* action first.
+
+*To add your newly created contents to the contextual menu:*
+
+*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
+
+*2.* Click the *Manage Actions* button and add the *{noformat}exo:populateToMenu{noformat}* action.
+
+!images/navigation_by_content_feature/populateToMenuAction.png|align="center"!
+
+*3.* Create a document under */site contents/live/acme/events/All/Fire* (for example, uploading a file) and publish it.
+
+*4.* Go back to the homepage and see that your newly created document is added to the contextual menu.
+
+!images/navigation_by_content_feature/docPDF.png|align="center"!
+
+The sample ACME website comes with a configured navigation by content menu:
+
+!images/navigation_by_content_feature/productsMenu.png|align="center"!
+
+You can click the *Vision* sub-menu and see contents of vision directory rendered is the *catalog* page:
+
+!images/navigation_by_content_feature/visionSubMenuList.png|align="center"!
+
+For example, select the X-Ray content and see the newly implemented content using new visual effects.
+
+* "Benefits" and "Features" tabs:
+
+!images/navigation_by_content_feature/benefits.png|align="center"!
+
+* Coverflow section:
+
+!images/navigation_by_content_feature/coverflow.png|align="center"!
+
+* Related documents:
+
+!images/navigation_by_content_feature/relatedDocuments.png|align="center"!
+
+h2. Create a new product {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNewProduct}
+
+*To create a new product:*
+
+*1.* Go to the *Content Explorer* page and navigate under *somePath/someDirectory*.
+
+*2.* Click the *Add Document* button.
+
+*3.* Select *Product*.
+
+*4.* Fill the product dialog form.
+
+* Name
+* Title
+* Illustration Image
+* Summary
+* Benefits
+* Features
+
+*5.* Save changes.
+
+*To improve your newly created product, for example "sampleProduct":*
+
+*1.* Go under *somePath/someDirectory/sampleProduct/medias/images*.
+
+*2.* Upload some images and publish them:
+
+!images/navigation_by_content_feature/sampleProductImages.png|align="center"!
+
+*3.* Go under *somePath/someDirectory/sampleProduct/medias/videos*.
+
+*4.* Upload a video and publish it.
+
+!images/navigation_by_content_feature/sampleProductVideos.png|align="center"!
+
+*5.* Go under *somePath/someDirectory/sampleProduct/documents*.
+
+*6.* Create two directories, including Sales materials and Technical documentation.
+
+*7.* Upload a PDF document and publish it under each sub-folder.
+
+!images/navigation_by_content_feature/sampleProductDocuments.png|align="center"!
+
+*8.* Add *sampleProduct* to some categories or add it to *Content List Portlet*.
+
+Your newly created product is ready to be displayed in some pages. 
+
+*9.* Publish your newly created product.
+
+Note that you can select this content from a CLV:
+
+!images/navigation_by_content_feature/sampleProductCLV.png|align="center"!
+
+As a result, the content will be displayed in a detailed page as follows:
+
+!images/navigation_by_content_feature/sampleProductDetail.png!
+
+h2. Develop product content {anchors::id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
 
 The product content is composed of fields and folders:
 
-Fields
-- Name
-- Title
-- Illustration Image
-- Summary
-- Benefits
-- Features
-Folders
-- documents
-- medias/images
-- medias/videos
+* Fields: Name, Title, Illustration Image, Summary, Benefits, and Features.
+
+* Folders: documents, medias/images, medias/videos.
 
 Folders are created within the product content when the name field is created.
-This can be achieved as follows (from the product dialog.gtmpl)
+
+This can be achieved (from the *.gtmpl* product dialog) as follows:
+
 {code:html}
 <tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.name")%></td>
@@ -235,8 +277,11 @@ This can be achieved as follows (from the product dialog.gtmpl)
 	</td>
 </tr>
 {code}
+
 Other fields are created almost in the same way:
-_Title_
+
+* *Title:*
+
 {code:html}
 <tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.title")%></td>
@@ -248,7 +293,9 @@ _Title_
 	</td>
 </tr>
 {code}
-_Illustration Image_
+
+* *Illustration Image:*
+
 {code:html}
 <%
 private void setUploadFields(name) {
@@ -295,7 +342,9 @@ private void setUploadFields(name) {
 	</td>
 </tr>
 {code}
-_Summary_
+
+* *Summary:*
+
 {code:html}
 <tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
@@ -307,7 +356,8 @@ _Summary_
 	</td>
 </tr>
 {code}
-_Benefits_
+
+* *Benefits:*
 {code:html}
 <tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.benefits")%></td>
@@ -321,7 +371,9 @@ _Benefits_
 	</td>
 </tr>
 {code}
-_Features_
+
+* *Features:*
+
 {code:html}
 <tr>
 	<td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.features")%></td>
@@ -337,7 +389,9 @@ _Features_
 {code}
 
 Now let's look at the product's view form.
-Illustration image, title and summary are grouped together:
+
+*Illustration image, title and summary are grouped together:*
+
 {code:html}
 <!-- Hot news -->
 <div class="BigNews ClearFix">
@@ -376,7 +430,9 @@ Illustration image, title and summary are grouped together:
 	</div>
 </div>
 {code}
-Benefits and Features fields are rendered in two tabs. It uses the jQuery library (already integrated in eXoPlatform3):
+
+* Benefits and Features fields are rendered in two tabs. It uses the jQuery library (already integrated into eXo Platform 3.5):
+
 {code:html}
 <div id="sectionsTabs" class="ui-tabs">
 	<ul class="ui-tabs-nav ClearFix">
@@ -416,7 +472,9 @@ Benefits and Features fields are rendered in two tabs. It uses the jQuery librar
 	});
 </script>
 {code}
-Another jQuery based feature is the display of the product's images (coverflow) from the images folder:
+
+* The jQuery-based feature is display of the product's images (coverflow) from the images folder:
+
 {code:html}
 <div class="jQProBoxC">
 <!-- Begin jCarouselLite part -->
@@ -452,19 +510,25 @@ jQuery.noConflict();
 });
 </script>
 {code}
-Documents and videos are simply displayed within the view form as follows:
-- get the node's path (document or video)
-- use some customizes css classes to display a link for this node.
+
+* *Documents and videos are simply displayed within the view form as follows:*
+
+*1.* Get the node path (document or video).
+
+*2.* Use some customized CSS classes to display a link for this node.
 
 Labels and/or messages displayed in the dialog and the view form are localized.
-Notice the use of this instruction:
+
+Note the use of this instruction as below:
+
 {code:html}
 <td class="FieldLabel"><%=_ctx.appRes("Product.dialog.label.summary")%></td>
 [...]
 <h1><%=_ctx.appRes("Product.view.label.seeItInAction")%></h1>
 {code}
-This is achieved by adding locale files.
-For example:
+
+This is achieved by adding locale files. For example:
+
 {code:xml}
 	<Product>
 		<view>
@@ -478,7 +542,9 @@ For example:
 		</view>
 	</Product>
 {code}
-Make sure to add the locale files in the resource bundle configuration (if locale files(dialogs and views) are under classes/locale/wcm directory):
+
+Make sure that locale files are added to the resource bundle configuration. If locale files (dialogs and views) are under *classes/locale/wcm directory*, use the following code:
+
 {code:xml}
 <value>locale.wcm.dialogs</value>
 <value>locale.wcm.views</value>
