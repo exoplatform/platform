@@ -31,9 +31,9 @@
     <org.exoplatform.portal.version>3.2.0-PLF-SNAPSHOT</org.exoplatform.portal.version>
     <org.exoplatform.webos.version>2.0.0-SNAPSHOT</org.exoplatform.webos.version>
     <org.exoplatform.commons.version>1.1.0-Beta03-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.gwtframework.version>1.1.0-Beta03</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.1.0-Beta03</org.exoplatform.ide.version>
-    <org.xcmis.version>1.2.1</org.xcmis.version>
+    <org.exoplatform.gwtframework.version>1.1.0-Beta04</org.exoplatform.gwtframework.version>
+    <org.exoplatform.ide.version>1.1.0-Beta04</org.exoplatform.ide.version>
+    <org.xcmis.version>1.2.2</org.xcmis.version>
     <org.exoplatform.cs.version>2.2.1-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.2.1-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.2.0-GA-SNAPSHOT</org.exoplatform.ecms.version>
