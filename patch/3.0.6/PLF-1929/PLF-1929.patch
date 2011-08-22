@@ -1,0 +1,164 @@
+Index: office/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/organization-component-plugins-configuration.xml
+===================================================================
+--- office/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/organization-component-plugins-configuration.xml	(revision 71654)
++++ office/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/organization-component-plugins-configuration.xml	(working copy)
+@@ -291,120 +291,6 @@
+ 	    </init-params>
+ 	  </component-plugin>
+ 	  <component-plugin>
+-	    <name>drive.new.group.event.listener</name>
+-	    <set-method>addListenerPlugin</set-method>
+-	    <type>org.exoplatform.services.cms.drives.impl.NewGroupListener</type>
+-	    <description>description</description>
+-	    <init-params>
+-	      <value-param>
+-	        <name>name</name>
+-	        <value>Content of group</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>repository</name>
+-	        <value>repository</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>workspace</name>
+-	        <value>collaboration</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>permissions</name>
+-	        <value>*:/platform/administrators</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>icon</name>
+-	        <value></value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>views</name>
+-	        <value>Timeline-View-document, icon-view, cover-flow, slide-show</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>viewPreferences</name>
+-	        <value>false</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>viewNonDocument</name>
+-	        <value>true</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>viewSideBar</name>
+-	        <value>true</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>showHiddenNode</name>
+-	        <value>false</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>allowCreateFolder</name>
+-	        <value>nt:folder,nt:unstructured</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>allowNodeTypesOnTree</name>
+-	        <value>*</value>
+-	      </value-param>	      	      	      	      	      	      	      	      	      	      
+-	    </init-params>
+-	  </component-plugin>	  	  
+-<!--
+-	  <component-plugin>
+-	    <name>drive.new.user.event.listener</name>
+-	    <set-method>addListenerPlugin</set-method>
+-	    <type>org.exoplatform.services.cms.drives.impl.NewUserListener</type>
+-	    <description>description</description>
+-	    <init-params>
+-	      <value-param>
+-	        <name>name</name>
+-	        <value>Content of user</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>repository</name>
+-	        <value>repository</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>workspace</name>
+-	        <value>collaboration</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>permissions</name>
+-	        <value>member:/platform/administrators</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>icon</name>
+-	        <value></value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>views</name>
+-	        <value>simple-view</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>viewPreferences</name>
+-	        <value>false</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>viewNonDocument</name>
+-	        <value>true</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>viewSideBar</name>
+-	        <value>true</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>showHiddenNode</name>
+-	        <value>true</value>
+-	      </value-param>	      	      	      	      	      	      	      
+-	      <value-param>
+-	        <name>allowCreateFolder</name>
+-	        <value>nt:folder,nt:unstructured</value>
+-	      </value-param>
+-	      <value-param>
+-	        <name>allowNodeTypesOnTree</name>
+-	        <value>*</value>
+-	      </value-param>	      	      	      	      	      	      	      	      	      	      
+-	    </init-params>
+-	  </component-plugin>	  
+--->	  	
+-	  <component-plugin>
+ 	    <name>queries.new.user.event.listener</name>
+ 	    <set-method>addListenerPlugin</set-method>
+ 	    <type>org.exoplatform.services.cms.queries.impl.NewUserListener</type>
+@@ -445,4 +331,4 @@
+ 	    </init-params>
+ 	  </component-plugin>
+ 	</external-component-plugins>
+-</configuration>
+\ No newline at end of file
++</configuration>
+Index: extension/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/dms-drives-configuration.xml
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/dms-drives-configuration.xml	(revision 71654)
++++ extension/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/dms-drives-configuration.xml	(working copy)
+@@ -77,6 +77,27 @@
+               <field name="allowNodeTypesOnTree"><string>*</string></field>       
+             </object>
+           </object-param>
++         <object-param>
++           <name>Groups</name>
++           <description>Groups drive template</description>
++           <object type="org.exoplatform.services.cms.drives.DriveData">
++             <field  name="name"><string>Groups</string></field>
++             <field  name="repository"><string>repository</string></field>
++             <field  name="workspace"><string>collaboration</string></field>
++             <field  name="permissions"><string>*:${groupId}</string></field>
++             <field  name="homePath"><string>/Groups${groupId}</string></field>
++             <field  name="icon"><string></string></field>
++             <field  name="views">
++               <string>simple-view</string>
++             </field>
++             <field  name="viewPreferences"><boolean>false</boolean></field>
++             <field  name="viewNonDocument"><boolean>true</boolean></field>
++             <field  name="viewSideBar"><boolean>true</boolean></field>
++             <field  name="showHiddenNode"><boolean>false</boolean></field>
++             <field  name="allowCreateFolders"><string>nt:folder,nt:unstructured</string></field>
++             <field name="allowNodeTypesOnTree"><string>*</string></field>
++           </object>
++         </object-param>
+           <object-param>        
+             <name>DMS Administration</name>
+             <description>DMS system data area</description>
