@@ -107,6 +107,7 @@ function getProduct(version) {
   /* CS* */
   product.addDependencies(cs.eXoApplication.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
   product.addDependencies(cs.eXoApplication.contact); // exo.cs.eXoApplication.contact.service-2.0.0-SNAPSHOT.jar + contact.war
+  product.addDependencies(cs.eXoApplication.common);
   product.addDependencies(cs.eXoApplication.mail); // exo.cs.eXoApplication.mail.service-2.0.0-SNAPSHOT.jar + mail.war
   product.addDependencies(cs.eXoApplication.chat); // exo.cs.eXoApplication.chat.service-2.0.0-SNAPSHOT.jar + chat.war + exo.cs.eXoApplication.organization.client.openfire-2.0.0-SNAPSHOT.jar + exo.cs.eXoApplication.organization.service-2.0.0-SNAPSHOT.jar
   product.addDependencies(cs.eXoApplication.chatbar); // chatbar.war
