@@ -1,6 +1,7 @@
 <%
     import org.exoplatform.portal.mop.user.UserNavigation;
     import org.exoplatform.portal.mop.user.UserNode;
+    import org.exoplatform.portal.mop.SiteKey;
     import org.exoplatform.portal.mop.Visibility;
 	import org.exoplatform.portal.webui.util.Util ;
 	import org.exoplatform.web.application.JavascriptManager;
@@ -107,7 +108,7 @@
     }
     
     if (uicomponent.isWebOSCreated()) {
-       desktopLink = NavigationURLUtils.getURLInCurrentPortal(UIDesktopPage.NODE_NAME);
+       desktopLink = NavigationURLUtils.getURL(SiteKey.user(rcontext.getRemoteUser()), UIDesktopPage.NODE_NAME);
     } else {
        desktopLink = uicomponent.url("CreateWebOS");
     }
