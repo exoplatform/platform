@@ -51,12 +51,12 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.test.organization</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
