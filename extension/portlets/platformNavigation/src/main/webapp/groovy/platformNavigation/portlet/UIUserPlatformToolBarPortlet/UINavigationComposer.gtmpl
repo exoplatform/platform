@@ -104,7 +104,7 @@
 			} catch(e) {
 				alert(e);
 			};
-			refreshNavigation();
+			//refreshNavigation();
 		}
 	}	  
   </script>
