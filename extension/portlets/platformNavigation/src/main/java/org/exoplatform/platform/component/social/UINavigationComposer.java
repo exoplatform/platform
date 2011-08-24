@@ -17,6 +17,8 @@
 package org.exoplatform.platform.component.social;
 
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.social.core.service.LinkProvider;
@@ -84,6 +86,9 @@ public class UINavigationComposer extends org.exoplatform.social.webui.composer.
       Utils.getActivityManager().saveActivity(uiComposer.getOwnerIdentity(), ACTIVITY_TYPE, message);
       UIFormTextAreaInput messageInput = uiComposer.getChild(UIFormTextAreaInput.class);
       messageInput.setValue("");
+      //Update the UserActivityStreamPortlet
+      UIWorkingWorkspace uiWorkingWS = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class).getChild(UIWorkingWorkspace.class);
+      uiWorkingWS.updatePortletsByName("UserActivityStreamPortlet");
     }
   }
 }
