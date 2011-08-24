@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.exoplatform.platform.cloud</groupId>
     <artifactId>exo.platform.cloud.extension</artifactId>
-    <version>3.5.0-M4-SNAPSHOT</version>
+    <version>3.5.0-M4</version>
   </parent>
   <artifactId>exo.platform.cloud.extension.webapp</artifactId>
   <packaging>war</packaging>
