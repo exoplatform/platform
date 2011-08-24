@@ -849,6 +849,12 @@ The function allows you to change the behavior as well as the layout of Mail to 
 
 The *Mail Settings* form appears with 3 tabs: General, Return Receipts and Layout.
 
+*2.* Change the settings.
+
+*3.* Click *Save* to accept the changes.
+
+h2. Change the general settings {anchor:id="Change_general_settings"}
+
 * The *General* tab contains basic setting information:
 
 !images/settings.png|align="center"!
@@ -862,6 +868,7 @@ The *Mail Settings* form appears with 3 tabs: General, Return Receipts and Layou
 |*Forward message with*|There are two options: {example}{example} - Forward message with attachment. {example}{example} - Forward message with text only.|
 |*Save sent messages in 'Sent' Folder*|This option allows saving sent messages in 'Sent' folder or not.|
 
+h2. Change the return receipt settings {anchor:id="Change_the_return_receipts_settings"}
 * The *Return Receipts* tab allows setting the option for receipt notification:
 
 !images/Mail_return_receipts.png|align="center"!
@@ -875,10 +882,23 @@ For example, after reading a new mail in your Inbox, you can determine whether t
 |*Never send a return receipt*|This option will ignore all requests for a return receipt from you.|
 |*Always send a return receipt*|The option allows sending a returned receipt to anyone under request at all times.|
 
+h2. Change the Mail layout  {anchor:id="Change_the_mail_layout_settings"}
 * The *Layout* tab allows personalizing the Mail layout. By default, the *Horizontal Split* type is set. Besides, you can select the *Vertical Split* or the *No Split*.
 
 !images/settings2.png|align="center"!
 
-*2.* Change the settings.
+h2. Deligate access to your email {anchor:id="Deligate_access_to_your_email"}
+You can delegate access to your mail account to another person so they can manage your mail account on your behalf. For example, you can grant access to your email to the administrator of your organization.
+You can limit the privileges of the delegated person as well.
 
-*3.* Click *Save* to accept the changes.
+!images/Mail_deligate_mail.png!
+
+*1* Choose your account to deligate from the account dropdown list. 
+
+*2* Type the user name of the person who you want to deligate.
+
+*3* Click the *Full* check-box if you want to give the deligated persons full privileges. It means they can manage everything in your account with no restriction. 
+
+*4* Click the green arrow to add the deligated account.
+
+*5* Click *Save* to save changes.
