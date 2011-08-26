@@ -70,7 +70,7 @@
 				  <groupId>org.exoplatform.portal</groupId>
 				  <artifactId>starter-gatein</artifactId>
 				  <version>${org.exoplatform.portal.version}</version>
-				  <destFileName>exo-starter-gatein-${org.exoplatform.portal.version}.ear</destFileName>
+				  <destFileName>starter-gatein-${org.exoplatform.portal.version}.ear</destFileName>
 				  <type>ear</type>
 				</artifactItem>
 				<artifactItem>
