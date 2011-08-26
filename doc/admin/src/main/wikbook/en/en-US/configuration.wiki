@@ -569,13 +569,15 @@ gatein.jcr.config.type=local
 gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.DefaultChangesFilter
 
 # JCR cache configuration
-gatein.jcr.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/config.xml
+gatein.jcr.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/cache-config.xml
+
+gatein.jcr.cache.expiration.time=15m
 
 # JCR Locks configuration
-gatein.jcr.lock.cache.config=classpath:/conf/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
+gatein.jcr.lock.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/lock-config.xml
 
 # JCR Index configuration
-gatein.jcr.index.cache.config=classpath:/conf/jcr/jbosscache/cluster/indexer-config.xml
+gatein.jcr.index.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/indexer-config.xml
 gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
 {code}
 
