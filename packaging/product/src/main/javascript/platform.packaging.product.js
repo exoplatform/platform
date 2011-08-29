@@ -58,7 +58,7 @@ function getProduct(version) {
   product.addDependencies(platform.extension.portlets.platformNavigation);
   product.addDependencies(platform.common.webui); 
   product.addDependencies(platform.common.resources);
-  
+
   // crash
   product.addDependencies(platform.crash.webapp);
   
@@ -79,7 +79,9 @@ function getProduct(version) {
   product.addDependencies(platform.ide.webapp);
   /* WebOS */
   product.addDependencies(platform.webos.ext);
-  
+  /* Gadgets */
+  product.addDependencies(platform.sample.GadgetSample.gadgets);
+
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
   product.addDependencies(workflow.web.eXoStaticResources) ;

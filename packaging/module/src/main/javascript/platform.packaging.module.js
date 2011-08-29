@@ -171,5 +171,20 @@ function getModule(params)
         addDependency(module.webos.webosResources);
    module.webos.ext.deployName = "webos-ext";
    
+  // gadgets
+   module.sample.GadgetSample = {};
+   
+   module.sample.GadgetSample.resources = 
+        new Project("org.exoplatform.platform", "exo.platform.sample.gadgets-sample.exo-gadget-resources", "war", module.version);
+   module.sample.GadgetSample.resources.deployName = "exo-gadget-resources";
+
+   module.sample.GadgetSample.gadgets =  new Project("org.exoplatform.platform", "exo.platform.sample.gadgets-sample.gadgets", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.gadgets-sample.config", "jar", module.version)).
+           addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.gadgets-sample.service", "jar", module.version)).
+           addDependency(module.sample.GadgetSample.resources);
+   module.sample.GadgetSample.gadgets.deployName = "intranet-gadget";
+
+   
+
    return module;
 }
