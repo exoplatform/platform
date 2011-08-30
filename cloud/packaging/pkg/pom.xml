@@ -573,6 +573,13 @@
       <type>war</type>
     </dependency>
 
+   <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.webui.ext</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+      <type>jar</type>
+   </dependency><!-- 1.1.0-GA-->
+
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.ext.social-integration</artifactId>
@@ -593,16 +600,6 @@
       <version>${org.exoplatform.commons.version}</version>
       <type>jar</type>
     </dependency>
-
-
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.webui.ext</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
-      <type>jar</type>
-    </dependency>
-
-
 
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
