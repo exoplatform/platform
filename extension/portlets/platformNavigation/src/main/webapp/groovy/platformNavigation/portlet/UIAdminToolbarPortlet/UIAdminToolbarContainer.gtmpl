@@ -73,24 +73,20 @@
 					</li>
 					<li class="MenuItem">					
 						<%if(fullStatus.equals("Disabled")) {%>
-							<a class="<%=style%>" title="<%=seo_title%>"><img src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}">&nbsp;SEO</a>
+							<img class="ImgStatus" src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}" /><a class="<%=style%> Status" title="<%=seo_title%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%></a>
 							<%} else {
 								def onclickURL = "openSEOForm(event, '" + uicomponent.event("AddSEO","str").replace("'","~") + "')";
 							%>	
-								<a class="<%=style%>" title="<%=seo_title%>" onclick="<%=onclickURL%>"><img src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}">&nbsp;SEO</a>
+							<img class="ImgStatus" src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}" /><a class="<%=style%> Status" title="<%=seo_title%>" onclick="<%=onclickURL%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%></a>
 							<%}%>
 					</li>	  				
-					<hr width="100%" style="width:100%; color: #999999;" />
+					<li class="HorizontalLine">&nbsp;</li>
 					<li class="MenuItem">	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">
-							<img src="/eXoPlatformResources/skin/platformSkin/icons/AddContentIcon.png">
-							&nbsp;&nbsp;
-							$addPageLabel
-						</a>
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
 					</li>
 					<% if(uicomponent.hasManagePagesPermission()){ %>
 					<li class="MenuItem">   
-						<a href="<%= uicomponent.getPageManagementLink()%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
+						<a class="ItemIcon ManagePages" href="<%= uicomponent.getPageManagementLink()%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
 					</li>
 					<% } %>
 				</ul>
@@ -107,19 +103,19 @@
 					<% } %>
 					<% if(userCouldEditNavigation){ %>
 					<li class="MenuItem">	
-						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon ManageSite">$editNavigation</a>
+						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon Navigation">$editNavigation</a>
 					</li>
 					<% } %>
 					<% if(displayManageSitesPermission){ %>
-					<hr width="100%" style="width:100%; color: #999999;" />
-					<li class="MenuItem">   
-						<a class="ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("portalnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
+					<li class="HorizontalLine">&nbsp;</li>
+					<li class="MenuItem ">   
+						<a class="ItemIcon ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("portalnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
 					</li>               
 					<% } %>
 					<% if(displayManageGroupSitesPermission){ %>
-					<hr width="100%" style="width:100%; color: #999999;" />
-					<li class="MenuItem">   
-						<a class="ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
+					<li class="HorizontalLine">&nbsp;</li>
+					<li class="MenuItem ">   
+						<a class="ItemIcon ManageGroupSites" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
 					</li>               
 					<% } %>
 				</ul>
