@@ -52,9 +52,16 @@ a {
 	padding-bottom: 8px;
 }
 
+
 .UIPageBody .VIEW-PAGEBODY .UIPage {
 	padding: 0 !important;
 }
+
+.ApplicationTDContainer .UIForumPortlet {
+    background: white;
+	padding-bottom: 10px;
+}
+
 
 #UIPortalApplication .UIWorkingWorkspace {
 	width: 100%;
