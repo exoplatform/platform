@@ -38,7 +38,7 @@
          <DefaultValue>default</DefaultValue>
       </discriminator>
       <sift>
-         <appender name="FILE-${currentTenant}" class="ch.qos.logback.core.FileAppender">
+         <appender name="FILE-${currentTenant}" class="org.exoplatform.cloudmanagement.log.SecurityFileAppender">
             <File>${catalina.base}/logs/${currentTenant}/tenant.log</File>
             <Append>true</Append>
             <encoder>
@@ -56,7 +56,7 @@
 
    <logger name="org.chromattic" level="INFO"/>
 
-   <root level="OFF">
+   <root level="INFO">
       <appender-ref ref="SIFT"/>
       <appender-ref ref="STDOUT"/>
    </root>
