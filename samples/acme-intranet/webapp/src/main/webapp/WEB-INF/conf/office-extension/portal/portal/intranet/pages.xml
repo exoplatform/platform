@@ -32,7 +32,24 @@
 			<access-permissions>*:/platform/users</access-permissions>
 			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>*:/platform/users</access-permissions>
-
+                                <!-- My Profile gadget -->
+		                <portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://Profile</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
 				<!-- My spaces gadget -->
 				<portlet-application>
 					<portlet>
@@ -194,7 +211,24 @@
 					<show-application-state>true</show-application-state>
 				   </portlet-application>
 -->
-
+                                <!-- Who is online gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://WhoIsOnline</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
 
 			</container>
 
