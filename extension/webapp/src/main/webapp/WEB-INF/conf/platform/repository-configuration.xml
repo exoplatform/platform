@@ -24,6 +24,7 @@
     <repository name="repository" system-workspace="system" default-workspace="collaboration">
       <security-domain>${portal.container.realm}</security-domain>
       <access-control>optional</access-control>
+      <session-max-age>${gatein.jcr.sessionregistry.sessionmaxage}</session-max-age>
       <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
       <workspaces>
       </workspaces>
