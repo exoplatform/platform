@@ -134,14 +134,17 @@ function getModule(params)
         addDependency(new Project("ch.qos.logback", "logback-classic", "jar", "0.9.20")).
         addDependency(new Project("mx4j", "mx4j-tools", "jar", "3.0.1")).
         addDependency(new Project("commons-io", "commons-io", "jar", "2.0")).
-        addDependency(new Project("commons-logging", "commons-logging", "jar", "1.1.1")).
+//        addDependency(new Project("commons-logging", "commons-logging", "jar", "1.1.1")).
         addDependency(new Project("asm", "asm", "jar", "3.2")).
         addDependency(new Project("asm", "asm-commons", "jar", "3.2")).
         addDependency(new Project("asm", "asm-util", "jar", "3.2")).
         addDependency(new Project("asm", "asm-analysis", "jar", "3.2")).
+        addDependency(new Project("org.slf4j", "jcl-over-slf4j", "jar", "1.5.8")).        
+        addDependency(new Project("org.slf4j", "jul-to-slf4j", "jar", "1.5.8")).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-agent", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-admin-valve", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-instrument", "jar", cloudVersion)).
+        addDependency(new Project("org.exoplatform.cloud-management", "cloud-logback-logging", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-multitenancy", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-services-common", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-rest", "jar", cloudVersion)).

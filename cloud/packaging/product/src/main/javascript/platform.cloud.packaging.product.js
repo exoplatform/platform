@@ -195,7 +195,8 @@ function getProduct(version) {
   // Use new version of commons-logging override Product.preDeploy()
   product.preDeploy = function() { 
     product.removeDependency(new Project("commons-logging", "commons-logging", "jar", "1.0.4"));
-    product.addDependencies(new Project("commons-logging", "commons-logging", "jar", "1.1.1"));
+    product.removeDependency(new Project("commons-logging", "commons-logging", "jar", "1.1.1"));
+//    product.addDependencies(new Project("commons-logging", "commons-logging", "jar", "1.1.1"));
   }
 
   return product ;

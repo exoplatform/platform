@@ -458,6 +458,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.cloud-management</groupId>
+      <artifactId>cloud-logback-logging</artifactId>
+      <version>${org.exoplatform.cloud-management.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.cloud-management</groupId>
       <artifactId>cloud-agent-war</artifactId>
       <version>${org.exoplatform.cloud-management.version}</version>
       <type>war</type>
@@ -692,6 +698,23 @@
       <version>${org.slf4j.version}</version>
       <type>jar</type>
     </dependency>
+
+  <!-- Per tenant logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${org.slf4j.version}</version>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+      <version>${org.slf4j.version}</version>
+      <type>jar</type>
+    </dependency>
+
+
 
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
@@ -2027,6 +2050,10 @@
   <filter>
     <filter-name>SetTenantRepositoryFilter</filter-name>
     <filter-class>org.exoplatform.cloudmanagement.multitenancy.SetTenantRepositoryFilter</filter-class>
+   <init-param>
+        <param-name>masterHost</param-name>
+        <param-value>localhost</param-value>
+    </init-param>
   </filter>
   <filter>
     <filter-name>LogbackLoggingFilter</filter-name>
@@ -2078,33 +2105,15 @@
   <filter>
     <filter-name>SetTenantRepositoryFilter</filter-name>
     <filter-class>org.exoplatform.cloudmanagement.multitenancy.SetTenantRepositoryFilter</filter-class>
+     <init-param>
+        <param-name>masterHost</param-name>
+        <param-value>localhost</param-value>
+    </init-param>
   </filter>
   <filter>
     <filter-name>LogbackLoggingFilter</filter-name>
     <filter-class>org.exoplatform.cloudmanagement.log.LogbackLoggingFilter</filter-class>
   </filter>]]></replacevalue>
-                  </replace>
-                  <replace file="${project.build.directory}/tomcat/webapps/portal/WEB-INF/web.xml">
-                    <replacetoken><![CDATA[<filter>
-	     <filter-name>PortalContainerFilter</filter-name>
-	     <filter-class>org.exoplatform.container.web.PortalContainerFilter</filter-class>
-  </filter>]]></replacetoken>
-                    <replacevalue><![CDATA[<!-- Cloud -->
-  <!-- filter>
-	     <filter-name>PortalContainerFilter</filter-name>
-	     <filter-class>org.exoplatform.container.web.PortalContainerFilter</filter-class>
-  </filter -->]]></replacevalue>
-                  </replace>
-                  <replace file="${project.build.directory}/tomcat/webapps/portal/WEB-INF/web.xml">
-                    <replacetoken><![CDATA[<filter-mapping>
-	    <filter-name>PortalContainerFilter</filter-name>
-	    <url-pattern>/*</url-pattern>
-  </filter-mapping>]]></replacetoken>
-                    <replacevalue><![CDATA[<!-- Cloud -->
-  <!-- filter-mapping>
-	    <filter-name>PortalContainerFilter</filter-name>
-	    <url-pattern>/*</url-pattern>
-  </filter-mapping -->]]></replacevalue>
                   </replace>
                   <replace file="${project.build.directory}/tomcat/webapps/portal/WEB-INF/web.xml">
                     <replacetoken><![CDATA[<filter-mapping>
@@ -2143,77 +2152,7 @@
                   <zip destfile="${project.build.directory}/tomcat/webapps/portal.war" basedir="${project.build.directory}/tomcat/webapps/portal" />
                   <delete dir="${project.build.directory}/tomcat/webapps/portal" />
  
- <!-- Patching cloud-agent.war -->
-<!--
-<mkdir dir="${project.build.directory}/tomcat/webapps/cloud-agent" />
-                <unzip src="${project.build.directory}/tomcat/webapps/cloud-agent.war" dest="${project.build.directory}/tomcat/webapps/cloud-agent" />
 
-                <replace file="${project.build.directory}/tomcat/webapps/cloud-agent/WEB-INF/web.xml">
-                  <replacetoken><![CDATA[<display-name>Cloud agent application</display-name>]]></replacetoken>
-                  <replacevalue><![CDATA[<display-name>cloud-agent</display-name>]]></replacevalue>
-                </replace>
-
-                <replace file="${project.build.directory}/tomcat/webapps/cloud-agent/WEB-INF/web.xml" failOnNoReplacements="true">
-                  <replacetoken><![CDATA[<filter>
-      <filter-name>RestEncodingFilter</filter-name>
-      <filter-class>org.exoplatform.services.rest.servlet.RestEncodingFilter</filter-class>
-      <init-param>
-         <param-name>REQUEST_ENCODING</param-name>
-         <param-value>UTF-8</param-value>
-      </init-param>
-   </filter> ]]></replacetoken>
-                  <replacevalue><![CDATA[<filter>
-      <filter-name>RestEncodingFilter</filter-name>
-      <filter-class>org.exoplatform.services.rest.servlet.RestEncodingFilter</filter-class>
-      <init-param>
-         <param-name>REQUEST_ENCODING</param-name>
-         <param-value>UTF-8</param-value>
-      </init-param>
-   </filter>
-
-<filter>
-    <filter-name>SetCurrentIdentityFilter</filter-name>
-    <filter-class>org.exoplatform.services.security.web.SetCurrentIdentityFilter</filter-class>
-    <init-param>
-      <param-name>restoreIdentity</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
-
-  <filter>
-     <filter-name>PortalContainerFilter</filter-name>
-     <filter-class>org.exoplatform.container.web.PortalContainerFilter</filter-class>
-  </filter>]]></replacevalue>
-                </replace>
-
-<replace file="${project.build.directory}/tomcat/webapps/cloud-agent/WEB-INF/web.xml" failOnNoReplacements="true">
-                  <replacetoken><![CDATA[<filter-mapping>
-      <filter-name>RestEncodingFilter</filter-name>
-      <url-pattern>/rest/*</url-pattern>
-   </filter-mapping>]]></replacetoken>
-                  <replacevalue><![CDATA[<filter-mapping>
-      <filter-name>RestEncodingFilter</filter-name>
-      <url-pattern>/rest/*</url-pattern>
-   </filter-mapping>
-
- <filter-mapping>
-    <filter-name>SetCurrentIdentityFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-<filter-mapping>
-	    <filter-name>PortalContainerFilter</filter-name>
-	    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-  <listener>
-      <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
-   </listener>]]></replacevalue>
-                </replace>
-
- <zip destfile="${project.build.directory}/tomcat/webapps/cloud-agent.war" basedir="${project.build.directory}/tomcat/webapps/cloud-agent" />
-                <delete dir="${project.build.directory}/tomcat/webapps/cloud-agent" />
--->
                   </target>
                 </configuration>
                 <goals>
