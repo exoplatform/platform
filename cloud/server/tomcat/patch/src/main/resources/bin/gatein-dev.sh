@@ -31,7 +31,7 @@ EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
 
 JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=6969 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
-EXO_CLOUD_OPTS="-javaagent:../lib/cloud-instrument-1.1-M1.jar=../gatein/conf/cloud/agent-configuration.xml \
+EXO_CLOUD_OPTS="-javaagent:../lib/cloud-instrument-1.1-M2.jar=../gatein/conf/cloud/agent-configuration.xml \
 		-Dtenant.masterhost=localhost \
 		-Dtenant.repository.name=repository \
 		-Dtenant.jcr.data.dir=../gatein/data/jcr"
