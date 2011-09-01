@@ -1,0 +1,60 @@
+Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java
+===================================================================
+--- extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(révision 69671)
++++ extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIMySpacePlatformToolBarPortlet.java	(copie de travail)
+@@ -23,6 +23,9 @@
+ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+ import org.exoplatform.services.organization.Membership;
+ import org.exoplatform.services.organization.OrganizationService;
++import org.exoplatform.services.security.ConversationState;
++import org.exoplatform.services.security.Identity;
++import org.exoplatform.services.security.MembershipEntry;
+ import org.exoplatform.social.core.space.SpaceException;
+ import org.exoplatform.social.core.space.model.Space;
+ import org.exoplatform.social.core.space.spi.SpaceService;
+@@ -60,9 +63,9 @@
+       if(getUserId().equals(userACL.getSuperUser())){
+         groupNavigationPermitted = true;
+       }else{
+-        Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+-        for (Object object : memberships) {
+-          Membership membership = (Membership) object;
++        ConversationState conversionState = ConversationState.getCurrent();
++        Identity identity = conversionState.getIdentity();
++        for (MembershipEntry membership : identity.getMemberships()) {
+           if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
+             groupNavigationPermitted = true;
+             break;
+Index: extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIUserPlatformToolBarPortlet.java
+===================================================================
+--- extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIUserPlatformToolBarPortlet.java	(révision 69671)
++++ extension/portlets/platformNavigation/src/main/java/org/exoplatform/platform/component/UIUserPlatformToolBarPortlet.java	(copie de travail)
+@@ -19,13 +19,13 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+-import org.exoplatform.portal.application.PortalRequestContext;
+ import org.exoplatform.portal.config.model.PageNavigation;
+ import org.exoplatform.portal.config.model.PortalConfig;
+ import org.exoplatform.portal.webui.util.Util;
+ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+-import org.exoplatform.services.organization.OrganizationService;
+ import org.exoplatform.services.organization.User;
++import org.exoplatform.services.security.ConversationState;
++import org.exoplatform.web.CacheUserProfileFilter;
+ import org.exoplatform.webui.config.annotation.ComponentConfig;
+ import org.exoplatform.webui.core.UIPortletApplication;
+ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+@@ -45,10 +45,8 @@
+   }
+   
+   public User getUser() throws Exception {
+-	  OrganizationService service = getApplicationComponent(OrganizationService.class);
+-      String userName = Util.getPortalRequestContext().getRemoteUser();
+-      User user = service.getUserHandler().findUserByName(userName);
+-      return user;
++      ConversationState state = ConversationState.getCurrent();
++      return (User)state.getAttribute(CacheUserProfileFilter.USER_PROFILE);
+   }
+ 
+   /**

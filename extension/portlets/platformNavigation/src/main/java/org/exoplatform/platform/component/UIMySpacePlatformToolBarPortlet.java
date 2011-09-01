@@ -23,6 +23,9 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
+import org.exoplatform.services.security.MembershipEntry;
 import org.exoplatform.social.core.space.SpaceException;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
@@ -60,9 +63,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       if(getUserId().equals(userACL.getSuperUser())){
         groupNavigationPermitted = true;
       }else{
-        Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
-        for (Object object : memberships) {
-          Membership membership = (Membership) object;
+        ConversationState conversionState = ConversationState.getCurrent();
+        Identity identity = conversionState.getIdentity();
+        for (MembershipEntry membership : identity.getMemberships()) {
           if(membership.getMembershipType().equals(userACL.getAdminMSType())) {
             groupNavigationPermitted = true;
             break;

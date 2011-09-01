@@ -19,13 +19,13 @@ package org.exoplatform.platform.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.web.CacheUserProfileFilter;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -45,10 +45,8 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
   }
   
   public User getUser() throws Exception {
-	  OrganizationService service = getApplicationComponent(OrganizationService.class);
-      String userName = Util.getPortalRequestContext().getRemoteUser();
-      User user = service.getUserHandler().findUserByName(userName);
-      return user;
+      ConversationState state = ConversationState.getCurrent();
+      return (User)state.getAttribute(CacheUserProfileFilter.USER_PROFILE);
   }
 
   /**
