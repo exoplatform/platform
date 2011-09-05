@@ -124,6 +124,14 @@
   </node>
   
   <node>
+    <uri>all-spaces</uri>
+    <name>all-spaces</name>
+    <label>#{portal.intranet.spaces}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::intranet::all-spaces</page-reference>
+  </node>
+  
+  <node>
     <uri>spaces</uri>
     <name>spaces</name>
     <label>#{portal.intranet.spaces}</label>
