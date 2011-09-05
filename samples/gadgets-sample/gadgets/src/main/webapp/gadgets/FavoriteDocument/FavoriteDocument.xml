@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+  <ModulePrefs author="eXoPlatform"
+    title="Favorite Documents"
+    title_url="http://www.exoplatform.org"
+    description="The My favorite documents"
+    thumbnail="skin/FavoriteDocument.png"
+    >
+      
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <Content type="html">
+  <![CDATA[   
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
+    <link type="text/css" rel="stylesheet" href="skin/skin.css" />
+    
+  <script type="text/javascript">
+    
+      function Favorites() {}
+      
+      var prefixUrl = location.protocol + '//' + location.hostname;
+      if (location.port) {
+        prefixUrl += ':' + location.port;
+      }    
+
+       var user;
+  
+
+       Favorites.prototype.loadUser = function() {
+        var req = opensocial.newDataRequest();
+        var opts = {};
+        opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
+                  opensocial.Person.Field.PROFILE_URL];
+      
+        req.add(req.newFetchPersonRequest("VIEWER", opts), 'viewer');
+        req.send(onLoadUser);
+      
+        function onLoadUser(data) {
+          if (!data.hadError()) {
+                  this.viewer = data.get('viewer').getData();
+                  var profile_url =  this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
+                  userId = profile_url.substr(profile_url.lastIndexOf('@') + 1);
+                  user = userId;
+
+                   favorites.init();
+          }
+        }
+
+      }
+
+         //accessUrl = prefixUrl + '/portal/public/intranet/content/repository/';
+
+      //accessUrl = prefixUrl + '/portal/groups/:platform:web-contributors/siteExplorer/';
+
+	accessUrl = prefixUrl + '/portal/intranet/documents/';
+      /**
+        * Time to refresh data in client and gadget server
+        */
+      var refreshInterval = 60000;
+      
+      Favorites.prototype.makeRequest = function(url, callback) {
+        
+        var params = {};
+        params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;        
+        var ts = new Date().getTime();
+        var sep = "?";
+        if (refreshInterval && refreshInterval > 0) {
+          ts = Math.floor(ts / refreshInterval);
+        }
+        if (url.indexOf("?") > -1) {
+          sep = "&";
+        }
+       url = [ url, sep, "nocache=", ts ].join("");
+        gadgets.io.makeRequest(url, callback, params);
+      }
+      
+      Favorites.prototype.init = function() { 
+        
+        //var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user +'?showItems=10';
+
+		//var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user;
+		
+		
+		var siteUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
+      
+        favorites.makeRequest(siteUrl,favorites.displayValue)
+      }
+      
+      Favorites.prototype.displayValue = function(resp) {
+        var data = resp.data.listFavorite;
+        var favoriteList = _gel("FavoritesList");
+        if (favoriteList) { 
+           while (favoriteList.hasChildNodes()) {
+              favoriteList.removeChild(favoriteList.lastChild);
+            }
+        }
+        var displayTime = new DisplayTime();
+        
+        for (var i = 0; i < data.length; i++) {
+          var doc = data[i];
+          var AppClass = document.createElement('div');
+            
+          var showHTML = "<a target='_blank' class='IconLink'";
+          if (accessUrl.length > 0 && doc.fullLink.length > 0) {
+            showHTML += "href='";  
+            showHTML += accessUrl;            
+            //showHTML += doc.driveName;
+            //showHTML += doc.path;
+            showHTML += doc.fullLink;
+            showHTML += "'"; 
+          }
+          showHTML += ">";
+          showHTML += doc.title;
+          showHTML += "</a>";
+          showHTML += '<div class = "CreatedDate">';
+         
+          
+         var dat=new Date(parseInt(doc.dateAddFavorite));
+          showHTML +=  dat.toDateString();
+          showHTML +=  " ";
+          //var theDate = new Date(dat);   
+          //showHTML += theDate;
+          showHTML += displayTime.timeToPrettyString(doc.dateAddFavorite);
+          showHTML += "</div>";
+          AppClass.innerHTML = showHTML;
+          //AppClass.className = 'ItemIcon';
+          favoriteList.appendChild(AppClass);
+        }
+        if(data.length ==0){
+          var AppClass = document.createElement('div');
+          AppClass.innerHTML = "Your Favorite Document is empty.";
+          favoriteList.appendChild(AppClass);
+        }
+        var title = _gel("BgTitle"); 
+        if (data && (data.length > 0) && title) {
+          favoriteList.parentNode.removeChild(title);
+        }
+
+        gadgets.window.adjustHeight($("#FavoriteDocument-Gadget").get(0).offsetHeight);
+    
+      }
+      
+      /**
+       *  Set refresh automatically in refreshInterval seconds
+       */
+      Favorites.prototype.autoRefresh = function() {
+        window.setInterval("favorites.loadUser();", refreshInterval);
+      }      
+      
+      var favorites = new Favorites();
+      gadgets.util.registerOnLoadHandler(favorites.loadUser);
+      gadgets.util.registerOnLoadHandler(favorites.autoRefresh);
+    
+    </script>
+
+       <div id="FavoriteDocument-Gadget" class="UIGadgetThemes UIYellowThemes">
+          <div class="TitGad ClearFix">
+            <div title="Setting" id="SettingButton" class="SettingButton">
+              <a href="javascript:eXoEventGadget.showHideSetting(true);"></a> 
+            </div>
+            <div class="ContTit">Favorite Documents</div>
+          </div>
+          <div id="FavoritesList" class="GadCont FavoritesList">
+            
+          </div>    
+        </div>
+  ]]>
+  </Content>
+</Module>

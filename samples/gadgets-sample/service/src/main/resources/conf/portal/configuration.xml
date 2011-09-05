@@ -28,4 +28,9 @@
     <type>org.exoplatform.platform.gadget.services.Online.OnlineRestService</type>
   </component>
 
+  <!--FAVORITE DOCUMENT-->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.favorite.FavoriteRESTService</type>
+  </component>
+
 </configuration>

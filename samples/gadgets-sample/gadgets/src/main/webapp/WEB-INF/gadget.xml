@@ -27,5 +27,11 @@
   <gadget name="Profile">
     <path>/gadgets/MyProfile/Profile.xml</path>
   </gadget>
+  <gadget name="FavoriteDocument">
+    <path>/gadgets/FavoriteDocument/FavoriteDocument.xml</path>
+  </gadget>
+  <!--gadget name="Agenda">
+    <path>/gadgets/Agenda/Agenda.xml</path>
+  </gadget-->
 
 </gadgets>

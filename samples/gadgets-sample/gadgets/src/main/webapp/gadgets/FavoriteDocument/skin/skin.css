@@ -1,0 +1,86 @@
+body , table, form{
+ background: #fff;
+ font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ color: #484848;
+}
+a {
+ color: #000000;
+ text-decoration: none;
+}
+
+table {
+ width: 100%;
+ border-collapse: collapse;
+}
+
+.ClearFix:after {
+ content: ".";
+ display: block;
+ height: 0;
+ clear: both;
+ visibility: hidden;
+}
+
+.ClearFix {
+ !display: inline-block;
+ !zoom: 1;
+ !display: block;
+}
+
+.UIGadgetThemes .TitGad {
+ line-height: 22px;
+ border-top: 1px solid #ffd400;
+ border-bottom: 6px solid #ffd400;
+ color: #484848;
+ font-size: 12px;
+ padding: 0px 15px;
+ font-weight: bold;
+}
+
+
+.UIGadgetThemes .TitGad .ContTit {
+ margin-right: 45px;
+}
+
+.UIGadgetThemes .GadCont {
+ padding: 10px 15px;
+ font-size: 12px;
+}
+
+
+/** Favorite **/
+.UIGadgetThemes .FavoritesList .IconLink {
+  color: #000000;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  text-decoration: none;
+  background: url('images/IconLink.gif') no-repeat left 4px;
+}
+
+.UIGadgetThemes .FavoritesList .ReadPost {
+ color:#cccccc;
+}
+
+.UIGadgetThemes .FavoritesList .CreatedDate {
+ color:#707070;
+ font-style: italic;
+ padding-left: 10px;
+ padding-top: 2px;
+}
+.UIGadgetThemes .SettingButton{
+ float:right;
+ margin-top:2px;
+ margin-right:10px;
+ display:none;
+ /*background:url('/eXoGadgetServer/gadgets/proxy?url=http%3A%2F%2Flocalhost%3A8080%2FcsResources%2Fgadgets%2Ftasks%2Fskin%2Fsettings.png&gadget=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3Ataskslist%2Fapp%3Adata%2Fapp%3Aresources%2FTasks.xml&fp=-182800334&refresh=86400') no-repeat;*/
+}
+.UIGadgetThemes .SettingButton a{
+ display:block;
+ width:16px;
+ height:16px;
+}
+
+
+
+
