@@ -158,7 +158,8 @@ function getModule(params)
 
    module.cloud.cloudExtension =
        new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.extension.webapp", "war", module.version).
-        addDependency(new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.extension.config", "jar", module.version));
+        addDependency(new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.extension.config", "jar", module.version)).
+        addDependency(new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.services", "jar", module.version));
    module.cloud.cloudExtension.deployName = "cloud-extension"; 
 
    // acme website
