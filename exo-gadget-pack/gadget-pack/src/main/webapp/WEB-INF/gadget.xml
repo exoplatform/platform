@@ -49,11 +49,7 @@
   <gadget name="GroovyConsole">
     <path>/gadgets/Management and Monitoring Gadgets/GroovyConsole/gadget/console.xml</path>
   </gadget>
-  
-  <gadget name="Translation">
-    <path>/gadgets/Collab Gadgets/Translation/translation.xml</path>
-  </gadget>
-  
+    
   <gadget name="CalendarGadget">
     <path>/gadgets/Collab Gadgets/eXoCalendar/gadget/calendargadget/org.exoplatform.calendar.client.CalendarGadget.gadget.xml</path>
   </gadget>

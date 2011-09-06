@@ -72,7 +72,7 @@
 						<string>Google Translate</string>
 					</field>
 					<field name="url">
-						<string>http://www.google.com/ig/modules/dictionary.xml</string>
+						<string>http://www.gstatic.com/ig/modules/dictionary/dictionary.xml</string>
 					</field>
 					<field name="title">
 						<string>Google Translate</string>
