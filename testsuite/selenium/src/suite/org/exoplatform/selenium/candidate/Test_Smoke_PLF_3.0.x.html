@@ -12,6 +12,11 @@
 <tr><td rowspan="1" colspan="3">eXo_Platform3.0.x_SmokeTest</td></tr>
 </thead><tbody>
 <tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
 	<td>open</td>
 	<td>/portal/public/intranet</td>
 	<td></td>
@@ -58,7 +63,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,6 +117,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForTextNotPresent</td>
 	<td>Add new Space</td>
 	<td></td>
@@ -138,12 +148,17 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>10000</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Select added space</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=smoke space</td>
 	<td></td>
 </tr>
 <tr>
@@ -191,11 +206,6 @@
 	<td>Categories</td>
 	<td></td>
 </tr>
-<!--tr>
-	<td>verifyLocation</td>
-	<td>http://localhost:8080/portal/private/intranet/smoke_space/AnswersPortlet</td>
-	<td></td>
-</tr-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>link=Submit question</td>
@@ -371,16 +381,6 @@
 	<td>//div[@id='UISpaceMenu']/div/div[4]/a/span</td>
 	<td></td>
 </tr>
-<!--tr>
-	<td>waitForLocation</td>
-	<td>http://localhost:8080/portal/public/intranet/smoke_space/CalendarPortlet</td>
-	<td></td>
-</tr-->
-<!--tr>
-	<td>verifyLocation</td>
-	<td>http://localhost:8080/portal/public/intranet/smoke_space/CalendarPortlet</td>
-	<td></td>
-</tr-->
 <tr>
 	<td>echo</td>
 	<td>-- Add event on integrated calendar</td>
@@ -406,11 +406,6 @@
 	<td>//div[1]/div/table/tbody/tr[1]/td[2]/input</td>
 	<td>Event smoke</td>
 </tr>
-<!--tr>
-	<td>verifySelectedLabel</td>
-	<td>//div[@id='eventDetail']//table//tr[9]//td[2]//select</td>
-	<td>smoke space</td>
-</tr-->
 <tr>
 	<td>click</td>
 	<td>link=Save</td>
@@ -522,8 +517,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>2000</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='GadgetItemsContainer']//div[@id='Gadgets/Calculator']//div//div</td>
 	<td></td>
 </tr>
 <tr>
@@ -569,16 +564,6 @@
 <tr>
 	<td>click</td>
 	<td>link=SharedData</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[3]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIAddressBar']/div[2]/table/tbody/tr/td[3]/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -628,7 +613,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>2000</td>
 	<td></td>
 </tr>
 <tr>
@@ -677,11 +662,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Start topic</td>
 	<td></td>
@@ -697,18 +677,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForTextPresent</td>
 	<td>New topic</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
 	<td></td>
 </tr>
 <tr>
@@ -803,7 +773,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -852,13 +822,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Contents')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Contents')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='Contents/AuthoringDashboard']/div/div/div[1]/div[3]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>//div[@id='Contents/AuthoringDashboard']/div/div/div[1]/div[3]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AddApplication']/div/div[1]/div/div/div/div[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -893,14 +878,9 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>3000</td>
 	<td></td>
 </tr>
-<!--tr>
-	<td>waitForLocation</td>
-	<td>http://localhost:8080/portal/public/intranet/home</td>
-	<td></td>
-</tr-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>link=smoke space</td>
@@ -922,11 +902,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Add New Space</td>
 	<td></td>
@@ -937,13 +912,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForText</td>
+	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//div[2]/div[2]/div[1]/div[1]/a[1]</td>
+	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertConfirmation</td>
 	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
@@ -994,11 +979,6 @@
 <tr>
 	<td>click</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPresentationContainer']/div[2]/div[2]/div[1]/div/div/div[1]</td>
 	<td></td>
 </tr>
 </tbody></table>
