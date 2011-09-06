@@ -1,0 +1,297 @@
+body {
+	font-family: Lucida Sans, Arial, Verdana, sans-serif;
+	margin: 0px;
+	font-size: 12px;
+	color: #626262;
+}
+
+body, th, td, div, span, p {
+	font-family: Lucida Sans,Arial,Verdana,sans-serif;	
+	font-size: 12px;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.ClearFix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.ClearFix {
+	!display: inline-block;
+	!zoom: 1;
+	!display: block; 
+}
+
+.FL {
+	float: left;
+}
+
+.FR {
+	float: right;
+}
+
+/******* UIGadget ********/
+
+.UIGadget {
+	font-size: 11px;
+	width: 100%;
+}
+
+.TopGadget {
+	padding: 10px;
+}
+
+.TopGadget table {
+	width: 442px;
+}
+
+.TopGadget table td.Text {
+	width: 105px;
+}
+
+.TopGadget table td.Description {
+	background: #f5f5f5;
+	padding: 8px;
+	font-style: italic;
+}
+.TopGadget table .Description p {
+	background: url(images/DesIcon.png) no-repeat left 2px;
+	padding-left: 20px;
+	margin: 0px;
+}
+
+.TopGadget table td {
+	padding: 5px 0px;
+}
+
+.TopGadget table .Text {
+	font-weight: bold;
+	color: #636363;
+	padding-right: 10px;
+}
+
+.TopGadget table select {
+	background: #f5f5f5;
+	height: 18px;
+	border: 1px solid #cacaca;
+	color: #6086eb;
+	font-size: 13px;
+	-moz-border-radius: 2px;
+	width: 130px;
+}
+
+.TitleGadget {
+	padding: 0px 5px;		
+}
+
+.TitleGadget div {
+	background: #fff;
+	padding: 4px 10px 0px 10px;
+	line-height: 22px;
+	color: #555;
+	font-weight: bold;
+	margin: 0px;
+	font-size: 12px;
+	float: left;
+	cursor: pointer; 
+}
+
+.TitleGadget .TabSelected {
+	background: #f5f5f5;
+	color: #6086eb;
+}
+
+.GadgetGrid {
+	background: #f5f5f5;
+	padding: 5px 0px;
+	margin: 0px 5px 5px 5px;
+}
+
+.GadgetGrid .UIGrid {
+	border: 1px solid #ebebeb;
+	border-collapse: collapse;
+	padding-left: 1px;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.GadgetGrid .UIGrid thead .FieldComponent {
+	border-right: 1px solid #fff;
+}
+
+.GadgetGrid .UIGrid th {
+	background: #efefef;
+	font-weight: bold;
+	line-height: 24px;
+	padding: 0 10px;
+	vertical-align: middle;
+	text-align: left;
+	border-bottom: 1px solid #fff;
+	color: #777;
+}
+
+.GadgetGrid .UIGrid .FixWidth {
+	width: 10%;
+}
+
+.GadgetGrid .UIGrid .EvenRow {
+	background: #f8f8f8;
+}
+
+.GadgetGrid .UIGrid .OddRow {
+	background: #fff;
+}
+
+.GadgetGrid .UIGrid td {
+	border-left: 1px solid #ebebeb;
+	border-right: 1px solid #ebebeb;
+	border-top: 1px solid #ebebeb;
+	line-height: 20px;
+	padding: 3px 10px;
+	color: #888;
+}
+
+.GadgetGrid .UIGrid .Text {
+	overflow: hidden;
+}
+
+.GadgetGrid .UIGrid .SkinID {
+	background: #efefef;
+	padding: 0px 5px;
+	-moz-border-radius: 2px 2px 2px 2px;
+}
+
+.GadgetGrid .UIGrid .SkinID input {
+	height: 15px;
+	border: 1px solid #cacaca;
+	font-size: 10px;
+	color: #848383;
+}
+
+.GadgetGrid .UIGrid .ActionContainer {
+	text-align: center;
+	white-space: nowrap;
+}
+
+/******* Button *******/
+
+.GadgetGrid .GadgetStyle .ButtonLeft {
+	background: url("images/GadgetStyle.gif") no-repeat left top;
+	padding-left: 2px;
+}
+
+.GadgetGrid .GadgetStyle .ButtonRight {
+	background: url("images/GadgetStyle.gif") no-repeat right top;
+	padding-right: 2px;
+}
+
+.GadgetGrid .GadgetStyle .ButtonMiddle {
+	background: url("images/GadgetStyle.gif") repeat-x left -22px;
+	line-height: 22px;
+	padding: 0px 5px;
+}
+
+.GadgetGrid .GadgetStyle .ButtonMiddle a {
+	color: #6086eb;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.GadgetGrid .GadgetStyle .ButtonMiddle a:hover {
+	color: #626262;
+}
+
+/******* GadgetGmCanvas *******/
+
+.GadgetGrid .UIGrid .SkinID input {
+	width: 125px;
+}
+
+/********* GadgetGmCanvasMessage ************/
+
+.GadgetGmCanvasMessage {
+	margin-bottom: 20px;
+	display: none;
+}
+
+.GadgetGmCanvasMessage .UIGrid .SkinID input {
+	width: 130px;
+}
+
+.ContentSelected {
+	display: block;
+}	
+
+/********* BoxFile ************/
+.BoxFile {
+}
+
+.BoxFile .UIGrid {
+	border: 1px solid #ebebeb;
+	border-collapse: collapse;
+	padding-left: 1px;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.BoxFile .UIGrid thead .FieldComponent {
+	border-right: 1px solid #fff;
+}
+
+.BoxFile .UIGrid th {
+	background: #ebebeb;
+	font-weight: normal;
+	line-height: 20px;
+	padding: 0 10px;
+	vertical-align: middle;
+	text-align: left;
+	font-weight: bold;
+	border-bottom: 1px solid #fff;
+}
+
+.BoxFile .UIGrid tbody {
+	padding-bottom:1px;
+}
+
+.BoxFile .UIGrid .EvenRow {
+	background: #F5F5F5;
+}
+
+.BoxFile .UIGrid .OddRow {
+	background: #fff;
+}
+
+.BoxFile .UIGrid td {
+	border-left: 1px solid #ebebeb;
+	border-right: 1px solid #ebebeb;
+	border-top: 1px solid #ebebeb;
+	line-height: 16px;
+	padding: 2px 10px;
+}
+
+.mmlib_xlink {
+	background: url('images/IconClose_Gadget.gif') no-repeat left top;
+	cursor:pointer;
+	width: 14px;
+	display: block;
+	height: 14px;	
+}
+
+.mmlib_table {
+	background-color:#FFFFFF;
+	border-collapse:separate;
+	border-spacing:0;
+	font:bold 9px arial,sans-serif;
+	padding:1px 0;
+	width:100%;
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="10 slowest templates"
+  author="Frederic DROUET"
+  author_email="frederic.drouet@exoplatform.com"
+  >
+    <Require feature="dynamic-height" />
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[ 
+    <head>
+      <title>10 slowest templates</title>
+      <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+      
+      <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
+      <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script> -->
+      <script language="javascript" type="text/javascript" src="script/utils.js"></script>
+      <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/i18n/jquery-ui-i18n.min.js"></script> -->
+      <script type="text/javascript">
+        
+        $.getJSON('/rest/statistics/template/slowest', function(data) {
+          var items = [];
+          
+          $.each(data, function(i, statistics) {
+            $.each(statistics, function(key, statistic) {
+              items.push('<p><div class="IconLink">' + statistic.name + '</div>');
+              items.push('<div class="Detail">(nb exec: ' + formatExecTime(statistic.execution) + ' - min: ' + formatExecTime(statistic.minTime) + ' '+ statistic.timeUnit + ' - max: ' + formatExecTime(statistic.maxTime) + ' '+ statistic.timeUnit + ' - avg: ' + formatExecTime(round2decimals(statistic.averageTime)) + ' '+ statistic.timeUnit + ')</div></p>');
+            });
+          });
+          
+          $('<div/>', { 'class': 'users', html: items.join('') }).appendTo('#templates');
+          
+          // adjust the gadget size
+          //gadgets.window.adjustHeight();
+          //eXo.social.SocialUtil.adjustHeight($("body").get(0));
+          gadgets.window.adjustHeight($("#gadget-10-slowest").get(0).offsetHeight);
+        });
+
+      </script>
+    </head>
+    <body>
+      <div id="gadget-10-slowest" class="UIGadgetThemes UIYellowThemes">
+        <div class="TitGad ClearFix">
+          <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
+          <div title="Setting" id="SettingButton" class="SettingButton">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+          </div>
+          <div class="ContTit">__MSG_title__</div>
+        </div>
+        <div id="templates" class="GadCont templates">
+        </div>    
+      </div>
+    </body>
+    ]]></Content></Module>

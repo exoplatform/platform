@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Caches"
+  author="Frederic DROUET"
+  author_email="fdrouet@exoplatform.com"
+  height="1350"
+  thumbnail="image/caches-icon_128x128.png">
+    <Require feature="settitle" />
+    <Require feature="dynamic-height" />
+    <Require feature="tabs" />
+    <Require feature="setprefs" />
+  </ModulePrefs>
+  <UserPref name="selectedTab" datatype="hidden" />
+  <Content type="html">
+    <![CDATA[ 
+    <html>
+      <head>
+        <title>Caches</title>
+        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+        <link type="text/css" rel="stylesheet">
+        <style type="text/css">
+          /** Cache Graph **/
+          .cache_graph_container {
+            min-width: 200px;
+            width: 95%;
+            border: 1px solid gray;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            padding: 3px;
+          }
+          .used-color, .free-color {
+            height: 10px;
+            border-width: 0px;
+          }
+          .used-color {
+            background-color: #CC3333;
+          }
+          .free-color {
+            background-color: #00CC00;
+          }
+          /** **/
+          .cache_container {
+            font-size: 12px;
+            border: 1px none gray;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            margin: 3px;
+          }
+          .cache_container_details:hover {
+            border-style: solid;
+            padding: 1px;
+          }
+          .cache_label {
+            width: 100%;
+            font-weight: bold;
+            /*margin-bottom: 0px;*/
+            margin: 1px;
+            margin-left: 5px;
+          }
+          .cache_label:hover {
+            /*background-color: #FFD400;*/
+          }
+          .cache_details {
+            margin: 0px;
+          }
+          .detail_ligne {
+          }
+          .detail_ligne:hover {
+            /*background-color: #FFD400;*/
+            background-color: lightgray;
+            /*border-bottom: 1px dashed gray;*/
+          }
+          .detail_label {
+          }
+          .detail_value {
+            float: right;
+            padding-right: 5px;
+          }
+          .usage_ok {
+          }
+          .usage_warning {
+            background-color: #FFA400;
+            color: white;
+          }
+          .usage_error {
+            background-color: #CC3333;
+            color: white;
+          }
+          
+          /** Gadget Tabs customization 
+          * (http://code.google.com/intl/fr-FR/apis/gadgets/docs/ui.html#Tab_Custom)
+          **/
+          .tablib_table {
+            font-family: arial,sans-serif;
+            font-size: 11px;
+          }
+          .tablib_selected, .tablib_unselected {
+            line-height: 17px;
+            font-size: 12px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 0px;
+            -moz-border-radius-bottomleft: 0px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+          }
+          .tablib_selected {
+            background-color: #ffa400;
+            color: white;
+            border: 2px solid #ffd400;
+            border-bottom: 6px solid #ffa400;
+          }
+          .tablib_unselected {
+            background-color: #ffe400;
+            border: 2px solid #ffd400;
+            border-bottom: 6px solid #ffd400;
+          }
+          .tablib_spacerTab, .tablib_emptyTab {
+            border-bottom: 6px solid #ffd400;
+          }
+        </style>
+        
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
+        <script type="text/javascript">
+          /**
+          * Utility functions
+          */ 
+          String.prototype.fromCamel = function(){
+            return this.replace(/([A-Z])([a-z]+)/g, ' $1$2');
+          };
+          
+        </script>
+        
+        <script type="text/javascript">
+          function loadInfos() {
+            var itemsCachesConsumption = [];
+            var itemsCachesHit = [];
+            var itemsCachesDetails = [];
+            $.getJSON('/rest/monitoring/caches', function(data) {
+              $.each(data, function(i, liste) {
+                $.each(liste, function(key, cache) {
+                  var cacheId = cache.name;
+                  var cacheLabel = cacheId.substr(cacheId.lastIndexOf('.') + 1);
+                  var cacheTTL = cache.ttl;
+                  
+                  // ### Capacity
+                  var capacityUsedPercentage_rounded = Math.round(cache.capacityUsedPercentage);
+                  var capacityFreePercentage_rounded = Math.round(cache.capacityFreePercentage);
+                  
+                  if (capacityUsedPercentage_rounded + capacityFreePercentage_rounded > 100) {
+                    if (capacityUsedPercentage_rounded > capacityFreePercentage_rounded) {
+                      capacityUsedPercentage_rounded = capacityUsedPercentage_rounded-1;
+                    } else {
+                      capacityFreePercentage_rounded=capacityFreePercentage_rounded-1;
+                    }
+                  }
+                  
+                  itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
+                  itemsCachesConsumption.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
+                  itemsCachesConsumption.push('<div class="cache_graph_container">');
+                  itemsCachesConsumption.push('<img src="image/spacer.gif" class="used-color" alt="" width="'+capacityUsedPercentage_rounded+'%" title="'+capacityUsedPercentage_rounded+'% Used"/>');
+                  itemsCachesConsumption.push('<img src="image/spacer.gif" class="free-color" alt="" width="'+capacityFreePercentage_rounded+'%" title="'+capacityFreePercentage_rounded+'% Free"/>');
+                  itemsCachesConsumption.push('</div>');
+                  itemsCachesConsumption.push('</div>');
+                  
+                  // ### Hit & Miss ratios
+                  var ratioHitPercentage_rounded = Math.round(cache.hitCountPercentage);
+                  var ratioMissPercentage_rounded = Math.round(cache.missCountPercentage);
+                  if (ratioHitPercentage_rounded + ratioMissPercentage_rounded > 100) {
+                    if (ratioHitPercentage_rounded > ratioMissPercentage_rounded) {
+                      ratioHitPercentage_rounded = ratioHitPercentage_rounded-1;
+                    } else {
+                      ratioMissPercentage_rounded=ratioMissPercentage_rounded-1;
+                    }
+                  }
+                  
+                  itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
+                  itemsCachesHit.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
+                  itemsCachesHit.push('<div class="cache_graph_container">');
+                  itemsCachesHit.push('<img src="image/spacer.gif" class="free-color" alt="" width="'+ratioHitPercentage_rounded+'%" title="'+ratioHitPercentage_rounded+'% Hit ratio"/>');
+                  itemsCachesHit.push('<img src="image/spacer.gif" class="used-color" alt="" width="'+ratioMissPercentage_rounded+'%" title="'+ratioMissPercentage_rounded+'% Miss ratio"/>');
+                  itemsCachesHit.push('</div>');
+                  itemsCachesHit.push('</div>');
+                  
+                  // ### Caches Details
+                  itemsCachesDetails.push('<div id="cache_details_'+cacheId+'" title="'+cacheId+'" class="cache_container cache_container_details">');
+                  itemsCachesDetails.push('<p class="cache_label">'+cacheLabel.fromCamel());
+                  // do we have warning or error on Filled Ratio ?
+                  var fillRatioUsageCssClass = "";
+                  if (cache.capacityUsedPercentage >= 75 && cache.capacityUsedPercentage < 90) {
+                    fillRatioUsageCssClass = "usage_warning";
+                  } else if (cache.capacityUsedPercentage >= 90) {
+                    fillRatioUsageCssClass = "usage_error";
+                  } else {
+                    fillRatioUsageCssClass = "usage_ok";
+                  }
+                  itemsCachesDetails.push(' <span class="detail_value" title="Use / Free = ' + cache.capacityUsed + ' / ' + cache.capacityFree + '">');
+                  itemsCachesDetails.push('<span class="'+fillRatioUsageCssClass+'">'+Math.round(cache.capacityUsedPercentage)+' %</span>');
+                  itemsCachesDetails.push('&nbsp;full</span>');
+                  itemsCachesDetails.push('</p>');
+                  itemsCachesDetails.push('<ul class="cache_details">');
+                  itemsCachesDetails.push('<li class="detail_ligne"><span class="detail_label">max size &nbsp;</span><span class="detail_value">'+cache.capacity+'</span></li>');
+                  itemsCachesDetails.push('<li class="detail_ligne"><span class="detail_label">Time to live &nbsp;</span><span class="detail_value">'+cache.ttl+'</span></li>');
+                  // do we have warning or error on Hit Ratio ?
+                  var hitRatioUsageCssClass = "";
+                  if (cache.missCountPercentage >= 75) {
+                    hitRatioUsageCssClass = "usage_error";
+                  } else if (cache.missCountPercentage >= 50) {
+                    hitRatioUsageCssClass = "usage_warning";
+                  } else {
+                    hitRatioUsageCssClass = "usage_ok";
+                  }
+                  itemsCachesDetails.push('<li class="detail_ligne">');
+                  itemsCachesDetails.push('<span class="detail_label">Hit / Missed &nbsp;</span>');
+                  itemsCachesDetails.push('<span class="detail_value" title="Hit / Miss = ' + cache.hitCount + ' / ' + cache.missCount + '"> ');
+                  itemsCachesDetails.push('<span class="'+hitRatioUsageCssClass+'">'+Math.round(cache.hitCountPercentage)+' %</span> / '+Math.round(cache.missCountPercentage)+' %</span>');
+                  itemsCachesDetails.push('</li>');
+                  itemsCachesDetails.push('</ul>');
+                  itemsCachesDetails.push('</div>');
+                });
+              });
+              
+              $('#caches-tab-consumption').empty();
+              $('<div/>', {'class': 'cache',  html: itemsCachesConsumption.join('')}).appendTo('#caches-tab-consumption');
+              $('#caches-tab-hit').empty();
+              $('<div/>', {'class': 'cache',  html: itemsCachesHit.join('')}).appendTo('#caches-tab-hit');
+              $('#caches-tab-details').empty();
+              $('<div/>', {'class': 'cache',  html: itemsCachesDetails.join('')}).appendTo('#caches-tab-details');
+              
+              // the standard version is buggy so i use the eXo Social fixed version
+              // gadgets.window.adjustHeight();
+              //eXo.social.SocialUtil.adjustHeight($("html").get(0));
+              //gadgets.window.adjustHeight($("body").get(0).offsetHeight);
+              gadgets.window.adjustHeight($("#tl_1").get(0).offsetHeight);
+            });
+          }
+          
+          function init() {
+            var tabs = new gadgets.TabSet(__MODULE_ID__, "Consumption");
+            tabs.addTab("Consumption", {
+              contentContainer: $('#caches-tab-consumption').get(0)
+            });
+            tabs.addTab("Hit ratio", {
+              contentContainer: $('#caches-tab-hit').get(0)
+            });
+            tabs.addTab("Details", {
+              contentContainer: $('#caches-tab-details').get(0)
+            });
+            /*
+            $(".tablib_selected").click(function () { 
+            gadgets.window.adjustHeight($("#tl_1").get(0).offsetHeight);
+          });
+            */
+            loadInfos();
+            $(document).everyTime("60s", "reloadPage", function() {
+              loadInfos();
+            }, 0);
+          }
+          gadgets.util.registerOnLoadHandler(init);
+        </script>
+      </head>
+      <body>
+        <!--
+        <div class="UIGadgetThemes UIYellowThemes">
+        <div class="TitGad ClearFix">
+        <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
+        <div title="Setting" id="SettingButton" class="SettingButton">
+        <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+      </div>
+        <div class="ContTit">Caches</div>
+      </div>
+      </div>
+        -->
+        <div id="caches-tab-consumption" class="GadCont templates">Loading data ...</div>
+        <div id="caches-tab-hit" class="GadCont templates">Loading data ...</div>
+        <div id="caches-tab-details" class="GadCont templates">Loading data ...</div>
+        
+      </body>
+    </html>
+    ]]>
+  </Content>
+</Module>

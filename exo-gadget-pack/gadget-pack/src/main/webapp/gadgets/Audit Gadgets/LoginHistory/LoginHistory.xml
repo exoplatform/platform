@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Login History" description="Display users login history and statistic">
+		<Require feature="dynamic-height" />
+		<Locale messages="locale/default.xml" />
+		<Locale lang="fr" messages="locale/fr.xml" />
+	</ModulePrefs><Content type="html">
+<![CDATA[
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	
+		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
+		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/flexigrid/flexigrid.custom.css" />
+		<link rel="stylesheet" type="text/css" href="skin/jquery-ui-1.8.13.custom.css" />
+		<link rel="stylesheet" type="text/css" href="skin/LoginHistory.css" />
+	
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/date.js/date.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/flexigrid/1.1/js/flexigrid.pack.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.barRenderer.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.highlighter.min.js"></script>
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pointLabels.min.js"></script>	
+		<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/utils/pretty.date.js"></script>
+		<script language="javascript" type="text/javascript" src="script/jquery-ui-1.8.13.custom.min.js"></script>
+		
+		<script language="javascript" type="text/javascript">
+			var selectedUser, selectedUserName;
+			var $lastLoginsDataBackup;
+			var isFinding = false;
+			
+			Array.prototype.sum = function() {
+				return this.reduce(function(a,b){return a+b;});
+			};
+						
+			function GetColumnSize(percent){ 
+					screen_res = $(window).width(); 
+					col = parseInt((percent*(screen_res/100))); 
+					if (percent != 100){ 
+							return col-12; 
+					}else{ 
+							return col; 
+					}
+			}
+	
+			function getQuarter(date){
+				var d = new Date(date);
+				var quarter = Math.ceil((d.getMonth() + 1) / 3);
+				var quarterStartMonth;
+				switch (quarter) {
+					case 1:
+						quarterStartMonth = Date.parse("Jan 01 " + d.getFullYear());
+						break;
+					case 2:
+						quarterStartMonth = Date.parse("Apr 01 " + d.getFullYear());
+						break;
+					case 3:
+						quarterStartMonth = Date.parse("Jul 01 " + d.getFullYear());
+						break;
+					case 4:
+						quarterStartMonth = Date.parse("Oct 01 " + d.getFullYear());
+						break;
+					default:
+						break;
+				}
+				return {"number":quarter, "date":quarterStartMonth.getTime()};
+			}
+											
+			(function ($) {
+				$.fn.styleTable = function (options) {
+					$("#lastLoginsTable").flexigrid({
+	//				title: '<center>Lastest login</center>',
+						colModel : [
+							{display: "__MSG_loginHistory.user__", name : 'user', width: GetColumnSize(20), align: 'left'},
+							{display: "__MSG_loginHistory.lastLogin__", name : 'lastLogin', width: GetColumnSize(30), align: 'center'},
+							{display: "__MSG_loginHistory.beforeThat__", name : 'beforeThat', width: GetColumnSize(30), align: 'center'},
+							{display: "__MSG_loginHistory.more__", name : 'more', width : GetColumnSize(20), align: 'center'}
+							],
+						showTableToggleBtn: true,
+						singleSelect: true,
+						resizable: true,
+						nowrap: false,
+						striped: true,
+						width: "auto",
+						height: $(this).height() > 120 ? 210 : 120, 
+					});
+				};
+			})(jQuery);
+	
+			function lastLogins2html(lastLoginsJson){
+				$("#lastLoginsDataDiv").remove();
+				$lastLoginsDataBackup.clone().appendTo($("#lastLoginsContainerDiv"));
+				$('#lastLoginsTable tr').remove();
+				$.each(lastLoginsJson.data, function(i,login){
+					var newRow = $( "<tr " + "id='"+login.userId+"'" + ">" + 
+														"<td text-align='left'>" + login.userName.replace(/ /g, "&nbsp;") + "</td>" + 
+														"<td text-align='center'>" + (login.lastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.lastLogin, true) : prettyTimeDiff(login.lastLogin, true) + " ago") + "</td>" + 
+														"<td text-align='center'>" + (login.beforeLastLogin == 0 ? "__MSG_loginHistory.unknow__" : (login.beforeLastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.beforeLastLogin, true) : prettyTimeDiff(login.beforeLastLogin, true) + " ago")) + "</td>" +
+														"<td text-align='center'>" + 
+															"<a class = 'statsLink' href='#' style='color: #eb8f00;'>[__MSG_loginHistory.stats__]</a>" +
+	//														"&nbsp;" + 
+															"<br/>" +
+															"<a class = 'hisLink' href='#' style='color: #eb8f00;'>[__MSG_loginHistory.history__]</a>" + 
+										 				"</td>" +
+													"</tr>");
+					$('#lastLoginsTable').append(newRow);
+				});
+				$lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
+				$("#lastLoginsTable").styleTable();
+			}
+		
+			function loginHistory2Html(loginHistoryJson){
+				var loginHistory = loginHistoryJson.data[1];
+				var loginHistoryHtml = "";
+				if (selectedUser == "AllUsers") {
+					$.each(loginHistory, function(i, loginHistory){
+						loginHistoryHtml += "<div class='loginHistoryItem'>" + "<b>" + "<span id='" + loginHistory.userId + "' class='userNameLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</span>" + "</b>" + "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") + "</div>";
+						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<i>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</i>" + "</div>";
+					});
+				} else {
+					$.each(loginHistory, function(i, loginHistory){
+						loginHistoryHtml += "<div class='loginHistoryItem'>" + (loginHistory.loginTime > new Date().getTime() ? "next " + prettyTimeDiff(loginHistory.loginTime) : prettyTimeDiff(loginHistory.loginTime) + " ago") + "</div>";
+						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<i>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</i>" + "</div>";
+					});
+				}
+				return loginHistoryHtml;
+			}
+	
+			function drawChart($chart, data, ticks){
+				$chart.html("");
+				
+				plot1 = $.jqplot($chart.attr("id"), [data], {
+	//					title: {text:title},
+						seriesDefaults:{
+								color: "#ffd400",
+	//							showMarker:false,
+								renderer:$.jqplot.BarRenderer,
+								rendererOptions:{
+									 barWidth:9
+								},							
+								pointLabels: {show: true, hideZeros: true, ypadding: 0}
+						},
+						axesDefaults:{
+								tickOptions: { 
+										markSize: 3, 
+										showGridline: true
+								} 										
+						},
+						axes: {
+								xaxis: {
+										renderer: $.jqplot.CategoryAxisRenderer,
+										ticks: ticks,
+										tickOptions: { 
+	//											formatString: '%d',
+										} 										
+								},
+								yaxis: {
+										min: 0,
+	//										tickInterval: 1,
+										tickOptions: { 
+												formatString: '%d',
+										} 										
+								}
+						},
+						highlighter: {show: false, tooltipFadeSpeed:'slow', tooltipLocation:'n'}
+				});
+				
+				$(window).unbind();
+				$(window).resize(function(){
+	//				$('#loginStatsChart').css("width", $(window).width());
+	//				$('#loginStatsChart').css("height", $(window).height()*0.7);
+					plot1.replot();
+				});			
+			};
+					
+	
+			function showSelectedDayLogins(userId, day){
+				var d = new Date(day);
+				var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + day + "/" + (day+86400000);
+				$.getJSON(restURI, function(userLoginHistoryJson){
+					$("#selectedDayHeaderContainer").show();
+					$("#selectedDayHeader").text(d.toString("ddd MMM dd yyyy") + " (" + userLoginHistoryJson.data[0] + ")");
+					$("#selectedDayDiv").html(loginHistory2Html(userLoginHistoryJson));
+					$("#accordion").accordion("option", "active", 0);
+					gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+				});
+			}
+	
+			function showTodayLogins(userId){
+				var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().getTime() + "/" + Date.today().setTimeToNow().getTime();
+				$.getJSON(restURI, function(userLoginHistoryJson){
+					$("#todayHeader").text("__MSG_loginHistory.today__ (" + userLoginHistoryJson.data[0] + ")");
+					$("#todayDiv").html(loginHistory2Html(userLoginHistoryJson));
+					$("#accordion").accordion("option", "active", 1);
+				});
+			}
+			
+			function showEarlierThisWeekLogins(userId){
+				var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.monday().getTime() + "/" + Date.today().getTime();
+				$.getJSON(restURI, function(userLoginHistoryJson){
+					$("#earlierThisWeekHeader").text("__MSG_loginHistory.earlierThisWeek__ (" + userLoginHistoryJson.data[0] + ")");
+					$("#earlierThisWeekDiv").html(loginHistory2Html(userLoginHistoryJson));
+				});			
+			}
+	
+			function showEarlierThisMonthLogins(userId){
+				var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + Date.today().moveToFirstDayOfMonth().getTime() + "/" + Date.monday().getTime();
+				$.getJSON(restURI, function(userLoginHistoryJson){
+					$("#earlierThisMonthHeader").text("__MSG_loginHistory.earlierThisMonth__ (" + userLoginHistoryJson.data[0] + ")");
+					$("#earlierThisMonthDiv").html(loginHistory2Html(userLoginHistoryJson));
+				});
+			}
+			
+			function showEarlierLogins(userId){
+				var restURI = "/rest/loginhistory/loginhistory/"+ userId + "/" + 0 + "/" + Date.today().moveToFirstDayOfMonth().getTime();
+				$.getJSON(restURI, function(userLoginHistoryJson){
+					$("#earlierHeader").text("__MSG_loginHistory.earlier__ (" + userLoginHistoryJson.data[0] + ")");
+					$("#earlierDiv").html(loginHistory2Html(userLoginHistoryJson));
+				});
+			}
+			
+	
+			function showDailyStats(userId, week){
+				var currentWeek = new Date(week);
+				var restURI = "/rest/loginhistory/weekstats/"+ userId + "/" + currentWeek.toString("yyyy-MM-dd");
+				$.getJSON(restURI, function(userLoginCountJson){
+					var loginCountPerDays = userLoginCountJson.data[1];
+					var weekDays = new Array();
+					var counts = new Array();
+					var counted = 0;
+					$.each(loginCountPerDays, function(i, loginCountPerDay){
+						weekDays.push(new Date(loginCountPerDay.loginDate).toString("ddd"));
+						if(loginCountPerDay.loginCount != -1){
+							counts.push(loginCountPerDay.loginCount);
+							counted++;
+						} else{
+							counts.push(0);
+						}
+					});
+					var titleWeek = (currentWeek.getWeek() == 1 && currentWeek.getMonth() == 11) ? currentWeek.clone().next().monday() : currentWeek;
+					var month = titleWeek.clone().moveToFirstDayOfMonth();
+					var monthLink = "<a class='chartTitleLink' href='#monthstats/" + month.getTime() + "'>" + month.toString("MMM") + "</a>";
+					var year = titleWeek.getFullYear();
+					var yearLink = "<a class='chartTitleLink' href='#yearstats/" + Date.parse("Jan 01 " + year).getTime() + "'>" + year + "</a>";
+					var quarter = getQuarter(titleWeek.getTime());
+					var quarterLink = "<a class='chartTitleLink' href='#quarterstats/" + quarter.date + "'>" + "Q" + quarter.number + "</a>";
+					var chartTitle = "<b>" + "__MSG_loginHistory.week__ " + currentWeek.getWeek() + "</b>" + " (" + quarterLink + " - " + monthLink + " " + yearLink + ")";
+					$("#loginStatsChartTitle").html(chartTitle);
+					drawChart($("#loginStatsChart"), counts, weekDays);
+					$("#stats").html("__MSG_loginHistory.averagePerDay__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
+					gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+				});
+				
+				$("#prevBtn").unbind();															
+				$("#prevBtn").click(function(){
+					currentWeek.last().monday();
+					showDailyStats(userId, currentWeek.getTime());
+				})
+				
+				$("#nextBtn").unbind();
+				$("#nextBtn").click(function(){
+					currentWeek.next().monday();
+					showDailyStats(userId, currentWeek.getTime());
+				})
+				
+				$("#loginStatsChart").unbind();
+				
+				$("#loginStatsChart").bind('jqplotDataClick', 
+					function (ev, seriesIndex, pointIndex, data) {
+						$(this).css('cursor','auto');
+						showHistory(selectedUser, currentWeek.clone().addDays(pointIndex).getTime());
+					}
+				);
+	
+				$('#loginStatsChart').bind('jqplotDataHighlight', 
+						function (ev, seriesIndex, pointIndex, data ) {
+								mouseX = ev.pageX;
+								mouseY = ev.pageY;
+								$('#chartTooltipDiv').html(currentWeek.clone().addDays(pointIndex).toString("MMM dd, yyyy"));
+								$('#chartTooltipDiv').fadeIn();
+								var cssObj = {
+											'position' : 'absolute',
+											'left' : mouseX + 'px',
+											'top' : mouseY-15 + 'px'
+										};
+								$('#chartTooltipDiv').css(cssObj);
+								$(this).css('cursor','pointer');
+						}
+				);
+	
+				$('#loginStatsChart').bind('jqplotDataUnhighlight', 
+						function (ev) {
+								$('#chartTooltipDiv').html('');
+								$('#chartTooltipDiv').hide();
+								$(this).css('cursor','auto');
+						}
+				);
+			}
+						
+			function showWeeklyStats(userId, fromMonth, numOfMonths){
+				var currentMonth = new Date(fromMonth);
+				var weeks = new Array();
+				var restURI = "/rest/loginhistory/monthstats/"+ userId + "/" + currentMonth.toString("yyyy-MM-dd") + "/" + numOfMonths;
+				$.getJSON(restURI, function(userLoginCountJson){
+					var loginCountPerWeeks = userLoginCountJson.data[1];
+					var counts = new Array();
+					var counted = 0;
+					$.each(loginCountPerWeeks, function(i, loginCountPerWeek){
+						weeks.push(new Date(loginCountPerWeek.loginDate).getWeek());
+						if(loginCountPerWeek.loginCount != -1){
+							counts.push(loginCountPerWeek.loginCount);
+							counted++;
+						} else{
+							counts.push(0);
+						}
+					});
+	
+					var year = currentMonth.getFullYear();
+					var yearLink = "<a class='chartTitleLink' href='#yearstats/" + Date.parse("Jan 01 " + year).getTime() + "'>" + year + "</a>";
+					var quarter = getQuarter(currentMonth);
+					var chartTitle;
+					if (numOfMonths == 3) {
+						chartTitle = "<b>" + "Q" + quarter.number + "</b>" + " (" + yearLink + ")";
+					}
+					else {
+						var quarterLink = "<a class='chartTitleLink' href='#quarterstats/" + quarter.date + "'>" + "Q" + quarter.number + "</a>";
+						chartTitle = "<b>" + currentMonth.toString("MMMM") + "</b>" + " (" + quarterLink + " - " + yearLink + ")";
+					}
+					$("#loginStatsChartTitle").html(chartTitle);
+					drawChart($("#loginStatsChart"), counts, weeks.map(function(x){return "w" + x}));
+					$("#stats").html("__MSG_loginHistory.averagePerWeek__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
+					gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+				});
+				
+				$("#prevBtn").unbind();
+				$("#prevBtn").click(function(){
+					currentMonth.addMonths(-numOfMonths);
+					showWeeklyStats(userId, currentMonth.getTime(), numOfMonths);
+				})
+				
+				$("#nextBtn").unbind();
+				$("#nextBtn").click(function(){
+					currentMonth.addMonths(numOfMonths);
+					showWeeklyStats(userId, currentMonth.getTime(), numOfMonths);
+				})
+	
+				$("#loginStatsChart").unbind();
+				
+				$("#loginStatsChart").bind('jqplotDataClick', 
+					function (ev, seriesIndex, pointIndex, data) {
+						$(this).css('cursor','auto');
+						var weekNum = weeks[pointIndex];
+						var yearOfWeek = currentMonth.getFullYear();
+						if(pointIndex == 0 && weekNum >= 52) yearOfWeek--;
+						if(pointIndex == weeks.length-1 && weekNum == 1) yearOfWeek++;
+						var weekDay = Date.today().set({year:yearOfWeek}).setWeek(weekNum);
+						showDailyStats(userId, weekDay.getTime());
+					}
+				);
+	
+				$('#loginStatsChart').bind('jqplotDataHighlight', 
+						function (ev, seriesIndex, pointIndex, data ) {
+								mouseX = ev.pageX;
+								mouseY = ev.pageY;
+								
+								var weekNum = weeks[pointIndex];
+								var yearOfWeek = currentMonth.getFullYear();
+								if(pointIndex == 0 && weekNum >= 52) yearOfWeek--;
+								if(pointIndex == weeks.length-1 && weekNum == 1) yearOfWeek++;
+								var weekDay = Date.today().set({year:yearOfWeek}).setWeek(weekNum);
+													
+								$('#chartTooltipDiv').html(weekDay.toString("MMM dd, yyyy"));
+								$('#chartTooltipDiv').fadeIn();
+								var cssObj = {
+											'position' : 'absolute',
+											'left' : mouseX + 'px',
+											'top' : mouseY-15 + 'px'
+										};
+								$('#chartTooltipDiv').css(cssObj);
+								$(this).css('cursor','pointer');
+						}
+				);
+	
+				$('#loginStatsChart').bind('jqplotDataUnhighlight', 
+						function (ev) {
+								$('#chartTooltipDiv').html('');
+								$('#chartTooltipDiv').hide();
+								$(this).css('cursor','auto');
+						}
+				);
+			}
+			
+			function showMonthlyStats(userId, year){
+				var currentYear = new Date(year);
+				var restURI = "/rest/loginhistory/yearstats/"+ userId + "/" + currentYear.toString("yyyy-MM-dd");
+				$.getJSON(restURI, function(userLoginCountJson){
+					var loginCountPerMonths = userLoginCountJson.data[1];
+					//var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+					var months = new Array();
+					var counts = new Array();
+					var counted = 0;
+					$.each(loginCountPerMonths, function(i, loginCountPerMonth){
+						months.push(new Date(loginCountPerMonth.loginDate).toString("MMM"));
+						if(loginCountPerMonth.loginCount != -1){
+							counts.push(loginCountPerMonth.loginCount);
+							counted++;
+						} else{
+							counts.push(0);
+						}
+					});
+	
+					var chartTitle = "<b>" + currentYear.getFullYear() + "</b>";
+					$("#loginStatsChartTitle").html(chartTitle);
+					drawChart($("#loginStatsChart"), counts, months);								
+					$("#stats").html("__MSG_loginHistory.averagePerMonth__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
+					gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+				});
+							
+				$("#prevBtn").unbind();
+				$("#prevBtn").click(function(){
+					currentYear.last().january();
+					showMonthlyStats(userId, currentYear.getTime());
+				})
+				
+				$("#nextBtn").unbind();
+				$("#nextBtn").click(function(){
+					currentYear.next().january();
+					showMonthlyStats(userId, currentYear.getTime());
+				})
+	
+				$("#loginStatsChart").unbind();
+								
+				$("#loginStatsChart").bind('jqplotDataClick', 
+					function (ev, seriesIndex, pointIndex, data) {
+						$(this).css('cursor','auto');
+						showWeeklyStats(userId, Date.today().set({year:currentYear.getFullYear(), month:pointIndex, day:1}).getTime(), 1);
+					}
+				);
+				
+				$('#loginStatsChart').bind('jqplotDataHighlight', 
+						function (ev, seriesIndex, pointIndex, data ) {
+								$(this).css('cursor','pointer');
+						}
+				);
+	
+				$('#loginStatsChart').bind('jqplotDataUnhighlight', 
+						function (ev) {
+								$(this).css('cursor','auto');
+						}
+				);
+			}
+	
+	
+			function showStatistic(userId){
+				$("#lastLoginsDiv").hide();
+				$("#historyDiv").hide();
+	
+				$("#navigationLinksDiv").show();
+				$("#statisticLink").hide();
+				$("#historyLink").show();
+				$("#userIdDiv").html("<b>" + selectedUserName + "</b>");
+	
+				$("#statisticDiv").show();
+				showDailyStats(userId, ((Date.today().is().sunday()) ? Date.last().monday() : Date.monday()).getTime());
+	
+				gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+			}
+					
+			function showHistory(userId, day){
+				$("#lastLoginsDiv").hide();
+				$("#statisticDiv").hide();
+	
+				$("#navigationLinksDiv").show();
+				$("#statisticLink").show();
+				$("#historyLink").hide();
+				$("#userIdDiv").html("<b>" +selectedUserName + "</b>");
+	
+				$("#historyDiv").show();					
+				$("#todayHeader").text("__MSG_loginHistory.today__");
+				$("#earlierThisWeekHeader").text("__MSG_loginHistory.earlierThisWeek__");
+				$("#earlierThisMonthHeader").text("__MSG_loginHistory.earlierThisMonth__");
+				$("#earlierHeader").text("__MSG_loginHistory.earlier__");
+				$("#selectedDayHeaderContainer").hide();
+					
+				$("#accordion").accordion({
+					icons: {'header': 'ui-icon-carat-1-e', 'headerSelected': 'ui-icon-carat-1-s'},
+					
+					create: function(event, ui){
+						if(day !== undefined)
+							showSelectedDayLogins(userId, day);
+						else	
+							showTodayLogins(userId);
+					},
+					
+					changestart: function(event, ui){
+						switch(ui.newContent.attr("id")){
+							case "todayDiv":
+								showTodayLogins(userId);
+								break;
+							case "earlierThisWeekDiv":
+								showEarlierThisWeekLogins(userId);
+								break;
+							case "earlierThisMonthDiv":
+								showEarlierThisMonthLogins(userId);
+								break;
+							case "earlierDiv":
+								showEarlierLogins(userId);
+								break;
+							default:
+								 break;
+						};
+					},
+					//collapsible: true,
+					clearStyle: true
+				}); //$("#accordion").accordion({
+				
+				if(day !== undefined)
+					showSelectedDayLogins(userId, day);
+				else	
+					showTodayLogins(userId);
+					
+				gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+			}
+			
+			
+			function showLoginHistory(){
+				var restURI = "/rest/loginhistory/lastlogins/5/%25";
+				$.getJSON(restURI, function(lastLoginsJson){
+					$lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();
+					lastLogins2html(lastLoginsJson);
+	
+					$("#navigationLinksDiv").hide();
+					$("#statisticDiv").hide();
+					$("#historyDiv").hide();
+					
+					gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+	
+					$("#findBtn").click(function(){
+						isFinding = true;
+						var userId = $("#searchTxt").val();
+						if($.trim(userId).length == 0)
+							userId = "%25";
+						var restURI = "/rest/loginhistory/lastlogins/0/" + userId;
+						$.getJSON(restURI, function(lastLoginsJson){
+							lastLogins2html(lastLoginsJson);
+							gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+						});
+					});
+					
+					$("#latestBtn").click(function(){
+						isFinding = false;
+						var restURI = "/rest/loginhistory/lastlogins/5/%25";
+						$.getJSON(restURI, function(lastLoginsJson){
+							lastLogins2html(lastLoginsJson);
+							gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+						});
+					});
+					
+	
+					$("body").delegate(".statsLink", "click", function(){
+						selectedUser = $(this).closest("tr").attr("id");
+						selectedUserName = $(this).closest("td").siblings(":first").text();
+						showStatistic(selectedUser);
+						gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+					});
+	
+					$("body").delegate(".hisLink", "click", function(){
+						selectedUser = $(this).closest("tr").attr("id");
+						selectedUserName = $(this).closest("td").siblings(":first").text();
+						showHistory(selectedUser);		
+						gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+					});
+	
+					$("body").delegate(".userNameLink", "click", function(){
+						selectedUser = $(this).attr("id");
+						selectedUserName = $(this).text();
+						showHistory(selectedUser);
+						gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+					});
+	
+	
+					$("#globalStatisticLink").click(function(){
+						selectedUser = "AllUsers";
+						selectedUserName = "__MSG_loginHistory.allUsers__";
+						showStatistic(selectedUser);
+					});
+	
+					$("#globalHistoryLink").click(function(){
+						selectedUser = "AllUsers";
+						selectedUserName = "__MSG_loginHistory.allUsers__";
+						showHistory(selectedUser);
+					});
+	
+					
+					$("body").delegate(".chartTitleLink", "click", function(){
+						var href = $(this).attr("href").split("/");
+						switch(href[0]){
+							case "#monthstats":
+								showWeeklyStats(selectedUser, parseInt(href[1]), 1);
+								break;
+							case "#yearstats":
+								showMonthlyStats(selectedUser, parseInt(href[1]));
+								break;
+							case "#quarterstats":
+								showWeeklyStats(selectedUser, parseInt(href[1]), 3);
+								break;
+							default:
+								break;
+						}
+					});
+	
+	
+					$("#lastLoginsLink").click(function(){
+						$("#lastLoginsDiv").show();
+						$("#navigationLinksDiv").hide();
+						$("#statisticDiv").hide();
+						$("#historyDiv").hide();
+						$("#latestBtn").click();
+						gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+					});
+									
+					$("#statisticLink").click(function(){
+						showStatistic(selectedUser);
+					});
+	
+					$("#historyLink").click(function(){
+						showHistory(selectedUser);	
+					});
+					
+				}); //$.getJSON(restURI, function(lastLoginsJson){
+				gadgets.window.adjustHeight($("#LoginHistoryGadgetDiv").get(0).offsetHeight);
+			} // function showLoginHistory(){
+
+
+			$(function(){
+				showLoginHistory();
+				$(document).everyTime("30s", "reloadPage", function() {
+					if ($("#lastLoginsDiv").is(":visible") && !isFinding) {
+				  	$("#latestBtn").click();
+				  }
+				},0);
+			});
+		</script>
+	</head>
+		
+	<body style="font-size:70%;">
+		<div id="LoginHistoryGadgetDiv" class="UIGadgetThemes UIYellowThemes">
+			<div class="TitGad ClearFix">
+				<div class="ContTit">__MSG_loginHistory.title__</div>
+			</div>
+
+
+			<div id="lastLoginsDiv">
+				<div align="left" style="font-size:12px;">
+						<label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label>
+						<input id="searchTxt" style="width: 110px; border-width: 1px; padding: 0px;" type="text">
+						<input style="border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="findBtn" value="Find" type="button">
+						<input style="border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="latestBtn" value="Latest" type="button">
+				</div>	
+				<div id="lastLoginsContainerDiv"><div id="lastLoginsDataDiv"><table id="lastLoginsTable" width="100%"></table></div></div>
+			</div>
+	
+	
+			<div id="navigationLinksDiv" style="margin-right: 8px; margin-left: 2px;">
+				<table width="100%">
+					<tr>
+						<td align="left" width="33%"><a id='lastLoginsLink' href='#' style ="font-size:12px">__MSG_loginHistory.lastLoginsView__</a></td>
+						<td align="center" width="33%"><div id="userIdDiv" style ="font-size:15px; color: #aa8f3f;"></div></td>
+						<td align="right" width="33%">
+							<a id="statisticLink" href='#' style ="font-size:12px">__MSG_loginHistory.statisticView__</a>
+							<a id="historyLink" href='#' style ="font-size:12px">__MSG_loginHistory.historyView__</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+	
+					
+			<div id="statisticDiv">
+				<div style="text-align: center; height:10px; font-size: small; color: #eb8f00;">
+					<a id="prevBtn" href="#" style="text-decoration: none;">&lt;&lt;&nbsp;</a>						
+					<span id="loginStatsChartTitle"></span>
+					<a id="nextBtn" href="#" style="text-decoration: none;">&nbsp;&gt;&gt;</a>						
+				</div>
+				<div id="loginStatsChart" style="height:150px;"></div>
+				<div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
+				<div id="stats" style="margin-top: 10px; margin-left: 12px;"></div>
+			</div>
+	
+	
+			<div id="historyDiv">
+				<div id="accordion">
+					<h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#"></a></h3>
+					<div id="selectedDayDiv" class="loginHistoryContent"></div>
+					<h3><a id="todayHeader" href="#">__MSG_loginHistory.today__</a></h3>
+					<div id="todayDiv" class="loginHistoryContent"></div>
+					<h3><a id="earlierThisWeekHeader" href="#">__MSG_loginHistory.earlierThisWeek__</a></h3>
+					<div id="earlierThisWeekDiv" class="loginHistoryContent"></div>
+					<h3><a id="earlierThisMonthHeader" href="#">__MSG_loginHistory.earlierThisMonth__</a></h3>
+					<div id="earlierThisMonthDiv" class="loginHistoryContent"></div>
+					<h3><a id="earlierHeader" href="#">__MSG_loginHistory.earlier__</a></h3>
+					<div id="earlierDiv" class="loginHistoryContent"></div>
+				</div>
+			</div>
+	
+	
+			<div align="right" style="padding-right: 8px; padding-top: 6px;">__MSG_loginHistory.global__: <a id='globalStatisticLink' href="#">__MSG_loginHistory.statisticView__</a> | <a id='globalHistoryLink' href="#">__MSG_loginHistory.historyView__</a></div>
+	
+		</div>
+	</body>
+]]></Content></Module>

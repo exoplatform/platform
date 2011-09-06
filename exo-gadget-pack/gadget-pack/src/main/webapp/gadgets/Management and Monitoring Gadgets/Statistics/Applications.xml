@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Applications Statistics"
+    author="Frederic DROUET"
+    author_email="frederic.drouet@exoplatform.com"
+    thumbnail="image/chronometre.png">
+    <Require feature="settitle" />
+    <Require feature="dynamic-height" />
+  </ModulePrefs>
+<Content type="html">
+<![CDATA[ 
+    <head>
+      <title>Applications Statistics</title>
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+        <style type="text/css">
+          html {
+            width: 100%;
+          }
+          /*ul {
+            list-style-type: none;
+            list-style-image: url('image/bullet.gif');
+            padding-left: 2px;
+            margin-left: 0;
+          }*/
+          .detail_ligne {
+            font-size: 11pt;
+            color: black;
+          }
+          .detail_ligne:hover {
+            background-color: lightgray;
+          }
+          .detail_value {
+            float: right;
+            padding-right: 5px;
+          }
+          .application_details_time {
+            margin-top: 2px;
+            font-size: 8pt;
+            color: #707070;
+          }
+          /* Usage */
+          .usage_ok {
+          }
+          .usage_warning {
+            background-color: #FFA400;
+            color: white;
+          }
+          .usage_error {
+            background-color: #CC3333;
+            color: white;
+          }
+        </style>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="script/jquery-plugins/jquery.number_format.js"></script>
+      <script language="javascript" type="text/javascript" src="script/utils.js"></script>
+      <script type="text/javascript">
+        function loadInfos() {
+          var items = [];
+          $.getJSON('/rest/statistics/application/all', function(data) {
+            $.each(data, function(i, liste) {
+              $('#application-number').empty();
+              $('#application-number').append(liste.length);
+              $.each(liste, function(key, application) {
+                var applicationID = application.name;
+                // do we have warning or error on Average Execution Time ?
+                var avgExecTimeCssClass = "";
+                if (application.averageTime >= 1000 && application.averageTime < 2000) {
+                  avgExecTimeCssClass = "usage_warning";
+                } else if (application.averageTime >= 2000) {
+                  avgExecTimeCssClass = "usage_error";
+                } else {
+                  avgExecTimeCssClass = "usage_ok";
+                }
+                //items.push('<li id="application_'+i+'_'+key+'" class="detail_ligne">');
+                items.push('<div class="application_container">');
+                items.push('<div id="application_'+i+'_'+key+'" class="detail_ligne">');
+                items.push('<span class="application_id">'+applicationID+'</span>');
+                items.push('<span class="application_call_count detail_value '+avgExecTimeCssClass+'" title="Average execution time (ms)">'+formatInteger(Math.round(application.averageTime))+' '+application.timeUnit+'</span>');
+                items.push('</div>');
+                items.push('<p class="application_details_time">');
+                items.push('min: '+formatInteger(application.minTime)+' '+application.timeUnit);
+                items.push(' | max: '+formatInteger(application.maxTime)+' '+application.timeUnit);
+                items.push(' | exec: '+formatInteger(application.execution));
+                items.push('</p>');
+                items.push('</div>');
+                //items.push('</li>');
+              });
+              //items.push('</ul>');
+            });
+            
+            $('#applications').empty();
+            $('<div/>', {'class': 'memoryGraphs',  html: items.join('')}).appendTo('#applications');
+
+            // resizing of the gadget height
+            gadgets.window.adjustHeight($("#my_gadget").get(0).offsetHeight);
+          });
+        }
+        
+        function init() {
+          loadInfos();
+          /*
+          $(document).everyTime("15s", "reloadPage", function() {
+              loadInfos();
+          }, 0);
+          */
+        }
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+    </head>
+    <body>
+      <div id="my_gadget" class="UIGadgetThemes UIYellowThemes">
+        <div class="TitGad ClearFix">
+          <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
+          <div title="Setting" id="SettingButton" class="SettingButton">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+          </div>
+          <div class="ContTit">Applications Statistics (<span id="application-number">?</span>)</div>
+        </div>
+
+        <div id="applications" class="GadCont">Loading data ...</div>
+      
+
+      </div>
+        
+    </body>
+
+]]></Content></Module>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs 
+  title="Top voted rating topic"
+  author="Do Thanh Tung"
+  author_email="tungdt@exoplatform.com"
+  thumbnail="./skin/gadget-vote-icon-96x96.png"
+  description="Display the Top voted rating topics of the Forum.">
+    <Require feature="dynamic-height"/>
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+  </ModulePrefs>
+  <UserPref name="maxcount" display_name="__MSG_topic.top.vote.maxcount__" default_value="5" datatype="enum" >
+    <EnumValue value="5" />
+    <EnumValue value="10" />
+    <EnumValue value="15" /> 
+    <EnumValue value="20" /> 
+  </UserPref>
+  
+  <Content type="html">
+    <![CDATA[   
+    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+    <link type="text/css" rel="stylesheet" href="./skin/topVoteTopic.css" />
+        
+    <script type="text/javascript" src="./script/topVoteTopic.js"></script>
+    <script type="text/javascript" src="./script/date.format.js"></script>
+    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    
+    <div id="TopVotedTopic-Gadget" class="UIGadgetThemes UIYellowThemes">
+      <div class="TitGad ClearFix">
+        <div title="Setting" id="SettingButton" class="SettingButton">
+          <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+        </div>
+        <div class="ContTit">__MSG_topic.top.vote.title__</div>
+      </div>
+      <div id="topVoteTopicContainer" class="GadCont ForumTopics">
+      </div>    
+    </div>
+    
+    
+    ]]>
+  </Content>
+</Module>

@@ -1,0 +1,40 @@
+.bold-date {
+  font-weight: bold; 
+}
+
+.rootPanel {
+	width: 270px;
+}
+
+
+.topPanel {
+  background-color: #F5F5F5;
+  border: 1px solid #BBBBBB;
+  margin: 3px;
+  padding: 2px;
+  width: 100%;
+}
+
+.calgadMainPanel {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttonsPanel {
+	border-top: 1px solid;
+	padding: 3px;
+	margin: 2px;
+	width: 100%;
+}
+
+.event-date-label {
+ border-bottom:1px solid #EEEEEE;
+}
+
+.event-date-label .date-content {
+  font-weight: bold;
+}
+
+.eventCell {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
+  <!-- LOGIN HISTORY -->
+  <component>
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>  
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
+  </component> 
+  
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
+  </component>
+
+  <!-- FORUM STATISTICS -->
+  <component>
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
+  </component> 
+  
+  <component>
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
+  </component>
+  
+  <component>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
+  </component> 
+
+  <!-- GROOVY REST SERVICES -->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.GroovyScript2RestLoader.GroovyScript2RestLoaderExt</type>
+    <component-plugins>
+        <component-plugin>
+          <name>test</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoaderPlugin</type>
+          <init-params>
+            <value-param>
+              <name>repository</name>
+              <value>repository</value>
+            </value-param>
+            <value-param>
+              <name>workspace</name>
+              <value>portal-system</value>
+            </value-param>
+            <value-param>
+              <name>node</name>
+              <value>/exo:gadget-groovy</value>
+            </value-param>
+            
+            <properties-param>
+              <name>Monitoring.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/Monitoring/Monitoring.groovy" />
+            </properties-param>
+        
+            <properties-param>
+              <name>Statistics.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/Statistics/Statistics.groovy" />
+            </properties-param>
+        
+            <properties-param>
+              <name>calgad.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/eXoCalendar/calgad.groovy" />
+            </properties-param>
+        
+            <properties-param>
+              <name>FriendSuggestion.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/FriendSuggestion/FriendSuggestion.groovy" />
+            </properties-param>
+        
+            <properties-param>
+              <name>AddFriend.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/FriendSuggestion/AddFriend.groovy" />
+            </properties-param>
+        
+            <properties-param>
+              <name>GroovyConsoleRestService.groovy</name>
+              <property name="autoload" value="true" />
+              <property name="path" value="jar:/groovy/GroovyConsole/GroovyConsoleRestService.groovy" />
+            </properties-param>
+        
+          </init-params>
+        </component-plugin>
+    </component-plugins>
+    <init-params>
+       <object-param>
+          <name>observation.config</name>
+          <object type="org.exoplatform.services.jcr.ext.script.groovy.ObservationListenerConfiguration">
+             <field name="repository">
+                <string>repository</string>
+             </field>
+             <field name="workspaces">
+                <collection type="java.util.ArrayList">
+                   <value>
+                      <string>portal-system</string>
+                   </value>
+                </collection>
+             </field>
+          </object>
+       </object-param>
+    </init-params>
+  </component>
+   
+
+  <!-- JCR NODE TYPES -->
+  <external-component-plugins>
+  <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+  <component-plugin>
+    <name>add.gadget.services.nodeType</name>
+    <set-method>addPlugin</set-method>
+    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+    <init-params>
+      <values-param>
+        <name>autoCreatedInNewRepository</name>
+        <description>Node types configuration file</description>
+        <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
+        <value>jar:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
+      </values-param>
+    </init-params>
+  </component-plugin>
+  </external-component-plugins>
+
+</configuration>

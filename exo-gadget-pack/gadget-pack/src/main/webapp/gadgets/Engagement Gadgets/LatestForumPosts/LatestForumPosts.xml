@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs 
+  title="Forum Posts"
+  author="eXo Platform"
+  description="Forum Posts is gadget to display latest topics in the Forum.">
+  <Locale messages="./locale/default.xml" />
+  <Locale lang="fr" messages="./locale/fr.xml" />
+  <Require feature="dynamic-height"/>
+</ModulePrefs>
+<UserPref name="forumUrl" display_name="__MSG_forumUrlPref__" datatype="string"></UserPref>
+<UserPref name="nbOfPosts" display_name="__MSG_nbOfPostsPref__" datatype="string"></UserPref>
+<Content type="html">
+<![CDATA[   
+  <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+  <link type="text/css" rel="stylesheet" href="./skin/latestForumPosts.css" />
+  <script type="text/javascript" src="./skin/latestForumPosts.js"></script>
+  <div class="UIGadgetThemes UIYellowThemes">
+    <div class="TitGad ClearFix">
+      <a target="_blank" id="ShowAll" class="IconDropDown">__MSG_showAll__</a>
+        <div title="Setting" id="SettingButton" class="SettingButton">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+        </div>
+        <div class="ContTit">__MSG_title__</div>
+    </div>
+    <div id="latestForumPostsContainer" class="GadCont ForumPosts">
+    </div>    
+  </div>
+  
+  
+]]></Content></Module>

@@ -1,0 +1,70 @@
+<?xmfl version='1.0' encoding='UTF-8'?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<messagebundle>
+  <msg name="forums.statistic.title">
+    Statistiques du forum
+  </msg>
+  <msg name="forums.statistic.total.topic">
+    Total des sujets:
+  </msg>
+  <msg name="forums.statistic.total.post">
+    Total des messages:
+  </msg>
+  <msg name="forums.statistic.total.member">
+    Total des membres:
+  </msg>
+  <msg name="forums.statistic.active.member">
+    Membres actifs:
+  </msg>
+  <msg name="forums.statistic.maximum.user">
+    Nombre maximum d'utilisateurs en ligne:
+  </msg>  
+  <msg name="forums.statistic.at">
+    le
+  </msg>  
+  <msg name="forums.weekly.statistic.title">
+    Statistiques hebdomadaires du forum
+  </msg>
+  <msg name="forums.weekly.statistic.post.open">
+    Message(s) créés
+  </msg>
+  <msg name="forums.weekly.statistic.next">
+    Suivant
+  </msg>
+  <msg name="forums.weekly.statistic.prev">
+    Précédent
+  </msg>
+  <msg name="forums.weekly.statistic.view.chart">
+    Afficher en tant que graphique
+  </msg>
+  <msg name="forums.weekly.statistic.view.list">
+    Voir comme liste
+  </msg>
+  <msg name="forums.statistic.see.total.statistic">
+    Statistiques globales
+  </msg>
+  <msg name="forums.statistic.see.weekly.statistic">
+    Statistiques hebdomadaires
+  </msg>  
+</messagebundle>
+

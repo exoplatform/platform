@@ -1,0 +1,10 @@
+.UIGadgetThemes .ForumPosts .ReadPost {
+ color:#cccccc;
+}
+
+.UIGadgetThemes .ForumPosts .PostDetail {
+ color:#707070;
+ font-style: italic;
+ padding-left: 10px; 
+}
+

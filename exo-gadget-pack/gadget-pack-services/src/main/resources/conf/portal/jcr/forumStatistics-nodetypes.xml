@@ -1,0 +1,34 @@
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+   <nodeType name="exo:periodicForumStats" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+      <supertypes>
+         <supertype>nt:base</supertype>
+      </supertypes>
+      <propertyDefinitions>
+         <propertyDefinition name="exo:startDate" requiredType="Date" autoCreated="false" mandatory="true" onParentVersion="COPY" protected="false" multiple="false">
+            <valueConstraints/>
+         </propertyDefinition>
+         <propertyDefinition name="exo:startPostsCountOfWeek" requiredType="Long" autoCreated="false" mandatory="true" onParentVersion="COPY" protected="false" multiple="false">
+            <valueConstraints/>
+         </propertyDefinition>
+         <propertyDefinition name="exo:postsCountOfWeek" requiredType="Long" autoCreated="false" mandatory="true" onParentVersion="COPY" protected="false" multiple="false">
+            <valueConstraints/>
+         </propertyDefinition>
+         <propertyDefinition name="exo:lastStatEntry" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+            <valueConstraints/>
+         </propertyDefinition>
+      </propertyDefinitions>
+   </nodeType>
+   
+   <nodeType name="exo:statisticWeekHome" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+      <supertypes>
+         <supertype>nt:unstructured</supertype>
+      </supertypes> 
+      <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:periodicForumStats" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" sameNameSiblings="false">
+            <requiredPrimaryTypes>
+               <requiredPrimaryType>exo:periodicForumStats</requiredPrimaryType>
+            </requiredPrimaryTypes>
+         </childNodeDefinition>
+      </childNodeDefinitions>
+   </nodeType>
+</nodeTypes>

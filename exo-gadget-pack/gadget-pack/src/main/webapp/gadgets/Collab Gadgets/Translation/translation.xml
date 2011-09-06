@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="Text Translation" />
+<Content type="html">
+<![CDATA[   
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <script type="text/javascript" src="translation.js"></script>
+<div id="wrap" class = "wrapper" onclick = "closeOption(this, event);">
+
+<form id="translationform" name = "translationform">
+  <table width="100%">
+    <tr>
+      <td width="100%" colspan="2">
+        <div class="intructionLanguage">FROM:&nbsp;</div>
+        <div name="srcLanguage" id="srcLanguage" onClick = "showOption('showAvailableSourceLanguage', 'srcLanguage', 'showAvailableDesLanguage', event);" selectedLang="en" class="selectedLanguage" onmouseover="this.className= 'selectedLanguage_hover';" onmouseout ="this.className = 'selectedLanguage';">English</div>
+        <div class="intructionLanguage">TO:&nbsp;</div>
+        <div name="desLanguage" id="desLanguage" onClick = "showOption('showAvailableDesLanguage', 'desLanguage', 'showAvailableSourceLanguage', event);" selectedLang="fr" class="selectedLanguage" onmouseover="this.className= 'selectedLanguage_hover';" onmouseout ="this.className = 'selectedLanguage';" >French</div>
+        <div style="float:left" id="commandTranslate" onClick="translate(); return false;">Translate</div>
+    </tr>
+    <tr>
+    <td width="50%">
+      <TEXTAREA name = "srcText" class="textSource"></TEXTAREA>
+    </td>
+    <td width="50%" class="translatedTextTD">
+       <div class="translatedTitle" id="translatedTitle">Translation: </div>
+       <div class="translatedText" id = "resultTransalated" name ="resultTransalated"></div>
+    </td>
+    </tr>
+  </table>
+</form>
+
+
+<div id="showAvailableSourceLanguage" class="availableLanguages"></div>
+<div id="showAvailableDesLanguage" class="availableLanguages"></div>
+</div>
+<script>
+  populateAvailableLanguages('showAvailableSourceLanguage','srcLanguage');
+  populateAvailableLanguages('showAvailableDesLanguage', 'desLanguage');
+</script>
+]]>
+  
+  </Content></Module>

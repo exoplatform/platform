@@ -81,6 +81,7 @@ function getProduct(version) {
   product.addDependencies(platform.webos.ext);
   /* Gadgets */
   product.addDependencies(platform.sample.GadgetSample.gadgets);
+  product.addDependencies(platform.gadgetpack.gadgets);
 
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Memory"
+  author="Frederic DROUET"
+  author_email="fdrouet@exoplatform.com"
+  thumbnail="image/memory-icon.png">
+    <Require feature="settitle" />
+    <Require feature="dynamic-height" />
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[ 
+    <head>
+      <title>Memory</title>
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+      <link type="text/css" rel="stylesheet" href="skin/gadget-memory.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
+      
+      <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="script/memory-utils.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
+      <!--[if IE]><script language="javascript" type="text/javascript" src="script/excanvas.min.js"></script><![endif]-->
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.pieRenderer.min.js"></script>
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/plugins/jqplot.highlighter.min.js"></script>
+      <script type="text/javascript">
+        function loadInfos() {
+          var items = [];
+          var dataGraphs = [];
+          $.getJSON('/rest/monitoring/memory', function(data) {
+            $.each(data, function(i, liste) {
+              $.each(liste, function(key, memory) {
+                var memoryTitle = 'free / used : ' + formatOctets(memory.max - memory.used) +' / ' + formatOctets(memory.used);
+                dataGraphs[key]=[memory.type, memoryTitle, [['used', memory.used], ['free', memory.max - memory.used]]];
+                items.push('<div id="memoryGraph_'+memory.type+'" class="graph-memory-zone"> </div>');
+              });
+            });
+            
+            $('#memoryInfos').empty();
+            $('<div/>', {'class': 'memoryGraphs',  html: items.join('')}).appendTo('#memoryInfos');
+            
+            $.jqplot.config.enablePlugins = true;
+            
+            $.each(dataGraphs, function (key, graph) {
+              var graphName = graph[0];
+              plot1 = $.jqplot('memoryGraph_'+graphName, [graph[2]], {
+                title: '<b>' + graphName+' memory</b> <br />'+graph[1],
+                seriesDefaults:{
+                  renderer:$.jqplot.PieRenderer,
+                  rendererOptions:{sliceMargin:4, fill:true, shadow:true, lineWidth:5},
+                  // , diameter:100
+                  showMarker:true
+                },
+                legend:{show:true, location: 'e'}
+              });
+            });
+            
+            // the standard version is buggy so i use the eXo Social fixed version
+            // gadgets.window.adjustHeight();
+            //eXo.social.SocialUtil.adjustHeight($("body").get(0));
+            gadgets.window.adjustHeight($("#my-gadget").get(0).offsetHeight);
+          });
+        }
+        
+        function init() {
+          loadInfos();
+          $(document).everyTime("15s", "reloadPage", function() {
+            loadInfos();
+          }, 0);
+        }
+        gadgets.util.registerOnLoadHandler(init);
+      </script>
+    </head>
+    <body>
+      <div class="UIGadgetThemes UIYellowThemes" id="my-gadget">
+        <div class="TitGad ClearFix">
+          <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
+          <div title="Setting" id="SettingButton" class="SettingButton">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+          </div>
+          <div class="ContTit">__MSG_title_memory__</div>
+        </div>
+        <div id="memoryInfos" class="GadCont templates">Loading data ...</div>
+      </div>
+    </body>
+    ]]>
+  </Content>
+</Module>

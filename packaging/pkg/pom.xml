@@ -1702,6 +1702,27 @@
       <version>${project.version}</version>
       <type>jar</type>
     </dependency>
+
+    <!-- Gadget pack -->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>gadget-pack-config</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>gadget-pack-services</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>gadget-pack</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+          
   </dependencies>
 
   <build>

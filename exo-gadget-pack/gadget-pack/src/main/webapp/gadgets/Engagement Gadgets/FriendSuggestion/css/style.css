@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  outline: none;
+  font: normal 100%/1.25  Arial, Tahoma, Verdana, Helvetica, sans-serif;
+  text-decoration: none;
+  text-align: left;
+  font-size: 14px;
+  background: #fff;
+}
+
+img {border:none;}
+
+a {text-decoration: none; color: #666;}
+
+
+.ClearFix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ClearFix {
+  !display: inline-block;
+  !zoom: 1;
+  !display: block; 
+}
+
+#container {
+  width:240px;
+  height:200px;
+  margin:0 auto;
+  padding:2px;
+  float:left;
+}
+
+.avatar {
+  float:left;
+}
+
+.info {
+  float:left;
+  margin-left:10px;
+}
+
+.Friend {
+  background:#f3f3f3 url(../images/FriendBG.gif) repeat-x bottom;
+  margin-top:0px;
+  border:solid 1px #dbdbdb;
+  border-bottom: none;
+  box-shadow: 0px 2px 3px #d7d7d7;
+  padding:7px 10px;
+}
+
+.addfriend{
+  padding: 4px 4px 0px 4px; 
+  font-size: 13px; 
+}
+
+.AddasFriend{
+    background: url(../images/AddFriend.gif) no-repeat right;
+    padding-right: 14px;
+}
+
+.avatardefault {
+    width: 60px;
+    height: 60px;
+    background: url(../images/avatar_default.png) no-repeat right;
+}
+
+.name{
+  font-weight: bold;
+  padding: 4px 0 5px;
+  color:#F68A2F;
+}
+
+.mutual{
+  background: url(../images/mutual.png) no-repeat left;
+  padding-left: 3px;
+  position:relative;
+}
+
+.mutual small{
+  padding-left: 10px;
+}
+
+#mutual-friend {
+  position:absolute;
+  display:none;
+}
+
+.TopManu{
+  background: url(../images/TopManu.png) no-repeat top center;
+  width: 230px; height:10px;
+}
+
+.Boder{
+  border-top: none;
+  margin-top: 0px;
+  width: 416px;
+}
+
+.ContainerFR{
+  margin-top: 5px;
+}
+
+.UIGadgetThemes .TitGad {
+  line-height: 22px;
+  border-top: 1px solid #ffd400;
+  border-bottom: 6px solid #ffd400;
+  color: #484848;
+  font-size: 12px;
+  padding: 0px 15px;
+  font-weight: bold;
+}
+​

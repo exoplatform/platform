@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<!--
+ **
+ * Created by The eXo Platform SEA
+ * Author : kien.nguyen
+ *          nguyenanhkien2a@gmail.com
+ * Jul 21, 2010          
+ *
+-->
+<Module>
+   <ModulePrefs author="eXoPlatform Portal team"
+                title="__MSG_title__"
+                directory_title="Services Management"
+                title_url="http://www.exoplatform.org"
+                description="Services Management"
+                thumbnail="style/images/ServicesManagement.png"                
+                height="227">
+      <Locale messages="locale/ALL_ALL.xml" />
+      <Locale lang="en" messages="locale/en_ALL.xml" />
+      <Locale lang="fr" messages="locale/fr_ALL.xml" />
+      <Locale lang="vi" messages="locale/vi_ALL.xml" />
+      <Require feature="dynamic-height"/>
+      <Require feature="minimessage"/>
+      <Require feature="views"/>
+   </ModulePrefs>
+   <UserPref name="servicesURL" display_name="__MSG_services_url__" default_value="/rest/management" required="true"/>
+   <Content type="html" view="home">
+      <![CDATA[         
+        <link rel="stylesheet" type="text/css" href="style/home.css"></link>
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+        <script src="script/script.js" type="text/javascript"></script>    
+        <script src="script/handlers.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            gadgets.util.registerOnLoadHandler(eXo.gadget.ServicesManagement.init);            
+        </script>
+        <body>
+            <div class="UIGadget">
+              <div class="TopGadget">
+                <div class="ServicesBox ClearFix">
+                    <div class="Text">__MSG_services__</div>
+                    <select id="servicesSelector"></select>
+                    <a class="DesIconHome"><span></span></a>
+                </div>
+                <p class="DescriptionBox"><b>__MSG_description__:</b> <span id="ServiceDescription">__MSG_noDescription__</span></p>
+              </div>
+              <div class="TitleGrid ClearFix">
+                <div class="BgTitle ClearFix">
+                    <h3>__MSG_method__</h3>
+                    <select id="methodsSelector"></select>  
+                </div>
+              </div>
+            
+              <div class="GadgetGrid">
+                <table cellspacing="0" class="UIGrid">
+                    <thead>
+                        <tr>
+                            <th class="TableHeader FieldComponent Text">__MSG_name__</th>
+                            <th class="TableHeader Text">__MSG_value__</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="EvenRow">
+                            <td><div class="Text">__MSG_name__</div></td>
+                            <td><div class="Text" id="methodName"></div></td>
+                        </tr>
+                        <tr class="OddRow">
+                            <td><div class="Text">__MSG_description__</div></td>
+                            <td><div class="Text" id="methodDescription"></div></td>
+                        </tr>
+                        <tr class="EvenRow">
+                            <td><div class="Text">__MSG_method__</div></td>
+                            <td><div class="Text" id="reqMethod"></div></td>
+                        </tr>
+                        <tr class="OddRow">
+                            <td><div class="Text">__MSG_parameters__</div></td>
+                            <td id="test">
+                              <div class="SkinID Text" id="parametersTable"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <!--End methods UIGrid-->
+              </div>    
+              
+              <!-- Start Properties UIGrid -->
+              <div class="TitleGrid ClearFix">
+                <div class="BgTitle ClearFix">
+                    <h3>Properties</h3>
+                    <select id="propertiesSelector"></select>
+                </div>
+              </div>
+              <div class="GadgetGrid">
+                <table cellspacing="0" class="UIGrid">
+                    <thead>
+                        <tr>
+                            <th class="FieldComponent">__MSG_name__</th>
+                            <th>__MSG_value__</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="EvenRow">
+                            <td><div class="Text">__MSG_name__</div></td>
+                            <td><div class="Text" id="propertyName"></div></td>
+                        </tr>
+                        <tr class="OddRow">
+                            <td><div class="Text">__MSG_description__</div></td>
+                            <td><div class="Text" id="propertyDescription"></div></td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <!--End Properties UIGrid-->
+               </div>        
+                                    
+        </div>                
+    </body>
+    ]]>
+   </Content>
+   <Content type="html" view="canvas">
+      <![CDATA[         
+        <link rel="stylesheet" type="text/css" href="style/canvas.css"></link>
+        <script src="script/jquery-1.4.2.min.js"></script>     
+        <script src="script/script.js"></script>
+        <script src="script/handlers.js"></script>
+        <script type="text/javascript">
+            gadgets.util.registerOnLoadHandler(eXo.gadget.ServicesManagement.init);
+        </script>
+        <body>
+        
+          <div class="UIGadget">
+            <div class="TopGadget">
+                <table cellspacing="0" style="margin: 0px auto;">
+                    <tbody>
+                        <tr>
+                            <td><div class="Text">__MSG_services__</div></td>
+                            <td>
+                                <select id="servicesSelector"></select>                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Description" colspan="2"><p><b>__MSG_description__: </b><span id="ServiceDescription">__MSG_noDescription__</span></p></td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            
+            <div class="TitleGadget ClearFix">
+                <div id="MethodsTab" class="Tab TabSelected">Methods</div>
+                <div id="PropertiesTab" class="Tab">Properties</div>
+            </div>
+            <div id="ServiceMethods" class="GadgetGrid GadgetGmCanvasMessage ContentSelected">
+                <table cellspacing="0" class="UIGrid">
+                    <thead>
+                        <tr>
+                            <th class="FieldComponent">__MSG_name__</th>
+                            <th class="FieldComponent">__MSG_description__</th>
+                            <th class="FieldComponent FixWidth">__MSG_method__</th>
+                            <th class="FieldComponent">__MSG_parameters__</th>
+                            <th class="FixWidth">__MSG_action__</th>
+                        </tr>
+                    </thead>
+                    <tbody id="methodsForCanvas"></tbody>
+                </table> 
+                <!--End UIGrid for methods-->
+            </div>
+            
+            <div id="ServiceProperties" class="GadgetGrid GadgetGmCanvasMessage">
+                 <table cellspacing="0" class="UIGrid">
+                    <thead>
+                       <tr>
+                          <th class="FieldComponent">__MSG_name__</th>
+                          <th class="FieldComponent">__MSG_description__</th>
+                          <th>__MSG_action__</th>
+                       </tr>
+                    </thead>
+                    <tbody id="propertiesForCanvas"></tbody>
+                 </table>
+                 <!--End UIGrid for properties-->
+            </div>
+            <div class="BoxFile" id="resultMessage"></div>
+        </div>    
+      </body>
+    ]]>
+   </Content>
+</Module>

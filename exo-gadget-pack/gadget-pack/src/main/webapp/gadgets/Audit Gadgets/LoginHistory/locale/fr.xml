@@ -1,0 +1,100 @@
+<?xmfl version='1.0' encoding='UTF-8'?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<messagebundle>
+  <msg name="loginHistory.title">
+    Historique de connexion
+  </msg>
+  <msg name="loginHistory.user">
+    Utilisateur
+  </msg>
+  <msg name="loginHistory.find">
+    Trouver
+  </msg>
+  <msg name="loginHistory.latest">
+    Dernières
+  </msg>
+  <msg name="loginHistory.lastLogin">
+    Dernière connexion
+  </msg>
+  <msg name="loginHistory.beforeThat">
+    Avant que les
+  </msg>
+  <msg name="loginHistory.more">
+    Plus
+  </msg>
+  <msg name="loginHistory.stats">
+    stats
+  </msg>
+  <msg name="loginHistory.history">
+    historique
+  </msg>
+  <msg name="loginHistory.global">
+    Global
+  </msg>
+  <msg name="loginHistory.week">
+    Semaine
+  </msg>
+  <msg name="loginHistory.lastLoginsView">
+    Dernières connexions
+  </msg>
+  <msg name="loginHistory.historyView">
+    Historique
+  </msg>
+  <msg name="loginHistory.statisticView">
+    Statistique
+  </msg>
+  <msg name="loginHistory.averagePerDay">
+    Moyenne des logins / jour
+  </msg>
+  <msg name="loginHistory.averagePerWeek">
+    Moyenne des logins / semaine
+  </msg>
+  <msg name="loginHistory.averagePerMonth">
+    Moyenne des logins / mois
+  </msg>
+  <msg name="loginHistory.today">
+    Aujourd'hui
+  </msg>
+  <msg name="loginHistory.earlierThisWeek">
+    Plus tôt cette semaine
+  </msg>
+  <msg name="loginHistory.earlierThisMonth">
+    Plus tôt ce mois-ci
+  </msg>
+  <msg name="loginHistory.earlier">
+    Plus tôt
+  </msg>
+  <msg name="loginHistory.allUsers">
+    Tous les utilisateurs
+  </msg>
+  <msg name="loginHistory.unknow">
+    inconnu
+  </msg>
+  <msg name="loginHistory.next">
+    suivant
+  </msg>
+  <msg name="loginHistory.ago">
+    Il y a
+  </msg>
+</messagebundle>
+

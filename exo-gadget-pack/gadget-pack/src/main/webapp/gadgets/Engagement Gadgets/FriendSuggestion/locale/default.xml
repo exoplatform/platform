@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<messagebundle>
+  <msg name="title">
+    Maybe you know these people ?
+  </msg>
+
+
+  <msg name="mutual-friends">
+    mutual friend(s)
+  </msg>
+</messagebundle>

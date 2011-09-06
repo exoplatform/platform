@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='calendargadget'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+  <!--  inherit gadget support  -->
+  <inherits name='com.google.gwt.json.JSON'/>
+  <inherits name="com.google.gwt.gadgets.Gadgets"/>
+  <inherits name="com.google.gwt.i18n.I18N"/>
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='org.exoplatform.calendar.client.CalendarGadget'/>
+  
+  <stylesheet src="styles.css"/>
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>

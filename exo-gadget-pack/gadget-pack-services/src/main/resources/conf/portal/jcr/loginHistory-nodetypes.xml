@@ -1,0 +1,141 @@
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+    <nodeType name="exo:LoginHisSvc_loginCounterItem" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:unstructured</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_loginCounterItem_id" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_loginHistoryItem_userId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_loginCounterItem_loginDate" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_loginCounterItem_loginCount" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+    </nodeType>
+    
+    <nodeType name="exo:LoginHisSvc_loginHistoryItem" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:unstructured</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_loginHistoryItem_id" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_loginHistoryItem_userId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_loginHistoryItem_loginTime" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+    </nodeType>
+
+    <nodeType name="exo:LoginHisSvc_loginCounter" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:unstructured</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_loginCounter_lastIndex" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+        <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_loginCounterItem" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_loginCounterItem</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+        </childNodeDefinitions>
+    </nodeType>
+    
+    <nodeType name="exo:LoginHisSvc_loginHistory" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:unstructured</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_loginHistory_lastIndex" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+        <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_loginHistoryItem" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_loginHistoryItem</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+        </childNodeDefinitions>
+    </nodeType>
+    
+    <nodeType name="exo:LoginHisSvc_globalLoginCounter" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:unstructured</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_globalLoginCounter_lastIndex" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+        <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_loginCounterItem" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_loginCounterItem</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+        </childNodeDefinitions>
+    </nodeType>
+    
+    <nodeType name="exo:LoginHisSvc_userProfile" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:base</supertype>
+        </supertypes>
+        <propertyDefinitions>
+            <propertyDefinition name="exo:LoginHisSvc_userId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_lastLogin" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_beforeLastLogin" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
+        </propertyDefinitions>
+        <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_loginHistory" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_loginHistory</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_loginCounter" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_loginCounter</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+        </childNodeDefinitions>
+
+    </nodeType>
+
+    <nodeType name="exo:LoginHisSvc_loginHistoryService" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+        <supertypes>
+            <supertype>nt:base</supertype>
+        </supertypes>
+        <childNodeDefinitions>
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_globalLoginCounter" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_globalLoginCounter</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>         
+            <childNodeDefinition name="*" defaultPrimaryType="exo:LoginHisSvc_userProfile" autoCreated="false" mandatory="false" onParentVersion="VERSION" protected="false" sameNameSiblings="false">
+                <requiredPrimaryTypes>
+                    <requiredPrimaryType>exo:LoginHisSvc_userProfile</requiredPrimaryType>
+                </requiredPrimaryTypes>
+            </childNodeDefinition>
+        </childNodeDefinitions>
+    </nodeType>
+    
+</nodeTypes>

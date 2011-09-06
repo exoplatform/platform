@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo-gadget-pack</artifactId>
+    <version>3.5.0-Beta1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>gwt-gadgets</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Gadget Pack - GWT Gadgets</name>
+  <description>GWT gadgets</description>
+
+  <properties>
+      <!-- Convenience property to set the GWT version -->
+      <gwtVersion>2.1.0</gwtVersion>
+      <gwt.gadget.version>1.2.0</gwt.gadget.version>
+      <!-- GWT needs at least java 1.5 -->
+      <maven.compiler.source>1.5</maven.compiler.source>
+      <maven.compiler.target>1.5</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwtVersion}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <version>${gwtVersion}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt.google-apis</groupId>
+      <artifactId>gwt-gadgets</artifactId>
+      <version>${gwt.gadget.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
+  <!-- MODULES -->
+  <modules>
+    <module>eXoCalendar</module>
+  </modules>
+</project>

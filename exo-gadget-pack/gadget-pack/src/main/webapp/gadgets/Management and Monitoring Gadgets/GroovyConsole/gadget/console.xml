@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="eXo Groovy Console"  
+  description="This console allows you to run Groovy code interactively"
+  author="Vu Minh Tung, Do Thanh Tung, Nguyen Thanh Trung" author_affiliation="eXo Platform"
+  author_email="tungvm@exoplatform.com, tungdt@exoplatform.com, trungnt@exoplatform.com"
+  thumbnail="skin/images/console_icon.png" >
+  <Require feature="dynamic-height"/> 
+  <Require feature="setprefs"/>
+</ModulePrefs>
+  
+<Content type="html">
+<![CDATA[   
+     
+    <link href="skin/colorpicker.css" rel="stylesheet" type="text/css" />   
+    <link href="skin/style.css" rel="stylesheet" type="text/css" />    
+    <link href="skin/jquery.terminal.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.terminal-0.3.3.min.js"></script>    
+    <script type="text/javascript" src="js/jquery.mousewheel-min.js"></script>
+    
+    <script type="text/javascript" src="js/colorpicker.js"></script>
+    <script type="text/javascript" src="js/eye.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+
+    <script>
+       var prefs = new gadgets.Prefs();
+       var fontColor= "#0000FF";
+       var fontSize="12px" ;
+       fontColor = prefs.getString('fontColor');
+       fontSize = prefs.getString('fontSize');
+
+       if(fontColor == ""){
+         fontColor= "#0000FF";
+       }
+       if(fontSize == ""){
+         fontSize= "12px";
+       }
+       
+      $(document).ready(function(){
+        d = new Date();
+        var sessionId = d.getFullYear().toString()+'.'+
+                        (d.getMonth()+1).toString()+'.'+
+                        d.getDate().toString()+'_'+
+                        d.getHours().toString()+'h'+
+                        d.getMinutes().toString()+'m'+
+                        d.getSeconds()+'s';
+        
+        sessionId = "GroovySession@" + sessionId;
+        
+        jQuery(function($, undefined) {
+            $('#ContainerConsole').terminal(
+              function(command, term) {
+                
+                fontColor = prefs.getString('fontColor');
+                if(fontColor == ""){
+                  fontColor= "#0000FF";
+                }
+                fontSize = prefs.getString('fontSize');
+                if(fontSize == ""){
+                  fontSize= "12px";
+                }
+                 
+               if(command.trim() == 'help'){
+                  term.echo('\nThis console allows you to run Groovy code interactively. It accepts eXo API and can\n' +
+                            'access eXo components deployed in portal container so this can be used as a tool for\n' +
+                            'drafting code, tesing or exploring eXo API/components/data interactively on a live system. \n\n' +     
+                            '[[b;#FFF;#000000]Shotcut keys:]\n' +
+                            ' Up/Down                                 Command history\n' +
+                            ' Ctrl-C/Ctrl-V                           Copy/Paste\n' +
+                            ' Ctrl-K                                  Remove the text after the cursor\n' +
+                            ' Esc                                     Clear command line\n' +
+                            ' Tab                                     Hide script editor\n\n' +
+                            '[[b;#FFF;#000000]Console commands:]\n' +
+                            ' clear                                   Clear console screen\n' +
+                            ' edit                                    Show script editor\n' +
+                            ' run                                     Execute the script in editor\n' +
+                            ' show imports                            Show imported packages\n' +
+                            ' show variables                          Show defined variables\n' +
+                            " list sessions [<regex pattern>]         List all saved sessions which's name matches <regex pattern>\n" +                           
+                            ' clear session                           Clear the session\n' +
+                            ' save session as <session name>          Save session\n' +
+                            ' load session <session name>             Load session\n' +
+                            ' remove session <session name>           Remove session\n' +                           
+                            " remove all sessions [<regex pattern>]   Remove all session which's name matches <regex pattern>\n"                          
+                            );
+                  return false;
+                }
+                
+                if (command.trim() == 'edit'){  //pause terminal and show script editor
+                  term.disable();
+                  $('.ContainerEditor').show();
+                  $('#textEditor').focus();
+                  return false;
+                }
+                                
+                if (command.trim()=="run"){   //run command in script editor
+                  command = $('textarea#textEditor').val();
+                }
+              
+                command = command.replace(/\+/g, "%2B").replace(/\//g, "%2F").replace(/\\/g, "%5C"); // escape '+', '/' and '\' character (URL's special characters)
+                var restURI = '/rest/groovyconsole/exec/' + sessionId + '/' + encodeURIComponent(command);
+                $.getJSON(restURI, function(data){
+                  $.each(data, function(key, consoleData){
+                    
+                    var outputType = consoleData[0];
+                    var output = consoleData[1];
+                   
+                    if(outputType =='error'){
+                      term.error('ERROR: ' + output);
+                    }
+                    else{
+                      term.echo(output).css('font-size',fontSize).css('color',fontColor);
+                    }
+                    
+                    $('.terminal-output').css('font-size', '20px');
+                     $('.terminal').css('font-size', '20px');
+                  }); //$.each(data, function(key, consoleData){                 
+                }); //$.getJSON(restURI, function(data){
+              }, //function(command, term) {
+              {
+                greetings: "[[b;#FFF;#000000]eXo Groovy Console]\nType [[b;#FFF;#000000]'help'] for help.\n----------------------------",
+                name: 'groovy_console',
+                height: Math.max($(document).height()*0.6, 350) - 50,
+                prompt: '[[b;#FFF;#000000]groovy>]'
+              }
+            ); //$('#ContainerConsole').terminal(
+        }); // jQuery(function($, undefined) {
+        
+      /*show popup set font*/
+      $('.FontControl a').click(function(){
+          var element=$(this).next();
+          if(element.is(':visible')) $(this).next().hide();else $(this).next().show()
+          $('.FontControl .button').click(function(){
+                //var prefs = new gadgets.Prefs();
+                var fontSizePref= $('#fontSize').val();
+                prefs.set("fontSize", fontSizePref);
+            $('.FontControl .dialogFonts').hide()
+          });
+      
+          $('.FontControl .cancel').click(function(){
+                $('.FontControl .dialogFonts').hide()
+          })
+        });
+            
+        /*show colorpicker*/
+        $('.ColorControl').ColorPicker({
+          color: '#0000ff',
+          onShow: function (colpkr) {
+            $(colpkr).fadeIn(500);
+            return false;
+          },
+          onHide: function (colpkr) {
+            $(colpkr).fadeOut(500);
+            return false;
+          },
+          onSubmit: function (hsb, hex, rgb) {
+            prefs.set("fontColor", '#' + hex);
+          }
+        });
+        
+        //select all the a tag with name equal to modal
+        $('#helpItem').click(function(e) {
+            $('#dialogHelp').show();
+
+        });
+  
+        //if close button is clicked
+        $('.Boxwindow .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();          
+            $('#mask').hide();
+            $('.Boxwindow').hide();
+        });  
+        
+        //hide editor    
+        $('#textEditor').focusout(function() {
+          $('.ContainerEditor').hide();
+          $('#ContainerConsole').click();
+        });
+        
+        gadgets.window.adjustHeight(Math.max($(document).height()*0.6, 350));
+      }); // $(document).ready(function(){              
+    </script>
+
+    <div id="gadgetContent" class="UIGadgetConsole">
+      <ul class="ToolBarMenu">    
+        <li class="FontControl"><a class="item FontItem" href="#" >Font</a>
+          <!-- Start of  popup font Dialog -->  
+          <div class="dialogFonts">      
+            <label>Font Size : </label>
+            <select class="text" id= "fontSize" >
+              <option value="10px">10px</option>
+              <option value="12px">12px</option>
+              <option value="14px">14px</option>
+              <option value="16px">16px</option>
+              <option value="18px">18px</option>
+            </select>
+            <input type="button" value="Set Font" class="button" />   
+            <input type="button" value="Cancel" class="cancel" />    
+          </div>
+          <!-- End of Login Dialog -->  
+        </li>
+        <li class="ColorControl"><a class="item ColorItem" >color</a></li>
+        <li><a class="item HelpItem" id="helpItem" name="modal">help</a></li>
+        <!--li class="BtnControl"><a  class="item ControlItem"   href="#dialog2" >Script Editor</a></li-->
+      </ul>
+
+      <div id="dialogColor" class="Boxwindow">
+        <p>Simple Modal Window </p>
+        <a href="#"class="close"/>x</a>
+      </div>
+      
+      <!-- Start of Sticky Note -->
+      <div id="dialogHelp" class="Boxwindow" >
+        <div style = "width:100%; height:90%; margin-top:30px"> 
+         <iframe src="/portal/rest/jcr/repository/dev-monit/exo_code_fest_1011/GroovyConsole/help.html" width="100%" height="100%">
+           <p>Your browser does not support iframes.</p>
+         </iframe>
+       </div>  
+       <p><a href="#"class="close"/>x</a></p>
+      </div>
+        
+      <div id="ContainerEditor" class="ContainerEditor" style="display:none">
+        <form name="myform"> 
+          <textarea id="textEditor" cols="60" rows="5" style="width: 100%; height: 70%" ></textarea>
+        </form>
+      </div>
+         
+      <div id="ContainerConsole" class="ContainerConsole">
+      </div>
+      
+    </div>  
+
+]]></Content></Module>
