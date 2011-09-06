@@ -43,8 +43,8 @@
   jsManager.importJavascript('eXo.portal.UIAdminToolbar');
   jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
-  def spacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
-  def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("publicSpace");
+  def spacesLink = NavigationURLUtils.getURLInCurrentPortal("spaces");
+  def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
   boolean hasPermission = uicomponent.hasPermission();
 
   void renderPageNode(UserNode node, boolean flag) {
