@@ -15,8 +15,10 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.DockPanel;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -69,8 +71,9 @@ public abstract class WizardView extends HorizontalPanel {
     dock.setStyleName("cw-DockPanel");
     dock.add(buildHeader(), DockPanel.NORTH);
     dock.add(buildDescription(), DockPanel.NORTH);
-    dock.add(buildToolbar(), DockPanel.SOUTH);
     dock.add(buildContent(), DockPanel.CENTER);
+    dock.add(buildStepBar(), DockPanel.SOUTH);
+    dock.add(buildToolbar(), DockPanel.SOUTH);
 
     // Configure Main panel
     setSpacing(5);
@@ -104,7 +107,7 @@ public abstract class WizardView extends HorizontalPanel {
    */
   protected Widget buildDescription() {
     HTML desc = new HTML(getWizardDescription());
-    desc.setHeight("40px");
+    desc.setHeight("30px");
     desc.setStylePrimaryName("blockDescription");
     return desc;
   }
@@ -117,11 +120,45 @@ public abstract class WizardView extends HorizontalPanel {
     HorizontalPanel uiToolbar = new HorizontalPanel();
     uiToolbar.setStylePrimaryName("blockAction");
     uiToolbar.setWidth("100%");
-    uiToolbar.setHeight("60px");
     uiToolbar.setHorizontalAlignment(ALIGN_RIGHT);
     uiToolbar.setVerticalAlignment(ALIGN_MIDDLE);
     uiToolbar.setSpacing(10);
+    uiToolbar.setHeight("60px");
     uiToolbar.add(buildStepToolbar());
+    return uiToolbar;
+  }
+
+  /**
+   * Skeleton of toolbar creation
+   * @return
+   */
+  protected Widget buildStepBar() {
+    HorizontalPanel uiToolbar = new HorizontalPanel();
+    uiToolbar.setStylePrimaryName("blockSteps");
+    uiToolbar.setWidth("100%");
+    uiToolbar.setHorizontalAlignment(ALIGN_RIGHT);
+    uiToolbar.setVerticalAlignment(ALIGN_MIDDLE);
+    
+    // Build stepBar
+    int nbSteps = controller.getNbViews();
+
+    Grid table = new Grid(1, nbSteps);
+    table.setCellSpacing(3);
+    Image currentImg = null;
+    for(int i=0; i<nbSteps; i++) {
+      if(i == stepNumber) {
+        currentImg = new Image("img/red_round_button.jpg");
+      }
+      else if(i < stepNumber) {
+        currentImg = new Image("img/green_round_tick.jpg");
+      }
+      else {
+        currentImg = new Image("img/green_round_button.jpg");
+      }
+      table.setWidget(0, i, currentImg);
+    }
+    
+    uiToolbar.add(table);
     return uiToolbar;
   }
   
@@ -183,6 +220,11 @@ public abstract class WizardView extends HorizontalPanel {
    */
   public abstract Map<SetupWizardData, String> verifyDatas(int toStep) throws InvalidWizardViewFieldException;
   
+  /**
+   * When screen is displayed, this method is executed
+   */
+  public abstract void executeOnDisplay();
+  
   
   /*=======================================================================
    * Button factory
@@ -243,10 +285,12 @@ public abstract class WizardView extends HorizontalPanel {
       public void onClick(ClickEvent event) {
         if(stepNumber < toStep) {
           try {
-            // Ask to verify datas
-            Map<SetupWizardData, String> datas = verifyDatas(toStep);
-            // Ask to controller to store these datas
-            controller.storeDatas(datas, toStep);
+            if(! controller.isDebugActivated()) {
+              // Ask to verify datas
+              Map<SetupWizardData, String> datas = verifyDatas(toStep);
+              // Ask to controller to store these datas
+              controller.storeDatas(datas, toStep);
+            }
             controller.displayScreen(toStep);
           }
           catch (InvalidWizardViewFieldException e) {

@@ -115,6 +115,139 @@ public interface WizardConstants extends Constants {
   
 
   /*=======================================================================
+   * Screen Database JCR
+   *======================================================================*/
+
+  @DefaultStringValue("JCR Database setup")
+  String jcrDbSetup();
+
+  @DefaultStringValue("The Database will be used to host the JCR.<br /><span style=\"color: red\">/!\\ Attention, you need to install your Database driver.</span>")
+  String jcrDbSetupDesc();
+  
+  @DefaultStringValue("Choose a DataSource:")
+  String chooseDs();
+  
+  @DefaultStringValue("Set your own DataSource:")
+  String setYourDs();
+  
+  @DefaultStringValue("Store files in Database")
+  String storeFilesInDb();
+  
+  @DefaultStringValue("Please indicate your data source:")
+  String indicateYourDs();
+  
+
+  /*=======================================================================
+   * Screen IDM
+   *======================================================================*/
+
+  @DefaultStringValue("IDM Setup")
+  String idmSetup();
+
+  @DefaultStringValue("IDM (Organization Model)")
+  String idmSetupDesc();
+
+  @DefaultStringValue("Database")
+  String database();
+
+  @DefaultStringValue("LDAP")
+  String ldap();
+  
+
+  /*=======================================================================
+   * Screen Database IDM
+   *======================================================================*/
+
+  @DefaultStringValue("IDM Database setup")
+  String idmDbSetup();
+
+  @DefaultStringValue("The Database will be used to host the IDM.<br /><span style=\"color: red\">/!\\ Attention, you need to install your Database driver.</span>")
+  String idmDbSetupDesc();
+  
+
+  /*=======================================================================
+   * Screen LDAP config
+   *======================================================================*/
+
+  @DefaultStringValue("LDAP Configuration")
+  String ldapConfig();
+  
+  @DefaultStringValue("Configuration where eXo will find users, groups and roles")
+  String ldapConfigDesc();
+
+  @DefaultStringValue("Server type:")
+  String serverType();
+
+  @DefaultStringValue("Provider URL:")
+  String providerUrl();
+
+  @DefaultStringValue("Base DN:")
+  String baseDN();
+
+  @DefaultStringValue("Root DN:")
+  String rootDN();
+
+  @DefaultStringValue("Invalid Provider URL")
+  String invalidProviderUrl();
+
+  @DefaultStringValue("Invalid Base DN")
+  String invalidBaseDn();
+
+  @DefaultStringValue("Invalid Root DN")
+  String invalidRootDn();
+  
+
+  /*=======================================================================
+   * Screen FileSystem
+   *======================================================================*/
+
+  @DefaultStringValue("Filesystem Setup")
+  String fileSystemSetup();
+  
+  @DefaultStringValue("eXo requires several filesystem directories to work")
+  String fileSystemSetupDesc();
+
+  @DefaultStringValue("Logs:")
+  String logs();
+
+  @DefaultStringValue("Index:")
+  String index();
+
+  @DefaultStringValue("Data values:")
+  String dataValues();
+
+  @DefaultStringValue("Invalid directory")
+  String invalidDirectory();
+  
+
+  /*=======================================================================
+   * Screen MailSetting
+   *======================================================================*/
+
+  @DefaultStringValue("Mail settings")
+  String mailSettings();
+  
+  @DefaultStringValue("The mail settings are used by the portal to send notifications")
+  String mailSettingDesc();
+
+  @DefaultStringValue("SMTP Host:")
+  String smtpHost();
+
+  @DefaultStringValue("Port:")
+  String port();
+
+  @DefaultStringValue("Use a secured connection")
+  String securedConnection();
+
+  @DefaultStringValue("Invalid SMTP Host")
+  String invalidSmtpHost();
+
+  @DefaultStringValue("Invalid port")
+  String invalidPort();
+  
+  
+
+  /*=======================================================================
    * GENERIC
    *======================================================================*/
 

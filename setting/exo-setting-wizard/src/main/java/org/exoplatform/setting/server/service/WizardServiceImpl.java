@@ -1,10 +1,13 @@
 package org.exoplatform.setting.server.service;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.exoplatform.container.monitor.jvm.J2EEServerInfo;
 import org.exoplatform.setting.client.service.WizardService;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -23,10 +26,18 @@ public class WizardServiceImpl extends RemoteServiceServlet implements WizardSer
     return toStep;
   }
 
+  /**
+   * Return a map with interesting system properties
+   */
   public Map<String, String> getSystemProperties() {
     
-    Map<String, String> map = new HashMap<String, String>();
+    Map<String, String> map = new LinkedHashMap<String, String>();
     
+    // Get server name
+    J2EEServerInfo j2eeServerInfo = new J2EEServerInfo();
+    map.put("server.name", j2eeServerInfo.getServerName());
+    
+    // Get some system properties
     map.put("exo.conf.dir.name", System.getProperty("exo.conf.dir.name"));
     map.put("exo.product.developing", System.getProperty("exo.product.developing"));
     map.put("exo.profiles", System.getProperty("exo.profiles"));
@@ -47,6 +58,16 @@ public class WizardServiceImpl extends RemoteServiceServlet implements WizardSer
     map.put("user.name", System.getProperty("user.name"));
     
     return map;
+  }
+
+  /**
+   * Return all datasources installed into user system
+   */
+  public List<String> getDatasources() {
+    List<String> datasources = new ArrayList<String>();
+    datasources.add("Toto 1");
+    datasources.add("Toto 2");
+    return datasources;
   }
 
 }

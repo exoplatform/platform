@@ -8,27 +8,26 @@ import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.shared.data.SetupWizardData;
 
 import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.Widget;
 
-public class SetupTypeWizardView extends WizardView {
-
-  private RadioButton standard;
-  private RadioButton advanced;
+public class IdmSetupWizardView extends WizardView {
   
-  public SetupTypeWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+  RadioButton dbRadio;
+  RadioButton ldapRadio;
+
+  public IdmSetupWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
     super(controller, stepNumber, mode);
   }
 
   @Override
   protected String getWizardTitle() {
-    return constants.selectSetupType();
+    return constants.idmSetup();
   }
 
   @Override
   protected String getWizardDescription() {
-    return "";
+    return constants.idmSetupDesc();
   }
 
   @Override
@@ -46,44 +45,29 @@ public class SetupTypeWizardView extends WizardView {
   @Override
   protected Widget buildStepContent() {
 
-    standard = new RadioButton("WizardSetupType", constants.standard());
-    advanced = new RadioButton("WizardSetupType", constants.advanced());
+    dbRadio = new RadioButton("IdmSetup", constants.database());
+    dbRadio.setValue(true);
+    ldapRadio = new RadioButton("IdmSetup", constants.ldap());
     
-    if(controller.getSetupWizardMode().equals(SetupWizardMode.STANDARD)) {
-      standard.setValue(true);
-    }
-    else {
-      advanced.setValue(true);
-    }
-
-    Grid advancedOptions = new Grid(5, 1);
-    advancedOptions.setCellSpacing(6);
-    advancedOptions.setWidget(0, 0, standard);
-    advancedOptions.setWidget(1, 0, new HTML(constants.displayStandard()));
-    advancedOptions.getCellFormatter().setHeight(2, 0, "50px");
-    advancedOptions.setWidget(3, 0, advanced);
-    advancedOptions.setWidget(4, 0, new HTML(constants.displayAll()));
+    Grid table = new Grid(2, 1);
+    table.setCellSpacing(6);
+    table.setWidget(0, 0, dbRadio);
+    table.setWidget(1, 0, ldapRadio);
+    //table.getCellFormatter().setHeight(0, 0, "50px");
     
-    return advancedOptions;
+    return table;
   }
 
   @Override
   public Map<SetupWizardData, String> verifyDatas(int toStep) throws InvalidWizardViewFieldException {
-    
-    // Change mode
-    if(standard.getValue().equals(true)) {
-      controller.setSetupWizardMode(SetupWizardMode.STANDARD);
-    }
-    else {
-      controller.setSetupWizardMode(SetupWizardMode.ADVANCED);
-    }
-    
+    // TODO Auto-generated method stub
     return null;
   }
 
   @Override
   public void executeOnDisplay() {
     // TODO Auto-generated method stub
-    
+
   }
+
 }

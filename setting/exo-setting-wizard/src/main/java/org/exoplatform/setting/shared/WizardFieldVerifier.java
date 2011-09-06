@@ -16,31 +16,41 @@ package org.exoplatform.setting.shared;
 public class WizardFieldVerifier {
 
   /*=======================================================================
-   * Screen super user
+   * Generic
    *======================================================================*/
   
-  public static boolean isValidSuperUserName(String name) {
+  public static boolean isValidTextField(String name) {
     if (name == null) {
       return false;
     }
     return name.length() > 3;
   }
+  
+  public static boolean isValidNumberField(String number) {
+    if (number == null) {
+      return false;
+    }
+    if(number.length() < 1) {
+      return false;
+    }
+    return number.matches("[0-9]*");
+  }
 
-  public static boolean isValidSuperUserPassword(String password) {
+  public static boolean isValidPassword(String password) {
     if (password == null) {
       return false;
     }
-    return password.length() > 3;
+    return password.length() >= 6;
   }
 
-  public static boolean isValidSuperUserPassword2(String password, String password2) {
+  public static boolean isValidPassword2(String password, String password2) {
     if (password == null || password2 == null) {
       return false;
     }
     return password.equals(password2);
   }
 
-  public static boolean isValidSuperUserEmail(String email) {
+  public static boolean isValidEmail(String email) {
     if (email == null) {
       return false;
     }

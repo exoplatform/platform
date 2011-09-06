@@ -55,5 +55,11 @@ public class ApplySettingsWizardView extends WizardView {
   public Map<SetupWizardData, String> verifyDatas(int toStep) throws InvalidWizardViewFieldException {
     return null;
   }
+
+  @Override
+  public void executeOnDisplay() {
+    // TODO Auto-generated method stub
+    
+  }
   
 }

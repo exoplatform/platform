@@ -70,7 +70,6 @@ public class SystemInfoWizardView extends WizardView {
       }
     });
     Grid gridLanguages = new Grid(1, 2);
-    gridLanguages.setCellSpacing(3);
     gridLanguages.setHTML(0, 0, constants.chooseLanguage());
     gridLanguages.setWidget(0, 1, languages);
     
@@ -83,7 +82,6 @@ public class SystemInfoWizardView extends WizardView {
   @Override
   protected Widget buildStepContent() {
 
-    
     Map<String, String> datas = model.getSystemInfoOptions();
     
     systemInfoOptions = new Grid(datas.size(), 3);
@@ -122,6 +120,12 @@ public class SystemInfoWizardView extends WizardView {
       }
     }
     return 0;
+  }
+
+  @Override
+  public void executeOnDisplay() {
+    // TODO Auto-generated method stub
+    
   }
   
   

@@ -53,7 +53,7 @@ public class SummaryWizardView extends WizardView {
   @Override
   protected Widget buildStepContent() {
 
-    summary = new Grid(1, 2);
+    summary = new Grid();
     summary.setCellSpacing(6);
     
     return summary;
@@ -81,18 +81,23 @@ public class SummaryWizardView extends WizardView {
   public Map<SetupWizardData, String> verifyDatas(int toStep) throws InvalidWizardViewFieldException {
     return null;
   }
-  
 
-  /*Map<SetupWizardData, String> setupMap = gui.getSetupWizardDatas();
-  if(setupMap != null && setupMap.size() > 0) {
-    summary.resize(setupMap.size(), 2);
-  
-    int row = 0;
-    for(Map.Entry<SetupWizardData, String> e : gui.getSetupWizardDatas().entrySet()) {
-      summary.setHTML(row, 0, e.getKey().getName());
-      summary.setHTML(row, 1, e.getValue());
-      row++;
+  @Override
+  public void executeOnDisplay() {
+    // Display all user's choices
+    Map<SetupWizardData, String> datas = controller.getSetupWizardDatas();
+
+    summary.resize(datas.size(), 3);
+    
+    if(datas != null) {
+      int i = 0;
+      for(Map.Entry<SetupWizardData, String> entry : datas.entrySet()) {
+        summary.setHTML(i, 0, "<b>" + entry.getKey() + ": </b>");
+        summary.setHTML(i, 1, entry.getValue());
+        i++;
+      }
     }
-  }*/
+    
+  }
   
 }

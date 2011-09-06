@@ -10,11 +10,11 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class SystemInfoWizardModel extends WizardModel {
 
+  private Map<String, String> systemInfoOptions;
+
   public SystemInfoWizardModel(SetupWizardController controller, int screenNumber) {
     super(controller, screenNumber);
   }
-
-  private Map<String, String> systemInfoOptions;
 
   @Override
   public void initDatas() {

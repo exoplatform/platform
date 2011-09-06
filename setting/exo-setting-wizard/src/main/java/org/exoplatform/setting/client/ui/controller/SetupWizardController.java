@@ -1,19 +1,25 @@
 package org.exoplatform.setting.client.ui.controller;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.service.WizardService;
 import org.exoplatform.setting.client.service.WizardServiceAsync;
-import org.exoplatform.setting.client.ui.model.ApplySettingsWizardModel;
-import org.exoplatform.setting.client.ui.model.SetupTypeWizardModel;
-import org.exoplatform.setting.client.ui.model.SummaryWizardModel;
-import org.exoplatform.setting.client.ui.model.SuperUserWizardModel;
+import org.exoplatform.setting.client.ui.model.DatabaseIdmWizardModel;
+import org.exoplatform.setting.client.ui.model.DatabaseJcrWizardModel;
+import org.exoplatform.setting.client.ui.model.LdapConfigWizardModel;
 import org.exoplatform.setting.client.ui.model.SystemInfoWizardModel;
 import org.exoplatform.setting.client.ui.model.WizardModel;
 import org.exoplatform.setting.client.ui.view.ApplySettingsWizardView;
+import org.exoplatform.setting.client.ui.view.DatabaseIdmWizardView;
+import org.exoplatform.setting.client.ui.view.DatabaseJcrWizardView;
+import org.exoplatform.setting.client.ui.view.FileSetupWizardView;
+import org.exoplatform.setting.client.ui.view.IdmSetupWizardView;
+import org.exoplatform.setting.client.ui.view.LdapConfigWizardView;
+import org.exoplatform.setting.client.ui.view.MailSettingWizardView;
 import org.exoplatform.setting.client.ui.view.SetupTypeWizardView;
 import org.exoplatform.setting.client.ui.view.SummaryWizardView;
 import org.exoplatform.setting.client.ui.view.SuperUserWizardView;
@@ -35,9 +41,10 @@ public class SetupWizardController {
   
   // GUI elements
   private LinkedList<WizardView> views;
-  private LinkedList<WizardModel> models;
+  private LinkedHashMap<Integer, WizardModel> models;
   private LinkedList<Integer> loadedModels;
   private int nbModels = 0;
+  private int nbViews = 0;
   private WizardDialogBox messageDialogBox;
   
   // Client Mode to show/hide some screens
@@ -46,8 +53,13 @@ public class SetupWizardController {
   // Screens datas
   private Map<SetupWizardData, String> setupWizardDatas;
   
+  // Debug
+  private static Boolean isDebugActivated;
+  
   
   public void start() {
+    isDebugActivated = true;
+    
     // Create the dialog box
     messageDialogBox = new WizardDialogBox();
     
@@ -55,25 +67,31 @@ public class SetupWizardController {
     setupWizardMode = SetupWizardMode.STANDARD;
     
     // Initialize datas
-    setupWizardDatas = new HashMap<SetupWizardData, String>();
+    setupWizardDatas = new LinkedHashMap<SetupWizardData, String>();
 
     // Models init
-    models = new  LinkedList<WizardModel>();
-    models.add(new SystemInfoWizardModel(this, 0));
-    models.add(new SetupTypeWizardModel(this, 1));
-    models.add(new SuperUserWizardModel(this, 2));
-    models.add(new SummaryWizardModel(this, 3));
-    models.add(new ApplySettingsWizardModel(this, 4));
+    models = new  LinkedHashMap<Integer, WizardModel>();
+    models.put(0, new SystemInfoWizardModel(this, 0));
+    models.put(3, new DatabaseJcrWizardModel(this, 3));
+    models.put(5, new DatabaseIdmWizardModel(this, 5));
+    models.put(6, new LdapConfigWizardModel(this, 6));
     
     // Views init
     views = new LinkedList<WizardView>();
     views.add(new SystemInfoWizardView(this, 0, SetupWizardMode.STANDARD));
     views.add(new SetupTypeWizardView(this, 1, SetupWizardMode.STANDARD));
     views.add(new SuperUserWizardView(this, 2, SetupWizardMode.ADVANCED));
-    views.add(new SummaryWizardView(this, 3, SetupWizardMode.ADVANCED));
-    views.add(new ApplySettingsWizardView(this, 4, SetupWizardMode.STANDARD));
+    views.add(new DatabaseJcrWizardView(this, 3, SetupWizardMode.STANDARD));
+    views.add(new IdmSetupWizardView(this, 4, SetupWizardMode.STANDARD));
+    views.add(new DatabaseIdmWizardView(this, 5, SetupWizardMode.STANDARD));
+    views.add(new LdapConfigWizardView(this, 6, SetupWizardMode.STANDARD));
+    views.add(new FileSetupWizardView(this, 7, SetupWizardMode.STANDARD));
+    views.add(new MailSettingWizardView(this, 8, SetupWizardMode.STANDARD));
+    views.add(new SummaryWizardView(this, 9, SetupWizardMode.STANDARD));
+    views.add(new ApplySettingsWizardView(this, 10, SetupWizardMode.STANDARD));
     
     nbModels = models.size();
+    nbViews = views.size();
     
     executeModels();
   }
@@ -105,8 +123,10 @@ public class SetupWizardController {
    * Load all datas needed by views
    */
   private void executeModels() {
-    for(WizardModel model : models) {
-      model.initDatas();
+    if(models != null) {
+      for(Map.Entry<Integer, WizardModel> entry : models.entrySet()) {
+        entry.getValue().initDatas();
+      }
     }
   }
   
@@ -120,8 +140,8 @@ public class SetupWizardController {
     }
   }
   
-  public WizardModel getModel(int index) {
-    return models.get(index);
+  public WizardModel getModel(int screenNumber) {
+    return models.get(screenNumber);
   }
   
   /**
@@ -134,8 +154,11 @@ public class SetupWizardController {
     // Display mainBlock
     RootPanel.get("mainBlock").setVisible(true);
     
-    // Display Screen 0
-    displayScreen(0);
+    // Display mainBlock
+    RootPanel.get("stepBlock").setVisible(true);
+    
+    // Display First Screen
+    displayScreen(8);
   }
   
   /**
@@ -146,7 +169,9 @@ public class SetupWizardController {
   public void displayScreen(int index) {
     
     // In case of setup mode is STANDARD, ADVANCED screens are not displayed, we try to display next/previous screen
-    if(setupWizardMode.equals(SetupWizardMode.STANDARD) && views.get(index).getMode().equals(SetupWizardMode.ADVANCED)) {
+    if(! isDebugActivated() && 
+       setupWizardMode.equals(SetupWizardMode.STANDARD) && 
+       views.get(index).getMode().equals(SetupWizardMode.ADVANCED)) {
       
       // Compute toStep
       int toStep = (currentScreenDisplayed < index) ? index + 1 : index - 1;
@@ -166,7 +191,11 @@ public class SetupWizardController {
         
         currentScreenDisplayed = index;
         
+        // Load step bar
+        
+        
         WizardView activeView = views.get(index);
+        activeView.executeOnDisplay();
         activeView.display();
       }
     }
@@ -194,13 +223,13 @@ public class SetupWizardController {
    *======================================================================*/
   
   /**
-   * Stores datas into server side
+   * Stores datas
    * @param datas
    */
   public void storeDatas(Map<SetupWizardData, String> datas, int toStep) {
 
     if(datas != null && datas.size() > 0) {
-      // Rajoute les données
+      // Add datas
       setupWizardDatas.putAll(datas);
     }
   }
@@ -210,9 +239,17 @@ public class SetupWizardController {
    * @return
    */
   public Map<String, String> getSystemInfoProperties(AsyncCallback<Map<String, String>> callback) {
-    
-    // Call service to store datas
     wizardService.getSystemProperties(callback);
+    
+    return null;
+  }
+  
+  /**
+   * Call to server to get all datasources installed on server
+   * @return
+   */
+  public Map<String, String> getDatasources(AsyncCallback<List<String>> callback) {
+    wizardService.getDatasources(callback);
     
     return null;
   }
@@ -227,6 +264,14 @@ public class SetupWizardController {
   
   public Map<SetupWizardData, String> getSetupWizardDatas() {
     return this.setupWizardDatas;
+  }
+  
+  public int getNbViews() {
+    return nbViews;
+  }
+  
+  public boolean isDebugActivated() {
+    return isDebugActivated.booleanValue();
   }
   
 }
