@@ -66,6 +66,15 @@
             <configuration>
               <outputDirectory>${project.build.directory}/jboss/server/default/deploy</outputDirectory>
               <artifactItems>
+
+				<artifactItem>
+				  <groupId>org.exoplatform.webos</groupId>
+				  <artifactId>exo.webos.packaging.ear</artifactId>
+				  <version>${org.exoplatform.webos.version}</version>
+				  <destFileName>exo-webos-${org.exoplatform.webos.version}.ear</destFileName>
+				  <type>ear</type>
+				</artifactItem>
+
 				<artifactItem>
 				  <groupId>org.exoplatform.portal</groupId>
 				  <artifactId>starter-gatein</artifactId>
