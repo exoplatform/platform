@@ -18,32 +18,47 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/portal/public/default/</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Login by demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIPresentationContainer']/div[2]/div[2]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIPresentationContainer']/div[2]/div[2]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=username</td>
+	<td>demo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>gtn</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Visit the Acme Social Intranet</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Login as Jack</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>remote_iframe_0</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Show all</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Show all</td>
+	<td>selectWindow</td>
+	<td>name=remote_iframe_0</td>
 	<td></td>
 </tr>
 <tr>
@@ -102,21 +117,10 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
-	<td>Not any updates posted yet.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Not any updates posted yet.</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

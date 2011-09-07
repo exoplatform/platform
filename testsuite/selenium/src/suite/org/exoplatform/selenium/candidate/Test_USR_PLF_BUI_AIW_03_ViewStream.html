@@ -147,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>link=Connections</td>
 	<td></td>
@@ -219,7 +224,12 @@
 <tr>
 	<td>type</td>
 	<td>//textarea[@id='composerInput']</td>
-	<td>Hello. I'm demo</td>
+	<td>Hello. I'm dem</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>//textarea[@id='composerInput']</td>
+	<td>o</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -294,7 +304,12 @@
 <tr>
 	<td>type</td>
 	<td>//textarea[@id='composerInput']</td>
-	<td>Hello. I'm john</td>
+	<td>Hello. I'm joh</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>//textarea[@id='composerInput']</td>
+	<td>n</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -432,13 +447,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
+	<td>click</td>
+	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/div/a</td>
+	<td>Test</td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-- Put status on space</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
@@ -449,7 +479,12 @@
 <tr>
 	<td>type</td>
 	<td>//textarea[@id='composerInput']</td>
-	<td>New space</td>
+	<td>New spac</td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>//textarea[@id='composerInput']</td>
+	<td>e</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -474,6 +509,16 @@
 <tr>
 	<td>click</td>
 	<td>link=Spaces</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>New space</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>New space</td>
 	<td></td>
 </tr>
 <tr>
@@ -513,11 +558,6 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=My Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
 	<td>link=Connections</td>
 	<td></td>
 </tr>
@@ -536,7 +576,6 @@
 	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

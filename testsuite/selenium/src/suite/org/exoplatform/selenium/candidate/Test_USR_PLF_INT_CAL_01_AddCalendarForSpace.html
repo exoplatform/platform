@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost:8080/" />
-<title>Test_USR_PLF_BUI_AIW_02_CheckUpdateMySpaceGadget</title>
+<title>Test_USR_PLF_INT_CAL_01_AddCalendarForSpace</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_USR_PLF_BUI_AIW_02_CheckUpdateMySpaceGadget</td></tr>
+<tr><td rowspan="1" colspan="3">Test_USR_PLF_INT_CAL_01_AddCalendarForSpace</td></tr>
 </thead><tbody>
 <tr>
 	<td>windowMaximize</td>
@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>name=username</td>
-	<td>demo</td>
+	<td>root</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -52,6 +52,31 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Applications Registry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>This action will automatically create categories and import all the gadgets and portlets on it.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Show all</td>
 	<td></td>
@@ -79,7 +104,7 @@
 <tr>
 	<td>type</td>
 	<td>id=name</td>
-	<td>USR PLF BUI AIW 02</td>
+	<td>USR PLF INT CAL 01</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -92,38 +117,88 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextPresent</td>
-	<td>USR PLF BUI AIW 02</td>
+	<td>pause</td>
+	<td>5000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
-	<td>USR PLF BUI AIW 02</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/div/a</td>
+	<td>USR PLF INT CAL 01</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Space Setting</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Home</td>
+	<td>//div[@id='UISpaceMenu']/div/div[9]/a/span</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>link=USR PLF BUI AIW 02</td>
+	<td>echo</td>
+	<td>-- Select Application tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Show all</td>
+	<td>//div[@id='UITabPane']/div/div/div[4]/div/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Show all</td>
+	<td>//div[@id='UITabPane']/div/div/div[4]/div/div/div/div</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIManageMySpaces']/div[2]/div[2]/div/div/a</td>
+	<td>click</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UISpaceApplication']/div[2]/div/div[2]/div/div[2]/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UISpaceApplication']/div[4]/div/div/div/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='calendar/local._calendar.CalendarPortlet']/div/div/div/div[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='AddApplication']/div/div/div/div/div/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UISpaceMenu']/div/div[4]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Add event</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Spaces</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,24 +213,10 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Home</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>USR PLF BUI AIW 02</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>USR PLF BUI AIW 02</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>
