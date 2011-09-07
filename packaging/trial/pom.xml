@@ -35,7 +35,6 @@
 		<artifactId>exo.platform.packaging.tomcat</artifactId>
 		<version>${project.version}</version>
         <type>zip</type>
-        <classifier>tomcat</classifier>
     </dependency>
   </dependencies>
 
@@ -61,7 +60,6 @@
                 <artifactItem>
 					<groupId>org.exoplatform.platform</groupId>
 					<artifactId>exo.platform.packaging.tomcat</artifactId>
-					<classifier>tomcat</classifier>
 					<type>zip</type>
 		    		<version>${project.version}</version>
 		            <outputDirectory>${project.build.directory}</outputDirectory>
