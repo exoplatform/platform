@@ -12,13 +12,13 @@
   <modules>
     <module>module</module>
     <module>product</module>
-    <module>pkg</module>
-    <module>pkg-demo</module>
-    <module>pkg-trial</module>
-    <module>pkg-jbosseap</module>
-    <module>pkg-jboss</module>
-    <module>delivery</module>
-    <module>pkg-jbossepp</module>
+    <module>pkg-commons</module>
+    <module>tomcat</module>
+    <module>trial</module>
+    <module>jboss-eap-ears</module>
+    <module>jboss-bundle</module>
+    <module>platform-for-eppsp</module>
+    <!--module>enterprise</module-->
     <module>source</module>
   </modules>
 </project>
