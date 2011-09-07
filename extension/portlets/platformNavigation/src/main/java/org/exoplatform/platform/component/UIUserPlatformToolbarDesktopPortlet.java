@@ -210,12 +210,13 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
         toolbarPortlet.getApplicationComponent(DataStorage.class).create(page);
 
         UserNode rootNode = userPortal.getNode(userNavigation, Scope.CHILDREN, toolbarPortlet.toolbarFilterConfig, null);
-        UserNode dashboardNode = rootNode.addChild(_nodeName);
-        dashboardNode.setLabel(_nodeName);
-        dashboardNode.setPageRef(page.getPageId());
-
-        userPortal.saveNode(rootNode, null);
-
+        UserNode dashboardNode = rootNode.getChild(_nodeName);
+        if(dashboardNode == null) {
+          dashboardNode = rootNode.addChild(_nodeName);
+          dashboardNode.setLabel(_nodeName);
+          dashboardNode.setPageRef(page.getPageId());
+          userPortal.saveNode(rootNode, null);
+        }
         prContext.getResponse().sendRedirect(NavigationURLUtils.getURL(dashboardNode));
       } catch (Exception ex) {
         logger.error("Could not create default dashboard page", ex);
