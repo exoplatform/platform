@@ -89,7 +89,8 @@
     <javax.validation.version>1.0.0.GA</javax.validation.version>
     <hibernate-validator.version>4.0.0.GA</hibernate-validator.version>
     <!-- End wiki properties -->
-
+    <guava.version>r07</guava.version>
+    <httpcomponents.httpclient.version>4.0</httpcomponents.httpclient.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-pool.version>1.5.5</commons-pool.version>
     <commons-dbcp.version>1.2.2</commons-dbcp.version>

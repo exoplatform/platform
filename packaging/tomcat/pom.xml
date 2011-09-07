@@ -429,13 +429,6 @@
 
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.comet.service</artifactId>
-      <version>${org.exoplatform.commons.version}</version>
-      <type>jar</type>
-    </dependency>
-
-    <dependency>
-      <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <type>jar</type>
@@ -1654,18 +1647,6 @@
       <type>jar</type>
     </dependency>
     <dependency>
-      <groupId>org.apache.jackrabbit</groupId>
-      <artifactId>jackrabbit-webdav</artifactId>
-      <version>${org.apache.jackrabbit.version}</version>
-      <type>jar</type>
-    </dependency><!-- 1.6.4-->
-    <dependency>
-      <groupId>org.apache.jackrabbit</groupId>
-      <artifactId>jackrabbit-jcr-commons</artifactId>
-      <version>${org.apache.jackrabbit.version}</version>
-      <type>jar</type>
-    </dependency><!-- 1.6.4-->
-    <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui.ext</artifactId>
       <version>${org.exoplatform.commons.version}</version>
@@ -1726,7 +1707,19 @@
       <artifactId>gadget-pack</artifactId>
       <version>${project.version}</version>
       <type>war</type>
-    </dependency>	          
+    </dependency>	 
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+      <type>jar</type>
+    </dependency><!-- r07-->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${httpcomponents.httpclient.version}</version>
+      <type>jar</type>
+    </dependency><!-- 4.0-->
   </dependencies>
 
   <build>
