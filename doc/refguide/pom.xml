@@ -47,7 +47,7 @@
             <artifactId>maven-dependency-plugin</artifactId>
             <executions>
               <execution>
-                <id>unpack</id>
+                <id>a-unpack</id>
                 <phase>generate-sources</phase>
                 <goals>
                   <goal>unpack</goal>
@@ -127,6 +127,15 @@
                       <outputDirectory>target/</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
+                    <!-- wikbook style -->
+                    <artifactItem>
+                      <groupId>org.wikbook</groupId>
+                      <artifactId>wikbook.docbkxstyle</artifactId>
+                      <version>${version.wikbook.plugin}</version>
+                      <outputDirectory>target/plf/resources/</outputDirectory>
+                      <includes>**</includes>
+                      <excludes>META-INF/**</excludes>
+                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
@@ -141,7 +150,7 @@
             <version>2.4.3</version>
             <executions>
               <execution>
-                <id>copy-resources</id>
+                <id>b-copy-resources</id>
                 <!-- here the phase you need -->
                 <phase>generate-sources</phase>
                 <goals>
@@ -157,7 +166,7 @@
                 </configuration>
               </execution>
               <execution>
-                <id>copy-images</id>
+                <id>c-copy-images</id>
                 <!-- here the phase you need -->
                 <phase>generate-sources</phase>
                 <goals>
@@ -200,14 +209,14 @@
             <version>2.1.1</version>
             <executions>
               <execution>
-                <id>jdocbook-resources</id>
+                <id>d-jdocbook-resources</id>
                 <phase>process-resources</phase>
                 <goals>
                   <goal>resources</goal>
                 </goals>
               </execution>
               <execution>
-                <id>jdocbook-generate</id>
+                <id>g-jdocbook-generate</id>
                 <phase>compile</phase>
                 <goals>
                   <goal>generate</goal>
@@ -236,22 +245,12 @@
                   <stylesheetResource>file:${basedir}/target/plf/resources/xsl/xhtml.xsl</stylesheetResource>
                   <finalName>index.html</finalName>
                 </format>
+                <format>
+                 <formatName>pdf</formatName>
+                 <stylesheetResource>file:${basedir}/target/plf/resources/xsl/pdf.xsl</stylesheetResource>
+                 <finalName>index.pdf</finalName>
+               </format>
               </formats>
-              <!--format>
-                         <formatName>html_single</formatName>
-                         <stylesheetResource>classpath:/xslt/org/exojcr/xhtml-single.xsl</stylesheetResource>
-                         <finalName>index.html</finalName>
-                      </format-->
-              <!--format>
-                         <formatName>pdf</formatName>
-                         <stylesheetResource>classpath://xslt/org/exojcr/pdf.xsl</stylesheetResource>
-                         <finalName>index.pdf</finalName>
-                      </format-->
-              <!-- format>
-                         <formatName>eclipse</formatName>
-                         <stylesheetResource>classpath:/xslt/org/exojcr/eclipse.xsl</stylesheetResource>
-                         <finalName>index.html</finalName>
-                      </format -->
               <options>
                 <xincludeSupported>true</xincludeSupported>
                 <xmlTransformerType>saxon</xmlTransformerType>

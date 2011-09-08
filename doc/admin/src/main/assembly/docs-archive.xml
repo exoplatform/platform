@@ -13,7 +13,10 @@
     </fileSet>
     <fileSet>
       <directory>target/wikbook/output/pdf</directory>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>/pdf</outputDirectory>
+      <excludes>
+        <exclude>**/index.fo</exclude>
+      </excludes>
     </fileSet>
   </fileSets>
 </assembly>

@@ -11,5 +11,9 @@
       <directory>target/docbook/publish/en-US/html</directory>
       <outputDirectory>/html</outputDirectory>
     </fileSet>
+    <fileSet>
+      <directory>target/docbook/publish/en-US/pdf</directory>
+      <outputDirectory>/pdf</outputDirectory>
+    </fileSet>
   </fileSets>
 </assembly>

@@ -7,55 +7,61 @@
     <version>3.5.0-Beta1-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.doc.bundle</artifactId>
-  <packaging>war</packaging>
-  <name>eXo Platform - Docs bundle as WAR</name>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Docs package</name>
   <profiles>
     <profile>
       <id>distrib</id>
       <dependencies>
+        <!-- Admin guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.admin</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- Dev guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.developer</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- Ref guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.refguide</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- GateIn user guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user.gatein</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
+        <!-- Social user guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user.social</artifactId>
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
+        <!-- Collaboration user guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user.collaboration</artifactId>
           <version>${project.version}</version>
-          <type>pdf</type>
+          <type>zip</type>
         </dependency>
+        <!-- Knowledge user guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user.knowledge</artifactId>
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
-
         <!--dependency>
           <groupId>org.gatein.doc</groupId>
           <artifactId>gatein-reference-guide-en</artifactId>
@@ -70,13 +76,14 @@
         </dependency-->
       </dependencies>
       <build>
+        <finalName>eXo-Platform-docs-${project.version}</finalName>
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <executions>
               <execution>
-                <id>extract-dependencies</id>
+                <id>01-extract-dependencies</id>
                 <phase>prepare-package</phase>
                 <goals>
                   <goal>run</goal>
@@ -84,16 +91,16 @@
                 <configuration>
                   <target>
                     <dependencyfilesets prefix="prjdeps." />
-                    <mkdir dir="${project.build.directory}/work/admin" />
-                    <unzip dest="${project.build.directory}/work/admin">
+                    <mkdir dir="${project.build.directory}/work/admin-guide" />
+                    <unzip dest="${project.build.directory}/work/admin-guide">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.admin:zip" />
                     </unzip>
-                    <mkdir dir="${project.build.directory}/work/developer" />
-                    <unzip dest="${project.build.directory}/work/developer">
+                    <mkdir dir="${project.build.directory}/work/developer-guide" />
+                    <unzip dest="${project.build.directory}/work/developer-guide">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.developer:zip" />
                     </unzip>
-                    <mkdir dir="${project.build.directory}/work/refguide" />
-                    <unzip dest="${project.build.directory}/work/refguide">
+                    <mkdir dir="${project.build.directory}/work/reference" />
+                    <unzip dest="${project.build.directory}/work/reference">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.refguide:zip" />
                     </unzip>
                     <!--mkdir dir="${project.build.directory}/work/refguide/html/gatein" />
@@ -112,8 +119,8 @@
                       </patternset>
                       <mapper type="regexp" from="^html/(.*)$" to="\1" />
                     </unzip-->
-                    <mkdir dir="${project.build.directory}/work/user" />
-                    <unzip dest="${project.build.directory}/work/user">
+                    <mkdir dir="${project.build.directory}/work/user-guide" />
+                    <unzip dest="${project.build.directory}/work/user-guide">
                       <fileset refid="prjdeps.${project.groupId}:exo.platform.doc.user.gatein:zip" />
                     </unzip>
                   </target>
@@ -126,7 +133,7 @@
 		    <artifactId>maven-dependency-plugin</artifactId>
 		    <executions>
 		      <execution>
-		        <id>copy</id>
+		        <id>02-copy</id>
 		        <phase>prepare-package</phase>
 		        <goals>
 		          <goal>copy</goal>
@@ -139,10 +146,10 @@
 		              <artifactId>exo-ecms-docs-userguide</artifactId>
 		              <version>${org.exoplatform.ecms.version}</version>
 		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Content-User-Guide.pdf</destFileName>
                       <!-- overwrites the original one -->
-		              <overWrite>true</overWrite>
+		              <!--overWrite>true</overWrite-->
 		            </artifactItem>
           <!-- PLF-1721: bundle the Social, Collaboration and Knowledge user guides in wikbook -->
                     <artifactItem>
@@ -150,30 +157,30 @@
 		              <artifactId>exo.platform.doc.user.social</artifactId>
 		              <version>${project.version}</version>
 		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Social-User-Guide.pdf</destFileName>
                       <!-- overwrites the original one -->
-		              <overWrite>true</overWrite>
+		              <!--overWrite>true</overWrite-->
 		            </artifactItem>
                     <artifactItem>
 		              <groupId>org.exoplatform.platform</groupId>
 		              <artifactId>exo.platform.doc.user.collaboration</artifactId>
 		              <version>${project.version}</version>
 		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Collaboration-User-Guide.pdf</destFileName>
                       <!-- overwrites the original one -->
-		              <overWrite>true</overWrite>
+		              <!--overWrite>true</overWrite-->
 		            </artifactItem>
                     <artifactItem>
 		              <groupId>org.exoplatform.platform</groupId>
 		              <artifactId>exo.platform.doc.user.knowledge</artifactId>
 		              <version>${project.version}</version>
 		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user</outputDirectory>
+		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Knowledge-User-Guide.pdf</destFileName>
                       <!-- overwrites the original one -->
-		              <overWrite>true</overWrite>
+		              <!--overWrite>true</overWrite-->
 		            </artifactItem>
 		          </artifactItems>
 		        </configuration>
@@ -181,15 +188,22 @@
 		    </executions>
 		  </plugin>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-              <webResources>
-                <resource>
-                  <directory>${project.build.directory}/work</directory>
-                </resource>
-              </webResources>
-            </configuration>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>03-package</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
+                  </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>

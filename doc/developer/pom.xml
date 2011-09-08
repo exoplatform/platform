@@ -171,6 +171,52 @@
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
+          <!-- Plugin that generates documentation in PDF from docbook -->
+          <plugin>
+            <groupId>com.agilejava.docbkx</groupId>
+            <artifactId>docbkx-maven-plugin</artifactId>
+            <configuration>
+              <!-- Source -->
+              <sourceDirectory>${wikbook.target}/plf-doc</sourceDirectory>
+              <includes>index.xml</includes>
+              <!-- Highlight source code -->
+              <highlightSource>1</highlightSource>
+              <!-- We need to support xinclude -->
+              <xincludeSupported>true</xincludeSupported>
+              <!--
+               |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
+               |  Callouts on imported text
+               -->
+              <useExtensions>1</useExtensions>
+              <calloutsExtension>1</calloutsExtension>
+            </configuration>
+            <executions>
+              <execution>
+                <id>generate-pdf</id>
+                <goals>
+                  <goal>generate-pdf</goal>
+                </goals>
+                <phase>compile</phase>
+                <configuration>
+                  <!-- Output -->
+                  <targetDirectory>${project.build.directory}</targetDirectory>
+                  <!-- Stylesheet -->
+                  <foCustomization>${wikbook.target}/plf-doc/resources/xsl/fopdf.xsl</foCustomization>
+                  <!-- Image configuration -->
+                  <imgSrcPath>${wikbook.source}/plf-doc/</imgSrcPath>
+                  <admonGraphicsPath>${wikbook.target}/plf-doc/resources/images/admons/</admonGraphicsPath>
+                </configuration>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>org.docbook</groupId>
+                <artifactId>docbook-xml</artifactId>
+                <version>4.4</version>
+                <scope>runtime</scope>
+              </dependency>
+            </dependencies>
+          </plugin>
           <!-- Plugin that generates documentation in HTML from docbook -->
           <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
