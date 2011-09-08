@@ -15,6 +15,7 @@
     <module>pkg-commons</module>
     <module>tomcat</module>
     <module>trial</module>
+    <module>community</module>
     <module>jboss-eap-ears</module>
     <module>jboss-bundle</module>
     <module>platform-for-eppsp</module>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.packaging</artifactId>
+    <version>3.5.0-Beta1-SNAPSHOT</version>
+  </parent>
+  <artifactId>exo.platform.packaging.community</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - Packaging Community</name>
+
+  <profiles>
+  <profile>
+  <id>distrib</id>
+  <dependencies>
+    <dependency>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.packaging.tomcat</artifactId>
+		<version>${project.version}</version>
+        <type>zip</type>
+        <classifier>tomcat</classifier>
+    </dependency>
+  </dependencies>
+
+  <properties>
+    <tomcat.webapps.dir>${project.build.directory}/community/tomcat-bundle/webapps</tomcat.webapps.dir>
+    <tomcat.lib.dir>${project.build.directory}/community/tomcat-bundle/lib</tomcat.lib.dir>
+    <tomcat.conf.dir>${project.build.directory}/community/tomcat-bundle/conf/Catalina/localhost</tomcat.conf.dir>
+  </properties>
+
+  <build>
+    <finalName>eXo-Platform-community-${project.version}</finalName>
+    <plugins>
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+<!--
+ | Step 01: download and unpack the base Tomcat package
+-->
+            <id>01-copy-as-tomcat</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <artifactItems>
+                <artifactItem>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.packaging.tomcat</artifactId>
+					<classifier>tomcat</classifier>
+					<type>zip</type>
+		    		<version>${project.version}</version>
+		            <outputDirectory>${project.build.directory}/community</outputDirectory>
+                    <excludes>conf/</excludes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+<!--
+ | Step 02: Delete IDE and acme website bits
+-->
+            <id>02-prepare-package</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <!-- Delete binaries -->
+				<delete>
+                  <!-- IDE -->
+				  <fileset dir="${tomcat.webapps.dir}" includes="IDE.war"/>
+				  <fileset dir="${tomcat.webapps.dir}" includes="SmartGWT.war"/>
+				  <fileset dir="${tomcat.lib.dir}" includes="exo-ide-*.jar"/>
+                  <!-- acme website -->
+				  <fileset dir="${tomcat.webapps.dir}" includes="acme-website*.war"/>
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.acme-website.*.jar"/>
+				  <fileset dir="${tomcat.conf.dir}" includes="acme-website.xml"/>
+                  <!-- default website -->
+				  <fileset dir="${tomcat.webapps.dir}" includes="default-website.war"/>
+				  <fileset dir="${tomcat.conf.dir}" includes="default-website.xml"/>
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar"/>
+                  <!-- gadgets pack -->
+				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war"/>
+				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar"/>
+				</delete>
+                <!-- Delete configuration in platform-extension.war -->
+                <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/configuration.xml">
+				  <replacetoken><![CDATA[<import>war:/conf/platform/ide-jcr-configuration.xml</import>
+  <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
+  <import>war:/conf/platform/ide-configuration.xml</import>]]></replacetoken>
+				  <replacevalue><![CDATA[<!--import>war:/conf/platform/ide-jcr-configuration.xml</import>
+  <import>war:/conf/platform/ide-jcr-component-plugins-configuration.xml</import>
+  <import>war:/conf/platform/ide-configuration.xml</import-->]]></replacevalue>
+				</replace>
+                <zip destfile="${tomcat.webapps.dir}/platform-extension.war" basedir="${tomcat.webapps.dir}/plf" />
+                <delete dir="${tomcat.webapps.dir}/plf" />
+                <!-- Delete configuration in platform config jar -->
+                <unzip src="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <replace file="${tomcat.lib.dir}/plf/conf/platform/configuration.xml">
+				  <replacetoken><![CDATA[<value profiles="ide,all,default">
+                <string>SmartGWT</string>
+              </value>
+              <value profiles="ide,all,default">
+                <string>IDE</string>
+              </value>]]></replacetoken>
+				  <replacevalue><![CDATA[<!--value profiles="ide,all,default">
+                <string>SmartGWT</string>
+              </value>
+              <value profiles="ide,all,default">
+                <string>IDE</string>
+              </value-->]]></replacevalue>
+				</replace>
+                <zip destfile="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <delete dir="${tomcat.lib.dir}/plf" />
+                <!-- Route requests to /portal/intranet/ -->
+                <replace file="${tomcat.webapps.dir}/ROOT/index.jsp">
+				  <replacetoken><![CDATA[response.setHeader("Location", "/portal");]]></replacetoken>
+				  <replacevalue><![CDATA[response.setHeader("Location", "/portal/intranet");]]></replacevalue>
+				</replace>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+<!--
+ | Step 03: Package a new zip
+-->
+      <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>03-assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/tomcat-community-archive.xml</descriptor>
+                  </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+		</plugins>
+	  </build>
+    </profile>
+  </profiles>
+</project>
