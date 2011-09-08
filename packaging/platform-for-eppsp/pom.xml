@@ -41,7 +41,7 @@
 											<groupId>org.exoplatform.platform</groupId>
 											<artifactId>exo.platform.doc.bundle</artifactId>
 											<version>${project.version}</version>
-											<type>war</type>
+											<type>zip</type>
 											<outputDirectory>${project.build.directory}/docs</outputDirectory>
 										</artifactItem>
 										<artifactItem>
