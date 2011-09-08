@@ -569,7 +569,7 @@ For each space, you can manage page templates and change the syntax used.
 
 !images/wiki_space_settings.png|align="center"!
 
-The *Space Settings* form will help you configure the syntax and template.
+The *Space Settings* form will help you configure the syntax, template of pages and manage permissions for pages and spaces.
 
 * The *Syntax* tab allows you to set up syntaxes used when creating and editing a page.
 
@@ -646,18 +646,16 @@ h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
 *2.* Click *OK* in the pop-up confirmation message.
 
-h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
+h3. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
 Wiki gives you the choice to make a space or an individual page to be open or restricted to specific users, groups or memberships.
 There are two levels of permissions in Wiki: Space permissions and Page permissions.
 
-h3. Space Permissions
+h4. Space Permissions
 Each space may has its own permissions. Space permissions determine what actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
 
-To change the space permission, open a space, click *Browse* and select *Space Permissions* from the drop-down list:
+To change the space permission, open a space, click *Browse* and select *Space Settings*:
 
-!images/wiki_space_permissions.png|align="center"!
-
-The *Space Permissions* form appears:
+The *Permissions* page appears:
 
 !images/wiki_space_permissions_form.png|align="center"!
 
@@ -670,7 +668,7 @@ There are some permissions to a space as follows:
 
 In the *Space Permissions* form, you can add or remove the space permissions of the users, groups and membership.
 
-h4. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
+h5. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
 In the Space Permission form, you can add permission for individual users, groups of users or memberships.
 
 *1.* Click !images/select_permission_icon.png! to assign permissions to a user, a group or a membership respectively.
@@ -689,12 +687,12 @@ The form to select the user, the group and the membership appears.
 View, Edit, Admin Pages permissions are applied by default to any pages of the space unless specific page permissions are set. The super user has all permissions implicitly.
 {note}
 
-h4. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
+h5. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
 
 To delete the permissions of a user, group or a membership in a space, just click !images/Remove_icon.png! corresponding to a user/a group or a membership in the *Space Permissions* form.
 
 
-h3. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
+h4. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
 The Page Permissions allows you to set the edit and edit permissions for a specific page.
 
 *To access the permissions for a specific page of a space*:

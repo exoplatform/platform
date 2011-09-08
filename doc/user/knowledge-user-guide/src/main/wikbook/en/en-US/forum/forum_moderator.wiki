@@ -90,7 +90,7 @@ Or if you are in a topic, simply click !images/More_actions_btn.png! on the Acti
 
 *The second way*:
 
-*1.* Click !images/Moderation_btn.png! on the Action bar and click Approve from the drop-down menu. The *Post to approve* form opens.
+*1.* Click !images/Moderation_btn.png! on the Action bar and click Approve from the drop-down menu. The *Unapproved Topics List* form opens.
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You can preview the post when hovering your cursor over the post title.
 
@@ -270,7 +270,7 @@ See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pe
 
 *The second way*:
 
-*1.* Click !images/Moderation_btn.png! on the Action bar and click *Approve* in the drop-down menu. The *Post to approve* form opens.
+*1.* Click !images/Moderation_btn.png! on the Action bar and click *Approve* in the drop-down menu. The *Unapproved Topics List* form opens.
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You will see the preview of the post when mouse over the post title.
 

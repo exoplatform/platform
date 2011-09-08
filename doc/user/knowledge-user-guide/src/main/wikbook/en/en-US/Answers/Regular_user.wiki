@@ -422,9 +422,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Click your desired question.
 
-*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details as below.
-
-!images/Print_details_question.png|align="center"!
+*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details.
 
 *3.* Select the *Print* button to accept printing or *Close* to quit the *Print* form.
 

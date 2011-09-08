@@ -289,7 +289,7 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 
 *1.* Open the *Move question* form by following one of two ways:
 
-*The first way*: Right-click your desired question and then select *Move* from the drop-down menu.
+*The first way*: Right-click your desired question and then select *Move to* from the drop-down menu.
 
 *The second way*: Select your desired question and click !images/Move_question_icon.png!.
 

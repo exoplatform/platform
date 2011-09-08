@@ -16,8 +16,6 @@ Only when logging as an administrator, you can see the Forum Administration bar.
 
 The Moderator will have the User bar and Action bar with a sub-set of certain capabilities.
 
-!images/mod_action_bar.png|align="center"!
-
 To have an overall look of actions which users of each role can do in the Forum application, see the following table: 
 
 || Features || Description ||  Administrator  ||  Moderator  ||  Owner  ||   Regular user   ||  Guest  ||

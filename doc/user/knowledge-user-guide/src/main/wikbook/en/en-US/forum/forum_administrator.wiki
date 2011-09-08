@@ -470,7 +470,7 @@ h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.I
 
 !images/admin_forum_import_cat.png|align="center"!
 
-*2.* Browse the file and click !images/Upload_icon.png! to upload.
+*2.* Browse the file and upload the selected file.
 
 *3.* Click *Save*. After being imported successfully, all categories and forums data will be displayed properly in Forum.
 
