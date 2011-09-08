@@ -461,8 +461,8 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .NavigationComposer textarea {
-	max-width: 96%;
-	width: 96%;
+	max-width: 93%;
+	width: 93%;
 	font-size: 11px;
 	background: #f8f8f8;
 	border: 1px solid #dddddd;
@@ -470,4 +470,9 @@
 	-webkit-border-radius: 2px;
 	padding: 5px;
 	margin: 0px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIPopupWindow .UIHorizontalTabs {
+	height: auto;
+	float: none;
 }
