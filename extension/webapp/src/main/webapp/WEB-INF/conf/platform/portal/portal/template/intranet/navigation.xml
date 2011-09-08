@@ -76,25 +76,37 @@
     <uri>connections</uri>
     <name>connections</name>
     <label>Connections</label>
-    <visibility>SYSTEM</visibility>
+    <visibility>SYSTEM</visibility>    
+    
     <node>
-      <uri>connections/myConnections</uri>
-      <name>myConnections</name>
-      <label>My Connections</label>
-      <page-reference>portal::@owner@::myConnections</page-reference>
+      <uri>connections/all-people</uri>
+      <name>all-people</name>
+      <label>All People</label>
+      <page-reference>portal::@owner@::all-people</page-reference>
     </node>
+    
     <node>
-      <uri>connections/myInvitations</uri>
-      <name>myInvitations</name>
-      <label>My invitations</label>
-      <page-reference>portal::@owner@::myInvitations</page-reference>
+      <uri>connections/network</uri>
+      <name>network</name>
+      <label>Network</label>
+      <page-reference>portal::@owner@::network</page-reference>
     </node>
+    
     <node>
-      <uri>connections/myRequests</uri>
-      <name>myRequests</name>
-      <label>My requests</label>
-      <page-reference>portal::@owner@::myRequests</page-reference>
+      <uri>connections/receivedInvitations</uri>
+      <name>receivedInvitations</name>
+      <label>Received Invitations</label>
+      <page-reference>portal::@owner@::receivedInvitations</page-reference>
     </node>
+    
+    <node>
+      <uri>connections/pendingRequests</uri>
+      <name>pendingRequests</name>
+      <label>Pending Requests</label>
+      <page-reference>portal::@owner@::pendingRequests</page-reference>
+    </node>
+    
+    
     <node>
       <uri>connections/yours</uri>
       <name>yours</name>

@@ -78,22 +78,31 @@
     <label>#{portal.intranet.connections}</label>
     <visibility>SYSTEM</visibility>
     <node>
-      <uri>connections/myConnections</uri>
-      <name>myConnections</name>
+      <uri>connections/all-people</uri>
+      <name>all-people</name>
       <label>#{portal.intranet.yours}</label>
-      <page-reference>portal::intranet::myConnections</page-reference>
+      <page-reference>portal::intranet::all-people</page-reference>
     </node>
+    
     <node>
-      <uri>connections/myInvitations</uri>
-      <name>myInvitations</name>
+      <uri>connections/network</uri>
+      <name>network</name>
+      <label>#{portal.intranet.yours}</label>
+      <page-reference>portal::intranet::network</page-reference>
+    </node>
+    
+    <node>
+      <uri>connections/receivedInvitations</uri>
+      <name>receivedInvitations</name>
       <label>#{portal.intranet.invitations}</label>
-      <page-reference>portal::intranet::myInvitations</page-reference>
+      <page-reference>portal::intranet::receivedInvitations</page-reference>
     </node>
+    
     <node>
-      <uri>connections/myRequests</uri>
-      <name>myRequests</name>
+      <uri>connections/pendingRequests</uri>
+      <name>pendingRequests</name>
       <label>#{portal.intranet.requests}</label>
-      <page-reference>portal::intranet::myRequests</page-reference>
+      <page-reference>portal::intranet::pendingRequests</page-reference>
     </node>
     <node>
       <uri>connections/yours</uri>
