@@ -16,7 +16,8 @@
  */
 package org.exoplatform.platform.component.organization;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.scheduler.BaseJob;
@@ -30,12 +31,9 @@ import org.exoplatform.services.scheduler.JobContext;
  */
 public class OrganizationIntegrationJob extends BaseJob {
   private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
-  private PortalContainer container = null;
   private OrganizationIntegrationService organizationIntegrationService;
 
-  public OrganizationIntegrationJob(PortalContainer portalContainer) {
-    this.container = portalContainer;
-  }
+  public OrganizationIntegrationJob() {}
 
   /**
    * {@inheritDoc}
@@ -48,8 +46,14 @@ public class OrganizationIntegrationJob extends BaseJob {
 
   public OrganizationIntegrationService getOrganizationIntegrationService() {
     if (this.organizationIntegrationService == null) {
-      this.organizationIntegrationService = (OrganizationIntegrationService) container
+      ExoContainer exoContainer = ExoContainerContext.getCurrentContainer();
+      this.organizationIntegrationService = (OrganizationIntegrationService) exoContainer
           .getComponentInstanceOfType(OrganizationIntegrationService.class);
+      if (this.organizationIntegrationService == null) {
+        throw new IllegalStateException(
+            "Could not retrieve an instance of service 'OrganizationIntegrationService' from the selected container: "
+                + exoContainer);
+      }
     }
     return this.organizationIntegrationService;
   }
