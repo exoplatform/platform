@@ -53,6 +53,7 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.OrganizationServiceInitializer;
+import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.organization.UserProfile;
@@ -468,7 +469,7 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           List<String> activatedUsers = Util.getActivatedUsers(session);
 
-          PageList<User> users = organizationService.getUserHandler().getUserPageList(USERS_PAGE_SIZE);
+          PageList<User> users = organizationService.getUserHandler().findUsers(new Query());
           int availablePages = users.getAvailablePage();
 
           for (int i = 1; i <= availablePages; i++) {
@@ -516,7 +517,7 @@ public class OrganizationIntegrationService implements Startable {
           if (LOG.isDebugEnabled()) {
             LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
           }
-          PageList<User> users = organizationService.getUserHandler().getUserPageList(USERS_PAGE_SIZE);
+          PageList<User> users = organizationService.getUserHandler().findUsers(new Query());
           int availablePages = users.getAvailablePage();
 
           for (int i = 1; i <= availablePages; i++) {
