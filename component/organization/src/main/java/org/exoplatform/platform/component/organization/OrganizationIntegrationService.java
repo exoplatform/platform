@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -108,10 +109,10 @@ public class OrganizationIntegrationService implements Startable {
     this.organizationService = organizationService;
     this.repositoryService = repositoryService;
     this.container = container;
-    userDAOListeners_ = new HashMap<String, UserEventListener>();
-    groupDAOListeners_ = new HashMap<String, GroupEventListener>();
-    membershipDAOListeners_ = new HashMap<String, MembershipEventListener>();
-    userProfileListeners_ = new HashMap<String, UserProfileEventListener>();
+    userDAOListeners_ = new LinkedHashMap<String, UserEventListener>();
+    groupDAOListeners_ = new LinkedHashMap<String, GroupEventListener>();
+    membershipDAOListeners_ = new LinkedHashMap<String, MembershipEventListener>();
+    userProfileListeners_ = new LinkedHashMap<String, UserProfileEventListener>();
     boolean hasExternalComponentPlugins = false;
     int nbExternalComponentPlugins = 0;
     try {
