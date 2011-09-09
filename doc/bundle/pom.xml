@@ -53,7 +53,7 @@
           <groupId>${project.groupId}</groupId>
           <artifactId>exo.platform.doc.user.collaboration</artifactId>
           <version>${project.version}</version>
-          <type>zip</type>
+          <type>pdf</type>
         </dependency>
         <!-- Knowledge user guide -->
         <dependency>
