@@ -90,6 +90,7 @@
 				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar"/>
                   <!-- gadgets pack -->
 				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war"/>
+				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml"/>
 				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar"/>
 				</delete>
                 <!-- Delete configuration in platform-extension.war -->
@@ -122,6 +123,19 @@
 				</replace>
                 <zip destfile="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />
+                <!-- Add default portal configuration in acme-intranet.war -->
+                <unzip src="${tomcat.webapps.dir}/acme-intranet.war" dest="${tomcat.webapps.dir}/acme-intranet" />
+                <replace file="${tomcat.webapps.dir}/acme-intranet/WEB-INF/conf/office-extension/portal/portal-configuration.xml">
+				  <replacetoken><![CDATA[<init-params>]]></replacetoken>
+				  <replacevalue><![CDATA[<init-params>
+                <value-param>
+					<name>default.portal</name>
+					<description>The default portal for checking db is empty or not</description>
+					<value>intranet</value>
+				</value-param>]]></replacevalue>
+				</replace>
+                <zip destfile="${tomcat.webapps.dir}/acme-intranet.war" basedir="${tomcat.webapps.dir}/acme-intranet" />
+                <delete dir="${tomcat.webapps.dir}/acme-intranet" />
                 <!-- Route requests to /portal/intranet/ -->
                 <replace file="${tomcat.webapps.dir}/ROOT/index.jsp">
 				  <replacetoken><![CDATA[response.setHeader("Location", "/portal");]]></replacetoken>
