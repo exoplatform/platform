@@ -71,7 +71,7 @@
   </gadget>
 
   <gadget name="FriendSuggestion">
-    <path>/gadgets/Engagement Gadgets/FriendSuggestion/FriendSuggestion.xml</path>
+    <path>/gadgets/Engagement Gadgets/Suggestions/suggestion.xml</path>
   </gadget>  
 
 </gadgets>

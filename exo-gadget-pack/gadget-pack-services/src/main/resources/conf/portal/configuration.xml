@@ -89,15 +89,9 @@
             </properties-param>
         
             <properties-param>
-              <name>FriendSuggestion.groovy</name>
+              <name>Suggestion.groovy</name>
               <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/FriendSuggestion/FriendSuggestion.groovy" />
-            </properties-param>
-        
-            <properties-param>
-              <name>AddFriend.groovy</name>
-              <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/FriendSuggestion/AddFriend.groovy" />
+              <property name="path" value="jar:/groovy/FriendSuggestion/Suggestion.groovy" />
             </properties-param>
         
             <properties-param>
