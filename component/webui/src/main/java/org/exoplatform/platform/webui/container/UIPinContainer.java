@@ -2,17 +2,31 @@ package org.exoplatform.platform.webui.container;
 
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
     template = "classpath:groovy/platform/webui/containers/UIPinContainer.gtmpl",
-    events = { @EventConfig(listeners = UIPinContainer.PinOrUnpinActionListener.class) }
+    events = { @EventConfig(listeners = UIPinContainer.PinOrUnpinActionListener.class) },
+    initParams = {@ParamConfig(name = "Pinned", value = "true")}
 )
 public class UIPinContainer extends UIContainer {
-  public boolean pinned = false;
+  public boolean pinned = true;
+
+  public UIPinContainer(InitParams initParams) {
+    super();
+    if(initParams != null) {
+      Param pinnedDefaultValue = initParams.getParam("Pinned");
+      if(pinnedDefaultValue != null) {
+        this.pinned = Boolean.parseBoolean(pinnedDefaultValue.getValue());
+      }
+    }
+  }
 
   public boolean isPinned() {
     return this.pinned;
@@ -20,10 +34,6 @@ public class UIPinContainer extends UIContainer {
 
   public void setPinned(boolean pinned) {
     this.pinned = pinned;
-  }
-
-  public UIPinContainer() {
-    super();
   }
 
   static public class PinOrUnpinActionListener extends EventListener<UIPinContainer> {
