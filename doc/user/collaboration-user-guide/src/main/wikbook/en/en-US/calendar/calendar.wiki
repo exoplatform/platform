@@ -737,7 +737,7 @@ h2. Edit task details {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_task_det
 
 The *Add/Edit tasks* form will be displayed:
 
-!images/add_edit_tasks_details.png|align="center"!
+!images/add_edit_tasks.png|align="center"!
 
 *2.* Modify the information of the selected task, then click *Save* to finish.
 

@@ -221,7 +221,7 @@ This feature allows you to export one or more contacts into a file to be used in
 
 *To export contacts:*
 
-*1.* Right-click one contacts or address book, then click *Export* from the drop-down menu.
+*1.* Right-click one contact or address book, then click *Export* from the drop-down menu.
 
 The *Export Contacts* form will appear:
 
