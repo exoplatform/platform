@@ -21,11 +21,12 @@
         <style type="text/css">
           /** Cache Graph **/
           .cache_graph_container {
+            background: #F9F9F9;
             min-width: 200px;
             width: 95%;
-            border: 1px solid lightGray;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
+            border: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
             padding: 0;
           }
           .used-color, .free-color {
@@ -162,8 +163,8 @@
                   itemsCachesConsumption.push('<div id="cache_consumption_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
                   itemsCachesConsumption.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
                   itemsCachesConsumption.push('<div class="cache_graph_container">');
-                  itemsCachesConsumption.push('<img src="image/spacer.gif" class="used-color" alt="" width="'+capacityUsedPercentage_rounded+'%" title="'+capacityUsedPercentage_rounded+'% Used"/>');
-                  itemsCachesConsumption.push('<img src="image/spacer.gif" class="free-color" alt="" width="'+capacityFreePercentage_rounded+'%" title="'+capacityFreePercentage_rounded+'% Free"/>');
+                  itemsCachesConsumption.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="used-color" alt="" width="'+capacityUsedPercentage_rounded+'%" title="'+capacityUsedPercentage_rounded+'% Used"/>');
+                  itemsCachesConsumption.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="free-color" alt="" width="'+capacityFreePercentage_rounded+'%" title="'+capacityFreePercentage_rounded+'% Free"/>');
                   itemsCachesConsumption.push('</div>');
                   itemsCachesConsumption.push('</div>');
                   
@@ -181,8 +182,8 @@
                   itemsCachesHit.push('<div id="cache_hit_'+cacheId+'" title="'+cacheId+'" class="cache_container">');
                   itemsCachesHit.push('<p class="cache_label">'+cacheLabel.fromCamel()+'</p>');
                   itemsCachesHit.push('<div class="cache_graph_container">');
-                  itemsCachesHit.push('<img src="image/spacer.gif" class="free-color" alt="" width="'+ratioHitPercentage_rounded+'%" title="'+ratioHitPercentage_rounded+'% Hit ratio"/>');
-                  itemsCachesHit.push('<img src="image/spacer.gif" class="used-color" alt="" width="'+ratioMissPercentage_rounded+'%" title="'+ratioMissPercentage_rounded+'% Miss ratio"/>');
+                  itemsCachesHit.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="used-color" alt="" width="'+ratioMissPercentage_rounded+'%" title="'+ratioMissPercentage_rounded+'% Miss ratio"/>');
+                  itemsCachesHit.push('<img src="/exo-gadget-resources/skin/exo-gadget/images/spacer.gif" class="free-color" alt="" width="'+ratioHitPercentage_rounded+'%" title="'+ratioHitPercentage_rounded+'% Hit ratio"/>');
                   itemsCachesHit.push('</div>');
                   itemsCachesHit.push('</div>');
                   
