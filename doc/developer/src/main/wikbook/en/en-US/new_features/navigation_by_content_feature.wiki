@@ -10,7 +10,7 @@ In this example, the */site contents/live/acme/events/All* node will be used.
 
 *To add "Actual content navigation" to a page:*
 
-*1.* Log into the sample ACME website.
+*1.* Log in to the sample ACME website.
 
 *2.* Add a new page, for example "Events".
 
@@ -51,7 +51,7 @@ You can now navigate from the left portlet to see contents displayed in the righ
 
 The new *Navigation By Content* feature will traduce this example in a contextual menu.
 
-h1. How-Tos {anchor:id=DEV.NewFeatures.NavigationByContent.Howto}
+h1. How-To {anchor:id=DEV.NewFeatures.NavigationByContent.HowTo}
 
 *You need to attach your root folder/node to some page nodes from the homepage (the drop-down menu holds your new contextual menu):*
 
@@ -107,7 +107,7 @@ h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByCont
 
 *3.* Uncheck the field visible and save.
 
-*4.* Go back to the homepage and see that Fire sub-menu is not displayed in the contextual menu.
+*4.* Go back to the homepage and see that the Fire sub-menu is not displayed in the contextual menu.
 
 *To sort elements of the contextual menu:*
 
@@ -133,7 +133,7 @@ h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByCont
 
 *11.* Go back to the homepage and see that the display order from the contextual menu is sorted to Earth, Water, Air. Note that the Fire sub-menu is not displayed because it is set to "invisible" in the previous example.
 
-*To restore a node to the contextual menu (if you already remove it) and attach it to another page:*
+*To restore a node to the contextual menu (if you already removed it) and attach it to another page:*
 
 *1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
 
@@ -171,7 +171,7 @@ The sample ACME website comes with a configured navigation by content menu:
 
 !images/navigation_by_content_feature/productsMenu.png|align="center"!
 
-You can click the *Vision* sub-menu and see contents of vision directory rendered is the *catalog* page:
+You can click the *Vision* sub-menu and see contents of vision directory rendered in the *catalog* page:
 
 !images/navigation_by_content_feature/visionSubMenuList.png|align="center"!
 
@@ -214,7 +214,7 @@ h2. Create a new product {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNe
 
 *1.* Go under *somePath/someDirectory/sampleProduct/medias/images*.
 
-*2.* Upload some images and publish them:
+*2.* Upload some images and publish them.
 
 !images/navigation_by_content_feature/sampleProductImages.png|align="center"!
 
@@ -246,7 +246,7 @@ As a result, the content will be displayed in a detailed page as follows:
 
 !images/navigation_by_content_feature/sampleProductDetail.png!
 
-h2. Develop product content {anchors::id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
+h2. Develop your product content {anchors:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
 
 The product content is composed of fields and folders:
 
@@ -256,7 +256,7 @@ The product content is composed of fields and folders:
 
 Folders are created within the product content when the name field is created.
 
-This can be achieved (from the *.gtmpl* product dialog) as follows:
+*This can be achieved (from the *.gtmpl* product dialog) as follows:*
 
 {code:html}
 <tr>
@@ -278,7 +278,7 @@ This can be achieved (from the *.gtmpl* product dialog) as follows:
 </tr>
 {code}
 
-Other fields are created almost in the same way:
+*Other fields are created almost in the same way:*
 
 * *Title:*
 
@@ -431,7 +431,7 @@ Now let's look at the product's view form.
 </div>
 {code}
 
-* Benefits and Features fields are rendered in two tabs. It uses the jQuery library (already integrated into eXo Platform 3.5):
+* *Benefits and Features fields are rendered in two tabs. It uses the jQuery library (already integrated into eXo Platform 3.5).*
 
 {code:html}
 <div id="sectionsTabs" class="ui-tabs">
@@ -473,7 +473,7 @@ Now let's look at the product's view form.
 </script>
 {code}
 
-* The jQuery-based feature is display of the product's images (coverflow) from the images folder:
+* *The jQuery-based feature is display of the product's images (coverflow) from the images folder.*
 
 {code:html}
 <div class="jQProBoxC">
