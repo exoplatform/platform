@@ -49,6 +49,18 @@
     </route-param>
   </route>
 
+  <route path="/{gtn:sitename}/sitemaps.xml">
+    <route-param qname="gtn:handler">
+      <value>sitemap</value>
+    </route-param>
+  </route>
+	
+  <route path="/{gtn:sitename}/robots.txt">
+    <route-param qname="gtn:handler">
+      <value>robots</value>
+    </route-param>
+  </route>	
+
   <!-- The legacy route -->
   <route path="/public">
     <route path="/">
@@ -103,7 +115,7 @@
     <request-param qname="gtn:objectid" name="objectId"/>
 
     <!-- The group access -->
-    <route path="/groups/{gtn:sitename}/{gtn:path}">
+    <route path="/g/{gtn:sitename}/{gtn:path}">
       <request-param qname="gtn:lang" name="lang" value-mapping="never-empty">
        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </request-param>
@@ -116,7 +128,7 @@
     </route>
 
     <!-- The user access -->
-    <route path="/users/{gtn:sitename}/{gtn:path}">
+    <route path="/u/{gtn:sitename}/{gtn:path}">
       <request-param qname="gtn:lang" name="lang" value-mapping="never-empty">
        <pattern>([A-Za-z]{2}(-[A-Za-z]{2})?)?</pattern>
       </request-param>
