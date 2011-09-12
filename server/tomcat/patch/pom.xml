@@ -10,8 +10,8 @@
   <packaging>jar</packaging>
   <name>eXo Platform - Tomcat Server Patch</name>
   <url>http://www.exoplatform.org</url>
-  <dependencies />
-  <!--dependency>
+  <!--dependencies>
+    <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.server.tomcat.patch</artifactId>
       <version>${org.exoplatform.portal.version}</version>
@@ -41,7 +41,7 @@
       <version>${org.exoplatform.social.version}</version>
       <type>jar</type>
     </dependency>
-    -->
+  </dependencies-->
   <build>
     <resources>
       <resource>
@@ -51,26 +51,34 @@
         </includes>
       </resource>
     </resources>
-    <plugins>
+    <!--plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <id>unpack-dependencies</id>
+            <id>unpack</id>
             <phase>compile</phase>
             <goals>
-              <goal>unpack-dependencies</goal>
+              <goal>unpack</goal>
             </goals>
             <configuration>
               <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-              <!--excludes>**/GATEIN-README.txt,**/EXO-README.txt,**/conf/server.xml,**/conf/jaas.conf,**/gatein/conf/configuration.xml,**/webapps/zzzstarter/,**/Catalina/localhost/rest*.xml,**/Catalina/localhost/*demo.xml,**/Release_notes.txt</excludes-->
               <excludes>**/Catalina/localhost/*demo.xml,**/gatein/conf/portal/,META-INF/,**/webapps/starter/</excludes>
               <includes>**</includes>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.exoplatform.ecms</groupId>
+                  <artifactId>exo-ecms-delivery-wcm-server-tomcat</artifactId>
+                  <version>${org.exoplatform.ecms.version}</version>
+                  <type>jar</type>
+                  <overWrite>false</overWrite>
+                </artifactItem>
+              </artifactItems>
             </configuration>
           </execution>
         </executions>
       </plugin>
-    </plugins>
+    </plugins-->
   </build>
 </project>
