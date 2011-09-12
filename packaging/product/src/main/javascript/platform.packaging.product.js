@@ -150,7 +150,8 @@ function getProduct(version) {
   product.addDependencies(new Project("org.exoplatform.social", "exo.social.extras.document-composer-plugin", "jar", social.version));
   product.addDependencies(social.extension.war) ; // social-ext.war
   
-  
+  // integration project
+  product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social
 
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
 //  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;

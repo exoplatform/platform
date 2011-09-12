@@ -371,8 +371,14 @@
       <version>${org.crsh.version}</version>
       <type>war</type>
     </dependency>
+    <!-- INTEGRATION PROJECTS -->
+    <dependency>
+      <groupId>org.exoplatform.integration</groupId>
+      <artifactId>integ-ecms-social</artifactId>
+      <version>${org.exoplatform.integ.version}</version>
+      <type>jar</type>
+    </dependency>
     <!-- MISSING DEPENDENCIES -->
-
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.fck</artifactId>

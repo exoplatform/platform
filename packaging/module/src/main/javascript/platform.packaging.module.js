@@ -32,6 +32,7 @@ function getModule(params)
    var ecmsVersion = "${org.exoplatform.ecms.version}";
    var crashVersion = "${org.crsh.version}";
    var webosVersion = "${org.exoplatform.webos.version}";
+   var integVersion = "${org.exoplatform.integ.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
@@ -197,6 +198,9 @@ function getModule(params)
       addDependency(module.gadgetpack.services);
    module.gadgetpack.gadgets.deployName = "gadget-pack";
    
+   // integration project
+   module.integ = {};
+   module.integ.ecmsSocial = new Project("org.exoplatform.integration", "integ-ecms-social", "jar", integVersion);
    
    return module;
 }
