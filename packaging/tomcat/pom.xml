@@ -645,11 +645,25 @@
     </dependency>
 
     <dependency>
-      <groupId>net.oauth</groupId>
-      <artifactId>core</artifactId>
-      <version>${net.oauth.version}</version>
-      <type>jar</type>
+        <groupId>net.oauth.core</groupId>
+        <artifactId>oauth</artifactId>
+        <version>${net.oauth.version}</version>
     </dependency>
+    <dependency>
+        <groupId>net.oauth.core</groupId>
+        <artifactId>oauth-provider</artifactId>
+        <version>${net.oauth.version}</version>
+    </dependency>
+	<dependency>
+	  <groupId>net.oauth.core</groupId>
+	  <artifactId>oauth-consumer</artifactId>
+      <version>${net.oauth-consumer.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>net.oauth.core</groupId>
+	  <artifactId>oauth-httpclient4</artifactId>
+	  <version>${net.oauth-httpclient.version}</version>
+	</dependency>
 
     <dependency>
       <groupId>cglib</groupId>

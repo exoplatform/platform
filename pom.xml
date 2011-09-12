@@ -52,7 +52,9 @@
     <org.mortbay.jetty.jetty-util.version>6.1.11</org.mortbay.jetty.jetty-util.version>
     <commons-digester.version>1.8.1</commons-digester.version>
     <bsh.version>2.0b1</bsh.version>
-    <net.oauth.version>20080621</net.oauth.version>
+    <net.oauth.version>20100527</net.oauth.version>
+    <net.oauth-consumer.version>20090617</net.oauth-consumer.version>
+    <net.oauth-httpclient.version>20090913</net.oauth-httpclient.version>
     <cglib.version>2.2</cglib.version>
     <org.reflext.version>1.1.0-beta12</org.reflext.version>
     <jcr.version>1.0</jcr.version>
