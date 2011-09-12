@@ -9,7 +9,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	
-		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
 		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
 		<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/flexigrid/flexigrid.custom.css" />
 		<link rel="stylesheet" type="text/css" href="skin/jquery-ui-1.8.13.custom.css" />
@@ -28,7 +28,7 @@
 		<script language="javascript" type="text/javascript" src="script/jquery-ui-1.8.13.custom.min.js"></script>
 		
 		<script language="javascript" type="text/javascript">
-			var selectedUser, selectedUserName;
+			var selectedUser = "AllUsers", selectedUserName = "__MSG_loginHistory.allUsers__";
 			var $lastLoginsDataBackup;
 			var isFinding = false;
 			
@@ -75,9 +75,9 @@
 	//				title: '<center>Lastest login</center>',
 						colModel : [
 							{display: "__MSG_loginHistory.user__", name : 'user', width: GetColumnSize(20), align: 'left'},
-							{display: "__MSG_loginHistory.lastLogin__", name : 'lastLogin', width: GetColumnSize(30), align: 'center'},
-							{display: "__MSG_loginHistory.beforeThat__", name : 'beforeThat', width: GetColumnSize(30), align: 'center'},
-							{display: "__MSG_loginHistory.more__", name : 'more', width : GetColumnSize(20), align: 'center'}
+							{display: "__MSG_loginHistory.lastLogin__", name : 'lastLogin', width: GetColumnSize(29), align: 'center'},
+							{display: "__MSG_loginHistory.beforeThat__", name : 'beforeThat', width: GetColumnSize(29), align: 'center'},
+							{display: "__MSG_loginHistory.more__", name : 'more', width : GetColumnSize(22), align: 'center'}
 							],
 						showTableToggleBtn: true,
 						singleSelect: true,
@@ -100,10 +100,8 @@
 														"<td text-align='center'>" + (login.lastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.lastLogin, true) : prettyTimeDiff(login.lastLogin, true) + " ago") + "</td>" + 
 														"<td text-align='center'>" + (login.beforeLastLogin == 0 ? "__MSG_loginHistory.unknow__" : (login.beforeLastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.beforeLastLogin, true) : prettyTimeDiff(login.beforeLastLogin, true) + " ago")) + "</td>" +
 														"<td text-align='center'>" + 
-															"<a class = 'statsLink' href='#' style='color: #eb8f00;'>[__MSG_loginHistory.stats__]</a>" +
-	//														"&nbsp;" + 
-															"<br/>" +
-															"<a class = 'hisLink' href='#' style='color: #eb8f00;'>[__MSG_loginHistory.history__]</a>" + 
+															"<a class = 'statsLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/stats_icon.png' alt='__MSG_loginHistory.statisticsView__' title='__MSG_loginHistory.statisticsView__'></img></a>" +
+															"<a class = 'hisLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/list_icon.png' alt='__MSG_loginHistory.historyView__' title='__MSG_loginHistory.historyView__'></img></a>" + 
 										 				"</td>" +
 													"</tr>");
 					$('#lastLoginsTable').append(newRow);
@@ -117,7 +115,7 @@
 				var loginHistoryHtml = "";
 				if (selectedUser == "AllUsers") {
 					$.each(loginHistory, function(i, loginHistory){
-						loginHistoryHtml += "<div class='loginHistoryItem'>" + "<b>" + "<span id='" + loginHistory.userId + "' class='userNameLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</span>" + "</b>" + "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") + "</div>";
+						loginHistoryHtml += "<div class='loginHistoryItem'>" + "<b>" + "<span id='" + loginHistory.userId + "' class='userNameLink customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</span>" + "</b>" + "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") + "</div>";
 						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<i>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</i>" + "</div>";
 					});
 				} else {
@@ -135,7 +133,7 @@
 				plot1 = $.jqplot($chart.attr("id"), [data], {
 	//					title: {text:title},
 						seriesDefaults:{
-								color: "#ffd400",
+								color: "#226ab4",
 	//							showMarker:false,
 								renderer:$.jqplot.BarRenderer,
 								rendererOptions:{
@@ -459,10 +457,16 @@
 				$("#historyDiv").hide();
 	
 				$("#navigationLinksDiv").show();
-				$("#statisticLink").hide();
-				$("#historyLink").show();
+				$("#statisticLink").removeClass();
+				$("#historyLink").addClass("ThemeColor customLink");
 				$("#userIdDiv").html("<b>" + selectedUserName + "</b>");
 	
+				if(selectedUser == "AllUsers") {
+					$("#userIdDiv").hide();
+				} else {
+					$("#userIdDiv").show();
+				}      
+  
 				$("#statisticDiv").show();
 				showDailyStats(userId, ((Date.today().is().sunday()) ? Date.last().monday() : Date.monday()).getTime());
 	
@@ -474,9 +478,15 @@
 				$("#statisticDiv").hide();
 	
 				$("#navigationLinksDiv").show();
-				$("#statisticLink").show();
-				$("#historyLink").hide();
+				$("#statisticLink").addClass("ThemeColor customLink");
+				$("#historyLink").removeClass();
 				$("#userIdDiv").html("<b>" +selectedUserName + "</b>");
+	
+				if(selectedUser == "AllUsers") {
+					$("#userIdDiv").hide();
+				} else {
+					$("#userIdDiv").show();
+				}      
 	
 				$("#historyDiv").show();					
 				$("#todayHeader").text("__MSG_loginHistory.today__");
@@ -614,6 +624,10 @@
 	
 	
 					$("#lastLoginsLink").click(function(){
+						selectedUser = "AllUsers", selectedUserName = "__MSG_loginHistory.allUsers__";
+						$("#statisticLink").addClass("ThemeColor customLink");
+						$("#historyLink").addClass("ThemeColor customLink");
+						$("#userIdDiv").hide();
 						$("#lastLoginsDiv").show();
 						$("#navigationLinksDiv").hide();
 						$("#statisticDiv").hide();
@@ -647,39 +661,32 @@
 	</head>
 		
 	<body style="font-size:70%;">
-		<div id="LoginHistoryGadgetDiv" class="UIGadgetThemes UIYellowThemes">
+		<div id="LoginHistoryGadgetDiv" class="UIGadgetThemes">
 			<div class="TitGad ClearFix">
-				<div class="ContTit">__MSG_loginHistory.title__</div>
+				<div id='lastLoginsLink' class="ContTit customLink">__MSG_loginHistory.title__</div>
 			</div>
 
+			<div id="GadgetContent" class="GadCont">
 
+			<div align="left"><div id="userIdDiv" class='ThemeColor' style ="font-size:15px;"></div></div>
+			<div align="left" style="padding-bottom: 12px;"><span id='statisticLink' class='ThemeColor customLink'>__MSG_loginHistory.statisticsView__</span> | <span id='historyLink' class='ThemeColor customLink'>__MSG_loginHistory.historyView__</span></div>
+	
+	
 			<div id="lastLoginsDiv">
-				<div align="left" style="font-size:12px;">
-						<label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label>
-						<input id="searchTxt" style="width: 110px; border-width: 1px; padding: 0px;" type="text">
-						<input style="border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="findBtn" value="Find" type="button">
-						<input style="border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="latestBtn" value="Latest" type="button">
-				</div>	
-				<div id="lastLoginsContainerDiv"><div id="lastLoginsDataDiv"><table id="lastLoginsTable" width="100%"></table></div></div>
-			</div>
-	
-	
-			<div id="navigationLinksDiv" style="margin-right: 8px; margin-left: 2px;">
 				<table width="100%">
 					<tr>
-						<td align="left" width="33%"><a id='lastLoginsLink' href='#' style ="font-size:12px">__MSG_loginHistory.lastLoginsView__</a></td>
-						<td align="center" width="33%"><div id="userIdDiv" style ="font-size:15px; color: #aa8f3f;"></div></td>
-						<td align="right" width="33%">
-							<a id="statisticLink" href='#' style ="font-size:12px">__MSG_loginHistory.statisticView__</a>
-							<a id="historyLink" href='#' style ="font-size:12px">__MSG_loginHistory.historyView__</a>
-						</td>
+						<td align="left" width="7%"><label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label></td>
+						<td align="right" width="50%"><input id="searchTxt" style="width: 100%; border-width: 1px; padding: 0px;" type="text"></td>
+						<td align="right" width="20%"><input style="width: 100%; border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="findBtn" value="__MSG_loginHistory.find__" type="button"></td>
+						<td align="right" width="23%"><input style="width: 100%; border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="latestBtn" value="__MSG_loginHistory.latest__" type="button"></td>
 					</tr>
 				</table>
+				<div id="lastLoginsContainerDiv"><div id="lastLoginsDataDiv"><table id="lastLoginsTable" width="100%"></table></div></div>
 			</div>
 	
 					
 			<div id="statisticDiv">
-				<div style="text-align: center; height:10px; font-size: small; color: #eb8f00;">
+				<div class='ThemeColor' style="text-align: center; height:10px; font-size: small;">
 					<a id="prevBtn" href="#" style="text-decoration: none;">&lt;&lt;&nbsp;</a>						
 					<span id="loginStatsChartTitle"></span>
 					<a id="nextBtn" href="#" style="text-decoration: none;">&nbsp;&gt;&gt;</a>						
@@ -705,8 +712,7 @@
 				</div>
 			</div>
 	
-	
-			<div align="right" style="padding-right: 8px; padding-top: 6px;">__MSG_loginHistory.global__: <a id='globalStatisticLink' href="#">__MSG_loginHistory.statisticView__</a> | <a id='globalHistoryLink' href="#">__MSG_loginHistory.historyView__</a></div>
+		</div>
 	
 		</div>
 	</body>

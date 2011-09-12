@@ -16,7 +16,7 @@
     <html>
       <head>
         <title>Caches</title>
-        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+        <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
         <link type="text/css" rel="stylesheet">
         <style type="text/css">
           /** Cache Graph **/
@@ -265,7 +265,7 @@
       </head>
       <body>
         <!--
-        <div class="UIGadgetThemes UIYellowThemes">
+        <div class="UIGadgetThemes">
         <div class="TitGad ClearFix">
         <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
         <div title="Setting" id="SettingButton" class="SettingButton">

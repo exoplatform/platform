@@ -12,10 +12,10 @@
 <UserPref name="nbOfPosts" display_name="__MSG_nbOfPostsPref__" datatype="string"></UserPref>
 <Content type="html">
 <![CDATA[   
-  <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+  <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
   <link type="text/css" rel="stylesheet" href="./skin/latestForumPosts.css" />
   <script type="text/javascript" src="./skin/latestForumPosts.js"></script>
-  <div class="UIGadgetThemes UIYellowThemes">
+  <div class="UIGadgetThemes">
     <div class="TitGad ClearFix">
       <a target="_blank" id="ShowAll" class="IconDropDown">__MSG_showAll__</a>
         <div title="Setting" id="SettingButton" class="SettingButton">

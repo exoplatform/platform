@@ -11,7 +11,7 @@
 <![CDATA[ 
     <head>
       <title>Applications Statistics</title>
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
         <style type="text/css">
           html {
             width: 100%;
@@ -108,7 +108,7 @@
       </script>
     </head>
     <body>
-      <div id="my_gadget" class="UIGadgetThemes UIYellowThemes">
+      <div id="my_gadget" class="UIGadgetThemes">
         <div class="TitGad ClearFix">
           <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
           <div title="Setting" id="SettingButton" class="SettingButton">

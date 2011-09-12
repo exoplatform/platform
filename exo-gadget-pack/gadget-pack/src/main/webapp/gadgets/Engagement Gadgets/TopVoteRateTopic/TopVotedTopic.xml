@@ -19,7 +19,7 @@
   
   <Content type="html">
     <![CDATA[   
-    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     <link type="text/css" rel="stylesheet" href="./skin/topVoteTopic.css" />
         
     <script type="text/javascript" src="./script/topVoteTopic.js"></script>
@@ -27,7 +27,7 @@
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     
-    <div id="TopVotedTopic-Gadget" class="UIGadgetThemes UIYellowThemes">
+    <div id="TopVotedTopic-Gadget" class="UIGadgetThemes">
       <div class="TitGad ClearFix">
         <div title="Setting" id="SettingButton" class="SettingButton">
           <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>

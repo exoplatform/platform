@@ -13,7 +13,7 @@
     <![CDATA[ 
     <head>
       <title>Memory</title>
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       <link type="text/css" rel="stylesheet" href="skin/gadget-memory.css" />
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/script/jquery/plugins/jqplot/1.0.0/jquery.jqplot.min.css" />
       
@@ -74,7 +74,7 @@
       </script>
     </head>
     <body>
-      <div class="UIGadgetThemes UIYellowThemes" id="my-gadget">
+      <div class="UIGadgetThemes" id="my-gadget">
         <div class="TitGad ClearFix">
           <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
           <div title="Setting" id="SettingButton" class="SettingButton">

@@ -15,7 +15,7 @@
 			<html>
 				<head>
 					<title>__MSG_title__</title>
-					<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+					<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
 	
 					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
 					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
@@ -79,7 +79,7 @@
 				</head>
 	
 				<body>
-					<div id="online-gadget" class="UIGadgetThemes UIYellowThemes">
+					<div id="online-gadget" class="UIGadgetThemes">
 						<div class="TitGad ClearFix">
 							<div class="ContTit">__MSG_title__</div>
 						</div>

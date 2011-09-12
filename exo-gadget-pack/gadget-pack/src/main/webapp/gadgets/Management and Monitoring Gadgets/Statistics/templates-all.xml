@@ -10,7 +10,7 @@
     <head>
       <title>All templates statistics</title>
       <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/ui-lightness/jquery-ui.css" />
-      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/yellow-theme.css" />
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
       
       <script language="javascript" type="text/javascript" src="/social-resources/javascript/eXo/social/SocialUtil.js"></script>
       <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
@@ -56,7 +56,7 @@
       </script>
     </head>
     <body id="gadget-templates-all">
-      <div class="UIGadgetThemes UIYellowThemes">
+      <div class="UIGadgetThemes">
         <div class="TitGad ClearFix">
           <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
           <div title="Setting" id="SettingButton" class="SettingButton">

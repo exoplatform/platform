@@ -1,15 +1,4 @@
-
-a {
- color: #eb8f00;
- text-decoration: none;
-}
-
-a:link {text-decoration: none; color: #eb8f00;}
-a:visited {text-decoration: none; color: #eb8f00;}
-a:active {text-decoration: none; color: #eb8f00;}
-a:hover {text-decoration: underline; color: #eb8f00;}
-
 .loginHistoryContent {height:100px; overflow:auto;}
-.loginHistoryItem {color:#4c3a06;}
-.loginHistoryItemDetail {font-size:9px; margin-left: 3px;}
-span.userNameLink:hover {text-decoration:underline; color:#eb8f00; cursor:pointer;}
+.loginHistoryItem {color:#484848;}
+.loginHistoryItemDetail {font-size:9px; margin-left:3px; color:#757575;}
+.customLink:hover {text-decoration:underline; color:#226ab4; cursor:pointer;}

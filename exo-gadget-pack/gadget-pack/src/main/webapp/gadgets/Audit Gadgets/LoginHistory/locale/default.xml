@@ -60,8 +60,8 @@
   <msg name="loginHistory.historyView">
     History
   </msg>
-  <msg name="loginHistory.statisticView">
-    Statistic
+  <msg name="loginHistory.statisticsView">
+    Statistics
   </msg>
   <msg name="loginHistory.averagePerDay">
     Average logins / day
