@@ -1,5 +1,5 @@
 This chapter presents new features added to eXo Platform 3.5. 
-At present, in this chapter, you will have opportunity to enjoy one feature called *Navigation By Content* with the following specific topics:
+At present, in this chapter, you will have opportunity to learn about one feature called *Navigation By Content* with the following specific topics:
 
 * [What is Navigation By Content?|#DEV.NewFeatures.NavigationByContent.whatisNavigationByContent]
 * [Actual content navigation|#DEV.NewFeatures.NavigationByContent.ContentNavigation]
