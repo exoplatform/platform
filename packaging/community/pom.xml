@@ -15,11 +15,11 @@
   <id>distrib</id>
   <dependencies>
     <dependency>
-		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.packaging.tomcat</artifactId>
-		<version>${project.version}</version>
+	<groupId>org.exoplatform.platform</groupId>
+	<artifactId>exo.platform.packaging.tomcat</artifactId>
+	<version>${project.version}</version>
         <type>zip</type>
-        <classifier>tomcat</classifier>
+        <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -49,13 +49,12 @@
               <overWriteSnapshots>true</overWriteSnapshots>
               <artifactItems>
                 <artifactItem>
-					<groupId>org.exoplatform.platform</groupId>
-					<artifactId>exo.platform.packaging.tomcat</artifactId>
-					<classifier>tomcat</classifier>
-					<type>zip</type>
-		    		<version>${project.version}</version>
-		            <outputDirectory>${project.build.directory}/community</outputDirectory>
-                    <excludes>conf/</excludes>
+		   <groupId>org.exoplatform.platform</groupId>
+		   <artifactId>exo.platform.packaging.tomcat</artifactId>
+		   <type>zip</type>
+		   <version>${project.version}</version>
+		   <outputDirectory>${project.build.directory}/community</outputDirectory>
+                   <excludes>conf/</excludes>
                 </artifactItem>
               </artifactItems>
             </configuration>
