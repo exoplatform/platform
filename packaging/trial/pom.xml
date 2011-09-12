@@ -24,17 +24,20 @@
       <artifactId>exo.platform.trial.webapp</artifactId>
       <version>${project.version}</version>
       <type>war</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.trial.service</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
-		<groupId>org.exoplatform.platform</groupId>
-		<artifactId>exo.platform.packaging.tomcat</artifactId>
-		<version>${project.version}</version>
-        <type>zip</type>
+	   <groupId>org.exoplatform.platform</groupId>
+	   <artifactId>exo.platform.packaging.tomcat</artifactId>
+	   <version>${project.version}</version>
+       <scope>provided</scope>
+       <type>zip</type>
     </dependency>
   </dependencies>
 
@@ -58,11 +61,11 @@
               <overWriteSnapshots>true</overWriteSnapshots>
               <artifactItems>
                 <artifactItem>
-					<groupId>org.exoplatform.platform</groupId>
-					<artifactId>exo.platform.packaging.tomcat</artifactId>
-					<type>zip</type>
-		    		<version>${project.version}</version>
-		            <outputDirectory>${project.build.directory}</outputDirectory>
+		    <groupId>org.exoplatform.platform</groupId>
+		    <artifactId>exo.platform.packaging.tomcat</artifactId>
+		    <type>zip</type>
+	            <version>${project.version}</version>
+	            <outputDirectory>${project.build.directory}</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -152,6 +155,8 @@
                 <replace file="${project.build.directory}/tomcat-bundle/conf/server.xml" token="../gatein/data" value="${gatein.data.dir}" />
                 <!-- comment the gatein.portlet.config variable out, to use one given by the cargo plugin -->
                 <replace file="${project.build.directory}/tomcat-bundle/gatein/conf/configuration.properties" token="gatein.portlet.config=" value="#gatein.portlet.config=" />
+                <!-- comment the exo.shared.dir variable out, to use one given by the cargo plugin -->
+                <replace file="${project.build.directory}/tomcat-bundle/gatein/conf/configuration.properties" token="exo.shared.dir=" value="#exo.shared.dir=" />
               </target>
             </configuration>
             <goals>
@@ -172,6 +177,8 @@
                 <replace file="${project.build.directory}/tomcat-bundle/conf/server.xml" token="${gatein.data.dir}" value="../gatein/data" />
                 <!-- replace the gatein.portlet.config variable to the original -->
                 <replace file="${project.build.directory}/tomcat-bundle/gatein/conf/configuration.properties" token="#gatein.portlet.config=" value="gatein.portlet.config=" />
+                <!-- replace the exo.shared.dir variable to the original -->
+                <replace file="${project.build.directory}/tomcat-bundle/gatein/conf/configuration.properties" token="#exo.shared.dir=" value="exo.shared.dir=" />
               </target>
             </configuration>
             <goals>
@@ -224,6 +231,7 @@
               <gatein.portlet.config>${project.build.directory}/tomcat-bundle/gatein/conf/portlet.xml</gatein.portlet.config>
               <exo.product.developing>false</exo.product.developing>
               <exo.conf.dir.name>gatein/conf</exo.conf.dir.name>
+              <exo.shared.dir>${project.build.directory}/tomcat-bundle/gatein</exo.shared.dir>
               <exo.profiles>default</exo.profiles>
 			</systemProperties>
 		  </container>
