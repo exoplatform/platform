@@ -3,7 +3,7 @@ At present, in this chapter, you will have opportunity to enjoy one feature call
 
 * [What is Navigation By Content?|#DEV.NewFeatures.NavigationByContent.whatisNavigationByContent]
 * [Actual content navigation|#DEV.NewFeatures.NavigationByContent.ContentNavigation]
-* [How-Tos|#DEV.NewFeatures.NavigationByContent.Howto]
+* [How-To|#DEV.NewFeatures.NavigationByContent.HowTo]
 * [Actions on Navigation By Content|#DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent]
 ** [Create a new product|#DEV.NewFeatures.NavigationByContent.CreateNewProduct]
 ** [Develop product content|#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent]
