@@ -50,49 +50,47 @@ def uicomponentId = uicomponent.getId();
 		def membersLabel = _ctx.appRes("${uicomponentId}.label.members");
 	%>
 		<div class="UIHeaderSection">
-			<h2>$spaceDisplayName</h2>
+			<h4>Welcome to $spaceDisplayName</h4>
 		</div>
 	<div class="UISpaceSummary" >
-
-		<div class="UISpaceLogo">
-			<img class="top" src="$spaceImageSource" />
-		</div>
-		<div class="UISpaceInfo" >
-			<div class="UISpaceDescription">$spaceDescription</div>
-				<!-- Members section -->
-				<a href="${spaceMembersURL}">$spaceMembersNumber&nbsp;$membersLabel</a>
-				<!-- End Members section -->
-				<!-- Administrators section -->
-				<div>
-					$administratorsLabel&nbsp;:&nbsp;
-					<%
-					if (administratorsList.size() > 0) {
-						for(user in administratorsList) {
-							def userName = user.getFullName();
-							def administratorIdentity = uicomponent.getIdentity(user.getUserName());
-							def adminProfileURL = uicomponent.getURI() + "/activities/" + administratorIdentity.getRemoteId();
-							def administratorImageSource = administratorIdentity.profile.avatarUrl;
-							if (!administratorImageSource){
-								administratorImageSource = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
-							}
-					%>
-					<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
-						<img class="buttom" src="$administratorImageSource" title="$userName"/>
-					</a>
-
-					<%
+			<div class="UISpaceDescription">$spaceDescription</div>		
+			<div class="UIProfile">
+				$administratorsLabel&nbsp;:&nbsp;
+				<%
+				if (administratorsList.size() > 0) {
+					for(user in administratorsList) {
+						def userName = user.getFullName();
+						def administratorIdentity = uicomponent.getIdentity(user.getUserName());
+						def adminProfileURL = uicomponent.getURI() + "/activities/" + administratorIdentity.getRemoteId();
+						def administratorImageSource = administratorIdentity.profile.avatarUrl;
+						if (!administratorImageSource){
+							administratorImageSource = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
 						}
-						if (iteratorAdministrators.getAvailablePage() > 1) {
-							uicomponent.renderUIComponent(iteratorAdministrators) ;
-						}
-					} else { 
-					%>
-						<div class="UIHeaderSection"><h2><%=_ctx.appRes(uicomponent.getId() + ".label.noAdmin")%></h2></div>
+				%>
+				<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
+					<img class="buttom" src="$administratorImageSource" title="$userName"/>
+				</a>
+				<a class="UISpaceLogo" href="javaScript:void(0);">
+					<img class="top" src="$spaceImageSource"  />
+				</a>
+				
 
-					<% } %>
-				</div>
+				<%
+					}
+					if (iteratorAdministrators.getAvailablePage() > 1) {
+						uicomponent.renderUIComponent(iteratorAdministrators) ;
+					}
+				} else { 
+				%>
+					<div class="UIHeaderSection"><h2><%=_ctx.appRes(uicomponent.getId() + ".label.noAdmin")%></h2></div>
+
+				<% } %>
+			</div>
 				<!-- End Administrators section -->
-		</div>
+					<!-- Members section -->
+				<div class="MenberStatistics"><a href="${spaceMembersURL}">$membersLabel : $spaceMembersNumber</a></div>
+				<!-- End Members section -->
+	<!--	</div> -->
 	</div>
 </div>
 <%}%>
