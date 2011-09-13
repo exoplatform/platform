@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_1" xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_1 http://www.gatein.org/xml/ns/gatein_objects_1_1">
+<page 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
 	<owner-type/>
 	<owner-id/>
 	<name/>

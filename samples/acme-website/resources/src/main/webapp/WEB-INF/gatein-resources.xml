@@ -21,8 +21,8 @@
 -->
 <gatein-resources
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_1 http://www.gatein.org/xml/ns/gatein_resources_1_1"
-    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_1">
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_2 http://www.gatein.org/xml/ns/gatein_resources_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_2">
 
 	
 	<!-- portal Skin for acme portal -->

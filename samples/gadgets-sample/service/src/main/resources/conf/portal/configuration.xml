@@ -20,8 +20,10 @@
 
 -->
 
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
   <!-- WHO IS ONLINE -->
   <component>

@@ -22,8 +22,8 @@
 
 <configuration
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
-   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
   <component>
     <key>org.exoplatform.container.PropertyConfigurator</key>

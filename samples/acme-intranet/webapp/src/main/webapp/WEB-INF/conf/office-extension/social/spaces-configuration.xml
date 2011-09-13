@@ -17,7 +17,10 @@
     along with this program; if not, see<http://www.gnu.org/licenses/>.
 
 -->
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
