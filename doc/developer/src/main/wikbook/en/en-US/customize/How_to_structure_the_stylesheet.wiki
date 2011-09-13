@@ -4,13 +4,13 @@ The complete skinning of a page can be decomposed into three main parts:
 
 *Portal skin*
 
-The portal skin contains styles for html tags (for example, div, th, td) and the portal UI (including the toolbar). This should include all UI components, except for window decorators and portlet specific styles.
+The portal skin contains styles for the HTML tags (for example, div, th, td) and the portal UI (including the toolbar). This should include all UI components, except for window decorators and portlet specific styles.
 
 *Window styles*
 
 The CSS styles are associated with the portlet window decorators. The window decorators contain control buttons and borders surrounding each portlet. Individual portlets can have their own window decorators selected, or be rendered without one.
 
-!window_decoration.jpg!
+!images/window_decoration.jpg!
 
 *Portlet skins*
 
@@ -39,7 +39,8 @@ The id and class names are defined after the WebUI components name and portlets 
 For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet and the UI component will be named as UIToolbarContainer, or UIVerticalTab.
 
 h2. Folder structure {anchor:id=DEV.CreateYourOwnPortal.FolderStructure}
-*Portal skin*
+* *Portal skin:*
+
 The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transferred more quickly as a single file instead of many smaller files included with every page render.
 
 *The general folder structure for portal skin:*
@@ -105,34 +106,32 @@ webapp
 ----- DefaultSkin
 ------ background
 
-*Portlet skin*
+* *Portlet skin:*
 
-Each portlet on a page may contribute its own style. The link to the portlet skin will only appear on the page if that portlet is loaded on the current page. A page may contain many portlet skin CSS links or none. The link ID will be named like \{portletAppName\}\{PortletName\}. For example,  ContentPortlet in {{content.war}} will give {{id="contentContentPortlet"}}.
+Each portlet on a page may contribute its own style. The link to the portlet skin will only appear on the page if that portlet is loaded on the current page. A page may contain many portlet skin CSS links or none. The link ID will be named like {noformat}{portletAppName}{PortletName}{noformat}. For example,  ContentPortlet in _content.war_ will have the _id="contentContentPortlet"_.
 
-*General folder structure for portlet skin:* 
+*General folder structure for portlet skin:* _/webapp/skin/portlet/webui/component/YourUIPortletName_
 
-{{/webapp/skin/portlet/webui/component/YourUIPortletName}}
-
-and for the Groovy skin: {{/webapp/groovy/portlet/webui/component/YourUIPortletName/}}
+and for the Groovy skin: _/webapp/groovy/portlet/webui/component/YourUIPortletName/_
 
 For example:  
 
-{{/webapp/skin/portlet/webui/component/UIBannerPortlet}}
+* _/webapp/skin/portlet/webui/component/UIBannerPortlet_
 
-{{/webapp/groovy/portlet/webui/component/UIBannerPortlet}}
+* _/webapp/groovy/portlet/webui/component/UIBannerPortlet_
 
-*Portlet images folder:*
-
-{{/webapp/skin/portlet/YourUIPortletName/PortalSkinName/background}}
+*Portlet images folder:* _/webapp/skin/portlet/YourUIPortletName/PortalSkinName/background_
 
 For example: 
 
-{{/webapp/skin/portlet/UIBannerPortlet/BlueSkin/background}}
+* _/webapp/skin/portlet/UIBannerPortlet/BlueSkin/background_
 
 *Portlet themes*
 
-Main entry CSS:{{/webapp/skin/PortletThemes/Stylesheet.css}}
+Main entry CSS:
 
-{{/webapp/skin/PortletThemes/background}}
+* _/webapp/skin/PortletThemes/Stylesheet.css_
 
-{{/webapp/skin/PortletThemes/icons}}
+* _/webapp/skin/PortletThemes/background_
+
+* _/webapp/skin/PortletThemes/icons_

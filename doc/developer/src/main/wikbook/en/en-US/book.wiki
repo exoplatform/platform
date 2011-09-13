@@ -9,7 +9,7 @@ h1. Glossary {anchor:id=DEV.Glossary}
 
 h1. Set Up Your Project {anchor:id=DEV.SettingUpYourProject}
 
-{include:document=quickstart.wiki|syntax=confluence/1.0}
+{include:document=Set_up_project.wiki|syntax=confluence/1.0}
 
 h1. eXo Architecture Primer {anchor:id=DEV.eXoArchitecturePrimer}
 

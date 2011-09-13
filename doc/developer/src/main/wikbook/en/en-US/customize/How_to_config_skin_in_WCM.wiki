@@ -13,18 +13,22 @@ This section is related to the configuration. You can see a sample [here|http://
 {note}
 
 * For example, you will have a layout like this:
-[image:sample_layout.jpg]
+
+!images/samplelayout.jpg|align="center"!
 
 In which:
+
 * Branding: A branding application
 * Top navigation: A top navigation application
+
 A table column container with three nested containers:
+
 * Left Column and Right Column: contain one application for each.
 * Main content: contains the page body.
 
-And here is the "short version" of *{{portal.xml}}*.
+And here is the "short version" of _portal.xml_.
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml_*
+* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml{noformat}_
 
 {code:xml}
 <!-- ... -->
@@ -75,7 +79,7 @@ and the details of this container:
 RightColumnTDContainer
 {code}
 
-The reason is, when you have a look in the file *_system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl_* shown above, you will see this code fragment:
+The reason is, when you have a look in the file system: _{noformat}/groovy/portal/webui/container/UITableColumnContainer.gtmpl{noformat}_ shown above, you will see this code fragment:
 
 {code:html}
 <table class="UITableColumnContainer"
@@ -98,7 +102,7 @@ h2. Customize page's layouts {anchor:id=DEV.CreateYourOwnPortal.CustomizePageLay
 This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/pages.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
 {note}
 
-* Like *{{portal.xml}}*, you can define the layout for each page in your site as shown in the following example:
+* Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
 [image:sample_page.jpg]
 
 {code:xml}
@@ -119,16 +123,18 @@ This section is related to the configuration. You can see a sample [here|http://
 h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 If you want your skin to be applied for every page, do as follows:
 
-*1.* Go to *Sites Explorer* portlet > *Shared* drive > *CSS* folder.
+*1.* Go to *Sites Explorer >* *Shared* drive *> CSS* folder.
+
 *2.* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
 
 If you want your skin to be applied for your *MySite* page only, do as follows:
 
-*1.* Open the browser > *Sites Explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*1.* Open the browser *> Sites Explorer* portlet *> Sites management* drive *> MySite/css* folder.
+
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
 {warning}
-This document should contain *ONLY* the stylesheet for the page and portal level.
+This document should contain *ONLY* one stylesheet for the page and portal level.
 {warning}
 
 The following is one sample stylesheet:
@@ -155,12 +161,12 @@ The order of applying CSS files (of site and web content) depends on their own *
 h2. Customize CLV portlet's template {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVPortletTemplate}
 
 {note}
-This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl]
+This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl].
 {note}
 
-* Apply your HTML/Groovy template code for this template. For example:
+* Apply your HTML/Groovy template code for this template. 
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl_*
+For example: _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl{noformat}_
 
 {code:html}
 <div id="$uicomponent.id" class="ACustomizedCLVTemplate">
@@ -170,9 +176,9 @@ This section is related to the configuration. You can see a sample [here|http://
 </div>
 {code}
 
-* Now, we need to import this template to the database.
+* Now, you need to import this template to the database.
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml_*
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml{noformat}_
 
 {code:xml}
 <external-component-plugins>
@@ -208,12 +214,12 @@ This section is related to the configuration. You can see a sample [here|http://
 </external-component-plugins>
 {code}
 
-
 h2. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVTemplateStyle}
 
 To customize the CLV template's style, do as follows:
 
-*1.* Go to *Sites explorer* portlet > *Sites management* drive > *MySite/css* folder.
+*1.* Go to *Sites explorer* portlet *> Sites management* drive *> MySite/css* folder.
+
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
 {warning}
@@ -247,9 +253,9 @@ h2. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuem
 This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml].
 {note}
 
- - First, you need to create a new document definition.
+First, you need to create a new document definition.
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml_*
+* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml{noformat}_
 	
 {code}
 	node type name :exo:customizedDocument
@@ -258,7 +264,7 @@ This section is related to the configuration. You can see a sample [here|http://
 
 You also need to configure it to make sure it is imported to the database.
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml_*
+* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml{noformat}_
 
 {code:xml} 
 <external-component-plugins>
@@ -279,11 +285,11 @@ You also need to configure it to make sure it is imported to the database.
 </external-component-plugins>
 {code}
 
-- Now it is time to create the templates for this document, including:
+Next, create the templates for this document, including:
 
-* Dialog: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl])
+* Dialog: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl_*
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl{noformat}_
 
 {code:html}
 <div class="UIForm ACustomizedDocument">
@@ -292,9 +298,9 @@ You also need to configure it to make sure it is imported to the database.
   <% uiform.end() %>
 {code}
 
-* View: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl])
+* View: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl_*
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl{noformat}_
 
 {code:html}
 <style>
@@ -303,13 +309,13 @@ You also need to configure it to make sure it is imported to the database.
 <!-- Document view template content is here -->
 {code}
 
-* Stylesheet: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css])
+* Stylesheet: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
 
 {warning}
 This document should contain *ONLY* the stylesheet for *THIS* template.
 {warning}
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css_*
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css{noformat}_
 
 
 {code:css}
@@ -324,7 +330,7 @@ This document should contain *ONLY* the stylesheet for *THIS* template.
 
 * You also need to import them to database.
 
-*_<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml_*
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml{noformat}_
 
 {code:xml}
 <external-component-plugins>
@@ -416,8 +422,9 @@ This document should contain *ONLY* the stylesheet for *THIS* template.
 </external-component-plugins>
 {code}
 
-- Finally, you should create some initial contents and export them to XML files.
-To import this XML into database, you can set up for the deployment like this:
+Finally, you should create some initial contents and export them to XML files.
+
+To import this XML into database, you can set up the deployment like this:
 
 {code:xml}
 <external-component-plugins>

@@ -6,7 +6,7 @@ h1. Actual content navigation {anchor:id=DEV.NewFeatures.NavigationByContent.Con
 
 One of the powerful features of Enterprise Content Management System (ECMS) that comes out with eXo Platform 3.5 is the ability to navigate in site contents using taxonomies.
 This functionality can easily be added in a page with the help of two *Content List Viewer* (CLV) portlets. The pre-configured example can be found in the *News* page of the sample ACME website.
-In this example, the */site contents/live/acme/events/All* node will be used.
+In this example, the _/site contents/live/acme/events/All_ node will be used.
 
 *To add "Actual content navigation" to a page:*
 
@@ -45,7 +45,7 @@ In which:
 
 As a result, the created "Events" page will look like:
 
-!images/navigation_by_content_feature/eventsPage.png!
+!images/navigation_by_content_feature/eventsPage.png|align="center"!
 
 You can now navigate from the left portlet to see contents displayed in the right portlet.
 
@@ -55,7 +55,7 @@ h1. How-To {anchor:id=DEV.NewFeatures.NavigationByContent.HowTo}
 
 *You need to attach your root folder/node to some page nodes from the homepage (the drop-down menu holds your new contextual menu):*
 
-*1.* Go to the *Content Explorer* page and navigate to */site contents/live/acme/events/All*.
+*1.* Go to the *Content Explorer* page and navigate to _/site contents/live/acme/events/All_.
 
 *2.* Click the *Content Navigation* button.
 
@@ -79,11 +79,11 @@ You will see changes from the *Events* drop-down menu.
 
 In which:
 
-* *Visible*: The */site contents/live/acme/events/All* node is navigable and its child nodes are rendered in the contextual menu.
+* *Visible*: The _/site contents/live/acme/events/All_ node is navigable and its child nodes are rendered in the contextual menu.
 
-* *Target parent navigation*: The */site contents/live/acme/events/All* node is attached to the site menu item called *Events*.
+* *Target parent navigation*: The _/site contents/live/acme/events/All_ node is attached to the site menu item called *Events*.
 
-* *Clickable*: The */site contents/live/acme/events/All* node is not clickable but all its child nodes are clickable.
+* *Clickable*: The _/site contents/live/acme/events/All_ node is not clickable but all its child nodes are clickable.
 
 * *Page for list*: The list of child nodes (if a child node is *directory/folder*) will be rendered in the following page.
 
@@ -101,7 +101,7 @@ h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByCont
 
 *To restrict the visibility of some contents:*
 
-*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
+*1.* Go to the *Content Explorer* page and navigate under _/site contents/live/acme/events/All/Fire_.
 
 *2.* Click the *Content Navigation* button.
 
@@ -111,21 +111,21 @@ h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByCont
 
 *To sort elements of the contextual menu:*
 
-*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All*.
+*1.* Go to the *Content Explorer* page and navigate under _/site contents/live/acme/events/All_.
 
-*2.* Select the */site contents/live/acme/events/All/Earth* node.
+*2.* Select the _/site contents/live/acme/events/All/Earth_ node.
 
 *3.* Click the *Content Navigation* button.
 
 *4.* Set the *Display order* field to 1 and save.
 
-*5.* Select the */site contents/live/acme/events/All/Water* node.
+*5.* Select the _/site contents/live/acme/events/All/Water_ node.
 
 *6.* Click the *Content Navigation* button.
 
 *7.* Set the *Display order* field to 2 and save.
 
-*8.* Select the */site contents/live/acme/events/All/Air* node.
+*8.* Select the _/site contents/live/acme/events/All/Air_ node.
 
 *9.* Click the *Content Navigation* button.
 
@@ -135,7 +135,7 @@ h1. Actions on Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByCont
 
 *To restore a node to the contextual menu (if you already removed it) and attach it to another page:*
 
-*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
+*1.* Go to the *Content Explorer* page and navigate under _/site contents/live/acme/events/All/Fire_.
 
 *2.* Click the *Content Navigation* button.
 
@@ -155,13 +155,13 @@ However, if you want to add your newly created content directly to the contextua
 
 *To add your newly created contents to the contextual menu:*
 
-*1.* Go to the *Content Explorer* page and navigate under */site contents/live/acme/events/All/Fire*.
+*1.* Go to the *Content Explorer* page and navigate under _/site contents/live/acme/events/All/Fire_.
 
 *2.* Click the *Manage Actions* button and add the *{noformat}exo:populateToMenu{noformat}* action.
 
 !images/navigation_by_content_feature/populateToMenuAction.png|align="center"!
 
-*3.* Create a document under */site contents/live/acme/events/All/Fire* (for example, uploading a file) and publish it.
+*3.* Create a document under _/site contents/live/acme/events/All/Fire_ (for example, uploading a file) and publish it.
 
 *4.* Go back to the homepage and see that your newly created document is added to the contextual menu.
 
@@ -193,7 +193,7 @@ h2. Create a new product {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNe
 
 *To create a new product:*
 
-*1.* Go to the *Content Explorer* page and navigate under *somePath/someDirectory*.
+*1.* Go to the *Content Explorer* page and navigate under _somePath/someDirectory_.
 
 *2.* Click the *Add Document* button.
 
@@ -212,19 +212,19 @@ h2. Create a new product {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNe
 
 *To improve your newly created product, for example "sampleProduct":*
 
-*1.* Go under *somePath/someDirectory/sampleProduct/medias/images*.
+*1.* Go under _somePath/someDirectory/sampleProduct/medias/images_.
 
 *2.* Upload some images and publish them.
 
 !images/navigation_by_content_feature/sampleProductImages.png|align="center"!
 
-*3.* Go under *somePath/someDirectory/sampleProduct/medias/videos*.
+*3.* Go under _somePath/someDirectory/sampleProduct/medias/videos_.
 
 *4.* Upload a video and publish it.
 
 !images/navigation_by_content_feature/sampleProductVideos.png|align="center"!
 
-*5.* Go under *somePath/someDirectory/sampleProduct/documents*.
+*5.* Go under _somePath/someDirectory/sampleProduct/documents_.
 
 *6.* Create two directories, including Sales materials and Technical documentation.
 
@@ -244,7 +244,7 @@ Note that you can select this content from a CLV:
 
 As a result, the content will be displayed in a detailed page as follows:
 
-!images/navigation_by_content_feature/sampleProductDetail.png!
+!images/navigation_by_content_feature/sampleProductDetail.png|align="center"!
 
 h2. Develop your product content {anchors:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
 
@@ -530,20 +530,20 @@ Note the use of this instruction as below:
 This is achieved by adding locale files. For example:
 
 {code:xml}
-	<Product>
-		<view>
-			<label>
-				<benefits>Benefits</benefits>
-				<features>Features</features>
-				<seeItInAction>See it in action</seeItInAction>
-				<resources>Resources</resources>
-				<videos>Videos</videos>
-			</label>
-		</view>
-	</Product>
+<Product>
+  <view>
+    <label>
+      <benefits>Benefits</benefits>
+      <features>Features</features>
+      <seeItInAction>See it in action</seeItInAction>
+      <resources>Resources</resources>
+      <videos>Videos</videos>
+    </label>
+  </view>
+</Product>
 {code}
 
-Make sure that locale files are added to the resource bundle configuration. If locale files (dialogs and views) are under *classes/locale/wcm directory*, use the following code:
+Make sure that locale files are added to the resource bundle configuration. If locale files (dialogs and views) are under the _classes/locale/wcm_ directory, use the following code:
 
 {code:xml}
 <value>locale.wcm.dialogs</value>

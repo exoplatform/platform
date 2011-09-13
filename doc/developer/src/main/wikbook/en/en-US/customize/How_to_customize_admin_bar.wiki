@@ -3,13 +3,13 @@ The current color of Admin bar is dark blue and yellow. However, you can change 
 
 The Admin bar looks like this:
 
-!admin_bar.png!
+!images/admin_bar.png|align="center"!
 
 The style of Admin bar is defined in the *stylesheet.css* located in src/main/webapp/skin/officeSkin/UIToolbarContainer.
 
 The CSS code below shows how to modify the Admin bar to look like this:
 
-!modified_admin_bar.png!
+!images/modified_admin_bar.png|align="center"!
 
 {code:css}
 /*toolbar background color*/
@@ -85,15 +85,15 @@ UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {
 
 h2. Change the content of the Admin bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
 
-!admin_bar_portlets.png!
+!images/admin_bar_portlets.png|align="center"!
 
 *Portlets on Admin bar* 
 
-The Admin bar is a special container composed of portlets. It is defined in {{WEB-INF/conf/portal/portal/sharedlayout.xml}}. In the illustration above, each circle represents a portlet defined in the Admin bar and configured in *sharedlayout.xml*
+The Admin bar is a special container composed of portlets. It is defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_. In the illustration above, each circle represents a portlet defined in the Admin bar and configured in *sharedlayout.xml*.
 
-It is possible to override the whole Admin bar, by adding it into an extension at: custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml.
+It is possible to override the whole Admin bar by adding it into an extension at _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_.
 
-The *sharedlayout.xml* configures the current displayed portlets on the Admin bar. For example, to remove the dashboard menu, you will need to remove the following block:
+The *sharedlayout.xml* file configures the current displayed portlets on the Admin bar. For example, to remove the dashboard menu, you will need to remove the following block:
 
 {code:xml}
 ...
@@ -109,5 +109,3 @@ The *sharedlayout.xml* configures the current displayed portlets on the Admin ba
 </container>
 ...
 {code}
-
-.

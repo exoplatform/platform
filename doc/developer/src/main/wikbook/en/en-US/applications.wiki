@@ -1,22 +1,17 @@
 Applications play an important role in each eXo service and so it is necessary for you to further understand about them.
 
 This chapter will help you know how to integrate an application into your portal and how to develop your own application:
-
-[Application integration|#DEV.WorkWithApplications.ApplicationIntergration]
-
-[Develop your own applications|#DEV.WorkWithApplications.DevelopeYourOwnApplications]
-
-* [Gadget vs Portlet|#DEV.WorkWithContent.GadgetvsPortlet]
-
-* [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
-
-* [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
+* [Application integration|#DEV.WorkWithApplications.ApplicationIntergration]
+* [Develop your own applications|#DEV.WorkWithApplications.DevelopeYourOwnApplications]
+** [Gadget vs Portlet|#DEV.WorkWithContent.GadgetvsPortlet]
+** [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
+** [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
 
 h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationIntergration}
 
-To add a portlet to one of your portal's pages, you should configure the {{pages.xml}} file located at {{/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/}}.
+To add a portlet to one of your portal's pages, you should configure the _pages.xml_ file located at _/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/_.
 
-Here is an example of the portlet configuration inside {{pages.xml}}:
+Here is an example of the portlet configuration inside _pages.xml_:
 
 {code:xml}
 <portlet-application>
@@ -55,7 +50,7 @@ Details:
 || XML tag name || Description ||
 | {{application-ref}} | The name of the webapp that contains the portlet. |
 | {{portlet-ref}} | The name of the portlet. |
-| {{title}} | The title of the page, HTML speaking. |
+| {{title}} | The title of the page in HTML speaking. |
 | {{access-permission}} | Define who can access the portlet. |
 | {{show-info-bar}} | Show the top bar with the portlet title. |
 | {{show-application-state}} | Show the collapse/expand icons. |
@@ -82,7 +77,7 @@ h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}
 
 The Portlet Bridge is an adapter for a web framework to the portlet container runtime. It works ideally with framework that does not expose the servlet container with the limited support for the full portlet API.
 
-The JavaTM Specification Request 168 Portlet Specification (JSR 168) standardizes how components for portal servers are developed. This standard has industry backing from major portal server vendors. A Portlet Bridge allows you to create a JSR-168 compliant portlet with very little change to your existing web application.
+The JavaTM Specification Request 168 Portlet Specification (JSR 168) standardizes how components for portal servers are developed. This standard has industry backing from major portal server vendors. A Portlet Bridge allows you to create a JSR-168 compliant portlet with very little change on your existing web application.
 
 For example, the JSF Bridge allows you to transparently deploy your existing JSF Applications as a Portlet Application or Web Application.
 

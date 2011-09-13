@@ -1,0 +1,41 @@
+This section aims at helping you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
+
+*Requirements:*
+
+* JDK (Java Development Kit) 6.0 
+* SVN 1.6+
+* Maven 2.2.1+
+* Tomcat 6.0.26 or JBoss 5.1.0
+
+*Install and configure Maven:*
+
+You need to add a system environment variable _{noformat}MAVEN_OPTS{noformat}_ (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
+
+* Windows:*
+
+{code}
+set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
+{code}
+
+* Linux/MacOS:
+{code}
+export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
+{code}
+
+*Maven settings:*
+
+*1.* Save the _settings.xml_ file to the path: _HOME/.m2/settings.xml_.
+
+*2.* Edit and change the _local-properties_ profile, including:
+
+* _exo.projects.directory.dependencies_ contains the application servers, and Openfire.
+
+* each _exo.projects.app.AS-NAME.version_ contains the name and version of the application servers.
+
+{note}
+If the _settings.xml_ file has been existing, you can merge them. You will need the followings:
+
+* The _local-properties_ profile, which defines properties, is used to build application server distributions of our products.
+
+* The [repository|http://repository.exoplatform.org/public] to download our dependencies.
+{note}

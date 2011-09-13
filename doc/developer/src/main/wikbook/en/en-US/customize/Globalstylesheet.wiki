@@ -1,24 +1,20 @@
-Global stylesheet is the shared stylesheet which is applied to your entire site or a set of pages, depending on your configuration. When you want to make changes for your site, you only need to create a new global stylesheet, or edit the existing global stylesheet.
+Global stylesheet is the shared stylesheet which is applied to your entire site or a set of pages, depending on your configuration. When you want to make changes on your site, you only need to create a new global stylesheet, or edit the existing global stylesheet.
 
 Global stylesheets of eXo Platform are put into the CSS folder to manage the stylesheet of your desired site. This section aims at showing you how to create and apply your own global stylesheet by *Content Explorer* and by configuration. 
 
 h2. Create and apply the global stylesheet by Content Explorer {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByContentExplorer}
 
-*1.* Select *My Spaces → Content Explorer → Sites Management*.
+*1.* Select *My Spaces > Content Explorer > Sites Management*.
 
 *2.* Select one site node in the *Sites Management* pane, for example *acme*, and then select the CSS folder.
 
-!CreateNewGlobalStylesheet.png!
-
-*Illustration 1: Sites Management
+!images/CreateNewGlobalStylesheet.png|align="center"!
 
 *3.* Click *Add Document* to open the form to create the new global stylesheet.
 
-!CreateGlobalStylesheetForm.png!
+!images/CreateGlobalStylesheetForm.png|align="center"!
 
-*Illustration 2: Form to create the new global stylesheet*
-
-*4.* Enter the name of global stylesheet into the *Name* field, for example *GlobalStylesheet_Organge*.
+*4.* Enter the name of global stylesheet into the *Name* field, for example *{noformat}GlobalStylesheet_Organge{noformat}*.
 
 *5.* Set the value as "True" to activate your global stylesheet for your site in the *Active* field. By default, "True" will be set when you create a new global stylesheet. If you select "False", your newly created global style will be disabled.
 
@@ -34,25 +30,24 @@ The default global stylesheet will be automatically created in the CSS folder wh
 
 For example, you can define your styles with the following information:
 
-!cssdata.png!
+!images/cssdata.png|align="center"!
 
 *8.* Click the *Save as Draft* button to save your newly created global stylesheet. You will see your global stylesheet in the *Sites Management* pane.
 
-!GlobalStylesheet_org.png! 
+!images/GlobalStylesheet_org.png|align="center"! 
 
-
-To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
+* To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
 
 
 h2. Create and apply the global stylesheet by configuration {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByConfiguration}
 
-After being created as mentioned above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
+After being created as above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
 
 *1.* Open the CSS folder.
 
 *2.* Select *System* and click *Export Node* on the action bar.
 
-!ExportImportGlobalStylesheet.png!
+!images/ExportImportGlobalStylesheet.png|align="center"!
 
 *3.* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all stylesheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
 
@@ -93,20 +88,16 @@ After being created as mentioned above, your desired global stylesheet can be in
 
 h2. Check display of global stylesheets {anchor:id=DEV.CreateYourOwnPortal.CheckDisplayOfGlobalStylesheet}
 
-You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange*, do as follows:
+You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *{noformat}GlobalStylesheet_Blue{noformat}* and *{noformat}GlobalStylesheet_Orange{noformat}*, do as follows:
 
-*1.* Activate the *GlobalStylesheet_Blue* and *GlobalStylesheet_Orange* by turns.
+*1.* Activate the *{noformat}GlobalStylesheet_Blue{noformat}* and *{noformat}GlobalStylesheet_Orange{noformat}* by turns.
 
 *2.* Click *My Spaces* on the administration bar and select the relevant site, for example "acme".
 
-If you activate *GlobalStylesheet_Blue*, your site will be displayed as below:
+If you activate *{noformat}GlobalStylesheet_Blue{noformat}*, your site will be displayed as below:
 
-!DisplayGlobalStyleBlue.png!
+!images/DisplayGlobalStyleBlue.png|align="center"!
 
-*Illustration 3: The "acme" site when applying GlobalStylesheet_Blue*
+If you activate *{noformat}GlobalStylesheet_Orange{noformat}*, your site will be displayed in such a different way: 
 
-If you activate "GlobalStylesheet_Orange", your site will be displayed in such a different way: 
-
-!DisplayGlobalStyleOrange.png!
-
-*Illustration 4: The "acme" site when applying GlobalStylesheet_Orange"
+!images/DisplayGlobalStyleOrange.png|align="center"!

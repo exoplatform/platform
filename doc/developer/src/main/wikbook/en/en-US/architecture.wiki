@@ -1,6 +1,6 @@
-With the aim of helping readers further understand about eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more, this chapter is divided into 3 main sections with their sub-topics as follows:
+With the aim of helping readers further understand about the eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more, this chapter is divided into 3 main sections with their sub-topics as follows:
 
-The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part will show you the following main contents:
+The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part presents the following main contents:
 
 * [Containers|#DEV.eXoArchitecturePremer.Containers]
 
@@ -12,13 +12,13 @@ The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part will show you the followin
 
 * [Configuration loading sequence|#ADM.eXoArchitecturePremer.ConfigureLoadingSequence]
 
-The *[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]* part will show you the following main contents:
+The *[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]* part includes contents of the followings:
 
 * [Default Portal Container|#DEV.eXoArchitecturePremer.defaultPortalContainer]
 
 * [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension]
 
-The *[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]* part will show you the following main contents:
+The *[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]* part shows you the following main contents:
 
 * [Repositories and workspaces|#DEV.eXoArchitecturePremer.Repositories&Workspaces]
 
@@ -33,7 +33,7 @@ This part introduces concepts of Container and Services with an overview before 
 
 h2. Containers {anchor:id=DEV.eXoArchitecturePremer.Containers}
 
-A container is always required to access a service, because the eXo Kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
+A container is always required to access a service, because the eXo Kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about the dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
 
 eXo Platform provides two types of containers: RootContainer and PortalContainer.
 
@@ -94,7 +94,7 @@ Containers configuration files must comply with the kernel configuration grammar
 </configuration>
 {code}
 
-The kernel_1_1.xsd file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
+The {noformat}kernel_1_1.xsd{noformat} file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
 
 h3. Components {anchor:id=DEV.eXoArchitecturePremer.Components}
 
@@ -112,7 +112,7 @@ For example, open the exo-ecms-core-services-x.y.z.jar file. Next, open the /con
 </component>	
 {code}
 
-Each component has a {{key}} which matches the qualified Java interface name (org.exoplatform.services.cms.CmsService).
+Each component has a {{key}} which matches with the qualified Java interface name (org.exoplatform.services.cms.CmsService).
 
 The specific implementation class of the component (CmsServiceImpl) is defined in the <type> tag.
 
@@ -233,9 +233,10 @@ Other possible parameter types are Collection, Map and Native Array. See the exh
 
 h2. Plugins {anchor:id=DEV.eXoArchitecturePremer.Plugins}
 
-Some components may want to offer some extensibilities. For this, they use a plugin mechanism based on the injection method. To offer an extension point for plugins, a component needs to provide a public method that takes an instance of org.exoplatform.container.xml.ComponentPlugin as a parameter.
+Some components may want to offer some extensibilities. For this, they use a plugin mechanism based on the injection method. To offer an extension point for plugins, a component needs to provide a public method that takes an instance of org.exoplatform.container.xml.
+ComponentPlugin as a parameter.
 
-Plugins enable you to provide the structured configuration from outside the original declaration of the component. This is the main way to customize eXo Platform for your needs.
+Plugins enable you to provide the structured configuration outside the original declaration of the component. This is the main way to customize eXo Platform to your needs.
 
 You can have a look at the configuration of the TaxonomyPlugin of the TaxonomyService as below:
 
@@ -251,7 +252,8 @@ You can have a look at the configuration of the TaxonomyPlugin of the TaxonomySe
 </external-component-plugins>
 {code}
 
-The <target-component> defines components that host the extension point. The configuration is injected by the container using the method defined in <set-method> (addTaxonomyPlugin(). The method accepts exactly one argument of the type org.exoplatform.services.cms.categories.impl.TaxonomyPlugin.
+The <target-component> defines components that host the extension point. The configuration is injected by the container using the method defined in <set-method> (addTaxonomyPlugin(). The method accepts exactly one argument of the type org.exoplatform.services.
+cms.categories.impl.TaxonomyPlugin.
 
 The content of <init-params> is interpreted by the TaxonomyPlugin object.
 
@@ -260,7 +262,7 @@ h2. Configuration loading sequence {anchor:id=ADM.eXoArchitecturePremer.Configur
 The Kernel startup follows a well-defined sequence to load configuration files. The objects are initialized in the container only after the whole loading sequence is done. Hence, by placing your configuration in the upper location of the sequence, you can override a component declaration by yourself. You will typically do this when you want to provide your own implementation of a component, or declare custom init-params.
 
 {note}
-{{external-component-plugins}} declarations are additive, so it is NOT possible to override them.
+The {{external-component-plugins}} declarations are additive, so it is NOT possible to override them.
 {note}
 
 The loading sequence involves loading successively configurations for the RootContainer then from the PortalContainers:
@@ -301,13 +303,13 @@ The GateIn extension mechanism lets you extend the portal context easily. This f
 
 To achieve this extensibility, the PortalContainer activates two advanced features: 
 
-* a unified classloader: any classpath resource, such as property files, will be accessible as if it was inside the *portal.war*.
+* A unified classloader: any classpath resource, such as property files, will be accessible as if it was inside the *portal.war*.
 
 {note}
-This is valid only for resources but not for java classes.
+This is valid only for resources but not for Java classes.
 {note}
 
-* a unified servlet context: any web resource contained in your *extension.war* will be accessible from /portal/ uri.
+* A unified servlet context: any web resource contained in your *extension.war* will be accessible from /portal/ uri.
 
 The next part explains what to do to make a simple extension for "portal" container.
 
@@ -364,13 +366,13 @@ You need to register your extension in the portal container. This is done by the
 {code}
 
 
-We define a {{PortalContainerDefinitionChangePlugin}} plugin to the {{PortalContainerConfig}}. The plugin declares a list of dependencies that are webapps. The {{apply.default=true}} indicates that your extension is actually extending *portal.war*. You  need to package your extension into a *.war* file and put it to the tomcat webapps folder, then restart the server.
+A _PortalContainerDefinitionChangePlugin_ plugin is defined to the {{PortalContainerConfig}}. The plugin declares a list of dependencies that are webapps. The {{apply.default=true}} indicates that your extension is actually extending *portal.war*. You  need to package your extension into a *.war* file and put it to the tomcat webapps folder, then restart the server.
 
 In your portal, if you want to add your own property file to support localization for your keys, you can do as follows:
 
-- Put your property file into folder /WEB-INF/classes/locale/portal of your extension project.
+- Put your property file into the _/WEB-INF/classes/locale/portal_ folder of your extension project.
 
-- Add an external plugin declaration to the *.xml* configuration file.	  
+- Add an external plugin declaration to the _.xml_ configuration file.	  
 
 {code:xml}
 <external-component-plugins>
@@ -442,14 +444,14 @@ Node node = (Node) session.getItem(path);
 
 The javax.jcr.Repository object can be obtained via one of the following ways:
 
--- Using the eXo Container "native" mechanism. All Repositories are kept with a single RepositoryService component. So it can be obtained from eXo Container as below:
+* Using the eXo Container "native" mechanism. All Repositories are kept with a single RepositoryService component. So it can be obtained from eXo Container as below:
 
 {code:java}
 RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
 Repository repository = repositoryService.getRepository("repositoryName");
 {code}
 
--- Using the eXo Container "native" mechanism with a thread local saved "current" repository (especially if you plan to use a single repository which covers more than 90% of usecases)
+* Using the eXo Container "native" mechanism with a thread local saved "current" repository (especially if you plan to use a single repository which covers more than 90% of usecases)
 
 {code:java}
 // set current repository at initial time
@@ -460,7 +462,7 @@ repositoryService.setCurrentRepositoryName("repositoryName");
 Repository repository = repositoryService.getCurrentRepository();
 {code}
 
--- Using JNDI as specified in JSR-170.
+* Using JNDI as specified in JSR-170.
 
 {code:java}
 Context ctx = new InitialContext();
@@ -469,7 +471,7 @@ Repository repository =(Repository) ctx.lookup("repositoryName");
 
 Next, you need to log in the server to get a Session object by either of two ways:
 
--- Creating a Credential object, for example:
+* Creating a Credential object, for example:
 
 {code:java}
 Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
@@ -477,7 +479,7 @@ Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
 Session jcrSession = repository.login(credentials, "production");
 {code}
 
--- Logging in by using:
+* Logging in by using:
 
 {code:java}
 Session jcrSession = repository.login("production");
@@ -487,12 +489,12 @@ This way is only applied when you run an implementation of eXo Platform embedded
 
 In embedded cases, the implementation will directly leverage the organization and security services that rely on LDAP or DB storage and JAAS login modules. Single-Sign-On products can now also be used as eXo Platform v.2 which supports them.
 
-*JCR Session common considerations*
+*JCR Session common considerations:*
 
--- javax.jcr.Session is not a safe object of thread. So, you should never try to share it between threads.
--- Do not use System session from the user-related code because a system session has unlimited rights. Call ManageableRepository.getSystemSession() from the process-related code only.
--- Call Session.logout() explicitly to release resources assigned to the session.
--- When designing your application, you should take care of the Session policy inside your application. Two strategies are possible: Stateless (Session per business request) and Stateful (Session per User) or some mixings.
+* javax.jcr.Session is not a safe object of thread. So, you should never try to share it between threads.
+* Do not use System session from the user-related code because a system session has unlimited rights. Call ManageableRepository.getSystemSession() from the process-related code only.
+* Call Session.logout() explicitly to release resources assigned to the session.
+* When designing your application, you should take care of the Session policy inside your application. Two strategies are possible: Stateless (Session per business request) and Stateful (Session per User) or some mixings.
 
 h2. Tree structure: working with nodes and properties {anchor:id=DEV.eXoArchitecturePremer.WorkingWithNodes&Properties}
 

@@ -3,57 +3,44 @@ To customize your portal, you need to create an extension project by providing y
 
 This chapter will show you how to create a portal via the following topics:
 
-[Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
-
-[Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
-
-[Add/remove languages|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
-
-[Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
-
-* [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
-
-* [Configure skin in GateIn|#DEV.CreateYourOwnPortal.ConfigureSkinInGatein]
-
-* [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
-
-* [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
-
-* [How to customize the Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
-
-[Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
-
+* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
+* [Add/remove languages|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+** [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
+** [Configure skin in GateIn|#DEV.CreateYourOwnPortal.ConfigureSkinInGatein]
+** [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
+** [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
+** [Customize Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
+* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
 
 h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
 
 A custom extension contains two mandatory items:
+* *extension webapp* contains resources and kernel configurations.
+* *extension activator jar* identifies your webapp as a dependency of the portal container.
 
-1. *extension webapp* contains resources and kernel configurations.
+To see the sample extension package, visit [here|http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/].
 
-2. *extension activator jar* identifies your webapp as a dependency of the portal container.
+Once you have modified the sample extension to build your own portal, use the _maven clean install_ command to create the archive files.
 
-To see the sample extension package, go to [here|http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/].
+*To deploy your extension in Tomcat:*
 
-Once you have modified the sample extension to build your own portal, use "maven clean install" to create the archive files.
+*1.* Add the _sample-ext.war_ file from the _sample/extension/war/target/_ to the _tomcat/webapps_ directory.
 
-To deploy your extension in Tomcat, do as follows:
+*2.* Add the _starter_ folder from _starter/war/target/_ to the _tomcat/webapps_ directory.
 
-*1.* Add the file sample-ext.war from the {{sample/extension/war/target/}} to the directory {{tomcat/webapps}}.
-
-*2.* Add the folder {{starter}} from {{starter/war/target/}} to the directory {{tomcat/webapps}}.
-
-*3.* Rename the directory (unzipped folder) {{starter}} to {{starter.war}}.
+*3.* Rename the _starter_ directory (unzipped folder) to _starter.war_.
 
 {note}
 This will only work if the starter.war is the last .war file to be loaded, so you may need to rename it if your war files are loaded in the alphabetical order.
 {note}
 
-*4.* Add the .jar file {{exo.portal.sample.extension.config-X.Y.Z.jar}} from {{sample/extension/config/target/}} to the {{tomcat/lib}} directory.
+*4.* Add the .jar file named exo.portal.sample.extension.config-X.Y.Z.jar from _sample/extension/config/target/_ to the _tomcat/lib_ directory.
 
-*5.* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
+*5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
-
-For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
+For the JBoss deployment with more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
@@ -61,11 +48,12 @@ You can create multiple pages within a single portal. Permissions can be defined
 
 h2. Page layout {anchor:id=DEV.CreateYourOwnPortal.PageLayout}
 
-The configuration of "classic" portal can be found in the {{/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic}} directory of your extension webapp.
+The configuration of "classic" portal can be found in the _/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic_
+directory of your extension webapp.
 
 *Portal:*
 
-The {{portal.xml}} file describes the layout and portlets common to all pages of the portal.
+The _portal.xml_ file describes the layout and portlets common to all pages of the portal.
 
 {code:xml}
 <portal-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -122,9 +110,9 @@ As you can see, each portlet can be configured with a set of preferences, which 
 
 *Pages:*
 
-The {{pages.xml}} file is used to describe the content of pages of your portal. In other words, pages of your portal will be inside the <page-body> tag of the {{portal.xml}} file above.
+The _pages.xml_ file is used to describe the content of pages of your portal. In particular, pages of your portal will be inside the <page-body> tag of the _portal.xml_ file above.
 
-This is the example of pages.xml of the classic portal.
+This is the example of the _pages.xml_ file of the classic portal.
 
 {code:xml}
 <page>
@@ -166,7 +154,7 @@ This is the example of pages.xml of the classic portal.
 {code}
 
 {note}
-See Chapter 6 to learn more about the portlet configuration within the pages.xml file.
+See Chapter 6 to learn more about the portlet configuration within the _pages.xml_ file.
 {note}
 
 *Navigation:*
@@ -207,15 +195,16 @@ For the top nodes, the URI and the navigation node name must have the same value
 
 h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
-When you configure the navigation.xml file, sometimes you need to set the visibility of page (node).
+When you configure the _navigation.xml_ file, sometimes you need to set the visibility of page (node).
 
-To configure, simply put <visibility>type_of_visibility</visibility> as a child of <node> tag.
+To configure, simply put {noformat}<visibility>type_of_visibility</visibility>{noformat} as a child of <node> tag.
 
-GateIn supports 4 types of page visibility: DISPLAYED, HIDDEN, SYSTEM, TEMPORAL.
-- DISPLAYED: page will be displayed
-- HIDDEN: page is not visible in the navigation but can be accessed directly with its URL.
-- SYSTEM: page is a system page. A system page is one that is visible to super user and only super user can change or delete this system page. 
-- TEMPORAL: displays page in related time range. When we configure the visibility of TEMPORAL page, we can specify the start and end date by using <startpublicationdate> and <endpublicationdate>. Example:
+GateIn supports 4 types of page visibility, including:
+
+* DISPLAYED: The page will be displayed.
+* HIDDEN: The page is not visible in the navigation but can be accessed directly with its URL.
+* SYSTEM: It is a system page which is visible to superusers. In particular, only superusers can change or delete this system page. 
+* TEMPORAL: The page is displayed in related time range. When the visibility of TEMPORAL page is configured, the start and end date can be specified by using <startpublicationdate> and <endpublicationdate>. For example:
 
 {code:xml}
 <node>
@@ -226,7 +215,7 @@ GateIn supports 4 types of page visibility: DISPLAYED, HIDDEN, SYSTEM, TEMPORAL.
 </node>
 {code}
 
-Below is an example of using <visibility>HIDDEN</visibility> to hide a page:
+* To hide a page, use <visibility>HIDDEN</visibility>:
 
 {code:xml}
 <node-navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -245,18 +234,18 @@ Below is an example of using <visibility>HIDDEN</visibility> to hide a page:
 {code}
 
 h2. Page access permission {anchor:id=DEV.CreateYourOwnPortal.PagesAccessPermission}
-You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create {{pages.xml}} and {{navigation.xml}} files in folders named after the group and user to which you want to give permission:
+You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create _pages.xml_ and _navigation.xml_ files in folders named after the group and user to which you want to give permission:
 
-*sample-ext/portal/group/group-name/your files*
+* *sample-ext/portal/group/group-name/your files*
 
-*sample-ext/portal/user/username/your files*
+* *sample-ext/portal/user/username/your files*
 
-As you know, the permission on a page has two types: access permission and edit permission. 
+As you know, the permission on a page has two types: access and edit. 
 
-To configure them, edit {{pages.xml}} and put tags <access-permissions> and <edit-permission>.
-Currently, eXo Platform supports several access permissions but only one edit permission. It means that you can configure to make many groups to have the same permission but you can only set one group for edit permission. 
+To configure them, edit the _pages.xml_ file and put tags: <access-permissions> and <edit-permission>.
+Currently, eXo Platform supports several access permissions but only one edit permission. It means that you can configure to make many groups to have the access permission but you can only set one group for edit permission. 
 
-Example:
+For example:
 
 {code:xml}
 <page>
@@ -274,7 +263,7 @@ All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config
 
 All languages defined in the _locale-config.xml_ file are listed in *Interface Language Settings*. 
 
-h2. Add a new language {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
+h2. Add new languages {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
 
 To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as key of the added node.
 
@@ -301,10 +290,7 @@ This step is necessary because the Resource Bundle Service of the portal will fi
 
 To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, you will see Italian as shown:
 
-!example_addItalian.png!
-
-
-*Illustration 1: Italian display on Interface Language Setting*
+!images/example_addItalian.png|align="center"!
 
 h2. Remove languages {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
 
@@ -326,17 +312,14 @@ For example, to remove French, do as follows:
 *2.* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
 
 {note}
-It is recommended to do this step to delete unnecessary data in the application.
+It is recommended this step should be done to delete unnecessary data in the application.
 {note}
  
 *3.* Restart the server.
 
-To check if the French removal takes effect, simply click the *Change Language* button on the top right corner of the portal. In the Interface Language Setting window, French which is shown in the *Illustration 1* has not existed on the *Interface Language Setting* window. 
+To check if the French removal takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, French will not exist on the *Interface Language Setting* window any longer. 
 
-!example_removeFrench.png!
-
-
-*Illustration 2: Interface Language Setting without French*
+!images/example_removeFrench.png|align="center"!
 
 h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
 
@@ -346,10 +329,7 @@ h1. Add JavaScript to your portal {anchor:id=DEV.CreateYourOwnPortal.AddJavaScri
 
 This can be done entirely within your extension by customizing the *gatein-resources.xml* configuration.
 
-To add a JavaScript library, for example jQuery, do as follows:
-
-*1.* Create _war:/WEB-INF/gatein-resources.xml_ file.
-
+To add a JavaScript library, for example jQuery, create the _war:/WEB-INF/gatein-resources.xml_ file.
 
 {code:xml}
 <javascript>
@@ -360,10 +340,11 @@ To add a JavaScript library, for example jQuery, do as follows:
   </param>
 </javascript>
 {code}
-Details:
 
-_<js-module>_ is the namespace of your JavaScript.
+In which:
 
-_<js-path>_ is the path to your JavaScript file.
+* _<js-module>_ is the namespace of your JavaScript.
 
-<js-priority> is an optional tag. This tag is used to indicate the loading order of JavaScript files across all the platform. Its value is integer type. If its value is not negative (>=0), the loading priority is sorted by the descending order. If its value is negative (<0), the loading priority of the JavaScript file depends on the loading order of the web app (the .war file) containing the JavaScript file.
+* _<js-path>_ is the path to your JavaScript file.
+
+* _<js-priority>_ is an optional tag. This tag is used to indicate the loading order of JavaScript files across all eXo Platform. Its value is of the integer type. If its value is not negative (>=0), the loading priority is sorted by the descending order. If its value is negative (<0), the loading priority of the JavaScript file depends on the loading order of the web app (.war file) containing the JavaScript file.
