@@ -18,9 +18,11 @@
  */
 package org.exoplatform.platform.component;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.portlet.EventRequest;
 
@@ -30,6 +32,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.Visibility;
@@ -211,7 +214,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
         UserNode rootNode = userPortal.getNode(userNavigation, Scope.CHILDREN, toolbarPortlet.toolbarFilterConfig, null);
         UserNode dashboardNode = rootNode.getChild(_nodeName);
-        if(dashboardNode == null) {
+        if (dashboardNode == null) {
           dashboardNode = rootNode.addChild(_nodeName);
           dashboardNode.setLabel(_nodeName);
           dashboardNode.setPageRef(page.getPageId());
@@ -285,11 +288,28 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     if (nav != null) {
       try {
         UserNode rootNode = userPortall.getNode(nav, Scope.CHILDREN, toolbarFilterConfig, null);
-        return rootNode.getChildren();
+        return filterWebOSNode(rootNode.getChildren());
       } catch (Exception exp) {
         log.warn(nav.getKey().getName() + " has been deleted");
       }
     }
     return Collections.emptyList();
+  }
+
+  private Collection<UserNode> filterWebOSNode(Collection<UserNode> pageNodes) throws Exception {
+    if (pageNodes == null || pageNodes.size() == 0) {
+      return pageNodes;
+    }
+    List<UserNode> tempNodes = new ArrayList<UserNode>(pageNodes);
+    UserNode webOSNode = null;
+    for (UserNode node : tempNodes) {
+      if (isWebOSNode(node)) {
+        webOSNode = node;
+      }
+    }
+    if(webOSNode != null) {
+      tempNodes.remove(tempNodes);
+    }
+    return tempNodes;
   }
 }
