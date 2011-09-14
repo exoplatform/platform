@@ -925,12 +925,12 @@
           <artifactId>jaxb-impl</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>bouncycastle</groupId>
-          <artifactId>bcmail-jdk14</artifactId>
+          <groupId>org.bouncycastle</groupId>
+          <artifactId>bcmail-jdk15</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>bouncycastle</groupId>
-          <artifactId>bcprov-jdk14</artifactId>
+          <groupId>org.bouncycastle</groupId>
+          <artifactId>bcprov-jdk15</artifactId>
         </exclusion>
         <exclusion>
           <groupId>commons-logging</groupId>
