@@ -1,3 +1,8 @@
+This chapter covers the following topics:
+* [Remove sample applications|#ADM.Clustering.How_to_remove_sample_application]
+* [Deploy a custom extension|#ADM.Clustering.Deploy_custom_extension]
+* [Set up Apache front-end|#ADM.Clustering.Setup_Apache_Frontend]
+* [Configure the session timeout for the web server|#ADM.Clustering.Configure_session_time-out_for_web_server]
 
 h1. Remove sample applications {anchor:id=ADM.Clustering.How_to_remove_sample_application}
 
@@ -11,32 +16,32 @@ Both Acme website and Acme Social Intranet are sample extensions that demonstrat
 
 To remove the Acme site/Acme Social Intranet, do as follows:
 
-*1.* Stop the server using the command {{shutdown.sh}}.
+*1.* Stop the server using the command: _shutdown.sh_.
 
 *2.* Delete the following relevant files:
 
-* For the Acme website: *acme-portal.war*, *exo.ecms.ext.acme.config.jar* and *gatein/data*.
+* For the Acme website: _acme-portal.war_, _exo.ecms.ext.acme.config.jar_ and _gatein/data_.
 
-* For the Acme Social Intranet: *office-portal.war*, *exo.platform.office.config.jar*, and *gatein/data*.
+* For the Acme Social Intranet: _office-portal.war_, _exo.platform.office.config.jar_, and _gatein/data_.
 
 *3.* Restart the server.
 
 h2. Remove the docs webapp/crash {anchor:id=ADM.Clustering.Remove_docs_webapp/crash}
 
 The docs are bundled as a convenience to be easily browsable while your portal is started. For production deployments, you may not need them.
-The docs webapp consists of the *docs.war* file located in {{tomcat/webapps}} and in {{jboss/server/default/deploy}}. In JBoss, it is actually a folder named *docs.war*.
+The docs webapp consists of the *docs.war* file located in _tomcat/webapps_ and in _jboss/server/default/deploy_. In JBoss, it is actually a folder named _docs.war_.
 
-Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove the crash for your production deployments. The crash is covered in the *crash.war* file in {{tomcat/webapps}}.
+Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove the crash for your production deployments. The crash is covered in the *crash.war* file in _tomcat/webapps_.
 
 To remove the docs webapp/crash, do as follows:
 
-*1.* Stop the serve by using the {{shutdown.sh}} command.
+*1.* Stop the serve by using the _shutdown.sh_ command.
 
 *2.* Delete the relevant file.
 
-* For the docs webapp: The *docs.war* file.
+* For the docs webapp: The _docs.war_ file.
 
-* For the crash: The *crash.war* file.
+* For the crash: The _crash.war_ file.
 
 *3.* Restart the server.
 
@@ -44,28 +49,27 @@ h1. Deploy a custom extension {anchor:id=ADM.Clustering.Deploy_custom_extension}
 
 Extensions are packaged as the Java EE web applications and packaged as the normal .war files. To deploy the custom extension, you may do as for any other web apps.
 
-In Tomcat, this ends up by copying the war archive to the {{webapps}} folder.
+In Tomcat, this ends up by copying the war archive to the _webapps_ folder.
 
-However, the GateIn extension mechanism imposes that the starter.war webapp starts after all extension wars.
+However, the GateIn extension mechanism imposes that the _starter.war_ webapp starts after all extension wars.
 
 This is the case for the sample applications bundled by default.
 
 There are several ways to control the loading order of webapps in Tomcat. Please refer to [Tomcat's Deployer How To|http://tomcat.apache.org/tomcat-6.0-doc/deployer-howto.html#A_word_on_Contexts].
 
-h1. Set up Apache Front-end {anchor:id=ADM.Clustering.Setup_Apache_Frontend}
+h1. Set up Apache front-end {anchor:id=ADM.Clustering.Setup_Apache_Frontend}
 
 It may be necessary to use the HTTP server as a front-end for Tomcat. For example, you may want to keep more than one application server on the same host, and/or you want to access these app servers with the separate DNS names, without adding a port to the URL.
 
 There are two methods that allow you to "_glue_" Apache HTTP Daemon and Tomcat application server:
 
-- via the HTTP protocol, using [proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
+- via the HTTP protocol using [proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
 
-- via the [Apache JServ Protocol|http://tomcat.apache.org/connectors-doc/ajp/ajpv13a.html], using [tomcat connector|http://tomcat.apache.org/connectors-doc/] or [HTTPD AJP proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html].
+- via the [Apache JServ Protocol|http://tomcat.apache.org/connectors-doc/ajp/ajpv13a.html] using [Tomcat connector|http://tomcat.apache.org/connectors-doc/] or [HTTPD AJP proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html].
 
 h2. Base configuration for Apache {anchor:id=ADM.Clustering.Base_Configuration_for_Apache}
 
-First, you need to configure a new virtual host in Apache HTTPD for the application server.
-This is the simplest example of a virtual host:
+First, you need to configure a new virtual host in Apache HTTPD for the application server. This is the simplest example of a virtual host:
 
 {code}
 <VirtualHost *:80>
@@ -80,7 +84,7 @@ h2. Connect via HTTP protocol (Apache mod{{{_}}}proxy) {anchor:id=ADM.Clustering
 With the _glue_ method, it is necessary to configure the Apache HTTP daemon to work as the *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
 
 For this connection type, you need to include the *mod{{{_}}}proxy* module in the HTTP daemon configuratinon file.
-This can be found in the *httpd.conf* file, which is usually located at *_/etc/httpd/conf/_*.  However, depending on your OS, this path may vary.
+This can be found in the _httpd.conf_ file, which is usually located at _/etc/httpd/conf/_. However, depending on your OS, this path may vary.
 You will then need to add some directives to your virtual host configuration.
 
 {code}
@@ -91,8 +95,8 @@ ProxyPassReverse "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
 
 Details:
 
-* YOUR_AS_HOST - host (IP or DNS name) is the location of your application server. If you run the HTTP daemon on the same host as your app server, you can change this to *localhost*.
-* AS_HTTP_PORT - port is the location where your app server will listen to incoming requests. For Tomcat, this value is 8080 by default. You can find the value at *tomcat/conf/server.xml*.
+* _{noformat}YOUR_AS_HOST{noformat}_ - host (IP or DNS name) is the location of your application server. If you run the HTTP daemon on the same host as your app server, you can change this to *localhost*.
+* _{noformat}AS_HTTP_PORT{noformat}_ - port is the location where your app server will listen to incoming requests. For Tomcat, this value is 8080 by default. You can find the value at _tomcat/conf/server.xml_.
 
 In the above example, the HTTP daemon will work in the *reverse proxy* mode (ProxyRequests Off) and will redirect all requests to the tcp port 8080 on the localhost.
 So, the configuration of a virtual host looks like the following:
@@ -122,7 +126,7 @@ With the second method, you can obtain more settings, but you will need to downl
 
 h3. AJP proxy module {anchor:id=ADM.Clustering.AJP_proxy_module}
 
-Make sure that *mod{{{_}}}proxy{{{_}}}ajp.so* is included in the list of loadable modules.
+Make sure that _{noformat}mod_proxy_ajp.so{noformat}_ is included in the list of loadable modules.
 Add the following to your virtual host configuration setting:
 
 {code}
@@ -144,9 +148,9 @@ h3. Apache Tomcat's AJP connector {anchor:id=ADM.Clustering.Apache_Tomcat's_AJP_
 
 *1.* Download AJP connector module [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/].
 
-*2.* Move the downloaded *mod{{{_}}}jk.so* file to the HTTPD's module directory, for example: */etc/httpd/modules*. The directory may be different, depending on the OS.
+*2.* Move the downloaded _{noformat}mod_jk.so{noformat}_ file to the HTTPD's module directory, for example _/etc/httpd/modules_. The directory may be different, depending on the OS.
 
-*3.* Create the configuration file for the mod\_jk.conf module.
+*3.* Create the configuration file for the _{noformat}mod_jk.conf{noformat}_ module.
 
 {code}
 LoadModule    jk_module  modules/mod_jk.so
@@ -167,7 +171,7 @@ LoadModule    jk_module  modules/mod_jk.so
 
 For more details, see the [Tomcat documentation|http://tomcat.apache.org/connectors-doc/reference/apache.html].
 
-*4.* Place the *mod{{{_}}}jk.conf* file into the directory where other configuration files for Apache HTTP daemon are located. For example, */etc/httpd/conf.d/*.
+*4.* Place the _{noformat}mod_jk.conf{noformat}_ file into the directory where other configuration files for Apache HTTP daemon are located. For example, _/etc/httpd/conf.d/_.
 
 *5.* Create the workers.properties file, which defines [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for the HTTP daemon.
 
@@ -186,12 +190,12 @@ worker.WORKER_NAME.socket_keepalive=true
 {code}
 
 {note}
-In the example above, you can change *WORKER_NAME* to any value.
+In the example above, you can change _{noformat}WORKER_NAME{noformat}_ to any value.
 {note}
 
-*6.* Put this file in the same directory as the mod{{{_}}}jk.conf file.
+*6.* Put this file in the same directory as the _{noformat}mod_jk.conf{noformat}_ file.
 
-*7.* Update the virtual host configuration:
+*7.* Update the virtual host configuration.
 
 {code}
 <VirtualHost *:80>
@@ -211,7 +215,7 @@ In the portal environment, such as eXo Platform, it is highly recommended that a
 
 * JBoss
 
-The session timeout is configurable individually for each web application in the *web.xml file:
+The session timeout is configurable individually for each web application in the _web.xml_ file:
 
 {code:xml}
 <!-- ==================== Default Session Configuration ================= --> 
@@ -224,23 +228,23 @@ The session timeout is configurable individually for each web application in the
 
 h2. Tomcat server {anchor:id=ADM.Clustering.TomcatServer}
 
-In the Tomcat bundle, this file is located at *{{{$TOMCAT_HOME/conf/web.xml}}}*. To configure the session timeout of Server Tomcat, do as follows:
+In the Tomcat bundle, this file is located at _{noformat}$TOMCAT_HOME/conf/web.xml{noformat}_. To configure the session timeout of Server Tomcat, do as follows:
 
-*1.* Stop the server by the command: shutdown.sh.
+*1.* Stop the server by the _shutdown.sh_ command.
 
-*2.* Open the *web.xml* file.
+*2.* Open the _web.xml_ file.
 
 *3.* Change the value of the session-timeout.
 
-*4.* Save and then restart the server by the command {{gatein.sh}}.
+*4.* Save and then restart the server by the _gatein.sh_ command.
 
 h2. JBoss server {anchor:id=ADM.Clustering.JBossServer}
 
-In the JBoss server, this file is located at *{{{$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml}}}*. To configure the session timeout of the JBoss server, do as follows:
+In the JBoss server, this file is located at _{noformat}$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml{noformat}_. To configure the session timeout of the JBoss server, do as follows:
 
-*1.* Stop the server by using the shutdown.sh command.
+*1.* Stop the server by using the _shutdown.sh_ command.
 
-*2.* Open the web.xml file.
+*2.* Open the _web.xml_ file.
 
 *3.* Change the value of the session timeout.
 

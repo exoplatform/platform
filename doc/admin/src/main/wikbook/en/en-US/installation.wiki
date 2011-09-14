@@ -1,8 +1,12 @@
-eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory.
+eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory. In this chapter, you will see the following topics:
+
+* [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
+* [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
+* [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
-The easiest way to install eXo Platform is to take the default bundle. This is a ready-made package on top of the Tomcat 6 application server, so you first need to copy the *bin/tomcat6-bundle/* directory to your server. Next, do the following steps:
+The easiest way to install eXo Platform is to take the default bundle. This is a ready-made package on top of the Tomcat 6 application server, so you first need to copy the _bin/tomcat6-bundle/_ directory to your server. Next, do the following steps:
 
 *1.* Start up the server.
 
@@ -61,7 +65,7 @@ Details:
 | {{-Xms}} | Minimal Heap Size (defaults to 256 MB). |
 | {{-Xmx}} | Maximal Heap Size (defaults to 1 GB). |
 | {{-Djava.security.auth.login.config | Path to the JAAS security file where the security domains and JAAS authentication modules are declared. |
-| {{-Dexo.conf.dir.name}} | Path where eXo Platform will start looking at *configuration.properties* and *configuration.xml*. |
+| {{-Dexo.conf.dir.name}} | Path where eXo Platform will start looking at _configuration.properties_ and _configuration.xml_. |
 | {{-Dexo.profiles}} | List of comma-separated profiles of eXo Plaform to activate. |
 
 
@@ -78,7 +82,7 @@ Details:
 
 | {noformat}-Dcom.sun.management.jmxremote{noformat} | Activate the remote JMX monitoring. |
 | {noformat}-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n{noformat} | Enable the remote debugging. |
-| {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log to the console which the .xml file loads. |
+| {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log in to the console which the .xml file loads. |
 | {noformat}-Dexo.product.developing=true{noformat} | Deactivate Javascript and CSS merging for debugging more easily. Next, activate a special language called Magic Locale "ma" showing the property keys instead of the translations. |
 
 
@@ -86,11 +90,11 @@ Now, you can start and run the eXo Platform demo, but you will need to adjust th
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
-eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are located in the *{noformat}bin/jboss5-eap-ears/{noformat}* folder.
+eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are located in the _{noformat}bin/jboss5-eap-ears/{noformat}_ folder.
 
 To install eXo Platform on JBoss, follow these steps:
 
-*1.* Copy the following files to *{noformat}jboss-root/server/default/deploy{noformat}*.
+*1.* Copy the following files to _{noformat}jboss-root/server/default/deploy{noformat}_.
 
 - gatein-ds.xml
 - gatein.ear
@@ -105,19 +109,19 @@ To install eXo Platform on JBoss, follow these steps:
 - exo-acme-website-$version.ear
 - exo-default-portal-$version.ear
 
-*2.* Create the *{noformat}jboss-root/server/default/conf/gatein{noformat}* and then copy these files to this folder.
+*2.* Create the _{noformat}jboss-root/server/default/conf/gatein{noformat}_ and then copy these files to this folder.
 
 - configuration.properties
 
 - configuration.xml
 
-*3.* Copy this file to *{noformat}jboss-root/server/default/conf/gatein/gadgets{noformat}*.
+*3.* Copy this file to _{noformat}jboss-root/server/default/conf/gatein/gadgets{noformat}_.
 
 - oauthkey.pem
 
 *4.* Configure the JVM parameters.
 
-On *Linux*, add these lines to the end of *{noformat}jboss-root/bin/run.conf{noformat}*:
+On *Linux*, add these lines to the end of _{noformat}jboss-root/bin/run.conf{noformat}:
 
 {code}
 # Platform environment variables
@@ -140,10 +144,10 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
-* To use another implementation of SAX, change the class names in the EXO_XML variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
-* To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} to the {noformat}JAVA_OPTS{noformat} variable.
+* To use another implementation of SAX, change the class names in the _{noformat}EXO_XML{noformat}_ variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
+* To debug the application, simply add _{noformat}$REMOTE_DEBUG{noformat}_ to the _{noformat}JAVA_OPTS{noformat}_ variable.
 
-*5.* Add the eXo Platform logging categories to *{noformat}jboss-root/server/default/conf/jboss-log4j.xml{noformat}*.
+*5.* Add the eXo Platform logging categories to _{noformat}jboss-root/server/default/conf/jboss-log4j.xml{noformat}_.
 
 {code:xml}
 <!-- Limit the JSR170 categories -->
@@ -186,7 +190,7 @@ h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
 
 eXo Platform comes with different runtime profiles, enabling you to customize which modules you want to enable/disable in each eXo Platform instance.
 
-When using Tomcat, the *{noformat}start_eXo{noformat}* command accepts a comma-separated list of profiles. When using JBoss, you need to modify the run.conf file (run.conf.bat in Windows), then edit the line containing {noformat}EXO_PROFILES="-Dexo.profiles=default"{noformat}.
+When using Tomcat, the *{noformat}start_eXo{noformat}* command accepts a comma-separated list of profiles. When using JBoss, you need to modify the run.conf file (run.conf.bat in Windows), then edit the line containing _{noformat}EXO_PROFILES="-Dexo.profiles=default"{noformat}_.
 
 The following profiles are supported:
 
@@ -205,8 +209,8 @@ Additionally, you can use these composite profiles:
 
 For example:
 
-* {noformat}./start_eXo.sh default,workflow{noformat}: Start all modules, including workflow.
+* _{noformat}./start_eXo.sh default,workflow{noformat}_: Start all modules, including workflow.
 
-* {noformat}./start_eXo.sh collaboration,knowledge{noformat}: Start eXo Platform with GateIn, eXo Content, eXo Collaboration and eXo Knowledge enabled.
+* _{noformat}./start_eXo.sh collaboration,knowledge{noformat}_: Start eXo Platform with GateIn, eXo Content, eXo Collaboration and eXo Knowledge enabled.
 
-* {noformat}./start_eXo.sh minimal,social{noformat}: Start with eXo Social, GateIn and eXo Content.
+* _{noformat}./start_eXo.sh minimal,social{noformat}_: Start with eXo Social, GateIn and eXo Content.

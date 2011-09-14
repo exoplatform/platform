@@ -1,4 +1,6 @@
-
+This chapter presents [changes on the JAAS realm|#ADM.Security.Change_JAAS_real] with the following sub-topics:
+* [Tomcat|#ADM.Security.Tomcat]
+* [Common changes|#ADM.Security.Common_Changes]
 h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
@@ -12,7 +14,7 @@ Since the security configuration is highly dependent of the app server, each app
 
 h2. Tomcat {anchor:id=ADM.Security.Tomcat}
 
-In the Tomcat bundle, the JAAS configuration is controled by the {noformat}$TOMCAT_HOME/conf/jaas.conf{noformat}:
+In the Tomcat bundle, the JAAS configuration is controled by the _{noformat}$TOMCAT_HOME/conf/jaas.conf{noformat}_:
 
 {code}
 gatein-domain {
@@ -34,7 +36,7 @@ The custom login module could retrieve the real password through the shared stat
 To learn more about the syntax, or realms in Tomcat, refer to the [JAAS tutorial|http://download.oracle.com/javase/1.4.2/docs/guide/security/jaas/tutorials/LoginConfigFile.html] or [Tomcat Realm How-To|http://tomcat.apache.org/tomcat-6.0-doc/realm-howto.html] respectively.
 {tip}
 
-For JBoss, you need to edit the default JAAS security domain in the 02portal.war!WEB-INF/jboss-web.xml file.
+For JBoss, you need to edit the default JAAS security domain in the _02portal.war!WEB-INF/jboss-web.xml_ file.
 
 {code:xml}
 <jboss-web>
@@ -42,7 +44,7 @@ For JBoss, you need to edit the default JAAS security domain in the 02portal.war
 </jboss-web>
 {code}
 
-Additionally, you need to edit the application-policy to match the security-domain in the gatein.ear!META-INF/gatein-jboss-beans.xml.
+Additionally, you need to edit the application-policy to match the security-domain in the _gatein.ear!META-INF/gatein-jboss-beans.xml_.
 
 {code:xml}
 <deployment xmlns="urn:jboss:bean-deployer:2.0">
@@ -69,12 +71,12 @@ Additionally, you need to edit the application-policy to match the security-doma
 To learn more about the JBoss security configuration, refer to [JBoss Web Docs|http://docs.redhat.com/docs/en-US/JBoss_Enterprise_Web_Platform/5/html-single/Getting_Started_Guide/index.html#Basic_Configuration_Issues-Security_Service].
 {tip}
 
-h2. Common Changes {anchor:id=ADM.Security.Common_Changes}
+h2. Common changes {anchor:id=ADM.Security.Common_Changes}
 
 Finally, you need to do some common changes on both app servers.
 
 h3. configuration.properties
-First, change the JAAS realm to match your own security constraints and then identify the entry named "exo.security.domain" inside the configuration.properties file.
+First, change the JAAS realm to match your own security constraints and then identify the entry named _exo.security.domain_ inside the _configuration.properties_ file.
 
 {code}
 # Realm name
@@ -88,7 +90,7 @@ Internally, eXo Platform uses this setting to set a new variable named "portal.c
 
 h3. portal.war {anchor:id=ADM.Security.Portal.war}
 
-Inside portal.war, you should declare in the web.xml file the realm name:
+Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 
 {code:xml}
 <login-config>
@@ -102,7 +104,7 @@ Inside portal.war, you should declare in the web.xml file the realm name:
 
 h3. rest.war {anchor:id=ADM.Security.rest.war}
 
-You also need to modify {{rest.war}} to provide secured REST services properly.
+You also need to modify _rest.war_ to provide secured REST services properly.
 
 {code:xml}
 <login-config>

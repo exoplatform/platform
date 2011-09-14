@@ -1,5 +1,15 @@
+In this chapter, the following topics are included:
+* [Introduction to eXo Platform management|#ADM.Management.Introduction]
+* [Management views of eXo Platform|#ADM.Management.Management_views_of_eXo_Platform]
+** [PortalContainer management view|#ADM.Management.PortalContainer_management_view]
+** [Cache management view|#ADM.Management.Cache_management_view]
+** [eXo Content management view|#ADM.Management.eXo_Content_management_view]
+** [JCR management view|#ADM.Management.JCR_management_view]
+** [Portal management view|#ADM.Management.Portal_management_view]
+** [eXo Knowledge management view|#ADM.Management.eXo_Knowledge_management_view]
+** [eXo Collaboration management view|#ADM.Management.eXo_Collaboration_management_view]
 
-h1. Introduction to eXo Platform Management {anchor:id=ADM.Management.Introduction}
+h1. Introduction to eXo Platform management {anchor:id=ADM.Management.Introduction}
 
 Managing resources of eXo Platform is critical for IT operators and system administrators to monitor and supervise the production system.
 
@@ -15,13 +25,13 @@ The resources management is exposed via the JMX layer. eXo Platform registers a 
 
 At runtime, MBeans are registered by the eXo Kernel in the MBeanServer and directly viewable in the JMX console. However, it is strongly recommended that you use a better JMX client, such as JVisualVM, available since Java 6.
 
-To enable JMX monitoring in Tomcat, you need to pass the following system property to the VM: {{-Dcom.sun.management.jmxremote}}.
+To enable JMX monitoring in Tomcat, you need to pass the following system property to the VM: _-Dcom.sun.management.jmxremote_.
 
 h2. REST interface {anchor:id=ADM.Management.REST_interface}
 
 The built-in REST Management Provider of eXo Platform makes some of the MBeans operations accessible as REST endpoints. Administrators can handle the system simply with a browser without performing any complex configurations.
 
-Only members of the platform/administrators group are given permission to work on the REST management. The authentication requires you to log in by your own account.
+Only members of the _platform/administrators_ group are given permission to work on the REST management. The authentication requires you to log in by your own account.
 
 The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through the REST request is [http://localhost:8080/rest/management/skinservice/getSkinList].
 			
@@ -31,7 +41,7 @@ h2. PortalContainer management view {anchor:id=ADM.Management.PortalContainer_ma
 
 PortalContainer manages all objects and configurations of a given portal.
 
-* The JMX name template of PortalContainer MBeans: {{exo:container=portal,name="portal"}}.
+* The JMX name template of PortalContainer MBeans: _exo:container=portal,name="portal"_.
 
 ||Attribute||Description||
 |{{ConfigurationXML}}|Configuration information of the specified portal container in the XML format.|
@@ -56,7 +66,7 @@ h2. Cache management view  {anchor:id=ADM.Management.Cache_management_view}
 
 eXo Platform uses caches at several levels. Monitoring them can provide the critical performance information, especially useful for tuning the server. Each cache is exposed with statistics and management operations. 
 
-* The JMX name template of Cache MBeans: {{exo:service=cache,name={noformat}{CacheName}{noformat}}} where CacheName is the name of each cache instance.
+* The JMX name template of Cache MBeans: _{noformat}exo:service=cache,name={CacheName}{noformat}_ where _CacheName_ is the name of each cache instance.
 
 ||Attribute||Description||
 |{{Name}}|The name of the cache.|
@@ -127,7 +137,7 @@ h3. CacheManager {anchor:id=ADM.Management.Chache_manager}
 
 The CacheManager management view enables you to control different caches. 
 
-* The JMX name template of CacheManager Mbeans: {{exo:service=cachemanager}}.
+* The JMX name template of CacheManager Mbeans: _{noformat}exo:service=cachemanager{noformat}_.
 
 ||Operation||Description||
 |{{clearCaches()}}|Force a programmatic flush of all the registered caches.|
@@ -137,7 +147,7 @@ h3. PicketLinkIDMCacheService {anchor:id=ADM.Management.PicketLinkIDMCacheServer
 
 PicketLinkIDMCacheService is the default implementation for the organization model. 
 
-* The JMX name template of PicketLinkIDMCacheService MBeans: {{exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache}}.
+* The JMX name template of PicketLinkIDMCacheService MBeans: _exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache_.
 
 ||Operation||Description||
 |{{invalidateAll}}|Invalidate all caches.|
@@ -159,7 +169,7 @@ h3. WCMComposer {anchor:id=ADM.Management.WCMComposer}
 
 WCMComposer is responsible for assembling pages, and is key for serving pages efficiently. 
 
-* The JMX name template of WCMComposer MBeans: {{exo:portal="portal",service=composer,view=portal,type=content}}.
+* The JMX name template of WCMComposer MBeans: _exo:portal="portal",service=composer,view=portal,type=content_.
 
 ||Attribute||Description||
 |{{Cached}}|Indicate the cache is used or not.|
@@ -183,7 +193,7 @@ h3. FriendlyService {anchor:id=ADM.Management.Friendly_service}
 
 FriendlyService is to make URIs more friendly.
 
-* The JMX name template of FriendlyService MBeans: {{exo:portal="portal",service=friendly,view=portal,type=content}}.
+* The JMX name template of FriendlyService MBeans: _exo:portal="portal",service=friendly,view=portal,type=content_.
 
 ||Attribute||Description||
 |{{Enabled}}|Indicate the service is enabled or not.|
@@ -202,7 +212,7 @@ FriendlyService is to make URIs more friendly.
 
 h3. WCMService {anchor:id=ADM.Management.WCMService}
 
-* The JMX name template of WCMService MBeans: {{exo:portal="portal",service=wcm,view=portal,type=content}}. 
+* The JMX name template of WCMService MBeans: _exo:portal="portal",service=wcm,view=portal,type=content_. 
 
 ||Attribute||Description||
 |{{PortletExpirationCache}}|The expiration period of portlet cache in seconds.|
@@ -228,7 +238,7 @@ Java Content Repository (JCR) provides a management view to monitor sessions, lo
 
 h3. SessionRegistry {anchor:id=ADM.Management.Session_Registry}
 
-* The JMX name template of SessionRegistry MBeans: {{exo:portal="portal",service=SessionRegistry,repository="portal-repository"}}.
+* The JMX name template of SessionRegistry MBeans: _exo:portal="portal",service=SessionRegistry,repository="portal-repository"_.
 
 ||Attribute||Description||
 |{{TimeOut}}|The expiration period of a JCR session.|
@@ -245,7 +255,7 @@ h3. LockManager {anchor:id=ADM.Management.Lock_manager}
 
 LockManager stores lock objects and is reponsible for removing expired locks.
 
-* The JMX name template of LockManager MBeans: {{exo:portal="portal",service=lockmanager,repository="repository",workspace={noformat}{WorkspaceName}{noformat}}} where WorkspaceName is the name of each workspace.
+* The JMX name template of LockManager MBeans: _{noformat}exo:portal="portal",service=lockmanager,repository="repository",workspace={WorkspaceName}{noformat}_ where _WorkspaceName_ is the name of each workspace.
 
 ||Attribute||Description||
 |{{NumLocks}}|The number of active locks.|
@@ -274,7 +284,7 @@ LockManager stores lock objects and is reponsible for removing expired locks.
 
 h3. Repository {anchor:id=ADM.Management.Repository}
 
-* The JMX name template of Repository MBeans: {{exo:portal="portal",container=repository,name="repository"}}.
+* The JMX name template of Repository MBeans: _{noformat}exo:portal="portal",container=repository,name="repository"{noformat}_.
 
 ||Attribute||Description||
 |{{Name}}|The name of the repository container.|
@@ -287,7 +297,7 @@ h3. Repository {anchor:id=ADM.Management.Repository}
 
 h3. Workspace {anchor:id=ADM.Management.Workspace}
 
-* The JMX name template of Workspace MBeans: {{exo:portal="portal",container=workspace,repository="repository",name={noformat}{WorkspaceName}{noformat}}} where WorkspaceName is the name of each workspace.
+* The JMX name template of Workspace MBeans: _{noformat}exo:portal="portal",container=workspace,repository="repository",name={WorkspaceName}{noformat}_ where _WorkspaceName_ is the name of each workspace.
 
 ||Attribute||Description||
 |{{Name}}|The name of the workspace container.|
@@ -309,7 +319,7 @@ h3. Template statistics {anchor:id=ADM.Management.Temaplate_statistics}
  
 Template statistics exposes various templates used by the portal and its components to render markups. Various statistics are available for individual templates, and aggregated statistics, such as the list of the slowest templates. Most management operations are performed on a single template; those operations take the template identifier as an argument. 
 
-* The JMX name template of Template statistics MBeans: {{exo:portal="portal",service=statistic,view=portal,type=template}}.
+* The JMX name template of Template statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=template{noformat}_.
 
 ||Attribute||Description||
 |{{TemplateList}}|The list of templates loaded.|
@@ -332,7 +342,7 @@ h3. Template management {anchor:id=ADM.Management.Template_management}
 
 Template management provides the capability to force the reload of a specified template. 
 
-* The JMX name template of Template management MBeans: {{exo:portal="portal",service=management,view=portal,type=template}}.
+* The JMX name template of Template management MBeans: _{noformat}exo:portal="portal",service=management,view=portal,type=template{noformat}_.
 
 ||Operation||Description||
 |{{reloadTemplates}}|Clear the template cache.|
@@ -342,7 +352,7 @@ Template management provides the capability to force the reload of a specified t
 
 h3. Skin management {anchor:id=ADM.Management.Skin_management}
 
-* The JMX name template of Skin management MBeans: {{exo:portal="portal",service=management,view=portal,type=skin}}.
+* The JMX name template of Skin management MBeans: _{noformat}exo:portal="portal",service=management,view=portal,type=skin{noformat}_.
 
 ||Attribute||Description||
 |{{SkinList}}|The list of loaded skins by the skin service.|
@@ -355,7 +365,7 @@ h3. Skin management {anchor:id=ADM.Management.Skin_management}
 
 h3. TokenStore {anchor:id=ADM.Management.TokenStore}
 
-* The JMX name template of TokenStore MBeans: {{exo:service=TokenStore, name={noformat}{Name}{noformat}}} where Name is the name of each specific token.
+* The JMX name template of TokenStore MBeans: _{noformat}exo:service=TokenStore, name={Name}{noformat}_ where _Name_ is the name of each specific token.
 
 ||Attribute||Description||
 |{{Name}}|The name of one specific token.|
@@ -383,11 +393,10 @@ eXo Platform provides the following TokenStore instances:
 
 h3. Portal statistics {anchor:id=ADM.Management.Portal_statistic}
 
-* The JMX name template of Portal statistics MBeans: {{exo:portal="portal",service=statistic,view=portal,type=portal}}.
+* The JMX name template of Portal statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=portal{noformat}_.
 
 ||Attribute||Description||
 |{{PortalList}}|The list of identifiers of loaded portals.|
-
 
 ||Operation||Description||
 |{{getThroughput(portalId)}}|Return the number of requests for the specified portal per second.|
@@ -402,7 +411,7 @@ h3. Application statistics {anchor:id=ADM.Management.Application_statistics}
 
 Various applications are exposed to provide relevant statistics.
 
-* The JMX name template of Application statistics MBeans: {{exo:portal="portal",service=statistic,view=portal,type=application}}.
+* The JMX name template of Application statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=application{noformat}_.
 
 ||Attribute||Description||
 |{{ApplicationList}}|The list of loaded applications.|
@@ -446,7 +455,7 @@ h3. Forum {anchor:id=ADM.Management.Forum}
 
 With the Forum Service management view, you can view ADMIN rules, statistics, such as the number of online users, and information of Mail Service configuration.
 
-* The JMX name template of Forum MBeans: {{exo:portal="portal",service=forum}}.
+* The JMX name template of Forum MBeans: _{noformat}exo:portal="portal",service=forum{noformat}_.
 
 ||Attribute||Description||
 |{{AdminRules}}|The list of rules defining administrators.|
@@ -469,7 +478,7 @@ h3. Job {anchor:id=ADM.Management.Job}
 
 The Job management view enables you to view state information of Jobs used in eXo Knowledge.
 
-* The JMX name template of Job MBeans: {{exo:portal="portal",service=forum,view=jobs,name={noformat}{Name}{noformat}}} where Name is the name of each specific Job instance. 
+* The JMX name template of Job MBeans: _{noformat}exo:portal="portal",service=forum,view=jobs,name={Name}{noformat}_ where _Name_ is the name of each specific Job instance. 
 
 ||Attribute||Description||
 |{{DataMap}}|The map containing the state information for Job instances.|
@@ -485,7 +494,7 @@ eXo Knowledge provides the following Job instances:
 
 
 ||Job||Description||
-|{{DeactiveJob}}|Deactivate topics which meet TWO predefined deactivation properties: {{inactiveDays}} and {{forumName}} in Forum.|
+|{{DeactiveJob}}|Deactivate topics which meet TWO predefined deactivation properties: _inactiveDays_ and _forumName_ in Forum.|
 |{{LoginJob}}|Update information of users logged in, serving for statistics.|
 |{{NotifyJob}}|Send email notifications in Answers.|
 |{{RecountActiveUserJob}}|Indicate the number of active users in Forum.|
@@ -497,7 +506,7 @@ h3. Plugin {anchor:id=ADM.Management.Plugin}
 
 h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 
-* The JMX name template of RoleRulesPlugin MBeans: {{exo:portal="portal",service=forum,view=plugins,name="add.role.rules.plugin"}}.
+* The JMX name template of RoleRulesPlugin MBeans: _{noformat}exo:portal="portal",service=forum,view=plugins,name="add.role.rules.plugin"{noformat}_.
 
 ||Attribute||Description||
 |{{AllRules}}|The list of all rules of RoleRulesPlugin. For example, the rule defining 'root' user as an administrator follows the form of ADMIN=[root].|
@@ -517,7 +526,7 @@ h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 
 h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
-* The JMX name template of BBCodePlugin MBeans: {{exo:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"}}.
+* The JMX name template of BBCodePlugin MBeans: _{noformat}exo:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"{noformat}_.
 
 ||Attribute||Description||
 |{{BBCodes}}|The list of BBCodes defined in the plugin.|
@@ -528,32 +537,32 @@ h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
 h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
-* The JMX name template of ForumInitialDataPlugin MBeans: {{exo:portal="portal",service=forum,view=plugins,name={noformat}{Name}{noformat}}}.
+* The JMX name template of ForumInitialDataPlugin MBeans: _{noformat}exo:portal="portal",service=forum,view=plugins,name={Name}{noformat}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the Forum export file is stored.|
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the Forum export file is stored, for example *war:/data/forum/data-full-forum.zip*.|
+|{{getLocation}}|Return the location where the Forum export file is stored, for example _{noformat}war:/data/forum/data-full-forum.zip{noformat}_.|
 
 h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 
-* The JMX name template of InitialDataPlugin MBeans: {{exo:portal="portal",service=faq,view=plugins,name={noformat}{Name}{noformat}}}.
+* The JMX name template of InitialDataPlugin MBeans: _{noformat}exo:portal="portal",service=faq,view=plugins,name={Name}{noformat}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the FAQ export file is stored.|
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the FAQ export file is stored, for example *war:/data/Technical-FAQ.zip*.|
+|{{getLocation}}|Return the location where the FAQ export file is stored, for example _{noformat}war:/data/Technical-FAQ.zip{noformat}_.|
 |{{isForceXML}}|Indicate if the data loaded from the FAQ export file should override any data found in the existing database.|
 
 h3. Storage {anchor:id=ADM.Management.Storage}
 
 The Storage management view enables you to get storage information in eXo Knowledge, such as data path, repository and workspace.
 
-* The JMX name template of Forum Storage MBeans: {{exo:portal="portal",service=forum,view=storage}}.
+* The JMX name template of Forum Storage MBeans: _{noformat}exo:portal="portal",service=forum,view=storage{noformat}_.
 
 ||Attribute||Description||
 |{{Path}}|The JCR data path of the Forum Storage.|
@@ -574,8 +583,7 @@ Currently, the REST View managements of Forum, Job, Plugin, Storage are not expo
 
 h2. eXo Collaboration management view {anchor:id=ADM.Management.eXo_Collaboration_management_view}
 
-eXo Collaboration provides a management view, enabling you to view some state information of Jobs used in CS. 
-
+eXo Collaboration provides a management view, enabling you to view some state information of Jobs used in itself. 
 
 ||Attribute||Description||
 |{{DataMap}}|The map containing the state information for the Job instances.|

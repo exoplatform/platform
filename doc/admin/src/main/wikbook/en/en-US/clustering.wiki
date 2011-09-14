@@ -11,9 +11,13 @@ A cluster is a set of nodes which is managed together and participate in the wor
 These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes.
 Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS) or Shared File Systems, such as SAN and NAS.
 
-In this chapter, only the changes which are necessary for eXo Platform to work in the cluster mode are covered.
+In this chapter, only the changes which are necessary for eXo Platform to work in the cluster mode are covered as below:
+* [Set up the eXo Platform cluster|#ADM.Clustering.Cluster_setup]
+** [Shared file system|#ADM.Clustering.Shared_file_system]
+** [Advanced configuration|#ADM.Clustering.Advanced_configuration]
+* [FAQs of clustering|#ADM.Clustering.Clustering_FAQ]
 
-h1. How to set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
+h1. Set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
 
 h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_system}
 
@@ -90,7 +94,7 @@ Since eXo Platform 3.5-M3, the JCR's JBossCache default configuration is externa
 The advanced configuration is optional. It is recommended that you should not do any advanced configuration.
 {note}
 
-h2. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
+h3. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
 
 The JBossCache configuration is done in the _configuration.properties_ file.
 
@@ -131,7 +135,7 @@ gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/jgroups-udp.xml
 
 By default, the nodes discovery is based on UDP, in which *JGroups* is responsible for the nodes identification through the UDP transport. The administrator can change the configuration of detection and ports in _jgroups-udp.xml_.
 
-h2. Shared file system {anchor:id=ADM.Clustering.Advanced_configuration.Shared_file_system}
+h3. Shared file system {anchor:id=ADM.Clustering.Advanced_configuration.Shared_file_system}
 
 Optionally, if you need the dedicated physical storage, it is possible to configure paths for the shared file system for JCR storage and index separately:
 

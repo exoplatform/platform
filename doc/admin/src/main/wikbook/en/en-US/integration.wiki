@@ -1,7 +1,13 @@
 The eXo Platform integration with another systems is very important. To make eXo Platform work with _predefined organizational data_ properly, it is necessary to initialize some backend settings for each _organizational element_. 
 Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called *organizational model integration*.
 
-The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database.
+The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, through the following topics:
+* [Terminology|#ADM.Integration.Integrate_organizational_model.Terminology]
+* [Integrate the organizational model|#ADM.Integration.Integrate_organizational_model]
+** [eXo Platform start-up|#ADM.Integration.Integrate_organizational_model.Platform_startup]
+** [User login|#ADM.Integration.Integrate_organizational_model.User_login]
+** [Manual sync|#ADM.Integration.Integrate_organizational_model.Manual_sync]
+** [Scheduled/Periodic sync|#ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync]
 
 h1. Terminology {anchor:id=ADM.Integration.Integrate_organizational_model.Terminology}
 Before learning about how to integrate the organizational model, you should be aware of the following terms:
@@ -16,7 +22,7 @@ Before learning about how to integrate the organizational model, you should be a
 
 * *Listener* is a part of eXo Platform organization management. When an organizational element is added, a set of listeners is triggered to integrate it into eXo Platform. For example, when a user is added to eXo Platform, there is a listener which will add its private and public drives.
 
-h1. How to integrate the organizational model {anchor:id=ADM.Integration.Integrate_organizational_model}
+h1. Integrate the organizational model {anchor:id=ADM.Integration.Integrate_organizational_model}
 
 When an external organizational data source (LDAP server, MS ActiveDirectory) is used, eXo Platform must be notified of any changes on organizational entities, including addition, deletion and update. These changes are reflected in the backend settings of eXo Platform. 
 These notifications are performed thanks to several means provided by eXo Platform. Pick up one of the following use cases related to your needs.
@@ -27,25 +33,26 @@ h2. eXo Platform start-up {anchor:id=ADM.Integration.Integrate_organizational_mo
 
 At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of eXo Social *spaces*.
 
-In case you want to disable groups synchronization at start-up, and proceed manually to the system groups synchronization, you must modify an init param of {{OrganizationIntegrationService}}:
+In case you want to disable groups synchronization at start-up, and proceed manually to the system groups synchronization, you must modify an init param of _OrganizationIntegrationService_:
+
 {code:xml}
-	<component>
-		<type>org.exoplatform.platform.component.organization.OrganizationIntegrationService</type>
-		<init-params>
-			...
-			<value-param>
-				<name>synchronizeGroups</name>
-				<value>false</value>
-			</value-param>
-		</init-params>
-	</component>
+<component>
+  <type>org.exoplatform.platform.component.organization.OrganizationIntegrationService</type>
+  <init-params>
+    ...
+    <value-param>
+      <name>synchronizeGroups</name>
+      <value>false</value>
+    </value-param>
+  </init-params>
+</component>
 {code}
 
 h2. User login {anchor:id=ADM.Integration.Integrate_organizational_model.User_login}
 
 Once users have logged in, their profile, memberships and related groups will be auto-synchronized. Also, administrators can activate the synchronization process manually without depending on the users' login. (See the next sections for more details).
 
-h2. Manual Sync {anchor:id=ADM.Integration.Integrate_organizational_model.Manual_sync}
+h2. Manual sync {anchor:id=ADM.Integration.Integrate_organizational_model.Manual_sync}
 
 You could enforce the integration of some _organizational elements_ via REST or JMX. See the operations you can perform in the following table.
 
@@ -61,13 +68,13 @@ You could enforce the integration of some _organizational elements_ via REST or 
 For invokeAllListeners, invokeGroupsListeners and invokeUsersListeners, it may take few hours if the organizational data source contains thousands of users.
 {note}
 
-h2. Scheduled/Periodic Sync {anchor:id=ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync}
+h2. Scheduled/Periodic sync {anchor:id=ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync}
 
 You can select the periodic integration of the whole _organizational elements_ which are not integrated yet. This feature is not activated automatically in the eXo Platform distribution. To do so, you will have to add this configuration: 
 
 {code:xml}
 <external-component-plugins>
-	<target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
+  <target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
 	<component-plugin>
 		<name>OrgInitializerCronJob</name>
 		<set-method>addCronJob</set-method>
@@ -94,41 +101,41 @@ h3. Use REST {anchor:id=ADM.Integration.Integrate_organizational_model.Use_REST}
 The organization integration management API is also exposed as REST.
 You need to login as an administrator first, then use one of those links:
 
-# /portal/rest/management/orgsync/syncUser?username=USERNAME&eventType=EVENT
+* _/portal/rest/management/orgsync/syncUser?username=USERNAME&eventType=EVENT_
 
 ||Para-value||Description||
 |USERNAME|Select a username.|
 |EVENT|Select one of the following values. {example} {example} - *ADDED* - Select this option if the user is not yet integrated into eXo Platform. This will integrate the use and his/her memberships and groups. {example}{example} - *UPDATED* - Select this option if the user field or membership has been modified/added/deleted. This will update the user profiles integrated into eXo Platform and all related memberships. {example} {example} - *DELETED* - Select this option if the user has been deleted from the organization data source. So the user profile will be deleted from eXo Platform.|
 
 
-# /portal/rest/management/orgsync/syncAllUser?eventType=EVENT
+* _/portal/rest/management/orgsync/syncAllUser?eventType=EVENT_
 
 ||Para-value||Description||
-|EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for users who are added to the Organization data source, but not yet integrated. Those users will then be synchronized. {example} {example} - *UPDATED* - Search for users that are present in the Organization data source and already integrated into eXo Platform. Those profiles will be updated. {example} {example} - *DELETED* - Search for users that are deleted from the Organization data source, but their profiles still always existing in eXo Platform. Those profiles are then deleted.|
+|EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for users who are added to the Organization data source, but not yet integrated. Those users will then be synchronized. {example} {example} - *UPDATED* - Search for users that are present in the Organization data source and already integrated into eXo Platform. Those profiles will be updated. {example} {example} - *DELETED* - Search for users that are deleted from the Organization data source, but their profiles are still always existing in eXo Platform. Those profiles are then deleted.|
 
 Also, you can request for synchronizing all users.
 
-# /portal/rest/management/orgsync/syncGroup?groupId=GROUP_ID&eventType=EVENT
+* _/portal/rest/management/orgsync/syncGroup?groupId=GROUP_ID&eventType=EVENT_
 
 ||Para-value||Description||
 |GROUP_ID|Select a groupId, such as /platform/users.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Select this option if the group is not yet integrated into eXo Platform. This will integrate the group. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Select this option if the group has been deleted from Organization data source. The group profile is then deleted from eXo Platform.|
 
-# /portal/rest/management/orgsync/syncAllGroups?eventType=EVENT
+* _/portal/rest/management/orgsync/syncAllGroups?eventType=EVENT_
 
 ||Para-value||Description||
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for groups that are added to the Organization data source, but not yet integrated into eXo Platform. Those groups will be integrated. {example} {example} - *UPDATED*: This option is not used any longer. {example} {example} - *DELETED* - Search for groups that are deleted from the Organization data source, but their profiles are still existed in eXo Platform. Those profiles are then deleted.|
 
 You can also request for synchronizing all groups.
 
-# /portal/rest/management/orgsync/syncMembership?groupId=GROUP_ID&username=USERNAME&eventType=EVENT
+* _/portal/rest/management/orgsync/syncMembership?groupId=GROUP_ID&username=USERNAME&eventType=EVENT_
 
 ||Para-value||Description||
 |GROUP_ID|Select a groupId, such as /platform/users.|
 |USERNAME|Select a username.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for memberships that are added to the Organization data source, but not yet integrated into eXo Platform. Those memberships will be integrated. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Search for memberships that are deleted from the Organization data source. This will synchronize user's memberships related to the selected group.|
 
-# /portal/rest/management/orgsync/syncAll: This will synchronize all groups and users.
+* _/portal/rest/management/orgsync/syncAll_: This will synchronize all groups and users.
 
 h3. Use JMX {anchor:id=ADM.Integration.Integrate_organizational_model.Use_JMX}
 

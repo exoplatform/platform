@@ -1,32 +1,44 @@
-h1. Welcome to eXo Platform {anchor:id=ADM.Introduction.Welcome}
+h1. Welcome to eXo Platform 3.5 {anchor:id=DEV.Introduction.Welcome}
 
-eXo Platform 3.5, the user experience platform for Java, is comprised of Core and Extended Services.
+eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
-*Core Services*
-* GateIn: a powerful framework for developing portlets and other web-based user interfaces.
-* eXo Content: extends portal-based applications with Enterprise Content Management (ECM) capabilities.
-** eXo WCM: Web Content Management services.
-** xCMIS: an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services on top of eXo Content.
-** eXo Workflow: integrated Business Process Management (BPM) capabilities.
-* eXo IDE: an intuitive web-based development environment that allows developers to build, test and deploy client applications, such as gadgets and mashups, and REST-ful services online.
-* CRaSH: enables easy browsing of JCR trees, and serves as a shell for executing JCR operations.
+The following illustration gives you the overall architecture of eXo Platform 3.5.
+ 
+!images/Structure-PLF3.5.png|align="center"!
 
-*Extended Services*
-* eXo Social: a framework for building gadgets that can display and mash-up activity information for contacts, social networks, applications and services.
-* eXo Collaboration: easily adds Mail, Chat, Calendar and Address Book services to portal-based web applications.
-* eXo Knowledge: adds Forum, Answers and FAQ functionalities to portal-based applications, for collecting, organizing and sharing user knowledge.
+The foundation of eXo Platform 3.5 is an enterprise portal and content management system. This provides a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment. eXo Platform 3.5 includes the following features.
 
-eXo Platform is a fully supported and commercially licensed product based on eXo open source projects. Designed for enterprise use, it has been packaged and tested to optimize production readiness and administration.
+* An enterprise portal serves as a powerful framework for developing portlets and other web-based user interfaces, and is based on the open source GateIn portal project co-developed by eXo and Red Hat.
+* Web Content Management extends portal-based applications, allowing you to build dynamic and content-rich websites.
+* Document Management for capturing and organizing documents and unstructured content, with content storage in the built-in Java Content Repository (JCR). 
+* xCMIS is an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services, so eXo-based applications can integrate with existing content management tools.
+* Business Process Management (BPM) from Bonita Open Solution enables you to define workflow processes with automatic actions for web content, documents and more.
+* Cloud-ready features allow eXo Platform 3.5 to run in multi-tenant environments, so social intranets and websites can take advantage of the benefits of private and public cloud platforms.
 
-eXo Platform runs on JBoss, Spring, Tomcat, WebSphere, and other Java applications servers, and can be used with most of database systems, including MySQL and Oracle. 
+With eXo Platform 3.5, you can customize and extend your portal-based applications with user experience services to  build social intranets and extranets.
+* Enterprise social network features allow users to connect, collaborate within dedicated spaces, and publish real-time updates in activity streams. Support for OpenSocial provides a framework for building gadgets that can display and mash up activity information for contacts, social networks, applications and services.
+* Collaboration & communication tools let you build a more productive and interactive dashboard for social intranet users. Intuitive Mail, Chat, Calendar and Address Book functionalities can seamlessly extend your portal-based web applications.
+* Knowledge management features, including Forums, Answers, FAQs, and a complete enterprise wiki, can transform an extranet into an interactive online community and valuable knowledge base.
+* Custom development in the web-based IDE is an intuitive web-based development environment where you can build, test and deploy client applications, such as gadgets and mash-ups, and RESTful services online. Offering the ability to extend eXo Platform online, eXo IDE instantly publishes any application that you can create and deploy immediately in your portal-based solutions.
+* CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing Groovy commands, without recompiling easily.
+* Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
 
+h1. About this guide {anchor:id=DEV.Introduction.AboutGuide}
 
-h1. Who should read this guide? {anchor:id=ADM.Introduction.Intended_Readers}
+This guide describes how to get started with eXo Platform 3.5, especially for:
 
-This guide describes how to get started with eXo Platform, especially for:
+* _System Administrators_  who want to use, deploy and manage the eXo Platform system in their enterprises.
 
-* System Administrators who want to use, deploy and manage eXo Platform system in their enterprise.
+* _Developers_ who want to know how to leverage eXo Platform in their customer projects. 
 
-* Developers who want to know how to leverage eXo Platform in their customer projects. 
+Through the guide, you can do many administrative tasks when implementing eXo Platform 3.5. The administration of eXo Platform 3.5 is categorized into the following main topics:
 
-This document provides explanations for you to do administrative tasks when implementing eXo Platform, such as installment, or migration.
+|[Introduction|#ADM.Introduction]|Overview of eXo Platform 3.5, of the administration guide and its intended readers.|
+|[Installation|#ADM.Installation]|Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.|
+|[Configuration|#ADM.Configuration]|Understanding of configuration related to eXo Platform, database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.|
+|[Management|#ADM.Management]|Introduction to eXo Platform management, knowledge of eXo Platform management views.|
+|[Security|#ADM.Security]|Changes related to the JAAS realm.|
+|[Backup|#ADM.Backup]|Backup of database and file systems for the JCR index and value storage.|
+|[Clustering|#ADM.Clustering]|Changes related to clustering, which are necessary for eXo Platform to work in the cluster mode.|
+|[Deployment|#ADM.Deployment]|How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.|
+|[Integration|#ADM.Integration]|Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.|

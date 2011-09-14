@@ -1,7 +1,11 @@
-The backup of eXo Platform instance involves backing up the databases and the file systems for the JCR index and value storage.
+The backup of eXo Platform instance involves backing up the databases and the file systems for the JCR index and value storage. The following topics are covered in this chapter:
+* [Pre-backup|#ADM.Backup.Plan_backup]
+* [eXo Platform backup|#ADM.Backup.Perform_backup]
+* [Restore|#ADM.Backup.Perform_restore]
+* [Third-party tools|#ADM.Backup.Third_party_tools]
 
 {note}
-The gatein.data.dir variable is defined in the configuration.properties file and by default points to the $APPSEVERHOME/gatein/data folder.
+The _gatein.data.dir_ variable is defined in the _configuration.properties_ file and by default points to the _$APPSEVERHOME/gatein/data_ folder.
 {note}
 
 You can use the .tar command for the file backup from your application server home dir: 
@@ -27,12 +31,11 @@ In case of the eXo Platform clustering, every node should be stopped before the 
 The backup of eXo Platform consists of the following parts:
 
 * Backup of the JCR data:
-** JCR index files, pointed by the configuration property: gatein.jcr.index.data.dir.
-** JCR value storage files, pointed by the configuration property: gatein.jcr.storage.data.dir.
-** JCR database backup, database specified in the JDNI configuration of Application server with the "exo-jcr_portal" name.
-* Backup of Organization service database specified in the JDNI configuration of Application server with the "exo-idm_portal" name.
-* Backup of Transaction service files pointed by the configuration property: com.arjuna.ats.arjuna.objectstore.objectStoreDir.
-
+** JCR index files, pointed by the configuration property: _{noformat}gatein.jcr.index.data.dir{noformat}_.
+** JCR value storage files, pointed by the configuration property: _{noformat}gatein.jcr.storage.data.dir{noformat}_.
+** JCR database backup, database specified in the JDNI configuration of Application server with the _{noformat}exo-jcr_portal{noformat}_ name.
+* Backup of Organization service database specified in the JDNI configuration of Application server with the _{noformat}exo-idm_portal{noformat}_ name.
+* Backup of Transaction service files pointed by the configuration property: _{noformat}com.arjuna.ats.arjuna.objectstore.objectStoreDir{noformat}_.
 
 In the pre-backup, it is recommended that you prepare for tools, such as scripts, to restore data quickly and safely. 
 
@@ -42,7 +45,7 @@ eXo Platform indicates to one Portal application in this context, which is set b
 Information provided in this chapter only describes the backup of the single-portal Platform. The backup can be repeated for each portal in your system. 
 Only two types of JCR files are important in the backup: index and value storages. 
 
-The {{gatein.jcr.data.dir}} folder ({{$gatein.data.dir/jcr}} by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database (see the JCR configuration guide) and has no meaning for backup.
+The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database (see the JCR configuration guide) and has no meaning for backup.
 {note}
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
@@ -50,7 +53,7 @@ To learn more about the basic principles of eXo Platform backup and how to creat
 
 *Environment:*
 
-* The eXo Platform server runs on the RedHat Linux server: eXo Platform provides the remote database server MySQL 5.1:
+* The eXo Platform server runs on the RedHat Linux server. eXo Platform provides the remote database server MySQL 5.1:
 ** JCR database - _jcrdb_.
 ** Organization service database - _idmdb_.
 
@@ -59,13 +62,13 @@ To learn more about the basic principles of eXo Platform backup and how to creat
 ** JCR index files in _/mnt/netfs/platform/jcr/index_.
 ** Transaction service stored in _/mnt/netfs/platform/jta_.
 
-* The backup storage is located on the dedicated network mounted storage _/mnt/backupfs/my_plf_backup_.
+* The backup storage is located on the dedicated network mounted storage: _{noformat}/mnt/backupfs/my_plf_backup{noformat}_.
 
 *Naming and Rotation*
 
 It is a general case when the backup is organized in the two-cycle rotation: backup files are stored everyday and older data are stored weekly, and the data storage history will be planned for three years.
 
-To implement this approach, the daily backup is run (at night when the site is not in use) and store result files (database and JCR files) on the network storage in the following structure:
+To implement this approach, the daily backup is run (at night when the site is not in use) and stores result files (database and JCR files) on the network storage in the following structure:
 
 * {{{/my_plf_backup/2010/...}}} - The archive folder of the previous year.
 * {{{/my_plf_backup/current/}}} - The archive folder of the current year.
@@ -85,8 +88,8 @@ The backup files are named to the [ISO 8601|http://en.wikipedia.org/wiki/ISO_860
 For the files backup, eXo Platform provides a shell script running on the eXo Platform server. This script does the following actions:
 
 * Stop the eXo Platform server to ensure the full stop by the log sniffering.
-* Run the database backup tool against {{jcrdb}} and store the result file in the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_jcrdb.tar.gz}}}.
-* Run the database backup tool against {{idmdb}} and store the result file in the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_idmdb.tar.gz}}}.
+* Run the database backup tool against _jcrdb_ and store the result file in the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_jcrdb.tar.gz}}}.
+* Run the database backup tool against _idmdb_ and store the result file in the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_mysql_idmdb.tar.gz}}}.
 * Copy the JCR value files to the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jcr_values.tar.gz}}}.
 * Copy the JCR index files to the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jcr_index.tar.gz}}}.
 * Copy the Transaction service files to the archive {{{/mnt/backupfs/my_plf_backup/current/yyyy-MM-dd_jta.tar.gz}}}.
@@ -105,7 +108,7 @@ h1. eXo Platform backup {anchor:id=ADM.Backup.Perform_backup}
 
 To back up eXo Platform, do the following main steps:
 
-*1.* Stop the whole eXo Platform instance by using the shell command: {noformat}stop_eXo{noformat}. To see more details, see the [Chapter 2. Installation|#ADM.Installation].
+*1.* Stop the whole eXo Platform instance by using the shell command: _{noformat}stop_eXo{noformat}_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
 
 *2.* Run the backup procedure, including:
 
@@ -120,7 +123,7 @@ To back up eXo Platform, do the following main steps:
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start the backup to the steps described in [Chapter 7. Clustering|#ADM.Clustering].
+In case of the eXo Platform clustering, start the backup to the steps described in [Chapter 7. Clustering.|#ADM.Clustering]
 {note}
 
 h1. Restore {anchor:id=ADM.Backup.Perform_restore} 
@@ -129,7 +132,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 
 *1.* Unarchive the backup files from the backup storage to the temporary location.
 
-*2.* Stop the whole eXo Platform instance by using the shell command {noformat}stop_eXo{noformat}. To see more details, see the [Chapter 2. Installation|#ADM.Installation].
+*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
 
 *3.* Run the restoring procedure to restore from the backup local files for:
 
@@ -142,7 +145,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start restoring to the steps described in [Chapter 7. Clustering|#ADM.Clustering].
+In case of the eXo Platform clustering, start restoring to the steps described in [Chapter 7. Clustering.|#ADM.Clustering]
 {note}
  
 h1. Third-party tools {anchor:id=ADM.Backup.Third_party_tools}
@@ -152,12 +155,12 @@ preserve data by creating multiple copies that are based on the differences in t
 
 In steps described above, it is also possible to implement an incremental backup against the eXo Platform data.
 
-Users of the Unix platforms can use the {{rsync}} tool for files synchronization and implement the incremental backup for JCR value and index files. Meanwhile, Microsoft Windows users can use the Backup utility ({{Ntbackup.exe}}).  
+Users of the Unix platforms can use the _rsync_ tool for files synchronization and implement the incremental backup for JCR value and index files. Meanwhile, Microsoft Windows users can use the Backup utility (_Ntbackup.exe_).  
 
 These tools can be used in conjunction with a database incremental backup feature of your RDBMS to implement the eXo Platform incremental backup solution. However, all backup targets described above should be counted. 
 
 In case of the example, it is possible to organize the full backup weekly (on Sunday) and incrementals daily. The incremental backup will be faster, and reduce your site maintenance daily.
 
 {note}
-It is also possible to use the ready solutions as [backula.org|http://www.bacula.org/].
+It is also possible to use the ready solutions as [backula.org.|http://www.bacula.org/]
 {note}
