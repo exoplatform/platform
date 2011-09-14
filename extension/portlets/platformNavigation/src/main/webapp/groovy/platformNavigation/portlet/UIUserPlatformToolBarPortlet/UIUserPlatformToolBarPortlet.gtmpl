@@ -37,7 +37,7 @@ String clazz = "";
 		</a>
 		<ul style="display:none;" class="MenuItemContainer">
 			<%if(uicomponent.isSocialPortal()) {%>
-				<% uicomponent.renderChild(UINavigationComposer.class) %>
+				<% uicomponent.renderNavigationComposer() %>
 				<li>
 					<ul class="ClearFix">
 						<li class="MenuItem $clazz">

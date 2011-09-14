@@ -50,6 +50,15 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     }
   }
 
+  public void renderNavigationComposer() throws Exception {
+    if (isSocialPortal()) {
+      if (getChild(UINavigationComposer.class) == null) {
+        addChild(UINavigationComposer.class, null, null);
+      }
+      renderChild(UINavigationComposer.class);
+    }
+  }
+
   public User getUser() throws Exception {
     OrganizationService service = getApplicationComponent(OrganizationService.class);
     String userName = Util.getPortalRequestContext().getRemoteUser();
