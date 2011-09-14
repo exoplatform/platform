@@ -16,7 +16,7 @@
   <build>
     <finalName>gadget-pack-services</finalName>
     <plugins>
-    	<plugin>
+    	<!--plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-surefire-plugin</artifactId>
 	        <configuration>
@@ -24,7 +24,7 @@
 	            <exo.properties.url>classpath:/conf/configuration.properties </exo.properties.url>
 	          </systemPropertyVariables>
 	        </configuration>    		
-    	</plugin>
+    	</plugin-->
     </plugins>
   </build>
   
