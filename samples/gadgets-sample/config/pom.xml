@@ -11,6 +11,6 @@
   <name>eXo Platform - Gadgets Config</name>
   <description>Gadget pack configuration</description>
   <build>
-    <finalName>gadget-pack-config</finalName>
+    <finalName>gadget-intranet-config</finalName>
   </build>
 </project>
