@@ -42,7 +42,7 @@
           if (!data.hadError()) {
                   this.viewer = data.get('viewer').getData();
                   var profile_url =  this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
-                  userId = profile_url.substr(profile_url.lastIndexOf('@') + 1);
+                  userId = profile_url.substr(profile_url.lastIndexOf('/') + 1);
                   user = userId;
 
                    favorites.init();

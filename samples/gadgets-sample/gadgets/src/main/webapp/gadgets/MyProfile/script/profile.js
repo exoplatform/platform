@@ -25,7 +25,7 @@ function onLoadProfile(data) {
   //var context = baseContext + extensionParts[0] + "/" + extensionParts[1];
   var context = baseContext + extensionParts[0];
   var profileTempUrl = this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
-  var eXoUserID = profileTempUrl.substr(profileTempUrl.lastIndexOf('@') + 1);
+  var eXoUserID = profileTempUrl.substr(profileTempUrl.lastIndexOf('/') + 1);
   
   var profileUrl = context + '/profile/' + eXoUserID;
   var profileName = viewer.getDisplayName();
