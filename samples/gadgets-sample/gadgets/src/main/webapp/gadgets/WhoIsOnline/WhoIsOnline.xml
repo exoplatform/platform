@@ -16,10 +16,8 @@
 				<head>
 					<title>__MSG_title__</title>
 					<link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-	
 					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
 					<script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/plugins/jquery.timers/1.2/jquery.timers.js"></script>
-	
 					<script>
 						$(function(){
 							init();
@@ -47,7 +45,7 @@
 										var idx = $.inArray(user.id, myContacts);
 										if (idx != -1) {
 											var contact = myContactsJson.data[idx];
-											var avatar =	 "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (contact.avatarUrl == null ? "/social-portlet/skin/social/portlet/UIProfilePortlet/DefaultSkin/background/BLAvatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
+											var avatar =	 "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (contact.avatarUrl == null ? "/intranet-gadget/gadgets/WhoIsOnline/images/Avatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
 											var userInfo = "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<b>" + contact.fullName + "</b>" + "</a>" + 
 													(contact.position == null ? "" : " (" + "<span style='font-size: smaller;'>" + contact.position + "</span>" + ")") + "<br/>" + 
 													(contact.latestActivity == null ? "" : "<i style='font-size: smaller;'>" + contact.latestActivity + "</i>");

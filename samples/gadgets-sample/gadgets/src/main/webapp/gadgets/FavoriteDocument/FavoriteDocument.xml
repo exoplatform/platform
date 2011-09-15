@@ -4,7 +4,7 @@
   <ModulePrefs author="eXoPlatform"
     title="Favorite Documents"
     title_url="http://www.exoplatform.org"
-    description="The My favorite documents"
+    description="My favorite Documents"
     thumbnail="skin/FavoriteDocument.png"
     >
       
@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/script.js"></script>
     <link type="text/css" rel="stylesheet" href="skin/skin.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     
   <script type="text/javascript">
     
@@ -132,7 +133,7 @@
         }
         if(data.length ==0){
           var AppClass = document.createElement('div');
-          AppClass.innerHTML = "Your Favorite Document is empty.";
+          AppClass.innerHTML = "You have no favorite document.";
           favoriteList.appendChild(AppClass);
         }
         var title = _gel("BgTitle"); 
@@ -157,7 +158,7 @@
     
     </script>
 
-       <div id="FavoriteDocument-Gadget" class="UIGadgetThemes UIYellowThemes">
+       <div id="FavoriteDocument-Gadget" class="UIGadgetThemes">
           <div class="TitGad ClearFix">
             <div title="Setting" id="SettingButton" class="SettingButton">
               <a href="javascript:eXoEventGadget.showHideSetting(true);"></a> 

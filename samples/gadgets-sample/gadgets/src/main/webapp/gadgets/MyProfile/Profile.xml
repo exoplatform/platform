@@ -15,6 +15,7 @@
   <![CDATA[   
   
   <link rel="stylesheet" type="text/css" href="style/profile.css" />
+  <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
   <script type="text/javascript" src="script/profile.js"></script>
     
   <script type="text/javascript">
