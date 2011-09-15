@@ -13,7 +13,8 @@
   <Content type="html">
     <![CDATA[
 	<link rel="stylesheet" href="css/tasks.css" type="text/css" />
-    	<script src="js/jquery.js"></script>
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+   	<script src="js/jquery.js"></script>
 	<script src="js/tasks.js"></script>
     
 	<script>
@@ -51,7 +52,7 @@
 	  });
   </script>
 
-<div id="agenda-gadget" class="UIGadgetThemes UIYellowThemes">
+<div id="agenda-gadget" class="UIGadgetThemes">
 
       <form id="Setting" action="#" style="display:none;">
       <table>
