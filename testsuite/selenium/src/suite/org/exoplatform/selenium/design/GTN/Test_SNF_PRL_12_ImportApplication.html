@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Test_SNF_PRL_12_ImportApplication</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test_SNF_PRL_12_ImportApplication</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/classic/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Import application--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Sign in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UIPortalLoginFormAction']/div/div/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Go to Application Registry --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Application Registry</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>Administration</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>Administration</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Gadgets</td>
+	<td>Gadgets</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Gadgets</td>
+	<td>Gadgets</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=web</td>
+	<td>web</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=web</td>
+	<td>web</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Click Import Application --</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[1]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[1]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>This action will automatically create categories and import all the gadgets and portlets on it.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Show existing portlets and category are imported successfully--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>Administration</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[1]/div[1]/div/div/div/a[1]</td>
+	<td>Administration</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/a</td>
+	<td>Dashboard</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Gadgets</td>
+	<td>Gadgets</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Gadgets</td>
+	<td>Gadgets</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Integration</td>
+	<td>Integration</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Integration</td>
+	<td>Integration</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Navigation</td>
+	<td>Navigation</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Navigation</td>
+	<td>Navigation</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=System</td>
+	<td>System</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=System</td>
+	<td>System</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=web</td>
+	<td>web</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=web</td>
+	<td>web</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete some category after imported--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Integration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Integration</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForConfirmationPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Navigation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=System</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=System</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIApplicationOrganizer']/div[2]/div[1]/div/div/div[2]/div/div[4]/div[1]/div/div/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForConfirmationPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category and all applications on it?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
