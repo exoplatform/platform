@@ -595,82 +595,87 @@ Please refer to the Chapter 4 of this guide ([Cache management view|/docs/admin/
 
 h2. Portal Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.PortalCacheConfig}
 {code}
-# Portal Cache Configuration - ResourceBundleData 
-cache.exo.portal.ResourceBundleData.Capacity=1000 
-cache.exo.portal.ResourceBundleData.TimeToLive=600 
+# Portal Cache Configuration - TemplateService
+cache.exo.portal.TemplateService.capacity=3000
+cache.exo.portal.TemplateService.liveTime=600
 
-# Portal Cache Configuration - TemplateService 
-cache.exo.portal.TemplateService.Capacity=1000 
-cache.exo.portal.TemplateService.TimeToLive=600 
+# Portal Cache Configuration - ResourceBundleData
+cache.exo.portal.ResourceBundleData.capacity=3000
+cache.exo.portal.ResourceBundleData.liveTime=600
 
-# Portal Cache Configuration - MOPSessionManager 
-cache.exo.portal.MOPSessionManager.Capacity=5000 
-cache.exo.portal.MOPSessionManager.TimeToLive=60000 
-cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000 
+# Portal Cache Configuration - MOPSessionManager
+cache.exo.portal.MOPSessionManager.Capacity=5000
+cache.exo.portal.MOPSessionManager.TimeToLive=60000
+cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000
 {code}
 
 h2. Social Cache Configuration  {anchor:id=ADM.Configuration.CacheConfiguration.SocialCacheConfig}
 {code}
-# Social Cache Configuration - ActivityManager 
+# Social Cache Configuration - ActivityManager
 ## ActivityManager.ActivityCache 
-cache.exo.social.ActivityManager.ActivityCache.Capacity=3000 
-cache.exo.social.ActivityManager.ActivityCache.TimeToLive=600 
-## ActivityManager.ActivityListCache 
-cache.exo.social.ActivityManager.ActivityListCache.Capacity=300 
-cache.exo.social.ActivityManager.ActivityListCache.TimeToLive=600 
-## ActivityManager.CommentsCache 
-cache.exo.social.ActivityManager.CommentsCache.Capacity=1000 
-cache.exo.social.ActivityManager.CommentsCache.TimeToLive=600 
+cache.exo.social.ActivityManager.ActivityCache.Capacity=4000
+cache.exo.social.ActivityManager.ActivityCache.TimeToLive=43200
 
-# Social Cache Configuration - IdentityManager 
-## IdentityManager.IdentityCache 
-cache.exo.social.IdentityManager.IdentityCache.Capacity=500 
-cache.exo.social.IdentityManager.IdentityCache.TimeToLive=600 
-## IdentityManager.IdentityCacheById 
-cache.exo.social.IdentityManager.IdentityCacheById.Capacity=3000 
-cache.exo.social.IdentityManager.IdentityCacheById.TimeToLive=600 
-## IdentityManager.IdentityListCache 
-cache.exo.social.IdentityManager.IdentityListCache.Capacity=300 
-cache.exo.social.IdentityManager.IdentityListCache.TimeToLive=600 
+## ActivityManager.ActivityListCache
+cache.exo.social.ActivityManager.ActivityListCache.Capacity=1000
+cache.exo.social.ActivityManager.ActivityListCache.TimeToLive=7200
 
-# Social Cache Configuration - RelationshipManager 
-##  RelationshipManager.RelationshipIdCache 
-cache.exo.social.RelationshipManager.RelationshipIdCache.Capacity=300 
-cache.exo.social.RelationshipManager.RelationshipIdCache.TimeToLive=600 
-## RelationshipManager.RelationshipListCache 
-cache.exo.social.RelationshipManager.RelationshipListCache.Capacity=300 
-cache.exo.social.RelationshipManager.RelationshipListCache.TimeToLive=600 
+## ActivityManager.CommentsCache
+cache.exo.social.ActivityManager.CommentsCache.Capacity=1000
+cache.exo.social.ActivityManager.CommentsCache.TimeToLive=86400
 
-# Social Cache Configuration - SpaceStorage 
-cache.exo.social.SpaceStorage.SpaceCache.Capacity=300 
-cache.exo.social.SpaceStorage.SpaceCache.TimeToLive=600 
+# Social Cache Configuration - IdentityManager
+## IdentityManager.IdentityCache
+cache.exo.social.IdentityManager.IdentityCache.Capacity=1000
+cache.exo.social.IdentityManager.IdentityCache.TimeToLive=3600
+
+## IdentityManager.IdentityCacheById
+cache.exo.social.IdentityManager.IdentityCacheById.Capacity=3000
+cache.exo.social.IdentityManager.IdentityCacheById.TimeToLive=3600
+
+## IdentityManager.IdentityListCache
+cache.exo.social.IdentityManager.IdentityListCache.Capacity=300
+cache.exo.social.IdentityManager.IdentityListCache.TimeToLive=600
+
+# Social Cache Configuration - RelationshipManager
+##  RelationshipManager.RelationshipIdCache
+cache.exo.social.RelationshipManager.RelationshipIdCache.Capacity=300
+cache.exo.social.RelationshipManager.RelationshipIdCache.TimeToLive=600
+
+## RelationshipManager.RelationshipListCache
+cache.exo.social.RelationshipManager.RelationshipListCache.Capacity=1000
+cache.exo.social.RelationshipManager.RelationshipListCache.TimeToLive=3600
+
+# Social Cache Configuration - SpaceStorage
+cache.exo.social.SpaceStorage.SpaceCache.Capacity=300
+cache.exo.social.SpaceStorage.SpaceCache.TimeToLive=7200
 {code}
 
 h2. ECMS Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.ECMSCacheConfig}
 {code}
-# ECMS Cache Configuration - Viewer 
-cache.exo.ecms.Viewer.PDFViewer.Capacity=300 
-cache.exo.ecms.Viewer.PDFViewer.TimeToLive=600 
+# ECMS Cache Configuration - Viewer
+cache.exo.ecms.Viewer.PDFViewer.Capacity=300
+cache.exo.ecms.Viewer.PDFViewer.TimeToLive=3600
 
-# ECMS Cache Configuration - Drives 
-cache.exo.ecms.Drives.ManageDrive.Capacity=300 
-cache.exo.ecms.Drives.ManageDrive.TimeToLive=600 
+# ECMS Cache Configuration - Drives
+cache.exo.ecms.Drives.ManageDrive.Capacity=300
+cache.exo.ecms.Drives.ManageDrive.TimeToLive=86400
 
-# ECMS Cache Configuration - Scripts 
-cache.exo.ecms.Scripts.ScriptService.Capacity=300 
-cache.exo.ecms.Scripts.ScriptService.TimeToLive=600 
+# ECMS Cache Configuration - Scripts
+cache.exo.ecms.Scripts.ScriptService.Capacity=300
+cache.exo.ecms.Scripts.ScriptService.TimeToLive=86400
 
-# ECMS Cache Configuration - Templates 
-cache.exo.ecms.Templates.TemplateService.Capacity=300 
-cache.exo.ecms.Templates.TemplateService.TimeToLive=600 
+# ECMS Cache Configuration - Templates
+cache.exo.ecms.Templates.TemplateService.Capacity=300
+cache.exo.ecms.Templates.TemplateService.TimeToLive=86400
 
-# ECMS Cache Configuration - Webcontent 
-cache.exo.ecms.Webcontent.InitialWebContentPlugin.Capacity=300 
-cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600 
+# ECMS Cache Configuration - Webcontent
+cache.exo.ecms.Webcontent.InitialWebContentPlugin.Capacity=300
+cache.exo.ecms.Webcontent.InitialWebContentPlugin.TimeToLive=600
 
-# ECMS Cache Configuration - WCM Composer 
-cache.exo.ecms.WCMComposer.Capacity=300 
-cache.exo.ecms.WCMComposer.TimeToLive=600
+# ECMS Cache Configuration - WCM Composer
+cache.exo.ecms.WCMComposer.Capacity=1000
+cache.exo.ecms.WCMComposer.TimeToLive=3600
 {code}
  
 h1. Users configurations {anchor:id=ADM.Configuration.Users_configuration}
