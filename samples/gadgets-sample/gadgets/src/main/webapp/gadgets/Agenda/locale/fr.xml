@@ -1,0 +1,68 @@
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<messagebundle>
+  <msg name="title">
+    Événements à venir
+  </msg>
+  <msg name="baseurl">
+    URL de base
+  </msg>
+  <msg name="subscribeurl">
+    URL de Service
+  </msg>
+  <msg name="limit">
+    Nombre d'item affichés
+  </msg>
+  <msg name="format">
+    Format de l'heure
+  </msg>
+  <msg name="calendars">
+    Calendrier
+  </msg>
+  <msg name="showall">
+    Montrer tout
+  </msg>
+  <msg name="back">
+    Précédent
+  </msg>
+  <msg name="noevent">
+    Aucun événement aujourd'hui
+  </msg>
+  <msg name="titleTask">
+    Mes tâches
+  </msg>
+  <msg name="notask">
+    Aucune tâche aujourd'hui
+  </msg>
+  <msg name="setting">
+    Réglage
+  </msg>
+  <msg name="save">
+    Enregistrer
+  </msg>
+  <msg name="cancel">
+    Annuler
+  </msg>
+  <msg name="confirm">
+    Êtes-vous sûr que cette tâche est terminée?
+  </msg>
+</messagebundle>

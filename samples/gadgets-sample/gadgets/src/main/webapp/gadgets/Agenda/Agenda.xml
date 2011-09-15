@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs author="eXoPlatform"
+    title="Agenda"
+    title_url="http://www.exoplatform.org"
+    description="Tasks and Upcoming Event list.">
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+    <Require feature="setprefs"/>
+    <Require feature="dynamic-height"/>
+    <UserPref name="setting" default_value="/calendar;/portal/rest/cs/calendar/getissues;10;AM/PM;Default" datatype="hidden" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+	<link rel="stylesheet" href="css/tasks.css" type="text/css" />
+    	<script src="js/jquery.js"></script>
+	<script src="js/tasks.js"></script>
+    
+	<script>
+
+			function showTask(){
+				$("#eventDiv").hide();
+				$("#taskLink").removeClass();
+				$("#eventLink").addClass("ThemeColor customLink");
+				$("#taskDiv").show();
+	
+				}
+			function showEvent(){
+				$("#taskDiv").hide();
+				$("#eventLink").removeClass();
+				$("#taskLink").addClass("ThemeColor customLink");
+				$("#eventDiv").show();
+				}
+
+
+	  $(document).ready(function(){
+
+		showTask();
+
+		$("#taskLink").click(function () {
+			showTask();
+			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+		});
+
+		$("#eventLink").click(function () {
+			showEvent();
+			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+		});
+		//gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+
+	  });
+  </script>
+
+<div id="agenda-gadget" class="UIGadgetThemes UIYellowThemes">
+
+      <form id="Setting" action="#" style="display:none;">
+      <table>
+        <tr>
+          <td>__MSG_baseurl__</td>
+          <td><input type="text" name="url"></td>
+        </tr>
+        <tr>
+          <td>__MSG_subscribeurl__</td>
+          <td><input type="text" name="subscribeurl"></td>
+        </tr>
+        <tr>
+          <td>__MSG_limit__</td>
+          <td><input type="text" name="limit"></td>
+        </tr>
+        <tr>
+          <td>__MSG_format__</td>
+          <td>
+            <select type="text" name="timeformat">
+              <option value="0">AM/PM</option>
+              <option value="1">24</option>
+            </select>
+          </td>
+        </tr>        
+        <tr>
+          <td>__MSG_calendars__</td>
+          <td>
+            <select type="text" name="calendars">
+              <option value="0">Default</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" name="save" value="__MSG_save__" onclick="eXoEventGadget.saveSetting();">
+            <input type="button" name="cancel" value="__MSG_cancel__" onclick="eXoEventGadget.showHideSetting(false);">
+          </td>          
+        </tr>
+      </table>
+      </form>
+
+
+        <div class="TitGad ClearFix">
+          <a href="#demo" class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
+
+          <div class="SettingButton" id="SettingButton" title="__MSG_setting__">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
+          </div>
+          <div class="ContTit">Agenda</div>
+        </div>
+	<br/>
+
+
+	<div style="margin-left: 15px;">
+	<a id="taskLink" href="#" class="ThemeColor customLink"> </a> 
+	&nbsp; | &nbsp;
+	<a id="eventLink" href="#" class="ThemeColor customLink"> </a>
+	</div>
+
+
+        <div class="GadCont MyTasks" id="taskDiv">
+     	<!--
+          <div class="CheckBox">
+            <input type="checkbox" name="checkbox" id="abc"></input>
+            <label id="abc">09:00<span>Joint PR CS + KS</span></label>
+          </div>
+   	-->
+        </div> 
+	
+
+          <div class="GadCont UpcomingEvents" id="eventDiv">
+          <!-- <a href="#demo" class="IconLink">09:00<span>Daily Meeting</span></a> -->
+          </div>
+
+</div>
+
+    ]]>
+  </Content>
+</Module>

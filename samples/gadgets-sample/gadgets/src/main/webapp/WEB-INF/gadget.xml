@@ -30,8 +30,8 @@
   <gadget name="FavoriteDocument">
     <path>/gadgets/FavoriteDocument/FavoriteDocument.xml</path>
   </gadget>
-  <!--gadget name="Agenda">
+  <gadget name="Agenda">
     <path>/gadgets/Agenda/Agenda.xml</path>
-  </gadget-->
+  </gadget>
 
 </gadgets>

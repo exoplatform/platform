@@ -1,0 +1,134 @@
+body, table, form{
+  background: #fff;
+  font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #484848;
+}
+
+a {
+text-decoration:none;
+}
+
+.customLink {
+  text-decoration:underline;
+  color:#231a67; cursor:pointer;
+}
+
+.ThemeColor {
+ color: #226ab4;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ClearFix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ClearFix {
+  !display: inline-block;
+  !zoom: 1;
+  !display: block; 
+}
+
+.TxtDarkBlue {
+  color: #231a67;
+}
+
+.TxtGray {
+  color: #484848;
+}
+
+
+.UIGadgetThemes .TitGad {
+  line-height: 22px;
+  border-top: 1px solid #ffd400;
+  border-bottom: 6px solid #ffd400;
+  color: #484848;
+  font-size: 12px;
+  padding: 0px 15px;
+  font-weight: bold;
+}
+
+.UIGadgetThemes .TitGad .IconDropDown {
+  background: url('skin/IconDropDown.gif') no-repeat right 7px;
+  float: right;
+  padding-right: 12px;
+  font-size: 11px;
+  color: #484848;
+  display: block;
+}
+
+.UIGadgetThemes .TitGad .ContTit {
+  margin-right: 45px;
+}
+
+.UIGadgetThemes .GadCont {
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+.UIGadgetThemes .GadCont .IconLink {
+  background: url('skin/IconLink.gif') no-repeat left center;
+  display: block;
+}
+
+
+/** MyTasks **/
+
+.UIGadgetThemes .MyTasks .CheckBox {
+  margin-bottom: 5px;
+}
+
+.UIGadgetThemes .MyTasks .CheckBox input {
+  margin: 0px 3px 0px 0px;
+}
+
+.UIGadgetThemes .MyTasks .CheckBox span {
+  color: #231a67;
+  padding-left: 10px;
+}
+.UIGadgetThemes .MyTasks .TaskDone {
+  color:#cccccc;
+}
+
+.UIGadgetThemes .MyTasks .TaskDetail {
+  display:none;
+}
+.UIGadgetThemes .SettingButton{
+  float:right;
+  margin-top:2px;
+  margin-right:10px;
+  display:block;
+  background:url(skin/settings.png) no-repeat;
+}
+.UIGadgetThemes .SettingButton a{
+  display:block;  
+  width:16px;
+  height:16px;
+}
+
+
+/** UpcomingEvents **/
+.UIGadgetThemes .UpcomingEvents .IconLink {
+  padding-left: 10px;
+  margin-bottom: 5px;
+  color: #484848;
+}
+
+.UIGadgetThemes .UpcomingEvents span {
+  color: #231a67;
+  padding-left: 10px;
+}
+
+.UIGadgetThemes .EventDetail {
+  display:none;  
+}
+
