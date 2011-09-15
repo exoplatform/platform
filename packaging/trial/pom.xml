@@ -190,15 +190,15 @@
 <!--
  | Disable cargo until we take the decision to use it or not.
 -->
-      <plugin>
+      <!--plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
         <version>1.0.5</version>
         <executions>
 			<execution>
-<!--
+<!-
  | Step 03: Start the package with cargo
--->
+->
 			  <id>03-start-container</id>
 			  <phase>prepare-package</phase>
 			  <goals>
@@ -206,9 +206,9 @@
 			  </goals>
 			</execution>
 			<execution>
-<!--
+<!-
  | Step 04: Stop the package with cargo
--->
+->
 			  <id>04-stop-container</id>
 			  <phase>prepare-package</phase>
 			  <goals>
@@ -218,7 +218,7 @@
 		  </executions>
 		<configuration>
           <wait>false</wait>
-		  <!-- Container configuration -->
+		  <!- Container configuration ->
 		  <container>
 			<containerId>tomcat6x</containerId>
 			<home>${project.build.directory}/tomcat-bundle</home>
@@ -235,7 +235,7 @@
               <exo.profiles>default</exo.profiles>
 			</systemProperties>
 		  </container>
-		  <!-- Configuration to use with the container -->
+		  <!- Configuration to use with the container ->
 		  <configuration>
             <type>existing</type>
 			<home>${project.build.directory}/tomcat-bundle</home>
@@ -259,7 +259,7 @@
                 </configuration>
               </execution>
             </executions>
-          </plugin>
+          </plugin-->
 		</plugins>
 	  </build>
     </profile>
