@@ -197,15 +197,15 @@
             </div>
 
             <div id ="seeWeeklyStatistic" class="ContTit ClearFix">
-              <a>__MSG_forums.statistic.title__</a>
+              <span>__MSG_forums.statistic.title__</span>
               <img id ="viewWeeklyStatistic" class = 'icon' src ='skin/weekly-stats-icon.png' title = "__MSG_forums.statistic.see.weekly.statistic__"/>
             </div>
             
             <div id ="seeTotalStatistic" class="ContTit ClearFix">
-              <a>__MSG_forums.weekly.statistic.title__</a>
-              <img id ="viewChart" class = 'icon' src='skin/chart-stats-icon.png' title = "__MSG_forums.weekly.statistic.view.chart__"/>
-              <img id ="viewList" class = 'icon' src='skin/list_icon.png' title = "__MSG_forums.weekly.statistic.view.list__"/>
-              <img id ="viewTotalStatistic" class = 'icon' src='skin/global-stats.png' title = "__MSG_forums.statistic.see.total.statistic__"/>
+              <span>__MSG_forums.weekly.statistic.title__</span>
+              <img id ="viewTotalStatistic" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/back.png' title = "__MSG_forums.statistic.see.total.statistic__"/>
+              <img id ="viewChart" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/chart.png' title = "__MSG_forums.weekly.statistic.view.chart__"/>
+              <img id ="viewList" class = 'icon' src='/exo-gadget-resources/skin/exo-gadget/images/list.png' title = "__MSG_forums.weekly.statistic.view.list__"/>
             </div>
             
           </div>

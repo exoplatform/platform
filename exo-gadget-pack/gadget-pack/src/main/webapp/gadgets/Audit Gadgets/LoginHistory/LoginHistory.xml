@@ -96,14 +96,14 @@
 				$('#lastLoginsTable tr').remove();
 				$.each(lastLoginsJson.data, function(i,login){
 					var newRow = $( "<tr " + "id='"+login.userId+"'" + ">" + 
-														"<td text-align='left'>" + login.userName.replace(/ /g, "&nbsp;") + "</td>" + 
-														"<td text-align='center'>" + (login.lastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.lastLogin, true) : prettyTimeDiff(login.lastLogin, true) + " ago") + "</td>" + 
-														"<td text-align='center'>" + (login.beforeLastLogin == 0 ? "__MSG_loginHistory.unknow__" : (login.beforeLastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.beforeLastLogin, true) : prettyTimeDiff(login.beforeLastLogin, true) + " ago")) + "</td>" +
-														"<td text-align='center'>" + 
-															"<a class = 'statsLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/stats_icon.png' alt='__MSG_loginHistory.statisticsView__' title='__MSG_loginHistory.statisticsView__'></img></a>" +
-															"<a class = 'hisLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/list_icon.png' alt='__MSG_loginHistory.historyView__' title='__MSG_loginHistory.historyView__'></img></a>" + 
-										 				"</td>" +
-													"</tr>");
+						"<td text-align='left'>" + login.userName.replace(/ /g, "&nbsp;") + "</td>" + 
+						"<td text-align='center'>" + (login.lastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.lastLogin, true) : prettyTimeDiff(login.lastLogin, true) + " ago") + "</td>" + 
+						"<td text-align='center'>" + (login.beforeLastLogin == 0 ? "__MSG_loginHistory.unknow__" : (login.beforeLastLogin > new Date().getTime() ? "next " + prettyTimeDiff(login.beforeLastLogin, true) : prettyTimeDiff(login.beforeLastLogin, true) + " ago")) + "</td>" +
+						"<td text-align='center'>" + 
+							"<a class = 'statsLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/chart.png' alt='__MSG_loginHistory.statisticsView__' title='__MSG_loginHistory.statisticsView__'></img></a>" +
+							"<a class = 'hisLink' href='#'><img src='/exo-gadget-resources/skin/exo-gadget/images/list.png' alt='__MSG_loginHistory.historyView__' title='__MSG_loginHistory.historyView__'></img></a>" + 
+						"</td>" +
+					"</tr>");
 					$('#lastLoginsTable').append(newRow);
 				});
 				$lastLoginsDataBackup = $("#lastLoginsDataDiv").clone();

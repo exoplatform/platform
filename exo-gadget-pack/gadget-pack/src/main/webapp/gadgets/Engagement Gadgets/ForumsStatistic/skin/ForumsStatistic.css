@@ -1,21 +1,5 @@
 
-.UIGadgetThemes .TitGad {
- padding: 0px 0px 0px 15px;
- text-align: right;
- height:22px;
-}
-
-.UIGadgetThemes .TitGad .ContTit {
- margin-right: 3px;
-}
-
-.UIGadgetThemes .TitGad .ContTit a{
- display: block;
- float: left;
- margin-right: 5px;
-}
-
-.UIGadgetThemes .WeeklyStatisticArea .ChartContent{
+.WeeklyStatisticArea .ChartContent{
   clear: both;
   height: 200px;
   margin-bottom: 10px;
@@ -24,13 +8,12 @@
   width: 200px;
 }
 
-.UIGadgetThemes .TotalStatisticArea{
+.TotalStatisticArea{
   min-height:150px;
 }
 
 .icon{
   cursor:pointer;
-  height:20px;
 }
 .users li {
  list-style:none;
