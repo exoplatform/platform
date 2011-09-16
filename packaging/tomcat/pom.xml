@@ -367,7 +367,7 @@
     <!-- Crash -->
     <dependency>
       <groupId>org.crsh</groupId>
-      <artifactId>crsh.jcr</artifactId>
+      <artifactId>crsh.core</artifactId>
       <version>${org.crsh.version}</version>
       <type>war</type>
     </dependency>

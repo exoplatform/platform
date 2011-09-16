@@ -195,7 +195,7 @@ function getModule(params)
    
     // Crash
    module.crash = {};
-   module.crash.webapp = new Project("org.crsh","crsh.jcr", "war", crashVersion);
+   module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
    module.crash.webapp.deployName = "crash";
    
    // eXo WebOS
