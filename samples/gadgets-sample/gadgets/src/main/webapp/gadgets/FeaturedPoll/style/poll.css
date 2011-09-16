@@ -1,0 +1,45 @@
+.GadCont .Question{
+  margin-top: 0px;
+  text-decoration: none;
+  color: #484848;
+}
+
+.GadCont .Discuss{
+  color: #226ab4;
+  display: inline-block;
+  float: right;
+
+}
+
+.GadCont .VoteResult{
+  font-size: 12px;
+  border: none;
+  width: 100%;
+
+}
+
+.GadCont .VoteResult td, .GadCont .VoteResult th{
+  border: none;
+}
+
+.GadCont .VoteResult thead{
+  background-color: #ccc;
+}
+
+#listpoll {
+  display:none;
+}
+.GadCont .PollList{
+  width: 100%;
+}
+.MiniMessage{
+  font-size: 12px;
+  padding:10px 0px;
+  position:absolute;
+  background:red;
+  width: 100%;
+}
+
+td {
+padding: 5px 0;
+}
