@@ -50,8 +50,26 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
+                                <!-- Agenda gadget -->
+		                <portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://Agenda</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
 				<!-- My spaces gadget -->
-				<portlet-application>
+				<!--portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
 						<portlet-ref>GadgetPortlet</portlet-ref>
@@ -67,9 +85,9 @@
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
-				</portlet-application>
+				</portlet-application-->
 				<!-- My task gadget -->
-				<portlet-application>
+				<!--portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
 						<portlet-ref>GadgetPortlet</portlet-ref>
@@ -85,7 +103,7 @@
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
-				</portlet-application>
+				</portlet-application-->
 
 
 
@@ -182,7 +200,7 @@
 			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
 								<!-- upcoming Events gadget -->
-				<portlet-application>
+				<!--portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
 						<portlet-ref>GadgetPortlet</portlet-ref>
@@ -198,7 +216,7 @@
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
-				</portlet-application>
+				</portlet-application-->
 <!--
 					<portlet-application>
 					<portlet>
