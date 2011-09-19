@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     Copyright (C) 2009 eXo Platform SAS.
@@ -20,23 +20,23 @@
 
 -->
 
-<configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-
-  <!-- WHO IS ONLINE -->
-  <component>
-    <type>org.exoplatform.platform.gadget.services.Online.OnlineRestService</type>
-  </component>
-
-  <!--FAVORITE DOCUMENT-->
-  <component>
-    <type>org.exoplatform.platform.gadget.services.favorite.FavoriteRESTService</type>
-  </component>
-
-  <!--INVITATIONS-->
-  <component>
-    <type>org.exoplatform.platform.gadget.services.Invitations.InvitationsRestServices</type>
-  </component>
-</configuration>
+<messagebundle>
+  <msg name="title">
+    Invitations
+  </msg>
+  <msg name="people">
+    People 
+  </msg>
+  <msg name="space">
+    Space
+  </msg>
+  <msg name="no_new_contact">
+    No new contact ...
+  </msg>
+  <msg name="no_new_space">
+    No new space ...
+  </msg>
+  <msg name="nothing">
+    Nothing new for you ...
+  </msg>
+</messagebundle>

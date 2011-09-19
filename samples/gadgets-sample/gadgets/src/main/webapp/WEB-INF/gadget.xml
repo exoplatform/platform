@@ -36,5 +36,7 @@
   <gadget name="FeaturedPoll">
     <path>/gadgets/FeaturedPoll/Poll.xml</path>
   </gadget>
-
+  <gadget name="Invitations">
+    <path>/gadgets/Invitations/Invitations.xml</path>
+  </gadget>
 </gadgets>
