@@ -77,65 +77,6 @@
        <access-permissions>*:/platform/users</access-permissions>
        <show-info-bar>false</show-info-bar>      
     </portlet-application>
-	 
-    <portlet-application>
-      <portlet>
-        <application-ref>presentation</application-ref>
-        <portlet-ref>SingleContentViewer</portlet-ref>
-        <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>workspace</name>
-            <value>collaboration</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>nodeIdentifier</name>
-            <value>/sites content/live/acme/web contents/site artifacts/Footer</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowQuickEdit</name>
-            <value>true</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowPrintAction</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTOC</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTags</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowCategories</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTitle</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>Footer</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
 
   </portal-layout>
   
