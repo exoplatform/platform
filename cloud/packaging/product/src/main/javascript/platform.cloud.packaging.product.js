@@ -177,6 +177,8 @@ function getProduct(version) {
   product.removeDependency(new Project("ical4j", "ical4j", "jar", "0.9.20"));
   product.removeDependency(new Project("commons-lang", "commons-lang", "jar", "2.3"));
   product.removeDependency(new Project("commons-io", "commons-io", "jar", "1.3.2"));
+  product.removeDependency(new Project("commons-io", "commons-io", "jar", "1.3.2"));
+  product.removeDependency(new Project("org.exoplatform", "exo-jcr-services", "jar", "1.14.0-GA"));
   
   /* remove extensions config . We don't need them because PLF declares a global container config in exo.platform.config */
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-ecmdemo-config", "jar", wcm.version));

@@ -475,6 +475,12 @@
       <type>war</type>
     </dependency>
     <dependency>
+      <groupId>org.exoplatform</groupId>
+      <artifactId>exo-jcr-services</artifactId>
+      <version>${org.exoplatform.jcr-services.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
       <groupId>asm</groupId>
       <artifactId>asm</artifactId>
       <version>${asm.version}</version>
@@ -713,8 +719,6 @@
       <version>${org.slf4j.version}</version>
       <type>jar</type>
     </dependency>
-
-
 
     <dependency>
       <groupId>org.exoplatform.ks</groupId>

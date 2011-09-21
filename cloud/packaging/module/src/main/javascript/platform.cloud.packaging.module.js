@@ -153,7 +153,8 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-statistic", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-tomcat-valve", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-multitenant-rest-services", "jar", cloudVersion)).
-        addDependency(new Project("org.exoplatform.cloud-management", "cloud-instrument-runtime", "jar", cloudVersion));
+        addDependency(new Project("org.exoplatform.cloud-management", "cloud-instrument-runtime", "jar", cloudVersion)).
+        addDependency(new Project("org.exoplatform", "exo-jcr-services", "jar", jcr.version));
    module.cloud.cloudAdmin.deployName = "cloud-admin"; 
 
    module.cloud.cloudExtension =

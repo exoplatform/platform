@@ -164,7 +164,7 @@
   </component>
 
   <!-- HSQL Configuration -->
-  <component>
+  <!-- component>
     <key>org.exoplatform.services.database.creator.DBCreator</key>
     <type>org.exoplatform.services.database.creator.DBCreator</type>
     <init-params>
@@ -184,7 +184,7 @@
         <property name="password" value="" />
       </properties-param>
     </init-params>
-  </component>
+  </component -->
 
   <!-- MySQL configuration -->
   <!-- component>
@@ -232,6 +232,19 @@
   <!-- REST service for BackupManager -->
   <component>
     <type>org.exoplatform.services.jcr.ext.backup.server.HTTPBackupAgent</type>
+  </component>
+
+  <!-- JCR Organiation service -->
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.jcr.ext.organization.JCROrganizationServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>storage-workspace</name>
+        <description>Workspace in default repository where organization storage will be created</description>
+        <value>portal-system</value>
+      </value-param>
+    </init-params>
   </component>
 
   <!-- TenantRegistryPlugin support -->
@@ -326,7 +339,7 @@
   </component>
 
   <!-- HSQL Configuration -->
-  <external-component-plugins>
+  <!-- external-component-plugins>
     <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
     <component-plugin>
       <name>bind.datasource</name>
@@ -355,34 +368,7 @@
         </properties-param>
       </init-params>
     </component-plugin>
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>${gatein.idm.datasource.name}_portal</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-          <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-          <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/../idm/exo_idm_portal" />
-          <property name="username" value="sa" />
-          <property name="password" value="" />
-        </properties-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
+  </external-component-plugins -->
 
   <!-- MySQL Configuration -->
   <!-- external-component-plugins>
@@ -409,36 +395,6 @@
           <description>ref-addresses</description>
             <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
             <property name="url" value="jdbc:mysql://localhost:3306/${tenant.repository.name}"/>
-            <property name="username" value="root"/>
-            <property name="password" value="root"/>
-            <property name="maxActive" value="100" />
-            <property name="maxIdle" value="2" />
-            <property name="initialSize" value="5" />
-        </properties-param>
-      </init-params>
-    </component-plugin>
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>${gatein.idm.datasource.name}_portal</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://localhost:3306/cloud_idm"/>
             <property name="username" value="root"/>
             <property name="password" value="root"/>
             <property name="maxActive" value="100" />
