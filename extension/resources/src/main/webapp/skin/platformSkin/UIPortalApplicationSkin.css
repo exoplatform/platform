@@ -173,7 +173,7 @@ a {
 }
 .PortletActivationMaskLayer {
 	width: 100%;
-	height: 100%;
+	height: 3000px;
 	top: 0px;
 	left: 0px;
 	z-index: 5;
