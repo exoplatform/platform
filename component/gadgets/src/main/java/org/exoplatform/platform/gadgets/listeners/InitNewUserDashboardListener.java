@@ -18,7 +18,6 @@
  */
 package org.exoplatform.platform.gadgets.listeners;
 
-import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.platform.gadgets.services.UserDashboardConfigurationService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -33,12 +32,9 @@ public class InitNewUserDashboardListener extends UserEventListener {
 
   private static Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
   private UserDashboardConfigurationService userDashboardConfigurationService = null;
-  private ChromatticManager chromatticManager = null;
 
-  public InitNewUserDashboardListener(UserDashboardConfigurationService userDashboardConfigurationService,
-      ChromatticManager chromatticManager) {
+  public InitNewUserDashboardListener(UserDashboardConfigurationService userDashboardConfigurationService) {
     this.userDashboardConfigurationService = userDashboardConfigurationService;
-    this.chromatticManager = chromatticManager;
   }
 
   /**
@@ -51,36 +47,13 @@ public class InitNewUserDashboardListener extends UserEventListener {
    */
   @Override
   public void postSave(User user, boolean isNew) {
-    // Test if there is an open Chromattic request else open new session
-    boolean beginRequest = false;
-    try {
-      if (chromatticManager.getSynchronization() == null) {
-        chromatticManager.beginRequest();
-        beginRequest = true;
-      }
-    } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("An exception has occurred while trying to begin the chromatticManager request: " + e.getMessage());
-      }
-    }
     // prepopulate the created user dashborad
     try {
-      userDashboardConfigurationService.prepaopulateUserDashboard(user.getUserName());
+      userDashboardConfigurationService.prepopulateUserDashboard(user.getUserName());
     } catch (Exception e) {
       if (logger.isDebugEnabled()) {
         logger.debug("Error while prepopulationg user dashboard: ", e);
       }
     }
-    // Test if Chromattic session is opened and try to end it
-    if (beginRequest) {
-      try {
-        chromatticManager.endRequest(true);
-      } catch (Exception e) {
-        if (logger.isDebugEnabled()) {
-          logger.debug("An exception has occurred while trying to end the chromatticManager request: " + e.getMessage());
-        }
-      }
-    }
-
   }
 }

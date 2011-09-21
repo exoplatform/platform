@@ -25,6 +25,8 @@ import java.util.UUID;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener;
 import org.exoplatform.portal.config.DataStorage;
@@ -38,8 +40,6 @@ import org.exoplatform.portal.config.model.TransientApplicationState;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.Visibility;
-import org.exoplatform.portal.mop.navigation.NavigationContext;
-import org.exoplatform.portal.mop.navigation.NavigationState;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
@@ -114,7 +114,7 @@ public class UserDashboardConfigurationService {
    *          The user name.
    * @throws Exception
    */
-  public void prepaopulateUserDashboard(String userId) throws Exception {
+  public void prepopulateUserDashboard(String userId) throws Exception {
     if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
       // if separate users, check if userId exist in the list, then
       // prepopulate its dashboard
@@ -144,10 +144,16 @@ public class UserDashboardConfigurationService {
     UserPortal userPortal = getUserPortal(userId);
     UserNavigation userNavigation = userPortal.getNavigation(SiteKey.user(userId));
     if (userNavigation == null) {
-      NavigationContext navigationContextt = new NavigationContext(SiteKey.user(userId), new NavigationState(1));
-      userPortalConfigService.getNavigationService().saveNavigation(navigationContextt);
-      userPortal = getUserPortal(userId);
-      userNavigation = userPortal.getNavigation(SiteKey.user(userId));
+      RequestLifeCycle.begin(PortalContainer.getInstance());
+      try {
+        userPortalConfigService.createUserSite(userId);
+        userPortal = getUserPortal(userId);
+        userNavigation = userPortal.getNavigation(SiteKey.user(userId));
+      } catch (Exception e) {
+        logger.error("Could not create user site for user " + userId, e);
+      } finally {
+        RequestLifeCycle.end();
+      }
     }
     return userNavigation;
   }
@@ -197,11 +203,8 @@ public class UserDashboardConfigurationService {
       tabNode.setPageRef(page.getPageId());
 
       userPortal.saveNode(rootNode, null);
-
     } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Error while creating the user dashboard page for: " + userId, e);
-      }
+      logger.error("Error while creating the user dashboard page for: " + userId, e);
     }
   }
 

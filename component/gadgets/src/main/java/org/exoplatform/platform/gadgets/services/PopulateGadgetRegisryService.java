@@ -25,7 +25,8 @@ import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.commons.chromattic.ChromatticManager;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener;
 import org.exoplatform.portal.config.UserACL;
@@ -35,7 +36,8 @@ import org.exoplatform.services.log.Log;
 import org.picocontainer.Startable;
 
 /**
- * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>
+ * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
+ *         Chattouna</a>
  * @version $Revision$
  */
 public class PopulateGadgetRegisryService implements Startable {
@@ -46,52 +48,34 @@ public class PopulateGadgetRegisryService implements Startable {
   private static Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
   private GadgetRegistryService gadgetRegistryService = null;
   private ApplicationRegistryService applicationRegistryService = null;
-  private ChromatticManager chromatticManager = null;
   private List<Gadget> gadgets;
 
-  public PopulateGadgetRegisryService(ChromatticManager chromatticManager, GadgetRegistryService gadgetRegistryService,
+  public PopulateGadgetRegisryService(GadgetRegistryService gadgetRegistryService,
       ApplicationRegistryService applicationRegistryService, InitParams initParams) {
     CATEGORY_NAME = initParams.getValueParam("gadgetsCategoryName").getValue();
     if (CATEGORY_NAME == null) {
       CATEGORY_NAME = DEFAULT_GADGETS_CATEGORY_NAME;
-      if (logger.isDebugEnabled()) {
-        logger.debug("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryName").getName()
-            + " init param. Default category name will be used: " + DEFAULT_GADGETS_CATEGORY_NAME);
-      }
+      logger.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryName").getName()
+          + " init param. Default category name will be used: " + DEFAULT_GADGETS_CATEGORY_NAME);
     }
     GADGETS_CATEGORY_ACCESS_PERMISSION = initParams.getValueParam("gadgetsCategoryAccessPermission").getValue();
     if (GADGETS_CATEGORY_ACCESS_PERMISSION == null) {
       GADGETS_CATEGORY_ACCESS_PERMISSION = UserACL.EVERYONE;
-      if (logger.isDebugEnabled()) {
-        logger.debug("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryAccessPermission").getName()
-            + " init param. Default access permission will be used: " + UserACL.EVERYONE);
-      }
+      logger.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryAccessPermission").getName()
+          + " init param. Default access permission will be used: " + UserACL.EVERYONE);
     }
     gadgets = initParams.getObjectParamValues(Gadget.class);
     this.gadgetRegistryService = gadgetRegistryService;
     this.applicationRegistryService = applicationRegistryService;
-    this.chromatticManager = chromatticManager;
-
   }
 
   /**
-   * Saves the gadget read from configuration file in the appropriate application category.
+   * Saves the gadget read from configuration file in the appropriate
+   * application category.
    */
   public void start() {
     for (Gadget gadget : gadgets) {
-      // if(!gadget.isLocal()){
-      // Test if there is an open Chromattic request else open new session
-      boolean beginRequest = false;
-      try {
-        if (chromatticManager.getSynchronization() == null) {
-          chromatticManager.beginRequest();
-          beginRequest = true;
-        }
-      } catch (Exception e) {
-        if (logger.isDebugEnabled()) {
-          logger.debug("An exception has occurred while trying to begin the chromatticManager request: " + e.getMessage());
-        }
-      }
+      RequestLifeCycle.begin(PortalContainer.getInstance());
       try {
         // save the gadget via the GadgetRegistryService
         // check if the gadget was saved elsewhere
@@ -125,26 +109,13 @@ public class PopulateGadgetRegisryService implements Startable {
         } else {
           applicationRegistryService.save(applicationRegistryService.getApplicationCategory(CATEGORY_NAME), registryApplication);
         }
-
       } catch (Exception e) {
-        if (logger.isDebugEnabled()) {
-          logger.debug("Error while saving gadget: " + gadget.getName() + " with " + CATEGORY_NAME + " application category: "
-              + e.getMessage());
-        }
+        logger.error("Error while saving gadget: " + gadget.getName() + " with " + CATEGORY_NAME + " application category. ", e);
+        throw new RuntimeException(e);
+      } finally {
+        RequestLifeCycle.end();
       }
-      // Test if Chromattic session is opened and try to end it
-      if (beginRequest) {
-        try {
-          chromatticManager.endRequest(true);
-        } catch (Exception e) {
-          if (logger.isDebugEnabled()) {
-            logger.debug("An exception has occurred while trying to end the chromatticManager request: " + e.getMessage());
-          }
-        }
-      }
-      // }
     }
-
   }
 
   public void stop() {}
