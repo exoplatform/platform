@@ -17,26 +17,30 @@
 package org.exoplatform.platform.common.space.plugin;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.jcr.ImportUUIDBehavior;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
-import javax.jcr.query.Query;
-import javax.jcr.query.QueryManager;
 
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ObjectParameter;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.cms.impl.Utils;
 import org.exoplatform.services.deployment.DeploymentDescriptor;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.access.PermissionType;
+import org.exoplatform.services.jcr.core.ExtendedNode;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
+import org.exoplatform.services.security.IdentityConstants;
 import org.exoplatform.services.wcm.core.NodetypeConstant;
 import org.exoplatform.social.core.space.SpaceListenerPlugin;
 import org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent;
@@ -56,6 +60,8 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
 
   private String groupsPath;
 
+  private UserACL userACL;
+
   /** The log. */
   private Log log = ExoLogger.getLogger(this.getClass());
 
@@ -72,10 +78,11 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
    *          the nodeHierarchyCreator service
    */
   public XMLDeploymentPlugin(InitParams initParams, ConfigurationManager configurationManager,
-      RepositoryService repositoryService, NodeHierarchyCreator nodeHierarchyCreator) {
+      RepositoryService repositoryService, NodeHierarchyCreator nodeHierarchyCreator, UserACL userACL) {
     this.initParams = initParams;
     this.configurationManager = configurationManager;
     this.repositoryService = repositoryService;
+    this.userACL = userACL;
     groupsPath = nodeHierarchyCreator.getJcrPath(GROUPS_PATH);
     if (groupsPath.lastIndexOf("/") == groupsPath.length() - 1) {
       groupsPath = groupsPath.substring(0, groupsPath.lastIndexOf("/"));
@@ -96,7 +103,8 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
 
   /*
    * (non-Javadoc)
-   * @see org.exoplatform.services.deployment.DeploymentPlugin#deploy(org.exoplatform.services.jcr.ext.common.SessionProvider)
+   * @see org.exoplatform.services.deployment.DeploymentPlugin#deploy(org.
+   * exoplatform.services.jcr.ext.common.SessionProvider)
    */
   @SuppressWarnings("rawtypes")
   public void deploy(SessionProvider sessionProvider, String spaceId) throws Exception {
@@ -124,18 +132,50 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
         Utils.makePath(spaceRootNode, targetNodePath, NodetypeConstant.NT_UNSTRUCTURED);
       }
       String fullTargetNodePath = groupsPath + spaceId + "/" + targetNodePath;
+      Node parentTargetNode = (Node) session.getItem(fullTargetNodePath);
+      NodeIterator nodeIterator = parentTargetNode.getNodes();
+      List<String> initialChildNodesUUID = new ArrayList<String>();
+      while (nodeIterator.hasNext()) {
+        initialChildNodesUUID.add(nodeIterator.nextNode().getUUID());
+      }
+
       session.importXML(fullTargetNodePath, inputStream, ImportUUIDBehavior.IMPORT_UUID_CREATE_NEW);
+
+      parentTargetNode = (Node) session.getItem(fullTargetNodePath);
+      nodeIterator = parentTargetNode.getNodes();
+      List<ExtendedNode> newChildNodesUUID = new ArrayList<ExtendedNode>();
+      while (nodeIterator.hasNext()) {
+        ExtendedNode childNode = (ExtendedNode) nodeIterator.nextNode();
+        if (!initialChildNodesUUID.contains(childNode.getUUID())) {
+          newChildNodesUUID.add(childNode);
+        }
+      }
+      String spaceMembershipManager = userACL.getAdminMSType() + spaceId;
+      for (ExtendedNode extendedNode : newChildNodesUUID) {
+        if (extendedNode.isNodeType(NodetypeConstant.EXO_PRIVILEGEABLE)) {
+          extendedNode.clearACL();
+        } else if (extendedNode.canAddMixin(NodetypeConstant.EXO_PRIVILEGEABLE)) {
+          extendedNode.addMixin("exo:privilegeable");
+          extendedNode.clearACL();
+        } else {
+          throw new IllegalStateException("Can't change permissions on node imported to the added Space.");
+        }
+        extendedNode.setPermission(IdentityConstants.ANY, new String[] { PermissionType.READ });
+        extendedNode.setPermission(spaceMembershipManager, PermissionType.ALL);
+      }
 
       if (cleanupPublication) {
         /**
-         * This code allows to cleanup the publication lifecycle in the target folder after importing the data. By using this, the publication live revision property will be re-initialized and the content will be set as published directly. Thus, the content will be visible in front side.
+         * This code allows to cleanup the publication lifecycle in the
+         * target folder after importing the data. By using this, the
+         * publication live revision property will be re-initialized and
+         * the content will be set as published directly. Thus, the content
+         * will be visible in front side.
          */
-        QueryManager manager = session.getWorkspace().getQueryManager();
-        String statement = "select * from nt:base where jcr:path LIKE '" + fullTargetNodePath + "/%'";
-        Query query = manager.createQuery(statement.toString(), Query.SQL);
-        NodeIterator iter = query.execute().getNodes();
-        while (iter.hasNext()) {
-          Node node = iter.nextNode();
+
+        nodeIterator = parentTargetNode.getNodes();
+        while (nodeIterator.hasNext()) {
+          Node node = nodeIterator.nextNode();
           if (node.hasProperty("publication:liveRevision") && node.hasProperty("publication:currentState")) {
             log.info("\"" + node.getName() + "\" publication lifecycle has been cleaned up");
             node.setProperty("publication:liveRevision", "");
