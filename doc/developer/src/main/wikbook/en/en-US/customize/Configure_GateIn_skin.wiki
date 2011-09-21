@@ -110,9 +110,9 @@ Hence, the display-name element in web.xml needs to be coherent with the applica
 
 h2. Default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
 The default skin of GateIn 3.2 is located as part of the eXoResource.war. The main files associated with the skin include:
-# WEB-INF/gatein-resources.xml: defines the skin settings to use.
-# WEB-INF/web.xml: contains the resource filter with the display-name set.
-# skin/Stylesheet.css: contains the CSS class definitions for this skin.
+* _WEB-INF/gatein-resources.xml_: defines the skin settings to use.
+* _WEB-INF/web.xml_: contains the resource filter with the display-name set.
+* _skin/Stylesheet.css_: contains the CSS class definitions for this skin.
 
 The following block of CSS illustrates content of the _Stylesheet.css_ file:
 
@@ -181,11 +181,11 @@ For the portal named MySkin, it is required to define the following CSS classes:
 
 The default skin would be aware of skin icons if the preview screenshot is placed in: 
 
-* _eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background_.
+* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background{noformat}_.
 
 The CSS stylesheet for the default portal needs to have the following updated with the preview icon CSS class. 
 For the skin named MySkin, it is required to update the following:
-* _eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css_
+* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css{noformat}_.
 
 For now, amending the deployed package eXoResources is inevitable (modifying the default war/jar breaches development convention of GateIn-based products). The problem would be resolved in future GateIn versions in which different skin modules are fully independent, for example, there will be no preview image duplication.
 
@@ -202,7 +202,7 @@ h3. Create new window styles {anchor:id=DEV.CreateYourOwnPortal.CreateNewWindowS
 Window style is the CSS applied to the window decorator. When the administrator selects a new application to add to a page, he can decide which style of decorator surrounding the window if any.
 h4. Configure window styles {anchor:id=DEV.CreateYourOwnPortal.ConfigureWindowStyles}
 Window style is defined within the _gatein-resources.xml_ file used by the SkinService to deploy the window style into the portal. Window styles can belong to a window style category. This category and window styles need to be specified in the resources file.
-The following gatein-resource.xml fragment will add MyThemeBlue and MyThemeRed to the MyTheme category.
+The following _gatein-resource.xml_ fragment will add MyThemeBlue and MyThemeRed to the MyTheme category.
 
 {code:xml}
 <window-style>
@@ -230,7 +230,7 @@ h4. Set the default window style {anchor:id=DEV.CreateYourOwnPortal.SetDefaultWi
 To set the default window style for a portal, you need to specify the CSS classes for a theme called DefaultTheme.
 
 {note}
-You do not need to specify the DefaultTheme in the gatein-resources.xml file.
+You do not need to specify the DefaultTheme in the _gatein-resources.xml_ file.
 {note}
 
 h3. Create new portlet skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewPortletSkins}
@@ -266,12 +266,12 @@ The icon must be named after the portlet.
 For example, the icon of account portlet must be named AccountPortlet and located at: _skin/DefaultSkin/portletIcons/AccountPortlet.png_.
 
 {note}
-You must use skin/DefaultSkin/portletIcons/ for the directory to store the portlet icon regardless of using any skins.
+You must use _skin/DefaultSkin/portletIcons/_ for the directory to store the portlet icon regardless of using any skins.
 {note}
 
 h3. Configure right-to-left skins {anchor:id=DEV.CreateYourOwnPortal.ConfigureRightToLeftSkins}
 The SkinService handles stylesheet rewriting to accommodate the orientation. It works by appending _-lt_ or _-rt_ to the stylesheet name.
-For instance, /web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet-rt.css will return the same stylesheet as /web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet.css but processed for the RT orientation. The _-lt_ suffix is optional.
+For example, _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet-rt.css_ will return the same stylesheet as _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet.css_ but processed for the RT orientation. The _-lt_ suffix is optional.
 Stylesheet authors can annotate their stylesheet to create content that depends on the orientation.
 
 Example 1. This example uses the orientation to modify the float attribute that will make the horizontal tabs either float on left or on right:
@@ -301,7 +301,7 @@ text-align: center;
 white-space: nowrap;
 {code}
 
-Example 2. In this example, we need to modify the padding based on the orientation:
+Example 2. In this example, you need to modify the padding based on the orientation:
 
 {code:css}
 color: white;

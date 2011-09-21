@@ -303,7 +303,7 @@ h1. Manage template service {anchor:id=DEV.WorkWithContent.ManageTemplateService
 
 The Template service enables you to create dialogs and view templates for each node type registered. Each node type may have many dialogs and view templates. The template will be used when creating or viewing nodes.
 
-.../webapps/portal/WEB-INF/conf/ecm/ecm-templates-configuration.xml
+_.../webapps/portal/WEB-INF/conf/ecm/ecm-templates-configuration.xml_
 
 {code:xml}
 <component>

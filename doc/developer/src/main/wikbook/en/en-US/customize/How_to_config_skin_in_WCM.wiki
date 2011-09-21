@@ -9,7 +9,7 @@ h2. Assumptions {anchor:id=DEV.CreateYourOwnPortal.Assumptions}
 h2. Customize portal's layout {anchor:id=DEV.CreateYourOwnPortal.CustomizePortalLayout}
 
 {note}
-This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
+This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml] You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
 {note}
 
 * For example, you will have a layout like this:
@@ -67,7 +67,7 @@ And here is the "short version" of _portal.xml_.
 <!-- ... -->
 {code}
 
-As you see in the *portal.xml* file above, every *container* tag has an *id* attribute, for example "<container id = '*RightColumn*'>". When you create a CSS file, the property applied for this container should have the following name manner:
+As you see in the _portal.xml_ file above, every *container* tag has an *id* attribute, for example "<container id = '*RightColumn*'>". When you create a CSS file, the property applied for this container should have the following name manner:
 
 {code}
 ${container_id}TDContainer
@@ -99,7 +99,7 @@ To learn more, see [Customize portal and page's style|#customize-portal-and-page
 h2. Customize page's layouts {anchor:id=DEV.CreateYourOwnPortal.CustomizePageLayout}
 
 {note}
-This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/pages.xml]. You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
+This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/pages.xml] You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
 {note}
 
 * Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
@@ -161,7 +161,7 @@ The order of applying CSS files (of site and web content) depends on their own *
 h2. Customize CLV portlet's template {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVPortletTemplate}
 
 {note}
-This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl].
+This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl]
 {note}
 
 * Apply your HTML/Groovy template code for this template. 
@@ -250,7 +250,7 @@ Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/H
 h2. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuemntSkin}
 
 {note}
-This section is related to the configuration. You can see a sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml].
+This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml]
 {note}
 
 First, you need to create a new document definition.

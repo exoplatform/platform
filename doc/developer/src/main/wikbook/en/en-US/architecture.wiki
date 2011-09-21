@@ -3,25 +3,19 @@ With the aim of helping readers further understand about the eXo architecture, i
 The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part presents the following main contents:
 
 * [Containers|#DEV.eXoArchitecturePremer.Containers]
-
 * [Services|#DEV.eXoArchitecturePremer.Services]
-
 * [Service configuration|#DEV.eXoArchitecturePremer.ServiceConfiguration]
-
 * [Plugins|#DEV.eXoArchitecturePremer.Plugins]
-
 * [Configuration loading sequence|#ADM.eXoArchitecturePremer.ConfigureLoadingSequence]
 
 The *[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]* part includes contents of the followings:
 
 * [Default Portal Container|#DEV.eXoArchitecturePremer.defaultPortalContainer]
-
 * [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension]
 
 The *[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]* part shows you the following main contents:
 
 * [Repositories and workspaces|#DEV.eXoArchitecturePremer.Repositories&Workspaces]
-
 * [Tree structure: working with nodes and properties|#DEV.eXoArchitecturePremer.WorkingWithNodes&Properties]
 
 h1. Kernel {anchor:id=DEV.eXoArchitecturePremer.Kernel}
@@ -100,7 +94,7 @@ h3. Components {anchor:id=DEV.eXoArchitecturePremer.Components}
 
 The service registration within the container is done with the <component> element.
 
-For example, open the exo-ecms-core-services-x.y.z.jar file. Next, open the /conf/portal/configuration.xml file. You will see:
+For example, open the _exo-ecms-core-services-x.y.z.jar_ file. Next, open the _/conf/portal/configuration.xml_ file. You will see:
 
 {code:xml}
 <component>
@@ -112,7 +106,7 @@ For example, open the exo-ecms-core-services-x.y.z.jar file. Next, open the /con
 </component>	
 {code}
 
-Each component has a {{key}} which matches with the qualified Java interface name (org.exoplatform.services.cms.CmsService).
+Each component has a _key_ which matches with the qualified Java interface name (_org.exoplatform.services.cms.CmsService_).
 
 The specific implementation class of the component (CmsServiceImpl) is defined in the <type> tag.
 
@@ -233,8 +227,8 @@ Other possible parameter types are Collection, Map and Native Array. See the exh
 
 h2. Plugins {anchor:id=DEV.eXoArchitecturePremer.Plugins}
 
-Some components may want to offer some extensibilities. For this, they use a plugin mechanism based on the injection method. To offer an extension point for plugins, a component needs to provide a public method that takes an instance of org.exoplatform.container.xml.
-ComponentPlugin as a parameter.
+Some components may want to offer some extensibilities. For this, they use a plugin mechanism based on the injection method. To offer an extension point for plugins, a component needs to provide a public method that takes an instance of _org.exoplatform.container.xml.
+ComponentPlugin_ as a parameter.
 
 Plugins enable you to provide the structured configuration outside the original declaration of the component. This is the main way to customize eXo Platform to your needs.
 
@@ -252,8 +246,8 @@ You can have a look at the configuration of the TaxonomyPlugin of the TaxonomySe
 </external-component-plugins>
 {code}
 
-The <target-component> defines components that host the extension point. The configuration is injected by the container using the method defined in <set-method> (addTaxonomyPlugin(). The method accepts exactly one argument of the type org.exoplatform.services.
-cms.categories.impl.TaxonomyPlugin.
+The <target-component> defines components that host the extension point. The configuration is injected by the container using the method defined in <set-method> (addTaxonomyPlugin(). The method accepts exactly one argument of the _org.exoplatform.services.
+cms.categories.impl.TaxonomyPlugin_ type.
 
 The content of <init-params> is interpreted by the TaxonomyPlugin object.
 
@@ -262,21 +256,20 @@ h2. Configuration loading sequence {anchor:id=ADM.eXoArchitecturePremer.Configur
 The Kernel startup follows a well-defined sequence to load configuration files. The objects are initialized in the container only after the whole loading sequence is done. Hence, by placing your configuration in the upper location of the sequence, you can override a component declaration by yourself. You will typically do this when you want to provide your own implementation of a component, or declare custom init-params.
 
 {note}
-The {{external-component-plugins}} declarations are additive, so it is NOT possible to override them.
+The _external-component-plugins_ declarations are additive, so it is NOT possible to override them.
 {note}
 
 The loading sequence involves loading successively configurations for the RootContainer then from the PortalContainers:
 
-# Services default RootContainer configurations from JAR files {{/conf/configuration.xml}}.
-# External RootContainer configuration will be found at {{$exo.conf.dir/configuration.xml}}.
-# Services default PortalContainer configurations from JAR files {{/conf/$PORTAL/configuration.xml}}.
-# Web applications configurations from WAR files {{/WEB-INF/conf/configuration.xml}}.
-# External configuration for services of the portal will be found at {{$exo.conf.dir/portal/$PORTAL/configuration.xml}}.
+* Services default RootContainer configurations from JAR files: _/conf/configuration.xml_.
+* External RootContainer configuration will be found at _$exo.conf.dir/configuration.xml_.
+* Services default PortalContainer configurations from JAR files: _/conf/$PORTAL/configuration.xml_.
+* Web applications configurations from WAR files _/WEB-INF/conf/configuration.xml_.
+* External configuration for services of the portal will be found at _$exo.conf.dir/portal/$PORTAL/configuration.xml_.
 
 {note}
-* $exo.conf.dir is a system property that points to the external configuration file on the file system. It is passed to the JVM in the startup script like {{-Dexo.conf.dir=gatein}}.
-
-* $PORTAL is the name of the portal container. By default, the name is unique that is called 'portal'.
+* $exo.conf.dir is a system property that points to the external configuration file on the file system. It is passed to the JVM in the startup script like _-Dexo.conf.dir=gatein_.
+* $PORTAL is the name of the portal container. By default, the name "portal" is unique.
 {note}
 
 h1. GateIn extensions {anchor:id=DEV.eXoArchitecturePremer.GateInExtensions}
@@ -290,36 +283,36 @@ The most elegant way to reuse configuration for different coexisting portals is 
 Starter is a web application that has been added to create and start all the portals, such as portal containers, at the same time once all the other web applications have already been started. In fact, all other web applications can potentially defined several things at startup, such as skins, Javascripts, Google gadgets and configuration files. The loading order is important as we can define skins or configuration files or a Javascript again from a web application 1. This could depend on another Javascript from a web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged Javascript file.
 {note}
 
-If you ship servlets or servlet filters as part of your portal extension, and if you need to access specific resources of portal at any time during processing of the servlet or filter request, you need to make sure the servlet/filter is associated with the current container. The proper way to do that is to make your servlet extend org.exoplatform.container.web.AbstractHttpServlet class. This will not only properly initialize the current PortalContainer for you, but  also  set  the  current  thread's  context  classloader  to  one  that  looks  for  resources in associated web applications in the order specified by Dependencies configuration (as explained in the Extension mechanism section).
+If you ship servlets or servlet filters as part of your portal extension, and if you need to access specific resources of portal at any time during processing of the servlet or filter request, you need to make sure that the _servlet/filter_ is associated with the current container. The proper way to do that is to make your servlet extend the _org.exoplatform.container.web.AbstractHttpServlet_ class. This will not only properly initialize the current PortalContainer for you, but  also  set  the  current  thread's  context  classloader  to  one  that  looks  for  resources in associated web applications in the order specified by Dependencies configuration (as explained in the Extension mechanism section).
 
-Similarly for filters,  make  sure  your filter class extends org.exoplatform.container.web.AbstractFilter. Both AbstractHttpServlet and AbstractFilter have the method getContainer(), which returns the current PortalContainer.
+As similar to filters, make  sure that your filter class extends _org.exoplatform.container.web.AbstractFilter_. Both AbstractHttpServlet and AbstractFilter have the method getContainer(), which returns the current PortalContainer.
 
 
 h2. Default Portal Container {anchor:id=DEV.eXoArchitecturePremer.defaultPortalContainer}
 
-eXo Platform comes with a pre-configured PortalContainer named "portal". This portal container configuration ties the core and extended services stack. The default Portal Container is started from {{portal.war}} and naturally maps to the {{/portal}} url.
+eXo Platform comes with a pre-configured PortalContainer named "portal". This portal container configuration ties the core and extended services stack. The default Portal Container is started from _portal.war_ and naturally maps to the _/portal_ URL.
 
-The GateIn extension mechanism lets you extend the portal context easily. This feature is fundamental as it shields you from any changes we may want to do in *portal.war*. You do not need to be afraid of upgrades anymore as your *extension.war* will be clearly separated from the *portal.war*.
+The GateIn extension mechanism lets you extend the portal context easily. This feature is fundamental as it shields you from any changes we may want to do in _portal.war_. You do not need to be afraid of upgrades anymore as your _extension.war_ will be clearly separated from the _portal.war_.
 
 To achieve this extensibility, the PortalContainer activates two advanced features: 
 
-* A unified classloader: any classpath resource, such as property files, will be accessible as if it was inside the *portal.war*.
+* A unified classloader: any classpath resource, such as property files, will be accessible as if it was inside the _portal.war_.
 
 {note}
 This is valid only for resources but not for Java classes.
 {note}
 
-* A unified servlet context: any web resource contained in your *extension.war* will be accessible from /portal/ uri.
+* A unified servlet context: any web resource contained in your _extension.war_ will be accessible from /portal/ uri.
 
 The next part explains what to do to make a simple extension for "portal" container.
 
 h2. Register Extension {anchor:id=DEV.eXoArchitecturePremer.RegisterExtension}
 
-The webapps are loaded in the order defined in the list of dependencies of the {{PortalContainerDefinition}}. You then need to deploy the *starter.war*; otherwise, the webapps will be loaded in the default application server's order', such as the loading order of the Application Server.
+The webapps are loaded in the order defined in the list of dependencies of the _PortalContainerDefinition_. You then need to deploy the _starter.war_; otherwise, the webapps will be loaded in the default application server's order', such as the loading order of the Application Server.
 
-If you need to customize your portal by adding a new extension and/or a new portal, you need to define the related {{PortalContainerDefinitions}} and to deploy the starter. Otherwise, you do not need to define any {{PortalContainerDefinition}} or deploy the starter.
+If you need to customize your portal by adding a new extension and/or a new portal, you need to define the related _PortalContainerDefinitions_ and to deploy the starter. Otherwise, you do not need to define any _PortalContainerDefinition_ or deploy the starter.
 
-First, you need to tell eXo Platform to load {{WEB-INF/conf/configuration.xml}} of your extension, you need to declare it as a {{PortalContainerConfigOwner}}. Next, open the file {{WEB-INF/web.xml}} of your extension and add a listener:
+First, you need to tell eXo Platform to load _WEB-INF/conf/configuration.xml_ of your extension, you need to declare it as a _PortalContainerConfigOwner_. Next, open the file _WEB-INF/web.xml_ of your extension and add a listener:
 
 {code:xml}
 <web-app>
@@ -366,7 +359,7 @@ You need to register your extension in the portal container. This is done by the
 {code}
 
 
-A _PortalContainerDefinitionChangePlugin_ plugin is defined to the {{PortalContainerConfig}}. The plugin declares a list of dependencies that are webapps. The {{apply.default=true}} indicates that your extension is actually extending *portal.war*. You  need to package your extension into a *.war* file and put it to the tomcat webapps folder, then restart the server.
+A _PortalContainerDefinitionChangePlugin_ plugin is defined to the _PortalContainerConfig_. The plugin declares a list of dependencies that are webapps. The _apply.default=true_ indicates that your extension is actually extending _portal.war_. You  need to package your extension into a *.war* file and put it to the tomcat webapps folder, then restart the server.
 
 In your portal, if you want to add your own property file to support localization for your keys, you can do as follows:
 

@@ -159,7 +159,7 @@ See Chapter 6 to learn more about the portlet configuration within the _pages.xm
 
 *Navigation:*
 
-The *navigation.xml* is used to associate the links in your navigation with your portal pages. The navigation is a tree structure of "navigation nodes". Each navigation node points to one page (called the page node). The tree structure corresponds to a hierarchy of menus and sub-menus of a site.
+The _navigation.xml_ is used to associate the links in your navigation with your portal pages. The navigation is a tree structure of "navigation nodes". Each navigation node points to one page (called the page node). The tree structure corresponds to a hierarchy of menus and sub-menus of a site.
 
 If the pattern #{} is used, the link label will be loaded from the portal resource bundle. To learn more, refer to [Internationalization Configuration|http://platform.demo.exoplatform.org/docs/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Internationalization_Configuration].
 
@@ -197,7 +197,7 @@ h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
 When you configure the _navigation.xml_ file, sometimes you need to set the visibility of page (node).
 
-To configure, simply put {noformat}<visibility>type_of_visibility</visibility>{noformat} as a child of <node> tag.
+To configure, simply put _{noformat}<visibility>type_of_visibility</visibility>{noformat}_ as a child of <node> tag.
 
 GateIn supports 4 types of page visibility, including:
 
@@ -236,9 +236,9 @@ GateIn supports 4 types of page visibility, including:
 h2. Page access permission {anchor:id=DEV.CreateYourOwnPortal.PagesAccessPermission}
 You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create _pages.xml_ and _navigation.xml_ files in folders named after the group and user to which you want to give permission:
 
-* *sample-ext/portal/group/group-name/your files*
+* _sample-ext/portal/group/group-name/your files_
 
-* *sample-ext/portal/user/username/your files*
+* _sample-ext/portal/user/username/your files_
 
 As you know, the permission on a page has two types: access and edit. 
 
@@ -327,7 +327,7 @@ h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomL
 
 h1. Add JavaScript to your portal {anchor:id=DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal}
 
-This can be done entirely within your extension by customizing the *gatein-resources.xml* configuration.
+This can be done entirely within your extension by customizing the _gatein-resources.xml_ configuration.
 
 To add a JavaScript library, for example jQuery, create the _war:/WEB-INF/gatein-resources.xml_ file.
 

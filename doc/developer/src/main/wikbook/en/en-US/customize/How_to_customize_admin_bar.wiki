@@ -93,7 +93,7 @@ The Admin bar is a special container composed of portlets. It is defined in _WEB
 
 It is possible to override the whole Admin bar by adding it into an extension at _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_.
 
-The *sharedlayout.xml* file configures the current displayed portlets on the Admin bar. For example, to remove the dashboard menu, you will need to remove the following block:
+The _sharedlayout.xml_ file configures the current displayed portlets on the Admin bar. For example, to remove the dashboard menu, you will need to remove the following block:
 
 {code:xml}
 ...
