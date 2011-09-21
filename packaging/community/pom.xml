@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.5.0-Beta1-SNAPSHOT</version>
+    <version>3.5.0-Beta1</version>
   </parent>
   <artifactId>exo.platform.packaging.community</artifactId>
   <packaging>pom</packaging>
@@ -76,21 +76,21 @@
                 <!-- Delete binaries -->
 				<delete>
                   <!-- IDE -->
-				  <fileset dir="${tomcat.webapps.dir}" includes="IDE.war"/>
-				  <fileset dir="${tomcat.webapps.dir}" includes="SmartGWT.war"/>
-				  <fileset dir="${tomcat.lib.dir}" includes="exo-ide-*.jar"/>
+				  <fileset dir="${tomcat.webapps.dir}" includes="IDE.war" />
+				  <fileset dir="${tomcat.webapps.dir}" includes="SmartGWT.war" />
+				  <fileset dir="${tomcat.lib.dir}" includes="exo-ide-*.jar" />
                   <!-- acme website -->
-				  <fileset dir="${tomcat.webapps.dir}" includes="acme-website*.war"/>
-				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.acme-website.*.jar"/>
-				  <fileset dir="${tomcat.conf.dir}" includes="acme-website.xml"/>
+				  <fileset dir="${tomcat.webapps.dir}" includes="acme-website*.war" />
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.acme-website.*.jar" />
+				  <fileset dir="${tomcat.conf.dir}" includes="acme-website.xml" />
                   <!-- default website -->
-				  <fileset dir="${tomcat.webapps.dir}" includes="default-website.war"/>
-				  <fileset dir="${tomcat.conf.dir}" includes="default-website.xml"/>
-				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar"/>
+				  <fileset dir="${tomcat.webapps.dir}" includes="default-website.war" />
+				  <fileset dir="${tomcat.conf.dir}" includes="default-website.xml" />
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar" />
                   <!-- gadgets pack -->
-				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war"/>
-				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml"/>
-				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar"/>
+				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war" />
+				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml" />
+				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar" />
 				</delete>
                 <!-- Delete configuration in platform-extension.war -->
                 <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />

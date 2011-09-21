@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo-gadget-pack</artifactId>
-    <version>3.5.0-Beta1-SNAPSHOT</version>
+    <version>3.5.0-Beta1</version>
   </parent>
 
   <artifactId>gadget-pack</artifactId>
@@ -37,7 +37,7 @@
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}/gadget-pack/gadgets/Collab Gadgets/eXoCalendar/gadget</outputDirectory>
                    <includes>**/*.*</includes>
-                   <excludes></excludes>
+                   <excludes />
                  </artifactItem>
                </artifactItems>
              </configuration>

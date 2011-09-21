@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.sample.blank</artifactId>
-    <version>3.5.0-Beta1-SNAPSHOT</version>
+    <version>3.5.0-Beta1</version>
   </parent>
   <artifactId>exo.platform.sample.blank.ear</artifactId>
   <packaging>ear</packaging>
