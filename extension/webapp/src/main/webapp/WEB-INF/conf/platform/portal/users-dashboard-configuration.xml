@@ -10,7 +10,7 @@
 			<value-param>
 				<name>dashboardTabName</name>
 				<description>The default name of the dashboard page</description>
-				<value>Tab_0</value>
+				<value>Tab_Default</value>
 			</value-param>
 			<value-param>
 				<name>dashboardTabLabel</name>
