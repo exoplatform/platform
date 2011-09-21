@@ -29,10 +29,11 @@
 		                 editedDocList.removeChild( editedDocList.firstChild );       
 			       } 
 			    }
-
-	                    _gel('tenantsForm').style.display = "none";
-	                    _gel('idForm').style.display = "none";
-	                    _gel('messageString').style.display = "none";
+                             
+	                   // _gel('tenantsForm').style.display = "none";
+	                   // _gel('idForm').style.display = "none";
+	                   // _gel('messageString').style.display = "none";
+                          
 	
                             if (auth == null) {
 	                    _gel('credentialForm').style.display = "";

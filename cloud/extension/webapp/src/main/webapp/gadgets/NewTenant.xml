@@ -21,7 +21,6 @@
 			<div class="UIGadgetThemes">
                           <div id="more_spaces">
                            <div class="TitGad">
-                            <a href="#" class="IconDropDown" id="ShowAll" onClick="tenants.getList();">Show all</a>
                             <div class="ContTit">New Tenant</div>
                            </div>
                           </div>

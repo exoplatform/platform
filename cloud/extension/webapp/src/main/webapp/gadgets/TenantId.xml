@@ -21,8 +21,7 @@
 			<div class="UIGadgetThemes">
                           <div id="more_spaces">
                            <div class="TitGad">
-                            <a href="#" class="IconDropDown" id="ShowAll" onClick="tenants.getList();">Show all</a>
-                            <div class="ContTit">Tenant ID</div>
+                             <div class="ContTit">Tenant ID</div>
                            </div>
                           </div>
                           <div id="myspaces_id" class="GadCont MySpace">
