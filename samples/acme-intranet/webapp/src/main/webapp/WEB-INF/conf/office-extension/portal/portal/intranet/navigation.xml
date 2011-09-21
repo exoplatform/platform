@@ -226,5 +226,11 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::intranet::detail</page-reference>
     </node>	
+	  <node>
+      <uri>wiki</uri>
+      <name>wiki</name>
+      <label>#{portal.intranet.wiki}</label>
+      <page-reference>portal::intranet::wiki</page-reference>
+    </node>
   </page-nodes>
   </node-navigation>
