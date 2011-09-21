@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+	<ModulePrefs author="eXoPlatform"
+		title="Tenants Info"
+		directory_title="Tenants Info"
+		title_url="http://www.exoplatform.org"
+		description="Tenants Info"
+		>
+        <Require feature="opensocial-0.8" />
+         <Require feature="dynamic-height"/>
+	</ModulePrefs>
+	<Content type="html">
+	<![CDATA[
+                
+		<script type="text/javascript" src="/cloud-extension/javascript/script.js"></script>
+		<link type="text/css" href="skin/style.css" rel="stylesheet">
+                <link type="text/css" href="skin/tab.css" rel="stylesheet">
+				
+                      <body onLoad="tenants.init();">
+			<div class="UIGadgetThemes">
+                          <div id="more_spaces">
+                           <div class="TitGad">
+                            <a href="#" class="IconDropDown" id="ShowAll" onClick="tenants.getList();">Show all</a>
+                            <div class="ContTit">Tenants Info</div>
+                           </div>
+                          </div>
+                                 <div id="credentialForm" >
+                                    <form name="createIdForm" action="javascript:void(0);"  id="createIdForm">
+                                     <table border='0'>
+                                      <tbody>
+                                         <tr>
+                                           <td colspan="2" align="center" class="TenantFormHeadRow">Please enter cloud-admin credentials:</td>
+                                        </tr>
+                                       <tr>
+                                         <td class="TenantFormRow">Name:</td>
+                                         <td><input type="text" id="t_cred_name"  size="22" value="root"/></td>
+                                       </tr>
+                                       <tr>
+                                         <td class="TenantFormRow">Pass:</td>
+                                         <td><input type="password" id="t_cred_pass" size="22"/></td>
+                                       </tr>
+                                        <tr>
+                                           <td colspan="2" align="center"><input type="Submit" id="t_submitId" name="t_submitId" value="Submit" onClick="tenants.getStatus();"></td>
+                                        </tr>
+                                       </tbody>
+                                     </table>
+				    </form>
+				  <br>
+                                 </div>
+                                <div id="list"></div>
+                                <div id="messageString" class="TenantFormMsg"></div>
+			    </div>
+	               </div>
+                    </body>
+	]]>
+	</Content>
+</Module>
+
+ 

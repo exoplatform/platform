@@ -27,13 +27,13 @@ body{
                         }
 
 			.UIGadgetThemes .TitGad {
-				line-height: 22px;
-				border-top: 1px solid #ffd400;
-				border-bottom: 6px solid #ffd400;
-				color: #484848;
-				font-size: 12px;
-				padding: 0px 15px;
-				font-weight: bold;
+                                background: none repeat scroll 0 0 #F8F8F8;
+                                border: 1px solid #E1E1E1;
+				color: #2F3334;
+                                line-height: 25px;
+				padding: 0 5px 0 8px;
+                                 border-radius: 3px 3px 3px 3px;
+                                 font-size: 14px;
 			}
 			
 			.UIGadgetThemes .TitGad .IconDropDown {
@@ -44,10 +44,12 @@ body{
 				color: #484848;
 				display: block;
 				text-decoration: none;
+                               
 			}
 			
 			.UIGadgetThemes .TitGad .ContTit {
 				margin-right: 45px;
+                                font-size: 14px;
 			}
 			
 			.UIGadgetThemes .GadCont {

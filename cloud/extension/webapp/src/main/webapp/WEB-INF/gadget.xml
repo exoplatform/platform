@@ -25,8 +25,15 @@
     xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gadgets_1_0"
     xmlns="http://www.gatein.org/xml/ns/gadgets_1_0">
 
-	<gadget name="mytenants">
-		<path>/gadgets/MyTenants.xml</path>
+	<gadget name="newtenant">
+		<path>/gadgets/NewTenant.xml</path>
 	</gadget>
+        <gadget name="tenantid">
+		<path>/gadgets/TenantId.xml</path>
+	</gadget>
+        <gadget name="tenantinfo">
+		<path>/gadgets/TenantInfo.xml</path>
+	</gadget>
+
 			
 </gadgets>
