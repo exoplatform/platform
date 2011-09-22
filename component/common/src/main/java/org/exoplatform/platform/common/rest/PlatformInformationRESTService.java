@@ -27,28 +27,34 @@ import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
+import org.exoplatform.platform.common.service.ProductCodeService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 
 /**
- * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>
+ * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
+ *         Chattouna</a>
  * @version $Revision$
  */
-@Path("/platform/version")
+@Path("/platform")
 public class PlatformInformationRESTService implements ResourceContainer {
 
   private Log logger = ExoLogger.getLogger(this.getClass());
   private ProductInformations platformInformations;
+  private  ProductCodeService productCodeService;
 
-  public PlatformInformationRESTService(ProductInformations productInformations) {
+  public PlatformInformationRESTService(ProductInformations productInformations, ProductCodeService productCodeService) {
     this.platformInformations = productInformations;
+    this.productCodeService = productCodeService;
   }
 
   /**
-   * This method return a JSON Object with the platform required informations.
+   * This method return a JSON Object with the platform required
+   * informations.
    */
   @GET
+  @Path("/version")
   @Produces(MediaType.APPLICATION_JSON)
   public Response getPlatformInformation() {
     CacheControl cacheControl = new CacheControl();
@@ -64,12 +70,27 @@ public class PlatformInformationRESTService implements ResourceContainer {
         logger.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
             + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
       }
-
       return Response.ok(jsonPlatformInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("HTTP Status-Code 500: Internal Server Error. ");
-      }
+      logger.error("An error occured while getting platform version information.", e);
+      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    }
+  }
+
+  /**
+   * This method return the edition of Platform.
+   */
+  @GET
+  @Path("/edition")
+  @Produces(MediaType.TEXT_PLAIN)
+  public Response getPlatformEdition() {
+    CacheControl cacheControl = new CacheControl();
+    cacheControl.setNoCache(true);
+    cacheControl.setNoStore(true);
+    try {
+      return Response.ok(productCodeService.getProductEdition(), MediaType.TEXT_PLAIN).cacheControl(cacheControl).build();
+    } catch (Exception e) {
+      logger.error("An error occured while getting the platform edition information.", e);
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
   }
