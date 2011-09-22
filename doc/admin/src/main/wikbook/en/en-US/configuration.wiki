@@ -11,6 +11,7 @@ This chapter covers the following topics:
 * [Cache configuration|#ADM.Configuration.CacheConfiguration]
 * [User configuration|#ADM.Configuration.Users_configuration]
 * [Gadget proxy configuration|#ADM.Configuration.Gadget_proxy_configuration]
+* [Other properties|#ADM.Configuration.Other_properties]
 
 h1. eXo Platform configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 
@@ -576,6 +577,14 @@ gatein.jcr.lock.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config
 # JCR Index configuration
 gatein.jcr.index.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/indexer-config.xml
 gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
+
+# JCR dialect.
+# auto : enabled auto detection
+gatein.jcr.datasource.dialect=auto
+
+# JCR Session Registry configuration
+# Define here the Max Age of the JCR Session in the session registry (in seconds)
+gatein.jcr.sessionregistry.sessionmaxage=300
 {code}
 
 *Details:*
@@ -743,4 +752,25 @@ The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Co
     </values-param>
   </init-params>
 </component>
+{code}
+
+h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
+
+{code}
+# Key files for gadget
+gatein.gadgets.securityTokenKeyFile=${exo.shared.dir}/gadgets/key.txt
+gatein.gadgets.signingKeyFile=${exo.shared.dir}/gadgets/oauthkey.pem
+
+# navigation controller file
+gatein.portal.controller.config=${exo.shared.dir}/conf/controller.xml
+
+# IDM 
+gatein.portal.idm.createuserportal=false
+gatein.portal.idm.destroyuserportal=true
+
+# global portlet.xml
+gatein.portlet.config=${exo.shared.dir}/conf/portlet.xml
+
+# Links checker cron job
+wcm.linkjob.cron.expression=0 0/20 * * * ?
 {code}
