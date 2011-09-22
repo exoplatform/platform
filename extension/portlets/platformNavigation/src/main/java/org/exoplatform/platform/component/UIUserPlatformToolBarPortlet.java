@@ -19,14 +19,15 @@ package org.exoplatform.platform.component;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.exoplatform.container.ExoContainer;
 import org.exoplatform.platform.component.social.UINavigationComposer;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -74,17 +75,26 @@ public class UIUserPlatformToolBarPortlet extends UIPortletApplication {
     if (currentPortalName != null && getCurrentPortalName().equals(currentPortalName)) {
       return socialPortal;
     }
-    currentPortalName = getCurrentPortalName();
-    UserPortal userPortal = getUserPortal();
-    UserNavigation userNavigation = userPortal.getNavigation(SiteKey.portal(currentPortalName));
-    UserNode portalNode = userPortal.getNode(userNavigation, Scope.CHILDREN, null, null);
-    socialPortal = portalNode.getChild("spaces") != null;
+    if (!isSocialProfileActivated()) {
+      socialPortal = false;
+    } else {
+      currentPortalName = getCurrentPortalName();
+      UserPortal userPortal = getUserPortal();
+      UserNavigation userNavigation = userPortal.getNavigation(SiteKey.portal(currentPortalName));
+      UserNode portalNode = userPortal.getNode(userNavigation, Scope.CHILDREN, null, null);
+      socialPortal = portalNode.getChild("spaces") != null;
+    }
     return socialPortal;
   }
 
-  private UserPortal getUserPortal() {
-    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-    return uiPortalApplication.getUserPortalConfig().getUserPortal();
+  public boolean isSocialProfileActivated() {
+    return (ExoContainer.getProfiles().contains("social") || ExoContainer.getProfiles().contains("default") || ExoContainer
+        .getProfiles().contains("all"));
+  }
+
+  public static UserPortal getUserPortal() {
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
   }
 
   public Collection<UserNode> getUserNodes(UserNavigation nav) {

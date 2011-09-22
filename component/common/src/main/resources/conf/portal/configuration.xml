@@ -48,11 +48,6 @@
 			</component-plugin>
 		</component-plugins>
 		<init-params>
-			<values-param>
-				<name>portlets.managed.by.profile</name>
-				<description>List of portlets managed by profile, which means that aren't considered in the webapp</description>
-				<value>platformNavigation/UserInfoPortlet</value>
-			</values-param>
 			<object-param>
 				<name>default.webapps</name>
 				<object type="org.exoplatform.platform.common.module.Module">
@@ -143,11 +138,7 @@
 					</field>
 					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>platformNavigation/UserInfoPortlet</string>
-							</value>
-						</collection>
+						<collection type="java.util.ArrayList"/>
 					</field>
 				</object>
 			</object-param>
@@ -274,11 +265,7 @@
 					</field>
 					<!-- List of portletId = {webappName}/portletName -->
 					<field name="portlets">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>platformNavigation/UserInfoPortlet</string>
-							</value>
-						</collection>
+						<collection type="java.util.ArrayList"/>
 					</field>
 				</object>
 			</object-param>
