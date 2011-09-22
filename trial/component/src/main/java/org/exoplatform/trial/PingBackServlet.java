@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.platform.common.Utils;
+
 public class PingBackServlet extends HttpServlet {
 
   private static final long serialVersionUID = 6467955354840693802L;
@@ -18,7 +20,7 @@ public class PingBackServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     if (isConnectedToInternet()) {
       Utils.loopfuseFormDisplayed = true;
-      Utils.writePingBackFormDisplayed();
+      Utils.writePingBackFormDisplayed(Utils.HOME_CONFIG_FILE_LOCATION);
     }
   }
 

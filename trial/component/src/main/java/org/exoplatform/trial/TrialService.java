@@ -23,6 +23,8 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.picocontainer.Startable;
 
+import org.exoplatform.platform.common.Utils;
+
 public class TrialService implements Startable {
 
   private static final String PRODUCT_NAME = "Platform";
@@ -40,24 +42,24 @@ public class TrialService implements Startable {
 
   public void start() {
     Properties properties = new Properties();
-    if (new File(Utils.CONFIG_FILE_LOCATION).exists()) {
+    if (new File(Utils.HOME_CONFIG_FILE_LOCATION).exists()) {
       InputStream inputStream;
       try {
-        inputStream = new FileInputStream(Utils.CONFIG_FILE_LOCATION);
+        inputStream = new FileInputStream(Utils.HOME_CONFIG_FILE_LOCATION);
       } catch (FileNotFoundException exception) {
-        throw new RuntimeException(Utils.CONFIG_FILE_LOCATION + " file couldn't be found.", exception);
+        throw new RuntimeException(Utils.HOME_CONFIG_FILE_LOCATION + " file couldn't be found.", exception);
       }
       try {
         properties.loadFromXML(inputStream);
       } catch (InvalidPropertiesFormatException exception) {
-        throw new RuntimeException("File format error: " + Utils.CONFIG_FILE_LOCATION, exception);
+        throw new RuntimeException("File format error: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
       } catch (IOException exception) {
-        throw new RuntimeException("Error while reading file: " + Utils.CONFIG_FILE_LOCATION, exception);
+        throw new RuntimeException("Error while reading file: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
       }
       try {
         inputStream.close();
       } catch (IOException exception) {
-        throw new RuntimeException("Error while closing stream after reading file: " + Utils.CONFIG_FILE_LOCATION, exception);
+        throw new RuntimeException("Error while closing stream after reading file: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
       }
     } else {
       if (!new File(Utils.EXO_HOME_FOLDER).exists()) {
@@ -68,13 +70,13 @@ public class TrialService implements Startable {
       properties.put(Utils.LOOP_FUSE_FORM_DISPLAYED, "false");
       OutputStream outputStream;
       try {
-        outputStream = new FileOutputStream(Utils.CONFIG_FILE_LOCATION);
-        properties.storeToXML(outputStream, Utils.CONFIG_FILE_LOCATION);
+        outputStream = new FileOutputStream(Utils.HOME_CONFIG_FILE_LOCATION);
+        properties.storeToXML(outputStream, Utils.HOME_CONFIG_FILE_LOCATION);
       } catch (FileNotFoundException exception) {
-        throw new RuntimeException("Error while creating file: " + Utils.CONFIG_FILE_LOCATION + ". The file may be locked.",
+        throw new RuntimeException("Error while creating file: " + Utils.HOME_CONFIG_FILE_LOCATION + ". The file may be locked.",
             exception);
       } catch (IOException exception) {
-        throw new RuntimeException("Error while storing entries in file: " + Utils.CONFIG_FILE_LOCATION
+        throw new RuntimeException("Error while storing entries in file: " + Utils.HOME_CONFIG_FILE_LOCATION
             + ". The file may be locked.", exception);
       }
       return;
@@ -82,20 +84,20 @@ public class TrialService implements Startable {
 
     InputStream propertiesInputStream;
     try {
-      propertiesInputStream = new FileInputStream(Utils.CONFIG_FILE_LOCATION);
+      propertiesInputStream = new FileInputStream(Utils.HOME_CONFIG_FILE_LOCATION);
       properties.loadFromXML(propertiesInputStream);
     } catch (FileNotFoundException exception) {
-      throw new RuntimeException("Error while creating file: " + Utils.CONFIG_FILE_LOCATION + ". The file may be locked.",
+      throw new RuntimeException("Error while creating file: " + Utils.HOME_CONFIG_FILE_LOCATION + ". The file may be locked.",
           exception);
     } catch (InvalidPropertiesFormatException exception) {
-      throw new RuntimeException("File format error: " + Utils.CONFIG_FILE_LOCATION, exception);
+      throw new RuntimeException("File format error: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
     } catch (IOException exception) {
-      throw new RuntimeException("Error while reading file: " + Utils.CONFIG_FILE_LOCATION, exception);
+      throw new RuntimeException("Error while reading file: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
     }
     try {
       propertiesInputStream.close();
     } catch (IOException exception) {
-      throw new RuntimeException("Error while closing stream after reading file: " + Utils.CONFIG_FILE_LOCATION, exception);
+      throw new RuntimeException("Error while closing stream after reading file: " + Utils.HOME_CONFIG_FILE_LOCATION, exception);
     }
 
     String hashMD5Added = "";

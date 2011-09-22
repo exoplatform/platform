@@ -31,5 +31,10 @@
 			<artifactId>exo.portal.component.web.api</artifactId>
 			<version>${org.exoplatform.portal.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.platform</groupId>
+  			<artifactId>exo.platform.component.common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.platform.common.Utils;
+
 public class UnlockServlet extends HttpServlet {
   private static final long serialVersionUID = -4806814673109318163L;
 
@@ -26,7 +28,7 @@ public class UnlockServlet extends HttpServlet {
         throw new RuntimeException("Error while encoding the key.", exception);
       }
       if (TrialFilter.unlocked) {
-        Utils.writeHashCode(hashMD5Added);
+        Utils.writeTrialKey(hashMD5Added, Utils.HOME_CONFIG_FILE_LOCATION);
         Cookie cookie = new Cookie("plf-lcf", "true");
         cookie.setPath("/");
         ((HttpServletResponse) response).addCookie(cookie);
@@ -43,7 +45,7 @@ public class UnlockServlet extends HttpServlet {
         response.sendRedirect(TrialFilter.calledUrl);
         return;
       }
-      Utils.writeRemindDate(rdate);
+      Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
       Cookie cookie = new Cookie("plf-lcf", "true");
       cookie.setMaxAge(Utils.delayPeriod * 86400);
       cookie.setPath("/");

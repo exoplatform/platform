@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
 
+import org.exoplatform.platform.common.Utils;
+
 public class TrialFilter implements Filter, org.exoplatform.web.filter.Filter {
 
   public static boolean unlocked;
