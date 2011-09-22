@@ -220,13 +220,14 @@ public class TreeNode implements NodeChangeListener<UserNode>
             {
                if (key.equals(locale))
                {
-                  return i18nizedLabels.get(key).getName();
+                 String encodedLabel = i18nizedLabels.get(key).getName();
+                 return encodedLabel == null ? getName() : encodedLabel;
                }
             }
          }
       }
       String encodedLabel = node.getEncodedResolvedLabel();
-      return encodedLabel == null ? "" : encodedLabel;
+      return encodedLabel == null ? getName() : encodedLabel;
    }
 
    public String getName()
