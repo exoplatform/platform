@@ -186,7 +186,7 @@
                   
                   
                   var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "'>" + "</img>";
-                  var spaceInfo = "<b>" + invitedSpace.prettyName + "</b>" + " (members: " + invitedSpace.invitedUsers.length + ")";
+                  var spaceInfo = "<b>" + invitedSpace.prettyName + "</b>" + " (__MSG_members__: " + invitedSpace.invitedUsers.length + ")";
                                 
                   var spaceRow = "<tr>" +
                                       "<td style='width: 20px;'>" + spaceAvatar + "</td>" +
@@ -268,13 +268,13 @@
             <div id="connections_requests" class="templates requests_container">
               <table id="connections_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
               </table>
-              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/connections/receivedInvitations' target='_parent'>Find More</a></div>
+              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/connections/receivedInvitations' target='_parent'>__MSG_find_more__</a></div>
             </div>
           
             <div id="space_requests" class="templates requests_container" style="display:none;">
               <table id="space_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
               </table>
-              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/invitationSpace' target='_parent'>Find More</a></div>
+              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/invitationSpace' target='_parent'>__MSG_find_more__</a></div>
             </div>
         </div>
       </div>

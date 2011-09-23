@@ -63,7 +63,7 @@ public class InvitationsRestServices implements ResourceContainer {
 		}
 
 		RelationshipManager relationshipManager = (RelationshipManager) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
-		List<Relationship> relations = relationshipManager.getPendingRelationships(identity, false);
+		List<Relationship> relations = relationshipManager.getIncoming(identity);
 
 		ArrayList<Object> liste = new ArrayList<Object>();
 		for (Relationship relation : relations) {
