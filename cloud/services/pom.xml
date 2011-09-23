@@ -38,5 +38,12 @@
       <type>jar</type>
     </dependency>
     
+    <dependency>
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.eXoApplication.organization.service</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+      <type>jar</type>
+    </dependency>
+    
  </dependencies>
 </project>
