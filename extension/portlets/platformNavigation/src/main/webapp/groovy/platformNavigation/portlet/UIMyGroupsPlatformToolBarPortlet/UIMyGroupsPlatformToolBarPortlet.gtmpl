@@ -104,7 +104,9 @@
 				""" ;
 				int idx = 0;
 				for(UserNode node : nodes) {
-					renderPageNodeGroup(node, idx++ %2 == 0 ) ;
+                    if(!uicomponent.isUserNodeInSetupMenu(node)){
+					 renderPageNodeGroup(node, idx++ %2 == 0 ) ;
+                    }
 				}
     }
 	

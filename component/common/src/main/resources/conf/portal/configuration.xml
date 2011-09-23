@@ -6,6 +6,15 @@
 	<component>
 		<type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
 	</component>
+	<component>
+		<type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
+		<init-params>
+			<value-param>
+				<name>setup.navigation.file</name>
+				<value>jar:/conf/portal/setup-navigation.xml</value>
+			</value-param>
+		</init-params>
+	</component>
 	<!-- Defines the builtin Modules -->
 	<component>
 		<type>org.exoplatform.platform.common.module.ModuleRegistry</type>

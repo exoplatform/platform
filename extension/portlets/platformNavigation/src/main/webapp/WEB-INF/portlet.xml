@@ -101,6 +101,29 @@
 		</portlet-info>
 	</portlet>
 	
+    <portlet>
+		<description xml:lang="EN">Setup Menu Portlet</description>
+		<portlet-name>UISetupPlatformToolBarPortlet</portlet-name>
+		<display-name xml:lang="EN">UISetupPlatformToolBarPortlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<!-- must match the path to configuration file -->
+			<value>/WEB-INF/conf/portlet/UISetupPlatformToolBarPortlet/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.UISetupPlatformToolBarPortlet.UISetupPlatformToolBarPortlet</resource-bundle>
+		<portlet-info>
+			<title>UISetupPlatformToolBarPortlet</title>
+			<short-title>UISetupPlatformToolBarPortlet</short-title>
+		</portlet-info>
+	</portlet>
+	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
 		<portlet-name>UIAddPagePlatformToolbarPortlet</portlet-name>

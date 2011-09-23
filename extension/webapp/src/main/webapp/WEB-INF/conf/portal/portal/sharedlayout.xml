@@ -85,6 +85,16 @@
 
 			<container id="PinToolbarContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			</container>
+			<container id="UISetupPlatformToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<portlet-application>
+					<portlet>
+						<application-ref>platformNavigation</application-ref>
+						<portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref><!--PLF-308-->
+					</portlet>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+				</portlet-application>
+			</container>
 			<container id="UserInfoPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<portlet-application>
 					<portlet>
