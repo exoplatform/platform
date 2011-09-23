@@ -39,4 +39,7 @@
   <gadget name="Invitations">
     <path>/gadgets/Invitations/Invitations.xml</path>
   </gadget>
+  <gadget name="Bookmark">
+    <path>/gadgets/Bookmark/Bookmark.xml</path>
+  </gadget>  
 </gadgets>

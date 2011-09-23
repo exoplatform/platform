@@ -1,0 +1,64 @@
+    img {
+            border:none;
+          }
+
+    a {
+      cursor:pointer;
+    }
+
+    /************** BookMarks **********/
+
+    .Button {
+      vertical-align: text-top;  
+    }
+
+    .BookMarks {
+      margin: 0px 0px 10px 0px;
+      padding: 0px;
+    }
+
+    .BookMarks li {
+      list-style-type: none;
+      font-family: arial,sans-serif;
+      font-size: 12px;
+      line-height: 23px;
+    }
+    
+    .ContBookmark {padding-left: 10px;}
+    
+    .ContBookmark .ArrowIcon {float: left; padding-top: 7px; margin-right: 10px;}
+    
+    .ContBookmark .ArrowIcon img {width: 9px; height: 9px;}
+    
+    .ContBookmark .Form {margin-left: 20px;}
+    
+    .ContBookmark .Label {padding: 5px 0px;}
+    
+    .ContBookmark input {
+      border: 1px solid #ccc;
+      padding: 0px 5px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      width: 135px;
+      height: 23px;
+      color: #4d4d4d;
+      font-size: 11px;
+      float: left;
+      margin: 0px 5px 0px 0px;
+      }
+    
+    .ContBookmark .Button {
+      display: block;
+      float: left;
+      margin: 5px 5px 0px 0px;
+      }
+    
+    .ContBookmark .btnAdd {
+      font-size: 12px;
+      margin-bottom: 10px;
+      }
+
+    .CustomImage:hover {
+      cursor:pointer;
+    }

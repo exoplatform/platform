@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Bookmarks" description="Bookmarks list.">
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
+  </ModulePrefs>
+  <UserPref name="bookmarkList" datatype="hidden" default_value='[{"name":"Mail", "link":"/portal/intranet/mail"},{"name":"Calendar", "link":"/portal/intranet/calendar"},{"name":"AdressBook", "link":"/portal/intranet/contact"}]' />
+  
+  <Content type="html">
+  <![CDATA[     
+    
+  <head>
+      <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link type="text/css" rel="stylesheet" href="css/bookmark.css" />
+
+      <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+      
+      <script type="text/javascript">
+      
+        $(function(){
+          function addBookmark(id, name, link) {
+              var icon = "<div class='ArrowIcon'><img class='listIcon off CustomImage' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowRight.gif' ></img></div>";
+              var item = "<a id='bookmark" + id + "' href='" + link + "' target='_blank'>" + name + "</a>";
+              var form = "<div class='Form' style='display:none;'> \
+                  <div class='Label ClearFix'><input type='text' class='EditFormName'></input></div> \
+                  <div class='Label ClearFix'><input type='text' class='EditFormLink'></input> \
+                      <a class='Button EditFormOK' href='#'><img alt='' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/Ok.gif'></img></a> \
+                      <a class='Button EditFormDelete' href='#'><img alt='' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/Del.gif'></img></a> \
+                  </div> \
+                      </div>";
+              $("#BookmarkList").append("<li>" + icon + item + form + "</li>");
+          }
+
+          var imageSource = "/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowRight.gif";
+          var imageSource2 = "/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowDown.gif";
+          var prefs = new gadgets.Prefs();
+          var contentList = prefs.getString("bookmarkList");
+          //if(contentList == "") contentList = '[{"name":"bm1", "link":"link1"}, {"name":"bm2", "link":"link2"}, {"name":"bm3", "link":"link3"}]';
+          //var bookmarks= eval("(" + gadgets.util.unescapeString(contentList) + ")");
+          var bookmarks= gadgets.json.parse(gadgets.util.unescapeString(contentList));
+          
+          for(var i in bookmarks){
+              addBookmark(i, bookmarks[i]["name"], bookmarks[i]["link"]);
+          }
+
+          gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+
+          var preventDefault = function(e){e.preventDefault()};
+
+
+          function changeToEditMode() {
+              $("a[id^=bookmark]").bind("click", preventDefault);
+              $("a[id^=bookmark]").addClass("Editable");          
+              $("#btnAdd").show();
+              $("img.listIcon").addClass("EditImage CustomImage");
+          }
+
+          function changeToViewMode(){
+              $("a[id^=bookmark]").removeClass("Editable");
+              $("a[id^=bookmark]").unbind("click", preventDefault);
+              $(".Form").hide();
+              $("a[id^=bookmark]").show();
+              $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
+              $("#btnAdd").hide();
+              $("img.listIcon").removeClass("EditImage CustomImage");
+              var prefs = new gadgets.Prefs();
+              prefs.set("bookmarkList",toJson());
+          }
+                
+
+          $("#customize").live("click", function(){
+                  var customize = $("#customize").html();
+                  if (customize == "Customize") {
+                  $("#customize").html("Save");
+                  changeToEditMode();        
+                   }
+                  else {
+                  $("#customize").html("Customize");
+                  changeToViewMode();          
+                  }
+           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+
+
+          $("body").delegate(".Editable", "click", function(){
+              var $thisForm = $(this).closest("li").find(".Form");
+              $thisForm.find("input:text[class=EditFormName]").val($(this).text());
+              $thisForm.find("input:text[class=EditFormLink]").val($(this).attr("href"));
+
+              var $imgNew = $(this).closest("li").find("img.listIcon");
+
+              if ($thisForm.is(':hidden')) {
+                  $(".Form").hide();
+                  $("a[id^=bookmark]").show();
+                  $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
+
+                  $thisForm.show();
+                  $imgNew.removeClass('on').addClass('off').attr({src:imageSource2});
+                  $(this).hide();
+              } else {
+                  $thisForm.hide();
+                  $imgNew.removeClass('on').addClass('off').attr({src:imageSource});
+                  $(this).show();
+              }
+      gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+  
+
+          $("body").delegate(".EditFormOK", "click", function(){
+              var newName = $(this).closest(".Form").find("input:text[class=EditFormName]").val();
+              var newLink = $(this).closest(".Form").find("input:text[class=EditFormLink]").val();
+              var $thisBookmark = $(this).closest("li").find("a[id^=bookmark]");
+             $thisBookmark.text(newName);
+              $thisBookmark.attr("href", newLink);
+              $(this).closest(".Form").hide();
+              var $link = $(this).closest("li").find("a[id^=bookmark]");
+              $link.show();
+              var $imgNew = $(this).closest("li").find("img.listIcon");
+              $imgNew.removeClass('on').addClass('off').attr({src:imageSource});
+              gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+
+
+          $("body").delegate(".EditFormDelete", "click", function(){
+              $(this).closest('li').remove();
+      gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+        
+          $("#btnAdd").live("click", function(){
+              $(".Form").hide();
+              $("a[id^=bookmark]").show();
+              $("img.listIcon").removeClass('on').addClass('off').attr({src:imageSource});
+              $("#txtNewName").val("");
+              $("#txtNewLink").val("");
+              $("#frmNew").show();
+      gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+        
+
+          $("#btnNewOK").live("click", function(){
+              var newId = $("#BookmarkList li").size();
+              var newName = $("#txtNewName").val();
+              var newLink = $("#txtNewLink").val();
+              if(newName.length==0 || newLink.length==0) return false;
+              addBookmark(newId, newName, newLink);
+        var $thisBookmark = $("#bookmark" + newId);
+              $thisBookmark.bind("click", preventDefault);
+              $thisBookmark.addClass("Editable");
+              $("#txtNewName").val("");
+              $("#txtNewLink").val("");
+              $thisBookmark.closest("li").find("img.listIcon").addClass("EditImage");
+      gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+                    
+  
+          $("#btnNewCancel").live("click", function(){
+             $("#frmNew").hide();
+      gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
+          });
+
+        
+    $("body").delegate(".EditImage", "click", function(){
+          
+              if ($(this).hasClass('on')) {
+                          $(this).removeClass('on').addClass('off').attr({src:imageSource});
+                  $(this).closest("li").find("a[id^=bookmark]").click();
+                  } else if ($(this).hasClass('off')) {
+                          $(this).removeClass('off').addClass('on').attr({src:imageSource2});
+                  $(this).closest("li").find("a[id^=bookmark]").click();
+                  }
+          });
+
+    function toJson(){
+      var bookmarks = [];  
+      $("#BookmarkList li").each(function(index) {
+        $bookmark = $(this).find("a[id^=bookmark]");
+        var bookmark="{";
+        bookmark += '"name":"' + $bookmark.text() + '",';
+        bookmark += '"link":"' + $bookmark.attr("href") + '"}';
+        bookmarks.push(bookmark);
+      });
+      return "[" + bookmarks.join(",") + "]";
+    }
+              
+      });
+
+      </script>
+      </head>
+
+      <body id="content">
+     <div class="UIGadgetThemes">
+
+          <div class="TitGad ClearFix">
+              <a id="customize" style="float:right;">Customize</a>
+              <div class="ContTit" style="float:left;">Bookmarks</div>
+          </div>
+          <br/>
+    
+
+        <div class="ContBookmark">
+            <ul id="BookmarkList" class="BookMarks"></ul>
+            <a id="btnAdd" class="btnAdd" style="display:none;">Add bookmark</a>
+      
+            <table id="frmNew" class="Form" style="display:none;">
+              <tr>
+                  <td>Name</td>
+                    <td><input type="text" id="txtNewName"></input></td>
+              </tr>
+              <tr>
+                    <td>Link</td>
+                    <td><input type="text" id="txtNewLink"></input></td>
+                    <td>
+                      <a id="btnNewOK" class="Button" href="#"><img alt="" src="images/Ok.gif"></img></a>
+                      <a id="btnNewCancel" class="Button" href="#"><img alt="" src="images/Del.gif"></img></a>
+                    </td>
+              </tr>
+            </table>
+          <br/>
+        </div>
+
+     </div>
+  </body>
+    
+    ]]>
+  </Content>
+</Module>
