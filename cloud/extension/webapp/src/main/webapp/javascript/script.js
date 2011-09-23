@@ -11,8 +11,8 @@
 	
 	                   /** Getting list chain */
 			  Tenants.prototype.init = function() {
-	                  accessUrl = prefixUrl + '/cloud-admin/rest/cloud-admin';
-	                  accessSecureUrl = prefixUrl + '/cloud-admin/rest/private/cloud-admin';
+	                  accessUrl = prefixUrl + '/rest/cloud-admin';
+	                  accessSecureUrl = prefixUrl + '/rest/private/cloud-admin';
 	                  tenantServicePath = accessUrl + "/public-tenant-service/";
 	                  infoServicePath =accessSecureUrl + "/info-service/";
 	                  refreshInterval = 10000;
