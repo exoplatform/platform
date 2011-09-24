@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
@@ -13,7 +15,6 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -24,19 +25,22 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
 
   private OrganizationService organizationService = null;
+  private MenuConfiguratorService menuConfiguratorService;
   private String userId = null;
   private boolean groupNavigationPermitted = false;
   private UserNodeFilterConfig myGroupsFilterConfig;
+  private List<UserNode> setupMenuUserNodes = null;
 
   public UIMyGroupsPlatformToolBarPortlet() throws Exception {
     organizationService = getApplicationComponent(OrganizationService.class);
+    menuConfiguratorService = getApplicationComponent(MenuConfiguratorService.class);
     UserACL userACL = getApplicationComponent(UserACL.class);
     // groupNavigationPermitted is set to true if the user is the super
     // user or have the administration rights
     if (getUserId().equals(userACL.getSuperUser())) {
       groupNavigationPermitted = true;
     } else {
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+      Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
       for (Object object : memberships) {
         Membership membership = (Membership) object;
         // groupNavigationPermitted is set to true if the user is a manager
@@ -51,6 +55,7 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
     // builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED,
     // Visibility.HIDDEN).withTemporalCheck();
     myGroupsFilterConfig = builder.build();
+    setupMenuUserNodes = menuConfiguratorService.getSetupMenuItems(getUserPortal());
   }
 
   // return group navigation that does not include any space navigation
@@ -84,7 +89,22 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
     return Collections.emptyList();
   }
 
-  private UserNode getSelectedNode() throws Exception {
+  public boolean isUserNavigationInSetupMenu(Collection<UserNode> userNodes) {
+    //    TODO
+    return false;
+  }
+
+  public boolean isUserNodeInSetupMenu(UserNode userNode) {
+    String pageReference = userNode.getPageRef();
+    for (UserNode userNodeTmp : setupMenuUserNodes) {
+      if (userNodeTmp.getPageRef().equals(pageReference)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public UserNode getSelectedNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
 
@@ -95,9 +115,9 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
     return userId;
   }
 
-  private UserPortal getUserPortal() {
-    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-    return uiPortalApplication.getUserPortalConfig().getUserPortal();
+  public static UserPortal getUserPortal() {
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
   }
 
   public boolean hasPermission() throws Exception {
