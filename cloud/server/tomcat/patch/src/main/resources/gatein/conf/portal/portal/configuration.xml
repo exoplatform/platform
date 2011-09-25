@@ -33,7 +33,7 @@
         <name>db-connection</name>
         <description>database connection properties</description>
         <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-        <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb" />
+        <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb" />
         <property name="username" value="sa" />
         <property name="password" value="" />
       </properties-param>
@@ -97,7 +97,7 @@
           <name>ref-addresses</name>
           <description>ref-addresses</description>
           <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-          <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb/${tenant.repository.name}" />
+          <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/${tenant.repository.name}" />
           <property name="username" value="sa" />
           <property name="password" value="" />
         </properties-param>

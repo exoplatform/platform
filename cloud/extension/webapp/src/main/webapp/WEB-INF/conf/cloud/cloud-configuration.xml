@@ -172,7 +172,7 @@
         <name>db-connection</name>
         <description>database connection properties</description>
         <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-        <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb" />
+        <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb" />
         <property name="username" value="sa" />
         <property name="password" value="" />
       </properties-param>
@@ -329,7 +329,7 @@
     <init-params>
       <value-param>
         <name>bindings-store-path</name>
-        <value>${tenant.jcr.data.dir}/bind-references.xml</value>
+        <value>${tenant.data.dir}/bind-references.xml</value>
       </value-param>
       <value-param>
  	<name>overload-context-factory</name>
@@ -362,7 +362,7 @@
           <name>ref-addresses</name>
           <description>ref-addresses</description>
           <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-          <property name="url" value="jdbc:hsqldb:file:${tenant.jcr.data.dir}/hsqldb/${tenant.repository.name}" />
+          <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/${tenant.repository.name}" />
           <property name="username" value="sa" />
           <property name="password" value="" />
         </properties-param>

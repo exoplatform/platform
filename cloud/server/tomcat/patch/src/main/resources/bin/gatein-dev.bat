@@ -29,7 +29,7 @@ set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Si
 set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
 set JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=6969 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
 set EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf
-set EXO_CLOUD_OPTS=-javaagent:..\lib\cloud-instrument-1.1-M2.jar=..\gatein\conf\cloud\agent-configuration.xml -Dtenant.masterhost=localhost -Dtenant.repository.name=repository -Dtenant.jcr.data.dir=../gatein/data/jcr
+set EXO_CLOUD_OPTS=-javaagent:..\lib\cloud-instrument-1.1-M2.jar=..\gatein\conf\cloud\agent-configuration.xml -Dtenant.masterhost=localhost -Dtenant.repository.name=repository -Dtenant.data.dir=../gatein/data/jcr
 set EXO_CLOUD_SECURITY_OPTS=-Djava.security.manager=org.exoplatform.cloudmanagement.security.TenantSecurityManager -Djava.security.policy==..\conf\catalina.policy
 set EXO_CLOUD_ADMIN_OPTS=-Dcloud.admin.log.dir=../logs/cloud-admin -Dcloud.admin.data.dir=../gatein/data -Dcloud.admin.configuration.dir=../gatein/conf/cloud/cloud-admin -Dcloud.admin.configuration.file=../gatein/conf/cloud/cloud-admin/admin.properties
 

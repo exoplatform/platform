@@ -15,16 +15,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/dev-monit${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="dev-monit" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/dev-monit${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>

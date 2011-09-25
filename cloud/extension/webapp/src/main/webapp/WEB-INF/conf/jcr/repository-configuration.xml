@@ -35,16 +35,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/system${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/system${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -102,16 +92,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-system${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="portal-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/portal-system${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -169,16 +149,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-work${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="portal-work" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/portal-work${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -236,16 +206,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/wsrp${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="wsrp-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/wsrp${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -304,16 +264,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/pc${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="pc-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/pc${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>

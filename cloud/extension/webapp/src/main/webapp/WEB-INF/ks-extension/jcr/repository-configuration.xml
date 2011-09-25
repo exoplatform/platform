@@ -15,16 +15,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/knowledge${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="knowledge" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/knowledge${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -55,7 +45,6 @@
               <property name="excerptprovider-class" value="org.exoplatform.services.jcr.impl.core.query.lucene.DefaultHTMLExcerpt" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -73,7 +62,6 @@
               <property name="jbosscache-cl-cache.jdbc.datasource" value="${tenant.repository.name}" />
             </properties>
           </lock-manager>
-
         </workspace>
       </workspaces>
     </repository>

@@ -16,7 +16,6 @@
     License along with this software; if not, write to the Free
     Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
-
 -->
 <repository-service default-repository="${tenant.repository.name}">
   <repositories>
@@ -35,16 +34,6 @@
               <property name="max-buffer-size" value="200k" />
               <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/wcm-system${container.name.suffix}" />
             </properties>
-            <value-storages>
-              <value-storage id="wcm-system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${gatein.jcr.storage.data.dir}/${tenant.repository.name}/wcm-system${container.name.suffix}" />
-                </properties>
-                <filters>
-                  <filter property-type="Binary" />
-                </filters>
-              </value-storage>
-            </value-storages>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -52,7 +41,7 @@
               <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-        <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
