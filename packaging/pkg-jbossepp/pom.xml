@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.0.6-SNAPSHOT</version>
+    <version>3.0.6</version>
   </parent>
   <artifactId>exo.platform.packaging.jbosseppsp</artifactId>
   <packaging>pom</packaging>
@@ -156,10 +156,10 @@
             <phase>prepare-package</phase>
             <configuration>
               <target>                 
-                 <mkdir dir="${project.build.directory}/jbossepp/addons/conf"/>
-                 <mkdir dir="${project.build.directory}/jbossepp/demos/conf"/>                 
+                 <mkdir dir="${project.build.directory}/jbossepp/addons/conf" />
+                 <mkdir dir="${project.build.directory}/jbossepp/demos/conf" />                 
                  <copy todir="${project.build.directory}/jbossepp/docs">
-                     <fileset dir="${project.build.directory}/docs"/>
+                     <fileset dir="${project.build.directory}/docs" />
                  </copy>
                  <copy todir="${project.build.directory}/jbossepp/addons/conf">
                      <fileset dir="${project.build.directory}/jbosseap/bin" />
@@ -167,37 +167,37 @@
                  <copy todir="${project.build.directory}/jbossepp/addons/conf">
                      <fileset dir="${project.build.directory}/jbosseap/server/default/conf/gatein" />
                  </copy>
-                 <copy file="${project.build.directory}/jbosseap/server/default/deploy/jbossweb.sar/server.xml" todir="${project.build.directory}/jbossepp/addons/conf"/>
+                 <copy file="${project.build.directory}/jbosseap/server/default/deploy/jbossweb.sar/server.xml" todir="${project.build.directory}/jbossepp/addons/conf" />
                  <unzip src="${project.build.directory}/default-website/default-website.war" dest="${project.build.directory}/default-website/unzip" />
-                 <delete file="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml"/>
-                 <copy file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml" todir="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default"/>
-                 <delete file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml"/>
-                 <delete file="${project.build.directory}/default-website/default-website.war"/>
+                 <delete file="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml" />
+                 <copy file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml" todir="${project.build.directory}/default-website/unzip/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default" />
+                 <delete file="${project.build.directory}/jbossepp/demos/binaries/Welcome.xml" />
+                 <delete file="${project.build.directory}/default-website/default-website.war" />
                  <zip destfile="${project.build.directory}/default-website/default-website.war" basedir="${project.build.directory}/default-website/unzip" />
                  <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/default-website/unzip"/>
+                     <fileset dir="${project.build.directory}/default-website/unzip" />
                  </delete>
                  <zip destfile="${project.build.directory}/jbossepp/demos/binaries/default-website.ear" basedir="${project.build.directory}/default-website" />
 
                  <unzip src="${project.build.directory}/platform-extension/platform-extension.war" dest="${project.build.directory}/platform-extension/unzip" />
-                 <replace file="${project.build.directory}/platform-extension/unzip/WEB-INF/conf/platform/portal/web-filter-configuration.xml" token="org.exoplatform.web.filter.RedefinableResourceFilter" value="org.exoplatform.commons.platform.RedefinableResourceFilter"/>
-                 <delete file="${project.build.directory}/platform-extension/platform-extension.war"/>
+                 <replace file="${project.build.directory}/platform-extension/unzip/WEB-INF/conf/platform/portal/web-filter-configuration.xml" token="org.exoplatform.web.filter.RedefinableResourceFilter" value="org.exoplatform.commons.platform.RedefinableResourceFilter" />
+                 <delete file="${project.build.directory}/platform-extension/platform-extension.war" />
                  <zip destfile="${project.build.directory}/platform-extension/platform-extension.war" basedir="${project.build.directory}/platform-extension/unzip" />
                  <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/platform-extension/unzip"/>
+                     <fileset dir="${project.build.directory}/platform-extension/unzip" />
                  </delete>
                  <zip destfile="${project.build.directory}/jbossepp/addons/binaries/platform-extension.ear" basedir="${project.build.directory}/platform-extension" />
                  <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/platform-extension"/>
+                     <fileset dir="${project.build.directory}/platform-extension" />
                  </delete>
                  <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/default-website"/>
+                     <fileset dir="${project.build.directory}/default-website" />
                  </delete>
                  <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/docs"/>
+                     <fileset dir="${project.build.directory}/docs" />
                  </delete>
                 <delete includeEmptyDirs="true">
-                     <fileset dir="${project.build.directory}/jbosseap"/>
+                     <fileset dir="${project.build.directory}/jbosseap" />
                  </delete>
               </target>
             </configuration>
