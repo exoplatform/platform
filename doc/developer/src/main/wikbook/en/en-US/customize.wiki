@@ -10,9 +10,9 @@ A custom extension contains two mandatory items:
 
 2. *extension activator jar* identifies your webapp as a dependency of the portal container.
 
-To see the sample extension package, go to [here|http://anonsvn.jboss.org/repos/gatein/portal/trunk/examples/extension/].
+To see the sample extension package, go to [here|https://github.com/exoportal/exogtn/tree/master/examples/extension].
 
-Once you have modified the sample extension to build your own portal, use "maven clean install" to create the archive files.
+Once you have modified the sample extension to build your own portal, use "mvn clean install" to create the archive files.
 
 To deploy your extension in Tomcat, do as follows:
 

@@ -3,17 +3,17 @@
 
 Prerequisites
 
-Download JBoss EAP 5.0.1 from intranet
-    * http://intranet.exoplatform.org/rest/jcr/repository/collaboration/Groups/platform/users/Documents/ReferenceBinaries/GateIn-3.0.x/JBoss-EAP/jboss-eap-5.0.1.zip
+Download JBoss EAP 5.1.1 from intranet
+    * http://intranet.exoplatform.org/rest/jcr/repository/collaboration/Groups/platform/users/Documents/ReferenceBinaries/JBoss-EAP/jboss-eap-5.1.1.zip
 
 Download / Checkout all the extensions
     * GateIn
-          o http://anonsvn.jboss.org/repos/gatein/exo/portal/branches/3.1.x (source)
+          o https://github.com/exoportal/exogtn/tree/master (source)
             (you have to build and package the whole product to get the gatein.ear folder)
           o http://repository.exoplatform.org/content/groups/public/org/exoplatform/portal/exo.portal.packaging.assembly/ (gatein.ear zip)
           o http://repository.exoplatform.org/content/groups/public/org/exoplatform/portal/starter-gatein/ (starter.ear)
-          o http://anonsvn.jboss.org/repos/gatein/exo/portal/branches/3.1.x/server/tomcat/patch/src/main/tomcat/bin/exokey.pem
-          o http://anonsvn.jboss.org/repos/gatein/exo/portal/branches/3.1.x/server/tomcat/patch/src/main/tomcat/bin/oauthkey.pem
+          o https://github.com/exoportal/exogtn/tree/master/server/tomcat/patch/src/main/tomcat/bin/exokey.pem
+          o https://github.com/exoportal/exogtn/tree/master/server/tomcat/patch/src/main/tomcat/bin/oauthkey.pem
     * Collaboration
           o http://svn.exoplatform.org/projects/cs/branches/2.1.x/extension/ear/ (source)
           o http://repository.exoplatform.org/content/groups/public/org/exoplatform/cs/exo.cs.extension.ear/ (extension ear)
