@@ -29,19 +29,16 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -52,8 +49,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -62,7 +58,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -83,27 +78,23 @@
         </workspace>
 
         <workspace name="portal-system">
-          <container
-            class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
             <properties>
               <property name="source-name" value="${tenant.repository.name}" />
               <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/portal-system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -114,8 +105,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/portal-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/portal-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -124,7 +114,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -153,19 +142,16 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-work${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/portal-work${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -176,8 +162,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/portal-work${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/portal-work${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -186,7 +171,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -215,15 +199,13 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/wsrp${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/wsrp${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
           <cache enabled="true"
@@ -238,8 +220,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/wsrp-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/wsrp-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -248,7 +229,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -277,15 +257,13 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/pc${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/pc${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
           <cache enabled="true"
@@ -300,8 +278,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/pc-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/pc-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -310,7 +287,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -340,15 +316,13 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/collaboration${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/collaboration${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
           <cache enabled="true"
@@ -363,8 +337,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/collaboration${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/collaboration${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -373,7 +346,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -394,27 +366,23 @@
         </workspace>
 
         <workspace name="backup">
-          <container
-            class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+          <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
             <properties>
               <property name="source-name" value="${tenant.repository.name}" />
               <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/backup${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/backup${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -425,8 +393,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/backup${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/backup${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -435,7 +402,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -464,15 +430,13 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/dms-system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/dms-system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
           <cache enabled="true"
@@ -487,8 +451,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/dms-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/dms-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -497,7 +460,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -526,19 +488,16 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/wcm-system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/wcm-system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -549,8 +508,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/wcm-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/wcm-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -559,7 +517,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -589,19 +546,16 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/social${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/social${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -612,8 +566,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/social${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/social${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -622,7 +575,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -652,19 +604,16 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/knowledge${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/knowledge${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" />
             </properties>
           </initializer>
-          <cache enabled="true"
-            class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
+          <cache enabled="true" class="org.exoplatform.services.jcr.impl.dataflow.persistent.jbosscache.JBossCacheWorkspaceStorageCache">
             <properties>
               <property name="jbosscache-configuration" value="${gatein.jcr.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -675,8 +624,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/knowledge${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/knowledge${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -685,7 +633,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />
@@ -715,15 +662,13 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory"
-                value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/dev-monit${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/dev-monit${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
               <property name="root-nodetype" value="nt:unstructured" />
-              <property name="root-permissions"
-                value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove;*:/developers read;*:/developers add_node;*:/developers set_property;*:/developers remove" />
+              <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove;*:/developers read;*:/developers add_node;*:/developers set_property;*:/developers remove" />
             </properties>
           </initializer>
           <cache enabled="true"
@@ -738,8 +683,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir"
-                value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/dev-monit${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/dev-monit${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -748,7 +692,6 @@
               <property name="max-volatile-time" value="60" />
             </properties>
           </query-handler>
-
           <lock-manager class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.CacheableLockManagerImpl">
             <properties>
               <property name="time-out" value="15m" />

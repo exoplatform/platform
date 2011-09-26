@@ -37,7 +37,7 @@ if "%EXO_PROFILES%" == "" (
   set EXO_PROFILES=-Dexo.profiles=default,cloud
 )
 
-set JAVA_OPTS=-Xms512m -Xmx2g -XX:MaxPermSize=256m %LOG_OPTS% %SECURITY_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_CLOUD_OPTS% %JMX_OPTS%
+set JAVA_OPTS=-Xms512m -Xmx2g -XX:MaxPermSize=256m -XX:+UseCompressedOops %LOG_OPTS% %SECURITY_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_CLOUD_OPTS% %JMX_OPTS%
 
 rem Launches the server
 call catalina.bat %*

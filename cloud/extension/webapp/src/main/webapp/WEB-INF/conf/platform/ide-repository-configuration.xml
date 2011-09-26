@@ -13,7 +13,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/dev-monit${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/dev-monit${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -33,7 +33,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/dev-monit${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/dev-monit${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />

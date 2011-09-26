@@ -33,7 +33,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -53,7 +53,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -90,7 +90,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-system${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/portal-system${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -110,7 +110,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/portal-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/portal-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -147,7 +147,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/portal-work${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/portal-work${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -167,7 +167,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/portal-work${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/portal-work${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -204,7 +204,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/wsrp${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/wsrp${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -224,7 +224,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/wsrp-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/wsrp-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
@@ -262,7 +262,7 @@
               <property name="multi-db" value="false" />
               <property name="update-storage" value="true" />
               <property name="max-buffer-size" value="200k" />
-              <property name="swap-directory" value="${gatein.jcr.data.dir}/swap/${tenant.repository.name}/pc${container.name.suffix}" />
+              <property name="swap-directory" value="${gatein.jcr.data.dir}/${tenant.repository.name}/swap/pc${container.name.suffix}" />
             </properties>
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
@@ -282,7 +282,7 @@
           </cache>
           <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
             <properties>
-              <property name="index-dir" value="${gatein.jcr.index.data.dir}/${tenant.repository.name}/pc-system${container.name.suffix}" />
+              <property name="index-dir" value="${gatein.jcr.data.dir}/${tenant.repository.name}/index/pc-system${container.name.suffix}" />
               <property name="changesfilter-class" value="${gatein.jcr.index.changefilterclass}" />
               <property name="jbosscache-configuration" value="${gatein.jcr.index.cache.config}" />
               <property name="jgroups-configuration" value="${gatein.jcr.jgroups.config}" />
