@@ -24,27 +24,18 @@
     Bookmarks
   </msg>
   <msg name="customize">
-    customize
+    Customize
   </msg>
-  <msg name="view">
-    view
+  <msg name="save">
+    Save
   </msg>
   <msg name="addbutton">
-    Add
+    Add the bookmark
   </msg>
   <msg name="name">
     Name
   </msg>
   <msg name="url">
     URL
-  </msg>
-  <msg name="save">
-    Save
-  </msg>
-  <msg name="Cancel">
-    Cancel
-  </msg>
-  <msg name="delete">
-    Delete
   </msg>
 </messagebundle>

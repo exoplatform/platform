@@ -24,12 +24,18 @@
     Bookmarks
   </msg>
   <msg name="customize">
-    personnaliser
+    Personnaliser
   </msg>
-  <msg name="view">
-    voir
+  <msg name="save">
+    Enregistrer
   </msg>
   <msg name="addbutton">
     Ajouter
+  </msg>
+  <msg name="name">
+    Nom
+  </msg>
+  <msg name="url">
+    URL
   </msg>
 </messagebundle>
