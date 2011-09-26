@@ -41,17 +41,15 @@ public class MenuConfiguratorService implements Startable {
     return setupPageNodes;
   }
 
+  public List<String> getSetupMenuPageReferences() {
+    List<String> pageReferences = new ArrayList<String>();
+    getPageReferences(pageReferences, setupPageNodes);
+    return pageReferences;
+  }
+
   public List<UserNode> getSetupMenuItems(UserPortal userPortal) throws Exception {
     List<UserNode> userNodes = new ArrayList<UserNode>();
-    for (PageNode pageNode : setupPageNodes) {
-      String pageReference = pageNode.getPageReference();
-      UserNavigation userNavigation = userPortal.getNavigation(new SiteKey(getOwnerType(pageReference),
-          getOwnerName(pageReference)));
-      UserNode userNode = searchUserNodeByPageReference(userPortal, userNavigation, pageReference);
-      if (userNode != null) {
-        userNodes.add(userNode);
-      }
-    }
+    getSetupMenuItems(userPortal, userNodes, setupPageNodes);
     return userNodes;
   }
 
@@ -74,21 +72,65 @@ public class MenuConfiguratorService implements Startable {
   @Override
   public void stop() {}
 
+  private void getPageReferences(List<String> pageReferences, List<PageNode> pageNodes) {
+    for (PageNode pageNode : pageNodes) {
+      String pageReference = pageNode.getPageReference();
+      if (pageReference != null && !pageReference.isEmpty()) {
+        pageReferences.add(pageReference);
+      }
+      if (pageNode.getChildren() != null && !pageNode.getChildren().isEmpty()) {
+        getPageReferences(pageReferences, pageNode.getChildren());
+      }
+    }
+  }
+
+  private void getSetupMenuItems(UserPortal userPortal, List<UserNode> userNodes, List<PageNode> setupPageNodes) {
+    for (PageNode pageNode : setupPageNodes) {
+      String pageReference = pageNode.getPageReference();
+      UserNavigation userNavigation = userPortal.getNavigation(new SiteKey(getOwnerType(pageReference),
+          getOwnerName(pageReference)));
+      UserNode userNode = searchUserNodeByPageReference(userPortal, userNavigation, pageReference);
+      if (userNode != null) {
+        userNodes.add(userNode);
+      } else {
+        log.warn("Can't find a navigation with pageReference: " + pageReference);
+      }
+      if (pageNode.getChildren() != null && !pageNode.getChildren().isEmpty()) {
+        getSetupMenuItems(userPortal, userNodes, pageNode.getChildren());
+      }
+    }
+  }
+
   private UserNode searchUserNodeByPageReference(UserPortal userPortal, UserNavigation nav, String pageReference) {
     if (nav != null) {
       try {
         UserNode rootNode = userPortal.getNode(nav, Scope.ALL, null, null);
-        if (rootNode.getPageRef()!= null && pageReference.equals(rootNode.getPageRef())) {
+        if (rootNode.getPageRef() != null && pageReference.equals(rootNode.getPageRef())) {
           return rootNode;
         }
-        Collection<UserNode> userNodes = rootNode.getChildren();
-        for (UserNode userNode : userNodes) {
-          if (userNode.getPageRef().equals(pageReference)) {
-            return userNode;
-          }
+
+        if (rootNode.getChildren() != null && !rootNode.getChildren().isEmpty()) {
+          return searchUserNodeByPageReference(rootNode.getChildren(), pageReference);
         }
       } catch (Exception exp) {
         log.warn(nav.getKey().getName() + " has been deleted");
+      }
+    }
+    return null;
+  }
+
+  private UserNode searchUserNodeByPageReference(Collection<UserNode> userNodes, String pageReference) {
+    if (userNodes == null || userNodes.isEmpty()) {
+      return null;
+    }
+    for (UserNode userNode : userNodes) {
+      if (userNode.getPageRef()!= null && userNode.getPageRef().equals(pageReference)) {
+        return userNode;
+      } else if (userNode.getChildren() != null && !userNode.getChildren().isEmpty()) {
+        UserNode childNode = searchUserNodeByPageReference(userNode.getChildren(), pageReference);
+        if (childNode != null) {
+          return childNode;
+        }
       }
     }
     return null;
@@ -103,11 +145,6 @@ public class MenuConfiguratorService implements Startable {
     String[] pageIds = pageReference.split("::");
     return pageIds[1];
   }
-
-  // private String getPageName(String pageReference) {
-  // String[] pageIds = pageReference.split("::");
-  // return pageIds[2];
-  // }
 
   private static void fixOwnerName(PageNode pageNode) {
     if (pageNode.getPageReference() != null) {

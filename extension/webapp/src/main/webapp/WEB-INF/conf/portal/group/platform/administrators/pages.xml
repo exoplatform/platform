@@ -25,70 +25,70 @@
     xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
     xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
 
-  <page>
-    <name>newAccount</name>
-    <title>New Account</title>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>AccountPortlet</portlet-ref>
-      </portlet>
-      <title>New Account</title>
-      <access-permissions>manager:/platform/administrators</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
-  </page>           
-  
-  <page>
-    <name>communityManagement</name>
-    <title>Community Management</title>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>OrganizationPortlet</portlet-ref>
-      </portlet>
-      <title>Community Management</title>
-      <access-permissions>manager:/platform/administrators</access-permissions>
-      <show-info-bar>false</show-info-bar>      
-    </portlet-application>
-  </page>
-  
-  <page>
-    <name>registry</name>
-    <title>Registry</title>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>ApplicationRegistryPortlet</portlet-ref>
-      </portlet>
-      <title>Application Registry</title>
-      <access-permissions>manager:/platform/administrators</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
-  </page>
-  
-  <page>
-    <name>pageManagement</name>
-    <title>Page Management</title>
-	  <access-permissions>manager:/platform/administrators</access-permissions>
-	  <edit-permission>manager:/platform/administrators</edit-permission>    
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>PageManagementPortlet</portlet-ref>
-      </portlet>
-      <title>Page Management</title>
-      <access-permissions>manager:/platform/administrators</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
-  </page>
-  	<page>
+	<page>
+		<name>newAccount</name>
+		<title>New Account</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>AccountPortlet</portlet-ref>
+			</portlet>
+			<title>New Account</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>           
+
+	<page>
+		<name>communityManagement</name>
+		<title>Community Management</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>OrganizationPortlet</portlet-ref>
+			</portlet>
+			<title>Community Management</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>      
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>registry</name>
+		<title>Registry</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>ApplicationRegistryPortlet</portlet-ref>
+			</portlet>
+			<title>Application Registry</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>pageManagement</name>
+		<title>Page Management</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>    
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>PageManagementPortlet</portlet-ref>
+			</portlet>
+			<title>Page Management</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+	<page>
 		<name>newStaff</name>
 		<title>New Staff</title>
 		<access-permissions>*:/platform/administrators</access-permissions>
@@ -122,7 +122,7 @@
 			<show-info-bar>false</show-info-bar>
 		</portlet-application>
 	</page>
-	
+
 	<page>
 		<name>workflowAdministration</name>
 		<title>Workflow Administration</title>
@@ -139,20 +139,37 @@
 			<show-application-state>false</show-application-state>
 			<show-application-mode>false</show-application-mode>
 		</portlet-application>    
-  </page>
-    <page>
-    <name>groupnavigation</name>
-    <title>Group Navigation</title>
-	  <access-permissions>*:/platform/administrators</access-permissions>
-	  <edit-permission>*:/platform/administrators</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>exoadmin</application-ref>
-        <portlet-ref>GroupNavigationPortlet</portlet-ref>
-      </portlet>
-      <title>Group Navigation</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
-  </page>
+	</page>
+	<page>
+		<name>portalnavigation</name>
+		<title>Portal Navigation</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>    
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>PortalNavigationPortlet</portlet-ref>
+			</portlet>
+			<title>Portal Navigation</title>
+			<access-permissions>Everyone</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<show-application-state>false</show-application-state>
+			<show-application-mode>false</show-application-mode>
+		</portlet-application>
+	</page>
+	<page>
+		<name>groupnavigation</name>
+		<title>Group Navigation</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>GroupNavigationPortlet</portlet-ref>
+			</portlet>
+			<title>Group Navigation</title>
+			<access-permissions>Everyone</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
 </page-set>

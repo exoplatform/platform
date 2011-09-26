@@ -49,21 +49,6 @@
     <page-reference>portal::@owner@::activities</page-reference>
    </node>
    
-   	  <node>
-	    <uri>groupnavigation</uri>
-	    <name>groupnavigation</name>
-	    <label>Group navigation</label>
-      <visibility>SYSTEM</visibility>
-	    <page-reference>portal::@owner@::groupnavigation</page-reference>
-	  </node>
-	  <node>
-	    <uri>portalnavigation</uri>
-	    <name>portalnavigation</name>
-	    <label>Portal navigation</label>
-      <visibility>SYSTEM</visibility>
-	    <page-reference>portal::@owner@::portalnavigation</page-reference>
-	  </node>
-   
    <node>
     <uri>profile</uri>
     <name>profile</name>

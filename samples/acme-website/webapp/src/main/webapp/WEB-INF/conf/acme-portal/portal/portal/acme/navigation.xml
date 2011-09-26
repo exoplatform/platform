@@ -112,21 +112,5 @@
       <page-reference>portal::acme::newAccount</page-reference>
     </node>
 
-    <node>
-      <uri>groupnavigation</uri>
-      <name>groupnavigation</name>
-      <label>#{portal.acme.groupnavigation}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::groupnavigation</page-reference>     
-    </node>
-    
-    <node>
-      <uri>portalnavigation</uri>
-      <name>portalnavigation</name>
-      <label>#{portal.acme.portalnavigation}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::acme::portalnavigation</page-reference>      
-    </node>
-
   </page-nodes>
 </node-navigation>

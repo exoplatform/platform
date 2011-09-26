@@ -52,7 +52,8 @@
     if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
       tabStyleNavigation = "SelectedItem";
     }
-    def hasChild = node.getChildrenCount() > 0;
+    def childrenNodes = uicomponent.getValidChildren(node);
+    def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
     def clazz = "";
     if(hasChild) clazz = "ArrowIcon";
     def href = NavigationURLUtils.getURL(node);
@@ -80,7 +81,7 @@
         <ul class="MenuItemContainer" style="position: absolute; display:none">
       """;
 		int j = 0;
-        for(UserNode childNode : node.getChildren()) {
+        for(UserNode childNode : childrenNodes) {
           renderPageNode(childNode, j++ %2 == 0);
         }
       print """
@@ -93,20 +94,17 @@
   }
 
 	  void renderGroupPageNavigation(UserNavigation navigation) {
-			def nodes = uicomponent.getUserNodes(navigation);
-			if(nodes.isEmpty()) return ;
+			def nodes = uicomponent.getValidUserNodes(navigation);
+			if(nodes== null || nodes.isEmpty()) return ;
 			def ownerId = navigation.getKey().getName();
 			String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
 			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
-            String spacesNavigations= navigation.getKey().getName();
             print """
 			<li class="TitleBar" title="$ownerId">$navTitle</li>
 				""" ;
 				int idx = 0;
 				for(UserNode node : nodes) {
-                    if(!uicomponent.isUserNodeInSetupMenu(node)){
-					 renderPageNodeGroup(node, idx++ %2 == 0 ) ;
-                    }
+				  renderPageNodeGroup(node, idx++ %2 == 0 ) ;
 				}
     }
 	
@@ -117,9 +115,10 @@
 		UserNode selectedNode = uicomponent.getSelectedNode();
 		String tabStyleNavigation = "";
 		if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
-				tabStyleNavigation = "SelectedItem";
+			tabStyleNavigation = "SelectedItem";
 		}
-		boolean hasChild = node.getChildrenCount() > 0;
+        def childrenNodes = uicomponent.getValidChildren(node);
+        def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
 		String clazz = "";
 		if(hasChild) clazz = "ArrowIcon";
 		String	href = NavigationURLUtils.getURL(node);
@@ -147,7 +146,7 @@
 				<ul class="MenuItemContainer" style="position: absolute; display:none">
 			""" ;
 				int idx = 0;
-				for(UserNode child : node.getChildren()) {
+				for(UserNode child : childrenNodes) {
 		            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
 		              continue;
 		            }
@@ -173,11 +172,8 @@
 				for(navigation in groupNavigations) {
 					renderGroupPageNavigation(navigation);
 				} 
-				if(hasPermission){ %>
-		<li class="SubBlock">
-		<li class="MenuItem"><a class="ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"><%=_ctx.appRes("UIMyGroupsPlatformToolBarPortlet.manage")%></a></li></li>
-	<% } %>
-</ul>
+         %>
+    </ul>
 <% } %>
 </li>
 </ul>

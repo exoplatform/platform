@@ -72,5 +72,11 @@
 	    <label>#{administration.groupnavigation}</label>
 	    <page-reference>group::/platform/administrators::groupnavigation</page-reference>
 	  </node>
+   	  <node>
+	    <uri>portalnavigation</uri>
+	    <name>portalnavigation</name>
+	    <label>#{administration.portalnavigation}</label>
+	    <page-reference>group::/platform/administrators::portalnavigation</page-reference>
+	  </node>
   </page-nodes>
 </node-navigation>

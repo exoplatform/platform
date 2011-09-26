@@ -2,8 +2,9 @@ package org.exoplatform.platform.component;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.portal.config.UserACL;
@@ -17,6 +18,8 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -29,7 +32,14 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
   private String userId = null;
   private boolean groupNavigationPermitted = false;
   private UserNodeFilterConfig myGroupsFilterConfig;
-  private List<UserNode> setupMenuUserNodes = null;
+  private List<String> setupMenuPageReferences = null;
+  private List<UserNavigation> navigationsToDisplay = new ArrayList<UserNavigation>();
+  // first level of valid user nodes <SiteName, list of valid nodes>
+  private Map<String, Collection<UserNode>> nodesToDisplay = new HashMap<String, Collection<UserNode>>();
+
+  // valid children nodes of a selected user node <user node id, list of
+  // valid children nodes>
+  private Map<String, Collection<UserNode>> cachedValidChildrenNodesToDisplay = new HashMap<String, Collection<UserNode>>();
 
   public UIMyGroupsPlatformToolBarPortlet() throws Exception {
     organizationService = getApplicationComponent(OrganizationService.class);
@@ -51,55 +61,93 @@ public class UIMyGroupsPlatformToolBarPortlet extends UIPortletApplication {
         }
       }
     }
-    UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-    // builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED,
-    // Visibility.HIDDEN).withTemporalCheck();
-    myGroupsFilterConfig = builder.build();
-    setupMenuUserNodes = menuConfiguratorService.getSetupMenuItems(getUserPortal());
+    setupMenuPageReferences = menuConfiguratorService.getSetupMenuPageReferences();
+  }
+  
+  @Override
+  public void processRender(WebuiRequestContext context) throws Exception {
+    readNavigationsAndCache();
+    super.processRender(context);
   }
 
-  // return group navigation that does not include any space navigation
-  public List<UserNavigation> getGroupNavigations() throws Exception {
+  @Override
+  public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+    readNavigationsAndCache();
+    super.processRender(app, context);
+  }
+
+  private void readNavigationsAndCache() {
     UserPortal userPortal = getUserPortal();
     List<UserNavigation> allNavigations = userPortal.getNavigations();
-    List<UserNavigation> computedNavigations = new ArrayList<UserNavigation>();
+    // Compute the list of UserNavigations that have navigation nodes not
+    // set in 'SetupMenu'
+    navigationsToDisplay.clear();
+    nodesToDisplay.clear();
+    cachedValidChildrenNodesToDisplay.clear();
     for (UserNavigation navigation : allNavigations) {
+      UserNode rootNode = userPortal.getNode(navigation, Scope.ALL, myGroupsFilterConfig, null);
       if ((navigation.getKey().getTypeName().equals(PortalConfig.GROUP_TYPE))
           && (navigation.getKey().getName().indexOf("spaces") < 0)) {
-        computedNavigations.add(navigation);
+        Collection<UserNode> children = getNodesNotInSetupMenu(rootNode.getChildren());
+        if (children == null || children.isEmpty()) {
+          continue;
+        }
+        navigationsToDisplay.add(navigation);
+        nodesToDisplay.put(navigation.getKey().getName(), children);
       }
     }
-    return computedNavigations;
+  }
+
+  /**
+   * @return group navigation that does not include any space navigation
+   */
+  public List<UserNavigation> getGroupNavigations() {
+    return navigationsToDisplay;
   }
 
   public UserNode getSelectedPageNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
 
-  public Collection<UserNode> getUserNodes(UserNavigation nav) {
-    UserPortal userPortall = getUserPortal();
-    if (nav != null) {
-      try {
-        UserNode rootNode = userPortall.getNode(nav, Scope.ALL, myGroupsFilterConfig, null);
-        return rootNode.getChildren();
-      } catch (Exception exp) {
-        log.warn(nav.getKey().getName() + " has been deleted");
-      }
-    }
-    return Collections.emptyList();
+  public Collection<UserNode> getValidUserNodes(UserNavigation nav) {
+    return nodesToDisplay.get(nav.getKey().getName());
   }
 
-  public boolean isUserNavigationInSetupMenu(Collection<UserNode> userNodes) {
-    //    TODO
-    return false;
+  public Collection<UserNode> getValidChildren(UserNode node) {
+    return cachedValidChildrenNodesToDisplay.get(node.getId());
+  }
+
+  public Collection<UserNode> getNodesNotInSetupMenu(Collection<UserNode> userNodes) {
+    if (userNodes == null || userNodes.isEmpty()) {
+      return null;
+    }
+    Collection<UserNode> validNodes = new ArrayList<UserNode>();
+    for (UserNode userNode : userNodes) {
+      // Compute valid child nodes
+      // Attention: this instruction have to be here in order to compute
+      // the valid child nodes of all user nodes recursively and cache the
+      // result
+      Collection<UserNode> validChidNodes = getNodesNotInSetupMenu(userNode.getChildren());
+      cachedValidChildrenNodesToDisplay.put(userNode.getId(), validChidNodes);
+
+      // Test if this node have a "page reference" not set in 'Setup Menu'
+      if (userNode.getPageRef() != null && !userNode.getPageRef().isEmpty() && !isUserNodeInSetupMenu(userNode)) {
+        validNodes.add(userNode);
+        continue;
+      }
+      // Test if one node's child have a "page reference" not set in 'Setup
+      // Menu'
+      if (validChidNodes != null && !validChidNodes.isEmpty()) {
+        validNodes.add(userNode);
+      }
+    }
+    return validNodes;
   }
 
   public boolean isUserNodeInSetupMenu(UserNode userNode) {
     String pageReference = userNode.getPageRef();
-    for (UserNode userNodeTmp : setupMenuUserNodes) {
-      if (userNodeTmp.getPageRef().equals(pageReference)) {
-        return true;
-      }
+    if (pageReference != null && !pageReference.isEmpty()) {
+      return setupMenuPageReferences.contains(pageReference);
     }
     return false;
   }

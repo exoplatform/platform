@@ -9,13 +9,16 @@ package org.exoplatform.platform.component;
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
@@ -25,7 +28,6 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
@@ -58,7 +60,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     try {
       spaceService = getApplicationComponent(SpaceService.class);
     } catch (Exception exception) {
-      // spaceService should be "null" because the Social profile isn't
+      // spaceService could be "null" when the Social profile isn't
       // activated
     }
     organizationService = getApplicationComponent(OrganizationService.class);
@@ -68,7 +70,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     if (getUserId().equals(userACL.getSuperUser())) {
       groupNavigationPermitted = true;
     } else {
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
+      Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
       for (Object object : memberships) {
         Membership membership = (Membership) object;
         if (membership.getMembershipType().equals(userACL.getAdminMSType())) {
@@ -78,8 +80,6 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       }
     }
     UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-    // builder.withAuthorizationCheck().withVisibility(Visibility.DISPLAYED,
-    // Visibility.HIDDEN).withTemporalCheck();
     mySpaceFilterConfig = builder.build();
   }
 
@@ -90,7 +90,8 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     List<UserNavigation> computedNavigations = null;
     if (spaceService != null) {
       computedNavigations = new ArrayList<UserNavigation>(allNavigations);
-      List<Space> spaces = spaceService.getAccessibleSpaces(remoteUser);
+      ListAccess<Space> spacesListAccess = spaceService.getAccessibleSpacesWithListAccess(remoteUser);
+      List<Space> spaces = Arrays.asList(spacesListAccess.load(0, spacesListAccess.getSize()));
       Iterator<UserNavigation> navigationItr = computedNavigations.iterator();
       String ownerId;
       String[] navigationParts;
@@ -172,7 +173,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     return null;
   }
 
-  private List<UserNavigation> getAllGroupUserNavigation() {
+  public List<UserNavigation> getAllGroupUserNavigation() {
     List<UserNavigation> groupNavigation = new LinkedList<UserNavigation>();
     List<UserNavigation> userNavigation = getUserPortal().getNavigations();
     for (UserNavigation nav : userNavigation) {
@@ -193,9 +194,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     return userPortal.getNavigation(userKey);
   }
 
-  private UserPortal getUserPortal() {
-    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-    return uiPortalApplication.getUserPortalConfig().getUserPortal();
+  public static UserPortal getUserPortal() {
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
   }
 
   public Collection<UserNode> getUserNodes(UserNavigation nav) {
@@ -211,7 +212,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     return Collections.emptyList();
   }
 
-  private UserNode getSelectedNode() throws Exception {
+  public UserNode getSelectedNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
 

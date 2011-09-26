@@ -16,10 +16,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIAddPagePlatformToolbarPortlet/UIAddPagePlatformToolbarPortlet.gtmpl")
 public class UIAddPagePlatformToolbarPortlet extends UIPortletApplication {
-  // Minh Hoang TO
-  // TODO: Add a ThreadLocal cache to avoid double invocation of
-  // editPermission
-  // check ( one in processRender method, and one in Groovy template )
 
   public UIAddPagePlatformToolbarPortlet() throws Exception {}
 
@@ -50,7 +46,7 @@ public class UIAddPagePlatformToolbarPortlet extends UIPortletApplication {
     UIPortal currentUIPortal = portalApp.<UIWorkingWorkspace> findComponentById(UIPortalApplication.UI_WORKING_WS_ID)
         .findFirstComponentOfType(UIPortal.class);
     UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
-    return userACL.hasEditPermissionOnPortal(currentUIPortal.getOwnerType(), currentUIPortal.getName(),
+    return userACL.hasEditPermissionOnPortal(currentUIPortal.getSiteType().getName(), currentUIPortal.getName(),
         currentUIPortal.getEditPermission());
   }
 
@@ -64,7 +60,7 @@ public class UIAddPagePlatformToolbarPortlet extends UIPortletApplication {
       return false;
     } else {
       UserACL userACL = portalApp.getApplicationComponent(UserACL.class);
-      return userACL.hasEditPermissionOnPage(uiPage.getOwnerType(), uiPage.getOwnerId(), uiPage.getEditPermission());
+      return userACL.hasEditPermissionOnPage(uiPage.getSiteKey().getTypeName(), uiPage.getSiteKey().getName(), uiPage.getEditPermission());
     }
   }
 

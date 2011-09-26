@@ -4,9 +4,93 @@
 	<priority>1</priority>
 	<page-nodes>
 		<node>
+			<uri>org</uri>
+			<name>org</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.users}</label>
+			<page-reference>group::platform/administrators::newStaff</page-reference>
+			<node>
+				<uri>org/adduser</uri>
+				<name>newStaff</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.newStaff}</label>
+				<page-reference>group::platform/administrators::newStaff</page-reference>
+			</node>
+			<node>
+				<uri>org/org-management</uri>
+				<name>org-management</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.org-management}</label>
+				<page-reference>group::platform/administrators::management</page-reference>
+			</node>
+		</node>
+		<node>
+			<uri>applications</uri>
+			<name>applications</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.applications}</label>
+			<page-reference>group::platform/administrators::registry</page-reference>
+		</node>
+		<node>
+			<uri>content</uri>
+			<name>content</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.content}</label>
+			<page-reference>group::platform/web-contributors::SiteExplorer</page-reference>
+			<node>
+				<uri>siteExplorer</uri>
+				<name>siteExplorer</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.siteExplorer}</label>
+				<page-reference>group::platform/web-contributors::SiteExplorer</page-reference>
+			</node>
+			<node>
+				<uri>wcmAdmin</uri>
+				<name>wcmAdmin</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.wcmAdmin}</label>
+				<page-reference>group::platform/web-contributors::WcmAdmin</page-reference>
+			</node>
+		</node>
+		<node>
+			<uri>portal</uri>
+			<name>portal</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.portal}</label>
+			<page-reference>group::platform/administrators::pageManagement</page-reference>
+			<node>
+				<uri>portal/pages</uri>
+				<name>pages</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.pageManagement}</label>
+				<page-reference>group::platform/administrators::pageManagement</page-reference>
+			</node>
+			<node>
+				<uri>portal/sites</uri>
+				<name>pages</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.portalnavigation}</label>
+				<page-reference>portal::platform/administrators::portalnavigation</page-reference>
+			</node>
+			<node>
+				<uri>portal/groups</uri>
+				<name>groups</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.groupnavigation}</label>
+				<page-reference>group::platform/administrators::groupnavigation</page-reference>
+			</node>
+		</node>
+		<node>
+			<uri>administration</uri>
+			<name>administration</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.administration}</label>
+			<page-reference>group::platform/administrators::servicesManagement</page-reference>
+			<node>
+				<uri>administration/management</uri>
+				<name>management</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.servicesManagement}</label>
+				<page-reference>group::platform/administrators::servicesManagement</page-reference>
+			</node>
+			<node>
+				<uri>administration/monitoring</uri>
+				<name>monitoring</name>
+				<label>#{UISetupPlatformToolBarPortlet.label.monitoring}</label>
+				<page-reference>group::platform/administrators::monitoring</page-reference>
+			</node>
+		</node>
+		<node>
 			<uri>ide</uri>
 			<name>ide</name>
-			<label>#{developers.ide}</label>
+			<label>#{UISetupPlatformToolBarPortlet.label.ide}</label>
 			<page-reference>group::developers::ide</page-reference>
 		</node>
 	</page-nodes>

@@ -36,7 +36,6 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.url.navigation.NavigationResource;
@@ -72,8 +71,6 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-        // UserPortalConfig portalConfig =
-        // dataStorage.getUserPortalConfig(portalName, getRemoteUser());
         UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(),
             PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig())) {
@@ -100,8 +97,6 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     List<String> portals = dataStorage.getAllPortalNames();
     for (String portalName : portals) {
       try {
-        // UserPortalConfig portalConfig =
-        // dataStorage.getUserPortalConfig(portalName, getRemoteUser());
         UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getRemoteUser(),
             PortalRequestContext.USER_PORTAL_CONTEXT);
         if (portalConfig != null) {
@@ -144,8 +139,8 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
   }
 
   private UserPortal getUserPortal() {
-    UIPortalApplication uiApp = Util.getUIPortalApplication();
-    return uiApp.getUserPortalConfig().getUserPortal();
+    PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+    return portalRequestContext.getUserPortal();
   }
 
   private UserNavigation getNavigation(SiteKey userKey) {

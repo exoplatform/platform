@@ -49,21 +49,6 @@
     <page-reference>portal::intranet::activities</page-reference>
    </node>
    
-   	  <node>
-	    <uri>groupnavigation</uri>
-	    <name>groupnavigation</name>
-	    <label>#{portal.intranet.groupnavigation}</label>
-      <visibility>SYSTEM</visibility>
-	    <page-reference>portal::intranet::groupnavigation</page-reference>
-	  </node>
-	  <node>
-	    <uri>portalnavigation</uri>
-	    <name>portalnavigation</name>
-	    <label>#{portal.intranet.portalnavigation}</label>
-      <visibility>SYSTEM</visibility>
-	    <page-reference>portal::intranet::portalnavigation</page-reference>
-	  </node>
-   
    <node>
     <uri>profile</uri>
     <name>profile</name>

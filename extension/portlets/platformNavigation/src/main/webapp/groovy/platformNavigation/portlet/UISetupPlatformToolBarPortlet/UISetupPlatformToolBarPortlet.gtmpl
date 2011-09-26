@@ -16,7 +16,7 @@
 
     for(PageNode pageNode : pageNodes) {
       String href = uicomponent.getHREF(pageNode);
-      String label = uicomponent.getLabel(pageNode);
+      String label = uicomponent.getEncodedResolvedLabel(pageNode);
       boolean hasChild = uicomponent.hasChild(pageNode);
       String icon = pageNode.getIcon();
       if(icon == null) icon = "DefaultPageIcon";

@@ -65,21 +65,5 @@
       <page-reference>portal::@owner@::newAccount</page-reference>
     </node>
     
-    <node>
-      <uri>groupnavigation</uri>
-      <name>groupnavigation</name>
-      <label>#{portal.@owner@.groupnavigation}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::@owner@::groupnavigation</page-reference>     
-    </node>
-    
-    <node>
-      <uri>portalnavigation</uri>
-      <name>portalnavigation</name>
-      <label>#{portal.@owner@.portalnavigation}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::@owner@::portalnavigation</page-reference>      
-    </node>
-    
   </page-nodes>
 </node-navigation>

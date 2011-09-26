@@ -1,10 +1,12 @@
 package org.exoplatform.platform.component;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.MissingResourceException;
+import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
-import org.exoplatform.commons.utils.PropertyManager;
+import org.exoplatform.commons.utils.ExpressionUtil;
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -17,12 +19,14 @@ import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.gatein.common.text.EntityEncoder;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UISetupPlatformToolBarPortlet/UISetupPlatformToolBarPortlet.gtmpl")
 public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
 
   private MenuConfiguratorService menuConfiguratorService;
   private List<UserNode> setupMenuUserNodes = null;
+  private Map<Locale, Map<String, String>> resolvedEncodeLabels = new HashMap<Locale, Map<String, String>>();
 
   public UISetupPlatformToolBarPortlet() throws Exception {
     menuConfiguratorService = getApplicationComponent(MenuConfiguratorService.class);
@@ -43,22 +47,25 @@ public class UISetupPlatformToolBarPortlet extends UIPortletApplication {
     return null;
   }
 
-  public String getLabel(PageNode pageNode) {
-    String mesgKey = pageNode.getLabel();
-    PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
-    String value = "";
-    try {
-      ResourceBundle res = pcontext.getApplicationResourceBundle();
-      value = res.getString(mesgKey);
-    } catch (MissingResourceException ex) {
-      if (PropertyManager.isDevelopping()) {
-        log.warn("Can not find resource bundle for key : " + mesgKey);
+  public String getEncodedResolvedLabel(PageNode pageNode) {
+    if (pageNode.getLabel() != null && !pageNode.getLabel().isEmpty()) {
+      Locale locale = Util.getPortalRequestContext().getLocale();
+      Map<String, String> i18nizedLabels = resolvedEncodeLabels.get(locale);
+      if (i18nizedLabels == null) {
+        i18nizedLabels = new HashMap<String, String>();
+        resolvedEncodeLabels.put(locale, i18nizedLabels);
       }
-      if (mesgKey != null) {
-        value = mesgKey;
+      String resolvedLabel = i18nizedLabels.get(pageNode.getLabel());
+      if (resolvedLabel == null) {
+        PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+        ResourceBundle bundle = pcontext.getApplicationResourceBundle();
+        resolvedLabel = ExpressionUtil.getExpressionValue(bundle, pageNode.getLabel());
+        resolvedLabel = EntityEncoder.FULL.encode(resolvedLabel);
+        i18nizedLabels.put(pageNode.getLabel(), resolvedLabel);
       }
+      return resolvedLabel;
     }
-    return value;
+    return pageNode.getLabel();
   }
 
   public boolean hasChild(PageNode pageNode) {

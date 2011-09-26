@@ -30,9 +30,9 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.Visibility;
@@ -42,7 +42,6 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.url.navigation.NavigationResource;
@@ -91,11 +90,11 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
   }
 
   private UserPortal getUserPortal() {
-    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-    return uiPortalApplication.getUserPortalConfig().getUserPortal();
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
   }
 
-  private UserNode getSelectedNode() throws Exception {
+  public UserNode getSelectedNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
 
@@ -135,7 +134,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return NavigationURLUtils.getURL(SiteKey.user(WebuiRequestContext.getCurrentInstance().getRemoteUser()), DEFAULT_TAB_NAME);
   }
 
-  private boolean isWebOSCreated() throws Exception {
+  public boolean isWebOSCreated() throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     DataStorage storage = getApplicationComponent(DataStorage.class);
     Page page = storage.getPage(PortalConfig.USER_TYPE + "::" + context.getRemoteUser() + "::" + UIDesktopPage.PAGE_ID);
@@ -152,7 +151,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     throw new NullPointerException("There is no dashboard node. The dashboard node existing should be checked before");
   }
 
-  private boolean isWebOsProfileActivated() {
+  public boolean isWebOsProfileActivated() {
     return (ExoContainer.getProfiles().contains("webos") || ExoContainer.getProfiles().contains("all"));
   }
 
@@ -194,7 +193,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
       try {
         PortalRequestContext prContext = Util.getPortalRequestContext();
         if (_nodeName == null) {
-          logger.debug("Parsed nodeName is null, hence use Tab_0 as default name");
+          logger.debug("Parsed nodeName is null, hence use Tab_Default as default name");
           _nodeName = DEFAULT_TAB_NAME;
         }
         UserPortalConfigService _configService = toolbarPortlet.getApplicationComponent(UserPortalConfigService.class);
@@ -307,7 +306,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
         webOSNode = node;
       }
     }
-    if(webOSNode != null) {
+    if (webOSNode != null) {
       tempNodes.remove(tempNodes);
     }
     return tempNodes;
