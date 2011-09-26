@@ -50,6 +50,26 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
+				
+				<!-- Invitations gadget -->
+		                <portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://Invitations</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+				
                                 <!-- Agenda gadget -->
 		                <portlet-application>
 					<portlet>
