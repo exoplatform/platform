@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.migration</artifactId>
-		<version>3.0.6</version>
+		<version>3.0.7-SNAPSHOT</version>
 	</parent>
 	<artifactId>exo.platform.migration.delivery</artifactId>
 	<packaging>pom</packaging>
