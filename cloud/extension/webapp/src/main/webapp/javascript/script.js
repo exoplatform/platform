@@ -174,7 +174,7 @@
                       Tenants.prototype.handleConfirmationResponse = function(resp) {
 
                            if (resp.errors=="") {
-                            _gel("messageString").innerHTML="<div class=\"Ok\">Tenant creation request sent successfully! You will receive email when done.</div>";
+                            _gel("messageString").innerHTML="<div class=\"Ok\">Tenant confirmed successfully! Creation is in progress. You will receive email when done.</div>";
                            } else {
                              _gel("messageString").innerHTML=resp.text;
                            }

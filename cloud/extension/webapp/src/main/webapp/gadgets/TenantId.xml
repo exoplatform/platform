@@ -2,10 +2,10 @@
 
 <Module>
 	<ModulePrefs author="eXoPlatform"
-		title="Tenant ID"
-		directory_title="Tenant ID"
+		title="Tenant Confirmation"
+		directory_title="Tenant Confirmation"
 		title_url="http://www.exoplatform.org"
-		description="Tenant ID"
+		description="Tenant Confirmation"
 		>
         <Require feature="opensocial-0.8" />
          <Require feature="dynamic-height"/>
@@ -21,7 +21,7 @@
 			<div class="UIGadgetThemes">
                           <div id="more_spaces">
                            <div class="TitGad">
-                             <div class="ContTit">Tenant ID</div>
+                             <div class="ContTit">Tenant Confirmation</div>
                            </div>
                           </div>
                           <div id="myspaces_id" class="GadCont MySpace">
