@@ -8,7 +8,8 @@
     <Require feature="dynamic-height" />
     <Require feature="opensocial-0.8" />
     <Require feature="views" />
-    <Locale messages="locales/ALL_ALL.xml" />
+    <Locale messages="locales/default.xml" />
+    <Locale lang="fr" messages="locales/fr.xml" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     
@@ -120,38 +121,39 @@
           $('<div/>', {'class': 'users',  html: config_items.join('')}).appendTo('#pending-requests-gadget');
           config_items.push('<div>:' + + '</div>');
           */
-          // debiging end
+          // debuging end
+
           
+          $('#connections_requests_nb').addClass("nb_no");
+          $("#connections_requests_handler").html('<div class="light_message"> __MSG_no_new_contact__ </div>');
+          $('#space_requests_nb').addClass("nb_no");
+          $("#space_requests_handler").html('<div class="light_message"> __MSG_no_new_space__ </div>');
+          showPeople();
+                    
           //
           // fetch all received contact requests
           //
           var contacts_items = [];
           $.getJSON('/rest/gadgets/social-inbox/v1/contacts/'+ eXoUserID +'/pending', function(data) {
             $.each(data, function(i, relationRequests) {
-              $('#connections_requests_nb').empty();
-              $('#connections_requests_nb').removeClass();
-              $('#connections_requests_nb').addClass("nb_container");
-              $('#connections_requests_handler').empty();
-              if ( relationRequests.length > 0 ) {
-                $('#connections_requests').show();
-                $('#connections_requests_nb').append('<a href="'+url_InvitationsPeople+'" target="_parent">'+relationRequests.length+'</a>');
-                $('#connections_requests_nb').addClass("nb_yes");
+              if( relationRequests.length > 0 ) {
+                $('#connections_requests_nb').empty();
+                $('#connections_requests_nb').removeClass();
+                $('#connections_requests_nb').addClass("nb_container nb_yes");
+                $('#connections_requests_nb').append(relationRequests.length);
+                $('#connections_requests_handler').empty();
                 $.each(relationRequests, function(key, relationRequest) {
-                  var contactAvatar = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (relationRequest.avatarUrl == null ? "/social-resources/skin/ShareImages/Avatar.gif" : relationRequest.avatarUrl) + "'>" + "</img></a>";
-                  var contactInfo = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<b>" + relationRequest.requesterName + "</b>" + "</a>" +
+                  var contactAvatar = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_blank'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (relationRequest.avatarUrl == null ? "/social-resources/skin/ShareImages/Avatar.gif" : relationRequest.avatarUrl) + "'>" + "</img></a>";
+                  var contactInfo = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_blank'>" + "<b>" + relationRequest.requesterName + "</b>" + "</a>" +
                                        (relationRequest.postion == null ? "" : " (" + "<span style='font-size: smaller;'>" + relationRequest.postion + "</span>" + ")") + "<br/>";
                   var contactRow = "<tr>" +
                                       "<td style='width: 20px;'>" + contactAvatar + "</td>" +
                                       "<td style='padding-left: 3px;'>" + contactInfo + "</td>" +
-                                      //"<td>" + "<a href='/portal/intranet/connections/myInvitations' target='_parent' style='float: right;'>Add</a>" + "</td>" +
+                                      //"<td>" + "<a href='/portal/intranet/connections/myInvitations' target='_blank' style='float: right;'>Add</a>" + "</td>" +
                                    "</tr>";
                   
                   contacts_items.push(contactRow);
                 });
-              } else {
-                $('#connections_requests').hide();
-                $('#connections_requests_nb').addClass("nb_no");
-                contacts_items.push('<div class="light_message"> __MSG_no_new_contact__ </div>');
               }
             });
             $("#connections_requests_handler").append(contacts_items.join(""));
@@ -165,68 +167,32 @@
           var items_spaces_requests = [];
           $.getJSON('/rest/gadgets/social-inbox/v1/spaces/'+eXoUserID+'/pending', function(data) {
             $.each(data, function(i, invitedSpaces) {
-              $('#space_requests_nb').empty();
-              $('#space_requests_nb').removeClass();
-              $('#space_requests_nb').addClass("nb_container");
-              $('#space_requests_handler').empty();
               if (invitedSpaces.length > 0) {
-                $('#space_requests').show();
-                $('#space_requests_nb').append('<a href="'+url_InvitationsSpaces+'" target="_parent">'+ invitedSpaces.length +'</a>');
-                $('#space_requests_nb').addClass("nb_yes");
+                $('#space_requests_nb').empty();
+                $('#space_requests_nb').removeClass();
+                $('#space_requests_nb').addClass("nb_container nb_yes");
+                $('#space_requests_nb').append(invitedSpaces.length);
+                $('#space_requests_handler').empty();
                 $.each(invitedSpaces, function(key, invitedSpace) {
-                  /*
-                  var imageSource=invitedSpace.imageSource;
-                  items_spaces_requests.push('<div id="'+invitedSpace.id+'" class="IconLink invitedSpace" title="This space has '+invitedSpace.invitedUsers.length+' invited people">');
-                  // uncomment to show the space logo
-                  //items_spaces_requests.push('<img id="'+invitedSpace.id+'_img" class="Detail" src="' + invitedSpace.imageSource + '" width="32px" height="32px" /> ');
-                  items_spaces_requests.push( invitedSpace.name );
-                  //items_spaces_requests.push( '<br />('+invitedSpace.invitedUsers.length+' users)');
-                  items_spaces_requests.push('</div>');
-                  */
-                  
-                  
                   var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "'>" + "</img>";
                   var spaceInfo = "<b>" + invitedSpace.prettyName + "</b>" + " (__MSG_members__: " + invitedSpace.invitedUsers.length + ")";
                                 
                   var spaceRow = "<tr>" +
                                       "<td style='width: 20px;'>" + spaceAvatar + "</td>" +
                                       "<td style='padding-left: 3px;'>" + spaceInfo + "</td>" +
-                                      //"<td>" + "<a href='/portal/intranet/invitationSpace' target='_parent' style='float: right;'>Add</a>" + "</td>" +
+                                      //"<td>" + "<a href='/portal/intranet/invitationSpace' target='_blank' style='float: right;'>Add</a>" + "</td>" +
                                    "</tr>";
                   
                   items_spaces_requests.push(spaceRow);
                 });
-              } else {
-                $('#space_requests').hide();
-                $('#space_requests_nb').addClass("nb_no");
-                items_spaces_requests.push('<div class="light_message"> __MSG_no_new_space__ </div>');
               }
             });
-            
             $("#space_requests_handler").append(items_spaces_requests.join(""));
-            
-            // If the inbox is empty : show the nothing message
-            /*if ($('#connections_requests').is(':hidden') && $('#space_requests').is(':hidden')) {
-              $('#nothing').show();
-            } else {
-              $('#nothing').hide();
-            }*/
-            
-            showPeople();
             // adjust the gadget size
             gadgets.window.adjustHeight($("#social-inbox-gadget").get(0).offsetHeight);
           });
         }
         
-        function init() {
-          loadProfile();
-          $(document).everyTime("120s", "reloadPage", function() {
-            loadProfile();
-
-          }, 0);
-        }
-        
-      
         function showPeople(){
           $("#space_requests").hide();
           $("#peopleLink").removeClass();
@@ -241,7 +207,7 @@
           $("#space_requests").show();
         }
 
-        $(document).ready(function(){
+        function init() {
           $("#peopleLink").click(function () {
              showPeople();
              gadgets.window.adjustHeight($("#social-inbox-gadget").get(0).offsetHeight);
@@ -251,9 +217,15 @@
              showSpace();
              gadgets.window.adjustHeight($("#social-inbox-gadget").get(0).offsetHeight);
           });
-     
-          init();
-        });
+          
+          loadProfile();
+          $(document).everyTime("120s", "reloadPage", function() {
+            loadProfile();
+          }, 0);
+        }
+        
+        gadgets.util.registerOnLoadHandler(init);
+        
       </script>
     </head>
     <body>
@@ -268,13 +240,13 @@
             <div id="connections_requests" class="templates requests_container">
               <table id="connections_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
               </table>
-              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/connections/receivedInvitations' target='_parent'>__MSG_find_more__</a></div>
+              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/connections/receivedInvitations' target='_blank'>__MSG_find_more__</a></div>
             </div>
           
             <div id="space_requests" class="templates requests_container" style="display:none;">
               <table id="space_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
               </table>
-              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/invitationSpace' target='_parent'>__MSG_find_more__</a></div>
+              <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/invitationSpace' target='_blank'>__MSG_find_more__</a></div>
             </div>
         </div>
       </div>
