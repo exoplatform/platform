@@ -31,11 +31,4 @@ public class IntranetRESTOrganizationServiceImpl extends RESTOrganizationService
     super.createUser(baseURI, userName, password, firstName, lastName, email);
     return Response.status(HTTPStatus.CREATED).entity("Created").build();
    }
-  
-   @GET
-   @Path("/test")
-   public Response test(){
-	   assert(super.getUsersCount() != null);
-	   return Response.ok().build();
-   }
 }
