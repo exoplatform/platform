@@ -151,6 +151,9 @@
               <value>
                 <string>authoring-apps</string>
               </value>
+              <value>
+                <string>seo</string>
+              </value>
 
               <value profiles="workflow,all">
                 <string>ecmworkflow-extension</string>

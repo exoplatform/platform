@@ -19,18 +19,8 @@
 
 package org.exoplatform.platform.component;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.UUID;
+import java.util.List;
 
-import javax.jcr.Node;
-
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.platform.component.ecms.UISEOForm;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.platform.webui.navigation.UINavigationManagement;
@@ -46,11 +36,8 @@ import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.seo.PageMetadataModel;
-import org.exoplatform.services.seo.SEOService;
 import org.exoplatform.wcm.webui.Utils;
+import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -59,8 +46,8 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPopupContainer;
-import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -70,7 +57,6 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfigs({
     @ComponentConfig(template = "app:/groovy/platformNavigation/portlet/UIAdminToolbarPortlet/UIAdminToolbarContainer.gtmpl", events = {
         @EventConfig(listeners = UIAdminToolbarContainer.ChangeEditingActionListener.class),
-        @EventConfig(listeners = UIAdminToolbarContainer.AddSEOActionListener.class),
         @EventConfig(listeners = UIAdminToolbarContainer.EditNavigationActionListener.class) }),
     @ComponentConfig(type = UIPageNodeForm.class, lifecycle = UIFormLifecycle.class, template = "system:/groovy/webui/form/UIFormTabPane.gtmpl", events = {
         @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class),
@@ -81,20 +67,13 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPageNodeForm.CreatePageActionListener.class, phase = Phase.DECODE) }) })
 public class UIAdminToolbarContainer extends UIPortletApplication {
 
+  private static final String SEO_TOOLBAR_FORM_POPUP_CONTAINER_ID = "UISEOToolbarFormPopupContainer";
+  private static final String EDIT_NAVIGATION_POPUP_CONTAINER_ID = "UIEditNavigationPopupContainer";
   private static final String PAGE_MANAGEMENT_URI = "administration/pageManagement";
   private String pageManagementLink = null;
 
   private String userId = null;
-  private Boolean hasManageGroupSitesPermission = null;
-  private Boolean hasManageSitesPermission = null;
-
-  /** The Constant SEO_POPUP_WINDOW. */
-  public static final String SEO_POPUP_WINDOW = "UISEOPopupWindow";
-  private static ArrayList<String> paramsArray = null;
-  // private static String pageParent = null;
-  private String pageReference = null;
-  PageMetadataModel metaModel = null;
-  private String fullStatus = "Empty";
+  protected UINavigationManagement naviManager;
 
   public UIAdminToolbarContainer() throws Exception {
     PortalRequestContext context = Util.getPortalRequestContext();
@@ -102,14 +81,8 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     if (quickEdit == null) {
       context.getRequest().getSession().setAttribute(Utils.TURN_ON_QUICK_EDIT, false);
     }
-    addChild(UIPopupContainer.class, null, "UIPopupContainer-" + new Date().getTime());
-    UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, null);
-    editNavigation.setWindowSize(400, 400);
-    editNavigation.setId(editNavigation.getId() + "-" + UUID.randomUUID().toString().replaceAll("-", ""));
-  }
-
-  public UserNavigation getSelectedNavigation() throws Exception {
-    return Utils.getSelectedNavigation();
+    addChild(UIPopupContainer.class, null, SEO_TOOLBAR_FORM_POPUP_CONTAINER_ID);
+    addChild(UISEOToolbarForm.class, null, null);
   }
 
   public String getPageManagementLink() {
@@ -127,75 +100,20 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   }
 
   public boolean isGroupNavigation() throws Exception {
-    return SiteType.GROUP.equals(getSelectedNavigation().getKey().getType());
+    return SiteType.GROUP.equals(Utils.getSelectedNavigation().getKey().getType());
   }
 
   public boolean isPortaNavigation() throws Exception {
-    return SiteType.PORTAL.equals(getSelectedNavigation().getKey().getType());
+    return SiteType.PORTAL.equals(Utils.getSelectedNavigation().getKey().getType());
   }
 
   public boolean isUserNavigation() throws Exception {
-    return SiteType.USER.equals(getSelectedNavigation().getKey().getType());
+    return SiteType.USER.equals(Utils.getSelectedNavigation().getKey().getType());
   }
 
   public boolean hasManagePagesPermission() {
     UserACL userACL = getApplicationComponent(UserACL.class);
     return userACL.isUserInGroup(userACL.getAdminGroups());
-  }
-
-  public boolean hasManageSitesPermission() throws Exception {
-    if (hasManageSitesPermission != null) {
-      return hasManageSitesPermission;
-    }
-
-    hasManageSitesPermission = false;
-
-    UserACL userACL = getApplicationComponent(UserACL.class);
-    UserPortalConfigService dataStorage = getApplicationComponent(UserPortalConfigService.class);
-
-    Iterator<String> portalNamesIterator = dataStorage.getAllPortalNames().iterator();
-    while (portalNamesIterator.hasNext() && !hasManageSitesPermission) {
-      String portalName = portalNamesIterator.next();
-      UserPortalConfig portalConfig = dataStorage.getUserPortalConfig(portalName, getUserId(),
-          PortalRequestContext.USER_PORTAL_CONTEXT);
-      hasManageSitesPermission = portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig());
-    }
-    hasManageSitesPermission = hasManageSitesPermission || userACL.hasCreatePortalPermission();
-    return hasManageSitesPermission;
-  }
-
-  public boolean hasManageGroupSitesPermission() throws Exception {
-    if (hasManageGroupSitesPermission != null) {
-      return hasManageGroupSitesPermission;
-    }
-    hasManageGroupSitesPermission = false;
-    OrganizationService organizationService = getApplicationComponent(OrganizationService.class);
-    UserACL userACL = getApplicationComponent(UserACL.class);
-    if (getUserId().equals(userACL.getSuperUser())) {
-      hasManageGroupSitesPermission = true;
-    } else {
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(getUserId());
-      for (Object object : memberships) {
-        Membership membership = (Membership) object;
-        if (membership.getMembershipType().equals(userACL.getAdminMSType())) {
-          hasManageGroupSitesPermission = true;
-          break;
-        }
-      }
-    }
-    return hasManageGroupSitesPermission;
-  }
-
-  /**
-   * gets remote user Id
-   * 
-   * @return userId
-   */
-  private String getUserId() {
-    if (userId == null) {
-      userId = Util.getPortalRequestContext().getRemoteUser();
-    }
-    return userId;
   }
 
   public boolean hasEditPermissionOnNavigation() throws Exception {
@@ -214,69 +132,26 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
   }
 
-  public String getFullStatus() throws Exception {
-    PortalRequestContext pcontext = Util.getPortalRequestContext();
-    String portalName = pcontext.getPortalOwner();
-    metaModel = null;
-    if (!pcontext.useAjax()) {
-      fullStatus = "Empty";
-      paramsArray = null;
-      String contentParam = null;
-      Enumeration params = pcontext.getRequest().getParameterNames();
-      if (params.hasMoreElements()) {
-        paramsArray = new ArrayList<String>();
-        while (params.hasMoreElements()) {
-          contentParam = params.nextElement().toString();
-          paramsArray.add(pcontext.getRequestParameter(contentParam));
-        }
+  public static UserPortal getUserPortal() {
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
+  }
+
+  @Override
+  public void renderChildren() throws Exception {
+    List<UIComponent> list = getChildren();
+    for (UIComponent child : list) {
+      if (!(child instanceof UISEOToolbarForm) && child.isRendered()) {
+        renderChild(child);
       }
     }
-    ExoContainer container = ExoContainerContext.getCurrentContainer();
-    SEOService seoService = (SEOService) container.getComponentInstanceOfType(SEOService.class);
-    pageReference = Util.getUIPortal().getSelectedUserNode().getPageRef();
+  }
 
-    if (pageReference != null) {
-      SiteKey siteKey = Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
-      SiteKey portalKey = SiteKey.portal(portalName);
-      if (siteKey != null && siteKey.equals(portalKey)) {
-        metaModel = seoService.getPageMetadata(pageReference);
-        // pageParent =
-        // Util.getUIPortal().getSelectedUserNode().getParent().getPageRef();
-        if (paramsArray != null) {
-          PageMetadataModel tmpModel = seoService.getContentMetadata(paramsArray);
-          if (tmpModel != null) {
-            metaModel = tmpModel;
-          } else {
-            for (int i = 0; i < paramsArray.size(); i++) {
-              if (seoService.getContentNode(paramsArray.get(i).toString()) != null) {
-                metaModel = null;
-                break;
-              }
-            }
-          }
-        }
-      } else
-        fullStatus = "Disabled";
+  public String getUserId() {
+    if (userId == null) {
+      userId = Util.getPortalRequestContext().getRemoteUser();
     }
-
-    /*
-     * if(paramsArray != null) { onContent = true; metaModel =
-     * seoService.getContentMetadata(paramsArray); } else { onContent =
-     * false; pageReference =
-     * Util.getUIPortal().getSelectedUserNode().getPageRef(); SiteKey
-     * siteKey =
-     * Util.getUIPortal().getSelectedUserNode().getNavigation().getKey();
-     * SiteKey portalKey = SiteKey.portal(portalName); if(siteKey != null
-     * && siteKey.equals(portalKey)) metaModel =
-     * seoService.getPageMetadata(pageReference); else fullStatus =
-     * "Disabled"; }
-     */
-
-    if (metaModel != null) {
-      fullStatus = metaModel.getFullStatus();
-    }
-
-    return this.fullStatus;
+    return userId;
   }
 
   public static class ChangeEditingActionListener extends EventListener<UIAdminToolbarContainer> {
@@ -300,29 +175,6 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
   }
 
-  public static class AddSEOActionListener extends EventListener<UIAdminToolbarContainer> {
-    public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
-      UIAdminToolbarContainer uiAdminToolbar = event.getSource();
-      UISEOForm uiSEOForm = uiAdminToolbar.createUIComponent(UISEOForm.class, null, null);
-      ExoContainer container = ExoContainerContext.getCurrentContainer();
-      SEOService seoService = (SEOService) container.getComponentInstanceOfType(SEOService.class);
-      if (paramsArray != null) {
-        for (int i = 0; i < paramsArray.size(); i++) {
-          Node contentNode = seoService.getContentNode(paramsArray.get(i).toString());
-          if (contentNode != null) {
-            uiSEOForm.setOnContent(true);
-            break;
-          }
-        }
-      } else
-        uiSEOForm.setOnContent(false);
-      uiSEOForm.setParamsArray(paramsArray);
-      // uiSEOForm.setPageParent(uiAdminToolbar.pageParent);
-      uiSEOForm.initSEOForm(uiAdminToolbar.metaModel);
-      Utils.createPopupWindow(uiAdminToolbar, uiSEOForm, SEO_POPUP_WINDOW, 400);
-    }
-  }
-
   static public class EditNavigationActionListener extends EventListener<UIAdminToolbarContainer> {
     public void execute(Event<UIAdminToolbarContainer> event) throws Exception {
       UIAdminToolbarContainer uicomp = event.getSource();
@@ -340,9 +192,6 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       if (edittedNavigation.getKey().getType().equals(SiteType.PORTAL)) {
         String portalName = Util.getPortalRequestContext().getPortalOwner();
         UserPortalConfigService configService = uicomp.getApplicationComponent(UserPortalConfigService.class);
-        // UserPortalConfig userPortalConfig =
-        // configService.getUserPortalConfig(portalName,
-        // context.getRemoteUser());
         UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, context.getRemoteUser(),
             PortalRequestContext.USER_PORTAL_CONTEXT);
         if (userPortalConfig == null) {
@@ -360,19 +209,18 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
         }
       }
 
-      UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
-      UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
-      naviManager.setSiteKey(edittedNavigation.getKey());
-      UserPortal userPortal = Util.getUIPortalApplication().getUserPortalConfig().getUserPortal();
-      UINavigationNodeSelector selector = naviManager.getChild(UINavigationNodeSelector.class);
+      if (uicomp.naviManager == null) {
+        uicomp.naviManager = uicomp.createUIComponent(UINavigationManagement.class, null, null);
+      }
+      Utils.createPopupWindow(uicomp, uicomp.naviManager, EDIT_NAVIGATION_POPUP_CONTAINER_ID, 400, -1, -1);
+
+      uicomp.naviManager.setSiteKey(edittedNavigation.getKey());
+      UserPortal userPortal = getUserPortal();
+      UINavigationNodeSelector selector = uicomp.naviManager.getChild(UINavigationNodeSelector.class);
       selector.setEdittedNavigation(edittedNavigation);
       selector.setUserPortal(userPortal);
       selector.initTreeData();
 
-      popUp.setUIComponent(naviManager);
-      popUp.setShowMask(true);
-      popUp.setShow(true);
-      popUp.setWindowSize(400, 400);
       context.addUIComponentToUpdateByAjax(uicomp);
     }
   }
@@ -381,21 +229,21 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
 
     public void execute(Event<UIPageNodeForm> event) throws Exception {
       UIPageNodeForm uiPageNodeForm = event.getSource();
-      UserNavigation contextNavigation = uiPageNodeForm.getContextPageNavigation();
-      UIAdminToolbarContainer uiAdminToolbarContainer = uiPageNodeForm.getAncestorOfType(UIAdminToolbarContainer.class);
+      UIAdminToolbarContainer uicomp = uiPageNodeForm.getAncestorOfType(UIAdminToolbarContainer.class);
 
-      UINavigationManagement navigationManager = uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
-      navigationManager.setSiteKey(contextNavigation.getKey());
-
-      UINavigationNodeSelector selector = navigationManager.getChild(UINavigationNodeSelector.class);
+      UINavigationNodeSelector selector = uicomp.naviManager.getChild(UINavigationNodeSelector.class);
       TreeNode selectedParent = (TreeNode) uiPageNodeForm.getSelectedParent();
       selector.selectNode(selectedParent);
 
-      UIPopupWindow uiNavigationPopup = uiAdminToolbarContainer.getChild(UIPopupWindow.class);
-      uiNavigationPopup.setUIComponent(navigationManager);
-      uiNavigationPopup.setWindowSize(400, 400);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup.getParent());
+      WebuiRequestContext context = event.getRequestContext();
+      Utils.createPopupWindow(uicomp, uicomp.naviManager, EDIT_NAVIGATION_POPUP_CONTAINER_ID, 400, -1, -1);
+      context.addUIComponentToUpdateByAjax(uicomp);
 
+      TreeNode pageNode = uiPageNodeForm.getPageNode();
+      if (pageNode != null) {
+        selector.getUserNodeLabels().put(pageNode.getId(), pageNode.getI18nizedLabels());
+      }
+      selector.createEvent("NodeModified", Phase.PROCESS, context).broadcast();
     }
 
   }

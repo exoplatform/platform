@@ -101,6 +101,7 @@ function getProduct(version) {
   product.addDependencies(wcm.portlet.websearches); 
   product.addDependencies(wcm.portlet.newsletter); 
   product.addDependencies(wcm.portlet.formgenerator);
+  product.addDependencies(wcm.portlet.seo);
   product.addDependencies(wcm.web.eXoWCMResources) ;
   product.addDependencies(wcm.web.eXoStaticResources) ;
   product.addDependencies(wcm.authoring.war);

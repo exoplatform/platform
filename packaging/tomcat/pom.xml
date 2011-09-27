@@ -154,6 +154,18 @@
       <version>${org.exoplatform.ecms.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-core-webui-seo</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-apps-portlet-seo</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>war</type>
+    </dependency>
 	<!-- 2.2.0-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.cs</groupId>

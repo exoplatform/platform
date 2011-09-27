@@ -4,6 +4,7 @@
 	import org.exoplatform.wcm.webui.Utils;
 	import org.exoplatform.portal.application.PortalRequestContext ;
 	import org.exoplatform.platform.webui.NavigationURLUtils;
+	import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 
 	def rcontext = _ctx.getRequestContext();
 
@@ -18,6 +19,7 @@
 	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
+	String seoLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Properties");
 
 	String quiEditClass = "QuickEditUnchecked";
 	PortalRequestContext context = Util.getPortalRequestContext();
@@ -29,34 +31,12 @@
 	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation() && !uicomponent.isUserNavigation();
 	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
-    boolean displayManageSitesPermission = uicomponent.isPortaNavigation() && uicomponent.hasManageSitesPermission();
-    boolean displayManageGroupSitesPermission = uicomponent.isGroupNavigation() && uicomponent.hasManageGroupSitesPermission();
 	
   	String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
-  	if(displayManageGroupSitesPermission) {
-  	  siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.GroupSite");
-  	}
-  	
-	def fullStatus = uicomponent.getFullStatus();	
-	def seo_icon = fullStatus + ".png";
-	def seo_title = (String)_ctx.appRes("UISEOToolbarForm.title.seo");
-	def style = "Enable";
-	if(fullStatus.equals("Disabled")) style = "Disable";
-	
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 	
 <div id="<%=uicomponent.getId()%>">
-<script type="text/javascript">
-	eXo.env.portal.QuickEdit = '<%=quickEdit%>' ;
-  function openSEOForm(event, command) {
-    var evt = event || window.event;
-    var mouse_cordinate = evt.clientY + "," + evt.clientX; 
-    command = command.replace('str', mouse_cordinate);
-    command = command.replace(/~/g,"'");
-    eval(command);
-  }	
-</script>
 <ul class="UIAdminToolbarPortlet UIHorizontalTabs" id="<%=uicomponent.getId()%>_UL">
 	<li class="UITab NormalToolbarTab">
 		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
@@ -71,14 +51,13 @@
 					<li class="MenuItem">
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 					</li>
-					<li class="MenuItem">					
-						<%if(fullStatus.equals("Disabled")) {%>
-							<img class="ImgStatus" src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}" /><a class="<%=style%> Status" title="<%=seo_title%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%></a>
-							<%} else {
-								def onclickURL = "openSEOForm(event, '" + uicomponent.event("AddSEO","str").replace("'","~") + "')";
-							%>	
-							<img class="ImgStatus" src="/eXoPlatformResources/skin/platformSkin/icons/${seo_icon}" /><a class="<%=style%> Status" title="<%=seo_title%>" onclick="<%=onclickURL%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Properties")%></a>
-							<%}%>
+					<li class="MenuItem">
+                        <div style="float:left;">
+						  <%uicomponent.renderChild(UISEOToolbarForm.class); %>
+                        </div>
+                        <div style="float:right;">
+                          <%=seoLabel %>
+                        </div>
 					</li>	  				
 					<li class="HorizontalLine">&nbsp;</li>
 					<li class="MenuItem">	
@@ -92,7 +71,7 @@
 				</ul>
 			</li>
 			<% } %>
-			<% if(userCouldEditPortal || userCouldEditNavigation || displayManageSitesPermission || displayManageGroupSitesPermission) { %>
+			<% if(userCouldEditPortal || userCouldEditNavigation) { %>
 			<li class="MenuItem ArrowIcon">
 				<a href="#" class="ItemIcon DefaultPageIcon">$siteLabel</a>
 				<ul class="MenuItemContainer">
@@ -106,23 +85,11 @@
 						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon Navigation">$editNavigation</a>
 					</li>
 					<% } %>
-					<% if(displayManageSitesPermission){ %>
-					<li class="HorizontalLine">&nbsp;</li>
-					<li class="MenuItem ">   
-						<a class="ItemIcon ManageSite" href="<%= NavigationURLUtils.getURLInCurrentPortal("portalnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageSites")%></a>
-					</li>               
-					<% } %>
-					<% if(displayManageGroupSitesPermission){ %>
-					<li class="HorizontalLine">&nbsp;</li>
-					<li class="MenuItem ">   
-						<a class="ItemIcon ManageGroupSites" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"><%=_ctx.appRes("UIAdminToolbarPortlet.ManageGroupSites")%></a>
-					</li>               
-					<% } %>
 				</ul>
 			</li>
 			<% } %>
 		</ul>
 	</li>
-	<%uicomponent.renderChildren();%>
 </ul>
+	<%uicomponent.renderChildren();%>
 </div>
