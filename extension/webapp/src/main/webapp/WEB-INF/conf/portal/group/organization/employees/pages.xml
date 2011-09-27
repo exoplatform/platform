@@ -19,23 +19,5 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
     xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
-	
-	<page>
-		<name>workflowController</name>
-		<title>Workflow Tasks</title>
-		<access-permissions>*:/organization/employees</access-permissions>
-		<edit-permission>manager:/organization/employees</edit-permission>  
-		<portlet-application>
-			<portlet>
-				<application-ref>workflow</application-ref>
-				<portlet-ref>WorkflowControllerPortlet</portlet-ref>
-			</portlet>
-			<title>Workflow Tasks</title>
-			<access-permissions>*:/organization/employees</access-permissions>
-			<show-info-bar>false</show-info-bar>
-			<show-application-state>false</show-application-state>
-			<show-application-mode>false</show-application-mode>
-		</portlet-application>  
-  </page>
 
 </page-set>

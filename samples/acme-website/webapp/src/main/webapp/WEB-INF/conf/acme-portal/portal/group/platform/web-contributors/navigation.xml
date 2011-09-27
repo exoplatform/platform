@@ -43,20 +43,6 @@
       </node>
 
       <node>
-        <uri>newslettermanager</uri>
-        <name>newslettermanager</name>
-        <label>#{administration.newslettermanager}</label>
-        <page-reference>group::platform/web-contributors::newslettermanager</page-reference>
-      </node>
-
-      <node>
-        <uri>formgenerator</uri>
-        <name>formgenerator</name>
-        <label>#{administration.formgenerator}</label>
-        <page-reference>group::platform/web-contributors::formgenerator</page-reference>
-      </node>
-
-      <node>
         <uri>wcmAdmin</uri>
         <name>wcmAdmin</name>
         <label>#{administration.wcmAdmin}</label>

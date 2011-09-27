@@ -27,11 +27,6 @@
   <priority>5</priority>
   
   <page-nodes>
-	<node>
-		<uri>businessprocess</uri>
-		<name>businessprocess</name>
-		<label>#{employees.workflowcontroller}</label>
-		<page-reference>group::/organization/employees::workflowController</page-reference>
-	</node>
+
   </page-nodes>    
 </node-navigation>

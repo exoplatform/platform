@@ -1,4 +1,3 @@
-
 <%
 /*
 <!--
@@ -22,26 +21,15 @@
 */
 %>
 <%
-	import org.exoplatform.portal.mop.user.UserNavigation;
-	import org.exoplatform.portal.mop.user.UserNode;
-	import org.exoplatform.portal.webui.util.Util;
-	import org.exoplatform.portal.mop.Visibility;
-	import org.exoplatform.webui.organization.OrganizationUtils;
-
-	import org.exoplatform.web.application.JavascriptManager;
-	import org.gatein.common.text.EntityEncoder;
-	import org.exoplatform.platform.webui.NavigationURLUtils;
-	
-	def groupNavigations = uicomponent.getGroupNavigations();
-
-
-	def rcontext = _ctx.getRequestContext();
-	def jsManager = rcontext.getJavascriptManager();
-	jsManager.importJavascript('eXo.portal.UIPortalNavigation');
-	jsManager.importJavascript('eXo.portal.UIAdminToolbar');
-	jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
-
-	boolean hasPermission = uicomponent.hasPermission();
+  import org.exoplatform.portal.mop.user.UserNavigation;
+  import org.exoplatform.portal.mop.user.UserNode;
+  import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.portal.mop.Visibility;
+  import org.exoplatform.webui.organization.OrganizationUtils;
+  
+  import org.exoplatform.web.application.JavascriptManager;
+  import org.gatein.common.text.EntityEncoder;
+  import org.exoplatform.platform.webui.NavigationURLUtils;
 
   void renderPageNode(UserNode node, boolean flag) {
     if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
@@ -92,88 +80,95 @@
       </li>
     """;
   }
+  
+  void renderGroupPageNavigation(UserNavigation navigation) {
+  	def nodes = uicomponent.getValidUserNodes(navigation);
+  	if(nodes== null || nodes.isEmpty()) return ;
+  	def ownerId = navigation.getKey().getName();
+  	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
+  	navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
+          print """
+  	<li class="TitleBar" title="$ownerId">$navTitle</li>
+  		""" ;
+  		int idx = 0;
+  		for(UserNode node : nodes) {
+  		  renderPageNodeGroup(node, idx++ %2 == 0 ) ;
+  		}
+  }
 
-	  void renderGroupPageNavigation(UserNavigation navigation) {
-			def nodes = uicomponent.getValidUserNodes(navigation);
-			if(nodes== null || nodes.isEmpty()) return ;
-			def ownerId = navigation.getKey().getName();
-			String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
-			navTitle = navTitle.replace("{0}", OrganizationUtils.getGroupLabel(ownerId));
-            print """
-			<li class="TitleBar" title="$ownerId">$navTitle</li>
-				""" ;
-				int idx = 0;
-				for(UserNode node : nodes) {
-				  renderPageNodeGroup(node, idx++ %2 == 0 ) ;
-				}
-    }
-	
-	void renderPageNodeGroup(UserNode node, boolean flag) {
-	    if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
-	      return;
-	    }
-		UserNode selectedNode = uicomponent.getSelectedNode();
-		String tabStyleNavigation = "";
-		if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
-			tabStyleNavigation = "SelectedItem";
-		}
+  void renderPageNodeGroup(UserNode node, boolean flag) {
+      if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+        return;
+      }
+  	UserNode selectedNode = uicomponent.getSelectedNode();
+  	String tabStyleNavigation = "";
+  	if(selectedNode != null && node.getURI() == selectedNode.getURI()) {
+  		tabStyleNavigation = "SelectedItem";
+  	}
         def childrenNodes = uicomponent.getValidChildren(node);
         def hasChild = (childrenNodes != null) && !childrenNodes.isEmpty();
-		String clazz = "";
-		if(hasChild) clazz = "ArrowIcon";
-		String	href = NavigationURLUtils.getURL(node);
-
-		String icon = node.getIcon();
-		if(icon == null) icon = "DefaultPageIcon";
-		boolean toolong = (node.resolvedLabel.length() > 60);
-		String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
-		String title = "";
-		if(toolong) title = "title='$node.resolvedLabel'";
-		else title = "";
+  	String clazz = "";
+  	if(hasChild) clazz = "ArrowIcon";
+  	String	href = NavigationURLUtils.getURL(node);
+  
+  	String icon = node.getIcon();
+  	if(icon == null) icon = "DefaultPageIcon";
+  	boolean toolong = (node.resolvedLabel.length() > 60);
+  	String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+  	String title = "";
+  	if(toolong) title = "title='$node.resolvedLabel'";
+  	else title = "";
         EntityEncoder entityEncoder = EntityEncoder.FULL;
-		label = entityEncoder.encode(label);
-		print """
-			<li class="MenuItem $clazz $tabStyleNavigation">
-		""";
-						if(node.pageRef != null) {
-								print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+  	label = entityEncoder.encode(label);
+  	print """
+  		<li class="MenuItem $clazz $tabStyleNavigation">
+  	""";
+  					if(node.pageRef != null) {
+  							print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
+  
+  					} else {
+  							print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
+  					}
+  	if(hasChild) {
+  		print """
+  			<ul class="MenuItemContainer" style="position: absolute; display:none">
+  		""" ;
+  			int idx = 0;
+  			for(UserNode child : childrenNodes) {
+  	            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
+  	              continue;
+  	            }
+  				renderPageNode(child, idx++ % 2 == 0);
+  			}
+  		print """
+  			</ul>
+  		""" ;
+  
+  	}
+  	print """
+  		</li>
+  	""" ;
+  }
 
-						} else {
-								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
-						}
-		if(hasChild) {
-			print """
-				<ul class="MenuItemContainer" style="position: absolute; display:none">
-			""" ;
-				int idx = 0;
-				for(UserNode child : childrenNodes) {
-		            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
-		              continue;
-		            }
-					renderPageNode(child, idx++ % 2 == 0);
-				}
-			print """
-				</ul>
-			""" ;
-
-		}
-		print """
-			</li>
-		""" ;
-	}
+  def groupNavigations = uicomponent.getGroupNavigations();
+  if(groupNavigations != null && !groupNavigations.isEmpty()) {
+    def rcontext = _ctx.getRequestContext();
+    def jsManager = rcontext.getJavascriptManager();
+    jsManager.importJavascript('eXo.portal.UIPortalNavigation');
+    jsManager.importJavascript('eXo.portal.UIAdminToolbar');
+    jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
 %>
 <ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id">
-	<li class="UITab NormalToolbarTab">
-	<% if(hasPermission){ %> <a class="EditorIcon TBIcon" href="<%= NavigationURLUtils.getURLInCurrentPortal("groupnavigation") %>"> <% }else{ %> <a class="EditorIcon TBIcon" href="#"> <% } %> <%=_ctx.appRes("UIMyGroupsPlatformToolBarPortlet.label")%></a>
-	<% if (!groupNavigations.isEmpty()) { %>
-	<ul style="display: none" class="MenuItemContainer">
-		<% 
-				for(navigation in groupNavigations) {
-					renderGroupPageNavigation(navigation);
-				} 
-         %>
-    </ul>
-<% } %>
-</li>
+  <li class="UITab NormalToolbarTab"><a class="EditorIcon TBIcon" href="#"><%=_ctx.appRes("UIMyGroupsPlatformToolBarPortlet.label")%></a> <% if (!groupNavigations.isEmpty()) { %>
+  <ul style="display: none" class="MenuItemContainer">
+    <% 
+      for(navigation in groupNavigations) {
+      	renderGroupPageNavigation(navigation);
+      } 
+    %>
+  </ul>
+  <% } %>
+  </li>
 </ul>
+<%} %>

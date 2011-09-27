@@ -15,6 +15,9 @@
     }
 
     for(PageNode pageNode : pageNodes) {
+      if(!uicomponent.hasPermissionOnPageNode(pageNode)) {
+        continue;
+      }
       String href = uicomponent.getHREF(pageNode);
       String label = uicomponent.getEncodedResolvedLabel(pageNode);
       boolean hasChild = uicomponent.hasChild(pageNode);

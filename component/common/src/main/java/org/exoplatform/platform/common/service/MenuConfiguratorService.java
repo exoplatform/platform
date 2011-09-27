@@ -13,9 +13,11 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.UnmarshalledObject;
 import org.exoplatform.portal.mop.SiteKey;
+import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
+import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -27,6 +29,7 @@ public class MenuConfiguratorService implements Startable {
   private ConfigurationManager configurationManager;
   private String setupNavigationFilePath;
   private List<PageNode> setupPageNodes = new ArrayList<PageNode>();
+  private UserNodeFilterConfig myGroupsFilterConfig;
 
   public MenuConfiguratorService(InitParams initParams, ConfigurationManager configurationManager) {
     this.configurationManager = configurationManager;
@@ -53,9 +56,18 @@ public class MenuConfiguratorService implements Startable {
     return userNodes;
   }
 
+  public UserNodeFilterConfig getMyGroupsFilterConfig() {
+    return this.myGroupsFilterConfig;
+  }
+
   @Override
   public void start() {
     try {
+      UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
+      builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
+      builder.withTemporalCheck();
+      myGroupsFilterConfig = builder.build();
+
       log.info("Loading setup menu configuration from: " + setupNavigationFilePath);
       UnmarshalledObject<PageNavigation> obj = ModelUnmarshaller.unmarshall(PageNavigation.class,
           configurationManager.getInputStream(setupNavigationFilePath));
@@ -94,7 +106,9 @@ public class MenuConfiguratorService implements Startable {
       if (userNode != null) {
         userNodes.add(userNode);
       } else {
-        log.warn("Can't find a navigation with pageReference: " + pageReference);
+        if (log.isDebugEnabled()) {
+          log.debug("Can't find a navigation with pageReference: " + pageReference);
+        }
       }
       if (pageNode.getChildren() != null && !pageNode.getChildren().isEmpty()) {
         getSetupMenuItems(userPortal, userNodes, pageNode.getChildren());
@@ -105,7 +119,7 @@ public class MenuConfiguratorService implements Startable {
   private UserNode searchUserNodeByPageReference(UserPortal userPortal, UserNavigation nav, String pageReference) {
     if (nav != null) {
       try {
-        UserNode rootNode = userPortal.getNode(nav, Scope.ALL, null, null);
+        UserNode rootNode = userPortal.getNode(nav, Scope.ALL, myGroupsFilterConfig, null);
         if (rootNode.getPageRef() != null && pageReference.equals(rootNode.getPageRef())) {
           return rootNode;
         }
@@ -173,5 +187,4 @@ public class MenuConfiguratorService implements Startable {
       return owner;
     }
   }
-
 }

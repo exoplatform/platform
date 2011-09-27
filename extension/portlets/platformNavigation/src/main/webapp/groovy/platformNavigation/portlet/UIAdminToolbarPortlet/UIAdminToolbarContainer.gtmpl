@@ -63,11 +63,6 @@
 					<li class="MenuItem">	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
 					</li>
-					<% if(uicomponent.hasManagePagesPermission()){ %>
-					<li class="MenuItem">   
-						<a class="ItemIcon ManagePages" href="<%= uicomponent.getPageManagementLink()%>"><%=_ctx.appRes("UIAdminToolbarPortlet.action.ManagePages")%></a>
-					</li>
-					<% } %>
 				</ul>
 			</li>
 			<% } %>
