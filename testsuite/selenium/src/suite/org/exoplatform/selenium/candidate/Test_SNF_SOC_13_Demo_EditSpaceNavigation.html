@@ -48,7 +48,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -103,7 +103,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,12 +113,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div[2]/div[1]/div[1]/div[1]/a</td>
+	<td>link=Space13</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[2]/div[2]/div[1]/div[1]/div[1]/a</td>
+	<td>link=Space13</td>
 	<td></td>
 </tr>
 <tr>
@@ -128,12 +128,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISpaceMenu']/div/div[5]/a/span</td>
+	<td>//a[contains(@href,'spaces:space13') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UISpaceMenu']/div/div[5]/a/span</td>
+	<td>//a[contains(@href,'spaces:space13') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,17 +143,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div/div/div[1]/div/div[5]/div/div/div/div</td>
+	<td>//div[text()='Space Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//td[2]/div/div/div/div/div/div/div/div/div/div/div[1]/div/div/div[1]/div/div[5]/div/div/div/div</td>
+	<td>//div[text()='Space Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>--Edit nav: add node, actions ...</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>BUG: SOC-1300</td>
 	<td></td>
 </tr>
 <tr>

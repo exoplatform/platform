@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>root</td>
+	<td>demo</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,7 +103,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>2000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,11 +113,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space06</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
 	<td>link=Space06</td>
 	<td></td>
 </tr>
@@ -166,7 +166,6 @@
 	<td>//form[@id='UIComposer']/div[2]/div[2]/div/a</td>
 	<td></td>
 </tr>
-<!---- enter link-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>InputLink</td>
@@ -244,17 +243,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[7]/textarea</td>
+	<td>document.forms[2].elements[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>//div[7]/textarea</td>
+	<td>document.forms[2].elements[1]</td>
 	<td>This is Comment for Activity in Space 06</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[7]/input</td>
+	<td>document.forms[2].elements[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -314,42 +313,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify space deleted</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>Space06</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Space06</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>

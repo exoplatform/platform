@@ -48,57 +48,57 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Directory</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Directory</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Show all users on Social</td>
+	<td>-- List People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Demo gtn</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Show all users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Demo gtn</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=James Davis</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=John Anthony</td>
+	<td>link=John Smith</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//a[@title='Invite Demo gtn']</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>//a[@title='Invite Mary Kelly']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//a[@title='Invite John Anthony']</td>
+	<td>echo</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>

@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>root</td>
+	<td>demo</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -48,37 +48,32 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Directory</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Directory</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Send invitation to a user</td>
+	<td>-- Send invitation to a user : Jame</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@title='Invite Mary Kelly']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>[Invited to connect]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>[Invited to connect]</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
@@ -97,11 +92,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
@@ -114,7 +104,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>mary</td>
+	<td>james</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -123,52 +113,47 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Connections</td>
+	<td>link=My Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Connections</td>
+	<td>link=My Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Incoming</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Incoming</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
+	<td>clickAndWait</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Root Root</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Root Root</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='SelectIcon']</td>
+	<td>//a[text()='Jack Miller']/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//a[@class='SelectIcon']</td>
+	<td>//a[text()='Jack Miller']/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>

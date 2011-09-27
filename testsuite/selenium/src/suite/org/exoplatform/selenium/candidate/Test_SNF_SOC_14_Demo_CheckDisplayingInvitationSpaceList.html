@@ -48,7 +48,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>2000</td>
+	<td>20000</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,11 +108,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space14</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
 	<td>link=Space14</td>
 	<td></td>
 </tr>
@@ -138,12 +133,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space Settings</td>
+	<td>//a[contains(@href,'spaces:space14') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space Settings</td>
+	<td>//a[contains(@href,'spaces:space14') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
@@ -168,17 +163,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='SearchAddMemberIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>mary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>mary</td>
+	<td>//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,11 +182,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
@@ -223,7 +203,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -232,23 +212,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=My Spaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Invitations</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Invitations</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
+	<td>clickAndWait</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
@@ -267,108 +242,38 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Accept option displays</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='Icon IconAccept']</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//a[@class='Icon IconAccept']</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Accept']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Deny option displays</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='Icon IconDeny']</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//a[@class='Icon IconDeny']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>root</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify space deleted</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>Space14</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Space14</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>

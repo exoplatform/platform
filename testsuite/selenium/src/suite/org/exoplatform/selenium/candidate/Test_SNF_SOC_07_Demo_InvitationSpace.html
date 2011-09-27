@@ -52,8 +52,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,7 +113,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,11 +123,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space07</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
 	<td>link=Space07</td>
 	<td></td>
 </tr>
@@ -148,12 +148,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space Settings</td>
+	<td>//a[contains(@href,'spaces:space07') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space Settings</td>
+	<td>//a[contains(@href,'spaces:space07') and @title='Settings']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Members Tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,17 +183,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='SearchAddMemberIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>mary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>mary</td>
+	<td>//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,8 +202,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -232,8 +227,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in : Mary</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -242,23 +242,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=My Spaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Invitations</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Invitations</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
+	<td>clickAndWait</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
@@ -278,12 +273,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='Icon IconAccept']</td>
+	<td>//div[contains(text(),'This is description for Space_07')]/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@class='Icon IconAccept']</td>
+	<td>//div[contains(text(),'This is description for Space_07')]/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
@@ -299,11 +294,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- - Verify accepted user is displayed in Space Member List</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -333,72 +323,52 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Members</td>
+	<td>link=Space07</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Space07</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Mary Williams has joined the space.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Mary Williams has joined the space.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space07') and @title='Members']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Members</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space07') and @title='Members']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify space deleted</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>Space07</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Space07</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>

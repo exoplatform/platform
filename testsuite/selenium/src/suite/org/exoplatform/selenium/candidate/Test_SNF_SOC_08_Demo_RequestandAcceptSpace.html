@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,7 +103,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>2000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,11 +113,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
 	<td>link=Space08</td>
 	<td></td>
 </tr>
@@ -147,11 +147,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>click</td>
 	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
@@ -172,8 +167,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in : Mary</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -182,18 +182,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=My Spaces</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Publics</td>
+	<td>link=All Spaces</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Publics</td>
+	<td>clickAndWait</td>
+	<td>link=All Spaces</td>
 	<td></td>
 </tr>
 <tr>
@@ -212,13 +212,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Join to Space 08</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='Icon IconAdd']</td>
+	<td>//div[contains(text(),'This is description for Space_08')]/following-sibling::ul//a[@title='Join']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[@class='Icon IconAdd']</td>
+	<td>//div[contains(text(),'This is description for Space_08')]/following-sibling::ul//a[@title='Join']</td>
 	<td></td>
 </tr>
 <tr>
@@ -234,11 +239,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- Accept Request</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -262,18 +262,43 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in : Root</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space Settings</td>
+	<td>link=Space08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Space08</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Space Setting </td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@href,'spaces:space08') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space Settings</td>
+	<td>//a[contains(@href,'spaces:space08') and @title='Settings']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Memeber tab</td>
 	<td></td>
 </tr>
 <tr>
@@ -287,13 +312,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Accepts</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@class='ValidateButton']</td>
+	<td>//td[text()='mary']/following-sibling::td/a[@title='Validate']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='ValidateButton']</td>
+	<td>//td[text()='mary']/following-sibling::td/a[@title='Validate']</td>
 	<td></td>
 </tr>
 <tr>
@@ -303,67 +333,27 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Members</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space08') and @title='Members']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Members</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space08') and @title='Members']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify space deleted</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>Space08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Space08</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>

@@ -48,17 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Directory</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Directory</td>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
@@ -78,22 +78,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@class='SearchIcon']</td>
+	<td>id=SearchButton</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='SearchIcon']</td>
+	<td>id=SearchButton</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>No person found.</td>
+	<td>Have no any person yet.</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>No person found.</td>
+	<td>Have no any person yet.</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,18 +112,28 @@
 	<td>Mary</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>id=SearchButton</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//div[@class='SearchIcon']</td>
+	<td>id=SearchButton</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Kelly</td>
+	<td>link=Mary Williams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>mary.williams@acme.exoplatform.com</td>
 	<td></td>
 </tr>
 <tr>
@@ -138,12 +148,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>No person found.</td>
+	<td>Have no any person yet.</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>No person found.</td>
+	<td>Have no any person yet.</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,12 +168,37 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=John Anthony</td>
+	<td>link=John Smith</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=John Anthony</td>
+	<td>link=John Smith</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=James Davis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=James Davis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Jack Miller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Jack Miller</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>

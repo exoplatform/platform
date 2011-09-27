@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>root</td>
+	<td>demo</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -47,8 +47,13 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>--Log in</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,7 +103,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>30000</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,11 +113,6 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space04</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
 	<td>link=Space04</td>
 	<td></td>
 </tr>
@@ -133,92 +133,127 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Acesss Space created</td>
+	<td>-- Focus Home Iteams</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Home</td>
+	<td>//div[@class='SelectedTab']//a[contains(@href,'spaces:space04') and @title='Home']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>link=Home</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UISpaceMenu']/div/div[3]/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//div[@id='UISpaceMenu']/div/div[3]/a/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Members</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Members</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Space Settings</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Space Settings</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Space Settings</td>
+	<td>verifyVisible</td>
+	<td>//div[@class='SelectedTab']//a[contains(@href,'spaces:space04') and @title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
+	<td>-- exist Agenda</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Agenda']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Agenda']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Verify space deleted</td>
+	<td>-- exist Dashboard</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>Space04</td>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Dashboard']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextNotPresent</td>
-	<td>Space04</td>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Dashboard']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- exist Discussions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Discussions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Discussions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- exist Documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Documents']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Documents']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- exist Members</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Members']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- exist Wiki</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Wiki']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space04') and @title='Wiki']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- exist Space Settings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(@href,'spaces:space04') and @title='Settings']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//a[contains(@href,'spaces:space04') and @title='Settings']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
 	<td></td>
 </tr>
 <tr>
