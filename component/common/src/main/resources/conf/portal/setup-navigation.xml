@@ -60,7 +60,7 @@
 				<uri>portal/sites</uri>
 				<name>pages</name>
 				<label>#{UISetupPlatformToolBarPortlet.label.portalnavigation}</label>
-				<page-reference>portal::platform/administrators::portalnavigation</page-reference>
+				<page-reference>group::platform/administrators::portalnavigation</page-reference>
 			</node>
 			<node>
 				<uri>portal/groups</uri>

@@ -56,6 +56,7 @@ public class MenuConfiguratorService implements Startable {
   @Override
   public void start() {
     try {
+      log.info("Loading setup menu configuration from: " + setupNavigationFilePath);
       UnmarshalledObject<PageNavigation> obj = ModelUnmarshaller.unmarshall(PageNavigation.class,
           configurationManager.getInputStream(setupNavigationFilePath));
       PageNavigation pageNavigation = obj.getObject();
@@ -124,7 +125,7 @@ public class MenuConfiguratorService implements Startable {
       return null;
     }
     for (UserNode userNode : userNodes) {
-      if (userNode.getPageRef()!= null && userNode.getPageRef().equals(pageReference)) {
+      if (userNode.getPageRef() != null && userNode.getPageRef().equals(pageReference)) {
         return userNode;
       } else if (userNode.getChildren() != null && !userNode.getChildren().isEmpty()) {
         UserNode childNode = searchUserNodeByPageReference(userNode.getChildren(), pageReference);
