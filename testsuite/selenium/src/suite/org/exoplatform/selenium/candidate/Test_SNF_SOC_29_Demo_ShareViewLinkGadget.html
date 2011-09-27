@@ -48,7 +48,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Dashboard</td>
-	<td>1,1</td>
+	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -93,17 +93,22 @@
 </tr>
 <tr>
 	<td>dragAndDropToObject</td>
-	<td>//div[@title='Social Rss Reader']</td>
+	<td>//div[@title='Rss Reader']</td>
 	<td>xpath=//div[@class='UIDashboardContainer']</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Close Gadget</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIDashboard']//div[@class='CloseButton']</td>
+	<td>//div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIDashboard']//div[@class='CloseButton']</td>
+	<td>//div[2]/div/div/div/div/div/div/div/div/div/div/div/div/div/div/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -114,6 +119,16 @@
 <tr>
 	<td>echo</td>
 	<td>-- Share link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>remote_iframe_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=link_title_1</td>
 	<td></td>
 </tr>
 <tr>

@@ -48,12 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>http://localhost:8080/portal/private/intranet/NewStaff</td>
+	<td>waitForElementPresent</td>
+	<td>link=Add Users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Users</td>
 	<td></td>
 </tr>
 <tr>
@@ -107,13 +112,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForTextPresent</td>
+	<td>You have registered a new account.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>You have registered a new account.</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIAccountPortlet']//div[@class='UIPopupWindow UIDragObject']//a</td>
+	<td>css=div.PopupContent.UIPopupMessages &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIAccountPortlet']//div[@class='UIPopupWindow UIDragObject']//a</td>
+	<td>css=div.PopupContent.UIPopupMessages &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
 	<td></td>
 </tr>
 <tr>
@@ -124,11 +139,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,17 +168,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Profile</td>
+	<td>link=My Profile</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Profile</td>
+	<td>link=My Profile</td>
 	<td></td>
 </tr>
 <tr>
@@ -238,12 +248,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//td[2]/a</td>
+	<td>link=Add</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//td[2]/a</td>
+	<td>link=Add</td>
 	<td></td>
 </tr>
 <tr>
@@ -308,12 +318,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@class='UIContactSection']</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='UIContactSection']//a[@class='SaveIcon']</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -362,23 +372,28 @@
 	<td>Tester eXo</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>//tr[5]/td[2]/input</td>
-	<td>05/05/2010</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>//tr[6]/td[2]/input[1]</td>
-	<td>06/01/2010</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@class='experience']</td>
+	<td>click</td>
+	<td>name=startDate1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@class='experience']//a[@class='SaveIcon']</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
 	<td></td>
 </tr>
 <tr>
@@ -394,11 +409,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- View Friend profile</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -423,17 +433,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Directory</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Directory</td>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
@@ -444,16 +454,6 @@
 <tr>
 	<td>click</td>
 	<td>link=eXo Test_27</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UIProfileNavigationPortlet']//a[@class='ProfileIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UIProfileNavigationPortlet']//a[@class='ProfileIcon']</td>
 	<td></td>
 </tr>
 <tr>
@@ -484,46 +484,6 @@
 <tr>
 	<td>verifyTextPresent</td>
 	<td>Gtalk: eXo_Test_27</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Urls : http://www.google.com</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete User</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>http://localhost:8080/portal/private/intranet/ManagementUser</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>test_user_27</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>test_user_27</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>xpath=//div[@class='UIListUsers']//tbody/tr[5]//img[@class='DeleteUserIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=//div[@class='UIListUsers']//tbody/tr[5]//img[@class='DeleteUserIcon']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure you want to delete test_user_27 user?</td>
 	<td></td>
 </tr>
 <tr>

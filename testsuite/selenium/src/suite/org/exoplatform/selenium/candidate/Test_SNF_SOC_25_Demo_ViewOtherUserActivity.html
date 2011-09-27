@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>demo</td>
+	<td>james</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -48,32 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Activities</td>
+	<td>link=Activity Streams</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Status</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Status</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>2000</td>
+	<td>clickAndWait</td>
+	<td>link=Activity Streams</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,13 +93,13 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td></td>
 	<td>This is activity for User_Demo_25</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td></td>
 	<td>This is activity for User_Demo_25</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -129,11 +114,6 @@
 <tr>
 	<td>echo</td>
 	<td>-- View other user activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,151 +138,46 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Directory</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Directory</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Demo gtn</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Demo gtn</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIProfileNavigationPortlet']//a[@class='ActivityIcon']</td>
+	<td>link=James Davis</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIProfileNavigationPortlet']//a[@class='ActivityIcon']</td>
+	<td>link=James Davis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Activity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Activity</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td></td>
 	<td>This is activity for User_Demo_25</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td></td>
-	<td>This is activity for User_Demo_25</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete Activity</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>demo</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Status</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Status</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td></td>
-	<td>This is activity for User_Demo_25</td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td></td>
-	<td>This is activity for User_Demo_25</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete User Activity</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div[1]/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[2]/div/div[1]/div[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertConfirmation</td>
-	<td>Are you sure to delete this activity?</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>This is activity for User_Demo_25</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
 	<td>This is activity for User_Demo_25</td>
 	<td></td>
 </tr>
@@ -314,11 +189,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>close</td>
-	<td></td>
 	<td></td>
 </tr>
 </tbody></table>

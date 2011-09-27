@@ -48,27 +48,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>//div[@id='UIPortalLoginFormAction']//div[@class='ButtonMiddle']/a</td>
+	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Activities</td>
+	<td>link=Activity Streams</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Status</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Status</td>
+	<td>clickAndWait</td>
+	<td>link=Activity Streams</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,22 +83,17 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//form[@id='UIComposer']/div[2]/div[2]/div/a</td>
+	<td>css=a.UILinkActivityComposer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//form[@id='UIComposer']/div[2]/div[2]/div/a</td>
+	<td>css=a.UILinkActivityComposer</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- enter link</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>1000</td>
 	<td></td>
 </tr>
 <tr>
@@ -137,11 +122,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>2000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- share all</td>
 	<td></td>
@@ -157,24 +137,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Verify activity is added</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td></td>
 	<td>This is activity for User_Demo_23</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td></td>
 	<td>This is activity for User_Demo_23</td>
+	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
@@ -183,8 +158,8 @@
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
+	<td>Source : http://google.com</td>
 	<td></td>
-	<td>Source : http://www.google.com</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -193,12 +168,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div[1]/div[2]</td>
+	<td>//h5/span</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div[1]/div[2]</td>
+	<td>//h5/span</td>
 	<td></td>
 </tr>
 <tr>
@@ -214,16 +189,6 @@
 <tr>
 	<td>verifyTextNotPresent</td>
 	<td>This is activity for User_Demo_23</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>Source : http://www.google.com</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>Source : http://www.google.com</td>
 	<td></td>
 </tr>
 <tr>
