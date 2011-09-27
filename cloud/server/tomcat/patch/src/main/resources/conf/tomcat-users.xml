@@ -33,6 +33,6 @@
   <user username="both" password="tomcat" roles="tomcat,role1"/>
   <user username="role1" password="tomcat" roles="role1"/>
 -->
-<role rolename="cloud-admin"/>
+  <role rolename="cloud-admin"/>
   <user username="root" password="gtn" roles="cloud-admin"/>
 </tomcat-users>
