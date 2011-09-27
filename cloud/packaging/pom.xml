@@ -12,6 +12,6 @@
   <modules>
     <module>module</module>
     <module>product</module>
-    <module>pkg</module>
+    <module>tomcat</module>
   </modules>
 </project>
