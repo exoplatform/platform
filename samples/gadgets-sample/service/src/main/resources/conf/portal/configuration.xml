@@ -39,4 +39,10 @@
   <component>
     <type>org.exoplatform.platform.gadget.services.Invitations.InvitationsRestServices</type>
   </component>
+  
+  <!--BOOKMARKS-->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.Bookmark.BookmarkRestService</type>
+  </component>
+  
 </configuration>
