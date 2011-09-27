@@ -278,6 +278,30 @@
       <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ide</groupId>
+      <artifactId>exo-ide-extension-chromattic-server</artifactId>
+      <version>${org.exoplatform.ide.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.ext</artifactId>
+      <version>${org.chromattic.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.groovy</artifactId>
+      <version>${org.chromattic.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.dataobject</artifactId>
+      <version>${org.chromattic.version}</version>
+      <type>jar</type>
+    </dependency>
 
     <!-- xCMIS dependencies -->
     <dependency>

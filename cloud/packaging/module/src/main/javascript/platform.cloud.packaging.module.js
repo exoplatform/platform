@@ -16,7 +16,7 @@ function getModule(params)
    module.name = "platform.cloud";
    
    var mopVersion =  "${org.gatein.mop.version}";
-   var chromatticVersion =  "${version.chromattic}";
+   var chromatticVersion =  "${org.chromattic.version}";
    var reflectVersion =  "${version.reflect}";
    var idmVersion = "${org.jboss.identity.idm}";
    var pcVersion = "${org.gatein.pc.version}";
@@ -116,7 +116,11 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-gadget-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-netvibes-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-groovy-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-chromattic-server", "jar", ideVersion)).
         addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion)).
+        addDependency(new Project("org.chromattic", "chromattic.groovy", "jar", chromatticVersion)).
+        addDependency(new Project("org.chromattic", "chromattic.dataobject", "jar", chromatticVersion)).
+        addDependency(new Project("org.chromattic", "chromattic.ext", "jar", chromatticVersion)).
         addDependency(new Project("org.apache.commons", "commons-compress", "jar", "1.0"));
    module.ide.webapp.deployName = "IDE";
 
