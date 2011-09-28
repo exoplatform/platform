@@ -179,7 +179,6 @@
       <type>war</type>
     </dependency>
     <dependency>
-    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-parser</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
