@@ -155,4 +155,92 @@
 			<show-info-bar>false</show-info-bar>
 		</portlet-application>
 	</page>
+  <page>
+    <name>servicesManagement</name>
+    <title>Services Management</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>    
+    <gadget-application>
+      <gadget>
+        <gadget-ref>ServicesManagement</gadget-ref>
+      </gadget>
+      <title>Services Management</title>
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </gadget-application>
+  </page>
+  <page>
+    <name>monitoring</name>
+    <title>Monitoring</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+
+    <container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <!-- MemoryCharts gadget -->
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://MemoryCharts</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://CacheLevels</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <!-- ApplicationsStatistics gadget -->
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://ApplicationsStatistics</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+    </container>
+  </page>
 </page-set>
