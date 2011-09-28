@@ -81,9 +81,7 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
           }
         }
       } catch (Exception exception) {
-        if (log.isDebugEnabled()) {
-          log.debug("Can't access to the portal " + portalName);
-        }
+        log.warn("Can't access to the portal " + portalName, exception);
       }
     }
     return allowedPortalList;
@@ -107,9 +105,7 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
           }
         }
       } catch (Exception exception) {
-        if (log.isDebugEnabled()) {
-          log.debug("Can't access to the portal " + portalName);
-        }
+        log.warn("Can't access to the portal " + portalName);
       }
     }
     return allowedPortalList;

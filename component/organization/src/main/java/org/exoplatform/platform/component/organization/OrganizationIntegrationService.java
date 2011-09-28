@@ -17,6 +17,7 @@
 package org.exoplatform.platform.component.organization;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,7 +29,7 @@ import java.util.Map;
 
 import javax.jcr.Session;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
@@ -53,7 +54,6 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.OrganizationServiceInitializer;
-import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 import org.exoplatform.services.organization.UserProfile;
@@ -77,7 +77,6 @@ import org.picocontainer.Startable;
 @RESTEndpoint(path = "orgsync")
 public class OrganizationIntegrationService implements Startable {
 
-  private static final int USERS_PAGE_SIZE = 10;
   private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationService.class);
   private static final Comparator<org.exoplatform.container.xml.ComponentPlugin> COMPONENT_PLUGIN_COMPARATOR = new Comparator<org.exoplatform.container.xml.ComponentPlugin>() {
     public int compare(org.exoplatform.container.xml.ComponentPlugin o1, org.exoplatform.container.xml.ComponentPlugin o2) {
@@ -285,9 +284,6 @@ public class OrganizationIntegrationService implements Startable {
       LOG.error(e);
     }
     endRequest();
-
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
   }
 
   /**
@@ -374,9 +370,6 @@ public class OrganizationIntegrationService implements Startable {
       }
     }
     endRequest();
-
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
   }
 
   /**
@@ -439,9 +432,6 @@ public class OrganizationIntegrationService implements Startable {
       }
     }
     endRequest();
-
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
   }
 
   /**
@@ -458,6 +448,8 @@ public class OrganizationIntegrationService implements Startable {
     if (LOG.isDebugEnabled()) {
       LOG.debug("All users listeners invocation, eventType = " + eventType);
     }
+    startRequest();
+
     EventType event = EventType.valueOf(eventType);
     Session session = null;
     switch (event) {
@@ -469,14 +461,10 @@ public class OrganizationIntegrationService implements Startable {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
           List<String> activatedUsers = Util.getActivatedUsers(session);
 
-          PageList<User> users = organizationService.getUserHandler().findUsers(new Query());
-          int availablePages = users.getAvailablePage();
-
-          for (int i = 1; i <= availablePages; i++) {
-            List<User> tmpUsers = users.getPage(i);
-            for (User user : tmpUsers) {
-              activatedUsers.remove(user.getUserName());
-            }
+          ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+          List<User> users = Arrays.asList(usersListAccess.load(0, usersListAccess.getSize()));
+          for (User user : users) {
+            activatedUsers.remove(user.getUserName());
           }
           for (String username : activatedUsers) {
             syncUser(username, eventType);
@@ -517,15 +505,11 @@ public class OrganizationIntegrationService implements Startable {
           if (LOG.isDebugEnabled()) {
             LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
           }
-          PageList<User> users = organizationService.getUserHandler().findUsers(new Query());
-          int availablePages = users.getAvailablePage();
-
-          for (int i = 1; i <= availablePages; i++) {
-            List<User> tmpUsers = users.getPage(i);
-            for (User user : tmpUsers) {
-              if (!activatedUsers.contains(user.getUserName())) {
-                syncUser(user.getUserName(), eventType);
-              }
+          ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+          List<User> users = Arrays.asList(usersListAccess.load(0, usersListAccess.getSize()));
+          for (User user : users) {
+            if (!activatedUsers.contains(user.getUserName())) {
+              syncUser(user.getUserName(), eventType);
             }
           }
         } catch (Exception e) {
@@ -538,6 +522,7 @@ public class OrganizationIntegrationService implements Startable {
         break;
       }
     }
+    endRequest();
   }
 
   /**
@@ -652,8 +637,6 @@ public class OrganizationIntegrationService implements Startable {
         break;
       }
     }
-    // TODO: delete this instruction when EXOGTN-347 will be fixed
-    startRequest();
   }
 
   /**
@@ -664,6 +647,7 @@ public class OrganizationIntegrationService implements Startable {
    * @param groupId
    * @param eventType
    */
+  @SuppressWarnings("unchecked")
   @Managed
   @ManagedDescription("invoke a membership listeners")
   @Impact(ImpactType.READ)
@@ -964,7 +948,7 @@ public class OrganizationIntegrationService implements Startable {
       case DELETED: {
         Session session = null;
         try {
-          Collection userMemberships = null;
+          Collection<?> userMemberships = null;
           try {
             userMemberships = organizationService.getMembershipHandler().removeMembershipByUser(username, true);
           } catch (Exception exception) {
@@ -992,7 +976,7 @@ public class OrganizationIntegrationService implements Startable {
       case UPDATED: {
         boolean isNew = EventType.ADDED.equals(eventType);
         Session session = null;
-        Collection memberships = null;
+        Collection<?> memberships = null;
         List<Membership> activatedMemberships = null;
         try {
           session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
@@ -1185,9 +1169,6 @@ public class OrganizationIntegrationService implements Startable {
   private void endRequest() {
     if (requestStarted && organizationService instanceof ComponentRequestLifecycle) {
       try {
-        // TODO: delete this instruction when EXOGTN-347 will be fixed
-        ((ComponentRequestLifecycle) organizationService).startRequest(container);
-
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
       } catch (Exception e) {
         LOG.warn(e);
