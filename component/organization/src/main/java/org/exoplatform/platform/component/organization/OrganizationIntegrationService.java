@@ -573,6 +573,7 @@ public class OrganizationIntegrationService implements Startable {
                     "\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
               }
               try {
+                // This have to be added here, because some listeners close sessions
                 startRequest();
                 userEventListener.postDelete(user);
               } catch (Exception e) {
@@ -610,12 +611,14 @@ public class OrganizationIntegrationService implements Startable {
               } catch (IllegalStateException e) {
                 endRequest();
                 userEventListener.preSave(user, isNew);
+                // This have to be added here, because some listeners close sessions
                 startRequest();
               } catch (Exception e) {
                 LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
                     e);
               }
               try {
+                // This have to be added here, because some listeners close sessions
                 startRequest();
                 userEventListener.postSave(user, isNew);
               } catch (Exception e) {
