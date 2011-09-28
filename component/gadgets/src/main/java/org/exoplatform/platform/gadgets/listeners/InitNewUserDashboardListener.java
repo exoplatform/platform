@@ -25,7 +25,8 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
 /**
- * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar Chattouna</a>
+ * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
+ *         Chattouna</a>
  * @version $Revision$
  */
 public class InitNewUserDashboardListener extends UserEventListener {
@@ -38,7 +39,9 @@ public class InitNewUserDashboardListener extends UserEventListener {
   }
 
   /**
-   * This method is called after the user has been saved but not commited yet. It initializes the concerned user's dashboard and prepopulates some gadgets on it.
+   * This method is called after the user has been saved but not commited
+   * yet. It initializes the concerned user's dashboard and prepopulates
+   * some gadgets on it.
    * 
    * @param user
    *          The user instance has been saved.
@@ -47,13 +50,14 @@ public class InitNewUserDashboardListener extends UserEventListener {
    */
   @Override
   public void postSave(User user, boolean isNew) {
+    if (!isNew) {
+      return;
+    }
     // prepopulate the created user dashborad
     try {
       userDashboardConfigurationService.prepopulateUserDashboard(user.getUserName());
     } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Error while prepopulationg user dashboard: ", e);
-      }
+      logger.error("Error while prepopulationg user dashboard: ", e);
     }
   }
 }

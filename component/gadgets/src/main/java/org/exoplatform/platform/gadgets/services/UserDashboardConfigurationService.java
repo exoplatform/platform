@@ -39,11 +39,9 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.TransientApplicationState;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
-import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.navigation.Scope;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserNode;
-import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.mop.user.UserPortalContext;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
@@ -63,7 +61,6 @@ public class UserDashboardConfigurationService {
   private static String INVOLVED_USERS;
   private static final String SEPARATE_INVOLVED_USERS = "separate-users";
   private static final String ALL_INVOLVED_USERS = "all-users";
-  private final UserNodeFilterConfig filterConfig;
   private DataStorage dataStorageService = null;
   private UserPortalConfigService userPortalConfigService = null;
   private GadgetRegistryService gadgetRegistryService = null;
@@ -99,11 +96,6 @@ public class UserDashboardConfigurationService {
     this.dataStorageService = dataStorageService;
     this.userPortalConfigService = userPortalConfigService;
     this.gadgetRegistryService = gadgetRegistryService;
-
-    UserNodeFilterConfig.Builder scopeBuilder = UserNodeFilterConfig.builder();
-    scopeBuilder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL);
-    scopeBuilder.withTemporalCheck();
-    filterConfig = scopeBuilder.build();
   }
 
   /**
@@ -115,44 +107,48 @@ public class UserDashboardConfigurationService {
    * @throws Exception
    */
   public void prepopulateUserDashboard(String userId) throws Exception {
-    if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
-      // if separate users, check if userId exist in the list, then
-      // prepopulate its dashboard
-      for (UserDashboardConfiguration userDashboardConfig : separateUsersconfig) {
-        if (userId.equals(userDashboardConfig.getUserId())) {
-          Page dashboardPage = getUserDashboardPage(userId);
-          if (dashboardPage == null) {
-            createUserDashboard(userId);
-            dashboardPage = getUserDashboardPage(userId);
-            configureUserDashboard(dashboardPage, userDashboardConfig.getGadgets());
+    RequestLifeCycle.begin(PortalContainer.getInstance());
+    try {
+      if (INVOLVED_USERS.equals(SEPARATE_INVOLVED_USERS)) {
+        // if separate users, check if userId exist in the list, then
+        // prepopulate its dashboard
+        for (UserDashboardConfiguration userDashboardConfig : separateUsersconfig) {
+          if (userId.equals(userDashboardConfig.getUserId())) {
+            logger.info("Prepopulate the dashboard of user " + userId);
+            Page dashboardPage = getUserDashboardPage(userId);
+            if (dashboardPage == null) {
+              createUserDashboard(userId);
+              dashboardPage = getUserDashboardPage(userId);
+              configureUserDashboard(dashboardPage, userDashboardConfig.getGadgets());
+            }
           }
         }
+      } else {
+        // if all users, prepopulate all users dashboard
+        logger.info("Prepopulate the dashboard of user " + userId);
+        Page dashboardPage = getUserDashboardPage(userId);
+        if (dashboardPage == null) {
+          createUserDashboard(userId);
+          dashboardPage = getUserDashboardPage(userId);
+          configureUserDashboard(dashboardPage, allUsersConfig);
+        }
       }
-    } else {
-      // if all users, prepopulate all users dashboard
-      Page dashboardPage = getUserDashboardPage(userId);
-      if (dashboardPage == null) {
-        createUserDashboard(userId);
-        dashboardPage = getUserDashboardPage(userId);
-        configureUserDashboard(dashboardPage, allUsersConfig);
-      }
+    } finally {
+      RequestLifeCycle.end();
     }
-
   }
 
   private UserNavigation getUserNavigation(String userId) throws Exception {
     UserPortal userPortal = getUserPortal(userId);
     UserNavigation userNavigation = userPortal.getNavigation(SiteKey.user(userId));
     if (userNavigation == null) {
-      RequestLifeCycle.begin(PortalContainer.getInstance());
       try {
         userPortalConfigService.createUserSite(userId);
         userPortal = getUserPortal(userId);
         userNavigation = userPortal.getNavigation(SiteKey.user(userId));
       } catch (Exception e) {
         logger.error("Could not create user site for user " + userId, e);
-      } finally {
-        RequestLifeCycle.end();
+        throw e;
       }
     }
     return userNavigation;
@@ -184,7 +180,6 @@ public class UserDashboardConfigurationService {
    */
   private void createUserDashboard(String userId) {
     try {
-
       UserPortal userPortal = getUserPortal(userId);
       UserNavigation userNav = getUserNavigation(userId);
       if (userNav == null) {
@@ -197,12 +192,14 @@ public class UserDashboardConfigurationService {
       page.setName(DEFAULT_TAB_NAME);
       dataStorageService.create(page);
 
-      UserNode rootNode = userPortal.getNode(userNav, Scope.CHILDREN, filterConfig, null);
-      UserNode tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
-      tabNode.setLabel(DEFAULT_TAB_NAME);
-      tabNode.setPageRef(page.getPageId());
-
-      userPortal.saveNode(rootNode, null);
+      UserNode rootNode = userPortal.getNode(userNav, Scope.ALL, null, null);
+      UserNode tabNode = rootNode.getChild(DEFAULT_TAB_NAME);
+      if (tabNode == null) {
+        tabNode = rootNode.addChild(DEFAULT_TAB_NAME);
+        tabNode.setLabel(DEFAULT_TAB_NAME);
+        tabNode.setPageRef(page.getPageId());
+        userPortal.saveNode(rootNode, null);
+      }
     } catch (Exception e) {
       logger.error("Error while creating the user dashboard page for: " + userId, e);
     }
@@ -240,9 +237,7 @@ public class UserDashboardConfigurationService {
       }
       dataStorageService.saveDashboard(dashboard);
     } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Error while configuring the user dashboard for: " + userDashboardPage.getOwnerId(), e);
-      }
+      logger.error("Error while configuring the user dashboard for: " + userDashboardPage.getOwnerId(), e);
     }
   }
 
