@@ -528,4 +528,16 @@
 .seolabel {
 	position: fixed;
 	margin-left: 24px;
+	position:fixed;
+	height:24px;
+	width:0;
+}
+
+.SEOImgBlock{
+	position:fixed;
+	height:24px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .SEOMenuItem{
+	height:24px;
 }
