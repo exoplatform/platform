@@ -51,14 +51,14 @@
 					<li class="MenuItem">
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 					</li>
-					<li class="MenuItem">
-                        <div style="float:left;">
+					<li class="MenuItem ClearFix">
+                        <div class="FL">
 						  <%uicomponent.renderChild(UISEOToolbarForm.class); %>
                         </div>
-                        <div style="float:right;">
+                        <div class="seolabel" >
                           <%=seoLabel %>
                         </div>
-					</li>	  				
+					</li>	  		  				
 					<li class="HorizontalLine">&nbsp;</li>
 					<li class="MenuItem">	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
