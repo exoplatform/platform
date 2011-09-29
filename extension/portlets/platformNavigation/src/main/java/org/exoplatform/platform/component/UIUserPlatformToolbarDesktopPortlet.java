@@ -27,12 +27,14 @@ import java.util.List;
 import javax.portlet.EventRequest;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.Visibility;
@@ -42,7 +44,6 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.web.url.navigation.NavigationResource;
@@ -90,12 +91,12 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return userPortal.getNavigation(userKey);
   }
 
-  private UserPortal getUserPortal() {
-    UIPortalApplication uiPortalApplication = Util.getUIPortalApplication();
-    return uiPortalApplication.getUserPortalConfig().getUserPortal();
+  protected static UserPortal getUserPortal() {
+    UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
+    return portalConfig.getUserPortal();
   }
 
-  private UserNode getSelectedNode() throws Exception {
+  public UserNode getSelectedNode() throws Exception {
     return Util.getUIPortal().getSelectedUserNode();
   }
 
@@ -135,7 +136,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return NavigationURLUtils.getURL(SiteKey.user(WebuiRequestContext.getCurrentInstance().getRemoteUser()), DEFAULT_TAB_NAME);
   }
 
-  private boolean isWebOSCreated() throws Exception {
+  public boolean isWebOSCreated() throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     DataStorage storage = getApplicationComponent(DataStorage.class);
     Page page = storage.getPage(PortalConfig.USER_TYPE + "::" + context.getRemoteUser() + "::" + UIDesktopPage.PAGE_ID);
@@ -152,7 +153,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     throw new NullPointerException("There is no dashboard node. The dashboard node existing should be checked before");
   }
 
-  private boolean isWebOsProfileActivated() {
+  public boolean isWebOsProfileActivated() {
     return (ExoContainer.getProfiles().contains("webos") || ExoContainer.getProfiles().contains("all"));
   }
 
@@ -194,11 +195,11 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
       try {
         PortalRequestContext prContext = Util.getPortalRequestContext();
         if (_nodeName == null) {
-          logger.debug("Parsed nodeName is null, hence use Tab_0 as default name");
+          logger.debug("Parsed nodeName is null, hence use Tab_Default as default name");
           _nodeName = DEFAULT_TAB_NAME;
         }
         UserPortalConfigService _configService = toolbarPortlet.getApplicationComponent(UserPortalConfigService.class);
-        UserPortal userPortal = toolbarPortlet.getUserPortal();
+        UserPortal userPortal = getUserPortal();
         UserNavigation userNavigation = toolbarPortlet.getCurrentUserNavigation();
         if (userNavigation == null) {
           _configService.createUserSite(toolbarPortlet.getCurrentUser());
@@ -251,23 +252,55 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
     private Page createPage(String userName, UIUserPlatformToolbarDesktopPortlet toolbarDesktopPortlet) throws Exception {
       DataStorage service = toolbarDesktopPortlet.getApplicationComponent(DataStorage.class);
-      Page page = service.getPage(PortalConfig.USER_TYPE + "::" + userName + "::" + UIDesktopPage.PAGE_ID);
-      if (page == null) {
-        page = new Page();
-        page.setName(UIDesktopPage.PAGE_ID);
-        page.setTitle(UIDesktopPage.PAGE_TITLE);
-        page.setFactoryId(UIDesktopPage.DESKTOP_FACTORY_ID);
-        page.setShowMaxWindow(true);
-        page.setOwnerType(PortalConfig.USER_TYPE);
-        page.setOwnerId(userName);
-        service.create(page);
+      UserPortalConfigService userPortalConfigService = toolbarDesktopPortlet
+          .getApplicationComponent(UserPortalConfigService.class);
+
+      UserNavigation userNavigation = createUserNavigation(userName, userPortalConfigService);
+      if (userNavigation == null) {
+        throw new IllegalStateException("User navigation not created, couldn't initialize User's Dashboard");
+      }
+      Page page = null;
+      try {
+        RequestLifeCycle.begin(PortalContainer.getInstance());
+        page = service.getPage(PortalConfig.USER_TYPE + "::" + userName + "::" + UIDesktopPage.PAGE_ID);
+        if (page == null) {
+          page = new Page();
+          page.setName(UIDesktopPage.PAGE_ID);
+          page.setTitle(UIDesktopPage.PAGE_TITLE);
+          page.setFactoryId(UIDesktopPage.DESKTOP_FACTORY_ID);
+          page.setShowMaxWindow(true);
+          page.setOwnerType(PortalConfig.USER_TYPE);
+          page.setOwnerId(userName);
+          service.create(page);
+        }
+      } finally {
+        RequestLifeCycle.end();
       }
       return page;
     }
 
+    private UserNavigation createUserNavigation(String userName, UserPortalConfigService userPortalConfigService)
+        throws Exception {
+      UserPortal userPortal = getUserPortal();
+      UserNavigation userNavigation = userPortal.getNavigation(SiteKey.user(userName));
+      if (userNavigation == null) {
+        RequestLifeCycle.begin(PortalContainer.getInstance());
+        try {
+          userPortalConfigService.createUserSite(userName);
+          userPortal = getUserPortal();
+          userNavigation = userPortal.getNavigation(SiteKey.user(userName));
+        } catch (Exception e) {
+          log.error("Could not create user site for user " + userName, e);
+        } finally {
+          RequestLifeCycle.end();
+        }
+      }
+      return userNavigation;
+    }
+
     private UserNode createNavigation(String userName, String pageId, UIUserPlatformToolbarDesktopPortlet toolbarDesktopPortlet)
         throws Exception {
-      UserPortal userPortal = toolbarDesktopPortlet.getUserPortal();
+      UserPortal userPortal = getUserPortal();
       UserNode rootNode = userPortal.getNode(toolbarDesktopPortlet.getCurrentUserNavigation(), Scope.CHILDREN,
           toolbarDesktopPortlet.toolbarFilterConfig, null);
 
@@ -307,7 +340,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
         webOSNode = node;
       }
     }
-    if(webOSNode != null) {
+    if (webOSNode != null) {
       tempNodes.remove(tempNodes);
     }
     return tempNodes;
