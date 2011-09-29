@@ -52,7 +52,7 @@ function getProduct(version) {
   product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config); 
-  product.addDependencies(platform.extension.webapp); // includes xCMIS dependencies
+  product.addDependencies(platform.extension.webapp);
   product.addDependencies(platform.extension.resources);
   product.addDependencies(platform.component.common);
   product.addDependencies(platform.extension.portlets.platformNavigation);

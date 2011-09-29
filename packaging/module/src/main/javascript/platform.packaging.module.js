@@ -28,7 +28,6 @@ function getModule(params)
    var coreVersion = "${org.exoplatform.core.version}";
    var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
    var ideVersion = "${org.exoplatform.ide.version}";
-   var xcmisVersion = "${org.xcmis.version}";
    var ecmsVersion = "${org.exoplatform.ecms.version}";
    var crashVersion = "${org.crsh.version}";
    var webosVersion = "${org.exoplatform.webos.version}";
@@ -56,26 +55,7 @@ function getModule(params)
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.webui", "jar", module.version)).
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.gadgets", "jar", module.version)).
       addDependency(new Project("org.exoplatform.platform", "exo.platform.upgrade.plugins", "jar", module.version)).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.organization", "jar", module.version)).
-      // xCMIS dependencies
-      addDependency(new Project("org.xcmis", "xcmis-renditions", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-restatom", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-search-model", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-search-parser-cmis", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-search-service", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-spi", "jar", xcmisVersion)).
-      addDependency(new Project("org.exoplatform.ecms", "exo-ecms-ext-xcmis-sp", "jar", ecmsVersion)).
-      addDependency(new Project("org.apache.abdera", "abdera-client", "jar", "0.4.0-incubating")).
-      addDependency(new Project("org.apache.abdera", "abdera-core", "jar", "0.4.0-incubating")).
-      addDependency(new Project("org.apache.abdera", "abdera-i18n", "jar", "0.4.0-incubating")).
-      addDependency(new Project("org.apache.abdera", "abdera-parser", "jar", "0.4.0-incubating")).
-      addDependency(new Project("org.apache.abdera", "abdera-server", "jar", "0.4.0-incubating")).
-      addDependency(new Project("org.antlr", "antlr-runtime", "jar", "3.1.3")).
-      addDependency(new Project("org.apache.ws.commons.axiom", "axiom-api", "jar", "1.2.5")).
-      addDependency(new Project("org.apache.ws.commons.axiom", "axiom-impl", "jar", "1.2.5")).
-      addDependency(new Project("jaxen", "jaxen", "jar", "1.1.1")).
-      addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1"));
-   /*module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);*/
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.organization", "jar", module.version));
    module.extension.webapp.deployName = "platform-extension";
    module.extension.resources = 
       new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);

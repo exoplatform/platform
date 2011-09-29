@@ -33,7 +33,6 @@
     <org.exoplatform.commons.version>1.1.2-GA-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.1.0-Beta04</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.1.0-Beta04</org.exoplatform.ide.version>
-    <org.xcmis.version>1.2.2</org.xcmis.version>
     <org.exoplatform.cs.version>2.2.3-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.2.3-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.3.1-GA-SNAPSHOT</org.exoplatform.ecms.version>
