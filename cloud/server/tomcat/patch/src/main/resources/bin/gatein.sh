@@ -30,6 +30,7 @@ SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 
 JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=6969 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
 EXO_CLOUD_OPTS="-javaagent:../lib/cloud-instrument-1.1-M2.jar=../gatein/conf/cloud/agent-configuration.xml \
 		-Dtenant.masterhost=localhost \
 		-Dtenant.repository.name=repository"
@@ -40,7 +41,7 @@ if [ "$EXO_PROFILES" = "" ] ; then
 	EXO_PROFILES="-Dexo.profiles=default,cloud"
 fi
 
-JAVA_OPTS="-Xms512m -Xmx2g -XX:MaxPermSize=256m -XX:+UseCompressedOops $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_CLOUD_ADMIN_OPTS $EXO_PROFILES $EXO_CLOUD_SECURITY_OPTS $EXO_CLOUD_OPTS $JMX_OPTS"
+JAVA_OPTS="-Xms512m -Xmx2g -XX:MaxPermSize=256m -XX:+UseCompressedOops $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_CLOUD_ADMIN_OPTS $EXO_PROFILES $EXO_CLOUD_SECURITY_OPTS $EXO_CLOUD_OPTS $JMX_OPTS"
 export JAVA_OPTS
 
 # Launches the server

@@ -28,12 +28,13 @@ cd `dirname "$0"`
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
 if [ "$EXO_PROFILES" = "" ] ; then 
 	EXO_PROFILES="-Dexo.profiles=default"
 fi
 
 
-JAVA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_PROFILES"
+JAVA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES"
 export JAVA_OPTS
 
 # Launches the server

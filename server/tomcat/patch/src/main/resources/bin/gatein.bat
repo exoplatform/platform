@@ -28,11 +28,12 @@ rem Sets some variables
 set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
 set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
 set EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein\conf
+set IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib
 if "%EXO_PROFILES%" == "" (
 	set EXO_PROFILES=-Dexo.profiles=default
 )
 
-set JAVA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %LOG_OPTS% %SECURITY_OPTS% %EXO_OPTS% %EXO_PROFILES%
+set JAVA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %LOG_OPTS% %SECURITY_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES%
 
 rem Launches the server
 call catalina.bat %*

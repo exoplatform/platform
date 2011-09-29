@@ -25,6 +25,7 @@ cd `dirname "$0"`
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true -Dexo.conf.dir.name=gatein/conf"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
 EXO_CONFIG_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m -Dorg.exoplatform.container.configuration.debug"
 EXO_PROFILES="-Dexo.profiles=default"
 
@@ -38,7 +39,7 @@ JMX_AGENT="-Dcom.sun.management.jmxremote"
 #export LD_LIBRARY_PATH
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent  -Djava.awt.headless=true"
 
-JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_CONFIG_OPTS $REMOTE_DEBUG $EXO_PROFILES"
+JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_CONFIG_OPTS $REMOTE_DEBUG $EXO_PROFILES"
 export JAVA_OPTS
 
 # Launches the server
