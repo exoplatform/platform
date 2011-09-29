@@ -6,9 +6,9 @@
     <artifactId>exo.platform.cloud.packaging</artifactId>
     <version>3.5.0-Beta2-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.platform.packaging.assembly</artifactId>
+  <artifactId>exo.platform.packaging.tomcat</artifactId>
   <packaging>pom</packaging>
-  <name>eXo Platform - Cloud Packaging Assembly</name>
+  <name>eXo Platform - Cloud Packaging Tomcat</name>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.tool</groupId>
