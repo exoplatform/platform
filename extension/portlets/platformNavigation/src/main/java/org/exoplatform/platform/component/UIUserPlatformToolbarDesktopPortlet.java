@@ -27,13 +27,10 @@ import java.util.List;
 import javax.portlet.EventRequest;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.SiteKey;
@@ -52,7 +49,6 @@ import org.exoplatform.webos.webui.page.UIDesktopPage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -64,9 +60,12 @@ import org.exoplatform.webui.event.EventListener;
  */
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolbarDesktopPortlet/UIUserPlatformToolbarDesktopPortlet.gtmpl", events = {
-    @EventConfig(name = "AddDefaultDashboard", listeners = UIUserPlatformToolbarDesktopPortlet.AddDashboardActionListener.class),
-    @EventConfig(listeners = UIUserPlatformToolbarDesktopPortlet.CreateWebOSActionListener.class),
-    @EventConfig(listeners = UIUserPlatformToolbarDesktopPortlet.NavigationChangeActionListener.class) })
+
+         @EventConfig(listeners = UIUserPlatformToolbarDesktopPortlet.NavigationChangeActionListener.class)
+
+      })
+    
+    
 public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
   public static String DEFAULT_TAB_NAME = "Tab_Default";
   private UserNodeFilterConfig toolbarFilterConfig;
@@ -91,7 +90,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return userPortal.getNavigation(userKey);
   }
 
-  protected static UserPortal getUserPortal() {
+  private UserPortal getUserPortal() {
     UserPortalConfig portalConfig = Util.getPortalRequestContext().getUserPortalConfig();
     return portalConfig.getUserPortal();
   }
@@ -113,12 +112,23 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return page == null || UIDesktopPage.DESKTOP_FACTORY_ID.equals(page.getFactoryId());
   }
 
-  private boolean hasDashboardNode() throws Exception {
+  private UserNode findDashboardNode() throws Exception {
     Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
-    if (nodes.size() == 0 || (nodes.size() == 1 && isWebOSNode(nodes.iterator().next()))) {
-      return false;
+    if(nodes == null) {
+      return null;
+      
     }
-    return true;
+    else
+      {
+         for(UserNode node : nodes)
+         {
+            if(!isWebOSNode(node))
+            {
+               return node;
+            }
+         }
+        return null;
+       }
   }
 
   public String getDashboardURL() throws Exception {
@@ -143,7 +153,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return page != null;
   }
 
-  private UserNode getFirstNonWebOSNode(Collection<UserNode> nodes) throws Exception {
+ /* private UserNode getFirstNonWebOSNode(Collection<UserNode> nodes) throws Exception {
     for (UserNode node : nodes) {
       if (!isWebOSNode(node)) {
         return node;
@@ -152,6 +162,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
     throw new NullPointerException("There is no dashboard node. The dashboard node existing should be checked before");
   }
+  */
 
   public boolean isWebOsProfileActivated() {
     return (ExoContainer.getProfiles().contains("webos") || ExoContainer.getProfiles().contains("all"));
@@ -170,6 +181,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
    * Create user dashboard pagenode or redirect to the first node already
    * created which isn't webos node
    */
+   /*
   static public class AddDashboardActionListener extends EventListener<UIUserPlatformToolbarDesktopPortlet> {
 
     private final static String PAGE_TEMPLATE = "dashboard";
@@ -199,7 +211,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
           _nodeName = DEFAULT_TAB_NAME;
         }
         UserPortalConfigService _configService = toolbarPortlet.getApplicationComponent(UserPortalConfigService.class);
-        UserPortal userPortal = getUserPortal();
+        UserPortal userPortal = toolbarPortlet.getUserPortal();
         UserNavigation userNavigation = toolbarPortlet.getCurrentUserNavigation();
         if (userNavigation == null) {
           _configService.createUserSite(toolbarPortlet.getCurrentUser());
@@ -227,11 +239,13 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
       }
     }
   }
+  */
 
   /**
    * Create user page navigation, page and node for Desktop if they haven't
    * been created already.
    */
+   /*
   static public class CreateWebOSActionListener extends EventListener<UIUserPlatformToolbarDesktopPortlet> {
     @Override
     public void execute(Event<UIUserPlatformToolbarDesktopPortlet> event) throws Exception {
@@ -252,55 +266,23 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
 
     private Page createPage(String userName, UIUserPlatformToolbarDesktopPortlet toolbarDesktopPortlet) throws Exception {
       DataStorage service = toolbarDesktopPortlet.getApplicationComponent(DataStorage.class);
-      UserPortalConfigService userPortalConfigService = toolbarDesktopPortlet
-          .getApplicationComponent(UserPortalConfigService.class);
-
-      UserNavigation userNavigation = createUserNavigation(userName, userPortalConfigService);
-      if (userNavigation == null) {
-        throw new IllegalStateException("User navigation not created, couldn't initialize User's Dashboard");
-      }
-      Page page = null;
-      try {
-        RequestLifeCycle.begin(PortalContainer.getInstance());
-        page = service.getPage(PortalConfig.USER_TYPE + "::" + userName + "::" + UIDesktopPage.PAGE_ID);
-        if (page == null) {
-          page = new Page();
-          page.setName(UIDesktopPage.PAGE_ID);
-          page.setTitle(UIDesktopPage.PAGE_TITLE);
-          page.setFactoryId(UIDesktopPage.DESKTOP_FACTORY_ID);
-          page.setShowMaxWindow(true);
-          page.setOwnerType(PortalConfig.USER_TYPE);
-          page.setOwnerId(userName);
-          service.create(page);
-        }
-      } finally {
-        RequestLifeCycle.end();
+      Page page = service.getPage(PortalConfig.USER_TYPE + "::" + userName + "::" + UIDesktopPage.PAGE_ID);
+      if (page == null) {
+        page = new Page();
+        page.setName(UIDesktopPage.PAGE_ID);
+        page.setTitle(UIDesktopPage.PAGE_TITLE);
+        page.setFactoryId(UIDesktopPage.DESKTOP_FACTORY_ID);
+        page.setShowMaxWindow(true);
+        page.setOwnerType(PortalConfig.USER_TYPE);
+        page.setOwnerId(userName);
+        service.create(page);
       }
       return page;
     }
 
-    private UserNavigation createUserNavigation(String userName, UserPortalConfigService userPortalConfigService)
-        throws Exception {
-      UserPortal userPortal = getUserPortal();
-      UserNavigation userNavigation = userPortal.getNavigation(SiteKey.user(userName));
-      if (userNavigation == null) {
-        RequestLifeCycle.begin(PortalContainer.getInstance());
-        try {
-          userPortalConfigService.createUserSite(userName);
-          userPortal = getUserPortal();
-          userNavigation = userPortal.getNavigation(SiteKey.user(userName));
-        } catch (Exception e) {
-          log.error("Could not create user site for user " + userName, e);
-        } finally {
-          RequestLifeCycle.end();
-        }
-      }
-      return userNavigation;
-    }
-
     private UserNode createNavigation(String userName, String pageId, UIUserPlatformToolbarDesktopPortlet toolbarDesktopPortlet)
         throws Exception {
-      UserPortal userPortal = getUserPortal();
+      UserPortal userPortal = toolbarDesktopPortlet.getUserPortal();
       UserNode rootNode = userPortal.getNode(toolbarDesktopPortlet.getCurrentUserNavigation(), Scope.CHILDREN,
           toolbarDesktopPortlet.toolbarFilterConfig, null);
 
@@ -315,6 +297,9 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
       return desktopNode;
     }
   }
+  
+  */
+  
 
   public Collection<UserNode> getUserNodes(UserNavigation nav) {
     UserPortal userPortall = getUserPortal();
