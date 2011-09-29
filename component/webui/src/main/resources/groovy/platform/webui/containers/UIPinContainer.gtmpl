@@ -9,7 +9,7 @@
 		var toolbarContainerElement = document.getElementById("UIToolbarContainer");
 
 		<%if(uicomponent.isPinned()) {%>
-		 toolbarContainerElement.style.position = "absolute";
+		 toolbarContainerElement.style.position = "fixed";
 		 platformAdminToolbarContainerElement.style.paddingBottom = "31px";
 		<%} else {%>
 		 platformAdminToolbarContainerElement.style.paddingBottom = "";
