@@ -496,3 +496,29 @@
 	height: auto;
 	float: none;
 }
+
+.SEOToolbar img {
+    border: 0 none;
+    height: 14px;
+    padding-bottom: 10px;
+    width: 14px;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem .Enable {
+    padding-left: 5px;
+	width: 130px;
+	background-color: transparent;
+}
+.UISEOForm .UIFormGrid td.FieldComponent {
+    padding: 2px;
+}
+
+.UISEOForm .UIForm .UIFormGrid td.FieldLabel {
+    font-size: 11px !important;
+    padding: 2px;
+}
+
+.seolabel {
+	position: fixed;
+	margin-left: 24px;
+}
