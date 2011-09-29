@@ -9,8 +9,4 @@
   <msg name="mutual-friends">
     ami(s) commun(s)
   </msg>
-
-<msg name="showall">
-    Montrer tout
-</msg>    
 </messagebundle>

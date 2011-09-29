@@ -6,7 +6,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.PathParam;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -16,235 +15,144 @@ import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
+//import org.exoplatform.intranet.component.rest.forums.MessageBean;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.manager.RelationshipManager;
 import org.exoplatform.social.core.relationship.model.Relationship;
 import org.exoplatform.social.core.relationship.model.Relationship.Type;
-import org.exoplatform.common.http.HTTPStatus;
-import org.exoplatform.social.core.manager.ActivityManager;
-import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
-import javax.ws.rs.ext.RuntimeDelegate;
-import java.net.URI;
-import org.exoplatform.social.core.activity.model.Activity;
-import java.util.Map;
-import java.util.Set;
-import java.util.HashMap;
+import org.exoplatform.social.webui.profile.UIProfileUserSearch;
 
-@Path("suggestion")
-public class Suggestion {
 
-  private RelationshipManager relationshipManager = null;
+@Path("friendSuggestion")
+public class FriendSuggestion {
+  private RelationshipManager relationshipManager;
 
+  /** Stores IdentityManager instance. */
   private IdentityManager identityManager = null;
 
-  private static final CacheControl cacheControl;
-  static {
-    RuntimeDelegate.setInstance(new RuntimeDelegateImpl());
-    cacheControl = new CacheControl();
-    cacheControl.setNoCache(true);
-    cacheControl.setNoStore(true);
-  }
+  /** Stores UIProfileUserSearch instance. */
+  UIProfileUserSearch uiProfileUserSearchRelation = null;
 
   @GET
-  @Path("my-friends")
-  @Produces("application/json")
-  public Response myContacts(@Context SecurityContext sc, @Context UriInfo uriInfo) {
-    try {
-      String viewerId = getUserId(sc, uriInfo);
-      if(viewerId == null) {
-        return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-      }
+  @Path("/getSuggestedFriends")
+  public Response getSuggestedFriends(@Context SecurityContext sc) throws Exception {
+    String name = sc.getUserPrincipal().getName();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    OrganizationService orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    IdentityManager im = getIdentityManager();
+    RelationshipManager relm = getRelationshipManager();
+    
+    Identity currentIdentity = im.getOrCreateIdentity(OrganizationIdentityProvider.NAME, name);
 
-      IdentityManager identityManager = getIdentityManager();
-      RelationshipManager relationshipManager = getRelationshipManager();
-
-      ActivityManager activityManager = (ActivityManager)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
-
-      Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, viewerId);
-      Profile profile = identity.getProfile();
-      List<Relationship> confirmedContacts = relationshipManager.getContacts(identity);
-
-      List<Object> contacts = new ArrayList<Object>(confirmedContacts.size());
-
-      for(Relationship contact : confirmedContacts){
-        Identity contactIdentity = contact.getSender();
-        if(viewerId.equals(contactIdentity.getRemoteId())) {
-           contactIdentity = contact.getReceiver();
-        }
-        profile = contactIdentity.getProfile();
-
-        ContactBean contactBean = new ContactBean();
-        contactBean.setId(contactIdentity.getRemoteId());
-        contactBean.setFullName(profile.getFullName());
-        contactBean.setAvatarUrl(profile.getAvatarImageSource());
-
-        contacts.add(contactBean);
-      }
-
-      MessageBean data = new MessageBean();
-      data.setData(contacts);
-      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-    } catch(Exception e) {
-      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    // Get identities level 1
+    List<Identity> relationIdLevel1 = new ArrayList<Identity>();
+    List<Relationship> allRelations = relm.getContacts(currentIdentity);
+    for (Relationship rel : allRelations) {
+      Identity id = (currentIdentity.getId() == (rel.getSender()).getId()) ? rel.getReceiver() : rel.getSender();
+      relationIdLevel1.add(id);
     }
-  }
 
-  @GET
-  @Path("suggested-friends")
-  @Produces("application/json")
-  public Response suggestedFriends(@Context SecurityContext sc, @Context UriInfo uriInfo) {
-    try {
-      String viewerId = getUserId(sc, uriInfo);
-      if(viewerId == null) {
-        return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+    // Get identities level 2 (suggested Identities)
+    List<Object> suggestedUserProfiles = new ArrayList<Object>();
+    List<Identity> suggestedIdentities = new ArrayList<Identity>();
+    for (Identity identity : relationIdLevel1) {
+        Identity id = im.getOrCreateIdentity(OrganizationIdentityProvider.NAME, identity.getRemoteId());
+        List<Relationship> allRels = relm.getContacts(id);
+        for (Relationship rel : allRels) {
+            Identity ids = (currentIdentity.getId() == (rel.getSender()).getId()) ? rel.getReceiver() : rel.getSender();
+            if (!ids.getRemoteId().equals(id.getRemoteId())) suggestedIdentities.add(ids);
+        }
+    }
+
+    for (Identity identity : suggestedIdentities) {
+      FriendProfile friendProfile = new FriendProfile();
+      friendProfile.setId(identity.getRemoteId());
+      friendProfile.setFullName(identity.getProfile().getFullName());
+      friendProfile.setAvatarPath(identity.getProfile().getAvatarImageSource());
+      List<Relationship> idenRelations = relm.getContacts(identity);
+      List<Identity> relationIdLevel3 = new ArrayList<Identity>();
+      for (Relationship rel : idenRelations) {
+        Identity id = (identity.getId() == (rel.getSender()).getId()) ? rel.getReceiver() : rel.getSender();
+        relationIdLevel3.add(id);
       }
-
-      IdentityManager identityManager = getIdentityManager();
-      RelationshipManager relationshipManager = getRelationshipManager();
-
-      Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, viewerId);
-      Map<String, Object> suggestedFriendsMap = new HashMap<String, Object>();
-
-      Profile profile = null;
-      List<Relationship> mfConfirmedContacts = new ArrayList<Relationship>();
-      List<Identity> mfConfirmedContactIdentities = new ArrayList<Identity>(getAllConfirmFriends(identity).values());
-
-      for(Identity mfIdentity : mfConfirmedContactIdentities) {
-        if (!mfIdentity.getRemoteId().equals(viewerId)) {
-          mfConfirmedContacts = relationshipManager.getContacts(mfIdentity);
-
-          for(Relationship contact : mfConfirmedContacts) {
-            Identity contactIdentity = (mfIdentity.getRemoteId().equals(contact.getSender().getRemoteId())) ? contact.getReceiver() : contact.getSender();
-
-            if (!suggestedFriendsMap.containsKey(contactIdentity.getRemoteId())) {
-              Type ourRelationship = relationshipManager.getConnectionStatus(identity, contactIdentity);
-
-              if (ourRelationship == Type.ALIEN) {
-                profile = contactIdentity.getProfile();
-
-                ContactBean contactBean = new ContactBean();
-                contactBean.setId(contactIdentity.getRemoteId());
-                contactBean.setFullName(profile.getFullName());
-                contactBean.setAvatarUrl(profile.getAvatarImageSource());
-                suggestedFriendsMap.put(contactBean.getId(), contactBean);
-              }
-            }
+      friendProfile.setMutualFriends(getMutualFriends(name, relationIdLevel1, relationIdLevel3));
+      boolean exists = false ;
+      Relationship rel;
+      rel = relm.getRelationship(identity, currentIdentity);
+      Relationship.Type contactStatus = null;
+      if (rel != null) {
+        contactStatus = rel.getStatus();
+      }
+                
+      for (int i = 0; i < suggestedUserProfiles.size(); i++) {
+          if (suggestedUserProfiles.get(i).getId().equals(friendProfile.getId())) {
+              exists = true;
+              break;
           }
-        }
       }
-      MessageBean data = new MessageBean();
-      List<Object> suggestedFriends = new ArrayList<Object>(suggestedFriendsMap.values());
-
-      data.setData(suggestedFriends);
-      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-    } catch(Exception e) {
-      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
+      if ((!friendProfile.getId().equals(name)) && (contactStatus != Relationship.Type.PENDING) && (contactStatus != Relationship.Type.CONFIRMED) && (contactStatus != Relationship.Type.IGNORED) && !exists) suggestedUserProfiles.add(friendProfile);
     }
-  }
 
+    MessageBean bean = new MessageBean();
+    bean.setData(suggestedUserProfiles);
+    
+    return Response.ok(bean, new MediaType("application", "json")).build();
+  }
+  
   @GET
-  @Path("/send-invitation/{id}")
+  @Path("/getProfile/{id}")
+  public Response getProfile(@PathParam("id") String id) throws Exception {
+    FriendProfile fp = new FriendProfile();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    OrganizationService orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    IdentityManager im = getIdentityManager();
+    RelationshipManager relm = getRelationshipManager();
+    Identity identity = im.getOrCreateIdentity(OrganizationIdentityProvider.NAME, id);
+    fp.setId(id);
+    fp.setFullName(identity.getProfile().getFullName());
+    fp.setAvatarPath(identity.getProfile().getAvatarImageSource());
+    return Response.ok(fp, new MediaType("application", "json")).build();
+  }
+  
+  @GET
+  @Path("/add/{id}")
   public Response add(@Context SecurityContext sc, @PathParam("id") String id) throws Exception {
       String name = sc.getUserPrincipal().getName();
-
-      IdentityManager identityManager = getIdentityManager();
-      RelationshipManager relationshipManager = getRelationshipManager();
-
-      Identity currentIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, name);
-      Identity requestedIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, id);
-
-      relationshipManager.invite(currentIdentity, requestedIdentity);
-
+      
+      RelationshipManager relm = getRelationshipManager();
+      IdentityManager im = getIdentityManager();
+      
+      Identity currentIdentity = im.getOrCreateIdentity(OrganizationIdentityProvider.NAME, name); 
+      Identity requestedIdentity = im.getOrCreateIdentity(OrganizationIdentityProvider.NAME, id);
+     
+      relm.invite(currentIdentity, requestedIdentity);
+     
       return Response.ok(requestedIdentity.getProfile().getFullName(), new MediaType("application", "json")).build();
   }
-
-  @GET
-  @Path("/get-mutual-friends/{sfId}")
-  public Response sendInvitation(@Context SecurityContext sc, @Context UriInfo uriInfo,@PathParam("sfId") String sfId) {
-    String viewerId = getUserId(sc, uriInfo);
-    if(viewerId == null) return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-
-    IdentityManager identityManager = getIdentityManager();
-    Identity myConfirmedContact = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, viewerId);
-    Identity sfIdentity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, sfId);
-    List<Object> mutualFriends = new ArrayList<Object>();
-
-    try {
-      Map<String, Identity> myContacts = getAllConfirmFriends(myConfirmedContact);
-      Map<String, Identity> sfContacts = getAllConfirmFriends(sfIdentity);
-      mutualFriends = getMutualFriends(myContacts, sfContacts);
-
-      MessageBean data = new MessageBean();
-      data.setData(mutualFriends);
-
-      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-    } catch(Exception e) {
-      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
-    }
-  }
-
-  private List<Object> getMutualFriends(Map<String, Identity> friendIds, Map<String, Identity> friendsFriendsIds) {
-    List<Object> mutuals = new ArrayList<Object>();
-    Identity ffi = null;
-    List<String> keys = new ArrayList<String>(friendsFriendsIds.keySet());
-    for (String key : keys) {
-      if (friendIds.containsKey(key)) {
-        ffi = friendsFriendsIds.get(key);
-        Profile profile = ffi.getProfile();
-        ContactBean contactBean = new ContactBean();
-        contactBean.setId(ffi.getRemoteId());
-        contactBean.setFullName(profile.getFullName());
-        contactBean.setAvatarUrl(profile.getAvatarImageSource());
-        mutuals.add(contactBean);
-        continue;
-      }
+  
+  private List<String> getMutualFriends(String name, List<Identity> friendIds, List<Identity> friendsFriendsIds) {
+    List<String> mutuals = new ArrayList<String>();
+    for (int i = 0; i < friendIds.size(); i++) {
+        String us = friendIds.get(i).getRemoteId();
+        if (!us.equals(name)) {
+        for (int j=0; j < friendsFriendsIds.size(); j++) {
+            if (us.equals(friendsFriendsIds.get(j).getRemoteId())) {
+                mutuals.add(friendIds.get(i).getRemoteId());
+                continue;
+            }    
+        } 
+        }
     }
     return mutuals;
-  }
-
-  private Map<String, Identity> getAllConfirmFriends(Identity identity) throws Exception {
-    Map<String, Identity> identities = new HashMap<String, Identity>();
-    List<Relationship> confirmedContacts = relationshipManager.getContacts(identity);
-    Identity friendIdentity = null;
-    for(Relationship myConfirmedContact : confirmedContacts) {
-      friendIdentity = myConfirmedContact.getSender();
-      if (identity.getRemoteId().equals(friendIdentity.getRemoteId())) {
-         friendIdentity = myConfirmedContact.getReceiver();
-      }
-      identities.put(friendIdentity.getRemoteId(), friendIdentity);
-    }
-    return identities;
-  }
-
-  private String getUserId(SecurityContext sc, UriInfo uriInfo) {
-    try {
-      return sc.getUserPrincipal().getName();
-    } catch (NullPointerException e) {
-      return getViewerId(uriInfo);
-    } catch (Exception e) {
-      return null;
-    }
-  }
-
-  private String getViewerId(UriInfo uriInfo) {
-    URI uri = uriInfo.getRequestUri();
-    String requestString = uri.getQuery();
-    if (requestString == null) return null;
-    String[] queryParts = requestString.split("&");
-    for (String queryPart : queryParts) {
-      if (queryPart.startsWith("opensocial_viewer_id")) {
-        return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
-      }
-    }
-    return null;
   }
 
   private RelationshipManager getRelationshipManager() {
     if (relationshipManager == null) {
       ExoContainer container = ExoContainerContext.getCurrentContainer();
-      relationshipManager = (RelationshipManager) container.getComponentInstanceOfType(RelationshipManager.class);
+      relationshipManager = (RelationshipManager) container
+          .getComponentInstanceOfType(RelationshipManager.class);
     }
     return relationshipManager;
   }
@@ -252,52 +160,56 @@ public class Suggestion {
   private IdentityManager getIdentityManager() {
     if (identityManager == null) {
       ExoContainer container = ExoContainerContext.getCurrentContainer();
-      identityManager = (IdentityManager) container.getComponentInstanceOfType(IdentityManager.class);
+      identityManager = (IdentityManager) container
+          .getComponentInstanceOfType(IdentityManager.class);
     }
     return identityManager;
   }
+  
 }
-
-public class ContactBean{
-  private String id;
-  private String fullName;
-  private String avatarUrl;
-  private String position;
-  private String latestActivity;
+  
+public class FriendProfile {
+  private String Id_ ;
+  
+  private String fullName_ ;
+  
   private List<String> mutualFriends_ ;
-
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
-  public String getFullName() {
-    return fullName;
-  }
+  
+  private String avatarPath_ ;
+  
   public void setFullName(String fullName) {
-    this.fullName = fullName;
+      fullName_ = fullName;
   }
-  public String getAvatarUrl() {
-    return avatarUrl;
+  
+  public String getFullName() {
+      return fullName_;
   }
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
+  
+  public void setId(String id) {
+      Id_ = id;
   }
-  public String getPosition() {
-    return position;
+  
+  public String getId() {
+    return Id_;  
   }
-  public void setPosition(String position) {
-    this.position = position;
+  
+  public void setAvatarPath(String avatarPath) {
+      avatarPath_ = avatarPath;
   }
-  public String getLatestActivity() {
-    return latestActivity;
+  
+  public String getAvatarPath() {
+      return avatarPath_;
   }
-  public void setLatestActivity(String latestActivity) {
-    this.latestActivity = latestActivity;
+
+  public void setMutualFriends(List<String> mutualFriends) {
+    mutualFriends_ = mutualFriends;    
+  }
+
+  public List<String> getMutualFriends() {
+   return mutualFriends_;
   }
 }
-
+  
 public class MessageBean {
   private List<Object> data;
 
@@ -307,4 +219,4 @@ public class MessageBean {
   public List<Object> getData() {
     return data;
   }
-}
+}  

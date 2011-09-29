@@ -4,9 +4,6 @@
   author="eXo Platform"
   description="Friend Suggestion is gadget that allow to display a list of contacts that current user maybe know."
   height="300">
-  <Require feature="opensocial-0.8" />
-    <Require feature="views" />
-    <Require feature="settitle" />
     <Locale messages="locale/default.xml" />
     <Locale lang="fr" messages="locale/fr.xml" />
 </ModulePrefs>
@@ -14,28 +11,24 @@
 <![CDATA[ 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Friend Suggestion</title>
-  <link type="text/css" rel="stylesheet" href="css/StyleSheet.css" />
-  <script type="text/javascript" src="scripts/jquery-1.5.2.min.js"></script>
-  <script type="text/javascript" src="scripts/suggestion.js"></script>
+  <title>Friend suggestion</title>
+  <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript" src="scripts/suggestion.js"></script>
   <script type="text/javascript">   
-      gadgets.util.registerOnLoadHandler(init);    
+    renderSuggestFriends();
   </script>
 </head>
 <body>
 <div class="UIGadgetThemes">
   <div class="TitGad ClearFix">
-    <a href="javascript:void(0);" onClick="javascript:showAll();return false;"  class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
     <div class="ContTit">__MSG_title__</div>
   </div>    
   <div id="container"></div>
   <div id="mutual-friend">
-    <div class="Loading">
-      <img src="images/LoadingProgress.gif" alt="Loading progress" />
-    </div>
-    <div class="MuatualContainer">
-      <div class="ArrowIcon"><span></span></div>
-      <div class="Friend ClearFix" id="friends"></div>
+    <div class="TopMenu"><span></span></div>
+    <div class="Friend Boder ClearFix" style="width:100px" id="friends">
     </div>
   </div>  
 </div>  
