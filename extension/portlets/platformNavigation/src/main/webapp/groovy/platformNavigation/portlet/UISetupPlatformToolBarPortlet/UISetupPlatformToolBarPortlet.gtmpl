@@ -2,11 +2,6 @@
   import org.exoplatform.portal.config.model.PageNode;
   import java.util.List;
 
-  def rcontext = _ctx.getRequestContext();
-  def jsManager = rcontext.getJavascriptManager();
-  jsManager.importJavascript('eXo.portal.UIPortalNavigation');
-  jsManager.importJavascript('eXo.portal.UIAdminToolbar');
-  jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 %>
 <%// Begin render page nodes method
   void renderPageNodes(List<PageNode> pageNodes) {
@@ -43,12 +38,22 @@
     <%}%>
         </li>
   <%}%>
-<%} // End render method %>
-<ul class="UISetupPlatformToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
-  <li class="UITab NormalToolbarTab">
-    <a href="#" class="SetupMenuItem TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/setup.png"/></a>
-    <ul style="display: none" class="MenuItemContainer">
-      <%  renderPageNodes(uicomponent.getPageNodes()); %>
-    </ul>
-  </li>
-</ul>
+<%} // End render method 
+
+List<PageNode> pagesNodes = uicomponent.getPageNodes();
+if(pagesNodes!=null && !pagesNodes.isEmpty()) {
+  def rcontext = _ctx.getRequestContext();
+  def jsManager = rcontext.getJavascriptManager();
+  jsManager.importJavascript('eXo.portal.UIPortalNavigation');
+  jsManager.importJavascript('eXo.portal.UIAdminToolbar');
+  jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+%>
+  <ul class="UISetupPlatformToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
+    <li class="UITab NormalToolbarTab">
+      <a href="#" class="SetupMenuItem TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/setup.png"/></a>
+      <ul style="display: none" class="MenuItemContainer">
+        <%  renderPageNodes(pagesNodes); %>
+      </ul>
+    </li>
+  </ul>
+<%} %>
