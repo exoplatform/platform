@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head profile='http://selenium-ide.openqa.org/profiles/test-case'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<link rel='selenium.base' href='' />
+<title>Test_SNF_KS_37_ksdemo_AdvanceSearchInForum</title>
+</head>
+<body>
+<table cellpadding='1' cellspacing='1' border='1'>
+<thead>
+<tr><td rowspan='1' colspan='3'>Test_SNF_KS_37_ksdemo_AdvanceSearchInForum</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/forum</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Add Category for Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='AddCategory']//a[contains(text(),'Add Category')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='AddCategory']//a[contains(text(),'Add Category')]</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>CategoryTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>CategoryTitle</td>
+	<td>Knowledge Suite</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>Category Knowledge Suite1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Knowledge Suite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Knowledge Suite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Add forum for Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Add Forum')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Add Forum')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ForumTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ForumTitle</td>
+	<td>Live demo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Description</td>
+	<td>Live demo</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIForumForm']//a[text()='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIForumForm']//a[text()='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Live demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Live demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Add Topic for Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>UITopicContainer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Start Topic')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>ThreadTitle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ThreadTitle</td>
+	<td>Demo data policy</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//iframe[@id='messageContent___Frame']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>//html/body/table/tbody/tr[2]/td/iframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//html/body</td>
+	<td>Welcome to eXo Knowledge Suite live demo!&nbsp;&nbsp;&nbsp;We hope you enjoy discovering eXo Forum and FAQ applications features. You don't need to be logged in to see the applications in action. But the power of KS lies in the rich set of admin/moderation features.&nbsp;&nbsp;We didn't want you to miss them so, when you create a demo account, you will be granted full permissions. Anybody can become an administrator or a moderator and play in the sandbox! As a consequence, the data for this forum (including the accounts) is not meant to stay.&nbsp;&nbsp;WE MAY RESET FORUMS AND FAQS ANYTIME&nbsp;&nbsp;&nbsp;Enjoy and don't forget to send feedback at ks@exoplatform.com</td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td>relative=top</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Demo data policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Demo data policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Quick Search Form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>SearchValue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>SearchValue</td>
+	<td>Knowledge</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>SearchUser</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Knowledge Suite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Knowledge Suite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Search Forum-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>SearchValue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>SearchValue</td>
+	<td>demo</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>SearchType</td>
+	<td>label=Forum</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//option[@value='forum']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='forum']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>IsOpen</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Live demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Live demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-SearchTopics-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>SearchType</td>
+	<td>label=Topic</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='topic']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Demo data policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Demo data policy</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Search Posts-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='QuickSearchForm']//a[@title='Advanced Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>SearchType</td>
+	<td>label=Post</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>No matches</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>No matches</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Delete test data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIBreadcumbs']//a[@title='Knowledge Suite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UIBreadcumbs']//a[@title='Knowledge Suite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Manage Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Manage Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure to delete this category?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

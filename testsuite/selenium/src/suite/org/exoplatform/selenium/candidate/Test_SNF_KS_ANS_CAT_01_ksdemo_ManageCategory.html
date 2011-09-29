@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head profile='http://selenium-ide.openqa.org/profiles/test-case'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<link rel='selenium.base' href='http://localhost:8080/ksdemo/public/classic/' />
+<title>Test_SNF_KS_01_ksdemo_ManageCategory</title>
+</head>
+<body>
+<table cellpadding='1' cellspacing='1' border='1'>
+<thead>
+<tr><td rowspan='1' colspan='3'>Test_SNF_KS_01_ksdemo_ManageCategory</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/answers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Add Category 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Select Add Category on Menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Add Category']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Add Category']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>Technical FAQ</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//img[@title='Select a user ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@title='Select a user ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UIUserSelector']//a[text()=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UIUserSelector']//a[text()=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>moderatequestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>ViewAuthorInfor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>moderateAnswers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>SNF_KS_01</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Add Category 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Select Add Category on Menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Add Category']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Add Category']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>SNF_KS_02</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Edit Category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>contextMenu</td>
+	<td>//a[@title=&quot;SNF_KS_02&quot;]/span[text()='SNF_KS_02']</td>
+	<td>contextmenu</td>
+</tr>
+<tr>
+	<td>storeXpathCount</td>
+	<td>//div[contains(@id,'UIFAQPopupCategories')]</td>
+	<td>totals</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>${totals}-1</td>
+	<td>total1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>${totals}-1</td>
+	<td>total2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIFAQPopupCategories${total1}']//a[text()='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='UIFAQPopupCategories${total1}']//a[text()='Edit']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>eventCategoryName</td>
+	<td>SNF_KS_02 Update</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>index</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>SNF_KS_02 Desc</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//form[@id='UICategoryForm']//a[text()=&quot;Save&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//form[@id='UICategoryForm']//a[text()=&quot;Save&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Verify the edit category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Move Category-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>contextMenu</td>
+	<td>//a[@title=&quot;SNF_KS_02 Update&quot;]/span[text()='SNF_KS_02 Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIFAQPopupCategories${total2}']//a[text()='Move']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='UIFAQPopupCategories${total2}']//a[text()='Move']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Technical FAQ')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>doubleClick</td>
+	<td>//a[contains(text(),'Technical FAQ')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title=&quot;Technical FAQ&quot;]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@title=&quot;Technical FAQ&quot;]/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Delete Category 2-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title=&quot;SNF_KS_02 Update&quot;]/span[text()='SNF_KS_02 Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//a[@title=&quot;SNF_KS_02 Update&quot;]/span[text()='SNF_KS_02 Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>contextMenu</td>
+	<td>//a[@title=&quot;SNF_KS_02 Update&quot;]/span[text()='SNF_KS_02 Update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIFAQPopupCategories0']//a[@class=&quot;IconItem DeleteCategory&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseDownRight</td>
+	<td>//div[@id='UIFAQPopupCategories0']//a[@class=&quot;IconItem DeleteCategory&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyConfirmation</td>
+	<td>Are you sure to delete this category?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>SNF_KS_02 Update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Delete Category 1-</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Category</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-Select Add Category on Menu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='FAQCategroManager']//a[text()='Delete']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>verifyConfirmation</td>
+	<td>Are you sure to delete this category?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Technical FAQ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Technical FAQ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//li[@id='UserNavigationTabsContainer']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[@id='UserNavigationTabsContainer']//a[text()='Logout']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='UserNavigationTabsContainer']//a[text()='Logout']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

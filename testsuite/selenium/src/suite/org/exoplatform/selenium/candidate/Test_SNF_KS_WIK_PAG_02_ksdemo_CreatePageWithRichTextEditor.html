@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head profile='http://selenium-ide.openqa.org/profiles/test-case'>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<link rel='selenium.base' href='http://localhost:8080/ksdemo/public/classic/' />
+<title>Test_SNF_KS_58_ksdemo_CreatePageWithRichTextEditor</title>
+</head>
+<body>
+<table cellpadding='1' cellspacing='1' border='1'>
+<thead>
+<tr><td rowspan='1' colspan='3'>Test_SNF_KS_58_ksdemo_CreatePageWithRichTextEditor</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/public/intranet/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>windowMaximize</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/portal/private/intranet/wiki</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Create Page using Rich Text Editor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Blank Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Blank Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>TitleInput</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>TitleInput</td>
+	<td>Page1_SNF_KS_58</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Markup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Insert Hyperlink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-16']//div[text()='Link']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-16']//div[text()='Link']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Web page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-10']/div[text()='Web Page...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-10']/div[text()='Web Page...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Type&nbsp;&nbsp;Web page address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@title='Web page address']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@title='Web page address']</td>
+	<td>http://google.com</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Type&nbsp;&nbsp;label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@title='Type the label of the created link.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@title='Type the label of the created link.']</td>
+	<td>Google</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Type&nbsp;&nbsp;Tooltip</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@title='Type the tooltip of the created link, which appears when mouse is over the link.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@title='Type the tooltip of the created link, which appears when mouse is over the link.']</td>
+	<td>Google Google</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Press Create Link button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[text()='Create Link']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[text()='Create Link']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Press Save button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIWikiPageEditForm_PageToolBar']//a[@title='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//div[@id='UIWikiPageEditForm_PageToolBar']//a[@title='Save']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Insert table</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-9']/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-9']/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-1']/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-1']/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div/div[2]/div/div[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div/div[2]/div/div[1]/input</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[2]/div/div[2]/input</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[2]/div/div[2]/input</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>gwt-uid-29</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[text()='Insert Table']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[text()='Insert Table']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//body[@id='body']/table//tr[3]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//body[@id='body']/table//tr[3]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//body[@id='body']/table/tbody/tr[4]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeKeys</td>
+	<td>//body[@id='body']/table/tbody/tr[4]/td[3]</td>
+	<td>TopLeft</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Insert macro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Rich Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-26']//div[text()='Macro']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-26']//div[text()='Macro']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//td[@id='gwt-uid-25']//div[text()='Insert Macro...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//td[@id='gwt-uid-25']//div[text()='Insert Macro...']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//select[@title='Select a macro category']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>//select[@title='Select a macro category']</td>
+	<td>1,1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//select[@title='Select a macro category']</td>
+	<td>label=Formatting</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Div']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[text()='Div']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[text()='Select']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[text()='Select']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>pd-content-input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pd-content-input</td>
+	<td>Gunless but still dangerous!</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[text()='Insert Macro']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[text()='Insert Macro']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>link=Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Verify the Rich Text content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Gunless but still dangerous!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Gunless but still dangerous!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIWikiPageContentArea']//td[text()='TopLeft']</td>
+	<td>TopLeft</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='UIWikiPageContentArea']//td[text()='TopLeft']</td>
+	<td>TopLeft</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Google</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Google</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Clean test data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/ksdemo/private/classic/wiki/WikiHome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>mouseOver</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar_More_']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Delete Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Delete Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UIWikiPageArea']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='UIWikiPageArea']//a[text()='OK']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextNotPresent</td>
+	<td>Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Page1_SNF_KS_58</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>- Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Sign in</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
