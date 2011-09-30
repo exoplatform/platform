@@ -919,7 +919,7 @@
             </jarModule>
             <jarModule>
               <groupId>org.exoplatform.platform</groupId>
-              <artifactId>exo.platform.component.edition</artifactId>
+              <artifactId>exo.platform.component.edition.enterprise</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
           </modules>
