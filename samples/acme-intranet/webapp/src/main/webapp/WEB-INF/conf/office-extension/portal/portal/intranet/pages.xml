@@ -1108,74 +1108,11 @@
     </container>
   </page>
 
-  <page>
-    <name>searchResult</name>
-    <title>SearchResult</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>editor:/platform/web-contributors</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>searches</application-ref>
-        <portlet-ref>WCMAdvanceSearchPortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>workspace</name>
-            <value>collaboration</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchFormTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-form/UIDefaultSearchForm.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchResultTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-result/UIDefaultSearchResult.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchPaginatorTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-paginator/UIDefaultSearchPaginator.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchPageLayoutTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-page-layout/UISearchPageLayoutDefault.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>itemsPerPage</name>
-            <value>5</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>showQuickEditButton</name>
-            <value>true</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>basePath</name>
-            <value>detail</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>SearchResult</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
+  
 	<page>
     <name>forum</name>
     <title>Forum</title>
-    <access-permissions>Everyone</access-permissions>
+    <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
       <portlet>
@@ -1417,7 +1354,7 @@
 	<page>
     <name>wiki</name>
     <title>Wiki</title>
-    <access-permissions>Everyone</access-permissions>
+    <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <portlet-application>
       <portlet>
