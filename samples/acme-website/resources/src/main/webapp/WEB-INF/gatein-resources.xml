@@ -32,6 +32,7 @@
 		<skin-module>Acme</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
         <overwrite>true</overwrite>
+		<css-priority>6</css-priority>
 	</portal-skin>	
 	
 	<javascript>
