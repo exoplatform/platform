@@ -18,6 +18,8 @@
  */
 package org.exoplatform.platform.common.rest;
 
+import java.lang.reflect.Method;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,7 +29,6 @@ import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.commons.info.ProductInformations;
-import org.exoplatform.platform.common.service.ProductCodeService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -42,11 +43,9 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
   private Log logger = ExoLogger.getLogger(this.getClass());
   private ProductInformations platformInformations;
-  private  ProductCodeService productCodeService;
 
-  public PlatformInformationRESTService(ProductInformations productInformations, ProductCodeService productCodeService) {
+  public PlatformInformationRESTService(ProductInformations productInformations) {
     this.platformInformations = productInformations;
-    this.productCodeService = productCodeService;
   }
 
   /**
@@ -54,7 +53,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
    * informations.
    */
   @GET
-  @Path("/version")
+  @Path("/info")
   @Produces(MediaType.APPLICATION_JSON)
   public Response getPlatformInformation() {
     CacheControl cacheControl = new CacheControl();
@@ -65,7 +64,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
       jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
       jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
       jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
-
+      jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
       if (logger.isDebugEnabled()) {
         logger.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
             + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
@@ -77,22 +76,21 @@ public class PlatformInformationRESTService implements ResourceContainer {
     }
   }
 
-  /**
-   * This method return the edition of Platform.
-   */
-  @GET
-  @Path("/edition")
-  @Produces(MediaType.TEXT_PLAIN)
-  public Response getPlatformEdition() {
-    CacheControl cacheControl = new CacheControl();
-    cacheControl.setNoCache(true);
-    cacheControl.setNoStore(true);
+  private Boolean isMobileCompliant() {
+    String platformEdition = getPlatformEdition();
+    return (platformEdition != null && (platformEdition.equals("enterprise")));
+  }
+
+  private String getPlatformEdition() {
     try {
-      return Response.ok(productCodeService.getProductEdition(), MediaType.TEXT_PLAIN).cacheControl(cacheControl).build();
+      Class<?> c = Class.forName("org.exoplatform.platform.edition.PlatformEdition");
+      Method getEditionMethod = c.getMethod("getEdition");
+      String platformEdition = (String) getEditionMethod.invoke(null);
+      return platformEdition;
     } catch (Exception e) {
       logger.error("An error occured while getting the platform edition information.", e);
-      return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
+    return null;
   }
 
   public static class JsonPlatformInfo {
@@ -100,6 +98,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String platformVersion;
     private String platformBuildNumber;
     private String platformRevision;
+    private String isMobileCompliant;
 
     public JsonPlatformInfo() {}
 
@@ -109,6 +108,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     public void setPlatformVersion(String platformVersion) {
       this.platformVersion = platformVersion;
+    }
+
+    public String getIsMobileCompliant() {
+      return this.isMobileCompliant;
+    }
+
+    public void setIsMobileCompliant(String isMobileCompliant) {
+      this.isMobileCompliant = isMobileCompliant;
     }
 
     public String getPlatformBuildNumber() {

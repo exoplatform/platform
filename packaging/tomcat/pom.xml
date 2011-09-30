@@ -1322,6 +1322,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.edition.enterprise</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.config</artifactId>
       <version>${project.version}</version>
       <type>jar</type>

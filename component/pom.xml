@@ -11,6 +11,7 @@
   <name>eXo Platform - Component</name>
   <modules>
     <module>common</module>
+	<module>edition</module>
     <module>gadgets</module>
 	<module>upgrade</module>
 	<module>organization</module>

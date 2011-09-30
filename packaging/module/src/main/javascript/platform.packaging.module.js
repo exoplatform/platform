@@ -55,7 +55,8 @@ function getModule(params)
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.webui", "jar", module.version)).
       addDependency(new Project("org.exoplatform.platform", "exo.platform.component.gadgets", "jar", module.version)).
       addDependency(new Project("org.exoplatform.platform", "exo.platform.upgrade.plugins", "jar", module.version)).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.organization", "jar", module.version));
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.organization", "jar", module.version)).
+      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.edition.enterprise", "jar", module.version));
    module.extension.webapp.deployName = "platform-extension";
    module.extension.resources = 
       new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);
