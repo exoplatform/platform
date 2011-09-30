@@ -37,6 +37,11 @@
 			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
 			<description>this listener init the portal configuration</description>
 			<init-params>
+				<value-param>
+					<name>override</name>
+					<description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
+					<value>true</value>
+				</value-param>
 				<object-param>
 					<name>portal.configuration</name>
 					<description>description</description>
@@ -57,6 +62,21 @@
 						<field name="importMode"><string>merge</string></field>
 					</object>
 				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins>
+		<!-- The full qualified name of the UserPortalConfigService -->
+		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>new.portal.config.user.listener</name>
+			<!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
+			<set-method>initListener</set-method>
+			<!-- The full qualified name of the NewPortalConfigListener -->
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
 				<object-param>
 				  <name>group.configuration</name>
 				  <description>description</description>
