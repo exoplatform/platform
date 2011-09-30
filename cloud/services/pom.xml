@@ -38,6 +38,13 @@
       <type>jar</type>
     </dependency>
     
+<dependency>
+      <groupId>org.exoplatform.cloud-management</groupId>
+      <artifactId>cloud-agent</artifactId>
+      <version>${org.exoplatform.cloud-management.version}</version>
+      <type>jar</type>
+    </dependency>
+
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.organization.service</artifactId>
