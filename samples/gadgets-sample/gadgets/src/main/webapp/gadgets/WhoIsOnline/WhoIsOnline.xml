@@ -45,8 +45,8 @@
 										var idx = $.inArray(user.id, myContacts);
 										if (idx != -1) {
 											var contact = myContactsJson.data[idx];
-											var avatar =	 "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (contact.avatarUrl == null ? "/intranet-gadget/gadgets/WhoIsOnline/images/Avatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
-											var userInfo = "<a href='/portal/private/intranet/profile/" + contact.id + "' target='_parent'>" + "<b>" + contact.fullName + "</b>" + "</a>" + 
+											var avatar =	 "<a href='/portal/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (contact.avatarUrl == null ? "/intranet-gadget/gadgets/WhoIsOnline/images/Avatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
+											var userInfo = "<a href='/portal/intranet/profile/" + contact.id + "' target='_parent'>" + "<b>" + contact.fullName + "</b>" + "</a>" + 
 													(contact.position == null ? "" : " (" + "<span style='font-size: smaller;'>" + contact.position + "</span>" + ")") + "<br/>" + 
 													(contact.latestActivity == null ? "" : "<i style='font-size: smaller;'>" + contact.latestActivity + "</i>");
 											var newRow = "<tr>" +
@@ -57,7 +57,7 @@
 											contactRows.push(newRow);
 											myContactsCount++;
 										} else {
-											other.push("<a href='/portal/private/intranet/profile/" + user.id + "' target='_parent'>" + user.fullName + "</a>");
+											other.push("<a href='/portal/intranet/profile/" + user.id + "' target='_parent'>" + user.fullName + "</a>");
 											otherCount++;
 										}
 									});
