@@ -5,6 +5,7 @@
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.component.edition.parent</artifactId>
 		<version>3.5.0-Beta2-SNAPSHOT</version>
+		<relativePath>../parent</relativePath>
 	</parent>
 	<artifactId>exo.platform.component.edition.enterprise</artifactId>
 	<packaging>jar</packaging>
