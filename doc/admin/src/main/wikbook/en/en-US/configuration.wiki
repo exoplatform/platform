@@ -754,6 +754,17 @@ The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Co
 </component>
 {code}
 
+
+h1. JCR Links cleaner job {anchor:id=ADM.Configuration.WCM_link_cleaner_job}
+
+The _links cleaning service_ deletes all non valid links, which target nodes has been deleted.
+This property is the "cron expression" of the service that is responsible of JCR links cleaning.
+
+{code}
+# Links checker cron job
+wcm.linkjob.cron.expression=0 0/20 * * * ?
+{code}
+
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
 {code}
@@ -771,6 +782,4 @@ gatein.portal.idm.destroyuserportal=true
 # global portlet.xml
 gatein.portlet.config=${exo.shared.dir}/conf/portlet.xml
 
-# Links checker cron job
-wcm.linkjob.cron.expression=0 0/20 * * * ?
 {code}
