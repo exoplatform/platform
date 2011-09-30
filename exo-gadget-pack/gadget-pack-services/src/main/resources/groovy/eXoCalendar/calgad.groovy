@@ -19,13 +19,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 
 import org.exoplatform.calendar.service.Calendar;
 import org.exoplatform.calendar.service.CalendarEvent;
 import org.exoplatform.calendar.service.CalendarService;
 import org.exoplatform.calendar.service.EventQuery;
 import org.exoplatform.social.core.identity.model.Identity;
-import org.exoplatform.social.core.manager.IdentityManager;
 
 @Path("/calgad")
 class CalGadService {
@@ -41,32 +41,40 @@ class CalGadService {
 
   private CalendarService           calendarService;
 
-  private IdentityManager           identityManager;
 
-  public CalGadService(CalendarService calendarService, IdentityManager identityManager) {
+  public CalGadService(CalendarService calendarService) {
     this.calendarService = calendarService;
-    this.identityManager = identityManager;
   }
 
-  private String getUsername(SecurityContext sc, String viewer) {
-    String username = null;
-    Principal p = sc.getUserPrincipal();
-    if (p == null) {
-      if (viewer != null) {
-        Identity identity = this.identityManager.getIdentity(viewer);
-        username = identity.getRemoteId();
-      }
-    } else {
-      username = p.getName();
+  
+  private String getUserId(SecurityContext sc, UriInfo uriInfo) {
+    try {
+      return sc.getUserPrincipal().getName();
+    } catch (NullPointerException e) {
+      return getViewerId(uriInfo);
+    } catch (Exception e) {
+      return null;
     }
-
-    return username;
   }
+
+  private String getViewerId(UriInfo uriInfo) {
+    URI uri = uriInfo.getRequestUri();
+    String requestString = uri.getQuery();
+    if (requestString == null) return null;
+    String[] queryParts = requestString.split("&");
+    for (String queryPart : queryParts) {
+      if (queryPart.startsWith("opensocial_viewer_id")) {
+        return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
+      }
+    }
+    return null;
+  }  
+
 
   @GET
   @Path("calendars/personal")
-  public Response getPersonalCalendars(@QueryParam("opensocial_viewer_id") String viewer, @Context SecurityContext sc) {
-    String username = getUsername(sc, viewer);
+  public Response getPersonalCalendars(@Context SecurityContext sc, @Context UriInfo uriInfo) {
+    String username = getUserId(sc, uriInfo);
     if (username == null) {
       return Response.status(Status.UNAUTHORIZED).build(); // unauthorized
     }
@@ -95,12 +103,12 @@ class CalGadService {
 
   @GET
   @Path("events/{from: \\d+}/{to: \\d+}/{calids: .*}/")
-  public Response getPersonalEvents(@QueryParam("opensocial_viewer_id") String viewer,
-                                    @PathParam("from") long from,
+  public Response getPersonalEvents(@PathParam("from") long from,
                                     @PathParam("to") long to,
                                     @PathParam("calids") String cals,
-                                    @Context SecurityContext sc) {
-    String username = getUsername(sc, viewer);
+                                    @Context SecurityContext sc,
+                                    @Context UriInfo uriInfo) {
+    String username = getUserId(sc, uriInfo);
     if (username == null) {
       return Response.status(Status.UNAUTHORIZED).build(); // unauthorized
     }
@@ -157,12 +165,12 @@ class CalGadService {
 
   @GET
   @Path("hdays/{from: \\d+}/{to: \\d+}/{calids: .*}/")
-  public Response getHighlightDays(@QueryParam("opensocial_viewer_id") String viewer,
-                                   @PathParam("from") long from,
+  public Response getHighlightDays(@PathParam("from") long from,
                                    @PathParam("to") long to,
                                    @PathParam("calids") String cals,
-                                   @Context SecurityContext sc) {
-    String username = getUsername(sc, viewer);
+                                   @Context SecurityContext sc,
+                                   @Context UriInfo uriInfo) {
+    String username = getUserId(sc, uriInfo);
     if (username == null) {
       return Response.status(Status.UNAUTHORIZED).build(); // unauthorized
     }
@@ -203,13 +211,13 @@ class CalGadService {
 
   @POST
   @Path("addevent")
-  public Response addEvent(@QueryParam("opensocial_viewer_id") String viewer,
-                           @FormParam("calId") String calId,
+  public Response addEvent(@FormParam("calId") String calId,
                            @FormParam("eventTitle") String eTitle, 
                            @FormParam("from") long from,
                            @FormParam("to") long to, 
-                           @Context SecurityContext sc) {
-    String username = getUsername(sc, viewer);
+                           @Context SecurityContext sc,
+                           @Context UriInfo uriInfo) {
+    String username = getUserId(sc, uriInfo);
     if (username == null) {
       return Response.status(Status.UNAUTHORIZED).build(); // unauthorized
     }

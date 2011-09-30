@@ -87,7 +87,7 @@ h2{
   list-style:none;
   height: 30px;
   line-height:30px;
-  background: #FFD400;
+  background: #226ab4;
 }
 .UIGadgetConsole .ToolBarMenu  li {
   float:left;
@@ -127,7 +127,7 @@ h2{
 }
 
 .UIGadgetConsole .ToolBarMenu  li  a {
-  color:#484848;
+  color:white;
   font-weight:bold;
   outline: none;
 }
