@@ -20,7 +20,7 @@
       
         function addBookmark(id, name, link) {
           var icon = "<div class='ArrowIcon'><img class='listIcon off CustomImage' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowRight.gif' ></img></div>";
-          var item = "<a id='bookmark" + id + "' href='" + link + "' target='_blank'>" + name + "</a>";
+          var item = "<a id='bookmark" + id + "' href='" + link + "' target='_parent'>" + name + "</a>";
           var form = "<div class='Form' style='display:none;'> \
                         <div class='Label ClearFix'><input type='text' class='EditFormName'></input></div> \
                         <div class='Label ClearFix'><input type='text' class='EditFormLink'></input> \

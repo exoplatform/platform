@@ -55,8 +55,8 @@ function showPoll(data){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
-          html.push('<h4 ><a  target="_blank" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
-        discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_blank"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
+          html.push('<h4 ><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
+        discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
       }
       else{
           html. push('<h4 class="Question">' + question + '</h4>');
@@ -98,8 +98,8 @@ function showResult(data){
       var prefs = new gadgets.Prefs();
     var topicId= pollId.replace("poll","topic");
       var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
-    tbl.push('<h4><a class="Question" title = "' + prefs.getMsg('discuss') + '"  target="_blank"  href="'+ topicURL + '">' + question + '</a></h4>');
-    discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_blank"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
+    tbl.push('<h4><a class="Question" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + question + '</a></h4>');
+    discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
   }
   else{
     tbl.push('<h4 class="Question">' + question + '</h4>');

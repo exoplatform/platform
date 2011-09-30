@@ -333,7 +333,7 @@ eXoEventGadget.prototype.swapClass = function(obj){
 eXoEventGadget.prototype.notify = function(){
 	var msg = gadgets.Prefs().getMsg("notask");
 	var msg2 = gadgets.Prefs().getMsg("titleTask");
-	document.getElementById("taskDiv").innerHTML = '<div class="Warning">' + msg + '</div>';
+	document.getElementById("taskDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
         $("#taskLink").html(msg2 + " (0) ");
 	eXoEventGadget.setLink();
 }
@@ -341,7 +341,7 @@ eXoEventGadget.prototype.notify = function(){
 eXoEventGadget.prototype.notifyEvent = function(){
 	var msg = gadgets.Prefs().getMsg("noevent");
 	var msg2 = gadgets.Prefs().getMsg("title");
-	document.getElementById("eventDiv").innerHTML = '<div class="Warning">' + msg + '</div>';
+	document.getElementById("eventDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
         $("#eventLink").html(msg2 + " (0) ");
 	eXoEventGadget.setLink();
 }

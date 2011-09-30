@@ -105,7 +105,7 @@
           var doc = data[i];
           var AppClass = document.createElement('div');
             
-          var showHTML = "<a target='_blank' class='IconLink'";
+          var showHTML = "<a target='_parent' class='IconLink'";
           if (accessUrl.length > 0 && doc.fullLink.length > 0) {
             showHTML += "href='";  
             showHTML += accessUrl;            
@@ -133,7 +133,7 @@
         }
         if(data.length ==0){
           var AppClass = document.createElement('div');
-          AppClass.innerHTML = "You have no favorite document.";
+          AppClass.innerHTML = '<div class="light_message">You have no favorite document...</div>';
           favoriteList.appendChild(AppClass);
         }
         var title = _gel("BgTitle"); 

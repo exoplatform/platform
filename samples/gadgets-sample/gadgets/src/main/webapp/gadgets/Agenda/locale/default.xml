@@ -39,7 +39,7 @@
     Show all
   </msg>
   <msg name="noevent">
-    No events on today
+    No events on today...
   </msg>
   <msg name="back">
     Back
@@ -60,7 +60,7 @@
     Tasks
   </msg>
   <msg name="notask">
-    No tasks for today
+    No tasks for today...
   </msg>
   <msg name="confirm">
     Are you sure this task completed?

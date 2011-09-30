@@ -14,6 +14,11 @@ table {
  border-collapse: collapse;
 }
 
+.light_message {
+ color: lightgray;
+ font-size: 11px;
+}
+
 .ClearFix:after {
  content: ".";
  display: block;

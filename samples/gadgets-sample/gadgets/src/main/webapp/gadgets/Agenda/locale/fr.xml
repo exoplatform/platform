@@ -45,13 +45,13 @@
     Précédent
   </msg>
   <msg name="noevent">
-    Aucun événement aujourd'hui
+    Aucun événement aujourd'hui...
   </msg>
   <msg name="titleTask">
     Mes tâches
   </msg>
   <msg name="notask">
-    Aucune tâche aujourd'hui
+    Aucune tâche aujourd'hui...
   </msg>
   <msg name="setting">
     Réglage

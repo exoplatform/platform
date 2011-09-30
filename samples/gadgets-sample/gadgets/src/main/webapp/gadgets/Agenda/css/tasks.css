@@ -1,10 +1,3 @@
-body, table, form{
-  background: #fff;
-  font-family: Lucida Sans, Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  color: #484848;
-}
-
 a {
 text-decoration:none;
 }
@@ -18,6 +11,10 @@ text-decoration:none;
  color: #226ab4;
 }
 
+.light_message {
+ color: lightgray;
+ font-size: 11px;
+}
 
 table {
   width: 100%;

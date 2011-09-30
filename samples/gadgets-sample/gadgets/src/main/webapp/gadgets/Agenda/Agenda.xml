@@ -96,7 +96,7 @@
 
 
         <div class="TitGad ClearFix">
-          <a href="#demo" class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
+          <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
 
           <div class="SettingButton" id="SettingButton" title="__MSG_setting__">
             <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
@@ -105,27 +105,23 @@
         </div>
 	<br/>
 
-
-	<div style="margin-left: 15px;">
-	<a id="taskLink" href="#" class="ThemeColor customLink"> </a> 
+     <div class="GadCont">
+	<div>
+	<span id="taskLink" href="#" class="ThemeColor customLink"> </span> 
 	&nbsp; | &nbsp;
-	<a id="eventLink" href="#" class="ThemeColor customLink"> </a>
+	<span id="eventLink" href="#" class="ThemeColor customLink"> </span>
 	</div>
 
 
         <div class="GadCont MyTasks" id="taskDiv">
-     	<!--
-          <div class="CheckBox">
-            <input type="checkbox" name="checkbox" id="abc"></input>
-            <label id="abc">09:00<span>Joint PR CS + KS</span></label>
-          </div>
-   	-->
+
         </div> 
 	
 
-          <div class="GadCont UpcomingEvents" id="eventDiv">
-          <!-- <a href="#demo" class="IconLink">09:00<span>Daily Meeting</span></a> -->
-          </div>
+        <div class="GadCont UpcomingEvents" id="eventDiv">
+        </div>
+        
+     </div>
 
 </div>
 
