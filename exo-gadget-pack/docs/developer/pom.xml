@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo-gadget-pack-docs</artifactId>
+    <version>3.5.0-Beta2-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>exo-gadget-pack-developer-guide</artifactId>
+  <packaging>jar</packaging>
+
+  <name>eXo Platform Gadget Pack Developer Guide</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wikbook</groupId>
+      <artifactId>wikbook.docbkxstyle</artifactId>
+      <version>${version.wikbook.plugin}</version>
+    </dependency>
+  </dependencies>
+  <profiles>
+    <profile>
+      <id>distrib</id>
+  <properties>
+    <wikbook.source>${pom.basedir}/src/main/wikbook</wikbook.source>
+    <wikbook.target>${project.build.directory}/wikbook</wikbook.target>
+  </properties>
+
+  <build>
+       <plugins>
+
+          <!-- The wikbook maven plugin generates the docbook document from the wiki source -->
+         <plugin>
+            <groupId>org.wikbook</groupId>
+            <artifactId>wikbook.maven</artifactId>
+            <version>${version.wikbook.plugin}</version>
+            <executions>
+              <execution>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>transform</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <sourceDirectory>${wikbook.source}/en/en-US</sourceDirectory>
+              <sourceFileName>book.wiki</sourceFileName>
+              <destinationDirectory>${wikbook.target}/src</destinationDirectory>
+              <destinationFileName>index.xml</destinationFileName>
+              <!--beforeBookBodyXML><![CDATA[
+                 <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+           ]]></beforeBookBodyXML-->
+            </configuration>
+          </plugin>
+
+         <!-- Unpacks the docbook style resources for the docbkx plugin -->
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-dependency-plugin</artifactId>
+           <version>2.1</version>
+           <executions>
+             <execution>
+               <id>a</id>
+               <phase>prepare-package</phase>
+               <goals>
+                 <goal>unpack-dependencies</goal>
+               </goals>
+               <configuration>
+                 <includeGroupIds>org.wikbook</includeGroupIds>
+                 <includeArtifactIds>wikbook.docbkxstyle</includeArtifactIds>
+                 <excludes>META-INF/**</excludes>
+                 <outputDirectory>${wikbook.target}/src/resources</outputDirectory>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+
+         <!-- Dockbx plugin that generates content -->
+         <plugin>
+           <groupId>com.agilejava.docbkx</groupId>
+           <artifactId>docbkx-maven-plugin</artifactId>
+           <version>2.0.7</version>
+           <configuration>
+
+             <!-- Source -->
+             <sourceDirectory>${wikbook.target}/src</sourceDirectory>
+             <includes>index.xml</includes>
+
+             <!-- Highlight source code -->
+             <highlightSource>1</highlightSource>
+
+             <!-- We need to support xinclude -->
+             <xincludeSupported>true</xincludeSupported>
+
+             <!--
+               |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
+               |  Callouts on imported text
+               -->
+             <useExtensions>1</useExtensions>
+             <calloutsExtension>1</calloutsExtension>
+
+             <!-- Copy any docbook XML -->
+             <preProcess>
+               <copy todir="${wikbook.target}/src">
+                 <fileset dir="${wikbook.source}/en/en-US">
+                   <include name="**/*.xml" />
+                 </fileset>
+               </copy>
+             </preProcess>
+
+           </configuration>
+           <executions>
+             <execution>
+               <id>generate-html</id>
+               <goals>
+                 <goal>generate-html</goal>
+               </goals>
+               <phase>package</phase>
+               <configuration>
+
+                 <!-- Output -->
+                 <targetDirectory>${wikbook.target}/output/html</targetDirectory>
+
+                 <!-- Stylesheet -->
+                 <htmlCustomization>${wikbook.target}/src/resources/xsl/html.xsl</htmlCustomization>
+                 <htmlStylesheet>css/html.css</htmlStylesheet>
+
+                 <!-- Copy the image -->
+                 <postProcess>
+                   <copy todir="${wikbook.target}/output/html/images">
+                     <fileset dir="${wikbook.source}/images">
+                       <include name="**"/>
+                     </fileset>
+                   </copy>
+                   <copy todir="${wikbook.target}/output/html">
+                     <fileset dir="${wikbook.target}/src/resources">
+                       <include name="**/*.css"/>
+                       <include name="**/*.png"/>
+                       <include name="**/*.gif"/>
+                       <include name="**/*.jpg"/>
+                     </fileset>
+                   </copy>
+                 </postProcess>
+
+               </configuration>
+             </execution>
+             <execution>
+               <id>generate-pdf</id>
+               <goals>
+                 <goal>generate-pdf</goal>
+               </goals>
+               <phase>package</phase>
+               <configuration>
+
+                 <!-- Output -->
+                 <targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
+
+                 <!-- Stylesheet -->
+                 <foCustomization>${wikbook.target}/src/resources/xsl/fopdf.xsl</foCustomization>
+
+                 <!-- Image configuration -->
+                 <imgSrcPath>${wikbook.source}/</imgSrcPath>
+                 <admonGraphicsPath>${wikbook.target}/src/resources/images/admons/</admonGraphicsPath>
+
+               </configuration>
+             </execution>
+           </executions>
+           <dependencies>
+             <dependency>
+               <groupId>org.docbook</groupId>
+               <artifactId>docbook-xml</artifactId>
+               <version>4.4</version>
+               <scope>runtime</scope>
+             </dependency>
+           </dependencies>
+         </plugin>
+
+         <!-- Attach the HTML zip -->
+         <plugin>
+           <artifactId>maven-assembly-plugin</artifactId>
+           <executions>
+             <execution>
+               <phase>package</phase>
+               <goals>
+                 <goal>single</goal>
+               </goals>
+               <configuration>
+                 <descriptors>
+                   <descriptor>src/main/assembly/html.xml</descriptor>
+                 </descriptors>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+
+         <!-- Attach the PDF -->
+         <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>build-helper-maven-plugin</artifactId>
+           <executions>
+             <execution>
+               <id>attach-artifacts</id>
+               <phase>package</phase>
+               <goals>
+                 <goal>attach-artifact</goal>
+               </goals>
+               <configuration>
+                 <artifacts>
+                   <artifact>
+                     <file>target/wikbook/output/pdf/index.pdf</file>
+                     <type>pdf</type>
+                   </artifact>
+                 </artifacts>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+       </plugins>
+   </build>
+    </profile>
+  </profiles>
+</project>
