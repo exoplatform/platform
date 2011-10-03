@@ -19,5 +19,6 @@
     <module>gadget-pack</module>
     <module>config</module>
     <module>ear</module>
+    <module>docs</module>
   </modules>
 </project>
