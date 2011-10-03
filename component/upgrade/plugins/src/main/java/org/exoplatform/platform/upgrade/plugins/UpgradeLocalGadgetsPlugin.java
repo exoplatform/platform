@@ -56,16 +56,21 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
 
           gadgetRegistryService.getRegistry().removeGadget(gadgetUpgrade.getName());
 
-          LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(),
-              gadgetRegistryService.getRegistry(), gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
-          gadgetImporter.doImport();
+          try {
+            LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(),
+                gadgetRegistryService.getRegistry(), gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
+            gadgetImporter.doImport();
 
-          gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
-          if (gadget != null) {
-            log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
-          } else {
-            log.warn("Gadget " + gadgetUpgrade.getName()
-                + " wasn't upgraded. It will be imported automatically with GadgetDeployer Service.");
+            gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
+            if (gadget != null) {
+              log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
+            } else {
+              log.info("Gadget " + gadgetUpgrade.getName()
+                  + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
+            }
+          } catch (Exception exception) {
+            log.info("Gadget " + gadgetUpgrade.getName()
+                + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
           }
         } catch (Exception exception) {
           log.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
