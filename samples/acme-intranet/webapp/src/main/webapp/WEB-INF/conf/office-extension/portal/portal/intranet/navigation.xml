@@ -188,7 +188,6 @@
     <uri>calendar</uri>
     <name>calendar</name>
     <label>#{portal.intranet.calendar}</label>
-    <visibility>HIDDEN</visibility>
     <page-reference>portal::intranet::calendar</page-reference>
    </node>
     <node>
