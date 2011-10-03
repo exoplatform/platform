@@ -103,4 +103,18 @@ grant codeBase "file:${catalina.home}/webapps/-" {
         permission java.security.AllPermission;
 };
 
+// ========== 11.3.1 RMI Connector With Fine-Grained Security =================
+// http://download.oracle.com/docs/cd/E19698-01/816-7609/6mdjrf871/index.html#security-ex-68
 
+grant codeBase "file:server" {
+    permission java.security.AllPermission;
+};
+
+grant codeBase "file:mbeans" {
+    permission javax.management.MBeanTrustPermission "register";
+};
+
+//Need more for jvisualvm
+grant principal javax.management.remote.JMXPrincipal "jmxadmin" {
+    permission java.security.AllPermission;
+};
