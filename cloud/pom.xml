@@ -15,12 +15,6 @@
     <!-- dependency versions used by eXo Cloud -->
     <asm.version>3.2</asm.version>
     <commons-io.version>2.0</commons-io.version>
-    <!-- use JCR 1.14.1 trunk -->
-    <org.exoplatform.kernel.version>2.3.1-GA-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.4.1-GA-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.2.1-GA-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.14.1-GA-SNAPSHOT</org.exoplatform.jcr.version>
-    <org.exoplatform.jcr-services.version>1.14.1-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
   </properties>
   <modules>
     <module>extension</module>
