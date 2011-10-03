@@ -20,16 +20,34 @@
 -->
 
 <messagebundle>
-  <msg name="title">
-    Messages du Forum
+	<msg name="title">
+  	Dernier post
   </msg>
-  <msg name="showAll">
-    Tous les messages
+	<msg name="baseurl">
+  	Forum
   </msg>
-  <msg name="forumUrlPref">
-    URL du Forum
+	<msg name="subscribeurl">
+  	URL d'inscription
   </msg>
-  <msg name="nbOfPostsPref">
-    Nb de messages
+	<msg name="limit">
+		Total
+  </msg>
+	<msg name="format">
+  	Format du jour/heure
+  </msg>  
+  <msg name="showall">
+  	Forum
+  </msg>
+	<msg name="noevent">
+  	Pas de nouveau post
+  </msg>	
+	<msg name="setting">
+  	Paramètre
+  </msg>
+	<msg name="save">
+  	Sauvegarder
+  </msg>
+	<msg name="cancel">
+  	Annuler
   </msg>
 </messagebundle>

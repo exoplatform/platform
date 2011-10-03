@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs 
-  title="Forum Posts"
-  author="eXo Platform"
-  description="Forum Posts is gadget to display latest topics in the Forum.">
-  <Locale messages="./locale/default.xml" />
-  <Locale lang="fr" messages="./locale/fr.xml" />
-  <Require feature="dynamic-height"/>
-</ModulePrefs>
-<UserPref name="forumUrl" display_name="__MSG_forumUrlPref__" datatype="string"></UserPref>
-<UserPref name="nbOfPosts" display_name="__MSG_nbOfPostsPref__" datatype="string"></UserPref>
-<Content type="html">
-<![CDATA[   
-  <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-  <link type="text/css" rel="stylesheet" href="./skin/latestForumPosts.css" />
-  <script type="text/javascript" src="./skin/latestForumPosts.js"></script>
-  <div class="UIGadgetThemes">
-    <div class="TitGad ClearFix">
-      <a target="_blank" id="ShowAll" class="IconDropDown">__MSG_showAll__</a>
-        <div title="Setting" id="SettingButton" class="SettingButton">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+  <ModulePrefs author="eXoPlatform"
+    title="Lastest Forum Posts"
+    directory_title="Lastest Forum Posts"
+    title_url="http://www.exoplatform.org"
+    description="Lastest forum posts">
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+    <Require feature="setprefs"/>
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <UserPref name="baseurl" display_name="__MSG_baseurl__" datatype="string" value="/portal/rest/ks/forum/getmessage" required="true"/>
+  <UserPref name="url" display_name="__MSG_subscribeurl__" datatype="string" value="/forum" required="true"/>
+  <UserPref name="limit" display_name="__MSG_limit__" default_value="10" datatype="string"/>  
+  <Content type="html">
+    <![CDATA[       
+      <script type="text/javascript" src="skin/latestForumPosts.js"></script>
+      <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+      <link rel="stylesheet" type="text/css" href="skin/latestForumPosts.css" />
+      <div class="UIGadgetThemes">
+        <div class="TitGad ClearFix">
+          <a href="#demo" class="IconDropDown" id="ShowAll" target="_blank">__MSG_showall__</a>
+          <div class="ContTit">__MSG_title__</div>
         </div>
-        <div class="ContTit">__MSG_title__</div>
-    </div>
-    <div id="latestForumPostsContainer" class="GadCont ForumPosts">
-    </div>    
-  </div>
-  
-  
-]]></Content></Module>
+        <div class="GadCont LastPost" id="ItemContainer">
+        </div>
+      </div>
+    ]]>
+  </Content>
+</Module>
