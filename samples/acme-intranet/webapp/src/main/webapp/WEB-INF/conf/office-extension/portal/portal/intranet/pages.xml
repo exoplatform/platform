@@ -1232,10 +1232,9 @@
           </preference>
           <preference>
             <name>driveName</name>
-            <value>Private</value>
+            <value>User</value>
             <read-only>false</read-only>
           </preference>
-
           <preference>
             <name>trashHomeNodePath</name>
             <value>/Trash</value>
