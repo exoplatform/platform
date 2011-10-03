@@ -47,6 +47,7 @@
               </execution>
             </executions>
             <configuration>
+              <syntaxId>confluence/1.0</syntaxId>
               <sourceDirectory>${wikbook.source}/en/en-US</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
               <destinationDirectory>${wikbook.target}/src</destinationDirectory>

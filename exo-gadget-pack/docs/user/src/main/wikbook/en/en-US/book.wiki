@@ -1,1 +1,61 @@
-Add Content here
+h1.    Engagement Gadgets
+
+h2.        Latest Forum Posts
+
+Lists recent forum posts.
+
+h2.        Top Voted Topics
+
+Lists the most rated forum topics
+
+h2.        Forum Statistics
+
+Display stats and graphs about the forum's activity
+
+h2.        Friend Suggestions
+
+Suggests People to connect with by inspecting your network
+
+h1.    Audit Gadgets
+
+h2.        User Login History
+
+records user logins, and provide stats
+
+h1.    Collab Gadgets
+
+h2.        eXo Calendar Gadget
+
+Displays a small calendar and allows to quickly add an event.
+
+h1.    Management and Monitoring Gadgets
+
+h2.        Memory Charts
+
+Charts about memory usage
+
+h2.        Cache Levels
+
+Displays cache levels and settings.
+
+h2.        Applications statistics
+
+Display the applications speed stats
+
+h2.        10 slowest templates
+
+Display the 10 slowest groovy templates and their speed stats
+
+h2.        All Template Statistics
+
+Show all templates speed statistics
+
+h2.        Services Management
+
+Easy access to REST management API
+
+h2.        Groovy Console
+
+Provides a groovy console that developers can use to interact with the runtime. Useful to experiment code
+
+
