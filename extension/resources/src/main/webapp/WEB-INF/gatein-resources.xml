@@ -31,8 +31,8 @@
 		<skin-name>Default</skin-name>
 		<skin-module>Platform</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
-		<overwrite>true</overwrite>
 		<css-priority>6</css-priority>
+		<overwrite>true</overwrite>
 	</portal-skin>
 	
 </gatein-resources>
