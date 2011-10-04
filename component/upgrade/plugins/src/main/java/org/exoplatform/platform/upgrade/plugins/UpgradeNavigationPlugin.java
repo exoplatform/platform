@@ -28,9 +28,7 @@ public class UpgradeNavigationPlugin extends UpgradeProductPlugin {
     try {
       POMSession session = pomMgr.getSession();
       Workspace workspace = session.getWorkspace();
-      Imported imported = workspace.adapt(Imported.class);
-      imported.setLastModificationDate(new Date());
-      imported.setStatus(Imported.WANT_REIMPORT);
+      workspace.removeAdapter(Imported.class);
       session.save();
     } finally {
       RequestLifeCycle.end();
