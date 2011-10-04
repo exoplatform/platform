@@ -24,6 +24,25 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+  <component>
+    <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
+    <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
+    <init-params>
+      <value-param>
+        <name>conf-path</name>
+        <description>JCR configuration file</description>
+        <value>war:/conf/jcr/repository-configuration.xml</value>
+      </value-param>
+      <properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+        <property name="source-name" value="config_as1" />
+        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
+      </properties-param>
+    </init-params>
+  </component>
+
   <!-- HSQL Configuration -->
   <component>
     <key>org.exoplatform.services.database.creator.DBCreator</key>
@@ -56,7 +75,7 @@
            <name>db-connection</name>
            <description>database connection properties</description>
            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-           <property name="url" value="jdbc:mysql://192.168.1.10:3306/"/>
+           <property name="url" value="jdbc:mysql://peter.exoplatform.com.ua:3306/"/>
            <property name="username" value="cloudadmin"/>
            <property name="password" value="cloud12321"/>
            <property name="maxActive" value="5" />
@@ -103,6 +122,33 @@
         </properties-param>
       </init-params>
     </component-plugin>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>config_as1</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+            <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+            <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/config_as1" />
+            <property name="username" value="sa" />
+            <property name="password" value="" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
   </external-component-plugins>
 
   <!-- MySQL Configuration -->
@@ -129,7 +175,37 @@
           <name>ref-addresses</name>
           <description>ref-addresses</description>
             <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://192.168.1.10:3306/${tenant.repository.name}"/>
+            <property name="url" value="jdbc:mysql://peter.exoplatform.com.ua:3306/${tenant.repository.name}"/>
+            <property name="username" value="clouduser"/>
+            <property name="password" value="cloud12321"/>
+            <property name="maxActive" value="50" />
+            <property name="maxIdle" value="2" />
+            <property name="initialSize" value="5" />
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>config_as1</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://peter.exoplatform.com.ua:3306/config_as1"/>
             <property name="username" value="clouduser"/>
             <property name="password" value="cloud12321"/>
             <property name="maxActive" value="50" />
