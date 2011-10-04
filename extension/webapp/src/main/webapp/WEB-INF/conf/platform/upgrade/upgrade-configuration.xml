@@ -15,6 +15,24 @@
 	<external-component-plugins>
 		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
 		<component-plugin>
+			<name>Spaces-Home-page-Upgrade</name>
+			<set-method>addUpgradePlugin</set-method>
+			<type>org.exoplatform.platform.upgrade.plugins.UpgradeSpacesHomePagePlugin</type>
+			<description>Spaces Home page Upgrade Plugin</description>
+			<init-params>
+				<value-param>
+					<name>product.group.id</name>
+					<description>The groupId of the product</description>
+					<value>org.exoplatform.platform</value>
+				</value-param>
+				<value-param>
+					<name>plugin.execution.order</name>
+					<description>The plugin execution order</description>
+					<value>3</value>
+				</value-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
 			<name>Upgrade-Navigations</name>
 			<set-method>addUpgradePlugin</set-method>
 			<type>org.exoplatform.platform.upgrade.plugins.UpgradeNavigationPlugin</type>
