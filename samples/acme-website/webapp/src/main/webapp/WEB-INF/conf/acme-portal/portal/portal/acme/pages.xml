@@ -805,6 +805,11 @@
             <value>detail</value>
             <read-only>false</read-only>
           </preference>
+          <preference>
+            <name>detailParameterName</name>
+            <value>content-id</value>
+            <read-only>false</read-only>
+          </preference>          
         </preferences>
       </portlet>
       <title>SearchResult</title>
