@@ -7,6 +7,9 @@
 		<type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
 	</component>
 	<component>
+		<type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
+	</component>
+	<component>
 		<type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
 		<init-params>
 			<value-param>

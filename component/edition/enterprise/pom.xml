@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>exo.platform.component.edition.enterprise</artifactId>
 	<packaging>jar</packaging>
-	<name>eXo Platform - Edition Information</name>
+	<name>eXo Platform - Enterprise Edition Information</name>
 	<properties>
 		<platform.edition>enterprise</platform.edition>
 	</properties>

@@ -7,9 +7,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.LocalImporter;
-import org.exoplatform.application.gadget.impl.GadgetRegistry;
-import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.gatein.common.io.IOTools;
@@ -20,9 +19,9 @@ public class LocalGadgetImporter extends LocalImporter {
   private String gadgetPath;
   private String gadgetRootAbsolutePath;
 
-  public LocalGadgetImporter(String name, GadgetRegistry registry, String gadgetPath, ConfigurationManager configurationManager,
-      PortalContainer container) {
-    super(name, registry, gadgetPath, true);
+  public LocalGadgetImporter(String name, GadgetRegistryService registryService, String gadgetPath,
+      ConfigurationManager configurationManager, PortalContainer container) {
+    super(name, registryService, gadgetPath, true);
     this.configurationManager = configurationManager;
     this.container = container;
     this.gadgetPath = gadgetPath;

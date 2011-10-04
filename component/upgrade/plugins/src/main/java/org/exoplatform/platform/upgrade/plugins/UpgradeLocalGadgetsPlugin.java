@@ -57,8 +57,8 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
           gadgetRegistryService.getRegistry().removeGadget(gadgetUpgrade.getName());
 
           try {
-            LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(),
-                gadgetRegistryService.getRegistry(), gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
+            LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(), gadgetRegistryService,
+                gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
             gadgetImporter.doImport();
 
             gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());

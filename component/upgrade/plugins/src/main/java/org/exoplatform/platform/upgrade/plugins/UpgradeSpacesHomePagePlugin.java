@@ -18,26 +18,20 @@ package org.exoplatform.platform.upgrade.plugins;
  */
 
 import java.util.Collection;
-import java.util.List;
 
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
+import org.exoplatform.commons.utils.ExoProperties;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.Query;
-import org.exoplatform.portal.config.model.Application;
-import org.exoplatform.portal.config.model.ApplicationType;
-import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.TransientApplicationState;
-import org.exoplatform.portal.pom.spi.portlet.Portlet;
+import org.exoplatform.platform.common.space.SpaceCustomizationService;
+import org.exoplatform.services.deployment.DeploymentDescriptor;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.storage.api.SpaceStorage;
 
@@ -50,19 +44,29 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
 
   private final OrganizationService service;
   private final SpaceStorage spaceStorage;
-
-  private final String UI_SIMPLE_TEMPLATE = "system:/groovy/portal/webui/container/UIContainer.gtmpl";
-  private final String UI_TABLE_COLUMN_TEMPLATE = "system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl";
-
-  private final String PORTLET_SUMMARY = "acme-intranet-portlet/SpaceSummaryInfoPortlet";
-  private final String PORTLET_DETAILS = "presentation/SingleContentViewer";
+  private final SpaceCustomizationService spaceCustomizationService;
+  private final ExoProperties welcomeSCVCustomPreferences;
+  private final DeploymentDescriptor deploymentDescriptor;
 
   private static final Log LOG = ExoLogger.getLogger(UpgradeSpacesHomePagePlugin.class);
 
-  public UpgradeSpacesHomePagePlugin(OrganizationService organizationService, SpaceStorage spaceStorage, InitParams initParams) {
+  public UpgradeSpacesHomePagePlugin(SpaceCustomizationService spaceCustomizationService,
+      OrganizationService organizationService, SpaceStorage spaceStorage, InitParams initParams) {
     super(initParams);
     this.service = organizationService;
     this.spaceStorage = spaceStorage;
+    this.spaceCustomizationService = spaceCustomizationService;
+
+    welcomeSCVCustomPreferences = new ExoProperties();
+    welcomeSCVCustomPreferences.put("nodeIdentifier", "/Groups{spaceGroupId}/SharedData/welcome");
+
+    deploymentDescriptor = new DeploymentDescriptor();
+    deploymentDescriptor.setCleanupPublication(true);
+    deploymentDescriptor.setSourcePath("war:/conf/office-extension/social/artifacts/SpaceWelcome.xml");
+    DeploymentDescriptor.Target target = new DeploymentDescriptor.Target();
+    target.setNodePath("/SharedData");
+    target.setWorkspace("collaboration");
+    deploymentDescriptor.setTarget(target);
   }
 
   @Override
@@ -71,79 +75,16 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
       RequestLifeCycle.begin(PortalContainer.getInstance());
 
       GroupHandler groupHandler = service.getGroupHandler();
-      Group spaces = groupHandler.findGroupById("/spaces");
+      Group spaces = service.getGroupHandler().findGroupById("/spaces");
 
       @SuppressWarnings("unchecked")
       Collection<Group> groups = groupHandler.findGroups(spaces);
 
+      SessionProvider sessionProvider = SessionProvider.createSystemProvider();
       for (Group group : groups) {
-        Query<Page> query = new Query<Page>("group", group.getId(), null, null, Page.class);
-        DataStorage dataStorage = SpaceUtils.getDataStorage();
-        List<Page> pages = dataStorage.find(query).getAll();
-
-        for (Page page : pages) {
-
-          if ("SpaceActivityStreamPortlet".equals(page.getName())) {
-
-            try {
-              //
-              Container root = (Container) page.getChildren().get(0);
-              Container bottom = (Container) root.getChildren().get(1);
-              Application<?> application = (Application<?>) bottom.getChildren().get(0);
-
-              //
-              bottom.setTemplate(UI_TABLE_COLUMN_TEMPLATE);
-
-              //
-              Container left = new Container();
-              left.setTemplate(UI_SIMPLE_TEMPLATE);
-              left.setAccessPermissions(root.getAccessPermissions());
-
-              //
-              Space space = spaceStorage.getSpaceByGroupId(group.getId());
-              TransientApplicationState<Portlet> summaryState = new TransientApplicationState<Portlet>(PORTLET_SUMMARY);
-              Application<Portlet> summaryApplication = new Application<Portlet>(ApplicationType.PORTLET);
-              summaryApplication.getProperties().put("SPACE_URL", space.getUrl());
-              summaryApplication.setAccessPermissions(root.getAccessPermissions());
-              summaryApplication.setShowInfoBar(false);
-              summaryApplication.setState(summaryState);
-              summaryApplication.setTitle("Space Summary Info");
-
-              //
-              TransientApplicationState<Portlet> detailsState = new TransientApplicationState<Portlet>(PORTLET_DETAILS);
-              Application<Portlet> detailsApplication = new Application<Portlet>(ApplicationType.PORTLET);
-              detailsApplication.setAccessPermissions(root.getAccessPermissions());
-              detailsApplication.getProperties().put("repository", "repository");
-              detailsApplication.getProperties().put("workspace", "collaboration");
-              detailsApplication.getProperties().put("nodeIdentifier", "");
-              detailsApplication.getProperties().put("ShowQuickEdit", "true");
-              detailsApplication.getProperties().put("ShowPrintAction", "false");
-              detailsApplication.getProperties().put("ShowTitle", "false");
-              detailsApplication.setShowApplicationState(false);
-              detailsApplication.setShowApplicationMode(false);
-              detailsApplication.setShowInfoBar(false);
-              detailsApplication.setState(detailsState);
-              detailsApplication.setTitle("Content Details");
-
-              //
-              left.getChildren().add(summaryApplication);
-              left.getChildren().add(detailsApplication);
-
-              //
-              bottom.getChildren().clear();
-              bottom.getChildren().add(left);
-              bottom.getChildren().add(application);
-
-              //
-              dataStorage.save(page);
-              LOG.info("Upgrade space home for : " + page.getTitle());
-
-            } catch (Exception exception) {
-              exception.printStackTrace();
-            }
-          }
-
-        }
+        Space space = spaceStorage.getSpaceByGroupId(group.getId());
+        spaceCustomizationService.createSpaceHomePage(space.getPrettyName(), group.getId(), welcomeSCVCustomPreferences);
+        spaceCustomizationService.deployContentToSpaceDrive(sessionProvider, group.getId(), deploymentDescriptor);
       }
 
     } catch (Exception e) {
@@ -155,7 +96,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
   }
 
   @Override
-  public boolean shouldProceedToUpgrade(String arg0, String arg1) {
+  public boolean shouldProceedToUpgrade(String oldVersion, String newVersion) {
     return true;
   }
 

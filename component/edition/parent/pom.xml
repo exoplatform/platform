@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>exo.platform.component.edition.parent</artifactId>
 	<packaging>pom</packaging>
-	<name>eXo Platform - Editions Parent POM</name>
+	<name>eXo Platform - Edition Parent POM</name>
 	<build>
 		<plugins>
 			<plugin>

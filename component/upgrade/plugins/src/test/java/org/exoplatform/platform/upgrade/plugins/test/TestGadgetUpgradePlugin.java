@@ -98,7 +98,7 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
     ChromatticLifeCycle lifeCycle = gadgetRegistryService.getChromatticLifeCycle();
     lifeCycle.openContext();
 
-    LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(GADGET_NAME, gadgetRegistryService.getRegistry(),
+    LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(GADGET_NAME, gadgetRegistryService,
         OLD_GADGET_URL, configurationManager, container);
     gadgetImporter.doImport();
 

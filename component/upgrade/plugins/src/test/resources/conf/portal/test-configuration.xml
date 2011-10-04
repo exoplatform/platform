@@ -286,4 +286,8 @@
 		</component-plugin>
 	</external-component-plugins>
 	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
+	<remove-configuration>org.exoplatform.services.deployment.ContentInitializerService</remove-configuration>
+	<remove-configuration>org.exoplatform.platform.common.module.ModuleRegistry</remove-configuration>
+	<remove-configuration>org.exoplatform.platform.common.rest.PlatformInformationRESTService</remove-configuration>
+	<remove-configuration>org.exoplatform.platform.common.service.MenuConfiguratorService</remove-configuration>
 </configuration>
