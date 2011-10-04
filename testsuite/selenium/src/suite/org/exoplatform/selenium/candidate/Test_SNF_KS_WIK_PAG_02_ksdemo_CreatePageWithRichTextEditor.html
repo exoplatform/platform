@@ -198,12 +198,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIWikiPageEditForm_PageToolBar']//a[@title='Save']</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAt</td>
-	<td>//div[@id='UIWikiPageEditForm_PageToolBar']//a[@title='Save']</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,12 +223,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']/a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']/a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
@@ -317,8 +317,13 @@
 	<td>TopLeft</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAt</td>
-	<td>link=Save</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -333,12 +338,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']/a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']/a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
@@ -428,12 +433,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Save</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAt</td>
-	<td>link=Save</td>
+	<td>//div[@id='UISubmitToolBar']//a[@title='Save']</td>
 	<td></td>
 </tr>
 <tr>
@@ -483,7 +488,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/wiki/WikiHome</td>
+	<td>/portal/intranet/wiki/WikiHome</td>
 	<td></td>
 </tr>
 <tr>
@@ -538,7 +543,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>

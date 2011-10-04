@@ -39,7 +39,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>root</td>
+	<td>demo</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -198,22 +198,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,7 +243,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/wiki/Page1_SNF_KS_68</td>
+	<td>/portal/private/intranet/wiki/Page1_SNF_KS_68</td>
 	<td></td>
 </tr>
 <tr>
@@ -263,12 +263,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']//a[@title='Edit']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UIWikiPageControlArea_PageToolBar']//a[@title='Edit']</td>
 	<td></td>
 </tr>
 <tr>
@@ -302,14 +302,14 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForText</td>
-	<td>TitleInfo</td>
+	<td>waitForTextPresent</td>
 	<td>Page1_SNF_KS_68_Edited</td>
+	<td></td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>TitleInfo</td>
+	<td>verifyTextPresent</td>
 	<td>Page1_SNF_KS_68_Edited</td>
+	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
@@ -378,7 +378,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/wiki/WikiHome</td>
+	<td>/portal/private/intranet/wiki/WikiHome</td>
 	<td></td>
 </tr>
 <tr>
@@ -438,7 +438,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
