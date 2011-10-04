@@ -2,3 +2,7 @@
 .loginHistoryItem {color:#484848;}
 .loginHistoryItemDetail {font-size:9px; margin-left:3px; color:#757575;}
 .customLink:hover {text-decoration:underline; color:#226ab4; cursor:pointer;}
+
+#accordion .ui-accordion-header a { padding-left: 8px; }
+#accordion .ui-accordion-content { padding-left: 16px; }
+

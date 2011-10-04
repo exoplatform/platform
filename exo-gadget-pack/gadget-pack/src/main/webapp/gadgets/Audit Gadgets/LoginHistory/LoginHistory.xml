@@ -496,7 +496,7 @@
 				$("#selectedDayHeaderContainer").hide();
 					
 				$("#accordion").accordion({
-					icons: {'header': 'ui-icon-carat-1-e', 'headerSelected': 'ui-icon-carat-1-s'},
+					icons: {},
 					
 					create: function(event, ui){
 						if(day !== undefined)
