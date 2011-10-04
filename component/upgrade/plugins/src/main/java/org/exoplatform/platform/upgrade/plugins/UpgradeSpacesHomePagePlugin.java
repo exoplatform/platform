@@ -31,6 +31,7 @@ import org.exoplatform.portal.config.model.ApplicationType;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.TransientApplicationState;
+import org.exoplatform.portal.pom.spi.portlet.Portlet;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
@@ -39,7 +40,6 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.storage.api.SpaceStorage;
-import org.gatein.pc.api.Portlet;
 
 /**
  * @author <a href="mailto:alain.defrance@exoplatform.com">Alain
@@ -72,10 +72,12 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
 
       GroupHandler groupHandler = service.getGroupHandler();
       Group spaces = groupHandler.findGroupById("/spaces");
+
+      @SuppressWarnings("unchecked")
       Collection<Group> groups = groupHandler.findGroups(spaces);
 
       for (Group group : groups) {
-        Query query = new Query<Page>("group", group.getId(), null, null, Page.class);
+        Query<Page> query = new Query<Page>("group", group.getId(), null, null, Page.class);
         DataStorage dataStorage = SpaceUtils.getDataStorage();
         List<Page> pages = dataStorage.find(query).getAll();
 
@@ -87,7 +89,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
               //
               Container root = (Container) page.getChildren().get(0);
               Container bottom = (Container) root.getChildren().get(1);
-              Application application = (Application) bottom.getChildren().get(0);
+              Application<?> application = (Application<?>) bottom.getChildren().get(0);
 
               //
               bottom.setTemplate(UI_TABLE_COLUMN_TEMPLATE);
@@ -100,7 +102,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
               //
               Space space = spaceStorage.getSpaceByGroupId(group.getId());
               TransientApplicationState<Portlet> summaryState = new TransientApplicationState<Portlet>(PORTLET_SUMMARY);
-              Application summaryApplication = new Application(ApplicationType.PORTLET);
+              Application<Portlet> summaryApplication = new Application<Portlet>(ApplicationType.PORTLET);
               summaryApplication.getProperties().put("SPACE_URL", space.getUrl());
               summaryApplication.setAccessPermissions(root.getAccessPermissions());
               summaryApplication.setShowInfoBar(false);
@@ -109,7 +111,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
 
               //
               TransientApplicationState<Portlet> detailsState = new TransientApplicationState<Portlet>(PORTLET_DETAILS);
-              Application detailsApplication = new Application(ApplicationType.PORTLET);
+              Application<Portlet> detailsApplication = new Application<Portlet>(ApplicationType.PORTLET);
               detailsApplication.setAccessPermissions(root.getAccessPermissions());
               detailsApplication.getProperties().put("repository", "repository");
               detailsApplication.getProperties().put("workspace", "collaboration");
@@ -136,8 +138,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
               dataStorage.save(page);
               LOG.info("Upgrade space home for : " + page.getTitle());
 
-            } catch (RuntimeException exception) {
-              // TODO Auto-generated catch block
+            } catch (Exception exception) {
               exception.printStackTrace();
             }
           }

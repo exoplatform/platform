@@ -1,7 +1,5 @@
 package org.exoplatform.platform.upgrade.plugins;
 
-import java.util.Date;
-
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;

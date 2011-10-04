@@ -51,12 +51,6 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>test</scope>
     </dependency>
-    <!--dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.test.organization</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <scope>test</scope>
-    </dependency-->
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
@@ -81,6 +75,16 @@
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.common</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.component.core</artifactId>
+      <version>${org.exoplatform.social.version}</version>
     </dependency>
     <dependency>
       <groupId>org.gatein.shindig</groupId>
