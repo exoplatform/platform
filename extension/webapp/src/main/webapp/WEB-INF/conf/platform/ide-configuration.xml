@@ -17,8 +17,7 @@
     </init-params>
   </component>
 
-  <!-- temporarily commented, need Chromattic fix, PLF-2124 -->
-  <!-- component>
+  <component>
     <type>org.exoplatform.ide.chromattic.ChromatticServiceApplication</type>
   </component>
 
@@ -42,7 +41,7 @@
 
   <component>
     <type>org.chromattic.dataobject.DataObjectService</type>
-  </component -->
+  </component>
 
   <component>
     <type>org.exoplatform.ide.groovy.GroovyScriptServiceApplication</type>
