@@ -48,7 +48,7 @@
 				    </form>
 				  <br>
                                  </div>
-                                <div id="list"></div>
+                                <div id="list" style="height: 600px; overflow:auto;"></div>
                                 <div id="messageString" class="TenantFormMsg"></div>
 			    </div>
 	               </div>
