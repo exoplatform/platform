@@ -15,6 +15,10 @@
     <!-- dependency versions used by eXo Cloud -->
     <asm.version>3.2</asm.version>
     <commons-io.version>2.0</commons-io.version>
+
+    <!-- overridding tomcat version -->
+    <org.apache.tomcat.version>6.0.32</org.apache.tomcat.version>
+    <exo.projects.app.tomcat.version>tomcat-${tomcat.version}</exo.projects.app.tomcat.version>
   </properties>
   <modules>
     <module>extension</module>

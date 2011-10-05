@@ -157,18 +157,6 @@ function getProduct(version) {
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
   product.addServerPatch("tomcat", platform.patch.tomcatCloud) ;
 
-//  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;
-//  product.addServerPatch("tomcat", ks.server.tomcat.patch) ;
-//  product.addServerPatch("tomcat", cs.server.tomcat.patch) ;
-//  product.addServerPatch("tomcat", social.server.tomcat.patch);
-//  product.addServerPatch("tomcat", wcm.server.tomcat.patch) ;
-
-
-//  product.addServerPatch("jboss",  portal.server.jboss.patch) ;
-//  product.addServerPatch("jbossear",  portal.server.jbossear.patch) ;
-//  product.addServerPatch("jonas",  portal.server.jonas.patch) ;
-//  product.addServerPatch("ear",  portal.server.websphere.patch) ;
-
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));
   product.removeDependency(new Project("javax.mail", "mail", "jar", "1.4"));
@@ -199,7 +187,6 @@ function getProduct(version) {
   product.preDeploy = function() { 
     product.removeDependency(new Project("commons-logging", "commons-logging", "jar", "1.0.4"));
     product.removeDependency(new Project("commons-logging", "commons-logging", "jar", "1.1.1"));
-//    product.addDependencies(new Project("commons-logging", "commons-logging", "jar", "1.1.1"));
   }
 
   return product ;

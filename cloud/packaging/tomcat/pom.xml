@@ -466,6 +466,12 @@
       <version>${org.exoplatform.jcr.version}</version>
       <type>zip</type>
     </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-catalina-jmx-remote</artifactId>
+      <version>${org.apache.tomcat.version}</version>
+      <type>jar</type>
+    </dependency>
 
     <!-- Crash -->
     <dependency>
@@ -1511,6 +1517,12 @@
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.config</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.component.edition.enterprise</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
     </dependency>

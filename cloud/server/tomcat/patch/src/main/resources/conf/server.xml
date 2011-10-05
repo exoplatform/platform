@@ -32,6 +32,9 @@
   <!-- JMX Support for the Tomcat server. Documentation at /docs/non-existent.html -->
   <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" />
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+  <!-- Platform Cloud: defining fixed ports for intranet environemt (under a firewall) -->
+  <Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener"
+            rmiRegistryPortPlatform="6969" rmiServerPortPlatform="7979" />
 
   <!-- Global JNDI resources
        Documentation at /docs/jndi-resources-howto.html

@@ -32,6 +32,7 @@ function getModule(params)
    var ecmsVersion = "${org.exoplatform.ecms.version}";
    var crashVersion = "${org.crsh.version}";
    var webosVersion = "${org.exoplatform.webos.version}";
+   var tomcatVersion = "${org.apache.tomcat.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
@@ -108,8 +109,11 @@ function getModule(params)
    // eXo Cloud
    module.cloud = {};
 
+   var jmxRemote = new Project("org.apache.tomcat", "tomcat-catalina-jmx-remote", "jar", tomcatVersion);
+
    module.cloud.cloudAgent =
-       new Project("org.exoplatform.cloud-management", "cloud-agent-war", "war", cloudVersion);
+       new Project("org.exoplatform.cloud-management", "cloud-agent-war", "war", cloudVersion).
+        addDependency(jmxRemote);
    module.cloud.cloudAgent.deployName = "cloud-agent"; 
 
    module.cloud.cloudAdmin =                                
@@ -118,7 +122,6 @@ function getModule(params)
         addDependency(new Project("ch.qos.logback", "logback-classic", "jar", "0.9.20")).
         addDependency(new Project("mx4j", "mx4j-tools", "jar", "3.0.1")).
         addDependency(new Project("commons-io", "commons-io", "jar", "2.0")).
-//        addDependency(new Project("commons-logging", "commons-logging", "jar", "1.1.1")).
         addDependency(new Project("asm", "asm", "jar", "3.2")).
         addDependency(new Project("asm", "asm-commons", "jar", "3.2")).
         addDependency(new Project("asm", "asm-util", "jar", "3.2")).
@@ -138,7 +141,8 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-tomcat-valve", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-multitenant-rest-services", "jar", cloudVersion)).
         addDependency(new Project("org.exoplatform.cloud-management", "cloud-instrument-runtime", "jar", cloudVersion)).
-        addDependency(new Project("org.exoplatform", "exo-jcr-services", "jar", jcr.version));
+        addDependency(new Project("org.exoplatform", "exo-jcr-services", "jar", jcr.version)).
+        addDependency(jmxRemote);
    module.cloud.cloudAdmin.deployName = "cloud-admin"; 
 
    module.cloud.cloudExtension =

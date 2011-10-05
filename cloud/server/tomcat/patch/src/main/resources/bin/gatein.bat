@@ -24,21 +24,12 @@ setlocal ENABLEDELAYEDEXPANSION
 for %%i in ( !%~f0! ) do set BIN_DIR=%%~dpi
 cd %BIN_DIR%
 
-rem Sets some variables
-set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
-set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
-set JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=6969 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
-set EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf
-set IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib
-set EXO_CLOUD_OPTS=-javaagent:..\lib\cloud-instrument-1.1-M2.jar=..\gatein\conf\cloud\agent-configuration.xml -Dtenant.masterhost=localhost -Dtenant.repository.name=repository -Dtenant.data.dir=../gatein/data/jcr
-set EXO_CLOUD_SECURITY_OPTS=-Djava.security.manager=org.exoplatform.cloudmanagement.security.TenantSecurityManager -Djava.security.policy==..\conf\catalina.policy
-set EXO_CLOUD_ADMIN_OPTS=-Dcloud.admin.log.dir=../logs/cloud-admin -Dcloud.admin.data.dir=../gatein/data -Dcloud.admin.configuration.dir=../gatein/conf/cloud/cloud-admin -Dcloud.admin.configuration.file=../gatein/conf/cloud/cloud-admin/admin.properties
-
 if "%EXO_PROFILES%" == "" (
   set EXO_PROFILES=-Dexo.profiles=default,cloud
 )
 
-set JAVA_OPTS=-Xms512m -Xmx2g -XX:MaxPermSize=256m -XX:+UseCompressedOops %LOG_OPTS% %SECURITY_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_CLOUD_OPTS% %JMX_OPTS%
+@REM set JVM64_OPTS=-XX:+UseCompressedOops
+set JAVA_OPTS=%JAVA_OPTS% -Xms512m -Xmx1400m -XX:MaxPermSize=256m %JVM64_OPTS% %LOG_OPTS% %SECURITY_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_CLOUD_OPTS% %JMX_OPTS%
 
 rem Launches the server
 call catalina.bat %*
