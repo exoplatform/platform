@@ -136,7 +136,7 @@ public class SpaceCustomizationService {
       initialChildNodesNames.add(node.getName());
     }
 
-    session.importXML(fullTargetNodePath, inputStream, ImportUUIDBehavior.IMPORT_UUID_COLLISION_THROW);
+    session.importXML(fullTargetNodePath, inputStream, ImportUUIDBehavior.IMPORT_UUID_CREATE_NEW);
 
     parentTargetNode = (Node) session.getItem(fullTargetNodePath);
     nodeIterator = parentTargetNode.getNodes();
@@ -146,7 +146,7 @@ public class SpaceCustomizationService {
       // determines wether this is a new node or not
       if (!initialChildNodesUUID.contains(childNode.getUUID())) {
         if (initialChildNodesNames.contains(childNode.getName())) {
-          logger.warn(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
+          logger.info(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
           childNode.remove();
         } else {
           newChildNodesUUID.add(childNode);
@@ -165,27 +165,23 @@ public class SpaceCustomizationService {
       }
       extendedNode.setPermission(IdentityConstants.ANY, new String[] { PermissionType.READ });
       extendedNode.setPermission(spaceMembershipManager, PermissionType.ALL);
-    }
+      if (cleanupPublication) {
 
-    if (cleanupPublication) {
-      /**
-       * This code allows to cleanup the publication lifecycle in the
-       * target folder after importing the data. By using this, the
-       * publication live revision property will be re-initialized and the
-       * content will be set as published directly. Thus, the content will
-       * be visible in front side.
-       */
-
-      nodeIterator = parentTargetNode.getNodes();
-      while (nodeIterator.hasNext()) {
-        Node node = nodeIterator.nextNode();
-        if (node.hasProperty("publication:liveRevision") && node.hasProperty("publication:currentState")) {
-          logger.info("\"" + node.getName() + "\" publication lifecycle has been cleaned up");
-          node.setProperty("publication:liveRevision", "");
-          node.setProperty("publication:currentState", "published");
+        /**
+         * This code allows to cleanup the publication lifecycle in the
+         * target folder after importing the data. By using this, the
+         * publication live revision property will be re-initialized and the
+         * content will be set as published directly. Thus, the content will
+         * be visible in front side.
+         */
+        if (extendedNode.hasProperty("publication:liveRevision") && extendedNode.hasProperty("publication:currentState")) {
+          logger.info("\"" + extendedNode.getName() + "\" publication lifecycle has been cleaned up");
+          extendedNode.setProperty("publication:liveRevision", "");
+          extendedNode.setProperty("publication:currentState", "published");
         }
       }
     }
+
     session.save();
     session.logout();
     logger.info(deploymentDescriptor.getSourcePath() + " is deployed succesfully into " + fullTargetNodePath);
