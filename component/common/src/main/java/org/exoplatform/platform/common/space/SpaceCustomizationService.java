@@ -129,19 +129,28 @@ public class SpaceCustomizationService {
     Node parentTargetNode = (Node) session.getItem(fullTargetNodePath);
     NodeIterator nodeIterator = parentTargetNode.getNodes();
     List<String> initialChildNodesUUID = new ArrayList<String>();
+    List<String> initialChildNodesNames = new ArrayList<String>();
     while (nodeIterator.hasNext()) {
-      initialChildNodesUUID.add(nodeIterator.nextNode().getUUID());
+      Node node = nodeIterator.nextNode();
+      initialChildNodesUUID.add(node.getUUID());
+      initialChildNodesNames.add(node.getName());
     }
 
-    session.importXML(fullTargetNodePath, inputStream, ImportUUIDBehavior.IMPORT_UUID_CREATE_NEW);
+    session.importXML(fullTargetNodePath, inputStream, ImportUUIDBehavior.IMPORT_UUID_COLLISION_THROW);
 
     parentTargetNode = (Node) session.getItem(fullTargetNodePath);
     nodeIterator = parentTargetNode.getNodes();
     List<ExtendedNode> newChildNodesUUID = new ArrayList<ExtendedNode>();
     while (nodeIterator.hasNext()) {
       ExtendedNode childNode = (ExtendedNode) nodeIterator.nextNode();
+      // determines wether this is a new node or not
       if (!initialChildNodesUUID.contains(childNode.getUUID())) {
-        newChildNodesUUID.add(childNode);
+        if (initialChildNodesNames.contains(childNode.getName())) {
+          logger.warn(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
+          childNode.remove();
+        } else {
+          newChildNodesUUID.add(childNode);
+        }
       }
     }
     String spaceMembershipManager = userACL.getAdminMSType() + spaceId;

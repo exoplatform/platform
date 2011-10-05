@@ -17,7 +17,7 @@
 		<component-plugin>
 			<name>Spaces-Home-page-Upgrade</name>
 			<set-method>addUpgradePlugin</set-method>
-			<type>org.exoplatform.platform.upgrade.plugins.UpgradeSpacesHomePagePlugin</type>
+			<type>org.exoplatform.platform.upgrade.plugins.SpaceUpgradePlugin</type>
 			<description>Spaces Home page Upgrade Plugin</description>
 			<init-params>
 				<value-param>

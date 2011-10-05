@@ -40,7 +40,7 @@ import org.exoplatform.social.core.storage.api.SpaceStorage;
  *         Defrance</a>
  * @version $Revision$
  */
-public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
+public class SpaceUpgradePlugin extends UpgradeProductPlugin {
 
   private final OrganizationService service;
   private final SpaceStorage spaceStorage;
@@ -48,9 +48,9 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
   private final ExoProperties welcomeSCVCustomPreferences;
   private final DeploymentDescriptor deploymentDescriptor;
 
-  private static final Log LOG = ExoLogger.getLogger(UpgradeSpacesHomePagePlugin.class);
+  private static final Log LOG = ExoLogger.getLogger(SpaceUpgradePlugin.class);
 
-  public UpgradeSpacesHomePagePlugin(SpaceCustomizationService spaceCustomizationService,
+  public SpaceUpgradePlugin(SpaceCustomizationService spaceCustomizationService,
       OrganizationService organizationService, SpaceStorage spaceStorage, InitParams initParams) {
     super(initParams);
     this.service = organizationService;
@@ -71,9 +71,8 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
 
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
+    RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
-      RequestLifeCycle.begin(PortalContainer.getInstance());
-
       GroupHandler groupHandler = service.getGroupHandler();
       Group spaces = service.getGroupHandler().findGroupById("/spaces");
 
@@ -88,7 +87,7 @@ public class UpgradeSpacesHomePagePlugin extends UpgradeProductPlugin {
       }
 
     } catch (Exception e) {
-      LOG.info("Error during template migration : " + e.getMessage(), e);
+      LOG.info("Error during spaces migration : " + e.getMessage(), e);
     } finally {
       RequestLifeCycle.end();
     }
