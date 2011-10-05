@@ -39,6 +39,12 @@
          <groupId>org.exoplatform.ws</groupId>
          <artifactId>exo.ws.rest.core</artifactId>
          <version>${org.exoplatform.ws.version}</version>
+         <exclusions>
+           <exclusion>
+           <groupId>commons-fileupload</groupId>
+           <artifactId>commons-fileupload</artifactId>
+         </exclusion>
+         </exclusions>
       </dependency>
       <dependency>
          <groupId>org.exoplatform.ws</groupId>
