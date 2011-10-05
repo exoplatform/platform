@@ -26,13 +26,13 @@
 
     <script>
        var prefs = new gadgets.Prefs();
-       var fontColor= "#0000FF";
+       var fontColor= "#00FFFF";
        var fontSize="12px" ;
        fontColor = prefs.getString('fontColor');
        fontSize = prefs.getString('fontSize');
 
        if(fontColor == ""){
-         fontColor= "#0000FF";
+         fontColor= "#00FFFF";
        }
        if(fontSize == ""){
          fontSize= "12px";
@@ -55,7 +55,7 @@
                 
                 fontColor = prefs.getString('fontColor');
                 if(fontColor == ""){
-                  fontColor= "#0000FF";
+                  fontColor= "#00FFFF";
                 }
                 fontSize = prefs.getString('fontSize');
                 if(fontSize == ""){
@@ -146,7 +146,7 @@
             
         /*show colorpicker*/
         $('.ColorControl').ColorPicker({
-          color: '#0000ff',
+          color: '#00FFFF',
           onShow: function (colpkr) {
             $(colpkr).fadeIn(500);
             return false;
@@ -215,7 +215,7 @@
       <!-- Start of Sticky Note -->
       <div id="dialogHelp" class="Boxwindow" >
         <div style = "width:100%; height:90%; margin-top:30px"> 
-         <iframe src="/portal/rest/jcr/repository/dev-monit/exo_code_fest_1011/GroovyConsole/help.html" width="100%" height="100%">
+         <iframe src="/rest/private/jcr/repository/portal-system/production/app:gadgets/app:GroovyConsole/app:data/app:resources/help.html" width="100%" height="100%">
            <p>Your browser does not support iframes.</p>
          </iframe>
        </div>  

@@ -65,6 +65,8 @@ import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import java.util.regex.Matcher;
 
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
 
 /**
  * Created by The eXo Platform SARL Author : Tung Vu Minh tungvm@exoplatform.com
@@ -89,14 +91,20 @@ public class GroovyConsoleRestService implements ResourceContainer {
   @GET
   @Path("/exec/{sessionId}/{script}")
   @Produces("application/json")
-  public Response exec(@PathParam("sessionId") String sessionId, @PathParam("script") String script, @Context SecurityContext sc, @Context UriInfo uriInfo) throws Exception {
+  public Response exec(@PathParam("sessionId") String sessionId, @PathParam("script") String script) throws Exception {
     try {
       script = script.replaceAll("%2B", "+").replaceAll("%2F", "/").replaceAll("%5C","\\\\"); // unescape '+', '/' and '\' character (URL's special characters)
       String output = "";
       String outputType = "result";
+
+      Identity identity = ConversationState.getCurrent().getIdentity();
+      Collection<String> roles = identity.getRoles();
       
-      try {
-        GroovyConsole console = new GroovyConsole(getUserId(sc, uriInfo), sessionId);
+      if(!(roles.contains("administrators") || roles.contains("developers"))) {
+        outputType = "error";
+        output = "Permission denied: only administrators or developers are allowed to run console commands";
+      } else try {
+        GroovyConsole console = new GroovyConsole(identity.getUserId(), sessionId);
 
         Matcher matcher;
         switch(script){
@@ -199,33 +207,7 @@ public class GroovyConsoleRestService implements ResourceContainer {
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
   }
-
-  private String getUserId(SecurityContext sc, UriInfo uriInfo) {
-    try {
-      return sc.getUserPrincipal().getName();
-    }
-    catch (NullPointerException e) {
-      return getViewerId(uriInfo);
-    }
-    catch (Exception e) {
-      log.debug("Fialed to get user id", e);
-      return null;
-    }
-  }
   
-  private String getViewerId(UriInfo uriInfo) {
-    URI uri = uriInfo.getRequestUri();
-    String requestString = uri.getQuery();
-    if (requestString == null) return null;
-    String[] queryParts = requestString.split("&");
-    for (String queryPart : queryParts) {
-      if (queryPart.startsWith("opensocial_viewer_id")) {
-        return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
-      }
-    }
-    return null;
-  }  
-
 }
 
 // Utility class for wrapping REST data   
