@@ -167,23 +167,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-Add Topic-</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>windowMaximize</td>
-	<td></td>
+	<td>echo</td>
+	<td>-Add Topic-</td>
 	<td></td>
 </tr>
 <tr>
@@ -344,16 +334,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/public/intranet/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>windowMaximize</td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>
@@ -577,33 +557,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-Login by banned Demo to check-</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Sign in</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/ksdemo/public/classic/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -617,6 +587,11 @@
 	<td>demo</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
@@ -628,12 +603,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/forum</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>UIForumActionBar</td>
+	<td>/portal/private/intranet/forum</td>
 	<td></td>
 </tr>
 <tr>
@@ -692,33 +662,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>- Login by root to unban demo and verify changes value-</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Sign in</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/ksdemo/public/classic/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -732,6 +692,11 @@
 	<td>root</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
@@ -743,7 +708,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/forum</td>
+	<td>/portal/private/intranet/forum</td>
 	<td></td>
 </tr>
 <tr>
@@ -887,33 +852,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
 	<td>-Login demo to check unban or not-</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Sign in</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/ksdemo/public/classic/</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -927,6 +882,11 @@
 	<td>demo</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
@@ -938,7 +898,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/forum</td>
+	<td>/portal/private/intranet/forum</td>
 	<td></td>
 </tr>
 <tr>
@@ -988,32 +948,17 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Sign in</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-Delete Test Data-</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/ksdemo/public/classic/</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Sign in</td>
+	<td>//div[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -1027,6 +972,11 @@
 	<td>root</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
@@ -1038,7 +988,7 @@
 </tr>
 <tr>
 	<td>open</td>
-	<td>/ksdemo/private/classic/forum</td>
+	<td>/portal/private/intranet/forum</td>
 	<td></td>
 </tr>
 <tr>
@@ -1187,8 +1137,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>link=Sign out</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>

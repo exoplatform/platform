@@ -362,28 +362,48 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//table[@id='UIGrid']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//table[@id='UIGrid']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>echo</td>
-	<td>-Edit Poll-</td>
+	<td>-Edit Poll with Vote Again-</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UITopicDetailContainer']//a[text()='More Actions']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Edit</td>
+	<td>//div[@id='UITopicDetailContainer']//a[text()='More Actions']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>VoteAgain</td>
+	<td>//form[@id='UITopicPoll']//a[text()='Edit']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>VoteAgain</td>
+	<td>//form[@id='UITopicPoll']//a[text()='Edit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//input[@name='VoteAgain']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='VoteAgain']</td>
 	<td></td>
 </tr>
 <tr>
@@ -477,7 +497,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
+	<td>verifyConfirmation</td>
 	<td>Are you sure to delete this poll?</td>
 	<td></td>
 </tr>
@@ -527,7 +547,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
+	<td>verifyConfirmation</td>
 	<td>Are you sure to delete this category?</td>
 	<td></td>
 </tr>

@@ -428,12 +428,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>No matches</td>
+	<td>No matches.</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>No matches</td>
+	<td>No matches.</td>
 	<td></td>
 </tr>
 <tr>
@@ -443,12 +443,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIBreadcumbs']//a[@title='Knowledge Suite']</td>
+	<td>//div[@id='UIBreadcumbs']//a[@title='Home']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIBreadcumbs']//a[@title='Knowledge Suite']</td>
+	<td>//div[@id='UIBreadcumbs']//a[@title='Home']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UICategories']//a[text()='Knowledge Suite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UICategories']//a[text()='Knowledge Suite']</td>
 	<td></td>
 </tr>
 <tr>
@@ -472,7 +482,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
+	<td>verifyConfirmations</td>
 	<td>Are you sure to delete this category?</td>
 	<td></td>
 </tr>
