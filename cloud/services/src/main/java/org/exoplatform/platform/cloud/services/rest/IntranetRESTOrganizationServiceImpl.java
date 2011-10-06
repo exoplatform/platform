@@ -79,28 +79,12 @@ public class IntranetRESTOrganizationServiceImpl  {
                            @FormParam("email") String email) throws Exception {
     repositoryService.setCurrentRepositoryName(tname); 
     UserHandler userHandler = organizationService.getUserHandler();
-    //remove root user from template
     User rootUser = userHandler.findUserByName(ROOT_USER);
-    if (rootUser != null)
-    {
-       userHandler.removeUser(ROOT_USER, true);
-    }
-    
-    User newUser = userHandler.createUserInstance(ROOT_USER);
-    newUser.setPassword(password);
-    newUser.setFirstName(firstName);
-    newUser.setLastName(lastName);
-    newUser.setEmail(email);
-    userHandler.createUser(newUser, true);
-    
-    GroupHandler groupHandler = organizationService.getGroupHandler();
-    MembershipType membership = organizationService.getMembershipTypeHandler().findMembershipType("member");
-
-    Group usersGroup = groupHandler.findGroupById("/platform/users");
-    organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership, true);
-
-    Group administratorsGroup = groupHandler.findGroupById("/platform/administrators");
-    organizationService.getMembershipHandler().linkMembership(newUser, administratorsGroup, membership, true);
+    rootUser.setPassword(password);
+    rootUser.setFirstName(firstName);
+    rootUser.setLastName(lastName);
+    rootUser.setEmail(email);
+    userHandler.saveUser(rootUser, true);//createUser(newUser, true);
     return Response.status(HTTPStatus.CREATED).entity("Created").build();
   }
 }
