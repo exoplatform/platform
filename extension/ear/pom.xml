@@ -564,138 +564,36 @@
         </exclusion>
       </exclusions>
     </dependency>
-
-
-    <!-- dependency>
+    <dependency>
       <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-gadget-server</artifactId>
+      <artifactId>exo-ide-extension-chromattic-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
       <type>jar</type>
       <exclusions>
         <exclusion>
-          <groupId>org.exoplatform.portal</groupId>
-          <artifactId>exo.portal.component.application-registry</artifactId>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.gatein.shindig</groupId>
-          <artifactId>shindig-common</artifactId>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.core</artifactId>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.kernel</groupId>
           <artifactId>exo.kernel.commons</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.exoplatform.kernel</groupId>
-          <artifactId>exo.kernel.container</artifactId>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.frameworks.json</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.exoplatform.ws</groupId>
-          <artifactId>exo.ws.rest.core</artifactId>
+          <artifactId>exo.ws.rest.ext</artifactId>
         </exclusion>
-      </exclusions>
-    </dependency -->
-    <!-- dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-netvibes-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
-      <exclusions>
-        <exclusion>
-          <groupId>concurrent</groupId>
-          <artifactId>concurrent</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.resource</groupId>
-          <artifactId>connector-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-pool</groupId>
-          <artifactId>commons-pool</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-lang</groupId>
-          <artifactId>commons-lang</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-digester</groupId>
-          <artifactId>commons-digester</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-chain</groupId>
-          <artifactId>commons-chain</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.database</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.document</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.organization.api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.organization.jdbc</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.security.core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.xml-processing</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.security</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.ext</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.webdav</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-beanutils</groupId>
-          <artifactId>commons-beanutils</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-collections</groupId>
-          <artifactId>commons-collections</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-dbcp</groupId>
-          <artifactId>commons-dbcp</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.ws</groupId>
-          <artifactId>exo.ws.rest.core</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency -->
-    <!-- dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-module-groovy-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
-      <exclusions>
         <exclusion>
           <groupId>org.exoplatform.ws</groupId>
           <artifactId>exo.ws.rest.core</artifactId>
@@ -752,78 +650,116 @@
           <groupId>javax.annotation</groupId>
           <artifactId>jsr250-api</artifactId>
         </exclusion>
-      </exclusions>
-    </dependency -->
-    <!-- dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-server</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>jar</type>
-      <exclusions>
-        <exclusion>
-          <groupId>javax.annotation</groupId>
-          <artifactId>jsr250-api</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.ws</groupId>
-          <artifactId>exo.ws.rest.core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.core</groupId>
-          <artifactId>exo.core.component.security.core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.ext</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>exo.jcr.component.webdav</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.kernel</groupId>
-          <artifactId>exo.kernel.commons</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-fileupload</groupId>
-          <artifactId>commons-fileupload</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency -->
-    <!-- dependency>
-      <groupId>org.exoplatform.ide</groupId>
-      <artifactId>exo-ide-client</artifactId>
-      <version>${org.exoplatform.ide.version}</version>
-      <type>war</type>
-    </dependency -->
-    <!-- dependency>
-      <groupId>org.exoplatform.core</groupId>
-      <artifactId>exo.core.component.script.groovy</artifactId>
-      <version>${org.exoplatform.core.version}</version>
-      <type>jar</type>
-      <exclusions>
         <exclusion>
           <groupId>org.codehaus.groovy</groupId>
           <artifactId>groovy-all</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.exoplatform.kernel</groupId>
-          <artifactId>exo.kernel.commons</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.exoplatform.kernel</groupId>
-          <artifactId>exo.kernel.container</artifactId>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.ext</artifactId>
         </exclusion>
       </exclusions>
-    </dependency -->
+    </dependency>
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.groovy</artifactId>
+      <version>${org.chromattic.version}</version>
+      <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.spi</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.metamodel</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.cglib</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.apt</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.groovy</groupId>
+          <artifactId>groovy-all</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.code.javaparser</groupId>
+          <artifactId>javaparser</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.dataobject</artifactId>
+      <version>${org.chromattic.version}</version>
+      <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <groupId>org.reflext</groupId>
+          <artifactId>reflext.jlr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.jcr</groupId>
+          <artifactId>jcr</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.metamodel</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.common</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.apt</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ws</groupId>
+          <artifactId>exo.ws.rest.core</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 
     <!-- INTEGRATION PROJECTS -->
     <dependency>
@@ -897,6 +833,21 @@
             <jarModule>
               <groupId>org.exoplatform.core</groupId>
               <artifactId>exo.core.component.script.groovy</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.ide</groupId>
+              <artifactId>exo-ide-extension-chromattic-server</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.chromattic</groupId>
+              <artifactId>chromattic.groovy</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.chromattic</groupId>
+              <artifactId>chromattic.dataobject</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
             <!-- Commons -->
