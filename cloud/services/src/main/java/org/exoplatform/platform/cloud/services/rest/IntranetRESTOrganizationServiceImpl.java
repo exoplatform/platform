@@ -1,11 +1,17 @@
 package org.exoplatform.platform.cloud.services.rest;
 
 import static org.exoplatform.cloudmanagement.rest.CloudServicesRoles.CLOUD_ADMIN;
+import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_NAME;
+import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_PASSWORD;
 
 import javax.annotation.security.RolesAllowed;
 import org.exoplatform.common.http.HTTPStatus;
+import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.GroupHandler;
+import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.rest.RESTOrganizationServiceAbstractImpl;
+import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.UserHandler;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.jcr.RepositoryService;
 
@@ -19,15 +25,18 @@ import javax.ws.rs.QueryParam;
 import java.util.UUID;
 
 @Path("/organization")
-public class IntranetRESTOrganizationServiceImpl extends RESTOrganizationServiceAbstractImpl {
+public class IntranetRESTOrganizationServiceImpl  {
 	
    private static final String ROOT_USER = "root";
    
    private final RepositoryService repositoryService;
+   private final OrganizationService organizationService;
+   
+   
    
     public IntranetRESTOrganizationServiceImpl(RepositoryService repositoryService, OrganizationService organizationService){
-		super(organizationService);
 		this.repositoryService = repositoryService;
+		this.organizationService = organizationService;
     }
     
 	
@@ -41,9 +50,21 @@ public class IntranetRESTOrganizationServiceImpl extends RESTOrganizationService
 		                     @FormParam("first-name") String firstName,
 		                     @FormParam("last-name") String lastName,
 		                     @FormParam("email") String email) throws Exception {
-     
     repositoryService.setCurrentRepositoryName(tname);
-    super.createUser(baseURI, userName, password, firstName, lastName, email);
+    UserHandler userHandler = organizationService.getUserHandler();
+    User newUser = userHandler.createUserInstance(userName);
+    newUser.setPassword(password);
+    newUser.setFirstName(firstName);
+    newUser.setLastName(lastName);
+    newUser.setEmail(email);
+    userHandler.createUser(newUser, true);
+    
+    // register user in groups '/platform/developers' and '/platform/users'
+    GroupHandler groupHandler = organizationService.getGroupHandler();
+    MembershipType membership = organizationService.getMembershipTypeHandler().findMembershipType("member");
+
+    Group usersGroup = groupHandler.findGroupById("/platform/users");
+    organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership, true);
     return Response.status(HTTPStatus.CREATED).entity("Created").build();
    }
   
@@ -57,8 +78,29 @@ public class IntranetRESTOrganizationServiceImpl extends RESTOrganizationService
                            @FormParam("last-name") String lastName,
                            @FormParam("email") String email) throws Exception {
     repositoryService.setCurrentRepositoryName(tname); 
-    super.deleteUser(ROOT_USER);
-    super.createUser("/", ROOT_USER, password, firstName, lastName, email);
+    UserHandler userHandler = organizationService.getUserHandler();
+    //remove root user from template
+    User rootUser = userHandler.findUserByName(ROOT_USER);
+    if (rootUser != null)
+    {
+       userHandler.removeUser(ROOT_USER, true);
+    }
+    
+    User newUser = userHandler.createUserInstance(ROOT_USER);
+    newUser.setPassword(password);
+    newUser.setFirstName(firstName);
+    newUser.setLastName(lastName);
+    newUser.setEmail(email);
+    userHandler.createUser(newUser, true);
+    
+    GroupHandler groupHandler = organizationService.getGroupHandler();
+    MembershipType membership = organizationService.getMembershipTypeHandler().findMembershipType("member");
+
+    Group usersGroup = groupHandler.findGroupById("/platform/users");
+    organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership, true);
+
+    Group administratorsGroup = groupHandler.findGroupById("/platform/administrators");
+    organizationService.getMembershipHandler().linkMembership(newUser, administratorsGroup, membership, true);
     return Response.status(HTTPStatus.CREATED).entity("Created").build();
   }
 }
