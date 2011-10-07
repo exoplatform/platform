@@ -216,8 +216,14 @@ public interface WizardConstants extends Constants {
   @DefaultStringValue("Data values:")
   String dataValues();
 
-  @DefaultStringValue("Invalid directory")
-  String invalidDirectory();
+  @DefaultStringValue("Invalid logs directory")
+  String invalidLogsDirectory();
+
+  @DefaultStringValue("Invalid index directory")
+  String invalidIndexDirectory();
+
+  @DefaultStringValue("Invalid data values directory")
+  String invalidDataValuesDirectory();
   
 
   /*=======================================================================
@@ -244,6 +250,40 @@ public interface WizardConstants extends Constants {
 
   @DefaultStringValue("Invalid port")
   String invalidPort();
+
+
+  /*=======================================================================
+   * Screen Chat Server
+   *======================================================================*/
+
+  @DefaultStringValue("Chat Server")
+  String chatServer();
+  
+  @DefaultStringValue("Configure your chat server")
+  String configureChatServer();
+
+  @DefaultStringValue("IP or HostName:")
+  String ipHostName();
+
+  @DefaultStringValue("Invalid IP or HostName")
+  String invalidIpHostName();
+
+
+  /*=======================================================================
+   * Screen Install website
+   *======================================================================*/
+
+  @DefaultStringValue("Install a WebSite")
+  String installWebsite();
+  
+  @DefaultStringValue("Install a WebSite to your portal. You can choose a ready-made sample or start fresh with a blank WebSite.")
+  String installWebsiteToYourPortal();
+
+  @DefaultStringValue("Start with a blank portal")
+  String startBlankPortal();
+
+  @DefaultStringValue("Install a sample")
+  String installSample();
   
   
 

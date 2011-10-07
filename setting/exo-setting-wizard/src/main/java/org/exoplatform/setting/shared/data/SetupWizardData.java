@@ -35,7 +35,13 @@ public enum SetupWizardData {
   SMTP_SECURED_CONNECTION ("gatein.email.smtp.auth"),
   SMTP_USERNAME           ("gatein.email.smtp.username"),
   SMTP_PASSWORD           ("gatein.email.smtp.password"),
-  SMTP_EMAIL              ("gatein.email.smtp.from");
+  SMTP_EMAIL              ("gatein.email.smtp.from"),
+  
+  CHAT_IP   ("exo.chat.server"),
+  CHAT_PORT ("exo.chat.port"),
+  
+  WS_BLANK   ("exo.website.blank"),
+  WS_SAMPLES ("exo.website.samples");
 
   private String propertyName;
   

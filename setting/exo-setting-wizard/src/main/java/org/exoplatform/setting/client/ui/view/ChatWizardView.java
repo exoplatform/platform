@@ -13,24 +13,24 @@ import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
-public class FileSetupWizardView extends WizardView {
+public class ChatWizardView extends WizardView {
 
-  TextBox logs;
-  TextBox index;
-  TextBox dataValues;
+  TextBox ip;
+  TextBox port;
   
-  public FileSetupWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
+  
+  public ChatWizardView(SetupWizardController controller, int stepNumber, SetupWizardMode mode) {
     super(controller, stepNumber, mode);
   }
 
   @Override
   protected String getWizardTitle() {
-    return constants.fileSystemSetup();
+    return constants.chatServer();
   }
 
   @Override
   protected String getWizardDescription() {
-    return constants.fileSystemSetupDesc();
+    return constants.configureChatServer();
   }
 
   @Override
@@ -48,21 +48,15 @@ public class FileSetupWizardView extends WizardView {
   @Override
   protected Widget buildStepContent() {
 
-    logs = new TextBox();
-    index = new TextBox();
-    dataValues = new TextBox();
-    
-    // TODO
-    dataValues.setEnabled(false);
+    ip = new TextBox();
+    port = new TextBox();
 
-    Grid table = new Grid(3, 2);
+    Grid table = new Grid(2, 2);
     table.setCellSpacing(6);
-    table.setHTML(0, 0, constants.logs());
-    table.setWidget(0, 1, logs);
-    table.setHTML(1, 0, constants.index());
-    table.setWidget(1, 1, index);
-    table.setHTML(2, 0, constants.dataValues());
-    table.setWidget(2, 1, dataValues);
+    table.setHTML(0, 0, constants.ipHostName());
+    table.setWidget(0, 1, ip);
+    table.setHTML(1, 0, constants.port());
+    table.setWidget(1, 1, port);
     
     return table;
   }
@@ -70,27 +64,17 @@ public class FileSetupWizardView extends WizardView {
   @Override
   public Map<SetupWizardData, String> verifyDatas(int toStep) throws InvalidWizardViewFieldException {
     
-    if(! WizardFieldVerifier.isValidTextField(logs.getText())) {
-      throw new InvalidWizardViewFieldException(constants.invalidLogsDirectory());
+    if(! WizardFieldVerifier.isValidTextField(ip.getText())) {
+      throw new InvalidWizardViewFieldException(constants.invalidIpHostName());
     }
 
-    if(! WizardFieldVerifier.isValidTextField(index.getText())) {
-      throw new InvalidWizardViewFieldException(constants.invalidIndexDirectory());
-    }
-
-    if(dataValues.isEnabled()) {
-      if(! WizardFieldVerifier.isValidTextField(dataValues.getText())) {
-        throw new InvalidWizardViewFieldException(constants.invalidDataValuesDirectory());
-      }
+    if(! WizardFieldVerifier.isValidNumberField(port.getText())) {
+      throw new InvalidWizardViewFieldException(constants.invalidPort());
     }
     
     Map<SetupWizardData, String> datas = new HashMap<SetupWizardData, String>();
-    datas.put(SetupWizardData.FS_LOGS, logs.getText());
-    datas.put(SetupWizardData.FS_INDEX, index.getText());
-    
-    if(dataValues.isEnabled()) {
-      datas.put(SetupWizardData.FS_DATA_VALUES, dataValues.getText());
-    }
+    datas.put(SetupWizardData.CHAT_IP, ip.getText());
+    datas.put(SetupWizardData.CHAT_PORT, port.getText());
     
     return datas;
   }

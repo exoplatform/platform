@@ -1,6 +1,8 @@
 package org.exoplatform.setting.client.ui.view;
 
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
 import org.exoplatform.setting.client.data.SetupWizardMode;
@@ -9,12 +11,18 @@ import org.exoplatform.setting.shared.data.SetupWizardData;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * View corresponding to <b>STEP 0 - Setup</b>
+ * Setup Summary
+ * <ul>
+ * <li>display all properties configured by user</li>
+ * <li>Save datas into configuration.properties</li>
+ * <li>Permits to export properties configured into a zip file</li>
+ * </ul>
  * 
  * @author Clement
  *
@@ -45,7 +53,7 @@ public class SummaryWizardView extends WizardView {
     gridToolbar.getColumnFormatter().setWidth(0, "100%");
     gridToolbar.setWidget(0, 0, prepareExportButton());
     gridToolbar.setWidget(0, 1, preparePreviousButton());
-    gridToolbar.setWidget(0, 2, prepareNextButton(constants.apply()));
+    gridToolbar.setWidget(0, 2, prepareApplyButton());
     
     return gridToolbar;
   }
@@ -72,6 +80,37 @@ public class SummaryWizardView extends WizardView {
       public void onClick(ClickEvent event) {
         // Todo Export
         controller.displayMessage(constants.notYetImplemented());
+      }
+    });
+    return button;
+  }
+  
+  /***
+   * Constructs a button with text string and with step target
+   * @param text
+   * @param toStep
+   * @return build button
+   */
+  protected Button prepareApplyButton() {
+    Button button = new Button();
+    button.setText(constants.apply());
+    
+    button.addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        // Build callback method to get system properties
+        AsyncCallback<String> callbackApply = new AsyncCallback<String>() {
+
+          public void onFailure(Throwable arg0) {
+            Logger.getLogger("SummaryWizardView").log(Level.SEVERE, "Problem");
+          }
+
+          public void onSuccess(String arg0) {
+            controller.displayMessage(arg0);
+            controller.displayScreen(stepNumber + 1);
+          }
+        };
+        
+        controller.saveDatas(callbackApply);
       }
     });
     return button;

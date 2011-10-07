@@ -13,17 +13,19 @@ import org.exoplatform.setting.client.ui.model.DatabaseJcrWizardModel;
 import org.exoplatform.setting.client.ui.model.LdapConfigWizardModel;
 import org.exoplatform.setting.client.ui.model.SystemInfoWizardModel;
 import org.exoplatform.setting.client.ui.model.WizardModel;
-import org.exoplatform.setting.client.ui.view.ApplySettingsWizardView;
-import org.exoplatform.setting.client.ui.view.DatabaseIdmWizardView;
-import org.exoplatform.setting.client.ui.view.DatabaseJcrWizardView;
+import org.exoplatform.setting.client.ui.view.ApplyWizardView;
+import org.exoplatform.setting.client.ui.view.ChatWizardView;
 import org.exoplatform.setting.client.ui.view.FileSetupWizardView;
+import org.exoplatform.setting.client.ui.view.IdmDBWizardView;
 import org.exoplatform.setting.client.ui.view.IdmSetupWizardView;
-import org.exoplatform.setting.client.ui.view.LdapConfigWizardView;
-import org.exoplatform.setting.client.ui.view.MailSettingWizardView;
+import org.exoplatform.setting.client.ui.view.JcrDBWizardView;
+import org.exoplatform.setting.client.ui.view.LdapWizardView;
+import org.exoplatform.setting.client.ui.view.MailWizardView;
 import org.exoplatform.setting.client.ui.view.SetupTypeWizardView;
 import org.exoplatform.setting.client.ui.view.SummaryWizardView;
 import org.exoplatform.setting.client.ui.view.SuperUserWizardView;
-import org.exoplatform.setting.client.ui.view.SystemInfoWizardView;
+import org.exoplatform.setting.client.ui.view.SystemWizardView;
+import org.exoplatform.setting.client.ui.view.WebsiteWizardView;
 import org.exoplatform.setting.client.ui.view.WizardDialogBox;
 import org.exoplatform.setting.client.ui.view.WizardView;
 import org.exoplatform.setting.shared.data.SetupWizardData;
@@ -58,13 +60,13 @@ public class SetupWizardController {
   
   
   public void start() {
-    isDebugActivated = true;
+    isDebugActivated = false;
     
     // Create the dialog box
     messageDialogBox = new WizardDialogBox();
     
     // Initialize setup mode
-    setupWizardMode = SetupWizardMode.STANDARD;
+    setupWizardMode = SetupWizardMode.ADVANCED;
     
     // Initialize datas
     setupWizardDatas = new LinkedHashMap<SetupWizardData, String>();
@@ -78,17 +80,19 @@ public class SetupWizardController {
     
     // Views init
     views = new LinkedList<WizardView>();
-    views.add(new SystemInfoWizardView(this, 0, SetupWizardMode.STANDARD));
+    views.add(new SystemWizardView(this, 0, SetupWizardMode.STANDARD));
     views.add(new SetupTypeWizardView(this, 1, SetupWizardMode.STANDARD));
     views.add(new SuperUserWizardView(this, 2, SetupWizardMode.ADVANCED));
-    views.add(new DatabaseJcrWizardView(this, 3, SetupWizardMode.STANDARD));
+    views.add(new JcrDBWizardView(this, 3, SetupWizardMode.STANDARD));
     views.add(new IdmSetupWizardView(this, 4, SetupWizardMode.STANDARD));
-    views.add(new DatabaseIdmWizardView(this, 5, SetupWizardMode.STANDARD));
-    views.add(new LdapConfigWizardView(this, 6, SetupWizardMode.STANDARD));
+    views.add(new IdmDBWizardView(this, 5, SetupWizardMode.STANDARD));
+    views.add(new LdapWizardView(this, 6, SetupWizardMode.STANDARD));
     views.add(new FileSetupWizardView(this, 7, SetupWizardMode.STANDARD));
-    views.add(new MailSettingWizardView(this, 8, SetupWizardMode.STANDARD));
-    views.add(new SummaryWizardView(this, 9, SetupWizardMode.STANDARD));
-    views.add(new ApplySettingsWizardView(this, 10, SetupWizardMode.STANDARD));
+    views.add(new MailWizardView(this, 8, SetupWizardMode.STANDARD));
+    views.add(new ChatWizardView(this, 9, SetupWizardMode.ADVANCED));
+    views.add(new WebsiteWizardView(this, 10, SetupWizardMode.ADVANCED));
+    views.add(new SummaryWizardView(this, 11, SetupWizardMode.STANDARD));
+    views.add(new ApplyWizardView(this, 12, SetupWizardMode.STANDARD));
     
     nbModels = models.size();
     nbViews = views.size();
@@ -158,7 +162,7 @@ public class SetupWizardController {
     RootPanel.get("stepBlock").setVisible(true);
     
     // Display First Screen
-    displayScreen(8);
+    displayScreen(10);
   }
   
   /**
@@ -190,9 +194,6 @@ public class SetupWizardController {
         }
         
         currentScreenDisplayed = index;
-        
-        // Load step bar
-        
         
         WizardView activeView = views.get(index);
         activeView.executeOnDisplay();
@@ -233,6 +234,31 @@ public class SetupWizardController {
       setupWizardDatas.putAll(datas);
     }
   }
+
+  public SetupWizardMode getSetupWizardMode() {
+    return setupWizardMode;
+  }
+
+  public void setSetupWizardMode(SetupWizardMode setupWizardMode) {
+    this.setupWizardMode = setupWizardMode;
+  }
+  
+  public Map<SetupWizardData, String> getSetupWizardDatas() {
+    return this.setupWizardDatas;
+  }
+  
+  public int getNbViews() {
+    return nbViews;
+  }
+  
+  public boolean isDebugActivated() {
+    return isDebugActivated.booleanValue();
+  }
+
+
+  /*=======================================================================
+   * Server methods
+   *======================================================================*/
   
   /**
    * Call to server to get all properties displayed to user
@@ -253,25 +279,25 @@ public class SetupWizardController {
     
     return null;
   }
-
-  public SetupWizardMode getSetupWizardMode() {
-    return setupWizardMode;
-  }
-
-  public void setSetupWizardMode(SetupWizardMode setupWizardMode) {
-    this.setupWizardMode = setupWizardMode;
+  
+  /**
+   * Call to server to get all properties displayed to user
+   * @return
+   */
+  public String saveDatas(AsyncCallback<String> callback) {
+    wizardService.saveDatas(setupWizardDatas, callback);
+    
+    return null;
   }
   
-  public Map<SetupWizardData, String> getSetupWizardDatas() {
-    return this.setupWizardDatas;
-  }
-  
-  public int getNbViews() {
-    return nbViews;
-  }
-  
-  public boolean isDebugActivated() {
-    return isDebugActivated.booleanValue();
+  /**
+   * Call to server to get all properties displayed to user
+   * @return
+   */
+  public String startPlatform(AsyncCallback<String> callback) {
+    wizardService.startPlatform(callback);
+    
+    return null;
   }
   
 }

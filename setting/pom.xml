@@ -21,9 +21,11 @@
   <properties>
     <!-- Repositories URLs -->
     <!-- eXo Modules -->
+    <org.exoplatform.kernel.version>2.3.0-CR4-CP01</org.exoplatform.kernel.version>
     <!-- Third parties -->
     <gwt.version>2.3.0</gwt.version>
     <gwt.maven.plugin.version>2.3.0</gwt.maven.plugin.version>
+    <commons-configuration.version>1.7</commons-configuration.version>
     <gwt.test.skip>true</gwt.test.skip>
   </properties>
   
@@ -44,6 +46,16 @@
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.container</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-configuration</groupId>
+        <artifactId>commons-configuration</artifactId>
+        <version>${commons-configuration.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

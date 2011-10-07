@@ -1,14 +1,20 @@
 package org.exoplatform.setting.server.service;
 
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.exoplatform.commons.utils.SecurityHelper;
+import org.exoplatform.container.RootContainer;
 import org.exoplatform.container.monitor.jvm.J2EEServerInfo;
 import org.exoplatform.setting.client.service.WizardService;
+import org.exoplatform.setting.shared.data.SetupWizardData;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -17,14 +23,6 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  */
 @SuppressWarnings("serial")
 public class WizardServiceImpl extends RemoteServiceServlet implements WizardService {
-
-  public Integer storeDatas(Map<String, String> datas, Integer toStep) {
-    
-    // Store datas in session
-    Logger.getLogger("WizardServiceImpl").log(Level.INFO, "Côté serveur: store datas !");
-    
-    return toStep;
-  }
 
   /**
    * Return a map with interesting system properties
@@ -36,6 +34,7 @@ public class WizardServiceImpl extends RemoteServiceServlet implements WizardSer
     // Get server name
     J2EEServerInfo j2eeServerInfo = new J2EEServerInfo();
     map.put("server.name", j2eeServerInfo.getServerName());
+    map.put("server.home", j2eeServerInfo.getServerHome());
     
     // Get some system properties
     map.put("exo.conf.dir.name", System.getProperty("exo.conf.dir.name"));
@@ -68,6 +67,69 @@ public class WizardServiceImpl extends RemoteServiceServlet implements WizardSer
     datasources.add("Toto 1");
     datasources.add("Toto 2");
     return datasources;
+  }
+
+  /**
+   * Save datas into configuration file
+   */
+  public String saveDatas(Map<SetupWizardData, String> datas) {
+    
+    //String path = "F:\\Java\\exo-project\\platform\\trunk\\packaging\\pkg\\target\\tomcat\\gatein\\conf\\configuration.properties";
+    String path = "F:\\Java\\exo-project\\platform\\trunk\\packaging\\tomcat\\target\\tomcat\\gatein\\conf\\configuration.properties";
+
+    if(datas != null && datas.size() > 0) {
+      try {
+        PropertiesConfiguration conf = new PropertiesConfiguration(path);
+
+        // Fetch all properties stores by user
+        for(Map.Entry<SetupWizardData, String> entry : datas.entrySet()) {
+          SetupWizardData data = entry.getKey();
+          String ppValue = entry.getValue();
+          
+          if(data.getPropertyName() != null) {
+            if(conf.containsKey(data.getPropertyName())) {
+              // If propoperty exists we update it
+              conf.setProperty(data.getPropertyName(), ppValue);
+            }
+            else {
+              // Else we add to file
+              conf.addProperty(data.getPropertyName(), ppValue);
+            }
+          }
+        }
+        
+        conf.save();
+      } 
+      catch (ConfigurationException e) {
+        Logger.getLogger("WizardServiceImpl").log(Level.ERROR, e.getMessage());
+      }
+    }
+    
+    return null;
+  }
+  
+  /**
+   * This method start platform
+   */
+  public String startPlatform() {
+    System.out.println("TOTO");
+    try
+    {
+       final RootContainer rootContainer = RootContainer.getInstance();
+       SecurityHelper.doPrivilegedAction(new PrivilegedAction<Void>()
+       {
+          public Void run()
+          {
+             rootContainer.createPortalContainers();
+             return null;
+          }
+       });
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+    
+    return null;
   }
 
 }

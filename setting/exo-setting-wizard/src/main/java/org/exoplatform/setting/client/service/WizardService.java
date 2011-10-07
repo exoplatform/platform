@@ -3,6 +3,8 @@ package org.exoplatform.setting.client.service;
 import java.util.List;
 import java.util.Map;
 
+import org.exoplatform.setting.shared.data.SetupWizardData;
+
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -12,7 +14,8 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("wizardsrv")
 public interface WizardService extends RemoteService {
   
-  Integer storeDatas(Map<String, String> datas, Integer toStep);
   Map<String, String> getSystemProperties();
   List<String> getDatasources();
+  String saveDatas(Map<SetupWizardData, String> datas);
+  String startPlatform();
 }

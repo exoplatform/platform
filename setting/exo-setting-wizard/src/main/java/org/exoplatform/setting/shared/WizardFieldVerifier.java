@@ -56,4 +56,11 @@ public class WizardFieldVerifier {
     }
     return email.matches("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}");
   }
+
+  public static boolean isValidIp(String ip) {
+    if (ip == null) {
+      return false;
+    }
+    return ip.matches("\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b");
+  }
 }

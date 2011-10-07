@@ -53,4 +53,20 @@ public class WizardFieldVerifierTest {
     assertFalse(WizardFieldVerifier.isValidEmail("aaaa@aa.aaaaa"));
     assertTrue(WizardFieldVerifier.isValidEmail("aaaa@aa.aaa"));
   }
+
+  @Test
+  public void testIsValidIp() {
+    assertTrue(WizardFieldVerifier.isValidIp("127.0.0.1"));
+    assertTrue(WizardFieldVerifier.isValidIp("255.255.255.255"));
+    assertFalse(WizardFieldVerifier.isValidIp("256.255.255.0"));
+    assertFalse(WizardFieldVerifier.isValidIp("255.256.255.0"));
+    assertFalse(WizardFieldVerifier.isValidIp("255.255.256.0"));
+    assertFalse(WizardFieldVerifier.isValidIp("255.255.255.256"));
+    assertFalse(WizardFieldVerifier.isValidIp("a.1.1.1"));
+    assertFalse(WizardFieldVerifier.isValidIp("0.0.0."));
+    assertFalse(WizardFieldVerifier.isValidIp("0.0.0"));
+    assertFalse(WizardFieldVerifier.isValidIp("0007.0.0.1"));
+    assertTrue(WizardFieldVerifier.isValidIp("001.1.1.2"));
+    assertFalse(WizardFieldVerifier.isValidIp("1.1.1.2.5"));
+  }
 }
