@@ -1227,12 +1227,12 @@
           </preference>
           <preference>
             <name>usecase</name>
-            <value>jailed</value>
+            <value>selection</value>
             <read-only>false</read-only>
           </preference>
           <preference>
             <name>driveName</name>
-            <value>User</value>
+            <value>Personal Documents</value>
             <read-only>false</read-only>
           </preference>
           <preference>

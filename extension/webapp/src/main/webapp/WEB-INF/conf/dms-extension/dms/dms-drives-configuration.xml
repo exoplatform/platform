@@ -75,16 +75,16 @@
             </object>
           </object-param>
           <object-param>
-            <name>User</name>
-            <description>User drive</description>
+            <name>Personal Documents</name>
+            <description>Personal Documents</description>
             <object type="org.exoplatform.services.cms.drives.DriveData">
-              <field  name="name"><string>User</string></field>
+              <field  name="name"><string>Personal Documents</string></field>
               <field  name="workspace"><string>collaboration</string></field>
               <field  name="permissions"><string>*:/platform/users</string></field>
               <field  name="homePath"><string>/Users/${userId}</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>simple-view, admin-view</string>
+                <string>Timeline-View-document, cover-flow, icon-view, slide-show</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>false</boolean></field>
