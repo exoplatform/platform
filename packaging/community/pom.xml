@@ -83,16 +83,16 @@
 				  <fileset dir="${tomcat.webapps.dir}" includes="acme-website*.war" />
 				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.acme-website.*.jar" />
 				  <fileset dir="${tomcat.conf.dir}" includes="acme-website.xml" />
-                  <!-- default website -->
+                  <!-- default website >
 				  <fileset dir="${tomcat.webapps.dir}" includes="default-website.war" />
 				  <fileset dir="${tomcat.conf.dir}" includes="default-website.xml" />
-				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar" />
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.sample.default-website.*.jar" / -->
                   <!-- gadgets pack -->
 				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war" />
 				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml" />
 				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar" />
 				</delete>
-                <!-- Delete configuration in platform-extension.war -->
+                <!-- Disable IDE configuration in platform-extension.war -->
                 <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />
                 <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/configuration.xml">
 				  <replacetoken><![CDATA[<import>war:/conf/platform/ide-jcr-configuration.xml</import>
@@ -104,7 +104,7 @@
 				</replace>
                 <zip destfile="${tomcat.webapps.dir}/platform-extension.war" basedir="${tomcat.webapps.dir}/plf" />
                 <delete dir="${tomcat.webapps.dir}/plf" />
-                <!-- Delete configuration in platform config jar -->
+                <!-- Disable IDE configuration in platform config jar -->
                 <unzip src="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
                 <replace file="${tomcat.lib.dir}/plf/conf/platform/configuration.xml">
 				  <replacetoken><![CDATA[<value profiles="ide,all,default">
@@ -122,7 +122,14 @@
 				</replace>
                 <zip destfile="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />
-                <!-- Add default portal configuration in acme-intranet.war -->
+                <!-- Replaces the default page by a new one especially for the Community Edition -->
+                <unzip src="${tomcat.webapps.dir}/default-website.war" dest="${tomcat.webapps.dir}/default-website" />
+                <copy file="${project.basedir}/src/main/resources/Welcome.xml" 
+                      tofile="${tomcat.webapps.dir}/default-website/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml" 
+                      overwrite="true" />
+                <zip destfile="${tomcat.webapps.dir}/default-website.war" basedir="${tomcat.webapps.dir}/default-website" />
+                <delete dir="${tomcat.webapps.dir}/default-website" />
+                <!-- Add default portal configuration in acme-intranet.war >
                 <unzip src="${tomcat.webapps.dir}/acme-intranet.war" dest="${tomcat.webapps.dir}/acme-intranet" />
                 <replace file="${tomcat.webapps.dir}/acme-intranet/WEB-INF/conf/office-extension/portal/portal-configuration.xml">
 				  <replacetoken><![CDATA[<init-params>]]></replacetoken>
@@ -134,12 +141,12 @@
 				</value-param>]]></replacevalue>
 				</replace>
                 <zip destfile="${tomcat.webapps.dir}/acme-intranet.war" basedir="${tomcat.webapps.dir}/acme-intranet" />
-                <delete dir="${tomcat.webapps.dir}/acme-intranet" />
-                <!-- Route requests to /portal/intranet/ -->
+                <delete dir="${tomcat.webapps.dir}/acme-intranet" / -->
+                <!-- Route requests to /portal/intranet/ >
                 <replace file="${tomcat.webapps.dir}/ROOT/index.jsp">
 				  <replacetoken><![CDATA[response.setHeader("Location", "/portal");]]></replacetoken>
 				  <replacevalue><![CDATA[response.setHeader("Location", "/portal/intranet");]]></replacevalue>
-				</replace>
+				</replace -->
               </target>
             </configuration>
             <goals>
