@@ -34,78 +34,12 @@ function getModule(params)
    var webosVersion = "${org.exoplatform.webos.version}";
    var tomcatVersion = "${org.apache.tomcat.version}";
 
-   // fck editor required for KS & CS
-   module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
-   module.fck.deployName = "fck";
-   
-   // cometd required by KS & CS
-   module.cometd = new Project("org.exoplatform.commons", "exo.platform.commons.comet.webapp", "war", commonsVersion).
-   addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
-   addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
-   addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.comet.service", "jar", commonsVersion));
-   module.cometd.deployName = "cometd";
-	
-   // main portal container config	
-   module.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);
-   
-   // platform extension
-   module.extension = {};
-   module.extension.webapp = 
-      new Project("org.exoplatform.platform", "exo.platform.extension.webapp", "war", module.version).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.webui", "jar", module.version)).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.gadgets", "jar", module.version)).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.upgrade.plugins", "jar", module.version)).
-      addDependency(new Project("org.exoplatform.platform", "exo.platform.component.organization", "jar", module.version));
-   module.extension.webapp.deployName = "platform-extension";
-   module.extension.resources = 
-      new Project("org.exoplatform.platform", "exo.platform.extension.resources", "war", module.version);
-   module.extension.resources.deployName = "eXoPlatformResources";
-   
-   module.extension.portlets = {};
-   module.extension.portlets.platformNavigation =  new Project("org.exoplatform.platform", "exo.platform.extension.portlets.platformNavigation", "war", module.version);
-
-   // platform commons
-   module.component = {};
-   module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.upgrade", "jar", commonsVersion)).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.product", "jar", commonsVersion));
-
-   module.common = {};
-   module.common.webui = new Project("org.exoplatform.commons", "exo.platform.commons.webui", "jar", commonsVersion);
-
-   module.common.resources = new Project("org.exoplatform.commons", "exo.platform.commons.resources", "war", commonsVersion);
-   module.common.resources.deployName = "CommonsResources";
-   
    module.patch = {};
    module.patch.tomcat =
       new Project("org.exoplatform.platform", "exo.platform.server.tomcat.patch", "jar", module.version);
    module.patch.tomcatCloud =
       new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.server.tomcat.patch", "jar", module.version);
    
-   // eXo IDE
-   module.ide = {};
-   
-   module.ide.smartgwt =
-       new Project("org.exoplatform.gwt", "exo-gwtframework-smartgwt", "war", gwtframeworkVersion);
-   module.ide.smartgwt.deployName = "SmartGWT";
-
-   module.ide.webapp =
-       new Project("org.exoplatform.ide", "exo-ide-client-gadget", "war", ideVersion).
-        addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", coreVersion)).
-        addDependency(module.ide.smartgwt).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-gadget-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-netvibes-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-groovy-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-extension-chromattic-server", "jar", ideVersion)).
-        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion)).
-        addDependency(new Project("org.chromattic", "chromattic.groovy", "jar", chromatticVersion)).
-        addDependency(new Project("org.chromattic", "chromattic.dataobject", "jar", chromatticVersion)).
-        addDependency(new Project("org.chromattic", "chromattic.ext", "jar", chromatticVersion)).
-        addDependency(new Project("org.apache.commons", "commons-compress", "jar", "1.0"));
-   module.ide.webapp.deployName = "IDE";
-
-
    // eXo Cloud
    module.cloud = {};
 
@@ -151,58 +85,5 @@ function getModule(params)
         addDependency(new Project("com.exoplatform.platform.cloud", "exo.platform.cloud.services", "jar", module.version));
    module.cloud.cloudExtension.deployName = "cloud-extension"; 
 
-   // acme website
-   module.sample = {};
-   
-   module.sample.acme = {};
-   
-   module.sample.acme.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.component.file-explorer", "jar", module.version)).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.component.navigation-rest", "jar", module.version)).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
-   module.sample.acme.webapp.deployName = "acme-website";
-   
-   module.sample.acme.resources =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.resources", "war", module.version);
-   module.sample.acme.resources.deployName = "acme-websiteResources";
-   
-   // acme social intranet
-   module.sample.acmeIntranet = {};
-   
-   module.sample.acmeIntranet.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.config", "jar", module.version));
-   module.sample.acmeIntranet.webapp.deployName = "acme-intranet";
-   
-   module.sample.acmeIntranet.portlet =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-intranet.portlet", "war", module.version);
-   module.sample.acmeIntranet.portlet.deployName = "acme-intranet-portlet";
-   
-    // default website
-   module.sample.defaultWebsite = {};
-   
-   module.sample.defaultWebsite.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.default-website.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.default-website.config", "jar", module.version));
-   module.sample.defaultWebsite.webapp.deployName = "default-website";
-   
-    // Crash
-   module.crash = {};
-   module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
-   module.crash.webapp.deployName = "crash";
-   
-   // eXo WebOS
-   module.webos = {};
-   
-   module.webos.webosadmin =
-       new Project("org.exoplatform.webos", "exo.webos.portlet.webosadmin", "war", webosVersion);
-   module.webos.webosadmin.deployName = "webosadmin";
-   module.webos.webosResources =
-       new Project("org.exoplatform.webos", "exo.webos.web.webosResources", "war", webosVersion);
-   module.webos.webosResources.deployName = "webosResources";   
-   module.webos.ext =
-       new Project("org.exoplatform.webos", "exo.webos.extension.war", "war", webosVersion).
-        addDependency(new Project("org.exoplatform.webos", "exo.webos.component.web", "jar", webosVersion)).
-        addDependency(new Project("org.exoplatform.webos", "exo.webos.webui.webos", "jar", webosVersion)).
-        addDependency(module.webos.webosadmin).
-        addDependency(module.webos.webosResources);
-   module.webos.ext.deployName = "webos-ext";
-   
    return module;
 }

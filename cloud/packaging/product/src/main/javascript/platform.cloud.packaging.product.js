@@ -23,13 +23,14 @@ function getProduct(version) {
   var ws = Module.GetModule("ws", {kernel : kernel, core : core});
   var eXoJcr = Module.GetModule("jcr", {kernel : kernel, core : core, ws : ws}) ;
   var portal = Module.GetModule("portal", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
-  var platform = Module.GetModule("platform.cloud", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
   var cs = Module.GetModule("cs", {portal:portal, ws:ws});
   var ks = Module.GetModule("ks", {portal:portal, ws:ws});
   var social = Module.GetModule("social", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr, portal:portal}); 
   var workflow = Module.GetModule("workflow", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
   var dms = Module.GetModule("dms", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
   var wcm = Module.GetModule("wcm", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal, dms : dms});
+  var platform = Module.GetModule("platform", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
+  var platformCloud = Module.GetModule("platform.cloud", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
 
   
   /* COMMON - GATEIN */
@@ -79,13 +80,16 @@ function getProduct(version) {
   product.addDependencies(platform.ide.webapp);
 
   /* eXo Cloud */
-  product.addDependencies(platform.cloud.cloudAgent);
-  product.addDependencies(platform.cloud.cloudAdmin);
-  product.addDependencies(platform.cloud.cloudExtension);
+  product.addDependencies(platformCloud.cloud.cloudAgent);
+  product.addDependencies(platformCloud.cloud.cloudAdmin);
+  product.addDependencies(platformCloud.cloud.cloudExtension);
 
   /* WebOS */
   product.addDependencies(platform.webos.ext);
-  
+    /* Gadgets */
+  product.addDependencies(platform.sample.GadgetSample.gadgets);
+  product.addDependencies(platform.gadgetpack.gadgets);
+
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
   product.addDependencies(workflow.web.eXoStaticResources) ;
@@ -114,6 +118,7 @@ function getProduct(version) {
   /* CS* */
   product.addDependencies(cs.eXoApplication.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
   product.addDependencies(cs.eXoApplication.contact); // exo.cs.eXoApplication.contact.service-2.0.0-SNAPSHOT.jar + contact.war
+  product.addDependencies(cs.eXoApplication.common);
   product.addDependencies(cs.eXoApplication.mail); // exo.cs.eXoApplication.mail.service-2.0.0-SNAPSHOT.jar + mail.war
   product.addDependencies(cs.eXoApplication.chat); // exo.cs.eXoApplication.chat.service-2.0.0-SNAPSHOT.jar + chat.war + exo.cs.eXoApplication.organization.client.openfire-2.0.0-SNAPSHOT.jar + exo.cs.eXoApplication.organization.service-2.0.0-SNAPSHOT.jar
   product.addDependencies(cs.eXoApplication.chatbar); // chatbar.war
@@ -153,9 +158,11 @@ function getProduct(version) {
   product.addDependencies(new Project("org.exoplatform.social", "exo.social.extras.document-composer-plugin", "jar", social.version));
   product.addDependencies(social.extension.war) ; // social-ext.war
   
+  // integration project
+  product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social
 
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
-  product.addServerPatch("tomcat", platform.patch.tomcatCloud) ;
+  product.addServerPatch("tomcat", platformCloud.patch.tomcatCloud) ;
 
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));
