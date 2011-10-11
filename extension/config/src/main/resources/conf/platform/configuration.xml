@@ -69,6 +69,16 @@
 			  <value profiles="webos,all">
 				<string>webosResources</string>
 			  </value>	
+			  
+			  
+              <!-- commons -->
+              <value profiles="collaboration,all,default">
+                <string>commons-extension</string>
+              </value>
+              <value>
+                <string>CommonsResources</string>
+              </value>
+			  
               <!-- collab -->
               <value profiles="collaboration,all,default">
                 <string>cs-extension</string>
@@ -216,9 +226,6 @@
               </value>
               <value>
                 <string>eXoPlatformResources</string>
-              </value>
-              <value>
-                <string>CommonsResources</string>
               </value>
             </collection>
           </field>

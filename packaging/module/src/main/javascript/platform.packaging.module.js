@@ -77,7 +77,10 @@ function getModule(params)
 
    module.common.resources = new Project("org.exoplatform.commons", "exo.platform.commons.resources", "war", commonsVersion);
    module.common.resources.deployName = "CommonsResources";
-   
+
+   module.common.extension = new Project("org.exoplatform.commons", "exo.platform.commons.extension.webapp", "war", commonsVersion);
+   module.common.extension.deployName = "commons-extension";
+
    module.patch = {};
    module.patch.tomcat =
       new Project("org.exoplatform.platform", "exo.platform.server.tomcat.patch", "jar", module.version);

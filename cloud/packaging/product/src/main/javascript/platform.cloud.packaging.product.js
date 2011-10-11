@@ -59,6 +59,7 @@ function getProduct(version) {
   product.addDependencies(platform.extension.portlets.platformNavigation);
   product.addDependencies(platform.common.webui); 
   product.addDependencies(platform.common.resources);
+  product.addDependencies(platform.common.extension);
   
   // crash
   product.addDependencies(platform.crash.webapp);

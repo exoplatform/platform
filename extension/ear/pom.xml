@@ -89,7 +89,13 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
-<scope>provided</scope>
+	  <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons.extension.webapp</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+	  <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
@@ -883,6 +889,12 @@
               <artifactId>exo.platform.commons.resources</artifactId>
               <contextRoot>CommonsResources</contextRoot>
               <bundleFileName>CommonsResources.war</bundleFileName>
+            </webModule>
+            <webModule>
+			  <groupId>org.exoplatform.commons</groupId>
+			  <artifactId>exo.platform.commons.extension.webapp</artifactId>
+              <contextRoot>commons-extension</contextRoot>
+              <bundleFileName>commons-extension.war</bundleFileName>
             </webModule>
             <!-- Extension config -->
             <jarModule>
