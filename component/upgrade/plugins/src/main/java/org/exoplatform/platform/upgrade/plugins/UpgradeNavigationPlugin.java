@@ -1,11 +1,14 @@
 package org.exoplatform.platform.upgrade.plugins;
 
+import java.util.Date;
+
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.mop.importer.Imported;
+import org.exoplatform.portal.mop.importer.Imported.Status;
 import org.exoplatform.portal.pom.config.POMSession;
 import org.exoplatform.portal.pom.config.POMSessionManager;
 import org.gatein.mop.api.workspace.Workspace;
@@ -26,7 +29,9 @@ public class UpgradeNavigationPlugin extends UpgradeProductPlugin {
     try {
       POMSession session = pomMgr.getSession();
       Workspace workspace = session.getWorkspace();
-      workspace.removeAdapter(Imported.class);
+      Imported imported = workspace.adapt(Imported.class);
+      imported.setLastModificationDate(new Date());
+      imported.setStatus(Status.WANT_REIMPORT.status());
       session.save();
     } finally {
       RequestLifeCycle.end();
