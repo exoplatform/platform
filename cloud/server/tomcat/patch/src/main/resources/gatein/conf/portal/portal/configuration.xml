@@ -37,7 +37,7 @@
         <name>working-conf</name>
         <description>working-conf</description>
         <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
-        <property name="source-name" value="config_as1" />
+        <property name="source-name" value="config_as" />
         <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param>
     </init-params>
@@ -81,6 +81,9 @@
            <property name="maxActive" value="5" />
            <property name="maxIdle" value="2" />
            <property name="initialSize" value="2" />
+           <property name="validationQuery" value="select 1"/>
+           <property name="testOnReturn" value="true"/>
+           <property name="timeBetweenEvictionRunsMillis" value="300000"/>
         </properties-param>
         <properties-param>
            <name>db-creation</name>
@@ -129,7 +132,7 @@
       <init-params>
         <value-param>
           <name>bind-name</name>
-          <value>config_as1</value>
+          <value>config_as</value>
         </value-param>
         <value-param>
           <name>class-name</name>
@@ -181,6 +184,9 @@
             <property name="maxActive" value="50" />
             <property name="maxIdle" value="2" />
             <property name="initialSize" value="5" />
+            <property name="validationQuery" value="select 1"/>
+            <property name="testOnReturn" value="true"/>
+            <property name="timeBetweenEvictionRunsMillis" value="300000"/>
         </properties-param>
       </init-params>
     </component-plugin>
@@ -191,7 +197,7 @@
       <init-params>
         <value-param>
           <name>bind-name</name>
-          <value>config_as1</value>
+          <value>config_as</value>
         </value-param>
         <value-param>
           <name>class-name</name>
@@ -211,8 +217,14 @@
             <property name="maxActive" value="50" />
             <property name="maxIdle" value="2" />
             <property name="initialSize" value="5" />
+            <property name="validationQuery" value="select 1"/>
+            <property name="testOnReturn" value="true"/>
+            <property name="timeBetweenEvictionRunsMillis" value="300000"/>
         </properties-param>
       </init-params>
     </component-plugin>
   </external-component-plugins -->
+  
+  <remove-configuration>org.exoplatform.platform.gadget.services.GroovyScript2RestLoader.GroovyScript2RestLoaderExt</remove-configuration>
+  
 </configuration>
