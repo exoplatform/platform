@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.exoplatform.platform</groupId>
 		<artifactId>exo.platform.component.edition</artifactId>
-		<version>3.5.0-Beta2-SNAPSHOT</version>
+		<version>3.5.0-Beta2</version>
 	</parent>
 	<artifactId>exo.platform.component.edition.parent</artifactId>
 	<packaging>pom</packaging>
@@ -22,15 +22,15 @@
 						<configuration>
 							<target>
 								<!-- defines the needed properties -->
-								<property name="platform.edition" value="${platform.edition}"/>
-								<property name="packagePath" value="src/main/java/org/exoplatform/platform/edition"/>
-								<property name="packageName" value="org.exoplatform.platform.edition"/>
-								<property name="className" value="PlatformEdition"/>
-								<property name="fileName" value="${className}.java"/>
+								<property name="platform.edition" value="${platform.edition}" />
+								<property name="packagePath" value="src/main/java/org/exoplatform/platform/edition" />
+								<property name="packageName" value="org.exoplatform.platform.edition" />
+								<property name="className" value="PlatformEdition" />
+								<property name="fileName" value="${className}.java" />
 								<!-- generates the class -->
 								<echo file="${basedir}/${packagePath}/${fileName}" message="package ${packageName};${line.separator}" />
 								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message="public final class ${className} {${line.separator}" />
-								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message=' public static String getEdition() { return &amp;quot;${platform.edition}&amp;quot; ;}${line.separator}' />
+								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message=" public static String getEdition() { return &amp;quot;${platform.edition}&amp;quot; ;}${line.separator}" />
 								<echo file="${basedir}/${packagePath}/${fileName}" append="true" message="}${line.separator}" />
 							</target>
 						</configuration>

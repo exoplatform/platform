@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo-gadget-pack-docs</artifactId>
-    <version>3.5.0-Beta2-SNAPSHOT</version>
+    <version>3.5.0-Beta2</version>
   </parent>
 
   <artifactId>exo-gadget-pack-developer-guide</artifactId>
@@ -134,15 +133,15 @@
                  <postProcess>
                    <copy todir="${wikbook.target}/output/html/images">
                      <fileset dir="${wikbook.source}/images">
-                       <include name="**"/>
+                       <include name="**" />
                      </fileset>
                    </copy>
                    <copy todir="${wikbook.target}/output/html">
                      <fileset dir="${wikbook.target}/src/resources">
-                       <include name="**/*.css"/>
-                       <include name="**/*.png"/>
-                       <include name="**/*.gif"/>
-                       <include name="**/*.jpg"/>
+                       <include name="**/*.css" />
+                       <include name="**/*.png" />
+                       <include name="**/*.gif" />
+                       <include name="**/*.jpg" />
                      </fileset>
                    </copy>
                  </postProcess>
