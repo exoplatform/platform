@@ -14,10 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.platform.component.organization;
+package org.exoplatform.platform.organization.integration;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -305,6 +304,7 @@ public class OrganizationIntegrationService implements Startable {
 
     startRequest();
 
+    @SuppressWarnings("unchecked")
     List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
     // Invoke listeners on groups, starting from parent groups to children
     Collections.sort(groups, GROUP_COMPARATOR);
@@ -462,9 +462,15 @@ public class OrganizationIntegrationService implements Startable {
           List<String> activatedUsers = Util.getActivatedUsers(session);
 
           ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
-          List<User> users = Arrays.asList(usersListAccess.load(0, usersListAccess.getSize()));
-          for (User user : users) {
-            activatedUsers.remove(user.getUserName());
+
+          int i = 0;
+          while (i <= usersListAccess.getSize()) {
+            int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+            User[] users = usersListAccess.load(i, length);
+            for (User user : users) {
+              activatedUsers.remove(user.getUserName());
+            }
+            i += 10;
           }
           for (String username : activatedUsers) {
             syncUser(username, eventType);
@@ -506,11 +512,16 @@ public class OrganizationIntegrationService implements Startable {
             LOG.debug("\tAll new users intagration: Search for already existing users in Datasource but not integrated yet.");
           }
           ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
-          List<User> users = Arrays.asList(usersListAccess.load(0, usersListAccess.getSize()));
-          for (User user : users) {
-            if (!activatedUsers.contains(user.getUserName())) {
-              syncUser(user.getUserName(), eventType);
+          int i = 0;
+          while (i <= usersListAccess.getSize()) {
+            int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+            User[] users = usersListAccess.load(i, length);
+            for (User user : users) {
+              if (!activatedUsers.contains(user.getUserName())) {
+                syncUser(user.getUserName(), eventType);
+              }
             }
+            i += 10;
           }
         } catch (Exception e) {
           LOG.error("\tUnknown error was occured while preparing to proceed users update", e);
@@ -533,6 +544,7 @@ public class OrganizationIntegrationService implements Startable {
    * @param eventType
    *          ADDED/UPDATED/DELETED
    */
+  @SuppressWarnings("deprecation")
   @Managed
   @ManagedDescription("invoke a user listeners")
   @Impact(ImpactType.READ)
@@ -573,7 +585,8 @@ public class OrganizationIntegrationService implements Startable {
                     "\t\tFailed to call preDelete on " + username + " User with listener : " + userEventListener.getClass(), e);
               }
               try {
-                // This have to be added here, because some listeners close sessions
+                // This have to be added here, because some listeners close
+                // sessions
                 startRequest();
                 userEventListener.postDelete(user);
               } catch (Exception e) {
@@ -611,14 +624,16 @@ public class OrganizationIntegrationService implements Startable {
               } catch (IllegalStateException e) {
                 endRequest();
                 userEventListener.preSave(user, isNew);
-                // This have to be added here, because some listeners close sessions
+                // This have to be added here, because some listeners close
+                // sessions
                 startRequest();
               } catch (Exception e) {
                 LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
                     e);
               }
               try {
-                // This have to be added here, because some listeners close sessions
+                // This have to be added here, because some listeners close
+                // sessions
                 startRequest();
                 userEventListener.postSave(user, isNew);
               } catch (Exception e) {

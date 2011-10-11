@@ -7,16 +7,16 @@ import java.util.List;
 
 import javax.jcr.Session;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
-import org.exoplatform.platform.component.organization.EventType;
-import org.exoplatform.platform.component.organization.NewGroupListener;
-import org.exoplatform.platform.component.organization.NewMembershipListener;
-import org.exoplatform.platform.component.organization.NewProfileListener;
-import org.exoplatform.platform.component.organization.NewUserListener;
-import org.exoplatform.platform.component.organization.OrganizationIntegrationService;
-import org.exoplatform.platform.component.organization.Util;
+import org.exoplatform.platform.organization.integration.EventType;
+import org.exoplatform.platform.organization.integration.NewGroupListener;
+import org.exoplatform.platform.organization.integration.NewMembershipListener;
+import org.exoplatform.platform.organization.integration.NewProfileListener;
+import org.exoplatform.platform.organization.integration.NewUserListener;
+import org.exoplatform.platform.organization.integration.OrganizationIntegrationService;
+import org.exoplatform.platform.organization.integration.Util;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
@@ -112,6 +112,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).startRequest(container);
       }
+      @SuppressWarnings("unchecked")
       List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
       Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
       Collections.reverse(groups);
@@ -120,9 +121,15 @@ public class TestOrganizationIntegration extends BasicTestCase {
         organizationService.getGroupHandler().removeGroup(group, true);
       }
 
-      List<User> users = new ArrayList<User>(organizationService.getUserHandler().getUserPageList(100).getPage(1));
-      for (User user : users) {
-        organizationService.getUserHandler().removeUser(user.getUserName(), true);
+      ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+      int i = 0;
+      while (i <= usersListAccess.getSize()) {
+        int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+        User[] users = usersListAccess.load(i, length);
+        for (User user : users) {
+          organizationService.getUserHandler().removeUser(user.getUserName(), true);
+        }
+        i += 10;
       }
 
       if (organizationService instanceof ComponentRequestLifecycle) {
@@ -181,7 +188,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
       assertEquals(creationAssertionValue, Util.hasUserFolder(session, username));
       assertEquals(creationAssertionValue, Util.hasProfileFolder(session, username));
 
-      Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
+      Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(username);
       if (creationAssertionValue) {// Related groups has to be
                                    // integrated/added, but when deleting
                                    // user, the group could still exists
@@ -190,6 +197,7 @@ public class TestOrganizationIntegration extends BasicTestCase {
           assertEquals(creationAssertionValue, Util.hasMembershipFolder(session, (Membership) objectMembership));
         }
 
+        @SuppressWarnings("unchecked")
         List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().findGroupsOfUser(username));
         Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
         for (Group group : groups) {
@@ -215,19 +223,23 @@ public class TestOrganizationIntegration extends BasicTestCase {
       if (organizationService instanceof ComponentRequestLifecycle) {
         ((ComponentRequestLifecycle) organizationService).startRequest(container);
       }
-      PageList<User> users = organizationService.getUserHandler().getUserPageList(10);
-      for (int i = 1; i <= users.getAvailablePage(); i++) {
-        List<User> tmpUsers = users.getPage(i);
-        for (User user : tmpUsers) {
+      ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
+      int i = 0;
+      while (i <= usersListAccess.getSize()) {
+        int length = i + 10 <= usersListAccess.getSize() ? 10 : usersListAccess.getSize() - i;
+        User[] users = usersListAccess.load(i, length);
+        for (User user : users) {
           assertEquals(creationAssertionValue, Util.hasUserFolder(session, user.getUserName()));
           UserProfile profile = organizationService.getUserProfileHandler().findUserProfileByName(user.getUserName());
           assertEquals(creationAssertionValue, Util.hasProfileFolder(session, profile.getUserName()));
-          Collection memberships = organizationService.getMembershipHandler().findMembershipsByUser(user.getUserName());
+          Collection<?> memberships = organizationService.getMembershipHandler().findMembershipsByUser(user.getUserName());
           for (Object objectMembership : memberships) {
             assertEquals(creationAssertionValue, Util.hasMembershipFolder(session, (Membership) objectMembership));
           }
         }
+        i += 10;
       }
+      @SuppressWarnings("unchecked")
       List<Group> groups = new ArrayList<Group>(organizationService.getGroupHandler().getAllGroups());
       Collections.sort(groups, OrganizationIntegrationService.GROUP_COMPARATOR);
       for (Group group : groups) {

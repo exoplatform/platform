@@ -78,10 +78,36 @@
 										</field>
 									</object>
 								</value>
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$MembershipType">
+										<field name="type">
+											<string>dataMT</string>
+										</field>
+										<field name="description">
+											<string>data injector Membership Type</string>
+										</field>
+									</object>
+								</value>
 							</collection>
 						</field>
 						<field name="group">
 							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+										<field name="name">
+											<string>dataGroup</string>
+										</field>
+										<field name="parentId">
+											<string></string>
+										</field>
+										<field name="description">
+											<string>the /dataGroup group</string>
+										</field>
+										<field name="label">
+											<string>dataGroup</string>
+										</field>
+									</object>
+								</value>
 								<value>
 									<object type="org.exoplatform.services.organization.OrganizationConfig$Group">
 										<field name="name">
@@ -342,6 +368,50 @@
 						</field>
 						<field name="user">
 							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$User">
+										<field name="userName">
+											<string>dataUser1</string>
+										</field>
+										<field name="password">
+											<string>gtn</string>
+										</field>
+										<field name="firstName">
+											<string>dataUser1</string>
+										</field>
+										<field name="lastName">
+											<string>dataUser1</string>
+										</field>
+										<field name="email">
+											<string>dataUser1@localhost</string>
+										</field>
+										<field name="groups">
+											<string>dataMT:/dataGroup,member:/platform/users, member:/organization/management/executive-board</string>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$User">
+										<field name="userName">
+											<string>dataUser2</string>
+										</field>
+										<field name="password">
+											<string>gtn</string>
+										</field>
+										<field name="firstName">
+											<string>dataUser2</string>
+										</field>
+										<field name="lastName">
+											<string>dataUser2</string>
+										</field>
+										<field name="email">
+											<string>dataUser2@localhost</string>
+										</field>
+										<field name="groups">
+											<string>dataMT:/dataGroup,member:/platform/users, member:/organization/management/executive-board</string>
+										</field>
+									</object>
+								</value>
 								<value>
 									<object type="org.exoplatform.services.organization.OrganizationConfig$User">
 										<field name="userName">

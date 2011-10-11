@@ -37,7 +37,7 @@ In case you want to disable groups synchronization at start-up, and proceed manu
 
 {code:xml}
 <component>
-  <type>org.exoplatform.platform.component.organization.OrganizationIntegrationService</type>
+  <type>org.exoplatform.platform.organization.integration.OrganizationIntegrationService</type>
   <init-params>
     ...
     <value-param>
@@ -86,7 +86,7 @@ You can select the periodic integration of the whole _organizational elements_ w
 				<description>Invoke initializer periodically</description>
 				<property name="jobName" value="OrgInitializerCronJob"/>
 				<property name="groupName" value="group"/>
-				<property name="job" value="org.exoplatform.platform.component.organization.OrganizationIntegrationJob"/>
+				<property name="job" value="org.exoplatform.platform.organization.integration.OrganizationIntegrationJob"/>
 				<property name="expression" value="0 45 23 * * ? *"/>
 			</properties-param>
 		</init-params>
