@@ -80,6 +80,10 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
       Collection<Group> groups = groupHandler.findGroups(spaces);
 
       SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+      if (groups == null || groups.isEmpty()) {
+        LOG.info("No space was found, no upgrade operation will be done.");
+        return;
+      }
       for (Group group : groups) {
         LOG.info("Proceed Upgrade '" + group.getId() + "' Space.");
 
