@@ -19,20 +19,20 @@
       $(function(){
       
         function addBookmark(id, name, link) {
-          var icon = "<div class='ArrowIcon'><img class='listIcon off CustomImage' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowRight.gif' ></img></div>";
+          var icon = "<div class='ArrowIcon'><img class='listIcon off CustomImage' src='/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif' ></img></div>";
           var item = "<a id='bookmark" + id + "' href='" + link + "' target='_parent'>" + name + "</a>";
           var form = "<div class='Form' style='display:none;'> \
                         <div class='Label ClearFix'><input type='text' class='EditFormName'></input></div> \
-                        <div class='Label ClearFix'><input type='text' class='EditFormLink'></input> \
-                          <a class='Button EditFormOK' href='#'><img alt='' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/Ok.gif'></img></a> \
-                          <a class='Button EditFormDelete' href='#'><img alt='' src='/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/Del.gif'></img></a> \
+                        <div class='Label ClearFix LabelBelow'><input type='text' class='EditFormLink'></input> \
+                          <a class='Button EditFormOK' href='#'><img alt='' src='/exo-gadget-resources/skin/exo-gadget/images/Ok.gif'></img></a> \
+                          <a class='Button EditFormDelete' href='#'><img alt='' src='/exo-gadget-resources/skin/exo-gadget/images/Del.gif'></img></a> \
                         </div> \
                       </div>";
           $("#BookmarkList").append("<li>" + icon + item + form + "</li>");
         }
 
-        var imageSource = "/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowRight.gif";
-        var imageSource2 = "/rest/private/jcr/repository/portal-system/production/app:gadgets/app:Bookmark/app:data/app:resources/images/ArrowDown.gif";
+        var imageSource = "/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif";
+        var imageSource2 = "/exo-gadget-resources/skin/exo-gadget/images/ArrowDown.gif";
         var prefs = new gadgets.Prefs();
 
         $.getJSON("/rest/bookmarks/get", function(bookmarks){
@@ -65,17 +65,15 @@
         
 
         $("#customize").live("click", function(){
-          var customize = $("#customize").html();
-          var msgCustomize = gadgets.Prefs().getMsg("customize");
-          var msgSave = gadgets.Prefs().getMsg("save");
-          if (customize == msgCustomize) {
-            $("#customize").html(msgSave);
-            changeToEditMode();  
-          }
-          else {
-            $("#customize").html(msgCustomize);
-            changeToViewMode();    
-          }
+      
+          if ($(this).hasClass('on')) {
+            $(this).removeClass('on').addClass('off').attr({src:"/exo-gadget-resources/skin/exo-gadget/images/Save.png"});
+            changeToEditMode();
+          } else if ($(this).hasClass('off')) {
+            $(this).removeClass('off').addClass('on').attr({src:"/exo-gadget-resources/skin/exo-gadget/images/settings.png"});
+            changeToViewMode();
+          }          
+          
           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
         });
 
@@ -185,7 +183,9 @@
   <body id="content">
     <div class="UIGadgetThemes">
       <div class="TitGad ClearFix">
-        <a id="customize" style="float:right;">__MSG_customize__</a>
+        <div style="float:right; display:block; margin:3px 9px;">
+                <img id="customize" class='on' src='/exo-gadget-resources/skin/exo-gadget/images/settings.png' ></img>
+        </div>
         <div class="ContTit" style="float:left;">__MSG_title__</div>
       </div>
       <br/>

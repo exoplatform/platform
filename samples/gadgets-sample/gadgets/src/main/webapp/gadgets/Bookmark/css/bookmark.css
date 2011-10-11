@@ -30,9 +30,11 @@
     
     .ContBookmark .ArrowIcon img {width: 9px; height: 9px;}
     
-    .ContBookmark .Form {margin-left: 15px;}
+    .ContBookmark .Form {margin-left: 14px;}
     
     .ContBookmark .Label {padding: 5px 0px;}
+    
+    .ContBookmark .LabelBelow {margin-left: 4.5px;}
     
     .ContBookmark input {
       border: 1px solid #ccc;
