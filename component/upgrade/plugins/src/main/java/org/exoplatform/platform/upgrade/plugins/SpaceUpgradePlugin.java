@@ -50,8 +50,8 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
 
   private static final Log LOG = ExoLogger.getLogger(SpaceUpgradePlugin.class);
 
-  public SpaceUpgradePlugin(SpaceCustomizationService spaceCustomizationService,
-      OrganizationService organizationService, SpaceStorage spaceStorage, InitParams initParams) {
+  public SpaceUpgradePlugin(SpaceCustomizationService spaceCustomizationService, OrganizationService organizationService,
+      SpaceStorage spaceStorage, InitParams initParams) {
     super(initParams);
     this.service = organizationService;
     this.spaceStorage = spaceStorage;
@@ -81,13 +81,15 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
 
       SessionProvider sessionProvider = SessionProvider.createSystemProvider();
       for (Group group : groups) {
+        LOG.info("Proceed Upgrade '" + group.getId() + "' Space.");
+
         Space space = spaceStorage.getSpaceByGroupId(group.getId());
         spaceCustomizationService.createSpaceHomePage(space.getPrettyName(), group.getId(), welcomeSCVCustomPreferences);
         spaceCustomizationService.deployContentToSpaceDrive(sessionProvider, group.getId(), deploymentDescriptor);
       }
 
     } catch (Exception e) {
-      LOG.info("Error during spaces migration : " + e.getMessage(), e);
+      LOG.error("Error during spaces migration : " + e.getMessage(), e);
     } finally {
       RequestLifeCycle.end();
     }

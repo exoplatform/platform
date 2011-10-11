@@ -106,7 +106,10 @@ public class SpaceCustomizationService {
    */
   public void deployContentToSpaceDrive(SessionProvider sessionProvider, String spaceId, DeploymentDescriptor deploymentDescriptor)
       throws Exception {
+
     String sourcePath = deploymentDescriptor.getSourcePath();
+    logger.info("Deploying '" + sourcePath + "'content to '" + spaceId + "' Space JCR location");
+
     // sourcePath should start with: war:/, jar:/, classpath:/, file:/
     Boolean cleanupPublication = deploymentDescriptor.getCleanupPublication();
 
@@ -170,9 +173,9 @@ public class SpaceCustomizationService {
         /**
          * This code allows to cleanup the publication lifecycle in the
          * target folder after importing the data. By using this, the
-         * publication live revision property will be re-initialized and the
-         * content will be set as published directly. Thus, the content will
-         * be visible in front side.
+         * publication live revision property will be re-initialized and
+         * the content will be set as published directly. Thus, the content
+         * will be visible in front side.
          */
         if (extendedNode.hasProperty("publication:liveRevision") && extendedNode.hasProperty("publication:currentState")) {
           logger.info("\"" + extendedNode.getName() + "\" publication lifecycle has been cleaned up");
@@ -190,12 +193,12 @@ public class SpaceCustomizationService {
   public void createSpaceHomePage(String spacePrettyName, String spaceGroupId, ExoProperties welcomeSCVCustomPreferences) {
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
+      logger.info("Updating '" + spaceGroupId + "' Space Home Page");
       // creates the new home page
-      Page oldSpaceHomePage = null;
-      // needs to wait till the dataStorageService can get the target page
-      while (oldSpaceHomePage == null) {
-        oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
-            + SPACE_HOME_PAGE_PORTLET_NAME);
+      Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
+          + SPACE_HOME_PAGE_PORTLET_NAME);
+      if (oldSpaceHomePage == null) {
+        throw new IllegalStateException(spaceGroupId + " Home page couldn't be found");
       }
       // creates the customized home page for the space and set few fields
       // with values from the old home page
