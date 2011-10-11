@@ -95,6 +95,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.extension.webapp</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <type>war</type>
 	  <scope>provided</scope>
     </dependency>
     <dependency>
