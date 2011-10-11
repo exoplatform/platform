@@ -1151,13 +1151,6 @@
     </dependency><!-- 1.1.0-beta2-->
 
     <dependency>
-      <groupId>org.chromattic</groupId>
-      <artifactId>chromattic.ext</artifactId>
-      <version>${org.chromattic.version}</version>
-      <type>jar</type>
-    </dependency><!-- 1.1.0-beta2-->
-
-    <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.web.eXoResources</artifactId>
       <version>${org.exoplatform.portal.version}</version>
@@ -1583,7 +1576,7 @@
     <!-- needed since switch to portal 3.2 -->
     <dependency>
       <groupId>org.gatein.wci</groupId>
-      <artifactId>wci-tomcat</artifactId>
+      <artifactId>wci-tomcat6</artifactId>
       <version>${org.gatein.wci.version}</version>
       <type>jar</type>
     </dependency><!-- 2.0.2-GA-->
