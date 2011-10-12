@@ -64,6 +64,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
       jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
       jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
       jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
+      jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
       jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
       if (logger.isDebugEnabled()) {
         logger.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
@@ -98,6 +99,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String platformVersion;
     private String platformBuildNumber;
     private String platformRevision;
+    private String platformEdition;
     private String isMobileCompliant;
 
     public JsonPlatformInfo() {}
@@ -133,6 +135,15 @@ public class PlatformInformationRESTService implements ResourceContainer {
     public void setPlatformRevision(String platformRevision) {
       this.platformRevision = platformRevision;
     }
+
+    public String getPlatformEdition() {
+      return this.platformEdition;
+    }
+
+    public void setPlatformEdition(String platformEdition) {
+      this.platformEdition = platformEdition;
+    }
+
   }
 
 }
