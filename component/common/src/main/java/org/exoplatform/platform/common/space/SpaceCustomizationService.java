@@ -135,7 +135,14 @@ public class SpaceCustomizationService {
     List<String> initialChildNodesNames = new ArrayList<String>();
     while (nodeIterator.hasNext()) {
       Node node = nodeIterator.nextNode();
-      initialChildNodesUUID.add(node.getUUID());
+      String uuid = null;
+      try {
+        uuid = node.getUUID();
+      } catch (Exception exception) {
+        // node is not referenceable
+        continue;
+      }
+      initialChildNodesUUID.add(uuid);
       initialChildNodesNames.add(node.getName());
     }
 
@@ -146,8 +153,15 @@ public class SpaceCustomizationService {
     List<ExtendedNode> newChildNodesUUID = new ArrayList<ExtendedNode>();
     while (nodeIterator.hasNext()) {
       ExtendedNode childNode = (ExtendedNode) nodeIterator.nextNode();
+      String uuid = null;
+      try {
+        uuid = childNode.getUUID();
+      } catch (Exception exception) {
+        // node is not referenceable
+        continue;
+      }
       // determines wether this is a new node or not
-      if (!initialChildNodesUUID.contains(childNode.getUUID())) {
+      if (!initialChildNodesUUID.contains(uuid)) {
         if (initialChildNodesNames.contains(childNode.getName())) {
           logger.info(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
           childNode.remove();
