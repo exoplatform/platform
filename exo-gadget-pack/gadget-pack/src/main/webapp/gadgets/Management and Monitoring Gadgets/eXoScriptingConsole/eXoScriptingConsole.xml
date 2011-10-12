@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="eXo Scripting Console"  
+  description="This console allows scripting eXo API interactively"
+  author="Vu Minh Tung, Do Thanh Tung, Nguyen Thanh Trung" author_affiliation="eXo Platform"
+  author_email="tungvm@exoplatform.com, tungdt@exoplatform.com, trungnt@exoplatform.com"
+  thumbnail="skin/images/console_icon.png" >
+  <Require feature="dynamic-height"/> 
+  <Require feature="setprefs"/>
+  <Locale messages="locale/default.xml" />
+	<Locale lang="fr" messages="locale/fr.xml" />
+</ModulePrefs>
+<Content type="html">
+<![CDATA[   
+  <head>
+    <link href="skin/colorpicker.css" rel="stylesheet" type="text/css" />   
+    <link href="skin/style.css" rel="stylesheet" type="text/css" />    
+    <link href="skin/jquery.terminal.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="script/jquery-1.5.min.js"></script>
+    <script type="text/javascript" src="script/jquery.terminal-0.3.3.min.js"></script>    
+    <script type="text/javascript" src="script/jquery.mousewheel-min.js"></script>
+    
+    <script type="text/javascript" src="script/colorpicker.js"></script>
+    <script type="text/javascript" src="script/eye.js"></script>
+    <script type="text/javascript" src="script/utils.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var sessionId = new Date().getTime();
+        var prefs = new gadgets.Prefs();
+        var defaultFontColor = "#00FFFF";
+        var defaultFontSize = "12px";
+        var $term;
+        $("#btnEditor").css("color", "#AAA");
+        
+        $.getJSON("/rest/console-manager/languages", function(langs){
+          $.each(langs, function(i, lang){
+            $("#langSelect").append("<option value='" + lang + "'>" + lang + "</option>");
+          });
+          $("#langSelect option[value='" + (prefs.getString("language") || "Groovy") + "']").attr("selected", "selected");
+
+          $("#langSelect").live("change", function(){
+            $.getJSON('/rest/console-manager/run/' + sessionId + "~" + (prefs.getString("language") || "Groovy") + '/quit', null);
+            prefs.set("language", $("#langSelect option:selected").val());
+            if($term){
+              $term.set_prompt("[[b;#FFF;#000000]" + (prefs.getString("language") || "Groovy") + ">]");
+              $term.clear();
+            }
+          });
+          
+          $('#ContainerConsole').terminal(
+            function(command, term) {
+             if(!$term){
+               $term = term;
+               $term.set_prompt("[[b;#FFF;#000000]" + (prefs.getString("language") || "Groovy") + ">]");
+               $("#btnEditor").css("color", "white");
+             }
+             command = command.trim();
+             if(command == 'help'){
+              term.echo('\nThis console allows scripting eXo API interactively. It can access eXo components\n' +
+                        'deployed in portal container and can be used as a tool for drafting code, testing\n' +
+                        'or exploring eXo API/components/data interactively on a live system. \n\n' +     
+                        '[[b;#FFF;#000000]Shotcut keys:]\n' +
+                        ' Up/Down                                 Command history\n' +
+                        ' Ctrl-C/Ctrl-V                           Copy/Paste\n' +
+                        ' Ctrl-K                                  Remove the text after the cursor\n' +
+                        ' Esc                                     Clear command line\n' +
+                        ' Tab                                     Hide script editor\n\n' +
+                        '[[b;#FFF;#000000]Console commands:]\n' +
+                        ' clear                                   Clear console screen\n' +
+                        ' edit                                    Show script editor\n' +
+                        ' run                                     Execute the script in editor\n' +
+                        ' show variables                          Show defined variables\n' +
+                        ' clear session                           Clear session state\n' +
+                        ' list all sessions *                     List running sessions\n' +
+                        ' remove all sessions *                   Remove all sessions\n' +
+                        ' quit                                    End session\n\n' +
+                        '(*) Commands requires administrator priviledge\n' 
+                        );
+                return false;
+              }
+              
+              if (command == 'edit'){  //pause terminal and show script editor
+                term.disable();
+                $("#ContainerEditor").show();
+                $('#textEditor').focus();
+                return false;
+              }
+
+              if (command == "run"){   //run command in script editor
+                command = $('textarea#textEditor').val();
+              }
+              
+              command = command.replace(/\+/g, "%2B").replace(/\//g, "%2F").replace(/\\/g, "%5C"); // escape '+', '/' and '\' character (URL's special characters)
+              if(command.length == 0) return false;
+              
+              var restURI = '/rest/console-manager/run/' + sessionId + "~" + (prefs.getString("language") || "Groovy") + '/' + encodeURIComponent(command);
+              $.getJSON(restURI, function(data){
+                if(data.outputType =='error'){
+                  term.error('ERROR: ' + data.output);
+                }
+                else{
+                  term.echo(data.output).css('font-size', prefs.getString("fontSize") || defaultFontSize).css('color', prefs.getString("fontColor") || defaultFontColor);
+                }
+              }); //$.getJSON(restURI, function(data){
+              
+              if (command == "quit"){
+                term.clear();
+              }
+            }, //function(command, term) {
+            {
+              greetings: "[[b;#FFF;#000000]eXo Scripting Console]\nType [[b;#FFF;#000000]'help'] for help.\n----------------------------",
+              name: "scripting_console",
+              height: Math.max($(document).height()*0.6, 350) - 50,
+              prompt: "[[b;#FFF;#000000]" + (prefs.getString("language") || "Groovy") + ">]"
+            }
+          ); //$('#ContainerConsole').terminal(
+                        
+      
+          /*show popup set font*/
+          $('.FontControl a').click(function(){
+            $(".FontControl option[value='" + (prefs.getString("fontSize") || defaultFontSize) + "']").attr("selected", "selected");
+            $('.FontControl .dialogFonts').toggle();
+          
+            $('.FontControl .button').click(function(){
+              prefs.set("fontSize", $('#fontSize').val());
+              $('.FontControl .dialogFonts').hide();
+            });
+        
+            $('.FontControl .cancel').click(function(){
+              $('.FontControl .dialogFonts').hide();
+            });
+          });
+            
+          /*show colorpicker*/
+          $('.ColorControl').ColorPicker({
+            color: (prefs.getString("fontColor") || defaultFontColor),
+            onShow: function (colpkr) {
+              var $fontDialog = $('.FontControl .dialogFonts');
+              if($fontDialog.is(":visible")) $fontDialog.hide();
+              $(colpkr).show();
+              return false;
+            },
+            onHide: function (colpkr) {
+              $(colpkr).hide();
+              return false;
+            },
+            onSubmit: function (hsb, hex, rgb) {
+              prefs.set("fontColor", '#' + hex);
+              $(".colorpicker").hide();
+            }
+          });
+        
+          //if close button is clicked
+          $('.Boxwindow .close').click(function (e) {
+              //Cancel the link behavior
+              e.preventDefault();          
+              $('#mask').hide();
+              $('.Boxwindow').hide();
+          });
+        
+          $("#btnEditor").live("click", function(e){
+            if($term){
+              if(!$("#ContainerEditor").hasClass("enabled")) {
+                $("#ContainerEditor").addClass("enabled");
+                if($term) $term.disable();
+                $("#ContainerEditor").show();
+                $('#textEditor').focus();
+              } else {
+                $("#ContainerEditor").removeClass("enabled");
+                $("#ContainerEditor").hide();
+                $('#ContainerConsole').click();
+              }
+              return false;
+            }
+          });  
+          
+          //hide editor    
+          $('#textEditor').focusout(function() {
+            $("#ContainerEditor").hide();
+            $('#ContainerConsole').click();
+          });
+          
+          gadgets.window.adjustHeight(Math.max($(document).height()*0.6, 350));
+        }); //$.getJSON("/rest/console-manager/languages", function(langs){
+      }); // $(document).ready(function(){              
+    </script>
+  </head>
+  <body>
+    <div id="gadgetContent" class="UIGadgetConsole">
+      <ul class="ToolBarMenu">
+        <li><a href="#">__MSG_language__</a>&nbsp;<select id="langSelect"></select></li>    
+        <li class="FontControl"><a class="item FontItem" href="#" >__MSG_font__</a>
+          <!-- Start of  popup font Dialog -->  
+          <div class="dialogFonts">      
+            <label>__MSG_fontSize__ : </label>
+            <select class="text" id= "fontSize" >
+              <option value="10px">10px</option>
+              <option value="12px">12px</option>
+              <option value="14px">14px</option>
+              <option value="16px">16px</option>
+              <option value="18px">18px</option>
+            </select>
+            <input type="button" value="__MSG_ok__" class="button" />   
+            <input type="button" value="__MSG_cancel__" class="cancel" />    
+          </div>
+          <!-- End of Login Dialog -->  
+        </li>
+        <li class="ColorControl"><a class="item ColorItem" >__MSG_color__</a></li>
+        <li class="BtnControl"><a id="btnEditor" class="item ControlItem" href="#" >__MSG_scriptEditor__</a></li>
+      </ul>
+
+      <div id="dialogColor" class="Boxwindow">
+        <p>Simple Modal Window </p>
+        <a href="#"class="close"/>x</a>
+      </div>
+      
+      <div id="ContainerEditor" class="ContainerEditor" style="display:none">
+        <form name="myform"> 
+          <textarea id="textEditor" cols="60" rows="5" style="width: 100%; height: 70%" ></textarea>
+        </form>
+      </div>
+         
+      <div id="ContainerConsole" class="ContainerConsole">
+      </div>
+      
+    </div>  
+  </body>
+]]></Content></Module>

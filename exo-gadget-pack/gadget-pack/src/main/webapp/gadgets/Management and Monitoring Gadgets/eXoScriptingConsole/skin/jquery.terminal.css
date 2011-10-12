@@ -24,7 +24,7 @@
 }
 .terminal, .terminal .terminal-output, .terminal .terminal-output div, .terminal .terminal-output div div, .cmd, .terminal .cmd span, .terminal .cmd div {
     font-family: monospace;
-    color: #aaa;
+    color: #ccc;
     background-color: #000;
     font-size: 12px;
 }
@@ -33,15 +33,15 @@
     float: left;
 }
 .terminal div::selection, .terminal span::selection {
-    background-color: #aaa;
+    background-color: #ccc;
     color: #000;
 }
 .terminal .cmd span.inverted {
-    background-color: #aaa;
+    background-color: #ccc;
     color: #000;
 }
 .terminal div::-moz-selection, .terminal span::-moz-selection {
-    background-color: #aaa;
+    background-color: #ccc;
     color: #000;
 }
 

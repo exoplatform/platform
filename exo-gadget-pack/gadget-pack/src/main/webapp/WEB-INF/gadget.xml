@@ -46,8 +46,8 @@
     <path>/gadgets/Management and Monitoring Gadgets/ServicesManagement/ServicesManagement.xml</path>
   </gadget>
 
-  <gadget name="GroovyConsole">
-    <path>/gadgets/Management and Monitoring Gadgets/GroovyConsole/gadget/console.xml</path>
+  <gadget name="eXoScriptingConsole">
+    <path>/gadgets/Management and Monitoring Gadgets/eXoScriptingConsole/eXoScriptingConsole.xml</path>
   </gadget>
     
   <gadget name="CalendarGadget">

@@ -50,6 +50,11 @@
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
   </component> 
 
+  <!-- EXO SCRIPTING CONSOLE -->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.ExoScriptingConsole.ExoScriptingConsoleRestService</type>
+  </component>
+
   <!-- GROOVY REST SERVICES -->
   <component>
     <type>org.exoplatform.platform.gadget.services.GroovyScript2RestLoader.GroovyScript2RestLoaderExt</type>
@@ -94,12 +99,6 @@
               <name>Suggestion.groovy</name>
               <property name="autoload" value="true" />
               <property name="path" value="jar:/groovy/FriendSuggestion/Suggestion.groovy" />
-            </properties-param>
-        
-            <properties-param>
-              <name>GroovyConsoleRestService.groovy</name>
-              <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/GroovyConsole/GroovyConsoleRestService.groovy" />
             </properties-param>
         
           </init-params>
