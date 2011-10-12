@@ -74,11 +74,11 @@ public class DataInjectorService implements Startable {
   private ConfigurationManager configurationManager;
   private List<DataPlugin> dataPlugins = new ArrayList<DataPlugin>();
 
-  public DataInjectorService(OrganizationService organizationService, ConfigurationManager configurationManager,
-      PicketLinkIDMService picketLinkIDMService) {
+  public DataInjectorService(OrganizationService organizationService, ConfigurationManager configurationManager) {
     this.organizationService = organizationService;
-    this.picketLinkIDMService = picketLinkIDMService;
     this.configurationManager = configurationManager;
+    this.picketLinkIDMService = (PicketLinkIDMService) PortalContainer.getInstance().getComponentInstanceOfType(
+        PicketLinkIDMService.class);
   }
 
   @Override
