@@ -74,20 +74,26 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
       GroupHandler groupHandler = service.getGroupHandler();
-      Group spaces = service.getGroupHandler().findGroupById("/spaces");
+      Group spacesParentGroup = service.getGroupHandler().findGroupById("/spaces");
 
       @SuppressWarnings("unchecked")
-      Collection<Group> groups = groupHandler.findGroups(spaces);
+      Collection<Group> spacesGroupsList = groupHandler.findGroups(spacesParentGroup);
 
       SessionProvider sessionProvider = SessionProvider.createSystemProvider();
-      if (groups == null || groups.isEmpty()) {
+      if (spacesGroupsList == null || spacesGroupsList.isEmpty()) {
         LOG.info("No space was found, no upgrade operation will be done.");
         return;
       }
-      for (Group group : groups) {
+      for (Group group : spacesGroupsList) {
         LOG.info("Proceed Upgrade '" + group.getId() + "' Space.");
 
         Space space = spaceStorage.getSpaceByGroupId(group.getId());
+        if (space == null) {
+          LOG.warn("Cannot find space for group: " + group.getId());
+          continue;
+        }
+        LOG.info("Proceed space migration: " + group.getId());
+
         spaceCustomizationService.createSpaceHomePage(space.getPrettyName(), group.getId(), welcomeSCVCustomPreferences);
         spaceCustomizationService.deployContentToSpaceDrive(sessionProvider, group.getId(), deploymentDescriptor);
       }
@@ -97,7 +103,6 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
     } finally {
       RequestLifeCycle.end();
     }
-
   }
 
   @Override
