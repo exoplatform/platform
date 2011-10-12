@@ -11,7 +11,7 @@ This guide is a complete reference for customization points, and available APIs,
    <!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bookinfo.xml"/-->
 
 <!-- GateIn and JCR -->
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../docbook/en-US/master.xml"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.jcr/docbook/en-US/master.xml"/>
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.gatein.doc/master.xml"/>
 <!-- WCM -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../../../org.exoplatform.ecms/exo-ecms-docs-refguide.xml"/>

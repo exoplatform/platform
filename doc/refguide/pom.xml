@@ -61,7 +61,7 @@
                           <version>${org.exoplatform.jcr.version}</version>
                           <type>jar</type>
                           <classifier>sources</classifier>
-                          <outputDirectory>target/</outputDirectory>
+                          <outputDirectory>target/org.exoplatform.jcr</outputDirectory>
                           <includes>**</includes>
                         </artifactItem>
                     <!-- gatein -->
@@ -69,8 +69,9 @@
                           <groupId>org.gatein.doc</groupId>
                           <artifactId>gatein-reference-guide-en</artifactId>
                           <version>${org.exoplatform.portal.version}</version>
-                          <type>zip</type>
-                          <outputDirectory>target/</outputDirectory>
+                          <type>jar</type>
+                          <classifier>sources</classifier>
+                          <outputDirectory>target/org.gatein.doc</outputDirectory>
                           <includes>**</includes>
                         </artifactItem>
                     <!-- ecms -->
@@ -188,7 +189,7 @@
                       <directory>target/org.exoplatform.ks/images</directory>
                     </resource>
                     <resource>
-                      <directory>target/resources/images</directory>
+                      <directory>target/org.exoplatform.jcr/resources/images</directory>
                     </resource>
                     <resource>
                       <directory>target/org.gatein.doc/images</directory>
