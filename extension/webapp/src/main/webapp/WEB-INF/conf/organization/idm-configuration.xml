@@ -20,10 +20,9 @@
 
 -->
 
-<configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+               xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
 
   <component>
@@ -97,7 +96,7 @@
       
       <value-param profiles="cluster">
         <name>apiCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache-cluster.xml</value>
+        <value>war:/conf/organization/picketlink-idm/jboss-cache-api-cluster.xml</value>
       </value-param>
 
       <value-param>
@@ -107,8 +106,24 @@
 
       <value-param profiles="cluster">
         <name>storeCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache-cluster.xml</value>
+        <value>war:/conf/organization/picketlink-idm/jboss-cache-store-cluster.xml</value>
       </value-param>
+
+      <value-param profiles="cluster">
+        <name>jgroups-configuration</name>
+        <value>${gatein.jcr.jgroups.config}</value>
+      </value-param>
+
+      <value-param profiles="cluster">
+        <name>jgroups-multiplexer-stack</name>
+        <value>true</value>
+      </value-param>
+
+      <value-param>
+        <name>cacheExpiration</name>
+        <value>1800000</value>
+      </value-param>
+
 
     </init-params>
   </component>
@@ -231,7 +246,7 @@
       </object-param>
     </init-params>
   </component>
-  
+
 <!-- Datasource binding removed in Platform -->  
 <!--
   <external-component-plugins>
@@ -266,6 +281,7 @@
     </component-plugin>
   </external-component-plugins>
 -->
+
   <external-component-plugins>
     <target-component>org.exoplatform.services.database.HibernateService</target-component>
     <component-plugin>
