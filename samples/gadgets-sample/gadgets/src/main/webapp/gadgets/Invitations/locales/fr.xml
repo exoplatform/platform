@@ -34,11 +34,11 @@
     No new connexion request ...
   </msg>
   <msg name="no_new_space">
-    No new space ...
+    You are not a member of any space ...
   </msg>
   <msg name="nothing">
     Nothing new for you ...
-  </msg>members
+  </msg>
   <msg name="members">
     members
   </msg>
