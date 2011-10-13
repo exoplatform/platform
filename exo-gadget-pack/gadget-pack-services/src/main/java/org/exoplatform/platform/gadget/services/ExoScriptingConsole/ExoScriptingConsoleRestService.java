@@ -72,7 +72,7 @@ public class ExoScriptingConsoleRestService implements ResourceContainer {
         	int i=0;
 			for(Map.Entry<String, ExoScriptingConsole> entry:_consoles.entrySet()){
 				String[] sessionInfo = entry.getKey().split(DELIMITER);
-				builder.append(" " + (i++) + ". " + sessionInfo[0] + " @ " + new Date(Long.parseLong(sessionInfo[1])) + " (" + sessionInfo[2] + ")\n");
+				builder.append(" " + (++i) + ". " + sessionInfo[0] + " @ " + new Date(Long.parseLong(sessionInfo[1])) + " (" + sessionInfo[2] + ")\n");
 			}
         	return builder.toString();
         } else if(script.equals("remove all sessions")){
