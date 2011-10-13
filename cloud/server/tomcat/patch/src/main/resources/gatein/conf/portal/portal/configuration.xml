@@ -37,7 +37,7 @@
         <name>working-conf</name>
         <description>working-conf</description>
         <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
-        <property name="source-name" value="config_as" />
+        <property name="source-name" value="jcr_conf" />
         <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
       </properties-param>
     </init-params>
@@ -132,7 +132,7 @@
       <init-params>
         <value-param>
           <name>bind-name</name>
-          <value>config_as</value>
+          <value>jcr_conf</value>
         </value-param>
         <value-param>
           <name>class-name</name>
@@ -146,7 +146,7 @@
           <name>ref-addresses</name>
           <description>ref-addresses</description>
             <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-            <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/config_as1" />
+            <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/jcr_conf_serv1" />
             <property name="username" value="sa" />
             <property name="password" value="" />
         </properties-param>
@@ -197,7 +197,7 @@
       <init-params>
         <value-param>
           <name>bind-name</name>
-          <value>config_as</value>
+          <value>jcr_conf</value>
         </value-param>
         <value-param>
           <name>class-name</name>
@@ -211,7 +211,7 @@
           <name>ref-addresses</name>
           <description>ref-addresses</description>
             <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://peter.exoplatform.com.ua:3306/config_as1"/>
+            <property name="url" value="jdbc:mysql://peter.exoplatform.com.ua:3306/jcr_conf_serv1"/>
             <property name="username" value="clouduser"/>
             <property name="password" value="cloud12321"/>
             <property name="maxActive" value="50" />

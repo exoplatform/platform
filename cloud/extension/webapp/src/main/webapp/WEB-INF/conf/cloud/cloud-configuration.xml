@@ -130,7 +130,7 @@
     </init-params>
   </component>
 
-   <!-- component>
+  <!-- component>
       <type>org.exoplatform.cloudmanagement.multitenancy.ChangeRootPasswordPlugin</type>
       <description>Change root password</description>
       <init-params>
@@ -139,7 +139,7 @@
             <value>50</value>
          </value-param>
       </init-params>
-   </component -->
+  </component -->
 
   <!-- Plugins for TenantCreationService END -->
 
@@ -152,67 +152,18 @@
         <name>temaplate-mail-invitation</name>
         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-invitation-mail.html</value>
       </value-param>
-      <value-param>                                                                                                                                                                                         
-         <name>template-mail-password-restoring</name>                                                                                                                                                      
-         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-restoring.html</value>                                                                                                                                         
-      </value-param>                                                                                                                                                                                        
-      <value-param>                                                                                                                                                                                         
-         <name>template-mail-password-changing</name>                                                                                                                                                       
-         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-changing.html</value>                                                                                                                                          
-      </value-param>     
+      <value-param>
+         <name>template-mail-password-restoring</name>
+         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-restoring.html</value>
+      </value-param>
+      <value-param>
+         <name>template-mail-password-changing</name>
+         <value>file:///${catalina.home}/${exo.conf.dir.name}/cloud/template-mail-password-changing.html</value>
+      </value-param>
     </init-params>
   </component>
-
-  <!-- HSQL Configuration -->
-  <!-- component>
-    <key>org.exoplatform.services.database.creator.DBCreator</key>
-    <type>org.exoplatform.services.database.creator.DBCreator</type>
-    <init-params>
-      <properties-param>
-        <name>db-connection</name>
-        <description>database connection properties</description>
-        <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-        <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb" />
-        <property name="username" value="sa" />
-        <property name="password" value="" />
-      </properties-param>
-      <properties-param>
-        <name>db-creation</name>
-        <description>database creation properties</description>
-        <property name="scriptPath" value="../${exo.conf.dir.name}/cloud/databases/hsqldb-schema.sql" />
-        <property name="username" value="sa" />
-        <property name="password" value="" />
-      </properties-param>
-    </init-params>
-  </component -->
-
-  <!-- MySQL configuration -->
-  <!-- component>
-     <key>org.exoplatform.services.database.creator.DBCreator</key>
-     <type>org.exoplatform.services.database.creator.DBCreator</type>
-      <init-params>
-        <properties-param>
-           <name>db-connection</name>
-           <description>database connection properties</description>
-           <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-           <property name="url" value="jdbc:mysql://localhost:3306/"/>
-           <property name="username" value="root"/>
-           <property name="password" value="root"/>
-            <property name="maxActive" value="100" />
-            <property name="maxIdle" value="2" />
-            <property name="initialSize" value="5" />
-        </properties-param>
-        <properties-param>
-           <name>db-creation</name>
-           <description>database creation properties</description>
-           <property name="scriptPath" value="../${exo.conf.dir.name}/cloud/databases/mysqldb-schema.sql"/>
-           <property name="username" value="root"/>
-           <property name="password" value="root"/>
-        </properties-param>
-     </init-params>
-  </component -->
-
- <!-- Backup service -->
+  
+  <!-- Backup service -->
   <component>
     <key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
     <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl
@@ -332,80 +283,13 @@
         <value>${tenant.data.dir}/bind-references.xml</value>
       </value-param>
       <value-param>
- 	<name>overload-context-factory</name>
- 	<value>true</value>
+        <name>overload-context-factory</name>
+        <value>true</value>
       </value-param>
     </init-params>
   </component>
 
-  <!-- HSQL Configuration -->
-  <!-- external-component-plugins>
-    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>${tenant.repository.name}</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-          <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-          <property name="url" value="jdbc:hsqldb:file:${tenant.data.dir}/hsqldb/${tenant.repository.name}" />
-          <property name="username" value="sa" />
-          <property name="password" value="" />
-        </properties-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins -->
-
-  <!-- MySQL Configuration -->
-  <!-- external-component-plugins>
-    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>${tenant.repository.name}</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://localhost:3306/${tenant.repository.name}"/>
-            <property name="username" value="root"/>
-            <property name="password" value="root"/>
-            <property name="maxActive" value="100" />
-            <property name="maxIdle" value="2" />
-            <property name="initialSize" value="5" />
-        </properties-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins -->
-
-<external-component-plugins>
+  <external-component-plugins>
     <!-- The full qualified name of the ExtensibleFilter -->
     <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
     <component-plugin>
