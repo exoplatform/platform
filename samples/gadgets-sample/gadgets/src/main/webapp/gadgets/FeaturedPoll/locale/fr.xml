@@ -29,4 +29,5 @@
   <msg name="voter">votants</msg>
   <msg name="total">Total</msg>
   <msg name="discuss">Discutez sur le forum</msg>
+  <msg name="nopoll">Il n'y a aucun vote. Créez un à</msg>    
 </messagebundle>

@@ -1,4 +1,5 @@
 function init() {
+  adjustHeight();
   // Adding eXo Platform container information
   var opts = {};
   opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
@@ -24,12 +25,15 @@ function createURL(data) {
 }
 
 function createPollList(data){
+  var prefs = new gadgets.Prefs();
   var pollIds = data.pollId;
   var pollNames = data.pollName;
+  var len = pollIds.length;
+  var forumURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum";
   if (data.isAdmin == "true") {
     var html = [];
     html.push('<select class="PollList" name="pollname" onchange="changeVote(this);">');
-    for (var i = 0, len = pollIds.length; i < len; i++) {
+    for (var i = 0 ; i < len; i++) {
       html.push('<option value="' + pollIds[i] + '">' + pollNames[i] + '</option>');
     }
     html.push('</select>');
@@ -37,8 +41,15 @@ function createPollList(data){
   }
   var randomPollId  = 0;
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
+
+  if(len == 0){
+	document.getElementById("poll").innerHTML = '<div class="light_message">' + prefs.getMsg('nopoll') + ' <a target="_parent" href="' + forumURL + '">forums</a></div>';
+	return;
+  }
+  
   $.getJSON(url,showPoll);
 }
+
 
 function showPoll(data){
   var options = data.option;
@@ -55,7 +66,7 @@ function showPoll(data){
           var prefs = new gadgets.Prefs();
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
-          html.push('<h4 ><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
+          html.push('<h4><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
         discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
       }
       else{

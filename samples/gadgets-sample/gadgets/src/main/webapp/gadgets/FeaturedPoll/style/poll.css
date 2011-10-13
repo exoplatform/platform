@@ -1,3 +1,9 @@
+.light_message {
+ color: lightgray;
+ font-size: 11px;
+ margin-top: 7px;
+}
+
 .GadCont .Question{
   margin-top: 0px;
   text-decoration: none;

@@ -29,5 +29,6 @@
    <msg name="voter">voters</msg>
    <msg name="total">Total</msg>
    <msg name="discuss">Discuss in forum</msg>
+   <msg name="nopoll">There are no polls. Create one via</msg>
  </messagebundle>
  

@@ -18,11 +18,13 @@
         <![CDATA[   
     <link rel="stylesheet" href="style/poll.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <script type="text/javascript">
-    var MODULE_ID = __MODULE_ID__;
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    var MODULE_ID = __MODULE_ID__;    
+    </script>
+
     <script type="text/javascript" src="script/poll.js"></script>
+    
     <!-- View of the gadget  -->
     <div class="UIGadgetThemes">
       <div class="TitGad ClearFix">
