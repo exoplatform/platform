@@ -41,9 +41,11 @@
 	<li class="UITab NormalToolbarTab">
 		<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
 		<ul class="MenuItemContainer" style="display:none;">
+            <% if(uicomponent.isSpaceManager()) { %>
 			<li class="MenuItem">
 				<a href="<%=uicomponent.event("ChangeEditing")%>" title="" class="ItemIcon $quiEditClass">$quickEditLabel</a>
 			</li>
+            <% } %>
 			<% if(userCouldEditPage){ %>
 			<li class="MenuItem ArrowIcon">
 				<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></a>

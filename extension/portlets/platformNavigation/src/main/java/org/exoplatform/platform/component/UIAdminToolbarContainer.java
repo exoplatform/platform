@@ -36,6 +36,8 @@ import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -71,6 +73,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   private static final String EDIT_NAVIGATION_POPUP_CONTAINER_ID = "UIPopupWindow-UIEditNavigationPopupContainer";
   private static final String PAGE_MANAGEMENT_URI = "administration/pageManagement";
   private String pageManagementLink = null;
+  private SpaceService spaceService = null;
 
   private String userId = null;
   protected UINavigationManagement naviManager;
@@ -83,6 +86,7 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
     addChild(UIPopupContainer.class, null, SEO_TOOLBAR_FORM_POPUP_CONTAINER_ID);
     addChild(UISEOToolbarForm.class, null, null);
+    spaceService = getApplicationComponent(SpaceService.class);
   }
 
   public String getPageManagementLink() {
@@ -117,6 +121,20 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
 
   public boolean hasEditPermissionOnPage() throws Exception {
     return Utils.hasEditPermissionOnPage();
+  }
+
+  public boolean isSpaceManager() throws Exception {
+    if (spaceService != null) {
+      UserNavigation currentUserNavigation = Util.getUIPortal().getSelectedUserNode().getNavigation();
+      if (SiteType.GROUP.equals((currentUserNavigation.getKey().getType()))
+          && currentUserNavigation.getKey().getName().contains("/spaces")) {
+        String remoteUser = getUserId();
+        String spaceId = currentUserNavigation.getKey().getName();
+        Space space = spaceService.getSpaceByGroupId(spaceId);
+        return (space != null && spaceService.hasSettingPermission(space, remoteUser));
+      }
+    }
+    return true;
   }
 
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
