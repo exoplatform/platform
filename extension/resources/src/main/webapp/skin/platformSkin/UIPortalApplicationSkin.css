@@ -184,3 +184,7 @@ a {
 .UIToolbarContainer .UISetupPlatformToolBarPortletTDContainer {
 	float: right;
 }
+
+.UITableColumnContainer .UIPopupWindow .PopupContent {
+    position: inherit;
+}
