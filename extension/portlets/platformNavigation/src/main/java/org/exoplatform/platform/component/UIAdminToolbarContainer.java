@@ -68,7 +68,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIAdminToolbarContainer extends UIPortletApplication {
 
   private static final String SEO_TOOLBAR_FORM_POPUP_CONTAINER_ID = "UISEOToolbarFormPopupContainer";
-  private static final String EDIT_NAVIGATION_POPUP_CONTAINER_ID = "UIEditNavigationPopupContainer";
+  private static final String EDIT_NAVIGATION_POPUP_CONTAINER_ID = "UIPopupWindow-UIEditNavigationPopupContainer";
   private static final String PAGE_MANAGEMENT_URI = "administration/pageManagement";
   private String pageManagementLink = null;
 

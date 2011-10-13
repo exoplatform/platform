@@ -19,16 +19,29 @@
 
 package org.exoplatform.platform.webui.navigation;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.mop.Described;
+import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.Visibility;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.webui.page.UIPageSelector;
@@ -63,20 +76,6 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 import org.exoplatform.webui.form.validator.Validator;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 /**
  * Author : Dang Van Minh, Pham Tuan minhdv81@yahoo.com Jun 14, 2006
@@ -140,7 +139,7 @@ public class UIPageNodeForm extends UIFormTabPane
               .addUIFormInput(uiSwitchLabelMode)
               .addUIFormInput(new UIFormStringInput(LABEL, LABEL, null).addValidator(StringLengthValidator.class, 3, 120))
               .addUIFormInput(uiFormLanguagesSelectBox)
-              .addUIFormInput(new UIFormStringInput(I18N_LABEL, null, null))
+      				.addUIFormInput(new UIFormStringInput(I18N_LABEL, null, null).setMaxLength(255).addValidator(StringLengthValidator.class, 3, 120))
               .addUIFormInput(uiVisibleCheck.setChecked(true))
               .addUIFormInput(uiDateInputCheck)
               .addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class))
@@ -438,9 +437,9 @@ public class UIPageNodeForm extends UIFormTabPane
       return contextPageNavigation.getKey().getName();
    }
 
-   public String getOwnerType()
+   public SiteType getOwnerType()
    {
-      return contextPageNavigation.getKey().getTypeName();
+      return contextPageNavigation.getKey().getType();
    }
    
    public void setContextPageNavigation(UserNavigation _contextPageNav)
@@ -534,16 +533,16 @@ public class UIPageNodeForm extends UIFormTabPane
             }
          }
          
+		 if (pageNode.getLabel() == null)
+            pageNode.setLabel(pageNode.getName());
+         uiPageNodeForm.invokeSetBindingBean(pageNode);
+
          UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
          if (uiIconSelector.getSelectedIcon().equals("Default"))
             pageNode.setIcon(null);
          else
             pageNode.setIcon(uiIconSelector.getSelectedIcon());
-         if (pageNode.getLabel() == null)
-            pageNode.setLabel(pageNode.getName());
          
-         uiPageNodeForm.invokeSetBindingBean(pageNode);
-
          uiPageNodeForm.createEvent("Back", Phase.DECODE, ctx).broadcast();
       }
    }
@@ -693,7 +692,7 @@ public class UIPageNodeForm extends UIFormTabPane
          accessPermission[0] = "*:" + ownerId;
          String editPermission = userACL.getMakableMT() + ":" + ownerId;
          
-         if (PortalConfig.PORTAL_TYPE.equals(uiForm.getOwnerType()))
+         if (SiteType.PORTAL.equals(uiForm.getOwnerType()))
          {
             UIPortal uiPortal = Util.getUIPortal();
             accessPermission = uiPortal.getAccessPermissions();
@@ -705,7 +704,7 @@ public class UIPageNodeForm extends UIFormTabPane
          UIFormStringInput uiPageTitle = uiInputSet.getChildById("pageTitle");
 
          Page page = new Page();
-         page.setOwnerType(uiForm.getOwnerType());
+         page.setOwnerType(uiForm.getOwnerType().getName());
          page.setOwnerId(ownerId);
          page.setName(uiPageName.getValue());
          String title = uiPageTitle.getValue();
