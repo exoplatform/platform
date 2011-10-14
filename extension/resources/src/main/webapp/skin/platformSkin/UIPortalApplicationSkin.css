@@ -27,13 +27,12 @@
 div, table, th, tr, td, img, form {
 	padding: 0px; margin: 0px;
 	outline: none;
-	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px!important;
+	font-family: Verdana, Arial, sans-serif;
 }
 
 body {
-	background-color: white !important;
-	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	background-color: white;
+	font-family: Verdana, Arial, sans-serif;
 	font-size: 12px;
 }
 
@@ -54,7 +53,7 @@ a {
 
 
 .UIPageBody .VIEW-PAGEBODY .UIPage {
-	padding: 0 !important;
+	padding: 0;
 }
 
 .ApplicationTDContainer .UIForumPortlet {
@@ -65,14 +64,8 @@ a {
 
 #UIPortalApplication .UIWorkingWorkspace {
 	width: 100%;
-	background: white !important;
+	background: white;
 }
-
-/*
-.UIWorkingWorkspace #ACMEBanner {
-	margin:20px;
-}
-*/
 
 .TxtDarkBlue {color: #28175a;}
 .TxtGray {color: #484848;}
