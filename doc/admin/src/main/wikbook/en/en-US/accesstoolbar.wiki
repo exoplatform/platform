@@ -1,0 +1,99 @@
+h2. Grant all users access to toolbar but not CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar.toolbar}
+If all new members require access to the toolbar (but NOT the Content Management System (CMS)), administrators can change the default portal behavior to meet your request by doing the following steps:
+
+*1.* Define the group of new members in the _{noformat}organization-configuration.xml{noformat}_ file defined in the path _tomcat/webapps/ecmdemo/WEB-INF/conf/sample-portal/portal/organization-configuration.xml_.
+{code:xml}
+<component-plugin>
+      <name>wcm.new.user.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.services.organization.impl.NewUserEventListener</type>
+      <description>this listener assign group and membership to a new created user</description>
+      <init-params>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.services.organization.impl.NewUserConfig">
+            <field  name="group">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
+                    <field  name="groupId"><string>/platform/users</string></field>
+                    <field  name="membership"><string>member</string></field>
+                  </object>
+                </value>                
+              </collection>
+            </field>
+            <field name="ignoredUser">
+              <collection type="java.util.HashSet">
+                <value><string>james</string></value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+</component-plugin>
+{code}
+The sample configuration above sets the group of new users to the _/platform/users_ group with the *member* role.
+
+*2.* Customize the value of {{<access-permissions>}} in the _sharedlayout.xml_ file defined in the path _tomcat/webapps/ecm-wcm-extension/WEB-INF/conf/portal/portal/sharedlayout.xml_ file as follows:
+{code:xml}
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+     <container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+          <!-- users containing to the following group can see the top toolbar -->
+       <access-permissions>*:/platform/users</access-permissions>
+	   ...........................
+     </container>
+</container>   
+{code}
+
+*3.* Restart the server.
+
+h2. Grant all new users access to toolbar and CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar_CMS}
+If all users require access to both the toolbar and the underlying CMS implementation, administrators can change the default portal behavior to grant the appropriate permissions to newly registered users:
+
+*1.* Do the same as Step 1 and Step 2 of "[Grant all users access to toolbar but not CMS|#ADM.Configuration.Users_configuration.Grant_access_toolbar.toolbar]".
+
+*2.* Edit the _organization-configuration.xml_ file and add _{noformat}/platform/web-contributors{noformat}_ to *wcm.new.user.event.listener*. See the example below:  
+
+{code:xml}
+<component-plugin>
+      <name>wcm.new.user.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.services.organization.impl.NewUserEventListener</type>
+      <description>this listener assign group and membership to a new created user</description>
+      <init-params>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.services.organization.impl.NewUserConfig">
+            <field  name="group">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
+                    <field  name="groupId"><string>/platform/users</string></field>
+                    <field  name="membership"><string>member</string></field>
+                  </object>
+                </value>
+                <!-- new users should also be a member of the web-contributors group to see the top toolbar -->
+                <value>
+                  <object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
+                    <field  name="groupId"><string>/platform/web-contributors</string></field>
+                    <field  name="membership"><string>member</string></field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+            <field name="ignoredUser">
+              <collection type="java.util.HashSet">
+                <value><string>james</string></value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+</component-plugin>
+{code}
+
+*3.* Restart the server.
+
+

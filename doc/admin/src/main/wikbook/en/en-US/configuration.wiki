@@ -698,6 +698,9 @@ h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.e
 
 In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" and "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
 
+h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar}
+{include:document=accesstoolbar.wiki|syntax=confluence/1.0}
+
 h1. Gadget proxy configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
 
 In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployey as an open web proxy.
