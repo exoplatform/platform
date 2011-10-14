@@ -68,9 +68,10 @@
 
   <!--cloud-agent -->
   <component>
-    <key>org.exoplatform.cloudmanagement.CloudAgentApplication</key>
-    <type>org.exoplatform.cloudmanagement.CloudAgentApplication</type>
+    <key>org.exoplatform.platform.cloud.services.rest.CloudAgentApplication</key>
+    <type>org.exoplatform.platform.cloud.services.rest.CloudAgentApplication</type>
   </component>
+
 
   <!-- TenantCreationSupervisor -->
   <component>
