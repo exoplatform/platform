@@ -1,5 +1,4 @@
 function init() {
-  adjustHeight();
   // Adding eXo Platform container information
   var opts = {};
   opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
@@ -44,9 +43,10 @@ function createPollList(data){
 
   if(len == 0){
 	document.getElementById("poll").innerHTML = '<div class="light_message">' + prefs.getMsg('nopoll') + ' <a target="_parent" href="' + forumURL + '">forums</a></div>';
+	adjustHeight();
 	return;
+
   }
-  
   $.getJSON(url,showPoll);
 }
 
