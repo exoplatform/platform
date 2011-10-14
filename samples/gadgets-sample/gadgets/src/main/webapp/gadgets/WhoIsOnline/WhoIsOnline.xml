@@ -82,12 +82,12 @@
 							<div class="ContTit">__MSG_title__</div>
 						</div>
 						<div style="margin-left: 16px;">
-							<h3 id="yourContactsHeader" style="margin-bottom: 10px;"></h3>
+							<h3 id="yourContactsHeader" style="margin-bottom: 10px; font-size: 12px;"></h3>
 							<table id="yourContactsTable" cellpadding="2" style="margin-left: 5px; width:100%">
 								<!--tbody style="height:120px; overflow-x:hidden; overflow-y:auto;">
 								</tbody-->
 							</table>
-							<h3 id="otherHeader" style="padding-top: 5px; margin-bottom: 5px;"></h3>
+							<h3 id="otherHeader" style="padding-top: 5px; margin-bottom: 5px; font-size: 12px;"></h3>
 							<div id="otherDiv" style="margin-left: 5px;"></div>
 						</div>
 					</div>

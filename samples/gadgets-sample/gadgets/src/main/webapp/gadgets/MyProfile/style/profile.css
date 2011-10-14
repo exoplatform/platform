@@ -1,33 +1,4 @@
-/*
-.UIGadgetThemes .TitGad {
-  line-height: 22px;
-  border-top: 1px solid #226ab4;
-  border-bottom: 6px solid #226ab4;
-  color: #484848;
-  font-size: 12px;
-  padding: 0px 15px;
-  font-weight: bold;
-}
-*/
-
-/*
-.UIGadgetThemes .GadCont .IconLink {
-  background: url('/style/background/IconLink.gif') no-repeat scroll left center transparent;
-  display: block;
-  text-decoration: none;
-}
-*/
-
-/*
-.UIGadgetThemes .List .IconLink {
-  padding-left: 10px;
-  margin-bottom: 5px;
-  color: #484848;
-  text-decoration: none;
-}
-*/
-
-.GadCont .ProfilePicture {
+.uigadgetthemes .GadCont .ProfilePicture {
   width: 50px;
   height: 50px;
   float: left;
@@ -35,8 +6,9 @@
   padding: 0px;
 }
 
-.GadCont .ProfileInfo {
+.uigadgetthemes .GadCont .ProfileInfo {
   margin-left: 55px;
-  padding: 2px;
+  padding: 0 8px;
   height: 50px;
 }
+

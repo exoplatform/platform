@@ -1,94 +1,79 @@
-a {
-text-decoration:none;
-}
-
-.customLink {
-  text-decoration:underline;
-  color:#231a67; cursor:pointer;
+.UIGadgetThemes .GadCont .customLink {
+	text-decoration:underline;
+	color:#226ab4; cursor:pointer;
+	font-weight: normal;
 }
 
 .ThemeColor {
- color: #226ab4;
-}
-
-.light_message {
- color: lightgray;
- font-size: 11px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.ClearFix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-.ClearFix {
-  !display: inline-block;
-  !zoom: 1;
-  !display: block; 
+	color: #226ab4;
 }
 
 .TxtDarkBlue {
-  color: #231a67;
+	color: #231a67;
 }
 
 .TxtGray {
-  color: #484848;
+	color: #484848;
 }
 
 .UIGadgetThemes .TitGad .ContTit {
-  margin-right: 45px;
+	margin-right: 45px;
 }
 
 .UIGadgetThemes .GadCont {
-  padding: 10px 15px;
-  font-size: 12px;
+	padding: 10px 15px;
+	font-size: 12px;
 }
 
+.UIGadgetThemes .GadCont span{
+	font-weight: bold;
+	color: #1a1a1a;
+}
+
+.UIGadgetThemes .GadCont .Question {
+	font-weight: normal;
+}	
+	
 /** MyTasks **/
 
 .UIGadgetThemes .MyTasks .CheckBox {
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 .UIGadgetThemes .MyTasks .CheckBox input {
-  margin: 0px 3px 0px 0px;
+	margin: 0px 3px 0px 0px;
 }
 
 .UIGadgetThemes .MyTasks .CheckBox span {
-  color: #231a67;
-  padding-left: 10px;
+	color: #226AB4;
+	padding-left: 10px;
+	cursor: pointer;
+	font-weight: normal;
 }
 .UIGadgetThemes .MyTasks .TaskDone {
-  color:#cccccc;
+	color:#cccccc;
 }
 
 .UIGadgetThemes .MyTasks .TaskDetail {
-  display:none;
+	display:none;
+	margin:0px 0px 10px 17px;
 }
-
 
 /** UpcomingEvents **/
 .UIGadgetThemes .UpcomingEvents .IconLink {
-  padding-left: 10px;
-  margin-bottom: 5px;
-  color: #484848;
-  display: block;
+	padding-left: 10px;
+	margin-bottom: 5px;
+	color: #484848;
+	display: block;
 }
 
 .UIGadgetThemes .UpcomingEvents span {
-  color: #231a67;
-  padding-left: 10px;
+	color: #226AB4;
+	padding-left: 10px;
+	font-weight: normal;
 }
 
 .UIGadgetThemes .EventDetail {
-  display:none;  
+	display:none;  
+	margin:0px 0px 10px 17px;
 }
-
