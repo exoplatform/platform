@@ -24,12 +24,12 @@ In this example, the _/site contents/live/acme/events/All_ node will be used.
 
 In which:
 
-* *Folder path* = /site contents/live/acme/events/All
-* *Header* = Browse by:
-* *Template* = CatgoryTree.gtmpl
-* *Contextual Folder* = Disabled
-* *Show in page* = Events
-* *With* = folder-id
+* *Folder path* = _/site contents/live/acme/events/All_: The path to the location of a folder that contains the content.
+* *Header* = _Browse by_: The title of all contents that are listed in the content list viewer. 
+* *Template* = _CatgoryTree.gtmpl_: The template is used to view content list.
+* *Contextual Folder* = _Disabled_: The Contextual Content property is set to "Disable", the Advanced pane is closed by default and a single content will be opened by an URL containing the content path. 
+* *Show in page* =_Events_: A single content in CLV will be shown in the "Events" page.
+* *With* = _folder-id_: The parameter containing the content path. 
 
 *ii. Second portlet:*
 
@@ -37,11 +37,11 @@ In which:
 
 In which:
 
-* *Folder path* = /site contents/live/acme/events/All
-* *Template* = OneColumnCLVTemplate.gtmpl
-* *Contextual Folder* = Enabled
-* *Show in page* = Details
-* *With* = content-id
+* *Folder path* = _/site contents/live/acme/events/All_: The path to the location of a folder that contains the content.
+* *Template* = _OneColumnCLVTemplate.gtmpl_: The template is used to view content list.
+* *Contextual Folder* = _Enabled_: The Contextual Content property is set to "Enable". This portlet is configured with the provided parameter (content-id by default).
+* *Show in page* = _Details_: A single content in CLV will be shown in the "Details" page.
+* *With* = _{noformat}content-id{noformat}_: The parameter containing the content path.
 
 As a result, the created "Events" page will look like:
 
@@ -201,12 +201,12 @@ h2. Create a new product {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNe
 
 *4.* Fill the product dialog form.
 
-* Name
-* Title
-* Illustration Image
-* Summary
-* Benefits
-* Features
+* Name: The name of the product.
+* Title: The title of the product.
+* Illustration Image: The image that is used as an illustration for the product.
+* Summary: The summary about the product goes with the illustration.
+* Benefits: The benefits of the product.
+* Features: The features of the product.
 
 *5.* Save changes.
 
