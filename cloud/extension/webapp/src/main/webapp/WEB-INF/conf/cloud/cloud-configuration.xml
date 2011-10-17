@@ -172,9 +172,8 @@
     <init-params>
       <properties-param>
         <name>backup-properties</name>
-        <property name="default-incremental-job-period" value="3600" />
-        <!-- set default incremental periond = 60 minutes -->
-        <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob" />
+        <property name="default-incremental-job-period" value="${exo.backup.incrementalPeriod:3600}" />
+        <property name="full-backup-type" value="${exo.backup.type:org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob}" />
         <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
         <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
       </properties-param>
