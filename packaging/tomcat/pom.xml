@@ -311,6 +311,18 @@
       <version>${org.exoplatform.integ.version}</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+       <groupId>org.exoplatform.integration</groupId>
+       <artifactId>integ-ks-social</artifactId>
+       <version>${org.exoplatform.integ.version}</version>
+       <type>jar</type>
+    </dependency>
+    <dependency>
+       <groupId>org.exoplatform.integration</groupId>
+       <artifactId>integ-cs-social</artifactId>
+       <version>${org.exoplatform.integ.version}</version>
+       <type>jar</type>
+    </dependency>
     <!-- MISSING DEPENDENCIES -->
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
