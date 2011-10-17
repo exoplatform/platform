@@ -16,5 +16,6 @@
 	<module>upgrade</module>
 	<module>organization</module>
 	<module>webui</module>
+	<module>jmxclient</module>
   </modules>
 </project>
