@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+   <component>
+      <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
+   </component>
+
+  <component>
+    <key>org.exoplatform.forum.service.ForumService</key>
+    <type>org.exoplatform.platform.gadget.services.test.MockForumService</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.ks.common.jcr.KSDataLocation</key>
+    <type>org.exoplatform.ks.common.jcr.KSDataLocation</type>
+  </component>
+        
+  <external-component-plugins>
+      <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+      <component-plugin>
+          <name>add.nodeType</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+          <init-params>
+              <values-param>
+                  <name>autoCreatedInNewRepository</name>
+                  <description>Node types configuration file</description>
+                  <value>classpath:/conf/jcr/test-nodetypes-config.xml</value>
+                  <value>classpath:/conf/jcr/test-forum-nodetypes.xml</value>
+              </values-param>
+          </init-params>
+      </component-plugin>
+  </external-component-plugins>           
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+    <component-plugin>
+      <name>addPaths</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>            
+      <init-params>
+        <object-param>
+          <name>ks.storage</name>
+          <description>ks data storage tree</description>
+          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+            <field  name="repository"><string>repository</string></field>
+            <field name="workspaces">
+              <collection type="java.util.ArrayList">
+                <value><string>portal-system</string></value>                              
+              </collection>               
+            </field>
+            <field  name="jcrPaths">
+              <collection type="java.util.ArrayList">
+                <value>               
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">                 
+                    <field  name="alias"><string>eXoApplications</string></field>
+                    <field  name="path"><string>/exo:applications</string></field>                                          
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">               
+                        <value>                            
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
+                              <field name="identity"><string>*:/platform/administrators</string></field>
+                              <field name="read"><string>true</string></field>                
+                              <field name="addNode"><string>true</string></field>                
+                              <field name="setProperty"><string>true</string></field>                
+                              <field name="remove"><string>true</string></field>                
+                            </object>  
+                        </value>                        
+                      </collection>
+                    </field>                       
+                  </object>
+                </value>
+
+                <value>               
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">                 
+                    <field  name="alias"><string>ForumService</string></field>
+                    <field  name="path"><string>/exo:applications/ForumService</string></field> 
+                    <field  name="nodeType"><string>exo:forumHome</string></field>                   
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">               
+                        <value>                            
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
+                              <field name="identity"><string>*:/platform/administrators</string></field>
+                              <field name="read"><string>true</string></field>                
+                              <field name="addNode"><string>true</string></field>                
+                              <field name="setProperty"><string>true</string></field>                
+                              <field name="remove"><string>true</string></field>                
+                            </object>  
+                        </value>                        
+                      </collection>
+                    </field>                       
+                  </object>
+                </value>                
+
+              </collection>                               
+            </field>
+          </object>
+        </object-param>
+      </init-params>            
+    </component-plugin>
+  </external-component-plugins>   
+  
+  <import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
+</configuration>

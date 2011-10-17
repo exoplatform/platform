@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+	<component>
+		<key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
+		<type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
+		<init-params>
+			<value-param>
+				<name>conf-path</name>
+				<description>JCR configuration file</description>
+				<value>classpath:/conf/jcr/test-repository-configuration.xml</value>
+			</value-param>
+			<properties-param>
+				<name>working-conf</name>
+				<description>working-conf</description>
+				<property name="source-name" value="jdbcexo"/>
+				<property name="dialect" value="hsqldb"/>
+				<property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
+			</properties-param>
+		</init-params>
+	</component>
+	<component>
+		<key>org.exoplatform.services.jcr.RepositoryService</key>
+		<type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
+	</component>
+	<component>
+      <key>org.exoplatform.services.jcr.ext.distribution.DataDistributionManager</key>
+      <type>org.exoplatform.services.jcr.ext.distribution.impl.DataDistributionManagerImpl</type>
+    </component>
+	<component>
+		<key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
+		<type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
+	</component>
+	<component>
+		<type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
+	</component>
+	DataDistributionManager
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+		<component-plugin>
+			<name>bind.datasource</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.naming.BindReferencePlugin</type>
+			<init-params>
+				<value-param>
+					<name>bind-name</name>
+					<value>jdbcexo</value>
+				</value-param>
+				<value-param>
+					<name>class-name</name>
+					<value>javax.sql.DataSource</value>
+				</value-param>
+				<value-param>
+					<name>factory</name>
+					<value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+				</value-param>
+				<properties-param>
+					<name>ref-addresses</name>
+					<description>ref-addresses</description>
+					<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+					<property name='url' value='jdbc:hsqldb:mem:db/jdbcexo'/>
+					<property name="username" value="sa"/>
+					<property name="password" value=""/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
