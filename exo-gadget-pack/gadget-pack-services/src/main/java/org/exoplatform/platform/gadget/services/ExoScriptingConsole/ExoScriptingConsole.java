@@ -8,6 +8,7 @@ import java.util.Scanner;
 import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
+import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 
 public class ExoScriptingConsole{
@@ -40,7 +41,7 @@ public class ExoScriptingConsole{
 		String output = "";
 		String outputType = "result";
 		
-		System.out.print(">> ");
+		System.out.print("Type 'help' for available commands\n>> ");
 		
 		Scanner scn = new Scanner(System.in);
 		while(scn.hasNextLine()){
@@ -59,15 +60,21 @@ public class ExoScriptingConsole{
 					return;
 				}
 
-				if(script.equals("show variables")){
+				if(script.equals("help")){
+					output = "dump\tDisplay session state\nrefresh\tClear session state\nquit\tEnd session";
+				} else if(script.equals("dump")){
 					Bindings bindings = this.getVariables();
 					StringBuilder builder = new StringBuilder();
 					for(Map.Entry<String, Object> entry:bindings.entrySet()){
 						builder.append(entry.getKey()).append(" = ").append(entry.getValue()).append("\n");
 					}
-		        	output = builder.toString();
-		        	if(output.isEmpty()) output = "<empty>";
-				} else {
+		        	String variables = builder.toString();
+		        	if(variables.isEmpty()) variables = "<empty>";
+		        	output = this.toString() + "\nVariables:\n" + variables;
+				} else if(script.equals("refresh")) {
+					this.getVariables().clear();
+					output = "Session refreshed";
+				} else{
 					output = this.run(script);
 				}
 			} catch(Exception e) {
@@ -97,12 +104,19 @@ public class ExoScriptingConsole{
 		return _engine.getBindings(ScriptContext.ENGINE_SCOPE);
 	}
 	
+	public String toString(){
+		ScriptEngineFactory factory = _engine.getFactory();
+		String info = "Scripting engine: " + factory.getEngineName() + " (v" + factory.getEngineVersion() + ")\n";
+		info += "Language version: " + factory.getLanguageName() + " " + factory.getLanguageVersion() + "\n";
+		return info;
+	}
 
 	public static void main(String[] args) {
 		try {
 			ExoScriptingConsole console = new ExoScriptingConsole("groovy");
-			console.getVariables().put("x", "5");
-			System.out.println(console.run("println x"));
+			System.out.println(console.toString());
+			console.getVariables().put("x", 5);
+			System.out.println("x + 1 = " + console.run("println x+1"));
 			console.runInSystemTerminal(false);
 		} catch (Exception e) {
 			e.printStackTrace();

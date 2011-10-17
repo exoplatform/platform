@@ -43,6 +43,7 @@
           $("#langSelect").live("change", function(){
             $.getJSON('/rest/console-manager/run/' + sessionId + "~" + (prefs.getString("language") || "Groovy") + '/quit', null);
             prefs.set("language", $("#langSelect option:selected").val());
+            $("#textEditor").val("");
             if($term){
               $term.set_prompt("[[b;#FFF;#000000]" + (prefs.getString("language") || "Groovy") + ">]");
               $term.clear();
@@ -71,8 +72,8 @@
                         ' clear                                   Clear console screen\n' +
                         ' edit                                    Show script editor\n' +
                         ' run                                     Execute the script in editor\n' +
-                        ' show variables                          Show defined variables\n' +
-                        ' clear session                           Clear session state\n' +
+                        ' dump                                    Display session state\n' +
+                        ' refresh                                 Clear session state\n' +
                         ' list all sessions *                     List running sessions\n' +
                         ' remove all sessions *                   Remove all sessions\n' +
                         ' quit                                    End session\n\n' +
