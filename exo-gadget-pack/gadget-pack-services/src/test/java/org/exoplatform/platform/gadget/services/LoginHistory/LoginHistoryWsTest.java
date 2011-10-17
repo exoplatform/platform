@@ -4,10 +4,10 @@ import java.util.Date;
 import java.util.Random;
 
 import org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService;
-import org.exoplatform.platform.gadget.services.test.GadgetWsTestcase;
+import org.exoplatform.platform.gadget.services.test.GadgetServiceTestcase;
 import org.exoplatform.services.rest.impl.ContainerResponse;
 
-public class LoginHistoryWsTest extends GadgetWsTestcase{
+public class LoginHistoryWsTest extends GadgetServiceTestcase{
 	@SuppressWarnings("deprecation")
 	public void setUp(){
 		super.setUp();

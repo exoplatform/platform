@@ -113,10 +113,10 @@ public class ExoScriptingConsole{
 
 	public static void main(String[] args) {
 		try {
-			ExoScriptingConsole console = new ExoScriptingConsole("groovy");
+			ExoScriptingConsole console = new ExoScriptingConsole("ECMAScript");
 			System.out.println(console.toString());
 			console.getVariables().put("x", 5);
-			System.out.println("x + 1 = " + console.run("println x+1"));
+			System.out.println("x + 1 = " + console.run("println(x+1)"));
 			console.runInSystemTerminal(false);
 		} catch (Exception e) {
 			e.printStackTrace();

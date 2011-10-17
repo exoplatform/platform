@@ -1,9 +1,9 @@
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
-import org.exoplatform.platform.gadget.services.test.GadgetWsTestcase;
+import org.exoplatform.platform.gadget.services.test.GadgetServiceTestcase;
 import org.exoplatform.services.rest.impl.ContainerResponse;
 
-public class ForumStatisticsWsTest extends GadgetWsTestcase {
+public class ForumStatisticsWsTest extends GadgetServiceTestcase {
 	public void testForumStatistics() {
 		try{
 			ContainerResponse cres = launcher.service("GET", "/forumsService/forums/statistic/", "", null, null, null);

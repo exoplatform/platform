@@ -26,7 +26,7 @@ import org.exoplatform.services.rest.RequestHandler;
 import org.exoplatform.services.rest.tools.ResourceLauncher;
 import org.exoplatform.test.BasicTestCase;
 
-public class GadgetWsTestcase extends TestCase {
+public class GadgetServiceTestcase extends TestCase {
 
 	protected final static String REPO_NAME = "repository";
 
