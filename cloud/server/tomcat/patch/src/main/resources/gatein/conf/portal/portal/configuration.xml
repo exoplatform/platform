@@ -24,6 +24,36 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+  <!-- Backup service, XML based -->
+  <component>
+    <key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
+    <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl</type>
+    <init-params>
+      <properties-param>
+        <name>backup-properties</name>
+        <property name="default-incremental-job-period" value="3600" /> <!-- set default incremental periond = 60 minutes -->
+        <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.FullBackupJob" />
+        <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
+        <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
+      </properties-param>
+    </init-params>
+  </component>
+
+  <!-- Backup service, RDBMS based -->
+  <!-- component>
+    <key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
+    <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl</type>
+    <init-params>
+      <properties-param>
+        <name>backup-properties</name>
+        <property name="default-incremental-job-period" value="3600" />
+        <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob" />
+        <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
+        <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
+      </properties-param>
+    </init-params>
+  </component -->
+
   <component>
     <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
     <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
