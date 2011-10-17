@@ -38,8 +38,6 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.url.navigation.NavigationResource;
-import org.exoplatform.web.url.navigation.NodeURL;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -115,15 +113,8 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
     return Util.getPortalRequestContext().getPortalOwner();
   }
 
-  public String getPortalURI(String portalName) {
-    NodeURL url = Util.getPortalRequestContext().createURL(NodeURL.TYPE);
-    url.setResource(new NavigationResource(portalName));
-    return url.toString();
-  }
-
   public UserNavigation getCurrentPortalNavigation() throws Exception {
     return getNavigation(SiteKey.portal(getCurrentPortal()));
-
   }
 
   private String getRemoteUser() {
