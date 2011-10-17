@@ -170,10 +170,14 @@
     <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl
       </type>
     <init-params>
+      <value-param>
+        <name>force-xml-configuration</name>
+        <value>${exo.backup.force-xml-configuration:false}</value>
+      </value-param>
       <properties-param>
         <name>backup-properties</name>
-        <property name="default-incremental-job-period" value="${exo.backup.incrementalPeriod:3600}" />
-        <property name="full-backup-type" value="${exo.backup.type:org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob}" />
+        <property name="default-incremental-job-period" value="${exo.backup.default-incremental-job-period:3600}" />
+        <property name="full-backup-type" value="${exo.backup.full-backup-type:org.exoplatform.services.jcr.ext.backup.impl.rdbms.FullBackupJob}" />
         <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
         <property name="backup-dir" value="${exo.backup.dir}/backup${container.name.suffix}" />
       </properties-param>
