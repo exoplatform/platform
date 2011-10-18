@@ -148,8 +148,6 @@ function getProduct(version) {
   product.addDependencies(social.webapp.resources); // social-resources.war
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
   product.addDependencies(social.extras.linkComposerPlugin); // #exo.social.extras.link-composer-plugin-1.1.0-SNAPSHOT.jar
-  // document-composer-plugin for platform only
-  product.addDependencies(new Project("org.exoplatform.social", "exo.social.extras.document-composer-plugin", "jar", social.version));
   product.addDependencies(social.extension.war) ; // social-ext.war
   
   // integration project

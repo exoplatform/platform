@@ -190,7 +190,8 @@ function getModule(params)
    module.integ = {};
    module.integ.ecmsSocial = new Project("org.exoplatform.integration", "integ-ecms-social", "jar", integVersion).
    addDependency(new Project("org.exoplatform.integration", "integ-ks-social", "jar", integVersion)).
-   addDependency(new Project("org.exoplatform.integration", "integ-cs-social", "jar", integVersion));
+   addDependency(new Project("org.exoplatform.integration", "integ-cs-social", "jar", integVersion)).
+   addDependency(new Project("org.exoplatform.integration", "integ-social-ecms", "jar", integVersion));
 
    
    return module;
