@@ -25,24 +25,24 @@
     Invitations
   </msg>
   <msg name="people">
-    People 
+    Personnes 
   </msg>
   <msg name="space">
-    Space
+    Espace
   </msg>
   <msg name="no_new_contact">
-    No new connexion request ...
+    Aucune nouvelle demande de connexion ...
   </msg>
   <msg name="no_new_space">
-    You are not a member of any space ...
+    Vous n'êtes membre d'aucun espace ...
   </msg>
   <msg name="nothing">
-    Nothing new for you ...
+    Rien de nouveau pour vous ...
   </msg>
   <msg name="members">
-    members
+    membres
   </msg>
   <msg name="find_more">
-    Find More
+    Plus
   </msg>
 </messagebundle>
