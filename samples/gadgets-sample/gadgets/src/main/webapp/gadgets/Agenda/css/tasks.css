@@ -3,6 +3,13 @@
 	color:#226ab4; cursor:pointer;
 	font-weight: normal;
 }
+.arrowDown {
+        background: url('skin/IconDropDown.gif') no-repeat right 7px;
+}
+
+.arrowRight {
+        background: url('skin/IconLink.gif') no-repeat right 7px;        
+}
 
 .ThemeColor {
 	color: #226ab4;
@@ -65,6 +72,7 @@
 	margin-bottom: 5px;
 	color: #484848;
 	display: block;
+	text-decoration: none;
 }
 
 .UIGadgetThemes .UpcomingEvents span {
@@ -75,5 +83,5 @@
 
 .UIGadgetThemes .EventDetail {
 	display:none;  
-	margin:0px 0px 10px 17px;
+	margin:0px 0px 10px 10px;
 }

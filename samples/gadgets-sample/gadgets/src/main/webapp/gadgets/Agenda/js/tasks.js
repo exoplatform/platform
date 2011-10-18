@@ -255,10 +255,20 @@ eXoEventGadget.prototype.showDetailEvent = function(obj){
 	var detail = DOMUtil.findNextElementByTagName(obj,"div");
 	if(!detail) return;
 	var condition = this.lastShowItem && (this.lastShowItem != detail) && (this.lastShowItem.style.display == "block"); 
-	if(condition) this.lastShowItem.style.display = "none";
-	if(detail.style.display == "block") detail.style.display = "none";
-	else detail.style.display = "block";
+	if(condition) {
+	this.lastShowItem.style.display = "none";
+	this.lastShowLink.style.background = "url('/exo-gadget-resources/skin/exo-gadget/images/IconLink.gif') no-repeat left 4px";
+	}
+	if(detail.style.display == "block") {
+	        detail.style.display = "none";
+	        obj.style.background = "url('/exo-gadget-resources/skin/exo-gadget/images/IconLink.gif') no-repeat left 4px";
+	}
+	else {
+	        detail.style.display = "block";
+	        obj.style.background = "url('/exo-gadget-resources/skin/exo-gadget/images/DownIconLink.gif') no-repeat left 4px";
+	}
 	this.lastShowItem = detail;
+	this.lastShowLink = obj;
 	eXoEventGadget.adjustHeight();
 }
 
@@ -334,7 +344,7 @@ eXoEventGadget.prototype.notify = function(){
 	var msg = gadgets.Prefs().getMsg("notask");
 	var msg2 = gadgets.Prefs().getMsg("titleTask");
 	document.getElementById("taskDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
-        $("#taskLink").html(msg2 + " (0) ");
+        $("#taskLink").html(msg2 + " (0)");
 	eXoEventGadget.setLink();
 }
 
@@ -342,7 +352,7 @@ eXoEventGadget.prototype.notifyEvent = function(){
 	var msg = gadgets.Prefs().getMsg("noevent");
 	var msg2 = gadgets.Prefs().getMsg("title");
 	document.getElementById("eventDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
-        $("#eventLink").html(msg2 + " (0) ");
+        $("#eventLink").html(msg2 + " (0)");
 	eXoEventGadget.setLink();
 }
 
