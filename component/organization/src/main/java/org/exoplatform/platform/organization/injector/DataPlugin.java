@@ -115,19 +115,21 @@ public class DataPlugin extends BaseComponentPlugin {
       }
 
       String groups = data.getGroups();
-      String[] entry = groups.split(",");
-      for (int j = 0; j < entry.length; j++) {
-        String[] temp = entry[j].trim().split(":");
-        String membership = temp[0];
-        String groupId = temp[1];
-        if (mhandler.findMembershipByUserGroupAndType(data.getUserName(), groupId, membership) == null) {
-          Group group = organizationService.getGroupHandler().findGroupById(groupId);
-          MembershipType mt = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
-          mt.setName(membership);
-          mhandler.linkMembership(user, group, mt, false);
-          logger_.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
-        } else {
-          logger_.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
+      if (groups != null && !groups.isEmpty()) {
+        String[] entry = groups.split(",");
+        for (int j = 0; j < entry.length; j++) {
+          String[] temp = entry[j].trim().split(":");
+          String membership = temp[0];
+          String groupId = temp[1];
+          if (mhandler.findMembershipByUserGroupAndType(data.getUserName(), groupId, membership) == null) {
+            Group group = organizationService.getGroupHandler().findGroupById(groupId);
+            MembershipType mt = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
+            mt.setName(membership);
+            mhandler.linkMembership(user, group, mt, false);
+            logger_.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
+          } else {
+            logger_.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
+          }
         }
       }
     }
