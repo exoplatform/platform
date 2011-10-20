@@ -5,7 +5,14 @@
 .UIGadgetThemes .FavoritesList .CreatedDate {
  color:#707070;
  font-style: italic;
- padding-left: 10px;
+ padding-left: 25px;
  padding-top: 2px;
+}
+
+.UIGadgetThemes .Icon {
+  color: #000000;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  text-decoration: none;
 }
 

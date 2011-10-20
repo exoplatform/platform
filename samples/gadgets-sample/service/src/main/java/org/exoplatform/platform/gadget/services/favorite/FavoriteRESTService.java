@@ -30,6 +30,7 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.ecm.webui.utils.Utils;
 
 /**
  * @author lamphan AUG 01, 2010
@@ -83,6 +84,7 @@ public class FavoriteRESTService implements ResourceContainer {
         favoriteNode.setDateAddFavorite(getDateFormat(favorite.getProperty(DATE_MODIFIED).getDate()));
         favoriteNode.setDriveName(getDriveName(listDrive, favorite));
         favoriteNode.setPath(favorite.getPath());
+        favoriteNode.setLinkImage("Icon16x16 default16x16Icon" + Utils.getNodeTypeIcon(favorite, "16x16Icon"));
         favoriteNode.setFullLink(createFullLink(favorite));
 
         if (favoriteNode != null) {
@@ -90,7 +92,6 @@ public class FavoriteRESTService implements ResourceContainer {
             listFavorites.add(favoriteNode);
         }
       }
-      
       
     } catch (ItemNotFoundException e) {
       LOG.error(e);
@@ -169,6 +170,7 @@ public class FavoriteRESTService implements ResourceContainer {
     private String dateAddFavorite;
     private String driveName;
     private String title;
+    private String linkImage;
     private String fullLink;
     
     
@@ -218,6 +220,14 @@ public class FavoriteRESTService implements ResourceContainer {
 
     public String getFullLink() {
       return fullLink;
+    }
+    
+    public void setLinkImage(String linkImage) {
+      this.linkImage = linkImage;
+    }
+
+    public String getLinkImage() {
+      return linkImage;
     }
   }
   }
