@@ -7,7 +7,8 @@
     description="My favorite Documents"
     thumbnail="skin/FavoriteDocument.png"
     >
-      
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
     <Require feature="opensocial-0.8" />
     <Require feature="dynamic-height"/>
   </ModulePrefs>
@@ -160,6 +161,7 @@
 
        <div id="FavoriteDocument-Gadget" class="UIGadgetThemes">
           <div class="TitGad ClearFix">
+            <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
             <div title="Setting" id="SettingButton" class="SettingButton">
               <a href="javascript:eXoEventGadget.showHideSetting(true);"></a> 
             </div>

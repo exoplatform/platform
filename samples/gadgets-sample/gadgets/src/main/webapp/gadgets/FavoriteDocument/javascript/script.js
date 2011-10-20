@@ -44,3 +44,17 @@ DisplayTime.prototype.timeToPrettyString = function(B) {
         }
     }
 }
+
+function eXoFavDocsGadget(){
+};
+
+eXoFavDocsGadget.prototype.setShowAllLink = function(){
+	var baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/intranet";
+	a = document.getElementById("ShowAll");
+	var url = baseUrl + "/documents";
+	a.href = url;
+}
+
+eXoFavDocsGadget =  new eXoFavDocsGadget();
+
+gadgets.util.registerOnLoadHandler(eXoFavDocsGadget.setShowAllLink);
