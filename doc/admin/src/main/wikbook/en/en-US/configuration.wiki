@@ -397,6 +397,16 @@ The default configuration combines them to obtain a compact tree:
     /jta      
 {code}
 
+h1. JCR system and default Workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
+
+{code}
+# JCR system and default workspaces
+gatein.jcr.workspace.default=collaboration
+
+gatein.jcr.workspace.system=system
+{code}
+
+
 h1. Mail server {anchor:id=ADM.Configuration.MailServer}
 
 eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
