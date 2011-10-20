@@ -1,6 +1,6 @@
 <repository-service default-repository="repository">
   <repositories>
-    <repository name="repository" system-workspace="system" default-workspace="collaboration">
+    <repository name="repository" system-workspace="${gatein.jcr.workspace.system}" default-workspace="${gatein.jcr.workspace.default}">
       <security-domain>${portal.container.realm}</security-domain>
       <access-control>optional</access-control>
       <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
