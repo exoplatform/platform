@@ -88,6 +88,13 @@
 		          <outputDirectory>${project.build.directory}/jboss/server/default/deploy</outputDirectory>
 		          <artifactItems>
 		            <artifactItem>
+					  <groupId>org.gatein.integration</groupId>
+					  <artifactId>extension-ear-as5</artifactId>
+					  <version>${org.exoplatform.portal.version}</version>
+					  <destFileName>gatein-wsrp-extension-${org.exoplatform.portal.version}.ear</destFileName>
+					  <type>ear</type>
+					</artifactItem>
+		            <artifactItem>
 					  <groupId>org.exoplatform.webos</groupId>
 					  <artifactId>exo.webos.packaging.ear</artifactId>
 					  <version>${org.exoplatform.webos.version}</version>
