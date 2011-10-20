@@ -64,7 +64,6 @@ public class DashboardInformationRESTService implements ResourceContainer {
 
   protected final static String WS_ROOT_PATH = "/dashboards";
   protected final static String STANDALONE_ROOT_PATH = "/standalone";
-  protected final static String PORTAL_ROOT_PATH = "/portal";
 
   private final UserPortalConfigService userPortalConfigService;
   private final DataStorage dataStorageService;
@@ -116,10 +115,12 @@ public class DashboardInformationRESTService implements ResourceContainer {
           info.setId(node.getId());
           info.setLabel(node.getEncodedResolvedLabel());
           
-          wsSubPath = WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef());
-          wsURI = uriInfo.getBaseUriBuilder().path(wsSubPath).build();
+          // Create URI to WS REST
+          wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef());
+          wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
           
-          dashboardSubPath = PORTAL_ROOT_PATH + "/u/" + userId + "/" + node.getName();
+          // Create URI to dashboard into portal
+          dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + node.getName();
           dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
 
           info.setLink(wsURI.toString());
@@ -236,7 +237,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
 
             JsonGadgetInfo info = new JsonGadgetInfo();
             info.setGadgetName(gadget.getName());
-            info.setGadgetUrl(PORTAL_ROOT_PATH + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
+            info.setGadgetUrl(PortalContainer.getCurrentPortalContainerName() + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
             info.setGadgetIcon(gadget.getThumbnail());
             info.setGadgetDescription(gadget.getDescription());
             gadgetsInfo.add(info);
