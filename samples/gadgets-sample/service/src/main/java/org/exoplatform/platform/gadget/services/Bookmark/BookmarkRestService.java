@@ -75,7 +75,7 @@ public class BookmarkRestService implements ResourceContainer {
 			if(!userPrivateNode.hasNode("Bookmarks")){
 				Node bookmarksNode = userPrivateNode.addNode("Bookmarks");
 				userPrivateNode.save();
-				String default_bookmarks="[{\"name\":\"Mail\", \"link\":\"/portal/intranet/mail\"},{\"name\":\"Calendar\", \"link\":\"/portal/intranet/calendar\"},{\"name\":\"AdressBook\", \"link\":\"/portal/intranet/contact\"}]";
+				String default_bookmarks="[{\"name\":\"My Documents\", \"link\":\"/portal/intranet/documents\"},{\"name\":\"Calendar\", \"link\":\"/portal/intranet/calendar\"},{\"name\":\"AddressBook\", \"link\":\"/portal/intranet/contact\"}]";
 				bookmarksNode.setProperty("exo:bookmarkService_bookmarks", default_bookmarks);
 				bookmarksNode.save();
 			}
