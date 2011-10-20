@@ -21,7 +21,7 @@
 
 <messagebundle>
   <msg name="title">
-    Événements à venir
+    Événements
   </msg>
   <msg name="baseurl">
     URL de base
@@ -48,7 +48,7 @@
     Aucun événement aujourd'hui...
   </msg>
   <msg name="titleTask">
-    Mes tâches
+    Tâches
   </msg>
   <msg name="notask">
     Aucune tâche aujourd'hui...

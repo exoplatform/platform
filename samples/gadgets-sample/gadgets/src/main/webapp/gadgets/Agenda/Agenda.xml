@@ -36,7 +36,7 @@
 
 	  $(document).ready(function(){
 
-		showTask();
+		showEvent();
 
 		$("#taskLink").click(function () {
 			showTask();
@@ -107,9 +107,9 @@
 
      <div class="GadCont">
 	<div>
-	<span id="taskLink" href="#" class="ThemeColor customLink"> </span> 
-	&nbsp; | &nbsp;
 	<span id="eventLink" href="#" class="ThemeColor customLink"> </span>
+	&nbsp; | &nbsp;
+	<span id="taskLink" href="#" class="ThemeColor customLink"> </span> 
 	</div>
 
 
