@@ -27,7 +27,7 @@ import java.util.List;
 import javax.portlet.EventRequest;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.platform.common.NavigationURLUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;

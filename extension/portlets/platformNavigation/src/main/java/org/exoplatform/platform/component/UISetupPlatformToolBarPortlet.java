@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.exoplatform.commons.utils.ExpressionUtil;
+import org.exoplatform.platform.common.NavigationURLUtils;
 import org.exoplatform.platform.common.service.MenuConfiguratorService;
-import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
