@@ -19,32 +19,31 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-<configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
   <component>
     <key>org.exoplatform.services.transaction.TransactionService</key>
     <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type>
     <init-params>
       <value-param>
         <name>timeout</name>
-        <value>400</value>
+        <value>${jcr.transaction.timeout:420}</value>
       </value-param>
     </init-params>
   </component>
-  	<external-component-plugins>
-		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
-		<component-plugin>
-			<name>portal templates ResourceBundle Plugin</name>
-			<set-method>addResourceBundle</set-method>
-			<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
-			<init-params>
-				<values-param>
-					<name>application.resource.bundle</name>
-					<value>locale.portal.templates</value>
-				</values-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+    <component-plugin>
+      <name>portal templates ResourceBundle Plugin</name>
+      <set-method>addResourceBundle</set-method>
+      <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+      <init-params>
+        <values-param>
+          <name>application.resource.bundle</name>
+          <value>locale.portal.templates</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
 </configuration>
