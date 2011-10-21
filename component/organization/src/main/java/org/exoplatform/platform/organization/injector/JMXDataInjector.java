@@ -77,7 +77,7 @@ public class JMXDataInjector implements Startable {
     dataInjectorService.writeOrganizationModelData(zos);
 
     zos.close();
-    logger_.info("Organization model data successfully expoted.");
+    logger_.info("Organization model data successfully exported.");
   }
 
   @Managed
@@ -96,6 +96,7 @@ public class JMXDataInjector implements Startable {
     } catch (Exception e) {
       logger_.error("Can not import users profile .. ", e);
     }
+    logger_.info("Organization model data successfully imported.");
   }
 
   @Override
