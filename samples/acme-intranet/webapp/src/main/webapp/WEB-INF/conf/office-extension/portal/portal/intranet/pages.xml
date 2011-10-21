@@ -45,7 +45,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>My Profile</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -64,7 +64,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Invitations</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -83,7 +83,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Agenda</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -102,7 +102,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Polls</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -340,7 +340,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Who Is Online</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -359,7 +359,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Bookmarks</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
@@ -378,7 +378,7 @@
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Favorite Documents</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
