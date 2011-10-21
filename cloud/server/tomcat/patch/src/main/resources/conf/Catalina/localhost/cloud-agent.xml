@@ -19,9 +19,9 @@
 
 -->
 <Context path="/cloud-agent" docBase="cloud-agent" reloadable="true" crossContext="false">
-  <Logger className='org.apache.catalina.logger.SystemOutLogger'
-            prefix='localhost_portal_log.' suffix='.txt' timestamp='true'/>
-    <Manager className='org.apache.catalina.session.PersistentManager' saveOnRestart='false'/>
- <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
- 
+  <Logger className='org.apache.catalina.logger.SystemOutLogger' prefix='localhost_portal_log.' suffix='.txt'
+    timestamp='true' />
+  <Manager className='org.apache.catalina.session.PersistentManager' saveOnRestart='false' />
+  <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase" />
+
 </Context>

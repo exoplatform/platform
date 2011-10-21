@@ -20,7 +20,8 @@
 -->
 
 <Context path="" docBase="ROOT" reloadable="true" crossContext="true">
-  <Valve className="org.exoplatform.cloud.tomcat.SetCurrentRepositoryValve" portalContainerName="portal"/>
-  <Logger className='org.apache.catalina.logger.SystemOutLogger' prefix='localhost_portal_log.' suffix='.txt' timestamp='true'/>
-  <Manager className='org.apache.catalina.session.PersistentManager' saveOnRestart='false'/>
+  <Valve className="org.exoplatform.cloud.tomcat.SetCurrentRepositoryValve" portalContainerName="portal" />
+  <Logger className='org.apache.catalina.logger.SystemOutLogger' prefix='localhost_portal_log.' suffix='.txt'
+    timestamp='true' />
+  <Manager className='org.apache.catalina.session.PersistentManager' saveOnRestart='false' />
 </Context>
