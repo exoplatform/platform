@@ -181,3 +181,7 @@ a {
 .UITableColumnContainer .UIPopupWindow .PopupContent {
     position: inherit;
 }
+
+#MonitoringTable {
+	background-color:white !important;
+}
