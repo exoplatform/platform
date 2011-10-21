@@ -28,7 +28,7 @@
     <init-params>
       <value-param>
         <name>timeout</name>
-        <value>${jcr.transaction.timeout:420}</value>
+        <value>${gatein.jcr.transaction.timeout:420}</value>
       </value-param>
     </init-params>
   </component>

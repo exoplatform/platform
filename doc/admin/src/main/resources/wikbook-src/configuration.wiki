@@ -77,19 +77,35 @@ However, this file is the last loaded by the kernel. It has a higher priority ov
 
 This may turn handy services or configurations that are not exposed in _configuration.properties_.
 
-For example, you can decide to change the default transaction timeout for 2 minutes with this piece of xml:
+For example, you can decide to change the default WebDAV update policy for {{{replace}}} with this piece of xml:
 
 {code:xml}
-<component> 
-  <key>org.exoplatform.services.transaction.TransactionService</key> 
-  <type>org.exoplatform.services.transaction.jbosscache.JBossTransactionsService</type> 
-  <init-params> 
-    <value-param> 
-      <name>timeout</name> 
-      <value>120</value> 
-    </value-param> 
-  </init-params> 
-</component>
+  <component>
+    <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
+    <type>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>auto-mix-lockable</name>
+        <value>false</value>
+      </value-param>
+      <value-param>
+        <name>def-folder-node-type</name>
+        <value>nt:folder</value>
+      </value-param>
+      <value-param>
+        <name>def-file-node-type</name>
+        <value>nt:file</value>
+      </value-param>
+      <value-param>
+        <name>def-file-mimetype</name>
+        <value>text/plain</value>
+      </value-param>
+      <value-param>
+        <name>update-policy</name>
+        <value>replace</value>
+      </value-param>
+    </init-params>
+  </component>
 {code}
 
 h1. Database configuration {anchor:id=ADM.Configuration.Database_Configuration}
@@ -259,9 +275,9 @@ In this step, you need to add the MySQL connector library in JBoss by adding _my
 
 By default, eXo Platform defines two data sources:
 
-* exo-jcr{{{_}}}portal - for the Java Content Repository (JCR).
+* {{{exo-jcr_portal}}} - for the Java Content Repository (JCR).
 
-* exo-idm{{{_}}}portal - for the organizational model.
+* {{{exo-idm_portal}}} - for the organizational model.
 
 You may want to rename the data source as follows:
 
@@ -406,6 +422,14 @@ gatein.jcr.workspace.default=collaboration
 gatein.jcr.workspace.system=system
 {code}
 
+h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
+
+JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions you might need a bigger timeout.
+{code}
+# JCR Transaction Service
+# TransactionService default timeout (in seconds), set it to one hour here:
+gatein.jcr.transaction.timeout=3600
+{code}
 
 h1. Mail server {anchor:id=ADM.Configuration.MailServer}
 
