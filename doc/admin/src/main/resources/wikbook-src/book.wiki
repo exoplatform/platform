@@ -30,6 +30,10 @@ h1. Deployment {anchor:id=ADM.Deployment}
 
 {include:document=deployment.wiki|syntax=confluence/1.0}
 
-h1. Integration {anchor:id=ADM.Integration}
+h1. Organization Integration {anchor:id=ADM.Integration}
+
+{include:document=integration.wiki|syntax=confluence/1.0}
+
+h1. Legacy Organization Models {anchor:id=ADM.Organization}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
