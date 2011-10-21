@@ -12,7 +12,7 @@ If you used one of those Organization Data Models
 * Hibernate.
 in a previous version of eXo Platform, you will be able to keep working with it on eXo Platform 3.5.
 
-Steps to configure Legacy Organization Services:
+Follow those steps to configure Legacy Organization Services:
 # Add a new file in {exo.conf.dir.name}/portal/portal/configuration.xml
 {code:xml|title=configuration.xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
