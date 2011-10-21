@@ -31,12 +31,12 @@ set EXO_CLOUD_SECURITY_OPTS=-Djava.security.manager=org.exoplatform.cloudmanagem
 @REM set Cloud Admin properties in command line (can be used in standalone admin server)
 set EXO_CLOUD_ADMIN_OPTS=-Dcloud.admin.log.dir=../logs/cloud-admin -Dcloud.admin.data.dir=../gatein/data -Dcloud.admin.configuration.dir=../gatein/conf/cloud/cloud-admin -Dcloud.admin.configuration.file=../gatein/conf/cloud/cloud-admin/admin.properties
 
-set JMX_OPTS=-Dcom.sun.management.jmxremote.password.file=${CATALINA_HOME}/conf/jmxremote.password -Dcom.sun.management.jmxremote.access.file=${CATALINA_HOME}/conf/jmxremote.access -Dcom.sun.management.jmxremote.authenticate=true -Dcom.sun.management.jmxremote.ssl=false
+set JMX_OPTS=-Dcom.sun.management.jmxremote.password.file=%CATALINA_HOME%/conf/jmxremote.password -Dcom.sun.management.jmxremote.access.file=%CATALINA_HOME%/conf/jmxremote.access -Dcom.sun.management.jmxremote.authenticate=true -Dcom.sun.management.jmxremote.ssl=false
 
 @REM Remote debug configuration
 @REM set REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n
 
-set JAVA_OPTS=%JAVA_OPTS% %LOG_OPTS %SECURITY_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_CLOUD_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %JMX_OPTS% %REMOTE_DEBUG%
+set JAVA_OPTS=%JAVA_OPTS% %LOG_OPTS% %SECURITY_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_CLOUD_OPTS% %EXO_CLOUD_SECURITY_OPTS% %EXO_CLOUD_ADMIN_OPTS% %JMX_OPTS% %REMOTE_DEBUG%
 
 set CLASSPATH=%CATALINA_HOME%\lib\cloud-security-1.1-M2.jar;%CATALINA_HOME%\conf\;%CATALINA_HOME%\lib\jul-to-slf4j-1.5.8.jar;%CATALINA_HOME%\lib\slf4j-api-1.5.8.jar;%CATALINA_HOME%\lib\cloud-logback-logging-1.1-M2.jar;%CATALINA_HOME%\lib\logback-classic-0.9.20.jar;%CATALINA_HOME%\lib\logback-core-0.9.20.jar;
 
