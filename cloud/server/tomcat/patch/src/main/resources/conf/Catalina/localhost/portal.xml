@@ -28,7 +28,8 @@
          userClassNames='org.exoplatform.services.security.jaas.UserPrincipal' 
          roleClassNames='org.exoplatform.services.security.jaas.RolePrincipal' 
          debug='0' cache='false'/> 
+        <Valve className="org.exoplatform.cloud.tomcat.SetCurrentRepositoryValve" portalContainerName="portal"/>
+        
 	<Valve className='org.apache.catalina.authenticator.FormAuthenticator' characterEncoding='UTF-8'/>
 
-  <Valve className="org.exoplatform.cloud.tomcat.SetCurrentRepositoryValve" portalContainerName="portal"/>
 </Context> 
