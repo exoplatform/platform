@@ -1,3 +1,4 @@
+
 <%
 /*
 <!--
@@ -173,20 +174,19 @@
 	/** FIN */
 
 %>
-<ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id" >
-      <li class="UITab NormalToolbarTab">
-		<%
+  <%
 			if (uicomponent.renderSpacesLink()) {
 		%>
-		  <a class="EditorIcon TBIcon" href="<%= spacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%></a>
 
-	  <!-- Merge exoadmin:  navigation-->
+<ul class="UIUserToolBarGroupPortlet UIHorizontalTabs" id="$uicomponent.id">
+  <li class="UITab NormalToolbarTab">
+     <a class="EditorIcon TBIcon" href="<%= spacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.label")%></a> <!-- Merge exoadmin:  navigation-->
 
-		<% 
+  <ul style="display: none" class="MenuItemContainer">
+    <% 
 		if (groupNavigations!= null && !groupNavigations.isEmpty()) { %>
 
-			<ul style="display:none" class="MenuItemContainer">
-				<% 
+    <% 
 				def MY_SPACES_MAX_NUMBER = 10;
 				def mySpacesDisplayed = 0;
 				for(navigation in groupNavigations) {
@@ -212,14 +212,12 @@
 					}
 				} %>
 
-					<li class="MenuItem">   
-						<a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a>
-					</li>
-			</ul>
-		<% } %>
-	   <!-- FIN -->
-		        <%
+    <% } %>
+    <!-- FIN -->
+    <li class="MenuItem"><a class="FindPeopleIcon" href="<%= findSpacesLink %>"><%=_ctx.appRes("UIMySpacePlatformToolBarPortlet.find")%></a></li>
+  </ul>
+  </li>
+</ul>
+  <%
 		        }
                  %>
-      </li>
-</ul>
