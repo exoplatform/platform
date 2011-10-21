@@ -9,28 +9,118 @@
   <artifactId>exo.platform.doc.admin</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Administrator Guide</name>
-  <dependencies>
-    <dependency>
-      <groupId>org.wikbook</groupId>
-      <artifactId>wikbook.docbkxstyle</artifactId>
-      <version>${version.wikbook.plugin}</version>
-    </dependency>
-  </dependencies>
+
   <profiles>
     <profile>
       <id>distrib</id>
       <properties>
-        <wikbook.source>${project.basedir}/src/main/wikbook</wikbook.source>
-        <wikbook.target>${project.build.directory}/wikbook</wikbook.target>
+        <wikbook.source>${project.basedir}/src/main/resources/wikbook-src</wikbook.source>
+        <docbook.source>${project.build.directory}/docbook-src</docbook.source>
       </properties>
+
+      <dependencies>
+        <dependency>
+          <groupId>org.wikbook</groupId>
+          <artifactId>wikbook.docbkxstyle</artifactId>
+          <version>${version.wikbook.plugin}</version>
+        </dependency>
+	    <dependency>
+          <groupId>org.exoplatform.doc</groupId>
+          <artifactId>doc-style</artifactId>
+          <version>1.0-SNAPSHOT</version>
+          <type>jar</type>
+	    </dependency>
+      </dependencies>
+
       <build>
         <plugins>
-          <!-- The wikbook maven plugin generates the docbook document from the wiki source -->
+          <!-- 
+           1)  Unpacks the docbook and common style resources
+          -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>a-unpack</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.wikbook</groupId>
+                      <artifactId>wikbook.docbkxstyle</artifactId>
+                      <version>${wikbook.version}</version>
+                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <includes>**</includes>
+                      <excludes>META-INF/**</excludes>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>org.exoplatform.doc</groupId>
+                      <artifactId>doc-style</artifactId>
+                      <version>1.0-SNAPSHOT</version>
+                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <includes>**</includes>
+                      <excludes>META-INF/**</excludes>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!--
+           2) move the xml, xsl, css and images from src/main/ to target/plf/
+          -->
+          <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.4.3</version>
+            <executions>
+              <execution>
+                <id>b-copy-resources</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${project.build.directory}/</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>src/main/resources</directory>
+                      <excludes>
+                       <exclude>images/**</exclude>
+                      </excludes>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+              <execution>
+                <id>c-copy-images</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${docbook.source}/images</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>src/main/resources/images</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!--
+           3)  The wikbook maven plugin generates the docbook document from the wiki source 
+          -->
           <plugin>
             <groupId>org.wikbook</groupId>
             <artifactId>wikbook.maven</artifactId>
             <executions>
               <execution>
+                <id>d-generate-docbook</id>
                 <phase>generate-sources</phase>
                 <goals>
                   <goal>transform</goal>
@@ -38,121 +128,26 @@
               </execution>
             </executions>
             <configuration>
-              <sourceDirectory>${wikbook.source}/en/en-US</sourceDirectory>
+              <sourceDirectory>${wikbook.source}</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
-              <destinationDirectory>${wikbook.target}/src</destinationDirectory>
+              <destinationDirectory>${docbook.source}</destinationDirectory>
               <destinationFileName>index.xml</destinationFileName>
               <emitDoctype>true</emitDoctype>
-              <beforeBookBodyXML>&lt;xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /&gt;</beforeBookBodyXML>
+              <beforeBookBodyXML><![CDATA[
+              <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+           ]]></beforeBookBodyXML>
               <syntaxId>confluence/1.0</syntaxId>
             </configuration>
           </plugin>
-          <!-- Unpacks the docbook style resources for the docbkx plugin -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>a</id>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>unpack-dependencies</goal>
-                </goals>
-                <configuration>
-                  <includeGroupIds>org.wikbook</includeGroupIds>
-                  <includeArtifactIds>wikbook.docbkxstyle</includeArtifactIds>
-                  <excludes>META-INF/**</excludes>
-                  <outputDirectory>${wikbook.target}/src/resources</outputDirectory>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- Dockbx plugin that generates content -->
-          <plugin>
-            <groupId>com.agilejava.docbkx</groupId>
-            <artifactId>docbkx-maven-plugin</artifactId>
-            <configuration>
-              <!-- Source -->
-              <sourceDirectory>${wikbook.target}/src</sourceDirectory>
-              <includes>index.xml</includes>
-              <!-- Highlight source code -->
-              <highlightSource>1</highlightSource>
-              <!-- We need to support xinclude -->
-              <xincludeSupported>true</xincludeSupported>
-              <!--
-               |  See http://www.sagehill.net/docbookxsl/AnnotateListing.html
-               |  Callouts on imported text
-               -->
-              <useExtensions>1</useExtensions>
-              <calloutsExtension>1</calloutsExtension>
-              <!-- Copy any docbook XML -->
-              <preProcess>
-                <copy todir="${wikbook.target}/src">
-                  <fileset dir="${wikbook.source}/en/en-US">
-                    <include name="**/*.xml" />
-                  </fileset>
-                </copy>
-                <!-- copy stylesheet resources -->
-                <copy todir="${wikbook.target}/src/resources">
-                  <fileset dir="src/main/resources">
-                    <include name="**" />
-                  </fileset>
-                </copy>
-                <!-- copy stylesheet resources -->
-                <copy todir="${wikbook.target}/src/resources/images">
-                  <fileset dir="src/main/wikbook/images">
-                    <include name="**" />
-                  </fileset>
-                </copy>
-              </preProcess>
-            </configuration>
-            <executions>
-              <execution>
-                <id>generate-pdf</id>
-                <goals>
-                  <goal>generate-pdf</goal>
-                </goals>
-                <phase>generate-resources</phase>
-                <configuration>
-                  <!-- Output -->
-                  <targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
-                  <!-- Stylesheet -->
-                  <foCustomization>${wikbook.target}/src/resources/xsl/fopdf.xsl</foCustomization>
-                  <!-- Image configuration -->
-                  <imgSrcPath>${wikbook.source}/</imgSrcPath>
-                  <admonGraphicsPath>${wikbook.target}/src/resources/images/admons/</admonGraphicsPath>
-                </configuration>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.docbook</groupId>
-                <artifactId>docbook-xml</artifactId>
-                <version>4.4</version>
-                <scope>runtime</scope>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
+           <!--
+           4) process all the xml files
+              to generate the html and the pdf
+            -->
+         <plugin>
             <groupId>org.jboss.maven.plugins</groupId>
             <artifactId>maven-jdocbook-plugin</artifactId>
             <version>2.1.1</version>
-            <executions>
-              <execution>
-                <id>jdocbook-resources</id>
-                <phase>process-resources</phase>
-                <goals>
-                  <goal>resources</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>jdocbook-generate</id>
-                <phase>compile</phase>
-                <goals>
-                  <goal>generate</goal>
-                </goals>
-              </execution>
-            </executions>
+            <extensions>true</extensions>
             <dependencies>
                <dependency>
                   <groupId>org.exoplatform.doc</groupId>
@@ -166,42 +161,110 @@
                   <type>jdocbook-style</type>
                </dependency>
             </dependencies>
-            <configuration>
-               <sourceDirectory>${wikbook.target}/src</sourceDirectory>
-               <sourceDocumentName>index.xml</sourceDocumentName>
-
-               <cssResource>
-                  <directory>${wikbook.target}/src/resources</directory>
-                  <includes>
-                     <include>css/**</include>
-                  </includes>
-               </cssResource>
-               <imageResource>
-                  <directory>${wikbook.target}/src/resources</directory>
-                  <includes>
-                     <include>background/**</include>
-                     <include>images/**</include>
-                  </includes>
-               </imageResource>
-
-               <formats>
-                  <format>
-                     <formatName>html</formatName>
-                     <stylesheetResource>file:${basedir}/src/main/resources/xsl/xhtml.xsl</stylesheetResource>
-                     <finalName>index.html</finalName>
-                  </format>
-               </formats>
-               
-               <options>
-                  <xincludeSupported>true</xincludeSupported>
-                  <xmlTransformerType>saxon</xmlTransformerType>
-                  <!-- needed for uri-resolvers; can be ommitted if using 'current' uri scheme -->
-                  <!--     could also locate the docbook dependency and inspect its version... -->
-                  <docbookVersion>1.74.0</docbookVersion>
-               </options>
-
-            </configuration>
+            <executions>
+             <execution>
+                <id>e-jdocbook-resources</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>resources</goal>
+                </goals>
+              </execution>
+             <execution>
+               <id>f-generate-docs</id>
+               <goals>
+                 <goal>generate</goal>
+               </goals>
+               <phase>compile</phase>
+               </execution>
+             </executions>
+		        <configuration>
+                   <sourceDirectory>${docbook.source}</sourceDirectory>
+		           <sourceDocumentName>index.xml</sourceDocumentName>
+		           <imageResource>
+		              <directory>${docbook.source}</directory>
+		              <includes>
+		                 <include>images/**</include>
+		                 <include>background/**</include>
+		              </includes>
+		           </imageResource>
+		            <cssResource>
+		              <directory>${docbook.source}</directory>
+		              <includes>
+		                 <include>css/**</include>
+		              </includes>
+		           </cssResource>
+		           <formats>
+		              <format>
+		                 <formatName>html_single</formatName>
+		                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
+		                 <finalName>index.html</finalName>
+		              </format>
+                      <format>
+		                <formatName>html</formatName>
+		                <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+		                <finalName>index.html</finalName>
+		              </format>
+		              <!--format>
+                        <formatName>eclipse</formatName>
+                        <stylesheetResource>file:${docbook.source}/xsl/eclipse30.xsl</stylesheetResource>
+                        <finalName>index.html</finalName>
+                      </format-->
+		           </formats>
+		           <options>
+		              <xincludeSupported>true</xincludeSupported>
+		              <xmlTransformerType>saxon</xmlTransformerType>
+		              <docbookVersion>1.76.1</docbookVersion>
+		           </options>
+		        </configuration>
          </plugin>
+           <!--
+            5) this step is necessary to circumvent a bug in the pdf-generator, cf PLF-802 
+           -->
+         <plugin>
+           <artifactId>maven-antrun-plugin</artifactId>
+           <version>1.6</version>
+           <executions>
+             <execution>
+               <id>g-remove-border-collapse</id>
+               <phase>compile</phase>
+               <configuration>
+                 <target>
+                   <replace file="${project.build.directory}/docbook/publish/en-US/html_single/css/exo.css">
+    				  <replacetoken><![CDATA[border-collapse: collapse;]]></replacetoken>
+	    			  <replacevalue><![CDATA[/*border-collapse: collapse;*/]]></replacevalue>
+		    		</replace>
+                </target>
+               </configuration>
+               <goals>
+                 <goal>run</goal>
+               </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!--
+            6) this step is necessary to circumvent a bug in the pdf-generator, cf PLF-802 
+           -->
+          <plugin>
+            <groupId>org.exoplatform.doc</groupId>
+            <artifactId>doc-pdf-generator</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <executions>
+              <execution>
+                <id>h-remove-border-collapse</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>transform</goal>
+                </goals>
+                <configuration>
+                  <inputFile>${project.build.directory}/docbook/publish/en-US/html_single/index.html</inputFile>
+                  <outputFile>${project.build.directory}/${project.artifactId}.pdf</outputFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!--
+            7) assemble the final zip
+           -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
@@ -221,7 +284,7 @@
                 </configuration>
               </execution>
             </executions>
-          </plugin>          
+          </plugin>
         </plugins>
       </build>
     </profile>
