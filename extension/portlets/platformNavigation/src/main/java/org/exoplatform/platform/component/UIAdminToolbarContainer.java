@@ -21,7 +21,7 @@ package org.exoplatform.platform.component;
 
 import java.util.List;
 
-import org.exoplatform.platform.common.NavigationURLUtils;
+import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.platform.webui.navigation.TreeNode;
 import org.exoplatform.platform.webui.navigation.UINavigationManagement;
 import org.exoplatform.platform.webui.navigation.UINavigationNodeSelector;

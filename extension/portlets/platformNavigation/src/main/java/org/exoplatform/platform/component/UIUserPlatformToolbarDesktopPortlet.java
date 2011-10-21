@@ -27,8 +27,7 @@ import java.util.List;
 import javax.portlet.EventRequest;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.platform.common.NavigationURLUtils;
-import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Page;
@@ -43,8 +42,6 @@ import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.web.url.navigation.NavigationResource;
-import org.exoplatform.web.url.navigation.NodeURL;
 import org.exoplatform.webos.webui.page.UIDesktopPage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
