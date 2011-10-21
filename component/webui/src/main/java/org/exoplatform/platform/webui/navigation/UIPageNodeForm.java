@@ -281,11 +281,11 @@ public class UIPageNodeForm extends UIFormTabPane
       Map<Locale, Described.State> i18nizedLabels = pageNode.getI18nizedLabels();
       if (i18nizedLabels != null)
       {
-         for (Locale key : i18nizedLabels.keySet())
-         {
-            String locale = key.getCountry() != "" ? key.getLanguage() + "_" + key.getCountry() : key.getLanguage();
-            cachedLabels.put(locale, i18nizedLabels.get(key));
-         }
+        for (Locale key : i18nizedLabels.keySet())
+        {
+           String locale = (key.getCountry() != null && !key.getCountry().isEmpty()) ? key.getLanguage() + "_" + key.getCountry() : key.getLanguage();
+           cachedLabels.put(locale, i18nizedLabels.get(key));
+        }
       }
       
       if (cachedLabels.get(selectedLocale) != null)
