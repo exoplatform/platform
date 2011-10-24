@@ -49,6 +49,7 @@ public class ModuleRegistry implements Startable {
   private static final Log LOG = ExoLogger.getExoLogger(ModuleRegistry.class);
 
   private Map<String, Boolean> isPortletActiveCache = new HashMap<String, Boolean>();
+  private boolean isPortletDisplayNamesImported = false;
 
   /**
    * modules indexed by name
@@ -145,22 +146,26 @@ public class ModuleRegistry implements Startable {
         }
       }
     }
-
-    PortletInvoker portletInvoker = (PortletInvoker) PortalContainer.getComponent(PortletInvoker.class);
-    try {
-      Set<org.gatein.pc.api.Portlet> portlets = portletInvoker.getPortlets();
-      for (org.gatein.pc.api.Portlet portlet : portlets) {
-        portletDisplayNames.put(portlet.getInfo().getName(), portlet.getInfo().getMeta().getMetaValue(MetaInfo.DISPLAY_NAME));
-      }
-    } catch (PortletInvokerException exception) {
-      exception.printStackTrace();
-    }
   }
 
   public String getDisplayName(String portletName, Locale locale) {
     String portletDisplayName = portletName;
     if (portletDisplayNames.get(portletName) != null) {
       portletDisplayName = portletDisplayNames.get(portletName).getValue(locale, true).getString();
+    } else if (!isPortletDisplayNamesImported) {
+      PortletInvoker portletInvoker = (PortletInvoker) PortalContainer.getComponent(PortletInvoker.class);
+      try {
+        Set<org.gatein.pc.api.Portlet> portlets = portletInvoker.getPortlets();
+        for (org.gatein.pc.api.Portlet portlet : portlets) {
+          portletDisplayNames.put(portlet.getInfo().getName(), portlet.getInfo().getMeta().getMetaValue(MetaInfo.DISPLAY_NAME));
+        }
+        isPortletDisplayNamesImported = true;
+      } catch (PortletInvokerException exception) {
+        LOG.error("Error occured when trying to import portlets", exception);
+      }
+      if (portletDisplayNames.get(portletName) != null) {
+        portletDisplayName = portletDisplayNames.get(portletName).getValue(locale, true).getString();
+      }
     }
     return portletDisplayName;
   }
