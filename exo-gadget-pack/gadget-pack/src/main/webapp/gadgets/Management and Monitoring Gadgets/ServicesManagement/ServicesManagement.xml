@@ -138,7 +138,7 @@
    <Content type="html" view="canvas">
       <![CDATA[         
         <link rel="stylesheet" type="text/css" href="style/canvas.css"></link>
-        <script src="script/jquery-1.4.2.min.js"></script>     
+        <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>     
         <script src="script/script.js"></script>
         <script src="script/handlers.js"></script>
         <script type="text/javascript">
