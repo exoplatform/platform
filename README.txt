@@ -1,72 +1,56 @@
-=========================
-    eXo Platform 3.0
-     3rd August 2010
-=========================
 
+Thank you for downloading eXo Platform 3.5.
 
-* Introduction
---------------
+Follow the installation procedure and start eXo Platform 3.5 now!
 
-Welcome to eXo Platform 3.0 Beta 2.
+-------------------
+System requirements
+-------------------
 
+    * CPU: 4GHz
+    * Memory: 4GB of RAM
+    * Disk: 400MB
+    * OS: Windows, Linux or Mac OS X
+    * Java 6 (Set the JAVA_HOME environment variable)
+    * Browser: Firefox 3+ or Internet Explorer 7+
+    * The eXo server will run on port 8080, make sure this port is not currently in use
 
+-------------------------
+How to start the Platform
+-------------------------
 
-* Package Content
------------------
+    * PLF_HOME is the location of the unzipped eXo Platform 3.5 server. It refers to a Tomcat 6 bundle located in the "tomcat-bundle" folder
+    * On Windows: Open a DOS prompt command, go to PLF_HOME directory and type the command: "start_eXo.bat"
+    * On Linux/Mac OS X: Open a terminal, go to PLF_HOME directory and type the command :"./start_eXo.sh"
 
-This release contains:
- - GateIn 3.1 GA
- - WCM 2.1-CR01
- - xCMIS-1.1-Beta1
- - Collaboration 2.1-CR01
- - Knowledge  2.1-CR01
- - Social 1.1-CR01
- - IDE-1.0.0-Beta03
--  Crash 1.0.??
+-----------------------------------
+How to access the Platform homepage
+-----------------------------------
 
+    * Wait for the server to start. You should see something like this on the console
 
+      INFO: Server startup in 353590 ms
 
-* Build and Packaging Instructions
-----------------------------------
+    * Enter the following URL into your browser's address bar: http://localhost:8080/portal
 
-Detailed instructions are given here : 
-http://wiki-int.exoplatform.org/display/PLF/Building+Platform+3.0
+-------------
+Going Further
+-------------
+Your next stop will depend on who you are:
 
- - Prerequisites : You need Java 6. Make sure your maven settings are up-to-date
+    * Developers: learn how to build your own portal, gadgets, REST services or eXo-based applications in the Developer Guide [http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/developer/html/index.html] and the Reference Documentation [http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/refguide/html/index.html]    
+   * Administrators: learn how to install eXo Platform on a server in the Administrator Guide: http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/admin/html/index.html
+    * End Users: learn more about using the features in the User Manuals: http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/user/index.html
 
- - Check-out the source from  :
-   http://svn.exoplatform.org/projects/platform/trunk/
-   
- - Go into the main folder, run
-   mvn clean install -Pexo-private
-   
- - Go into the folder /packaging/pkg/target/tomcat
-   Here is your eXo Platform Tomcat distribution
+------------------
+External Resources
+------------------
 
- - To build also documentations and archives used for distribution
-   mvn clean install -Pexo-private,distrib 
-
-* Known Issues
---------------
-
- - On Linux environments, the starter.war might not start at the right time,
-   and prevent the application from running correctly. To circumvent that:
-   - Start from a clean, freshly extracted, tomcat
-   - Move /tomcat/webapps/starter.war into /tomcat/
-   - Start the server, it should be very fast
-     E.g. INFO: Server startup in 23771 ms
-   - Move back the starter.war in the folder /tomcat/webapps/
-   - You should see some activity in the console, the server is started after a few minutes
-   
- - To be continued with TC results...
- 
- 
- 
-* Other Resources
------------------
-
- - Internal Wiki  :  http://wiki-int.exoplatform.org/display/PLF/
- - Jira           :  http://jira.exoplatform.org/browse/PLF
- - SVN            :  http://svn.exoplatform.org/projects/platform/trunk/
- - Fisheye        :  http://fisheye.exoplatform.org/browse/platform
+Support				http://support.exoplatform.com
+Training			http://www.exoplatform.com/company/public/website/services/development/development-training
+Consulting			http://www.exoplatform.com/company/public/website/services/development/development-consulting
+Corporate Website	http://www.exoplatform.com
+Blog				http://blog.exoplatform.org
+Community Website	http://community.exoplatform.org
+Forum				http://forum.exoplatform.org
 
