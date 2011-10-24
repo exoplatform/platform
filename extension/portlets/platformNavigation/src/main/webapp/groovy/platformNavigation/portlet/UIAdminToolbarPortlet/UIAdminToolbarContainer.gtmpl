@@ -7,11 +7,11 @@
 	import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 
 	def rcontext = _ctx.getRequestContext();
-
+	 
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.portal.UIPortalNavigation');
 	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
-	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '_UL");');
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 
 	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
