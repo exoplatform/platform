@@ -136,7 +136,7 @@
               </preference>
               <preference>
                 <name>showTitle</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -226,7 +226,22 @@
                 <name>showRssLink</name>
                 <value>false</value>
                 <read-only>false</read-only>
-              </preference>                                          
+              </preference>
+              <preference>
+                <name>showHeader</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showTitle</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showLink</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
             </preferences>
           </portlet>
           <title>Products</title>
@@ -290,6 +305,21 @@
               </preference>
               <preference>
                 <name>showReadmore</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showHeader</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showTitle</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showLink</name>
                 <value>false</value>
                 <read-only>false</read-only>
               </preference>
