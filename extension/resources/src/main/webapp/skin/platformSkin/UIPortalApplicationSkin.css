@@ -185,3 +185,8 @@ a {
 #MonitoringTable {
 	background-color:white !important;
 }
+
+.UIJCRExplorer .UIDrivesArea .IconDrivesPersonal  {
+	background: url('/ecmexplorer/skin/webui/component/explorer/UIJCRExplorer/DefaultSkin/background/IconDrivesArea.gif') no-repeat center -115px;
+	height: 23px;
+}
