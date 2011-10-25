@@ -166,14 +166,15 @@
 
   <ul style="display: none" class="MenuItemContainer">
     <% 
-    def groupNavigations = uicomponent.getGroupNavigations();
-	if (groupNavigations!= null && !groupNavigations.isEmpty()) {
     
-      def rcontext = _ctx.getRequestContext();
-      def jsManager = rcontext.getJavascriptManager();
-      jsManager.importJavascript('eXo.portal.UIPortalNavigation');
-      jsManager.importJavascript('eXo.portal.UIAdminToolbar');
-      jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+    def rcontext = _ctx.getRequestContext();
+    def jsManager = rcontext.getJavascriptManager();
+    jsManager.importJavascript('eXo.portal.UIPortalNavigation');
+    jsManager.importJavascript('eXo.portal.UIAdminToolbar');
+    jsManager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+  
+    def groupNavigations = uicomponent.getGroupNavigations();
+    if (groupNavigations!= null && !groupNavigations.isEmpty()) {
     
 
       def MY_SPACES_MAX_NUMBER = 10;
