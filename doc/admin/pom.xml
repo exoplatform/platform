@@ -202,16 +202,21 @@
 		              </includes>
 		           </cssResource>
 		           <formats>
-		              <format>
-		                 <formatName>html_single</formatName>
-		                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
-		                 <finalName>index.html</finalName>
-		              </format>
                       <format>
 		                <formatName>html</formatName>
 		                <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
 		                <finalName>index.html</finalName>
 		              </format>
+                      <format>
+		                <formatName>pdf</formatName>
+		                <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+		                <finalName>${project.artifactId}-${version}.pdf</finalName>
+		              </format>
+		              <!--format>
+		                 <formatName>html_single</formatName>
+		                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
+		                 <finalName>index.html</finalName>
+		              </format-->
 		              <!--format>
                         <formatName>eclipse</formatName>
                         <stylesheetResource>file:${docbook.source}/xsl/eclipse30.xsl</stylesheetResource>
@@ -225,53 +230,8 @@
 		           </options>
 		        </configuration>
          </plugin>
-           <!--
-            5) this step is necessary to circumvent a bug in the doc-pdf-generator, cf PLF-802 
-           -->
-         <plugin>
-           <artifactId>maven-antrun-plugin</artifactId>
-           <version>1.6</version>
-           <executions>
-             <execution>
-               <id>g-remove-border-collapse</id>
-               <phase>compile</phase>
-               <configuration>
-                 <target>
-                   <replace file="${project.build.directory}/docbook/publish/en-US/html_single/css/exo.css">
-    				  <replacetoken><![CDATA[border-collapse: collapse;]]></replacetoken>
-	    			  <replacevalue><![CDATA[/*border-collapse: collapse;*/]]></replacevalue>
-		    		</replace>
-                </target>
-               </configuration>
-               <goals>
-                 <goal>run</goal>
-               </goals>
-              </execution>
-            </executions>
-          </plugin>
           <!--
-            6) Generate the pdf by converting the single html file in PDF, with the doc-pdf-generator plugin
-           -->
-          <plugin>
-            <groupId>org.exoplatform.doc</groupId>
-            <artifactId>doc-pdf-generator</artifactId>
-            <version>${doc-pdf-generator.version}</version>
-            <executions>
-              <execution>
-                <id>h-remove-border-collapse</id>
-                <phase>compile</phase>
-                <goals>
-                  <goal>transform</goal>
-                </goals>
-                <configuration>
-                  <inputFile>${project.build.directory}/docbook/publish/en-US/html_single/index.html</inputFile>
-                  <outputFile>${project.build.directory}/${project.artifactId}.pdf</outputFile>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!--
-            7) assemble the final zip
+            5) assemble and attach the final artifacts (html, docbook, pdf)
            -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -280,19 +240,43 @@
             </dependencies>
             <executions>
               <execution>
+		        <id>g-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docbook.xml</descriptor>
+                    <descriptor>src/main/assembly/html.xml</descriptor>
                   </descriptors>
-                  <appendAssemblyId>false</appendAssemblyId>
+                  <appendAssemblyId>true</appendAssemblyId>
                 </configuration>
               </execution>
             </executions>
           </plugin>
+		  <plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>build-helper-maven-plugin</artifactId>
+		    <version>1.7</version>
+		    <executions>
+		      <execution>
+		        <id>h-attach-pdf</id>
+		        <phase>package</phase>
+		        <goals>
+		          <goal>attach-artifact</goal>
+		        </goals>
+		        <configuration>
+		          <artifacts>
+		            <artifact>
+		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${version}.pdf</file>
+                      <type>pdf</type>
+		            </artifact>
+		          </artifacts>
+		        </configuration>
+		      </execution>
+		    </executions>
+		  </plugin>
         </plugins>
       </build>
     </profile>

@@ -298,16 +298,21 @@
 	              </includes>
 	           </cssResource>
 	           <formats>
-	              <format>
-	                 <formatName>html_single</formatName>
-	                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
-	                 <finalName>index.html</finalName>
-	              </format>
                   <format>
 	                <formatName>html</formatName>
 	                <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
 	                <finalName>index.html</finalName>
 	              </format>
+                      <format>
+		                <formatName>pdf</formatName>
+		                <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+		                <finalName>${project.artifactId}-${version}.pdf</finalName>
+		              </format>
+	              <!--format>
+	                 <formatName>html_single</formatName>
+	                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
+	                 <finalName>index.html</finalName>
+	              </format-->
 	              <!--format>
                     <formatName>eclipse</formatName>
                     <stylesheetResource>file:${docbook.source}/xsl/eclipse30.xsl</stylesheetResource>
@@ -321,27 +326,53 @@
 	           </options>
 	        </configuration>
          </plugin>
-
-
-          <!-- Create and attach the HTML zip -->
-          <!--plugin>
+          <!--
+            5) assemble and attach the final artifacts (html, docbook, pdf)
+           -->
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
+            <dependencies>
+            </dependencies>
             <executions>
               <execution>
+		        <id>g-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
                 </goals>
                 <configuration>
                   <descriptors>
-                    <descriptor>src/main/assembly/docs-archive.xml</descriptor>
+                    <descriptor>src/main/assembly/docbook.xml</descriptor>
+                    <descriptor>src/main/assembly/html.xml</descriptor>
                   </descriptors>
-                  <appendAssemblyId>false</appendAssemblyId>
+                  <appendAssemblyId>true</appendAssemblyId>
                 </configuration>
               </execution>
             </executions>
-          </plugin-->
+          </plugin>
+		  <plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>build-helper-maven-plugin</artifactId>
+		    <version>1.7</version>
+		    <executions>
+		      <execution>
+		        <id>h-attach-pdf</id>
+		        <phase>package</phase>
+		        <goals>
+		          <goal>attach-artifact</goal>
+		        </goals>
+		        <configuration>
+		          <artifacts>
+		            <artifact>
+		              <file>${project.build.directory}/${project.artifactId}-${version}.pdf</file>
+                      <type>pdf</type>
+		            </artifact>
+		          </artifacts>
+		        </configuration>
+		      </execution>
+		    </executions>
+		  </plugin>
         </plugins>
       </build>
     </profile>

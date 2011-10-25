@@ -1,7 +1,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
-  <id>docs-archive</id>
+  <id>html</id>
   <formats>
     <format>zip</format>
   </formats>
@@ -9,13 +9,7 @@
   <fileSets>
     <fileSet>
       <directory>target/docbook/publish/en-US/html</directory>
-      <outputDirectory>/html</outputDirectory>
+      <outputDirectory>/</outputDirectory>
     </fileSet>
   </fileSets>
-  <files>
-    <file>
-      <source>${project.build.directory}/${project.artifactId}.pdf</source>
-      <outputDirectory>/pdf</outputDirectory>
-    </file>
-  </files>
 </assembly>
