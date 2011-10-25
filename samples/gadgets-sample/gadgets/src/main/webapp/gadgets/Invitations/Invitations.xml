@@ -129,10 +129,10 @@
           // debuging end
 
           
-          $('#connections_requests_nb').addClass("nb_no");
-          $("#connections_requests_handler").html('<div class="light_message"> __MSG_no_new_contact__ </div>');
-          $('#space_requests_nb').addClass("nb_no");
-          $("#space_requests_handler").html('<div class="light_message"> __MSG_no_new_space__ </div>');
+          $("#connections_requests_nb").addClass("nb_no");
+          $("#connections_requests_handler").html("<div class='light_message'>__MSG_no_new_contact__</div>");
+          $("#space_requests_nb").addClass("nb_no");
+          $("#space_requests_handler").html("<div class='light_message'>__MSG_no_new_space__</div>");
           showPeople();
                     
           //
