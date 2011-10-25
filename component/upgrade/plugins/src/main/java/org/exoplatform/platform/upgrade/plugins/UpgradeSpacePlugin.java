@@ -40,7 +40,7 @@ import org.exoplatform.social.core.storage.api.SpaceStorage;
  *         Defrance</a>
  * @version $Revision$
  */
-public class SpaceUpgradePlugin extends UpgradeProductPlugin {
+public class UpgradeSpacePlugin extends UpgradeProductPlugin {
 
   private final OrganizationService service;
   private final SpaceStorage spaceStorage;
@@ -48,9 +48,9 @@ public class SpaceUpgradePlugin extends UpgradeProductPlugin {
   private final ExoProperties welcomeSCVCustomPreferences;
   private final DeploymentDescriptor deploymentDescriptor;
 
-  private static final Log LOG = ExoLogger.getLogger(SpaceUpgradePlugin.class);
+  private static final Log LOG = ExoLogger.getLogger(UpgradeSpacePlugin.class);
 
-  public SpaceUpgradePlugin(SpaceCustomizationService spaceCustomizationService, OrganizationService organizationService,
+  public UpgradeSpacePlugin(SpaceCustomizationService spaceCustomizationService, OrganizationService organizationService,
       SpaceStorage spaceStorage, InitParams initParams) {
     super(initParams);
     this.service = organizationService;
