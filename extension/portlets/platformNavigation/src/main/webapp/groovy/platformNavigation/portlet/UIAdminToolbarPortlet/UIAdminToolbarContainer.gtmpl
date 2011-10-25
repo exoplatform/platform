@@ -1,6 +1,7 @@
 <%	
 	import org.exoplatform.web.application.JavascriptManager;
-	import org.exoplatform.portal.webui.util.Util ;
+	import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	import org.exoplatform.wcm.webui.Utils;
 	import org.exoplatform.portal.application.PortalRequestContext ;
 	import org.exoplatform.platform.webui.NavigationURLUtils;
@@ -51,7 +52,12 @@
 				<a href="#" class="ItemIcon DefaultPageIcon"><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></a>
 				<ul class="MenuItemContainer">
 					<li class="MenuItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
+                        <%
+                          UIPortalApplication portalApp = Util.getUIPortalApplication();
+                          UIPage uiPage = portalApp.findFirstComponentOfType(UIPage.class);//TODO: Find a better solution than this traversing
+                          String editPageRequest = "javascript:ajaxGet(eXo.env.server.createPortalURL('" + uiPage.getId() + "', 'EditCurrentPage', true))";
+                        %>
+						<a href="$editPageRequest" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 					</li>
 					<li class="MenuItem SEOMenuItem">
                         <div class="seolabel FloatLeft">
