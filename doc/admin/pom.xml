@@ -60,7 +60,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.doc</groupId>
                       <artifactId>doc-style</artifactId>
-                      <version>1.0-SNAPSHOT</version>
+                      <version>${doc-style.version}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
@@ -210,7 +210,7 @@
                       <format>
 		                <formatName>pdf</formatName>
 		                <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-		                <finalName>${project.artifactId}-${version}.pdf</finalName>
+		                <finalName>${project.artifactId}-${project.version}.pdf</finalName>
 		              </format>
 		              <!--format>
 		                 <formatName>html_single</formatName>
@@ -269,7 +269,7 @@
 		        <configuration>
 		          <artifacts>
 		            <artifact>
-		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${version}.pdf</file>
+		              <file>${project.build.directory}/docbook/publish/en-US/pdf/${project.artifactId}-${project.version}.pdf</file>
                       <type>pdf</type>
 		            </artifact>
 		          </artifacts>
