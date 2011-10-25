@@ -775,6 +775,30 @@
         <version>${org.exoplatform.integ.version}</version>
         <type>jar</type>
     </dependency>
+
+    <!-- Gadgets on the intranet homepage -->
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.gadgets-sample.gadgets</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.gadgets-sample.service</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.gadgets-sample.config</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
   </dependencies>
   <build>
     <finalName>platform-extension</finalName>
@@ -908,6 +932,29 @@
               <artifactId>exo.platform.component.edition.enterprise</artifactId>
               <includeInApplicationXml>true</includeInApplicationXml>
             </jarModule>
+            <!-- Gagdets on the intranet homepage-->
+            <jarModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.sample.gadgets-sample.config</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.sample.gadgets-sample.service</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <webModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.sample.gadgets-sample.gadgets</artifactId>
+              <contextRoot>intranet-gadgets</contextRoot>
+              <bundleFileName>intranet-gadgets.war</bundleFileName>
+            </webModule>
+            <webModule>
+              <groupId>org.exoplatform.platform</groupId>
+              <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
+              <contextRoot>exo-gadget-resources</contextRoot>
+              <bundleFileName>exo-gadget-resources.war</bundleFileName>
+            </webModule>
           </modules>
         </configuration>
       </plugin>
