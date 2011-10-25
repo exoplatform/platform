@@ -180,7 +180,8 @@
     </script>
   </head>
 
-  <body id="content">
+  <body>
+   <div id="content">
     <div class="UIGadgetThemes">
       <div class="TitGad ClearFix">
         <div style="float:right; display:block; margin:3px 9px;">
@@ -209,7 +210,7 @@
           </tr>
         </table>
       </div>
-
+     </div>
     </div>
   </body>
     
