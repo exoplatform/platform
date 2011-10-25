@@ -1253,6 +1253,7 @@
 							<read-only>false</read-only>
 						  </preference>
 						  <preference>
+
 							<name>ShowTags</name>
 							<value>false</value>
 							<read-only>false</read-only>
@@ -1449,12 +1450,12 @@
 	<page>
 		<name>newAccount</name>
 		<title>newAccount</title>
-		<access-permissions>Everyone</access-permissions>
+		<access-permissions>*:/platform/guests</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Register_Page" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-			<access-permissions>Everyone</access-permissions>
+			<access-permissions>*:/platform/guests</access-permissions>
 			<container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" width="550px">
-				<access-permissions>Everyone</access-permissions>
+				<access-permissions>*:/platform/guests</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>exoadmin</application-ref>
@@ -1462,14 +1463,14 @@
 						<preferences/>
 					</portlet>
 					<title>Register Account</title>
-					<access-permissions>Everyone</access-permissions>
+					<access-permissions>*:/platform/guests</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>false</show-application-state>
 					<show-application-mode>false</show-application-mode>
 				</portlet-application>
 			</container>
 			<container id="Register_Login" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" width="150px">
-				<access-permissions>Everyone</access-permissions>
+				<access-permissions>*:/platform/guests</access-permissions>
 				<portlet-application>
 					<portlet>
 						<application-ref>presentation</application-ref>
