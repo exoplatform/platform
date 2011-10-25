@@ -48,6 +48,75 @@
 					<description>The plugin execution order</description>
 					<value>4</value>
 				</value-param>
+				<values-param>
+					<name>webapps-mames</name>
+					<description>webapps to upgrade</description>
+					<value>acme-intranet</value>
+					<value>acme-intranet-portlet</value>
+					<value>acme-website</value>
+					<value>acme-websiteResources</value>
+					<value>authoring-apps</value>
+					<value>calendar</value>
+					<value>chat</value>
+					<value>chatbar</value>
+					<value>cometd</value>
+					<value>commons-extension</value>
+					<value>CommonsResources</value>
+					<value>contact</value>
+					<value>content</value>
+					<value>crash</value>
+					<value>cs-extension</value>
+					<value>csResources</value>
+					<value>dashboard</value>
+					<value>default-website</value>
+					<value>ecm-wcm-core</value>
+					<value>ecm-wcm-extension</value>
+					<value>ecmadmin</value>
+					<value>ecmbrowsecontent</value>
+					<value>ecmexplorer</value>
+					<value>ecmworkflow-extension</value>
+					<value>exo-gadget-resources</value>
+					<value>exoadmin</value>
+					<value>eXoDMSGadgets</value>
+					<value>eXoDMSResources</value>
+					<value>eXoGadgets</value>
+					<value>eXoGadgetServer</value>
+					<value>eXoPlatformResources</value>
+					<value>eXoResources</value>
+					<value>eXoStaticResources</value>
+					<value>eXoWCMResources</value>
+					<value>eXoWorkflowResources</value>
+					<value>faq</value>
+					<value>fck</value>
+					<value>formgenerator</value>
+					<value>forum</value>
+					<value>gadget-pack</value>
+					<value>IDE</value>
+					<value>intranet-gadget</value>
+					<value>ks-extension</value>
+					<value>ksResources</value>
+					<value>mail</value>
+					<value>newsletter</value>
+					<value>platform-extension</value>
+					<value>platformNavigation</value>
+					<value>poll</value>
+					<value>portal</value>
+					<value>presentation</value>
+					<value>rest</value>
+					<value>searches</value>
+					<value>seo</value>
+					<value>SmartGWT</value>
+					<value>social</value>
+					<value>social-extension</value>
+					<value>social-portlet</value>
+					<value>social-resources</value>
+					<value>web</value>
+					<value>webos-ext</value>
+					<value>webosadmin</value>
+					<value>webosResources</value>
+					<value>wiki</value>
+					<value>workflow</value>
+				</values-param>
 			</init-params>
 		</component-plugin>
 		<component-plugin>

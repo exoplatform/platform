@@ -1,6 +1,7 @@
 package org.exoplatform.platform.upgrade.plugins;
 
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -48,12 +49,18 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
   private RepositoryService repositoryService;
   private List<DeploymentDescriptor> deploymentDescriptors = new ArrayList<DeploymentDescriptor>();
   private Map<String, XMLDeploymentPlugin> deploymentPlugins = new HashMap<String, XMLDeploymentPlugin>();
+  private List<String> webappsNames = new ArrayList<String>();
 
+  @SuppressWarnings("unchecked")
   public UpgradeContentPlugin(InitParams initParams, ConfigurationManager configurationManager,
       RepositoryService repositoryService) throws Exception {
     super(initParams);
     this.configurationManager = configurationManager;
     this.repositoryService = repositoryService;
+    if (initParams.containsKey("webapps-mames")) {
+      webappsNames = initParams.getValuesParam("webapps-mames").getValues();
+    }
+
     Component wcmContentInitializerServiceComponent = configurationManager.getComponent(WCMContentInitializerService.class);
     List<ComponentPlugin> plugins = wcmContentInitializerServiceComponent.getComponentPlugins();
     if (plugins == null) {
@@ -72,30 +79,26 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
 
       // divide each XMLDeploymentPlugin to multiple XMLDeploymentPlugin
       // that each new one will have only one single DeploymentDescriptor
-      List<DeploymentDescriptor> pluginDeploymentDescriptors = pluginInitParams.getObjectParamValues(DeploymentDescriptor.class);
-      if (pluginDeploymentDescriptors != null && !pluginDeploymentDescriptors.isEmpty()) {
-        deploymentDescriptors.addAll(pluginDeploymentDescriptors);
 
-        @SuppressWarnings("unchecked")
-        Iterator<ObjectParameter> objectParamIterator = pluginInitParams.getObjectParamIterator();
-        while (objectParamIterator.hasNext()) {
-          ObjectParameter objectParameter = objectParamIterator.next();
-          DeploymentDescriptor deploymentDescriptor = (DeploymentDescriptor) objectParameter.getObject();
+      Iterator<ObjectParameter> objectParamIterator = pluginInitParams.getObjectParamIterator();
+      if (objectParamIterator == null) {
+        continue;
+      }
+      while (objectParamIterator.hasNext()) {
+        ObjectParameter objectParameter = objectParamIterator.next();
+        DeploymentDescriptor deploymentDescriptor = (DeploymentDescriptor) objectParameter.getObject();
 
-          InitParams params = new InitParams();
-          params.addParameter(objectParameter);
+        deploymentDescriptors.add(deploymentDescriptor);
 
-          String key = getMapKey(deploymentDescriptor);
-          XMLDeploymentPlugin deploymentPlugin = new XMLDeploymentPlugin(params, configurationManager, repositoryService);
-          deploymentPlugins.put(key, deploymentPlugin);
-        }
+        InitParams params = new InitParams();
+        params.addParameter(objectParameter);
+
+        String key = getMapKey(deploymentDescriptor);
+        XMLDeploymentPlugin deploymentPlugin = new XMLDeploymentPlugin(params, configurationManager, repositoryService);
+        deploymentPlugin.setName(plugin.getName());
+        deploymentPlugins.put(key, deploymentPlugin);
       }
     }
-  }
-
-  private String getMapKey(DeploymentDescriptor deploymentDescriptor) {
-    return deploymentDescriptor.getTarget().getWorkspace() + deploymentDescriptor.getTarget().getNodePath()
-        + deploymentDescriptor.getSourcePath();
   }
 
   @Override
@@ -107,9 +110,17 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
     } catch (RepositoryException exception1) {
       throw new IllegalStateException("Could not retrieve current repository. Contents upgrade is canceled.");
     }
+
     for (DeploymentDescriptor deploymentDescriptor : deploymentDescriptors) {
+
       Session session = null;
       try {
+        // Delete invalid plugins
+        if (!shouldDeploy(deploymentDescriptor)) {
+          deploymentPlugins.remove(getMapKey(deploymentDescriptor));
+          continue;
+        }
+
         InputStream inputStream = configurationManager.getInputStream(deploymentDescriptor.getSourcePath());
         String nodeName = getNodeName(inputStream);
 
@@ -155,6 +166,29 @@ public class UpgradeContentPlugin extends UpgradeProductPlugin {
         LOG.error("Can't proceed to content deployment of deploymentPlugin : " + deploymentPlugin.getName(), exception);
       }
     }
+  }
+
+  private boolean shouldDeploy(DeploymentDescriptor deploymentDescriptor) {
+    if (webappsNames.isEmpty()) {
+      return true;
+    }
+    try {
+      URL url = configurationManager.getResource(deploymentDescriptor.getSourcePath());
+      String path = url.getPath();
+      for (String webapp : webappsNames) {
+        if (path.contains("/" + webapp + "/WEB-INF/")) {
+          return true;
+        }
+      }
+    } catch (Exception exception) {
+      LOG.error("An error occured while upgrading :" + deploymentDescriptor.getSourcePath(), exception);
+    }
+    return false;
+  }
+
+  private String getMapKey(DeploymentDescriptor deploymentDescriptor) {
+    return deploymentDescriptor.getTarget().getWorkspace() + deploymentDescriptor.getTarget().getNodePath()
+        + deploymentDescriptor.getSourcePath();
   }
 
   private String getNodeName(InputStream stream) throws Exception {
