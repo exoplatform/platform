@@ -108,6 +108,10 @@ public class DashboardInformationRESTService implements ResourceContainer {
       for(UserNode node : nodes){
         Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef()));
         
+        if(appDashboard == null) {
+          continue;
+        }
+        
         // Dashboard only into TransientApplication
         if(appDashboard.getState() instanceof TransientApplicationState) {
           
