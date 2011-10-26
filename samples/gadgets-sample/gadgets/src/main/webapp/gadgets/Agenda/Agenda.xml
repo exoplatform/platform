@@ -8,16 +8,20 @@
     <Locale lang="fr" messages="locale/fr.xml" />
     <Require feature="setprefs"/>
     <Require feature="dynamic-height"/>
-    <UserPref name="setting" default_value="/calendar;/portal/rest/cs/calendar/getissues;10;AM/PM;Default" datatype="hidden" />
+    <UserPref name="setting" default_value="/calendar;/portal/rest/cs/calendar/events/personal;10;AM/PM;Default;0" datatype="hidden" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
 	<link rel="stylesheet" href="css/tasks.css" type="text/css" />
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-   	<script src="js/jquery.js"></script>
-	<script src="js/tasks.js"></script>
+   	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/tasks.js"></script>
     
-	<script>
+	<script type="text/javascript">        
+		var defaultCalendar = "";
+	</script>
+	
+	<script type="text/javascript">
 
 			function showTask(){
 				$("#eventDiv").hide();
@@ -54,7 +58,16 @@
 
 <div id="agenda-gadget" class="UIGadgetThemes">
 
-      <form id="Setting" action="#" style="display:none;">
+        <div class="TitGad ClearFix">
+          <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
+
+          <div class="SettingButton" id="SettingButton" title="__MSG_setting__" style="display:block; height:19px">
+            <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
+          </div>
+          <div class="ContTit">Agenda</div>
+        </div>
+        
+     <form id="Setting" action="#" style="display:none;">
       <table>
         <tr>
           <td>__MSG_baseurl__</td>
@@ -67,21 +80,11 @@
         <tr>
           <td>__MSG_limit__</td>
           <td><input type="text" name="limit"></td>
-        </tr>
-        <tr>
-          <td>__MSG_format__</td>
-          <td>
-            <select type="text" name="timeformat">
-              <option value="0">AM/PM</option>
-              <option value="1">24</option>
-            </select>
-          </td>
-        </tr>        
+        </tr>   
         <tr>
           <td>__MSG_calendars__</td>
           <td>
             <select type="text" name="calendars">
-              <option value="0">Default</option>
             </select>
           </td>
         </tr>
@@ -93,18 +96,7 @@
         </tr>
       </table>
       </form>
-
-
-        <div class="TitGad ClearFix">
-          <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
-
-          <div class="SettingButton" id="SettingButton" title="__MSG_setting__">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
-          </div>
-          <div class="ContTit">Agenda</div>
-        </div>
-	<br/>
-
+      
      <div class="GadCont">
 	<div>
 	<span id="eventLink" href="#" class="ThemeColor customLink"> </span>
@@ -112,17 +104,14 @@
 	<span id="taskLink" href="#" class="ThemeColor customLink"> </span> 
 	</div>
 
-
         <div class="GadCont MyTasks" id="taskDiv">
-
         </div> 
-	
 
         <div class="GadCont UpcomingEvents" id="eventDiv">
         </div>
         
      </div>
-
+     
 </div>
 
     ]]>

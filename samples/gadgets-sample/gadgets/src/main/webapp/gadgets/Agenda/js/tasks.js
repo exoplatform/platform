@@ -120,16 +120,30 @@ function eXoEventGadget(){
 
 eXoEventGadget.prototype.getPrefs = function(){
 	var setting = (new gadgets.Prefs()).getString("setting");
-	if(setting =="") setting = ["","/portal/rest/cs/calendar/getissues","10","AM/PM","defaultCalendarName"];
+	if(setting =="") {
+	        setting = ["/calendar","/portal/rest/cs/calendar/events/personal","10","Default","0"];
+	        }
 	else {
 		setting = setting.split(";");
+	}
+	var calendars = "";
+	var calendarId = "";
+	if ((setting[3] == "Default") && (defaultCalendar != "")) {
+	        var myDefaultCalendar = defaultCalendar.split(";");
+	        calendars = myDefaultCalendar[0];
+	        calendarId = myDefaultCalendar[1];
+	}
+	else {
+	        calendars = setting[3];
+	        calendarId = setting[4];
 	}
 	this.prefs = {
 		"url"  : setting[0],
 		"subscribeurl"  : setting[1],
 		"limit": setting[2],
-		"timeformat" : setting[3],
-		"calendars"  : setting[4]
+		//"timeformat" : setting[3],
+		"calendars"  : calendars,
+		"calendarId" : calendarId		
 	}
 	return this.prefs;
 }
@@ -145,20 +159,28 @@ eXoEventGadget.prototype.setLink = function(){
 }
 
 eXoEventGadget.prototype.createRequestUrl = function(){
-	var prefs = eXoEventGadget.prefs || eXoEventGadget.getPrefs();
+	var prefs = eXoEventGadget.getPrefs();
 	var limit = (prefs.limit && (parseInt(prefs.limit) > 0))? prefs.limit:0;
-	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/getissues" ;
-	subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Task/" + limit ;
-	subscribeurl += "?rnd=" + (new Date()).getTime();
+	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/events/personal" ;
+	var today = new Date();
+	var fiveDaysAfter = (new Date()).setDate(today.getDate()+7);
+	subscribeurl += "/Task/" + prefs.calendarId + "/" + today.getTime() + "/" + fiveDaysAfter + "/" + limit;
+	//var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/getissues" ;
+	//subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Task/" + limit ;
+	//subscribeurl += "?rnd=" + (new Date()).getTime();
 	return subscribeurl;
 }
 
 eXoEventGadget.prototype.createRequestUrlEvent = function(){
 	var prefs = eXoEventGadget.getPrefs();
 	var limit = (prefs.limit && (parseInt(prefs.limit) > 0))? prefs.limit:0;
-	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/private/cs/calendar/getissues" ;
-	subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Event/" + limit ;
-	subscribeurl += "?rnd=" + (new Date()).getTime();
+	var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/cs/calendar/events/personal";
+	var today = new Date();
+	var fiveDaysAfter = (new Date()).setDate(today.getDate()+7);
+	subscribeurl += "/Event/" + prefs.calendarId + "/" + today.getTime() + "/" + fiveDaysAfter + "/" + limit;
+	//var subscribeurl = (prefs.subscribeurl)?prefs.subscribeurl: "/portal/rest/private/cs/calendar/getissues" ;
+	//subscribeurl +=  "/" + DateTimeFormater.format((new Date()),"yyyymmdd") + "/Event/" + limit ;
+	//subscribeurl += "?rnd=" + (new Date()).getTime();
 	return subscribeurl;
 }
 
@@ -167,7 +189,20 @@ eXoEventGadget.prototype.getData = function(){
 	eXoEventGadget.ajaxAsyncGetRequest(url,eXoEventGadget.render);
 	var urlEvent = eXoEventGadget.createRequestUrlEvent();					
 	eXoEventGadget.ajaxAsyncGetRequestEvent(urlEvent,eXoEventGadget.renderEvent);
-	if(typeof(requestInterval) == "undefined") requestInterval = setInterval(eXoEventGadget.getData,300000);
+	if(typeof(requestInterval) == "undefined") requestInterval = setInterval(eXoEventGadget.getData,100000);
+}
+
+eXoEventGadget.prototype.getFullTime = function(dateObj) {
+	var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var month = monthNames[dateObj.getMonth()];
+        var day = dateObj.getDate();
+        //var year = dateObj.getFullYear();
+        var hourNum = dateObj.getHours();
+        var hour = (hourNum > 9) ? ("" + hourNum):("0" + hourNum);
+        var minuteNum = dateObj.getMinutes();
+        var minute = (minuteNum > 9) ? ("" + minuteNum):("0" + minuteNum);
+        var fullDate = month + " " + day + " " + hour + ":" + minute;
+        return fullDate;
 }
 				
 eXoEventGadget.prototype.render =  function(data){
@@ -182,12 +217,12 @@ eXoEventGadget.prototype.render =  function(data){
 	var numberTask = data.length;
         $("#taskLink").html(msg + " (" + numberTask + ")");
 	var cont = document.getElementById("taskDiv");
-	var prefs = eXoEventGadget.prefs || eXoEventGadget.getPrefs();
+	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
-	var timemask = "h:MM TT";
+	//var timemask = "h:MM TT";
 	var html = '';
 	var len = (prefs.limit && (parseInt(prefs.limit) > 0) &&  (parseInt(prefs.limit) < data.length))? prefs.limit:data.length;
-	if(prefs.timeformat == "24h") timemask = "HH:MM";
+	//if(prefs.timeformat == "24h") timemask = "HH:MM";
 	for(var i = 0 ; i < len; i++){	
 		var status = "";
 		var disable = "";
@@ -198,16 +233,20 @@ eXoEventGadget.prototype.render =  function(data){
 			className += " TaskDone";
 			disable = "disabled";
 		}
-		var time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;					
-		time = DateTimeFormater.format(new Date(time),timemask);
+		var time = 0;
+		if (userTimezoneOffset != null) time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;
+		else time = parseInt(item.fromDateTime.time);
+		var fullDate = eXoEventGadget.getFullTime(new Date(time));
+		//time = DateTimeFormater.format(new Date(time),timemask);
 		html += '<div class="CheckBox">';
 		html += '<input type="checkbox" ' + status + ' name="checkbox" onclick="eXoEventGadget.doTask(this);" ' + disable + ' value="'+ item.id +'"></input>';
-		html += '<label onclick="eXoEventGadget.showDetail(this);">' + time + '<span>'+ item.summary +'</span></label>';
+		html += '<label onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
 		html += '</div>';
 		if(item.description) html += '<div class="TaskDetail">' + item.description + '</div>';
 	}		
   	cont.innerHTML = html;
 	eXoEventGadget.setLink();
+	eXoEventGadget.adjustHeight();
 }
 
 eXoEventGadget.prototype.renderEvent =  function(data){
@@ -224,20 +263,24 @@ eXoEventGadget.prototype.renderEvent =  function(data){
   	var cont = document.getElementById("eventDiv");	
 	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
-	var timemask = "h:MM TT";
+	//var timemask = "h:MM TT";
   	var html = '';
 	var len = (prefs.limit && (parseInt(prefs.limit) > 0) &&  (parseInt(prefs.limit) < data.length))? prefs.limit:data.length;
-	if(prefs.timeformat == "24h") timemask = "HH:MM";
+	//if(prefs.timeformat == "24h") timemask = "HH:MM";
   	for(var i = 0 ; i < len; i++){	
-    	var item = data[i];
-		var time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;					
-		time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);">' + time + '<span>'+ item.summary +'</span></a>';
+    	        var item = data[i];
+		var time = 0;
+		if (userTimezoneOffset != null) time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;
+		else time = parseInt(item.fromDateTime.time);
+		var fullDate = eXoEventGadget.getFullTime(new Date(time));
+		//time = DateTimeFormater.format(new Date(time),timemask);
+		html += '<a href="javascript:void(0);" class="IconLink" onclick="eXoEventGadget.showDetailEvent(this);">' + fullDate + '<span>'+ item.summary +'</span></a>';
 		if(item.description) html += '<div class="EventDetail">' + item.description + '</div>';
   	}
   	html += '';
   	cont.innerHTML = html;
 	eXoEventGadget.setLink();
+	eXoEventGadget.adjustHeight();
 }
 
 eXoEventGadget.prototype.showDetail = function(obj){
@@ -273,10 +316,20 @@ eXoEventGadget.prototype.showDetailEvent = function(obj){
 }
 
 eXoEventGadget.prototype.onLoadHander = function(){
+	eXoEventGadget.initiate();
 	eXoEventGadget.getPrefs();
 	eXoEventGadget.getCalendars();
 	eXoEventGadget.trigger();
 	eXoEventGadget.adjustHeight();
+}
+
+eXoEventGadget.prototype.initiate = function(){
+	var url = "http://" +  top.location.host + parent.eXo.env.portal.context + "/rest/cs/calendar/getcalendars";
+	eXoEventGadget.ajaxAsyncGetRequest(url,eXoEventGadget.getDefaultCalendar);
+}
+
+eXoEventGadget.prototype.getDefaultCalendar = function(data){
+	defaultCalendar = data.calendars[0].name + ";" + data.calendars[0].id;
 }
 
 eXoEventGadget.prototype.ajaxAsyncGetRequest = function(url, callback) {
@@ -361,26 +414,27 @@ eXoEventGadget.prototype.getCalendars = function(){
 	var url = eXoEventGadget.createRequestUrl();
 	url = url.replace(/calendar.*$/ig,"calendar/getcalendars/");
 	eXoEventGadget.ajaxAsyncGetRequest(url,eXoEventGadget.write2Setting);
+	if(typeof(requestInterval) == "undefined") requestInterval = setInterval(eXoEventGadget.getCalendars,100000);
 }
 
 eXoEventGadget.prototype.write2Setting = function(data){
 	var frmSetting = document.getElementById("Setting");
-	data = eXoEventGadget.convertCalendar(data.calendars);
 	var html = '';
-	for(var i=0,len = data.length; i < len;i++){
-		html += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+	for(var i=0,len = data.calendars.length; i < len;i++){
+		html += '<option value="' + data.calendars[i].id + '">' + data.calendars[i].name + '</option>';
 	}
 	frmSetting["calendars"].innerHTML = html;
 	eXoEventGadget.getData();
 }
-eXoEventGadget.prototype.convertCalendar = function(data){
+
+/*eXoEventGadget.prototype.convertCalendar = function(data){
 	var arr = new Array();
 	var len = data.length;
 	for(var i = 0; i < len; i++){
 		arr.push({"name":data[i].name,"id":data[i].calendarId});
 	}
 	return arr;
-}
+}*/
 
 eXoEventGadget.prototype.showHideSetting = function(isShow){
 	var frmSetting = document.getElementById("Setting");
@@ -399,6 +453,7 @@ eXoEventGadget.prototype.saveSetting = function(){
 	var setting = eXoEventGadget.createSetting(frmSetting);
 	prefs.set("setting",setting);
 	frmSetting.style.display = "none";
+	eXoEventGadget.getData();
 	eXoEventGadget.adjustHeight();
 	//return false;
 }
@@ -408,8 +463,9 @@ eXoEventGadget.prototype.createSetting = function(frmSetting){
 	setting += frmSetting["url"].value + ";";
 	setting += frmSetting["subscribeurl"].value + ";";
 	setting += frmSetting["limit"].value + ";";
-	setting += frmSetting["timeformat"].options[frmSetting["timeformat"].selectedIndex].text + ";";
-	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].text;
+	//setting += frmSetting["timeformat"].options[frmSetting["timeformat"].selectedIndex].text + ";";
+	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].text + ";";
+	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].value;
 	return setting;
 }
 
@@ -418,7 +474,7 @@ eXoEventGadget.prototype.loadSetting = function(){
 	frmSetting["url"].value = eXoEventGadget.prefs.url;
 	frmSetting["subscribeurl"].value = eXoEventGadget.prefs.subscribeurl;
 	frmSetting["limit"].value = eXoEventGadget.prefs.limit;
-	eXoEventGadget.selectedValue(frmSetting["timeformat"],eXoEventGadget.prefs.timeformat);
+	//eXoEventGadget.selectedValue(frmSetting["timeformat"],eXoEventGadget.prefs.timeformat);
 	eXoEventGadget.selectedValue(frmSetting["calendars"],eXoEventGadget.prefs.calendars);
 }
 
@@ -445,27 +501,12 @@ eXoEventGadget.prototype.moveOut = function(){
   },200);
 }
 
-
 eXoEventGadget.prototype.adjustHeight = function(){
 	setTimeout(function(){
-	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
-/*
-		var frmSetting = document.getElementById("Setting");
-		var gadgetContTask = document.getElementById("taskDiv").parentNode;
-		var gadgetContEvent = document.getElementById("eventDiv").parentNode;
-		var height = frmSetting.offsetHeight;
-	if (gadgetContTask > gadgetContEvent) {
-		 height += gadgetContTask.offsetHeight;
-	}
-	else {
-		 height += gadgetContEvent.offsetHeight;
-	}
-		 gadgets.window.adjustHeight(height);
-*/		
+	gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);		
 	},500);
 }
 
 eXoEventGadget =  new eXoEventGadget();
 
 gadgets.util.registerOnLoadHandler(eXoEventGadget.onLoadHander);
-

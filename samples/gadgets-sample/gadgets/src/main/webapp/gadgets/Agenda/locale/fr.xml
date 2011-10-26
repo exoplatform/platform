@@ -24,19 +24,19 @@
     Événements
   </msg>
   <msg name="baseurl">
-    URL de base
+    URL de base:
   </msg>
   <msg name="subscribeurl">
-    URL de Service
+    URL de Service:
   </msg>
   <msg name="limit">
-    Nombre d'item affichés
+    Nombre d'item affichés:
   </msg>
   <msg name="format">
-    Format de l'heure
+    Format de l'heure:
   </msg>
   <msg name="calendars">
-    Calendrier
+    Calendrier:
   </msg>
   <msg name="showall">
     Montrer tout

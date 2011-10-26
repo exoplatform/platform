@@ -50,7 +50,7 @@
 .UIGadgetThemes .MyTasks .CheckBox input {
 	margin: 0px 3px 0px 0px;
 }
-
+	
 .UIGadgetThemes .MyTasks .CheckBox span {
 	color: #226AB4;
 	padding-left: 10px;
@@ -84,4 +84,8 @@
 .UIGadgetThemes .EventDetail {
 	display:none;  
 	margin:0px 0px 10px 10px;
+}
+
+.UIGadgetThemes form input, .UIGadgetThemes form select {
+	font-size: 12px;
 }

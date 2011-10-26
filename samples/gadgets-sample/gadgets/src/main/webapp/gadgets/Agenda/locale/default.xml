@@ -24,16 +24,16 @@
     Events
   </msg>
   <msg name="baseurl">
-    Base url
+    Base url:
   </msg>
   <msg name="subscribeurl">
-    Subscription url
+    Subscription url:
   </msg>
   <msg name="limit">
-    Number of items is displayed
+    Number of items is displayed:
   </msg>
   <msg name="format">
-    Date time format
+    Date time format:
   </msg>
   <msg name="showall">
     Show all
@@ -45,7 +45,7 @@
     Back
   </msg>
   <msg name="calendars">
-    Calendar
+    Calendar:
   </msg>
   <msg name="setting">
     Setting
