@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+  <component>
+    <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.registry.impl.ApplicationRegistryServiceImpl</type>
+    <component-plugins>
+      <component-plugin>
+        <name>new.portal.portlets.registry</name>
+        <set-method>initListener</set-method>
+        <type>org.exoplatform.application.registry.ApplicationCategoriesPlugins</type>
+        <description>this listener init the portlets are registered in PortletRegister</description>
+        <init-params>
+          <object-param>
+            <name>administration</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Administration</string></field>
+              <field name="displayName"><string>Administration</string></field>
+              <field name="description"><string>Applications for administration</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/administrators</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ECMAdminPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>ECM Admin</string></field>
+                      <field name="description"><string>ECM Admin</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>ecmadmin.ECMAdminPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ApplicationRegistryPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Application Registry</string></field>
+                      <field name="description"><string>Application Registry</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.ApplicationRegistryPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>GroupNavigationPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Group Navigation Portlet</string></field>
+                      <field name="description"><string>Group Navigation Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.GroupNavigationPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>AccountPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Account Portlet</string></field>
+                      <field name="description"><string>Account Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.AccountPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>OrganizationPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Organization Portlet</string></field>
+                      <field name="description"><string>Organization Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.OrganizationPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>PageManagementPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Page Management Portlet</string></field>
+                      <field name="description"><string>Page Management Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.PageManagementPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>RegisterPortlet</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Register Portlet</string></field>
+                      <field name="description"><string>Register Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>exoadmin.RegisterPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ServicesManagement</string></field>
+                      <field name="categoryName"><string>administration</string></field>
+                      <field name="displayName"><string>Services Management</string></field>
+                      <field name="description"><string>Services Management</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>ServicesManagement</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>development</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Development</string></field>
+              <field name="displayName"><string>Development</string></field>
+              <field name="description"><string>Applications for development</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/developers</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>eXoScriptingConsole</string></field>
+                      <field name="categoryName"><string>development</string></field>
+                      <field name="displayName"><string>eXo Groovy Console</string></field>
+                      <field name="description"><string>This console allows scripting eXo API interactively</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>eXoScriptingConsole</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>IDE</string></field>
+                      <field name="categoryName"><string>development</string></field>
+                      <field name="displayName"><string>IDE</string></field>
+                      <field name="description"><string>IDE</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>IDE</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>collaboration</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Collaboration</string></field>
+              <field name="displayName"><string>Collaboration</string></field>
+              <field name="description"><string>Applications for collaboration</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/users</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>AnswersPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Answers Portlet</string></field>
+                      <field name="description"><string>Answers Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>faq.AnswersPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Calendar</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Calendar</string></field>
+                      <field name="description"><string>eXo Calendar Gadget</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Calendar</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ForumPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Forum Portlet</string></field>
+                      <field name="description"><string>Forum Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>forum.ForumPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Agenda</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Agenda Gadget</string></field>
+                      <field name="description"><string>Tasks and Upcoming Event list.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Agenda</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FeaturedPoll</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Featured Poll</string></field>
+                      <field name="description"><string>Show a featured poll</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>FeaturedPoll</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>calendargadget</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Calendar Gadget</string></field>
+                      <field name="description"><string>What date is it? Use this cool calendar to keep track of the date in style. You can switch easily between daily, monthly or yearly view.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>calendargadget</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>pollslist</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Polls</string></field>
+                      <field name="description"><string>Poll list.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>pollslist</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>WikiPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Wiki Portlet</string></field>
+                      <field name="description"><string>Wiki Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>wiki.WikiPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ContactPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Contact Portlet</string></field>
+                      <field name="description"><string>Contact Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>contact.ContactPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FAQPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>FAQPortlet</string></field>
+                      <field name="description"><string>FAQ Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>faq.FAQPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>MailPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Mail Portlet</string></field>
+                      <field name="description"><string>Mail Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>mail.MailPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>contents</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Contents</string></field>
+              <field name="displayName"><string>Contents</string></field>
+              <field name="description"><string>Applications for contents</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/web-contributors</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ParameterizedContentListViewerPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Category Contents</string></field>
+                      <field name="description"><string>Category Contents</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.ParameterizedContentListViewerPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>CategoryNavigationPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Category Navigation</string></field>
+                      <field name="description"><string>Category Navigation</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.CategoryNavigationPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ParameterizedContentViewerPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Content by URL</string></field>
+                      <field name="description"><string>Content by URL</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.ParameterizedContentViewerPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>SingleContentViewer</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Single Content Viewer</string></field>
+                      <field name="description"><string>Single Content Viewer Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.SingleContentViewer</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FileExplorerPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Content Explorer</string></field>
+                      <field name="description"><string>Content Explorer</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>ecmexplorer.FileExplorerPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ContentListViewerPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Content List</string></field>
+                      <field name="description"><string>Content List</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.ContentListViewerPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ContentListViewerByQueryPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Content List</string></field>
+                      <field name="description"><string>Content List Viewer By Query</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>presentation.ContentListViewerByQueryPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FastContentCreatorBasicPortletStandard</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Standard Content Creator</string></field>
+                      <field name="description"><string>Standard Content Creator</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>formgenerator.FastContentCreatorBasicPortletStandard</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>WCMAdvanceSearchPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Advanced Search</string></field>
+                      <field name="description"><string>Advanced Search</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>searches.WCMAdvanceSearchPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>LogoPortlet</string></field>
+                      <field name="categoryName"><string>contents</string></field>
+                      <field name="displayName"><string>Logo Portlet</string></field>
+                      <field name="description"><string>Logo Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>web.LogoPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>tools</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Tools</string></field>
+              <field name="displayName"><string>Tools</string></field>
+              <field name="description"><string>Applications for tools</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/users</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>DashboardPortlet</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Dashboard Portlet</string></field>
+                      <field name="description"><string>Dashboard Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>dashboard.DashboardPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Bookmark</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Bookmarks</string></field>
+                      <field name="description"><string>Bookmarks list.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Bookmark</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Calculator</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Calculator</string></field>
+                      <field name="description"><string>This simple and useful calculator lets you perform most of the basic arithmetic operations. </string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Calculator</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Currency</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Currency Convertor</string></field>
+                      <field name="description"><string>Currency Convertor.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Currency</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FavoriteDocument</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Favorite Documents</string></field>
+                      <field name="description"><string>Favorite Documents.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>FavoriteDocument</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>messageslist</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Unread Messages</string></field>
+                      <field name="description"><string>Unread Messages.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>messageslist</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>WhoIsOnline</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Who Is Online ?</string></field>
+                      <field name="description"><string>Who Is Online ?</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>WhoIsOnline</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>IFramePortlet</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>IFrame Portlet</string></field>
+                      <field name="description"><string>IFrame Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>web.IFramePortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>monitoring</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Monitoring</string></field>
+              <field name="displayName"><string>Monitoring</string></field>
+              <field name="description"><string>Applications for monitoring</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/administrators</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>TenSlowestTemplates</string></field>
+                      <field name="categoryName"><string>monitoring</string></field>
+                      <field name="displayName"><string>10 Slowest Templates</string></field>
+                      <field name="description"><string>10 Slowest Templates.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>TenSlowestTemplates</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>AllTemplateStatistics</string></field>
+                      <field name="categoryName"><string>monitoring</string></field>
+                      <field name="displayName"><string>All Templates Statistics</string></field>
+                      <field name="description"><string>All Templates Statistics.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>AllTemplateStatistics</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ApplicationsStatistics</string></field>
+                      <field name="categoryName"><string>monitoring</string></field>
+                      <field name="displayName"><string>Application Statistics</string></field>
+                      <field name="description"><string>Application Statistics.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>ApplicationsStatistics</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>CacheLevels</string></field>
+                      <field name="categoryName"><string>monitoring</string></field>
+                      <field name="displayName"><string>Caches</string></field>
+                      <field name="description"><string>Caches</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>CacheLevels</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>MemoryCharts</string></field>
+                      <field name="categoryName"><string>monitoring</string></field>
+                      <field name="displayName"><string>Memory</string></field>
+                      <field name="description"><string>Memory</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>MemoryCharts</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>adoption</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Adoption</string></field>
+              <field name="displayName"><string>Adoption</string></field>
+              <field name="description"><string>Applications for adoption</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/users</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>LatestForumPosts</string></field>
+                      <field name="categoryName"><string>adoption</string></field>
+                      <field name="displayName"><string>Latest Forum Posts</string></field>
+                      <field name="description"><string>Latest Forum Posts</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>LatestForumPosts</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ForumsStatistic</string></field>
+                      <field name="categoryName"><string>adoption</string></field>
+                      <field name="displayName"><string>Forum Statistics</string></field>
+                      <field name="description"><string>Forum Statistics</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>ForumsStatistic</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>LoginHistory</string></field>
+                      <field name="categoryName"><string>adoption</string></field>
+                      <field name="displayName"><string>Login History</string></field>
+                      <field name="description"><string>Login History</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>LoginHistory</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>TopVoteRateTopic</string></field>
+                      <field name="categoryName"><string>adoption</string></field>
+                      <field name="displayName"><string>Top Rated Topics</string></field>
+                      <field name="description"><string>Top Rated Topics</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>TopVoteRateTopic</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param><object-param>
+            <name>social</name>
+            <description>description</description>
+            <object type="org.exoplatform.application.registry.ApplicationCategory">
+              <field name="name"><string>Social</string></field>
+              <field name="displayName"><string>Social</string></field>
+              <field name="description"><string>Applications for social</string></field>
+              <field name="accessPermissions">
+                <collection type="java.util.ArrayList" item-type="java.lang.String">
+                  <value><string>*:/platform/users</string></value>
+                </collection>
+              </field>
+              <field name="applications">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>PeoplePortlet</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>People Directory</string></field>
+                      <field name="description"><string>People Directory Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlet.PeoplePortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>AllSpacesPortlet</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>All Spaces Portlet</string></field>
+                      <field name="description"><string>All Spaces Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlet.AllSpacesPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>ConnectionsPortlet</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>Connections Portlet</string></field>
+                      <field name="description"><string>Connections Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlet.ConnectionsPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>UserActivityStreamPortlet</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>User Activity Stream</string></field>
+                      <field name="description"><string>User Activity Stream Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlet.UserActivityStreamPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>FriendSuggestion</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>Friend Suggestions</string></field>
+                      <field name="description"><string>Friend Suggestions</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>FriendSuggestion</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Invitations</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>Invitations</string></field>
+                      <field name="description"><string>Invitations</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Invitations</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>Profile</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>My Profile Gadget</string></field>
+                      <field name="description"><string>My Profile Gadget.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>Profile</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>MySpaces</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>My Spaces Gadget</string></field>
+                      <field name="description"><string>My Spaces Gadget.</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>MySpaces</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+    </component-plugins>
+  </component>
+</configuration>
