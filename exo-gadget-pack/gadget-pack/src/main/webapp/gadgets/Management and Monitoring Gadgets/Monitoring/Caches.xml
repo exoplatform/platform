@@ -236,7 +236,7 @@
               // gadgets.window.adjustHeight();
               //eXo.social.SocialUtil.adjustHeight($("html").get(0));
               //gadgets.window.adjustHeight($("body").get(0).offsetHeight);
-              gadgets.window.adjustHeight($("#tl_1").get(0).offsetHeight);
+              gadgets.window.adjustHeight($("#tl_0").get(0).offsetHeight);
             });
           }
           
@@ -251,11 +251,11 @@
             tabs.addTab("Details", {
               contentContainer: $('#caches-tab-details').get(0)
             });
-            /*
-            $(".tablib_selected").click(function () { 
-            gadgets.window.adjustHeight($("#tl_1").get(0).offsetHeight);
-          });
-            */
+            
+            $(".tablib_selected").live("click", function () { 
+              gadgets.window.adjustHeight($(this).offsetHeight);
+            });
+            
             loadInfos();
             $(document).everyTime("60s", "reloadPage", function() {
               loadInfos();

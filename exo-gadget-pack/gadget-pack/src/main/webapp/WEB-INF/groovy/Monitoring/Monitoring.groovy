@@ -59,27 +59,31 @@ public class Monitoring {
 
     def mBeans = allNames.findAll{ name -> name.contains(',service=cache,') }.collect{ new GroovyMBean(server, it) }
 
-    mBeans.each{  
-      def datas = new HashMap()
-      int hitCount = it.getProperty('HitCount')
-      int missCount = it.getProperty('MissCount')
-      int totalCount = hitCount + missCount
-      int capacity = it.getProperty('Capacity')
-      int used = it.getProperty('Size')
-      
-      datas.put 'name', it.getProperty('Name')
-      datas.put 'capacity', it.getProperty('Capacity')
-      datas.put 'ttl', it.getProperty('TimeToLive')
-      datas.put 'callCount', hitCount + missCount
-      datas.put 'hitCount', hitCount
-      datas.put 'hitCountPercentage', totalCount == 0 ? 0 : hitCount * 100G / totalCount as float
-      datas.put 'missCount', missCount
-      datas.put 'missCountPercentage', totalCount == 0 ? 0 : missCount * 100G / totalCount as float
-      datas.put 'capacityUsed', it.getProperty('Size')
-      datas.put 'capacityFree', capacity - it.getProperty('Size')
-      datas.put 'capacityUsedPercentage', used * 100G / capacity as float
-      datas.put 'capacityFreePercentage', (capacity - used) * 100G / capacity as float
-      liste.add datas
+    mBeans.each{
+      try{  
+        def datas = new HashMap()
+        int hitCount = it.getCacheHit()
+        int missCount = it.getCacheMiss()
+        int totalCount = hitCount + missCount
+        int capacity = it.getMaxSize()
+        int used = it.getCacheSize()
+        
+        datas.put 'name', it.getName()
+        datas.put 'capacity', capacity
+        datas.put 'ttl', it.getLiveTime()
+        datas.put 'callCount', hitCount + missCount
+        datas.put 'hitCount', hitCount
+        datas.put 'hitCountPercentage', totalCount == 0 ? 0 : hitCount * 100G / totalCount as float
+        datas.put 'missCount', missCount
+        datas.put 'missCountPercentage', totalCount == 0 ? 0 : missCount * 100G / totalCount as float
+        datas.put 'capacityUsed', used
+        datas.put 'capacityFree', capacity - used
+        datas.put 'capacityUsedPercentage', used * 100G / capacity as float
+        datas.put 'capacityFreePercentage', (capacity - used) * 100G / capacity as float
+        liste.add datas
+       } catch(Exception e) {
+         //TODO: log
+       }
     }
     
     return renderJSON(liste)
