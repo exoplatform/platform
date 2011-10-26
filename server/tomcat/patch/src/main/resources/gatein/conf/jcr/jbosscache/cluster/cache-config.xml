@@ -18,6 +18,8 @@
   -->
 <jbosscache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:jboss:jbosscache-core:config:3.1">
 
+  <jmxStatistics enabled="${gatein.jgroups.jmxstatistics.enable:true}"/>
+
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
 
   <clustering mode="replication" clusterName="${jbosscache-cluster-name}">

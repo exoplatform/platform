@@ -32,6 +32,22 @@
       </value-param>
     </init-params>
   </component>
+  
+  <component>
+    <key>org.exoplatform.services.cache.ExoCacheFactory</key>
+    <type>org.exoplatform.services.cache.impl.jboss.ExoCacheFactoryImpl</type>
+    <init-params>
+      <value-param>
+        <name>cache.config.template</name>
+        <value>${exo.cache.config.template:classpath:/conf/jbosscache/local/config.xml}</value>
+      </value-param>
+      <value-param profiles="cluster">
+        <name>cache.config.template</name>
+        <value>${exo.cache.config.template:classpath:/conf/jbosscache/cluster/config.xml}</value>
+      </value-param>
+    </init-params>
+  </component>
+  
   <external-component-plugins>
     <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
     <component-plugin>

@@ -21,9 +21,8 @@
 -->
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-               xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
-
+  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
   <component>
     <key>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</key>
@@ -38,16 +37,16 @@
       <properties-param>
         <name>hibernate.properties</name>
         <description>Default Hibernate Service</description>
-        <property name="hibernate.show_sql" value="false"/>
-        <property name="hibernate.current_session_context_class" value="thread"/>
-        <property name="hibernate.cache.use_second_level_cache" value="true"/>
-        <property name="hibernate.cache.use_query_cache" value="true"/>
+        <property name="hibernate.show_sql" value="false" />
+        <property name="hibernate.current_session_context_class" value="thread" />
+        <property name="hibernate.cache.use_second_level_cache" value="true" />
+        <property name="hibernate.cache.use_query_cache" value="true" />
         <!--CHANGEME HashtableCacheProvider shold not be used in production env-->
-        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
-        <property name="hibernate.connection.datasource" value="${gatein.idm.datasource.name}${container.name.suffix}"/>
-        <property name="hibernate.connection.autocommit" value="true"/>
+        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
+        <property name="hibernate.connection.datasource" value="${gatein.idm.datasource.name}${container.name.suffix}" />
+        <property name="hibernate.connection.autocommit" value="true" />
         <!--
-        	Should be automatically detected. Force otherwise 
+        Should be automatically detected. Force otherwise 
         <property name="hibernate.dialect" value="org.hibernate.dialect.XXXDialect"/>
          -->
       </properties-param>
@@ -79,7 +78,6 @@
 
         <!--MSAD Read Only "ACME" LDAP Example-->
         <!--<value>war:/conf/organization/picketlink-idm/examples/picketlink-idm-msad-readonly-config.xml</value>-->
-        
       </value-param>
 
       <!-- In default PicketLink IDM configuration hibernate store will namespace identity objects using this realm name
@@ -91,22 +89,22 @@
 
       <value-param>
         <name>apiCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache.xml</value>
+        <value>${gatein.idm.api.cache.config:war:/conf/organization/picketlink-idm/jboss-cache.xml}</value>
       </value-param>
-      
+
       <value-param profiles="cluster">
         <name>apiCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache-api-cluster.xml</value>
+        <value>${gatein.idm.api.cache.config:war:/conf/organization/picketlink-idm/jboss-cache-api-cluster.xml}</value>
       </value-param>
 
       <value-param>
         <name>storeCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache.xml</value>
+        <value>${gatein.idm.store.cache.config:war:/conf/organization/picketlink-idm/jboss-cache.xml}</value>
       </value-param>
 
       <value-param profiles="cluster">
         <name>storeCacheConfig</name>
-        <value>war:/conf/organization/picketlink-idm/jboss-cache-store-cluster.xml</value>
+        <value>${gatein.idm.store.cache.config:war:/conf/organization/picketlink-idm/jboss-cache-store-cluster.xml}</value>
       </value-param>
 
       <value-param profiles="cluster">
@@ -116,18 +114,15 @@
 
       <value-param profiles="cluster">
         <name>jgroups-multiplexer-stack</name>
-        <value>true</value>
+        <value>false</value>
       </value-param>
 
       <value-param>
         <name>cacheExpiration</name>
         <value>1800000</value>
       </value-param>
-
-
     </init-params>
   </component>
-
 
   <component>
     <key>org.exoplatform.services.organization.OrganizationService</key>
@@ -172,8 +167,12 @@
           <field name="groupTypeMappings">
             <map type="java.util.HashMap">
               <entry>
-                <key><string>/</string></key>
-                <value><string>root_type</string></value>
+                <key>
+                  <string>/</string>
+                </key>
+                <value>
+                  <string>root_type</string>
+                </value>
               </entry>
 
               <!-- Uncomment for sample LDAP configuration -->
@@ -246,41 +245,6 @@
       </object-param>
     </init-params>
   </component>
-
-<!-- Datasource binding removed in Platform -->  
-<!--
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>${gatein.idm.datasource.name}${container.name.suffix}</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-          <property name="driverClassName" value="${portal.container.gatein.idm.datasource.driver}"/>
-          <property name="url" value="${portal.container.gatein.idm.datasource.url}"/>
-          <property name="username" value="${portal.container.gatein.idm.datasource.username}"/>
-          <property name="password" value="${portal.container.gatein.idm.datasource.password}"/>
-
-        </properties-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
--->
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.database.HibernateService</target-component>

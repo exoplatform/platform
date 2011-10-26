@@ -1,8 +1,8 @@
 <config>
    <UDP
-         singleton_name="JCR-cluster" 
+         singleton_name="exo-transport-udp" 
          mcast_addr="${jgroups.udp.mcast_addr:228.10.10.10}"
-         mcast_port="${jgroups.udp.mcast_port:45588}"
+         mcast_port="${jgroups.udp.mcast_port:45488}"
          tos="8" 
          ucast_recv_buf_size="20000000"
          ucast_send_buf_size="640000" 
