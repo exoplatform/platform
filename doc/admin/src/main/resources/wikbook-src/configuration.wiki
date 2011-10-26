@@ -378,8 +378,17 @@ h1. File system paths {anchor:id=ADM.Configuration.File_system_paths}
 eXo Platform requires the read/write access to several paths in the local file system.
 
 {code}
-# Main file system directory
-gatein.data.dir=../gatein/data
+# Directory for common data (in cluster, mount it as a network shared directory between nodes)
+exo.shared.dir=../gatein
+
+# Configuration directory (in cluster, this directory is per node)
+# Usual locations of configuration directory:
+# for Tomcat app server it is ${catalina.home}/gatein/conf.
+# for JBoss app server it is ${jboss.server.home.dir}/conf/gatein.
+gatein.conf.dir=${catalina.home}/${exo.conf.dir.name}
+
+# Data directory
+gatein.data.dir=${exo.shared.dir}/data
 
 # path for any JCR data 
 gatein.jcr.data.dir=${gatein.data.dir}/jcr
