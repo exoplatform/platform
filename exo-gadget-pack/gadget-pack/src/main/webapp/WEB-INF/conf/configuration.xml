@@ -50,25 +50,25 @@
             <properties-param>
               <name>Monitoring.groovy</name>
               <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/Monitoring/Monitoring.groovy" />
+              <property name="path" value="war:/groovy/Monitoring/Monitoring.groovy" />
             </properties-param>
         
             <properties-param>
               <name>Statistics.groovy</name>
               <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/Statistics/Statistics.groovy" />
+              <property name="path" value="war:/groovy/Statistics/Statistics.groovy" />
             </properties-param>
         
             <properties-param>
               <name>calgad.groovy</name>
               <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/eXoCalendar/calgad.groovy" />
+              <property name="path" value="war:/groovy/eXoCalendar/calgad.groovy" />
             </properties-param>
         
             <properties-param>
               <name>Suggestion.groovy</name>
               <property name="autoload" value="true" />
-              <property name="path" value="jar:/groovy/FriendSuggestion/Suggestion.groovy" />
+              <property name="path" value="war:/groovy/FriendSuggestion/Suggestion.groovy" />
             </properties-param>
         
           </init-params>
