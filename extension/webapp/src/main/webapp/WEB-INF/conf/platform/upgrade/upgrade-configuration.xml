@@ -14,7 +14,7 @@
 	</component>
 	<external-component-plugins>
 		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
-		<component-plugin>
+		<component-plugin profiles="social,all,default">
 			<name>Upgrade-Spaces-Home-page</name>
 			<set-method>addUpgradePlugin</set-method>
 			<type>org.exoplatform.platform.upgrade.plugins.UpgradeSpacePlugin</type>
