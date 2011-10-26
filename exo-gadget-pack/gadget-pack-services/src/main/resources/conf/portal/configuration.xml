@@ -26,27 +26,27 @@
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
   <!-- LOGIN HISTORY -->
-  <component>
+  <component profiles="knowledge,all,default">
     <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>  
     <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
   </component> 
   
-  <component>
+  <component profiles="knowledge,all,default">
     <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
   </component>
 
   <!-- FORUM STATISTICS -->
-  <component>
+  <component profiles="knowledge,all,default">
     <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
   </component> 
   
-  <component>
+  <component profiles="knowledge,all,default">
     <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
   </component>
   
-  <component>
+  <component profiles="knowledge,all,default">
     <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
   </component> 
 

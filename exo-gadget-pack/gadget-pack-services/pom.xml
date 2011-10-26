@@ -21,7 +21,8 @@
     		<artifactId>maven-surefire-plugin</artifactId>
 	        <configuration>
 	          <systemPropertyVariables>
-	            <exo.properties.url>classpath:/conf/configuration.properties </exo.properties.url>
+	            <exo.properties.url>classpath:/conf/configuration.properties</exo.properties.url>
+	            <exo.profiles>all</exo.profiles>
 	          </systemPropertyVariables>
 	        </configuration>    		
     	</plugin>
