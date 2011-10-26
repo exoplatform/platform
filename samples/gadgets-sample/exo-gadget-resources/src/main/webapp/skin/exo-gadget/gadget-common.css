@@ -4,11 +4,6 @@ body, td, div, span, p, table, form {
 	color: #484848;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 .ThemeColor {
   color: #226ab4;
 }
