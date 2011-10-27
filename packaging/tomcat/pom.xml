@@ -1154,13 +1154,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>gatein.portal.component.wsrp</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <type>jar</type>
-    </dependency>
-
-    <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.core</artifactId>
       <version>${org.chromattic.version}</version>
