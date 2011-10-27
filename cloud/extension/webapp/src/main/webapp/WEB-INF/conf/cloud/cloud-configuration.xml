@@ -101,7 +101,8 @@
 
   <!-- Plugins for TenantCreationService START -->
   <component>
-    <type>org.exoplatform.cloudmanagement.multitenancy.CreateNewRepositoryPlugin</type>
+    <key>org.exoplatform.cloudmanagement.multitenancy.CreateNewRepositoryPlugin</key>
+    <type>org.exoplatform.platform.cloud.services.multitenancy.CreateNewRepositoryPlugin</type>
     <description>Create database</description>
     <init-params>
       <value-param>
