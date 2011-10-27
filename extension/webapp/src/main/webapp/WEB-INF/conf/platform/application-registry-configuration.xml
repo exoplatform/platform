@@ -620,7 +620,37 @@
                         </collection>
                       </field>
                     </object>
-                  </value><value>
+                  </value>
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="categoryName">
+                        <string>tools</string>
+                      </field>
+                      <field name="description">
+                        <string>Google Translation gadget can translate between common languages in the world.</string>
+                      </field>
+                      <field name="applicationName">
+                        <string>Google Translate</string>
+                      </field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList">
+                          <value>
+                            <string>*:/platform/users</string>
+                          </value>
+                        </collection>
+                      </field>
+                      <field name="displayName">
+                        <string>Google Translate</string>
+                      </field>
+                      <field name="type">
+                        <string>gadget</string>
+                      </field>
+                      <field name="contentId">
+                        <string>Google Translate</string>
+                      </field>
+                    </object>
+                  </value>
+                  <value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>messageslist</string></field>
                       <field name="categoryName"><string>tools</string></field>
