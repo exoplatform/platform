@@ -48,10 +48,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ECMAdminPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>ECM Admin</string></field>
-                      <field name="description"><string>ECM Admin</string></field>
+                      <field name="displayName"><string>Content Administration</string></field>
+                      <field name="description"><string>Content Administration.</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>ecmadmin.ECMAdminPortlet</string></field>
+                      <field name="contentId"><string>ecmadmin/ECMAdminPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -65,7 +65,7 @@
                       <field name="displayName"><string>Application Registry</string></field>
                       <field name="description"><string>Application Registry</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.ApplicationRegistryPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/ApplicationRegistryPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -76,10 +76,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>GroupNavigationPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>Group Navigation Portlet</string></field>
+                      <field name="displayName"><string>Group Navigations</string></field>
                       <field name="description"><string>Group Navigation Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.GroupNavigationPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/GroupNavigationPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -90,10 +90,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>AccountPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>Account Portlet</string></field>
-                      <field name="description"><string>Account Portlet</string></field>
+                      <field name="displayName"><string>New User Account</string></field>
+                      <field name="description"><string>New User Account</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.AccountPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/AccountPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -104,10 +104,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>OrganizationPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>Organization Portlet</string></field>
+                      <field name="displayName"><string>Organization</string></field>
                       <field name="description"><string>Organization Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.OrganizationPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/OrganizationPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -118,10 +118,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>PageManagementPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>Page Management Portlet</string></field>
+                      <field name="displayName"><string>Pages</string></field>
                       <field name="description"><string>Page Management Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.PageManagementPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/PageManagementPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -132,10 +132,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>RegisterPortlet</string></field>
                       <field name="categoryName"><string>administration</string></field>
-                      <field name="displayName"><string>Register Portlet</string></field>
+                      <field name="displayName"><string>Register</string></field>
                       <field name="description"><string>Register Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>exoadmin.RegisterPortlet</string></field>
+                      <field name="contentId"><string>exoadmin/RegisterPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/administrators</string></value>
@@ -222,20 +222,6 @@
                 <collection type="java.util.ArrayList">
                   <value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>AnswersPortlet</string></field>
-                      <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Answers Portlet</string></field>
-                      <field name="description"><string>Answers Portlet</string></field>
-                      <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>faq.AnswersPortlet</string></field>
-                      <field name="accessPermissions">
-                        <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
-                        </collection>
-                      </field>
-                    </object>
-                  </value><value>
-                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>Calendar</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
                       <field name="displayName"><string>Calendar</string></field>
@@ -250,12 +236,26 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>AnswersPortlet</string></field>
+                      <field name="categoryName"><string>collaboration</string></field>
+                      <field name="displayName"><string>Answers</string></field>
+                      <field name="description"><string>Answers Portlet</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>faq/AnswersPortlet</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value><value>
+                    <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ForumPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Forum Portlet</string></field>
+                      <field name="displayName"><string>Forum</string></field>
                       <field name="description"><string>Forum Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>forum.ForumPortlet</string></field>
+                      <field name="contentId"><string>forum/ForumPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -292,12 +292,12 @@
                     </object>
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
-                      <field name="applicationName"><string>calendargadget</string></field>
+                      <field name="applicationName"><string>CalendarGadget</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
                       <field name="displayName"><string>Calendar Gadget</string></field>
                       <field name="description"><string>What date is it? Use this cool calendar to keep track of the date in style. You can switch easily between daily, monthly or yearly view.</string></field>
                       <field name="type"><string>gadget</string></field>
-                      <field name="contentId"><string>calendargadget</string></field>
+                      <field name="contentId"><string>CalendarGadget</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -322,10 +322,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>WikiPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Wiki Portlet</string></field>
+                      <field name="displayName"><string>Wiki</string></field>
                       <field name="description"><string>Wiki Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>wiki.WikiPortlet</string></field>
+                      <field name="contentId"><string>wiki/WikiPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -336,10 +336,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ContactPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Contact Portlet</string></field>
+                      <field name="displayName"><string>Address Book</string></field>
                       <field name="description"><string>Contact Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>contact.ContactPortlet</string></field>
+                      <field name="contentId"><string>contact/ContactPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -350,10 +350,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FAQPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>FAQPortlet</string></field>
+                      <field name="displayName"><string>FAQ</string></field>
                       <field name="description"><string>FAQ Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>faq.FAQPortlet</string></field>
+                      <field name="contentId"><string>faq/FAQPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -364,10 +364,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>MailPortlet</string></field>
                       <field name="categoryName"><string>collaboration</string></field>
-                      <field name="displayName"><string>Mail Portlet</string></field>
+                      <field name="displayName"><string>Mail</string></field>
                       <field name="description"><string>Mail Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>mail.MailPortlet</string></field>
+                      <field name="contentId"><string>mail/MailPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -399,7 +399,7 @@
                       <field name="displayName"><string>Category Contents</string></field>
                       <field name="description"><string>Category Contents</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.ParameterizedContentListViewerPortlet</string></field>
+                      <field name="contentId"><string>presentation/ParameterizedContentListViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -413,7 +413,7 @@
                       <field name="displayName"><string>Category Navigation</string></field>
                       <field name="description"><string>Category Navigation</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.CategoryNavigationPortlet</string></field>
+                      <field name="contentId"><string>presentation/CategoryNavigationPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -427,7 +427,7 @@
                       <field name="displayName"><string>Content by URL</string></field>
                       <field name="description"><string>Content by URL</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.ParameterizedContentViewerPortlet</string></field>
+                      <field name="contentId"><string>presentation/ParameterizedContentViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -438,10 +438,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>SingleContentViewer</string></field>
                       <field name="categoryName"><string>contents</string></field>
-                      <field name="displayName"><string>Single Content Viewer</string></field>
+                      <field name="displayName"><string>Content Detail</string></field>
                       <field name="description"><string>Single Content Viewer Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.SingleContentViewer</string></field>
+                      <field name="contentId"><string>presentation/SingleContentViewer</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -455,7 +455,7 @@
                       <field name="displayName"><string>Content Explorer</string></field>
                       <field name="description"><string>Content Explorer</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>ecmexplorer.FileExplorerPortlet</string></field>
+                      <field name="contentId"><string>ecmexplorer/FileExplorerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -469,7 +469,7 @@
                       <field name="displayName"><string>Content List</string></field>
                       <field name="description"><string>Content List</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.ContentListViewerPortlet</string></field>
+                      <field name="contentId"><string>presentation/ContentListViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -480,10 +480,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ContentListViewerByQueryPortlet</string></field>
                       <field name="categoryName"><string>contents</string></field>
-                      <field name="displayName"><string>Content List</string></field>
+                      <field name="displayName"><string>Contents By Query</string></field>
                       <field name="description"><string>Content List Viewer By Query</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>presentation.ContentListViewerByQueryPortlet</string></field>
+                      <field name="contentId"><string>presentation/ContentListViewerByQueryPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -497,7 +497,7 @@
                       <field name="displayName"><string>Standard Content Creator</string></field>
                       <field name="description"><string>Standard Content Creator</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>formgenerator.FastContentCreatorBasicPortletStandard</string></field>
+                      <field name="contentId"><string>formgenerator/FastContentCreatorBasicPortletStandard</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -511,7 +511,7 @@
                       <field name="displayName"><string>Advanced Search</string></field>
                       <field name="description"><string>Advanced Search</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>searches.WCMAdvanceSearchPortlet</string></field>
+                      <field name="contentId"><string>searches/WCMAdvanceSearchPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -522,10 +522,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>LogoPortlet</string></field>
                       <field name="categoryName"><string>contents</string></field>
-                      <field name="displayName"><string>Logo Portlet</string></field>
+                      <field name="displayName"><string>Simple Logo</string></field>
                       <field name="description"><string>Logo Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>web.LogoPortlet</string></field>
+                      <field name="contentId"><string>web/LogoPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -554,10 +554,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>DashboardPortlet</string></field>
                       <field name="categoryName"><string>tools</string></field>
-                      <field name="displayName"><string>Dashboard Portlet</string></field>
+                      <field name="displayName"><string>Dashboard</string></field>
                       <field name="description"><string>Dashboard Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>dashboard.DashboardPortlet</string></field>
+                      <field name="contentId"><string>dashboard/DashboardPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -652,10 +652,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>IFramePortlet</string></field>
                       <field name="categoryName"><string>tools</string></field>
-                      <field name="displayName"><string>IFrame Portlet</string></field>
+                      <field name="displayName"><string>IFrame</string></field>
                       <field name="description"><string>IFrame Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>web.IFramePortlet</string></field>
+                      <field name="contentId"><string>web/IFramePortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -849,7 +849,7 @@
                       <field name="displayName"><string>People Directory</string></field>
                       <field name="description"><string>People Directory Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet.PeoplePortlet</string></field>
+                      <field name="contentId"><string>portlet/PeoplePortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -860,10 +860,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>AllSpacesPortlet</string></field>
                       <field name="categoryName"><string>social</string></field>
-                      <field name="displayName"><string>All Spaces Portlet</string></field>
+                      <field name="displayName"><string>Spaces Directory</string></field>
                       <field name="description"><string>All Spaces Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet.AllSpacesPortlet</string></field>
+                      <field name="contentId"><string>portlet/AllSpacesPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -874,10 +874,10 @@
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ConnectionsPortlet</string></field>
                       <field name="categoryName"><string>social</string></field>
-                      <field name="displayName"><string>Connections Portlet</string></field>
+                      <field name="displayName"><string>User Network</string></field>
                       <field name="description"><string>Connections Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet.ConnectionsPortlet</string></field>
+                      <field name="contentId"><string>portlet/ConnectionsPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -891,7 +891,7 @@
                       <field name="displayName"><string>User Activity Stream</string></field>
                       <field name="description"><string>User Activity Stream Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet.UserActivityStreamPortlet</string></field>
+                      <field name="contentId"><string>portlet/UserActivityStreamPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
