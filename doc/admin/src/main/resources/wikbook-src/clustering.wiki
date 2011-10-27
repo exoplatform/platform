@@ -91,7 +91,7 @@ The default configuration of JBossCache lies in _exo.portal.component.common-x.x
 Since eXo Platform 3.5-M3, the JCR's JBossCache default configuration is externalized to the _$CATALINE{noformat}_{noformat}HOME/gatein/conf/jcr/jbosscache_ folder. 
 
 {note}
-The advanced configuration is optional. It is recommended that you should not do any advanced configuration.
+The advanced configuration is optional. It is recommended to do an advanced configuration only in case of a need.
 {note}
 
 h3. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
@@ -100,21 +100,22 @@ The JBossCache configuration is done in the _configuration.properties_ file.
 
 On Tomcat:
 {code}
-# JBossCache configuration
-gatein.jcr.jbosscache.config=file:${catalina.home}/${exo.conf.dir.name}/jcr/jbosscache
-
 # JCR cache configuration
-gatein.jcr.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/cache-config.xml
+gatein.jcr.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
 gatein.jcr.cache.expiration.time=15m
 
 # JCR Locks configuration
-gatein.jcr.lock.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/lock-config.xml
+gatein.jcr.lock.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
 
 # JCR Index configuration
-gatein.jcr.index.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/indexer-config.xml
+gatein.jcr.index.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/indexer-config.xml
 
 # JGroups configuration
-gatein.jcr.jgroups.config=${gatein.jcr.jbosscache.config}/cluster/jgroups-udp.xml
+gatein.jgroups.jmxstatistics.enable=true
+# for eXo Cache and IDM org-service (in cluster cache-config.xml files)
+gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
+# for JCR
+gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 {code}
 
 On JBoss Application Server:
