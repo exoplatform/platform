@@ -127,7 +127,6 @@ function getProduct(version) {
   product.addDependencies(cs.web.csResources); // csResources.war
   product.addDependencies(cs.web.webservice); // exo.cs.web.webservice-2.0.0-SNAPSHOT.jar
   product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
-  product.addDependencies(new Project("org.exoplatform.cs", "exo.cs.ext.social-integration", "jar", cs.version));
 
   /* KS */
   
@@ -139,7 +138,6 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
   product.addDependencies(ks.web.ksResources); // ksResources.war
   product.addDependencies(ks.extension.webapp); // ks-extension.war
-  product.addDependencies(new Project("org.exoplatform.ks", "exo.ks.ext.social-integration", "jar", ks.version));
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
   product.addDependencies(ks.eXoApplication.wiki); // wiki.war
   
@@ -155,10 +153,7 @@ function getProduct(version) {
   product.addDependencies(social.webapp.resources); // social-resources.war
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
   product.addDependencies(social.extras.linkComposerPlugin); // #exo.social.extras.link-composer-plugin-1.1.0-SNAPSHOT.jar
-  // document-composer-plugin for platform only
-  product.addDependencies(new Project("org.exoplatform.social", "exo.social.extras.document-composer-plugin", "jar", social.version));
-  product.addDependencies(social.extension.war) ; // social-ext.war
-  
+
   // integration project
   product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social
 
