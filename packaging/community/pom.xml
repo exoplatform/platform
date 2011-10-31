@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.packaging</artifactId>
-    <version>3.5.0-CR1-SNAPSHOT</version>
+    <version>3.5.0-Beta3</version>
   </parent>
   <artifactId>exo.platform.packaging.community</artifactId>
   <packaging>pom</packaging>
@@ -124,9 +124,7 @@
                 <delete dir="${tomcat.lib.dir}/plf" />
                 <!-- Replaces the default page by a new one especially for the Community Edition -->
                 <unzip src="${tomcat.webapps.dir}/default-website.war" dest="${tomcat.webapps.dir}/default-website" />
-                <copy file="${project.basedir}/src/main/resources/Welcome.xml" 
-                      tofile="${tomcat.webapps.dir}/default-website/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml" 
-                      overwrite="true" />
+                <copy file="${project.basedir}/src/main/resources/Welcome.xml" tofile="${tomcat.webapps.dir}/default-website/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml" overwrite="true" />
                 <zip destfile="${tomcat.webapps.dir}/default-website.war" basedir="${tomcat.webapps.dir}/default-website" />
                 <delete dir="${tomcat.webapps.dir}/default-website" />
                 <!-- Add default portal configuration in acme-intranet.war >
