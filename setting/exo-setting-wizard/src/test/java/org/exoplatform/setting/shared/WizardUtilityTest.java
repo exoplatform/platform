@@ -1,6 +1,6 @@
 package org.exoplatform.setting.shared;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 

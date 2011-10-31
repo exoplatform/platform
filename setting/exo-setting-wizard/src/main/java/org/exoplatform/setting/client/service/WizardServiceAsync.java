@@ -14,4 +14,6 @@ public interface WizardServiceAsync {
   void getDatasources(AsyncCallback<List<String>> callback);
   void saveDatas(Map<SetupWizardData, String> datas, AsyncCallback<String> callback);
   void startPlatform(AsyncCallback<String> callback);
+  void getDebugActivation(AsyncCallback<Boolean> callback);
+  void getFirstScreenNumber(AsyncCallback<Integer> callback);
 }

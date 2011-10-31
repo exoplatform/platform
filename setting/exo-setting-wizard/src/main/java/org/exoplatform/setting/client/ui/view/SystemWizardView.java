@@ -6,7 +6,7 @@ import org.exoplatform.setting.client.data.InvalidWizardViewFieldException;
 import org.exoplatform.setting.client.data.SetupWizardMode;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 import org.exoplatform.setting.client.ui.model.SystemInfoWizardModel;
-import org.exoplatform.setting.shared.WizardUtility;
+import org.exoplatform.setting.shared.WizardClientUtility;
 import org.exoplatform.setting.shared.data.SetupWizardData;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -65,7 +65,7 @@ public class SystemWizardView extends WizardView {
         ListBox lgs = (ListBox) arg0.getSource();
         String newLanguage = lgs.getValue(lgs.getSelectedIndex());
         String oldLanguage = Window.Location.getParameter("locale");
-        String newUrl = WizardUtility.buildLocaleUrl(Window.Location.getHref(), Window.Location.getQueryString(), oldLanguage, newLanguage);
+        String newUrl = WizardClientUtility.buildLocaleUrl(Window.Location.getHref(), Window.Location.getQueryString(), oldLanguage, newLanguage);
         Window.Location.replace(newUrl);
       }
     });

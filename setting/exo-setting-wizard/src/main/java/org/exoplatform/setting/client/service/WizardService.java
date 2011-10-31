@@ -18,4 +18,6 @@ public interface WizardService extends RemoteService {
   List<String> getDatasources();
   String saveDatas(Map<SetupWizardData, String> datas);
   String startPlatform();
+  Boolean getDebugActivation();
+  Integer getFirstScreenNumber();
 }

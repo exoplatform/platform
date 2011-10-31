@@ -3,7 +3,7 @@ package org.exoplatform.setting.client.ui.model;
 import org.exoplatform.setting.client.ui.controller.SetupWizardController;
 
 /**
- * This class is used by controller to get all view datas
+ * This class is used by controller to load datas before display views
  * 
  * @author Clement
  *

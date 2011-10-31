@@ -56,11 +56,15 @@ public class SetupWizardController {
   private Map<SetupWizardData, String> setupWizardDatas;
   
   // Debug
-  private static Boolean isDebugActivated;
+  private static Boolean isDebugActivated = true;
+  private static Integer firstScreenNumber = 0;
   
   
   public void start() {
-    isDebugActivated = false;
+    
+    // Call to server properties
+    initDebug();
+    initFirstScreenNumber();
     
     // Create the dialog box
     messageDialogBox = new WizardDialogBox();
@@ -162,7 +166,7 @@ public class SetupWizardController {
     RootPanel.get("stepBlock").setVisible(true);
     
     // Display First Screen
-    displayScreen(10);
+    displayScreen(firstScreenNumber);
   }
   
   /**
@@ -257,7 +261,7 @@ public class SetupWizardController {
 
 
   /*=======================================================================
-   * Server methods
+   * Server methods (between client and server)
    *======================================================================*/
   
   /**
@@ -300,6 +304,36 @@ public class SetupWizardController {
     return null;
   }
   
+  /**
+   * Call to the server to know if debug is activated or not
+   */
+  private void initDebug() {
+    AsyncCallback<Boolean> callback = new AsyncCallback<Boolean>() {
+      public void onFailure(Throwable arg0) {
+        displayError("Cannot access to service");
+      }
+      public void onSuccess(Boolean arg0) {
+        isDebugActivated = arg0;
+      }
+    };
+    wizardService.getDebugActivation(callback);
+  }
+  
+  /**
+   * Call to the server to know if debug is activated or not
+   */
+  private void initFirstScreenNumber() {
+    AsyncCallback<Integer> callback = new AsyncCallback<Integer>() {
+      public void onFailure(Throwable arg0) {
+        displayError("Cannot access to service");
+      }
+      public void onSuccess(Integer arg0) {
+        firstScreenNumber = arg0;
+      }
+    };
+    wizardService.getFirstScreenNumber(callback);
+  }
+ 
 }
 
 

@@ -68,8 +68,16 @@ public class JcrDBWizardView extends WizardView {
     
     // Get datasources in model
     List<String> dss = model.getDatasources();
-    for(String ds : dss) {
-      dsList.addItem(ds);
+    if(dss != null && dss.size() > 0) {
+      for(String ds : dss) {
+        dsList.addItem(ds);
+      }
+    }
+    else {
+      dsList.addItem(constants.noDs());
+      dsList.setEnabled(false);
+      chooseDsRadio.setEnabled(false);
+      setDsRadio.setValue(true);
     }
 
     Grid table = new Grid(3, 2);

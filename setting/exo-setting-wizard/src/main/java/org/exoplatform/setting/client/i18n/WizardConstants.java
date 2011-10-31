@@ -136,6 +136,9 @@ public interface WizardConstants extends Constants {
   @DefaultStringValue("Please indicate your data source:")
   String indicateYourDs();
   
+  @DefaultStringValue("No DataSource configured")
+  String noDs();
+  
 
   /*=======================================================================
    * Screen IDM
