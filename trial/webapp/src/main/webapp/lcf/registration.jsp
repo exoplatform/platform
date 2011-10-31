@@ -1,5 +1,5 @@
 <%@page import="org.apache.commons.codec.binary.Base64"%>
-<%@page import="org.exoplatform.trial.Utils"%>
+<%@page import="org.exoplatform.platform.common.Utils"%>
 <%@page import="java.util.Calendar"%>
 <%
   String rdate = Utils.computeRemindDateFromTodayBase64();

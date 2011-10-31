@@ -1,4 +1,4 @@
-<%@page import="org.exoplatform.trial.Utils"%>
+<%@page import="org.exoplatform.platform.common.Utils"%>
 <%@page import="org.exoplatform.trial.TrialFilter"%>
 <!DOCTYPE html 
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
