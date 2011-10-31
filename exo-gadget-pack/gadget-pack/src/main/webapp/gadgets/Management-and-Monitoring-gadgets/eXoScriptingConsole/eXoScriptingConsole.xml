@@ -8,7 +8,7 @@
   <Require feature="dynamic-height"/> 
   <Require feature="setprefs"/>
   <Locale messages="locale/default.xml" />
-	<Locale lang="fr" messages="locale/fr.xml" />
+  <Locale lang="fr" messages="locale/fr.xml" />
 </ModulePrefs>
 <Content type="html">
 <![CDATA[   
@@ -72,12 +72,10 @@
                         ' clear                                   Clear console screen\n' +
                         ' edit                                    Show script editor\n' +
                         ' run                                     Execute the script in editor\n' +
+                        ' history                                 Display history\n' +
                         ' dump                                    Display session state\n' +
                         ' refresh                                 Clear session state\n' +
-                        ' list all sessions *                     List running sessions\n' +
-                        ' remove all sessions *                   Remove all sessions\n' +
-                        ' quit                                    End session\n\n' +
-                        '(*) Commands requires administrator priviledge\n' 
+                        ' quit                                    End session\n\n'
                         );
                 return false;
               }
@@ -183,6 +181,10 @@
             $('#ContainerConsole').click();
           });
           
+          $("#btnSave").live("click", function(){
+            $(this).attr("href", "/rest/console-manager/history/" + sessionId + "~" + (prefs.getString("language") || "Groovy"));
+          });
+          
           gadgets.window.adjustHeight(Math.max($(document).height()*0.6, 350));
         }); //$.getJSON("/rest/console-manager/languages", function(langs){
       }); // $(document).ready(function(){              
@@ -209,7 +211,8 @@
           <!-- End of Login Dialog -->  
         </li>
         <li class="ColorControl"><a class="item ColorItem" >__MSG_color__</a></li>
-        <li class="BtnControl"><a id="btnEditor" class="item ControlItem" href="#" >__MSG_scriptEditor__</a></li>
+        <!--li class="BtnControl"><a id="btnEditor" class="item ControlItem" href="#" >__MSG_scriptEditor__</a></li-->
+        <li class="BtnControl"><a id="btnSave" class="item ControlItem" href="#" target="_blank">__MSG_saveSession__</a></li>
       </ul>
 
       <div id="dialogColor" class="Boxwindow">

@@ -31,7 +31,10 @@
     Color
   </msg>
   <msg name="scriptEditor">
-    Script Editor
+    Script editor
+  </msg>
+  <msg name="saveSession">
+    Save session
   </msg>
   <msg name="fontSize">
     Font size

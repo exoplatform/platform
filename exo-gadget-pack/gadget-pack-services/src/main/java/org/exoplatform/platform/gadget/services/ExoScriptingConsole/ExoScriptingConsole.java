@@ -15,6 +15,7 @@ public class ExoScriptingConsole{
 	ScriptEngine _engine;
 	StringWriter _out, _err;
 	PrintWriter _stdout, _stderr;
+	StringBuilder _history;
 	
 	public ExoScriptingConsole(String engineName) throws Exception{
 		_out = new StringWriter();
@@ -28,11 +29,13 @@ public class ExoScriptingConsole{
 		ScriptContext context =  _engine.getContext();
 		context.setWriter(_stdout);
 		context.setErrorWriter(_stderr);
+		_history = new StringBuilder();
 	}
 	
 	public String run(String script) throws Exception{
 		_out.getBuffer().setLength(0);
 		_engine.eval(script);
+		_history.append(script).append("\n");
 		_stdout.flush();
 		return _out.toString();
 	}
@@ -61,7 +64,7 @@ public class ExoScriptingConsole{
 				}
 
 				if(script.equals("help")){
-					output = "dump\tDisplay session state\nrefresh\tClear session state\nquit\tEnd session";
+					output = "history\tDisplay history\ndump\tDisplay session state\nrefresh\tClear session state\nquit\tEnd session";
 				} else if(script.equals("dump")){
 					Bindings bindings = this.getVariables();
 					StringBuilder builder = new StringBuilder();
@@ -74,6 +77,9 @@ public class ExoScriptingConsole{
 				} else if(script.equals("refresh")) {
 					this.getVariables().clear();
 					output = "Session refreshed";
+				} else if(script.equals("history")) {
+					output = this.getHistory();
+					if(output.isEmpty()) output = "<empty>";
 				} else{
 					output = this.run(script);
 				}
@@ -104,6 +110,11 @@ public class ExoScriptingConsole{
 		return _engine.getBindings(ScriptContext.ENGINE_SCOPE);
 	}
 	
+	// Get history
+	public String getHistory(){
+		return _history.toString();
+	}
+
 	public String toString(){
 		ScriptEngineFactory factory = _engine.getFactory();
 		String info = "Scripting engine: " + factory.getEngineName() + " (v" + factory.getEngineVersion() + ")\n";

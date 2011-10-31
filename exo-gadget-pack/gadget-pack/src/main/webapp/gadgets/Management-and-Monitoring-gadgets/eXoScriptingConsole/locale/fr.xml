@@ -31,7 +31,10 @@
     Couleur
   </msg>
   <msg name="scriptEditor">
-    Script Editor
+    Éditeur de script
+  </msg>
+  <msg name="saveSession">
+    Enregistrer de session
   </msg>
   <msg name="fontSize">
     Taille de caractère
