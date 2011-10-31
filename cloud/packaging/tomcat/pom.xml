@@ -211,7 +211,9 @@
       <version>${org.exoplatform.jcr.version}</version>
       <type>zip</type>
     </dependency>
-
+   <dependency><groupId>org.apache.tomcat</groupId><artifactId>tomcat-catalina-jmx-remote</artifactId><version>${org.apache.tomcat.version}</version><type>jar</type></dependency><!-- 6.0.32-->
+    <dependency><groupId>org.slf4j</groupId><artifactId>jul-to-slf4j</artifactId><version>${org.slf4j.version}</version><type>jar</type></dependency><!-- 1.5.8-->
+    <dependency><groupId>org.slf4j</groupId><artifactId>jcl-over-slf4j</artifactId><version>${org.slf4j.version}</version><type>jar</type></dependency><!-- 1.5.8-->
   </dependencies>
 
   <profiles>
