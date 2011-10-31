@@ -31,11 +31,13 @@ import org.exoplatform.application.gadget.EncodingDetector;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
-import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
+import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.commons.upgrade.UpgradeProductService;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.platform.upgrade.plugins.LocalGadgetImporter;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -67,12 +69,16 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
 
   protected SourceStorage sourceStorage;
 
+  private ChromatticManager chromatticManager;
+
   public void setUp() throws Exception {
     container = PortalContainer.getInstance();
     repositoryService = getService(RepositoryService.class);
     productInformations = getService(ProductInformations.class);
-    UpgradeProductService upgradeService = getService(UpgradeProductService.class);
+    
     configurationManager = getService(ConfigurationManager.class);
+    chromatticManager = getService(ChromatticManager.class);
+    
     Session session = null;
     try {
       InputStream oldVersionsContentIS = configurationManager.getInputStream(OLD_PRODUCT_INFORMATIONS_FILE);
@@ -95,33 +101,47 @@ public class TestGadgetUpgradePlugin extends BasicTestCase {
     }
     sourceStorage = (SourceStorage) container.getComponentInstanceOfType(SourceStorage.class);
     gadgetRegistryService = (GadgetRegistryServiceImpl) container.getComponentInstanceOfType(GadgetRegistryService.class);
-    ChromatticLifeCycle lifeCycle = gadgetRegistryService.getChromatticLifeCycle();
-    lifeCycle.openContext();
-
-    LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(GADGET_NAME, gadgetRegistryService,
-        OLD_GADGET_URL, configurationManager, container);
-    gadgetImporter.doImport();
-
-    Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
-    assertEquals(getFileContent(OLD_GADGET_URL), source.getTextContent());
-
-    lifeCycle.closeContext(true);
-
+    
     // invoke productInformations() explicitly to store the new version in the JCR
-    productInformations.start();
-    upgradeService.start();
+    
+    begin();
+    importGadget();
+  }
+  
+  @Override
+  protected void tearDown() throws Exception {
+    end();
+  }
+  
+  private void begin() {
+    RequestLifeCycle.begin(container);
+  }
+  
+  private void end() {
+    chromatticManager.getSynchronization().setSaveOnClose(true);
+    RequestLifeCycle.end();
   }
 
   public void testUpgrade() throws Exception {
-    ChromatticLifeCycle lifeCycle = gadgetRegistryService.getChromatticLifeCycle();
-    lifeCycle.openContext();
-
     Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
     assertEquals(getFileContent(NEW_GADGET_URL), source.getTextContent());
-
-    lifeCycle.closeContext(true);
   }
 
+  private void importGadget() throws Exception {
+    LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(GADGET_NAME, gadgetRegistryService,
+                                                                 OLD_GADGET_URL, configurationManager, container);
+    GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadgetImporter.getGadgetName());
+    gadgetImporter.doImport(def);
+
+    Source source = sourceStorage.getSource(gadgetRegistryService.getGadget(GADGET_NAME));
+    assertEquals(getFileContent(OLD_GADGET_URL), source.getTextContent());
+    
+    // Upgrade the added gadget
+    UpgradeProductService upgradeService = getService(UpgradeProductService.class);
+    productInformations.start();
+    upgradeService.start();
+  }
+  
   protected <T> T getService(Class<T> clazz) {
     return clazz.cast(container.getComponentInstanceOfType(clazz));
   }

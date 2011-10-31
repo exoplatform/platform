@@ -1,16 +1,21 @@
 package org.exoplatform.platform.upgrade.plugins;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetImporter;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
+import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.portal.pom.config.tasks.PreferencesTask.GetContentId;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -41,10 +46,7 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
     log.info("processing upgrading gadgets from version " + oldVersion + " to " + newVersion);
-    ChromatticLifeCycle lifeCycle = gadgetRegistryService.getChromatticLifeCycle();
     try {
-      lifeCycle.openContext();
-
       for (GadgetUpgrade gadgetUpgrade : gadgets) {
         try {
           Gadget gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
@@ -59,8 +61,12 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
           try {
             LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(), gadgetRegistryService,
                 gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
-            gadgetImporter.doImport();
-
+            
+            if (gadgetImporter != null) {
+              GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadgetImporter.getGadgetName());
+              gadgetImporter.doImport(def);
+            }
+            
             gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
             if (gadget != null) {
               log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
@@ -76,10 +82,8 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
           log.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
         }
       }
-    } finally {
-      if (lifeCycle != null) {
-        lifeCycle.closeContext(true);
-      }
+    } catch (Exception e) {
+      log.error("Could not upgrade local gadget", e);
     }
   }
 

@@ -1,5 +1,6 @@
 package org.exoplatform.platform.upgrade.plugins;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,24 +8,35 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.chromattic.ext.ntdef.NTFolder;
+import org.chromattic.ext.ntdef.Resource;
+import org.exoplatform.application.gadget.EncodingDetector;
 import org.exoplatform.application.gadget.GadgetRegistryService;
-import org.exoplatform.application.gadget.LocalImporter;
+import org.exoplatform.application.gadget.GadgetImporter;
+import org.exoplatform.application.gadget.impl.GadgetDefinition;
+import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.gatein.common.io.IOTools;
 
-public class LocalGadgetImporter extends LocalImporter {
+public class LocalGadgetImporter extends GadgetImporter {
   private ConfigurationManager configurationManager;
   private PortalContainer container;
   private String gadgetPath;
   private String gadgetRootAbsolutePath;
+  
+  /** Used temporarily when importing resources. */
+  private NTFolder folder;
+  private GadgetRegistryService gadgetService;
 
   public LocalGadgetImporter(String name, GadgetRegistryService registryService, String gadgetPath,
       ConfigurationManager configurationManager, PortalContainer container) {
-    super(name, registryService, gadgetPath, true);
+    super(name, gadgetPath);
     this.configurationManager = configurationManager;
     this.container = container;
     this.gadgetPath = gadgetPath;
+    this.gadgetService = registryService;
+
     if (gadgetPath.startsWith("war:")) {
       gadgetPath = gadgetPath.replace("war:", "");
       this.gadgetRootAbsolutePath = container.getPortalContext().getRealPath(gadgetPath);
@@ -35,7 +47,82 @@ public class LocalGadgetImporter extends LocalImporter {
   }
 
   @Override
-  public String getName(String resourcePath) {
+  protected void process(String gadgetURI, GadgetDefinition def) throws Exception {
+    def.setLocal(true);
+    LocalGadgetData data = (LocalGadgetData)def.getData();
+
+    //
+    String fileName = getName(gadgetPath);
+    data.setFileName(fileName);
+
+    // Import resource
+    folder = data.getResources();
+    String folderPath = getParent(gadgetPath);
+    visitChildren(gadgetPath, folderPath);
+    folder = null;
+  }
+
+  @Override
+  protected byte[] getGadgetBytes(String gadgetURI) throws IOException {
+    return getContent(gadgetURI);
+  }
+
+  @Override
+  protected String getGadgetURL() throws Exception {
+    return gadgetService.getGadgetURL(getGadgetName());
+  }
+
+  private void visit(String uri, String resourcePath) throws Exception
+  {
+     String name = getName(resourcePath);
+     if (isFile(resourcePath))
+     {
+        byte[] content = getContent(resourcePath);
+
+        //
+        if (content != null)
+        {
+           String mimeType = getMimeType(name);
+
+           //
+           if (mimeType == null)
+           {
+              mimeType = "application/octet-stream";
+           }
+
+           // We can detect encoding for XML files
+           String encoding = null;
+           if ("application/xml".equals(mimeType))
+           {
+              encoding = EncodingDetector.detect(new ByteArrayInputStream(content));
+           }
+
+           // Correct mime type for gadgets
+           if (resourcePath.equals(uri)) {
+              mimeType = LocalGadgetData.GADGET_MIME_TYPE;
+           }
+
+           //
+           folder.createFile(name, new Resource(mimeType, encoding, content));
+        }
+     }
+     else
+     {
+        folder = folder.createFolder(name);
+        visitChildren(uri, resourcePath);
+        folder = folder.getParent();
+     }
+  }
+
+  private void visitChildren(String gadgetURI, String folderPath) throws Exception
+  {
+     for (String childPath : getChildren(folderPath))
+     {
+        visit(gadgetURI, childPath);
+     }
+  }
+
+  private String getName(String resourcePath) {
     // It's a directory, remove the trailing '/'
     resourcePath = resourcePath.replace("\\", "/");
     if (resourcePath.endsWith("/")) {
@@ -49,8 +136,7 @@ public class LocalGadgetImporter extends LocalImporter {
     return resourcePath.substring(index + 1);
   }
 
-  @Override
-  public String getParent(String resourcePath) throws IOException {
+  private String getParent(String resourcePath) throws IOException {
     String separator = getUsedSeparator(resourcePath);
     if (resourcePath.indexOf("\\") >= 0) {// local path with an OS that
                                           // uses \\ as separator
@@ -68,7 +154,7 @@ public class LocalGadgetImporter extends LocalImporter {
     return resourcePath.substring(0, index + 1);
   }
 
-  public String getRealPath(String resourcePath) throws Exception {
+  private String getRealPath(String resourcePath) throws Exception {
     if (!resourcePath.startsWith("war:") && !resourcePath.startsWith("classpath:") && !resourcePath.startsWith("jar:")) {
       File file = new File(resourcePath);
       return file.getAbsolutePath();
@@ -85,8 +171,7 @@ public class LocalGadgetImporter extends LocalImporter {
     }
   }
 
-  @Override
-  public byte[] getContent(String filePath) throws IOException {
+  private byte[] getContent(String filePath) throws IOException {
     InputStream in;
     try {
       if (!filePath.startsWith("classpath:") && !filePath.startsWith("jar:") && !filePath.startsWith("war:")
@@ -124,8 +209,7 @@ public class LocalGadgetImporter extends LocalImporter {
     return separator;
   }
 
-  @Override
-  public Iterable<String> getChildren(String folderPath) throws IOException {
+  private Iterable<String> getChildren(String folderPath) throws IOException {
     try {
       String absoluteFolderPath = getRealPath(folderPath);
       File file = new File(absoluteFolderPath);
@@ -144,8 +228,7 @@ public class LocalGadgetImporter extends LocalImporter {
     return null;
   }
 
-  @Override
-  public boolean isFile(String resourcePath) {
+  private boolean isFile(String resourcePath) {
     Boolean isFile = null;
     try {
       File file = new File(getRealPath(resourcePath));
@@ -163,8 +246,7 @@ public class LocalGadgetImporter extends LocalImporter {
     }
   }
 
-  @Override
-  public String getMimeType(String fileName) {
+  private String getMimeType(String fileName) {
     String mimeType = URLConnection.guessContentTypeFromName(fileName);
     if (mimeType == null) {
       mimeType = container.getPortalContext().getMimeType(fileName);
