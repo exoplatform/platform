@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.sample.acme-website</artifactId>
-    <version>3.5.0-Beta3</version>
+    <version>3.5.0-CR1-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.sample.acme-website.resources</artifactId>
   <packaging>war</packaging>
