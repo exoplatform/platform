@@ -23,55 +23,55 @@
     xmlns="http://www.gatein.org/xml/ns/gadgets_1_0">
 
   <gadget name="MemoryCharts">
-    <path>/gadgets/Management and Monitoring Gadgets/Monitoring/Memory.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/Monitoring/Memory.xml</path>
   </gadget>	
   
   <gadget name="CacheLevels">
-    <path>/gadgets/Management and Monitoring Gadgets/Monitoring/Caches.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/Monitoring/Caches.xml</path>
   </gadget>	
 
   <gadget name="ApplicationsStatistics">
-    <path>/gadgets/Management and Monitoring Gadgets/Statistics/Applications.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/Applications.xml</path>
   </gadget>	
 
   <gadget name="TenSlowestTemplates">
-    <path>/gadgets/Management and Monitoring Gadgets/Statistics/templates-slowest.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/templates-slowest.xml</path>
   </gadget>	
 
   <gadget name="AllTemplateStatistics">
-    <path>/gadgets/Management and Monitoring Gadgets/Statistics/templates-all.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/Statistics/templates-all.xml</path>
   </gadget>	
 
   <gadget name="ServicesManagement">
-    <path>/gadgets/Management and Monitoring Gadgets/ServicesManagement/ServicesManagement.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/ServicesManagement/ServicesManagement.xml</path>
   </gadget>
 
   <gadget name="eXoScriptingConsole">
-    <path>/gadgets/Management and Monitoring Gadgets/eXoScriptingConsole/eXoScriptingConsole.xml</path>
+    <path>/gadgets/Management-and-Monitoring-gadgets/eXoScriptingConsole/eXoScriptingConsole.xml</path>
   </gadget>
     
   <gadget name="CalendarGadget">
-    <path>/gadgets/Collab Gadgets/eXoCalendar/gadget/calendargadget/org.exoplatform.calendar.client.CalendarGadget.gadget.xml</path>
+    <path>/gadgets/Collab-gadgets/eXoCalendar/gadget/calendargadget/org.exoplatform.calendar.client.CalendarGadget.gadget.xml</path>
   </gadget>
 
   <gadget name="LoginHistory">
-    <path>/gadgets/Audit Gadgets/LoginHistory/LoginHistory.xml</path>
+    <path>/gadgets/Audit-gadgets/LoginHistory/LoginHistory.xml</path>
   </gadget>
   
   <gadget name="ForumsStatistic">
-    <path>/gadgets/Engagement Gadgets/ForumsStatistic/Statistic.xml</path>
+    <path>/gadgets/Engagement-gadgets/ForumsStatistic/Statistic.xml</path>
   </gadget>
 
   <gadget name="TopVoteRateTopic">
-    <path>/gadgets/Engagement Gadgets/TopVoteRateTopic/TopVotedTopic.xml</path>
+    <path>/gadgets/Engagement-gadgets/TopVoteRateTopic/TopVotedTopic.xml</path>
   </gadget>
 
   <gadget name="LatestForumPosts">
-    <path>/gadgets/Engagement Gadgets/LatestForumPosts/LatestForumPosts.xml</path>
+    <path>/gadgets/Engagement-gadgets/LatestForumPosts/LatestForumPosts.xml</path>
   </gadget>
 
   <gadget name="FriendSuggestion">
-    <path>/gadgets/Engagement Gadgets/Suggestions/suggestion.xml</path>
+    <path>/gadgets/Engagement-gadgets/Suggestions/suggestion.xml</path>
   </gadget>  
 
 </gadgets>

@@ -11,6 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.exoplatform.calendar</groupId>
   <artifactId>CalendarGadget</artifactId>
+  <version>3.5.0-CR1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>eXo Gadget Pack - GWT Gadgets - eXoCalendar</name>
   
