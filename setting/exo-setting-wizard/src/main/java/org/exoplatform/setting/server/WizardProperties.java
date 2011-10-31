@@ -22,8 +22,6 @@ public class WizardProperties {
       }
       catch (ConfigurationException e) {
         logger.error("Error during loading wizard properties: " + e.getMessage(), e);
-        System.err.println("Error during loading wizard properties: " + e.getMessage());
-        e.printStackTrace();
       }
     }
     return propertiesConfiguration;
