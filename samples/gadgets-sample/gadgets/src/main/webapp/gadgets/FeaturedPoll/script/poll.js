@@ -1,4 +1,6 @@
 function init() {
+
+  createPollDiv();
   // Adding eXo Platform container information
   var opts = {};
   opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
@@ -13,6 +15,13 @@ function init() {
   });
 }
 
+function createPollDiv() {
+  var prefs = new gadgets.Prefs();
+  var forumURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum";
+  document.getElementById("createpoll").innerHTML = prefs.getMsg("createPoll") + " <a target='_parent' href='" + forumURL + "'>forums</a>";
+  adjustHeight();  
+}
+
 function createURL(data) {
   this.viewer = data.get('viewer').getData();  
   var hostName = viewer.getField('hostName');
@@ -25,10 +34,11 @@ function createURL(data) {
 
 function createPollList(data){
   var prefs = new gadgets.Prefs();
+  
   var pollIds = data.pollId;
   var pollNames = data.pollName;
   var len = pollIds.length;
-  var forumURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum";
+  
   if (data.isAdmin == "true") {
     var html = [];
     html.push('<select class="PollList" name="pollname" onchange="changeVote(this);">');
@@ -42,7 +52,7 @@ function createPollList(data){
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
   if(len == 0){
-	document.getElementById("poll").innerHTML = '<div class="light_message">' + prefs.getMsg('nopoll') + ' <a target="_parent" href="' + forumURL + '">forums</a></div>';
+	document.getElementById("poll").innerHTML = "<div class='light_message'>" + prefs.getMsg("nopoll") + "</div>";
 	adjustHeight();
 	return;
 
@@ -67,7 +77,7 @@ function showPoll(data){
           var topicId= pollId.replace("poll","topic");
           var topicURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum/topic/" + topicId;
           html.push('<h4><a  target="_parent" class="Question" title = "' + prefs.getMsg('discuss') + '" target ="_parent" href="'+ topicURL + '">' + question + '</a></h4>');
-        discussUrl = '<a class="Discuss" title = "' + prefs.getMsg('discuss') + '"  target="_parent"  href="'+ topicURL + '">' + prefs.getMsg('discuss') + '</a>';
+        discussUrl = "<a class='Discuss' title='" + prefs.getMsg("discuss") + "'  target='_parent'  href='"+ topicURL + "'>" + prefs.getMsg("discuss") + "</a>";
       }
       else{
           html. push('<h4 class="Question">' + question + '</h4>');
@@ -77,11 +87,12 @@ function showPoll(data){
     for(var i = 0, len = options.length; i < len; i++){
       html.push('<div><input class="radio" type="radio" name="rdoVote" value="' + options[i] + '"><span>' + options[i] + '</span></div>');
     }
-    html.push('<center><input type="button" onclick="doVote(this);" name="btnVote" value="' + lblVote + '"/></center>');
+    html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
+        html.push("</form>");
       if(haveTopic){
           html.push(discussUrl);
+        //document.getElementById("createpoll").innerHTML = prefs.getMsg('createPoll') + ' <a target="_parent" href="' + forumURL + '">forums</a>';
       }
-    html.push('</form>');
     $('#poll').html(html.join(''));
   }else{
     showResult(data);

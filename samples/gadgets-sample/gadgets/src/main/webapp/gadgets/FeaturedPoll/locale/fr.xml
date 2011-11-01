@@ -22,12 +22,13 @@
 <messagebundle>
   <msg name="title">Sondage</msg>
   <msg name="setting">Paramètre</msg>
-  <msg name="vote">Vote</msg>
+  <msg name="vote">Voter</msg>
   <msg name="warning">Veuillez choisir une option.</msg>
   <msg name="option">Options</msg>
   <msg name="percent">Pour cent</msg>
   <msg name="voter">votants</msg>
   <msg name="total">Total</msg>
-  <msg name="discuss">Discutez sur le forum</msg>
-  <msg name="nopoll">Il n'y a aucun vote. Créez un à</msg>    
+  <msg name="discuss">Discutez sur forum</msg>
+  <msg name="nopoll">Il n'y a aucun sondage...</msg>
+  <msg name="createPoll">Créez votre sondage sur</msg>    
 </messagebundle>
