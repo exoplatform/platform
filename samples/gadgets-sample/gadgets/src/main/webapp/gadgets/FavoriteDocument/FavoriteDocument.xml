@@ -85,12 +85,19 @@
         
         //var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user +'?showItems=10';
 
-		//var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user;
+        //var siteUrl = prefixUrl + '/rest/favorite/all/repository/collaboration/' + user;
 		
-		
-		var siteUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
+        favorites.setShowAllLink();
+        var siteUrl = prefixUrl + '/rest/plf/favorite/all/repository/collaboration/' + user;
       
         favorites.makeRequest(siteUrl,favorites.displayValue)
+      }
+      
+            
+      Favorites.prototype.setShowAllLink = function(){
+	   var url = prefixUrl + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName + "/documents?path=Private/Favorites";
+	   a = document.getElementById("ShowAll");
+           a.href = url;
       }
       
       Favorites.prototype.displayValue = function(resp) {

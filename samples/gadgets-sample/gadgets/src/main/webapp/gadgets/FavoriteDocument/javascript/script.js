@@ -44,7 +44,7 @@ DisplayTime.prototype.timeToPrettyString = function(B) {
         }
     }
 }
-
+/*
 function eXoFavDocsGadget(){
 };
 
@@ -57,4 +57,4 @@ eXoFavDocsGadget.prototype.setShowAllLink = function(){
 
 eXoFavDocsGadget =  new eXoFavDocsGadget();
 
-gadgets.util.registerOnLoadHandler(eXoFavDocsGadget.setShowAllLink);
+gadgets.util.registerOnLoadHandler(eXoFavDocsGadget.setShowAllLink);*/
