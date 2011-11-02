@@ -15,6 +15,24 @@
 			<UINavigationForm>Navigation Form</UINavigationForm>
 		</title>
 	</UIPopupWindow>
+	<PopulateToMenu>
+		<dialog>
+			<label>
+				<id>Id:</id>
+				<name>Name:</name>
+				<lifecycle>Lifecycle:</lifecycle>
+				<isDeep>Is Deep:</isDeep>
+				<nodetypes>Node Types:</nodetypes>
+				<description>Description:</description>
+				<affectedNodeTypeNames>Affected Node Types:</affectedNodeTypeNames>
+				<navigationNode>Navigation node:</navigationNode>
+				<index>Index:</index>
+				<clickable>Clickable:</clickable>
+				<page>Page:</page>
+				<childrenPage>Children page:</childrenPage>
+			</label>
+		</dialog>
+	</PopulateToMenu>
 	<UINavigationForm>
 		<label>
 			<Node>Parent's folder :</Node>

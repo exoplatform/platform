@@ -15,6 +15,24 @@
 			<UINavigationForm>Navigation</UINavigationForm>
 		</title>
 	</UIPopupWindow>
+	<PopulateToMenu>
+		<dialog>
+			<label>
+				<id>Id:</id>
+				<name>Nom:</name>
+				<lifecycle>Cycle de vie:</lifecycle>
+				<isDeep>Récursif:</isDeep>
+				<nodetypes>Types de noeuds:</nodetypes>
+				<description>Description:</description>
+				<affectedNodeTypeNames>Types de noeuds affectés:</affectedNodeTypeNames>
+				<navigationNode>Noeud de navigation:</navigationNode>
+				<index>Index:</index>
+				<clickable>Cliquable:</clickable>
+				<page>Page:</page>
+				<childrenPage>Pages fils:</childrenPage>
+			</label>
+		</dialog>
+	</PopulateToMenu>
 	<UINavigationForm>
 		<label>
 			<Node>Dossier parent :</Node>
