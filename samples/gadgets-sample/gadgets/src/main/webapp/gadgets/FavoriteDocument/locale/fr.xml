@@ -20,6 +20,12 @@
 -->
 
 <messagebundle>
+  <msg name="title">
+    Documents Favoris
+  </msg>
+  <msg name="nofav">
+    Vous n'avez pas de favoris.
+  </msg>
   <msg name="showall">
     Montrer tout
   </msg>
