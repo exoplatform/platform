@@ -41,6 +41,9 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The Class IntranetRESTOrganizationServiceImpl.
  */
@@ -48,6 +51,8 @@ import java.util.UUID;
 public class IntranetRESTOrganizationServiceImpl
 {
 
+	private static final Logger LOG = LoggerFactory.getLogger(IntranetRESTOrganizationServiceImpl.class);
+	
    private static final String ROOT_USER = "root";
 
    private final RepositoryService repositoryService;
@@ -103,7 +108,7 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-         e.printStackTrace();
+         LOG.trace("Unable to store user in tenant " + tname, e);
          return Response.status(HTTPStatus.INTERNAL_ERROR).build();
       }
    }
@@ -140,7 +145,7 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-         e.printStackTrace();
+    	  LOG.trace("Unable to store ROOT user in tenant " + tname, e);
          return Response.status(HTTPStatus.INTERNAL_ERROR).build();
       }
    }
