@@ -402,7 +402,7 @@
                       <field name="contentId"><string>presentation/ParameterizedContentListViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -416,7 +416,7 @@
                       <field name="contentId"><string>presentation/CategoryNavigationPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -430,7 +430,7 @@
                       <field name="contentId"><string>presentation/ParameterizedContentViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -444,7 +444,7 @@
                       <field name="contentId"><string>presentation/SingleContentViewer</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -458,7 +458,7 @@
                       <field name="contentId"><string>ecmexplorer/FileExplorerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -472,7 +472,7 @@
                       <field name="contentId"><string>presentation/ContentListViewerPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -486,7 +486,7 @@
                       <field name="contentId"><string>presentation/ContentListViewerByQueryPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -500,7 +500,7 @@
                       <field name="contentId"><string>formgenerator/FastContentCreatorBasicPortletStandard</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -514,7 +514,7 @@
                       <field name="contentId"><string>searches/WCMAdvanceSearchPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
@@ -528,7 +528,7 @@
                       <field name="contentId"><string>web/LogoPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/users</string></value>
+                          <value><string>*:/platform/web-contributors</string></value>
                         </collection>
                       </field>
                     </object>
