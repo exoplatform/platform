@@ -815,8 +815,8 @@ h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
 {code}
 # Key files for gadget
-gatein.gadgets.securityTokenKeyFile=${exo.shared.dir}/gadgets/key.txt
-gatein.gadgets.signingKeyFile=${exo.shared.dir}/gadgets/oauthkey.pem
+gatein.gadgets.securitytokenkeyfile=${exo.shared.dir}/gadgets/key.txt
+gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem
 
 # navigation controller file
 gatein.portal.controller.config=${exo.shared.dir}/conf/controller.xml
