@@ -33,22 +33,6 @@
         <directory>src/main/ROOT</directory>
         <outputDirectory>tomcat-bundle/webapps/ROOT</outputDirectory>
      </fileSet>
-     <!-- Chat Server -->
-     <fileSet>
-         <directory>target/exo-chatserver</directory>
-         <outputDirectory>chat-server</outputDirectory>
-         <excludes>
-            <exclude>**/*.sh</exclude>
-         </excludes>
-      </fileSet>
-      <fileSet>
-         <directory>target/exo-chatserver</directory>
-         <outputDirectory>chat-server</outputDirectory>
-         <includes>
-            <include>**/*.sh</include>
-         </includes>
-         <fileMode>755</fileMode>
-      </fileSet>
      <!-- Commons -->
      <fileSet>
          <directory>target/commons</directory>

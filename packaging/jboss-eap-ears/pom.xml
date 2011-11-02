@@ -20,13 +20,13 @@
 		  <version>${project.version}</version>
 		  <type>zip</type>
 		</dependency>
-		<dependency>
+		<!--dependency>
 		  <groupId>org.exoplatform.platform</groupId>
 		  <artifactId>exo.platform.packaging.tomcat</artifactId>
 		  <version>${project.version}</version>
 		  <classifier>chatserver</classifier>
 		  <type>zip</type>
-		</dependency>
+		</dependency-->
 	  </dependencies>
 	  <build>
 		<finalName>eXo-Platform-jboss-${project.version}</finalName>
@@ -60,14 +60,14 @@
 					  <outputDirectory>${project.build.directory}/jboss</outputDirectory>
 		              <excludes>META-INF/</excludes>
 					</artifactItem>
-					<artifactItem>
+					<!--artifactItem>
 					  <groupId>org.exoplatform.platform</groupId>
 					  <artifactId>exo.platform.packaging.tomcat</artifactId>
 					  <version>${project.version}</version>
 					  <type>zip</type>
 					  <classifier>chatserver</classifier>
 					  <outputDirectory>${project.build.directory}/chat-server</outputDirectory>
-					</artifactItem>
+					</artifactItem-->
 		            <artifactItem>
 		              <groupId>org.exoplatform.platform</groupId>
 		              <artifactId>exo.platform.packaging.commons</artifactId>

@@ -35,11 +35,6 @@
         <directory>src/main/ROOT</directory>
         <outputDirectory>tomcat-bundle/webapps/ROOT</outputDirectory>
      </fileSet>
-     <!-- Chat Server -->
-     <fileSet>
-        <directory>target/chat-server</directory>
-        <outputDirectory>chat-server</outputDirectory>
-     </fileSet>
    </fileSets>
    <files>
      <file>

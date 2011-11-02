@@ -22,22 +22,6 @@
          </includes>
          <fileMode>755</fileMode>
       </fileSet>
-     <!-- Chat Server -->
-     <fileSet>
-         <directory>target/chat-server</directory>
-         <outputDirectory>chat-server</outputDirectory>
-         <excludes>
-            <exclude>**/*.sh</exclude>
-         </excludes>
-      </fileSet>
-      <fileSet>
-         <directory>target/chat-server</directory>
-         <outputDirectory>chat-server</outputDirectory>
-         <includes>
-            <include>**/*.sh</include>
-         </includes>
-         <fileMode>755</fileMode>
-      </fileSet>
      <!-- Commons -->
      <fileSet>
          <directory>target/commons</directory>
