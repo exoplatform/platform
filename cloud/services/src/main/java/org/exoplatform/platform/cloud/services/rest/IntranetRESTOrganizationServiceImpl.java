@@ -22,7 +22,6 @@ import static org.exoplatform.cloudmanagement.rest.CloudServicesRoles.CLOUD_ADMI
 import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_NAME;
 import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_PASSWORD;
 
-import javax.annotation.security.RolesAllowed;
 import org.exoplatform.common.http.HTTPStatus;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
@@ -32,17 +31,19 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserHandler;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.services.jcr.RepositoryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.QueryParam;
-import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * The Class IntranetRESTOrganizationServiceImpl.
@@ -91,7 +92,7 @@ public class IntranetRESTOrganizationServiceImpl
       {
          repositoryService.setCurrentRepositoryName(tname);
          UserHandler userHandler = organizationService.getUserHandler();
-         User newUser = userHandler.createUserInstance(email);
+         User newUser = userHandler.createUserInstance(userName);
          newUser.setPassword(password);
          newUser.setFirstName(firstName);
          newUser.setLastName(lastName);
