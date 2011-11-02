@@ -33,50 +33,9 @@
   </properties>
 
  	<portal-layout>
-<!-- 
-     <portlet-application>
-       <portlet>
-         <application-ref>web</application-ref>
-         <portlet-ref>LogoPortlet</portlet-ref>
-         <preferences>
-           <preference>
-             <name>url</name>
-             <value>/eXoResources/skin/sharedImages/GroupIcon.png</value>
-             <read-only>false</read-only>
-           </preference>
-         </preferences>
-       </portlet>
-       <access-permissions>Everyone</access-permissions>
-       <show-info-bar>false</show-info-bar>
-     </portlet-application>
 
-     <portlet-application>
-       <portlet>
-         <application-ref>web</application-ref>
-         <portlet-ref>NavigationPortlet</portlet-ref>
-         <preferences>
-           <preference>
-             <name>CSSClassName</name>
-             <value>GroupNavigation</value>
-             <read-only>true</read-only>
-           </preference>
-         </preferences>
-       </portlet>
-       <access-permissions>Everyone</access-permissions>
-       <show-info-bar>false</show-info-bar>
-     </portlet-application>
--->
  		<page-body>
  		</page-body>
-
-	<portlet-application>
-	   <portlet>
-         <application-ref>chatbar</application-ref>
-         <portlet-ref>ChatBarPortlet</portlet-ref>
-       </portlet>
-       <access-permissions>*:/platform/users</access-permissions>
-       <show-info-bar>false</show-info-bar>      
-    </portlet-application>
 
   </portal-layout>
   
