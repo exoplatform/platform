@@ -153,6 +153,7 @@ function getProduct(version) {
   product.addDependencies(social.webapp.resources); // social-resources.war
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
   product.addDependencies(social.extras.linkComposerPlugin); // #exo.social.extras.link-composer-plugin-1.1.0-SNAPSHOT.jar
+  product.addDependencies(social.extension.war) ; // social-ext.war
 
   // integration project
   product.addDependencies(platform.integ.ecmsSocial) ; // integration ecms-social
