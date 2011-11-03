@@ -91,16 +91,7 @@
 	    <pattern>.*</pattern>
 	  </path-param>
   	</route>
-  </route>    
- 
- <route path="/{gtn:path}">
-   <route-param qname="gtn:handler">
-     <value>staticResource</value>
-   </route-param>
-   <path-param qname="gtn:path" encoding="preserve-path">
-     <pattern>.*\.(jpg|png|gif|ico|css)</pattern>
-   </path-param>
- </route>
+  </route>
 
   <route path="/">
 
@@ -161,4 +152,14 @@
       <value>default</value>
     </route-param>
   </route> 
+
+ <route path="/{gtn:path}">
+   <route-param qname="gtn:handler">
+     <value>staticResource</value>
+   </route-param>
+   <path-param qname="gtn:path" encoding="preserve-path">
+     <pattern>.*\.(jpg|png|gif|ico|css)</pattern>
+   </path-param>
+ </route>
+
 </controller>
