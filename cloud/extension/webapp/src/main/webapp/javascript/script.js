@@ -32,7 +32,7 @@
                         tenantServicePath = accessUrl + "/public-tenant-service/";
                         infoServicePath =accessSecureUrl + "/info-service/";
                         }
-	                                                                                                                                                     /** Getting list chain */
+	                /** Getting list chain */
 	
     	                Tenants.prototype.getList = function() {
 	                    var editedDocList = document.getElementById("list");
