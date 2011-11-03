@@ -10,7 +10,7 @@
 			<value-param>
 				<name>gadgetsCategoryName</name>
 				<description>The gadgets category name</description>
-				<value>Gadgets</value>
+				<value>Tools</value>
 			</value-param>
 			<value-param>
 				<name>gadgetsCategoryAccessPermission </name>

@@ -184,7 +184,7 @@
                       <field name="contentId"><string>eXoScriptingConsole</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/administrators</string></value>
+                          <value><string>*:/developers</string></value>
                         </collection>
                       </field>
                     </object>
@@ -198,7 +198,7 @@
                       <field name="contentId"><string>IDE</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/administrators</string></value>
+                          <value><string>*:/developers</string></value>
                         </collection>
                       </field>
                     </object>
