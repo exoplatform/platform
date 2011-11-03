@@ -1,21 +1,17 @@
 package org.exoplatform.platform.upgrade.plugins;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.application.gadget.Gadget;
-import org.exoplatform.application.gadget.GadgetImporter;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.GadgetRegistryServiceImpl;
-import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
-import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.portal.pom.config.tasks.PreferencesTask.GetContentId;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
@@ -46,6 +42,7 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
     log.info("processing upgrading gadgets from version " + oldVersion + " to " + newVersion);
+    RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
       for (GadgetUpgrade gadgetUpgrade : gadgets) {
         try {
@@ -56,17 +53,22 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
           }
           log.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
 
-          gadgetRegistryService.getRegistry().removeGadget(gadgetUpgrade.getName());
+          try {
+            gadgetRegistryService.removeGadget(gadgetUpgrade.getName());
+          } catch (Exception noSuchGadgetException) {
+            // if gadget doesn't exist
+            if (log.isDebugEnabled()) {
+              log.debug("gadget doesn't exist in the store: " + gadget.getName());
+            }
+          }
 
           try {
             LocalGadgetImporter gadgetImporter = new LocalGadgetImporter(gadgetUpgrade.getName(), gadgetRegistryService,
                 gadgetUpgrade.getPath(), configurationManager, PortalContainer.getInstance());
-            
-            if (gadgetImporter != null) {
-              GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadgetImporter.getGadgetName());
-              gadgetImporter.doImport(def);
-            }
-            
+
+            GadgetDefinition def = gadgetRegistryService.getRegistry().addGadget(gadget.getName());
+            gadgetImporter.doImport(def);
+
             gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
             if (gadget != null) {
               log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
@@ -84,6 +86,8 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
       }
     } catch (Exception e) {
       log.error("Could not upgrade local gadget", e);
+    } finally {
+      RequestLifeCycle.end();
     }
   }
 
