@@ -148,7 +148,7 @@ public class PlatformTenantResourcesManager {
      for (WorkspaceEntry workspaceEntry : workspaces)
      {
         for (ValueStorageEntry vsEntry : workspaceEntry.getContainer().getValueStorages()) {
-          valuesDirectories.put(workspaceEntry.getName() + FILE_SEPARATOR + vsEntry.getId(), vsEntry.getParameterValue(FileValueStorage.PATH));
+          valuesDirectories.put(vsEntry.getId() + "@" + workspaceEntry.getName(), vsEntry.getParameterValue(FileValueStorage.PATH));
         }
      }
   }
