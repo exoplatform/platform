@@ -21,6 +21,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.service.LinkProvider;
 import org.exoplatform.social.webui.Utils;
 import org.exoplatform.social.webui.composer.UIActivityComposerContainer;
@@ -64,7 +65,9 @@ public class UINavigationComposer extends org.exoplatform.social.webui.composer.
   }
 
   public String getAvatarURL() {
-    String ownerAvatar = ownerIdentity.getProfile().getAvatarUrl();
+	Identity identity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
+	        Util.getPortalRequestContext().getRemoteUser(), true);
+    String ownerAvatar = identity.getProfile().getAvatarUrl();
     if (ownerAvatar == null || ownerAvatar.isEmpty()) {
       ownerAvatar = LinkProvider.PROFILE_DEFAULT_AVATAR_URL;
     }
