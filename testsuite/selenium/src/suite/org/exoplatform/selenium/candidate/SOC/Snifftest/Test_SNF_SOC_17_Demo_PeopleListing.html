@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_SOC_22_Demo_OutgoingList</title>
+<title>Test_SNF_SOC_17_Demo_PeopleListing</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_SOC_22_Demo_OutgoingList</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_SOC_17_Demo_PeopleListing</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Outgoing list</td>
+	<td>-- People Listing</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -52,6 +52,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- List People</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Find People</td>
 	<td></td>
@@ -63,47 +68,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Send invitation to a user</td>
+	<td>-- Show all users</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Remove Invitaion</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Pending Requests</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Pending Requests</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=James Davis</td>
+	<td>verifyElementPresent</td>
+	<td>link=Jack Miller</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,8 +87,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//a[contains(text(),'James Davis')]/following-sibling::ul//a[@title='Cancel']</td>
+	<td>verifyElementPresent</td>
+	<td>link=John Smith</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Mary Williams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>

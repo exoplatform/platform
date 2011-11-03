@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="" />
-<title>Test_SNF_SOC_19_Demo_SendandAcceptOrDenyUser</title>
+<link rel="selenium.base" href="http://localhost:8080/ksdemo/public/classic/" />
+<title>Test_SNF_DOC_30_Demo_ViewConnectionListOtherUser</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_SOC_19_Demo_SendandAcceptOrDenyUser</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_DOC_30_Demo_ViewConnectionListOtherUser</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,182 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Send and Access invitation</td>
+	<td>-- Edit Space Navigation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=UIPortalLoginFormAction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Invite User--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Invite Jack</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Invite John</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'john.smith@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'john.smith@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>--Accept invitation--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>john</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Accept']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Accept']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- View other user Connections list--</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Deny</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -48,7 +218,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>id=UIPortalLoginFormAction</td>
+	<td>//a[@id='UIPortalLoginFormAction']</td>
 	<td></td>
 </tr>
 <tr>
@@ -62,203 +232,28 @@
 	<td></td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>-- Send invitation to a user : Mary</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
-	<td>//div[contains(text(),'mary.williams@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'mary.williams@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Accept Invitation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>mary</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=UIPortalLoginFormAction</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Go to My network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Received Invitations</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Received Invitations</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Accept with request from Jack (demo)</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[text()='James Davis']/following-sibling::ul//a[@title='Accept']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[text()='James Davis']/following-sibling::ul//a[@title='Accept']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify Accept successful</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=James Davis</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=James Davis</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
+	<td>//div[contains(text(),'root@localhost')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Remove Friend</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>james</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=UIPortalLoginFormAction</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=My Network</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Mary Williams</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Mary Williams</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[text()='Mary Williams']/following-sibling::ul//a[@title='Delete']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementNotPresent</td>
-	<td>link=Mary Williams</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>link=Mary Williams</td>
+	<td>--&nbsp;&nbsp;Sign out</td>
 	<td></td>
 </tr>
 <tr>

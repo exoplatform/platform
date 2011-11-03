@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -108,7 +108,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--access the new Space</td>
+	<td>-- Access the new Space</td>
 	<td></td>
 </tr>
 <tr>
@@ -123,7 +123,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- access Space setting---</td>
+	<td>-- Access Space setting---</td>
 	<td></td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>BUG: SOC-1300</td>
+	<td>* SOC-1300 Resovel</td>
 	<td></td>
 </tr>
 <tr>
@@ -169,7 +169,7 @@
 <tr>
 	<td>click</td>
 	<td>link=Add Node</td>
-	<td>1,1</td>
+	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
@@ -184,7 +184,7 @@
 <tr>
 	<td>type</td>
 	<td>//div[1]/div/table/tbody/tr[2]/td[2]/input</td>
-	<td>test_node_label_13</td>
+	<td>AddNode</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
@@ -194,7 +194,7 @@
 <tr>
 	<td>type</td>
 	<td>//tr[3]/td[2]/input</td>
-	<td>test_node_label_13</td>
+	<td>AddNode</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -203,12 +203,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[2]/div/div/div/div</td>
+	<td>//div[text()='Page Selector']</td>
 	<td></td>
 </tr>
 <tr>
@@ -223,17 +223,17 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Select the first page</td>
+	<td>--Select &quot;Welcome to eXo Platform&quot; Page</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIRepeater']//table//tbody/tr/td[5]/div[@class='ActionContainer']/img</td>
+	<td>//td/div[@title='Welcome to eXo Platform 3.5']/following::td//img[@title='Select Page']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIRepeater']//table//tbody/tr/td[5]/div[@class='ActionContainer']/img</td>
+	<td>//td/div[@title='Welcome to eXo Platform 3.5']/following::td//img[@title='Select Page']</td>
 	<td></td>
 </tr>
 <tr>
@@ -248,28 +248,18 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
+	<td>css=div.HorizontalLayout &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[2]/table/tbody/tr/td/div[1]/div/div/div/a</td>
-	<td>1,1</td>
+	<td>css=div.HorizontalLayout &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
+	<td></td>
 </tr>
 <tr>
 	<td>pause</td>
-	<td>1000</td>
+	<td>10000</td>
 	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//td[2]/div/div/div/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//td[2]/div/div/div/div/a</td>
-	<td>1,1</td>
 </tr>
 <tr>
 	<td>echo</td>
@@ -278,42 +268,72 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=test_node_label_13</td>
+	<td>link=AddNode</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=test_node_label_13</td>
+	<td>link=AddNode</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UISpaceNavigationNodeSelector']//a[@title='test_node_label_13']</td>
+	<td>css=a.ApplicationAdd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.ApplicationAdd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>What Can You Do with eXo Platform 3.5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>What Can You Do with eXo Platform 3.5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Space13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Space13</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.SpaceSettingIcon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.SpaceSettingIcon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Space Navigation']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UISpaceNavigationNodeSelector']//a[@title='test_node_label_13']</td>
+	<td>//div[text()='Space Navigation']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Delete node</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='test_node_label_13']</td>
+	<td>mouseOver</td>
+	<td>css=div.LastNode.Node &gt; div.NullItemIcon &gt; a.NodeIcon.DefaultPageIcon</td>
 	<td></td>
 </tr>
 <tr>
 	<td>mouseDownRight</td>
-	<td>//a[@title='test_node_label_13']</td>
+	<td>css=div.LastNode.Node &gt; div.NullItemIcon &gt; a.NodeIcon.DefaultPageIcon</td>
 	<td></td>
 </tr>
 <tr>
@@ -327,8 +347,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure you want to delete this node?</td>
+	<td>verifyConfirmation</td>
+	<td>Are you sure to delete this node?</td>
 	<td></td>
 </tr>
 <tr>
@@ -347,93 +367,33 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTextNotPresent</td>
-	<td>test_node_label_13</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>test_node_label_13</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Delete Navigation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal/private/intranet/groupnavigation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>1000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForTextPresent</td>
-	<td>Space13</td>
+	<td>Update info of space successful. </td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Space13</td>
+	<td>Update info of space successful. </td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[5]//a[@class='DeleteIcon']</td>
+	<td>link=OK</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIGroupNavigationGrid']/table[5]//a[@class='DeleteIcon']</td>
+	<td>link=OK</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this navigation?</td>
+	<td>waitForElementNotPresent</td>
+	<td>link=AddNode</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Delete Space created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=My Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[@title='Delete Space']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForConfirmation</td>
-	<td>Are you sure to delete this space? This can not be undone. All page navigations and this group will be deleted, too.</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
+	<td>verifyElementNotPresent</td>
+	<td>link=AddNode</td>
 	<td></td>
 </tr>
 <tr>

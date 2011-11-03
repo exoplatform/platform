@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_SOC_05_Demo_AddActivityforSpace</title>
+<title>Test_SNF_SOC_11_Demo_AddandDeleteApplication</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_SOC_05_Demo_AddActivityforSpace</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_SOC_11_Demo_AddandDeleteApplication</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add Space Activites</td>
+	<td>-- Add and Delete Application in Space</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -39,17 +39,12 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>mary</td>
+	<td>john</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Log in</td>
-	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -89,12 +84,12 @@
 <tr>
 	<td>type</td>
 	<td>displayName</td>
-	<td>Space05</td>
+	<td>Space11</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>description</td>
-	<td>This is description for Space_05</td>
+	<td>This is description for Space_11</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -113,127 +108,147 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space05</td>
+	<td>link=Space11</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space05</td>
+	<td>link=Space11</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Space05 was created</td>
+	<td>Space11 was created</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Space05 was created</td>
+	<td>Space11 was created</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add Activites</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>1000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>composerInput</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>composerInput</td>
-	<td>This is activity for Space 05</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Verify activity is added</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>composerInput</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>//textarea[@id='composerInput']</td>
-	<td>this is activity for space 05</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- share link</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//form[@id='UIComposer']/div[2]/div[2]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIComposer']/div[2]/div[2]/div/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>InputLink</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>InputLink</td>
-	<td>http://google.com</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- click attach button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>AttachButton</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>AttachButton</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- share all</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>ShareButton</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>ShareButton</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Google</td>
+	<td>-- Go to&nbsp;&nbsp;Settings</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Google</td>
+	<td>//a[contains(@href,'spaces:space11') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyTextPresent</td>
-	<td>Source : http://google.com</td>
+	<td>click</td>
+	<td>//a[contains(@href,'spaces:space11') and @title='Settings']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Applications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='UISpaceSettingPortlet']//div[text()='Applications']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='UISpaceSettingPortlet']//div[text()='Applications']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add Application</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add Application</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add Application</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Authoring Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Contents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Contents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Authoring Dashboard']/following-sibling::div[@title='Install']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[text()='Authoring Dashboard']/following-sibling::div[@title='Install']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Check Application added</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#AddApplication &gt; div.OverflowContainer.ClearFix &gt; a.CloseButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space11') and @title='Authoring Dashboard']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space11') and @title='Authoring Dashboard']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Delete Application</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[text()='Authoring Dashboard']/following-sibling::div/a[@title='Remove']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[text()='Authoring Dashboard']/following-sibling::div/a[@title='Remove']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space11') and @title='Authoring Dashboard']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space11') and @title='Authoring Dashboard']</td>
 	<td></td>
 </tr>
 <tr>

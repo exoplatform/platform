@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_SOC_09_Demo_RemoveUserfromSpace</title>
+<title>Test_SNF_SOC_14_Demo_CheckDisplayingInvitationSpaceList</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_SOC_09_Demo_RemoveUserfromSpace</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_SOC_14_Demo_CheckDisplayingInvitationSpaceList</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--&nbsp;&nbsp;Remove User</td>
+	<td>--&nbsp;&nbsp;Display your Space Invitation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -39,17 +39,12 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>john</td>
+	<td>root</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>password</td>
 	<td>gtn</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Log in : John</td>
-	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -89,17 +84,12 @@
 <tr>
 	<td>type</td>
 	<td>displayName</td>
-	<td>Space09</td>
+	<td>Space14</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>description</td>
-	<td>This is description for Space_09</td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Create</td>
-	<td></td>
+	<td>This is description for Space_14</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -108,7 +98,7 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>30000</td>
+	<td>20000</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,22 +108,22 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space09</td>
+	<td>link=Space14</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space09</td>
+	<td>link=Space14</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Space09 was created</td>
+	<td>Space14 was created</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Space09 was created</td>
+	<td>Space14 was created</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,12 +133,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[contains(@href,'spaces:space09') and @title='Settings']</td>
+	<td>//a[contains(@href,'spaces:space14') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//a[contains(@href,'spaces:space09') and @title='Settings']</td>
+	<td>//a[contains(@href,'spaces:space14') and @title='Settings']</td>
 	<td></td>
 </tr>
 <tr>
@@ -178,6 +168,16 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>//a[@title='Revoke Invited' and contains(@onclick,'objectId=mary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@title='Revoke Invited' and contains(@onclick,'objectId=mary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
@@ -193,7 +193,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -243,147 +243,47 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>This is description for Space_09</td>
+	<td>This is description for Space_14</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>This is description for Space_09</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[contains(text(),'This is description for Space_09')]/following-sibling::ul//a[@title='Accept']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'This is description for Space_09')]/following-sibling::ul//a[@title='Accept']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>john</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=UIPortalLoginFormAction</td>
+	<td>This is description for Space_14</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- - Verify accepted user is displayed in Member lisr</td>
+	<td>-- Accept option displays</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space09</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Space09</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space09') and @title='Members']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space09') and @title='Members']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Mary Williams</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Williams</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- - Remove user</td>
+	<td>-- Deny option displays</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[contains(@href,'spaces:space09') and @title='Settings']</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//a[contains(@href,'spaces:space09') and @title='Settings']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UISpaceSettingPortlet']//div[@class='TabsContainer']/div[3]//div[@class='MiddleTab']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UISpaceSettingPortlet']//div[@class='TabsContainer']/div[3]//div[@class='MiddleTab']</td>
+	<td>verifyElementPresent</td>
+	<td>//div[contains(text(),'This is description for Space_14')]/following-sibling::ul//a[@title='Deny']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Select Mary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//td[text()='mary']/ancestor::tr/td/a[@title='Remove']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//td[text()='mary']/ancestor::tr/td/a[@title='Remove']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextNotPresent</td>
-	<td>mary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextNotPresent</td>
-	<td>mary</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Logout</td>
+	<td>-- Log out</td>
 	<td></td>
 </tr>
 <tr>

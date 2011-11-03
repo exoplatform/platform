@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>Test_SNF_SOC_08_Demo_RequestandAcceptSpace</title>
+<title>Test_SNF_SOC_20_Demo_MyRelationList</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test_SNF_SOC_08_Demo_RequestandAcceptSpace</td></tr>
+<tr><td rowspan="1" colspan="3">Test_SNF_SOC_20_Demo_MyRelationList</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -23,12 +23,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--&nbsp;&nbsp;Request and Accept user</td>
+	<td>-- My relation list</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -47,88 +47,48 @@
 	<td>gtn</td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>--Log in : Root</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
 	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=My Spaces</td>
+	<td>link=Find People</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Add a new Space</td>
+	<td>-- Send invitation to a user : James</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Add New Space</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Add New Space</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>displayName</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>displayName</td>
-	<td>Space08</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>description</td>
-	<td>This is description for Space_08</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Create</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>30000</td>
+	<td>//div[contains(text(),'james.davis@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Verify space created</td>
+	<td>-- Send invitation to a user : John</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Space08</td>
+	<td>//div[contains(text(),'john.smith@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Space08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>Space08 was created</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>Space08 was created</td>
+	<td>//div[contains(text(),'john.smith@acme.exoplatform.com')]/following-sibling::ul//a[@title='Invite']</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,12 +103,12 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>--Request&nbsp;&nbsp;to join the Space</td>
+	<td>-- Accept Invitation</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -159,7 +119,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>mary</td>
+	<td>james</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -167,193 +127,253 @@
 	<td>gtn</td>
 </tr>
 <tr>
-	<td>echo</td>
-	<td>--Log in : Mary</td>
-	<td></td>
-</tr>
-<tr>
 	<td>clickAndWait</td>
 	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=My Spaces</td>
+	<td>link=My Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=My Spaces</td>
+	<td>link=My Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=All Spaces</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=All Spaces</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>500</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForTextPresent</td>
-	<td>This is description for Space_08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyTextPresent</td>
-	<td>This is description for Space_08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Join to Space 08</td>
+	<td>link=Received Invitations</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[contains(text(),'This is description for Space_08')]/following-sibling::ul//a[@title='Join']</td>
+	<td>//a[text()='Root Root']/following-sibling::ul//a[@title='Accept']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'This is description for Space_08')]/following-sibling::ul//a[@title='Join']</td>
+	<td>//a[text()='Root Root']/following-sibling::ul//a[@title='Accept']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify Accept successful</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Logout</td>
+	<td>link=Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Accept Request</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>link=Network</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>username</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>username</td>
-	<td>root</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>password</td>
-	<td>gtn</td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>--Log in : Root</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>id=UIPortalLoginFormAction</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Space08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Space08</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Space Setting </td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//a[contains(@href,'spaces:space08') and @title='Settings']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//a[contains(@href,'spaces:space08') and @title='Settings']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Memeber tab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='UISpaceSettingPortlet']//div[@class='TabsContainer']/div[3]//div[@class='MiddleTab']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='UISpaceSettingPortlet']//div[@class='TabsContainer']/div[3]//div[@class='MiddleTab']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Accepts</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//td[text()='mary']/following-sibling::td/a[@title='Validate']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//td[text()='mary']/following-sibling::td/a[@title='Validate']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- - Verify accepted user is displayed in Space Member List</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space08') and @title='Members']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@class='NormalTab']//a[contains(@href,'spaces:space08') and @title='Members']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Mary Williams</td>
+	<td>link=Root Root</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=Mary Williams</td>
+	<td>link=Root Root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Logout</td>
+	<td>-- John Deny</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>john</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=UIPortalLoginFormAction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=My Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Received Invitations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Received Invitations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='Root Root']/following-sibling::ul//a[@title='Deny']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='Root Root']/following-sibling::ul//a[@title='Deny']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=Root Root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=Root Root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify friend list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>root</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>gtn</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=UIPortalLoginFormAction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=My Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Network</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Exist James</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=James Davis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=James Davis</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[text()='James Davis']/following-sibling::ul//a[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[text()='James Davis']/following-sibling::ul//a[@title='Delete']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Not Exist John</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>link=John Smith</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=John Smith</td>
 	<td></td>
 </tr>
 <tr>

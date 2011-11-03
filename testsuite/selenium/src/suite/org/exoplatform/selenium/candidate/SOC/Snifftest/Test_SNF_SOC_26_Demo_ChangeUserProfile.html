@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -113,12 +113,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>You have registered a new account. </td>
+	<td>You have registered a new account.</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>You have registered a new account. </td>
+	<td>You have registered a new account.</td>
 	<td></td>
 </tr>
 <tr>
@@ -148,7 +148,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -327,6 +327,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>* SOC-1344:&nbsp;&nbsp;Reopen</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForTextPresent</td>
 	<td>Phone : Work: 123456789</td>
 	<td></td>
@@ -334,11 +339,6 @@
 <tr>
 	<td>verifyTextPresent</td>
 	<td>Phone : Work: 123456789</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>1000</td>
 	<td></td>
 </tr>
 <tr>
@@ -352,8 +352,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>1000</td>
+	<td>verifyTextPresent</td>
+	<td>Urls:&nbsp;&nbsp;	http://www.google.com</td>
 	<td></td>
 </tr>
 <tr>
