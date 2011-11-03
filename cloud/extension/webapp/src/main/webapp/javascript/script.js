@@ -9,16 +9,30 @@
                           var auth = null;
 				 
 	
-	                   /** Getting list chain */
-			  Tenants.prototype.init = function() {
-	                  accessUrl = prefixUrl + '/rest/cloud-admin';
-	                  accessSecureUrl = prefixUrl + '/rest/private/cloud-admin';
-	                  tenantServicePath = accessUrl + "/public-tenant-service/";
-	                  infoServicePath =accessSecureUrl + "/info-service/";
-	                  refreshInterval = 10000;
-                          is_chrome  = (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 || navigator.userAgent.toLowerCase().indexOf('safari') > -1);
-	                  }
-	
+	                 /** Getting list chain */
+------><------><------>  Tenants.prototype.init = function() {
+------><------><------>  refreshInterval = 10000;
+                         is_chrome  = (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 || navigator.userAgent.toLowerCase().indexOf('safari') >
+<------><------><------>  /*Detecting service path*/
+<------><------><------>  var params = {};
+                          params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+                          params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+                          var url = prefixUrl + '/cloud-admin/rest/cloud-admin'
+                          gadgets.io.makeRequest(url, tenants.isServiceExists, params);
+------>                  }
+<------>..................
+<------>                Tenants.prototype.isServiceExists = function(resp){
+<------>                if (resp.errors.toString().indexOf('405') > -1){
+ ----->                  accessUrl = prefixUrl + '/cloud-admin/rest/cloud-admin';
+ ----->                  accessSecureUrl = prefixUrl + '/cloud-admin/rest/private/cloud-admin';
+<------>                } else {
+<------>                  accessUrl = prefixUrl + '/rest/cloud-admin';
+<------>                  accessSecureUrl = prefixUrl + '/rest/private/cloud-admin';
+<------>                 }
+<------>                  tenantServicePath = accessUrl + "/public-tenant-service/";
+<------>                  infoServicePath =accessSecureUrl + "/info-service/";
+<------>                }..
+	                                                                                                                                                     /** Getting list chain */
 	
     	                Tenants.prototype.getList = function() {
 	                    var editedDocList = document.getElementById("list");

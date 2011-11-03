@@ -34,7 +34,7 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">Name:</td>
-                                         <td><input type="text" id="t_cred_name"  size="22" value="root"/></td>
+                                         <td><input type="text" id="t_cred_name"  size="22" value="cloudadmin"/></td>
                                        </tr>
                                        <tr>
                                          <td class="TenantFormRow">Pass:</td>
