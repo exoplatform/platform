@@ -23,7 +23,7 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <datasources>
-    <no-tx-datasource>
+    <local-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
       <connection-url>jdbc:hsqldb:${gatein.data.dir}/hsql/exo-idm_portal</connection-url>
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
@@ -33,9 +33,9 @@
       <max-pool-size>20</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
-   </no-tx-datasource>
+   </local-tx-datasource>
   
-   <no-tx-datasource>
+   <local-tx-datasource>
       <jndi-name>exo-jcr_portal</jndi-name>
       <connection-url>jdbc:hsqldb:${gatein.data.dir}/hsql/exo-jcr_portal</connection-url>
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
@@ -45,5 +45,5 @@
       <max-pool-size>20</max-pool-size>
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
-   </no-tx-datasource>
+   </local-tx-datasource>
 </datasources>
