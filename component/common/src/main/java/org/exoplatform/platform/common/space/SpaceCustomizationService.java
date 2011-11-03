@@ -41,12 +41,12 @@ import org.exoplatform.services.log.Log;
 import org.exoplatform.services.security.IdentityConstants;
 import org.exoplatform.services.wcm.core.NodetypeConstant;
 import org.exoplatform.social.core.space.SpaceUtils;
+import org.exoplatform.social.core.space.spi.SpaceService;
 
 public class SpaceCustomizationService {
   final static private Log logger = ExoLogger.getExoLogger(SpaceCustomizationService.class);
   final static private String GROUPS_PATH = "groupsPath";
   private static final String SPACE_GROUP_ID_PREFERENCE = "{spaceGroupId}";
-  private static final String SPACE_HOME_PAGE_PORTLET_NAME = "SpaceActivityStreamPortlet";
   private static final String SPACE_NEW_HOME_PAGE_TEMPLATE = "custom space";
   private static final String SCV_PORTLEt_NAME = "SingleContentViewer";
 
@@ -56,6 +56,7 @@ public class SpaceCustomizationService {
   private ConfigurationManager configurationManager = null;
   private DataStorage dataStorageService = null;
   private UserPortalConfigService userPortalConfigService = null;
+  private SpaceService spaceService = null;
   private UserACL userACL = null;
   private String groupsPath;
 
@@ -205,19 +206,18 @@ public class SpaceCustomizationService {
   }
 
   public void createSpaceHomePage(String spacePrettyName, String spaceGroupId, ExoProperties welcomeSCVCustomPreferences) {
+
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
       logger.info("Updating '" + spaceGroupId + "' Space Home Page");
       // creates the new home page
+
       Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
-          + SPACE_HOME_PAGE_PORTLET_NAME);
-      if (oldSpaceHomePage == null) {
-        throw new IllegalStateException(spaceGroupId + " Home page couldn't be found");
-      }
+          + getSpaceService().getSpaceApplicationConfigPlugin().getHomeApplication().getPortletName());
       // creates the customized home page for the space and set few fields
       // with values from the old home page
       Page customSpaceHomePage = userPortalConfigService.createPageTemplate(SPACE_NEW_HOME_PAGE_TEMPLATE,
-          PortalConfig.GROUP_TYPE, spacePrettyName);
+          PortalConfig.GROUP_TYPE, spaceGroupId);
       customSpaceHomePage.setTitle(oldSpaceHomePage.getTitle());
       customSpaceHomePage.setName(oldSpaceHomePage.getName());
       customSpaceHomePage.setAccessPermissions(oldSpaceHomePage.getAccessPermissions());
@@ -246,6 +246,13 @@ public class SpaceCustomizationService {
         logger.warn("An exception has occurred while proceed RequestLifeCycle.end() : " + e.getMessage());
       }
     }
+  }
+
+  public SpaceService getSpaceService() {
+    if (this.spaceService == null) {
+      this.spaceService = (SpaceService) PortalContainer.getInstance().getComponentInstanceOfType(SpaceService.class);
+    }
+    return this.spaceService;
   }
 
   private void editSCVPreference(Application<Portlet> selectedPortlet, String prefValue, ExoProperties welcomeSCVCustomPreferences)
