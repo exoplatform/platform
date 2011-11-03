@@ -12,7 +12,7 @@
 	                 /** Getting list chain */
                          Tenants.prototype.init = function() {
                          refreshInterval = 10000;
-                         is_chrome  = (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 || navigator.userAgent.toLowerCase().indexOf('safari') >
+                         is_chrome  = (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 || navigator.userAgent.toLowerCase().indexOf('safari') > -1);
                          /*Detecting service path*/
                           var params = {};
                           params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
