@@ -32,46 +32,81 @@
 			<access-permissions>*:/platform/users</access-permissions>
 			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>*:/platform/users</access-permissions>
-
-				<!-- My spaces gadget -->
-				<portlet-application>
+                <!-- My Profile gadget -->
+		        <portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
 						<portlet-ref>GadgetPortlet</portlet-ref>
 						<preferences>
 							<preference>
 								<name>url</name>
-								<value>local://MySpaces</value>
+								<value>local://Profile</value>
 								<read-only>false</read-only>
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>My Profile</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
-				<!-- My task gadget -->
-				<portlet-application>
+				
+				<!-- Invitations gadget -->
+		        <portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
 						<portlet-ref>GadgetPortlet</portlet-ref>
 						<preferences>
 							<preference>
 								<name>url</name>
-								<value>local://taskslist</value>
+								<value>local://Invitations</value>
 								<read-only>false</read-only>
 							</preference>
 						</preferences>
 					</portlet>
-					<title>Gadget Portlet</title>
+					<title>Invitations</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+				
+                <!-- Agenda gadget -->
+		        <portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://Agenda</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Agenda</title>
 					<access-permissions>*:/platform/users</access-permissions>
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
 
-
-
+                <!-- Feature poll gadget -->
+		        <portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://FeaturedPoll</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Polls</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
 			</container>
 
 
@@ -88,19 +123,16 @@
                 <value>repository:collaboration:/sites content/live/@owner@/web contents/site artifacts/announcements</value>
                 <read-only>false</read-only>
               </preference>
-             <preference>
+              <preference>
                 <name>orderType</name>
                 <value>ASC</value>
                 <read-only>false</read-only>
               </preference>
-             
               <preference>
                 <name>formViewTemplatePath</name>
                 <value>/exo:ecm/views/templates/content-list-viewer/list/announcement.gtmpl</value>
                 <read-only>false</read-only>
               </preference>
-              
-             
               <preference>
                 <name>basePath</name>
                 <value>detail</value>
@@ -145,76 +177,20 @@
           <show-application-mode>false</show-application-mode>
         </portlet-application>
         
-				<!-- user activities portlet -->
-				<portlet-application>
-					<portlet>
+	    <!-- user activities portlet -->
+		<portlet-application>
+				<portlet>
 						<application-ref>social-portlet</application-ref>
 						<portlet-ref>UserActivityStreamPortlet</portlet-ref>
-					</portlet>
-					<title>User Activity Stream</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>false</show-application-state>
-					<show-application-mode>false</show-application-mode>
-				</portlet-application>
-
-
-
-			</container>
-
-			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>Everyone</access-permissions>
-								<!-- upcoming Events gadget -->
-				<portlet-application>
-					<portlet>
-						<application-ref>dashboard</application-ref>
-						<portlet-ref>GadgetPortlet</portlet-ref>
-						<preferences>
-							<preference>
-								<name>url</name>
-								<value>local://eventslist</value>
-								<read-only>false</read-only>
-							</preference>
-						</preferences>
-					</portlet>
-					<title>Gadget Portlet</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				</portlet-application>
-<!--
-					<portlet-application>
-					<portlet>
-						<application-ref>construction</application-ref>
-						<portlet-ref>ConstructionPortlet</portlet-ref>
-					</portlet>
-					<title>Profile</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>
-				   </portlet-application>
--->
-
-
-			</container>
-
-
-
-		</container>
-
-	</page>
-
-
-    <page>
-		<name>welcome</name>
-		<title>Welcome Page</title>
-		<access-permissions>Everyone</access-permissions>
-		<edit-permission>*:/platform/administrators</edit-permission>
-		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-			<access-permissions>Everyone</access-permissions>
-			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>Everyone</access-permissions>
-		<portlet-application>
+				</portlet>
+				<title>User Activity Stream</title>
+				<access-permissions>*:/platform/users</access-permissions>
+				<show-info-bar>false</show-info-bar>
+				<show-application-state>false</show-application-state>
+				<show-application-mode>false</show-application-mode>
+		</portlet-application>
+        
+        <portlet-application>
           <portlet>
             <application-ref>presentation</application-ref>
             <portlet-ref>SingleContentViewer</portlet-ref>
@@ -231,7 +207,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/@owner@/web contents/site artifacts/Welcome</value>
+                <value>/sites content/live/@owner@/web contents/site artifacts/Footer</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -266,77 +242,150 @@
               </preference>
             </preferences>
           </portlet>
-          <title>Welcome</title>
+          <title>Footer</title>
           <access-permissions>Everyone</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
         </portlet-application>
-		<portlet-application>
-      <portlet>
-        <application-ref>presentation</application-ref>
-        <portlet-ref>SingleContentViewer</portlet-ref>
-        <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>workspace</name>
-            <value>collaboration</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>nodeIdentifier</name>
-            <value>/sites content/live/@owner@/web contents/site artifacts/Footer</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowQuickEdit</name>
-            <value>true</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowPrintAction</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTOC</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTags</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowCategories</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>ShowTitle</name>
-            <value>false</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>Footer</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
+	</container>
 
+	<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+
+                <!-- Who is online gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://WhoIsOnline</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Who Is Online</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+				
+                <!-- Bookmark gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://Bookmark</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Bookmarks</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>				
+
+                <!-- Favorites Documents gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://FavoriteDocument</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Favorite Documents</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+
+			</container>
 
 		</container>
 
+	</page>
 
+
+    <page>
+		<name>welcome</name>
+		<title>Welcome Page</title>
+		<access-permissions>Everyone</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+				<portlet-application>
+				  <portlet>
+				    <application-ref>presentation</application-ref>
+				    <portlet-ref>SingleContentViewer</portlet-ref>
+				    <preferences>
+				      <preference>
+				        <name>repository</name>
+				        <value>repository</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>workspace</name>
+				        <value>collaboration</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>nodeIdentifier</name>
+				        <value>/sites content/live/@owner@/web contents/site artifacts/Welcome</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowQuickEdit</name>
+				        <value>true</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowPrintAction</name>
+				        <value>false</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowTOC</name>
+				        <value>false</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowTags</name>
+				        <value>false</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowCategories</name>
+				        <value>false</value>
+				        <read-only>false</read-only>
+				      </preference>
+				      <preference>
+				        <name>ShowTitle</name>
+				        <value>false</value>
+				        <read-only>false</read-only>
+				      </preference>
+				    </preferences>
+				  </portlet>
+				  <title>Welcome</title>
+				  <access-permissions>Everyone</access-permissions>
+				  <show-info-bar>false</show-info-bar>
+				  <show-application-state>false</show-application-state>
+				  <show-application-mode>false</show-application-mode>
+				</portlet-application>
+		    </container>
 		</container>
-
 	</page>
 
   <page>
@@ -921,70 +970,6 @@
   </page>
 
   <page>
-    <name>searchResult</name>
-    <title>SearchResult</title>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>editor:/platform/web-contributors</edit-permission>
-    <portlet-application>
-      <portlet>
-        <application-ref>searches</application-ref>
-        <portlet-ref>WCMAdvanceSearchPortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>workspace</name>
-            <value>collaboration</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchFormTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-form/UIDefaultSearchForm.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchResultTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-result/UIDefaultSearchResult.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchPaginatorTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-paginator/UIDefaultSearchPaginator.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>searchPageLayoutTemplatePath</name>
-            <value>/exo:ecm/views/templates/WCM Advance Search/search-page-layout/UISearchPageLayoutDefault.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>itemsPerPage</name>
-            <value>5</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>showQuickEditButton</name>
-            <value>true</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
-            <name>basePath</name>
-            <value>detail</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <title>SearchResult</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-	<page>
     <name>forum</name>
     <title>Forum</title>
     <access-permissions>Everyone</access-permissions>
@@ -1017,7 +1002,7 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
   </page>
-   <page>
+  <page>
     <name>calendar</name>
     <title>Calendar</title>
     <access-permissions>*:/platform/users</access-permissions>
@@ -1110,7 +1095,6 @@
             <value>Private</value>
             <read-only>false</read-only>
           </preference>
-
           <preference>
             <name>trashHomeNodePath</name>
             <value>/Trash</value>
@@ -1162,7 +1146,7 @@
     </portlet-application>
   </page>
   
-     <page>
+  <page>
     <name>detail</name>
     <title>Detail</title>
     <access-permissions>Everyone</access-permissions>
@@ -1220,6 +1204,23 @@
         </preferences>
       </portlet>
       <title>Detail</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
+  <page>
+    <name>wiki</name>
+    <title>Wiki</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>wiki</application-ref>
+        <portlet-ref>WikiPortlet</portlet-ref>
+      </portlet>
+      <title>Wiki Portlet</title>
       <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
