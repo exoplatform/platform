@@ -775,6 +775,24 @@
         <version>${org.exoplatform.integ.version}</version>
         <type>jar</type>
     </dependency>
+    <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-social-ecms</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-cs-social</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>org.exoplatform.integration</groupId>
+        <artifactId>integ-ks-social</artifactId>
+        <version>${org.exoplatform.integ.version}</version>
+        <type>jar</type>
+    </dependency>
 
     <!-- Gadgets on the intranet homepage -->
     <dependency>
