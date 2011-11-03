@@ -28,7 +28,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -167,8 +167,23 @@
 	<td>mary</td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>//a[@title='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[@title='Revoke Invited' and contains(@onclick,'objectId=mary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//a[@title='Revoke Invited' and contains(@onclick,'objectId=mary')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,8 +202,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -268,7 +288,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -378,7 +398,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[contains(text(),'Sign in')]</td>
+	<td>//b[contains(text(),'Sign in')]</td>
 	<td></td>
 </tr>
 <tr>
