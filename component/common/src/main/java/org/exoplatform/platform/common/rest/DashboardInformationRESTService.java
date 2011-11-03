@@ -91,45 +91,57 @@ public class DashboardInformationRESTService implements ResourceContainer {
     cacheControl.setNoCache(true);
     cacheControl.setNoStore(true);
     try {
+
+      LinkedList<JsonDashboardInfo> list = new LinkedList<JsonDashboardInfo>();
       
       // Try to get all user nodes which corresponds to dashboards
       String userId = ConversationState.getCurrent().getIdentity().getUserId();
       UserNavigation userNavigation = getUserNavigation(userId);
-      UserPortal userPortal = getUserPortal(userId);
-      UserNode rootNode = userPortal.getNode(userNavigation, Scope.ALL, null, null);
-      Collection<UserNode> nodes = rootNode.getChildren();
       
-      // Fetch all nodes to add dashboards to the final list
-      LinkedList<JsonDashboardInfo> list = new LinkedList<JsonDashboardInfo>();
-      String wsSubPath = "";
-      String dashboardSubPath = "";
-      URI wsURI = null;
-      URI dashboardURI = null;
-      for(UserNode node : nodes){
-        Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef()));
+      if(userNavigation != null) {
+        UserPortal userPortal = getUserPortal(userId);
         
-        if(appDashboard == null) {
-          continue;
-        }
+        if(userPortal != null) {
+          UserNode rootNode = userPortal.getNode(userNavigation, Scope.ALL, null, null);
+          
+          if(rootNode != null) {
+            Collection<UserNode> nodes = rootNode.getChildren();
+            
+            // Fetch all nodes to add dashboards to the final list
+            String wsSubPath = "";
+            String dashboardSubPath = "";
+            URI wsURI = null;
+            URI dashboardURI = null;
+            if(nodes != null) {
+              for(UserNode node : nodes){
+                Application<Portlet> appDashboard = (Application<Portlet>) extractDashboard(dataStorageService.getPage(node.getPageRef()));
+                
+                if(appDashboard == null) {
+                  continue;
+                }
+                
+                // Dashboard only into TransientApplication
+                if(appDashboard.getState() instanceof TransientApplicationState) {
+                  
+                  JsonDashboardInfo info = new JsonDashboardInfo();
+                  info.setId(node.getId());
+                  info.setLabel(node.getEncodedResolvedLabel());
+                  
+                  // Create URI to WS REST
+                  wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef());
+                  wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
+                  
+                  // Create URI to dashboard into portal
+                  dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + node.getName();
+                  dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
         
-        // Dashboard only into TransientApplication
-        if(appDashboard.getState() instanceof TransientApplicationState) {
-          
-          JsonDashboardInfo info = new JsonDashboardInfo();
-          info.setId(node.getId());
-          info.setLabel(node.getEncodedResolvedLabel());
-          
-          // Create URI to WS REST
-          wsSubPath = PortalContainer.getCurrentRestContextName() + "/private" + WS_ROOT_PATH + "/" + userId + "/" + getPageName(node.getPageRef());
-          wsURI = uriInfo.getBaseUriBuilder().replaceMatrix(wsSubPath).build();
-          
-          // Create URI to dashboard into portal
-          dashboardSubPath = PortalContainer.getCurrentPortalContainerName() + "/u/" + userId + "/" + node.getName();
-          dashboardURI = uriInfo.getBaseUriBuilder().replaceMatrix(dashboardSubPath).build();
-
-          info.setLink(wsURI.toString());
-          info.setHtml(dashboardURI.toString());
-          list.add(info);
+                  info.setLink(wsURI.toString());
+                  info.setHtml(dashboardURI.toString());
+                  list.add(info);
+                }
+              }
+            }
+          }
         }
       }
       
@@ -139,7 +151,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
 
       // Response to client
       return Response.ok(list, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
-    } 
+    }
     catch (Exception e) {
       logger.error("An error occured while getting dashboards information.", e);
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
@@ -232,24 +244,31 @@ public class DashboardInformationRESTService implements ResourceContainer {
     
     if(container != null) {
       List<ModelObject> children = container.getChildren();
-      for (Object child : children) {
-        if (child instanceof Application) {
-          Application application = (Application)child;
-          if(ApplicationType.GADGET == application.getType()) {
-            String gadgetName = dataStorageService.getId(application.getState());
-            Gadget gadget = gadgetRegistryService.getGadget(gadgetName);
-
-            JsonGadgetInfo info = new JsonGadgetInfo();
-            info.setGadgetName(gadget.getName());
-            info.setGadgetUrl(PortalContainer.getCurrentPortalContainerName() + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
-            info.setGadgetIcon(gadget.getThumbnail());
-            info.setGadgetDescription(gadget.getDescription());
-            gadgetsInfo.add(info);
+      if(children != null) {
+        for (Object child : children) {
+          if (child instanceof Application) {
+            Application application = (Application)child;
+            if(ApplicationType.GADGET == application.getType()) {
+              String gadgetName = dataStorageService.getId(application.getState());
+              Gadget gadget = gadgetRegistryService.getGadget(gadgetName);
+  
+              if(gadget != null) {
+                JsonGadgetInfo info = new JsonGadgetInfo();
+                info.setGadgetName(gadget.getName());
+                info.setGadgetUrl(PortalContainer.getCurrentPortalContainerName() + STANDALONE_ROOT_PATH + "/" + application.getStorageId());
+                info.setGadgetIcon(gadget.getThumbnail());
+                info.setGadgetDescription(gadget.getDescription());
+                gadgetsInfo.add(info);
+              }
+              else {
+                logger.warn("Gadget with name " + gadgetName + " is no longer registered in Gadget Registry");
+              }
+            }
           }
-        }
-        else if(child instanceof Container) {
-          Container childContainer = (Container) child;
-          extractGadgets(childContainer);
+          else if(child instanceof Container) {
+            Container childContainer = (Container) child;
+            extractGadgets(childContainer);
+          }
         }
       }
     }
