@@ -109,7 +109,7 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-         LOG.trace("Unable to store user in tenant " + tname, e);
+         LOG.error("Unable to store user in tenant " + tname, e);
          return Response.status(HTTPStatus.INTERNAL_ERROR).build();
       }
    }
@@ -146,7 +146,7 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-    	  LOG.trace("Unable to store ROOT user in tenant " + tname, e);
+    	 LOG.error("Unable to store ROOT user in tenant " + tname, e);
          return Response.status(HTTPStatus.INTERNAL_ERROR).build();
       }
    }
