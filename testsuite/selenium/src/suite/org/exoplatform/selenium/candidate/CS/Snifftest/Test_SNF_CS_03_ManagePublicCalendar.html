@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/public/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>- Manage public calendar -</td>
+	<td>-Manage calendar group-</td>
 	<td></td>
 </tr>
 <tr>
@@ -62,13 +62,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>-- Add Calendar</td>
+	<td>-- Agenda</td>
 	<td></td>
 </tr>
 <tr>
@@ -82,23 +77,43 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@onclick='eXo.calendar.UICalendarPortlet.showMainMenu(this, event);']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@onclick='eXo.calendar.UICalendarPortlet.showMainMenu(this, event);']</td>
+	<td>echo</td>
+	<td>-- Click Calendar Action</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Add calendar</td>
+	<td>//div[@title='Calendar Actions']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Add calendar</td>
+	<td>//div[@title='Calendar Actions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add Canlendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@title='Calendar Actions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@title='Calendar Actions']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//a[contains(text(),'Add Calendar')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[contains(text(),'Add Calendar')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -109,7 +124,7 @@
 <tr>
 	<td>type</td>
 	<td>displayName</td>
-	<td>Test_03_calendar</td>
+	<td>MyCalendar 03</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -118,157 +133,172 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Move Groups tabs</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=div.SelectedTab &gt; div.LeftTab &gt; div.RightTab &gt; div.MiddleTab</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>/platform/administrators</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>/platform/users</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>/organization/management/executive-board</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
+	<td>-- Select GROUP tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@title='Test_03_calendar']</td>
+	<td>//div[text()='Groups']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>//div[@title='Test_03_calendar']</td>
+	<td>click</td>
+	<td>//div[text()='Groups']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Edit Calendar</td>
+	<td>-- Tick Administrators group</td>
 	<td></td>
-</tr>
-<tr>
-	<td>mouseOver</td>
-	<td>//div[@title='Test_03_calendar']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>contextMenu</td>
-	<td>//div[@title='Test_03_calendar']</td>
-	<td>contextmenu</td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[3]/a</td>
+	<td>name=/platform/administrators</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[3]/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>displayName</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>displayName</td>
-	<td>Test_03_calendar</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//div[@id='calendarDetail']//textarea[@id='description']</td>
-	<td>Test_03_calendar_description</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>displayName</td>
-	<td>Test_03_calendar_edited</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>//div[@id='calendarDetail']//textarea[@id='description']</td>
-	<td>Test_03_calendar_description_edited</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@class='UIVTabContent']//div[@title='Test_03_calendar_edited']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>//div[@class='UIVTabContent']//div[@title='Test_03_calendar_edited']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>2000</td>
+	<td>name=/platform/administrators</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Remove Calendar</td>
-	<td></td>
-</tr>
-<tr>
-	<td>contextMenu</td>
-	<td>//div[@class='UIVTabContent']//div[@title='Test_03_calendar_edited']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Remove</td>
+	<td>-- Tick Users group</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Remove</td>
+	<td>name=/platform/users</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertConfirmation</td>
-	<td>The calendar and all its events and tasks will be deleted. Do you confirm?</td>
+	<td>echo</td>
+	<td>-- Tick Web-contributors group</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>//div[@title='Test_03_calendar_edited']</td>
+	<td>click</td>
+	<td>name=/platform/web-contributors</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementNotPresent</td>
-	<td>//div[@title='Test_4_calendar_edited']</td>
+	<td>echo</td>
+	<td>-- Tick Employees group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=/organization/employees</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Tick Executive-board group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=/organization/management/executive-board</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.HorizontalLayout &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify MyCalendar 03 diplays in Executive-board group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[1]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//ul[1]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify MyCalendar 03 diplays in Employees group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[2]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//ul[2]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify MyCalendar 03 diplays in Web-contributors group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[3]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//ul[3]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify MyCalendar 03 diplays in Administrators group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[4]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//ul[4]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify MyCalendar 03 diplays in Users group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//ul[5]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyVisible</td>
+	<td>//ul[5]//a[@title='MyCalendar 03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>close</td>
-	<td></td>
 	<td></td>
 </tr>
 </tbody></table>
