@@ -140,7 +140,7 @@ public class IntranetRESTOrganizationServiceImpl
          rootUser.setPassword(password);
          rootUser.setFirstName(firstName);
          rootUser.setLastName(lastName);
-         //rootUser.setEmail(email);
+         rootUser.setEmail(email);
          userHandler.saveUser(rootUser, true);//createUser(newUser, true);
          return Response.status(HTTPStatus.CREATED).entity("Created").build();
       }
