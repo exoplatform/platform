@@ -102,7 +102,7 @@ function showPoll(data){
 
 function showResult(data){
   var prefs = new gadgets.Prefs();
-  var voters = data.votes;
+  var voters = data.infoVote[data.infoVote.length-1];
   var options = data.option;
   var vote = data.vote;
   var question = data.question;
