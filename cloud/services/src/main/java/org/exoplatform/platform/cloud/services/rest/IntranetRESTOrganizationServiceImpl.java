@@ -18,31 +18,30 @@
  */
 package org.exoplatform.platform.cloud.services.rest;
 
-import static org.exoplatform.cloudmanagement.rest.CloudServicesRoles.CLOUD_ADMIN;
-import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_NAME;
-import static org.exoplatform.cloudmanagement.status.TenantStatus.PROPERTY_ADMIN_PASSWORD;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserHandler;
-import org.exoplatform.services.rest.resource.ResourceContainer;
-import org.exoplatform.services.jcr.RepositoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.UUID;
-
-import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.Path;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.QueryParam;
 
 
 /**
@@ -51,20 +50,33 @@ import javax.ws.rs.QueryParam;
 @Path("/organization")
 public class IntranetRESTOrganizationServiceImpl
 {
+   protected static final Logger LOG = LoggerFactory.getLogger(IntranetRESTOrganizationServiceImpl.class);
+	 
+   protected static final String ROOT_USER = "root";
+   
+   protected Format dateFormater = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss SSS");
+   
+   protected final RepositoryService repositoryService;
 
-	private static final Logger LOG = LoggerFactory.getLogger(IntranetRESTOrganizationServiceImpl.class);
-	
-   private static final String ROOT_USER = "root";
+   protected final OrganizationService organizationService;
 
-   private final RepositoryService repositoryService;
-
-   private final OrganizationService organizationService;
-
+   protected final String hostInfo;
+   
    public IntranetRESTOrganizationServiceImpl(RepositoryService repositoryService,
       OrganizationService organizationService)
    {
       this.repositoryService = repositoryService;
       this.organizationService = organizationService;
+      
+      String hostname;
+      try {
+        InetAddress addr = InetAddress.getLocalHost();
+        hostname = addr.getHostName() + " (IP: " + addr.getHostAddress() + ")";
+      } catch(Throwable th) {
+        hostname = "UNKNOWN: " + th.getMessage();
+      }
+      
+      this.hostInfo = hostname;
    }
 
    /**
@@ -109,8 +121,9 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-         LOG.error("Unable to store user in tenant " + tname, e);
-         return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+         String err = "Unable to store user in tenant " + tname;
+         LOG.error(err, e);
+         throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR).entity(errorMessage(err, e)).build());
       }
    }
 
@@ -146,8 +159,39 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-    	 LOG.error("Unable to store ROOT user in tenant " + tname, e);
-         return Response.status(HTTPStatus.INTERNAL_ERROR).build();
+         String err = "Unable to store ROOT user in tenant " + tname;
+    	   LOG.error(err, e);
+    	   throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR).entity(errorMessage(err, e)).build());
       }
+   }
+   
+   
+   protected String errorMessage(String message, Exception err) {
+     ByteArrayOutputStream baos = new ByteArrayOutputStream();
+     PrintWriter wr = new PrintWriter(baos); 
+     try 
+     {
+       err.printStackTrace(wr);
+       
+       StringBuilder str = new StringBuilder();
+       str.append('[');
+       str.append(dateFormater.format(new Date()));
+       str.append(']');
+       str.append(hostInfo);
+       str.append(':');
+       str.append(message);
+       str.append("\r\n");
+       str.append(new String(baos.toByteArray()));
+       return str.toString();
+     } 
+     catch (Throwable th) 
+     {
+       LOG.error("Cannot prepare error message:", th);
+       return message + " (Error trace isn't available, see server logs (" + hostInfo + ") for details)";
+     }
+     finally 
+     {
+       wr.close();
+     }
    }
 }
