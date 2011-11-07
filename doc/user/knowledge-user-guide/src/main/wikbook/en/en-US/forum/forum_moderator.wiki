@@ -26,16 +26,13 @@ h3. Lock/Unlock a forum {anchor:id=Forum_Moderator.Moderate_forums.Lock-unlock_f
 Locking a forum will prevent all members from creating new topics and posting replies in this forum. All topics in a locked forum will be locked also, but their contents are still viewable. 
 Moderators can only lock/unlock the forum that they manage.
 
-*To lock a forum*:
 
 *1.* Go to the forum.
 
 *2.* Click !images/More_actions_btn.png! on the Action bar, then click *Lock/Unlock* from the drop-down menu.
 
 h3. Close/Open a forum {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
-Closed forums are invisible to regular users. To the Administrators and Moderators, the contents in a closed forum are still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
-
-*To close/open a forum*:
+Closed forums are invisible to regular users. To administrators and moderators, the contents in a closed forum are still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
 
 *1.* Go into the forum you want to close or open.
 
@@ -43,7 +40,7 @@ Closed forums are invisible to regular users. To the Administrators and Moderato
 
 h3. Move a forum {anchor:id=Forum_Moderator.Moderate_forums.Move_forums}
 
-*To move a forum into another category, do as follows*:
+You can move a forum into another category as follows:
 
 *1.* Go into the forum you want to move.
 
@@ -68,19 +65,27 @@ The followings are actions that a moderator can execute on topics:
 
 
 h3. Approve a topic {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
-The moderator can approve pending topics in the forum that enables the 'Moderation topic'. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except the Administrator and Moderators of this forum. Pending topic is only viewable when it was approved.
+The moderator can approve pending topics in the forum that enables the 'Moderation Topic'. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except the administrator and moderators of this forum. Pending topic is only viewable when it was approved.
 
 !images/mod_pending_topics.png|align="center"!
 
-The Administrator and Moderator will know the total number of pending topics at the right corner of their Forum Administration bar and User bar:
+The Administrator and moderator will know the total number of pending topics at the right corner of their Forum Administration bar and User bar:
 
 !images/mod_pending_topics_number.png|align="center"!
 
 Moderator can view the list of topics to be moderated. See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks] for more details.
 
-*To approve topics, do as follows*:
 
-*The first way*: 
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Approve topics</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+
+*The first way*
 
 *1.* Select topics by checking their relevant checkboxes, then click !images/Moderation_btn.png! on the Action bar if you are in a list of topics.
 
@@ -88,9 +93,9 @@ Or if you are in a topic, simply click !images/More_actions_btn.png! on the Acti
 
 *2.* Click *Approve* from the drop-down menu.
 
-*The second way*:
+*The second way*
 
-*1.* Click !images/Moderation_btn.png! on the Action bar and click Approve from the drop-down menu. The *Unapproved Topics List* form opens.
+*1.* Click !images/Moderation_btn.png! on the Action bar and click *Approve* from the drop-down menu. The *Waiting for Approval* form opens.
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You can preview the post when hovering your cursor over the post title.
 
@@ -106,14 +111,13 @@ h3. Edit a topic {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
 
 *3.* Click *Edit* from the drop-down menu that appears.
 
-!images/moderation.png|align="center"!
+!images/mod_edit_topic.png|align="center"!
 
 *4.* Edit the topic as you wish. Leave the reason for the editing in the *Reason* field if needed.
 
 h3. Close/Open a topic {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_topics}
-Only *Administrators* and *Moderators* can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
+Only *administrators* and *moderators* can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
 
-*To close or open a topic*:
 
 *1.* When you are in a topics list, select a topic by checking its corresponding check-box, then click !images/Moderation_btn.png! on the Action bar.
 
@@ -126,8 +130,6 @@ The icon of the closed topic will be changed to !images/Closed_topic_icon.png! a
 h3. Move a topic {anchor:id=Forum_Moderator.Moderate_topics.Move_topics}
 Only *Administrators* and *Moderators* can perform this action. This function is used to move topics from a forum to another one. The Moderators can only move topics between forums that he manages.
 
-*To move a topic*:
-
 *1.* Select a topic by checking its corresponding check-box, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
 Or, if you are in a topic, click !images/More_actions_btn.png! on the Action bar.
@@ -138,17 +140,37 @@ Or, if you are in a topic, click !images/More_actions_btn.png! on the Action bar
 
 !images/mod_move_topics.png|align="center"!
 
-{note}
-The moderator of a forum will be checked for permission. The moderator can not move topics to:
-* Closed/locked forums not under his management.
-* Forums to which he does not have the right to add topics.
-* Forums which are in categories that he is restricted.
-Therefore, only the forums which the moderator can move topics are shown in the list of destination forums.
-{note}
+{docbook}
+<note>
+    <para>
+    The moderator of a forum will be checked for permission. The moderator cannot move topics to:
+    </para>
+    <para>
+    Closed/locked forums that he does not manage.
+    </para>
+    <para>
+    Forums to which he does not have the right to add topics.
+    </para>
+    <para>
+    Forums which are in categories that he is restricted.
+    </para>
+    <para>
+    Therefore, only the forums which the moderator can move topics are shown in the list of destination forums.
+    </para>
+</note>
+{docbook}
 
 h3. Delete a topic {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
 
-*To delete a specific topic:*
+
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Delete a specific topic</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Select topics by checking their corresponding checkboxes, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
@@ -156,24 +178,29 @@ Or, if you are already in a topic, click !images/More_actions_btn.png! on the Ac
 
 *2.* Click *Delete* from the drop-down menu, then click *OK* in the confirmation message.
 
-*To delete topics of a specific user*:
 
-*1.* Right-click the username of the poster whose posts you want to delete.
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Delete topics of a specific user</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*2.* Click *{noformat}All topics by [User name]{noformat}*.
+*1.* Click the username of the poster or simply hover mouse over the poster's avatar.
+
+*2.* Click *{noformat}All Topics By [User name]{noformat}*.
 
 !images/mod_view_all_topics.png|align="center"!
 
-All topic posted by the selected user will be displayed:
+All topic posted by the selected user will be displayed.
 
 !images/mod_deletel_topics.png|align="center"!
 
 *3.* Click !images/Delete_icon2.png! corresponding to the desired topic, then click *OK* in the confirmation message.
 
 h3. Lock/Unlock a topic {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
-This function is for *administrators* and *moderators* only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting reply will be disabled.
-
-*To lock or unlock a topic*:
+This function is for *Administrators* and *Moderators* only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting reply will be disabled.
 
 *1.* Select a topic by checking its corresponding checkbox, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
@@ -183,11 +210,7 @@ Or, click !images/More_actions_btn.png! on the Action bar when you are in a topi
 
 h3. Stick/Unstick a topic {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unstick_topics}
 
-{note}
-This function is for *administrators* and *moderator* to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
-{note}
-
-*To stick or unstick a topic:*
+This function is for *Administrators* and *Moderator* to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
 
 *1.* Select a topic by ticking its corresponding checkbox, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
@@ -195,7 +218,7 @@ Or, click !images/More_actions_btn.png! on the Action bar when you are already i
 
 *2.* Click *Stick* or *Unstick* from the drop-down menu that appears.
 
-You can see the sticked topic in the top of the topics list:
+You can see the sticked topic in the top of the topics list.
 
 !images/mod_stick_topics.png|align="center"!
 
@@ -214,7 +237,7 @@ When there are two or more related topics, you may want to merge these topics in
 
 !images/mod_merge_topics_form.png|align="center"!
 
-*5.* Select a destination topic which will be the main entry of the merged topic from the list of the	existing topics. Give one name for the new topic in the *New topic title* field if you want.
+*5.* Select a destination topic which will be the main entry of the merged topic from the list of the	existing topics. Give one name for the new topic in the *New Topic Title* field if you want.
 
 *6.* Click *Save* to accept. After being merged, selected topics will be joined into one topic. All posts of the other topics are displayed as posts below the main entry.
 
@@ -227,7 +250,7 @@ A topic with more than two posts can be split into separate topics.
 
 !images/mod_split_topic_form.png|align="center"!
 
-*3.* Enter the name for the new topic in the *New topic* field.
+*3.* Enter the name for the new topic in the *New Topic* field.
 
 *4.* Select posts by checking their respective checkboxes.
 
@@ -236,15 +259,15 @@ A topic with more than two posts can be split into separate topics.
 The new topic will be displayed in the topics list with the new name. The last selected post will become the main entry of the new topic.
 
 h2. Moderate posts {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_posts}
-As a moderator, you can decide whether the content is allowed or not, and edit or delete its if needed. To moderate a post, you need to select that post first by checking its relevant checkbox.
+As a moderator, you have some specific rights on a post. To moderate a post, you need to select that post first by checking its relevant checkbox.
 
 !images/mod_moderate_posts.png|align="center"!
 
-Next, click !images/Moderation_btn.png! on the Action bar and select a desired action from the drop-down menu. All the moderation actions will be reached via this menu:
+Next, click !images/Moderation_btn.png! on the Action bar and select a desired action from the drop-down menu. All the moderation actions will be reached via this menu.
 
 !images/mod_moderation.png|align="center"!
 
-Followings are actions that a moderator can perform on a post:
+The followings are actions that a moderator can perform on a post:
 
 * [Approve posts|#Forum_Moderator.Moderate_posts.Approve_posts]
 * [Move posts|#Forum_Moderator.Moderate_posts.Move_posts]
@@ -259,48 +282,41 @@ All posts in a topic that requires post moderation will not be viewable before a
 
 !images/mod_approve_posts.png|align="center"!
 
-You can select to approve a single post or multiple posts at the same time. The Moderator can view the list of tasks to be moderated. 
+You can select to approve a single post or multiple posts at the same time. The moderator can view the list of tasks to be moderated. 
 See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks] for more details.
 
-*The first way*:
+*The first way*
 
 *1.* Select the posts to approve.
 
 *2.* Click !images/Moderation_btn.png! on the Action bar and select *Approve* from the drop-down menu.
 
-*The second way*:
+*The second way*
 
-*1.* Click !images/Moderation_btn.png! on the Action bar and click *Approve* in the drop-down menu. The *Unapproved Topics List* form opens.
+*1.* Click !images/Moderation_btn.png! on the Action bar and click *Approve* in the drop-down menu. The *Waiting for Approval* form opens.
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You will see the preview of the post when mouse over the post title.
-
-!images/mod_unaproved_topics_list.png|align="center"!
 
 *3.* Click *Approve* to accept your approval.
 
 Approved posts are shown normally for regular users to view and take some actions.
 
 h3. Delete a post {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
-*To delete posts:*
 
-*The first way*:
+*The first way*
 
 *1.* Click !images/Moderation_btn.png! on the Action bar and click *Show* in the drop-down menu.
 
 *2.* Click *OK* in the confirmation message.
 
-*The second way*:
+*The second way*
 
-*1.* Click !images/Delete_btn.png! under the post you want to delete.
+*1.* Click !images/delete_post_btn.png! under the post you want to delete.
 
-*2.* Click *OK* in the confirmation message:
-
-!images/mod_delete_posts.png|align="center"!
+*2.* Click *OK* in the confirmation message.
 
 h3. Move a post {anchor:id=Forum_Moderator.Moderate_posts.Move_posts}
 You can move posts to a topic of your choice.
-
-*To move posts:*
 
 *1.* Select the post that you would like to move.
 
@@ -311,20 +327,24 @@ You can move posts to a topic of your choice.
 The moderator will be checked for moving permission. He can only move post inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator who have the move permission, are listed for moving.
 
 h3. Hide a post {anchor:id=Forum_Moderator.Moderate_posts.Hide_posts}
-When a post is hidden, only Administrators and Moderators can view and mange it. 
+When a post is hidden, only administrators and moderators can view and mange it. 
 
-To hide a post, select !images/Moderation_btn.png! on the Action bar and click Hide from the drop-down menu.
+To hide a post, select !images/Moderation_btn.png! on the Action bar and click *Hide* from the drop-down menu.
 
 !images/mod_hidden_posts.png|align="center"!
 
-After being hidden, the hidden post is marked by 'hidden!' label and regular users can not view it.
+After being hidden, the hidden post is marked by 'hidden!' label and regular users cannot view it.
 
 h3. Show a post {anchor:id=Forum_Moderator.Moderate_posts.Show_posts}
 You can show a single or multiple hidden posts at the sane time:
 
-*The first way*: Select the post to be unhidden and click !images/Moderation_btn.png! on the Action bar, then click *Show* in the drop-down menu.
+*The first way*
 
-*The second way*: Follow this method if you would like to show multiple posts.
+* Select the post to be unhidden and click !images/Moderation_btn.png! on the Action bar, then click *Show* in the drop-down menu.
+
+*The second way*
+
+* Follow this method to show multiple posts.
 
 *1.* Click !images/Moderation_btn.png! on the Action bar and click *Show* from the drop-down menu.
 
@@ -333,20 +353,22 @@ You can show a single or multiple hidden posts at the sane time:
 *3.* Click *Show*.
 
 h3. Uncensor a post {anchor:id=Forum_Moderator.Moderate_posts.Uncensor_posts}
-The administrator and moderator can censor all topics, posts containing censored keywords. These censored keywords are [specified by administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts 
-containing these keywords will labeled with 'This topic is pending for Censor!' (for topic) or 'hidden!' (for post).
+The administrators and moderators can censor all topics, posts containing censored keywords. These censored keywords are [specified by Administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts 
+containing these keywords will labeled with 'Pending and Censored!' (for topic) or 'Post Censored!' (for post).
 
-*The first way*: Follow this method to uncensor a specific post/topic.
+*The first way*
+
+* Follow this method to uncensor a specific post/topic.
 
 *1.* Select hidden posts/topics by selecting its checkboxes.
 
 *2.* Click the *Moderation* on the Action bar and select *Show* from the drop-down menu.
 
-*The second  way*: Follow this method to uncensor posts/topics in the list of existing hidden posts/topics.
+*The second way*
+
+* Follow this method to uncensor posts/topics in the list of existing hidden posts/topics.
 
 *1.* Click *Moderation* on the Action bar and select *Show* from the drop-down menu. There will be a list of hidden posts appears.
-
-!images/mod_hidden_posts_form.png|align="center"!
 
 *2.* Select hidden posts by selecting the respective checkboxes.
 
@@ -359,13 +381,21 @@ Administrators and moderators can manage all pending tasks in Forum easily. The 
 
 To open the list of pending tasks, click *Pending* on the User bar.
 
-The pending topics and posts are shown in the *Waiting for approval* form:
+The pending topics and posts are shown in the *Waiting for Approval* form.
 
-!images/mod_waiting_for_approval.png|align="center"!
+!images/mod_unapproved_topics.png|align="center"!
 
 This form lists all the pending topics, posts and the created dates. From here, you can approve or delete topics/posts.
 
-*To approve a pending topic/post*:
+
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Approve a pending topic/post</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Click the topic/post title in the list.
 
@@ -373,26 +403,40 @@ This form lists all the pending topics, posts and the created dates. From here, 
 
 *2.* Click the *Approve* button to accept approving topic/post.
 
-To delete pending topics/posts, simply click the *Delete this topic/Delete this post* button. The pending topic/post will be removed completely from the pending list and its forum.
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Delete a pending topic/post</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+To delete pending topics/posts, simply click the *Delete This Topic/Delete This Post* button. The pending topic/post will be removed completely from the pending list and its forum.
 
 h2. Ban IPs {anchor:id=Forum-user_guide.Forum_Moderator.Ban_IPs}
 This function allows banning IPs that may be used by users who abuse the forum functions or violate the forum rules and policies.
 
-This function is similar to the [Ban IPs tool used by administrators|#Forum_Administrator.Administrative_tasks.Ban_IPs]. However, the Ban IPs tool used by Administrators can ban IP from the whole forum, while Moderator can only ban IP in a specific forum only. 
+This function is similar to the [Ban IPs tool used by administrators|#Forum_Administrator.Administrative_tasks.Ban_IPs]. However, the Ban IPs tool used by administrators can ban IP from the whole forum, while moderator can only ban IP in a specific forum only. 
 
-*To ban IP on a specific forum*:
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Ban IP on a specific forum</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Go to the forum you want to ban IP.
 
-*2.* Click !images/More_actions_btn.png! on the Action bar and select *Banned Ips* from the drop-down menu. The *Banned IPs* form opens:
+*2.* Click !images/More_actions_btn.png! on the Action bar and select *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
 
-!images/banned_IPs.png|align="center"!
+!images/admin_forum_banned_IPs.png|align="center"!
 
-* To ban an IP, simply enter the IP address into the IP textboxes and click *Add*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
+* To ban an IP, simply enter the IP address into the IP textboxes and click *{noformat}[Add]{noformat}*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
 
-* To view all posts submitted from a specific IP, click the {noformat}[Posts]{noformat} link of the respective IPs. These posts can be viewed and deleted by the Administrator.
+* To view all posts submitted from a specific IP, click the *{noformat}[Posts]{noformat}* link of the respective IPs. These posts can be viewed and deleted by the administrator.
 
-* To remove a banned IP from the banned IPs list, click the {noformat} [x] {noformat} of the relevant IP.
+* To remove a banned IP from the banned IPs list, click the *{noformat}[x]{noformat}* of the relevant IP.
 
 Besides, you can filter the banned IPs if there are too many banned IPs.
 

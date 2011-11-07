@@ -1,20 +1,20 @@
-The chapter provides you a guide to use all Forum features or to configure the Forums portlet to make it work in your desired manner.
+The section provides you a guide to use all *Forum* features or to configure the *Forum* portlet to make it work in your desired manner.
 
-To access Forum, see [Access applications of eXo Knowledge|#KSuser.Overview.Access_applications] for more details.
-
-In Forum, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining Forum. With the highest rights, the administrators are in charge of the entire management tasks, including Forum configurations, users management, permissions, categories, forums, topics, and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
+In *Forum*, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining Forum. With the highest rights, the administrators are in charge of the entire management tasks, including Forum configurations, users management, permissions, categories, forums, topics, and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
 
 The user interface will indicate which features are available to you, based on the scope of your permissions.
 
 A regular user will have the User bar and Action bar with the basic actions.
 
-!images/user_actions.png|align="center"!
+!images/Forum_user_actions.png|align="center"!
 
 Only when logging as an administrator, you can see the Forum Administration bar. Basically, this is the Forum User bar with more administrative actions. The Action bar of the administrator also provides the advanced actions on forums and categories. Most of management tasks are shown via these bars:
 
 !images/forum_home.png|align="center"!
 
 The Moderator will have the User bar and Action bar with a sub-set of certain capabilities.
+
+!images/mod_action_bar.png|align="center"!
 
 To have an overall look of actions which users of each role can do in the Forum application, see the following table: 
 
@@ -69,6 +69,11 @@ To have an overall look of actions which users of each role can do in the Forum 
 |[Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]|Ban IPs on the whole Forum application.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Manage users|#Forum_user_guide.Forum_Administrator.Manage_Users]|Manage user's profile, promote users, ban users, view topic and post of a specific user.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 
-{note}
-*Owners* are those who create topics and posts. Actually, they are regular users but they can perform some extra actions on their posts and topics.
-{note}
+
+{docbook}
+<note>
+    <para>
+    <emphasis role="bold">Owners</emphasis> are those posting questions or answers. Actually, they are regular users but can perform some extra actions on their posts and topics.
+    </para>
+</note>
+{docbook}

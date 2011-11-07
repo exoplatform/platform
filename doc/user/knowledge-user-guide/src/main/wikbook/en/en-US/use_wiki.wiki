@@ -1,20 +1,20 @@
 h1. Overview {anchor:id=KSuser.Wiki.Wiki_Overview}
-This chapter provides you a guide to use all Wiki features and configure the Wiki portlet to make it work in your desired way. Before going further, you should know some basic concepts about Wiki.
-Once you have logged in Wiki, the Wiki homepage will appear automatically as below.
+This section provides you a guide to use all *Wiki* features and configure the *Wiki* portlet to make it work in your desired way. Before going further, you should know some basic concepts about *Wiki*.
+Once you have logged in *Wiki*, the *Wiki* homepage will appear automatically as below.
 
 !images/wiki_overview.png|align="center"!
 
 *Details*:
-
+||Item|| Description||
 |!images/no1.png!|The *Breadcrumb* which shows the page hierarchy.|
 |!images/no2.png!|The *Search* box.|
 |!images/no3.png!|The *Page Control* area which helps users take actions with the current page.|
 |!images/no4.png!|The pages tree view.|
 |!images/no5.png!|The defaul content. The small page could be a Wiki quick guide that explains how to create a page, switch between each different edit modes, or create a page, and more.|
-|!images/no6.png!|The page information. Click "view change" to redirect to the *Page History* page for comparing changes between various versions. Click "attachments" and "revisions" links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
+|!images/no6.png!|The page information. Click *view change* to redirect to the *Page History* page for comparing changes between various versions. Click *attachments* and *revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
 
 h2. The page hierarchy in Wiki {anchor:id=KSuser.Wiki_Overview.Page_hierarchy}
-Wiki is organized as a tree of pages in which each page may contain many sub-pages. The hierarchy is reflected on UI by the Breadcrumb and the page tree at the left pane. When a page is added, it is always defined as a sub-page to the current one. Wiki is a wiki platform which can host several wikis. So, you can have wikis for portals, wikis for groups or users. However, the page hierarchy is not reflected in the URLs as they are accessible flatly by their URLs.
+Wiki is organized as a tree of pages in which each page may contain many sub-pages. The hierarchy is reflected on UI by the Breadcrumb and the page tree at the left pane. When a page is added, it is always defined as a sub-page to the current one. Wiki is a wiki platform which can host several wikis. So, you can have wikis for portals, wikis for groups or users. However, the page hierarchy is not reflected in the URLs as they are flatly accessible by their URLs.
 
 h2. Wiki Spaces {anchor:id=KSuser.Wiki_Overview.Wiki_spaces}
 Spaces represent a partitioning of Wiki data. A space is a set of pages. So, the space partitioning means they are independent trees. This separation is to enable Wiki to provide silos of knowledge for different interests groups.
@@ -27,10 +27,17 @@ There are 3 types of spaces:
 
 * *User wiki*: wiki for personal pages.
 
-{note}
-* In this document, Spaces are referred as wikis, particularly portal wikis, group wikis, and user wikis.
-* Any space which has an implicit root page is named Wiki Home.
-{note}
+{docbook}
+<note>
+    <para>
+    In this document, Spaces are referred as wikis, particularly portal wikis, group wikis, and user wikis.
+    </para>
+    <para>
+    Any space which has an implicit root page is named Wiki Home.
+    </para>
+</note>
+{docbook}
+
 
 h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pages}
 Pages are sites where information in Wiki is stored and shared. Pages are stored within a *Space*. To do or view actions on a specific Wiki page, you should contact the administrator to get the appropriate permissions. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
@@ -52,7 +59,9 @@ In a page, you can:
 h2. Create a page {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages}
 There are two ways to create a page:
 
-*The first way: Using the toolbar*. {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages.First_way}
+*The first way* {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages.First_way}
+
+In this way, you need to use the toolbar.
 
 *1.* Go to a Wiki space in which you want to create a page.
 
@@ -60,7 +69,7 @@ There are two ways to create a page:
 
 !images/add_wiki_page.png|align="center"!
 
-If you select *From Template...*, a list of available templates appears:
+If you select *From Template...*, a list of available templates appears.
 
 !images/wiki_template.png|align="center"!
 
@@ -70,7 +79,7 @@ i. Click *Preview* corresponding to the template you want to see.
 
 ii. Click *Select* corresponding to the template you want to select for your new page.
 
-The template for your page is displayed:
+The template for your page is displayed.
 
  !images/wiki_available_template.png|align="center"!
 
@@ -80,11 +89,13 @@ The template for your page is displayed:
 
 *5.* Click *Preview* to see how your page looks like (optional); or click *Save* to finish.
 
-*The second way: Using the undefined link in a page*.
+*The second way* {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages.Second_way}
 
-In the Wiki application of eXo Knowledge, you can add a link pointing to a page which you are going to create later. Such links are called undefined links. These links are often used to remind other Wiki users to create the page.
+In this way, you need to use the undefined link in a page.
 
-*To add an undefined link for creating a page later*:
+In the Wiki application of eXo Platform, you can add a link pointing to a page which you are going to create later. Such links are called undefined links. These links are often used to remind other Wiki users to create the page.
+
+*Add an undefined link for creating a page later*
 
 *1.* Add a link by typing the page title between square brackets '{noformat}[[...]]{noformat}' or '{noformat}[.... ]{noformat}' (depending on your selected syntax) into your page body.
 
@@ -101,36 +112,37 @@ For example:
 *4.* Follow the steps stated [above|#KSuser.Work_with_Wiki_pages.Create_pages.First_way] to enter the page title, content, and save the page.
 
 h2. Edit a page {anchor:id=KSuser.Work_with_Wiki_pages.Edit_pages}
-You can edit a page at any time provided that you have the edit permission on that page. 
+You can edit a page at any time provided that you have the edit permission on that page.
 
 To edit a page, click *Edit* in the *Page control* area. Your page will switch to the edit mode.
 
 !images/page_control.png|align="center"!
 
-Now, you can rename the page and edit the page contents. The toolbar in the edit mode will be changed to activate the following actions:
+Now, you can rename the page and edit the page contents. The toolbar in the edit mode will be changed to activate the following actions.
 
-!images/wiki_action.png|align="center"!
+!images/wiki_page_edit.png|align="center"!
 
-*Details*:
+*Details:*
+||Item|| Description||
+|!images/no1.png!| Switch to the Rich Text (WYSIWYG) editor. |
+|!images/no2.png!| Open the Wiki syntax help page. |
+|!images/no3.png!| Display the preview mode of the currently edited content. Previewing a page helps you verify the result of rendering the markup you just entered without saving.|
+|!images/no4.png!| Show more syntax help. |
+|!images/no5.png!| In put the edit reason if neccessary.|
+|!images/no6.png!| Save the current page and go back to the view mode.|
+|!images/7.png!| Save the current page without sending notification to the watcher. |
+|!images/8.png!| Discard the current changes and go back to the view mode. |
 
-|!images/no1.png!|Save the current page and go back to the view mode.|
-|!images/no2.png!|Save the current page without sending notification to the watcher.|
-|!images/no3.png!|Display the preview mode of the currently edited content. Previewing a page helps you verify the result of rendering the markup you just entered without saving.|
-|!images/no4.png!|Open the Wiki syntax help page.|
-|!images/no5.png!|Switch to the Rich Text (WYSIWYG) editor.|
-|!images/no6.png!|Discard the current changes and go back to the view mode.|
 
-h2. Move a page {anchor:id=KSuser.Work_with_Wiki_pages.Move_pages}
-
-*To move a page to another location:*
+h2. Move a page to another location {anchor:id=KSuser.Work_with_Wiki_pages.Move_pages}
 
 *1.* Select the page that you want to move.
 
-*2.* Click *More* in the *Page control* area, then select *Move Page* from the drop-down menu:
+*2.* Click *More* in the *Page control* area, then select *Move Page* from the drop-down menu.
 
 !images/wiki_move_page.png|align="center"!
 
-The form to select the destination page appears:
+The form to select the destination page appears.
 
 !images/wiki_destination_page.png|align="center"!
 
@@ -150,9 +162,7 @@ h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 
 h2. View Page Information {anchor:id=KSuser.Work_with_Wiki_pages.View_page_info}
 
-Viewing page information is accessible to users who have the View permission on that page. The page information provides you all details about related pages of the current page, the hierarchy structure of current page, the page history, and more.
-
-*To view the page information*:
+Viewing page information is accessible to users who have the View permission on that page. The page information provides you all details about related pages of the current page, the hierarchy structure of the current page, the page history, and more.
 
 *1.* Select the page you want to view the information.
 
@@ -163,17 +173,15 @@ All information of the opening page, including page summary, related pages, page
 !images/wiki_page_info.png|align="center"!
 
 h2. Add a related page {anchor:id=KSuser.Work_with_Wiki_pages.Add_related_pages}
-This feature allows you to add pages related to your page. This function is only activated to users with the Edit permission and can be done in the *Page Info* view. 
+This feature allows you to add pages related to your page. This function is only activated to users with the Edit permission and can be done in the *Page Info* view.
 
-*To add a related page to the page*:
-
-*1.* Click *Add more relations*, then select the related pages in the *Select a page* window.
+*1.* Click *Add More Relations*, then select the related pages in the *Select a page* window.
 
 *2.* Click *Select* to add the selected page to the list of the *Related Pages*.
 
 !images/wiki_select_page.png|align="center"!
 
-The related pages of the opening page are displayed in the side pane as below:
+The related pages of the opening page are displayed in the side pane as below.
 
 !images/wiki_related_page.png|align="center"!
 
@@ -188,13 +196,29 @@ You can do other actions with the page history. See more details in [Work with P
 h2. Watch a page  {anchor:id=KSuser.Work_with_Wiki_pages.Watch_pages}
 Watching a page allows you to receive a notification message about any additions in the page.
 
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Watch a page</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 *1.* Open the page you want to watch.
 
 *2.* Click *More* in the *Page control* area, then select *Watch* from the drop-down menu.
 
 !images/wiki_watch_page.png|align="center"!
 
-*To stop watching a page*:
+
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Stop watching a page</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Open the page which have been watched.
 
@@ -230,17 +254,21 @@ h2. View all the attachments of a page {anchor:id=KSuser.Work_with_attachment.Vi
 h2. Add an attachment to a page {anchor:id=KSuser.Work_with_attachment.Add_attachment}
 There are two ways to add an attachment to a page:
 
-*The first way:  Use the attachment pane at the bottom of the page*.
+*The first way* {anchor:id=Add_attachment_Attachment_pane}
+
+In this way, you need to use the attachment pane at the bottom of the page.
 
 *1.* Click the *Upload* field. The upload window will appear.
 
 *2.* Select a file from your local device and click the *Open* button. The File will be uploaded automatically then.
 
-*The second way: Use the WYSIWYG editor (Rich Text editor)*. {anchor:id=Add_attachment_WYSIWYG editor}
+*The second way* {anchor:id=Add_attachment_WYSIWYG editor}
+
+In this way, you need to use the WYSIWYG editor (Rich Text editor).
 
 *1.* Select a page to which you want to add an attachment.
 
-*2.* Select *Edit* at the *Page Control* area. For more details, see [Edit a page|#KSuser.Work_with_Wiki_pages.Edit_pages].
+*2.* Select *Edit* at the *Page Control* area. For more details, see the [Edit a page|#KSuser.Work_with_Wiki_pages.Edit_pages] section.
 
 *3.* Select the *Rich Text* editor on the page toolbar.
 
@@ -250,7 +278,7 @@ There are two ways to add an attachment to a page:
 
 !images/wiki_attach_file.png|align="center"!
 
-The *Link* form is displayed:
+The *Link* form is displayed as below.
 
 !images/wiki_link_form.png|align="center"!
 
@@ -258,7 +286,7 @@ The *Link* form is displayed:
 
 *6.* Click *Browse* to select a file from your local device.
 
-*7.* Click *Upload*. The form to edit the link parameters appears:
+*7.* Click *Upload*. The form to edit the link parameters appears.
 
 !images/wiki_edit_link.png|align="center"!
 
@@ -266,10 +294,14 @@ The *Link* form is displayed:
 
 *9.* Click *Create link* to commit.
 
-{note}
-You can add an attachment to all pages by selecting *All pages*, then clicking *Upload file...*.
-{note}
 
+{docbook}
+<note>
+    <para>
+    You can add an attachment to all pages by selecting <emphasis role="bold">All pages</emphasis>, then clicking <emphasis role="bold">Upload file...</emphasis>.
+    </para>
+</note>
+{docbook}
 
 h2. Delete an attachment {anchor:id=KSuser.Work_with_attachment.Delete_attachment}
 To delete an attachment, just click *Delete* corresponding to the attachment.
@@ -293,7 +325,7 @@ h2. Link to an attachment {anchor:id=KSuser.Work_with_attachment.Link_to_attachm
 
 *4.* Click *Create Link* to commit.
 
-*Link to an inserted image*:
+h2. Link to an inserted image {anchor:id=KSuser.Work_with_attachment.Link_to_image}
 
 *1.* Click !images/Image_btn.png! on the text editor, then click *Insert Image...*
 
@@ -305,13 +337,18 @@ h2. Link to an attachment {anchor:id=KSuser.Work_with_attachment.Link_to_attachm
 
 h1. Use the WYSIWYG Editor {anchor:id=KSuser.Wiki.Use_WYSIWYG_editor}
 
-*WYSIWYG* stands for What You See Is What You Get Editor. You can switch between the source editor and *WYSIWYG* editor at any time by clicking !images/WYSIWYG_icon.png!. In the source editor, which is selected by default when you edit a page, you have to use the wiki markups language for text formatting, while the *WYSIWYG* editor enables the contents to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using Wiki markups. 
+*WYSIWYG* stands for What You See Is What You Get Editor. You can switch between the source editor and *WYSIWYG* editor at any time by clicking !images/rich_text_editor.png! or !images/source_editor_btn.png!. In the source editor, which is selected by default when you edit a page, you have to use the wiki markups language for text formatting, while the *WYSIWYG* editor enables the contents to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using Wiki markups.
 
 !images/wiki_wysiwyg_editor.png|align="center"!
 
-{note}
-If the final result is not similar with what you wish when editing in *WYSIWYG* editor, you can go back to the source editor and use wiki markups to edit the content.
-{note}
+
+{docbook}
+<note>
+    <para>
+    If the final result is not similar with what you wish when editing in <emphasis role="bold">WYSIWYG</emphasis> editor, you can go back to the source editor and use wiki markups to edit the content.
+    </para>
+</note>
+{docbook}
 
 To learn how to use the *WYSIWYG* editor, you can refer to these guides.
 
@@ -322,21 +359,19 @@ h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
 If you do not know how to use a syntax, you can use the Syntax Help function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png! from the page toolbar. When being clicked, a lateral pane slides beside the editing area will show all the information of the most common syntaxes.
 The lateral pane can be hidden by clicking !images/Close_button.png! in the upper right corner or by clicking !images/Wiki_help_btn.png! again.
 
-You can click !images/More_syntaxes.png! at the bottom of short *Help tips* form to view the full help.
+You can click !images/More_syntaxes.png! at the bottom of short *Help Tips* form to view the full help.
 
 h1. Work with Macros {anchor:id=KSuser.Wiki.Work_with_Macros}
 Using a macro, you can apply extra formatting, functionality and customization to your content.
 You can easily add macro tags by using the *Rich Text* editor.
 
-*To insert a macro*:
-
 *1.* Click *Rich Text* to open the rich text editor.
 
-*2.* Click *Macros*, then select *Add Macros...* from the drop-down menu.
+*2.* Click *Macros*, then select *Insert Macros...* from the drop-down menu.
 
 !images/wiki_macros.png|align="center"!
 
-The *Insert Macros* form appears:
+The *Insert Macros* form appears.
 
 !images/wiki_macros_form.png|align="center"!
 
@@ -377,17 +412,11 @@ The following table describes specific functions of common macros.
 h1. Work with page versions {anchor:id=KSuser.Wiki.Work_with_Page_versions}
 When editing page contents, Wiki will automatically create a version of that page after you have saved. Thanks to the page version, you can make changes to the page safely and rollback to earlier version without worrying about messing things up.
 
-The *Page History* will give all versions of a page. To display the *Page History*, move your cursor to the bottom of the page, and select the *view change* in the page info bar.
+The *Page History* will give all versions of a page. To display the *Page History*, click *More* and select *Page Info*.
 
-!images/wiki_view_changes.png|align="center"!
+!images/wiki_page_info2.png|align="center"!
 
-The *Page History* page is displayed as below:
-
-!images/Page_history_interface.png|align="center"!
-
-Click *View page history* to go inside the Page History as below:
-
-!images/wiki_history_page.png|align="center"!
+Click *View Page History* in the *Recent changes* area.
 
 Each version includes the following information:
 
@@ -398,31 +427,41 @@ Each version includes the following information:
 
 In the *Page History* page, you can:
 
-||Icon||Meaning||
+||Area|| Function ||
 |!images/no1.png!|[View a page in a specific version|#KSuser.Work_with_page_version.View_versions].|
 |!images/no2.png!|[Compare page versions|#KSuser.Work_with_page_version.Compare_versions].|
 |!images/no3.png!|[Restore a page to a specific version|#KSuser.Work_with_page_version.Restore_page_version].|
 
-{note}
-All functions, including viewing, comparing and restoring, can also be done by clicking the *revisions* link at the *Page info* bar. One pop-up pane appears right under this bar, allowing you to do the same steps as described below.
-{note}
+
+{docbook}
+<note>
+    <para>
+    All functions, including viewing, comparing and restoring, can also be done by clicking the <emphasis role="bold">revisions</emphasis> link at the <emphasis role="bold">Page Info</emphasis> bar. One pop-up pane appears right under this bar, allowing you to do the same steps as described below.
+    </para>
+</note>
+{docbook}
 
 h2. View versions of a page {anchor:id=KSuser.Work_with_page_version.View_versions}
-To view a specific version of a page, just click a version number in the *Page History* page. The selected version of that page will be displayed:
+To view a specific version of a page, just click a version number in the *Page History* page. The selected version of that page will be displayed.
 
 !images/wiki_view_version.png|align="center"!
 
 At a version of the page, you can do the following actions:
 
+||Item|| Description||
 |!images/no1.png!|Compare the current version with the selected one.|
 |!images/no2.png!|Replace the current version with the selected version.|
 |!images/no3.png!|Go to the *Page History* page.|
-|!images/no4.png!|View content of the previous version.|
-|!images/no5.png!|View content of the next version.|
+| *Prev* |View content of the previous version.|
+| *Next* |View content of the next version.|
 
 h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
 
-Wiki tracks histories of changes to pages by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png!. A page which shows the changes between these two versions will be displayed:
+Wiki tracks histories of changes to pages by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png!.
+
+!images/Select_page_version.png|align="center"!
+
+A page which shows the changes between these two versions will be displayed.
 
 !images/wiki_compare_version1.png|align="center"!
 
@@ -432,18 +471,28 @@ The changes between two versions will be marked with colors:
 
 *  Words/lines highlighted in green indicate that they were added.
 
-{note}
-Only two revisions can be selected at one time.
-{note}
+
+{docbook}
+<note>
+    <para>
+    Only two revisions can be selected at one time.
+    </para>
+</note>
+{docbook}
 
 h2. Restore a page to a specific version  {anchor:id=KSuser.Work_with_page_version.Restore_page_version}
 When you notice that there are changes in the current page version that you are not satisfied, you can rollback to an older version of that page quickly.
 
 To restore an older version, click !images/Restore_button.png! corresponding to your desired version in the *Page History* page.
 
-{note}
-Restoring an older version will create a copy of that version. For example, if the {noformat}[current version(v.15)]{noformat} is restored to the {noformat}[older version(v.10)], Wiki will create a new version (v.16) containing contents of v.10. The version v.16 will become the current version. 
-{note}
+
+{docbook}
+<note>
+    <para>
+    Restoring an older version will create a copy of that version. For example, if the [current version(v.15)] is restored to the [older version(v.10)], Wiki will create a new version (v.16) containing contents of v.10. The version v.16 will become the current version.
+    </para>
+</note>
+{docbook}
 
 h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
 Wiki provides permanent bookmarkable URLs to all wiki pages. Wiki will resolve wiki pages by inspecting the URL used to call it and outputting links as clean URLs in the following form:
@@ -466,61 +515,6 @@ Any wiki page should be accessed by a friendly URL, for example:
 
 * Personal wiki page URL: http://hostname/portal/private/classic/*wiki/user/john/Sandbox.
 
-h2. Browse a Group Wiki space {anchor:id=KSuser.Work_with_Spaces.Browse_group_wik_space}
-*To access to a group's Wiki Space*:
-
-*The first way*:  Follow this method if you are a member of the group.
-
-*1.* Click *Group* on the administration bar.
-
-!images/browse_group_wiki.png|align="center"!
-
-*2.* Select a group that has the page with Wiki portlet.
-
-*3.* Click the page, for example, the *Wiki* page to redirect to the Wiki home of the group's space.
-
-*The second way*: By following this method, you can browse a wiki page of any group's space.
-
-*1.* Click *Wiki* on the Administration bar.
-
-*2.* Append */group/$groupid$* to the end of the link in the address bar of the browser, in which "$groupid$ is the id of the group.
-
-*3.* Press *Enter*.
-
-For example:  The URL to access to the space of the group "*/platform/users*" is as follows:
-
-!images/browse_group_wiki_url.png|align="center"!
-
-
-h2. Browse a User Wiki space {anchor:id=KSuser.Work_with_Spaces.Browse_user_wiki_space}
-*To access a user's Wiki space directly*:
-
-*1.* Click *Wiki* on the Administration bar.
-
-*2.* Append */user/$username$* to the end of the link in the address bar of the browser, in which "$username$" is the username of the user.
-
-For example: The URL to access to John's space is as follows:
-
-!images/browse_user_wiki_url.png|align="center"!
-
-*To access your own Wiki space*:
-
-*1.* Click *Dashboard* on the Administration bar.
-
-*2.* Select a page with the Wiki portlet to open your  own space.
-
-h2. View a pages tree {anchor:id=KSuser.Work_with_Spaces.Viewa_page_tree}
-Each space has its own page tree navigation that allows you to view the parent-child relationships of the pages in the space.
-
-*To see the tree view of a space*:
-
-*1.* Browse the Wiki home of the space:
-
-!images/view_page_tree.png|align="center"!
-
-*2.* Click the '+' node next to each page family to open the branches of the tree.
-
-*3.* Click the border to resize the tree view pane.
 
 h1. Search {anchor:id=KSuser.Wiki.Search}
 In Wiki, you can search spaces, or pages in a space and attached files. There are two types of search in Wiki:
@@ -541,7 +535,7 @@ The Advanced Search function allows you to search with a key word in a specific 
 
 *1.* Enter a key term into the search box and hit the *Enter* key.
 
-If the results are matched with the key word, the search results are displayed like the illustration below:
+If the results are matched with the key word, the search results are displayed like the illustration below.
 
 !images/wiki_advanced_search_result.png|align="center"!
 
@@ -549,50 +543,67 @@ If no results matched with the key words, the search screen informs "*there is n
 
 *2.* Click !images/down_arrow_icon.png! to select a space from the drop-down menu to define a scale where to search for the entered word.
 
-*3.* Click *Search*. 
+*3.* Click *Search*.
 
 h1. Wiki Administration {anchor:id=KSuser.Wiki.Wiki_Administration}
 
-{note}This section is for the Administrators only.{note}
 
-The Administrator has the highest right in Wiki. The Administrator can delete a page, change the space settings, set the edit permission for users, and more.
+{docbook}
+<note>
+    <para>
+    This section is for administrators only.
+    </para>
+</note>
+{docbook}
+
+The administrator has the highest right in Wiki. The administrator can delete a page, change the space settings, set the edit permission for users, and more.
 
 h2. Set up Space settings {anchor:id=KSuser.Wiki_Administration.Set_up_space_settings}
 
 For each space, you can manage page templates and change the syntax used.
 
-*To access the Space Settings*:
-
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Access the Space Settings page</emphasis>
+</para>
+</citetitle>
+{docbook}
 *1.* Open a Wiki space.
 
-*2.* Click *Browse*, then select *Space Settings*:
+*2.* Click *Browse*, then select *Space Settings*.
 
 !images/wiki_space_settings.png|align="center"!
 
-The *Space Settings* form will help you configure the syntax, template of pages and manage permissions for pages and spaces.
+You will access the *Space Settings* page, where you can change the space permissions, configure wiki syntax and template.
 
-* The *Syntax* tab allows you to set up syntaxes used when creating and editing a page.
+!images/wiki_space_settings_page.png|align="center"!
 
-* The *Template* tab allows you to manage the page templates.
+h3. Set up the wiki syntax {anchor:id=KSuser.Wiki_Administration.Set_up_syntax}
 
-h3. Set up Syntax {anchor:id=KSuser.Wiki_Administration.Set_up_syntax}
 Users can use the simple Wiki syntax: XWiki 2.0 or Confluence 1.0.
 
 By configuring the syntax settings, you can select the default syntax to be used.
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Set up the syntax for writing document</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*To set up the syntax for writing document*:
 
-In the *Syntax* tab of the *Space Settings* form, click the field *Default syntax* to set a syntax for your document.
+Click *Syntax* in the *Space Settings* page, click the field *Default Syntax* to set a syntax for your document.
 
 To select other syntaxes when writing the document, tick the checkbox next to "*allow user to Select other syntaxes*" and untick the checkbox to use only the default syntax.
 
 !images/wiki_setting_syntax.png|align="center"!
 
-h3.Manage a page template {anchor:id=KSuser.Wiki_Administration.Manage_page_tempplate}
+h3. Manage a page template {anchor:id=KSuser.Wiki_Administration.Manage_page_tempplate}
 
-When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a Wiki page with predefined contents. 
+When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a Wiki page with predefined contents.
 
-In the *Space Settings* form, select the *Template* tab, and the form to manage templates appears:
+In the *Space Settings* form, select the *Template* tab, and the form to manage templates appears.
 
 !images/wiki_setting_template.png|align="center"!
 
@@ -604,21 +615,27 @@ Now you can:
 
 h4. Search a template {anchor:id=KSuser.Wiki_Administration.Search_templates}
 
-To find your desired template quickly from the existing list, do as follows:
+This feature allows you to find your desired template quickly from the existing list as follows:
 
 *1.* Input a word included in the title of your desired template in the *Search* textbox.
 
-*2.* Press the *Enter* key; Or, click the *Search* button next to the textbox to start your search.
+*2.* Press the *Enter* key; Or click the *Search* button next to the textbox to start your search.
 
 All matching results which contain your entered search term are displayed right below the textbox.
 
-{note}
-The *Search* function is only performed by the template titles, and you must enter a complete word into the *Search* textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly". 
-{note}
+
+{docbook}
+<note>
+    <para>
+    The <emphasis role="bold">Search</emphasis> function is only performed by the template titles, and you must enter a complete word into the <emphasis role="bold">Search</emphasis> textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly".
+
+    </para>
+</note>
+{docbook}
 
 h4. Add a template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
-*1.* Click *Add more...* and the sample template form appears:
+*1.* Click *Add more...* and the sample template form appears.
 
 !images/wiki_sample_template.png|align="center"!
 
@@ -630,7 +647,7 @@ h4. Add a template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
 *5.* Select the Syntax to write the content.
 
-*6.* Click *Save template* at the *Page Control* area. A message will inform your successful template creation.
+*6.* Click *Save Template* at the *Page Control* area. A message will inform your successful template creation.
 
 h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
 
@@ -646,29 +663,28 @@ h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
 *2.* Click *OK* in the pop-up confirmation message.
 
-h3. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
+h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
 Wiki gives you the choice to make a space or an individual page to be open or restricted to specific users, groups or memberships.
 There are two levels of permissions in Wiki: Space permissions and Page permissions.
 
-h4. Space Permissions
-Each space may has its own permissions. Space permissions determine what actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
+h3. Space Permissions  {anchor:id=KSuser.Wiki_Administration.Manage_permissions.Space_Permission}
+Each space may have its own permissions. Space permissions determine which actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
 
-To change the space permission, open a space, click *Browse* and select *Space Settings*:
+To change the space permission, open a space, click *Browse* and select *Space Settings* from the drop-down list.
+Clik *Permissions* in the *Space Settings* page that appears.
 
-The *Permissions* page appears:
-
-!images/wiki_space_permissions_form.png|align="center"!
+!images/wiki_space_permissions_page.png|align="center"!
 
 There are some permissions to a space as follows:
-
+|| Permission|| Description||
 |*View Pages*|Specify who can view and watch pages of this space, its attachments and history.|
 |*Edit Pages*|Specify who can edit pages of this space.|
-|*Admin Pages*|Specify who have the Administrator rights on this space.|
-|*Admin Space*|Specify who can manage the space permissions and settings|
+|*Admin Pages*|Specify who have the administration rights on this space.|
+|*Admin Space*|Specify who can administrate the space permissions and settings|
 
 In the *Space Permissions* form, you can add or remove the space permissions of the users, groups and membership.
 
-h5. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
+h4. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
 In the Space Permission form, you can add permission for individual users, groups of users or memberships.
 
 *1.* Click !images/select_permission_icon.png! to assign permissions to a user, a group or a membership respectively.
@@ -683,27 +699,31 @@ The form to select the user, the group and the membership appears.
 
 *5.* Click *Save* to commit.
 
-{note}
-View, Edit, Admin Pages permissions are applied by default to any pages of the space unless specific page permissions are set. The super user has all permissions implicitly.
-{note}
 
-h5. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
+{docbook}
+<note>
+    <para>
+    View, Edit, Admin Pages permissions are applied by default to any pages of the space unless specific page permissions are set. The super user has all permissions implicitly.
+    </para>
+</note>
+{docbook}
+
+h4. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
 
 To delete the permissions of a user, group or a membership in a space, just click !images/Remove_icon.png! corresponding to a user/a group or a membership in the *Space Permissions* form.
 
 
-h4. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
-The Page Permissions allows you to set the edit and edit permissions for a specific page.
+h3. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
+The Page Permissions allows you to set the view and edit permissions for a specific page of a space.
 
-*To access the permissions for a specific page of a space*:
 
 *1.* Open a page of the space that you want to set the permissions.
 
-*2.* Click *More* and select *Page Permissions* from the drop-down menu:
+*2.* Click *More* and select *Page Permissions* from the drop-down menu.
 
 !images/wiki_page_permissions.png|align="center"!
 
-The *Page Permissions* form appears:
+The *Page Permissions* form appears.
 
 !images/wiki_page_permissions_form.png|align="center"!
 

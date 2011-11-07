@@ -1,10 +1,12 @@
 h1. Overview Of eXo Knowledge {anchor:id="KS_overview"}
 {include:document="Overview.wiki"}
 h1. How To Use Answers? {anchor:id="Answer_user_guide"}
-{include:document="Answers/Overview.wiki"} 
+{include:document="Answers/Overview.wiki"}
 {include:document="Answers/Regular_user.wiki"}
 {include:document="Answers/Moderator.wiki"}
 {include:document="Answers/Administrator.wiki"}
+
+
 h1. How To Use Forum? {anchor:id="Forum_user_guide"}
 {include:document="forum/forum.wiki"}
 {include:document="forum/forum_regular_user.wiki"}

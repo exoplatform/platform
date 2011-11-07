@@ -1,4 +1,4 @@
-Before using the features in Answers, you should get familiar with the Answers interface. Once you have logged in and accessed Answers, the interface looks like this:
+Before using the features in *Answers*, you should get familiar with the *Answers* interface. Once you have logged in and accessed *Answers*, the interface looks like this:
 
 !images/Answer_screen.png!
 
@@ -40,6 +40,11 @@ The following table summarizes actions which each user group can execute in Answ
 | [Set properties of Answers|#KSuser.Answer_Administrator.Set_up_Answers_portlet]| Define basic properties (for example, Order Type, Order by, Notify content, theme, icon) and advanced properties (for example, enabling RSS, vote, comment) and more. | !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
 | [Set up the FAQ portlet|#KSuser.Answer_Moderator.Set_up_FAQ_portlet]| Add and configure the FAQ portlet on the page.| !images/Yes_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
 
-{note}
-*Owners* are those posting questions or answers. Actually, they are regular users but can perform some extra actions on their questions or answers.
-{note}
+
+{docbook}
+<note>
+    <para>
+    <emphasis role="bold">Owners</emphasis> are those posting questions or answers. Actually, they are regular users but can perform some extra actions on their questions or answers.
+    </para>
+</note>
+{docbook}

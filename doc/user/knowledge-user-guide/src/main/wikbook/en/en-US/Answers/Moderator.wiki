@@ -1,4 +1,4 @@
-h1. Moderator  {anchor:id=Answer_user_guide.Moderator} 
+h1. Moderator  {anchor:id=Answer_user_guide.Moderator}
 Moderators in Answers manage the content of questions and answers before and after they are posted to a moderated category.
 The Moderator can read new contents (editing or removing if necessary), approve or activate answers, and more. The moderator has the category-specific role.
 
@@ -10,7 +10,7 @@ In this section, you will learn how to manage categories. With a category, you c
 
 To perform an action on a category, you can select one of these approaches:
 
-*The first way*: 
+*The first way*
 
 *1.* Right-click a category from the categories list.
 
@@ -18,11 +18,19 @@ To perform an action on a category, you can select one of these approaches:
 
 !images/Category_context_menu.png|align="center"!
 
-*The second way*: If you are already in a category that you moderate, you can perform all actions on this category by clicking !images/Category_btn.png! on the Action bar, then select an action from the drop-down menu:
+*The second way*
+
+If you are already in a category that you moderate, you can perform all actions on this category by clicking !images/Category_btn.png! on the Action bar, then select an action from the drop-down menu.
 
 !images/Category_menu.png|align="center"!
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Add a new category|#KSuser.Answer_Moderator.Add_categories]
@@ -33,31 +41,45 @@ To perform an action on a category, you can select one of these approaches:
 
 h3. Add new categories {anchor:id=KSuser.Answer_Moderator.Add_categories}
 
-Notice that only Administrators can initialize Answers by creating first categories and assigning to Moderators for each categories.
+Notice that only administrators can initialize Answers by creating first categories and assigning to moderators for each categories.
 Moderator can only add new sub-categories in a category that he moderates.
 
-*To add a new category*:
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Add a new category</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Click *Category* on the Action bar and select *Add Category* from the drop-down menu. The *Add Category* form will be displayed.
 
 !images/Add_category_form.png|align="center"!
 
-* *Restricted audience*: Select specific users/groups to be restricted from the category.
-* *Moderate new questions*: Check this option to moderate all newly posted questions before they are viewable.
-* *View question authors*: Check this option if you want information of the question poster to be shown.
-* *Moderate answers*: Check this option to moderate all answers before they are viewable.
+* *Restricted Audience*: Select specific users/groups to be restricted from the category.
+* *Moderate New Questions*: Check this option to moderate all newly posted questions before they are viewable.
+* *View Question Authors*: Check this option if you want information of the question poster to be shown.
+* *Moderate Answers*: Check this option to moderate all answers before they are viewable.
 
 
-By default, a category is open for all users without any pre-assigned Moderator. To specify which users/user groups/memberships are restricted from the category or assign the category Moderator, 
+By default, a category is open for all users without any pre-assigned Moderator. To specify which users/user groups/memberships are restricted from the category or assign the category moderator,
 simply enter names of these users/groups/memberships in the Restricted audience/Moderator field manually or you can select one of the respective selectors:
 
 * Click !images/Select_user_icon.png! to select users from the groups list.
-* Click !images/Select_membership_icon.png! to select all users with a specific membership in a group. 
+* Click !images/Select_membership_icon.png! to select all users with a specific membership in a group.
 * Click !images/Select_group_icon.png! to select a group of users.
 
 *2.* Click *Save* to complete.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
@@ -71,13 +93,20 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *2.* Select !images/Edit_icon2.png!.
 
-*3.* Edit the properties. 
+*3.* Edit the properties.
 
 !images/Add_category_form.png|align="center"!
 
 *4.* Click *Save* to save all changes.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Add a new category|#KSuser.Answer_Moderator.Add_categories]
@@ -89,9 +118,16 @@ h3. Delete categories {anchor:id=KSuser.Answer_Moderator.Delete_categories}
 
 *1.* Follow one of the approaches described in the [Manage categories|#KSuser.Answer_Moderator.Manage_categories] section.
 
-*2.* Select !images/Delete_category_btn.png! from the drop-down menu and click *OK* in the confirmation message. 
+*2.* Select !images/Delete_category_btn.png! from the drop-down menu and click *OK* in the confirmation message.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Add a new category|#KSuser.Answer_Moderator.Add_categories]
@@ -103,13 +139,20 @@ h3. Move categories {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories] to open the drop-down menu.
 
-*2.* Select !images/Move_category_btn.png!. 
+*2.* Select !images/Move_category_btn.png!.
 
 *3.* Select the destination category from the list.
 
 !images/Move_category_form.png|align="center"!
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Add a new category|#KSuser.Answer_Moderator.Add_categories]
@@ -121,17 +164,35 @@ h3. Export/Import categories {anchor:id=KSuser.Answer_Moderator.Export&import_ca
 
 Both functions can be executed on all categories and questions in the Answers home or a specific category in Answers.
 
-*To export categories and questions:*
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Export categories and questions</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+
 
 *1.* Click !images/Export_btn.png! to open the *Export* form.
 
 *2.* Input the file name to export.
 
-*3.* Click *Save* to accept exporting all categories and questions. 
+*3.* Click *Save* to accept exporting all categories and questions.
 
 The exported file is in the .zip format and it can be used to import to Answers or keep it as backup.
 
-*To import categories and questions:*
+
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Import categories and questions</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+
+
 
 *1.* Click !images/Import_icon.png! to open the *Import* form.
 
@@ -141,7 +202,14 @@ The exported file is in the .zip format and it can be used to import to Answers 
 
 After being imported, all categories and questions will be displayed in the Answers homepage.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Add a new category|#KSuser.Answer_Moderator.Add_categories]
@@ -161,10 +229,17 @@ In this section, the following topics are covered:
 
 h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View_all_questions}
 
-Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions. 
-To view all posted questions, click !images/Manage_question_btn.png! on the Action bar to open the *Manage questions* form. Here, you can have the overview of all the posted questions in the category you manage. 
+Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions.
+To view all posted questions, click !images/Manage_question_btn.png! on the Action bar to open the *Manage Questions* form. Here, you can have the overview of all the posted questions in the category you manage.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
@@ -177,13 +252,20 @@ h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions
 
 *1.* Select !images/Manage_question_btn.png! on the Action bar to view all the open questions.
 
-*2.* Click !images/Edit_icon.png! next to the question that you want to edit and scroll down to see the *Edit question* form.
+*2.* Click !images/Edit_icon.png! next to the question that you want to edit and scroll down to see the *Edit Question* form.
 
 *3.* Make changes to your question.
 
 *4.* Click *Save* to save all changes.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
@@ -193,39 +275,44 @@ h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions
 * [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
 h3. Approve/Disapprove a question {anchor:id=Answer_Moderator.Moderate_question.Approve&disapprove_questions}
- 
-In a category that requires question to be moderated, any new questions will be in the unapproved status and need to be approved before being published. 
 
-There are two options for answers: All and Approved.
+In a category that requires question to be moderated, any new questions will be in the unapproved status and need to be approved before being published.
 
-* *All*: all approved and unapproved questions are displayed and visible for all users. 
-* *Approved*: only the approved questions are displayed and visible while the unapproved questions are not displayed and invisible. 
+There are two options for answers: *All* and *Approved*.
+
+* *All*: all approved and unapproved questions are displayed and visible for all users.
+* *Approved*: only the approved questions are displayed and visible while the unapproved questions are not displayed and invisible.
 
 If you select *Approved*, the *Moderate question* function will determine the unapproved questions to be displayed or not.
 
 To approve/disapprove a question, follow one of these ways:
 
-*The first way*:
+*The first way*
 
 *1.* Right-click the question title and select *Edit* from the drop-down menu. The *Edit* form will be displayed.
 
 *2.* Select/Deselect the *Approved* checkbox.
 
-*The second way*:
+*The second way*
 
 *1.* Right-click the question title and select *Answer question* from the drop-down menu. The *Answer question* form is displayed.
 
 *2.* Select/Deselect the *Approved* checkbox.
 
-*The third way*:
+*The third way*
 
-*1.* Click !images/Manage_question_btn.png! on the Action bar. The *Manage questions* form appears:
-
-!images/Manage_question_form.png|align="center"!
+*1.* Click !images/Manage_question_btn.png! on the Action bar. The *Manage Questions* form appears.
 
 *2.* Click !images/Yes_icon.png! or !images/No_icon.png! to approve or disapprove the respective question.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
@@ -236,27 +323,33 @@ To approve/disapprove a question, follow one of these ways:
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
 
-When a question is activated, it will be displayed and visible for all users to view. If not, it will be hidden and invisible. 
+When a question is activated, it will be displayed and visible for all users to view. If not, it will be hidden and invisible.
 
-*The first way*:
+*The first way*
 
-*1.* Go to the *Edit question* form.
-
-*2.* Select/Deselect the *Activated* checkbox.
-
-*The second way*:
-
-*1.* Go to the *Answer question* form.
+*1.* Go to the *Edit Question* form.
 
 *2.* Select/Deselect the *Activated* checkbox.
 
-*The third way*:
+*The second way*
+
+*1.* Go to the *Answer Question* form.
+
+*2.* Select/Deselect the *Activated* checkbox.
+
+*The third way*
 
 *1.* Click !images/Manage_question_btn.png! on the Action bar.
 
 *2.* Click !images/Yes_icon.png! or !images/No_icon.png! to activate or deactivate the respective questions.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
@@ -268,13 +361,26 @@ h3. Delete a question {anchor:id=Answer_Moderator.Moderate_question.Delete_quest
 
 There are several ways to delete questions:
 
-*The first way*: Right-click your desired question and then select *Delete* from the drop-down menu.
+*The first way*
 
-*The second way*: Click !images/Manage_question_btn.png! on the Action bar and then click !images/Delete_icon2.png! corresponding to the question you want to delete. 
+* Right-click your desired question and then select *Delete* from the drop-down menu.
 
-*The third way*: Click your desired question and click the delete icon. There will be an alert message, click *OK* to confirm.
+*The second way*
 
-*See Also:*
+* Click !images/Manage_question_btn.png! on the Action bar and then click !images/Delete_icon2.png! corresponding to the question you want to delete.
+
+*The third way*
+
+* Click your desired question and click the delete icon. There will be an alert message, click *OK* to confirm.
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
@@ -285,27 +391,42 @@ There are several ways to delete questions:
 
 h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 
-*To move a question:*
+*1.* Open the *Move Question* form by following one of two ways:
 
-*1.* Open the *Move question* form by following one of two ways:
+*The first way*
 
-*The first way*: Right-click your desired question and then select *Move to* from the drop-down menu.
+* Right-click your desired question and then select *Move* from the drop-down menu.
 
-*The second way*: Select your desired question and click !images/Move_question_icon.png!.
+*The second way*
+
+* Select your desired question and click !images/Move_question_icon.png!.
 
 *2.* Select the category to which you want to move your selected question.
 
 !images/Move_question_form.png|align="center"!
 
-{note}
-Only the Administrator can move questions to any areas in Answers.
+{docbook}
+<note>
+    <para>
+    Only the Administrator can move questions to any areas in Answers.
+    </para>
+    <para>
+    The Moderator will be checked for permission when moving questions. The moderator can only move questions to the category where he is also the moderator.
+    </para>
+    <para>
+    A notification will be only sent to the creator of the question that has been moved.
+    </para>
+</note>
+{docbook}
 
-The Moderator will be checked for permission when moving questions. The Moderator can only move questions to the category where he is also the moderator.
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
 
-A notification will be only sent to the creator of the question that has been moved.
-{note}
-
-*See Also:*
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
@@ -318,10 +439,10 @@ h2. Moderate an answer {anchor:id=KSuser.Answer_Moderator.Moderate_answers}
 
 In this section, the following topics are covered:
 
-- [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
-- [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
-- [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-- [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
+* [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
+* [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
+* [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
+* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 On the top right of an answer, you will see icons that represent actions you can do on that answer.
 
@@ -329,11 +450,22 @@ h3. Approve/Disapprove an answer {anchor:id=KSuser.Answer_Moderator.Approve_answ
 
 Click !images/Approve_Answer_icon.png! on the top right of the answer content to approve that answer.
 
-{note}
-The approved answer is visible to regular users, while the unapproved question is invisible.
-{note}
+{docbook}
+<note>
+    <para>
+    The approved answer is visible to regular users, while the unapproved question is invisible.
+    </para>
+</note>
+{docbook}
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
@@ -344,11 +476,23 @@ h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_an
 
 Click !images/Active_answer_icon.png! on the top right of the answer content to activate that answer.
 
-{note}
-The deactivated answer is hidden to the regular users while the activated question is shown.
-{note}
 
-*See Also:*
+{docbook}
+<note>
+    <para>
+    The deactivated answer is hidden to the regular users while the activated question is shown.
+    </para>
+</note>
+{docbook}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
@@ -359,7 +503,14 @@ h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 
 To delete an answer, click the trash icon on the top right of the answer content, then click *OK* in the confirmation message.
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
@@ -370,15 +521,25 @@ h3. Promote comments to answers {anchor:id=KSuser.Answer_Moderator.Promote_comme
 
 This function enables users to log in and give comments on specific questions.
 
-If the comment is considered as the best answer for the question, it can be promoted to the answer. 
+If the comment is considered as the best answer for the question, it can be promoted to the answer.
 
-*To leave a comment*:
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Leave a comment</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*1.* Follow one of the following two ways.
+*1.* Follow one of the following two ways:
 
-*The first way*: Click the question you want to leave comments and select !images/comment_button1.png!.
+*The first way*
 
-*The second way*: Right-click a specific question and select !images/comment_button.png! from drop-down menu. 
+* Click the question you want to leave comments and select !images/answer_comment_button1.png!.
+
+*The second way*
+
+* Right-click a specific question and select !images/comment_button.png! from drop-down menu.
 
 *2.* Enter your answer in the text-input field.
 
@@ -386,11 +547,22 @@ If the comment is considered as the best answer for the question, it can be prom
 
 To promote a comment as an answer, click !images/promote_answer_icon.png! on the top right of the comments panel.
 
-{note}
-Comments can be written in different languages. If a question is posted in multiple languages, it can also have comments in multiple languages.
-{note}
+{docbook}
+<note>
+    <para>
+    Comments can be written in different languages. If a question is posted in multiple languages, it can also have comments in multiple languages.
+    </para>
+</note>
+{docbook}
 
-*See Also:*
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
 
 * [View details of Answers|#Answer_user_guide.View_details]
 * [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
