@@ -1,24 +1,42 @@
 h1. Edit a space       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space}
-This function allows you to change the information of a space, manage members and applications if you are the space's creator or have a management right on it. To access the *Space Settings*, click !images/Edit_space_icon.png! corresponding to the space which you have the edit right.
+This function allows you to change the information of a space, manage members and applications if you are the space's creator or have a management right on it.
 
-h2. Change space's information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
-This function enables you to edit the basic information of a space as follows:
+To access the *Space Settings*, do as one of two following ways:
+
+*The first way*
+
+* Click *My Spaces* on the Administration bar, then click *Edit* corresponding to the space which you have the edit right.
+
+!images/Edit_space.png|align="center"!
+
+*The second way*
+
+*1.* Hover your mouse over *My Spaces* on the Administration bar.
+
+*2.* Click the space you have the edit right, then click !images/edit-space-icon.png!.
+
+!images/access_edit_space.png|align="center"!
+
+h2. Change space information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
+This function allows you to edit the basic information of a space as follows:
 
 *1.* Select the *Settings* tab in the *Space Settings* page.
 
-!images/space_settings.png!
+!images/space_settings.png|align="center"!
 
-*2.* Change information in the fields, including name, priority level and description, or [upload a new photo|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar] for your space.
+*2.* Change information in the fields, including *Name*, *Description* and *Priority* level, or [upload a new photo|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar] for your space.
 
 *3.* Click *Save* to accept all changes.
 
-h2. Change visibility       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility}
+h2. Change visibility{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility}
 
-*1.* Select the *Visibility* tab:
+*1.* Select the *Visibility* tab.
 
- !images/space_settings_visibility.png!
+ !images/space_settings_visibility.png|align="center"!
 
-*2.* Change values of *Visibility* and *Registration* if you want. Refer to the visibility of a space in the [Create a space|#Soc_User_Guide.Space_Management.Create_Space] section for more details.
+*2.* Change values of *Visibility* and *Registration* if you want.
+
+ Refer to the visibility of a space in the [Create a space|#Soc_User_Guide.Space_Management.Create_Space] section for more details.
 
 *3.* Click *Save* to accept your changes.
 
@@ -26,18 +44,25 @@ h2. Manage members         {anchor:id=Soc_User_Guide.Space_Management.Edit_Space
 
 Click the *Members* tab to open the 'Edit member' interface. Here, you can do many actions on members as stated below.
 
-!images/space_settings_members.png!
+!images/space_settings_members.png|align="center"!
 
 
-h3. Invite new members       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem}
+h3. Invite new members{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem}
+You can invite other users to join your spaces as follows:
 
-If you know the username of a person, simply enter his/her username in the text box and click !images/Invite_member_icon.png! to invite him/her to join your space. To invite multiple people, use commas to separate your multiple entered usernames.
+*The first way*
 
-If not, click !images/Select_member_icon.png! to open the *Select Users* form:
+* If you know the username of a person, simply enter his/her username in the textbox, then click !images/Invite_member_icon.png!.
 
-!images/space_settings_select_users.png|align=center!
+To invite multiple people, use commas to separate your multiple entered usernames.
 
-* To search for your desired member in eXo Social, do as follows:
+*The second way*
+
+*1.* Click !images/Select_member_icon.png! to open the *Select Users* form.
+
+!images/space_settings_select_users.png|align="center"!
+
+* To search for your desired member in eXo Platform, do as follows:
 
 *i.* Enter a search term into the *Search* box.
 
@@ -45,31 +70,47 @@ If not, click !images/Select_member_icon.png! to open the *Select Users* form:
 
 *iii.* Click !images/Search_icon1.png! to perform searching.
 
-The results will be listed in the table below. Select users by ticking the corresponding checkboxes and click *Add*. Then, click !images/Invite_member_icon.png! to invite your selected users. After inviting, you will see the list of invited users.
+The results will be listed in the table below.
 
-{note}You can invite multiple users which will be separated by comma in the Select Users field. {note}
+*2.* Select users by ticking the corresponding checkboxes and click *Add*.
+
+*3.* Click !images/Invite_member_icon.png! to invite your selected users.
+
+ After inviting, you will see the list of invited users.
+
+
+{docbook}
+<note>
+    <para>
+    You can invite multiple users which will be separated by comma in the <emphasis role="bold">Select Users</emphasis> field.
+    </para>
+</note>
+{docbook}
 
 h3. Revoke your invitations       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke}
 If your invited users have not accepted your requests, you can revoke your invitations by clicking !images/Delete_icon.png!. The users will be removed from the Invited list column.
 
-h3. Promote/Demote a member {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
+h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
-To promote a member to the manager position, click !images/Plus_icon.png!in the *Manager* column. The user will be automatically promoted as a manager in the current space.
-To demote a member, click !images/Remove_icon.png!. Be careful not to remove the rights for yourself; otherwise, you will not be able to edit your space's settings anymore, except that you are an administrator.
+* To promote a member to the manager position, click !images/Plus_icon.png! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
 
-h3. Remove a member        {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem}
-To remove a member, simply click the corresponding !images/Delete_icon.png! icon in the *Actions* bar.
+* To demote a member, click !images/Demote_icon.png!.
 
-h2. Manage space applications      {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
-To manage space applications, click the *Applications* tab to open the applications list:
+Be careful not to remove the rights for yourself; otherwise, you will not be able to edit your space's settings anymore, except that you are an administrator.
 
-!images/space_settings_applications.png|align=center!
+h3. Remove a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem}
+To remove a member, simply click the corresponding !images/Delete_icon.png! icon in the Actions bar.
+
+h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
+To manage space applications, click the *Applications* tab to open the applications list.
+
+!images/space_settings_applications.png|align="center"!
 
 h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App}
 
-*1.* Click !images/Add_new_space_application_icon.png! to open the available applications list:
+*1.* Click !images/Add_new_space_application_icon.png! to open the available applications list.
 
-!images/space_settings_add_applications.png|align=center!
+!images/space_settings_add_applications.png|align="center"!
 
 *2.* Select the application you want to install by clicking the !images/Plus_icon.png! corresponding icon.
 
@@ -78,38 +119,29 @@ If there is no available application, ask your system administrator to gain the 
 h3. Delete applications       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Delete_App}
 To remove an application, click !images/Remove_icon.png! corresponding to the application name.
 
-{note}You cannot delete the *Space Setting* application because it is configured as a mandatory space application.{note}
 
-h3. Rename space applications     {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Rename_App}
-You can rename your added applications and the *Dashboard* application listed in the right pane as follows:
-
-*1.* Select the relevant application.
-
-*2.* Double-click the selected application name until the input text box is displayed as below:
-
-!images/space_settings_rename_applications.png|align=center!
-
-*3.* Enter your new name into the input text box, for example, "Workspace" and press *Enter* to save your new name.
- The position of applications will be changed to the alphabetic order.
-
-!images/space_settings_rename_applications1.png|align=center!
-
-{note} 
-You cannot rename Home, members, and Space Settings.
-{note}
+{docbook}
+<note>
+    <para>
+    You cannot delete the <emphasis role="bold">Space Setting</emphasis> application because it is configured as a mandatory space application.
+    </para>
+</note>
+{docbook}
 
 h2. Edit space navigation   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Edit_Space_Navigation}
 
-You can easily edit a space's navigation, such as adding a new node, editing a node, replacing  in the navigation, moving up/down a node, and taking other actions in the context menu as follows:
+You can easily edit a space navigation, such as adding a new node, editing a node, replacing  in the navigation, moving up/down a node, and taking other actions in the context menu as follows:
 
-*1.* Click the *Space Navigation* tab to open the space's navigation.
+*1.* Click the *Space Navigation* tab to open the space navigation.
 
-!images/space_settings_navigation.png|align=center!
+!images/space_settings_navigation.png|align="center"!
 
 You can take the following actions:
 
 * Right-click a node name (space name) and takes actions in the context menu, such as adding/editing a node, editing a node's page, copying/cloning a node.
 
-* Click !images/Add_node_icon.png! to add a new node to the space's navigation; or right-click any white area to display !images/Add_new_node_icon.png!, then select this button. The UI Page Node form appears that allows you to add information to your new node. 
+* Right-click any white area to display !images/Add_new_node_icon.png!, then select this button. The *UI Page Node* form appears that allows you to add information to your new node.
+
+For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Organization.Manage_Navigation_Nodes] section.
 
 *2.* Click *Save* to accept all changes.

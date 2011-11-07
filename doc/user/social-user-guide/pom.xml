@@ -288,6 +288,18 @@
            <artifactId>build-helper-maven-plugin</artifactId>
            <executions>
              <execution>
+               <id>add-source</id>
+               <phase>generate-sources</phase>
+               <goals>
+                 <goal>add-source</goal>
+               </goals>
+               <configuration>
+                 <sources>
+                   <source>src/main/wikbook</source>
+                 </sources>
+               </configuration>
+             </execution>
+             <execution>
                <id>attach-artifacts</id>
                <phase>package</phase>
                <goals>
