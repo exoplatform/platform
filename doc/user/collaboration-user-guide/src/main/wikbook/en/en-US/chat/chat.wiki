@@ -1,6 +1,5 @@
 *After reading this chapter, you should know how to perform these following tasks*:
 
-
 * [Add a contact to the friends list|#Add_contact_to_friends_list]
 * [Chat with a contact|#CSUser_guide.How_to_use_Chat.Chat_with_contact]
 ** [Compose and send a chat text|#CSUser_guide.How_to_use_Chat.Compose_and_send_chat_text]
@@ -16,13 +15,11 @@
 h1. Add a contact to the friends list {anchor:id="Add_contact_to_friends_list"}
 You may invite several people to participate in a chat room with you if you are the room creator or that room allows members to invite others. You can easily search for other contacts in your Address Book and add them to your friends list.
 
-*To add a contact to your friends list:*
-
 *1.* Click !images/contact_icon.png! on the chat bar, then click !images/chat_add_contact_button.png! in the pop-up menu.
 
 !images/chat_add_contact.png|align="center"!
 
-The *Add Contact* form will appear:
+The *Add Contact* form will appear.
 
 !images/add_contact_form.png|align="center"!
 
@@ -32,7 +29,7 @@ You can also search for a specific contact by typing the information related to 
 
 !images/chat_search_contact.png|align="center"!
 
-*3.* Click the *Add contact* button to add one contact to your friends list.
+*3.* Click the *Add Contact* button to add one contact to your friends list.
 
 The contact that you want to add will receive a request message.
 
@@ -43,20 +40,18 @@ After adding contacts successfully, the added contacts will be shown in your fri
 h2. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
 This function allows you to remove a contact from your friends list.
 
-*To remove a contact:*
+*1.* Click !images/chat_add_contact_button.png! on the action bar to show your friends list. Right-click the contact that you want to remove from your friends list and click *Remove* from the drop-down menu:
 
-1. Click !images/chat_add_contact_button.png! on the action bar to show your friends list. Right-click the contact that you want to remove from your friends list and click *Remove* from the drop-down menu:
+!images/remove_context_menu.png|align="center".png!
 
-!images/remove_context_menu.png!
-
-2. Click *OK* in the confirmation message.
+*2.* Click *OK* in the confirmation message.
 
 h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contact"}
 
 h2. Compose and send a chat text {anchor:id="CSUser_guide.How_to_use_Chat.Compose_and_send_chat_text"}
 Sending messages in Chat is as simple as typing and clicking, so it is easy for you to start a conversation.
 
-*To send instant messages:*
+*Send instant messages*
 
 *1.* Click the contact name that you want to chat in the contacts list.
 
@@ -74,12 +69,18 @@ The selected contact will receive the message that you have typed in the convers
 
 You can click !images/minimize_icon.png! on the right corner of the Conversation window to minimize any conversation window to the chat bar. To restore the window, simply click the minimized window (!images/minimized_window_icon.png!) on the chat bar.
 
-!images/chat_bar1.png!
+!images/chat_bar1.png|align="center"!
 
-{note}
-When you send a message to offline contacts, whatever information you send to them will be presented to them at the time of their next login.
-You can chat with several contacts at the same time. Each conversation is displayed in its own tab. You can switch between tabs to follow different ongoing conversations.
-{note}
+{docbook}
+<note>
+    <para>
+    When you send a message to offline contacts, whatever information you send to them will be presented to them at the time of their next login.
+    </para>
+    <para>
+    You can chat with several contacts at the same time. Each conversation is displayed in its own tab. You can switch between tabs to follow different ongoing conversations.
+    </para>
+</note>
+{docbook}
 
 h2. Set your status {anchor:id="CSUser_guide.How_to_use_Chat.Set_status"}
 When you signed in Chat, by default, your logged-in status is online and other Chat members will see the online icon !images/online_icon.png! appending to your account name.
@@ -103,7 +104,7 @@ When you signed in Chat, by default, your logged-in status is online and other C
 h2. Send a file {anchor:id="CSUser_guide.How_to_use_Chat.Send_file"}
 When you are chatting with your friends, you could want to send them a digital photo of your holiday or documents needed for the coming meeting as follows:
 
-*To send a file to a contact:*
+*Send a file to a contact*
 
 *1.* Click !images/send_file_button.png! on the Conversation window.
 
@@ -114,8 +115,6 @@ Your file is now being sent. The receiver may deny or accept the file transfer.
 
 h2. Export the Chat history {anchor:id="CSUser_guide.How_to_use_Chat.Export_chat_history"}
 Chat application can archive your chat and allows you to export and save your conversation history to your local device.
-
-*To export a chat history:*
 
 *1.* Click !images/export_history.png! on the Conversation window.
 
@@ -131,7 +130,10 @@ Your chat messages history can be shown in a specific time interval.
 *1.* Select a contact that you want to show the message log.
 
 *2.* Select a time interval.
+
+
 !images/time_interval.png|align="center"!
+
 
 Currently, the Chat application shows messages in the following time ranges:
 
@@ -148,23 +150,21 @@ All messages with the created time and date will be shown in the Conversation wi
 h1. Create a chat room {anchor:id="Create_a_chat_room"}
 A chat room is a place where people with similar interests can meet and communicate with each other. People can often enter an un-moderated chat room without any verification of who they are.
 
-With Chat of eXo Collaboration, you also create a chat room and invite other users join your room. In this way, you can organize and manage your group activities efficiently. It's convenient in corporate environment when you can communicate in multiple chat rooms, each may have different topics and members. Chat supports up to 30 users to join a chat room.
+With Chat of eXo Platform, you also create a chat room and invite other users join your room. In this way, you can organize and manage your group activities efficiently. It's convenient in corporate environment when you can communicate in multiple chat rooms, each may have different topics and members. Chat supports up to 30 users to join a chat room.
 
-*To create a chat room:*
+*Create a chat room*
 
 *1.* Click !images/chat_icon.png! on the chat bar, then click !images/add_room_button.png! in the pop-up menu.
 
 !images/pop_up_menu.png|align="center"!
 
-The *New Room* form will appear:
+The *New Room* form will appear.
 
 !images/new_room-form.png|align="center"!
 
 *2.* Enter the room name, then click *OK* to accept.
 
 After creating a new room, there will be a *Room Configuration* and *Conversation* window opened but in the locked status.
-
-!images/locked_room_conversation.png|align="center"!
 
 With this status, both creator and other members cannot join this room to chat till the room configuration is completed.
 
@@ -174,30 +174,30 @@ In this step, you can give the name and description of your chat room and select
 
 !images/Chat_room_configuration_general.png|align="Center"!
 
-* *Enter room details*:
+*Details:*
 
 ||Field||Description||
 |*Persistent Room*|A persistent room is one that does not get closed when there are no members in it. |
 |*Presence Broadcast*|The user group that will be sent a message about the status changes of the chat room's members.|
-|*Users*| Those corresponding to the selected groups in "Presence Broadcast" will receive the notification message.|
-|*Room Desc*|The brief description of the chat room.|
-|*Max users*|The maximum number of users who can join the chat room.|
+|*Who is*| Those corresponding to the selected groups in "Presence Broadcast" will receive the notification message.|
+|*Room Description*|The brief description of the chat room.|
+|*Max Users*|The maximum number of users who can join the chat room.|
 
-* *Set the Security settings*: {anchor:id="Set_the_security_settings"}
+*Set the Security settings* {anchor:id="Set_the_security_settings"}
 
-Click *Show Security* in the *Room Configuration* form:
+Click *Security* in the *Room Configuration* form:
 
 !images/room_configuration.png|align="center"!
 
-Details:
+*Details:*
 
 ||Field||Description||
 |*Public Room*|When this option is checked, all users can join this room.|
 |*Member Only*|This option is to create a room for members of that created room only.|
-|*Allow Invites*|This option is to grant room's members permission to invite other users to join chat room.|
-|*Reserved nick*|This option is to prevent anonymous users from joining the chat room. If this option is checked, only registered users can enter the room.|
+|*Allow Invitations*|This option is to grant room's members permission to invite other users to join chat room.|
+|*Reserved Nickname*|This option is to prevent anonymous users from joining the chat room. If this option is checked, only registered users can enter the room.|
 |*Password Protected Room*|This option is to change the public room to a locked, secure protected room accessible only to specific individuals with the right password.|
-|*Password*|The password used to protect the room. This field is shown only when the Password Protected Room option is selected.|
+|*Moderated Room*|The room is moderated or not.|
 |*Room Admins*|This option is to select the administrators of the created chat room. It is only available when the Moderated Room option is selected.|
 |*Room Owners*|The email address of room's creator.|
 
@@ -205,8 +205,6 @@ Details:
 
 h2. Add a contact to a room {anchor:id="CSUser_guide.How_to_use_Chat.Add_contact_to_room}
 This function is used to add contacts to the chat room where you was already in, so the added contacts will be able to join this room to communicate.
-
-*To add contacts to a chat room:*
 
 *1.* Click !images/add_contact_to_chat_room_icon.png! on the chat room conversation window.
 
@@ -224,11 +222,9 @@ After joining a chat room, the member can start the chat right away.
 h2. Join a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Join_chat_room"}
 Joining a chat room is simple and fast. When joining a chat room, you can learn more about a subject, ask questions and talk with others having common interests. If you are ready to start talking, you can join a chat room in just seconds.
 
-*To join a room:*
-
 *1.* Click !images/chat_icon.png! on the chatbar, then select !images/join_room_icon.png! from the drop-down menu:
 
-The *Join Room* form will appear:
+The *Join Room* form will appear.
 
 !images/join_room_form.png|align="center"!
 
@@ -236,11 +232,17 @@ The *Join Room* form will appear:
 
 *3.* Click *Join Room* to join the selected room. Click the *Refresh* button if you want to clear the selected rooms.
 
-The *Conversation* window of the selected room appears as below:
+The *Conversation* window of the selected room appears as below.
 
 !images/conversation_window1.png|align="center"!
 
-{note}You can join several chat rooms at the same time. Each chat room will be displayed in its own tab and you can easily switch between different rooms.{note}
+{docbook}
+<note>
+    <para>
+    You can join several chat rooms at the same time. Each chat room will be displayed in its own tab and you can easily switch between different rooms.
+    </para>
+</note>
+{docbook}
 
 h2. Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room"}
 
@@ -253,14 +255,19 @@ Your conversation window of this room will be closed and you will not receive me
 h2. Configure a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Configure_chat_room}
 As you know, you are required to configure the chat room before a chat room opens. However, you are also able to update the room configuration after the chat room was created. If you are not the owner or administrator of chat room, you do not have the permission to perform this action.
 
-*To configure a chat room:*
+*Configure a chat room*
 
 *1.* Click !images/chat_options_icon.png! in the *Conversation* form of the chat room. The *Room Configuration* form will appear.
 
 *2.* Set values for the fields in this form. For the descriptions, see [Create a new chat room|#Create_a_chat_room].
 
 *3.* Click *OK* to accept the configuration.
+}
+{docbook}
+<note>
+    <para>
+    The chat room configuration is available only if you are the owner or administrator of that chat room. You can change the room owner and select the room administrator in <link linkend="Set_the_security_settings">Room configuration</link>.
+    </para>
+</note>
+{docbook}
 
-{note}
-The chat room configuration is available only if you are the owner or administrator of that chat room. You can change the room owner and select the room administrator in [Room configuration.|#Set_the_security_settings]
-{note}

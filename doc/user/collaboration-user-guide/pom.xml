@@ -130,40 +130,6 @@
 
            </configuration>
            <executions>
-             <!--execution>
-               <id>generate-html</id>
-               <goals>
-                 <goal>generate-html</goal>
-               </goals>
-               <phase>package</phase>
-               <configuration-->
-
-                 <!-- Output -->
-                 <!--targetDirectory>${wikbook.target}/output/html</targetDirectory-->
-
-                 <!-- Stylesheet -->
-                 <!--htmlCustomization>${wikbook.target}/src/resources/xsl/html.xsl</htmlCustomization>
-                 <htmlStylesheet>css/html.css</htmlStylesheet-->
-
-                 <!-- Copy the image -->
-                 <!--postProcess>
-                   <copy todir="${wikbook.target}/output/html/images">
-                     <fileset dir="${wikbook.source}/images">
-                       <include name="**" />
-                     </fileset>
-                   </copy>
-                   <copy todir="${wikbook.target}/output/html">
-                     <fileset dir="${wikbook.target}/src/resources">
-                       <include name="**/*.css" />
-                       <include name="**/*.png" />
-                       <include name="**/*.gif" />
-                       <include name="**/*.jpg" />
-                     </fileset>
-                   </copy>
-                 </postProcess>
-
-               </configuration>
-             </execution-->
              <execution>
                <id>generate-pdf</id>
                <goals>
@@ -171,13 +137,10 @@
                </goals>
                <phase>package</phase>
                <configuration>
-
                  <!-- Output -->
                  <targetDirectory>${wikbook.target}/output/pdf</targetDirectory>
-
                  <!-- Stylesheet -->
                  <foCustomization>${wikbook.target}/src/resources/xsl/fopdf.xsl</foCustomization>
-
                  <!-- Image configuration -->
                  <imgSrcPath>${wikbook.source}/</imgSrcPath>
                  <admonGraphicsPath>${wikbook.target}/src/resources/images/admons/</admonGraphicsPath>
@@ -286,6 +249,18 @@
            <groupId>org.codehaus.mojo</groupId>
            <artifactId>build-helper-maven-plugin</artifactId>
            <executions>
+             <execution>
+               <id>add-source</id>
+               <phase>generate-sources</phase>
+               <goals>
+                 <goal>add-source</goal>
+               </goals>
+               <configuration>
+                 <sources>
+                   <source>src/main/wikbook</source>
+                 </sources>
+               </configuration>
+             </execution>
              <execution>
                <id>attach-artifacts</id>
                <phase>package</phase>
