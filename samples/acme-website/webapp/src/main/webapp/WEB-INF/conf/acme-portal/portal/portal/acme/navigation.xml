@@ -51,14 +51,6 @@
     </node>
 
     <node>
-      <uri>newsletters</uri>
-      <name>newsletters</name>
-      <label>#{portal.acme.newsletters}</label>
-      <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::newsletters</page-reference>
-    </node>
-
-    <node>
       <uri>contactus</uri>
       <name>contactus</name>
       <label>#{portal.acme.contactus}</label>
