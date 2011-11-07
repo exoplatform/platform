@@ -197,7 +197,7 @@
          <advices>
             <advice class-name="org.exoplatform.instrument.transformer.LimitRegisteredUsersAdvice">
                <parameters>
-                  <parameter value="20" name="user-limit" />
+                  <parameter value="2000" name="user-limit" />
                </parameters>
             </advice>
          </advices>
