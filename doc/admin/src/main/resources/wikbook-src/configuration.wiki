@@ -218,7 +218,7 @@ In this step, you need to add the MySQL connector to Tomcat by adding _{noformat
 
 To configure the data source for eXo Platform under JBoss, do as follows:
 
-* Edit server.xml
+* Edit gatein-ds.xml
 
 * Add the JDBC driver
 
