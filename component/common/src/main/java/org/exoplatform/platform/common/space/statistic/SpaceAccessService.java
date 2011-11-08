@@ -55,7 +55,7 @@ public class SpaceAccessService {
         SpaceAccess spaceAccess = getSession()
             .findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
         if (spaceAccess == null) {
-          NTUnstructered parentNode = getSession().findByPath(NTUnstructered.class, parentNodePath, false);
+          NTUnstructured parentNode = getSession().findByPath(NTUnstructured.class, parentNodePath, false);
           if (parentNode == null) {
             throw new IllegalStateException("User ApplicationData node couldn't be found.");
           }

@@ -5,6 +5,6 @@ import org.chromattic.api.annotations.PrimaryType;
 
 @PrimaryType(name = "nt:unstructured")
 @NamingPrefix("nt")
-public class NTUnstructered {
+public class NTUnstructured {
 
 }
