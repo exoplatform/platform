@@ -6,7 +6,8 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
-The easiest way to install eXo Platform is to take the default bundle. This is a ready-made package on top of the Tomcat 6 application server, so you first need to copy the _bin/tomcat6-bundle/_ directory to your server. Next, do the following steps:
+The easiest way to install eXo Platform is to use the Tomcat bundle. This is a ready-made package on top of the Tomcat 6 application server. First, you need to download and extract the package named _eXo-Platform-tomcat-3.5.x.zip_ on your server.
+Then, follow these steps:
 
 *1.* Start up the server.
 
@@ -90,7 +91,7 @@ Now, you can start and run the eXo Platform demo, but you will need to adjust th
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
-eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are located in the _{noformat}bin/jboss5-eap-ears/{noformat}_ folder.
+eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are distributed in the package named _eXo-Platform-jboss-3.5.x.zip_.
 
 To install eXo Platform on JBoss, follow these steps:
 
@@ -110,15 +111,13 @@ To install eXo Platform on JBoss, follow these steps:
 - exo-acme-website-$version.ear
 - exo-default-portal-$version.ear
 
-*2.* Create the _{noformat}jboss-root/server/default/conf/gatein{noformat}_ and then copy these files to this folder.
+*2.* Create the folder _{noformat}jboss-root/server/default/conf/gatein{noformat}_ and then copy these files to this folder.
 
 - configuration.properties
 
 - configuration.xml
 
-*3.* Copy this file to _{noformat}jboss-root/server/default/conf/gatein/gadgets{noformat}_.
-
-- oauthkey.pem
+*3.* Copy the file _{noformat}oauthkey.pem{noformat}_ to _{noformat}jboss-root/server/default/conf/gatein/gadgets{noformat}_.
 
 *4.* Configure the JVM parameters.
 
@@ -170,7 +169,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 The server is started successfully when you see the following message in your log/console:
 
 {screen}
-INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.0.1 (build: ...)] Started in 3m:29s:259ms
+INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms
 {screen}
 
 *7.* Shut down the server.
@@ -199,18 +198,18 @@ The following profiles are supported:
 | {{collaboration}} | Enable the eXo Collaboration module. |
 | {{knowledge}} | Enable the eXo Knowledge module.|
 | {{social}} | Enable the eXo Social module. |
-| {{workflow}} | Enable the workflow add-ons within the eXo Content module.|
+| {{workflow}} | Enable the Workflow add-ons within the eXo Content module.|
 | {{webos}} | Enable the eXo WebOS module.|
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-| {{minimal}} | Contain GateIn + eXo Content. |
-| {{default}} | Contain all exceptional workflows (GateIn, eXo IDE, eXo Collaboration, eXo Social, eXo Knowledge).|
+| {{minimal}} | Contains GateIn + eXo Content. |
+| {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, eXo Collaboration, eXo Social, eXo Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
 
-* _{noformat}./start_eXo.sh default,workflow{noformat}_: Start all modules, including workflow.
+* _{noformat}./start_eXo.sh default,workflow{noformat}_: Start default modules + workflow.
 
 * _{noformat}./start_eXo.sh collaboration,knowledge{noformat}_: Start eXo Platform with GateIn, eXo Content, eXo Collaboration and eXo Knowledge enabled.
 

@@ -7,9 +7,9 @@ Follow the installation procedure and start eXo Platform 3.5 now!
 System requirements
 -------------------
 
-    * CPU: 2GHz
-    * Memory: 2GB of RAM
-    * Disk: 200MB
+    * CPU: 3GHz
+    * Memory: 4GB of RAM
+    * Disk: 400MB
     * OS: Windows, Linux or Mac OS X
     * Java 6 (Set the JAVA_HOME environment variable)
     * Browser: Firefox 3+ or Internet Explorer 7+
