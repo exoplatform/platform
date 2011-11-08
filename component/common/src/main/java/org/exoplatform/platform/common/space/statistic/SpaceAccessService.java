@@ -46,20 +46,19 @@ public class SpaceAccessService {
         if (lifeCycle.getContext() == null) {
           lifeCycle.openContext();
         }
-        NTUnstructered parentNode = null;
         String parentNodePath = null;
         try {
           parentNodePath = getUserApplicationDataNodePath(userId, true);
-          parentNode = getSession().findByPath(NTUnstructered.class, parentNodePath, false);
-          if (parentNode == null) {
-            throw new IllegalStateException("User ApplicationData node couldn't be found.");
-          }
         } catch (Exception exception) {
           throw new RuntimeException(exception);
         }
         SpaceAccess spaceAccess = getSession()
             .findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
         if (spaceAccess == null) {
+          NTUnstructered parentNode = getSession().findByPath(NTUnstructered.class, parentNodePath, false);
+          if (parentNode == null) {
+            throw new IllegalStateException("User ApplicationData node couldn't be found.");
+          }
           spaceAccess = getSession().create(SpaceAccess.class, SPACE_ACCESS_NODE_NAME);
           getSession().persist(parentNode, spaceAccess);
           getSession().save();
