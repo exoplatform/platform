@@ -7,13 +7,20 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import javax.jcr.Node;
+
 import org.apache.commons.lang.ArrayUtils;
 import org.chromattic.api.ChromatticSession;
 import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 
 public class SpaceAccessService {
   private static final String SEPARATOR = "@";
+  private final static String CHROMATTIC_LIFECYCLE_NAME = "spaceaccess";
+  private final static String SPACE_ACCESS_NODE_NAME = "spaceacess";
+  private final static String SPACE_ACCESS_LIFECYCLE_ROOT_PATH = "/Users/";
   private static final Comparator<String> spaceAccessComparator = new Comparator<String>() {
     public int compare(String o1, String o2) {
       o1 = o1.split(SEPARATOR)[1];
@@ -21,15 +28,16 @@ public class SpaceAccessService {
       return o1.compareTo(o2);
     }
   };
-  private final static String CHROMATTIC_LIFECYCLE_NAME = "spaceaccess";
 
   private static final ThreadLocal<ChromatticSession> session = new ThreadLocal<ChromatticSession>();
   private ChromatticLifeCycle lifeCycle;
+  private NodeHierarchyCreator nodeHierarchyCreator;
   private Executor executor;
 
-  public SpaceAccessService(ChromatticManager chromatticManager) {
+  public SpaceAccessService(ChromatticManager chromatticManager, NodeHierarchyCreator nodeHierarchyCreator) {
     this.lifeCycle = chromatticManager.getLifeCycle(CHROMATTIC_LIFECYCLE_NAME);
     this.executor = Executors.newCachedThreadPool();
+    this.nodeHierarchyCreator = nodeHierarchyCreator;
   }
 
   public void incrementSpaceAccess(final String spaceId, final String userId) {
@@ -38,12 +46,24 @@ public class SpaceAccessService {
         if (lifeCycle.getContext() == null) {
           lifeCycle.openContext();
         }
-        SpaceAccess spaceAccess = getSession().findByPath(SpaceAccess.class, userId);
+        NTUnstructered parentNode = null;
+        String parentNodePath = null;
+        try {
+          parentNodePath = getUserApplicationDataNodePath(userId, true);
+          parentNode = getSession().findByPath(NTUnstructered.class, parentNodePath, false);
+          if (parentNode == null) {
+            throw new IllegalStateException("User ApplicationData node couldn't be found.");
+          }
+        } catch (Exception exception) {
+          throw new RuntimeException(exception);
+        }
+        SpaceAccess spaceAccess = getSession()
+            .findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
         if (spaceAccess == null) {
-          spaceAccess = getSession().create(SpaceAccess.class, userId);
-          getSession().persist(spaceAccess);
+          spaceAccess = getSession().create(SpaceAccess.class, SPACE_ACCESS_NODE_NAME);
+          getSession().persist(parentNode, spaceAccess);
           getSession().save();
-          spaceAccess = getSession().findByPath(SpaceAccess.class, userId);
+          spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
         }
         String[] spaces = spaceAccess.getMostAccessedSpaces();
         if (spaces == null || spaces.length == 0) {
@@ -81,7 +101,8 @@ public class SpaceAccessService {
   }
 
   public List<String> getSpaceAccessList(String userId) {
-    SpaceAccess spaceAccess = getSession().findByPath(SpaceAccess.class, userId);
+    String parentNodePath = getUserApplicationDataNodePath(userId, false);
+    SpaceAccess spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
     if (spaceAccess == null || spaceAccess.getMostAccessedSpaces() == null || spaceAccess.getMostAccessedSpaces().length == 0) {
       return new ArrayList<String>();
     }
@@ -95,6 +116,22 @@ public class SpaceAccessService {
       i++;
     }
     return spacesList;
+  }
+
+  private String getUserApplicationDataNodePath(String userId, boolean addMixin) {
+    String parentNodePath = null;
+    try {
+      Node userApplicationNode = nodeHierarchyCreator.getUserApplicationNode(SessionProvider.createSystemProvider(), userId);
+      if (addMixin && !userApplicationNode.isNodeType("mix:referenceable")) {
+        userApplicationNode.addMixin("mix:referenceable");
+        userApplicationNode.getSession().save();
+      }
+      parentNodePath = userApplicationNode.getPath();
+      parentNodePath = parentNodePath.split(SPACE_ACCESS_LIFECYCLE_ROOT_PATH, 2)[1];
+    } catch (Exception exception) {
+      throw new RuntimeException(exception);
+    }
+    return parentNodePath;
   }
 
   public ChromatticSession getSession() {
