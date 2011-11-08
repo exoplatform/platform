@@ -23,7 +23,7 @@ import org.chromattic.api.annotations.PrimaryType;
 import org.chromattic.api.annotations.Property;
 import org.chromattic.ext.format.BaseEncodingObjectFormatter;
 
-@PrimaryType(name = "plf:spaceacess")
+@PrimaryType(name = "plf:spaceaccess")
 @FormattedBy(BaseEncodingObjectFormatter.class)
 @NamingPrefix("plf")
 public abstract class SpaceAccess {

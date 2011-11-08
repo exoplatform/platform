@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Node type generation prototype -->
 <nodeTypes xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:soc="soc">
-	<nodeType name="plf:spaceacess" isMixin="false" hasOrderableChildNodes="false">
+	<nodeType name="plf:spaceaccess" isMixin="false" hasOrderableChildNodes="false">
 		<supertypes>
 			<supertype>nt:base</supertype>
 			<supertype>mix:referenceable</supertype>

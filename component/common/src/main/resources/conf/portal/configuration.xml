@@ -365,7 +365,7 @@
 			</init-params>
 		</component-plugin>
 		<component-plugin>
-			<name>add.space.acess.nodeType</name>
+			<name>add.space.access.nodeType</name>
 			<set-method>addPlugin</set-method>
 			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
 			<init-params>
