@@ -35,12 +35,15 @@ import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.user.UserNavigation;
 import org.exoplatform.portal.mop.user.UserPortal;
+import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.wcm.webui.Utils;
 import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webos.webui.page.UIDesktopPage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
@@ -140,8 +143,17 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     // A user could view the toolbar portlet if he has edit permission
     // either on 'active' page, 'active' portal or 'active' navigation
-    if (hasEditPermissionOnNavigation() || hasEditPermissionOnPage() || hasEditPermissionOnPortal()) {
+    boolean canAccessMenu = canAcceedMenu();
+    if (canAccessMenu) {
       super.processRender(app, context);
+    }
+  }
+
+  @Override
+  public void processRender(WebuiRequestContext context) throws Exception {
+    boolean canAccessMenu = canAcceedMenu();
+    if (canAccessMenu) {
+      super.processRender(context);
     }
   }
 
@@ -165,6 +177,20 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
       userId = Util.getPortalRequestContext().getRemoteUser();
     }
     return userId;
+  }
+
+  public String getUIPageId() {
+    UIPortalApplication portalApp = Util.getUIPortalApplication();
+    UIPage uiPage = portalApp.findFirstComponentOfType(UIPage.class);
+    return uiPage.getId();
+  }
+
+  private boolean canAcceedMenu() throws Exception {
+    UIPortalApplication portalApp = Util.getUIPortalApplication();
+    UIPage uiPage = portalApp.findFirstComponentOfType(UIPage.class);
+    boolean canAccessMenu = !(uiPage instanceof UIDesktopPage) && hasEditPermissionOnNavigation() || hasEditPermissionOnPage()
+        || hasEditPermissionOnPortal();
+    return canAccessMenu;
   }
 
   public static class ChangeEditingActionListener extends EventListener<UIAdminToolbarContainer> {
@@ -260,4 +286,5 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
     }
 
   }
+
 }
