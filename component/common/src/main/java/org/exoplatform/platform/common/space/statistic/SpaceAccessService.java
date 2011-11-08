@@ -136,11 +136,13 @@ public class SpaceAccessService {
           userApplicationNode = userApplicationNode.addNode(PARENT_RELATIVE_PATH, "nt:folder");
           userApplicationNode.addMixin("mix:referenceable");
           userApplicationNode.getSession().save();
+          parentNodePath = userApplicationNode.getPath();
         } else {
           return null;
         }
+      } else {
+        parentNodePath = userApplicationNode.getPath() + "/" + PARENT_RELATIVE_PATH;
       }
-      parentNodePath = userApplicationNode.getPath();
       parentNodePath = parentNodePath.split(SPACE_ACCESS_LIFECYCLE_ROOT_PATH, 2)[1];
     } catch (Exception exception) {
       throw new RuntimeException(exception);
