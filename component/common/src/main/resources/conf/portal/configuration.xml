@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 	<component>
 		<type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
 	</component>
@@ -11,6 +8,9 @@
 	</component>
 	<component>
 		<type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
+	</component>
+	<component profiles="all,default,social">
+		<type>org.exoplatform.platform.common.space.statistic.SpaceAccessService</type>
 	</component>
 	<component>
 		<type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
@@ -351,4 +351,82 @@
 			</object-param>
 		</init-params>
 	</component>
+	<external-component-plugins profiles="all,default,social">
+		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		<component-plugin>
+			<name>add.namespaces</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+			<init-params>
+				<properties-param>
+					<name>namespaces</name>
+					<property name="plf" value="http://www.exoplatform.org/jcr/plf/1.0/"/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+		<component-plugin>
+			<name>add.space.acess.nodeType</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+			<init-params>
+				<values-param>
+					<name>autoCreatedInNewRepository</name>
+					<description>Node types configuration file</description>
+					<value>jar:/conf/portal/space-access-chromattic-nodetypes.xml</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins profiles="all,default,social">
+		<target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
+		<component-plugin>
+			<name>chromattic</name>
+			<set-method>addLifeCycle</set-method>
+			<type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+			<init-params>
+				<value-param>
+					<name>domain-name</name>
+					<value>spaceaccess</value>
+				</value-param>
+				<value-param>
+					<name>workspace-name</name>
+					<value>collaboration</value>
+				</value-param>
+				<values-param>
+					<name>entities</name>
+					<value>org.exoplatform.platform.common.space.statistic.SpaceAccess</value>
+				</values-param>
+				<properties-param>
+					<name>options</name>
+					<property name="org.chromattic.api.Option.root_node.path" value="/Users/production"/>
+					<property name="org.chromattic.api.Option.root_node.create" value="true"/>
+				</properties-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins profiles="all,default,social">
+		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+		<component-plugin>
+			<name>Space Access Statistics filter Plugin</name>
+			<set-method>addFilterDefinitions</set-method>
+			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Space Access Statistics filter</name>
+					<object type="org.exoplatform.web.filter.FilterDefinition">
+						<field name="filter">
+							<object type="org.exoplatform.platform.common.space.statistic.SpaceAccessFilter"/>
+						</field>
+						<field name="patterns">
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value>
+									<string>.*:spaces:.*</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
 </configuration>

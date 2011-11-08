@@ -12,11 +12,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.platform.common.space.statistic.SpaceAccessService;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNode;
@@ -50,6 +52,15 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
   private String userId = null;
   private boolean groupNavigationPermitted = false;
   private UserNodeFilterConfig mySpaceFilterConfig;
+  private List<String> spacesSortedByAccesscount = null;
+
+  private Comparator<UserNavigation> spaceAccessComparator = new Comparator<UserNavigation>() {
+    public int compare(UserNavigation o1, UserNavigation o2) {
+      String ownerId1 = o1.getKey().getName();
+      String ownerId2 = o2.getKey().getName();
+      return spacesSortedByAccesscount.indexOf(ownerId2) - spacesSortedByAccesscount.indexOf(ownerId1);
+    }
+  };
 
   /**
    * constructor
@@ -64,6 +75,8 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       // activated
     }
     organizationService = getApplicationComponent(OrganizationService.class);
+    SpaceAccessService spaceAccessService = getApplicationComponent(SpaceAccessService.class);
+    spacesSortedByAccesscount = spaceAccessService.getSpaceAccessList(getUserId());
     UserACL userACL = getApplicationComponent(UserACL.class);
     // groupNavigationPermitted is set to true if the user is the super
     // user
@@ -112,6 +125,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
           navigationItr.remove();
         }
       }
+    }
+    if (spacesSortedByAccesscount != null && !spacesSortedByAccesscount.isEmpty()) {
+      Collections.sort(computedNavigations, spaceAccessComparator);
     }
     return computedNavigations;
   }
