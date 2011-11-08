@@ -4,6 +4,7 @@
 	<nodeType name="plf:spaceaccess" isMixin="false" hasOrderableChildNodes="false">
 		<supertypes>
 			<supertype>nt:base</supertype>
+         	<supertype>nt:hierarchyNode</supertype>
 			<supertype>mix:referenceable</supertype>
 		</supertypes>
 		<propertyDefinitions>
