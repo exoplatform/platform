@@ -395,7 +395,7 @@
 				<values-param>
 					<name>entities</name>
 					<value>org.exoplatform.platform.common.space.statistic.SpaceAccess</value>
-					<value>org.exoplatform.platform.common.space.statistic.NTUnstructered</value>
+					<value>org.exoplatform.platform.common.space.statistic.NTUnstructured</value>
 				</values-param>
 				<properties-param>
 					<name>options</name>
