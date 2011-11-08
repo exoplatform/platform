@@ -98,11 +98,10 @@ public class SpaceAccessService {
   }
 
   public ChromatticSession getSession() {
-    if (session.get() != null) {
-      return session.get();
-    } else {
-      return lifeCycle.getChromattic().openSession();
+    if (session.get() == null) {
+      session.set(lifeCycle.getChromattic().openSession());
     }
+    return session.get();
   }
 
 }
