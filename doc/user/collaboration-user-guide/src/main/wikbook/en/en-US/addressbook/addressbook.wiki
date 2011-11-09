@@ -115,7 +115,7 @@ The *Add/Edit Contact* form appears.
 *Add contact's email address*
 
 * Click !images/plus_icon.png! next to the *Email* field if you want to add more email addresses for the contact.
-* Add your new email address by clicking !images/plus_icon.png!, or remove one by clicking !images/remove_icon.png!.
+* Add your new email address by clicking !images/plus_icon.png!, or remove one by clicking !images/Delete_icon.png!.
 
 *Add contact's instant message information*
 
@@ -291,7 +291,7 @@ h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_con
 
 This way allows you to delete multiple contacts.
 
-*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/remove_icon.png! on the action bar.
+*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/Delete_icon.png! on the action bar.
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 

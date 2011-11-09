@@ -92,7 +92,7 @@ If you use multiple accounts, you can delete any unused mail accounts.
 
 !images/Delete_acc_form.png!
 
-*2.* Click !images/remove_icon.png! corresponding to the account and then select *OK* to confirm your deletion.
+*2.* Click !images/Delete_icon.png! corresponding to the account and then select *OK* to confirm your deletion.
 
 {docbook}
 <note>
@@ -210,7 +210,7 @@ To download attachments to your local system, click!images/Download_button.png!.
 In this form, you can:
 
 || Fields || Functions ||
-|!images/1.1.png!|Change name of the downloaded file into DMS.|
+|!images/1.png!|Change name of the downloaded file into DMS.|
 |!images/2.png!|Browse user drives/folders.|
 |!images/3.png!|View folders and files of the currently openned drive/folder. In this pane, you can remove the folder by clicking *Remove* next to the relevant folder.|
 |!images/4.png!|View the path of the selected location.|
@@ -294,7 +294,7 @@ Once the message was removed from the *Spam* folder, all messages from its sende
 
 h2. Delete messages {anchor:id="Delete_a_message"}
 
-To delete messages, select the relevant messages, then right-click and select *Delete* in the context menu or click !images/Trash_icon.png! from the action bar.
+To delete messages, select the relevant messages, then right-click and select *Delete* in the context menu or click !images/Delete_icon.png! from the action bar.
 
 Also, to delete the message permanently, open messages in the *Trash* folder, then right-click the relevant message and then select *Delete* in the context menu. Or, select messages and click the trash icon from the action bar.
 
@@ -385,7 +385,7 @@ h2. Attach files to a message {anchor:id="Attach_attachment_to_message"}
 
 *3.* Go back to the *Compose a new message* window, you will see the attached files shown in the *Attachments* area.
 
-If you do not want to include an attached file in the message, just click !images/remove_icon.png! next to the attached file to remove it.
+If you do not want to include an attached file in the message, just click !images/Delete_icon.png! next to the attached file to remove it.
 
 h3. Attach a server file {anchor:id=Attach_server_file}
 

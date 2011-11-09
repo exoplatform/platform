@@ -308,7 +308,7 @@ Also:
 
 * Select the group to which the imported calendar belongs, the country, time zone and color of the imported calendar.
 
-* Click !images/upload_form_icon.jpg! to to show a form used to import an uploaded file to an existing calendar: 
+* Click !images/upload_form_icon.png! to to show a form used to import an uploaded file to an existing calendar: 
  
 !images/calendar1.png|align="center"!
 
@@ -1044,7 +1044,7 @@ The *Edit Feed* from will be displayed.
 
 *3.* Input the name of calendar that you want to get RSS feed in the *add more* field.
 
-*4.* Click !images/plus_icon.png! to add more calendars. You also can delete an added calendar by clicking !images/remove_icon.png!corresponding to the calendar name.
+*4.* Click !images/plus_icon.png! to add more calendars. You also can delete an added calendar by clicking !images/Delete_icon.png! corresponding to the calendar name.
 
 *5.* Click *Save* to accept generating the feed, then click *OK* the message dialog that appears.
 
@@ -1162,7 +1162,7 @@ The selected calendar group will be removed from the *Group* table. Besides, the
     <para>
     You can also delete a calendar group in the <emphasis role="bold">Calendar Groups</emphasis> form clicking <inlinemediaobject>
             <imageobject>
-              <imagedata fileref="images/remove_icon.pngg" format="PNG"/>
+              <imagedata fileref="images/Delete_icon.png" format="PNG"/>
             </imageobject>
           </inlinemediaobject>
  corresponding to the group that you want to delete. The <emphasis role="bold">Calendar Groups</emphasis> form is opened when you add or edit a calendar group.
@@ -1195,7 +1195,7 @@ This function allows changing name and description of a selected category.
 
 The *Event Categories* form will be displayed.
 
-*2.* Click !images/edit_icon.png! corresponding to the category that you want to edit or click the !images/remove_icon.png! icon corresponding to the category you want to delete.
+*2.* Click !images/edit_icon.png! corresponding to the category that you want to edit or click !images/Delete_icon.png! corresponding to the category you want to delete.
 
 *3.* Complete editing/deleting by clicking *Save*.
 
