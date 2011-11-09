@@ -74,9 +74,12 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
       // spaceService could be "null" when the Social profile isn't
       // activated
     }
-    organizationService = getApplicationComponent(OrganizationService.class);
+    if (spaceService == null) { // Social profile disabled
+      return;
+    }
     SpaceAccessService spaceAccessService = getApplicationComponent(SpaceAccessService.class);
     spacesSortedByAccesscount = spaceAccessService.getSpaceAccessList(getUserId());
+    organizationService = getApplicationComponent(OrganizationService.class);
     UserACL userACL = getApplicationComponent(UserACL.class);
     // groupNavigationPermitted is set to true if the user is the super
     // user
@@ -97,11 +100,11 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
   }
 
   public List<UserNavigation> getGroupNavigations() throws Exception {
-    String remoteUser = getUserId();
-    UserPortal userPortal = getUserPortal();
-    List<UserNavigation> allNavigations = userPortal.getNavigations();
     List<UserNavigation> computedNavigations = null;
     if (spaceService != null) {
+      String remoteUser = getUserId();
+      UserPortal userPortal = getUserPortal();
+      List<UserNavigation> allNavigations = userPortal.getNavigations();
       computedNavigations = new ArrayList<UserNavigation>(allNavigations);
       ListAccess<Space> spacesListAccess = spaceService.getAccessibleSpacesWithListAccess(remoteUser);
       List<Space> spaces = Arrays.asList(spacesListAccess.load(0, spacesListAccess.getSize()));
@@ -125,9 +128,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
           navigationItr.remove();
         }
       }
-    }
-    if (spacesSortedByAccesscount != null && !spacesSortedByAccesscount.isEmpty()) {
-      Collections.sort(computedNavigations, spaceAccessComparator);
+      if (spacesSortedByAccesscount != null && !spacesSortedByAccesscount.isEmpty()) {
+        Collections.sort(computedNavigations, spaceAccessComparator);
+      }
     }
     return computedNavigations;
   }
@@ -169,11 +172,13 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
   }
 
   boolean renderSpacesLink() throws Exception {
-    UserNavigation nav = getCurrentPortalNavigation();
-    Collection<UserNode> userNodes = getUserNodes(nav);
-    for (UserNode node : userNodes) {
-      if (node.getURI().equals("spaces")) {
-        return true;
+    if (spaceService != null) {
+      UserNavigation nav = getCurrentPortalNavigation();
+      Collection<UserNode> userNodes = getUserNodes(nav);
+      for (UserNode node : userNodes) {
+        if (node.getURI().equals("spaces")) {
+          return true;
+        }
       }
     }
     return false;
