@@ -197,7 +197,7 @@ The administrator can edit profiles of members and promote any user to administr
 
 *1.* Click !images/users_icon.png! on the Action bar. The User Management form will be displayed.
 
-*2.* Click !images/Edit_icon2.png! corresponding to the user you want to promote. The profile of this user will be displayed right below the users list.
+*2.* Click !images/edit_icon.png! corresponding to the user you want to promote. The profile of this user will be displayed right below the users list.
 
 !images/admin_forum_user_management_profile_tab.png|align="center"!
 
@@ -373,7 +373,7 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 
 h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes}
 
-*1.* Click !images/Edit_icon2.png! corresponding to the relevant BBCodes tag in the *BBCode Manager* form. 
+*1.* Click !images/edit_icon.png! corresponding to the relevant BBCodes tag in the *BBCode Manager* form. 
 
 !images/admin_forum_edit_bbccode_form.png|align="center"!
 
@@ -449,7 +449,7 @@ You will see the new topic type has been added.
 
 !images/admin_forum_topic_type_manager1.png|align="center"!
 
-* To edit the topic type, click !images/Edit_icon2.png!.
+* To edit the topic type, click !images/edit_icon.png!.
 
 * To delete the topic type, click !images/Remove_icon.png!.
 

@@ -91,7 +91,7 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories].
 
-*2.* Select !images/Edit_icon2.png!.
+*2.* Select !images/edit_icon.png!.
 
 *3.* Edit the properties.
 

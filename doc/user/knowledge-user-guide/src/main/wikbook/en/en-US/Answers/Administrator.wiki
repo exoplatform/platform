@@ -189,7 +189,7 @@ The *Page Manager* page will be displayed.
 
 !images/Page_manager_page.png|align="center"!
 
-*2.* Click !images/Edit_icon2.png! that corresponds to the *FAQ* page in the page list. Now, you should be in the page edit mode.
+*2.* Click !images/edit_icon.png! that corresponds to the *FAQ* page in the page list. Now, you should be in the page edit mode.
 
 *3.* Hover your cursor over the FAQ portlet and click !images/edit_icon3.png! in the quick edit toolbar that appears.
 
