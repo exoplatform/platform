@@ -39,10 +39,6 @@ def uicomponentId = uicomponent.getId();
 		UIPageIterator iteratorAdministrators = uicomponent.getIteratorAdministrators();
 		def spaceDisplayName = uicomponent.getSpaceDisplayName();
 		def spaceDescription = uicomponent.getSpaceDescription();
-		def spaceImageSource = uicomponent.getSpaceImageSource();
-		if (spaceImageSource == null) {
-			spaceImageSource = LinkProvider.SPACE_DEFAULT_AVATAR_URL;
-		}
 		def spaceMembersNumber = uicomponent.getSpaceMembersNumber();
 		def spaceMembersURL = uicomponent.getSpaceFullURL() + "/" + "members";
 		def administratorsList = uicomponent.getAdministrators();
@@ -70,11 +66,7 @@ def uicomponentId = uicomponent.getId();
 				<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
 					<img class="buttom" src="$administratorImageSource" title="$userName"/>
 				</a>
-				<a class="UISpaceLogo" href="javaScript:void(0);">
-					<img class="top" src="$spaceImageSource"  />
-				</a>
 				
-
 				<%
 					}
 					if (iteratorAdministrators.getAvailablePage() > 1) {

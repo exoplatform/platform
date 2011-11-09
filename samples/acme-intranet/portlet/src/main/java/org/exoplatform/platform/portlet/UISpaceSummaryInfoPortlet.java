@@ -106,7 +106,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
    * @return image source url or an empty String
    * @throws Exception 
    */
-  public String getSpaceImageSource() throws Exception {
+  /*public String getSpaceImageSource() throws Exception {
     SpaceService spaceService = getSpaceService();
     Space space = spaceService.getSpaceByUrl(SpaceUtils.getSpaceUrl());
     if (space != null) {
@@ -114,7 +114,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
     }else{
       return ""; 
     }
-  }
+  }*/
 
   /**
    * Gets the number of members of a space.

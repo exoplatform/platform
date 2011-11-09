@@ -83,7 +83,7 @@
 	padding-top: 5px;
 }
 
-.UISpaceSummaryInfoPortlet .UISpaceSummary  .UISpaceAdminAvatar img.buttom  ,.UISpaceSummaryInfoPortlet .UISpaceSummary  .UISpaceLogo img.top{
+.UISpaceSummaryInfoPortlet .UISpaceSummary  .UISpaceAdminAvatar img.buttom  ,.UISpaceSummaryInfoPortlet .UISpaceSummary img.top{
 	height: 32px;
 	width: 32px;
 	vertical-align: bottom;
