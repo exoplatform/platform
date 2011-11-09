@@ -1017,4 +1017,11 @@ public class MockForumService implements ForumService {
 		
 	}
 
+	@Override
+	public void calculateDeletedGroup(String groupId, String groupName)
+			throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -20,7 +20,7 @@
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-surefire-plugin</artifactId>
 	        <configuration>
-	          <skipTests>true</skipTests>
+	          <skipTests>false</skipTests>
 	          <systemPropertyVariables>
 	            <exo.properties.url>classpath:/conf/configuration.properties</exo.properties.url>
 	            <exo.profiles>all</exo.profiles>
