@@ -1,14 +1,14 @@
 h1. About eXo Knowledge {anchor:id=KSuser.Overview.AboutKS}
 h2. What is eXo Knowledge? {anchor:id=KSuser.Overview.WhateXoKnowledge}
-eXo Knowledge is one of the applications of eXo Platform. This is a suite of applications, which contains everything you need for the knowledge management. eXo Knowledge is made up of three main portlets: Forum, Answers and Wiki where you can share information, seek supports through helpful answers and post your ideas.  
+eXo Knowledge is one of eXo Platform applications. This is a suite of applications, which contains everything you need for the knowledge management. eXo Knowledge is made up of three main portlets: Forum, Answers and Wiki where you can share information, seek supports through helpful answers and post your ideas.  
 
 *Answers and FAQ*
 
-Answers is a collaborative Question & Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. FAQ takes this content as input and publish it in a clean and quickly browsable manner. You can point a FAQ portlet to one or several Answers categories. As a publishing portlet, it is impossible to edit questions and answers in FAQ.
+*Answers* is a collaborative Question & Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. FAQ takes this content as input and publish it in a clean and quickly browsable manner. You can point a FAQ portlet to one or several Answers categories. As a publishing portlet, it is impossible to edit questions and answers in FAQ.
 
 *Forum*
 
-Forum is designed for the group discussion and user-generated content in which participants with common interests can exchange their opinions on a subject. While Answers is an ideal site for you to find answers quickly, Forum gives deep discussion through your posted topics.
+*Forum* is designed for the group discussion and user-generated content in which participants with common interests can exchange their opinions on a subject. While Answers is an ideal site for you to find answers quickly, Forum gives deep discussion through your posted topics.
 
 *Wiki*
 
