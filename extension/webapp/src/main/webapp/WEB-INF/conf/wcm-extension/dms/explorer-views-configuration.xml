@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-  <!--
+<!--
 
     Copyright (C) 2009 eXo Platform SAS.
     
@@ -25,17 +25,39 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
 
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
     <component-plugin>
-      <name>manage.drive.plugin</name>
-      <set-method>setManageDrivePlugin</set-method>
-      <type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
-      <description>Nothing</description>
+      <name>manage.view.plugin</name>
+      <set-method>setManageViewPlugin</set-method>
+      <type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
+      <description>this plugin manage user view</description>
       <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>predefinedViewsLocation</name>
+          <value>war:/conf/wcm-artifacts</value>
+        </value-param>
+        <value-param>
+          <name>repository</name>
+          <value>repository</value>
+        </value-param>
+        <object-param>
+          <name>Content Template</name>
+          <description>Template to display contents in list style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>ContentView</string></field>
+            <field name="warPath"><string>/ecm-explorer/ContentView.gtmpl</string></field>
+          </object>
+        </object-param>
+
       </init-params>
     </component-plugin>
-
   </external-component-plugins>
+
 </configuration>

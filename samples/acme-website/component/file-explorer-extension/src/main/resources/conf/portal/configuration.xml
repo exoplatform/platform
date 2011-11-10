@@ -82,38 +82,6 @@
 					<name>predefinedViewsLocation</name>
 					<value>war:/conf/wcm-artifacts</value>
 				</value-param>
-				 <object-param>
-		          <name>WCM-View</name>
-		          <description>View configuration of WCM administrator</description>
-		          <object type="org.exoplatform.services.cms.views.ViewConfig">
-		            <field name="name"><string>wcm-view</string></field>
-		            <field name="permissions"><string>*:/platform/web-contributors</string></field>
-		            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
-		            <field name="tabList">
-		              <collection type="java.util.ArrayList">
-		                <value>
-		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-		                    <field name="tabName"><string>Publication</string></field>
-		                    <field name="buttons"><string>addFolder; addDocument; editDocument; upload; managePublications; manageCategories; contentNavigation</string>
-		                    </field>
-		                  </object>
-		                </value>
-		                <value>
-		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-		                    <field name="tabName"><string>Collaboration</string></field>
-		                    <field name="buttons"><string>viewMetadatas; taggingDocument; vote; Comment</string></field>
-		                  </object>
-		                </value>
-		                <value>
-		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-		                    <field name="tabName"><string>System</string></field>
-		                    <field name="buttons"><string>viewPermissions; viewProperties; manageVersions; exportNode; importNode</string></field>
-		                  </object>
-		                </value>
-		              </collection>
-		            </field>
-		          </object>
-		        </object-param>
 		        <object-param>
 		          <name>WCM-Category-View</name>
 		          <description>View configuration of WCM contributors</description>

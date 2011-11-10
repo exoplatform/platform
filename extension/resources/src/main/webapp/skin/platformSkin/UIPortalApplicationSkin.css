@@ -190,3 +190,13 @@ a {
 	background: url('/ecmexplorer/skin/webui/component/explorer/UIJCRExplorer/DefaultSkin/background/IconDrivesArea.gif') no-repeat center -115px;
 	height: 23px;
 }
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .list-view {
+  background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailView.gif') no-repeat center !important;
+  display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .list-view-selected {
+  background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.gif') no-repeat center !important;
+  display: block;
+}
