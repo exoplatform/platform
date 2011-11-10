@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Print contacts-</td>
+	<td>-- Sign In</td>
 	<td></td>
 </tr>
 <tr>
@@ -58,42 +58,57 @@
 </tr>
 <tr>
 	<td>echo</td>
+	<td>-- Go to Email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.ItemBar.Email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.ItemBar.Email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
 	<td>-- Add an Contact</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Contacts</td>
+	<td>//div[contains(text(),'Contacts')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Contacts</td>
+	<td>//div[contains(text(),'Contacts')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Contact</td>
+	<td>//div[@class='IconHolder AddContact']/div[text()='Add']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Contact</td>
+	<td>//div[@class='IconHolder AddContact']/div[text()='Add']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>firstName</td>
+	<td>id=first-name</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>firstName</td>
+	<td>id=first-name</td>
 	<td>Test_44</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>lastName</td>
+	<td>id=last-name</td>
 	<td>eXo_Contact</td>
 </tr>
 <tr>
@@ -108,7 +123,7 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>multiEmail0</td>
+	<td>id=email0</td>
 	<td>Test_44@gmail.com</td>
 </tr>
 <tr>
@@ -123,21 +138,11 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>xpath=//div[@class='PersonalAddress']//div[@title='My Contacts']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=//div[@class='PersonalAddress']//div[@title='My Contacts']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
 	<td>link=Test_44 eXo_Contact</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
+	<td>click</td>
 	<td>link=Test_44 eXo_Contact</td>
 	<td></td>
 </tr>
@@ -149,51 +154,6 @@
 <tr>
 	<td>verifyElementPresent</td>
 	<td>link=Test_44@gmail.com</td>
-	<td></td>
-</tr>
-<tr>
-	<td>echo</td>
-	<td>-- Print Contact</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//tr[2]/td[1]/input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//tr[2]/td[1]/input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UIContacts']/div[2]/a[5]/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Print</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Print</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Close</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Close</td>
 	<td></td>
 </tr>
 <tr>
@@ -203,17 +163,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//tr[2]/td[1]/input</td>
+	<td>//div[@class='IconHolder DeleteContact']/div[text()='Delete']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//tr[2]/td[1]/input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[2]/a[4]/div</td>
+	<td>//div[@class='IconHolder DeleteContact']/div[text()='Delete']</td>
 	<td></td>
 </tr>
 <tr>
@@ -222,16 +177,25 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>echo</td>
+	<td>* CS-5506</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>close</td>
-	<td></td>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
