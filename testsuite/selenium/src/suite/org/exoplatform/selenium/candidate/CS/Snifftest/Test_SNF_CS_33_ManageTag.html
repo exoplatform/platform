@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,28 +57,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>echo</td>
+	<td>-- Go to Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mail</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Mail</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>clickAndWait</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>- Check message to tag</td>
+	<td>- Check message in Sent box to tag</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,8 +107,13 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add New Tag</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>link=Add a new tag</td>
+	<td>link=Add New Tag</td>
 	<td></td>
 </tr>
 <tr>
@@ -177,6 +177,11 @@
 	<td>eXo_Tag_33_Edited</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Select color</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>//td[2]/div/div[1]/span</td>
 	<td></td>
@@ -193,6 +198,11 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>link=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>link=eXo_Tag_33_Edited</td>
 	<td></td>
 </tr>
@@ -222,23 +232,33 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementPresent</td>
-	<td>eXo_Tag_33_Edited</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>eXo_Tag_33_Edited</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//form[@id='UITagForm']/div[2]/div/div/table/tbody/tr/td/div[1]/div/div/div</td>
+	<td>echo</td>
+	<td>-- Check tag</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='OrangeRedTag SubjectItem']</td>
+	<td>name=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.ActionButton.LightBlueStyle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.ActionButton.LightBlueStyle</td>
 	<td></td>
 </tr>
 <tr>
@@ -247,13 +267,28 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=eXo_Tag_33_Edited</td>
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>* CS-5484</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
-	<td>//a[@class='OrangeRedTag SubjectItem']</td>
+	<td>link=eXo_Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=eXo_Test</td>
 	<td></td>
 </tr>
 <tr>
@@ -282,8 +317,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=eXo_Tag_33_Edited</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementNotPresent</td>
-	<td>//a[@class='OrangeRedTag SubjectItem']</td>
+	<td>link=eXo_Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=eXo_Test</td>
 	<td></td>
 </tr>
 <tr>
@@ -317,13 +367,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAtAndWait</td>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>close</td>
-	<td></td>
+	<td>clickAtAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 </tbody></table>
