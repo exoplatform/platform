@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,23 +57,18 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>echo</td>
+	<td>-- Go to Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mail</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Mail</td>
-	<td></td>
-</tr>
-<tr>
-	<td>pause</td>
-	<td>10000</td>
+	<td>clickAndWait</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
@@ -112,18 +107,13 @@
 	<td>eXo_Folder</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Save add Folder</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Save</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>link=Cancel</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Cancel</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,7 +133,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Edit folder</td>
+	<td>-- Rename folder</td>
 	<td></td>
 </tr>
 <tr>
@@ -174,7 +164,12 @@
 <tr>
 	<td>type</td>
 	<td>newFolderName</td>
-	<td>eXo_Folder_Edited</td>
+	<td>Mail eXo</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save Rename Folder</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -183,12 +178,12 @@
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
@@ -198,12 +193,12 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>contextMenu</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
@@ -233,11 +228,16 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>link=Sub_eXo_Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
 	<td>link=Sub_eXo_Folder</td>
 	<td></td>
 </tr>
@@ -248,12 +248,12 @@
 </tr>
 <tr>
 	<td>mouseOver</td>
-	<td>link=eXo_Folder_Edited</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>contextMenu</td>
-	<td>link=Remove</td>
+	<td>link=Mail eXo</td>
 	<td></td>
 </tr>
 <tr>
@@ -268,7 +268,17 @@
 </tr>
 <tr>
 	<td>assertConfirmation</td>
-	<td>The folder and its content will be deleted. Do you confirm ?</td>
+	<td>Are you sure to delete the folder and all its content?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
@@ -276,12 +286,6 @@
 	<td>link=Logout</td>
 	<td></td>
 </tr>
-<tr>
-	<td>close</td>
-	<td></td>
-	<td></td>
-</tr>
-
 </tbody></table>
 </body>
 </html>
