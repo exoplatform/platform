@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,27 +57,32 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
+	<td>echo</td>
+	<td>-- Go to Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mail</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Mail</td>
+	<td>clickAndWait</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Forwardmail</td>
+	<td>-- Forwardmail: Select first letter</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+	<td>xpath=//div[@id='uiMessageGrid']//table[@id='UIListUsers']/tbody[1]//input[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
 	<td>xpath=//div[@id='uiMessageGrid']//table[@id='UIListUsers']/tbody[1]//input[1]</td>
 	<td></td>
 </tr>
@@ -142,6 +147,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Sent</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Sent</td>
 	<td></td>
@@ -164,11 +174,6 @@
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>open</td>
-	<td>/portal</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,28 +212,23 @@
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Goto Mail Account</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Mail</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Mail</td>
+	<td>clickAndWait</td>
+	<td>css=a.ItemBar.Email</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Check Get Mail</td>
+	<td>-- Check Get Mails</td>
 	<td></td>
 </tr>
 <tr>
@@ -247,6 +247,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Refresh</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Verify have received letter that is FW</td>
+	<td></td>
+</tr>
+<tr>
 	<td>waitForElementPresent</td>
 	<td>link=Fwd: eXo_Test</td>
 	<td></td>
@@ -257,16 +277,20 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>echo</td>
+	<td>-- Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>close</td>
-	<td></td>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
