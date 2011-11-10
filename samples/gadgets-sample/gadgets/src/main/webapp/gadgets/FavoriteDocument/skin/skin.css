@@ -2,6 +2,18 @@
  color:#cccccc;
 }
 
+.UIGadgetThemes .GadCont span {
+    color: #1A1A1A;
+    font-weight: bold;
+}
+
+.UIGadgetThemes .GadCont .customLink {
+	text-decoration:underline;
+	color:#226ab4; 
+	cursor:pointer;
+	font-weight: normal;
+}
+
 .UIGadgetThemes .FavoritesList .CreatedDate {
  color:#707070;
  font-style: italic;

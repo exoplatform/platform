@@ -23,9 +23,18 @@
   <msg name="title">
     Documents Favoris
   </msg>
-  <msg name="nofav">
-    Vous n'avez pas de favoris.
+  <msg name="titleFav">
+    Mes Favoris
   </msg>
+  <msg name="titleDoc">
+    Mes Documents
+  </msg>    
+  <msg name="nofav">
+    Vous n'avez pas de favoris ...
+  </msg>
+  <msg name="nodoc">
+    Vous n'avez pas de documents ...
+  </msg>  
   <msg name="showall">
     Montrer tout
   </msg>
