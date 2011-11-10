@@ -73,7 +73,9 @@
 			<values-param>
 				<name>mandatory.mstypes</name>
 				<description>Membership type that can not be deleted.</description>
-				<value>member</value>     
+				<value>member</value>
+				<value>manager</value>
+				<value>*</value>
 			</values-param>                 
 		</init-params>   
 	</component>
