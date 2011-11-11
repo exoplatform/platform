@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2010 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.doc.user</artifactId>
+    <version>3.5.0-CR1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.doc.user.platform</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo Platform - User Guide</name>
+
+  <properties>
+    <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
+    <wikbook.syntaxId>confluence/1.0</wikbook.syntaxId><!-- confluence/1.0 -->
+    <wikbook.validationMode>lax</wikbook.validationMode> <!-- lax/strick -->
+    <wikbook.source>${project.build.directory}/wikbook-src</wikbook.source>
+    <docbook.source>${project.build.directory}/docbook-src</docbook.source>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>distrib</id>
+
+      <dependencies>
+	   <dependency>
+		 <groupId>org.exoplatform.doc</groupId>
+		 <artifactId>doc-style</artifactId>
+		 <version>${doc-style.version}</version>
+		 <type>jar</type>
+	   </dependency>
+	  </dependencies>
+
+      <build>
+      <plugins>
+    <!--
+    1/
+     - download the user guides of all products
+     - unpack them in /target
+    -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>a-unpack</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.wikbook</groupId>
+                      <artifactId>wikbook.docbkxstyle</artifactId>
+                      <version>${version.wikbook.plugin}</version>
+                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <includes>**</includes>
+                      <excludes>META-INF/**</excludes>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>org.exoplatform.doc</groupId>
+                      <artifactId>doc-style</artifactId>
+                      <version>${doc-style.version}</version>
+                      <outputDirectory>${docbook.source}</outputDirectory>
+                      <includes>**</includes>
+                      <excludes>META-INF/**</excludes>
+                    </artifactItem>
+                    <!-- gatein - disabled while it is in ODT format -->
+                    <artifactItem>
+                      <groupId>org.gatein.doc</groupId>
+                      <artifactId>gatein-user-guide-en</artifactId>
+                      <version>3.2.0-PLF-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${docbook.source}/gatein/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- webos -->
+                    <!--artifactItem>
+                      <groupId>org.exoplatform.platform</groupId>
+                      <artifactId>webos-user-guide</artifactId>
+                      <version>1.0-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${wikbook.source}/webos/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem-->
+                    <!-- ecms -->
+                    <!--artifactItem>
+                      <groupId>org.exoplatform.ecms</groupId>
+                      <artifactId>exo-ecms-docs-userguide</artifactId>
+                      <version>1.0-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${docbook.source}/ecms/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem-->
+                    <!-- cs -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.platform</groupId>
+                      <artifactId>exo.platform.doc.user.collaboration</artifactId>
+                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${wikbook.source}/collaboration</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- ks -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.platform</groupId>
+                      <artifactId>exo.platform.doc.user.knowledge</artifactId>
+                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${wikbook.source}/knowledge/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                    <!-- social -->
+                    <artifactItem>
+                      <groupId>org.exoplatform.platform</groupId>
+                      <artifactId>exo.platform.doc.user.social</artifactId>
+                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <classifier>sources</classifier>
+                      <outputDirectory>${wikbook.source}/social/</outputDirectory>
+                      <includes>**</includes>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+    <!--
+    2/
+     - move the xml, xsl, css and images from src/main/ to target/plf/
+    -->
+          <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.4.3</version>
+            <executions>
+              <execution>
+                <id>b-copy-resources</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${project.build.directory}/</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>src/main/resources</directory>
+                      <excludes>
+                       <exclude>docbook-src/css/**</exclude>
+                       <exclude>docbook-src/xsl/**</exclude>
+                      </excludes>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+              <execution>
+                <id>c-copy-images</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${docbook.source}/images</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>${project.build.directory}/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${wikbook.source}/webos/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${docbook.source}/gatein/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${docbook.source}/ecms/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${wikbook.source}/collaboration/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${wikbook.source}/knowledge/images</directory>
+                    </resource>
+                    <resource>
+                      <directory>${wikbook.source}/social/images</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+              <!--execution>
+                <id>d-copy-background</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${docbook.source}/background</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>${wikbook.source}/webos/background</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution-->
+            </executions>
+          </plugin>
+
+    <!--
+    3/
+     - process all the wiki files from target/
+     - to generate an intermediate index.xml
+     - contains plf + all projects but not ecms
+    -->
+         <plugin>
+            <groupId>org.wikbook</groupId>
+            <artifactId>wikbook.maven</artifactId>
+            <version>${version.wikbook.plugin}</version>
+            <executions>
+              <execution>
+                <id>e-generate-docbook</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>transform</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <sourceDirectory>${wikbook.source}</sourceDirectory>
+              <sourceFileName>book.wiki</sourceFileName>
+              <destinationDirectory>${docbook.source}</destinationDirectory>
+              <destinationFileName>index.xml</destinationFileName>
+              <beforeBookBodyXML><![CDATA[
+                 <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+           ]]></beforeBookBodyXML>
+		    <syntaxId>confluence/1.0</syntaxId>
+            </configuration>
+          </plugin>
+
+    <!--
+    4/
+     - include ecms docbook files
+    -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>f-include-ecms</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <target>
+              <replace file="${docbook.source}/index.xml">
+                  <replacetoken><![CDATA[<title>Manage accounts</title>]]></replacetoken>
+		  <replacevalue><![CDATA[<title>Manage accounts</title>
+<xi:include href="gatein/modules/account/Register_New_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="gatein/modules/account/Sign_in_and_Sign_out.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="gatein/modules/account/Change_Account_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+                  <replace file="${docbook.source}/index.xml">
+                  <replacetoken><![CDATA[<title>About Administration bar</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>About Administration bar</title>
+<xi:include href="gatein/modules/portal/Toolbar.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage users and groups</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage users and groups</title>
+<xi:include href="gatein/modules/portal/User_Management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage permissions</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage permissions</title>
+<xi:include href="gatein/modules/portal/Manage_Permission.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+      <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage portals/websites</title>]]></replacetoken>
+        <replacevalue><![CDATA[<title>Manage portals/websites</title>
+<xi:include href="gatein/modules/portal/Manage_Portals.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+			</replace>
+
+      <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage navigation nodes</title>]]></replacetoken>
+        <replacevalue><![CDATA[<title>Manage navigation nodes</title>
+<xi:include href="gatein/modules/portal/Manage_Navigation_Nodes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+			</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage pages</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage pages</title>
+<xi:include href="gatein/modules/portal/Manage_Pages.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="gatein/modules/portal/Manage_Page_Navigation.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Inside a portal</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Inside a portal</title>
+<xi:include href="gatein/modules/gadgetsAdmin/Manage_Portlets_and_Gadgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="gatein/modules/portletsUser/Dashboard_Portlet.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+        <!--replace file="${docbook.source}/index.xml">
+           <replacetoken><![CDATA[<title>Structure content</title>]]></replacetoken>
+           <replacevalue><![CDATA[<title>Structure content</title>
+<xi:include href="ecms/modules/Basics/SitesExplorer/Access_Sites_Explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SitesExplorer/Drives.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SitesExplorer/Views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SitesExplorer/Actions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SitesExplorer/Folders_and_Documents.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Advanced/Administration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+         </replace>
+
+         <replace file="${docbook.source}/index.xml">
+				  <replacetoken><![CDATA[<title>Manage content</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage content</title>
+<xi:include href="ecms/modules/Basics/Contribute_Content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Content_Inside_Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SitesExplorer/Manage_Content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Webdav.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/FastContentCreator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Content_By_Query.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/FormGenerator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/SEO_management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Print.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+            </replace>
+           <replace file="${docbook.source}/index.xml">
+           <replacetoken><![CDATA[<title>Manage newsletters</title>]]></replacetoken>
+           <replacevalue><![CDATA[<title>Manage newsletters</title>
+				  <xi:include href="ecms/modules/Basics/Newsletters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+         ]]></replacevalue>
+				</replace-->
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    <!--
+    5/
+     - process all the xml files temporary + ecms + master
+     - to generate the html and the pdf
+    -->
+
+         <plugin>
+            <groupId>org.jboss.maven.plugins</groupId>
+            <artifactId>maven-jdocbook-plugin</artifactId>
+            <version>2.1.1</version>
+            <extensions>true</extensions>
+            <dependencies>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-docbook-xslt</artifactId>
+                  <version>1</version>
+               </dependency>
+               <dependency>
+                  <groupId>org.exoplatform.doc</groupId>
+                  <artifactId>exo-jdocbook-style</artifactId>
+                  <version>1</version>
+                  <type>jdocbook-style</type>
+               </dependency>
+            </dependencies>
+            <executions>
+             <execution>
+                <id>g-jdocbook-resources</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>resources</goal>
+                </goals>
+              </execution>
+             <execution>
+               <id>h-generate-docs</id>
+               <goals>
+                 <goal>generate</goal>
+               </goals>
+               <phase>compile</phase>
+               </execution>
+             </executions>
+		        <configuration>
+                   <sourceDirectory>${docbook.source}</sourceDirectory>
+		           <sourceDocumentName>index.xml</sourceDocumentName>
+		           <imageResource>
+		              <directory>${docbook.source}</directory>
+		              <includes>
+		                 <include>images/**</include>
+		                 <include>background/**</include>
+		              </includes>
+		           </imageResource>
+		            <cssResource>
+		              <directory>${docbook.source}</directory>
+		              <includes>
+		                 <include>css/**</include>
+		              </includes>
+		           </cssResource>
+		           <formats>
+					<format>
+		                <formatName>pdf</formatName>
+		                 <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+		                 <finalName>index.pdf</finalName>
+		              </format>
+		              <!--format>
+		                 <formatName>html_single</formatName>
+		                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
+		                 <finalName>index.html</finalName>
+		              </format-->
+                      <format>
+		                <formatName>html</formatName>
+		                <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+		                <finalName>index.html</finalName>
+		              </format>
+		              <!--format>
+                        <formatName>eclipse</formatName>
+                        <stylesheetResource>file:${docbook.source}/xsl/eclipse35.xsl</stylesheetResource>
+                        <finalName>index.html</finalName>
+                      </format-->
+		           </formats>
+		           <options>
+		              <xincludeSupported>true</xincludeSupported>
+		              <xmlTransformerType>saxon</xmlTransformerType>
+		              <docbookVersion>1.76.1</docbookVersion>
+		           </options>
+		        </configuration>
+         </plugin>
+          
+          <!-- Attach the HTML zip -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assembly/html.xml</descriptor>
+                  </descriptors>
+                  <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+         <!-- Attach the PDF -->
+         <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>build-helper-maven-plugin</artifactId>
+           <executions>
+             <execution>
+               <id>attach-artifacts</id>
+               <phase>package</phase>
+               <goals>
+                 <goal>attach-artifact</goal>
+               </goals>
+               <configuration>
+                 <artifacts>
+                   <artifact>
+                     <file>target/docbook/publish/en-US/pdf/index.pdf</file>
+                     <type>pdf</type>
+                   </artifact>
+                 </artifacts>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

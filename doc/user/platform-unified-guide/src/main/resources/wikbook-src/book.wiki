@@ -1,0 +1,80 @@
+h1. eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform}
+h2. Contribute to documentation{anchor:id=Platform_User_Guide.eXo_Platform.Contribute_to_documentation}
+{include:document="Contribute_to_documentation.wiki"}
+h2. Introduction{anchor:id=Platform_User_Guide.eXo_Platform.Introduction}
+{include:document="Introduction.wiki"}
+
+h1. Tutorials{anchor:id=Platform_User_Guide.Tutorials}
+{include:document="Tutorials.wiki"}
+h2. Glossary{anchor:id=Platform_User_Guide.Tutorials.Glossary}
+{include:document="Glossary.wiki"}
+h2. eXo Platform 3.5 interface{anchor:id=Platform_User_Guide.Tutorials.PLF_Interface}
+{include:document="Interface.wiki"}
+h2. Manage accounts{anchor:id=Platform_User_Guide.Tutorials.Accounts}
+h2. Manage language{anchor:id=Platform_User_Guide.Tutorials.Manage_Language}
+{include:document="Manage_language.wiki"}
+
+h1. Manage Your Organization{anchor:id=Platform_User_Guide.Manage_Organization}
+{include:document="Introduction_Manage_Organization.wiki"}
+h2. About Administration bar{anchor:id=Platform_User_Guide.Manage_Organization.About_Administration_bar}
+h2. Manage users and groups{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Users_and_Groups}
+h2. Manage permissions{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Permission}
+h2. Manage portals/websites{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Portal_Website}
+h2. Manage navigation nodes{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Navigation_Nodes}
+h2. Manage pages{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Pages}
+h2. Manage applications{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications}
+In eXo Platform, applications can be managed [inside a portal|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal] or [inside Desktop|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop].
+h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal}
+h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop}
+
+{{{include:document="webos/en/en-US/Manage_applications.wiki"}}}
+
+
+h1. Organize Your Content{anchor:id=Platform_User_Guide.Organize_Content}
+{include:document="Introduction_Organize_Content.wiki"}
+h2. Structure content{anchor:id=Platform_User_Guide.Organize_Content.Structure_Content}
+{include:document="Introduction_Structure_Content.wiki"}
+h2. Structure content include docbook
+h2. Manage content{anchor:id=Platform_User_Guide.Organize_Content.Manage_Content}
+h2. Manage newsletters{anchor:id=Platform_User_Guide.Organize_Content.Newsletter}
+h2. Manage workflows{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows}
+{include:document="workflow.wiki"}
+
+h1. Collaborate With Your Colleagues{anchor:id=Platform_User_Guide.Collaboration}
+{include:document="collaboration/Collaboration_introduction.wiki"}
+h2. Communicate with your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts}
+h3. Manage your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts}
+{include:document="collaboration/addressbook/addressbook.wiki"}
+h3. Email your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts}
+{include:document="collaboration/mail/mail.wiki"}
+h3. Chat with your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat}
+{include:document="collaboration/chat/chat.wiki"}
+h2. Manage your agenda {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Manage_agenda}
+{include:document="collaboration/calendar/calendar.wiki"}
+
+h1. Organize Your Knowledge{anchor:id=Platform_User_Guide.Knowledge}
+{include:document="knowledge/Knowledge_introduction.wiki"}
+h2. Build wikis{anchor:id=Platform_User_Guide.Knowledge.Build_Wiki}
+{include:document="knowledge/use_wiki.wiki"}
+h2. Build forums{anchor:id=Platform_User_Guide.Knowledge.Build_Forums}
+{include:document="knowledge/forum/forum.wiki"}
+{include:document="knowledge/forum/forum_administrator.wiki"}
+{include:document="knowledge/forum/forum_regular_user.wiki"}
+{include:document="knowledge/forum/forum_moderator.wiki"}
+h2. Build FAQs{anchor:id=Platform_User_Guide.Knowledge.Build_FAQs}
+{include:document="knowledge/Answers/Administrator.wiki"}
+{include:document="knowledge/Answers/Moderator.wiki"}
+{include:document="knowledge/Answers/Regular_user.wiki"}
+
+h1. Build Social Network{anchor:id=Platform_User_Guide.Social}
+{include:document="Social_Introduction.wiki}
+h2. Manage your profile{anchor:id=Platform_User_Guide.Social.Manage_Profile}
+{include:document="social/User_profile.wiki"}
+h2. Manage spaces{anchor:id=Platform_User_Guide.Social.Manage_Spaces}
+{include:document="social/space/create_space.wiki"}
+{include:document="social/space/edit_space.wiki"}
+{include:document="social/space/leave_space.wiki"}
+h2. Build networks{anchor:id=Platform_User_Guide.Social.Build_Network}
+{include:document="social/Work_With_Connections.wiki"}
+h2. Follow activities in your organization{anchor:id=Platform_User_Guide.Social.Follow_Activities}
+{include:document="social/activity/Work_With_Activities.wiki"}

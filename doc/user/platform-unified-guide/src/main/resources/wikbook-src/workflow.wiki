@@ -1,0 +1,177 @@
+*Workflow* is the movement of documents and/or tasks through a work process. More specifically, workflow is the operational aspect of a work procedure: how tasks are structured, who performs them, what their relative order is, how they are synchronized, how information flows to support the tasks and how tasks are being tracked. As the dimension of time is considered in Workflow, Workflow considers "throughput" as a distinct measure. Workflow problems can be modeled and analyzed using graph-based formalisms like Petri nets.
+
+eXo Platform supports two default processes that are used to request tasks from users:
+
+*Holiday process*: This process is used to request a task related to your holiday. If you want to have a holiday in a time interval, you should use this process.
+
+*Pay raise process*: This process is used when you want to propose raising your pay.
+
+To perform these processes, you need to add the *Workflow Controller* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Controller* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Manage_Pages-Adding_a_new_Page] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
+
+!images/workflow_controller_dagdrop.png|align="center"!
+
+h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process}
+This process is used to request a task related to your holiday. If you want to have a holiday in a time interval, you should use this process.
+
+h2. Create a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Create_Holiday_Process}
+
+*1.* Select the *BP Definition Controller* tab to bring up the process list.
+
+!images/BPdefinitionController.png|align="center"!
+
+*2.* Open the *Task Management* form by clicking !images/set_up1.png! in accordance with a holiday process that you want to request a task as below.
+
+!images/task_manager1.png|align="center"!
+
+In which:
+* *Start (dd/mm/yyyy)* is the start date of your holiday.
+* *End (dd/mm/yyyy)* is the end date of your holiday.
+
+In this form, you need to set a time interval in the *Start* and *End* field by moving your cursor to each field and then click each field to open the *Calendar* pop-up.
+
+!images/task_manager_request|align="center"!
+
+*3.* Submit your task by clicking the *Submit* button.
+ 
+After being submitted, this task will be sent to members of *{noformat}*:/organization/management/executive-board{noformat}* group for waiting to be approved/disapproved or refused.
+
+h2. Manage a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_Process}
+If you are a member of *{noformat}*:/organization/management/executive-board{noformat}* group, you have a responsibility to evaluate received tasks. To take this action, do as follows:
+
+*1.* Open the *Workflow Controller* portlet. If there are tasks pending to be evaluated, you will see the task list in *Task Controller* tab.
+
+!images/task_controller.png|align="center"!
+
+*2.* Click the *Manage* function in the *Action* column that corresponds to a task that you want to evaluate. The *Task Management* form will appear.
+
+!images/task_management.png|align="center"!
+
+You can see the following dialog for more details about this process.
+
+!images/process_dialog.png|align="center"!
+
+*3.* Do one of the following actions.
+
+* If you agree with the period proposed by the user in the received task:
+
+*i.* Click the *Approve* button on the *Task Management* form. Automatically, this task will be sent to members of *{noformat}*:/organization/management/human-resources{noformat}* to read it. 
+
+Thus, if you are a member of *{noformat}*:/organization/management/human-resources{noformat}* group, you have responsibility to read the approved tasks as below.
+
+!images/hr_holiday.png|align="center"!
+
+*ii.* Select the *Manage* function in the *Action* column to open the *Task Management* form.
+
+!images/task_management1.png|align="center"!
+
+*iii.* Click the *Read* button to accept reading the task.
+
+* If you do not agree with the period proposed, click the *Disapprove* button on the *Task Management* form. This task will be sent to the creator of this task to modify it again. 
+** If the creator agrees to modify the period of time and click the *Modify* button, this task will be sent to members of *{noformat}*:/organization/management/human-resources{noformat}* again to manage it.
+** If the creator does not agree to modify the period of time and click the *Disagree* button, the task is not existed.
+* If you do not agree with this task, click the *Refuse* button on the *Task Management* form. This task will be removed.
+
+h1. Pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Pay_ray_process}
+This process is used when you want to propose raising your pay.
+
+h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Request_pay_raise}
+
+*1.* Select the *BP Definition Controller* tab to bring up process list.
+
+*2.* Open the *Task Management* form by clicking !images/set_up1.png! that corresponds to a pay raise process which you want to request a task.
+
+!images/Request_payraise.png|align="center"!
+
+In which:
+
+* *Amount* is the amount of money that you want to request.
+* *Priority* is the priority level of this task. It can be: not important, important or critical.
+* *Rewarded* is the amount of money that you requested including reward or not.
+* *Reason* is the reason why you want to request this amount.
+
+*4.* Enter values for fields in this form.
+
+*5.* Submit this task by clicking the *Submit* button.
+
+This task will be sent to members in *{noformat}*:/organization/management/executive-board{noformat}* group to manage it.
+
+h2. Manage a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_pay_raise}
+
+If you are a member of *{noformat}*:/organization/management/executive-board{noformat}* group, you have a responsibility to evaluate received tasks. To do this action, do as follows:
+
+*1.* Go to the *Workflow Controller* page. If there are tasks pending to be evaluated, you will see the tasks list in the *Task Controller* tab.
+
+!images/taskcontroller_evaluate_payraise.png!
+
+*2.* Click the *Manage* function in the *Action* column that corresponds to a task which you want to evaluate. The *Task Management* form will appear.
+
+!images/evaluate-payraise.png|align="center"!
+
+*3.* Select one of the followings.
+
+* If you agree with the number that the creator proposes:
+
+*i.* Input the number that the creator wants in the *Grant* field.
+
+*ii.* Click the *Grant* button. Automatically, this task will be sent to members of *{noformat}*:/organization/management/human-resources{noformat}* to read it. 
+
+Thus, if you are a member of the *{noformat}*:/organization/management/human-resources{noformat}* group, you have responsibility to read the approved tasks in the *Task Controller* tab by *{noformat}*:/organization/management/executive-board{noformat}* as below.
+
+!images/hr_payraise.png|align="center"! 
+
+*iii.* Select the *Manage* function in the *Action* column to open the *Task Management* form.
+
+!images/update_salary.png|align="center"!
+
+*iv.* Click *Finish it* to accept reading the task.
+
+* If you do not agree with this request, click the *Deny* button. This request will be removed.
+
+h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process}
+Besides two default process supported by system, administrators also can upload a new process as follows:
+
+*1.* Add the *Workflow Administration* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Administration* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Manage_Pages-Adding_a_new_Page] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
+
+!images/workflow_administration_dagdrop.png|align="center"!
+
+*2.* Open the *Workflow Administration* portlet.
+
+!images/workflow_administration.png|align="center"!
+
+*3.* Click *Upload Process* to open the *Upload Process* form.
+
+!images/Upload_Process_form.png|align="center"!
+
+*4.* Enter a name for the uploaded process in the *Name* field.
+
+*5.* Click the *Browse* button to select the location which contains the configuration of a new process, and double-click to upload it.
+
+*6.* Click *Save* to save the uploaded process.
+
+h1. View process detail{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.View_Process_Detail}
+This function is used to help administrators keep track of process details as follows:
+
+*1.* Open the *Workflow Administration* portlet.
+
+!images/view_process_detail.png|align="center"!
+
+*2.* Click !images/view-icon1.png! to view requested process list from users as below.
+
+!images/Process_Detail.png|align="center"!
+
+{docbook}
+<note>
+<para>
+The completed processes are listed in the <emphasis role="bold">Completed</emphasis> tab.
+</para>
+<para>
+To remove all completed processes from the list in the <emphasis role="bold">Completed</emphasis> tab, click the <emphasis role="bold">Flush All</emphasis> button, then click <emphasis role="bold">OK</emphasis> in the confirmation message.
+</para>
+</note>
+{docbook}
+
+*3.* Click !images/view-icon1.png! corresponding to your desired process to view its details (including all actions from different users on this task). The *List Tasks of Instance* form will appear.
+
+!images/list_task_instance.png|align="center"!
+
+* To delete a process from the requested process list in the *Process Detail* form, click !images/Trash_icon.png! corresponding to that process.

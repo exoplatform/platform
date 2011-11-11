@@ -1,0 +1,20 @@
+Social is an application of eXo Platform, which gives rich experiences to you via many options that are similar to social networks, such as Facebook and Linkedln. 
+With the Social application, you can establish more meaningful connections and improve your communication and collaboration. 
+
+By turning your company directory into a social network, Social allows you to add details, including experiences, skills and team information, to profiles of yourself and another contacts.
+Besides, Social provides built-in JavaScript client libraries for OpenSocial API that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
+
+After reading this chapter, you will know how to do the following actions:
+
+* *[Manage your profile|#Platform_User_Guide.Social.Manage_Profile]* gives you step-by-step guides to build your profile full of personal information, such as contact information, work experience, current position, and more.
+* *[Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]* shows you how to create/edit/join/leave/delete a space, to view details of a space, to search for a space and to accept/deny invitations.
+* *[Build network|#Platform_User_Guide.Social.Build_Network]* includes actions related to searching for contacts and sending connection requests.
+* *[Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]* allows you to update status, share links, delete activities/comments, comment on activities, or like/unlike activities/comments.
+
+Here, most social-related actions are demonstrated by first entering Intranet which is a default Social portal built in eXo Platform.
+
+!images/Enter_Intranet.png|align="center"!
+
+After clicking Intranet, you will be directed to the Intranet homepage as below.
+
+!images/Intranet_homepage.png|align="center"!

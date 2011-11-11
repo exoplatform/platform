@@ -1,0 +1,161 @@
+h1. Preface{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.Preface}
+As a solid enterprise-ready foundation for your portal-based applications, eXo Platform provides users many experiences for creating modern, user-centric Java applications that can be deployed on premise or in the cloud. Therefore, obtaining a comprehensive understanding of concepts is critical to benefit from the eXo Platform capabilities and features. 
+The eXo Platform user guide represents these concepts by providing a series of description related to eXo Platform features.
+
+{docbook}
+<section>
+<para>
+<partintro>
+ <para>This documentation is divided into the following chapters:</para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.eXo_Platform">eXo Platform</link>
+              </emphasis> provides you basic information of eXo Platform, system requirements, and browser compatibility. </para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Tutorials">Tutorials</link>
+              </emphasis> gives you a list of glossaries commonly used in applications of eXo Platform, interface of eXo Platform 3.5, and how to manage your accounts and language.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Manage_Organization">Manage Your Organization</link>
+              </emphasis> is a collection of a portal-based actions, allowing you to manage users and groups, permissions, portal/website, navigation nodes, pages and applications.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Organize_Content">Organize Your Content</link>
+              </emphasis> gives you how to structure your content, manage contents, newsletters and workflows.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Collaboration">Collaborate With Your Colleagues</link>
+              </emphasis> shows you actions to enhance communication and collaboration through emails, address books, chat and calendars.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Knowledge">Organize Your Knowledge</link>
+              </emphasis> shows you how to build wikis, forums, and FAQs.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Social">Build Social Network</link>
+              </emphasis> covers actions on managing your profiles and spaces, building networks and following activities in your network.</para>
+          </listitem>
+        </itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
+
+h1. About eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform}
+
+eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating to the changes of user behavior driven by the consumer web technologies, such as social networks, social publishing and forums. 
+
+After running eXo Platform 3.5, open a browser window and enter the URL provided by your administrator, for example, http://localhost:8080/portal/default.
+
+You will be directed to the default page of eXo Platform 3.5.
+
+!images/PLF3.5_interface.png|align="center"!
+
+*Architecture of eXo Platform 3.5*
+
+eXo Platform 3.5 can be deployed in various ways, depending on your aims. However, most applications integrated into eXo Platform are arranged in certain patterns.
+
+The following illustration shows the overall architecture of eXo Platform 3.5.
+
+{docbook}
+ <para></para>
+{docbook}
+
+!images/Architecture_PLF3.png|align="center"!
+
+The foundation of eXo Platform 3.5 is an *enterprise portal and content management system.* This provides a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment. eXo Platform 3.5 is a combination of the following features.
+
+* An enterprise portal serves as a powerful framework for developing portlets and other web-based user interfaces, and is based on the open source GateIn portal project co-developed by eXo and Red Hat.
+* Web Content Management extends portal-based applications, allowing you to build dynamic and content-rich websites.
+* Document Management for capturing and organizing documents and unstructured content, with content storage in the built-in Java Content Repository (JCR). 
+* xCMIS is an implementation of the full stack of Java-based CMIS (Content Management Interoperability Specification) services, so eXo-based applications can integrate with existing content management tools.
+* Business Process Management (BPM) from Bonita Open Solution enables you to define workflow processes with automatic actions for web content, documents and more.
+* Cloud-ready features allow eXo Platform 3.5 to run in multi-tenant environments, so social intranets and websites can take advantage of the benefits of private and public cloud platforms.
+
+With eXo Platform 3.5, you can customize and extend your portal-based applications with user experience services to  build social intranets and extranets.
+* Enterprise social network features allow users to connect, collaborate within dedicated spaces, and publish real-time updates in activity streams. Support for OpenSocial provides a framework for building gadgets that can display and mash up activity information for contacts, social networks, applications and services.
+* Collaboration & communication tools let you build a more productive and interactive dashboard for social intranet users. Intuitive Mail, Chat, Calendar and Address Book functionalities can seamlessly extend your portal-based web applications.
+* Knowledge management features, including Forums, Answers, FAQs, and a complete enterprise wiki, can transform an extranet into an interactive online community and valuable knowledge base.
+* Custom development in the web-based IDE is an intuitive web-based development environment where you can build, test and deploy client applications, such as gadgets and mash-ups, and RESTful services online. Offering the ability to extend eXo Platform online, eXo IDE instantly publishes applications which can be created and deployed immediately in your portal-based solutions.
+* CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing the Groovy commands, without recompiling easily.
+* Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
+
+{docbook}
+<para>
+<prompt>
+          <emphasis role="bold">See also</emphasis>
+        </prompt>
+		</para>
+{docbook}
+
+* [System requirements|#Platform_User_Guide.eXo_Platform.Introduction.System_Requirements]
+* [Browser compatibility|#Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility]
+
+h1. System requirements{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.System_Requirements}
+
+To run eXo Platform 3.5, your system is required to meet the following specifications or higher.
+
+* CPU: 2GHz
+* Memory: 2GB of RAM
+* Disk: 200MB
+* OS: Windows, Linux or Mac OS X
+* Java 6 (Set the {noformat}JAVA_HOME{noformat} environment variable)
+* Browser: Firefox 3+ or Internet Explorer 7+
+
+The eXo server will run on the _8080_ portal, so make sure this port is not currently in use.
+
+{docbook}
+<para>
+<prompt>
+          <emphasis role="bold">See also</emphasis>
+        </prompt>
+		</para>
+{docbook}
+
+* [About eXo Platform|#Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform]
+* [Browser compatibility|#Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility]
+
+h1. Browser compatibility {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility}
+
+eXo Platform 3.5 is designed to work within an Internet browser, and we have made every effort to make eXo Platform 3.5 compatible with as many of common web browsers as possible.
+
+This product has been thoroughly tested on the following stable browsers:
+
+* Internet Explorer 7
+* Firefox 3.5 and 3.6
+
+Unfortunately, we have not been able to make this product compatible will *ALL* browsers. Therefore, we strongly recommend that you *SHOULD* use the browsers listed above. A number of unknown errors are due to the use of another browsers that may include the data or files loss. 
+In case of any questions, please check with your administrator.
+
+{docbook}
+<note>
+<para>The browser's <emphasis role="bold">Back</emphasis> button takes you to the previous page you were viewing.</para>
+<para>Using the browser's <emphasis role="bold">Refresh</emphasis> button only refresh the opening browser without losing your created data.</para>
+</note>
+{docbook}
+
+{docbook}
+<para>
+<prompt>
+          <emphasis role="bold">See also</emphasis>
+        </prompt>
+		</para>
+{docbook}
+* [About eXo Platform|#Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform]
+* [System requirements|#Platform_User_Guide.eXo_Platform.Introduction.System_Requirements]
