@@ -1,260 +1,293 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
 
   <component>
     <key>org.exoplatform.services.cms.views.ManageViewService</key>
     <type>org.exoplatform.services.cms.views.impl.ManageViewServiceImpl</type>
   </component>
-  
-	<external-component-plugins>
+
+  <external-component-plugins>
     <target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
-    	<component-plugin> 
-        <name>manage.view.plugin</name>
-        <set-method>setManageViewPlugin</set-method>
-        <type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
-        <description>this plugin manage user view</description>
-        <init-params>
-        	<value-param>
-	        	<name>autoCreateInNewRepository</name>
-	        	<value>true</value>
-	        </value-param>
-	        <value-param>
-	        	<name>predefinedViewsLocation</name>
-	        	<value>war:/conf/dms-extension/dms/artifacts</value>
-	        </value-param>	        
-	        <value-param>
-	        	<name>repository</name>
-	        	<value>repository</value>
-	        </value-param>   	        		        		    		    
-		      <object-param>	      
-		        <name>Admin</name>
-		        <description>View configuration of Admin</description>
-		        <object type="org.exoplatform.services.cms.views.ViewConfig">		          
-		          <field name="name"><string>admin-view</string></field>
-		          <field name="permissions"><string>*:/platform/administrators</string></field>
-		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/SystemView</string></field>	
-		          <field name="tabList">
-                <collection type="java.util.ArrayList">   
-                  <value>
-                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                      <field name="tabName"><string>Admin</string></field>
-                      <field name="buttons">
-                      	<string>
-                      		upload; addFolder; viewMetadatas; deleteNode; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
-                      	</string>
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>	          
-		        </object>
-		      </object-param>
-          <object-param>	      
-		        <name>Icons</name>
-		        <description>View configuration for user</description>
-		        <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-		          <field name="name"><string>icon-view</string></field>
-		          <field name="permissions"><string>*:/platform/users</string></field>
-		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ThumbnailsView</string></field>
-		          <field name="tabList">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                      <field name="tabName"><string>Icons</string></field>
-                      <field name="buttons">
-                      	<string>
-                      		upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; Comment; manageVersions
-                      	</string>
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>
-		        </object>		        
-		      </object-param>		      
-		      <object-param>	      
-		        <name>Cover Flow</name>
-		        <description>View configuration for user</description>
-		        <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-		          <field name="name"><string>cover-flow</string></field>
-		          <field name="permissions"><string>*:/platform/users</string></field>
-		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/CoverFlow</string></field>
-		          <field name="tabList">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                      <field name="tabName"><string>CoverFlow</string></field>
-                      <field name="buttons">
-                      	<string>
-                      		upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
-                      	</string>
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>
-		        </object>		        
-		      </object-param>
-          <object-param>	      
-		        <name>Timeline</name>
-		        <description>View configuration for System workspace</description>
-		        <object type="org.exoplatform.services.cms.views.ViewConfig">		          
-		          <field name="name"><string>timeline-view</string></field>
-		          <field name="permissions"><string>*:/platform/users</string></field>
-		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
-		          <field name="tabList">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                      <field name="tabName"><string>Timeline</string></field>
-                      <field name="buttons">
-                      	<string>
-                      		upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
-                      	</string>
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>
-		        </object>
-		      </object-param>
-		      <object-param>	      
-		        <name>List</name>
-		        <description>View configuration for List</description>
-		        <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-		          <field name="name"><string>list-view</string></field>
-		          <field name="permissions"><string>*:/platform/users</string></field>
-		          <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>
-		          <field name="tabList">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-                      <field name="tabName"><string>List</string></field>
-                      <field name="buttons">
-                      	<string>
-                          upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
-                        </string>                    	
-                      </field>
-                    </object>
-                  </value>
-                </collection>
-              </field>
-		        </object>		        
-		      </object-param>
-		      <object-param>	      
-		        <name>System Template</name>
-		        <description>Template for display documents in list style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		          <field name="name"><string>SystemView</string></field>
-		          <field name="warPath"><string>/ecm-explorer/SystemView.gtmpl</string></field>              
-		        </object>
-		      </object-param>
-		      <object-param>	      
-		        <name>List Template</name>
-		        <description>Template for display documents in list style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		          <field name="name"><string>ListView</string></field>
-		          <field name="warPath"><string>/ecm-explorer/ListView.gtmpl</string></field>              
-		        </object>
-		      </object-param>		      
-		      <object-param>	      
-		        <name>Cover flow Template</name>
-		        <description>Template for display documents in cover flow style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		        	<field name="name"><string>CoverFlow</string></field>
-              <field name="warPath"><string>/ecm-explorer/CoverFlowView.gtmpl</string></field>
-		        </object>
-		      </object-param>
-		      <object-param>	      
-		        <name>Icon Template</name>
-		        <description>Template for display documents in icon style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		        	<field name="name"><string>IconView</string></field>
-              <field name="warPath"><string>/ecm-explorer/IconView.gtmpl</string></field>
-		        </object>
-		      </object-param>
-		      <object-param>	      
-		        <name>Thumbnails Template</name>
-		        <description>Template for display documents in thumbnails style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		        	<field name="name"><string>ThumbnailsView</string></field>
-              <field name="warPath"><string>/ecm-explorer/ThumbnailsView.gtmpl</string></field>
-		        </object>
-		      </object-param>
-		      <object-param>	      
-		        <name>Timeline Template</name>
-		        <description>Template for display documents in timeline style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		        	<field name="name"><string>TimelineView</string></field>
-              <field name="warPath"><string>/ecm-explorer/TimelineView.gtmpl</string></field>
-		        </object>
-		      </object-param>	
-		      <object-param>	      
-		        <name>Slide show Template</name>
-		        <description>Template for display documents in timeline style</description>
-		        <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
-              <field name="type"><string>ecmExplorerTemplate</string></field>
-		        	   <field name="name"><string>SlideShowView</string></field>
-              <field name="warPath"><string>/ecm-explorer/SlideShowView.gtmpl</string></field>
-		        </object>
-		      </object-param>		      
-          <object-param>        
-            <name>Path Template</name>
-            <description>Template for display Content Browser Portlet by JCRPath</description>
-            <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-              <field name="type"><string>pathTemplate</string></field>
-              <field name="name"><string>PathList</string></field>
-              <field name="warPath"><string>/content-browser/path-templates/UsePathView.gtmpl</string></field>
-            </object>
-          </object-param>
-          <object-param>        
-            <name>Tree Template</name>
-            <description>Template for display Content Browser Portlet by JCRPath</description>
-            <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-              <field name="type"><string>pathTemplate</string></field>
-              <field name="name"><string>TreeList</string></field>
-              <field name="warPath"><string>/content-browser/path-templates/UseTreeView.gtmpl</string></field>
-            </object>
-          </object-param>
-          <object-param>        
-            <name>UseJCRQuery Template</name>
-            <description>Template for display Content Browser Portlet by Query</description>
-            <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-              <field name="type"><string>queryTemplate</string></field>
-              <field name="name"><string>QueryList</string></field>
-              <field name="warPath"><string>/content-browser/query-templates/UseJCRQueryView.gtmpl</string></field>
-            </object>
-          </object-param>          
-          <object-param>        
-            <name>Script Template</name>
-            <description>Template for display Content Browser Portlet by Query</description>
-            <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-              <field name="type"><string>scriptTemplate</string></field>
-              <field name="name"><string>ScriptList</string></field>
-              <field name="warPath"><string>/content-browser/script-templates/UseScriptView.gtmpl</string></field>
-            </object>
-          </object-param>          
-          <object-param>        
-            <name>Detail View Template</name>
-            <description>Template for display a document</description>
-            <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
-              <field name="type"><string>detailViewTemplate</string></field>
-              <field name="name"><string>DocumentView</string></field>
-              <field name="warPath"><string>/content-browser/detail-view-templates/DocumentView.gtmpl</string></field>
-            </object>
-          </object-param>         
-	      </init-params>	
-      </component-plugin> 
+    <component-plugin> 
+      <name>manage.view.plugin</name>
+      <set-method>setManageViewPlugin</set-method>
+      <type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
+      <description>this plugin manage user view</description>
+      <init-params>
+        <value-param>
+          <name>autoCreateInNewRepository</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>predefinedViewsLocation</name>
+          <value>war:/conf/dms-extension/dms/artifacts</value>
+        </value-param>	        
+        <value-param>
+          <name>repository</name>
+          <value>repository</value>
+        </value-param>   	        		        		    		    
+        <object-param>	      
+          <name>Admin</name>
+          <description>View configuration of Admin</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">		          
+            <field name="name"><string>admin-view</string></field>
+            <field name="permissions"><string>*:/platform/administrators</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/SystemView</string></field>	
+            <field name="tabList">
+              <collection type="java.util.ArrayList">   
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Admin</string></field>
+                    <field name="buttons">
+                      <string>
+                        upload; addFolder; viewMetadatas; deleteNode; editDocument; manageActions; manageRelations; viewProperties; manageAuditing; showJCRStructure; viewReferences
+                      </string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>	          
+          </object>
+        </object-param>
+        <object-param>
+          <name>Simple-View</name>
+          <description>View configuration for user</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">
+            <field name="name"><string>simple-view</string></field>
+            <field name="permissions"><string>*:/platform/users</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ThumbnailsView</string></field>
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Actions</string></field>
+                    <field name="buttons">
+                      <string>
+                        addFolder; addCategory; addDocument; editDocument; upload; overloadThumbnail; addSymLink; managePublications
+                      </string>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Collaboration</string></field>
+                    <field name="buttons">
+                      <string>
+                        watchDocument; taggingDocument; multiLanguage; vote; Comment
+                      </string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>Icons</name>
+          <description>View configuration for user</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
+            <field name="name"><string>icon-view</string></field>
+            <field name="permissions"><string>*:/platform/users</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ThumbnailsView</string></field>
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Icons</string></field>
+                    <field name="buttons">
+                      <string>
+                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; overloadThumbnail; watchDocument; Comment; manageVersions
+                      </string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>		        
+        </object-param>		      
+        <object-param>	      
+          <name>Cover Flow</name>
+          <description>View configuration for user</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
+            <field name="name"><string>cover-flow</string></field>
+            <field name="permissions"><string>*:/platform/users</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/CoverFlow</string></field>
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>CoverFlow</string></field>
+                    <field name="buttons">
+                      <string>
+                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
+                      </string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>		        
+        </object-param>
+        <object-param>	      
+          <name>Timeline</name>
+          <description>View configuration for System workspace</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">		          
+            <field name="name"><string>timeline-view</string></field>
+            <field name="permissions"><string>*:/platform/users</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>Timeline</string></field>
+                    <field name="buttons">
+                      <string>
+                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
+                      </string>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>List</name>
+          <description>View configuration for List</description>
+          <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
+            <field name="name"><string>list-view</string></field>
+            <field name="permissions"><string>*:/platform/users</string></field>
+            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>
+            <field name="tabList">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
+                    <field name="tabName"><string>List</string></field>
+                    <field name="buttons">
+                      <string>
+                        upload; addFolder; viewMetadatas; deleteNode; editDocument; taggingDocument; vote; watchDocument; Comment; manageVersions
+                      </string>                    	
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>		        
+        </object-param>
+        <object-param>	      
+          <name>System Template</name>
+          <description>Template for display documents in list style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>SystemView</string></field>
+            <field name="warPath"><string>/ecm-explorer/SystemView.gtmpl</string></field>              
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>List Template</name>
+          <description>Template for display documents in list style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>ListView</string></field>
+            <field name="warPath"><string>/ecm-explorer/ListView.gtmpl</string></field>              
+          </object>
+        </object-param>		      
+        <object-param>	      
+          <name>Cover flow Template</name>
+          <description>Template for display documents in cover flow style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>CoverFlow</string></field>
+            <field name="warPath"><string>/ecm-explorer/CoverFlowView.gtmpl</string></field>
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>Icon Template</name>
+          <description>Template for display documents in icon style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>IconView</string></field>
+            <field name="warPath"><string>/ecm-explorer/IconView.gtmpl</string></field>
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>Thumbnails Template</name>
+          <description>Template for display documents in thumbnails style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>ThumbnailsView</string></field>
+            <field name="warPath"><string>/ecm-explorer/ThumbnailsView.gtmpl</string></field>
+          </object>
+        </object-param>
+        <object-param>	      
+          <name>Timeline Template</name>
+          <description>Template for display documents in timeline style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>TimelineView</string></field>
+            <field name="warPath"><string>/ecm-explorer/TimelineView.gtmpl</string></field>
+          </object>
+        </object-param>	
+        <object-param>	      
+          <name>Slide show Template</name>
+          <description>Template for display documents in timeline style</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">		        	
+            <field name="type"><string>ecmExplorerTemplate</string></field>
+            <field name="name"><string>SlideShowView</string></field>
+            <field name="warPath"><string>/ecm-explorer/SlideShowView.gtmpl</string></field>
+          </object>
+        </object-param>		      
+        <object-param>        
+          <name>Path Template</name>
+          <description>Template for display Content Browser Portlet by JCRPath</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
+            <field name="type"><string>pathTemplate</string></field>
+            <field name="name"><string>PathList</string></field>
+            <field name="warPath"><string>/content-browser/path-templates/UsePathView.gtmpl</string></field>
+          </object>
+        </object-param>
+        <object-param>        
+          <name>Tree Template</name>
+          <description>Template for display Content Browser Portlet by JCRPath</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
+            <field name="type"><string>pathTemplate</string></field>
+            <field name="name"><string>TreeList</string></field>
+            <field name="warPath"><string>/content-browser/path-templates/UseTreeView.gtmpl</string></field>
+          </object>
+        </object-param>
+        <object-param>        
+          <name>UseJCRQuery Template</name>
+          <description>Template for display Content Browser Portlet by Query</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
+            <field name="type"><string>queryTemplate</string></field>
+            <field name="name"><string>QueryList</string></field>
+            <field name="warPath"><string>/content-browser/query-templates/UseJCRQueryView.gtmpl</string></field>
+          </object>
+        </object-param>          
+        <object-param>        
+          <name>Script Template</name>
+          <description>Template for display Content Browser Portlet by Query</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
+            <field name="type"><string>scriptTemplate</string></field>
+            <field name="name"><string>ScriptList</string></field>
+            <field name="warPath"><string>/content-browser/script-templates/UseScriptView.gtmpl</string></field>
+          </object>
+        </object-param>          
+        <object-param>        
+          <name>Detail View Template</name>
+          <description>Template for display a document</description>
+          <object type="org.exoplatform.services.cms.views.TemplateConfig">            	
+            <field name="type"><string>detailViewTemplate</string></field>
+            <field name="name"><string>DocumentView</string></field>
+            <field name="warPath"><string>/content-browser/detail-view-templates/DocumentView.gtmpl</string></field>
+          </object>
+        </object-param>         
+      </init-params>	
+    </component-plugin> 
   </external-component-plugins>
-  
+
 </configuration>

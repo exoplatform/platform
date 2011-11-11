@@ -61,13 +61,13 @@
     <node>
        <uri>administration/servicesManagement</uri>
        <name>servicesManagement</name>
-       <label>Services Management</label>
+       <label>#{administration.servicesManagement}</label>
        <page-reference>group::/platform/administrators::servicesManagement</page-reference>
     </node>
     <node>
        <uri>administration/monitoring</uri>
        <name>monitoring</name>
-       <label>Monitoring</label>
+       <label>#{administration.monitoring}</label>
        <page-reference>group::/platform/administrators::monitoring</page-reference>
     </node>
     <node>
