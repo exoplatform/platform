@@ -1,0 +1,1 @@
+<img src="/trial/skin/background/head.jpg"  width="100%" />

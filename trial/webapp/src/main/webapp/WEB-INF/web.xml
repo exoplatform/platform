@@ -5,11 +5,11 @@
 	<display-name>trial</display-name>
 	<servlet>
 		<servlet-name>UnlockServlet</servlet-name>
-		<servlet-class>org.exoplatform.trial.UnlockServlet</servlet-class>
+		<servlet-class>org.exoplatform.trial.TrialService$UnlockServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>PingBackServlet</servlet-name>
-		<servlet-class>org.exoplatform.trial.PingBackServlet</servlet-class>
+		<servlet-class>org.exoplatform.trial.TrialService$PingBackServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>PingBackServlet</servlet-name>

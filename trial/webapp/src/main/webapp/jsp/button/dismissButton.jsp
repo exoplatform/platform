@@ -1,0 +1,2 @@
+<%@page import="org.exoplatform.trial.TrialService"%>
+<center><a href="/trial/UnlockServlet?dismiss=true" class="Button DismissButton">You have <b><%=TrialService.getNbDaysBeforeExpiration()%> days left</b> in your evaluation</a></center>

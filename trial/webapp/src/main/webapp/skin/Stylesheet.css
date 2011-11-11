@@ -1,0 +1,87 @@
+body {
+	font-family: Lucida Sans;
+	font-size: 11px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+}
+
+.Button {
+	display: inline-block;
+	height: 68px;
+	width: 766px;
+	text-align : left;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	vertical-align: middle;
+}
+
+.ProductKeyButton {
+	background: url("background/productKeyButton.png") no-repeat;
+}
+.StartEvaluationButton {
+	background: url("background/startEvaluationButton.png") no-repeat;
+}
+.ExtendEvaluationButton {
+	background: url("background/extendEvaluationButton.png") no-repeat;
+}
+.DismissButton {
+	background: url("background/dismissButton.png") no-repeat;
+}
+.BuyNowButton {
+	background: url("background/buyNowButton.png") no-repeat;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+.Label{
+	color: black;
+	float: left;
+	height: 28px;
+}
+
+.InputForm{
+	padding: 0px 8px 0px 4px;
+	float: left;
+}
+
+.InputForm input{
+	height: 22px;
+	width: 204px;
+}
+
+.KeyContentForm {
+	width:400px;
+}
+
+.BlueButton{
+	cursor: pointer;
+	height: 28px;
+	width: 60px;
+	float: right;
+}
+
+.BlueButton .BlueButtonL{
+	background:transparent url(background/UIExoSubscriptionUser.png) no-repeat left -84px;
+	padding-left: 4px;
+}
+
+.BlueButton .BlueButtonR{
+	background:transparent url(background/UIExoSubscriptionUser.png) no-repeat right -112px;
+	padding-right: 4px;
+}
+
+.BlueButton .BlueButtonM{
+	background:transparent url(background/UIExoSubscriptionUser.png) repeat-x center -140px;
+	line-height: 27px;
+	padding: 0px 14px;
+}

@@ -20,6 +20,10 @@
 				<value>http://www.exoplatform.com/company/public/website/services/buy-now</value>
 			</value-param>
 			<value-param>
+				<name>extendFormUrl</name>
+				<value>http://www.exoplatform.com/company/public/website/platform/extended-evaluation-request</value>
+			</value-param>
+			<value-param>
 				<name>pingBackUrl</name>
 				<value>http://www.exoplatform.com/company/public/website/platform/e-01011000-01101111</value>
 			</value-param>
@@ -36,7 +40,7 @@
 					<name>Trial Filter</name>
 					<object type="org.exoplatform.web.filter.FilterDefinition">
 						<field name="filter">
-							<object type="org.exoplatform.trial.TrialFilter"/>
+							<object type="org.exoplatform.trial.TrialService$TrialFilter"/>
 						</field>
 						<field name="patterns">
 							<collection type="java.util.ArrayList" item-type="java.lang.String">

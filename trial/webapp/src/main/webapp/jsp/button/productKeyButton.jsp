@@ -1,0 +1,1 @@
+<center><a href="/trial/jsp/extend.jsp" class="Button ProductKeyButton">Enter the extended evaluation license provided by your eXo account manager</a></center>

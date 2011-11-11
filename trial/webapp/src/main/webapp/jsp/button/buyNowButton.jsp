@@ -1,0 +1,1 @@
+<center><a href="<%=TrialService.getRegistrationFormUrl()%>" target="_blank" class="Button BuyNowButton">Upgrade to a development or production subscription</a></center>
