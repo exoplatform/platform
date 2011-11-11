@@ -6,10 +6,10 @@
     <format>zip</format>
   </formats>
   <fileSets>
-    <fileSet>
+    <!--fileSet>
       <directory>target/wikbook/output/pdf</directory>
       <outputDirectory>/</outputDirectory>
-    </fileSet>
+    </fileSet-->
     <fileSet>
       <directory>target/docbook/publish/en-US/html</directory>
       <outputDirectory>/</outputDirectory>

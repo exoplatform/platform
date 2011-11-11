@@ -17,6 +17,7 @@
     <module>social-user-guide</module>
     <module>knowledge-user-guide</module>
     <module>collaboration-user-guide</module>
-    <module>gatein-user-guide</module>
+    <!--module>gatein-user-guide</module-->
+    <module>platform-unified-guide</module>
   </modules>
 </project>
