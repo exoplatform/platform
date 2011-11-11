@@ -141,6 +141,14 @@
                        <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/reference/html</outputDirectory>
 		             </artifactItem>
+                     <!-- User Guide -->
+                     <artifactItem>
+		               <groupId>${project.groupId}</groupId>
+		               <artifactId>exo.platform.doc.user.platform</artifactId>
+		               <version>${project.version}</version>
+		               <type>zip</type>
+		               <outputDirectory>${project.build.directory}/work/user-guide/html</outputDirectory>
+		             </artifactItem>
 		           </artifactItems>
 		         </configuration>
 		       </execution>
@@ -183,16 +191,16 @@
 		              <destFileName>eXo-Reference-Guide.pdf</destFileName>
 		             </artifactItem>
                     <!-- PLF-986: bundle the WCM user guide in docbook -->
-		            <artifactItem>
+		            <!--artifactItem>
 		              <groupId>org.exoplatform.ecms</groupId>
 		              <artifactId>exo-ecms-docs-userguide</artifactId>
 		              <version>${org.exoplatform.ecms.version}</version>
 		              <type>pdf</type>
 		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Content-User-Guide.pdf</destFileName>
-		            </artifactItem>
+		            </artifactItem-->
                     <!-- PLF-1721: bundle the Social, Collaboration and Knowledge user guides in wikbook -->
-                    <artifactItem>
+                    <!--artifactItem>
 		              <groupId>org.exoplatform.platform</groupId>
 		              <artifactId>exo.platform.doc.user.social</artifactId>
 		              <version>${project.version}</version>
@@ -215,7 +223,15 @@
 		              <type>pdf</type>
 		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
 		              <destFileName>eXo-Knowledge-User-Guide.pdf</destFileName>
-		            </artifactItem>
+		            </artifactItem-->
+                     <!-- User Guide -->
+                     <artifactItem>
+		               <groupId>${project.groupId}</groupId>
+		               <artifactId>exo.platform.doc.user.platform</artifactId>
+		               <version>${project.version}</version>
+		               <type>pdf</type>
+		               <outputDirectory>${project.build.directory}/work/user-guide/pdf</outputDirectory>
+		             </artifactItem>
 		          </artifactItems>
 		        </configuration>
 		      </execution>
