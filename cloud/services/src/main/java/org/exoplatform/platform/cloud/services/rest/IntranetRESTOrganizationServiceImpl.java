@@ -21,9 +21,11 @@ package org.exoplatform.platform.cloud.services.rest;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.FormParam;
@@ -69,10 +71,41 @@ public class IntranetRESTOrganizationServiceImpl
       this.organizationService = organizationService;
       
       String hostname;
-      try {
-        InetAddress addr = InetAddress.getLocalHost();
-        hostname = addr.getHostName() + " (IP: " + addr.getHostAddress() + ")";
-      } catch(Throwable th) {
+      try 
+      {
+        Enumeration<NetworkInterface> nis = NetworkInterface.getNetworkInterfaces();
+        String allIfs = "";
+        while (nis.hasMoreElements()) 
+        {
+          NetworkInterface ni = nis.nextElement();
+          if (ni != null && !ni.isLoopback()) 
+          {
+            Enumeration<InetAddress> ia = ni.getInetAddresses();
+            String allAddrs = "";
+            while (ia.hasMoreElements()) 
+            {
+              InetAddress n = ia.nextElement();
+              if (n != null && !n.isLoopbackAddress()) 
+              {
+                allAddrs += (allAddrs.length()>0 ? ", " : "") + n.getCanonicalHostName() + " (" + n.getHostAddress() + ")";
+              }
+            }
+            allIfs += "[" + allAddrs + "]";
+          }
+        }
+        
+        if (allIfs.length()>0) 
+        {
+          hostname = allIfs;
+        } 
+        else 
+        {
+          InetAddress lo = InetAddress.getLocalHost();
+          hostname = lo.getCanonicalHostName() + " (" + lo.getHostAddress() + ")";
+        }
+      } 
+      catch(Throwable th) 
+      {
         hostname = "UNKNOWN: " + th.getMessage();
       }
       
@@ -123,7 +156,8 @@ public class IntranetRESTOrganizationServiceImpl
       {
          String err = "Unable to store user in tenant " + tname;
          LOG.error(err, e);
-         throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR).entity(errorMessage(err, e)).build());
+         throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR)
+                                           .entity(errorMessage(err, e)).type("text/plain").build());
       }
    }
 
@@ -161,7 +195,8 @@ public class IntranetRESTOrganizationServiceImpl
       {
          String err = "Unable to store ROOT user in tenant " + tname;
     	   LOG.error(err, e);
-    	   throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR).entity(errorMessage(err, e)).build());
+    	   throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR)
+    	                                     .entity(errorMessage(err, e)).type("text/plain").build());
       }
    }
    
@@ -172,11 +207,13 @@ public class IntranetRESTOrganizationServiceImpl
      try 
      {
        err.printStackTrace(wr);
+       wr.flush();
        
        StringBuilder str = new StringBuilder();
        str.append('[');
        str.append(dateFormater.format(new Date()));
        str.append(']');
+       str.append(' ');
        str.append(hostInfo);
        str.append(':');
        str.append(message);
