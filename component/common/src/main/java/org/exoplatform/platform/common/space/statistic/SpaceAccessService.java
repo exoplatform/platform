@@ -108,7 +108,12 @@ public class SpaceAccessService {
     if (parentNodePath == null) {
       return new ArrayList<String>();
     }
-    SpaceAccess spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
+    SpaceAccess spaceAccess = null;
+    try {
+      spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
+    } catch (Exception exception) {
+      // spaceAccess for this user isn't yet created
+    }
     if (spaceAccess == null || spaceAccess.getMostAccessedSpaces() == null || spaceAccess.getMostAccessedSpaces().length == 0) {
       return new ArrayList<String>();
     }
