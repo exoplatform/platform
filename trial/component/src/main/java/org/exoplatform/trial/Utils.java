@@ -131,17 +131,6 @@ public class Utils {
     }
   }
 
-  public static String generateEvaluationKey(String productCode, int period) {
-    String periodString = new String(Base64.encodeBase64(String.valueOf(period * 3).getBytes()));
-    StringBuffer evaluationKey = new StringBuffer(Utils.getModifiedMD5Code(productCode.getBytes()));
-    String lengthString = evaluationKey.length() < 10 ? "0" + String.valueOf(evaluationKey.length()) : String
-        .valueOf(evaluationKey.length());
-    evaluationKey.insert(4, lengthString);
-    evaluationKey.append(periodString);
-    String evaluationKeyString = new String(Base64.encodeBase64(evaluationKey.toString().getBytes()));
-    return evaluationKeyString;
-  }
-
   private static void verifyAndCreateParentFolder(String fileLocation) {
     String parentFolderPath = fileLocation.replace("\\", "/");
     int parentFolderPathEndIndex = fileLocation.lastIndexOf("/");

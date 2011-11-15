@@ -11,6 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.FilterChain;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -217,19 +218,20 @@ public class TrialService implements Startable {
         ServletException {
       HttpServletRequest httpServletRequest = (HttpServletRequest) request;
       HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-      if (!outdated && dismissed && !isIgnoredRequest(httpServletRequest.getRequestURI())) {
+      boolean isIgnoringRequest = isIgnoredRequest(httpServletRequest.getSession(true).getServletContext(),
+          httpServletRequest.getRequestURI());
+      if ((!outdated && dismissed) || isIgnoringRequest) {
         chain.doFilter(request, response);
         return;
       }
-      if (!isIgnoredRequest(httpServletRequest.getRequestURI())) {
-        TrialService.calledUrl = httpServletRequest.getRequestURI();
-      }
+      TrialService.calledUrl = httpServletRequest.getRequestURI();
       httpServletResponse.sendRedirect("/trial/jsp/registration.jsp");
     }
 
-    private boolean isIgnoredRequest(String url) {
-      return url.endsWith("UnlockServlet") || url.endsWith(".gif") || url.endsWith(".jpg") || url.endsWith(".png")
-          || url.endsWith(".gif") || url.endsWith(".css") || url.endsWith(".js");
+    private boolean isIgnoredRequest(ServletContext context, String url) {
+      String fileName = url.substring(url.indexOf("/"));
+      String mimeType = context.getMimeType(fileName);
+      return mimeType != null;
     }
   }
 
