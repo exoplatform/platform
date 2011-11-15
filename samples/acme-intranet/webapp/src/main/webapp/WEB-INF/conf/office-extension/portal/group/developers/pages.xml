@@ -35,9 +35,13 @@
 			<portlet-ref>GadgetPortlet</portlet-ref>
 			<preferences>
 			  <preference>
-				<name>url</name>
-				<value>local://IDE</value>
-				<read-only>false</read-only>
+			    <name>url</name>
+			    <value>local://IDE</value>
+			    <read-only>false</read-only>
+			  </preference>
+			  <preference>
+			    <name>fillUpFreeSpace</name>
+			    <value>true</value>
 			  </preference>
 			</preferences>
 		  </portlet>
