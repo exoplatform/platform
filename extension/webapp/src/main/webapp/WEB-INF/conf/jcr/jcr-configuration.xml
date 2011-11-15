@@ -105,13 +105,25 @@
     </init-params>
   </component>
 
+  <component>
+    <key>PropertyManagerConfigurator</key>
+    <type>org.exoplatform.container.PropertyConfigurator</type>
+    <init-params>
+      <properties-param>
+        <name>properties</name>
+        <description>Filter used to notify changes in the jcr index in standalone</description>
+        <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.DefaultChangesFilter" />
+      </properties-param>
+    </init-params>
+  </component>
+
   <component profiles="cluster">
     <key>PropertyManagerConfigurator</key>
     <type>org.exoplatform.container.PropertyConfigurator</type>
     <init-params>
       <properties-param>
         <name>properties</name>
-        <description>Filter used to notify changes in the jcr index</description>
+        <description>Filter used to notify changes in the jcr index in cluster</description>
         <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter" />
       </properties-param>
     </init-params>
