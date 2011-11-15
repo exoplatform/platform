@@ -26,22 +26,15 @@ To remove the Acme site/Acme Social Intranet, do as follows:
 
 *3.* Restart the server.
 
-h2. Remove the docs webapp/crash {anchor:id=ADM.Clustering.Remove_docs_webapp/crash}
+h2. Remove crash {anchor:id=ADM.Clustering.Remove_crash}
 
-The docs are bundled as a convenience to be easily browsable while your portal is started. For production deployments, you may not need them.
-The docs webapp consists of the *docs.war* file located in _tomcat/webapps_ and in _jboss/server/default/deploy_. In JBoss, it is actually a folder named _docs.war_.
+Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove crash for your production deployments. The crash is covered in the *crash.war* file in _tomcat/webapps_.
 
-Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove the crash for your production deployments. The crash is covered in the *crash.war* file in _tomcat/webapps_.
-
-To remove the docs webapp/crash, do as follows:
+To remove crash, do as follows:
 
 *1.* Stop the serve by using the _shutdown.sh_ command.
 
-*2.* Delete the relevant file.
-
-* For the docs webapp: The _docs.war_ file.
-
-* For the crash: The _crash.war_ file.
+*2.* Delete the _crash.war_ file.
 
 *3.* Restart the server.
 
