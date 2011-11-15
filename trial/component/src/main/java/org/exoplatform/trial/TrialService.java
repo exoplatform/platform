@@ -224,7 +224,9 @@ public class TrialService implements Startable {
         chain.doFilter(request, response);
         return;
       }
-      TrialService.calledUrl = httpServletRequest.getRequestURI();
+      if (TrialService.calledUrl == null) {
+        TrialService.calledUrl = httpServletRequest.getRequestURI();
+      }
       httpServletResponse.sendRedirect("/trial/jsp/registration.jsp");
     }
 
