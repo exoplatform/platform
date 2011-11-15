@@ -631,6 +631,8 @@ public class OrganizationIntegrationService implements Startable {
                 LOG.warn("\t\tFailed to call preSave for " + username + " User with listener : " + userEventListener.getClass(),
                     e);
               }
+            }
+            for (UserEventListener userEventListener : userDAOListeners) {
               try {
                 // This have to be added here, because some listeners close
                 // sessions
