@@ -1,2 +1,6 @@
 <%@page import="org.exoplatform.trial.TrialService"%>
-<center><a href="/trial/UnlockServlet?rdate=<%=TrialService.computeRemindDateFromTodayBase64()%>"  class="Button StartEvaluationButton">Full use of the product for 30 days period</a></center>
+<div class="UIContainer">
+	<span class="UIGreenBoxIcon"></span>
+	<span class="UIGreenText FL">Full use of the product for a 30 days period</span>
+	<a class="UIGreenSubmit FR" href="/trial/UnlockServlet?rdate=<%=TrialService.computeRemindDateFromTodayBase64()%>">Start Evaluation</a>
+</div>

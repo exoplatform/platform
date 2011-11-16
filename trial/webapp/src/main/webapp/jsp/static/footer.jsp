@@ -1,7 +1,5 @@
-<div class="footer">
-  <center>
-    <p>Questions about your subscription?</p>
-    <p>Contact us at <a href="#" class="OrangeText">info@exoplatform.com </a> or on our website at <a href="http://www.exoplatform.com" class="OrangeText">www.exoplatform.com</a></p>
-  </center>
-  <img src="/trial/skin/background/footer.jpg" width="100%" />
+<h5 class="UICenterContent FooterMessage">Question about your eXo Platform evaluation?<br>Contact us at <a href="#">info@exoplatform.com</a> or on our website <a href="www.exoplatform.com">www.exoplatform.com</a></h5>
+
+<div class="UIFooter" style="position: relative;">
+	<h6 class="UIFooterText UICenterContent">Copyright © 2000-2011. All rights Reserved, eXo Platform SAS.</h6>
 </div>

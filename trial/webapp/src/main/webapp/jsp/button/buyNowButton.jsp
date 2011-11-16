@@ -1,1 +1,5 @@
-<center><a href="<%=TrialService.getRegistrationFormUrl()%>" target="_blank" class="Button BuyNowButton">Upgrade to a development or production subscription</a></center>
+				<div class="UIContainer">
+					<span class="UIOrangeBoxIcon"></span>
+					<span class="UIOrangeText FL">Upgrade to a development or Production subscription</span>
+					<a class="UIOrangeSubmit FR" href="#">Buy Now</a>
+				</div>

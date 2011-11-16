@@ -1,87 +1,276 @@
 body {
-	font-family: Lucida Sans;
-	font-size: 11px;
+	background: white;
+	font-family: Verdana, Arial, Verdana, sans-serif;
+	font-weight: normal;
+	color: #464646;
+	margin: 0 auto;
+	font-size: 13px;
 	height: 100%;
+}
+
+p {
+	color: #464646;
+	font-weight: normal;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: #0868b9;
+}
+
+h1,h2,h3,h4,h5,h6, p, ul, li {
+	font-weight: normal;
 	margin: 0px;
 	padding: 0px;
 }
 
-a{
-	color: black;
-	text-decoration: none;
+h1 {
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 40px;
 }
 
-.Button {
-	display: inline-block;
-	height: 68px;
-	width: 766px;
-	text-align : left;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	vertical-align: middle;
+h2 {font-size: 24px;}
+h3 {font-size: 19px;}
+h4 {font-size: 14px;}
+
+h5 {
+	font-size: 13px;
+}
+h6 {font-size: 12px;}
+
+input {
+	font-family: Verdana, Arial, Verdana, sans-serif;
+	font-size: 20px;
+	color: #b9b9b9;
 }
 
-.ProductKeyButton {
-	background: url("background/productKeyButton.png") no-repeat;
-}
-.StartEvaluationButton {
-	background: url("background/startEvaluationButton.png") no-repeat;
-}
-.ExtendEvaluationButton {
-	background: url("background/extendEvaluationButton.png") no-repeat;
-}
-.DismissButton {
-	background: url("background/dismissButton.png") no-repeat;
-}
-.BuyNowButton {
-	background: url("background/buyNowButton.png") no-repeat;
+input.Text{
+	background-color: #FAFAFA;
+    border: 1px solid #E6E6E6;
+	border-radius: 2px 2px 2px 2px;
+    height: 34px;
+	margin-left: 15px;
+    padding: 0 5px;
+    vertical-align: middle;
+    width: 406px;
 }
 
-.footer {
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
+.UIGras {
+	font-weight: bold;
 }
 
-.Label{
-	color: black;
-	float: left;
-	height: 28px;
-}
-
-.InputForm{
-	padding: 0px 8px 0px 4px;
+.FL {
 	float: left;
 }
 
-.InputForm input{
-	height: 22px;
-	width: 204px;
-}
-
-.KeyContentForm {
-	width:400px;
-}
-
-.BlueButton{
-	cursor: pointer;
-	height: 28px;
-	width: 60px;
+.FR {
 	float: right;
 }
 
-.BlueButton .BlueButtonL{
-	background:transparent url(background/UIExoSubscriptionUser.png) no-repeat left -84px;
-	padding-left: 4px;
+.UICenterContent {
+ text-align: center;
 }
 
-.BlueButton .BlueButtonR{
-	background:transparent url(background/UIExoSubscriptionUser.png) no-repeat right -112px;
-	padding-right: 4px;
+/* /// BANNER \\\ */
+
+.UIBanner {
+	background: url("background/bgBanner.png") repeat-x;
+	height: 142px;
 }
 
-.BlueButton .BlueButtonM{
-	background:transparent url(background/UIExoSubscriptionUser.png) repeat-x center -140px;
-	line-height: 27px;
-	padding: 0px 14px;
+.UIBanner .UIBannerContent {
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 50px;
+	color: white;
+}
+
+.UIBannerTitle {
+	padding: 6px 91px 0 0;
+	margin: 0px;
+}
+
+.UILogoPic {
+	padding-left: 91px;
+}
+
+.UIYellowColor {
+	color: #ffcb08;
+}
+
+/* /// BODY \\\ */
+
+.UIWorkSpace {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.UIContent {
+    font-size: 13px;
+    margin: 30px auto;
+    width: 960px;
+}
+
+.UIContainer {
+	background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #D7D7D7;
+    border-radius: 0 5px 5px 5px;
+    box-shadow: 0 0 5px 0 #D7D7D7 inset;
+    height: 69px;
+	margin: 30px auto;
+    width: 766px;
+}
+
+.UIFormContainer{
+	margin: 40px auto;
+	width: 700px;
+}
+
+.UIGreenBoxIcon {
+	background: url("background/IconBox.png") no-repeat scroll left -40px transparent;
+    float: left;
+    height: 33px;
+    margin: -1px 0 -1px -1px;
+    width: 33px;
+}
+
+.UIGreenText, .UIOrangeText, .UIGrayText {
+	margin: 24px 0 0 30px;
+}
+
+.UIGreenTextTwoLine, .UIBlueTextTwoLine {
+	margin: 15px 0 0 30px;
+}
+
+.UITextForm, .UIGreenTextTwoLine, .UIBlueTextTwoLine, .UIGreenText, .UIOrangeText, .UIGrayText {
+	font-family: Verdana, Arial, Verdana, sans-serif;
+	font-size: 14px;
+	color: #666666;
+}
+
+.UIGreenSubmit{
+	background: url("background/bgSubmit.png") repeat-x scroll left top transparent;
+	border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Verdana,Arial,Verdana,sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    height: 33px;
+	text-align: center;
+	width: 193px;
+    line-height: 33px;
+    margin: 17px 17px;
+}
+
+.UIOrangeBoxIcon {
+	background: url("background/IconBox.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 33px;
+    margin: -1px 0 -1px -1px;
+    width: 33px;
+}
+
+.UIOrangeSubmit{
+	background: url("background/bgSubmit.png") repeat-x scroll left -40px transparent;
+	border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Verdana,Arial,Verdana,sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    height: 33px;
+	text-align: center;
+	width: 193px;
+    line-height: 33px;
+    margin: 17px 17px;
+}
+
+.UIGrayBoxIcon {
+	background: url("background/IconBox.png") no-repeat scroll left -80px transparent;
+    float: left;
+    height: 33px;
+    margin: -1px 0 -1px -1px;
+    width: 33px;
+}
+
+.UIGraySubmit{
+	background: url("background/bgSubmit.png") repeat-x scroll left -125px transparent;
+	border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Verdana,Arial,Verdana,sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    height: 33px;
+	text-align: center;
+	width: 193px;
+    line-height: 33px;
+    margin: 17px 17px;
+}
+
+.UIBlueBoxIcon {
+	background: url("background/IconBox.png") no-repeat scroll left -120px transparent;
+    float: left;
+    height: 33px;
+    margin: -1px 0 -1px -1px;
+    width: 33px;
+}
+
+.UIBlueSubmit{
+	background: url("background/bgSubmit.png") repeat-x scroll left -80px transparent;
+	border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: Verdana,Arial,Verdana,sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    height: 33px;
+	text-align: center;
+	width: 193px;
+    line-height: 33px;
+    margin: 17px 17px;
+}
+
+.submit {
+	background: url("background/bgSubmit.png") repeat-x scroll left -80px transparent;
+	border: medium none;
+	border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: block;
+    font-weight: normal;
+	font-size: 19px;
+	margin-left: 5px;
+    padding: 3px 0 5px;
+	height: 36px;
+    width: 98px;
+}
+
+/* /// FOOTER \\\ */
+
+.FooterMessage {
+	margin-bottom: 20px;
+}
+
+.UIFooter {
+	background: none repeat scroll 0 0 #474848;
+	height: 61px;
+	position: absolute;
+	bottom: 0; left: 0;
+	width: 100%;
+}
+
+.UIFooterText {
+	color: #a3a4a4;
+	padding-top: 15px;
+}
+
+.Red {
+	color:red;
+	text-align: center;
 }

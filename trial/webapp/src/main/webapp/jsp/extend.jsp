@@ -21,30 +21,40 @@
         </script>
 	</head>
 <body>
-<%@include file="static/head.jsp" %>
-<center><h2>Enter Your eXo Platform 3 License Key</h2></center>
-<form action="/trial/UnlockServlet" method="post" name="unlockForm">
-<center>
-  <div class="KeyContentForm">
-    <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
-      <div class="Label"><%=request.getAttribute("errorMessage").toString() %></div>
-      <br/>
-    <% }%>
-	<div class="Label">Your license key: </div>
-	<div class="InputForm"><input type="text" id="hashMD5" name="hashMD5"/></div>
-	<div class="BlueButton">
-		<div class="BlueButtonL">
-			<div class="BlueButtonR">
-				<div class="BlueButtonM">
-					<a href="#" onclick="submitValidationKey()" id="submitActionButton"> Ok </a>
-				</div>
-			</div>
-		</div>
-	</div>
-  </div>
-</center>
-</form>
+<div class="UIWorkSpace">
 
+<%@include file="static/head.jsp" %>
+			<div class="UIContent">
+				<h2 class="UICenterContent">Enter Your Platform 3.5 Evaluation Key</h2>
+				<div class="UIFormContainer">
+					<form action="/trial/UnlockServlet" method="post" name="unlockForm">
+						<table>
+							<tr>
+								<td>
+									<label class="UITextForm">Your Evaluation Key:</label>
+								</td>
+								<td>
+									<input id="hashMD5" class="Text" type="text" name="hashMD5">
+								</td>
+								<td>
+									<input type="submit" class="submit" value="OK">
+								</td>
+							</tr>
+    <% if(request.getAttribute("errorMessage") != null && !request.getAttribute("errorMessage").toString().isEmpty()) {%>
+							<tr>
+								<td colspan="3" class="Red">
+      <%=request.getAttribute("errorMessage").toString() %>
+								</td>
+							</tr>
+    <% }%>
+						</table>
+					</form>
+				</div>
+
+
+
+
+</div>
 <%@include file="static/footer.jsp" %>
 
 </body>
