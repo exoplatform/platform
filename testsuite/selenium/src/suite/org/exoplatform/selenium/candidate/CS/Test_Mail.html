@@ -222,29 +222,24 @@
 	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=accountName</td>
-	<td>Test_account</td>
-</tr>
-<tr>
 	<td>echo</td>
 	<td>-- Step 1: Account Name &amp; Description</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>accountName</td>
+	<td>id=accountName</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>accountName</td>
-	<td>Test_account</td>
+	<td>id=accountName</td>
+	<td>Jack at work</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>description</td>
-	<td>Test_account_description</td>
+	<td>Emails at work for testing</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -264,7 +259,7 @@
 <tr>
 	<td>type</td>
 	<td>outgoingName</td>
-	<td>Test_Mail</td>
+	<td>Jack Miller</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -279,7 +274,7 @@
 <tr>
 	<td>type</td>
 	<td>signature</td>
-	<td>Test_Mail_Signature</td>
+	<td>Jack Miller : eXo</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -343,12 +338,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Test_account</td>
+	<td>exotest4@gmail.com</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Test_account</td>
+	<td>exotest4@gmail.com</td>
 	<td></td>
 </tr>
 <tr>
@@ -433,7 +428,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-- Check Compose Mail</td>
+	<td>-- Check mail have sent in SENT BOX</td>
 	<td></td>
 </tr>
 <tr>
@@ -539,12 +534,12 @@
 <tr>
 	<td>type</td>
 	<td>accountName</td>
-	<td>Test_Account</td>
+	<td>Marry at work</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>description</td>
-	<td>Test_Account_description</td>
+	<td>Emails at work</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -564,7 +559,7 @@
 <tr>
 	<td>type</td>
 	<td>outgoingName</td>
-	<td>Test_Account</td>
+	<td>Mary Simson</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -579,7 +574,7 @@
 <tr>
 	<td>type</td>
 	<td>signature</td>
-	<td>Test_Account_Signature</td>
+	<td>Marry from eXo</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -638,12 +633,12 @@
 </tr>
 <tr>
 	<td>waitForTextPresent</td>
-	<td>Test_Account</td>
+	<td>exotest3@gmail.com</td>
 	<td></td>
 </tr>
 <tr>
 	<td>verifyTextPresent</td>
-	<td>Test_Account</td>
+	<td>exotest3@gmail.com</td>
 	<td></td>
 </tr>
 <tr>
@@ -663,7 +658,12 @@
 </tr>
 <tr>
 	<td>pause</td>
-	<td>5000</td>
+	<td>10000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Refresh</td>
 	<td></td>
 </tr>
 <tr>
@@ -697,16 +697,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForElementNotPresent</td>
-	<td>//div[@class='MessageNotice']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementNotPresent</td>
-	<td>//div[@class='MessageNotice']</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForElementPresent</td>
 	<td>link=eXo_Test</td>
 	<td></td>
@@ -714,6 +704,16 @@
 <tr>
 	<td>verifyElementPresent</td>
 	<td>link=eXo_Test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>

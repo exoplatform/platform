@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -272,16 +272,20 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
+	<td>echo</td>
+	<td>-- Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
 	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
-	<td>close</td>
-	<td></td>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

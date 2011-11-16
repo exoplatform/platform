@@ -13,7 +13,7 @@
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/portal</td>
+	<td>/portal/intranet/</td>
 	<td></td>
 </tr>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 <tr>
 	<td>echo</td>
-	<td>-Check Pop Up Reminder-</td>
+	<td>-- Login</td>
 	<td></td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@
 <tr>
 	<td>type</td>
 	<td>username</td>
-	<td>root</td>
+	<td>demo</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -52,18 +52,18 @@
 	<td>gtn</td>
 </tr>
 <tr>
+	<td>echo</td>
+	<td>-- Login</td>
+	<td></td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
 	<td>id=UIPortalLoginFormAction</td>
 	<td></td>
 </tr>
 <tr>
-	<td>pause</td>
-	<td>5000</td>
-	<td></td>
-</tr>
-<tr>
 	<td>echo</td>
-	<td>-- Add Event</td>
+	<td>-- Agenda</td>
 	<td></td>
 </tr>
 <tr>
@@ -72,8 +72,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=Agenda</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Add Event</td>
 	<td></td>
 </tr>
 <tr>
@@ -99,41 +104,86 @@
 <tr>
 	<td>type</td>
 	<td>//div[@class='FormContainer']//textarea[@id='description']</td>
-	<td>Test_CS09_Event_description</td>
+	<td>Test CS09 Event description</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>//div[@id='QuickAddEventContainer']//td[@align='center']/div[2]</td>
+	<td>echo</td>
+	<td>-- More Details</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupAddEventContainer']//div[@class='TabsContainer']/div[2]//div[@class='MiddleTab']</td>
+	<td>link=More Details</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupAddEventContainer']//div[@class='TabsContainer']/div[2]//div[@class='MiddleTab']</td>
+	<td>link=More Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Select Reminders tab</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>//div[@id='UIPopupAddEventContainer']//input[@name='popupReminder']</td>
+	<td>//div[text()='Reminders']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='UIPopupAddEventContainer']//input[@name='popupReminder']</td>
+	<td>//div[text()='Reminders']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Click Show a notification pop-up ??</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
-	<td>link=Save</td>
+	<td>name=popupReminder</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Save</td>
+	<td>name=popupReminder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Repeat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=popupIsRepeat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=popupIsRepeat</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.HorizontalLayout &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.HorizontalLayout &gt; div.UIAction &gt; a.ActionButton.LightBlueStyle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Save and Send</td>
 	<td></td>
 </tr>
 <tr>
@@ -143,12 +193,17 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Save</td>
+	<td>link=Save and Send</td>
 	<td></td>
 </tr>
 <tr>
 	<td>echo</td>
 	<td>-- Check reminder message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>: khong hieu cho nay` la nhu the nao ??????</td>
 	<td></td>
 </tr>
 <tr>
@@ -213,17 +268,22 @@
 </tr>
 <tr>
 	<td>assertConfirmation</td>
-	<td>Are you sure you want to delete?</td>
+	<td>Are you sure want to delete?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>-- Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
 	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>link=Logout</td>
-	<td></td>
-</tr>
-<tr>
-	<td>close</td>
-	<td></td>
 	<td></td>
 </tr>
 </tbody></table>
