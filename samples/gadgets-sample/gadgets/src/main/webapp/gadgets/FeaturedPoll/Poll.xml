@@ -29,7 +29,7 @@
     <div class="UIGadgetThemes">
       <div class="TitGad ClearFix">
          <div title="Setting" id="SettingButton" class="SettingButton" style="display:block; height:19px">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+            <a href="#"></a>
           </div>
         <div class="ContTit">__MSG_title__</div>
       </div>

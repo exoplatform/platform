@@ -23,6 +23,7 @@
   <msg name="title">Sondage</msg>
   <msg name="setting">Paramètre</msg>
   <msg name="vote">Voter</msg>
+  <msg name="voteAgain">Voter à nouveau</msg>
   <msg name="warning">Veuillez choisir une option.</msg>
   <msg name="option">Options</msg>
   <msg name="percent">Pour cent</msg>

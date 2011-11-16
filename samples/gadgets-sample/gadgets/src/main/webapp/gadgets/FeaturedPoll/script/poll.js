@@ -153,12 +153,16 @@ function showResult(data){
   tbl.push('</tbody>');
   tbl.push('</table>');
   tbl.push('<strong style="display: inline-block; margin-bottom: 5px;"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
-  tbl.push("<center style='margin-top: 5px; margin-bottom: 12px;'><input type='button' id='btnVoteAgain' value='" + "Vote again" + "'/></center>");
-  $("#btnVoteAgain").live("click", function(){
+  
+  if(data.isAgainVote){
+    tbl.push("<center style='margin-top: 5px; margin-bottom: 12px;'><input type='button' id='btnVoteAgain' value='" + prefs.getMsg("voteAgain") + "'/></center>");
+    $("#btnVoteAgain").live("click", function(){
       showPoll(data, true);
-  });
+    });
+  }
+
   if(haveTopic){
-       tbl.push(discussUrl);
+    tbl.push(discussUrl);
   }
   $("#poll").html(tbl.join(''));
   adjustHeight();
