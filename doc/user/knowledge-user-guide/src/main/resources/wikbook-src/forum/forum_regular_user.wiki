@@ -1,8 +1,8 @@
 h1. Regular users {anchor:id=Forum_user_guide.Regular_user}
 This section describes actions that a regular user can perform in the *Forum* application of eXo Platform.
 
-h2. View details of Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
-Once clicking *Forum* on the administration bar, you will be directed to the *Forum* homepage. Here, you can see all categories of Forum, all forums of each category, and the number of posts, and more another information as below.
+h2. View details of the Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
+Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see all categories of forum, all forums of each category, and the number of posts, and more another information as below.
 
 !images/View_Forum_application.png|align="center"!
 
@@ -11,7 +11,7 @@ h3. Search {anchor:id=Forum_user_guide.Forum_regular_user.Search}
 Like in *Answers*, you can do either of two search types (*Quick Search* or *Advanced Search*) anywhere in the *Forum* application, right on the homepage or inside each specific forum or topic that makes it easy to find the expected information.
 
 h4. Quick search {anchor:id=Forum_user_guide.Forum_regular_user.Quick_search}
-With Quick Search, users can directly type a search term in the textbox. All the categories, forums, topics and posts that have the keyword matching the search term will be quickly displayed in the Search Result form.
+With *Quick Search*, users can directly type a search term in the textbox. All the categories, forums, topics and posts that have the keyword matching the search term will be quickly displayed in the *Search Result* form.
 
 For example:
 
@@ -55,21 +55,21 @@ Depending on your selected object, results which contain the matching keyword wi
 
 h4. Advanced search {anchor:id=Forum_user_guide.Forum_regular_user.Advanced_search}
 
-The *Advanced Search* allows users to make a search with the particular criteria corresponding to the object you want to find. Using the Advanced Search, you can find forums/topics/posts exactly.
+The *Advanced Search* allows users to make a search with the particular criteria corresponding to the object you want to find. Using the *Advanced Search*, you can find forums/topics/posts exactly.
 
-The *Advanced Search* icon is placed anywhere in the Forum application. To perform the advanced search, do as follows:
+The *Advanced Search* icon is placed anywhere in the *Forum* application. To perform the advanced search, do as follows:
 
-*1.* Click !images/Advance_search_icon.png! at the top right of the Forum homepage when being in the Forum application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the action bar of each selected object.
+*1.* Click !images/Advance_search_icon.png! at the top right of the *Forum* homepage when being in the *Forum* application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the *Action* bar of each selected object.
 
-Basing on where you want to search: Category, forum or post", the search criteria will be changed accordingly.
+Basing on where you want to search: category, forum or post, the search criteria will be changed accordingly.
 
 *2.* Define values of properties corresponding to each object that you want to search.
 
 *3.* Click the *Search* button to do search or *Cancel* to quit. Also, click the *Clear Fields* button to reset the inputted values.
 
-The list of the found objects will be displayed in the Search Result form or there will be an alert message when no objects match with the inputted properties.
+The list of the found objects will be displayed in the *Search Result* form or there will be an alert message when no objects match with the input properties.
 
-* To find in *categories*, select *Category* from the *Search in* drop-down menu.
+* To find in categories, select *Category* from the *Search in* drop-down menu.
 
 !images/Search_category_Forum.png|align="center"!
 
@@ -77,12 +77,12 @@ The list of the found objects will be displayed in the Search Result form or the
 
 ||Field||Description||
 |Terms|The keyword related to your desired categories.|
-|Scope| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Title' option, only results matching the object's titles are returned.|
+|Scope| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Titles' option, only results matching the object's titles are returned.|
 |Username| The name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
 |Created between - and| The created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
 |Moderator| The name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
 
-* To find in *forums*, select *Forum* from the *Search in* drop-down menu.
+* To find in forums, select *Forum* from the *Search in* drop-down menu.
 
 !images/Search_forum_Forum.png|align="center"!
 
@@ -95,7 +95,7 @@ The list of the found objects will be displayed in the Search Result form or the
 |Topics|The interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
 |Moderator|The name of the forums' moderators.|
 
-* To find in *topics*, select *Topic* from the *Search in* drop-down menu.
+* To find in topics, select *Topic* from the *Search in* drop-down menu.
 
 !images/Search_topic_Forum.png|align="center"!
 
@@ -110,7 +110,7 @@ The list of the found objects will be displayed in the Search Result form or the
 |Posts| The number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
 |Views| The mumber of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
 
-* To find in *posts*, select *Post* from the *Search in* drop-down menu.
+* To find in posts, select *Post* from the *Search in* drop-down menu.
 
 !images/Search_posts_Forum.png|align="center"!
 
@@ -118,7 +118,7 @@ The list of the found objects will be displayed in the Search Result form or the
 
 ||Field||Description||
 |Term|The search keyword.|
-|Scope|The search scale to search. With the "Full" option, returned results are those matching both title and content. With the "Title", the results only match the post titles.|
+|Scope|The search scale to search. With the "Full" option, returned results are those matching both title and content. With the "Titles", the results only match the post titles.|
 |Created between - and| The created date interval in which you want to search for posts.|
 
 {docbook}
@@ -155,7 +155,7 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 <note>
     <para>
     If the moderation feature is activated for a forum, it means that new topics must be reviewed and approved by a moderator before they are published.
-    Once a new message is posted in a moderated forum, the Forum will tell you that the topic must be approved before being published.
+    Once a new message is posted in a moderated forum, the forum will tell you that the topic must be approved before being published.
     </para>
 </note>
 {docbook}
@@ -210,7 +210,7 @@ h3. Edit a topic {anchor:id=Forum_regular_user.Topics.Edit_topics}
 
 Follow this method when you are in your topic.
 
-*1.* Click !images/More_actions_btn.png! on the Action bar. For regular users, this button is only shown when you are the creator.
+*1.* Click !images/More_actions_btn.png! on the *Action* bar. For regular users, this button is only shown when you are the creator.
 
 *2.* Click *Edit* from the drop-down menu.
 
@@ -223,7 +223,7 @@ Each topic may have a poll question with pre-defined options for users to select
 
 *1.* Go to the topic you want to add a poll.
 
-*2.* Click !images/More_actions_btn.png! on the Action bar and select *Add Poll* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar and select *Add Poll* from the drop-down menu.
 
 *3.* Enter the poll question and options.
 
@@ -237,19 +237,19 @@ Each topic may have a poll question with pre-defined options for users to select
 |*Users may change their votes*|Allow users to change their votes or not.|
 |*Allow Multiple Choices*|Allow users to vote for multiple options or not.|
 
-*4.* Click *Submit poll* to complete. After adding a poll to the topic, the icon !images/poll_added_to_topic_icon.png! is then displayed in the topics list.
+*4.* Click *Submit Poll* to complete. After adding a poll to the topic, the icon !images/poll_added_to_topic_icon.png! is then displayed in the topics list.
 
-To perform further actions on this poll, simply left-click *More actions* on the Poll pane to open the drop-down menu. Here, you can edit, close/reopen or remove the poll by clicking the relevant button.
+To perform further actions on this poll, simply left-click *More Actions* on the Poll pane to open the drop-down menu. Here, you can edit, close/reopen or remove the poll by clicking the relevant button.
 
 !images/poll_submitted.png|align="center"!
 
 h3. Rate a topic {anchor:id=Forum_regular_user.Topics.Rate_topics}
 
-The Forum application provides an intuitive rating experience through a five-star scale. Your choice of five stars means the highest rating for the topic.
+The *Forum* application provides an intuitive rating experience through a five-star scale. Your choice of five stars means the highest rating for the topic.
 
 *1.* Go to the topic you want to vote.
 
-*2.* Click !images/Rate_btn.png! on the Action bar.
+*2.* Click !images/Rate_btn.png! on the *Action* bar.
 
 The *Rate This Topic* form will appear.
 
@@ -278,7 +278,7 @@ This function is for all logged-in users. Tags are keywords which are used as la
 </citetitle>
 {docbook}
 
-*1.* Click !images/Tag_btn.png! on the Action bar.
+*1.* Click !images/Tag_btn.png! on the *Action* bar.
 
 An input text box will pop up.
 
@@ -312,7 +312,7 @@ This way allows you to untag one or multiple topics.
 
 *2.* Ticking your desired topic checkboxes from the topics list.
 
-*3.* Click !images/Manage_tag_btn.png! on the Action bar, then select *Untag* from the drop-down menu.
+*3.* Click !images/Manage_tag_btn.png! on the *Action* bar, then select *Untag* from the drop-down menu.
 
 !images/tags_management.png|align="center"!
 
@@ -358,7 +358,7 @@ You can post a reply with the full editor as follows:
 
 *2.* Click !images/Post_reply_btn.png! on the top or bottom of the topic.
 
-*3.* Enter your message in the textbox. Use [BBCode|#Forum_user_settings.Forum_regular_user.BBcodes] to format texts, or insert images, videos, and links.
+*3.* Enter your message in the textbox. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format texts, or insert images, videos, and links.
 
 !images/new_post_form.png|align="center"!
 
@@ -366,12 +366,12 @@ Optionally, you can:
 
 * Attach files to the topic by clicking the *Attach files* link. The max size for the attachment is 20Mb.
 
-* Select an icon or smiley for the post in the *Icons and smileys* tab.
+* Select an icon or smiley for the post in the *Icons and Smileys* tab.
 
 *4.* Click *Submit* to finish.
 
 
-If your post is the last one, its information will be shown at the *Last Posts* column of Forum.
+If your post is the last one, its information will be shown at the *Last Posts* column of the forum.
 
 The icon !images/Arrow_icon.png! in the topic title allows you to jump to the last read post in that topic.
 
@@ -456,7 +456,7 @@ Click !images/Syntax_help_btn.png! on the tool bar to get the full list of build
 
 h2. Public user profile {anchor:id=Forum_user_guide.Forum_regular_user.Public_user_profile}
 
-Every Forum member has a publicly viewable profile. This includes information provided by the member, either during the registration process or later via the [User settings|#Forum_user_guide.Forum_regular_user.User_settings].
+Every forum member has a publicly viewable profile. This includes information provided by the member, either during the registration process or later via the [User settings|#Forum_user_guide.Forum_regular_user.User_settings].
 
 Whenever you see a member's name in a topic, you can view his public profile quickly by clicking his username and select *View Public Profile* in the drop-down menu.
 
@@ -489,7 +489,7 @@ The *Private Messages* form will appear.
 
 h3. Receive a private message {anchor:id=Forum_regular_user.Private_messages.Receive_private_message}
 
-When you have received a private message, there will be a notification on your User bar.
+When you have received a private message, there will be a notification on your *User* bar.
 
 !images/forum_private_message_notification.png|align="center"!
 
@@ -505,17 +505,17 @@ Click *Private Messages* to open the *Private Messages* form.
 |*Compose New Message*|Where to compose new messages.|
 
 h2. Bookmarks {anchor:id=Forum_regular_user.Public_user_profile.Bookmarks}
-In the Forum application, the *Bookmark* function is to collect links to a category, forum or topic you have visited, so that you can return to that category, forum or topic directly. Bookmarks can be created and managed by yourself.
+In the *Forum* application, the *Bookmark* function is to collect links to a category, forum or topic you have visited, so that you can return to that category, forum or topic directly. Bookmarks can be created and managed by yourself.
 
 h3. Add a bookmark {anchor:id=Public_user_profile.Bookmarks.Add_bookmarks}
 This function is for all logged-in users to save links to categories, forums or topics into the Forum Bookmark.
 
 *1.* Go into the object (category, forum or topic) you want to bookmark.
 
-*2.* Click !images/Bookmark_btn.png! on the Action bar; Or right-click the object title and select *Bookmark* in the drop-down menu. The bookmarked link will be added to your bookmarks list.
+*2.* Click !images/Bookmark_btn.png! on the *Action* bar or right-click the object title and select *Bookmark* in the drop-down menu. The bookmarked link will be added to your bookmarks list.
 
 h3. View bookmarks {anchor:id=Public_user_profile.Bookmarks.View_bookmarks}
-To view bookmarks, click !images/View_bookmarks.png! on the Action bar. This will bring up the *My Bookmarks* form, with the list of your bookmarked links. To view the bookmark, click a desired bookmark title from the list.
+To view bookmarks, click !images/View_bookmarks.png! on the *Action* bar. This will bring up the *My Bookmarks* form, with the list of your bookmarked links. To view the bookmark, click a desired bookmark title from the list.
 
 !images/my_bookmarks.png|align="center"!
 
@@ -526,8 +526,8 @@ Simply click !images/Remove_icon.png! corresponding to the link that you want to
 The selected bookmarks will be removed from the bookmarks list.
 
 h2. Subscribe to RSS feeds {anchor:id=Forum_user_guide.Forum_regular_user.Subscriptions}
-This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed click !images/forum_rss_btn.png|! on the action bar.
-or right-click the item you want to subscribe to.
+This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed, click !images/forum_rss_btn.png|! on the *Action* bar;
+Or right-click the item you want to subscribe to.
 
 !images/forum_rss_rightclick.png|align="center"!
 
@@ -541,15 +541,15 @@ Select your RSS client to read the RSS. The following illustration demonstrates 
 
 * Category feeds contain all posts from all topics in all forums in a category. The category feeds shows the title (title of the category), description (category description), link (permalink to the category), pubdate (creation date of the category).
 
-* Forum feeds contain all posts in all topics in a forum. The forum feeds shows title (Name of the forum), description (description of the forum), link (permalink of the forum), pubdate (creation date of the forum).
+* Forum feeds contain all posts in all topics in a forum. The forum feeds show title (name of the forum), description (description of the forum), link (permalink of the forum), pubdate (creation date of the forum).
 
-* Topic feeds contain all posts in a topic. The topic feeds shows title (Title of the topic), description (the content of the topic's initial post), link (permalink to the topic), pubdate (the creation date of the topic).
+* Topic feeds contain all posts in a topic. The topic feeds show title (title of the topic), description (the content of the topic's initial post), link (permalink to the topic), pubdate (the creation date of the topic).
 
 
 h2. Watch {anchor:id=Forum_user_guide.Forum_regular_user.Bookmarks}
-This function is for all logged-in users to keep track of changes in categories, forums or topics via notification emails. Whenever there are new changes, such new categories, new topics or new posts, you will receive a notification from the Forum application.
+This function is for all logged-in users to keep track of changes in categories, forums or topics via notification emails. Whenever there are new changes, such new categories, new topics or new posts, you will receive a notification from the *Forum* application.
 
-To watch a desired object, go into the object (category, forum or topic) that you want to add watch and click !images/Forum_Watch_btn.png! on the Action bar, or right-click the object title and select *Watch* from the drop-down menu:
+To watch a desired object, go into the object (category, forum or topic), and click !images/Forum_Watch_btn.png! on the *Action* bar; Or right-click the object title and select *Watch* from the drop-down menu:
 
 !images/Forum_watch_rightclick.png|align="center"!
 
@@ -562,7 +562,7 @@ You will receive the email notifications about new posts/replies of the forum th
 {docbook}
 <note>
     <para>
-    Once a category/forum or a topic has already been watched, the <emphasis role="bold">Unwatch</emphasis> option will appear in the right-click menu or on the Action bar, so you can unsubscribe from the object.
+    Once a category/forum or a topic has already been watched, the <emphasis role="bold">Unwatch</emphasis> option will appear in the right-click menu or on the *Action* bar, so you can unsubscribe from the object.
     </para>
 </note>
 {docbook}
@@ -571,7 +571,7 @@ h2. Permanent links {anchor:id=Forum_user_guide.Forum_regular_user.Permanent_lin
 
 This function is for all users to view and copy the link to a specific forum/topic and share it with others.
 
-*1.* Go to Forum/topic which you want to share link.
+*1.* Go to Forum/Topic which you want to share link.
 
 *2.* Click *Permalink* label at the right corner.
 
@@ -590,7 +590,7 @@ h2. User settings {anchor:id=Forum_user_guide.Forum_regular_user.User_settings}
 
 You yourself may configure your settings, such as personal profile, forum settings, and subscriptions.
 
-Click !images/Forum_settings_btn.png! on the User bar to go to the *Settings* form. Once you opened the *Settings* form, you can control your personal settings, options and preferences via the following actions:
+Click !images/Forum_settings_btn.png! on the *User* bar to go to the *Settings* form. Once you opened the *Settings* form, you can control your personal settings, options and preferences via the following actions:
 
 
 * [Edit your profile|#Forum_regular_user.User_settings.Edit_profile].
@@ -599,7 +599,7 @@ Click !images/Forum_settings_btn.png! on the User bar to go to the *Settings* fo
 
 * [Change the watch settings|#Forum_regular_user.User_settings.Manage_subscriptions].
 
-* [Change the forum settings|#Forum_regular_user.User_settings.Change_forum_settings].
+* [Change forum settings|#Forum_regular_user.User_settings.Change_forum_settings].
 
 * [Edit your subscriptions|#Forum_regular_user.User_settings.Manage_subscriptions].
 
@@ -613,13 +613,13 @@ Here, you can:
 
 * Edit your screen name and title displayed in forums in the *Screen Name* and *User Title* fields.
 
-* Edit your signature which will be displayed at the bottom of your post. Enter you signature in the *Signature* textbox. Tick/Untick the *Display Signature* checkbox to enable/disable your signature.
+* Edit your signature which will be displayed at the bottom of your post. Enter your signature in the *Signature* textbox. Tick/Untick the *Display Signature* checkbox to enable/disable your signature.
 
 * Change your avatar by clicking the *Update* link. Tick/Untick the *Display Avatar* checkbox to show/hide your avatar.
 
 * Follow your created topics by selecting the *Watch topics I start* checkbox. You will receive email notifications when there are any new posts added to your topics.
 
-* Follow topics which you have posted by ticking the *Watch topics I post* checkbox. You will receive email notifications when there are any new posts added to your created topic.
+* Follow topics which you have posted by ticking the *Watch topics I post in* checkbox. You will receive email notifications when there are any new posts added to your created topic.
 
 h3. Change forum settings {anchor:id=Forum_regular_user.User_settings.Change_forum_settings}
 
@@ -627,7 +627,7 @@ Go to the *Forum Settings* tab in the *Settings* form. You can change preference
 
 !images/settings_forum_tab.png|align="center"!
 
-Check/Uncheck the *Show Forum Jump* if you would like to show/hide the *Forum quick navigation* at the bottom of Forum.
+Check/Uncheck the *Show Forum Jump* if you want to show/hide the *Forum quick navigation* at the bottom of the *Forum* page.
 
 
 h3. Edit a subscription {anchor:id=Forum_regular_user.User_settings.Manage_subscriptions}

@@ -1,7 +1,7 @@
 h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
-After accessing Answers, you can see all categories in the left pane. To view details of a category, simply left-click it to open its details in the right pane.
+After accessing *Answers*, you can see all categories in the left pane. To view details of a category, simply left-click it to open its details in the right pane.
 
 !images/Details_category.png|align="center"!
 
@@ -21,11 +21,11 @@ To view details of a question, simply click it to open its details, including it
 * [Print|#Answer_user_guide.View_details.Print]
 
 h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
-The Answers application allows you to raise your questions on any issues and help you find best answers.
+The *Answers* application allows you to raise your questions on any issues and helps you find the best answer.
 
 *1.* Right-click the category/sub-category where you want to submit your question and then select !images/answer_submit_question_rightclick.png! from the drop-down menu;
 
-Or go into the category that you want to submit question, then click !images/Submit_question_bt.png! on the Action bar.
+Or go into the category that you want to submit questions, then click !images/Submit_question_bt.png! on the *Action* bar.
 
 The *Submit Question* form appears as below.
 
@@ -60,7 +60,7 @@ A message will appear informing that your question has been added successfully. 
 * [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
 * [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
 * [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
-* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Discuss a question in forum|#KSuser.Answer_Regular_user.Discuss_question]
 * [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
 
 h3. Edit a question {anchor:id=KSuser.Answer_Regular_user.Edit_question}
@@ -101,7 +101,7 @@ h2. Answer a question {anchor:id=KSuser.Answer_Regular_user.Answer_questions}
 
 A question may have multiple answers and each can be moderated separately.
 
-*1.* Open the *Answer Question* form by following one of these approaches:
+*1.* Open the *Answer* form by following one of these approaches:
 
 *The first way*
 
@@ -115,7 +115,7 @@ A question may have multiple answers and each can be moderated separately.
 
 *2.* Enter your answer into the *Answer* field.
 
-*3.* Select/Deselect the *Approved* and *Activated* checkboxes if you want to approve this question (optional). If this question is in the category that requires moderation, the *Approved* checkbox  will be selected by default.
+*3.* Select/Deselect the *Approved* and *Activated* checkboxes if you want to approve this answer (optional). If this answer is in the category that requires moderation, the *Approved* checkbox  will be selected by default.
 
 The *Activated* option enables your answer to be shown or hidden. By default, an answer is always shown.
 
@@ -225,13 +225,13 @@ When you find a question interesting, you can share it with others easily. Regul
 {docbook}
 <note>
     <para>
-      <emphasis role="bold">Add CC/Add BCC</emphasis> enables you to send this message to multiple receivers. Use *Add CC* if you want all receivers to refer to this message. Use *Add BCC* if you want all receivers to get this message but cannot see emails of other receivers.
+      <emphasis role="bold">Add CC/Add BCC</emphasis> allows you to send this message to multiple receivers. Use <emphasis role="bold">Add CC</emphasis> if you want all receivers to refer to this message. Use <emphasis role="bold">Add BCC</emphasis> if you want all receivers to get this message but cannot see email addresses of other receivers.
     </para>
     <para>
     If the submitted question has been existing in another language, you can select your desired language from the <emphasis role="bold">Language</emphasis> drop-down list. If you change the language, the question's subject and the message content will be changed accordingly.
     </para>
     <para>
-    The users with email addresses in the <emphasis role="bold">To</emphasis>, <emphasis role="bold">CC</emphasis> and <emphasis role="bold">BBC</emphasis> fields will receive this message. The receivers can click the <emphasis role="bold">here</emphasis> link in the content of the message to view the question in details in the Answers application.
+    The users with email addresses in the <emphasis role="bold">To</emphasis>, <emphasis role="bold">CC</emphasis> and <emphasis role="bold">BBC</emphasis> fields will receive this message. The receivers can click the <emphasis role="bold">here</emphasis> link in the content of the message to view the question in details in the <emphasis role="bold">Answers</emphasis> application.
     </para>
 </note>
 {docbook}
@@ -248,16 +248,16 @@ When you find a question interesting, you can share it with others easily. Regul
 * [Submit a question|#KSuser.Answer_Regular_user.Submit_question]
 * [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
 * [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
-* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Discuss a question in forum|#KSuser.Answer_Regular_user.Discuss_question]
 * [Rate a question|#KSuser.Answer_Regular_user.Rate_question]
 
 h2. Discuss a question in forum {anchor:id=KSuser.Answer_Regular_user.Discuss_question}
 
 This feature is not enabled by default. Only *Administrators* can activate this feature.
 
-When you want further discussion on a question rather than getting quick replies from Answers, you can make that question posted in Forum as a new topic.
-The topic created in Forum will have the same title and content as your question in Answers. All the comments will become posts in that topic. Once there is a new reply in that Forum topic,
-your question in Answers will be updated correspondingly.
+When you want further discussion on a question rather than getting quick replies from *Answers*, you can make that question posted in *Forum* as a new topic.
+The topic created in *Forum* will have the same title and content as your question in *Answers*. All the comments will become posts in that topic. Once there is a new reply in that *Forum* topic,
+your question in *Answers* will be updated correspondingly.
 
 {docbook}
 <citetitle>
@@ -268,7 +268,7 @@ your question in Answers will be updated correspondingly.
 {docbook}
 *The first way*
 
-* Open the question and click !images/Discuss_forum_icon.png! on the top left of the question pane.
+* Open the question and click !images/Discuss_forum_icon.png! on the top right of the question pane.
 
 !images/Discuss_question_panel.png|align="center"!
 
@@ -278,7 +278,7 @@ your question in Answers will be updated correspondingly.
 
 !images/Discuss_menu.png|align="center"!
 
-The topic posted in Forum needs to be approved by the administrators or moderators before you can view it. To go to that topic, right-click the question title and select *Discuss in Forum* from the drop-down menu again.
+The topic posted in *Forum* needs to be approved by the administrators or moderators before you can view it. To go to that topic, right-click the question title and select *Discuss in Forum* from the drop-down menu again.
 
 !images/Discuss_forum.png|align="center"!
 
@@ -334,7 +334,7 @@ After being rated, the vote statistics will be updated.
 * [Answer a question|#KSuser.Answer_Regular_user.Answer_questions]
 * [Comment on a question|#KSuser.Answer_Regular_user.Comment_question]
 * [Send a question to others|#KSuser.Answer_Regular_user.Send_questions]
-* [Discuss a question in Forum|#KSuser.Answer_Regular_user.Discuss_question]
+* [Discuss a question in forum|#KSuser.Answer_Regular_user.Discuss_question]
 
 h2. Vote for an answer {anchor:id=KSuser.Answer_Regular_user.Vote_for_answer}
 
@@ -366,7 +366,7 @@ If you think the answer is good, click the thumb-up icon. If you think the answe
 * [Edit an answer|#KSuser.Answer_Regular_user.Edit_answers]
 
 h2. Watch/Unwatch a category {anchor:id=KSuser.Answer_Regular_user.Watch_unwatch}
-The *Watch* feature allows you to keep track of all changes in a specific categories. You will get all the updates via mail notifications if you enable the *watch* function on a category.
+The *Watch* feature allows you to keep track of all changes in specific categories. You will get all the updates via mail notifications if you enable the *Watch* function on a category.
 
 To watch a category, right-click a category in the categories list and select *Watch* from the drop-down menu. For the administrator/moderator, the watched category will be marked with !images/Watch_icon.png!.
 
@@ -396,7 +396,7 @@ You can get the latest questions in a category by getting the corresponding feed
 {docbook}
 *1.* Click the category you want to get the RSS feed.
 
-*2.* Click the *RSS* button on the Action bar.
+*2.* Click the *RSS* button on the *Action* bar.
 
 !images/answer_RSS_btn.png|align="center"!
 
@@ -425,7 +425,7 @@ When going to user settings, you can [change how Answers will display the entrie
 </citetitle>
 {docbook}
 
-Click !images/Settings_btn.png! on the Action bar. The *Settings* form will appear.
+Click !images/Settings_btn.png! on the *Action* bar. The *Settings* form will appear.
 
 !images/Anwers_Settings_form.png|align="center"!
 
@@ -500,10 +500,10 @@ This form shows the selected user's profile, including the join date and the las
 * [View details of Answers|#Answer_user_guide.View_details]
 
 h2. Search {anchor:id=KSuser.Answer_Regular_user.Search}
-With the *Search* function, you can find your desired item, such as categories, questions, answers, or comments easily. In the Answers application, you can do your searches to specific search conditions easily through two types: Quick search and Advanced search.
+With the *Search* function, you can find your desired item, such as categories, questions, answers, or comments easily. In the *Answers* application, you can do your searches to specific search conditions easily through two types: *Quick search* and *Advanced search*.
 
 h3. Quick search {anchor:id=KSuser.Answer_Regular_user.Basic_search}
-You can do quick searches easily by entering specific keywords into the Search area. All items containing the text matching your search term will be returned in the Search Results form.
+You can do quick searches easily by entering specific keywords into the *Search* area. All items containing the text matching your search term will be returned in the *Search Results* form.
 
 *1.* Enter a keyword into the *Search* field at the right corner of the breadcrumb.
 
@@ -535,11 +535,11 @@ The *Search Results* window will open with all matching categories and questions
 
 h3. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
 
-The Advanced Search allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
+The *Advanced search* allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
 
-*1.* Click !images/Advance_search_icon.png! on the Search area.
+*1.* Click !images/Advance_search_icon.png! on the *Search* area.
 
-*2.* Define some search criteria in the Advanced Search form. The criteria may vary, depending on where you want to search.
+*2.* Define some search criteria in the *Advanced Search* form. The criteria may vary, depending on where you want to search.
 
 * Search in both categories and entries/questions by unselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
 !images/search_both_answers.png|align="center"!
@@ -550,7 +550,7 @@ The Advanced Search allows you to do a search with multiple criteria correspondi
 * Search in entries/questions to find your expected questions, answers or comments by selecting *Entries* from the drop-down menu.
 !images/Search_entries_answers.png|align="center"!
 
-*3.* Click the *Search* button to launch the search. All items matching your criteria will be listed in the search results pane below the Search form.
+*3.* Click the *Search* button to launch the search. All items matching your criteria will be listed in the search results pane below the *Search* form.
 
 {docbook}
 <para>
@@ -573,7 +573,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 </citetitle>
 {docbook}
 
-*1.* Select one parent category from the Categories list on the left pane.
+*1.* Select one parent category from the *Categories* list on the left pane.
 
 *2.* Click the *Print* button on the action bar under the selected category.
 
