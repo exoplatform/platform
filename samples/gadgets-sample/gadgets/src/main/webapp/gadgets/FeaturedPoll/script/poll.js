@@ -57,11 +57,14 @@ function createPollList(data){
 	return;
 
   }
-  $.getJSON(url,showPoll);
+  
+  $.getJSON(url,function(data){
+    showPoll(data, false);
+  });
 }
 
 
-function showPoll(data){
+function showPoll(data, isVoteAgain){
   var options = data.option;
   var prefs = new gadgets.Prefs();
   var lblVote = prefs.getMsg("vote");
@@ -70,7 +73,7 @@ function showPoll(data){
   var parentPath = data.parentPath;
   var haveTopic = parentPath.indexOf("ForumData/CategoryHome"); //check topic of poll if toptic is exist  
   var discussUrl = "#";
-  if(!data.showVote){    
+  if(!data.showVote || isVoteAgain){    
     html = [];
       if(haveTopic){
           var prefs = new gadgets.Prefs();
@@ -149,12 +152,16 @@ function showResult(data){
   }
   tbl.push('</tbody>');
   tbl.push('</table>');
-  tbl.push('<strong style="display: inline-block"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
-  //tbl.push("<center style='margin-top: 5px'><input type='button' onclick='alert(data.showVote)' name='btnVoteAgain' value='" + "Vote again" + "'/></center>");
+  tbl.push('<strong style="display: inline-block; margin-bottom: 5px;"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
+  tbl.push("<center style='margin-top: 5px; margin-bottom: 12px;'><input type='button' id='btnVoteAgain' value='" + "Vote again" + "'/></center>");
+  $("#btnVoteAgain").live("click", function(){
+      showPoll(data, true);
+  });
   if(haveTopic){
        tbl.push(discussUrl);
   }
   $("#poll").html(tbl.join(''));
+  adjustHeight();
 }
 
 function doVote(el){
@@ -173,7 +180,9 @@ function doVote(el){
 function changeVote(obj){
   var selectedValue = obj.options[obj.selectedIndex].value;
   var url = baseURL + "viewpoll/" + selectedValue;
-  $.getJSON(url,showPoll);
+  $.getJSON(url,function(data){
+    showPoll(data, false);
+  });
   config();
 }
 
