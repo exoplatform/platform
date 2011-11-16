@@ -325,7 +325,7 @@
 	<external-component-plugins>
 		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
 		<component-plugin>
-			<name>new.user.event.listener</name>
+			<name>new.user.platform.gadgets.listener</name>
 			<set-method>addListenerPlugin</set-method>
 			<type>org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener</type>
 			<description>populate gadgets for specified users</description>
