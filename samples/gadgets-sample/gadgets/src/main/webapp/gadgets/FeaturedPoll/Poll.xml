@@ -18,7 +18,7 @@
         <![CDATA[   
     <link rel="stylesheet" href="style/poll.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript">
     var MODULE_ID = __MODULE_ID__;    
     </script>

@@ -27,7 +27,7 @@ function createURL(data) {
   var hostName = viewer.getField('hostName');
   var portalName = viewer.getField('portalName');
   var restContext = viewer.getField('restContextName');
-  baseURL = hostName + "/" + portalName + "/" + restContext + "/ks/poll/";
+  baseURL = hostName + "/" + restContext + "/ks/poll/";
   var url = baseURL + "viewpoll/pollid";
   $.getJSON(url,createPollList);
 }
@@ -84,8 +84,14 @@ function showPoll(data){
       }
     html.push('<form>');
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
-    for(var i = 0, len = options.length; i < len; i++){
-      html.push('<div><input class="radio" type="radio" name="rdoVote" value="' + options[i] + '"><span>' + options[i] + '</span></div>');
+    if(data.isMultiCheck){
+      for(var i = 0, len = options.length; i < len; i++){
+        html.push('<div><input class="radio" type="checkbox" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+      }
+    } else {
+      for(var i = 0, len = options.length; i < len; i++){
+        html.push('<div><input class="radio" type="radio" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+      }
     }
     html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
         html.push("</form>");
@@ -144,37 +150,23 @@ function showResult(data){
   tbl.push('</tbody>');
   tbl.push('</table>');
   tbl.push('<strong style="display: inline-block"> '+ msgTotal +': ' + voters + ' ' + msgVoter +'</strong>');
+  //tbl.push("<center style='margin-top: 5px'><input type='button' onclick='alert(data.showVote)' name='btnVoteAgain' value='" + "Vote again" + "'/></center>");
   if(haveTopic){
        tbl.push(discussUrl);
   }
   $("#poll").html(tbl.join(''));
 }
 
-function getCheckedValue(radioObj) {
-  if(!radioObj) return false;
-  var radioLength = radioObj.length;
-  for(var i = 0; i < radioLength; i++) {
-    if(radioObj[i].checked) {
-      return i;
-    }
-  }
-  return false;
-}
-
-
 function doVote(el){
+  var votes = [];
+  $(".radio:checked").each(function(){
+    votes.push($(this).val());
+  });
+  
+  if(votes.length < 1) return;
+    
   var pollId = el.form.elements["pollid"].value;
-  var url = baseURL + "votepoll/" + pollId;
-  var voteIndex = getCheckedValue(el.form.elements["rdoVote"]);
-  if(voteIndex === false){
-    var prefs = new gadgets.Prefs();
-    var msg = new gadgets.MiniMessage(MODULE_ID);
-    var msgContent = prefs.getMsg('warning');
-    msgContent = '<center class="MiniMessage"> ' + msgContent + ' </center>';
-    msg.createTimerMessage(msgContent,3);  
-    return;
-  }
-  url += "/" + voteIndex;
+  var url = baseURL + "votepoll/" + pollId + "/" + votes.join(":");
   $.getJSON(url,showResult);
 }
 
