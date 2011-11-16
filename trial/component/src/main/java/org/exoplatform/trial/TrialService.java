@@ -264,7 +264,7 @@ public class TrialService implements Startable {
         }
         if (delayPeriod <= 0) {
           outdated = true;
-          request.setAttribute("errorMessage", "Wrong evaluation key.");
+          request.setAttribute("errorMessage", "Sorry this evaluation key is not valid.");
           request.getRequestDispatcher("/jsp/extend.jsp").include(request, response);
           return;
         }
