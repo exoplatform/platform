@@ -58,8 +58,8 @@ echo eXo is launched with the $EXO_PROFILES option as profile
 
 export EXO_PROFILES
 
-if [ -r ./gatein.sh ]; then
-	exec ./gatein.sh run
-else
-	echo gatein.sh is missing.
-fi
+CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $EXO_PROFILES"
+export CATALINA_OPTS
+
+# Launches the server
+exec "$PRGDIR"./bin/catalina.sh run "$@"

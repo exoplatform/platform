@@ -39,12 +39,12 @@ if "%1" == "" (
 	set EXO_PROFILES=-Dexo.profiles=%*
 )
 
-if exist gatein.bat (
-	call gatein.bat run
-) else (
-	echo gatein.bat is missing.
-	goto error
-)
+echo eXo is launched with the %EXO_PROFILES% option as profile
+
+set CATALINA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %CATALINA_OPTS% %EXO_PROFILES%
+
+rem Launches the server
+call catalina.bat run %*
 
 if errorlevel 1 goto error
 
