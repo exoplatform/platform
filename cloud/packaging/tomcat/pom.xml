@@ -211,6 +211,19 @@
       <version>${org.exoplatform.jcr.version}</version>
       <type>zip</type>
     </dependency>
+    <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>jcl-over-slf4j</artifactId>
+       <version>${org.slf4j.version}</version>
+       <type>jar</type>
+    </dependency><!-- 1.5.8-->
+    <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>jul-to-slf4j</artifactId>
+       <version>${org.slf4j.version}</version>
+       <type>jar</type>
+    </dependency><!-- 1.5.8-->
+    
 
   </dependencies>
 

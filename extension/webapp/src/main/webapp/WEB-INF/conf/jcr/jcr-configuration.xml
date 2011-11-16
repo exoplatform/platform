@@ -128,6 +128,18 @@
       </properties-param>
     </init-params>
   </component>
+  
+   <component profiles="cluster-index-local">
+     <key>PropertyManagerConfigurator</key>
+     <type>org.exoplatform.container.PropertyConfigurator</type>
+     <init-params>
+       <properties-param>
+         <name>properties</name>
+         <description>Filter used to notify changes in the jcr index in cluster</description>
+         <property name="gatein.jcr.index.changefilterclass" value="org.exoplatform.services.jcr.impl.core.query.jbosscache.LocalIndexChangesFilter" />
+       </properties-param>
+     </init-params>
+   </component>
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
