@@ -24,10 +24,6 @@
     separator-escape=":">
 
   <route path="/standalone/{gtn:path}">    
-    <!-- Webui parameters -->
-    <request-param qname="gtn:componentid" name="portal:componentId"/>
-    <request-param qname="gtn:action" name="portal:action"/>
-    <request-param qname="gtn:objectid" name="objectId"/>
     
     <route-param qname="gtn:handler">
       <value>standalone</value>
@@ -99,11 +95,6 @@
     <route-param qname="gtn:handler">
       <value>portal</value>
     </route-param>
-
-    <!-- Webui parameters -->
-    <request-param qname="gtn:componentid" name="portal:componentId"/>
-    <request-param qname="gtn:action" name="portal:action"/>
-    <request-param qname="gtn:objectid" name="objectId"/>
 
     <!-- The group access -->
     <route path="/g/{gtn:sitename}/{gtn:path}">
