@@ -32,7 +32,7 @@
     <org.exoplatform.webos.version>2.0.0-SNAPSHOT</org.exoplatform.webos.version>
     <org.exoplatform.commons.version>1.1.4-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.1.0-GA</org.exoplatform.gwtframework.version>
-    <org.exoplatform.ide.version>1.1.1</org.exoplatform.ide.version>
+    <org.exoplatform.ide.version>1.1.2-SNAPSHOT</org.exoplatform.ide.version>
     <org.exoplatform.cs.version>2.2.5-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.2.5-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.3.3-SNAPSHOT</org.exoplatform.ecms.version>
