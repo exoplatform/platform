@@ -27,7 +27,7 @@ The embedded JCR server requires a portion of its state to be shared on a file s
 
 * The values storage.
 
-* The index.
+* The index (in case of shared index usage).
 
 All nodes must have the read/write access to the shared file system.
 
@@ -46,6 +46,12 @@ exo.shared.dir=/PATH/TO/SHARED/FS
 
 The path is shared, so all nodes will need the read/write access to this path.
 
+If cluster will use local index for each node, than it's necessary to move index folder outside of exo.shared.dir:
+
+{code}
+gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX
+{code}
+
 Then, switch the JCR to the cluster mode.
 
 {code}
@@ -53,6 +59,7 @@ gatein.jcr.config.type=cluster
 {code}
 
 In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
+
 
 *2.* Switch to the cluster profile.
 You need to indicate the cluster kernel profile to eXo Platform.
@@ -67,6 +74,19 @@ or use the _start{noformat}_{noformat}eXo_ script:
 {code}
 ./start_eXo.sh default,cluster
 {code}
+
+In case of using local index, add also the cluster-index-local profile:
+
+{code}
+EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"
+{code}
+
+or 
+
+{code}
+./start_eXo.sh default,cluster,cluster-index-local
+{code}
+
 
 *3.* Do the initial startup.
 
