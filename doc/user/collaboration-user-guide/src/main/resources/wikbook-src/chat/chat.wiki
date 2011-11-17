@@ -51,7 +51,13 @@ h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_conta
 h2. Compose and send a chat text {anchor:id="CSUser_guide.How_to_use_Chat.Compose_and_send_chat_text"}
 Sending messages in Chat is as simple as typing and clicking, so it is easy for you to start a conversation.
 
-*Send instant messages*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Send instant messages</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Click the contact name that you want to chat in the contacts list.
 
@@ -104,7 +110,13 @@ When you signed in Chat, by default, your logged-in status is online and other C
 h2. Send a file {anchor:id="CSUser_guide.How_to_use_Chat.Send_file"}
 When you are chatting with your friends, you could want to send them a digital photo of your holiday or documents needed for the coming meeting as follows:
 
-*Send a file to a contact*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Send a file to a contact</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Click !images/send_file_button.png! on the Conversation window.
 
@@ -152,7 +164,13 @@ A chat room is a place where people with similar interests can meet and communic
 
 With Chat of eXo Platform, you also create a chat room and invite other users join your room. In this way, you can organize and manage your group activities efficiently. It's convenient in corporate environment when you can communicate in multiple chat rooms, each may have different topics and members. Chat supports up to 30 users to join a chat room.
 
-*Create a chat room*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Create a chat room</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Click !images/chat_icon.png! on the chat bar, then click !images/add_room_button.png! in the pop-up menu.
 
@@ -183,7 +201,13 @@ In this step, you can give the name and description of your chat room and select
 |*Room Description*|The brief description of the chat room.|
 |*Max Users*|The maximum number of users who can join the chat room.|
 
-*Set the Security settings* {anchor:id="Set_the_security_settings"}
+{docbook}
+<citetitle>
+<para xml:id="Set_the_security_settings">
+<emphasis role="bold">Set the Security settings</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 Click *Security* in the *Room Configuration* form:
 
@@ -255,7 +279,13 @@ Your conversation window of this room will be closed and you will not receive me
 h2. Configure a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Configure_chat_room}
 As you know, you are required to configure the chat room before a chat room opens. However, you are also able to update the room configuration after the chat room was created. If you are not the owner or administrator of chat room, you do not have the permission to perform this action.
 
-*Configure a chat room*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Configure a chat room</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Click !images/chat_options_icon.png! in the *Conversation* form of the chat room. The *Room Configuration* form will appear.
 
