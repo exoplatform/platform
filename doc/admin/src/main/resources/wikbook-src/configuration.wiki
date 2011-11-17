@@ -378,13 +378,17 @@ h1. File system paths {anchor:id=ADM.Configuration.File_system_paths}
 eXo Platform requires the read/write access to several paths in the local file system.
 
 {code}
+# Arjuna configuration
+com.arjuna.ats.arjuna.objectstore.objectStoreDir=${gatein.data.dir}/jta
+.....
+
 # Directory for common data (in cluster, mount it as a network shared directory between nodes)
+# On standalone JBoss app server it is assignet to ${jboss.server.data.dir} by default.
 exo.shared.dir=../gatein
 
 # Configuration directory (in cluster, this directory is per node)
 # Usual locations of configuration directory:
-# for Tomcat app server it is ${catalina.home}/gatein/conf.
-# for JBoss app server it is ${jboss.server.home.dir}/conf/gatein.
+# On JBoss app server it is assigned to ${jboss.server.home.dir}/conf/gatein by default.
 gatein.conf.dir=${catalina.home}/${exo.conf.dir.name}
 
 # Data directory
@@ -403,8 +407,9 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent.
 
 || Variable || Content || Temporary ||
-| {{gatein.data.dir}} | JTA transactional data. | V |
-| {{gatein.jcr.data.dir}} | JCR swap data. | V |
+| {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}} | JTA transactional data. | V |
+| {{gatein.jcr.data.dir}} | Directory for JCR data. | X |
+| {{gatein.jcr.data.dir}}/swap | Directory for swapped data of JCR | V |
 | {{gatein.jcr.storage.data.dir}} | Binary value storage for JCR.| X |
 | {{gatein.jcr.index.data.dir}} | Lucene index for JCR. | X |
 
@@ -427,7 +432,6 @@ h1. JCR system and default Workspaces {anchor:id=ADM.Configuration.JCR_Workspace
 {code}
 # JCR system and default workspaces
 gatein.jcr.workspace.default=collaboration
-
 gatein.jcr.workspace.system=system
 {code}
 
@@ -605,21 +609,7 @@ The set of properties controls the JCR behaviour.
 # cluster : cluster JBC configuration
 gatein.jcr.config.type=local
 
-# This is the filter used to notify changes in the jcr index
-# in cluster mode, use org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter
-gatein.jcr.index.changefilterclass=org.exoplatform.services.jcr.impl.core.query.DefaultChangesFilter
-
-# JCR cache configuration
-gatein.jcr.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/cache-config.xml
-
-gatein.jcr.cache.expiration.time=15m
-
-# JCR Locks configuration
-gatein.jcr.lock.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/lock-config.xml
-
-# JCR Index configuration
-gatein.jcr.index.cache.config=${gatein.jcr.jbosscache.config}/${gatein.jcr.config.type}/indexer-config.xml
-gatein.jcr.jgroups.config=classpath:/conf/jcr/jbosscache/cluster/udp-mux.xml
+....
 
 # JCR dialect.
 # auto : enabled auto detection
@@ -628,15 +618,33 @@ gatein.jcr.datasource.dialect=auto
 # JCR Session Registry configuration
 # Define here the Max Age of the JCR Session in the session registry (in seconds)
 gatein.jcr.sessionregistry.sessionmaxage=300
+
+# JCR cache configuration
+gatein.jcr.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
+gatein.jcr.cache.expiration.time=15m
+
+# JCR Locks configuration
+gatein.jcr.lock.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
+
+# JCR Index configuration
+gatein.jcr.index.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/indexer-config.xml
+
+# JGroups configuration
+# for eXo Cache and IDM org-service (in cluster cache-config.xml files)
+gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
+# for JCR
+gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 {code}
 
 *Details:*
 
-| *{{gatein.jcr.config.type}}* | Use the cluster if you want to use eXo Platform in the cluster mode. Otherwise, leave *local*. |
-| *{{gatein.jcr.index.changefilterclass}}* | In the cluster mode, change it to {{org.exoplatform.services.jcr.impl.core.query.jbosscache.JBossCacheIndexChangesFilter}}. |
-| *{{gatein.jcr.cache.config}}* | The JBoss Cache configuration for the JCR locks. |
-| *{{gatein.jcr.index.cache.config}}* | The JBoss Cache configuration for the JCR index. |
-| *{{gatein.jcr.jgroups.config}}* | The JGroups configuration to use for the cluster mode. |
+| *{{gatein.jcr.config.type}}* | Set to *cluster* if you want to use eXo Platform in the cluster mode. Otherwise, leave *local*. |
+| *{{gatein.jcr.cache.config}}* | Path to the JBoss Cache configuration for the JCR cache. |
+| *{{gatein.jcr.cache.expiration.time}}* | JCR cache expiration time. |
+| *{{gatein.jcr.lock.cache.config}}* | Path to the JBoss Cache configuration for the JCR lock. |
+| *{{gatein.jcr.index.cache.config}}* | Path to the JBoss Cache configuration for the JCR index. |
+| *{{gatein.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode of eXo Cache and PicketLink IDM organization service (see below in _IDM caches_). |
+| *{{gatein.jcr.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode. |
 
 For more details on configuring these files, please refer to the eXo JCR reference guide.
 
@@ -814,18 +822,26 @@ wcm.linkjob.cron.expression=0 0/20 * * * ?
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
 {code}
-# Key files for gadget
-gatein.gadgets.securitytokenkeyfile=${exo.shared.dir}/gadgets/key.txt
-gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem
-
 # navigation controller file
-gatein.portal.controller.config=${exo.shared.dir}/conf/controller.xml
+gatein.portal.controller.config=${gatein.conf.dir}/controller.xml
+
+# global portlet.xml
+gatein.portlet.config=${gatein.conf.dir}/portlet.xml
+
+# JNDI Name of the IDM datasource
+# portal name will be appended to this name before the JNDI lookup
+# example : java:/comp/env/exo-idm in "portal" portal will result in a JNDI lookup on context : java:/comp/env/exo-idm_portal 
+gatein.idm.datasource.name=java:exo-idm
 
 # IDM 
 gatein.portal.idm.createuserportal=false
 gatein.portal.idm.destroyuserportal=true
 
-# global portlet.xml
-gatein.portlet.config=${exo.shared.dir}/conf/portlet.xml
+# IDM caches
+gatein.idm.api.cache.config=file:${gatein.conf.dir}/idm/jbosscache/${gatein.jcr.config.type}/api-cache-config.xml
+gatein.idm.store.cache.config=file:${gatein.conf.dir}/idm/jbosscache/${gatein.jcr.config.type}/store-cache-config.xml
 
+# Key files for gadget
+gatein.gadgets.securitytokenkeyfile=${exo.shared.dir}/gadgets/key.txt
+gatein.gadgets.signingkeyfile=${exo.shared.dir}/gadgets/oauthkey.pem
 {code}
