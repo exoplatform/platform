@@ -1,0 +1,255 @@
+Index: office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/intranet_es.properties
+===================================================================
+--- office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/intranet_es.properties	(revision 0)
++++ office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/intranet_es.properties	(revision 0)
+@@ -0,0 +1,31 @@
++portal.intranet.home=Inicio
++portal.intranet.welcome=Acogida
++portal.intranet.myprofile=Mi perfil
++portal.intranet.connections=Mi Red
++portal.intranet.people=Personas
++portal.intranet.spaces=Espacios
++portal.intranet.webexplorer=Explorador Web
++portal.intranet.canvas=Lienzo
++portal.intranet.register=Inscribirse
++portal.intranet.gwtgadget=Gadget GWT
++portal.intranet.activities=Actividades
++portal.intranet.groupnavigation=Navegaci\u00f3n de Grupo
++portal.intranet.portalnavigation=Navegaci\u00f3n del Portal
++portal.intranet.activity=Actividad
++portal.intranet.profile=Perfil
++portal.intranet.yours=Conexiones
++portal.intranet.invitations=Invitaciones
++portal.intranet.requests=Pedidos
++portal.intranet.invitationSpace=Espacio de Invitaciones
++portal.intranet.pendingSpace=Espacio de espera
++portal.intranet.publicSpace=Espacio P\u00fablico
++portal.intranet.searchResult=Resultados de la B\u00fasqueda
++portal.intranet.forum=Foros
++portal.intranet.mail=Correo
++portal.intranet.calendar=Calendario
++portal.intranet.contact=Libreta de Direcciones
++portal.intranet.answers=Respuestas
++portal.intranet.faq=Preguntas Frecuentes
++portal.intranet.tour=gira
++portal.intranet.documents=Documentos
++portal.intranet.detail=Detalles
+Index: office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties
+===================================================================
+--- office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(revision 76680)
++++ office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(working copy)
+@@ -1,20 +1 @@
+-#
+-# Copyright (C) 2009 eXo Platform SAS.
+-# 
+-# This is free software; you can redistribute it and/or modify it
+-# under the terms of the GNU Lesser General Public License as
+-# published by the Free Software Foundation; either version 2.1 of
+-# the License, or (at your option) any later version.
+-# 
+-# This software is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+-# Lesser General Public License for more details.
+-# 
+-# You should have received a copy of the GNU Lesser General Public
+-# License along with this software; if not, write to the Free
+-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+-# 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-#
+-
+-platform.users.samplePage=Grupo de p\ufffdginas del Sample-Portal
++platform.users.samplePage=Grupo de p\u00e1ginas del Sample-Portal
+Index: office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties
+===================================================================
+--- office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties	(revision 0)
++++ office/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties	(revision 0)
+@@ -0,0 +1,6 @@
++administration.wcmAdmin=Administraci\u00f3n de Sitios
++administration.workflowAdministration=Administraci\u00f3n de Procesos de Negocio
++administration.siteExplorer=Explorador de Sitios
++administration.newslettermanager=Gesti\u00f3n del Boletin Informativo
++administration.formgenerator=Generador de Formularios
++administration.workflowcontroller=Controlador de Procesos de Negocio
+Index: office/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties
+===================================================================
+--- office/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
++++ office/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
+@@ -0,0 +1,6 @@
++Signin.logout=Cerrar sesi\u00f3n
++Signin.register=Inscribirse
++Signin.login=Iniciar sesi\u00f3n
++Signin.welcome=Bienvenido
++Signin.language=Cambiar Idioma
++ACMEPortal.label=Plantilla ACME
+Index: samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_es.properties
+===================================================================
+--- samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_es.properties	(revision 0)
++++ samples/default-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/default_es.properties	(revision 0)
+@@ -0,0 +1,3 @@
++portal.default.welcome=Bienvenido
++portal.default.groupnavigation=Navegaci\u00f3n De Grupo
++portal.default.portalnavigation=Navegaci\u00f3n del Portal
+Index: samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/acme_es.properties
+===================================================================
+--- samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/acme_es.properties	(revision 0)
++++ samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/portal/acme_es.properties	(revision 0)
+@@ -0,0 +1,12 @@
++portal.acme.confirmation=Confirmaci\u00f3n de Hoja de Contacto
++portal.acme.contactus=\u00bfPreguntas?
++portal.acme.printviewer=Imprimir la p\u00e1gina
++portal.acme.newAccount=Cuenta Nueva
++portal.acme.searchResult=B\u00fasqueda
++portal.acme.portalnavigation=Navegaci\u00f3n del Portal
++portal.acme.news=Noticias
++portal.acme.detail=Detalles
++portal.acme.newsletters=Bolet\u00edn de Noticias
++portal.acme.groupnavigation=Navegaci\u00f3n de Grupo
++portal.acme.overview=Visi\u00f3n General
++portal.acme.products=Productos
+Index: samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties
+===================================================================
+--- samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(revision 76680)
++++ samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(working copy)
+@@ -1,20 +1 @@
+-#
+-# Copyright (C) 2009 eXo Platform SAS.
+-# 
+-# This is free software; you can redistribute it and/or modify it
+-# under the terms of the GNU Lesser General Public License as
+-# published by the Free Software Foundation; either version 2.1 of
+-# the License, or (at your option) any later version.
+-# 
+-# This software is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+-# Lesser General Public License for more details.
+-# 
+-# You should have received a copy of the GNU Lesser General Public
+-# License along with this software; if not, write to the Free
+-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+-# 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-#
+-
+-platform.users.samplePage=Grupo de p\ufffdginas del Sample-Portal
++platform.users.samplePage=Grupo de p\u00e1ginas del Sample-Portal
+Index: samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties
+===================================================================
+--- samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties	(revision 0)
++++ samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/web-contributors_es.properties	(revision 0)
+@@ -0,0 +1,6 @@
++administration.wcmAdmin=Administraci\u00f3n de Contenido
++administration.workflowAdministration=Administraci\u00f3n de Flujo de Trabajo
++administration.siteExplorer=Explorador de Contenido
++administration.newslettermanager=Bolet\u00edn Informativo
++administration.formgenerator=Constructor de Formularios
++administration.workflowcontroller=Centro de Flujo de Trabajo
+Index: samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties
+===================================================================
+--- samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
++++ samples/acme-website/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
+@@ -0,0 +1,6 @@
++Signin.logout=Cerrar sesi\u00f3n
++Signin.register=Inscribirse
++Signin.login=Iniciar sesi\u00f3n
++Signin.welcome=Bienvenido
++Signin.language=Cambiar Idioma
++ACMEPortal.label=Plantilla ACME
+Index: extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet_es.properties
+===================================================================
+--- extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet_es.properties	(revision 0)
++++ extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet_es.properties	(revision 0)
+@@ -0,0 +1,3 @@
++UIMySpacePlatformToolBarPortlet.label=Mis Espacios
++UIMySpacePlatformToolBarPortlet.find=Encontrar Espacios
++UIMySpacePlatformToolBarPortlet.manage=Gestionar grupos
+Index: extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet_es.properties
+===================================================================
+--- extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet_es.properties	(revision 0)
++++ extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet_es.properties	(revision 0)
+@@ -0,0 +1,2 @@
++UIUserPlatformToolBarSitePortlet.manage=Gestionar sitios
++UIUserPlatformToolBarSitePortlet.title=Mis sitios
+Index: extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIAddPagePlatformToolbarPortlet/UIAddPagePlatformToolbarPortlet_es.properties
+===================================================================
+--- extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIAddPagePlatformToolbarPortlet/UIAddPagePlatformToolbarPortlet_es.properties	(revision 0)
++++ extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIAddPagePlatformToolbarPortlet/UIAddPagePlatformToolbarPortlet_es.properties	(revision 0)
+@@ -0,0 +1 @@
++UIUserToolBarSpacesPortlet.title=espacios
+Index: extension/portlets/platformNavigation/src/main/resources/locale/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet_es.properties
+===================================================================
+--- extension/portlets/platformNavigation/src/main/resources/locale/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet_es.properties	(revision 0)
++++ extension/portlets/platformNavigation/src/main/resources/locale/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet_es.properties	(revision 0)
+@@ -0,0 +1 @@
++UISpacePlatformToolBarPortlet.label=Espacios
+Index: extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet_es.properties
+===================================================================
+--- extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet_es.properties	(revision 0)
++++ extension/portlets/platformNavigation/src/main/resources/locale/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet_es.properties	(revision 0)
+@@ -0,0 +1,7 @@
++UIUserPlatformToolBarPortlet.label.logout=Desconecci\u00f3n
++UIUserPlatformToolBarPortlet.label.profile=Mi Perfil
++UIUserPlatformToolBarPortlet.label.network=Mi Red
++UIUserPlatformToolBarPortlet.label.account=Mi Cuenta
++UIUserPlatformToolBarPortlet.label.activities=Mis Actividades
++UIUserPlatformToolBarPortlet.label.find=Encontrar Personas
++UIUserPlatformToolBarPortlet.label.language=Cambiar el Idioma
+Index: extension/webapp/src/main/webapp/WEB-INF/conf/common/locales-config.xml
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/conf/common/locales-config.xml	(revision 76680)
++++ extension/webapp/src/main/webapp/WEB-INF/conf/common/locales-config.xml	(working copy)
+@@ -63,4 +63,11 @@
+     <input-encoding>UTF-8</input-encoding>
+     <description>Default configuration for the italian locale</description>
+   </locale-config>
++
++  <locale-config>
++    <locale>es</locale>
++    <output-encoding>UTF-8</output-encoding>
++    <input-encoding>UTF-8</input-encoding>
++    <description>Default configuration for the spanish locale</description>
++  </locale-config>
+ </locales-config>
+Index: extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(revision 0)
++++ extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/users_es.properties	(revision 0)
+@@ -0,0 +1,7 @@
++platform.users.iframe=IFrame
++platform.users.mylink=Mi Enlace
++platform.users.mylink-blog=Blog
++platform.users.mylink-google=Google
++platform.users.mylink-facebook=Facebook
++platform.users.sitemap=Mapa de Sitio Web
++platform.users.dashboard=Panel de Instrumentos
+Index: extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/administrators_es.properties
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/administrators_es.properties	(revision 0)
++++ extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/administrators_es.properties	(revision 0)
+@@ -0,0 +1,7 @@
++administration.title=Administraci\u00f3n del Portal
++administration.application-registry=Gesti\u00f3n de Aplicaciones
++administration.newAccount=Inscribirse
++administration.community-management=Administrar Usuarios y Grupos
++administration.pageManagement=Gestionar P\u00e1ginas
++administration.newstaff=A\u00f1adir Usuarios Nuevos
++administration.management=Administrar Usuarios y Grupos
+Index: extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/guests_es.properties
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/guests_es.properties	(revision 0)
++++ extension/webapp/src/main/webapp/WEB-INF/classes/locale/navigation/group/platform/guests_es.properties	(revision 0)
+@@ -0,0 +1,3 @@
++platform.guests.register=Inscribirse
++platform.guests.sitemap=Mapa de Sitio Web
++platform.guests.link=Enlace
+Index: extension/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties
+===================================================================
+--- extension/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
++++ extension/webapp/src/main/webapp/WEB-INF/classes/locale/portal/demo_webui_es.properties	(revision 0)
+@@ -0,0 +1,6 @@
++Signin.logout=Cerrar sesi\u00f3n
++Signin.register=Inscribirse
++Signin.login=Iniciar sesi\u00f3n
++Signin.welcome=Bienvenido
++Signin.language=Cambiar Idioma
++ACMEPortal.label=Plantilla ACME
