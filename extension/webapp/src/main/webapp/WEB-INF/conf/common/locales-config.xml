@@ -70,4 +70,11 @@
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the spanish locale</description>
   </locale-config>
+
+  <locale-config>
+    <locale>ar</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the arabic locale</description>
+  </locale-config>
 </locales-config>
