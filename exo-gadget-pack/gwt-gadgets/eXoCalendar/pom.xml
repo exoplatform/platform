@@ -4,14 +4,14 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>gwt-gadgets</artifactId>
-    <version>3.5.0-CR1-SNAPSHOT</version>
+    <version>3.5.0-CR1</version>
   </parent>
     
   <!-- POM file generated with GWT webAppCreator -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.exoplatform.calendar</groupId>
   <artifactId>CalendarGadget</artifactId>
-  <version>3.5.0-CR1-SNAPSHOT</version>
+  <version>3.5.0-CR1</version>
   <packaging>war</packaging>
   <name>eXo Gadget Pack - GWT Gadgets - eXoCalendar</name>
   
