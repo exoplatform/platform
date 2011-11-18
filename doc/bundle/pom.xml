@@ -55,46 +55,13 @@
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
-        <!-- GateIn user guide -->
+        <!-- User Guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user.gatein</artifactId>
+          <artifactId>exo.platform.doc.user.platform</artifactId>
           <version>${project.version}</version>
           <type>zip</type>
         </dependency>
-        <!-- Social user guide -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user.social</artifactId>
-          <version>${project.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <!-- Collaboration user guide -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user.collaboration</artifactId>
-          <version>${project.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <!-- Knowledge user guide -->
-        <dependency>
-          <groupId>${project.groupId}</groupId>
-          <artifactId>exo.platform.doc.user.knowledge</artifactId>
-          <version>${project.version}</version>
-          <type>pdf</type>
-        </dependency>
-        <!--dependency>
-          <groupId>org.gatein.doc</groupId>
-          <artifactId>gatein-reference-guide-en</artifactId>
-          <version>${org.exoplatform.portal.version}</version>
-          <type>jdocbook</type>
-        </dependency>
-        <dependency>
-          <groupId>org.exoplatform.jcr</groupId>
-          <artifactId>reference-docs-en</artifactId>
-          <version>${org.exoplatform.jcr.version}</version>
-          <type>jdocbook</type>
-        </dependency-->
       </dependencies>
       <build>
         <finalName>eXo-Platform-docs-${project.version}</finalName>
@@ -190,40 +157,6 @@
 		               <outputDirectory>${project.build.directory}/work/reference/pdf</outputDirectory>
 		              <destFileName>eXo-Reference-Guide.pdf</destFileName>
 		             </artifactItem>
-                    <!-- PLF-986: bundle the WCM user guide in docbook -->
-		            <!--artifactItem>
-		              <groupId>org.exoplatform.ecms</groupId>
-		              <artifactId>exo-ecms-docs-userguide</artifactId>
-		              <version>${org.exoplatform.ecms.version}</version>
-		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
-		              <destFileName>eXo-Content-User-Guide.pdf</destFileName>
-		            </artifactItem-->
-                    <!-- PLF-1721: bundle the Social, Collaboration and Knowledge user guides in wikbook -->
-                    <!--artifactItem>
-		              <groupId>org.exoplatform.platform</groupId>
-		              <artifactId>exo.platform.doc.user.social</artifactId>
-		              <version>${project.version}</version>
-		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
-		              <destFileName>eXo-Social-User-Guide.pdf</destFileName>
-		            </artifactItem>
-                    <artifactItem>
-		              <groupId>org.exoplatform.platform</groupId>
-		              <artifactId>exo.platform.doc.user.collaboration</artifactId>
-		              <version>${project.version}</version>
-		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
-		              <destFileName>eXo-Collaboration-User-Guide.pdf</destFileName>
-		            </artifactItem>
-                    <artifactItem>
-		              <groupId>org.exoplatform.platform</groupId>
-		              <artifactId>exo.platform.doc.user.knowledge</artifactId>
-		              <version>${project.version}</version>
-		              <type>pdf</type>
-		              <outputDirectory>${project.build.directory}/work/user-guide</outputDirectory>
-		              <destFileName>eXo-Knowledge-User-Guide.pdf</destFileName>
-		            </artifactItem-->
                      <!-- User Guide -->
                      <artifactItem>
 		               <groupId>${project.groupId}</groupId>
