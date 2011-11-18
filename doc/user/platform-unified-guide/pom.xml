@@ -89,7 +89,7 @@
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
                     </artifactItem>
-                    <!-- gatein - disabled while it is in ODT format -->
+                    <!-- gatein -->
                     <artifactItem>
                       <groupId>org.gatein.doc</groupId>
                       <artifactId>gatein-user-guide-en</artifactId>
@@ -99,23 +99,23 @@
                       <includes>**</includes>
                     </artifactItem>
                     <!-- webos -->
-                    <!--artifactItem>
-                      <groupId>org.exoplatform.platform</groupId>
-                      <artifactId>webos-user-guide</artifactId>
-                      <version>1.0-SNAPSHOT</version>
+                    <artifactItem>
+                      <groupId>org.exoplatform.webos</groupId>
+                      <artifactId>webos-doc-user-guide</artifactId>
+                      <version>2.0.1-SNAPSHOT</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${wikbook.source}/webos/</outputDirectory>
                       <includes>**</includes>
-                    </artifactItem-->
+                    </artifactItem>
                     <!-- ecms -->
-                    <!--artifactItem>
+                    <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>
                       <artifactId>exo-ecms-docs-userguide</artifactId>
-                      <version>1.0-SNAPSHOT</version>
+                      <version>2.3.4-SNAPSHOT</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${docbook.source}/ecms/</outputDirectory>
                       <includes>**</includes>
-                    </artifactItem-->
+                    </artifactItem>
                     <!-- cs -->
                     <artifactItem>
                       <groupId>org.exoplatform.platform</groupId>
@@ -316,7 +316,7 @@
 <xi:include href="gatein/modules/gadgetsAdmin/Manage_Portlets_and_Gadgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/portletsUser/Dashboard_Portlet.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
-        <!--replace file="${docbook.source}/index.xml">
+        <replace file="${docbook.source}/index.xml">
            <replacetoken><![CDATA[<title>Structure content</title>]]></replacetoken>
            <replacevalue><![CDATA[<title>Structure content</title>
 <xi:include href="ecms/modules/Basics/SitesExplorer/Access_Sites_Explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -348,7 +348,7 @@
            <replacevalue><![CDATA[<title>Manage newsletters</title>
 				  <xi:include href="ecms/modules/Basics/Newsletters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
          ]]></replacevalue>
-				</replace-->
+				</replace>
               </target>
             </configuration>
             <goals>
