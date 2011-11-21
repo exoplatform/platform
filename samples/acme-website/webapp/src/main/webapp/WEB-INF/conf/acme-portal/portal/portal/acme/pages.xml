@@ -569,7 +569,7 @@
               </preference>
               <preference>
                 <name>contextualFolder</name>
-                <value>contextualEnable</value>
+                <value>contextualDisable</value>
                 <read-only>false</read-only>
               </preference>      
               <preference>

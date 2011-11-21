@@ -1,0 +1,13 @@
+Index: samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/portal/portal/acme/pages.xml
+===================================================================
+--- samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/portal/portal/acme/pages.xml	(revision 74418)
++++ samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/portal/portal/acme/pages.xml	(working copy)
+@@ -569,7 +569,7 @@
+               </preference>
+               <preference>
+                 <name>contextualFolder</name>
+-                <value>contextualEnable</value>
++                <value>contextualDisable</value>
+                 <read-only>false</read-only>
+               </preference>      
+               <preference>
