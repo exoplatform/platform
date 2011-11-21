@@ -93,7 +93,7 @@
                     <artifactItem>
                       <groupId>org.gatein.doc</groupId>
                       <artifactId>gatein-user-guide-en</artifactId>
-                      <version>3.2.0-PLF-SNAPSHOT</version>
+                      <version>${org.exoplatform.portal.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${docbook.source}/gatein/</outputDirectory>
                       <includes>**</includes>
@@ -102,7 +102,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.webos</groupId>
                       <artifactId>webos-doc-user-guide</artifactId>
-                      <version>2.0.1-SNAPSHOT</version>
+                      <version>${org.exoplatform.webos.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${wikbook.source}/webos/</outputDirectory>
                       <includes>**</includes>
@@ -111,7 +111,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>
                       <artifactId>exo-ecms-docs-userguide</artifactId>
-                      <version>2.3.4-SNAPSHOT</version>
+                      <version>${org.exoplatform.ecms.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${docbook.source}/ecms/</outputDirectory>
                       <includes>**</includes>
@@ -120,7 +120,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.platform</groupId>
                       <artifactId>exo.platform.doc.user.collaboration</artifactId>
-                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <version>${project.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${wikbook.source}/collaboration</outputDirectory>
                       <includes>**</includes>
@@ -129,7 +129,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.platform</groupId>
                       <artifactId>exo.platform.doc.user.knowledge</artifactId>
-                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <version>${project.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${wikbook.source}/knowledge/</outputDirectory>
                       <includes>**</includes>
@@ -138,7 +138,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.platform</groupId>
                       <artifactId>exo.platform.doc.user.social</artifactId>
-                      <version>3.5.0-CR1-SNAPSHOT</version>
+                      <version>${project.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${wikbook.source}/social/</outputDirectory>
                       <includes>**</includes>

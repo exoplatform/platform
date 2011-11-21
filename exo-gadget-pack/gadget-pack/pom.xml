@@ -32,7 +32,7 @@
                  <artifactItem>
                    <groupId>org.exoplatform.calendar</groupId>
                    <artifactId>CalendarGadget</artifactId>
-                   <version>3.5.0-CR1-SNAPSHOT</version>
+                   <version>${project.version}</version>
                    <type>war</type>
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}/gadget-pack/gadgets/Collab-gadgets/eXoCalendar/gadget</outputDirectory>
