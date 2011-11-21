@@ -1,0 +1,44 @@
+Index: packaging/pkg/pom.xml
+===================================================================
+--- packaging/pkg/pom.xml	(revision 75788)
++++ packaging/pkg/pom.xml	(working copy)
+@@ -372,12 +372,6 @@
+     
+     <dependency>
+       <groupId>org.exoplatform.commons</groupId>
+-      <artifactId>exo.platform.commons.webui.ext</artifactId>
+-      <version>${org.exoplatform.commons.version}</version>
+-      <type>jar</type>
+-    </dependency>
+-    <dependency>
+-      <groupId>org.exoplatform.commons</groupId>
+       <artifactId>exo.platform.commons.fck</artifactId>
+       <version>${org.exoplatform.commons.version}</version>
+       <type>war</type>
+Index: packaging/pkg-trial/pom.xml
+===================================================================
+--- packaging/pkg-trial/pom.xml	(revision 75788)
++++ packaging/pkg-trial/pom.xml	(working copy)
+@@ -130,16 +130,16 @@
+ 				  <replacetoken><![CDATA[<properties-param>
+         <name>working-conf</name>
+         <description>working-conf</description>
+-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+-        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
++        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
++        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
++        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+       </properties-param>]]></replacetoken>
+ 				  <replacevalue><![CDATA[<!-- properties-param>
+         <name>working-conf</name>
+         <description>working-conf</description>
+-        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister" />
+-        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}" />
+-        <property name="dialect" value="${gatein.jcr.datasource.dialect}" />
++        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
++        <property name="source-name" value="${gatein.jcr.datasource.name}${container.name.suffix}"/>
++        <property name="dialect" value="${gatein.jcr.datasource.dialect}"/>
+       </properties-param -->]]></replacevalue>
+ 				</replace>
+                 <zip destfile="${project.build.directory}/tomcat-trial/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-trial/webapps/plf" />
