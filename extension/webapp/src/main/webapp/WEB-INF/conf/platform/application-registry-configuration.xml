@@ -879,7 +879,7 @@
                       <field name="displayName"><string>People Directory</string></field>
                       <field name="description"><string>People Directory Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet/PeoplePortlet</string></field>
+                      <field name="contentId"><string>social-portlet/PeoplePortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -893,7 +893,7 @@
                       <field name="displayName"><string>Spaces Directory</string></field>
                       <field name="description"><string>All Spaces Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet/AllSpacesPortlet</string></field>
+                      <field name="contentId"><string>social-portlet/AllSpacesPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -907,7 +907,7 @@
                       <field name="displayName"><string>User Network</string></field>
                       <field name="description"><string>Connections Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet/ConnectionsPortlet</string></field>
+                      <field name="contentId"><string>social-portlet/ConnectionsPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
@@ -921,7 +921,7 @@
                       <field name="displayName"><string>User Activity Stream</string></field>
                       <field name="description"><string>User Activity Stream Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
-                      <field name="contentId"><string>portlet/UserActivityStreamPortlet</string></field>
+                      <field name="contentId"><string>social-portlet/UserActivityStreamPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
                           <value><string>*:/platform/users</string></value>
