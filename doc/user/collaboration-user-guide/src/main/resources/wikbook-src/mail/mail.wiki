@@ -1,132 +1,117 @@
-*After reading this chapter, you should know how to perform these following tasks*:
-
-* [Create and use multiple accounts, so different email addresses can be displayed in the same web interface|#CSUser_guide.How_to_use_Mail.Create_mail_account].
-
-* [Get mails|#CSUser_guide.How_to_use_Mail.Get_mail] [and change view modes|#CSUser_guide.How_to_use_Mail.Mail_views].
-
-* [Read emails with many optional actions|#CSUser_guide.How_to_use_Mail.Read_email].
-
-* [Compose mails easily with attachments, and your signatures|#Compose_new_message].
-
-* [Reply|#CSUser_guide.How_to_use_Mail.Reply_to_message], [forward messages to another users|#CSUser_guide.How_to_use_Mail.Forward_message], [print messages if needed|#CSUser_guide.How_to_use_Mail.Print_message].
-
-* [Export|#CSUser_guide.How_to_use_Mail.Export_messages], [or import messages|#CSUser_guide.How_to_use_Mail.Import_messages].
-
-* [Categorize messages by folders|#CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder], [tags|#Tag], [or filters|#Filter].
-
-* [Search for messages with Quick search|#Mail_Quick_search] [and Advanced search|#Mail_Advanced_search].
-
-* [Create an event|#Add_event]; [accept/deny an event invitation; import the invitation into your calendar to set reminder|#Mail.Accept_deny_import_event].
-
-* [Add new address books or contacts; edit, delete contact details in Mail just like in Address Book|#Manage_address_books_in_Mail].
-
-* [Change mail settings to your desire|#Mail_settings].
-
 h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account}
-To get mails from other mail services, you first need to create a mail account in the Mail application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The Mail application of eXo Collaboration allows you to get mails from different mail services at one place.
-To start creating a new mail account, click !images/add_mail_acount_icon.png! and then select *Add account* from the drop-down menu. The *Create a new account* form will appear. After completing information at each step, simply click *Next* to go to the next step, or *Back* to return to the previous step to edit your input. Also, left-click one of the number boxes at the left bottom of the *Create new account* form to go to the relevant step directly.
+To get mails from other mail services, you first need to create a mail account in the Mail application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The Mail application allows you to get mails from different mail services at one place.
+
+To create one mail account, you first need to click !images/add_mail_acount_icon.png!, then select *Add Account* from the drop-down menu to open the *Create New Account* form. In the *Create New Account* form, there are 5 steps with clear instructions at each step. After completing information at each step, you can:
+
+* Click *Next* to go to the next step, or directly left-click any number box at the left bottom of the *Create New Account* form to go to your desired step.
 
 !images/Step_boxes.png|align="center"!
+
+* Click *Back* to return to the previous step to edit your input.
+
 {docbook}
 <note>
     <para>
-    The asterisk (*) next to each field means that it is mandatory to fill in this field.
+    The asterisk (*) next to each field means that it is required to fill in this field.
     </para>
 </note>
 {docbook}
 
-*1.* In Step 1, fill your account name and brief description.
+*1.* Fill your account name and brief description in Step 1.
 
 !images/Add_acc_step1.png|align="center"!
 
-*2.* In Step 2, configure identification settings for your mail.
+*2.* Configure identification settings for your mail in Step 2.
 
 !images/Add_acc_step2.png|align="center"!
 
+*Details:*
 ||Field||Description||
 |*Your Display Name*|The name to be displayed when you use the account. This name will be displayed with your email address when you compose a new message.|
-|*Email Address*|The email address that is corresponding to your created account must be in a valid format.|
+|*Email Address*|The email address corresponding to your created account. It must be in a valid format.|
 |*Reply-to Address*|The email address which receives all replies.|
 |*Signature*|The identification text which are automatically inserted at the bottom of your sending messages.|
 
-*3.* In Step 3, give the server information.
+*3.* Give the server information in Step 3.
 
 !images/Add_acc_step3.png|align="center"!
 
+*Details:*
 ||Field||Description||
-|*Server type*|Type of the mail server. Select either of two types supported by your mail server: {example}{example} * POP3 (Post Office Protocol version 3) which is a protocol to get email from a remote server. This type is selected by default. {example}{example} * IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.|
-|*Incoming Mail Server & Outgoing Mail Server*|The Incoming Mail Server (POP3) and Outgoing Mail Server (SMTP) of your current email provider. Each email provider has different Incoming Mail Server and Outgoing Mail Server settings. By default, the value of this field is "pop.gmail.com" and "smtp.gmail.com" which are the settings for Gmail. For settings of other mail servers, you can find the information on their website. See [More about Incoming & Outgoing mail server|#Incoming_outgoing_reference] for more information.|
-|*Use Incoming SSL*|This option allows using SSL (Secure Sockets Layer) or not. SSL is a cryptographic protocol which provides secure communication on Internet, such as web browsing, email, Internet faxing. Incoming SSL allows using SSL to check incoming emails.
-|*Use Outgoing SSL*|This option is to use SSL to send mail in the Mail application.|
+|*Server type*|Type of the mail server. Select either of two types supported by your mail server: {example}{example} * POP3 (Post Office Protocol - Version 3) which is a protocol to get emails from a remote server. This type is selected by default. {example}{example} * IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.|
+|*Incoming Mail Server & Outgoing Mail Server*|The Incoming Mail Server (POP3) and Outgoing Mail Server (SMTP) of your current email provider. Each email provider has different Incoming Mail Server and Outgoing Mail Server settings. By default, the value of this field is "pop.gmail.com" and "smtp.gmail.com" which are the settings for Gmail. For settings of other mail servers, you can find the information on their websites. See [More about Incoming & Outgoing mail server settings|#Incoming_outgoing_reference] for more information.|
+|*Use Incoming SSL*|This option allows using SSL (Secure Sockets Layer) or not. SSL is a cryptographic protocol which provides secure communication on Internet, such as web browsing, email, Internet faxing. The Incoming SSL allows using SSL to check incoming emails.
+|*Use Outgoing SSL*|This option is to use SSL to send mail in the *Mail* application.|
 
-*4.* In Step 4, you can configure other account properties as below. 
+*4.* Configure another account properties in Step 4.
 
 !images/Add_acc_step4.png|align="center"!
 
+*Details:*
 ||Field||Description||
-|*Username*|The email address which is used in Mail.|
-|*Password*|The password that corresponds to your email address. It will be used to archive your mail in 'User name' as  you use it to sign in your mail.|
-|*Save Password| Tick the option checkbox to avoid entering your password again for each mail check.|
-|*Do not download all messages (IMAP only)*|Check this option to not download all messages.|
-|*Limit to Messages Arrived Since*|Enter the time to limit the downloaded messages.|
+|*Username*|The email address which is used in the *Mail* application.|
+|*Password*|The password of your email address. It will be used to get your messages of the email address entered in the *Username* field.|
+|*Save Password| Tick the checkbox to avoid entering your password again for each mail check.|
+|*Do not download all messages (IMAP only)*|Check this option if you do not want to download all messages.|
+|*Limit to Messages Arrived Since*|Select the time to limit the downloaded messages from the drop-down calendar.|
 
-*5.* In Step 5, verify your inputted information.
+*5.* Verify your inputted information in Step 5.
 
 !images/Add_acc_step5.png|align=center!
 
-Select the *Start Downloading Messages Now* checkbox to get messages automatically right after your account is successfully created.  If all of your information is correct, click *Finish* to complete.
+* Tick the *Start Downloading Messages Now* checkbox to get messages automatically right after your account is successfully created. 
+
+*6.* Click the *Finish* button to complete your registration.
 
 h2. Edit your account details {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account"}
-To make changes to your account, simply click !images/add_mail_acount_icon.png! on the left pane and select !images/Edit_account_icon.png! from the drop-down menu;
+To make changes on your account, simply click !images/add_mail_acount_icon.png! on the left pane and select *Edit Account* from the drop-down menu;
 
-Or, select !images/accounts_icon.png! on the toolbar.
+Or, select !images/accounts_icon.png! on the *Toolbar*.
 
-The *Edit Account* form will appear, allowing you to change information about *Identity, Incoming, Outgoing* and *Fetch Options*.
+The *Edit Account* form will appear, allowing you to change information in the *Identity, Incoming, Outgoing* and *Fetch Options* tabs.
 
 !images/Edit_account_form.png|align="center"!
 
 h2. Delete your account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Delete_account}
-If you use multiple accounts, you can delete any unused mail accounts.
+If you use multiple accounts, you can delete any unused mail accounts via either of the following ways:
 
-*1.* Select the account from the accounts list, then click !images/add_mail_acount_icon.png! on the left pane and select *Delete account* from the drop-down menu.
+*The first way*
+
+*1.* Select the account from the accounts list in the left pane.
+
+!images/Select_mail_account.png|align="center"!
+
+*2.* Click !images/add_mail_acount_icon.png! on the left pane and select *Delete Account* from the drop-down menu.
 
 !images/Delete_acc_form.png!
 
-*2.* Click !images/Delete_icon.png! corresponding to the account and then select *OK* to confirm your deletion.
+*3.* Click !images/Delete_icon.png! corresponding to the account, then click *OK* in the confirmation message to accept your deletion.
 
-{docbook}
-<note>
-    <para>
-    You can also delete one account in the <emphasis role="bold">Edit Account</emphasis> form by selecting the relevant account which is marked with <inlinemediaobject>
-            <imageobject>
-              <imagedata fileref="images/marked_account_icon.png" format="PNG"/>
-            </imageobject>
-          </inlinemediaobject>, and then click <inlinemediaobject>
-            <imageobject>
-              <imagedata fileref="images/delete_account_icon.png" format="PNG"/>
-            </imageobject>
-          </inlinemediaobject> to delete the marked account.
-    </para>
-</note>
-{docbook}
+*The second way*
+
+*1.* Open the *Edit Account* form as stated in [Edit your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
+
+*2.* Select the account you want to delete in the left pane. Your currently selected account is marked with !images/marked_account_icon.png!.
+
+*3.* Click !images/delete_account_icon.png! to delete your marked account.
 
 h2. More about Incoming & Outgoing mail server settings {anchor:id="Incoming_outgoing_reference"}
 
-The following reference introduces some common Incoming and Outgoing Mail Server settings. Provided that you are aware of the server type and name, you can start creating Mail accounts quickly. If you do not see your mail service in this list, find these settings on the mail provider websites. Remember that the Mail application only supports POP3 and SMTP mail servers.
+The following reference introduces some common Incoming and Outgoing Mail Server settings. Provided that you are aware of the server type and name, you can start creating your mail accounts quickly. If you do not see your mail service in this list, find these settings on the mail provider websites. Remember that the Mail application only supports POP3 and SMTP mail servers.
 
-*Yahoo! Mail Settings*
+*Yahoo! Mail settings*
 
 * Yahoo Incoming Mail Server (POP3): pop.mail.yahoo.com (port 110)
 
 * Yahoo Outgoing Mail Server (SMTP): smtp.mail.yahoo.com (port 25)
 
-*Google Gmail Settings*
+* Gmail (Google Mail) settings*
 
 * Gmail Incoming Mail Server (POP3): pop.gmail.com (port 995)
 
 * Gmail Outgoing Mail Server (SMTP): smtp.gmail.com (port 465)
 
-*HotMail settings*
+*Hotmail settings*
 
 * Hotmail Incoming Mail Server (POP3): pop3.live.com (port 995)
 
@@ -138,23 +123,23 @@ The following reference introduces some common Incoming and Outgoing Mail Server
 
 * MSN Outgoing Mail Server (SMTP): smtp.email.msn.com 
 
-*AOL Mail Settings*
+*AOL Mail settings*
 
 * AOL Incoming Mail Server (IMAP) - imap.aol.com (port 143)
 
 * AOL Outgoing Mail Server - smtp.aol.com
 
-h1. Get mail {anchor:id="CSUser_guide.How_to_use_Mail.Get_mail}
+h1. Get mails {anchor:id="CSUser_guide.How_to_use_Mail.Get_mail}
 This function is used to receive messages from the remote mail servers and forward them via SMTP, so it can be read in Mail. It supports any mail servers with POP3, IMAP, SMTP, such as Gmail, Hotmail, Yahoo! Mail, GMX, MS Exchange.
 
 *1.* Click the folder you want to check for new mails. If no folder is selected, the default folder will be *Inbox*.
 
-*2.* Click !images/get_mail_icon.png! on the toolbar. The status notification with '*Fetching email messages...*' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click *Refresh* if you want to refresh the fetching mails:
+*2.* Click !images/get_mail_icon.png! on the *Toolbar*. The status notification with '*Fetching email messages...*' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click *Refresh* if you want to refresh the fetching mails.
 
 !images/fetching_emails.png|align="center'!
 
 h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views}
-This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between these three views by clicking *View as* and selecting either of the views. The selected view is marked with !images/marked_account_icon.png!.
+This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking *View as* and selecting either of the views. The selected view is marked with !images/marked_account_icon.png!.
 
 !images/view_as.png|align="center"!
 
@@ -173,184 +158,275 @@ When this view mode is selected, only the subject of parent message and the numb
 
 !images/conversation_view.png|align="center"!
 
-h1. Read email {anchor:id="CSUser_guide.How_to_use_Mail.Read_email}
-If you want to read an email, simply left-click your preferred mail in the mails list and then scroll down to read email in the details pane.
+h1. Read an email {anchor:id="CSUser_guide.How_to_use_Mail.Read_email}
+If you want to read an email, simply left-click your preferred mail in the mails list and scroll down to read your selected email in the details pane.
 
 !images/read_email.png|align="center"!
 
 *When you read an email, you can perform many actions, including:*
 
-* [Download attached files|#Download_attached_files]
-* [View the full header of a messages|#View_full_header]
+* [Download an attached file|#Download_attached_files]
+* [View all headers of a messages|#View_all_headers]
 * [Mark a message as read|#Mark_as_read], [or unread|#Mark_as_unread]
 * [Star a message|#Star_a_message]
 * [Report a message as spam|#Report_message_as_spam]
 * [Delete a message|#Delete_a_message]
 
-h2. Download attached files {anchor:id=Download_attached_files}
+h2. Download an attached file {anchor:id=Download_attached_files}
 If your received mail contains any attached file, you can see their details, such as file name, type and size right in the *Attachments* pane of the currently opened message.
 
 !images/Attachment_details.png!
 
-Click !images/Download_button.png! to get the file. If the uploaded file is image, you can also click !images/Preview_button.png! to preview the image without downloading.
+Click !images/Download_button.png! to download an attachment to your local system. If the uploaded file is image, you can also click !images/Preview_button.png! to preview the image without downloading.
 
 h3. Download and save attachments to Document Management System {anchor:id=Download_attachments_to_DMS}
 
-To download attachments to your local system, click!images/Download_button.png!. You can save them to the Document Management System (DMS) as follows:
+You can download and save an attachment to the Document Management System (DMS) as follows:
 
-*1.* Go into the Mail application and open the mail with attachments. 
-!images/Save_to_DMS.png!
+*1.* Go into the Mail application and open the mail with attachments.
+
+!images/Save_to_DMS.png|align="center"!
 
 *2.* Click *Save to DMS* to open the *Save attachment* form.
 
-!images/DMS_saving_folder.png|align="center"!
-
 *3.* Browse and select the folder where the attached files are stored.
 
-In this form, you can:
+!images/DMS_saving_folder.png|align="center"!
 
-|| Fields || Functions ||
+*Details:*
+|| Number || Description ||
 |!images/1.png!|Change name of the downloaded file into DMS.|
 |!images/2.png!|Browse user drives/folders.|
-|!images/3.png!|View folders and files of the currently openned drive/folder. In this pane, you can remove the folder by clicking *Remove* next to the relevant folder.|
+|!images/3.png!|View folders and files of the currently opened drive/folder. In this pane, you can remove the folder by clicking *Remove* next to the relevant folder.|
 |!images/4.png!|View the path of the selected location.|
 |!images/5.png!|Click *New Folder* to create a new folder by entering the new name in the *Create New Folder* form.|
 
-*4.* Click *Save* to finish your saving to DMS, or *Cancel* to quit without saving.
+*4.* Click *Save* to finish your saving to DMS.
 
-
-h2. View the full headers of a message {anchor:id=View_full_header}
+h2. View all headers of a message {anchor:id=View_all_headers}
 The header's information is displayed by default, including email addresses of the sender and receivers and the mail subject. If you want to view full headers of a mail, do as follows:
 
 *1.* Open the message which you want to view its full headers.
 
-*2.* Click !images/down_arrow_icon.png! at the right corner of message's content and select *View Full Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
+*2.* Click !images/down_arrow_icon.png! at the right corner of message's content and select *View All Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
 
+h2. Mark/Unmark a message as read {anchor:id="Mark_Unmark_as_read"}
+In the Mail application, the unread mails will be recognized in the bold format in the mails list pane, meanwhile the read mails will be unbold.
 
-h2. Mark a message as read {anchor:id="Mark_as_read"}
-You can mark one or more messages as read by removing the bold format of message.
+{docbook}
+<citetitle>
+<para xml:id="Mark_as_read">
+<emphasis role="bold">Mark a message as read</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *The first way*
 
 *1.* Select checkboxes corresponding to messages you want to mark as read.
 
-*2.* Click *More Actions* and select *Mark as read* from the drop-down menu.
+*2.* Click *More Actions* and select *Mark as Read* from the drop-down menu.
 
 *The second way*
- 
+
+{docbook}
+<note>
+<para>
 This way is used to mark all unread messages in a specific folder.
+</para>
+</note>
+{docbook}
 
 *1.* Right-click the folder which contains messages you want to mark as read.
 
-*2.* Select *Mark all read* from the drop-down menu.
+*2.* Select *Mark all as read* from the drop-down menu.
 
-After being marked all as read, all unread messages inside the folder will be marked as read.
+After being marked as read, all unread messages inside the folder will be marked as read.
 
-
-h2. Mark as unread {anchor:id="Mark_as_unread"}
+{docbook}
+<citetitle>
+<para xml:id="Mark_as_unread">
+<emphasis role="bold">Mark as unread</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Select the messages you want to mark as unread.
 
-*2.* Click the *More Actions* and select *Mark as unread* from the drop-down menu.
+*2.* Click *More Actions* and select *Mark as Unread* from the drop-down menu.
 
+h2. Star/Unstar a message  {anchor:id="Star_unstar_a_message"}
 
-h2. Star a message {anchor:id="Star_a_message"}
+{docbook}
+<citetitle>
+<para xml:id="Star_a_message">
+<emphasis role="bold">Star a message</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*The first way*
+
+Tick the checkboxes corresponding to messages you want to star, then click *More Actions* on the action bar and select *Star* from the drop-down menu.
 
 !images/star_message.png|align="center"!
 
-*The first way*
-
-Select messages, then click *Star* from the *More Actions* drop-down menu on the action bar.
-
 *The second way*
 
-In the messages list pane, click the grey *Star* icon next to the message you want to add a star.
+In the messages list pane, click !images/Grey_star_icon.png! next to the message you want to add a star.
 
 After marking, the selected messages will be appended with !images/star_icon.png!, so that you can recognize them quickly.
 
-To unstar one email, simply select *Unstar* from the *More Actions* menu on the action bar or click !images/star_icon.png! next to the message.
+{docbook}
+<citetitle>
+<para xml:id="Unstar_a_message">
+<emphasis role="bold">Unstar a message</emphasis>
+</para>
+</citetitle>
+{docbook}
 
+Simply select *Unstar* from the *More Actions* drop-down menu on the action bar; or click !images/star_icon.png! next to the message.
 
 h2. Move a message to other folders {anchor:id="Move_message_to_other_folders"}
-*1.* Select the message you want to move by ticking their checkboxes.
-
-*2.* Right-click these messages and click *Move To Folder* from the drop-down menu.
-
-*3.* Select one destination folder in the *Move Message* form.
-
-*4.* Click *Save* to move messages to the selected folder.
-
-h2. Report a message as spam {anchor:id="Report_message_as_spam"}
-*To report an email as spam*, simply select the relevant email and click !images/spam_mail_icon.png! on the action bar.
-
-The selected email will be moved to the *Spam* folder. Go into the *Spam* folder to verify that the selected message has been moved to it.
-
-After reporting a message as spam, the messages from the sender who has been reported as spam will be automatically moved to the *Spam* folder.
-
-*To move the spammed email from the Spam folder*, go to the *Spam* folder and then select your desired message and click !images/move_spam_mail_icon.png! on the action bar.
-
-Once the message was removed from the *Spam* folder, all messages from its sender will be received normally.
-
-
-h2. Delete messages {anchor:id="Delete_a_message"}
-
-To delete messages, select the relevant messages, then right-click and select *Delete* in the context menu or click !images/Delete_icon.png! from the action bar.
-
-Also, to delete the message permanently, open messages in the *Trash* folder, then right-click the relevant message and then select *Delete* in the context menu. Or, select messages and click the trash icon from the action bar.
-
-h1. Compose a new message {anchor:id="Compose_new_message"}
-
-*1.* Click !images/write_mail_icon.png! on the toolbar.
-
-The *Compose New Message* form will appear:
-
-!images/compose_message_form.png|align="center"!
-
-*2.* Specify the sending email address by selecting one of your email addresses.
-
-!images/from_email.png|align="center"!
-
-*3.* Enter email addresses of recipients. The *To* box must always contain at least one address; everyone who receives your message can see the addresses in the *To* box.
-
-You can enter one or more email addresses in the *To* box using one of the following ways:
 
 *The first way*
 
-Type one or more email addresses by separating them with commas.
+*1.* Open the *Move Message* form as follows:
 
-!images/to_email.png|align="center"!
+*i.* Right-click the message you want to move to another folder in the messages list pane, and select *Move to Folder* from the drop-down menu; 
 
-When your typed address matches one or more addresses in your Address Book, the list of matching addresses will appear and you can click one address to select:
+*ii.* Or, tick the checkbox corresponding to the message you want to move, then click *More Actions* on the action bar and select *Move* from the drop-down menu.
 
-!images/to_email1.png|align="center"!
+*2.* Select your desired destination folder by ticking the !images/down_arrow_icon.png! next to the *Move To Folder* field to open the drop-down menu.
+
+!images/Move_message_form.png|align="center"!
+
+*3.* Click *Save* to move messages to your sected folder.
 
 *The second way*
 
-Select one or more contacts from your Address book.
+In the mails list pane, tick the message you want to move, then drag and drop it into your desired destination folder in the left pane.
 
-*1.* Click the *To* button.
+!images/Drag_drop_message.png!align="center"!
 
-!images/to_email2.pngalign="center"!
+h2. Report a message as spam {anchor:id="Report_message_as_spam"}
+*The first way*
 
-The *Contacts* window listing all of your contacts will appear.
+Simply tick the checkbox corresponding to the message you want to report as spam, then click !images/spam_mail_icon.png! on the action bar.
 
-!images/contacts.png|align="center"!
+*The second way*
 
-*2.* Select the checkboxes of the contact to receive your message. You can search for email addresses in a specific address book by typing the contact name in the search box and select an Address book to search.
+Drag the message in the right mails list pane and drop it into the *Spam* folder in the left pane.
 
-!images/addressbook.png|align="center"!
+The selected email will be moved to the *Spam* folder. Go into the *Spam* folder to verify that the selected message has been moved to it.
 
-Also, select *Send To All* option if you would like to send mail to all contacts or specific groups. Click *Add* to add the selected email addresses to the *To* box or click *Replace* to replace the current email addresses with the new selected email addresses.
+As from the time when the message is marked as spam, all messages from the _spam_ sender will be automatically moved to the *Spam* folder.
 
-*3.* Enter a few words into the *Subject* box to give the general topic to receivers.
+{docbook}
+<citetitle>
+<para xml:id="Unspam_message">
+<emphasis role="bold">Unspam a message
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*4.* Enter your message in the text-input field. You can use this toolbar to format the message text.
+*1.* Go to the *Spam* folder, then tick the checkbox corresponding to the relevant message.
 
-!images/Compose_toolbar.png|align="center"!
+*2.* Click !images/move_spam_mail_icon.png! on the action bar.
 
-Click !images/editor_icon.png! on this toolbar to switch between *Rich text* and *Plain text* editors. If *Rich text* is selected, the message text can be composed with format tools; while the *Plain Text* only allows you to compose a message with the simple text format.
+The _spam_ message will be removed from the *Spam* folder. All messages from this sender will be received normally.
 
-*5.* Click !images/send_mail_icon.png! to send the message when you are satisfied with the content. Click !images/discard_icon.png! to exit the *Compose New Message* window if you want to quit composing.
+h2. Delete a message {anchor:id="Delete_a_message"}
+
+{docbook}
+<citetitle>
+<para xml:id="Delete_message_temporarily">
+<emphasis role="bold">Delete a messgage temporarily
+</emphasis>
+</para>
+</citetitle>
+{docbook} 
+
+*The first way*
+
+Right-click the message, then select *Delete* from the drop-down menu.
+
+*The second way* 
+
+Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png! on the action bar.
+
+*The third way*
+
+Drag the message in the mails list pane and drop it into *Trash* folder* in the left pane.\
+
+* All temporarily deleted messages will be in the *Trash* folder.
+
+{docbook}
+<citetitle>
+<para xml:id="Delete_message_permanently">
+<emphasis role="bold">Delete a messgage permanently
+</emphasis>
+</para>
+</citetitle>
+{docbook} 
+
+{docbook}
+<note>
+<para>
+All messages which have been deleted permanently cannot be restored any longer. To delete a message permanently, the message should first be in the *Trash* folder. It means that the message should <link linkend="Delete_message_temporarily">have been deleted</link> temporarily. 
+</para>
+</note>
+{docbook}
+
+*1.* Select the *Trash* folder in the left pane to see all messages in this folder.
+
+*2.* Right-click the relevant message, then select *Delete* from the drop-down menu;
+
+Or, tick the checkbox corresponding to the relevant message, and click !images/Delete_icon.png! on the action bar.
+
+{docbook}
+<citetitle>
+<para xml:id="Undelete_message_permanently">
+<emphasis role="bold">Undelete a message
+</emphasis>
+</para>
+</citetitle>
+{docbook} 
+
+{docbook}
+<note>
+<para>
+This function is only for messages which have been TEMPORARILY deleted.
+</para>
+</note>
+{docbook}
+
+*The first way*
+
+*1.* Select the *Trash* folder in the left pane to see the list of temporarily deleted messages in the right mails list pane.
+
+*2.* Tick the checkbox corresponding to the message you want to undelete.
+
+*3.* Drag and drop the message into another folder.
+
+*The second way*
+
+Open the *Trash* folder, then use the [Move|Move_message_to_other_folders] function to remove the message from the *Trash* folder.
+
+h1. Compose a new message {anchor:id="Compose_new_message"}
+
+*1.* Click !images/write_mail_icon.png! on the toolbar to open the *Compose New Message* form.
+
+!images/compose_message_form.png|align="center"!
+
+*2.* Specify the sender's email address from the From* field.
+
+!images/from_email.png|align="center"!
+
+*3.* Enter email addresses of recipients into the *To* field.
+
+The *To* box must always contain at least one address; everyone who receives your message can see the addresses in the *To* box.
 
 {docbook}
 <note>
@@ -364,6 +440,74 @@ Click !images/editor_icon.png! on this toolbar to switch between *Rich text* and
 </note>
 {docbook}
 
+
+*4.* Enter a few words into the *Subject* box to give the general topic to receivers.
+
+*5.* Enter your message in the text-input field. You can use this toolbar to format the message text.
+
+!images/Compose_toolbar.png|align="center"!
+
+Click !images/editor_icon.png! on this toolbar to switch between *Rich text* and *Plain text* editors. If *Rich text* is selected, the message text can be composed with format tools; while the *Plain Text* only allows you to compose a message with the simple text format.
+
+*6.* Click !images/send_mail_icon.png! to send the message when you are satisfied with the content. Click !images/discard_icon.png! to exit the *Compose New Message* window if you want to quit composing.
+
+{docbook}
+<note>
+    <para>
+    Sent mails will be saved in the <emphasis role="bold">Sent</emphasis> folder. In case the receipt emails do not exist in your Address Book, they will be added automatically to the <emphasis role="bold">Collected Address</emphasis> in the <emphasis role="bold">Contact</emphasis> application.
+    </para>
+</note>
+{docbook}
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Select more email addresses in the "To" field
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*The first way*
+
+Type more email addresses by separating them with commas.
+
+!images/to_email.png|align="center"!
+
+If your typed address matches one or more addresses in your Address Book, the list of matching addresses will appear and you can click one address to select.
+
+!images/to_email1.png|align="center"!
+
+*The second way*
+
+Select one or more contacts from your Address Book.
+
+*1.* Click the *To* button.
+
+!images/to_email2.png|align="center"!
+
+The *Contacts* window listing all of your contacts will appear.
+
+!images/contacts.png|align="center"!
+
+*2.* Tick the checkboxes corresponding to the contacts whom you want to receive your message.
+
+Also, you can
+
+* Search for email addresses in a specific address book as follows:
+
+*i.* Typing the contact name in the search box.
+
+*ii.* Define the address book where you want to search for your entered contact name to limit the search results in the *Address Book* select-box.
+
+!images/addressbook.png|align="center"!
+
+*iii.* Click !images/Glass_icon.png! to perform your search.
+
+* Select the *Send To All* option if you want to send the email to the contacts defined in the *Address Book* select-box.
+
+*3.* Click *Add* to add your selected email addresses to the *To* box, or *Replace* to replace the current email addresses in the *To* field with your newly selected ones.
+
 {docbook}
 <para>
     <prompt>
@@ -372,165 +516,212 @@ Click !images/editor_icon.png! on this toolbar to switch between *Rich text* and
  </para>
 {docbook}
 
-* [Attach files to a message|#Attach_attachment_to_message]
+* [Attach a file to a message|#Attach_attachment_to_message]
 * [Change the signature of your message|#Change_signature_to_message]
 * [Save a message as draft|#Save_message_as_draft]
 * [Set priority level|#Set_priority_level]
 * [Change message preferences|#Change_message_preferences]
 
-h2. Attach files to a message {anchor:id="Attach_attachment_to_message"}
-*1.* Click !images/attach_local_file_icon.png! to open the *Attach Files* window.
+h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
+*1.* Click !images/attach_local_file_icon.png! in the *Compose New Message* form to open the *Attach Files* window.
 
-*2.* Click !images/choose_file_button.png! to select a file on your computer, then click *Open*. The selected file will be then uploaded.
+*2.* Click *Browse...* to open the *File Upload* form.
 
-*3.* Go back to the *Compose a new message* window, you will see the attached files shown in the *Attachments* area.
+*3.* Browse the file from your device, then click *Open* to upload your selected file. If you want to open more *Attach File* fields, simply click !images/Add_more_button.png!.
 
-If you do not want to include an attached file in the message, just click !images/Delete_icon.png! next to the attached file to remove it.
+*4.* Click *Save* to accept your attachments and go back to the *Compose New Message* form. 
+
+You will see your uploaded file in the *Attachments* area of the *Compose New Message* window.
+
+!images/Attachments_area.png|align="center"!
+
+*i.* Click !images/Download_icon.png! to download or see if your uploaded file is correct or not without browsing the file on your device.
+
+*ii.* Click !images/Delete_icon.png! next to the attached file to remove it from your message.
 
 h3. Attach a server file {anchor:id=Attach_server_file}
 
-This function is only featured since eXo Platform 3.5, allowing you to browse and attach one file from your server as follows:
+This function is only featured in eXo Platform 3.5, allowing you to browse and attach one file from your server as follows.
 
-*1.* Click the down-arrow icon next to *Attach a local file*, then select *Attach a server file* in the *Compose a new message* form.
+*1.* Click the down-arrow icon next to *Attach Local File* in the *Compose New Message* form, then select *Attach Server File*.
 
-!images/Attach_server_file.png|align='center'!
+!images/Attach_server_file.png|align="center"!
 
-*2.* Browse the user drive/folder containing the file to be attached in the left pane of UIAddAttachment form. In the right pane, select a file or relevant folder to go into your desired file.
+*2.* Browse the server file in the *Attach Server File* form.
 
-!images/UIAddAttachment.png|align='center'!
+!images/Attach_server_file_form.png|align="center"!
 
-*3.* Click *Attach* to upload your selected source file into the message; Or click *Attach Link* to get the link poining to the selected source file that is shown in your message body. The *Attach Link* function allows your mail receivers to download the attached source file just clicking the relevant link.
+*3.* Click *Attach* to upload your selected source file into the message;
+
+Or, click *Attach Link* to get the link pointing to the selected source file that is shown in your message body. The *Attach Link* function allows your mail receivers to download the attached source file just clicking the relevant link.
 
 h2. Save a message as draft {anchor:id="Save_message_as_draft"}
-Click !images/save_in_drafts_icon.png! if you are not ready to send an email message and want to save it as draft in your *Drafts* folder for sending later. You can also save a draft, and then send the message keeping a copy in the *Draft* folder.
+If you are not ready to send your composed message, click !images/save_in_drafts_icon.png! to save it as draft. Your draft message will be in the *Drafts* folder for you to send anywhen you like.
 
-h2. Set priority level {anchor:id="Set_priority_level"}
-The priority level allows the recipients to see if the message is at high, low or normal importance upon arrival. If you have to send a lot of emails that are very important for people to see right away, you can set them as high priority, so they will view them as soon as possible. This is an useful tool to use when sending emails. 
-Setting the mail priority level is only few clicks away:
+h2. Set a priority level {anchor:id="Set_priority_level"}
 
-Click !images/priority_icon.png! to your preferred set priority level for the composed message. There are 3 levels: Low, Normal and High. The message is sent with the *High* priority, the "!" icon is marked in red. The message is sent with the *Low* priority, the exclamation mark icon is gray. By default, the message is sent with the *Normal* priority.
+The priority levels set to a message allow receipients to define if one received message is at a high, or normal, or low importance level. It means that when a message is set at the high priority level, its receivers need to read as soon as possible.
 
-h2. Change the signature of your message. {anchor:id="Change_signature_to_message"}
+This useful tool can be done with a few clicks when you are composing a new message. 
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Set a priority level for your composed message
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*1.* Click !images/priority_icon.png! in the *Compose New Message* form.
+
+*2.* Select your prefered priority from the drop-down menu.
+
+* *Low:* The exclamation icon corresponding to the mail is marked in grey in the !images/Priority_column_icon.png! column.
+* *Normal:* There is no the exclamation icon. By default, the message is sent with the *Normal* priority.
+* *High:* The exclamation icon is marked in red.
+
+h2. Change the message signature {anchor:id="Change_signature_to_message"}
 A message signature is an identification text which are automatically inserted at the bottom of your sending messages. 
 You can change this signature by [editing your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
 
 h2. Change message preferences  {anchor:id="Change_message_preferences"}
-Click !images/options_icon.png! to set to another preferences. At present, you only have the Return Receipt option that allows the sender to receive a notification mail to inform that the receiver already read your message. The sender will receive the notification only when the mailbox of the receiver has been configured in the [Mail settings|#Mail_settings].
+At present, this function only allows you to receive a notification message that the receiver has already read your message or not. 
 
-{docbook}
-<note>
-    <para>
-    Sent mails will be saved in the <emphasis role="bold">Sent</emphasis> folder. In case the receipt emails do not exist in your Address book, they will be added automatically to the <emphasis role="bold">Collected Address</emphasis> in the <emphasis role="bold">Contact</emphasis> application.
-    </para>
-</note>
-{docbook}
+*1.* Click !images/options_icon.png! in the *Composse New Message* form.
+
+*2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the receiver in the [Change Mail settings|#Mail_settings] section.
+
 
 h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message}
 
-You have two options to reply to a message:
+{docbook}
+<citetitle>
+<para xml:id="reply_to_a_sender">
+<emphasis role="bold">Reply to the sender only</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-* [Reply to the sender only|#reply_to_a_sender].
-
-* [Reply to all receipients of the message|#reply_to_all].
-
-*Reply to a sender* {anchor:id="reply_to_a_sender"}
-
-*1.* Open the *Reply* form in one of these ways:
+*1.* Open the *Reply* form via either of 3 ways:
 
 *The first way*
 
-Select the message in the list that you want to answer by selecting its checkbox, then click !images/reply_mail_icon.png! on the action bar.
+Tick the checkbox corresponding to the message you want to reply in the mails list pane, then click !images/reply_mail_icon.png! on the action bar.
 
 *The second way*
 
-Right-click the message you want to reply and select the *Reply* item from the drop-down menu.
+Right-click the message you want to reply and select *Reply* from the drop-down menu.
 
 *The third way*
 
-Open the message that you want to reply, then select !images/reply_mail_icon1.png! at the upper right corner of the message content.
+Click the message that you want to reply to display its content, then select !images/reply_mail_icon.png! at the upper right corner of the message content.
 
-*2.* Compose the message content in the *Compose a new message* window that appears.
+*2.* Compose the content in the *Compose New message* window.
 
-*3.* Click !images/send_mail_icon.png! to send the reply.
+*3.* Click !images/send_mail_icon.png! to send your reply.
 
-*Reply to all* {anchor:id="reply_to_all"}
+{docbook}
+<citetitle>
+<para xml:id="reply_to_all">
+<emphasis role="bold">Reply to all receipients of the message</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*1.* Select the message in the list that you want to reply to all by selecting its checkboxes and click !images/reply_mail_icon1.png!;
-
-!images/reply_all.png|align="center"!
+*1.* Tick the checkbox corresponding to the message you want to reply, then click !images/reply_mail_icon1.png! on the action bar;
 
 Or right-click the message, then select *Reply to All* from the drop-down menu.
 
-*2.* Compose your reply message in the *[Compose a new message|#Compose_new_message]* window, then click !images/send_mail_icon.png! to send your reply.
+*2.* Compose your reply message in the *[Compose New Message|#Compose_new_message]* window, then click !images/send_mail_icon.png! to send your reply.
 
 
 h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_message"}
-When you forward a message, you send a message that you have received to someone else. You can also add your own message to the forwarded message before you send it. 
+This function allows you to re-send a message, which has been delivered to your email address, to another email addresss. 
 
-Read below to find out how:
 
-*1.* Select the message which you want to forward and then click !images/forward_mail_icon.png! on the action bar:
+*1.* Open the *Compose New Message* window via either of 3 ways.
+
+*i.* Tick the checkbox corresponding to the message which you want to forward, then click !images/forward_mail_icon.png! on the action bar.
 
 !images/forward_mail.png|align="center"!
 
-or you can open the message which you want to forward, click down-arrow button to show available related actions then click *Forward* in the context menu.
+*ii.* Or, right-click the message, then select *Forward* from the drop-down menu;
 
-The *Compose a new message* window will be displayed with the original contents of the message you want to forward.
+*iii.* Or, open the message which you want to forward, then click !images/down_arrow_icon.png! at the upper right corner of the message content, and select *Forward* from the drop-down menu.
 
-*2.* Enter the address of the recipient that you want to forward to.
+The *Compose New Message* window will be displayed with the original contents of the message you want to forward.
 
-*3.* Edit a message if necessary then click !images/send_mail_icon.png! to forward the message.
+*2.* Enter the recipient's email address in the *To* field.
 
+*3.* Click !images/send_mail_icon.png! to forward the message.
+
+{docbook}
+<note>
+<para>
+Before forwarding a message, you can edit it to your desires that is similar as <link linkend="Compose_new_message">composing a new messagge.</link>
+</para>
+</note>
+{docbook}
 
 h1. Print a message {anchor:id="CSUser_guide.How_to_use_Mail.Print_message}
 
-This function helps you take a copy of email message with you, provided that your computer has access to a printer, either directly or through a network connection.
+This function helps you take a hard copy of the message, provided that your computer has access to a printer, either directly or through a network connection.
 
-Right-click the message which you want to print and click *Print* from the drop-down menu; 
+*The first way*
 
-Or, select the relevant messages in the messages list, then click !images/print_icon.png! on the action bar;
+Right-click the message which you want to print and click *Print* from the drop-down menu.
 
-!images/print_message.png|align="center"!
+*The second way*
 
-Or, click !images/down_arrow_icon.png! at the right corner of an open message's content, then click *Print* from the drop-down menu.
+Tick the checkbox corresponding to the message, then click !images/print_icon.png! on the action bar.
 
-The message is opened for you to preview, then click *Print* to start printing.
+*The third way*
 
+Open the message, then click !images/down_arrow_icon.png! at the upper right corner of the message content and select *Print* from the drop-down menu.
 
-h1. Export messages {anchor:id="CSUser_guide.How_to_use_Mail.Export_messages}
+You will be directed to the *Print Preview* page. Here, click *Print* to start printing.
 
-Use this function when you want to back up your messages or want to immigrate messages to another account. Messages are exported in a {noformat}*.eml{noformat} file.
+h1. Export a message {anchor:id="CSUser_guide.How_to_use_Mail.Export_messages}
 
-*1.* Right-click the message that you want to export, then select *Export* in the context menu. Check the message to export by selecting its checkboxes and then select the *Export Message* in the *More Actions* context menu.
+This function allows you to back up your messages, then import them into your another accounts. Messages are exported in the {noformat}*.eml{noformat} file.
+
+*1.* Open the *Export Message* form via either of 3 ways.
+
+*i.* Right-click the message that you want to export, then select *Export* from the drop-down menu;
+
+*ii.* Or, tick the checkbox corresponding to the message, then click *More Actions* on the action bar and select *Export* from the drop-down menu;
+
+*iii.* Open the message, then click !images/down_arrow_icon.png! at the upper right corner of the message content and select *Export (*.eml)* from the drop-down menu.
 
 The *Export Message* form will appear.
 
 !images/export_message.png|align="center"!
 
-*2.* Enter the file name and select the export format.
+*2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the _*.eml_ format is supported.
 
-*3.* Click the *Export* to accept the exporting file.
+*3.* Click the *Export* button to accept exporting your selected file.
 
+h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
+The function is used to import a message from your device to your selected folder in Mail.
 
-h1. Import messages {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
-The function is used to import messages from your computer to a folder of your choice in Mail.
-
-*1.* Select the *Import* in the *More Actions* menu on the action bar:
-
-!images/more_actions.png|align="center"!
+*1.* Click *More Actions* on the Action bar, then select *Import* from the drop-down menu.
 
 The *Import Message* form will appear.
 
 !images/import_message.png|align="center"!
 
 Details:
-
+||Field||Description||
 |*Choose File*|The name of the file which you want to import from your computer.|
 |*Import to Folder*| The folder into which the message will be imported.|
 
-*2.* Click *Choose File* to get one .eml file from the computer and then click !images/upload_icon.png! to upload the selected file.
+*2.* Click *Choose File* to get one .eml file from the computer, then click !images/upload_icon.png! to upload the selected file.
 
-*3.* Complete importing by clicking the *Import* button.
+*3.* Select the folder into which you want to import the message in the *Import to Folder* field.
+
+*4.* Click the *Import* button to accept your import.
 
 {docbook}
 <note>
@@ -540,64 +731,101 @@ Details:
 </note>
 {docbook}
 
-
 h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters}
 h2. Folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
 
-Folder helps you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including Inbox, Drafts, Sent, Spam, Trash, are automatically generated. You cannot delete, rename or move these folders. These folders are always displayed at the top of your folders list, followed by any folders created by yourself.
+Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including *Inbox, Drafts, Sent, Spam, Trash*, will be automatically generated. You cannot delete, rename or move these folders.
 
-Refer to the table below if you want to learn more about these default mail folders.
-
-!images/Mail_folder.png|align=center!
+!images/Mail_folder.png|align="center"!
 
 *Details:*
-
-|*Inbox*|This folder stores all incoming messages.|
-|*Drafts*|This folder stores all messages which have been composed but not sent yet.|
-|*Sent*|This folder stores all sent messages.
-|*Spam*|This folder stores all messages suspected of being unwanted messages.|
-|*Trash*|The tempory storage of deleted messgaes.|
-|*Personal Folders*|The list of the personal folders which corresponds to the created folders in the sever mail box.|
+||Folder||Description||
+|*Inbox*|Store all incoming messages.|
+|*Drafts*|Store all messages which have been composed but not sent yet.|
+|*Sent*|Store all sent messages.
+|*Spam*|Store all messages suspected of being unwanted messages.|
+|*Trash*|Store temporarily deleted messgaes.|
+|*Personal Folders*|Store folders which are created by yourself.|
 
 h3. Create a new folder {anchor:id="Create_new_folder"}
 
-*1.* Open the *Add* form by clicking the arrow icon !images/down_arrow_icon! on the *Folders* bar and then select *Add* from the drop-down menu.
+*1.* Click !images/down_arrow_icon! on the *Folders* pane, then select *Add* from the drop-down menu.
 
-*2.* Type a *Folder name*, then complete adding a new folder by clicking *Save*.
+*2.* Enter the folder name into the *Folder name* field. Special characters are not accepted in this field.
+
+*3.* Click *Save* to complete adding your new folder.
 
 {docbook}
 <note>
     <para>
-    The created folder will be displayed in the <emphasis role="bold">Personal Folders</emphasis> section.
+    The created folder will be displayed in the <emphasis role="bold">Personal Folders</emphasis> pane.
     </para>
 </note>
 {docbook}
 
-You can also create a new sub-folder via the context menu. You can only add new folders, personal folders except for the default folders (Inbox, Drafts, Sent, Spam, Trash). Just right-click the created folder you want to add, then select *New Sub-folder* in the context menu.
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Create a new sub-folder
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+{docbook}
+<note>
+<para>
+You can only create sub-folders for personal folders.
+</para>
+</note>
+{docbook}
+
+*1.* Right-click any parent folder to which you want to add a sub-folder in the *Personal Folders* pane.
+
+*2.* Select *New Subfolder* from the drop-down menu.
+
+*3.* Follow steps as stated in the [Create a new folder|#Create_new_folder] section.
 
 h3. Rename a folder {anchor:id="Rename_folder}
 
-*1.* Right-click the folder which you want to rename and click *Rename* from the drop-down menu.
+{docbook}
+<note>
+<para>
+This function is only for folders/sub-folders under the <emphasis role="bold">Personal Folders</emphasis> pane.
+</para>
+</note>
+{docbook}
+
+*1.* Right-click the folder which you want to rename and select *Rename* from the drop-down menu.
 
 !images/personal-folder.png|align="center"!
 
-*2.* Enter a new name, then click *Save* to finish.
+*2.* Enter a new name in the *New Folder Name* field of the *Remove Folder* form.
+
+*3.* Click *Save* to finish your removal.
 
 
 h3. Remove a folder {anchor:id="CSUser_guide.How_to_use_Mail.Remove_folder}
 
-*1.* Right-click the folder that you want to remove and click *Remove* from the context menu.
+{docbook}
+<note>
+<para>
+This function is only for folders/sub-folders under the <emphasis role="bold">Personal Folders</emphasis> pane.
+</para>
+</note>
+{docbook}
 
-*2.* Click *OK* in the confirmation message to confirm deleting.
+*1.* Right-click the folder that you want to remove, then select *Remove* from the drop-down menu.
+
+*2.* Click *OK* in the confirmation message to accept your deletion.
 
 h2. Tag {anchor:id="Tag"}
 
-Tag is used as a label which allows filtering or categorizing messages from different folders. They do all the work that folders do and give you an extra: you can add more than one tag to an email message.
-After you have added a tag to messages, you can easily view all the messages that have the same tags. A single message could be assigned to many tags. Using tags makes it easy for you to find messages independently from the folder where they are stored.
+Tags are used as labels for filtering or categorizing messages from different folders. You can add more than one tag to a message. Using tags makes easy for you to find messages independently from the folder where they are stored.
 
 h3. Create a tag {anchor:id="Create_tag}
 
-*1.* Click !images/down_arrow_icon! on the Tags bar of right pane and click *Add a new tag* from the drop-down list. The *Tag* form will appear.
+*1.* Click !images/down_arrow_icon.png! on the *Tags* pane of the right pane and select *Add New Tag* from the drop-down menu to open the *Tag* form.
 
 !images/tag.png|align="center"!
 
@@ -608,85 +836,134 @@ h3. Create a tag {anchor:id="Create_tag}
 
 *2.* Fill in required fields, then click *Save* to finish.
 
-A new tag will be updated at the tags list and now you can start adding this tag to any messages.
+Your newly selected tag will be updated in the *Tags* pane.
 
 h3. Assign a tag to a message {anchor:id="Assign_tag"}
 
-*1.* Select messages by selecting its checkboxes.
+{docbook}
+<note>
+<para>
+You can assign a tag to many messages simply by ticking their checkboxes first.
+</para>
+</note>
+{docbook}
 
-*2.* Right-click the selected messages and click *Tag* in the context menu. In other way, you also can click *More Actions* button on the action bar, then click *Tag* from the drop-down menu.
+*The first way* 
+
+*1.* Select the messages to which you want to assign a tag by ticking their checkboxes.
+
+*2.* Right-click your selected message, then select *Tag* from the drop-down menu.;
+
+Or, click *More Actions* on the action bar, and select *Tag* from the drop-down menu.
 
 The *Tag Message* form will appear.
 
 !images/tag_message.png|align="center"!
 
 *Details:*
-
+||Field||Description||
 |*Tag Name*|The tag's name. This field contains words and keywords which are used to describe the same messages.|
 |*Color*|The color of the tag.|
 |*Add button*|To accept adding message to a new tag.|
 |*Remove button*|To remove tags in case messages were already tagged.|
 
-*3.* Name the new tag for the selected items or select from existing tags. Click *Add* to add tag(s) to selected items.
+*3.* Give a new tag name in the *Tag Name* field, then select one color for the tag from the *Color* drop-down menu;
+
+Or, tick the checkboxes corresponding to your desired tags from the tags list.
+
+*4.* Click *Add* to finish assigning the tags to your selected messages;
+
+{docbook}
+<citetitle>
+<para xml:id="Untag_messages">
+<emphasis role="bold">Untag the selected messages
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*1.* Select messages which have been tagged simply by ticking their checkboxes.
+
+*2.* Right-click your selected message, then select *Tag* from the drop-down menu.;
+
+Or, click *More Actions* on the action bar, and select *Tag* from the drop-down menu.
+
+*3.* Click *Remove* to remove the assigned tags from the messages in the *Tag Message* form.
+
+{docbook}
+<note>
+<para>
+To remove one tag from all messages, simply use the <link linkend="Empty_tag">Empty function.</link>
+</para>
+</note>
+{docbook}
 
 h3. Edit a tag {anchor:id="Edit_tag"}
 
-*1.* Right-click a tag name in the tags list and click *Edit* in the context menu.
+*1.* Right-click a tag name in the *Tags* page, and click *Edit* from the drop-down menu.
 
 The *Tag* form will appear.
 
 !images/tag.png|align="center"!
 
-*2.* Make changes to the tag, then click *Save* to save changes.
+*2.* Make changes on the tag, then click *Save* to save your changes.
 
 h3. Remove a tag {anchor:id="Remove_tag"}
 
-Right-click the tag that you want to remove from the tag list and then select *Remove* from the drop-down menu.
+Right-click the tag that you want to remove from the *Tags* pane, then select *Remove* from the drop-down menu.
 
 The selected tag will be removed from the tag list and it will also be removed from all messages to which this tag was assigned.
 
 h3. Empty a tag {anchor:id="Empty_tag"}
 
-Right-click a tag that needs to be emptied and click *Empty* from the drop-down menu. The selected tag will be removed from all messages.
+By using this function, you can remove one tag from all messages. 
+
+*1.* Right-click the tag which needs to be empties in the *Tags* pane.
+
+*2.* Select *Empty* from the drop-down menu.
 
 h3. Change the tag color {anchor:id="Change_tag_color"}
 
-The function allows changing the color of a tag in the tags list by right-clicking the tag you want to change and then select one color in the colors area. There are 32 available colors in the color palette:
+The function allows changing the color of a tag in the tags list by right-clicking the tag you want to change and then select your desired color from the 32-color palette.
 
 !images/tags_color.png|align="center"!
 
 h2. Filter {anchor:id="Filter"}
 
-By default, the messages list shows all of your received message in your inbox but you can filter to specify which message to be displayed.
+By default, the messages list shows all of your received messages in your inbox but you can filter to specify which message to be displayed.
 
 !images/Filter_message_dropdown.png|align="center"!
 
 You can filter messages according to the following criteria:
 
-*Unread*: only unread messages will be shown.
+* *Unread*: Only show unread messages.
 
-*Starred*: only starred messages will be shown.
+* *Starred*: Only show starred messages.
 
-*With Attachments*: only messages with attachments will be shown.
+* *With Attachments*: Only show messages with attachments.
 
-*View All*: all types of messages are shown.
+* *View All*: Show all types of messages.
 
 h3. Create a filter {anchor:id="Create_filter"}
-There are 2 methods to create a new filter:
+There are 2 ways to create a new filter:
 
-* [Create a new filter|#Create_new_filter]: All filter rules are defined by yourself.
+{docbook}
+<citetitle>
+<para xml:id="Create_new_filter">
+<emphasis role="bold">
+Create a new filter by defining all filter rules
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-* [Create a new filter from a message|#Create_filter_from_message]: Use this method when you would like to create a filter for messages similar to one you're currently reading. The filter rules will be based on the existing conditions.
+By this way, you need to manually define conditions for the new message filter.
 
-*To create a new filter, do as follows*: {anchor:id="Create_new_filter"}
-
-This way manually defines condition for the new message filter.
-
-*1.* Click !images/filter_icon.png! on the toolbar. The *Message Filter* form will appear.
+*1.* Click !images/filter_icon.png! on the toolbar to open the *Message Filter* form.
 
 !images/message_filter.png|align="center"!
 
-*2.* Click !images/add_new_filter_icon.png! or "Click here to add a new filter" link to create a new filter.
+*2.* Click !images/add_new_filter_icon.png! or the "Click here to add a new filter" link to create a new filter.
 
 The *Add/Edit Message Filter* will appear.
 
@@ -694,26 +971,34 @@ The *Add/Edit Message Filter* will appear.
 
 *Details:*
 ||Field||Description||
-|*Filter Name*|The filter's name.|
+|*Filter Name*|The filter name.|
 |*From*|Filter the email address of sender.|
-|*To*|Filter the mail address of receiver.|
-|*Subject*|This condition is to filter the subject of incoming messages.|
+|*To*|Filter the email address of receiver.|
+|*Subject*|Filter the subject of incoming messages.|
 |*Body*|Filter the body of incoming messages.|
-|*Move the message to folder*|The folder to which the messages satisfying with the filter will be moved.|
-|*Apply Tag*|All messages matching the filter rules will be applied a tag of your choice.|
+|*Move the message to folder*|The folder to which the filtered messages will be moved.|
+|*Apply Tag*|Assign the tag to messages matching the filter rules.|
 |*Execute now*|Take the action right after editing the filter.|
 
 *3.* Define the rules for the new filter.
 
-*4.* Complete adding the message filter by clicking *Save*.
+*4.* Click *Save* to finish creating your new filter.
 
-*Create a filter from a message* {anchor:id="Create_filter_from_message"}
+{docbook}
+<citetitle>
+<para xml:id="Create_filter_from_message">
+<emphasis role="bold">Create a filter from a message</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*1.* Select a message containing the criteria you like to include in your new filter. 
+By this way, you could create a filter which is based on existing conditions of one existing message without defining the filter rules.
+
+*1.* Right-click a message containing the criteria you want to include in your new filter. 
 
 !images/filter_message.png|align="center"!
 
-The *Add/Edit Message Filter* form will appear with some pre-defined filter conditions basing on the current selected message:
+The *Add/Edit Message Filter* form will appear with some pre-defined filter conditions of the current selected message.
 
 !images/add_edit_message_filter.png|align="center"!
 
@@ -722,54 +1007,60 @@ The *Add/Edit Message Filter* form will appear with some pre-defined filter cond
 The created filter will be displayed in the list. All messages matching the defined filter rules will be affected. 
 
 h3. Edit a filter {anchor:id="Edit_filter"}
-*1.* Open the *Message Filter* form by clicking !images/filter_icon.png! on the toolbar. The *Message Filter* form will appear.
 
-*2.* Select the filter to edit and then click !images/edit_filter.png! on the filter bar in the *Message Filter* form. The *Add/Edit Message Filter* form will be shown with current condition.
+*1.* Click !images/filter_icon.png! on the toolbar to open the *Message Filter* form.
 
-*3.* Change the filter condition.
+*2.* Click the filter you want to edit in the left pane. Your selected filter is marked with !images/Selected_filter_icon.png!.
 
-*4.* Complete editing by clicking *Save*.
+*3.* Click !images/edit_filter.png! on the filter bar to open the *Add/Edit Message Filter* form.
+
+*4.* Change the filter conditions to your desires.
+
+*5.* Click *Save* to complete your changes.
 
 h3. Delete a filter {anchor:id="Delete_filter"}
-*1.* Open the *Message Filter* form by clicking !images/filter_icon.png! on the toolbar.
 
-*2.* Select the filter you want to delete and then click !images/delete_filter.png! on the filter bar in the *Message filter* form.
+*1.* Click !images/filter_icon.png! on the toolbar to open the *Message Filter* form.
+
+*2.* Click the filter you want to delete, then select !images/delete_filter.png! on the filter bar.
+
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 h1. Search for messages {anchor:id="Search_messages}
-You can select one of two search methods: [Quick search|#Mail_Quick_search] or [Advanced search|#Mail_Advanced_search].
+The Mail application supports two search modes: [Quick search|#Mail_Quick_search] or [Advanced search|#Mail_Advanced_search].
+
 h2. Quick search {anchor:id="Mail_Quick_search"}
-Quick search allows you to conduct a search with specific keywords in all of your messages. All messages from the different folders that match with your search term will be displayed. To do a quick search, do as follows:
+Quick search allows you to conduct a search with specific keywords in all of your messages. All messages from the different folders that match with your search term will be displayed.
 
-*1.* Enter a search term into the search box: !images/Mail_quick_search.png!
+*1.* Enter your search term into the search box in the left pane.
 
-*2.* Click !images/Mail_quick_search_icon.png!. All messages containing the search term will be listed in the search results:
+!images/Mail_quick_search.png|align="center"!
+
+*2.* Click !images/Mail_quick_search_icon.png!. All messages containing the search term will be listed in the search results.
 
 !images/Mail_quick_search_result.png|align="center"!
 
 
 {docbook}
 <note>
-    <para>The <emphasis role="bold">Spam</emphasis> and <emphasis role="bold">Trash</emphasis> folders will not be searched.
-    </para>
-    <para>
-    The messages in <emphasis role="bold">Spam</emphasis> and <emphasis role="bold">Trash</emphasis> folders can be searched by positioning explicitly into them.
+    <para>By default, the <emphasis role="bold">Quick Search</emphasis> function of the Mail application does not retrieve messages of the <emphasis role="bold">Spam</emphasis> and <emphasis role="bold">Trash</emphasis> folders. To do <emphasis role="bold">Quick Search</emphasis> on these folders, simply select these folders before searching.
     </para>
 </note>
 {docbook}
 
 h2. Advanced search {anchor:id="Mail_Advanced_search"}
-The Advanced Search allows you to specify search criteria to narrow the search results.
+The Advanced Search allows you to specify criteria to narrow your search results.
 
-*To conduct advanced search:*
+*1.* Click !images/Advanced_search_icon.png! in the left pane to open the *Advanced Search* form.
 
-*1.* Click !images/Advanced_search_icon.png! to the right of the search box. The *Advanced search* form will appear.
+*2.* Define the search conditions to your details, including:
 
 !images/Advanced_search_form.png|align="center"!
 
-*2.* Define the Search conditions.
+*i.* *Search in Folder*: The folder in which you want to search in the.
 
-* *Search in Folder*: The folder in which you want to search.
-* *From*: The condition corresponding to the sender's name or mail address. There are some further conditions:
+*ii.* *From*The condition corresponding to the sender's name or mail address in the :  There are some further conditions:
+
 ||Condition||Function||
 |contains|Include the term in the search box.|
 |doesn't contain|Not include the term in the search box.|
@@ -786,35 +1077,27 @@ The Advanced Search allows you to specify search criteria to narrow the search r
 * *Has Attachment*: Search for messages that have the attachment.
 * *Priority*: The priority of the search messages.
 
-*3.* Click the *Search* button to launch the search.
+*3.* Click the *Search* button to perform your search.
 
 h1. Add an event {anchor:id="Add_event"}
-If you would like to invite your colleagues to join a conference or a meeting, you can do it in Mail quickly. In Mail, you can create events, invite others to join and make email notification to get reminded about events.
 
-*1.* Open the *Add Event* form by clicking !images/new_event_button.png! on the main toolbar.
+If you want to invite your colleagues to join a conference or a meeting, you can create an event, invite them or make email notifications to receive reminders right in the Mail application.
 
- The *Add Event* form will appear.
+*1.* Click !images/new_event_button.png! on the toolbar to open the *Add Event* form.
+
+*2.* Give basic information for your event in the *Event Detail* tab, such as setting the event priority, creating repeating events, attaching files.
 
 !images/add_event.png|align="center"!
 
-Details:
-
-* The *Event Detail* tab: contains basic event information. You can set the priority for the event, create repeating event, attach files to the event, and more.
-
-* The *Reminders* tab: The reminder function allows you to remind about an event via a mail.
+*3.* Select the *Reminders* tab to create the event reminder via an email. This step is optional.
 
 !images/add_event_reminder_tab.png|align="center"!
 
-*2.* Complete the *Add Event* form.
+*4.* Click *Save* to finish your adding.
 
-*3.* Complete adding your new event by clicking *Save*.
-
-When you receive an invitation mail, you can import this event directly into your calendar.{anchor:id="Mail.Accept_deny_import_event"}
-The invitation mail content is like below:
+When you receive an invitation mail, for example with the following content, you can import the event directly into your calendar.{anchor:id="Mail.Accept_deny_import_event"}
 
 !images/invitation_mail.png|align="center"!
-
-There are 3 options:
 
 * *Yes and Import*: Accept attending in the event in the invitation mail. The event will be imported into your calendar to remind you about this event. The event will locate *Default* calendar in the Calendar.
 
@@ -822,109 +1105,116 @@ There are 3 options:
 
 * *No*: Refuse attending in the event.
 
-h1. Manage Address Books in Mail {anchor:id="Manage_address_books_in_Mail"}
-The Address book in the Mail application provides you with a list of contacts which can be retrieved for sending mail. This section will explain some actions related to managing contact and address book in Mail.
+h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_Mail"}
+The Address Book in the Mail application provides you with a list of contacts which can be retrieved for sending your mails. This section will explain some actions related to managing contact and address book in Mail.
 
 h2. Add a new address book {anchor:id="Add_address_book"}
 
-This function is used to created new address books.
-
-*1.* Click !images/contacts_button.png! on the toolbar to go to the *Contacts* form.
+*1.* Click !images/contacts_button.png! on the toolbar to open the *Contacts* form.
 
 *2.* Click the *Add Address Book* button to add a new address book.
 
-Details:
+*3.* Enter values in fields of the *Add Address Book* form.
+
+!images/Add_address_book_from_Mail.png|align="center"!
+
+*Details:*
 ||Field||Description||
-|*Group name*| The name of the Address book.|
-|*Description*|The group description.|
+|*Name*| The Address Book name which is required.|
+|*Description*|The brief description of the Address Book.|
 
-*3.* Enter the name and description of new forum, then click *Add* to finish.
-
+*3.* Click *Add* to finish adding your address book.
 
 h2. Add a new contact {anchor:id="Add_new_contact"}
 The function is used to add a new contact to a group.
 
-*1.* Open the *Add new Contact* form.
+*1.* Open the *Add New Contact* form via the following ways.
 
-*The first way*: Click !images/contacts_button! --> !images/add_button.png! on the *Contacts* form.
+*The first way*
 
-Click !images/add_button.png! on the *Contacts* form.
+Click !images/contacts_button!, then select !images/add_button.png! on the *Contacts* form.
 
 *The second way*
 
-This way is used to add the sender of a message to a specific group.
-Right-click a message to add the sender to contacts list, then click *Add to contacts*.
+{docbook}
+<note>
+<para>
+This way is used to add the message sender to a specific address book.
+</para>
+</note>
+{docbook}
 
-*The third way*
+Right-click a message, then select *Add to Contacts* from the drop-down menu.
 
-After following one of these methods above, the *Contact* form will appear:
+The *Contact* form will appear.
 
 !images/contact_form.png|align="center"!
 
-*2.* Enter the contact details.
+*2.* Enter information for your contact in fields. For more details, see the [Create a new contact.|CSUser_guide.How_to_use_Address_book.Create_new_contact]
 
-*3.* Complete adding new contacts by clicking the *Save* button.
-
+*3.* Click *Save* to finish adding your contact.
 
 h2. Edit contact details {anchor:id="Edit_contact_details"}
 The function is used to edit a contact in a specific group.
 
-*Edit a contact*
+*1.* Open the *Contacts* form by clicking !images/contacts_button.png! on the toolbar.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_button.png! in the main toolbar.
-
-*2.* Select the contact which you want to edit in the *Contacts* form.
+*2.* Select the contact whom you want to edit in the left pane. 
 
 *3.* Click !images/edit_button.png!.
 
 *4.* Change the contact details, then click *Save* to finish.
 
 h2. Delete a contact {anchor:id="Delete_contact"}
-The function is used to delete a contact from a specific group. This contact will be deleted in Address book as well.
+The function is used to delete a contact from a specific group. This contact will be deleted in your *Address Book* as well.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_button.png! in the main toolbar.
+*1.* Open the *Contacts* form by clicking !images/contacts_button.png! on the toolbar.
 
-*2.* Select the contact which you want to delete in the *Address Book* form.
+*2.* Select the contact whom you want to delete in the *Address Book* form.
 
-*3.* Select !images/delete_button.png!, then click *OK* in the confirmation message to delete.
+*3.* Select !images/delete_button.png!, then click *OK* in the confirmation message to accept your deletion.
 
 h1. Change Mail settings {anchor:id="Mail_settings"}
-The function allows you to change the behavior as well as the layout of Mail to satisfy your needs.
+The function allows you to change the behavior and the layout of Mail to your needs.
 
-*Change the mail settings*
+*1.* Click !images/settings_button.png! on the toolbar to open the *Settings* form.
 
-*1.* Click !images/settings_button.png! on the toolbar.
+*2.* Change settings for the Mail application in 4 tabs: General, Return Receipts, Layout and Delegation.
 
-The *Settings* form appears with 3 tabs: General, Return Receipts and Layout.
-
-* The *General* tab contains basic setting information:
+*i.* In the *General* tab, change basic information.
 
 !images/settings.png|align="center"!
 
+*Details:*
 ||Field||Description||
 |*Select a Default Account*|Set the default account if you use multiple accounts.|
-|*Number of conversations per page*|The number of conversations which will be displayed per page. The options including 10, 20, 30, or 70 messages per page in message list pane.|
-|*Automatically check messages every*|The time interval that the system will check mail automatically. 5 minutes, 10 minutes, 20 minutes, 30 minutes or 1 hour.|
-|*Compose message with*|The default text editor of the message used when composing a message.|
-|*Reply to message with*| There are two options: {example}{example} - Reply message with attachment. {example}{example} - Reply message with texts only.|
-|*Forward message with*|There are two options: {example}{example} - Forward message with attachment. {example}{example} - Forward message with text only.|
-|*Save sent messages in the 'Sent' folder*|This option allows saving sent messages in the 'Sent' folder or not.|
+|*Number of conversations per page*|Select the number of conversations which will be displayed per page from the list: 10, 20, 30, or 70 messages.|
+|*Automatically check messages every*|Select the time interval to automatically check the system, including 6 available options: Never, 5 minutes, 10 minutes, 20 minutes, 30 minutes and 1 hour.|
+|*Compose message with*|Select the editor type for composing messages, including *Rich Text* and *Plain Text*.|
+|*Reply to message with*| Select the message type to reply, including {example}{example} -  *Orgiginal message as attachment:* Reply to messages with attachments. {example}{example} - *Original message text quoted:* Reply to messages with text only.|
+|*Forward message with*| Select the message type to reply, including {example}{example} - *Orgiginal message as attachment:* Forward messages with attachment. {example}{example} - *Original message text quoted:* Forward messages with text only.|
+|*Save sent messages in the 'Sent' folder*| Tick this checkbox to save sent messages in the 'Sent' folder.|
 
-* The *Return Receipts* tab allows setting the option for receipt notification:
+*ii.* In the *Return Receipts* tab, set options to specify what the Mail application should do when it gets a "[Return Receipt|#Change_message_preferences]" request. It means that you can determine whether to send a notification of having read the message to the sender or not. {anchor:id="Return_Receipts_settings"}
 
 !images/Mail_return_receipts.png|align="center"!
 
-For example, after reading a new mail in your Inbox, you can determine whether to automatically send a notification to the sender or not to inform that you have read the message.
-
+*Details:*
 ||Field||Description||
-|*Ask me when someone requests a return receipt*|This option allows you to receive notification to inform that someone wants to receive your notification about the returned receipt.|
-|*Never send a return receipt*|This option will ignore all requests for a return receipt from you.|
-|*Always send a return receipt*|The option allows sending a returned receipt to anyone under request at all times.|
+|*Ask me when someone requests a return receipt*|If you receive a message with the *Return Receipt* request, the Mail application will show a pop-up message for you to decide sending a notification of having read the message to the sender or not.|
+|*Never send a return receipt*| The Mail application will ignore all *Return Receipt* requests from senders.|
+|*Always send a return receipt*| If you receive a message with the *Return Receipt* request, the Mail application will automatically send a notification of having read the message to the sender without asking for your permission.|
 
-* The *Layout* tab allows personalizing the Mail layout. By default, the *Horizontal Split* type is set. Besides, you can select the *Vertical Split* or the *No Split*.
+*iii.* In the *Layout* tab, personalize the Mail layout by ticking another checkbox corresponding to your desired layout. The *Horizontal Split* type is set by default.
 
 !images/settings2.png|align="center"!
 
-*2.* Change the settings.
+*iv.* In the *Delegation* tab, delegate your account to any registered user in the system as follows:
+
+* Select the account you want to delegate from the *This account* list by clicking !images/down_arrow_icon.png!.
+
+* Enter the name of user to whom you want to delegate your selected account in the *will be delegated to* field.
+
+* Tick the *Full* checkbox if you want to assign all permissions, which can be done on your selected account, to the delegated user. If this checkbox is not selected, the user can only view mails of the delegated account.
 
 *3.* Click *Save* to accept the changes.
