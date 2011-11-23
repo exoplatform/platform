@@ -163,8 +163,7 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 When creating a topic, you can also add extra properties to this topic: {anchor:id=topic_properties}
 
 * [Select a topic icon|#Forum_regular_user.Topics.Start_topics.Select_topic_icon].
-* [Make a topic sticky|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
-* [Select the topic status, state and enable the post moderation|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
+* [Set the topic options|#Forum_regular_user.Topics.Start_topics.Set_topic_options].
 * [Control who can view or post in your topic|#Forum_regular_user.Topics.Start_topics.Select_topic_permission].
 
 
@@ -182,12 +181,12 @@ h4. Set the topic options {anchor:id=Forum_regular_user.Topics.Start_topics.Set_
 
 Go to the *Options* tab, you can select status, state, type of the topic, and more.
 
-!images/start_topic_options_tab.png|align="center"!
+!images/start_topic_options_tab.png|align="center"!      {anchor:id="start_topic_options_tab"}
 
 *Details:*
 ||Field||Description||
-|*Type*|Type of the topic specified by the topic type name and its icon. You can select it from the existing types or add a new one by clicking the plus icon.|
-|*Posts Moderation*|Check this option if you want posts to be moderated before being viewed.|
+|*Type*|Type of the topic specified by the topic type name and its icon. You can select it from the existing types; Or as an administrator, you can add a new one by clicking the *Plus* icon. (Note that only administrators can see the *Plus* icon.)|
+|*Posts Moderation*{anchor:id=posts_moderation}|Check this option if you want posts to be moderated before being viewed.|
 |*Posts Notification*|Check this option to enable the notification email when there are new posts in your topic.|
 |*Sticky*| Check this option to stick the topic. A sticky topic will be located at the top of the topics list. A sticky topic will not fall down in the list if any new posts are added.|
 
@@ -212,7 +211,9 @@ Follow this method when you are in your topic.
 
 *1.* Click !images/More_actions_btn.png! on the *Action* bar. For regular users, this button is only shown when you are the creator.
 
-*2.* Click *Edit* from the drop-down menu.
+*2.* Click *Edit* from the drop-down menu to open the *Edit Topic* form.
+
+!images/edit_topic_form.png|align="center"!      {anchor:id="edit_topic_form"}
 
 *3.* Make changes to your desire. Also, leave the reason in the *Reason* field if needed.
 
@@ -237,11 +238,11 @@ Each topic may have a poll question with pre-defined options for users to select
 |*Users may change their votes*|Allow users to change their votes or not.|
 |*Allow Multiple Choices*|Allow users to vote for multiple options or not.|
 
-*4.* Click *Submit Poll* to complete. After adding a poll to the topic, the icon !images/poll_added_to_topic_icon.png! is then displayed in the topics list.
+*4.* Click *Submit Poll* to complete. After adding a poll to the topic, !images/poll_added_to_topic_icon.png! is then displayed in the topics list.
 
 To perform further actions on this poll, simply left-click *More Actions* on the Poll pane to open the drop-down menu. Here, you can edit, close/reopen or remove the poll by clicking the relevant button.
 
-!images/poll_submitted.png|align="center"!
+!images/poll_submitted.png|align="center"! {anchor:id="forum-submitted-poll"}
 
 h3. Rate a topic {anchor:id=Forum_regular_user.Topics.Rate_topics}
 
@@ -268,7 +269,7 @@ The *Rate This Topic* form will appear.
 
 h3. Tag/Untag a topic {anchor:id=Forum_regular_user.Topics.Tag-Untag_topics}
 
-This function is for all logged-in users. Tags are keywords which are used as labels to describe or categorize the topic contents. One topic may have several tag names. Using tags allows you to categorize topics based on the actual content. If used consistently, it could be a better way to find a specific topic than a full-text search.
+This function is for all logged-in users. Tags are keywords which are used as labels to describe or categorize the topic contents. One topic may have several tag names. Using tags allows you to categorize topics based on the actual content. Even, it can be a better way to find a specific topic than a full-text search.
 
 {docbook}
 <citetitle>
@@ -284,11 +285,11 @@ An input text box will pop up.
 
 !images/tag_topic.png|align="center"!
 
-*2.* Enter a tag name or select existing tags in the suggestion list that appears when typing.
+*2.* Enter a tag name or multiple tags separated by a space or select existing tags in the suggestion list that appears when typing.
 
-*3.* Click *Add Tag*.
+*3.* Press *Enter* or click *Add Tag*.
 
-You can assign multiple tags to one topic.
+Tags assigned to the topic appears as follows.
 
 !images/mutiple_tags.png|align="center"!
 
@@ -332,11 +333,13 @@ You can post a reply quickly with plain texts without taking into account its fo
 
 *1.* Scroll down to the bottom of the topic to see the *Quick Reply* box.
 
-!images/quick_reply_box.png|align="center"!
+!images/quick_reply_box.png|align="center"!     {anchor:id="quick_reply_box"}
 
 *2.* Enter you message here. You can use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] in your reply to insert images, videos, or links.
 
-*3.* Click *Quick Reply* to send you message.
+*3.* Optionally, click *Preview* to view your reply before submitting it.
+
+*4.* Click *Quick Reply* to send you message.
 
 After posting your post, it will be highlighted so you can notice it easily.
 
@@ -364,16 +367,18 @@ You can post a reply with the full editor as follows:
 
 Optionally, you can:
 
-* Attach files to the topic by clicking the *Attach files* link. The max size for the attachment is 20Mb.
+* Attach files to the topic by clicking the *Attach files* link. The max size for the attachment is 10 Mb by default.
 
 * Select an icon or smiley for the post in the *Icons and Smileys* tab.
 
-*4.* Click *Submit* to finish.
+*4.* Optionally, click *Preview* to view your reply before submitting it.
+
+*5.* Click *Submit* to finish.
 
 
 If your post is the last one, its information will be shown at the *Last Posts* column of the forum.
 
-The icon !images/Arrow_icon.png! in the topic title allows you to jump to the last read post in that topic.
+The !images/Arrow_icon.png! icon in the topic title allows you to jump to the last read post in that topic.
 
 {docbook}
 <para>
@@ -445,7 +450,7 @@ h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 h2. Use BBCodes {anchor:id=Forum_user_settings.Forum_regular_user.BBcodes}
 BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the html markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces {noformat}"[" and "]"{noformat} rather than {noformat}"<" and ">"{noformat} and it offers greater control over what and how something is displayed.
 
-Depending on the BBCode template which can [only be customized by the administrator|#Forum_Administrator.Administrative_tasks.Customiza_BBcodes], you may find how to add BBCodes to your posts is made much easier through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click on the respective icon which is shown in the toolbar above the message area.
+Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click on the respective icon which is shown in the toolbar above the message area.
 
 !images/bbccode.png|align="center"!
 
@@ -527,6 +532,9 @@ The selected bookmarks will be removed from the bookmarks list.
 
 h2. Subscribe to RSS feeds {anchor:id=Forum_user_guide.Forum_regular_user.Subscriptions}
 This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed, click !images/forum_rss_btn.png|! on the *Action* bar;
+
+!images/rss_on_action_bar.png|align="center"!
+
 Or right-click the item you want to subscribe to.
 
 !images/forum_rss_rightclick.png|align="center"!

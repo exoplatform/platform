@@ -65,7 +65,7 @@ The followings are actions that a moderator can execute on topics:
 
 
 h3. Approve a topic {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
-The moderator can approve pending topics in the forum that enables the 'Moderation Topic'. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except the administrator and moderators of this forum. Pending topic is only viewable when it was approved.
+Moderators can approve pending topics in forums that enable the '[Moderate Topic|#admin_moderate_topics]' option. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except administrators and moderators of the forums. Pending topics are only viewable when they are approved.
 
 !images/mod_pending_topics.png|align="center"!
 
@@ -222,7 +222,7 @@ You can see the sticked topic in the top of the topics list.
 
 !images/mod_stick_topics.png|align="center"!
 
-When creating a new topic, you can also make this topic sticked by ticking the *Sticky* checkbox in the *Options* tab. 
+When creating a new topic, you can also make this topic sticked by ticking the *Sticky* checkbox in the [*Options* tab|#start_topic_options_tab].
 
 h3. Merge topics {anchor:id=Forum_Moderator.Moderate_topics.Merge_topics}
 When there are two or more related topics, you may want to merge these topics into one as follows.
@@ -278,7 +278,7 @@ The followings are actions that a moderator can perform on a post:
 
 h3. Approve a post {anchor:id=Forum_Moderator.Moderate_posts.Approve_posts}
 
-All posts in a topic that requires post moderation will not be viewable before approval. This function is to approve posts which are pending for approval.
+All posts in a topic that requires [post moderation|#posts_moderation] will not be viewable before approval. This function is to approve posts which are pending for approval.
 
 !images/mod_approve_posts.png|align="center"!
 
@@ -433,12 +433,4 @@ This function is similar to the [Ban IPs tool used by administrators|#Forum_Admi
 
 !images/admin_forum_banned_IPs.png|align="center"!
 
-* To ban an IP, simply enter the IP address into the IP textboxes and click *{noformat}[Add]{noformat}*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
-
-* To view all posts submitted from a specific IP, click the *{noformat}[Posts]{noformat}* link of the respective IPs. These posts can be viewed and deleted by the administrator.
-
-* To remove a banned IP from the banned IPs list, click the *{noformat}[x]{noformat}* of the relevant IP.
-
-Besides, you can filter the banned IPs if there are too many banned IPs.
-
-* To filter one banned IP, enter a part of the IP address into the filter textbox, all IPs matching with the entered term will be displayed.
+*3.* Do the [same actions|#administration-ban-IPs] as the *[Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]* section of Administrators.

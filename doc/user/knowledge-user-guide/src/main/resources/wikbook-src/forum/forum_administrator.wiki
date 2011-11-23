@@ -37,9 +37,9 @@ Simply select/deselect checkboxes of the components that you want to enable or d
 The following components can be enabled/disabled:
 
 * Show Forum Jump
-* Show Poll
+* Show [Poll|#forum-submitted-poll]
 * Moderators
-* Show Quick Reply
+* Show [Quick Reply|#quick_reply_box]
 * Show Icons Legend
 * Show Rules
 * Show Forum Statistics
@@ -71,21 +71,21 @@ Only when you are assigned as an *administrator*, you can do this function. Norm
 
 !images/admin_category_form.png|align="center"!
 
-*2.* Enter the category title into the *Title* field which is required. (Special characters are accepted).
+*2.* Enter the category title into the *Title* field which is required. (Special characters are accepted). {anchor:id="Step2-add-category"}
 
-Also, you can:
+In the *Category* tab, optionally you can also:
 
 * Enter the order of category in the numeric format into the *Order* field.
 
 * Give a brief description for your category into the *Description* field.
 
-* Make the created category as restricted by limiting the number of audiences via one of the following ways: {anchor:id=Manage_categories.Add_categories.Add_restricted_categories}
+* Make the created category restricted by limiting the number of audiences via one of the following ways: {anchor:id=Manage_categories.Add_categories.Add_restricted_categories}
 
 *The first way* 
 
 Enter names of users/groups/memberships that can access this category into the *Restricted Audience* textbox. The different values are separated by commas.
 
-*The second way*
+*The second way* {anchor:id="restricted-audience"}
 
 Use selectors next to the *Restricted audience* textbox. 
 
@@ -95,23 +95,18 @@ Use selectors next to the *Restricted audience* textbox.
 
 *iii.* Click !images/Select_group_icon.png! to select a group of users.
 
-* Specify the category permissions: {anchor:id=Manage_categories.Add_categories.Specify_category_permissions}
-Administrators can specify which actions that a user/group/membership can perform in a category. You can also assign the moderator to that category.
-
-*i.* Go to the *Permissions* tab in the *Category* form.
+Optionally, select the *Permissions* tab to specify the category permissions. {anchor:id=Manage_categories.Add_categories.Specify_category_permissions}
 
 !images/admin_category_form_permissions_tab.png|align="center"!
 
-*ii.* Enter the names of all users/user groups/memberships who have the permission to create new topics/post messages/view posts only in the corresponding fields.
-
-*iii.* Enter the names of all users/user groups/memberships that are going to be the category Moderators in the *Moderators* field.
+* Do the same ways as setting the "[Restricted audiences|#Manage_categories.Add_categories.Add_restricted_categories]" of a category.
 
 *3.* Click *Save* to finish.
 
 
 h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
 
-*1.* Select a category to edit, then click !images/Manage_category_btn.png! on the *Action* bar when you are in the categories list.
+*1.* Select a category to edit from the *Forum* homepage, then click !images/Manage_category_btn.png! on the *Action* bar when you are in the categories list.
 
 *2.* Click *Edit* from the drop-down menu.
 
@@ -121,11 +116,19 @@ h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_catego
 
 h3. Delete a category {anchor:id=Forum_Administrator.Manage_categories.Delete_categories}
 
-*1.* Select a category to delete, then click !images/Manage_category_btn.png! on the *Action* bar when you are in the categories list.
+*1.* Select a category to delete from the *Forum* homepage, then click !images/Manage_category_btn.png! on the *Action* bar.
 
 *2.* Click *Delete* from the drop-down menu.
 
 *3.* Click *OK* in the confirmation message.
+
+{docbook}
+<note>
+<para>
+When a category is removed, all its forums are also removed.
+</para>
+</note>
+{docbook}
 
 h2.  Manage forums {anchor:id=Forum_user_guide.Forum_Administrator.Manage_forums}
 
@@ -172,7 +175,7 @@ When creating a forum, you can set moderation-related options as follows:
 |*Auto-fill the moderator's email*|Check this option if you want the moderator's email is auto-filled. The email address will be taken from in moderator profile. |
 |*Email addresses to notify when there is a new post*|Enter the list of email addresses which will get the notification if any new post is created. This field will be filled automactically if the *Auto-fill the moderator's email* is checked.|
 |*Email addresses to notify when there is a new topic*|Enter the list of email addresses which will get the notification if any new topic is created.This field will be filled automactically if the *Auto-fill the moderator's email* is checked .|
-|*Moderate Topics*|By default, new topics must be always approved and visible to everyone. If this option is selected, new topics will be pending for approval before being viewable.|
+|*Moderate Topics*{anchor:id="admin_moderate_topics"}|By default, new topics must be always approved and visible to everyone. If this option is selected, new topics will be pending for approval before being viewable.|
 
 
 h3. Delete a forum {anchor:id=Forum_Administrator.Manage_forums.Delete_forums}
@@ -193,7 +196,7 @@ Now, you can search for specific users to edit their profiles or remove them fro
 
 h3. Promote a user {anchor:id=Forum_Administrator.Manage_Users.Promote_users}
 
-The administrator can edit profiles of members and promote any user to administrator or moderator.
+The administrator can edit profiles of members and promote any user to an administrator or a moderator.
 
 *1.* Click !images/users_icon.png! on the *Action* bar. The *User Management* form will be displayed.
 
@@ -205,7 +208,7 @@ To promote the user, you have to edit the *Moderator* fields in *Profile* tab.
 
 ||Field||Description||
 |*Screen Name*|The name displayed in *Forum*.|
-|*User Title*|The title representing the role of user.|
+|*User Title*|The title representing the role of user, by default. However, you can enter anything you want.|
 |*Forum Administrator*|Grant the Administrator role to a selected user or not. The Administration role of the default administrator can not be edited in the *User Management* form.|
 |*Moderator of Categories*|The list of categories moderated by the selected user. Click !images/Plus_icon.png! to select a category.|
 |*Moderator of Forums*|The list of forums moderated by the selected user. Click !images/Plus_icon.png! to select a forum.|
@@ -299,11 +302,19 @@ If there are new posts in the category or topic that a user has watched, the use
 
 !images/admin_forum_email_notification.png|align="center"!
 
-This section will describe how to create and edit the email templates that can be used to send emails to users. 
+This section will describe how to create and edit the email templates that can be used to send notification emails to users.
 
 Click !images/Aministration_btn.png! on the *Forum Administration* bar, and click *Notifications* from the drop-down menu to open the *Notifications* form.
 
 !images/admin_forum_notifications_form.png|align="center"!
+
+The *Notification* form consists of two tabs:
+
+* *New Post Notification*: allow you to customize the template of the notification email when there is a new post/topic in categories/forums/topics that users are watching.
+
+* *Moved Notification*: allow you customize the template of the notification email when a category/forum/topic/post that is being watching is moved to another location.
+
+*Details:*
 
 * *Notification Subject Template*: The template for the notification subject.
 * *Add a prefix to notifications*: Tick the checkbox to add a prefix to the email notification.
@@ -311,33 +322,54 @@ Click !images/Aministration_btn.png! on the *Forum Administration* bar, and clic
 
 The followings are variables which can be used in the template:
 
-*{noformat}$OBJECT_WATCH_TYPE{noformat}*: Will be replaced with the watched object type: Forum/Topic.
+*The common variables for both tabs:*
 
-*{noformat}$ADD_TYPE{noformat}*: Will be replaced with the new added object type: Topic/Post.
+* *{noformat}$VIEWPOST_LINK{noformat}*: Will be replaced by the public link referring to the new topic/post.
 
-*{noformat}$OBJECT_NAME{noformat}*: Will be replaced with the name of the watched topics/forum/category.
+* *{noformat}$VIEWPOST_PRIVATE_LINK{noformat}*: Will be replaced by the private link referring to the new topic/post.
 
-*{noformat}$OBJECT_PARENT_NAME{noformat}*: Will be replaced with the category/forum name.
+* *{noformat}$REPLYPOST_LINK{noformat}*: Will be replaced by the private link referring to the topic and a form to reply will be automatically opened.
 
-*{noformat}@POST_CONTENT{noformat}*: Will be replaced with the post contents.
+*The variables used in the *New Post Notification* tab:*
 
-*$TIME*: Will be replaced with the time when the post was added.
+* *{noformat}$OBJECT_WATCH_TYPE{noformat}*: Will be replaced by the watched object type (category/forum/topic).
 
-*$DATE*: Will be replaced with the date when the post was added.
+* *{noformat}$OBJECT_NAME{noformat}*: Will be replaced by the name of the watched object (category/forum/topic).
 
-*$CATEGORY*: Will be replaced with the category name.
+* *{noformat}$ADD_TYPE{noformat}*: Will be replaced by the newly added object type (topic/post).
 
-*$FORUM*: Will be replaced with the forum name.
+* *{noformat}$ADD_NAME{noformat}*: Will be replaced by the newly added object name (topic name/post name).
 
-*$TOPIC*: Will be replaced with the topic name.
+* *{noformat}$POSTER{noformat}*: Will be replaced by the topic/post owner.
 
-*$LINK*: Will be replaced with the link referring to the new post.
+* *{noformat}$POST_CONTENT{noformat}*: Will be replaced by the topic/post contents.
+
+* *{noformat}$TIME{noformat}*: Will be replaced by the time when the topic/post was added.
+
+* *{noformat}$DATE{noformat}*: Will be replaced by the date when the topic/post was added.
+
+* *{noformat}$CATEGORY{noformat}*: Will be replaced by the category name.
+
+* *{noformat}$FORUM{noformat}*: Will be replaced by the forum name.
+
+* *{noformat}$TOPIC{noformat}*: Will be replaced by the topic name.
+
+*The variables used in the *Moved Notification* tab:*
+
+* *{noformat}$OBJECT_PARENT_NAME{noformat}*: Will be replaced by the forum name (if moving topics) or the topic name (if moving posts).
+
+* *{noformat}$OBJECT_PARENT_TYPE{noformat}*: Will be replaced by the type of the moved parent object, such as forum (if moving topics) or topic (if moving posts).
+
+* *{noformat}$OBJECT_NAME{noformat}*: Will be replaced by the name of the moved object (topic name/post name).
+
+* *{noformat}$OBJECT_TYPE{noformat}*: Will be replaced by the type of the moved object (topic/post).
+
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png!.
 You can use the text editor to format the template as you wish.
 
 h3. Customize a BBCode {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
-By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[LINK]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]"{noformat}. You can add, edit or delete the BBCode tags.
+By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]", "[WIKI], "[SLIDESHARE]".{noformat}. You can add, edit or delete the BBCode tags.
 
 Click !images/Aministration_btn.png! on the *Forum Administration* bar, and click *BBCode* from the drop-down menu to open the *BBCode Manager* form.
 
@@ -369,7 +401,9 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 |*Preview dialog*|Preview the rendered BBCodes.|
 |!images/Syntax_help_btn.png!|Click this icon to see descriptions of each field.|
 
-*3.* Click *Preview* to preview your created BBCode tag, or click *Save* to finish.
+*3.* Optionally, click *Preview* to preview your created BBCode tag.
+
+*4.* Click *Save* to finish or *Reset* to clear all input fields.
 
 h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes}
 
@@ -424,7 +458,7 @@ The topic type is the visual indication for other users to know what is topic ab
 
 Click !images/Aministration_btn.png! on the *Forum Administration* bar and click *Topic Types* from the drop-down menu to open the *Topic Type Manager* form.
 
-!images/admin_forum_topic_type_manager.png|align="center"!
+!images/admin_forum_topic_type_manager.png|align="center"!       {anchor:id="topic-type-management"}
 
 The *Topic Type Manager* form lists all topic types and allows you to add new topic types, edit or delete the existing ones.
 
@@ -437,7 +471,17 @@ The *Topic Type Manager* form lists all topic types and allows you to add new to
 {docbook}
 
 
-*1.* Click *Add Topic Type*.
+*1.*  Open the *Topic Type* form via one of two following ways:
+
+* *The first way*
+
+Click *Add Topic Type* in the *[Topic Type Management|#topic-type-management]* form.
+
+* *The second way*
+
+Click !images/Plus_icon.png! next to the *Type* field in the *Option* tab of the *[New Topic|#start_topic_options_tab]* or *[Edit Topic|#edit_topic_form]* form.
+
+(Note that only administrators can see !images/Plus_icon.png!.)
 
 *2.* Enter the topic name in the *Type* field, then select an icon for this topic type.
 
@@ -445,7 +489,7 @@ The *Topic Type Manager* form lists all topic types and allows you to add new to
 
 *3.* Click *Save* to accept adding your new topic type.
 
-You will see the new topic type has been added.
+You will see the new topic type added.
 
 !images/admin_forum_topic_type_manager1.png|align="center"!
 
@@ -461,6 +505,7 @@ Any user who uses banned IPs to add post, will be recognized as the banned user.
 Click !images/Aministration_btn.png! on the *Forum Administration* bar, then click *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
 
 !images/admin_forum_banned_IPs.png|align="center"!
+{anchor:id="administration-ban-IPs"}
 
 * To ban an IP, simply enter the IP address into the IP textboxes and click *{noformat}[Add]{noformat}*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
 

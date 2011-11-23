@@ -25,13 +25,15 @@ complete the ideal combination that helps users enhance their experiences on col
 
 h1. About user roles  {anchor:id=KSuser.about_role}
 
-Please note that each user group has different privileges to perform actions. Some actions can be limited to some specific user groups. Advanced users have the ability to control and assign functions or features that other users can and cannot do within the application. There are four user groups: administrator, moderator, regular user and guest.
+Please note that each user group has different privileges to perform actions. Some actions can be limited to some specific user groups. Advanced users have the ability to control and assign functions or features that other users can and cannot do within the application. There are five user groups: administrator, moderator, regular user, banned user and guest.
 
 * *Administrator* is an advanced user, who typically has the highest right when using Knowledge. The Administrator can manage user privileges and he has rights to perform all possible capabilities. For example, in Forum, an administrator can create categories, close/delete, lock/unlock forums; promote a regular user to moderator or create a category that is restricted to a specific user group.
 
 * *Moderator* obtains a subset of administrator's rights. It means that he has certain allowed capabilities and may perform these advanced actions in a specific area only. For example, a moderator of a category in Forum can only perform advanced actions in the category that he is assigned as the moderator. The moderator role is assigned by the administrator.
 
 * *Regular user* is defined as a logged-in user who can only use the basic features of Knowledge. The regular user can be promoted to the advanced user by the administrator.
+
+* *Banned user* is a regular user, that abuses the forum functions or violates the forum rules and policies, cannot use the basic features of Knowledge. The role of the banned user is similar to an anonymous user's.
 
 * *Guest* (anonymous user) is an unregistered/unlogged-in user who is often limited to a very few features only of Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics.
 
@@ -41,12 +43,22 @@ h1. How to access knowledge applications {anchor:id=KSuser.access_knowledge}
 
 To access the *Forum*, *Answers* or *Wiki* applications of a space, do as follows:
 
-Click *My Spaces --> {noformat}[Space name]{noformat} --> The application that you want to access*.
+Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then click the application that you want to access;
 
 !images/Space_menu_application2.png|align="center"!
 
-or click the application name on the Space navigation.
+Or hover your cursor over *My Spaces*, then click {noformat}[Space name]{noformat}* and click the application name on the Space navigation.
 
 !images/Space_navigation_application2.png|align="center"!
+
+{docbook}
+<note>
+<para>In case the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications are not found, it means that they are not activated. To use these applications,
+
+you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration -->Forum/Answers/Wiki</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+
+You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="edit a specific portlet">sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet</link> section. </para>
+</note>
+{docbook}
 
 

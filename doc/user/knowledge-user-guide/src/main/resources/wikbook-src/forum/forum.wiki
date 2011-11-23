@@ -2,26 +2,28 @@ The section provides you a guide to use all *Forum* features or to configure the
 
 In *Forum*, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining *Forum*. With the highest rights, the administrators are in charge of the entire management tasks, including form configurations, users management, permissions, categories, forums, topics, and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
 
-The user interface will indicate which features are available to you, based on the scope of your permissions.
+The user interface will indicate which features are available to you, based on your role.
 
-A regular user will have the *User* bar and *Action* bar with the basic actions.
+* As a regular user, you will have the *User* bar and *Action* bar with the basic actions.
 
 !images/Forum_user_actions.png|align="center"!
 
-Only when logging as an administrator, you can see the *Forum Administration* bar. Basically, this is the *Forum User* bar with more administrative actions. The *Action* bar of the administrator also provides the advanced actions on forums and categories. Most of management tasks are shown via these bars:
+* As a moderator, you will have the *User* bar and *Action* bar with a sub-set of certain capabilities.
+
+!images/mod_action_bar.png|align="center"!
+
+
+* As an administrator, you will have the *Administration* bar which is basically the *User* bar with more administrative actions. You also see the *Action* bar with the advanced actions on forums and categories. Most of management tasks are shown via these bars.
 
 !images/forum_home.png|align="center"!
 
-Moderators will have the *User* bar and *Action* bar with a sub-set of certain capabilities.
-
-!images/mod_action_bar.png|align="center"!
 
 To have an overall look of actions which users of each role can do in the *Forum* application, see the following table: 
 
 || Features || Description ||  Administrator  ||  Moderator  ||  Owner  ||   Regular user   ||  Guest  ||
 |[View details of Forum|#Forum_user_guide.Regular_user.View_details]|View categories, forums, and many another information.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Subscribe to RSS feeds|#Forum_user_guide.Forum_regular_user.Subscriptions]|Provide the link to *Forum* for easy sharing.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
-|[Attach a file|#Forum_regular_user.Topics.Start_topics]|Preview attached images and files and download attachments.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
+|[Attach a file|#Forum_regular_user.Topics.Start_topics]|Upload attachments to a topic/post, preview and download attachments.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Search|#Forum_user_guide.Forum_regular_user.Search]|Do the simple and advanced search.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Bookmark|#Forum_regular_user.Public_user_profile.Bookmarks]|Bookmark category, forum, topic.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/No_icon2.png!|
 |[Add a post|#Forum_regular_user.Posts.Quick_reply]|Post reply, quote, private post, quick reply.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/No_icon2.png!|
@@ -48,25 +50,28 @@ To have an overall look of actions which users of each role can do in the *Forum
 |[Show|#Forum_Moderator.Moderate_posts.Show_posts]/[hide a post|#Forum_Moderator.Moderate_posts.Hide_posts]|Allow posts to be shown/hidden. |!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/No_icon2.png!|!images/No_icon2.png!|!images/No_icon2.png!|
 |[Manage pending tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks]|Manage all topics/posts waiting for moderation in one place.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Manage a watch|#Forum_regular_user.User_settings.Manage_subscriptions]|Manage the subscription (watch). Edit and delete subscribed email.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Ban a user|#Forum_Administrator.Manage_Users.Ban_users]|Ban users from accessing to specific forums|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Add a forum|#Forum_Administrator.Manage_forums.Add_forums]|Add a new forum to a specific category.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Edit a forum|#Forum_Moderator.Moderate_forums.Edit_forums]|Change the title, description, moderator, permissions of a forum|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
-|[Delete a forum|#Forum_Administrator.Manage_forums.Delete_forums]|Delete forums from a specific category.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Ban a user|#Forum_Administrator.Manage_Users.Ban_users]|Ban users from accessing specific forums or categories|!images/Yes_icon2.png!|!images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Add a forum|#Forum_Administrator.Manage_forums.Add_forums]|Add a new forum to a specific category.|!images/Yes_icon2.png!|!images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Edit a forum|#Forum_Moderator.Moderate_forums.Edit_forums]|Change the title, description, moderator, permissions of a forum. However, Moderators cannot set moderators for a forum.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png! | !images/No_icon2.png! | !images/No_icon2.png! |
+|[Delete a forum|#Forum_Administrator.Manage_forums.Delete_forums]|Delete forums from a specific category.|!images/Yes_icon2.png!|!images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Lock a forum|#Forum_Moderator.Moderate_forums.Lock-unlock_forums]|Lock a forum so that it can be viewed only.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Unlock a forum|#Forum_Moderator.Moderate_forums.Lock-unlock_forums]|Unlock a locked forum that allow doing basic action on unlocked forum.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Close/open a forum|#Forum_Moderator.Moderate_forums.Close-open_forums]|Close/open a forum. Closed forum are still manageable by Administrator and Moderators.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Move a forum|#Forum_Moderator.Moderate_forums.Move_forums]|Move forum from one category to the other category.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Export a forum|#Administrative_tasks.Backup_categories_forums.Export_forums]|Export a forum in the format of a .zip or .xml file.|!images/Yes_icon2.png!|!images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Export a forum|#Administrative_tasks.Backup_categories_forums.Export_forums]|Export a forum in the format of a .zip or .xml file.|!images/Yes_icon2.png!|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Import a forum|#Administrative_tasks.Backup_categories_forums.Import_forums]|Import a forum from .zip/.xml file into the *Forum* application.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Add a category|#Forum_Administrator.Manage_categories.Add_categories]|Add a new category.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Edit a category|#Forum_Administrator.Manage_categories.Edit_categories]|Edit a category and change properties.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Export a category|#Administrative_tasks.Backup_categories_forums.Export_categories]|Export categories in the format of a s.zip or .xml file.|!images/Yes_icon2.png!| !images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Import a category|#Administrative_tasks.Backup_categories_forums.Import_categories]|Import categories from .zip/.xml file into the *Forum* application.|!images/Yes_icon2.png!| !images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Export a category|#Administrative_tasks.Backup_categories_forums.Export_categories]|Export categories in the format of a s.zip or .xml file.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Import a category|#Administrative_tasks.Backup_categories_forums.Import_categories]|Import categories from .zip/.xml file into the *Forum* application.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Delete a category|#Forum_Administrator.Manage_categories.Delete_categories]|Delete a category and all forum, topic, post inside it.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Administrate Sorting|#Forum_Administrator.Administrative_tasks.Set_up_sort_settings]|Sort forums, topics according to specific conditions.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Administrate Censor|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]|Define keywords that will be censored in forum.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Customize the notification template|#Administrator.Administrative_tasks.Customize_email_template]|Define the content of the notification mails.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
-|[Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]|Ban IPs on the whole *Forum* application.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Customize the notification template|#KSuser.Answer_Moderator.Customize_Email_template]|Define the content of the notification mails.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Customize BBCode|#Forum_Administrator.Administrative_tasks.Customize_BBcodes]|Add, edit and delete the BBCode tags used in writing posts/topics.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Add a topic type|#Forum_Administrator.Administrative_tasks.Create_topic_types]|Add topic types that help users easily know what topics are about at a glance .|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Set up auto-pruning|#Forum_Administrator.Administrative_tasks.Set_up_auto-prune]|Set up auto-pruning to clean a large amount of obsolete and inactivate topics based on criteria.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
+|[Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]|Ban IPs on the whole *Forum* application (only Administrators) and on only specific forums (both Administrators and Moderators).|!images/Yes_icon2.png!| !images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 |[Manage users|#Forum_user_guide.Forum_Administrator.Manage_Users]|Manage user's profile, promote users, ban users, view topic and post of a specific user.|!images/Yes_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!| !images/No_icon2.png!|
 
 

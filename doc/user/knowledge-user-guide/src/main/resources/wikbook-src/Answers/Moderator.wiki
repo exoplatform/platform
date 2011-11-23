@@ -57,20 +57,20 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 !images/Add_category_form.png|align="center"!
 
-* *Restricted Audience*: Select specific users/groups to be restricted from the category.
-* *Moderate New Questions*: Check this option to moderate all newly posted questions before they are viewable.
-* *View Question Authors*: Check this option if you want information of the question poster to be shown.
-* *Moderate Answers*: Check this option to moderate all answers before they are viewable.
+*Details:*
+||Field||Description||
+||Asterisk {noformat}(*){noformat}| This mark next to each field means that it is required to enter values in the field. |
+|*Category*| The name of the category |
+|*Order*| The order of the category which must be in the numeric format. |
+|*Restricted Audience*| Select specific users/groups to be restricted from the category.|
+|*Moderate New Questions*| Check this option if you want moderate all newly posted questions before they are viewable.|
+|*View Question Authors*| Check this option if you want information of the question poster to be shown.|
+|*Moderate Answers*|Check this option to moderate all answers before they are viewable.|
+|*Moderator* |The moderator of the category. |
 
+*2.* Do the same as the [Step 2|#Step2-add-category] of adding a new category in the *Forum* application.
 
-By default, a category is open for all users without any pre-assigned Moderator. To specify which users/user groups/memberships are restricted from the category or assign the category moderator,
-simply enter names of these users/groups/memberships in the Restricted audience/Moderator field manually or you can select one of the respective selectors:
-
-* Click !images/Select_user_icon.png! to select users from the groups list.
-* Click !images/Select_membership_icon.png! to select all users with a specific membership in a group.
-* Click !images/Select_group_icon.png! to select a group of users.
-
-*2.* Click *Save* to complete.
+*3.* Click *Save* to complete.
 
 {docbook}
 <para>
