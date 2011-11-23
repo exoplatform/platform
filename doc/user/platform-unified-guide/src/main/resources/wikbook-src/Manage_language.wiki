@@ -19,21 +19,21 @@ eXo Platform supports 3 ways to change the display language permanently.
 
 *The first way*
 
-*1.* Hover your cursor over *My Sites* on the Administration bar and select your desired site where you want to change the display language. The currently selected site is marked with !images/selected_site_icon.png!.
+*1.* Hover your cursor over *My Sites* on the Administration bar and select your desired site where you want to change the display language. The currently selected site is marked with !images/Language/selected_site_icon.png!.
 
-!images/Select_site.png|align="center"!
+!images/Language/Select_site.png|align="center"!
 
 You will be directed to your selected site.
 
 *2.* Hover your cursor over *Edit,* then select *Site --> Layout* from the drop-down menu.
 
-!images/Select_layout.png|align="center"!
+!images/Language/Select_layout.png|align="center"!
 
 Your selected site will be displayed in the *Edit* mode.
 
-*3.* Click !images/Site_config_button.png! to open the *Edit Portal* form.
+*3.* Click !images/Language/Site_config_button.png! to open the *Edit Portal* form.
 
-!images/Portal_settings_form.png|align="center"!
+!images/Language/Portal_settings_form.png|align="center"!
 
 *4.* Change the display language of your site by selecting another language from the *Locale* field in the *Portal Settings* tab. 
 
@@ -43,11 +43,11 @@ Your selected site will be displayed in the *Edit* mode.
 
 *1.* Hover your cursor over !images/sawtooth_icon.png!, then select *Portal --> Sites.*
 
-!images/Open_all_sites.png|align="center"! 
+!images/Language/Open_all_sites.png|align="center"! 
 
 The list of all existing portals will be displayed as below.
 
-!images/All_existing_portals.png|align="center"!
+!images/Language/All_existing_portals.png|align="center"!
 
 *2.* Select *Edit Layout* corresponding to the portal/site you want to edit.
 
@@ -65,7 +65,7 @@ This way is only used to set the display language for yourself, not for displayi
 
 The *Interface Language Settings* form will be displayed with the list of all supported languages. The currently used language is marked with !images/Select_icon.png!.
 
-!images/Interface_Language_Settings.png|align="center"!
+!images/Language/Interface_Language_Settings.png|align="center"!
 
 *2.* Select another one by clicking the name of that language.
 
@@ -85,12 +85,12 @@ By this way, you can change not only your display language but also the display 
 
 *1.* Hover your cursor over !images/sawtooth_icon.png!, then select *Users --> Group and Roles* from the drop-down menu to open the *User Management* form. 
 
-!images/User_management.png|align="center"!
+!images/Language/User_management.png|align="center"!
 
 *2.* Click !images/Edit_user_icon.png! corresponding to the user with the display language you want to change.
 
 *3.* Select the *User Profile* sub-tab, then change the display language for this user from the *Language* field.
 
-!images/Select_language_for_another_user.png|align="center"!
+!images/Language/Select_language_for_another_user.png|align="center"!
 
 *4.* Click *Save* to accept your changes.

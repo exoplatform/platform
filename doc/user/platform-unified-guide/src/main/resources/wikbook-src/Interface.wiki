@@ -3,7 +3,7 @@
 After starting eXo Platform 3.5 successfully, ask your administrator for the proper link to run eXo Platform, for example <emphasis role="bold">http://localhost:8080/portal/default/</emphasis>. After pasting this link into one browser, you will be directed to the default page of eXo Platform 3.5.
 </para>
 {docbook}
-!images/PLF3.5_interface.png|align="center"!
+!images/PLFIntroduction/PLF3.5_interface.png|align="center"!
 
 Here, you have an overview of eXo Platform through default contents displayed in this page. With eXo Platform, you can do almost everything, especially building social intranets and websites. 
 From the default interface of eXo Platform 3.5, you are provided with two sample portals of a fictitious company named "ACME" where you can discover key features and customizability of eXo Platform.

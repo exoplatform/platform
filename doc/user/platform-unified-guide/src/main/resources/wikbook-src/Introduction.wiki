@@ -3,9 +3,9 @@ As a solid enterprise-ready foundation for your portal-based applications, eXo P
 The eXo Platform user guide represents these concepts by providing a series of description related to eXo Platform features.
 
 {docbook}
-<section>
-<para>
 <partintro>
+<title> </title>
+<info> </info>
  <para>This documentation is divided into the following chapters:</para>
         <itemizedlist>
           <listitem>
@@ -52,8 +52,6 @@ The eXo Platform user guide represents these concepts by providing a series of d
           </listitem>
         </itemizedlist>
 </partintro>
-</para>
-</section>
 {docbook}
 
 
@@ -65,7 +63,7 @@ After running eXo Platform 3.5, open a browser window and enter the URL provided
 
 You will be directed to the default page of eXo Platform 3.5.
 
-!images/PLF3.5_interface.png|align="center"!
+!images/PLFIntroduction/PLF3.5_interface.png|align="center"!
 
 *Architecture of eXo Platform 3.5*
 

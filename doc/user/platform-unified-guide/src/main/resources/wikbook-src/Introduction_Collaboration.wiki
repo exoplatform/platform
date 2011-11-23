@@ -1,0 +1,29 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+eXo Platform provides a set of collaborative applications which help you achieve your goals and enhance your productivity in the corporate environment. This chapter presents the following topics:
+</para>
+<itemizedlist>
+<listitem>
+<para><link linkend="Platform_User_Guide.eXo_Platform.Tutorials.Manage_calendar">Manage your calendar</link> through the <emphasis role="bold">Calendar</emphasis> application. <emphasis role="bold">Calendar</emphasis> allows you to schedule appointments and meetings, establish recurring activities, create multiple calendars and share calendars with others. With <emphasis role="bold">Calendar</emphasis>, it is easy to keep track of all important events/tasks and collaborate with other people, all in one place.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts">Manage your contacts</link> through the <emphasis role="bold">Address Book</emphasis> application. <emphasis role="bold">Address Book</emphasis> is a contact manager, allowing you to organize all the contact information. You can use the contact information with other applications, such as <emphasis role="bold">Mail</emphasis>, <emphasis role="bold">Calendar</emphasis> and <emphasis role="bold">Chat</emphasis>. The integration between <emphasis role="bold">Address Book</emphasis> and other applications will help you enhance your group productivity in the collaborative environment.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts">Email your contacts</link> through the <emphasis role="bold">Mail</emphasis> application. <emphasis role="bold">Mail</emphasis> is a webmail application which is smoothly integrated with <emphasis role="bold">Address Book</emphasis> and <emphasis role="bold">Calendar</emphasis>. Besides typical features of the <emphasis role="bold">Mail</emphasis> application, you can also add contacts, create address books or schedule your work right in <emphasis role="bold">Mail</emphasis>.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat">Chat</link> with your contacts through the <emphasis role="bold">Chat</emphasis> application. <emphasis role="bold">Chat</emphasis> allows you to communicate with other users in your contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your <emphasis role="bold">Address Book</emphasis> to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
