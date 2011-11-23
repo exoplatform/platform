@@ -270,6 +270,8 @@ public class TrialService implements Startable {
           request.getRequestDispatcher("/jsp/extend.jsp").include(request, response);
           return;
         }
+        productCode = generateProductCode();
+        Utils.writeToFile(Utils.PRODUCT_CODE, productCode, Utils.HOME_CONFIG_FILE_LOCATION);
         outdated = false;
         rdate = computeRemindDateFromTodayBase64();
       }
