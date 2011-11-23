@@ -98,6 +98,8 @@ public class TrialService implements Startable {
       executor = Executors.newSingleThreadScheduledExecutor();
       executor.scheduleWithFixedDelay(new Runnable() {
         public void run() {
+          // Have to click on dismiss each Day.
+          dismissed = false;
           computeUnlockedInformation();
         }
       }, 1, 1, TimeUnit.DAYS);
@@ -276,7 +278,6 @@ public class TrialService implements Startable {
         computeUnlockedInformation();
         if (!outdated) {
           Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
-          dismissed = true;
         }
         response.sendRedirect(TrialService.calledUrl);
       } catch (Exception exception) {
