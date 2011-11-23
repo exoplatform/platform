@@ -1,11 +1,11 @@
-h1. Preface{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.Preface}
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 As a solid enterprise-ready foundation for your portal-based applications, eXo Platform provides users many experiences for creating modern, user-centric Java applications that can be deployed on premise or in the cloud. Therefore, obtaining a comprehensive understanding of concepts is critical to benefit from the eXo Platform capabilities and features. 
 The eXo Platform user guide represents these concepts by providing a series of description related to eXo Platform features.
-
-{docbook}
-<partintro>
-<title> </title>
-<info> </info>
+</para>
  <para>This documentation is divided into the following chapters:</para>
         <itemizedlist>
           <listitem>
@@ -52,6 +52,8 @@ The eXo Platform user guide represents these concepts by providing a series of d
           </listitem>
         </itemizedlist>
 </partintro>
+</para>
+</section>
 {docbook}
 
 

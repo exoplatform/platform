@@ -1,10 +1,11 @@
-eXo Platform is a full-featured application for users to have many experiences in building and deploying transactional websites, authoring web and social content, creating gadgets
-and dashboards with reliable capabilities of collaboration and knowledge.
-
 {docbook}
 <section>
 <para>
 <partintro>
+<para>
+eXo Platform is a full-featured application for users to have many experiences in building and deploying transactional websites, authoring web and social content, creating gadgets
+and dashboards with reliable capabilities of collaboration and knowledge.
+</para>
     <para>This chapter covers the following topics:
 	</para>
     <itemizedlist>

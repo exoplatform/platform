@@ -7,25 +7,25 @@
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Structure_Content">Structure Content</link>
+            <link linkend="Platform_User_Guide.Organize_Content.Structure_Content">Structure content</link>
           </emphasis> introduces types of drives and views, functions on action tabs, actions on folders and documents, and content administration.</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Manage_Content">Manage Content</link>
+            <link linkend="Platform_User_Guide.Organize_Content.Manage_Content">Manage content</link>
           </emphasis> shows how to contribute content, and to manage content (for example, creating/editing/publishing/deleting content).</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Newsletter">Manage Newsletters</link>
+            <link linkend="Platform_User_Guide.Organize_Content.Newsletter">Manage newsletters</link>
           </emphasis> includes information of newsletter viewer and newsletter manager, and actions which can be done on the newsletter manager.</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows">Manage Workflows</link>
+            <link linkend="Platform_User_Guide.Organize_Content.Manage_Workflows">Manage workflows</link>
           </emphasis> represents default processes, including holiday and pay raise, and how to create and manage these processes. Also, this section also focuses on how to upload or view details of a process.</para>
       </listitem>
     </itemizedlist>

@@ -1,0 +1,75 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+In eXo Platform, you can manage your knowledge base easily through the <emphasis role="bold">Knowledge</emphasis> application. <emphasis role="bold">Knowledge</emphasis> includes 3 main portlets, including <emphasis role="bold">Forum</emphasis>, <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">Wiki</emphasis>. With <emphasis role="bold">Knowledge</emphasis>, you can share information, seek supports through helpful answers and post your ideas.
+</para>
+<para>
+This chapter covers the following topics:
+</para>
+<itemizedlist>
+<listitem>
+<para> <link linkend="Platform_User_Guide.Knowledge.Build_Wiki">Build a wiki</link> through the <emphasis role="bold">Wiki</emphasis> portlet.
+This application provides the content productivity to portal users as a tool to forge the unstructured knowledge. With <emphasis role="bold">Wiki</emphasis>, you can create and edit pages by using a simplified markup language or a WYSIWYG editor.
+Also, your company can use <emphasis role="bold">Wiki</emphasis> as an internal reference, such as work policy, or a public wiki for a comprehensive product information. <emphasis role="bold">Wiki</emphasis>  along with <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">Forum</emphasis> will 
+complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Knowledge.Build_Forums">Build a forum</link> through the <emphasis role="bold">Forum</emphasis> portlet. <emphasis role="bold">Forum</emphasis> is designed for the group discussion and user-generated content in which participants with common interests can exchange their opinions on a subject.
+While <emphasis role="bold">Answers</emphasis> is an ideal site for you to find answers quickly, <emphasis role="bold">Forum</emphasis> gives deep discussion through your posted topics.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Knowledge.Build_FAQs">Build an Answers &amp; FAQs system</link> through the <emphasis role="bold">Answers</emphasis> portlet.
+<emphasis role="bold">Answers</emphasis> is a collaborative Question &amp; Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. 
+With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. 
+<emphasis role="bold">FAQs</emphasis> takes this content as input and publishes it in a clean and quickly browsable manner. You can point a <emphasis role="bold">FAQs</emphasis> portlet to one or several <emphasis role="bold">Answers</emphasis> categories. As a publishing portlet, it is impossible to edit questions and answers in <emphasis role="bold">FAQs</emphasis>.
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
+h1. About user roles  {anchor:id=KSuser.about_role}
+
+Please note that each user group has different privileges to perform actions. Some actions can be limited to some specific user groups. Advanced users have the ability to control and assign functions or features that other users can and cannot do within the application. There are five user groups: administrator, moderator, regular user, banned user and guest.
+
+* *Administrator* is an advanced user, who typically has the highest right when using Knowledge. The Administrator can manage user privileges and he has rights to perform all possible capabilities. For example, in Forum, an administrator can create categories, close/delete, lock/unlock forums; promote a regular user to moderator or create a category that is restricted to a specific user group.
+
+* *Moderator* obtains a subset of administrator's rights. It means that he has certain allowed capabilities and may perform these advanced actions in a specific area only. For example, a moderator of a category in Forum can only perform advanced actions in the category that he is assigned as the moderator. The moderator role is assigned by the administrator.
+
+* *Regular user* is defined as a logged-in user who can only use the basic features of Knowledge. The regular user can be promoted to the advanced user by the administrator.
+
+* *Banned user* is a regular user, that abuses the forum functions or violates the forum rules and policies, cannot use the basic features of Knowledge. The role of the banned user is similar to an anonymous user's.
+
+* *Guest* (anonymous user) is an unregistered/unlogged-in user who is often limited to a very few features only of Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics.
+
+Notice that there will be no section dedicated to anonymous users. For the actions that an anonymous user can perform, you can refer to the table that summarizes all the actions in each application.
+
+h1. How to access knowledge applications {anchor:id=KSuser.access_knowledge}
+
+To access the *Forum*, *Answers* or *Wiki* applications of a space, do as follows:
+
+Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then click the application that you want to access;
+
+!images/Space_menu_application2.png|align="center"!
+
+Or hover your cursor over *My Spaces*, then click {noformat}[Space name]{noformat}* and click the application name on the Space navigation.
+
+!images/Space_navigation_application2.png|align="center"!
+
+{docbook}
+<note>
+<para>In case the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications are not found, it means that they are not activated. To use these applications,
+
+you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration -->Forum/Answers/Wiki</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+
+You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="edit a specific portlet">sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet</link> section. </para>
+</note>
+{docbook}
+
+

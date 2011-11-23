@@ -1,0 +1,42 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+<emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives rich experiences to users via many options that are similar to social networks, such as Facebook and Linkedln. 
+With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills and team information, to profiles of yourself and another contacts.
+Besides, <emphasis role="bold">Social</emphasis> provides built-in JavaScript client libraries for OpenSocial API that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
+</para>
+<para>
+This chapter presents the following topics:
+</para>
+<itemizedlist>
+<listitem>
+<para><link linkend="Platform_User_Guide.Social.Manage_Profile">Manage your profile</link> through step-by-step instructions. In this section, you can build your profile with full personal information, such as contact information, work experience, current position, and more.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Social.Manage_Spaces">Manage spaces</link> which shows you how to create/edit/join/leave/delete a space, or to view its details, or to search for spaces and to accept/deny invitations.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Social.Build_Network">Build networks</link> which includes actions related to searching for contacts and sending connection requests.
+</para>
+</listitem>
+<listitem>
+<para><link linkend="Platform_User_Guide.Social.Follow_Activities">Follow activities in your organization</link> which allows you to update status, share links, delete activities/comments, comment on activities, or like/unlike activities/comments.
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
+In this chapter, most Social-related actions are demonstrated through the <emphasis role="bold">Intranet</emphasis> site which is a default social portal built in eXo Platform.
+
+!images/Enter_Intranet.png|align="center"!
+
+After entering <emphasis role="bold">Intranet</emphasis>, you will be directed to the <emphasis role="bold">Intranet</emphasis> homepage as below.
+
+!images/Intranet_homepage.png|align="center"!

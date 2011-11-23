@@ -28,7 +28,6 @@ h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Organization.Manage_App
 h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop}
 {include:document="webos/wikbook-src/Manage_applications.wiki"}
 
-
 h1. Organize Your Content{anchor:id=Platform_User_Guide.Organize_Content}
 {include:document="Introduction_Organize_Content.wiki"}
 h2. Structure content{anchor:id=Platform_User_Guide.Organize_Content.Structure_Content}
@@ -40,33 +39,32 @@ h2. Manage workflows{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workf
 {include:document="workflow.wiki"}
 
 h1. Collaborate With Your Colleagues{anchor:id=Platform_User_Guide.Collaboration}
-{include:document="collaboration/wikbook-src/Collaboration_introduction.wiki"}
-h2. Communicate with your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts}
-h3. Manage your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts}
-{include:document="collaboration/wikbook-src/addressbook/addressbook.wiki"}
-h3. Email your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts}
-{include:document="collaboration/wikbook-src/mail/mail.wiki"}
-h3. Chat with your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat}
-{include:document="collaboration/wikbook-src/chat/chat.wiki"}
-h2. Manage your agenda {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Manage_agenda}
+{include:document="Introduction_Collaboration.wiki"}
+h2. Manage your calendar {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Manage_calendar}
 {include:document="collaboration/wikbook-src/calendar/calendar.wiki"}
+h2. Manage your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts}
+{include:document="collaboration/wikbook-src/addressbook/addressbook.wiki"}
+h2. Email your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Email_Contacts}
+{include:document="collaboration/wikbook-src/mail/mail.wiki"}
+h2. Chat with your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat}
+{include:document="collaboration/wikbook-src/chat/chat.wiki"}
 
 h1. Organize Your Knowledge{anchor:id=Platform_User_Guide.Knowledge}
-{include:document="knowledge/wikbook-src/Knowledge_introduction.wiki"}
-h2. Build wikis{anchor:id=Platform_User_Guide.Knowledge.Build_Wiki}
+{include:document="Introduction_Knowledge.wiki"}
+h2. Build a wiki{anchor:id=Platform_User_Guide.Knowledge.Build_Wiki}
 {include:document="knowledge/wikbook-src/use_wiki.wiki"}
-h2. Build forums{anchor:id=Platform_User_Guide.Knowledge.Build_Forums}
+h2. Build a forum{anchor:id=Platform_User_Guide.Knowledge.Build_Forums}
 {include:document="knowledge/wikbook-src/forum/forum.wiki"}
 {include:document="knowledge/wikbook-src/forum/forum_administrator.wiki"}
 {include:document="knowledge/wikbook-src/forum/forum_regular_user.wiki"}
 {include:document="knowledge/wikbook-src/forum/forum_moderator.wiki"}
-h2. Build FAQs{anchor:id=Platform_User_Guide.Knowledge.Build_FAQs}
+h2. Build an Answers & FAQs system {anchor:id=Platform_User_Guide.Knowledge.Build_FAQs}
 {include:document="knowledge/wikbook-src/Answers/Administrator.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Moderator.wiki"}
 {include:document="knowledge/wikbook-src/Answers/Regular_user.wiki"}
 
 h1. Build Social Network{anchor:id=Platform_User_Guide.Social}
-{include:document="Social_Introduction.wiki}
+{include:document="Introduction_Social.wiki"}
 h2. Manage your profile{anchor:id=Platform_User_Guide.Social.Manage_Profile}
 {include:document="social/wikbook-src/User_profile.wiki"}
 h2. Manage spaces{anchor:id=Platform_User_Guide.Social.Manage_Spaces}
