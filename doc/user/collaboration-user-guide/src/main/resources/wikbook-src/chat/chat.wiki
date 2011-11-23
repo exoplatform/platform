@@ -47,6 +47,8 @@ To remove a contact from your friend list, do as follow:
 
 *2.* Click *OK* in the confirmation message.
 
+
+
 h1. Chat with a contact {anchor:id="CSUser_guide.How_to_use_Chat.Chat_with_contact"}
 
 h2. Send messages {anchor:id="CSUser_guide.How_to_use_Chat.Send_messages"}
@@ -68,7 +70,7 @@ The *Conversation* window appears:
 
 *2.* Type the message that you want to send into the message input box:                                                                                                                                      .mo
 
-{docbook}p 
+{docbook}
 <citetitle>
 <para>
 <emphasis role="bold">Minimize the chat window</emphasis>
