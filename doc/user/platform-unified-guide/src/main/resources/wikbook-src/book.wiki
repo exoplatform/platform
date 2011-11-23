@@ -26,8 +26,7 @@ h2. Manage applications{anchor:id=Platform_User_Guide.Manage_Organization.Manage
 In eXo Platform, applications can be managed [inside a portal|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal] or [inside Desktop|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop].
 h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal}
 h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop}
-
-{{{include:document="webos/en/en-US/Manage_applications.wiki"}}}
+{include:document="webos/wikbook-src/Manage_applications.wiki"}
 
 
 h1. Organize Your Content{anchor:id=Platform_User_Guide.Organize_Content}
