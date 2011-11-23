@@ -546,3 +546,6 @@ You could override this configuration, by modifying the system property named {{
 h2. eXo Platform default users list definition {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
 
 In eXo Platform, the default users list (omit Super Admin user) are defined in "Acme WebSite" & "Office Intranet" extensions. So by deleting those extensions, the users "John", "demo", "james" and "mary" will not be created.
+
+h1. How to call ClearOrphanSymlinksJob
+{include:document="ClearOrphanedSymlinks.wiki"}
