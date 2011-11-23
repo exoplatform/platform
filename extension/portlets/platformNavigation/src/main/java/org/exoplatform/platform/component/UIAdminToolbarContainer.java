@@ -188,8 +188,8 @@ public class UIAdminToolbarContainer extends UIPortletApplication {
   private boolean canAcceedMenu() throws Exception {
     UIPortalApplication portalApp = Util.getUIPortalApplication();
     UIPage uiPage = portalApp.findFirstComponentOfType(UIPage.class);
-    boolean canAccessMenu = !(uiPage instanceof UIDesktopPage) && hasEditPermissionOnNavigation() || hasEditPermissionOnPage()
-        || hasEditPermissionOnPortal();
+    boolean canAccessMenu = (!(uiPage instanceof UIDesktopPage))
+        && (hasEditPermissionOnNavigation() || hasEditPermissionOnPage() || hasEditPermissionOnPortal());
     return canAccessMenu;
   }
 
