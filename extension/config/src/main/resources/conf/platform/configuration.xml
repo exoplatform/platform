@@ -72,7 +72,7 @@
 			  
 			  
               <!-- commons -->
-              <value profiles="collaboration,all,default">
+              <value profiles="collaboration,knowledge,all,default">
                 <string>commons-extension</string>
               </value>
               <value>
