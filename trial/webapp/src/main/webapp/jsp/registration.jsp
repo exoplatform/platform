@@ -15,36 +15,32 @@
 		<link rel="stylesheet" type="text/css" href="/trial/skin/Stylesheet.css"/>
 	</head>
 <body>
-<div class="UIWorkSpace">	
-	<%@include file="static/head.jsp" %>
+<%@include file="static/head.jsp" %>
 
-	<div class="UIContent">
-		<% if(outdated){%>
-			<%@include file="static/trialExpired.jsp" %>
-		<%} else { %>
-			<%@include file="static/welcome.jsp" %>
-		<%} %>
+<% if(outdated){%>
+	<%@include file="static/trialExpired.jsp" %>
+<%} else { %>
+	<%@include file="static/welcome.jsp" %>
+<%} %>
 
-		<% if(firstStart){%>
-			  <%@include file="button/startEvaluationButton.jsp" %>
-		<%} else if(outdated) { %>
-			  <%@include file="button/productKeyButton.jsp" %>
-		<%} %>
+<% if(firstStart){%>
+	  <%@include file="button/startEvaluationButton.jsp" %>
+<%} else if(outdated) { %>
+	  <%@include file="button/productKeyButton.jsp" %>
+<%} %>
 
-		<%@include file="button/buyNowButton.jsp" %>
+<%@include file="button/buyNowButton.jsp" %>
 
-		<% 
-		  if(!firstStart){
-			if(outdated){%>
-			  <%@include file="button/extendEvaluationButton.jsp" %>
-		<%  } else { %>
-			  <%@include file="button/dismissButton.jsp" %>
-		<%
-			}
-		  }
-		%>
-	</div>
-</div>
+<% 
+  if(!firstStart){
+	if(outdated){%>
+	  <%@include file="button/extendEvaluationButton.jsp" %>
+<%  } else { %>
+	  <%@include file="button/dismissButton.jsp" %>
+<%
+	}
+  }
+%>
 <%@include file="static/footer.jsp" %>
 
 <% 	if(!TrialService.isLoopfuseFormDisplayed()){ %>

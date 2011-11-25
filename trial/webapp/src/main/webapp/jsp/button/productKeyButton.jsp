@@ -1,5 +1,7 @@
-				<div class="UIContainer">
-					<span class="UIGreenBoxIcon"></span>
-					<span class="UIGreenTextTwoLine FL">Enter the extended evaluation license provided by<br>your eXo account manager</span>
-					<a class="UIGreenSubmit FR" href="/trial/jsp/extend.jsp">Enter product key</a>
-				</div>
+<div class="Container ClearFix">
+  <span>
+    <a class="Botton GreenRect FR" href="/trial/jsp/extend.jsp">Enter product key</a>
+    <span class="TextContainer">Enter the extended evaluation license provided by<br>your eXo account manager</span>
+  </span>
+  <span class="TriangleItem GreenIcon"></span>
+</div>

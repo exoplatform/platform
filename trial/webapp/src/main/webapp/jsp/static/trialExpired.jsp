@@ -1,1 +1,1 @@
-				<h2 class="UICenterContent">Your evaluation period has expired</h2>
+			<h2 class="CenterTitle">Your evaluation period has expired</h2>

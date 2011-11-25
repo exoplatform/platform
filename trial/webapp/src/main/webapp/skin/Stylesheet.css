@@ -1,3 +1,6 @@
+
+/* /// TAG \\\*/
+
 body {
 	background: white;
 	font-family: Verdana, Arial, Verdana, sans-serif;
@@ -13,9 +16,7 @@ p {
 	font-weight: normal;
 }
 
-img {
-	border: none;
-}
+img {border: none;}
 
 a {
 	text-decoration: none;
@@ -30,20 +31,16 @@ h1,h2,h3,h4,h5,h6, p, ul, li {
 
 h1 {
 	font-family: Arial, Verdana, sans-serif;
-	font-size: 40px;
+	font-size: 42px;
 }
 
 h2 {font-size: 24px;}
 h3 {font-size: 19px;}
 h4 {font-size: 14px;}
-
-h5 {
-	font-size: 13px;
-}
+h5 {font-size: 13px;}
 h6 {font-size: 12px;}
 
 input {
-	font-family: Verdana, Arial, Verdana, sans-serif;
 	font-size: 20px;
 	color: #b9b9b9;
 }
@@ -51,7 +48,9 @@ input {
 input.Text{
 	background-color: #FAFAFA;
     border: 1px solid #E6E6E6;
-	border-radius: 2px 2px 2px 2px;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
     height: 34px;
 	margin-left: 15px;
     padding: 0 5px;
@@ -59,9 +58,24 @@ input.Text{
     width: 406px;
 }
 
-.UIGras {
-	font-weight: bold;
+li {
+	list-style-type: none;
 }
+
+.Gras {font-weight: bold;}
+
+.CenterContent {
+ text-align: center;
+ line-height: 25px;
+ padding-top: 30px;
+}
+
+.CenterTitle {
+ text-align: center;
+ line-height: 30px;
+}
+
+.YellowColor {color: #ffcb08;}
 
 .FL {
 	float: left;
@@ -71,176 +85,146 @@ input.Text{
 	float: right;
 }
 
-.UICenterContent {
- text-align: center;
+.ClearFix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }
+
+.ClearFix {
+	!display: inline-block;
+	!zoom: 1;
+	!display: block; 
+}
+
 
 /* /// BANNER \\\ */
 
 .UIBanner {
-	background: url("background/bgBanner.png") repeat-x;
+	background: url("../background/bgBanner.png") repeat-x;
 	height: 142px;
 }
 
-.UIBanner .UIBannerContent {
-	width: 960px;
+.UIBanner .BannerContent {
+	width: 768px;
 	margin: 0 auto;
-	padding-top: 50px;
 	color: white;
+	padding-top: 50px;
 }
 
-.UIBannerTitle {
-	padding: 6px 91px 0 0;
-	margin: 0px;
+.UIBanner .BannerContent .BannerTitle {
+	padding-top: 6px;
 }
 
-.UILogoPic {
-	padding-left: 91px;
-}
-
-.UIYellowColor {
-	color: #ffcb08;
-}
 
 /* /// BODY \\\ */
 
-.UIWorkSpace {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-}
-
 .UIContent {
     font-size: 13px;
-    margin: 30px auto;
-    width: 960px;
+    margin: 50px auto;
+	padding: 0;
+	height: 100%;
+    width: 768px;
+	min-height: 500px;
 }
 
-.UIContainer {
-	background: none repeat scroll 0 0 #F5F5F5;
+.UIContent .Container {
+    background: none repeat scroll 0 0 #F5F5F5;
     border: 1px solid #D7D7D7;
-    border-radius: 0 5px 5px 5px;
+    border-radius: 0 3px 3px 3px;
+	-moz-border-radius: 0 3px 3px 3px;
+	-webkit-border-radius: 0 3px 3px 3px;
     box-shadow: 0 0 5px 0 #D7D7D7 inset;
-    height: 69px;
-	margin: 30px auto;
+	-moz-box-shadow: 0 0 5px 0 #D7D7D7 inset;
+	-webkit-box-shadow: 0 0 5px 0 #D7D7D7 inset;
+    margin: 34px auto;
+	min-height: 35px;
+	padding: 17px 0;
+	position: relative;
     width: 766px;
 }
+ 
+.UIContent .Container .TextContainer {
+	padding-left: 65px;
+	display: table-cell;
+	vertical-align: middle;
+	height: 32px;
+	width: 475px;
+}
 
-.UIFormContainer{
+.UIContent .FormContainer{
 	margin: 40px auto;
 	width: 700px;
 }
 
-.UIGreenBoxIcon {
-	background: url("background/IconBox.png") no-repeat scroll left -40px transparent;
-    float: left;
-    height: 33px;
-    margin: -1px 0 -1px -1px;
-    width: 33px;
-}
-
-.UIGreenText, .UIOrangeText, .UIGrayText {
-	margin: 24px 0 0 30px;
-}
-
-.UIGreenTextTwoLine, .UIBlueTextTwoLine {
-	margin: 15px 0 0 30px;
-}
-
-.UITextForm, .UIGreenTextTwoLine, .UIBlueTextTwoLine, .UIGreenText, .UIOrangeText, .UIGrayText {
-	font-family: Verdana, Arial, Verdana, sans-serif;
+.UIContent .FormContainer .TextForm,
+.UIContent .Container .TextContainer {
 	font-size: 14px;
 	color: #666666;
 }
 
-.UIGreenSubmit{
-	background: url("background/bgSubmit.png") repeat-x scroll left top transparent;
-	border-radius: 5px 5px 5px 5px;
+.UIContent .Container .Botton {
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
     display: inline-block;
-    font-family: Verdana,Arial,Verdana,sans-serif;
     font-size: 19px;
     font-weight: normal;
-    height: 33px;
+	line-height: 33px;
 	text-align: center;
 	width: 193px;
-    line-height: 33px;
-    margin: 17px 17px;
+	margin-right: 17px;
+	vertical-align: middle;
 }
 
-.UIOrangeBoxIcon {
-	background: url("background/IconBox.png") no-repeat scroll left top transparent;
+.UIContent .Container .GreenRect{
+	background: url("../background/bgSubmit.png") repeat-x scroll left top transparent;
+}
+
+.UIContent .Container .OrangeRect{
+	background: url("../background/bgSubmit.png") repeat-x scroll left -40px transparent;
+}
+
+.UIContent .Container .GrayRect{
+	background: url("../background/bgSubmit.png") repeat-x scroll left -125px transparent;
+}
+
+.UIContent .Container .BlueRect{
+	background: url("../background/bgSubmit.png") repeat-x scroll left -80px transparent;
+}
+
+.UIContent .Container .TriangleItem {	
     float: left;
     height: 33px;
     margin: -1px 0 -1px -1px;
+	position: absolute; top: 0; left: 0;
     width: 33px;
 }
 
-.UIOrangeSubmit{
-	background: url("background/bgSubmit.png") repeat-x scroll left -40px transparent;
-	border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: Verdana,Arial,Verdana,sans-serif;
-    font-size: 19px;
-    font-weight: normal;
-    height: 33px;
-	text-align: center;
-	width: 193px;
-    line-height: 33px;
-    margin: 17px 17px;
+.UIContent .Container .OrangeIcon {
+	background: url("../background/IconBox.png") no-repeat scroll left top transparent;
 }
 
-.UIGrayBoxIcon {
-	background: url("background/IconBox.png") no-repeat scroll left -80px transparent;
-    float: left;
-    height: 33px;
-    margin: -1px 0 -1px -1px;
-    width: 33px;
+.UIContent .Container .GreenIcon {
+	background: url("../background/IconBox.png") no-repeat scroll left -40px transparent;
 }
 
-.UIGraySubmit{
-	background: url("background/bgSubmit.png") repeat-x scroll left -125px transparent;
-	border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: Verdana,Arial,Verdana,sans-serif;
-    font-size: 19px;
-    font-weight: normal;
-    height: 33px;
-	text-align: center;
-	width: 193px;
-    line-height: 33px;
-    margin: 17px 17px;
+.UIContent .Container .GrayIcon {
+	background: url("../background/IconBox.png") no-repeat scroll left -80px transparent;
 }
 
-.UIBlueBoxIcon {
-	background: url("background/IconBox.png") no-repeat scroll left -120px transparent;
-    float: left;
-    height: 33px;
-    margin: -1px 0 -1px -1px;
-    width: 33px;
+.UIContent .Container .BlueIcon {
+	background: url("../background/IconBox.png") no-repeat scroll left -120px transparent;
 }
 
-.UIBlueSubmit{
-	background: url("background/bgSubmit.png") repeat-x scroll left -80px transparent;
-	border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: Verdana,Arial,Verdana,sans-serif;
-    font-size: 19px;
-    font-weight: normal;
-    height: 33px;
-	text-align: center;
-	width: 193px;
-    line-height: 33px;
-    margin: 17px 17px;
-}
-
-.submit {
-	background: url("background/bgSubmit.png") repeat-x scroll left -80px transparent;
+.UIContent .FormContainer .FormSubmit {
 	border: medium none;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
     color: #FFFFFF;
     display: block;
     font-weight: normal;
@@ -251,26 +235,22 @@ input.Text{
     width: 98px;
 }
 
-/* /// FOOTER \\\ */
-
-.FooterMessage {
-	margin-bottom: 20px;
+.UIContent .FormContainer .BlueFormRect{
+	background: url("../background/bgSubmit.png") repeat-x scroll left -80px transparent;
 }
+
+
+/* /// FOOTER \\\ */
 
 .UIFooter {
 	background: none repeat scroll 0 0 #474848;
 	height: 61px;
-	position: absolute;
+	position: fixed;
 	bottom: 0; left: 0;
 	width: 100%;
 }
 
-.UIFooterText {
+.UIFooter .FooterText {
 	color: #a3a4a4;
 	padding-top: 15px;
-}
-
-.Red {
-	color:red;
-	text-align: center;
 }

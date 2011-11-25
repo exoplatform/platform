@@ -1,6 +1,6 @@
 <%@page import="org.exoplatform.trial.TrialService"%>
-<div class="UIContainer">
-	<span class="UIGrayBoxIcon"></span>
-	<span class="UIGrayText FL">Your have <span class="UIGras"><%=TrialService.getNbDaysBeforeExpiration()%> days left</span> in you evaluation</span>
-	<a class="UIGraySubmit FR" href="/trial/UnlockServlet?dismiss=true">Dismiss</a>
+<div class="Container ClearFix">
+  <a class="Botton GrayRect FR" href="/trial/UnlockServlet?dismiss=true">Dismiss</a>
+  <span class="TextContainer">Your have <span class="Gras"><%=TrialService.getNbDaysBeforeExpiration()%> days left</span> in you evaluation</span>
+  <span class="TriangleItem GrayIcon"></span>
 </div>
