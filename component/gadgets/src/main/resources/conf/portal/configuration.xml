@@ -3,7 +3,7 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-	<!-- Gagdet registry pre-population -->
+<!-- Gagdet registry pre-population 
 	<component>
 		<type>org.exoplatform.platform.gadgets.services.PopulateGadgetRegisryService</type>
 		<init-params>
@@ -15,7 +15,7 @@
 			<value-param>
 				<name>gadgetsCategoryAccessPermission </name>
 				<description>Access Permission Settings</description>
-				<value>*:/platform/users</value><!-- could be manager:/platform/web-contributors,member:/developers -->
+				<value>*:/platform/users</value>
 			</value-param>
 			<object-param>
 				<name>populateGadget1</name>
@@ -91,5 +91,6 @@
 			</object-param>
 		</init-params>
 	</component>
+-->
 
 </configuration>
