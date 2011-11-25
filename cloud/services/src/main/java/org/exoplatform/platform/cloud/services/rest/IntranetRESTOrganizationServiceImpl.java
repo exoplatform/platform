@@ -24,17 +24,25 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.exoplatform.common.http.HTTPStatus;
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
@@ -115,7 +123,7 @@ public class IntranetRESTOrganizationServiceImpl
    /**
     * Creates the user on given repository.
     *
-    * @param tname the tname
+    * @param tname the workspace name
     * @param baseURI the base uri
     * @param userName the user name
     * @param password the password
@@ -131,7 +139,7 @@ public class IntranetRESTOrganizationServiceImpl
    public Response createUser(@FormParam("tname") String tname, @FormParam("URI") String baseURI,
       @FormParam("username") String userName, @FormParam("password") String password,
       @FormParam("first-name") String firstName, @FormParam("last-name") String lastName,
-      @FormParam("email") String email) throws Exception
+      @FormParam("email") String email, @FormParam("isadministrator") String administrator) throws Exception
    {
       try
       {
@@ -146,10 +154,25 @@ public class IntranetRESTOrganizationServiceImpl
 
          // register user in groups '/platform/developers' and '/platform/users'
          GroupHandler groupHandler = organizationService.getGroupHandler();
-         MembershipType membership = organizationService.getMembershipTypeHandler().findMembershipType("member");
-
-         Group usersGroup = groupHandler.findGroupById("/platform/users");
-         organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership, true);
+         MembershipType membership_member = organizationService.getMembershipTypeHandler().findMembershipType("member");
+         MembershipType membership_all = organizationService.getMembershipTypeHandler().findMembershipType("*");
+         boolean isAdministrator = Boolean.parseBoolean(administrator);
+         
+         if (!isAdministrator)
+         {
+            Group usersGroup = groupHandler.findGroupById("/platform/users");
+            organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership_member, true);
+         }
+         else
+         {
+            Group adminGroup = groupHandler.findGroupById("/platform/administrators");
+            Group devGroup = groupHandler.findGroupById("/developers");
+            Group contributorsGroup = groupHandler.findGroupById("/platform/web-contributors");
+            organizationService.getMembershipHandler().linkMembership(newUser, adminGroup, membership_member, true);
+            organizationService.getMembershipHandler().linkMembership(newUser, devGroup, membership_member, true);
+            organizationService.getMembershipHandler().linkMembership(newUser, contributorsGroup, membership_all, true);
+         }
+         
          return Response.status(HTTPStatus.CREATED).entity("Created").build();
       }
       catch (Exception e)
@@ -161,10 +184,11 @@ public class IntranetRESTOrganizationServiceImpl
       }
    }
 
+   
    /**
     * Creates the root user on given repository.
     *
-    * @param tname the tname
+    * @param tname the workspace name
     * @param password the password
     * @param firstName the first name
     * @param lastName the last name
@@ -172,6 +196,7 @@ public class IntranetRESTOrganizationServiceImpl
     * @return the response
     * @throws Exception the exception
     */
+   @Deprecated
    @POST
    @Path("/createroot")
    @RolesAllowed("cloud-admin")
@@ -193,10 +218,48 @@ public class IntranetRESTOrganizationServiceImpl
       }
       catch (Exception e)
       {
-         String err = "Unable to store ROOT user in tenant " + tname;
+         String err = "Unable to store ROOT user in workspace " + tname;
     	   LOG.error(err, e);
     	   throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR)
     	                                     .entity(errorMessage(err, e)).type("text/plain").build());
+      }
+   }
+   
+   
+   /**
+    * Gets the administrators list for given workspace.
+    * 
+    * @param tname workspace name
+    * @return json username:email value
+    * @throws Exception
+    */
+   @GET
+   @Produces(MediaType.APPLICATION_JSON)
+   @Path("/administrators/{tname}")
+   @RolesAllowed("cloud-admin")
+   public Map<String, String> getAdministratorsList(@PathParam("tname") String tname) throws Exception
+   {
+      try
+      {
+         Map<String, String> result = new HashMap<String, String>();
+         repositoryService.setCurrentRepositoryName(tname);
+         ListAccess<User> list = organizationService.getUserHandler().findAllUsers();//findUsersByGroupId("/platform/administrators");
+         for (User one : list.load(0, list.getSize()))
+         {
+            Collection<Group> groups = organizationService.getGroupHandler().findGroupsOfUser(one.getUserName());
+            for (Group group : groups){
+            if (group.getId().equalsIgnoreCase("/platform/administrators"))
+              result.put(one.getUserName(), one.getEmail());
+            }
+         }
+         return result;
+      }
+      catch (Exception e)
+      {
+         String err = "Unable to get administrators in workspace " + tname;
+         LOG.error(err, e);
+         throw new WebApplicationException(e, Response.status(HTTPStatus.INTERNAL_ERROR).entity(errorMessage(err, e))
+            .type("text/plain").build());
       }
    }
    
