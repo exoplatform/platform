@@ -12,7 +12,7 @@ After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* ho
 |!images/no4.png!|The pages tree view.|
 |!images/no5.png!|The *Page Control* area which helps users take actions with the current page.|
 |!images/no6.png!|The defaul content. The small page could be a Wiki quick guide that explains how to create a page, switch between different edit modes, or create a page, and more.|
-|!images/7.png!|The page information. Click *View Change* to redirect to the *Page History* page for comparing changes between various versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
+|!images/7.png!|The page information. Click *View Change* to go to the *Page History* page for comparing changes between versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
 
 h2. The page hierarchy in Wiki {anchor:id=KSuser.Wiki_Overview.Page_hierarchy}
 *Wiki* is organized as a tree of pages in which each page may contain many sub-pages. The hierarchy is reflected on UI by the *Breadcrumb* and the page tree at the left pane. When a page is added, it is always defined as a sub-page to the current one. *Wiki* is a wiki platform which can host several wikis. So, you can have wikis for portals, wikis for groups or users. However, the page hierarchy is not reflected in the URLs as they are flatly accessible by their URLs.
@@ -76,11 +76,13 @@ If you select *From Template...*, a list of available templates appears.
 
 You can:
 
-i. Click *Preview* corresponding to the template you want to see.
+i. Click *Preview* corresponding to the template you want to see. The template preview appears:
+
+!images/Wiki_template_preview.png|align="center"!
 
 ii. Click *Select* corresponding to the template you want to select for your new page.
 
-The template for your page is displayed.
+The selected template appears:
 
  !images/wiki_available_template.png|align="center"!
 
@@ -200,7 +202,7 @@ The *History Page* appears.
 *Details:*
 
 ||Area|| Function ||
-|!images/no1.png!|[Compare page versions|#KSuser.Work_with_page_version.Compare_versions].|
+|!images/no1.png!|[Compare selected page versions|#KSuser.Work_with_page_version.Compare_versions].|
 |!images/no2.png!|Allow you to select two versions that you want to compare.|
 |!images/no3.png!|Allow you to specify the number of versions of the page and [view a specific version|#KSuser.Work_with_page_version.View_versions].|
 |!images/no4.png!|The date and time when the page is changed. |
@@ -247,7 +249,7 @@ Attachments are any files enclosed with your pages. The attachments may be image
 
 In this section, you will know how to:
 
-* [View all the attachments of a page|#KSuser.Work_with_attachment.View_attachments].
+* [View all attachments of a page|#KSuser.Work_with_attachment.View_attachments].
 
 * [Add an attachment|#KSuser.Work_with_attachment.Add_attachment].
 
@@ -256,9 +258,9 @@ In this section, you will know how to:
 * [Download an attachment|#KSuser.Work_with_attachment.Download_attachment].
 
 
-h2. View all the attachments of a page {anchor:id=KSuser.Work_with_attachment.View_attachments}
+h2. View all attachments of a page {anchor:id=KSuser.Work_with_attachment.View_attachments}
 
-*1.* Open the page you want to view its attachments.
+*1.* Open the page you want to view attachments.
 
 *2.* Click *Attachment(s)* link from the *Page info* at the bottom right corner of the opening page.
 
@@ -697,7 +699,7 @@ All matching results which contain your entered search term are displayed right 
 
 h4. Create a new template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
-*1.* Click *Add more...* and the sample template form appears.
+*1.* Click *Add more...* in the *Spage Settings* page and the sample template form appears.
 
 !images/wiki_sample_template.png|align="center"!
 
@@ -721,7 +723,7 @@ h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
 
 h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
-*1.* Click !images/Delete_icon.png! corresponding to the template you want to delete.
+*1.* Click !images/Remove_icon.png! corresponding to the template you want to delete.
 
 *2.* Click *OK* in the pop-up confirmation message.
 

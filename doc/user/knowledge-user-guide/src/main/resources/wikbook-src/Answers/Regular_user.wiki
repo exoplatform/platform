@@ -1,7 +1,7 @@
 h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
-After accessing *Answers*, you can see all categories in the left pane. To view details of a category, simply left-click it to open its details in the right pane.
+After accessing *Answers*, the left pane is hidden by default. To toogle the left panel, click !images/Answer_toogle_panel.png! on the *Action* bar.To view details of a category, simply left-click it to open its details in the right pane.
 
 !images/Details_category.png|align="center"!
 
@@ -37,7 +37,7 @@ In this form, you can also:
 
 *i.* Give details to your question into the *Details* field.
 
-*ii.* Select your desired language by left-clicking !images/arrow_icon1.png! to open the drop-down menu.
+*ii.* Select your desired language in the *Language* drop-down list.
 
 *iii.* Enter your email in the valid format, such as: username@abc.com, into the *Email* form.
 
@@ -402,7 +402,6 @@ You can get the latest questions in a category by getting the corresponding feed
 
 The RSS information page will appear on another tab. Depending on the browser you are using, this page may be displayed differently. Use the RSS link provided in this new page to put in the RSS reader of your choice.
 
-!images/Rss_example_answers.png|align="center"!
 
 {docbook}
 <para>
@@ -567,7 +566,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 {docbook}
 <citetitle>
 <para>
-    <emphasis role="bold">Print all questions with their answers of a category and of its sub-categories
+    <emphasis role="bold">Print all questions with their answers of a category and its sub-categories
 </emphasis>
 </para>
 </citetitle>
@@ -593,11 +592,11 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Click your desired question.
 
-*2.* Click !images/Print_icon.png! on the top right of the question pane. You will only see the question and its details as below.
+*2.* Click !images/Print_icon.png! on the top right of the question pane. You wil see the question and its details as below:
 
 !images/Print_details_question.png|align="center"!
 
-*3.* Select the *Print* button to accept printing or *Close* to quit the *Print* form.
+*3.* Select the *Print* to start printing.
 
 {docbook}
 <para>

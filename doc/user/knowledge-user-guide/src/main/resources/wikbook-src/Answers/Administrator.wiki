@@ -32,7 +32,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 * *The first way*
 
-*i.* Go to !images/sawtooth_icon.png! *--> Portal --> Page* on the *Administration* bar.
+*i.* Click !images/Setting_gear.png! *--> Portal --> Page* on the *Administration* bar.
 
 !images/edit_pages1.png|align="center"!
 
@@ -46,11 +46,13 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 *ii.* Hover your cursor over *Edit --> Page*, then click *Layout*.
 
+!images/Answer_page_layout.png|align="center"!
+
 Now, you should be in the page edit mode.
 
 !images/Answer_portlet_edit_mode.png|align="center"!
 
-*3.* Hover your cursor over the *Answers* portlet, then click !images/Edit_porlet_icon.png! on the quick toolbar that appears.
+*3.* Hover your cursor over the *Answers* portlet, then click !images/edit_icon3.png! on the quick toolbar that appears.
 
 *4.* Make changes in the *Answer Portlet* form.
 
@@ -210,7 +212,7 @@ The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display
 
 *1.* Click !images/Setting_gear.png! *--> Portal --> Pages*.
 
-!images/Forum_portal_page_edit.png|align="center"!
+!images/edit_pages1.png.png|align="center"!
 
 The *Page Manager* page will be displayed.
 

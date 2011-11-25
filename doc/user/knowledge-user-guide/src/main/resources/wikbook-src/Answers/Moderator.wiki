@@ -95,8 +95,6 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *3.* Edit the properties.
 
-!images/Add_category_form.png|align="center"!
-
 *4.* Click *Save* to save all changes.
 
 {docbook}
@@ -192,8 +190,6 @@ The exported file is in the .zip format and it can be used to import to *Answers
 {docbook}
 
 
-
-
 *1.* Click !images/Import_icon.png! to open the *Import* form.
 
 *2.* Locate the file to import, then upload the selected file.
@@ -285,11 +281,19 @@ There are two options for answers: *All* and *Approved*.
 
 If you select *Approved*, the *Moderate Question* function will determine the unapproved questions to be displayed or not.
 
-To approve/disapprove a question, follow one of these ways:
+{docbook}
+<citetitle>
+<para>
+    <emphasis role="bold">Approve/disapprove a question</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *The first way*
 
 *1.* Right-click the question title and select *Edit* from the drop-down menu. The *Edit* form will be displayed.
+
+!images/Manage_question_form.png|align="center"!
 
 *2.* Select/Deselect the *Approved* checkbox.
 
@@ -323,11 +327,11 @@ To approve/disapprove a question, follow one of these ways:
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
 
-When a question is activated, it will be displayed and visible for all users to view. If not, it will be hidden and invisible.
+When a question is activated, it will be displayed and visible to all users. If not, it will be hidden and invisible.
 
 *The first way*
 
-*1.* Go to the *Edit Question* form.
+*1.* Edit a question to open the *Edit Question* form.
 
 *2.* Select/Deselect the *Activated* checkbox.
 
@@ -408,7 +412,7 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 {docbook}
 <note>
     <para>
-    Only the Administrator can move questions to any areas in *Answers*.
+    Only the Administrator can move questions to any areas in <emphasis role="bold">Answers</emphasis>.
     </para>
     <para>
     The Moderator will be checked for permission when moving questions. The Moderator can only move questions to the category where he is also the moderator.
@@ -448,7 +452,7 @@ On the top right of an answer, you will see icons that represent actions you can
 
 h3. Approve/Disapprove an answer {anchor:id=KSuser.Answer_Moderator.Approve_answers}
 
-Click !images/Approve_Answer_icon.png! on the top right of the answer content to approve that answer.
+Click !images/Approve_Answer_icon.png! / !images/Disapprove_Answer_icon.png! on the top right of the answer content to approve/disapprove that answer.
 
 {docbook}
 <note>
@@ -474,7 +478,7 @@ Click !images/Approve_Answer_icon.png! on the top right of the answer content to
 
 h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_answers}
 
-Click !images/Active_answer_icon.png! on the top right of the answer content to activate that answer.
+Click !images/Active_answer_icon.png! / !images/Deactive_answer_icon.png! on the top right of the answer content to activate/deactivate that answer.
 
 
 {docbook}

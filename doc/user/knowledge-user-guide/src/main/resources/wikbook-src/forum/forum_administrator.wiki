@@ -44,7 +44,11 @@ The following components can be enabled/disabled:
 * Show Rules
 * Show Forum Statistics
 
-!images/forum_components.png!
+!images/forum_components.png|align="center"!
+
+*Forum Statistics*:
+
+!images/Forum_statistic_panel.png|align="center"!
 
 h3. Enable/Disable a bookmarkable Forum URL {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs}
 

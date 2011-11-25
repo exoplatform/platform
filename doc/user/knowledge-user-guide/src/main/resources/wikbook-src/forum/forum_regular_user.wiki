@@ -39,7 +39,7 @@ For example:
 
 *2.* Click !images/Search_icon.png! or press the *Enter* key to perform your search, or click the *Search* button if you want to search in one forum or topic.
 
-Depending on your selected object, results which contain the matching keyword will be displayed in the *Search Result* form.
+Depending on your selected object, the results which contain the matching keyword will be displayed in the *Search Result* form.
 
 {docbook}
 <para>
@@ -185,7 +185,7 @@ Go to the *Options* tab, you can select status, state, type of the topic, and mo
 
 *Details:*
 ||Field||Description||
-|*Type*|Type of the topic specified by the topic type name and its icon. You can select it from the existing types; Or as an administrator, you can add a new one by clicking the *Plus* icon. (Note that only administrators can see the *Plus* icon.)|
+|*Type*|Type of the topic specified by the topic type name and its icon. You can select it from the existing types. The administrator can add a new one by clicking the !images/Plus_icon.png! icon (Note that only administrators can see !images/Plus_icon.png! icon.|
 |*Posts Moderation*{anchor:id=posts_moderation}|Check this option if you want posts to be moderated before being viewed.|
 |*Posts Notification*|Check this option to enable the notification email when there are new posts in your topic.|
 |*Sticky*| Check this option to stick the topic. A sticky topic will be located at the top of the topics list. A sticky topic will not fall down in the list if any new posts are added.|
@@ -539,11 +539,11 @@ Or right-click the item you want to subscribe to.
 
 !images/forum_rss_rightclick.png|align="center"!
 
-The detailed information of the category/forum/topic is displayed on another tab. Depending on which browser you are using, this page may look different. In this example, the browser is Firefox 3.6.
+The detailed information of the category/forum/topic is displayed on another tab. Depending on which browser you are using, this page may look different. In this example, the browser is Firefox 8.0.
 
-!images/rss_feed.png|align="center"!
+!images/rss_feed_subscribe_firefox.png|align="center"!
 
-Select your RSS client to read the RSS. The following illustration demonstrates the RSS feed subscription using the Firefox Live Bookmark.
+The following illustration demonstrates the RSS feed subscription using the Firefox Live Bookmark:
 
 !images/rss_example.png|align="center"!
 
