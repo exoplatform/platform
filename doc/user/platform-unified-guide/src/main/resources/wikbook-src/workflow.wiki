@@ -6,7 +6,7 @@ eXo Platform supports two default processes that are used to request tasks from 
 
 *Pay raise process*: This process is used when you want to propose raising your pay.
 
-To perform these processes, you need to add the *Workflow Controller* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Controller* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Manage_Pages-Adding_a_new_Page] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
+To perform these processes, you need to add the *Workflow Controller* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Controller* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
 !images/Workflow/workflow_controller_dagdrop.png|align="center"!
 
@@ -130,7 +130,7 @@ Thus, if you are a member of the *{noformat}*:/organization/management/human-res
 h1. Upload a process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Upload_Process}
 Besides two default process supported by system, administrators also can upload a new process as follows:
 
-*1.* Add the *Workflow Administration* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Administration* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Manage_Pages-Adding_a_new_Page] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
+*1.* Add the *Workflow Administration* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Administration* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
 !images/Workflow/workflow_administration_dagdrop.png|align="center"!
 
