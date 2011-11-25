@@ -129,6 +129,8 @@
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         
+        <Valve className="org.exoplatform.platform.cloud.services.valve.SetCurrentRepositoryValve" portalContainerName="portal" />
+        
         <!-- Enabled for IDE and Chat -->
         <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
 
