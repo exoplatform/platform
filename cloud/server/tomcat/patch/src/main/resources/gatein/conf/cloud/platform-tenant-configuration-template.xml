@@ -12,7 +12,7 @@
   -->
 <repository-service default-repository="${tenant.repository.name}">
   <repositories>
-    <repository name="${tenant.repository.name}" system-workspace="system" default-workspace="collaboration">
+    <repository name="${tenant.repository.name}" system-workspace="${gatein.jcr.workspace.system}" default-workspace="${gatein.jcr.workspace.default}">
       <security-domain>${portal.container.realm}</security-domain>
       <access-control>optional</access-control>
       <authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator
