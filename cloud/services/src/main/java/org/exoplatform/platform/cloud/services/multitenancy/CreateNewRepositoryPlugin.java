@@ -147,7 +147,6 @@ public class CreateNewRepositoryPlugin extends
      }
      catch (RepositoryCreationException e)
      {
-        LOG.error(e.getLocalizedMessage());
         throw new TenantCreationException(e.getLocalizedMessage(), e);
      }
      catch (IOException e)
@@ -156,7 +155,8 @@ public class CreateNewRepositoryPlugin extends
      }
      catch (Exception e)
      {
-        throw new TenantCreationException("Fail to restore tenant from " + path, e);
+        throw new TenantCreationException("Fail to resume tenant " + (tenantStatus != null ? tenantStatus.getTenantName() 
+                + " on app server " + tenantStatus.getApServerAlias() : "<null>"), e);
      }
      finally
      {
@@ -219,6 +219,11 @@ public class CreateNewRepositoryPlugin extends
      catch (TransformerException e)
      {
         throw new TenantSuspendException(e);
+     }
+     catch (Exception e)
+     {
+       throw new TenantSuspendException("Fail to suspend tenant " + (tenantStatus != null ? tenantStatus.getTenantName() 
+                                                 + " from app server " + tenantStatus.getApServerAlias() : "<null>"), e); 
      }
 
   }

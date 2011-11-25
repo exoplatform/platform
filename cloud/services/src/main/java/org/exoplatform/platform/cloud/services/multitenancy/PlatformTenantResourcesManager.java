@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -147,8 +148,20 @@ public class PlatformTenantResourcesManager {
      valuesDirectories = new HashMap<String, String>(workspaces.size());
      for (WorkspaceEntry workspaceEntry : workspaces)
      {
-        for (ValueStorageEntry vsEntry : workspaceEntry.getContainer().getValueStorages()) {
-          valuesDirectories.put(vsEntry.getId() + "@" + workspaceEntry.getName(), vsEntry.getParameterValue(FileValueStorage.PATH));
+        ArrayList<ValueStorageEntry> vs = workspaceEntry.getContainer().getValueStorages();
+        if (vs != null) 
+        {
+          for (ValueStorageEntry vsEntry : workspaceEntry.getContainer().getValueStorages()) {
+            String vsPath = vsEntry.getParameterValue(FileValueStorage.PATH);
+            if (vsPath != null) 
+            {
+              valuesDirectories.put(vsEntry.getId() + "@" + workspaceEntry.getName(), vsPath);
+            } 
+            else
+            {
+              LOG.warn("Skipping null path for value storage: " + (vsEntry.getId() + "@" + workspaceEntry.getName()));
+            }
+          }
         }
      }
   }
