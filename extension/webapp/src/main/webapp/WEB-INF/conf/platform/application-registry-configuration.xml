@@ -486,7 +486,7 @@
                       <field name="contentId"><string>presentation/ContentListViewerByQueryPortlet</string></field>
                       <field name="accessPermissions">
                         <collection type="java.util.ArrayList" item-type="java.lang.String">
-                          <value><string>*:/platform/web-contributors</string></value>
+                          <value><string>*:/platform/administrators</string></value>
                         </collection>
                       </field>
                     </object>
