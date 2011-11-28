@@ -1376,7 +1376,7 @@
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Register_Page" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 			<access-permissions>*:/platform/guests</access-permissions>
-			<container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" width="550px">
+			<container id="Register" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>*:/platform/guests</access-permissions>
 				<portlet-application>
 					<portlet>
@@ -1391,7 +1391,7 @@
 					<show-application-mode>false</show-application-mode>
 				</portlet-application>
 			</container>
-			<container id="Register_Login" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" width="150px">
+			<container id="Register_Login" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>*:/platform/guests</access-permissions>
 				<portlet-application>
 					<portlet>
