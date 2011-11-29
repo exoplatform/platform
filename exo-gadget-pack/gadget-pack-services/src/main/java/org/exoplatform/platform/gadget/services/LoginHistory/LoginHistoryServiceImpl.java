@@ -78,6 +78,10 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 				if(!rootNode.hasNode(HOME)){
 					Node homeNode = rootNode.addNode(HOME, "exo:LoginHisSvc_loginHistoryService");
 					rootNode.save();
+                    // --- PLF-2493 :   Umbrella for usability issues
+                    if(homeNode.canAddMixin("exo:hiddenable")){
+                         homeNode.addMixin("exo:hiddenable");
+                     }
 					Node globalLoginCounterNode = homeNode.addNode(ALL_USERS, "exo:LoginHisSvc_globalLoginCounter");
 					globalLoginCounterNode.setProperty("exo:LoginHisSvc_globalLoginCounter_lastIndex", 0);
 					homeNode.save();
