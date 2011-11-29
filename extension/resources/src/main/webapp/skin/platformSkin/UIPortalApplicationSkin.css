@@ -191,12 +191,58 @@ a {
 	height: 23px;
 }
 
-.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .list-view {
+
+/**
+ * Overload of EMCS icons for views
+ */
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .a_timeline-view {
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/TimeLine.png') no-repeat center !important;
+	display: block;
+}
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .a_timeline-view-selected{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/TimeLineSelected.png') no-repeat center !important;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .b_list-view {
   background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailView.gif') no-repeat center !important;
   display: block;
 }
 
-.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .list-view-selected {
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .b_list-view-selected {
   background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.gif') no-repeat center !important;
   display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .c_icon-view{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/IconView.gif') no-repeat center center !important;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .c_icon-view-selected{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/IconViewSelected.gif') no-repeat center !important;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .d_cover-flow{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/CoverflowView.gif') no-repeat center center !important;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .d_cover-flow-selected{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/CoverflowViewSelected.gif') no-repeat center !important;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .e_admin-view{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailView.gif') no-repeat center !important;
+	width: 23px;
+	height: 24px;
+	display: block;
+}
+
+.UIJCRExplorerPortlet .UIJCRExplorer .UIAddressBar .e_admin-view-selected{
+	background: url('/ecmexplorer/skin/webui/component/explorer/control/DefaultSkin/background/DetailViewSelected.gif') no-repeat center !important;
+	display: block;
 }

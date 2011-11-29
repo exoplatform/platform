@@ -24,7 +24,7 @@
               <field  name="homePath"><string>/Users/${userId}/Private</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>timeline-view, list-view, icon-view, cover-flow, admin-view</string>
+                <string>b_list-view, c_icon-view, e_admin-view</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>false</boolean></field>
@@ -44,7 +44,7 @@
               <field  name="homePath"><string>/Users/${userId}/Public</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>timeline-view, list-view, icon-view, cover-flow</string>
+                <string>b_list-view, c_icon-view</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>false</boolean></field>
@@ -64,7 +64,7 @@
               <field  name="homePath"><string>/Users/${userId}</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>timeline-view, list-view, icon-view, cover-flow, admin-view</string>
+                <string>b_list-view, c_icon-view, e_admin-view</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>false</boolean></field>
@@ -85,7 +85,7 @@
               <field  name="homePath"><string>/Groups${groupId}</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>timeline-view, list-view, icon-view, cover-flow</string>
+                <string>b_list-view, c_icon-view</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>true</boolean></field>
@@ -105,7 +105,7 @@
               <field  name="homePath"><string>/</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>icon-view, simple-view, admin-view, cover-flow</string>
+                <string>c_icon-view, simple-view, e_admin-view</string>
               </field>
               <field  name="viewPreferences"><boolean>false</boolean></field>
               <field  name="viewNonDocument"><boolean>true</boolean></field>
@@ -125,7 +125,7 @@
               <field  name="homePath"><string>/Trash</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
-                <string>cover-flow, icon-view, simple-view</string>
+                <string>c_icon-view, simple-view</string>
               </field>
               <field  name="viewPreferences"><boolean>true</boolean></field>
               <field  name="viewNonDocument"><boolean>true</boolean></field>

@@ -43,7 +43,7 @@
             <field  name="permissions"><string>*:/platform/web-contributors,*:/platform/administrators</string></field>
             <field  name="homePath"><string>/</string></field>
             <field  name="icon"><string></string></field>
-            <field  name="views"><string>admin-view, authoring-view</string></field>
+            <field  name="views"><string>e_admin-view, authoring-view</string></field>
             <field  name="viewPreferences"><boolean>false</boolean></field>
             <field  name="viewNonDocument"><boolean>true</boolean></field>
             <field  name="viewSideBar"><boolean>true</boolean></field>

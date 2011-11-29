@@ -34,7 +34,7 @@
           <name>Admin</name>
           <description>View configuration of Admin</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		          
-            <field name="name"><string>admin-view</string></field>
+            <field name="name"><string>e_admin-view</string></field>
             <field name="permissions"><string>*:/platform/administrators</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/SystemView</string></field>	
             <field name="tabList">
@@ -90,7 +90,7 @@
           <name>Icons</name>
           <description>View configuration for user</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-            <field name="name"><string>icon-view</string></field>
+            <field name="name"><string>c_icon-view</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ThumbnailsView</string></field>
             <field name="tabList">
@@ -113,7 +113,7 @@
           <name>Cover Flow</name>
           <description>View configuration for user</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-            <field name="name"><string>cover-flow</string></field>
+            <field name="name"><string>d_cover-flow</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/CoverFlow</string></field>
             <field name="tabList">
@@ -136,7 +136,7 @@
           <name>Timeline</name>
           <description>View configuration for System workspace</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		          
-            <field name="name"><string>timeline-view</string></field>
+            <field name="name"><string>a_timeline-view</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/TimelineView</string></field>	
             <field name="tabList">
@@ -159,7 +159,7 @@
           <name>List</name>
           <description>View configuration for List</description>
           <object type="org.exoplatform.services.cms.views.ViewConfig">		        	
-            <field name="name"><string>list-view</string></field>
+            <field name="name"><string>b_list-view</string></field>
             <field name="permissions"><string>*:/platform/users</string></field>
             <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ListView</string></field>
             <field name="tabList">
