@@ -220,9 +220,14 @@ public class Util {
   }
 
   private static Node createFolder(Node parentNode, String name) throws Exception {
-    parentNode.addNode(name, "nt:folder");
+    Node orgIntServNode = parentNode.addNode(name, "nt:folder");
     parentNode.getSession().save();
-    return parentNode.getNode(name);
+    //TODO : Exceptions are not handled correctly
+    if(orgIntServNode.canAddMixin("exo:hiddenable")){
+        orgIntServNode.addMixin("exo:hiddenable");
+    }
+    orgIntServNode.getSession().save();
+    return orgIntServNode;
   }
 
   public static List<String> getActivatedUsers(Session session) throws Exception {
