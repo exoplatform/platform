@@ -1,44 +1,93 @@
 h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_views"}
 
-The Calendar interface has six basic components:
+The Calendar interface has 5 basic components:
 
 !images/calendar-interface.png|align="center"!
 
-* The *Toolbar* contains most of actions in Calendar, such as adding an event/task, switching between view modes, and more.
+*Details:*
 
- !images/calendar_tool_bar.png|align="center"!
+||Number||Description||
+|!images/1.png!|The *Toolbar* contains most of actions in Calendar, such as adding an event/task, switching between view modes, and more.|
+|!images/2.png!|The *Search Pane* where you can perform quick and advanced searches.|
+|!images/3.png!|The *Mini calendar* which can be hidden by clicking !images/Upper_arrow_icon.png!.|
+|!images/4.png!|The *Calendars pane* which includes 3 categories: Personal Calendars, Shared Calendars and Group Calendars. Each category may include various calendar groups.|
+|!images/5.png!|The *Calendar View pane* where you can create tasks/events quickly and view your own tasks/events.|
 
-* The *Action* bar allows adding a detailed event/task, or a new category.
-
- !images/calendar_action_bar.png|align="center"!
-
-* The *Search Pane* where you can perform quick and advanced searches.
-
- !images/search_panel.png|align="center"!
-
-* The *Mini calendar*: 
-
-!images/mini_calendar.png|align="center"!
-
-* The *Calendar list* where all personal calendars, shared calendars and group calendars are listed.
-
-!images/calendar_list.png|align="center"!
-
-* The *Calendar view* pane where you can create tasks/events quickly and view your owned tasks/events.
-
-!images/calendar_view.png|align="center"!
-
+{docbook}
+<para> </para>
+{docbook}
 {docbook}
 <note>
     <para>
-    In eXo Platform, by default, the left pane of Calendar is hidden. To show this pane, select <emphasis role="bold">Toggle Left Panel</emphasis> on the toolbar.
+    In eXo Platform, the left pane of <emphasis role="bold">Calendar</emphasis> is hidden by default. To show this pane, select <emphasis role="bold">Toggle Left Pane</emphasis> on the toolbar.
     </para>
 </note>
 {docbook}
 
+h1. Manage a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups}
+The calendar groups allow you to categorize your calendar types easily. Each calendar group may contain one or more calendars added by users. There will be a default calendar group named "My Group" in the *Personal Calendars* category.
+
+h2. Add a new calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_calendar_group}
+This function allows you to organize and personalize calendars in your own way.
+
+*1.* Click !images/Arrow_icon_calendar.png! at the right of the *Calendars pane*, then select *Add Group* from the drop-down menu.
+
+!images/add_group.png|align="center"!
+
+*2.* Enter the group name in the *Group Name* field which is required and its description in the *Calendar Groups* form. {anchor:id="Calendar_groups_form"}
+
+!images/Add_calendar_group_form.png|align="center"!
+
+*3.* Click *Save* to finish.
+
+After creating a new calendar group, the created group will be displayed in the Groups table of the *[Calendar Groups|#Calendar_groups_form]* form, so you can easily edit or remove groups from this list by clicking !images/edit_icon.png! or !images/Delete_icon.png! respectively.
+
+{docbook}
+<note>
+    <para>
+    After you have created a Space for a group, one calendar with the same name as that of your group will be created automatically in the <emphasis role="bold">Group Calendars</emphasis> pane.
+    </para>
+    <para>
+    The calendar group without any calendars inside it will not be displayed in <emphasis role="bold">Personal Calendars</emphasis>.
+    </para>
+    <para>
+    You can also add a new calendar group by clicking <inlinemediaobject>
+            <imageobject> 
+              <imagedata fileref="images/plus_icon.png" format="PNG"/>
+            </imageobject>
+          </inlinemediaobject> next to the <emphasis role="bold">Group</emphasis> field when <link linkend="Create_personal_calendar">creating a personal calendar</link>.
+    </para>
+</note>
+{docbook}
+
+h2. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
+This function allows you to change name and description of a specific calendar group.
+
+*1.* Right-click the group name which you want to edit, then select *Edit* from the drop-down menu to open the *Calendar Groups* form.
+
+*2.* Make changes on the *Group Name* or on the *Description* fields, then click *Save* to accept your changes.
+
+h2. Delete a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group}
+Once a calendar group is deleted, all calendars inside it are also deleted.
+
+*The first way*
+
+*1.* Right-click the group which you want to delete and select *Delete* from the drop-down menu.
+
+*2.* Click *OK* in the confirmation message to accept your deletion.
+
+*The second way*
+
+*1.* Open the *Calendar Groups* form by [adding a new calendar group|#CSUser_guide.How_to_use_Calendar.Add_new_calendar_group] or by [editing a calendar group.|#CSUser_guide.How_to_use_Calendar.Edit_calendar_group]
+
+*2.* Click !images/Delete_icon.png! corresponding to the calendar group you want to delete in the *Groups* table.
+
+*3.* Click *OK* in the confirmation message to accept your deletion. 
+
+The deleted calendar group will be removed from the Groups table.
 h1. Create a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Create_calendars"}
 
-You may create a [personal calendar|#Create_personal_calendar] or [public calendar|#Create_shared_calendar] that can be shared with specific users or groups to your choice. You can also create a calendar that will be synchronized with a [remote calendar|#Create_remote_calendar].
+You may create a [personal calendar|#Create_personal_calendar] or [group calendar|#Create_group_calendar] that can be shared with specific users or groups to your desires. You can also create a calendar which is synchronized with a [remote calendar|#Create_remote_calendar].
 
 h2. Create a personal calendar {anchor:id="Create_personal_calendar"}
 
@@ -68,21 +117,21 @@ Right-click a calendar group which exists in the list of personal calendars, the
 ||Field||Description||
 |*Display Name*|The calendar name which is displayed.|
 |*Description*|The brief description of the calendar.|
-|*Groups*| The list of groups under the *Personal Calendars* pane. Click !images/down_arrow_icon1.png! to select one existing group which contains your calendar from the drop-down list. Or, click !images/plus_icon.png! to create a new group which contains your calendar. The newly group is only displayed in the *Personal Calendars* pane after you finish creating the calendar. |
+|*Groups*| The list of groups under the *Personal Calendars* category. Click !images/down_arrow_icon1.png! to select one existing group which contains your calendar from the drop-down list. Or, click !images/plus_icon.png! to create a new group which contains your calendar. The newly group is only displayed in the *Personal Calendars* category after you finish creating the calendar. |
 |*Country (Language)*|The location and language of the calendar. You can change the default value by following steps in the [Edit Calendar settings|#CSUser_guide.How_to_use_Calendar.Edit_calendar_settings] section.|
 |*Time Zone*|The display time zone for the calendar activities. You can personalize your calendar time zone by following steps in the [Edit Calendar settings|#CSUser_guide.How_to_use_Calendar.Edit_calendar_settings] section.|
 |*Color*|The display color of the calendar activities that can be personalized.|
 
 {docbook}
 <warning>
-<para>If you select the <emphasis role="bold">Groups</emphasis> tab and tick either of the checkboxes, your added calendar will be put in <emphasis role="bold">Group Calendars</emphasis> pane, NOT <emphasis role="bold">Personal Calendars</emphasis> pane.
+<para>If you select the <emphasis role="bold">Groups</emphasis> tab and tick either of the checkboxes, your added calendar will be put in the <emphasis role="bold">Group Calendars</emphasis> category, NOT in the <emphasis role="bold">Personal Calendars</emphasis> category.
 </para>
 </warning>
 {docbook}
 
 *3.* Click *Save* to finish your creation.
 
-h2. Create a group calendar {anchor:id="Create_shared_calendar"}
+h2. Create a group calendar {anchor:id="Create_group_calendar"}
 
 {docbook}
 <note>
@@ -96,7 +145,7 @@ All group calendars will be put in the <emphasis role="bold">Group Calendars</em
 
 *2.* Select the *Groups* tab.
 
-!images/The_groups_tab.png|align="center"!
+!images/Groups_tab.png|align="center"!
 
 *3.* Tick checkboxes corresponding to groups which contain your created calendar. The users of the selected groups can only view this calendar.
 
@@ -110,7 +159,7 @@ All group calendars will be put in the <emphasis role="bold">Group Calendars</em
 
 * Grant the *Edit* permission to membership types of your selected group.
 
-*i.* Click !images/membership_selector_icon.png!.
+*i.* Click !images/membership_selector_icon.png! to open the *User Selector* form.
 
 *ii.* Select a membership type of each group. Select * if you want to assign the *Edit* permission to all memberships of each group. 
 
@@ -123,7 +172,7 @@ All group calendars will be put in the <emphasis role="bold">Group Calendars</em
 </note>
 {docbook}
 
-*3.* Click *Save* to finish your creation.
+*4.* Click *Save* to finish creating your new group calendar.
 
 Your newly added calendar will appear in the shared groups.
 
@@ -132,12 +181,12 @@ h2. Create a remote calendar {anchor:id="Create_remote_calendar"}
 {docbook}
 <note>
 <para>
-To create a remote calendar in the Calendar application sucessfully, you need to learn about the calendar settings of your selected provider. For more information about types of remote calendars, visit <link linkend="More_about_iCal_CalDAV">here.</link>
+To create a remote calendar in the Calendar application sucessfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, visit <link linkend="More_about_iCal_CalDAV">here.</link>
 </para>
 </note>
 {docbook}
 
-*1.* Follow either of ways to open the *Subscribe Calendar* form.
+*1.* Open the *Subscribe Calendar* form via one of the following ways.
 
 *The first way*
 
@@ -215,7 +264,7 @@ Meanwhile, for shared calendars, you cannot edit them. If you are granted the <e
 
 h2. Set the calendar color {anchor:id="Set_calendar_color"}
 
-The Calendar application allows you to select different colors for all types of calendars to recognize them easily. 
+The *Calendar* application allows you to select different colors for all types of calendars to recognize them easily. 
 
 *1.* Right-click the calendar name to open the drop-down menu.
 
@@ -241,7 +290,7 @@ h1. Export/Import a calendar {anchor:id="Export_and_import_calendar}
 {docbook}
 <note>
 <para>
-You can only export the calendar which contains at least one event or task. Besides, for shared and group calendars, you can only export/import them if you have the edit right.
+You can only export the calendar which contains at least one event or task. Besides, for shared and group calendars, you can only export/import them if you have the <emphasis role="bold">Edit</emphasis> permission.
 </para>
 </note>
 {docbook}
@@ -274,7 +323,7 @@ This function allows you to export a calendar and its events/tasks into a separa
 {docbook}
 <note>
     <para>
-    You can only open the exported file if you have an application installed on your computer that supports its format.
+    You can only open the exported file if you have an application installed on your device that supports its format.
     </para>
 </note>
 {docbook}
@@ -287,9 +336,9 @@ This function allows you to export a calendar and its events/tasks into a separa
 </citetitle>
 {docbook}
 
-This function allows you to import one or more calendars stored in a file from your device to a selected calendar in the Calendar application.
+This function allows you to import one or more calendars stored in a file from your device to a selected calendar in the *Calendar* application.
 
-*1.* Follow either of ways to open the *Calendar* form.
+*1.* Open the *Calendar* form via one of the following ways.
 
 *The first way*
 
@@ -301,7 +350,7 @@ Right-click the name of the calendar group, then select *Import* from the drop-d
 
 {docbook}
 <note>
-<para>This way is only activated for calendar groups under the <emphasis role="bold">Personal Calendars</emphasis> pane.
+<para>This way is only activated for calendar groups under the <emphasis role="bold">Personal Calendars</emphasis> category.
 </para>
 </note>
 {docbook} 
@@ -328,7 +377,7 @@ The *Calendar* form will appear differently, depending on your selected way.
 
 !images/Import_calendar_form1.png|align="center"!
 
-*i.* Create the new calendar by following similar steps as stated in the [Create a calendar|#Create_personal_calendar] section.
+*i.* Create the new calendar by following similar steps as stated in the [Create a personal calendar|#Create_personal_calendar] section.
 
 * If you select another calendar of the *Group Calendar* type, the *Edit Permission* field will appear right under the *Groups* field. For more details, see [here.|#Grant_Edit_Permission]
 
@@ -345,6 +394,14 @@ You can set permissions on your shared calendar to two levels:
 * *View permission* allows shared users to view the shared calendar and its events/tasks, but cannot change any information. It means that the shared users cannot add/edit/delete events or tasks, or edit, import and export the shared calendar.
 
 * *Edit permission* allows shared users to view, import and export the shared calendar, or add, edit, delete events/tasks inside the shared calendar. However, you cannot edit detailed information of the shared calendar, such as its display name.
+
+{docbook}
+<note>
+<para>
+If another users share their calendars with you, you will see shared calendars in the <emphasis role="bold">Shared Calendars</emphasis> category.
+</para>
+</note>
+{docbook}
 
 {docbook}
 <citetitle>
@@ -381,7 +438,7 @@ Or, click !images/user_selector_icon.png! or !images/group_selector_icon.png! to
 </citetitle>
 {docbook}
 
-iCal provides a link that allows users to download a _.ics* file which contains all events and tasks of a calendar. iCal is supported by many popular products, such as Microsoft Outlook, Google Calendar, Apple iCal.
+iCal provides a link that allows users to download a {noformat}*.ics{noformat} file which contains all events and tasks of a calendar. iCal is supported by many popular products, such as Microsoft Outlook, Google Calendar, Apple iCal.
 
 * *Public URL*: The Public URL link allows you to share your calendar with other users. They do not need to have Calendar accounts to download the file, but they must use a calendar application which supports the .ics to open and view it. By default, Public URL is empty and it is only accessible when public access is explicitly enabled.
 
@@ -414,13 +471,13 @@ To view an event of a specific calendar with more details, you have two ways:
 
 *The first way*
 
-Hover your cursor over the event more than one second. The detail view appears:
+Hover your cursor over the event to see the detail view.
 
 !images/view_detailed_event.png|align="center"!
 
 *The second way*
 
-Right-click the event in the Calendar View Pane, and select *View* from the drop-down menu.
+Right-click the event in the *Calendar View pane*, and select *View* from the drop-down menu.
 
 !images/view_detailed_event2.png|align="center"!
 
@@ -432,7 +489,7 @@ At the *Preview* form, if the event includes attachments, you can download them 
 
 h2. Create a new event {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_event"}
 
-The Calendar application provides 2 ways to add a new event.
+The *Calendar* application provides 2 ways to add a new event.
 
 * [Quick add an event|#Quick_add_events] allows you to create the most basic event details.
 * [Add a detailed event|#Add_detailed_events] allows you to create events with many options:
@@ -487,9 +544,9 @@ h3. Add a detailed event {anchor:id="Add_detailed_events"}
 With a detailed event, you can:
 
 * Save time by [creating recurring events|#Create_recurring_event] rather than entering each instance separately. 
-* [Create a reminder for the upcoming event|#Create_event_reminder] with your own notification settings.
-* [Invite people to event|#Invite_people_to_event].
-* [View the availability time of the participants|#View_time_availability].
+* [Create a reminder for upcoming events|#Create_event_reminder] with your own notification settings.
+* [Add participants to an event|#Invite_people_to_event].
+* [View the availability time of participants|#View_time_availability].
 
 {docbook}
 <citetitle>
@@ -524,17 +581,17 @@ With a detailed event, you can:
 
 There will be a confirmation message. Click *Save and Send* to save and send the invitation, or *Save* to only save.
 
-The added event will be displayed when viewing the calendar in which the event is stored.
-
 You will see the event updated in your Activity Stream of your Space or Group Space.
 
 !images/activity_stream.png|align="center"!
 
-The event will be updated in your Activity Stream the brief information about the event like description, location, start time and end time. You can even refuse or accept participating in 	this event directly in Activity Stream without going to the Calendar application.
+The event will be updated in your *Activity Stream* with its brief information, such as description, location, start time and end time. You can even refuse or accept participating in this event directly in *Activity Stream* without going to the *Calendar* application.
 h4. Create a recurring event {anchor:id="Create_recurring_event"}
 In the *Detail* tab, tick the *Repeat* checkbox to open the *Repeating event* form.
 
-Here, you can define the repeating time for your event as follow:
+!images/Repeat_event_form.png|align="center"!
+
+Here, you can define the repeating time for your event as follows:
 
 *1.* Select the type for your repeating event from the *Repeat* option.
 * *Dailly:* The event will be repeated every day.
@@ -547,24 +604,23 @@ For example, if you set *Weekly* in the *Repeat* option, and *5* in the *Repeat 
 
 *3.* Select the option for ending your repeating event by ticking the relevant checkbox.
 * *Never:* Your repeating event will never end.
-* *After [X] occurences:* Your repeating event will end after a number of occurences.
+* *After [X] occurrences:* Your repeating event will end after X occurrences.
 * *By this date:* Your repeating event will end before your specified date. Point your cursor over the textbox, and select the date from the drop-down calendar.
 
-h4. Create a reminder for events {anchor:id="Create_event_reminder"}
-The Calendar application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as a title, time, and location. To use this feature, go to the *Reminders* tab. 
+h4. Create a reminder for upcoming events {anchor:id="Create_event_reminder"}
+The *Calendar* application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as a title, time, and location. To use this feature, go to the *Reminders* tab. 
  
 !images/add_edit_event.png|align="center"!
 
 *Details:*
-
-* *Remind by Email:* This option is to remind users via emails. This option is set default. If you do not use this option, simply untick the checkbox.
+* *Remind by Email:* This option is to remind users of upcoming events via emails. This option is set default. If you do not use this option, simply untick the checkbox.
 ||Field||Description||
 |*Send an mail before the event starts in*|The interval time that the reminder will be repeated before an event starts.|
 |*Repeat*|Tick the checkbox to set the frequency for sending the email reminder before the event takes place.|
 |*Also send reminders to*|The list of email addresses to which the reminder will be sent. The default value is the email address of the event creator. Click !images/Add_more_button1.png! to add more email addresses. To delete an email address, simply click !images/Delete_icon_calendar.png! corresponding to it. |
 
-* *Show a notification pop-up:* This option is to remind users via pop-up messages. 
-||Field||Description|| 
+* *Show a notification pop-up:* This option is to remind users of upcoming events via pop-up messages. 
+||Field||Description||
 |*When the event starts in next*|The interval time that the pop-up reminder will be repeated before the event starts.|
 |*Repeat*|Tick the checkbox to set the frequency for sending the pop-up message before the event takes place.|
 
@@ -580,7 +636,7 @@ The Calendar application provides 2 options for reminding users who will take pa
 
 *2.* Tick checkboxes corresponding to email addresses you want to select;
 
-Or, use the *Search* function to search for your expected email addresses. Also, to narrow your search results, select the address book where you want to perform your search from the *Address Bools* drop-down menu. 
+Or, use the *Search* function to search for your expected email addresses. Also, to narrow your search results, select the address book where you want to perform your search from the *Address Books* drop-down menu. 
 
 *3.* Click the *Add* button to add your selected emails, or click the *Replace* button to replace existing emails with your selected emails.
 
@@ -605,14 +661,11 @@ Here, you can select contacts from your Address Book or users who have registere
 
 *ii.* Select your desired contacts/users by ticking the checkboxes, or do the *Search* function to find out your contacts/users quickly. Then, click *Add* to add your selected contacts/users to the *Participants* pane.
 
-*ii.* Enter your invitation message into the *Invitation Message* pane.
+*iii.* Enter your invitation message into the *Invitation Message* pane.
 
-*iii.* Click *Save* to add your selected contacts/users to the *Participants* table.
+*iv.* Click *Save* to add your selected contacts/users to the *Participants* table.
 
-* If the *Invitation Sent* checkbox is ticked, participants will receive invitations via emails. 
-Your selected participants will be updated in the the *Participant* table. 
-Their statuses, which may be *Yes*, *No* or *Pending*, are listed in the *Status* column. These statuses depend on the participants' confirmation when they receive invitations: Yes, No or Not sure.
-
+* If the *Invitation Sent* checkbox is ticked, participants will receive invitations via emails. Your selected participants will be updated in the the *Participant* table. Their statuses, which may be *Yes*, *No* or *Pending*, are listed in the *Status* column. These statuses depend on the participants' confirmation when they receive invitations: Yes, No or Not sure.
 ** If the participants answer *Yes*, their statuses will be *Yes*. It means that the participants accept to join the event.
 ** If the participants answer *No*, their statuses will be *No*. It means that the participants will not join the event.
 ** If the participants answer *Not sure*, their statuses will be *Pending*. It means that the participants do not yet decide to take part in the event or not. 
@@ -623,6 +676,16 @@ Their statuses, which may be *Yes*, *No* or *Pending*, are listed in the *Status
 * *Never*: Never send the invitation to any participants.
 * *Always*: Automatically send the invitation to the participants.
 * *Asked*: There will be a confirmation message for you to select.
+
+The participants will receive an invitation mail, for example with the following content, which allows you to import the event directly into their calendars. {anchor:id="Mail.Accept_deny_import_event"}
+
+!images/invitation_mail.png|align="center"!
+
+* *Agree and Import*: Accept attending at the event in the invitation mail and importing it into the calendars to remind them of this event.
+
+* *Yes*: Accept attending at the event without importing it into the calendar.
+
+* *No*: Refuse to attend at the event.
 
 h4. View the availability time of participants {anchor:id="View_time_availability"}
 
@@ -674,7 +737,7 @@ Tick the checkboxes corresponding to users in the *Participants* list, then clic
 </note>
 {docbook}
 
-*1.* Select the time by entering the time manually into the *From* and *To* fields; 
+*1.* Enter the time manually into the *From* and *To* fields; 
 
 Or, tick the *All Day* checkbox if your event will be hold for all day; 
 
@@ -682,7 +745,7 @@ Or, hover your cursor over the time pane to visually select the available time o
 
 {docbook}
 <note>
-<para>If you do not see any availblle time for your selected date in the time pane, you can switch to another dates by clicking 
+<para>If you do not see any available time for your selected date in the time pane, you can switch to another dates by clicking 
 <inlinemediaobject>
             <imageobject>
               <imagedata fileref="images/Left_arrow_icon.png" format="PNG"/>
@@ -732,23 +795,23 @@ The *Add/Edit Event* form is displayed with information that is similar when add
     When editing an event, you can add/remove the attachment files or download them by directly clicking their titles.
     </para>
     <para>
-    If you only want to change the starting date and time of the event, you can also use the drag-drop feature to edit the time for the event directly on the Calendar view pane.
+    If you only want to change the starting date and time of the event, you can also use the drag-drop feature to edit the time for the event directly on the <emphasis role="bold">Calendar View pane</emphasis>.
     </para>
 </tip>
 {docbook}
 
 h2. Drag and drop an event {anchor:id="Drag_drop_event"}
-The drag-and-drop feature helps you change the starting date and time of an event more conveniently. You only need to click the event, drag and drop it into another date or new time area in the Calendar view pane.
+The drag-drop feature helps you change the starting date and time of an event more conveniently. You only need to click the event, drag and drop it into another date or new time area in the *Calendar View pane*.
 
-You also can hover your cursor over the *Scroll* button to alter the length of the event.
+You also can hover your cursor over the *Scroll* button to alter the event period.
 
 !images/drag_mouse.png|align="center"!
 
-According to the features of the Calendar pane view, the drag-and-drop feature can be applied to the date and time differently.
+According to the features of the Calendar pane view, the drag-drop feature can be applied to the date and time differently.
 
 * In the *Day* view, all events are shown in a day, so you can change the time of the event in one day only.
 
-* In the *Week* and *Work Week* view, all events are shown in a week, you can change both the event time and the event date.
+* In the *Week* and *Work Week* views, all events are shown in a week, you can change both the event time and the event date.
 
 * In the *Month* view, all events are shown in a moth, you can change the event date only. You can also change more events at the same time by ticking their checkboxes and using the drag-and-drop feature.
 
@@ -789,7 +852,7 @@ The *Export Calendars* form will appear.
 {docbook}
 <note>
     <para>
-    In fact, exporting an event means exporting a calendar with one event only. Therefore, the exported file format and the way to export an event is similar with the way to export a calendar with multiple events and tasks.
+    In fact, exporting an event means exporting a calendar with one event only. Therefore, the exported file format and the way to export an event is similar to the way to export a calendar with multiple events and tasks.
     </para>
 </note>
 {docbook}
@@ -802,7 +865,7 @@ The *Export Calendars* form will appear.
 </citetitle>
 {docbook}
 
-You can import an event into a specific calendar. The process to import an event is similar with importing a calendar. For more details, see [Import calendars|#Import_calendar].
+You can import an event into a specific calendar. The process to import an event is similar to importing a calendar. For more details, see the [Import a calendar|#Import_calendar] section.
 
 h2. Delete an event {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_event"}
 This function allows you to remove events from a calendar.
@@ -814,7 +877,7 @@ This function allows you to remove events from a calendar.
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Delete an event if you are in the Month view
+<emphasis role="bold">Delete an event in the Month view
 </emphasis>
 </para>
 </citetitle>
@@ -822,7 +885,7 @@ This function allows you to remove events from a calendar.
 
 *1.* Tick the checkboxes corresponding to the events you want to delete.
 
-*2.* Click !images/delete_checked_button.png! on the action bar.
+*2.* Click !images/delete_checked_button.png! on the *Month* information bar.
 
 !images/month_view_calendar_panel.png|align="center"!
 
@@ -831,7 +894,7 @@ This function allows you to remove events from a calendar.
 {docbook}
 <note>
     <para>
-    For shared and group calendars, you can only their events if you have the <emphasis role="bold">Edit</emphasis> permission on these calendars.
+    For shared and group calendars, you can only delete their events if you have the <emphasis role="bold">Edit</emphasis> permission on these calendars.
     </para>
 </note>
 {docbook}
@@ -839,17 +902,17 @@ This function allows you to remove events from a calendar.
 h1. Schedule a task {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_task"}
 h2. View task details {anchor:id="CSUser_guide.How_to_use_Calendar.View_task_details"}
 
-To view the details of a task of a calendar, do one of the following ways:
+To view details of a task, do one of the following ways:
 
 *The first way*
 
-Hover your cursor over the task, the task preview appears:
+Hover your cursor over the task to open the task preview pane.
 
 !images/view_tasks_details1.png|align="center"!
 
 *The second way*
 
-Right-click the task in the Calendar View Pane and select *View* from the drop-down menu.
+Right-click the task in the *Calendar View pane*, and select *View* from the drop-down menu.
 
 !images/view_tasks_details2.png|align="center"!
 
@@ -857,7 +920,7 @@ The *Preview* form will be displayed.
 
 !images/preview_task.png|align="center"!
 
-At the *Preview* form, if the task includes attachments, you can view them by clicking their titles. A pop-up will appear, allowing you to save them into your device.
+At the *Preview* form, if the task includes attachments, you can download them by directly clicking its title. If the attachment is an image, you can also click *View* to preview it.
 
 h2. Create a new task {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_task"}
 You have 2 ways to add a new task:
@@ -872,11 +935,11 @@ h3. Quick add a task {anchor:id="CSUser_guide.How_to_use_Calendar.Quick_add_task
 
 *The first way*
 
-Select !images/Task_button_icon.png! on the toolbar.
+Select !images/Task_button_icon.png! on the *Toolbar*.
 
 *The second way*
 
-Right-click the Calendar View Pane, then select *Add New Task* from the drop-down menu.
+Right-click the *Calendar View pane*, then select *Add New Task* from the drop-down menu.
 
 !images/Quick_add_task_menu.png|align="center"!
 
@@ -919,17 +982,17 @@ h3. Add a detailed task {anchor:id="CSUser_guide.How_to_use_Calendar.Add_detaile
 ** Select the priority level of the task from the *Priority* drop-down menu.
 ** Select the category of the task from the *Task Category* drop-down menu. You can add a new category by clicking !images/plus_icon.png!.
 ** Select the status of the task from the *Task Status* drop-down menu: Need Action, In Process, Completed or Canceled.
-** Attach files to your task by clicking !images/plus_icon.png!. For more details, see the [Attach a file to the task|#Attach_file_to_task] section.
+** Attach files to your task by clicking !images/plus_icon.png!.
 
-*ii* In the *Reminders* tab, you can create one notification to remind you of your task. For more details, see the [Create the remind notification|#Create_task_reminder] section.
+*ii* In the *Reminders* tab, you can create one notification to remind you of your task. For more details, see the [Create a reminder|#Create_task_reminder] section.
 
-h4. Assign a task delegation {anchor:id="Assign_task_delegation"} Need to ask
+h4. Assign a task delegation {anchor:id="Assign_task_delegation"}
 This function is done in the the *Detail* tab. To delegate a task to users, simply enter their names manually, or click !images/plus_icon.png! to select users from the *Select Users* form.
 
 h4. Create a reminder {anchor:id="Create_task_reminder"}
-The reminder function is used to remind you of the task. A reminder includes the summary information about the task, such as title, time, place where the task will happen.
+The reminder function is used to remind users of their tasks. A reminder includes the summary information of the task, such as title, time, place where the task will happen.
 
-This function is done in the *Reminders* tab. To create a reminder for a task, see the [Create a reminder for events|#Create_event_reminder] section for more details. 
+This function is done in the *Reminders* tab. To create a reminder for a task, see the [Create a reminder for upcoming events|#Create_event_reminder] section for more details. 
 
 h2. Edit task details {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_task_details}
 
@@ -956,7 +1019,7 @@ The *Add/Edit Tasks* form will be displayed.
     When editing the task, you can add, remove or download attachments by directly clicking their titles.
     </para>
     <para>
-     If you only want to change the starting date and time of the task, you can also use drag-and-drop feature to edit the time for the task directly on the Calendar View Pane.
+     If you only want to change the starting date and time of the task, you can also use drag-and-drop feature to edit the time for the task directly on the <emphasis role="bold">Calendar View pane</emphasis>.
     </para>
 </tip>
 {docbook}
@@ -974,7 +1037,7 @@ Like dragging and dropping an event, *drag-and-drop* is a feature to change the 
 {docbook}
 <note>
     <para>
-    For shared and group calendars, you can only drag and drop their tasks if you have the <emphasis role="bold">Edit</emphasis> permission on these calendars. If you drag and drop the task that you do not have the edit permission, you will receive a warning message informing that you are not allowed to edit this task.
+    For shared and group calendars, you can only drag and drop their tasks if you have the <emphasis role="bold">Edit</emphasis> permission on these calendars. If you drag and drop the task that you do not have the <emphasis role="bold">Edit</emphasis> permission, you will receive a warning message informing that you are not allowed to edit this task.
     </para>
 </note>
 {docbook}
@@ -1028,13 +1091,13 @@ h2. Delete a task {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_task}
 <citetitle>
 <para>
 <emphasis role="bold">
-Delete a task when you are in the Month view
+Delete a task in the Month view
 </emphasis>
 </para>
 </citetitle>
 {docbook}
 
-*1.* Tick the checkboxes corresponding to the task you want to delete, then click !images/delete_checked_button.png! on the action bar.
+*1.* Tick the checkboxes corresponding to the task you want to delete, then click !images/delete_checked_button.png! on the *Month* information bar.
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -1090,19 +1153,17 @@ Advanced Search allows you to make a search with multiple criteria.
 |*Type*|The type you want to search with 3 options. If you leave this field "blank", both events and tasks are retrieved. If you select *Task*, you will see one more field named *Task Status* right after *Category*.|
 |*Calendar*|The calendar on which you want to perform your search. |
 |*Category*|The category of event/task to conduct your search.|
-|*Priority*|The priority of your needed tasks/events: Normal, High or Low. If you leave *blank* in the field, your search will be done to all priority levels.|
 |*Task Status*| The status of the task: Need Actions, Completed, In Process, Canceled. |
+|*Priority*|The priority of your needed tasks/events: Normal, High or Low. If you leave *blank* in the field, your search will be done to all priority levels.|
 |*From Date*| Only the events/tasks having 'To date' greater than or equal the date entered in the *From Date* field are listed in the results form. You can manually input or select the date from drop-down calendar.|
 |*To Date*|Only the events/task having 'From date' less than or equal to the date entered  in the *To date* field are listed in the results form. You can manually input or select the date from the drop-down calendar.|
 
 *3.* Click the *Search* button to perform your search. All events/tasks matching with your criteria will be listed in the results form.
 
-!images/Calendar_search_result_form.png|align="center"!
-
 {docbook}
 <note>
     <para>
-    At the search result form, you can also view, edit or delete one event/task by right-clicking it and selecting one action from the drop-down menu.
+    At the Search Result form, you can also view, edit or delete one event/task by right-clicking it and selecting one action from the drop-down menu.
     </para>
 </note>
 {docbook}
@@ -1139,7 +1200,7 @@ Click !images/Settings_icon_calendar.png! on the toolbar to open the *Calendar S
 
 *4.* Click !images/generate_rss_icon.png! to generate the RSS link. The URL will be automatically generated into the *URL* field. Click !images/reset_rss_icon.png! to reset the RSS link.
 
-*5.* Input the name of calendar that you want to get RSS feed in the *Add more* field, then click !images/plus_icon.png! to add your selected calendar.
+*5.* Input the calendar name that you want to get the RSS feed in the *Add more* field, then click !images/plus_icon.png! to add your selected calendar.
 
 * Click !images/Delete_icon.png! corresponding to the calendar name to delete your added calendar.
 
@@ -1158,7 +1219,7 @@ In the Calendar application, you can change default values for its settings.
 
 *1.* Open the *Calendar Settings* form via either of the following ways:
 
-*The first way*: Click !images/calendar_settings_button.png! on the toolbar.
+*The first way*: Click !images/calendar_settings_button.png! on the *Toolbar*.
 
 *The second way*: Click !images/Arrow_icon_calendar.png! and select *Calendar Settings* from the drop-down menu.
 
@@ -1180,121 +1241,56 @@ In the Calendar application, you can change default values for its settings.
 |*Show Working Times*|Click the checkbox to display the working times when viewing calendar. The working time can be defined by selecting Starting and Ending time.|
 |*Send Event Invitations*|Tick one checkbox to set the default value for sending an email event invitation when you create an event. There are 3 options:{example}{example}Never: The event invitation will not be sent to any participant.{example}{example}Always: The event invitation will automatically be sent to the participants.{example}{example}Asked: There will be a confirmation message to ask whether you want to send the invitation or not.|
 
-*ii.* In the *Displayed Calendars* tab, you can define which calendars to be displayed in the Calendar application by simply ticking checkboxes.
+*ii.* In the *Displayed Calendars* tab, you can define which calendars to be displayed in the *Calendar* application by simply ticking checkboxes.
 
-h2. Manage a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_calendar_groups}
-The calendar group allows you to categorize your calendar types easily. One calendar group may contain one or more calendars added by users. There will be a default group named "My group" in the Personal calendars area.
-
-h3. Add a new calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_calendar_group}
-This function allows you to organize and personalize calendars in your own way.
-
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">Add a new calendar group</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*1.* Click !images/down_arrow_icon.png! at the right of the calendars list pane, then select *Add Group* from the drop-down menu.
-
-!images/add_group.png|align="center"!
-
-*2.* Enter the group name and its description, then click *Save* to finish.
-
-After creating a new calendar group, the created group will be displayed in the *Calendar Groups* form and you can quickly edit or remove groups from this list.
-
-{docbook}
-<note>
-    <para>
-    After you have created a Space for a group, one calendar with the same name as that of your group will be created automatically in the <emphasis role="bold">Group Calendars</emphasis> pane.
-    </para>
-    <para>
-    The calendar group without any calendars inside it will not be displayed in <emphasis role="bold">Personal Calendars</emphasis>.
-    </para>
-    <para>
-    When <link linkend="Create_personal_calendar">creating a personal calendar</link>, you can also add a new calendars group by clicking <inlinemediaobject>
-            <imageobject> 
-              <imagedata fileref="images/plus_icon.png" format="PNG"/>
-            </imageobject>
-          </inlinemediaobject> next to the <emphasis role="bold">Group</emphasis> field.
-    </para>
-</note>
-{docbook}
-
-h3. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
-This function allows you to change name and description of your selected group.
-
-*1.* Right-click the group name which you want to edit, then select *Edit* from the drop-down menu to open the *Calendar Groups* form.
-
-!images/calendar_groups.png|align="center"!
-
-*2.* Make changes on the *Group Name* or on the *Description* fields, then click *Save* to accept your changes.
-
-h3. Delete a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group}
-This function allows removing calendar groups. When a calendar group is deleted, all calendars inside it are also deleted.
-
-*The first way*
-
-*1.* Right-click the group which you want to delete and select *Delete* from the drop-down menu.
-
-*2.* Click *OK* in the confirmation message to accept your deletion.
-
-The deleted calendar group and its calendars will be removed from the *Personal Calendars* pane.
-
-*The second way*
-
-*1.* Open the *Calendar Groups* form by [adding a new calendar group|#CSUser_guide.How_to_use_Calendar.Add_new_calendar_group] or by [editing a calendar group.|#CSUser_guide.How_to_use_Calendar.Edit_calendar_group]
-
-*2.* Click !images/Delete_icon.png! corresponding to the calendar group you want to delete in the *Groups* table.
-
-*3.* Click *OK* in the confirmation message to accept your deletion. 
-
-The deleted calendar group will be removed from the *Group* table.
+*iii.* In the *Feeds* tab, you can generate a RSS feed as stated in the [Generate RSS|#CSUser_guide.How_to_use_Calendar.Generate_rss] section.
 
 h2. Manage categories {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_categories}
 Categories are used to classify events and tasks. For example, you could use a 'Meeting' category for all meetings with your colleagues or customers in your company. By default, Calendar provides 5 available categories: Calls, Meeting, Holiday, Clients, Anniversary. You can add and view events/tasks in default categories. In addition, you also can edit, delete default categories or create new categories by yourself.
 
 h3. Add a new category {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_category}
 
-*1.* Click !images/add_category_icon.png! at the right corner of the action bar.
+*1.* Click !images/add_category_icon.png! at the right corner of the *Toolbar*.
 
 !images/plus.png|align="center"!
 
-The *Event Categories* form will appear.
+The *Event Categories* form will appear. {anchor:id="Event_categories_form"}
 
 !images/event_categories_form.png|align="center"!
 
-*2.* Enter the category name and its description, then click *Save* to finish.
+*2.* Enter the category name and its description in the *Event Category* and *Description* fields respectively, then click *Save* to finish.
 
-The newly created category then appears in the categories list box.
+Your newly created category then appears in the Categories table.
 
 h3. Edit/Delete a category {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_delete_category}
-This function allows changing name and description of a selected category.
+This function allows you to change name and description of a selected category.
 
-*1.* Click !images/add_category_icon.png! on the action bar.
+*1.* Click !images/add_category_icon.png! on the information bar to open the [Event Categories form|#Event_categories_form].
 
-The *Event Categories* form will be displayed.
-
-*2.* Click !images/edit_icon.png! corresponding to the category that you want to edit, or click !images/Delete_icon.png! corresponding to the category you want to delete.
+*2.* Click !images/edit_icon.png! or !images/Delete_icon.png! corresponding to the category which you want to edit or delete respectively in the Categories table.
 
 *3.* Click *Save* to finish editing/deleting your selected category.
 
 h1. Add Upcoming Events gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Upcoming event gadget"}
 
-The *Upcoming Events* gadget is a utility associated with the Calendar application. This gadget is used for listing events of a personal calendar that will happen today. 
+The *Upcoming Events* gadget is a utility associated with the *Calendar* application. This gadget is used for listing events of a personal calendar that will happen today. 
 
-If you are an administrator, you can activate this gadget in the Space as follows:
+To use this portlet, you first need to add this gadget to the Space as follows:
 
-*1.* Click *Edit --> Page --> Layout* on the administration bar.
-
-*2.* Select the gadget named *Upcoming Events* from the *Page Editor* form, then drag and drop it to the page layout.
+*1.* Drag an drop the *Upcoming Events* gadget from *Page Editor --> Applications --> Contents* to the page layout. You can do this step while [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
 !images/Calendar_upcoming_event_gadget.png|align="center"!
 
-*3.* Click !images/Finish_icon.png! to save your adding.
+*2.* Select !images/Finish_icon.png! to save adding.
 
-In your selected page, you will see the *Upcoming events* gadget as below.
+{docbook}
+<note>
+<para>The <emphasis role="bold">Upcoming Events</emphasis> portlet is put in <emphasis role="bold">Page Editor --> Gadgets --> Upcoming Events</emphasis>.
+</para>
+</note>
+{docbook}
+
+In your selected page, you will see the *Upcoming Events* gadget as below.
 
 !images/Upcoming_events_gadget.png|align="center"!
 
@@ -1330,4 +1326,3 @@ In your selected page, you will see the *Upcoming events* gadget as below.
     </para>
 </note>
 {docbook}
-
