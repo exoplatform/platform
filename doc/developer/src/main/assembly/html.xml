@@ -9,7 +9,11 @@
   <fileSets>
     <fileSet>
       <directory>target/docbook/publish/en-US/html</directory>
-      <outputDirectory>/</outputDirectory>
+      <outputDirectory>developer-guide</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>target/docbook/publish/ide-user-guide/en-US/html</directory>
+      <outputDirectory>ide-user-guide</outputDirectory>
     </fileSet>
   </fileSets>
 </assembly>

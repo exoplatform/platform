@@ -41,6 +41,13 @@
           <version>${project.version}</version>
           <type>pdf</type>
         </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.developer</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+          <classifier>ide</classifier>
+        </dependency>
         <!-- Ref guide -->
         <dependency>
           <groupId>${project.groupId}</groupId>
@@ -148,6 +155,15 @@
                        <type>pdf</type>
 		               <outputDirectory>${project.build.directory}/work/developer-guide/pdf</outputDirectory>
 		              <destFileName>eXo-Developers-Guide.pdf</destFileName>
+		             </artifactItem>
+		             <artifactItem>
+                       <groupId>${project.groupId}</groupId>
+                       <artifactId>exo.platform.doc.developer</artifactId>
+                       <version>${project.version}</version>
+                       <type>pdf</type>
+                       <classifier>ide</classifier>
+		               <outputDirectory>${project.build.directory}/work/developer-guide/pdf</outputDirectory>
+		              <destFileName>eXo-IDE-User-Guide.pdf</destFileName>
 		             </artifactItem>
                      <!-- Reference Guide -->
 		             <artifactItem>
