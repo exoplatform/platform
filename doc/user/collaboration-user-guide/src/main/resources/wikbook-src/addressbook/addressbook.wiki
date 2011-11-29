@@ -1,4 +1,12 @@
-Before starting to use Address Book, you should familiarize yourself with the Address Book interface, which has six basic elements:
+{docbook}
+<note>
+<para>
+The <emphasis role="bold">Address Book</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+</para>
+</note>
+{docbook}
+
+Before starting to use *Address Book*, you should familiarize yourself with the *Address Book* interface, which has six basic elements:
 
 !images/address_book_interface.png|align="center"!
 
@@ -10,7 +18,7 @@ Before starting to use Address Book, you should familiarize yourself with the Ad
 |!images/No5.png!|The *Search pane* which allows you to do the quick and advanced searches to find contacts.|
 |!images/No6.png!|The *Navigation pane* contains search pane, address books list and tags list.|
 
-The layout can also be customized. You can hide or show specific parts of the Address Book interface.
+The layout can also be customized. You can hide or show specific parts of the *Address Book* interface.
 To change the layout, click !images/layout_button.png! on the main toolbar, then select the layout you want to hide or display from the drop-down menu.
 
 h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contacts"}

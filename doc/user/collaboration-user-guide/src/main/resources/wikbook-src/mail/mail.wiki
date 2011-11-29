@@ -1,3 +1,11 @@
+{docbook}
+<note>
+<para>
+The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+</para>
+</note>
+{docbook}
+
 h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account}
 To get mails from other mail services, you first need to create a mail account in the *Mail* application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The *Mail* application allows you to get mails from different mail services at one place.
 

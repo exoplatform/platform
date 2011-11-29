@@ -1,7 +1,7 @@
 {docbook}
 <note>
 <para> 
-Two portlets, including <emphasis role="bold">Chat</emphasis> and <emphasis role="bold">Chatbar,</emphasis> and their services are deprecated. They remain fully supported for eXo customers, however, they will not receive any enhancement and will be removed from the product
+Two portlets, including <emphasis role="bold">Chat</emphasis> and <emphasis role="bold">Chatbar,</emphasis> and their services are deprecated. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product
 scope in the future.
 </para>
 </note>
