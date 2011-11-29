@@ -814,10 +814,22 @@ h1. JCR Links cleaner job {anchor:id=ADM.Configuration.WCM_link_cleaner_job}
 The _links cleaning service_ deletes all non valid links, which target nodes has been deleted.
 This property is the "cron expression" of the service that is responsible of JCR links cleaning.
 
+You can schedule the job by adding _wcm.linkjob.cron.expression_ in the _configuration.properties_ file.
+
 {code}
-# Links checker cron job
-wcm.linkjob.cron.expression=0 0/20 * * * ?
+
+# Clear WCM orphan symlinks at 1.30 a.m every day
+
+wcm.linkjob.cron.expression=0 30 1 * * ?
+
 {code}
+ 
+
+{note}
+
+To understand more about CRON expression, refer to [http://en.wikipedia.org/wiki/CRON_expression#CRON_expression].
+
+{note}
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}
 
