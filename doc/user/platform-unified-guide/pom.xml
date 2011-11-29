@@ -319,6 +319,7 @@
         <replace file="${docbook.source}/index.xml">
            <replacetoken><![CDATA[<title>Structure content</title>]]></replacetoken>
            <replacevalue><![CDATA[<title>Structure content</title>
+           <xi:include href="ecms/modules/Basics/SitesExplorer/introduction_content_structure.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SitesExplorer/Access_Sites_Explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SitesExplorer/Drives.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SitesExplorer/Views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />

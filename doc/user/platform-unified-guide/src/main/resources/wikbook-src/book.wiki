@@ -31,8 +31,6 @@ h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Appl
 h1. Organize Your Content{anchor:id=Platform_User_Guide.Organize_Content}
 {include:document="Introduction_Organize_Content.wiki"}
 h2. Structure content{anchor:id=Platform_User_Guide.Organize_Content.Structure_Content}
-{include:document="Introduction_Structure_Content.wiki"}
-h2. Structure content include docbook
 h2. Manage content{anchor:id=Platform_User_Guide.Organize_Content.Manage_Content}
 h2. Manage newsletters{anchor:id=Platform_User_Guide.Organize_Content.Newsletter}
 h2. Manage workflows{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows}
