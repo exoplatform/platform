@@ -7,9 +7,8 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
 The easiest way to install eXo Platform is to use the Tomcat bundle. This is a ready-made package on top of the Tomcat 6 application server. First, you need to download and extract the package named _eXo-Platform-tomcat-3.5.x.zip_ on your server.
-Then, follow these steps:
 
-*1.* Start up the server.
+h2. Start up the server.
 
 eXo Platform leverages the application server on which it is deployed. This means that you only need to start and stop your application with the default commands.
 
@@ -23,7 +22,7 @@ The server is started successfully when you see the following message in your lo
 INFO: Server startup in 353590 ms
 {screen}
 
-*2.* Shut down the server.
+h2. Shut down the server.
 
 * On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
 
@@ -40,7 +39,8 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 {screen}
 
 
-*3.* Start up eXo Platform by running one of the following built-in startup scripts.
+h2. Start up eXo Platform by running built-in startup scripts.
+You can start up eXo Platform by running one of the following built-in startup scripts:
 
 * Linux & OS X: *{noformat}start_eXo.sh{noformat}*.
 
@@ -86,8 +86,29 @@ Details:
 | {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log in to the console which the .xml file loads. |
 | {noformat}-Dexo.product.developing=true{noformat} | Deactivate Javascript and CSS merging for debugging more easily. Next, activate a special language called Magic Locale "ma" showing the property keys instead of the translations. |
 
-
 Now, you can start and run the eXo Platform demo, but you will need to adjust these values for a production setup.
+
+h2. Customize environment variables in tomcat
+Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
+
+This file is located in:
+* Linux & OS X: _{noformat}$TOMCAT_HOME/bin/setenv.sh{noformat}_.
+* Windows: _{noformat}$TOMCAT_HOME/bin/setenv.bat{noformat}_.
+
+The following is the content of this file:
+
+{code}
+LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
+SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
+EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
+if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default"] ; then 
+EXO_PROFILES="-Dexo.profiles=default"
+fi
+
+CATALINA_OPTS="$CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES"
+export CATALINA_OPTS
+{code}
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
