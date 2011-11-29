@@ -182,4 +182,4 @@ To remove all completed processes from the list in the <emphasis role="bold">Com
 
 !images/Workflow/list_task_instance.png|align="center"!
 
-* To delete a process from the requested process list in the *Process Detail* form, click !images/Trash_icon.png! corresponding to that process.
+* To delete a process from the requested process list in the *Process Detail* form, click !images/Delete_icon.png! corresponding to that process.
