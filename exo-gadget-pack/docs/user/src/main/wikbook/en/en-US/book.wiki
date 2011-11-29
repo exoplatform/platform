@@ -1,61 +1,231 @@
-h1.    Engagement Gadgets
+eXo Platform provides a gadget package that contains many useful gadgets. They can be categorized into:
+* [Engagement gadgets|#GadgetUserguide.AngagementGadgets]
+* [Audit gadgets|#GadgetUserguide.AuditGadgets]
+* [Collab gadgets|#GadgetUserguide.CollabGadget]
+* [Management and Monitoring gadgets|#GadgetUserguide.ManagementMOnitoringGadget]
 
-h2.        Latest Forum Posts
+h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}
+*Engagement* gadgets include gadgets designed to aid users in engagement activities and events.
+These gadgets analyze the existing communications and community engagement in your organization, then show what is going on by providing statistics.
+h2. Latest Forum Posts  {anchor:id=GadgetUserguide.AngagementGadgets.LatestForumPosts}
 
-Lists recent forum posts.
+The *Latest Forum Posts* gadget shows the latest posts in Forum. You can decide the specified number of the latest posts to be shown. This gadget helps you always stay updated with what is going on in the forum.
 
-h2.        Top Voted Topics
+!images/Latest_forum_posts_gadget.png|align="center"!
 
-Lists the most rated forum topics
+*Latest Forum Posts settings*:
 
-h2.        Forum Statistics
+|| Field || Description ||
+| *Total* | The number of last posts to be displayed in this gadget. |
+| *Forum portlet* | The URL pointing to the Forum portlet. |
+| *Subscription URL* | The URL to the service which you request to get data from (in this case, the data are last posts). For example: http://localhost/portal/rest/ks/forum/getmessage. |
 
-Display stats and graphs about the forum's activity
+h2. Top Voted Topics {anchor:id=GadgetUserguide.AngagementGadgets.TopVotedTopics}
 
-h2.        Friend Suggestions
+The *Top Voted Topics* gadget lists the highest rated topics in a forum. You can decide the maximum number of posts to be shown.
 
-Suggests People to connect with by inspecting your network
+!images/Top_voted_raring_topic.png|align="center"!
 
-h1.    Audit Gadgets
+By clicking the post previewed-content, you will go to that post in the forum.
 
-h2.        User Login History
+*Top Voted Topics gadget settings*:
 
-records user logins, and provide stats
+!images/Top_voted_raring_topic_setting.png|align="center"!
 
-h1.    Collab Gadgets
+Select the maximum number of topics to be displayed in the *Maximum to display* drop-down list, then click *Save* to save the changes.
 
-h2.        eXo Calendar Gadget
+h2. Forum Statistics {anchor:id=GadgetUserguide.AngagementGadgets.ForumStatistics}
 
-Displays a small calendar and allows to quickly add an event.
+The *Forum Statistics* gadget displays statistics about the forum's activity. This gadget is especially useful for administrators who always need global as well as detailed view about how the forum is going on. 
+Based on these statistics, the administrators can find the solution to increase the forum activities.
 
-h1.    Management and Monitoring Gadgets
+The statistics include the total number of the topics, posts, members, active members and the maximum number of online users.
 
-h2.        Memory Charts
+You can switch between different views:
 
-Charts about memory usage
+* Global statistics view (default):
 
-h2.        Cache Levels
+!images/Forums_statistics_gadget.png|align="center"!
 
-Displays cache levels and settings.
+* Weekly statistics view:
 
-h2.        Applications statistics
+Click !images/Calendar_weekly_stat_icon.png! to switch to Weekly statistics view.
 
-Display the applications speed stats
+After switching to the Weekly statistics view, you can display the statistics in a list or a chart.
 
-h2.        10 slowest templates
+** List view:
 
-Display the 10 slowest groovy templates and their speed stats
+!images/Forums_weekly_statistics.png|align="center"!
 
-h2.        All Template Statistics
+** Chart view:
 
-Show all templates speed statistics
+Click !images/Calendar_weekly_chart_icon.png! to switch to the Chart view. Click !images/Calendar_weekly_list_icon.png! to go back to the List view or click !images/Calendar_global_stat_icon.png! to go to the Global statistics view:
 
-h2.        Services Management
+!images/Forums_weekly_statistics_graph.png|align="center"!
 
-Easy access to REST management API
+h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
 
-h2.        Groovy Console
+The *Friend Suggestions* gadget will suggest you to connect with people that have mutual friends with you. 
 
-Provides a groovy console that developers can use to interact with the runtime. Useful to experiment code
+!images/Friend_suggestion_gadget.png|align="center"!
+
+To send the invitation to connect with the suggested people right on this gadget, simply click *Send invitation* under their usernames.
+
+h1. Audit gadgets {anchor:id=GadgetUserguide.AuditGadgets}
+h2. User Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
+
+The *User Login History* gadget records user's login history and provides statistics.
+
+!images/Login_history_gadget.png|align="center"!
+
+You can look up a specific user by entering his username in the search box and click *Search*. 
+
+* To view the global statistics and global history, click the *Statistics* and *History* link respectively.
+* Click !images/Calendar_weekly_chart_icon.png! or !images/Calendar_weekly_list_icon.png! corresponding to the user you want to view the login statistics or the login history.
+** User's login statistic:
+!images/Login_history_statistic.png|align="center"!
+** User's login history:
+!images/Login_history_history.png|align="center"!
+
+h1. Collab gadgets {anchor:id=GadgetUserguide.CollabGadgets}
+The *Collab* gadgets include gadgets designed for collaborative activities. 
+
+h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget}
+
+The eXo Calendar gadget displays a mini calendar and allows you to quickly add an event.
+
+!images/eXo_Calendar_gadget.png|align="center"!
+
+*Appearance*:
+
+!images/eXo_Calendar_gadget_appearance.png|align="center"!
+
+If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *Save*. Only the event in the calendar of your choice will be displayed. 
+
+*Quick add*: 
+You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then click *Add* to create your new event.
+!images/eXo_Calendar_gadget_quickadd.png|align="center"!
+
+*eXo Calendar Gadget settings*:
+
+!images/eXo_Calendar_gadget_settings.png|align="center"!
+
+|| Field || Description ||
+| REST URL | REST URL from which the gadget will get data. For example: http://localhost:8080/rest/ |
+
+Normally, regular users do not have to care about this setting. If administrators make changes on the server that affects the REST URL, you need to contact administrators to get the new REST URL.
+
+h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnitoringGadget}
+
+The *Management and Monitoring* gadgets include gadgets designed for providing the overall vision of the system. These gadgets monitor the system and provide the current system performance statistics which are especially useful for the system administrators and developers.
+
+h2. Memory Charts {anchor:id=GadgetUserguide.ManagementMonitoringGadget.MemoryCharts}
+
+The *Memory Charts* gadget provides the chart of memory used during runtime.
+
+!images/Memory_gadget.png|align="center"!
+
+The chart shows:
+* The ratio between free and used heap memory.
+* The ratio between free and used non-heap memory.
+
+h2. Cache Levels  {anchor:id=GadgetUserguide.ManagementMonitoringGadget.CacheLevels}
+
+The *Cache Levels* gadget displays the eXo cache levels and settings. Based on these statistics, the administrators can configure the cache settings properly to get better performance:
+
+* If the cache is full but the hit ratio is low (or missed ratio is high), it means the cache is full of unnecessary data. It should be cleared and/or its size is increased, or its lifetime is decreased.
+* If the cache is full and the hit ratio is high, this is good. It means most data are retrieved from the cache not the database, so the system gets better performances.
+* If the cache is empty, it should be configured differently, for example, increasing its lifetime.
+
+!images/Caches_gadget.png|align="center"!
+
+* The *Consumption* tab shows the overall cache consumption in the system.
+
+* The *Hit ratio* tab shows the ratio between requested data fetched from cache and data fetched from database.
+
+!images/Caches_gadget_hitratio.png|align="center"!
+
+* The *Details* tab shows the cache level and the current cache settings:
+
+!images/Caches_gadget_details.png|align="center"!
+
+** Max size: The maximum size of the cache.
+** Time to live: The lifetime (in seconds) of cache entries before being cleared.
+** Hit/Missed: The percentage of data fetched from cache versus the percentage of data fetched from database.
+
+h2. Applications Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics}
+
+The *Application Statistics* gadget displays how fast applications are. It shows administrators and developers which applications should be optimized.
+
+!images/Applications_statistic_gadget.png|align="center"!
+
+Applications that take long time to execute will be highlighted so that you can easily recognize:
+
+!images/Applications_statistic_highlight.png|align="center"!
+
+Each application is provided with these statistics:
+
+* The number of executions (exec).
+* The minimum execution time (min).
+* The maximum execution time (max).
+
+h2. All Template Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.AllTemplateStatistics}
+
+The *All Template Statistics* gadget displays how fast templates are. It shows administrators and developers which templates should be optimized.
+
+!images/All_template_statistics_gadget.png|align="center"!
+
+Each template is provided with these statistics:
+
+* The number of executions (nb exec).
+* The minimum execution time (min).
+* The maximum execution time (max).
+* The average execution time (avg).
+
+h2. 10 Slowest Templates {anchor:id=GadgetUserguide.ManagementMonitoringGadget.10SlowestTemplates}
+
+The *10 Slowest Templates* gadget displays the 10 slowest groovy templates and their speed statistics. It helps administrators and developers specify what templates are slowing down the system performance most.
+
+!images/10Slowest_templates_gadget.png|align="center"!
+
+Similar to the *All Template Statistics* gadget, each template is provided with these statistics:
+
+* The number of executions (nb exec).
+* The minimum execution time (min).
+* The maximum execution time (max).
+* The average execution time (avg).
+
+h2. Services Management {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ServiceManagement}
+
+The *Services Management* gadget provides an easy access to REST management API.
+
+!images/Service_management_gadget.png|align="center"!
+
+Select the service from the *Services* drop-down list.
+
+Click !images/Service_management_help.png|align="center"! to get the description of the selected service.
+
+For each selected service, its method(s) and properties are shown respectively.
+
+*Services Management settings*:
+
+!images/Service_management_settings.png|align="center"!
+
+|| Field || Description ||
+| *Service URL* | If you want to manage a remote service on another Platform installation, you can enter the link to the service in this field.|
+
+h2. eXo Scripting Console {anchor:id=GadgetUserguide.ManagementMonitoringGadget.GroovyConsole}
+The *eXo Scripting Console* gadget provides a Groovy console that developers can use to interact with the runtime. This gadget is useful when you want to experiment on code. 
+It accepts eXo API and can access eXo components deployed in the portal container, so this can be used as a tool for drafting code, testing or exploring eXo API/components/data interactively on a live system. 
+The eXo Scripting Console gadget is better viewed on the entire screen. You should configure an entire page or a Dashboard tab for it. 
+
+!images/GroovyConsole.png|align="center"!
+
+* Click !images/GroovyConsole_font.png! to change the font size.
+* Click !images/GroovyConsoleColor.png! to change the font color.
+* Click !images/GroovyConsoleHelp.png! to view the Groovy Console Help.
+
+
+
 
 
