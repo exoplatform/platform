@@ -22,6 +22,8 @@ package org.exoplatform.platform.cloud.services.valve;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.exoplatform.cloudmanagement.multitenancy.TenantNameResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URI;
@@ -38,24 +40,32 @@ import javax.servlet.ServletException;
  */
 public class SetCurrentRepositoryValve extends org.exoplatform.cloud.tomcat.SetCurrentRepositoryValve
 {
+   
+   private static final Logger LOG = LoggerFactory.getLogger(SetCurrentRepositoryValve.class);
 
   @Override
    public void invoke(Request request, Response response) throws IOException, ServletException {
-      
+     
+     String masterHost = System.getProperty(TenantNameResolver.MASTER_HOST_VARIABLE_NAME);
+     URI requestUri;
       try
       {
-         String masterHost = System.getProperty(TenantNameResolver.MASTER_HOST_VARIABLE_NAME);
-         URI uri = new URI(request.getRequestURL().toString());
-         if (uri.getHost().contains(masterHost))
-            super.invoke(request, response);
-         else
-            getNext().invoke(request, response);
+         requestUri  = new URI(request.getRequestURL().toString());
       }
       catch (Exception ex)
       {
+         LOG.warn("Cannot read request URI", ex);
+         requestUri = null;
+      }
+         
+      if (masterHost != null && masterHost.length()>0 && requestUri != null && requestUri.getHost().contains(masterHost)) 
+      {
+         super.invoke(request, response);
+      }
+      else
+      {
          getNext().invoke(request, response);
       }
-
    }
 
 }
