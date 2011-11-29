@@ -9,7 +9,7 @@ Here, you have an overview of eXo Platform through default contents displayed in
 From the default interface of eXo Platform 3.5, you are provided with two sample portals of a fictitious company named "ACME" where you can discover key features and customizability of eXo Platform.
 Therefore, before doing any actions, you first need to go to either of the provided portals (ACME website or ACME social intranet) by clicking one of the following links:
 
-* *At the top of default page's body:*
+* *At the top of the default page's body:*
 
 !images/Enter_register_portlet1.png|align="center"!
 

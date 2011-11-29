@@ -77,7 +77,7 @@ The following illustration shows the overall architecture of eXo Platform 3.5.
  <para></para>
 {docbook}
 
-!images/Architecture_PLF3.png|align="center"!
+!images/PLFIntroduction/Architecture_PLF3.png|align="center"!
 
 The foundation of eXo Platform 3.5 is an *enterprise portal and content management system.* This provides a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment. eXo Platform 3.5 is a combination of the following features.
 

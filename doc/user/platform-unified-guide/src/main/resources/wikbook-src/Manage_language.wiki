@@ -31,17 +31,17 @@ You will be directed to your selected site.
 
 Your selected site will be displayed in the *Edit* mode.
 
-*3.* Click !images/Language/Site_config_button.png! to open the *Edit Portal* form.
+*3.* Click !images/Language/Site_config_button.png! in the *Edit Inline Composer* form. The *Site Settings* form appears:
 
 !images/Language/Portal_settings_form.png|align="center"!
 
 *4.* Change the display language of your site by selecting another language from the *Locale* field in the *Portal Settings* tab. 
 
-*5.* Click *Save* and select !images/Finish_icon1.png! to take effect.
+*5.* Click *Save*, then click !images/Finish_icon.png! to save all changes.
 
 *The second way*
 
-*1.* Hover your cursor over !images/sawtooth_icon.png!, then select *Portal --> Sites.*
+*1.* Hover your cursor over !images/gear_icon.png!, then select *Portal --> Sites.*
 
 !images/Language/Open_all_sites.png|align="center"! 
 
@@ -51,7 +51,7 @@ The list of all existing portals will be displayed as below.
 
 *2.* Select *Edit Layout* corresponding to the portal/site you want to edit.
 
-The portal will be displayed as in the *Edit* mode.
+The selected portal will be displayed as in the *Edit* mode.
 
 *3.* Change the display language that is similar as steps in the first way (Steps 3, 4 and 5).
 
@@ -61,7 +61,7 @@ This way is only used to set the display language for yourself, not for displayi
 
 *1.* Hover your cursor over your account name at the top right corner of the site, then select *Change Language* from the drop-down menu.
 
-!images/Change_language_button.png|align="center"!
+!images/Language/Change_language_button.png|align="center"!
 
 The *Interface Language Settings* form will be displayed with the list of all supported languages. The currently used language is marked with !images/Select_icon.png!.
 
@@ -83,12 +83,12 @@ h1. Change the display language for another user{anchor:id=Platform_User_Guide.T
 
 By this way, you can change not only your display language but also the display language of another users if you have the right to access the *Organization* portlet.
 
-*1.* Hover your cursor over !images/sawtooth_icon.png!, then select *Users --> Group and Roles* from the drop-down menu to open the *User Management* form. 
+*1.* Hover your cursor over !images/gear_icon.png!, then select *Users --> Group and Roles* from the drop-down menu to open the *User Management* form. 
 
 !images/Language/User_management.png|align="center"!
 
-*2.* Click !images/Edit_user_icon.png! corresponding to the user with the display language you want to change.
 
+*2.* Click !images/edit_icon.png! corresponding to the user with the display language you want to change.
 *3.* Select the *User Profile* sub-tab, then change the display language for this user from the *Language* field.
 
 !images/Language/Select_language_for_another_user.png|align="center"!

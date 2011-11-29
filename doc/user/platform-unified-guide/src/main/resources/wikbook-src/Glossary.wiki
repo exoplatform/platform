@@ -40,7 +40,7 @@ Permission settings control actions of a user within the portal and are set by t
 * *Permission levels* specify where the users' permission types can be applied in the portal. 
 ** Portal: The permission at the portal level includes actions permitted in all pages within the portal. Users with the access permission can view (but not edit) all the pages within the portal. Meanwhile, users with the edit permission at the portal level can change any page in the portal. 
 ** Page: The permission at the page level restricts users to several particular pages. Users are only able 	to see and/or edit pages they have been given access to, depending on each permission type assigned to them. 
-** Portlet: The permission at the portlet level enables users to create a page through dragging and dropping portlets into a page. Some portlets are only used for administrators, while some are for individuals. Thus, administrators need to set proper access permissions for each specific group. Permission types and levels can be effectively implemented to control who can do and what can be performed within the portal.
+** Portlet: The permission at the portlet level enables users to create a page through dragging and dropping portlets into a page. Some portlets are only used for administrators, while some are for regular users. Thus, administrators need to set proper access permissions for each specific group. Permission types and levels can be effectively implemented to control who can do and what can be performed within the portal.
 
 h1. Repository{anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Glossary.Repository}
 
