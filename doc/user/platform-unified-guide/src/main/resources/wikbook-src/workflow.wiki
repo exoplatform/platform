@@ -1,3 +1,11 @@
+{docbook}
+<note>
+<para>
+Two portlets, including <emphasis role="bold">Workflow Controller</emphasis> and <emphasis role="bold">Workflow Administration</emphasis>, are deprecated in eXo Platform. They remain fully supported for eXo customers, however they will not receive any enhancement and will be removed from the product scope in the future.
+</para>
+</note>
+{docbook}
+
 *Workflow* is the movement of documents and/or tasks through a work process. More specifically, workflow is the operational aspect of a work procedure: how tasks are structured, who performs them, what their relative order is, how they are synchronized, how information flows to support the tasks and how tasks are being tracked. As the dimension of time is considered in Workflow, Workflow considers "throughput" as a distinct measure. Workflow problems can be modeled and analyzed using graph-based formalisms like Petri nets.
 
 eXo Platform supports two default processes that are used to request tasks from users:
