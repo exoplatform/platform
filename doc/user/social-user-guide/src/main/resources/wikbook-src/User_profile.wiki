@@ -7,21 +7,21 @@ The *Account Profile* form is displayed with information you have set previously
 
 !images/Account_profile.png|align="center"!
 
-Here, you can change your account information in the *Account Profile* tab, except for *Username*. These changes will be automatically synchronized with details in the *Basic Information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
+Here, you can change your account information in the *Account Profiles* tab, except for *Username*. These changes will be automatically synchronized with details in the *Basic information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
 
-If you want to view and update more details, go to the *Profile* page by following either of two ways:
+If you want to view and update more details, go to the *My Profile* page by following either of two ways:
 
 *The first way*
 
-* Hover your cursor over your display name at the top right corner of the page and then select *My Profile* from the drop-down menu.
+* Hover your cursor over your display name at the top right corner of the page, then select *My Profile* from the drop-down menu.
 
 *The second way* 
 
-* Go to the activities page first and select the *Profile* tab in the left pane.
+* Go to the *Activity Stream* page first, then select the *My Profile* tab in the left pane.
 
 !images/Ways_enter_profile.png|align="center"!
 
-The *Profile* page is displayed as below.
+The *My Profile* page is displayed as below. {anchor:id="My_Profile_form"}
 
 !images/Profile_page.png|align="center"!
 
@@ -29,11 +29,35 @@ From here, you can:
 
 * [Modify your contact information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], including basic information, contact details, and experiences.
 
-* [Upload your avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
+* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
 
 * [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
 
-To view the profile of another eXo Social user, go to one of the following pages: *People* or *Connections* or *Activities* and then click the appropriate username to be directed to his/her profile. Regardless of being an administrator, you do not have right to edit profiles of another people.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">View profiles of another eXo Platform users</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*1.* Hover your cursor over your display name at the top right corner of the page, then select either of the following pages from the drop-down menu:
+
+* *Find People*; or
+* *My Network* --> *All People*; or
+* *Activity Streams* --> *All Updates*
+ 
+*2.* Click the appropriate username to be directed to his/her profile. 
+
+{docbook}
+<note>
+<para>
+Regardless of being an administrator, you do not have right to edit profiles of another people.
+</para>
+</note>
+{docbook}
+
 
 {docbook}
 <para>
@@ -43,29 +67,30 @@ To view the profile of another eXo Social user, go to one of the following pages
 </para>
 {docbook}
 
-* [Account|#Soc_User_Guide.Get_Started.Account]
+* [Manage accounts|#Platform_User_Guide.Tutorials.Accounts]
 
-* [Work with Connections|#Soc_User_Guide.Work_With_Connections]
+* [Build networks|#Platform_User_Guide.Social.Build_Network]
 
-* [Work with Activities|#Soc_User_Guide.Work_With_Activities]
+* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
 
-* [Work with Spaces|#Soc_User_Guide.Work_With_Spaces]
+* [Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]
 
-* [Work with Dashboard|#Soc_User_Guide.Work_With_Dashboard]
+* [Use the Dashboard workspace|#sect-User_Guide-Dashboard_Portlet-Using_the_Dashboard_Workspace]
 
 
 h1. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_Information}
 
-Your own information is visible to all people using the eXo Social network. You can change information in each pane or all panes as follows:
+Your own information is visible to all people using the network. You can change information in each pane or all panes as follows:
 
-*1.* Click *Edit* at the top of each corresponding pane.
+*1.* Click *Edit* at the top of each corresponding section in the right pane of the *[My Profile|#My_Profile_form]* page.
 
-*2.* Change your desired information. In both *Contact* and *Experiences* panes, click *Add* corresponding to one field you want to add more or *Remove* to delete your inputted information.
+*2.* Change your desired information. In both *Contact* and *Experience* sections, click *Add* corresponding to one field you want to add more or *Remove* to delete your inputted information.
 
-*3.* Click *Save* to accept all changes, or *Cancel* to close the edit form without any changes.
+!images/Change_basic_information.png|align="center"!
+
+*3.* Click *Save* to accept all changes, or *Cancel* to close the *Edit* form without any changes.
 
 The followings are changeable information in each pane.
-
 
 {docbook}
 <citetitle>
@@ -89,7 +114,7 @@ The followings are changeable information in each pane.
 {docbook}
 
 ||Contact||Description||
-|*Gender*| The gender of user. Select your gender from the select box, either Male or Female.|
+|*Gender*| The gender of user. Select your gender from the select box, either male or female.|
 |*Phone*| The phone number at work, home or at other sites which must be between 3 to 20 numeric characters.|
 |*IMs*| The nickname of either IM services that must be between 3 to 60 characters. |
 |*Urls*| The website address which must be in the correct format. For example: http://exoplatform.com/. |
@@ -97,12 +122,12 @@ The followings are changeable information in each pane.
 {docbook}
 <citetitle>
 <para>
-    <emphasis role="bold">Experiences</emphasis>
+    <emphasis role="bold">Experience</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-||Experiences||Description||
+||Experience||Description||
 |*Organization*| Where you have worked. This field is limited from 3 to 90 characters. |
 |*Position*| The job title which is limited from 3 to 90 characters. |
 |*Job Details*| Brief description of your job without any character-related limitations. |
@@ -119,20 +144,20 @@ The followings are changeable information in each pane.
 </para>
 {docbook}
 
-* [Upload your avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
+* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
 
-* [Update current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
+* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
 
 
 h1. Upload your profile avatar{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar}
 
 You easily upload a photo to your profile or to your spaces where you own or manage.
 
-*1.* Click *Change Avatar* to open the *Avatar Upload* form.
+*1.* Click the *Change Avatar* link, or directly click your current avatar in the left pane to open the *Avatar Upload* form.
 
 !images/Avatar_upload_form.png|align="center"!
 
-*2.* Click *Browse...* to open the folder containing the image you want to upload and select that image. The uploaded photo must be smaller than 2 MBs.
+*2.* Click *Browse...* to open the *File Upload* form, then select your desired image, and click the *Open* button to upload your selected image. The uploaded photo must be smaller than 2 MBs.
 
 *3.* Click *Confirm* to open the *Avatar Preview* form to see some related information, such as file name, file type and image size.
 

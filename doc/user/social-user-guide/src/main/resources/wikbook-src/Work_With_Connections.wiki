@@ -1,8 +1,8 @@
-To build your network, you first need to hover your cursor over the display name on the Administration bar and select *My Network* from the drop-down menu.
+To build your network, you first need to hover your cursor over the display name on the *Administration bar* and select *My Network* from the drop-down menu.
 
 !images/Select_network.png|align="center"!
 
-The *Connections* page appears and allows you to the following actions:
+The *Network* page appears and allows you to do the following actions:
 
 * [Search for your contact|#search_contacts]
 
@@ -22,11 +22,11 @@ This page consists of the following tabs:
 
 h1. Search for your contact {anchor:id=search_contacts}
 
-This function allows you to find your desired contact quickly
+This function allows you to find your desired contact quickly.
 
-*1.* Select the relevant tab in which you want to do your searches.
+*1.* Select the relevant tab in which you want to do your search.
 
-* To search across all users in eXo Platform, select the *All People* tab. Also, you can hover your cursor over your display name and select *Find People* from the drop-down menu.
+* To search across all users in eXo Platform, select the *All People* tab. Alternatively, you can hover your cursor over your display name and select *Find People* from the drop-down menu.
 
 * To reduce the returned search results, select the appropriate tab first before using the search box. For example, to search for contacts with whom you have established connections, you need to select the *Network* tab. 
 
@@ -38,13 +38,14 @@ This function allows you to find your desired contact quickly
 
 * To stop doing advanced lookups, click *Hide option*.
 
-*2.* Press *Enter* or click !images/Social_search_icon.png! to find your contact. The results will be listed in the *People Found* pane.
+*2.* Hit the *Enter* key, or click !images/Social_search_icon.png! to find your contact. The results will be listed in the *People Found* pane.
 
 h1. Send connection requests {anchor:id=Send_connection_requests}
 
 You easily send a request following one of two ways:
 
-*1.* Hover your cursor over your display name on the Administration bar, and select *My Network --> Connections --> All People*, or simply select *Find People* from the drop-down menu.
+*1.* Hover your cursor over your display name on the *Administration bar*, and select *My Network --> All People*, or simply select *Find People* from the drop-down menu.
+
 All users will be listed in the *People Found* pane.
 
 !images/Two_ways_People.png|align="center"!
@@ -59,14 +60,23 @@ All users will be listed in the *People Found* pane.
 
 *The second way*
 
-* Click the contact name to go to his/her profile and then click *Invite to connect* at the right corner of the contact profile page.
+* Click the contact name to go to his/her profile, then click *Invite to connect* at the right corner of the contact profile page.
 
 !images/Invite-to-connect.png|align="center"!
 
-The !images/Invited_connect_icon.png! icon is then displayed next to the contact name and the "*Invite to connect*" text will be turned into "*Revoke*" automatically. This means that your connection request is in the pending status until the invited contact confirms it.
+The !images/Invited_connect_icon.png! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
+
+{docbook}
+<note>
+<para>
+If you follow the first way, the <emphasis role="bold">Invite</emphasis> link will become <emphasis role="bold">Cancel</emphasis>. Meanwhile, if you follow the second way, the <emphasis role="bold">Invite to connect</emphasis> text will be turned into <emphasis role="bold">Revoke</emphasis>.
+</para>
+</note>
+{docbook}
+
 
 h2. Revoke a connection request {anchor:id=Revoke_connection_request}
-In the *People Found* pane, simply select *Cancel*, or click the contact name to go to the profile page of the selected contact and select *Revoke* on the right corner of the contact's profile page.
+In the *People Found* pane, simply select *Cancel*, or click the contact name to go to the relevant profile and select *Revoke* at the right corner of the contact's profile page.
 
 h2. Accept/Deny a connection request {anchor:id=Accept_refuse_request}
 You can find all the connection requests in the *Received Invitations* tab. You can click *Accept* to accept the request,
@@ -84,7 +94,7 @@ In the *Network* or *All People* tab, you can remove the connections between you
 
 *The second way*
 
-* Click the contact name to go to the profile page, and then click the *Disconnect* link on the right corner of the contact profile page.
+* Click the contact name to go to the profile page, then click the *Disconnect* link at the right corner of the contact profile page.
 
 !images/Disconnect_in_profile.png|align="center"!
 

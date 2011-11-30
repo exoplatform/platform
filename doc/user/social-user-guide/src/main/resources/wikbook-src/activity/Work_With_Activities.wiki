@@ -1,6 +1,6 @@
-All activities of users are displayed in user's or Space's Activities Stream.
+All activities of users are displayed in user's or Space's Activity Streams.
 
-To enter *Activities*, hover your cursor over your display name (for example, John Smith) on the Administration bar and select *Activity Streams*.
+To enter *Activities*, hover your cursor over your display name (for example, John Smith) on the *Administration* bar and select *Activity Streams*.
 
 !images/activities.png|align="center"!
 
@@ -13,11 +13,11 @@ In *Activity Streams,* you can follow various activities, including:
 
 You can see activities of any registered people by clicking their usernames. However, for people to whom you have not connected, you only can view their activities but cannot post any *activities*, *comments* or *likes* on their spaces.
 
-In addition, you can keep track of activities of a space application. For example, whenever there is a new post in the Space Forum application, it will be updated in the activities stream.
+In addition, you can keep track of activities of a space application. For example, whenever there is a new post in the *Space Forum* application, it will be updated in the activity streams.
 
-The actions described in this section are those which you can do on activities stream of yours, of your connections or of any spaces where you are a member or manager, depending on the accessed tab.
+The actions described in this section are those which you can do on activity streams of yours, of your connections or of any spaces where you are a member or manager, depending on the accessed tab.
 
-h1. Update Status {anchor:id=Soc_User_Guide.Activity_Management.Update_Status}
+h1. Update status {anchor:id=Soc_User_Guide.Activity_Management.Update_Status}
 
 By entering your status message, you can tell people what are you doing on or ask for their helps or ideas. Thereafter, your colleagues who are connected with you can see your updates in their connections.
 
@@ -109,5 +109,5 @@ After you have selected *Like*, the text 'You like this' will be displayed below
 </citetitle>
 {docbook}
 
-You only can *Unlike* activities/ comments that you selected *Like*.
+You only can *Unlike* activities/comments that you selected *Like*.
 Do the same way as steps when selecting *Like*.

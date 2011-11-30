@@ -8,7 +8,9 @@ h1. Join or Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
 </citetitle>
 {docbook}
 
-* *The first instance*: For spaces without validation required, click *Join* corresponding to your desired space in the *All Spaces* tab. You will automatically become their members.
+Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab to display all spaces which *Visibility* is set to "Visible". There are two cases to join a space:
+
+* *The first instance*: For spaces without validation required, click *Join* corresponding to your desired space. You will automatically become their members.
 
 * *The second instance*: For spaces with validation required, after clicking *Join*, you have to wait for the validation from the space's owner who can accept or deny your request.
 
@@ -37,16 +39,14 @@ h1. Join or Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
 
 !images/Leave_validated_space.png|align="center"!
 
-If you are the only leader of that space, the message which informs that you cannot leave a space will appear.
+If you are the only leader of that space, the message which informs that you cannot leave a space will appear as below.
 
 !images/leave_space.png|align="center"!
-
-However, when you are only a member invited by the leader, you can leave the space by clicking !images/Leave_space_icon.png!.
 
 {docbook}
 <note>
     <para>
-    After you have left a space, the space will not exist in <emphasis role="bold">My Spaces</emphasis>, but in <emphasis role="bold">All Spaces</emphasis>.
+    After you have left a space, the space will not exist in the <emphasis role="bold">My Spaces</emphasis> tab, but in the <emphasis role="bold">All Spaces</emphasis> tab.
     </para>
 </note>
 {docbook}
@@ -57,7 +57,7 @@ To view one detailed page of a space, you must become its member first. Then, do
 
 *The first way*
 
-* Hover your cursor over *My Spaces* on the Administration bar and select your desired space from the drop-down menu.
+* Hover your cursor over *My Spaces* on the *Administration bar*, and select your desired space from the drop-down menu.
 
 *The second way*
 
@@ -77,7 +77,7 @@ As a normal user, you can:
 
 Besides, as a space manager or creator, you can:
 
-* [Edit the space settings, including name, description and priority level, avatar|#Soc_User_Guide.Space_Management.Edit_Space].
+* [Edit the space settings, including description, priority level, and avatar|#Soc_User_Guide.Space_Management.Edit_Space].
 
 * [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility]
 
@@ -91,13 +91,13 @@ Besides, as a space manager or creator, you can:
 
 h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
 
-Only the space manager can delete their spaces by clicking !images/Delete_icon.png!. All information and navigations related to that space are also deleted.
+Only the space managers can delete their spaces by clicking !images/Delete_icon.png!. All information and navigations related to that space are also deleted.
 
 h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.Search}
 
-The *Search* function in the *Spaces* application helps you to easily find spaces from one of the tabs in the [Space navigation|#space_navigation].
+The *Search* function in the *Spaces* application helps you easily find spaces from one of the tabs in the [Space navigation|#space_navigation].
 
-After assessing your desired spaces tab, you can search for spaces by *Name* and *Description* or *Alphabets*.
+After accessing your desired spaces tab, you can search for spaces by *Name* and *Description* or *Alphabets*.
 
 
 {docbook}
@@ -121,13 +121,13 @@ After assessing your desired spaces tab, you can search for spaces by *Name* and
 </citetitle>
 {docbook}
 
- Simply click a specific letter that spaces' name contains it.
+ Simply click a specific letter which is covered in the space name.
 
 The found spaces will be listed in the *Spaces Found* pane.
 
 h1. Accept/Deny invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
 
-This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for acceptance will be listed in the *Received Invitations* space.
+This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for acceptance will be listed in the *Received Invitations* tab.
 
 !images/accept_deny_invitation.png|align="center"!
 

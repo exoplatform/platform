@@ -1,7 +1,7 @@
 The concept "team work" becomes very familiar in business environments. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
-To access a space, click *My Spaces* on the Administration bar.
+To access a space, click *My Spaces* on the *Administration bar*.
 
 !images/spaces.png|align="center"!
 
@@ -9,7 +9,7 @@ The *Space* page appears as below.
 
 !images/space_page.png|align="center"!
 
-The Space navigation includes the following tabs:  {anchor: id="space_navigation"}
+The *Space navigation* includes the following tabs:  {anchor: id="space_navigation"}
 
 * *All Spaces:* all spaces which have been created with the Visibility value as Visible.
 * *My Spaces*: spaces where you have the role as a member or a manager. 
@@ -34,7 +34,7 @@ There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations 
 
 !images/add_new_space_settings.png|align="center"!
 
-*3.* Select an access level in the *Visibility* tab.
+*3.* Select an access level in the *Visibility* tab. {anchor:id=Visibility_space}
 
 !images/add_new_space_visibility.png|align="center"!
 
@@ -61,7 +61,7 @@ The *Invite users from group* tab will be displayed as below.
 
 *i.* Tick the *Select a target group for this space* checkbox to open the selection form.
 
-*ii.* Select the group in the left pane, then select the child group in the right pane to accept your selection.
+*ii.* Select the group in the left pane, then its child group in the right pane.
 
 !images/add_new_space_select_user.png|align=center!
 
@@ -88,14 +88,12 @@ After you have selected one existing group, all users in that group will be invi
 {docbook}
 <note>
     <para>
-    After being created, your space will be automatically added to the drop-down menu of Spaces from the Administration bar. You can access this space by clicking there.
+    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration bar</emphasis>. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
     </para>
 </note>
 {docbook}
 
-*5.* Click *Create* to complete creating a new space.
-
-After creating a new space, you will see it in the spaces list. Click the space and start exploring it.
+*5.* Click *Create* to finish adding your new space.
 
 {docbook}
 <note>
