@@ -24,7 +24,7 @@ LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Simpl
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
 IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
-if [ "$EXO_PROFILES" = "" ] ; then 
+if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default" ] ; then 
 	EXO_PROFILES="-Dexo.profiles=default"
 fi
 

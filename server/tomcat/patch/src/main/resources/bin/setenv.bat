@@ -24,8 +24,12 @@ set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Si
 set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
 set EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein\conf
 set IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib
-if "%EXO_PROFILES%" == "" (
-	set EXO_PROFILES=-Dexo.profiles=default
+
+set res=false
+if "%EXO_PROFILES%" == "" set res=true
+if "%EXO_PROFILES%" == "-Dexo.profiles=default" set res=true
+if "%res%"=="true" (
+    set EXO_PROFILES=-Dexo.profiles=default
 )
 
 set CATALINA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %CATALINA_OPTS% %LOG_OPTS% %SECURITY_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES%
