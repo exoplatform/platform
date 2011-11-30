@@ -60,7 +60,7 @@ Hence, the _configuration.properties_ file serves as exposing some selected vari
 The system configuration is mostly done in the _configuration.properties_ file.
 In most cases, this should be the only file for the system administrator to configure.
 * In the Tomcat bundle, this file is located at _/gatein/conf/configuration.properties_.
-* In the Jboss server, this file is located at _server/default/conf/gatein/configuration.properties_.
+* In the JBoss server, this file is located at _server/default/conf/gatein/configuration.properties_.
 *configuration.xml* {anchor:id=ADM.Configuration.Configuration.xml}
 This file contains the built-in configuration for the "portal" portal container.
 * In most cases, you should not change this file. 
@@ -373,6 +373,15 @@ For more details on the configuration, or some examples on other RDBMS and appli
 * http://markmail.org/message/a3bszoyqbvi5qer4
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
 * http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
+
+*Q3. How to enable managed DataSource
+
+When want to use a managed datasource (which is the case under JBoss), configure property {{gatein.jcr.datasource.managed}} to *true* in _configuration.properties_ file:
+{code}
+# indicates if the jcr datasource is using managed transactions. 
+# false by default. 
+gatein.jcr.datasource.managed=true
+{code}
 
 h1. File system paths {anchor:id=ADM.Configuration.File_system_paths}
 eXo Platform requires the read/write access to several paths in the local file system.
