@@ -1,0 +1,15 @@
+<bookinfo>
+  <title>Gadgets User Guide</title>
+  <productname>eXo Platform</productname>
+  <productnumber>3.5</productnumber>
+  <copyright>
+    <year>2011</year>
+    <holder>eXo</holder>
+  </copyright>
+  <authorgroup>
+    <author>
+      <firstname>eXo</firstname>
+      <surname>Doc Team</surname>
+    </author>
+  </authorgroup>
+</bookinfo>
