@@ -15,7 +15,6 @@
   <!-- MODULES -->
   <modules>
     <module>user</module>
-    <module>admin</module>
     <module>developer</module>
   </modules>
 </project>
