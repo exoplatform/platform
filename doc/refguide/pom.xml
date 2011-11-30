@@ -199,6 +199,9 @@
                       <directory>${docbook.source}/org.exoplatform.ks/images</directory>
                     </resource>
                     <resource>
+                      <directory>${docbook.source}/org.exoplatform.cs/images</directory>
+                    </resource>
+                    <resource>
                       <directory>${docbook.source}/org.exoplatform.jcr/resources/images</directory>
                     </resource>
                     <resource>
