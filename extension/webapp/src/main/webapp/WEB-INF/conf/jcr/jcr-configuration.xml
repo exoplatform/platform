@@ -22,6 +22,18 @@
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+
+  <component>
+    <key>org.exoplatform.services.jdbc.DataSourceProvider</key>
+    <type>org.exoplatform.services.jdbc.impl.DataSourceProviderImpl</type>
+      <init-params>
+        <value-param>
+        <name>always-managed</name>
+        <value>${gatein.jcr.datasource.managed:false}</value>
+      </value-param>
+    </init-params>
+  </component>
+
   <component>
     <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
     <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
