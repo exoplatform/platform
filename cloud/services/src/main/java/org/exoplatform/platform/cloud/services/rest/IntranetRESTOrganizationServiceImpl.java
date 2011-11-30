@@ -158,12 +158,7 @@ public class IntranetRESTOrganizationServiceImpl
          MembershipType membership_all = organizationService.getMembershipTypeHandler().findMembershipType("*");
          boolean isAdministrator = Boolean.parseBoolean(administrator);
          
-         if (!isAdministrator)
-         {
-            Group usersGroup = groupHandler.findGroupById("/platform/users");
-            organizationService.getMembershipHandler().linkMembership(newUser, usersGroup, membership_member, true);
-         }
-         else
+         if (isAdministrator)
          {
             Group adminGroup = groupHandler.findGroupById("/platform/administrators");
             Group devGroup = groupHandler.findGroupById("/developers");
