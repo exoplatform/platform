@@ -171,7 +171,7 @@ public class SpaceCustomizationService {
         }
       }
     }
-    String spaceMembershipManager = userACL.getAdminMSType() + spaceId;
+    String spaceMembershipManager = userACL.getAdminMSType() +":"+ spaceId;
     for (ExtendedNode extendedNode : newChildNodesUUID) {
       if (extendedNode.isNodeType(NodetypeConstant.EXO_PRIVILEGEABLE)) {
         extendedNode.clearACL();
