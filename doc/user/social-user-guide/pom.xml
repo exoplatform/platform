@@ -29,7 +29,6 @@
   </dependencies>
 
   <properties>
-    <wikbook.version>${version.wikbook.plugin}</wikbook.version>
     <wikbook.syntaxId>confluence/1.0</wikbook.syntaxId><!-- confluence/1.0 -->
     <wikbook.validationMode>strict</wikbook.validationMode> <!-- lax/strick -->
     <wikbook.source>${project.basedir}/src/main/resources/wikbook-src</wikbook.source>

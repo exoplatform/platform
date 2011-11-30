@@ -52,7 +52,7 @@
                     <artifactItem>
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>${wikbook.version}</version>
+                      <version>${version.wikbook.plugin}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>

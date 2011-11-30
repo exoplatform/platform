@@ -227,10 +227,10 @@
     <module>component</module>
     <module>extension</module>
     <module>server</module>
-    <module>doc</module>
     <module>samples</module>
     <module>trial</module>
     <module>exo-gadget-pack</module>
+    <module>doc</module>
     <module>packaging</module>
     <module>testsuite</module>
     <module>cloud</module>

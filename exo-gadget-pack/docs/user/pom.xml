@@ -63,7 +63,7 @@
                     <artifactItem>
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>${wikbook.version}</version>
+                      <version>${version.wikbook.plugin}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
@@ -223,16 +223,6 @@
 		                <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
 		                <finalName>${project.artifactId}-${project.version}.pdf</finalName>
 		              </format>
-		              <!--format>
-		                 <formatName>html_single</formatName>
-		                 <stylesheetResource>file:${docbook.source}/xsl/xhtml-single.xsl</stylesheetResource>
-		                 <finalName>index.html</finalName>
-		              </format-->
-		              <!--format>
-                        <formatName>eclipse</formatName>
-                        <stylesheetResource>file:${docbook.source}/xsl/eclipse30.xsl</stylesheetResource>
-                        <finalName>index.html</finalName>
-                      </format-->
 		           </formats>
 		           <options>
 		              <xincludeSupported>true</xincludeSupported>
