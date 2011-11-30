@@ -65,53 +65,7 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
-
-	<external-component-plugins>
-		<target-component>org.exoplatform.services.cms.views.ManageViewService</target-component>
-		<component-plugin>
-			<name>manage.view.plugin</name>
-			<set-method>setManageViewPlugin</set-method>
-			<type>org.exoplatform.services.cms.views.impl.ManageViewPlugin</type>
-			<description>this plugin manage user view</description>
-			<init-params>
-				<value-param>
-					<name>autoCreateInNewRepository</name>
-					<value>true</value>
-				</value-param>
-				<value-param>
-					<name>predefinedViewsLocation</name>
-					<value>war:/conf/wcm-artifacts</value>
-				</value-param>
-		        <object-param>
-		          <name>WCM-Category-View</name>
-		          <description>View configuration of WCM contributors</description>
-		          <object type="org.exoplatform.services.cms.views.ViewConfig">
-		            <field name="name"><string>wcm-category-view</string></field>
-		            <field name="permissions"><string>*:/platform/web-contributors</string></field>
-		            <field name="template"><string>/exo:ecm/views/templates/ecm-explorer/ContentView</string></field>
-		            <field name="tabList">
-		              <collection type="java.util.ArrayList">
-		                <value>
-		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-		                    <field name="tabName"><string>Publication</string></field>
-		                    <field name="buttons"><string>addCategory; addDocument; editDocument; upload; managePublications; manageCategories; contentNavigation </string></field>
-		                  </object>
-		                </value>
-		                <value>
-		                  <object type="org.exoplatform.services.cms.views.ViewConfig$Tab">
-		                    <field name="tabName"><string>Collaboration</string></field>
-		                    <field name="buttons"><string>taggingDocument; vote; Comment</string></field>
-		                  </object>
-		                </value>
-		              </collection>
-		            </field>
-		          </object>
-		        </object-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
-
-	<external-component-plugins>
+    <external-component-plugins>
 		<!-- The full qualified name of the ResourceBundleService -->
 		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
 		<component-plugin>
