@@ -226,6 +226,3 @@ The eXo Scripting Console gadget is better viewed on the entire screen. You shou
 * Click !images/GroovyConsoleHelp.png! to view the Groovy Console Help.
 
 
-
-
-

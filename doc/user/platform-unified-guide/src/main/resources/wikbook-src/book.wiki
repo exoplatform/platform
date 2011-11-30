@@ -25,6 +25,8 @@ h2. Manage pages{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Pages}
 h2. Manage applications{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications}
 In eXo Platform, applications can be managed [inside a portal|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal] or [inside Desktop|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop].
 h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal}
+h3. Use Gadgets in your dashboards{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Gadgets}
+{include:document="Gadgets.wiki"}
 h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop}
 {include:document="webos/wikbook-src/Manage_applications.wiki"}
 
@@ -73,3 +75,4 @@ h2. Build networks{anchor:id=Platform_User_Guide.Social.Build_Network}
 {include:document="social/wikbook-src/Work_With_Connections.wiki"}
 h2. Follow activities in your organization{anchor:id=Platform_User_Guide.Social.Follow_Activities}
 {include:document="social/wikbook-src/activity/Work_With_Activities.wiki"}
+
