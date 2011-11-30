@@ -310,18 +310,6 @@
 	                    <include>css/**</include>
     	              </includes>
 	              </cssResource>
-                  <formats>
-                    <format>
-    		          <formatName>pdf</formatName>
-  	    	          <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-    		          <finalName>${project.artifactId}-${project.version}.pdf</finalName>
-	     	        </format>
-                    <format>
-	                  <formatName>html</formatName>
-	                  <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
-	                  <finalName>index.html</finalName>
-	                </format>
-                  </formats>
     	        </configuration>
                </execution>
            <!--
@@ -348,18 +336,6 @@
 	                    <include>css/**</include>
     	              </includes>
 	              </cssResource>
-                  <formats>
-                    <format>
-    		          <formatName>pdf</formatName>
-  	    	          <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
-    		          <finalName>${project.artifactId}-${project.version}.pdf</finalName>
-	     	        </format>
-                    <format>
-	                  <formatName>html</formatName>
-	                  <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
-	                  <finalName>index.html</finalName>
-	                </format>
-                  </formats>
     	        </configuration>
                </execution>
              </executions>
@@ -373,7 +349,18 @@
 	              <xmlTransformerType>saxon</xmlTransformerType>
 	              <docbookVersion>1.76.1</docbookVersion>
 	           </options>
-               <formats/>
+               <formats>
+                 <format>
+    		       <formatName>pdf</formatName>
+  	    	       <stylesheetResource>file:${docbook.source}/xsl/pdf.xsl</stylesheetResource>
+    		       <finalName>${project.artifactId}-${project.version}.pdf</finalName>
+	     	     </format>
+                 <format>
+	               <formatName>html</formatName>
+	               <stylesheetResource>file:${docbook.source}/xsl/xhtml.xsl</stylesheetResource>
+	               <finalName>index.html</finalName>
+	             </format>
+               </formats>
 	        </configuration>
          </plugin>
           <!--
