@@ -4,7 +4,7 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-   	<component>
+  <component>
 		<type>org.exoplatform.platform.organization.injector.JMXDataInjector</type>
 	</component>
 	<component>
@@ -56,6 +56,23 @@
 			</values-param>
 		</init-params>
 	</component>
+	
+	<external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+      <name>add.nodeType</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+      <init-params>
+        <values-param>
+          <name>autoCreatedInNewRepository</name>
+          <description>Node types configuration file</description>
+          <value>classpath:/conf/jcr/test-nodetypes-config.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+	
 	<import>classpath:/conf/portal/idm-configuration.xml</import>
 	<import>classpath:/conf/portal/organization-configuration.xml</import>
 	<import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
