@@ -85,7 +85,6 @@ A gadget should use static resources available in _exo-gadget-resources_ instead
 <Module> 
 <ModulePrefs title="Sample gadget" /> 
 <Content type="html"> 
-<![CDATA[ 
   <head> 
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" /> 
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script> 
@@ -105,7 +104,6 @@ A gadget should use static resources available in _exo-gadget-resources_ instead
       </div> 
     </div> 
   </body> 
-]]> 
 </Content> 
 </Module>
 {code}
@@ -131,7 +129,6 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
   <Require feature="setprefs"/> 
 </ModulePrefs>  
 <Content type="html"> 
-<![CDATA[ 
   <head> 
     <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css"/> 
     <style type="text/css"> 
@@ -139,6 +136,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
     </style>  
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script> 
     <script language="javascript" type="text/javascript"> 
+<![CDATA[ 
       $(function(){ 
         var prefs = new gadgets.Prefs(); 
         var defaultNumItems = 3; 
@@ -172,6 +170,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 
         displayItems(); 
       }); 
+]]> 
     </script>  
   </head> 
   <body> 
@@ -188,12 +187,12 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
           <input type="text" id="txtNumItems"></input>                                       
           <input type="button" id="btnOk" value="OK"></input> 
           <input type="button" id="btnCancel" value="Cancel"></input> 
-          <hr> 
+          <hr/> 
         </div> 
         <div id="content"></div> 
       </div> 
+    </div> 
   </body> 
-]]> 
 </Content> 
 </Module> 
 {code}
