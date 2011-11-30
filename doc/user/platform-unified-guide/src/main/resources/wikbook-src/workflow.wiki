@@ -163,7 +163,7 @@ This function is used to help administrators keep track of process details as fo
 
 !images/Workflow/view_process_detail.png|align="center"!
 
-*2.* Click !images/view-icon1.png! to view requested process list from users as below.
+*2.* Click !images/Workflow/view-icon1.png! to view requested process list from users as below.
 
 !images/Workflow/Process_Detail.png|align="center"!
 
@@ -182,4 +182,4 @@ To remove all completed processes from the list in the <emphasis role="bold">Com
 
 !images/Workflow/list_task_instance.png|align="center"!
 
-* To delete a process from the requested process list in the *Process Detail* form, click !images/Delete_icon.png! corresponding to that process.
+To delete a process from the requested process list in the *Process Detail* form, click !images/Delete_icon.png! corresponding to that process.
