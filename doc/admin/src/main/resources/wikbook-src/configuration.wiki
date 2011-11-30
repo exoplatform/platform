@@ -752,9 +752,10 @@ In eXo Platform, the default users, excluding Super-admin user, are defined in "
 h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar}
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
 
-h1. Gadget proxy configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
+h1. Gadget configuration {anchor:id=ADM.Configuration.Gadget_configuration}
+h2. Gadget proxy configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
 
-In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployey as an open web proxy.
+In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployed as an open web proxy.
 This implies configuring ProxyFilterService.
 
 The default configuration is set as below:
@@ -779,10 +780,10 @@ The default configuration is set as below:
 {code}
 
 This configuration can be added into _{noformat}<GATEIN_CONF_DIR>/portal/<PORTAL_CONTAINER_NAME>/configuration.xml{noformat}_.
-* _{noformat}<GATEIN_CONF_DIR>{noformat}_= _{noformat}TOMCAT_HOME/gatein/conf/{noformat}_ if you are using tomcat and _{noformat}JBOSS_HOME/server/<PROFILE>/conf/gatein/{noformat}_ if you are using JBoss.
+* _{noformat}<GATEIN_CONF_DIR>{noformat}_= _{noformat}TOMCAT_HOME/gatein/conf/{noformat}_ if you are using Tomcat and _{noformat}JBOSS_HOME/server/<PROFILE>/conf/gatein/{noformat}_ if you are using JBoss.
 * _{noformat}<PORTAL_CONTAINER_NAME>{noformat}_= the name of the used portal container, by default it is set to _portal_.
 
-h2. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
+h3. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
 
 The proxy service allow accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
 If the site is not defined in neither the white list nor black list, access will be denied.
@@ -807,6 +808,24 @@ The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Co
   </init-params>
 </component>
 {code}
+
+h2. Default OAuth key configuration {anchor:id=ADM.Configuration.Gadget_OAuth_configuration}
+In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
+There is always a default key defined in the _{noformat}oauthkey.pem{noformat}_ file.
+This key will be used in case the OAuth gadgets do not indicate a key.
+
+* If you are using Tomcat, the _oauthkey.pem_ file is found at the _{noformat}TOMCAT_HOME/gatein/gadgets{noformat}_ path.
+
+* If you are using Jboss, the _oauthkey.pem_ file is found at the _{noformat}JBOSS_HOME/server/<PROFILE>/conf/gatein/gadgets{noformat}_ path.
+
+It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
+
+{code}
+openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out testkey.pem -subj '/CN=mytestkey'
+openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
+{code}
+
+After creating the new _oauthkey.pem_ file, you can use it to replace the _oauthkey.pem_ default file in the _gatein/gadgets/_ folder.
 
 
 h1. JCR Links cleaner job {anchor:id=ADM.Configuration.WCM_link_cleaner_job}
