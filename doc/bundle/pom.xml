@@ -121,6 +121,7 @@
 		               <groupId>${project.groupId}</groupId>
 		               <artifactId>exo.platform.doc.user.platform</artifactId>
 		               <version>${project.version}</version>
+                       <classifier>html</classifier>
 		               <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/user-guide/html</outputDirectory>
 		             </artifactItem>
