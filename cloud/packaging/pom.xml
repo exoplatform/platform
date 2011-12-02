@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.exoplatform.platform.cloud</groupId>
     <artifactId>exo.platform.cloud</artifactId>
-    <version>3.5.0-GA-SNAPSHOT</version>
+    <version>3.5.0-GA</version>
   </parent>
   <artifactId>exo.platform.cloud.packaging</artifactId>
   <packaging>pom</packaging>
