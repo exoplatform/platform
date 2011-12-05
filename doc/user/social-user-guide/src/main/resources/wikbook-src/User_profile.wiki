@@ -71,7 +71,7 @@ Regardless of being an administrator, you do not have right to edit profiles of 
 </para>
 {docbook}
 
-* [Manage accounts|#Platform_User_Guide.Tutorials.Accounts]
+* [Manage accounts|#Platform_User_Guide.Get_started.Accounts]
 
 * [Build networks|#Platform_User_Guide.Social.Build_Network]
 

@@ -150,6 +150,6 @@ You can take the following actions:
 
 * Right-click any white area to display !images/Add_new_node_icon.png!, then select this button. The *UI Page Node* form appears that allows you to add information to your new node.
 
-For more details, see the [Manage navigation nodes|#Platform_User_Guide.Manage_Organization.Manage_Navigation_Nodes] section.
+For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes] section.
 
 *2.* Click *Save* to accept all changes.
