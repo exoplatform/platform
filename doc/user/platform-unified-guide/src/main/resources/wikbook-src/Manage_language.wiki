@@ -14,7 +14,7 @@ At present, eXo Platform only supports two languages: English and French.
 </note>
 {docbook}
 
-h1. Change the display language permanently{anchor:id=Platform_User_Guide.Tutorials.Manage_Language.Change_Display_Language_Permanently}
+h1. Change the display language permanently{anchor:id=Platform_User_Guide.Get_started.Manage_Language.Change_Display_Language_Permanently}
 eXo Platform supports 3 ways to change the display language permanently.
 
 *The first way*
@@ -79,7 +79,7 @@ The display language will be maintained permanently until you change another dis
 </note>
 {docbook}
 
-h1. Change the display language for another user{anchor:id=Platform_User_Guide.Tutorials.Manage_Language.Change_Display_Language_For_Another_User}
+h1. Change the display language for another user{anchor:id=Platform_User_Guide.Get_started.Manage_Language.Change_Display_Language_For_Another_User}
 
 By this way, you can change not only your display language but also the display language of another users if you have the right to access the *Organization* portlet.
 

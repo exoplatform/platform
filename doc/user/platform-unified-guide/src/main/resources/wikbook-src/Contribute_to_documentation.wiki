@@ -1,4 +1,4 @@
 Your feedbacks are so important to our documentation. If you find typographical errors in this manual, or think of a way to make this guide 
 better, we are always pleased to hear from you. Let us know your questions and suggestions on both eXo Platform 3.5 and this user guide by participating in our community website:
 
-http://community.exoplatform.org/portal/public/classic/forum
+http://community.exoplatform.org

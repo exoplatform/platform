@@ -2,29 +2,32 @@
 <section>
 <para>
 <partintro>
-<para>
-As a solid enterprise-ready foundation for your portal-based applications, eXo Platform provides users many experiences for creating modern, user-centric Java applications that can be deployed on premise or in the cloud. Therefore, obtaining a comprehensive understanding of concepts is critical to benefit from the eXo Platform capabilities and features. 
-The eXo Platform user guide represents these concepts by providing a series of description related to eXo Platform features.
-</para>
+<para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
  <para>This documentation is divided into the following chapters:</para>
         <itemizedlist>
           <listitem>
             <para>
               <emphasis role="bold">
                 <link linkend="Platform_User_Guide.eXo_Platform">eXo Platform</link>
-              </emphasis> provides you basic information of eXo Platform, system requirements, and browser compatibility. </para>
+              </emphasis> provides you basic information of eXo Platform, and browser compatibility. </para>
           </listitem>
           <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="Platform_User_Guide.Tutorials">Tutorials</link>
+                <link linkend="Platform_User_Guide.Get_started">Get Started</link>
               </emphasis> gives you a list of glossaries commonly used in applications of eXo Platform, interface of eXo Platform 3.5, and how to manage your accounts and language.</para>
           </listitem>
           <listitem>
             <para>
               <emphasis role="bold">
                 <link linkend="Platform_User_Guide.Manage_Organization">Manage Your Organization</link>
-              </emphasis> is a collection of a portal-based actions, allowing you to manage users and groups, permissions, portal/website, navigation nodes, pages and applications.</para>
+              </emphasis>shows you how to manage users, groups and memberships in eXo Platform.</para>
+          </listitem>
+          <listitem>
+            <para>
+              <emphasis role="bold">
+                <link linkend="Platform_User_Guide.Manage_Your_Portals">Manage Your Portals</link>
+              </emphasis> is a collection of a portal-based actions, allowing you to manage permissions, sites/portals, navigation nodes, pages and applications.</para>
           </listitem>
           <listitem>
             <para>
@@ -61,7 +64,7 @@ h1. About eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.A
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating to the changes of user behavior driven by the consumer web technologies, such as social networks, social publishing and forums. 
 
-After running eXo Platform 3.5, open a browser window and enter the URL provided by your administrator, for example, http://localhost:8080/portal/default.
+After running eXo Platform 3.5, open a browser window and enter the URL provided by your administrator, for example, http://mycompany.com:8080/portal/default.
 
 You will be directed to the default page of eXo Platform 3.5.
 
@@ -96,66 +99,16 @@ With eXo Platform 3.5, you can customize and extend your portal-based applicatio
 * CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing the Groovy commands, without recompiling easily.
 * Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
 
-{docbook}
-<para>
-<prompt>
-          <emphasis role="bold">See also</emphasis>
-        </prompt>
-		</para>
-{docbook}
 
-* [System requirements|#Platform_User_Guide.eXo_Platform.Introduction.System_Requirements]
-* [Browser compatibility|#Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility]
-
-h1. System requirements{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.System_Requirements}
-
-To run eXo Platform 3.5, your system is required to meet the following specifications or higher.
-
-* CPU: 2GHz
-* Memory: 2GB of RAM
-* Disk: 200MB
-* OS: Windows, Linux or Mac OS X
-* Java 6 (Set the {noformat}JAVA_HOME{noformat} environment variable)
-* Browser: Firefox 3+ or Internet Explorer 7+
-
-The eXo server will run on the _8080_ portal, so make sure this port is not currently in use.
-
-{docbook}
-<para>
-<prompt>
-          <emphasis role="bold">See also</emphasis>
-        </prompt>
-		</para>
-{docbook}
-
-* [About eXo Platform|#Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform]
-* [Browser compatibility|#Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility]
-
-h1. Browser compatibility {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Browser_Compatibility}
+h1. Browser compatibility {anchor:id=Platform_User_Guide.eXo_Platform.Get_started.Browser_Compatibility}
 
 eXo Platform 3.5 is designed to work within an Internet browser, and we have made every effort to make eXo Platform 3.5 compatible with as many of common web browsers as possible.
 
 This product has been thoroughly tested on the following stable browsers:
 
-* Internet Explorer 7
-* Firefox 3.5 and 3.6
+* Internet Explorer 7, 8, and 9
+* Firefox 3.5, 3.6, and 4
 
-Unfortunately, we have not been able to make this product compatible will *ALL* browsers. Therefore, we strongly recommend that you *SHOULD* use the browsers listed above. A number of unknown errors are due to the use of another browsers that may include the data or files loss. 
-In case of any questions, please check with your administrator.
+Unfortunately, we have not been able to make this product compatible will *ALL* browsers. Therefore, we strongly recommend that you use the browsers listed above.
+In case of any questions, please contact your administrator.
 
-{docbook}
-<note>
-<para>The browser's <emphasis role="bold">Back</emphasis> button takes you to the previous page you were viewing.</para>
-<para>Using the browser's <emphasis role="bold">Refresh</emphasis> button only refresh the opening browser without losing your created data.</para>
-</note>
-{docbook}
-
-{docbook}
-<para>
-<prompt>
-          <emphasis role="bold">See also</emphasis>
-        </prompt>
-		</para>
-{docbook}
-* [About eXo Platform|#Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform]
-* [System requirements|#Platform_User_Guide.eXo_Platform.Introduction.System_Requirements]

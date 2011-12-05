@@ -1,7 +1,7 @@
 eXo Platform provides a gadget package that contains many useful gadgets. They can be categorized into:
 * [Engagement gadgets|#GadgetUserguide.AngagementGadgets]
 * [Audit gadgets|#GadgetUserguide.AuditGadgets]
-* [Collab gadgets|#GadgetUserguide.CollabGadget]
+* [Collab gadgets|#GadgetUserguide.CollabGadgets]
 * [Management and Monitoring gadgets|#GadgetUserguide.ManagementMOnitoringGadget]
 
 h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}

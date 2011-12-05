@@ -4,31 +4,35 @@ h2. Contribute to documentation{anchor:id=Platform_User_Guide.eXo_Platform.Contr
 h2. Introduction{anchor:id=Platform_User_Guide.eXo_Platform.Introduction}
 {include:document="Introduction.wiki"}
 
-h1. Tutorials{anchor:id=Platform_User_Guide.Tutorials}
+h1. Get Started{anchor:id=Platform_User_Guide.Get_started}
 {include:document="Tutorials.wiki"}
-h2. Glossary{anchor:id=Platform_User_Guide.Tutorials.Glossary}
+h2. Glossary{anchor:id=Platform_User_Guide.Get_started.Glossary}
 {include:document="Glossary.wiki"}
-h2. eXo Platform 3.5 interface{anchor:id=Platform_User_Guide.Tutorials.PLF_Interface}
+h2. eXo Platform 3.5 interface{anchor:id=Platform_User_Guide.Get_started.PLF_Interface}
 {include:document="Interface.wiki"}
-h2. Manage accounts{anchor:id=Platform_User_Guide.Tutorials.Accounts}
-h2. Manage language{anchor:id=Platform_User_Guide.Tutorials.Manage_Language}
+h2. Manage accounts{anchor:id=Platform_User_Guide.Get_started.Accounts}
+h2. Manage language{anchor:id=Platform_User_Guide.Get_started.Manage_Language}
 {include:document="Manage_language.wiki"}
 
 h1. Manage Your Organization{anchor:id=Platform_User_Guide.Manage_Organization}
 {include:document="Introduction_Manage_Organization.wiki"}
-h2. About Administration bar{anchor:id=Platform_User_Guide.Manage_Organization.About_Administration_bar}
 h2. Manage users and groups{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Users_and_Groups}
-h2. Manage permissions{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Permission}
-h2. Manage portals/websites{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Portal_Website}
-h2. Manage navigation nodes{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Navigation_Nodes}
-h2. Manage pages{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Pages}
-h2. Manage applications{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications}
-In eXo Platform, applications can be managed [inside a portal|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal] or [inside Desktop|#Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop].
-h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Portal}
-h3. Use Gadgets in your dashboards{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Gadgets}
+
+h1. Manage Your Portals{anchor:id=Platform_User_Guide.Manage_Your_Portals}
+{include:document="Introduction_Manage_Your_Portals.wiki"}
+h2. Manage permissions{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Permission}
+h2. Manage sites{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_sites}
+h2. Manage navigation nodes{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes}
+h2. Manage pages{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Pages}
+h2. Manage applications{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Applications}
+In eXo Platform, applications can be managed [inside a portal|#Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Inside_Portal]
+ or [inside Desktop|#Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Inside_Desktop].
+h3. Inside a portal{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Inside_Portal}
+h3. Use Gadgets in your dashboards{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Gadgets}
 {include:document="Gadgets.wiki"}
-h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Applications.Inside_Desktop}
+h3. Inside Desktop{anchor:id=Platform_User_Guide.Manage_Your_Portals.Manage_Applications.Inside_Desktop}
 {include:document="webos/wikbook-src/Manage_applications.wiki"}
+
 
 h1. Organize Your Content{anchor:id=Platform_User_Guide.Organize_Content}
 {include:document="Introduction_Organize_Content.wiki"}
@@ -40,7 +44,7 @@ h2. Manage workflows{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workf
 
 h1. Collaborate With Your Colleagues{anchor:id=Platform_User_Guide.Collaboration}
 {include:document="Introduction_Collaboration.wiki"}
-h2. Manage your calendar {anchor:id=Platform_User_Guide.eXo_Platform.Tutorials.Manage_calendar}
+h2. Manage your calendar {anchor:id=Platform_User_Guide.Collaboration.Manage_calendar}
 {include:document="collaboration/wikbook-src/calendar/calendar.wiki"}
 h2. Manage your contacts{anchor:id=Platform_User_Guide.Collaboration.Communicate_with_Contacts.Manage_Contacts}
 {include:document="collaboration/wikbook-src/addressbook/addressbook.wiki"}

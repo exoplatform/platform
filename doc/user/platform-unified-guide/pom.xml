@@ -276,13 +276,10 @@
 <xi:include href="gatein/modules/account/Register_New_Accounts.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Sign_in_and_Sign_out.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/account/Change_Account_Settings.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+<xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
 				</replace>
-                  <replace file="${docbook.source}/index.xml">
-                  <replacetoken><![CDATA[<title>About Administration bar</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>About Administration bar</title>
-<xi:include href="gatein/modules/portal/Toolbar.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
+
        <replace file="${docbook.source}/index.xml">
        <replacetoken><![CDATA[<title>Manage users and groups</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Manage users and groups</title>
@@ -294,8 +291,8 @@
 <xi:include href="gatein/modules/portal/Manage_Permission.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage portals/websites</title>]]></replacetoken>
-        <replacevalue><![CDATA[<title>Manage portals/websites</title>
+       <replacetoken><![CDATA[<title>Manage sites</title>]]></replacetoken>
+        <replacevalue><![CDATA[<title>Manage sites</title>
 <xi:include href="gatein/modules/portal/Manage_Portals.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 			</replace>
 

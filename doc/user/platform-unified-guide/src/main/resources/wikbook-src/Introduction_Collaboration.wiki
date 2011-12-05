@@ -7,7 +7,7 @@ eXo Platform provides a set of collaborative applications which help you achieve
 </para>
 <itemizedlist>
 <listitem>
-<para><link linkend="Platform_User_Guide.eXo_Platform.Tutorials.Manage_calendar">Manage your calendar</link> through the <emphasis role="bold">Calendar</emphasis> application. <emphasis role="bold">Calendar</emphasis> allows you to schedule appointments and meetings, establish recurring activities, create multiple calendars and share calendars with others. With <emphasis role="bold">Calendar</emphasis>, it is easy to keep track of all important events/tasks and collaborate with other people, all in one place.
+<para><link linkend="Platform_User_Guide.Collaboration.Manage_calendar">Manage your calendar</link> through the <emphasis role="bold">Calendar</emphasis> application. <emphasis role="bold">Calendar</emphasis> allows you to schedule appointments and meetings, establish recurring activities, create multiple calendars and share calendars with others. With <emphasis role="bold">Calendar</emphasis>, it is easy to keep track of all important events/tasks and collaborate with other people, all in one place.
 </para>
 </listitem>
 <listitem>

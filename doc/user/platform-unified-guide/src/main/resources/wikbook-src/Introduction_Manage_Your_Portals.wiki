@@ -1,0 +1,41 @@
+{docbook}
+<section>
+<para>
+<partintro>
+ <para>This chapter covers the following topics:</para>
+<itemizedlist>
+<listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_Permission">Manage permissions</link>
+          </emphasis> instructs you how to set permissions on a portal, page, category and portlet.</para>
+        </listitem>
+<listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_sites">Manage sites</link>
+          </emphasis> gives steps on how to create/edit/delete a portal, and how  to switch between various portals.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes">Manage navigation nodes</link>
+          </emphasis> includes actions which can be done on a navigation, such as adding/editing/copying/pasting/cloning/cutting/deleting a node, or changing the node orders.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_Pages">Manage pages</link>
+          </emphasis> provides you step-by-step instructions to create a new page by using <emphasis role="bold">Page Creation Wizard</emphasis> or <emphasis role="bold">Page Manager,</emphasis> to edit/delete a page and to manage types of page navigations.</para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="bold">
+            <link linkend="Platform_User_Guide.Manage_Your_Portals.Manage_Applications">Manage applications</link>
+          </emphasis> represents actions which can be done on applications inside a portal and a Desktop.</para>
+      </listitem>
+ </itemizedlist>
+ </partintro>
+</para>
+</section>
+{docbook}

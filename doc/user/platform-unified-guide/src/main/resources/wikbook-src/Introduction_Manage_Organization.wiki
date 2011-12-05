@@ -2,49 +2,31 @@
 <section>
 <para>
 <partintro>
- <para>This chapter covers the following topics:</para>
+ <para>This chapter represents actions related to management of users, groups and memberships. It covers the following topics: </para>
     <itemizedlist>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.About_Administration_bar">About Administration bar</link>
-          </emphasis> is a brief introduction of the main bar and its navigations which allow you to do most actions in eXo Platform.</para>
+            <link linkend="sect-User_Guide-User_Management-Add_a_user">Add a user</link>
+          </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Users_and_Groups">Manage users and groups</link>
-          </emphasis> represents actions related to management of users, groups and memberships.</para>
+            <link linkend="sect-User_Guide-User_Management-Manage_users">Manage users</link>
+          </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Permission">Manage permissions</link>
-          </emphasis> instructs you how to set permissions on a portal, page, category and portlet.</para>
+            <link linkend="sect-User_Guide-User_Management-Manage_groups">Manage groups</link>
+          </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Portal_Website">Manage portals/websites</link>
-          </emphasis> gives steps on how to create/edit/delete a portal, and how  to switch between various portals.</para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Navigation_Nodes">Manage navigation nodes</link>
-          </emphasis> includes actions which can be done on a navigation, such as adding/editing/copying/pasting/cloning/cutting/deleting a node, or changing the node orders.</para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Pages">Manage pages</link>
-          </emphasis> provides you step-by-step instructions to create a new page by using <emphasis role="bold">Page Creation Wizard</emphasis> or <emphasis role="bold">Page Manager,</emphasis> to edit/delete a page and to manage types of page navigations.</para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Manage_Organization.Manage_Applications">Manage applications</link>
-          </emphasis> represents actions which can be done on applications inside a portal and a Desktop.</para>
+            <link linkend="sect-User_Guide-User_Management-Manage_memberships">Manage memberships</link>
+          </emphasis> </para>
       </listitem>
     </itemizedlist>
 </partintro>

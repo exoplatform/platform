@@ -12,25 +12,25 @@ and dashboards with reliable capabilities of collaboration and knowledge.
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Tutorials.Glossary">Glossary</link>
+            <link linkend="Platform_User_Guide.Get_started.Glossary">Glossary</link>
           </emphasis> provides terms which are commonly used in eXo Platform applications.</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Tutorials.PLF_Interface">eXo Platform 3.5 interface</link>
+            <link linkend="Platform_User_Guide.Get_started.PLF_Interface">eXo Platform 3.5 interface</link>
           </emphasis> introduces the default page of eXo Platform 3.5, and ways to enter the sample portals built in eXo Platform 3.5 before using functions.</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Tutorials.Accounts">Manage accounts</link>
+            <link linkend="Platform_User_Guide.Get_started.Accounts">Manage accounts</link>
           </emphasis> gives you how to register new accounts, sign in and out, change account settings, and retrieve your account and password.</para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="Platform_User_Guide.Tutorials.Manage_Language">Manage language</link>
+            <link linkend="Platform_User_Guide.Get_started.Manage_Language">Manage language</link>
           </emphasis> includes procedures on how to change the display language permanently and for another users.</para>
       </listitem>
     </itemizedlist>
