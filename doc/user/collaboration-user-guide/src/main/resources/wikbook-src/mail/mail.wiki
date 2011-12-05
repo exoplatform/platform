@@ -355,7 +355,7 @@ h2. Delete a message {anchor:id="Delete_a_message"}
 {docbook}
 <citetitle>
 <para xml:id="Delete_message_temporarily">
-<emphasis role="bold">Delete a messgage temporarily
+<emphasis role="bold">Delete a message temporarily
 </emphasis>
 </para>
 </citetitle>
@@ -572,7 +572,7 @@ This function is only featured in eXo Platform 3.5, allowing you to browse and a
 Or, click *Attach Link* to get the link pointing to the selected source file that is shown in your message body. The *Attach Link* function allows your mail recipients to download the attached source file just clicking the relevant link.
 
 h2. Save a message as draft {anchor:id="Save_message_as_draft"}
-If you are not ready to send your composed message, click !images/save_in_drafts_icon.png! to save it as draft. Your draft message will be in the *Drafts* folder for you to send anywhen you like.
+If you are not ready to send your composed message, click !images/save_in_drafts_icon.png! to save it as draft. Your draft message will be in the *Drafts* folder for you to send whenever you like.
 
 h2. Set a priority level {anchor:id="Set_priority_level"}
 
@@ -592,7 +592,7 @@ Set a priority level for your composed message
 
 *1.* Click !images/priority_icon.png! in the *Compose New Message* form.
 
-*2.* Select your prefered priority from the drop-down menu.
+*2.* Select your preferred priority from the drop-down menu.
 
 * *Low:* The exclamation icon corresponding to the mail is marked in grey in the !images/Priority_column_icon.png! column.
 * *Normal:* There is no the exclamation icon. By default, the message is sent with the *Normal* priority.
@@ -605,7 +605,7 @@ You can change this signature by [editing your account details|#CSUser_guide.How
 h2. Change message preferences  {anchor:id="Change_message_preferences"}
 At present, this function only allows you to receive a notification message that the recipient has already read your message or not. 
 
-*1.* Click !images/options_icon.png! in the *Composse New Message* form.
+*1.* Click !images/options_icon.png! in the *Compose New Message* form.
 
 *2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the receiver in the [Change Mail settings|#Mail_settings] section.
 
@@ -641,7 +641,7 @@ Click the message that you want to reply to display its content, then select !im
 {docbook}
 <citetitle>
 <para xml:id="reply_to_all">
-<emphasis role="bold">Reply to all receipients of the message</emphasis>
+<emphasis role="bold">Reply to all recipients of the message</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -653,7 +653,7 @@ Or right-click the message, then select *Reply to All* from the drop-down menu.
 *2.* Compose your reply message in the *[Compose New Message|#Compose_new_message]* window, then click !images/send_mail_icon.png! to send your reply.
 
 h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_message"}
-This function allows you to resend a message, which has been delivered to your email address, to another email addresss. 
+This function allows you to resend a message, which has been delivered to your email address, to another email addresses. 
 
 *1.* Open the *Compose New Message* window via either of 3 ways.
 
