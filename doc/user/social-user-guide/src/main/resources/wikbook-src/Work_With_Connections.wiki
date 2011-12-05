@@ -56,11 +56,11 @@ All users will be listed in the *People Found* pane.
 
 *The first way*
 
-* Click *Invite* to send your connection request.
+Click *Invite* to send your connection request.
 
 *The second way*
 
-* Click the contact name to go to his/her profile, then click *Invite to connect* at the right corner of the contact profile page.
+Click the contact name to go to his/her profile, then click *Invite to connect* at the right corner of the contact profile page.
 
 !images/Invite-to-connect.png|align="center"!
 
@@ -90,11 +90,10 @@ In the *Network* or *All People* tab, you can remove the connections between you
 
 *The first way*
 
-* Click *Delete* to remove your established connections.
+Click *Delete* to remove your established connections.
 
 *The second way*
 
-* Click the contact name to go to the profile page, then click the *Disconnect* link at the right corner of the contact profile page.
+Click the contact name to go to the profile page, then click the *Disconnect* link at the right corner of the contact profile page.
 
 !images/Disconnect_in_profile.png|align="center"!
-

@@ -5,7 +5,7 @@ To access a space, click *My Spaces* on the *Administration bar*.
 
 !images/spaces.png|align="center"!
 
-The *Space* page appears as below.
+The *My Spaces* page appears as below.
 
 !images/space_page.png|align="center"!
 
@@ -38,16 +38,13 @@ There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations 
 
 !images/add_new_space_visibility.png|align="center"!
 
-*Visibility*: By default, the *Visibility* value is set to be *Visible*.
-
-* Visible: The space is always visible in the public spaces list.
-* Hidden: The space is not visible in the public spaces list.
-
-*Registration*: By default, the *Registration* value is set as *Validation*. There will be an explanation text (within two round brackets) corresponding to each your selection. 
-
-* Open: The users sending their requests can join the space without any validation.
-* Validation: The membership must be validated by the space manager.
-* Close: The user cannot request for joining, but only the space manager can invite him.
+* *Visibility*: By default, the *Visibility* value is set to be *Visible*.
+** Visible: The space is always visible in the public spaces list.
+** Hidden: The space is not visible in the public spaces list.
+* *Registration*: By default, the *Registration* value is set as *Validation*. There will be an explanation text (within two round brackets) corresponding to each your selection. 
+** Open: The users sending their requests can join the space without any validation.
+** Validation: The membership must be validated by the space manager.
+** Close: The user cannot request for joining, but only the space manager can invite him.
 
 *4.* Select all members of a specific group for your space where you are already 'manager' in the *Invite users from group* tab.
 
@@ -57,17 +54,17 @@ One of the two following cases occurs when you select this tab.
 
 The *Invite users from group* tab will be displayed as below.
 
-!images/add_new_space_invite_users.png|align=center!
+!images/add_new_space_invite_users.png|align="center"!
 
 *i.* Tick the *Select a target group for this space* checkbox to open the selection form.
 
 *ii.* Select the group in the left pane, then its child group in the right pane.
 
-!images/add_new_space_select_user.png|align=center!
+!images/add_new_space_select_user.png|align="center"!
 
 You will see your selected group as below.
 
-!images/add_new_space_select_group.png|align=center!
+!images/add_new_space_select_group.png|align="center"!
 
 
 {docbook}
@@ -80,10 +77,9 @@ You will see your selected group as below.
 
 After you have selected one existing group, all users in that group will be invited to join your newly created space.
 
-* *The second instance*: You have not been a manager of any group yet. It means that the space you are creating is the first one, and you cannot select a target group.
+* *The second instance*: You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
 
-!images/add_new_space_invite_users1.png|align=center!
-
+!images/add_new_space_invite_users1.png|align="center"!
 
 {docbook}
 <note>

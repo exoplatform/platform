@@ -7,7 +7,7 @@ To enter *Activities*, hover your cursor over your display name (for example, Jo
 In *Activity Streams,* you can follow various activities, including:
 
 * All updates related to users who have registered in your system in the *All Updates* tab.
-* All updates of users who have establised their connections with you in the *Network Updates* tab.
+* All updates of users who have established their connections with you in the *Network Updates* tab.
 * All updates of spaces where you are a member or a manager in the *Space Updates* tab.
 * All your own activities in the *My Status* tab, such as your profile updates, link updates or another activities pushed by yourself.
 
@@ -40,11 +40,12 @@ There are 2 ways to post your status.
  
 !images/status_update.png|align="center"!
 
-*2.* Click *Share* to accept sharing your status.
+
+*3.* Click *Share* to accept sharing your status.
 
 Your new status will be updated in two tabs: *All Updates* and *My Status.*
 
-h1. Share links  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
+h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
 
 *1.* Click !images/Share_link_icon.png!.
 
@@ -52,10 +53,49 @@ h1. Share links  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
 
 !images/attach-link-edit.png|align="center"!
 
-* If you do not want the thumbnail to be displayed, select the *No thumbnail*	checkbox. If there is more than one thumbnail, you can click blue arrows to go through all available thumbnails.
+* If you do not want the thumbnail to be displayed, select the *No thumbnail* checkbox. If there is more than one thumbnail, you can click blue arrows to go through all available thumbnails.
 * You can edit the link content by double-clicking the content you want to edit.
 
-*3.* Click *Share* to share the entered link with your connections, or the *X* icon to remove your entered link.
+*3.* Click *Share* to share your entered link with your connections, or click !images/Share_link_icon.png! again to remove your entered link.
+
+h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
+
+*1.* Click !images/Share_file_icon.png! to open the *Browse files* box.
+
+!images/Browse_files_box.png|align="center"!
+
+*2.* Click *Browse files* to open the *Select Document* form.
+
+!images/Select_document_form.png|align="center"!
+
+*3.* Select the relevant drive category from the *Select Drive* drop-down menu.
+
+*4.* Select the folder and the server file, then click *Select* to finish uploading your selected file. 
+
+{docbook}
+<note>
+<para>
+You can also click <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="images/Select_local_file_icon.png" format="PNG"/>
+            </imageobject>
+          </inlinemediaobject> to select a file from your local device; or click <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="images/Create_new_folder_icon.png" format="PNG"/>
+            </imageobject>
+          </inlinemediaobject> to create a new folder.
+</para>
+</note>
+{docbook}
+
+You will see your uploaded file in the *Browse files* box as below.
+
+!images/Uploaded_file_form.png|align="center"!
+
+*5.* Click *Share* to share your uploaded file with your connections.
+
+* To remove your uploaded file, simply click !images/Remove_file_icon.png! next to your selected file, or click !images/Share_file_icon.png! again.
+
 
 h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_Activity}
 
@@ -63,9 +103,11 @@ You are allowed to delete your activities/comments that you created, and those i
 
 *1.* Select *All Updates* or *My Status* to view all your own activities.
 
+!images/Updates_tabs.png|align="center"!
+
 *2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png!. The confirmation message will be displayed.
 
-*3.* Click *OK* to accept your deletion.
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 h1. Comment on activities  {anchor:id=Soc_User_Guide.Activity_Management.Comment}
 This action allows you to get ideas, answers, and any additional information when your collaborators respond to your status updates. Besides, you yourself give your ideas about any contacts' status update as follows:
@@ -95,7 +137,7 @@ The function allows you to show your interest by selecting *Like* and/or *Unlike
 
 *1.* Select the profile containing the activity/comment you want to like.
 
-*2.* Click *Like* beside the activity/comment.
+*2.* Click *Like* beside the activity/comment. 
 
 After you have selected *Like*, the text 'You like this' will be displayed below and *Like* will be turned into *Unlike*.
 
@@ -109,5 +151,4 @@ After you have selected *Like*, the text 'You like this' will be displayed below
 </citetitle>
 {docbook}
 
-You only can *Unlike* activities/comments that you selected *Like*.
-Do the same way as steps when selecting *Like*.
+You only can *Unlike* activities/comments that you selected *Like* by following similar steps when you like activities/comments.
