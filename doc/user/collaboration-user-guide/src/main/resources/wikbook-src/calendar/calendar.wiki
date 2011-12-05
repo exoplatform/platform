@@ -1271,58 +1271,76 @@ This function allows you to change name and description of a selected category.
 
 *3.* Click *Save* to finish editing/deleting your selected category.
 
-h1. Add Upcoming Events gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Upcoming event gadget"}
 
-The *Upcoming Events* gadget is a utility associated with the *Calendar* application. This gadget is used for listing events of a personal calendar that will happen today. 
 
-To use this portlet, you first need to add this gadget to the Space as follows:
 
-*1.* Drag an drop the *Upcoming Events* gadget from *Page Editor --> Applications --> Contents* to the page layout. You can do this step while [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
-!images/Calendar_upcoming_event_gadget.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
+h1. Add Agenda gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Agenda_gadget"}
 
-*2.* Select !images/Finish_icon.png! to save adding.
-
-{docbook}
-<note>
-<para>The <emphasis role="bold">Upcoming Events</emphasis> portlet is put in <emphasis role="bold">Page Editor --> Gadgets --> Upcoming Events</emphasis>.
-</para>
-</note>
-{docbook}
-
-In your selected page, you will see the *Upcoming Events* gadget as below.
-
-!images/Upcoming_events_gadget.png|align="center"!
-
-* Click !images/Show_all_button.png! to open the Calendar application in another browser tab.
+The *Agenda* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming events and tasks from your personal calendar.
 
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Change the number of events listed in the Upcoming Event gadget.
-</emphasis>
+Add Agenda gadget to your Dashboard
 </para>
 </citetitle>
 {docbook}
 
-*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open the *Settings* window.
+*1.* Click *Add Gadgets* on your Dashboard. The *Gadget Directory* will appear.
 
-!images/Settings_upcoming_events_gadget.png|align="center"!
+*2.* Drag and drop the *Agenda* gadget to you Dashboard. You can rearrange this gadget to get different layouts.
+
+!images/Gadget_Directory.png|align="center"!
+
+The result:
+
+!images/Agenda_gadget_sample.png|align="center"!
+
+{docbook}
+<citetitle>
+<para>
+The Agenda gadget settings.
+</para>
+</citetitle>
+{docbook}
+
+*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open its *Settings*.
+
+!images/Agenda_gadget_settings.png|align="center"!
 
 ||Field||Description||
-|Base url|The path to the Calendar application.|
-|Subscription url|The REST service path.|
-|Date time format|The type of time format for displaying upcoming events.|
-|Calendar|Name of the selected personal calendar. |
+|Base URL |The portal page that contains the your Calendar application.|
+|Subscription URL|The link to the Calendar REST service. Normally, regular users do not need to care about this field.|
+|Number of items displayed | The maximum number of the events and task will be shown.|
+|Calendar| Name of your personal calendar.|
 
-*2.* Enter a positive integer corresponding to the number of events displayed into the *Page size* field to your desire.
+*2.* Choose your preferences.
 
 *3.* Click *Save* to accept your changes.
 
 {docbook}
 <note>
     <para>
-    For two fields, including <emphasis role="bold">Base url</emphasis> and <emphasis role="bold">Subscription url</emphasis>, you should ask administrators for more exact information before making any changes on these fields.
+    The <emphasis role="bold">Base url</emphasis> is needed to make the <emphasis role="bold">Show all</emphasis> function work. By clicking the <emphasis role="bold">Show all</emphasis> link, you will go to the Portal page that contains the Calendar application.
     </para>
 </note>
 {docbook}
+
+
+h1. Add My Tasks gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.My_tasks"}
+The *My Task* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming tasks of the current day from your personal calendar.
+{docbook}
+<citetitle>
+<para>
+Add My Tasks gadget to your Dashboard
+</para>
+</citetitle>
+{docbook}
+
+The process is similar to [adding Agendar gadget to your Dashboard|#CSUser_guide.How_to_use_Calendar.Agenda_gadget]
+
+The result:
+
+!images/My_Tasks_gadget_sample.png!
+

@@ -715,12 +715,12 @@ The *Export Message* form will appear.
 
 *2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the {noformat}*.eml{noformat} format is supported.
 
-*3.* Click the *Export* button to accept exporting your selected file.
+*3.* Click the *Export* button to accept exporting your selected message.
 
 h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
 The function is used to import a message from your device to your selected folder in *Mail*.
 
-*1.* Click *More Actions* on the *Action bar*, then select *Import* from the drop-down menu.
+*1.* Click *More Actions* on the action bar and select *Export* from the drop-down menu.
 
 The *Import Message* form will appear.
 
@@ -735,7 +735,7 @@ The *Import Message* form will appear.
 
 *3.* Select the folder into which you want to import the message in the *Import to Folder* field.
 
-*4.* Click the *Import* button to accept your import.
+*4.* Click the *Import* button to accept importing your selected file.
 
 {docbook}
 <note>
