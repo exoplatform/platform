@@ -34,7 +34,7 @@ This function allows you to organize and personalize calendars in your own way.
 
 !images/add_group.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Enter the group name in the *Group Name* field which is required and its description in the *Calendar Groups* form. {anchor:id="Calendar_groups_form"}
+*2.* Enter the group name its description in the respective fields. {anchor:id="Calendar_groups_form"}
 
 !images/Add_calendar_group_form.png|align="center" width="250" fo:scalefit="1" html:scalefit="0"!
 
@@ -63,18 +63,22 @@ After creating a new calendar group, the created group will be displayed in the 
 h2. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
 This function allows you to change name and description of a specific calendar group.
 
-*1.* Right-click the group name which you want to edit, then select *Edit* from the drop-down menu to open the *Calendar Groups* form.
+*1.* Hover your mouse over the calendar group which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
 
-*2.* Make changes on the *Group Name* or on the *Description* fields, then click *Save* to accept your changes.
+*2.* Click *Edit* from the drop-down menu to open the *Calendar Groups* form.
+
+*3.* Make changes on the *Group Name* or on the *Description* fields, then click *Save* to accept your changes.
 
 h2. Delete a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Delete_calendar_group}
 Once a calendar group is deleted, all calendars inside it are also deleted.
 
 *The first way*
 
-*1.* Right-click the group which you want to delete and select *Delete* from the drop-down menu.
+*1.* Hover your mouse over the calendar group which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
+*2.* Click *Delete* from the drop-down menu.
+
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 *The second way*
 
@@ -107,7 +111,9 @@ Click !images/Arrow_icon_calendar.png!, then select *Add Calendar* from the drop
 
 *The second way*
 
-Right-click a calendar group which exists in the list of personal calendars, then click *Add Calendar* from the drop-down menu. By this way, the group which contains your new calendar is already selected.
+*i.* Hover your mouse over the calendar which you want add calendar, then click !images/Calendar-gear-icon.png! that appears.
+
+*ii.* Click *Add Calendar* from the drop-down menu. By this way, the group which contains your new calendar is already selected.
 
 *2.* Fill in fields of the *Calendar Details* tab.
 
@@ -194,7 +200,9 @@ Click !images/Arrow_icon_calendar.png!, then select *Remote Calendar* from the d
 
 *The second way*
 
-Right-click a calendar group which exists in the list of *Personal Calendars*, then select *Remote Calendar* from the drop-down menu.
+*i.* Hover your mouse over the personal calendar which you want to add remote calendars, then click !images/Calendar-gear-icon.png! that appears.
+
+*ii.* Click *Remote Calendar* from the drop-down menu.
 
 !images/subscrible_calendar.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
@@ -258,15 +266,17 @@ Meanwhile, for shared calendars, you cannot edit them. If you are granted the <e
 </note>
 {docbook}
 
-*1.* Right-click the calendar and select *Edit* from the drop-down menu. The form to edit the calendar will be different, depending on your selected calendar type. For example, if you select a personal calendar, the form only contains the *Calendar Details* tab.
+*1.* Hover your mouse over the calendar which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
 
-*2.* Make changes on the calendar, then click *Save* to complete.
+*2.* Click *Edit* from the drop-down menu. The form to edit the calendar will be different, depending on your selected calendar type. For example, if you select a personal calendar, the form only contains the *Calendar Details* tab.
+
+*3.* Make changes on the calendar, then click *Save* to save all changes.
 
 h2. Set the calendar color {anchor:id="Set_calendar_color"}
 
 The *Calendar* application allows you to select different colors for all types of calendars to recognize them easily. 
 
-*1.* Right-click the calendar name to open the drop-down menu.
+*1.* Hover your mouse over the calendar which you want to set the color, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Select one color from the available 32-color palette.
 
@@ -281,9 +291,11 @@ You cannot delete group calendars created by ANOTHER users if you are not grante
 </note>
 {docbook}
 
-*1.* Right-click the calendar, then select *Remove* from the drop-down menu.
+*1.* Hover your mouse over the calendar which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
+*2.* Click select *Remove* from the drop-down menu.
+
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 h1. Export/Import a calendar {anchor:id="Export_and_import_calendar}
 
@@ -305,11 +317,13 @@ You can only export the calendar which contains at least one event or task. Besi
 
 This function allows you to export a calendar and its events/tasks into a separate file on your device.
 
-*1.* Right-click your desired calendar, then select *Export* from the drop-down menu to open the *Export Calendars* form.
+*1.* Hover your mouse over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
+
+*2.* Click *Export* from the drop-down menu to open the *Export Calendars* form.
 
 !images/export_calendars.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
-*2.* Enter the exported file name in the *File Name* field, and select its format from the *Export Format* drop-down menu. At present, only the *ICalendar(.ics)* format is supported.
+*3.* Enter the exported file name in the *File Name* field, and select its format from the *Export Format* drop-down menu. At present, only the *ICalendar(.ics)* format is supported.
 
 {docbook}
 <warning>
@@ -318,7 +332,7 @@ This function allows you to export a calendar and its events/tasks into a separa
 </warning>
 {docbook}
 
-*3.* Click *Save* to finish your export.
+*4.* Click *Save* to finish your export.
 
 {docbook}
 <note>
@@ -346,7 +360,9 @@ Click !images/Arrow_icon_calendar.png! at the right top of the calendars list, t
 
 *The second way*
 
-Right-click the name of the calendar group, then select *Import* from the drop-down menu.
+*i.* Hover your mouse over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
+
+*ii.* Click *Import* from the drop-down menu.
 
 {docbook}
 <note>
@@ -357,7 +373,9 @@ Right-click the name of the calendar group, then select *Import* from the drop-d
 
 *The third way*
 
-Right-click one specific calendar in the calendars list, then select *Import* from the drop-down menu.
+*i.* Hover your mouse over the calendar which you want to import, then click !images/Calendar-gear-icon.png! that appears.
+
+*ii.* Click *Import* from the drop-down menu.
 
 The *Calendar* form will appear differently, depending on your selected way.
 
@@ -411,7 +429,9 @@ If another users share their calendars with you, you will see shared calendars i
 </citetitle>
 {docbook}
 
-*1.* Right-click one personal calendar, then select *Share* from the drop-down menu to open the *Share Calendar* form.
+*1.* Hover your mouse over the calendar which you want to share, then click !images/Calendar-gear-icon.png! that appears.
+
+*2.* Click *Share* from the drop-down menu to open the *Share Calendar* form.
 
 !images/share_calendar.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
@@ -422,13 +442,13 @@ If another users share their calendars with you, you will see shared calendars i
 |*Group*|The name of the groups with whom you want to share your calendar.|
 |*Edit Permission*|This option allows granting the edit permission on the calendar to the selected users/groups.|
 
-*2.* Select users or groups by manually entering the correct names into the textboxes;
+*3.* Select users or groups by manually entering the correct names into the textboxes;
 
 Or, click !images/user_selector_icon.png! or !images/group_selector_icon.png! to open the forms to select users or groups respectively.
 
-*3.* Click the *Edit Permission* checkbox if you want to grant the *Edit* permission to your selected users/groups.
+*4.* Click the *Edit Permission* checkbox if you want to grant the *Edit* permission to your selected users/groups.
 
-*4.* Click *Save* to accept sharing your personal calendar.
+*5.* Click *Save* to accept sharing your personal calendar.
 
 {docbook}
 <citetitle>
@@ -453,17 +473,19 @@ iCal provides a link that allows users to download a {noformat}*.ics{noformat} f
 {docbook}
 
 
-*1.* Right-click a calendar which you want to get iCal, then select *Edit* from the drop-down menu to open the *Calendar* form.
+*1.* Hover your mouse over the calendar which you want to get iCal, then click !images/Calendar-gear-icon.png! that appears.
+
+*2.* Click *Edit* from the drop-down menu to open the *Calendar* form.
 
 !images/calendar_detail.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
-*2.* Get a Public URL or Private URL by clicking !images/ICAL_icon.png!. For Public URL, you must assure that the iCal is public. If it is not public, simply click the "Disable Public Access" link.
+*3.* Get a Public URL or Private URL by clicking !images/ICAL_icon.png!. For Public URL, you must assure that the iCal is public. If it is not public, simply click the "Disable Public Access" link.
 
 One *Calendar Feed* form will pop up.
 
 !images/calendar_feed.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
-*3.* Copy the link in the *Calendar Feed* form, then send it to another users. The shared users can use this link to download the _.ics_ file which can be opened in popular calendar applications, such as Microsoft Outlook, Google Calendar, Apple iCal.
+*4.* Copy the link in the *Calendar Feed* form, then send it to another users. The shared users can use this link to download the _.ics_ file which can be opened in popular calendar applications, such as Microsoft Outlook, Google Calendar, Apple iCal.
 
 h1. Schedule an event {anchor:id="CSUser_guide.How_to_use_Calendar.Schedule_event"}
 h2. View details of an event {anchor:id="CSUser_guide.How_to_use_Calendar.View_event_details"}
@@ -515,8 +537,8 @@ Right-click the calendar view pane, and select *Add New Event* from the drop-dow
 !images/add_new_event.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
 *The third way*
-
-Right-click the calendar you want to add new events in the left pane, and select *Add Event* from the drop-down menu.
+*i.* Hover your mouse over the calendar which you want to add new events, then click !images/Calendar-gear-icon.png! that appears.
+*ii.* Click *Add Event* from the drop-down menu.
 
 *The forth way*
 
@@ -586,6 +608,7 @@ You will see the event updated in your Activity Stream of your Space or Group Sp
 !images/activity_stream.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
 The event will be updated in your *Activity Stream* with its brief information, such as description, location, start time and end time. You can even refuse or accept participating in this event directly in *Activity Stream* without going to the *Calendar* application.
+
 h4. Create a recurring event {anchor:id="Create_recurring_event"}
 In the *Detail* tab, tick the *Repeat* checkbox to open the *Repeating event* form.
 
@@ -945,7 +968,9 @@ Right-click the *Calendar View pane*, then select *Add New Task* from the drop-d
 
 *The third way*
 
-Right-click the calendar name, and select *Add Task* from the drop-down menu.
+*i.* Hover your mouse over the calendar which you want add tasks, then click !images/Calendar-gear-icon.png! that appears.
+
+*ii.* Click *Add Task* from the drop-down menu.
 
 *2.* Fill in fields of the *Quick Add Task* form. {anchor:id="Step2_quick_add_task"}
 
