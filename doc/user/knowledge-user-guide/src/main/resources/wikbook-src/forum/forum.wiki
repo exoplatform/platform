@@ -82,3 +82,9 @@ To have an overall look of actions which users of each role can do in the *Forum
     </para>
 </note>
 {docbook}
+
+Before reading, notice that this document is divided into 3 parts which correspond to different user roles:
+
+* Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
+* Forum user guide for [Moderators|#Forum_user_guide.Moderator]
+* Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]

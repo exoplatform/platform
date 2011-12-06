@@ -1,6 +1,18 @@
 h1. Moderator {anchor:id=Forum_user_guide.Moderator}
 Moderators in *Forum* are responsible for managing contents of posts and replies before and after they are posted to the category where they are assigned as moderators.
 
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
+* Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]
+
 h2. Moderate forums {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_forums}
 Moderators can manage all the forums inside their assigned category. If you are a moderator of any category, you can do the following actions:
 

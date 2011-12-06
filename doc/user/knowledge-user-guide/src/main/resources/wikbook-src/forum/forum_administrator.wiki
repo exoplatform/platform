@@ -2,6 +2,18 @@ h1. Administrator {anchor:id=Forum_user_guide.Forum_Administrator}
 With the highest rights, administrators are in charge of the entire management tasks, including [configuring and customizing the Forum porlet|#Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet], [backing up data|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums], [managing users and granting permissions|#Forum_user_guide.Forum_Administrator.Manage_Users], [managing categories|#Forum_user_guide.Forum_Administrator.Manage_categories] and [forums|#Forum_user_guide.Forum_Administrator.Manage_forums].
 Administrator has the global role.
 
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+* Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
+* Forum user guide for [Moderators|#Forum_user_guide.Moderator]
+
 h2.  Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
 
 After adding the application to your *Space*, you have to configure the portlet settings to make it work in your desired way.
