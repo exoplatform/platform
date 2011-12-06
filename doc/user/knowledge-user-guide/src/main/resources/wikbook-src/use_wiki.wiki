@@ -11,7 +11,7 @@ After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* ho
 |!images/no3.png!|The *Search* box.|
 |!images/no4.png!|The pages tree view.|
 |!images/no5.png!|The *Page Control* area which helps users take actions with the current page.|
-|!images/no6.png!|The defaul content. The small page could be a Wiki quick guide that explains how to create a page, switch between different edit modes, or create a page, and more.|
+|!images/no6.png!|The defaul content. The small page could be a Wiki quick guide that explains how to create a page, switch between different edit modes, or create a page and more.|
 |!images/7.png!|The page information. Click *View Change* to go to the *Page History* page for comparing changes between versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
 
 h2. The page hierarchy in Wiki {anchor:id=KSuser.Wiki_Overview.Page_hierarchy}
@@ -31,7 +31,7 @@ There are 3 types of spaces:
 {docbook}
 <note>
     <para>
-    In this document, Spaces are referred as wikis, particularly portal wikis, group wikis, and user wikis.
+    In this document, Spaces are referred as wikis, particularly portal wikis, group wikis and user wikis.
     </para>
     <para>
     Any space which has an implicit root page is named Wiki Home.
@@ -88,7 +88,7 @@ The selected template appears:
 
 *3.* Enter the title for your page. The page title must be unique.
 
-*4.* Enter the content for your page by using *Wiki Markup* or the *Rich Text* editor.
+*4.* Enter the content of your page by using *Wiki Markup* or the *Rich Text* editor.
 
 *5.* Optionally, click *Preview* to see how your page looks like.
 
@@ -114,10 +114,10 @@ For example:
 
 *3.* Click the created red link to open the 'Add Page' form.
 
-*4.* Follow the steps stated [above|#KSuser.Work_with_Wiki_pages.Create_pages.First_way] to enter the page title, content, and save the page.
+*4.* Follow the steps stated [above|#KSuser.Work_with_Wiki_pages.Create_pages.First_way] to enter the page title, content and save the page.
 
 h2. Edit a page {anchor:id=KSuser.Work_with_Wiki_pages.Edit_pages}
-You can edit a page at any time provided that you have the edit permission on that page.
+You can edit a page at any time if you have the edit permission on that page.
 
 To edit a page, click *Edit* in the *Page Control* area. Your page will switch to the Edit mode.
 
@@ -167,7 +167,7 @@ h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 
 h2. View page information {anchor:id=KSuser.Work_with_Wiki_pages.View_page_info}
 
-Viewing page information is accessible to users who have the View permission on that page. The page information provides you all details about related pages of the current page, the hierarchy structure of the current page, the page history, and more.
+Viewing page information is accessible to users who have the View permission on that page. The page information provides you all details about related pages of the current page, the hierarchy structure of the current page, the page history and more.
 
 *1.* Select the page you want to view the information.
 
@@ -404,7 +404,7 @@ The macros are classified into different categories: *Content*, *Formatting*, *N
 
 !images/Macro_parameters_form.png|align="center"!
 
-*5.* Enter parameters into the corresponding fields for your selected macro. Click *Insert Macro* to perform your macro insertion; Or, click *Previous* to return to initial *Insert Macro* form.
+*5.* Enter parameters into the corresponding fields for your selected macro. Click *Insert Macro* to perform your macro insertion or click *Previous* to return to initial *Insert Macro* form.
 
 The following table describes specific functions of common macros.
 
@@ -576,7 +576,7 @@ h1. Wiki Administration {anchor:id=KSuser.Wiki.Wiki_Administration}
 </note>
 {docbook}
 
-The administrator has the highest right in *Wiki*. The administrator can delete a page, change the space settings, set the edit permission for users, and more.
+The administrator has the highest right in *Wiki*. The administrator can delete a page, change the space settings, set the edit permission for users and more.
 
 h2. Set up space settings {anchor:id=KSuser.Wiki_Administration.Set_up_space_settings}
 
@@ -678,7 +678,7 @@ h3. Manage a page template {anchor:id=KSuser.Wiki_Administration.Manage_page_tem
 
 When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a *Wiki* page with predefined contents.
 
-In the *Space Settings* form, select the *Template* tab, and the form to manage templates appears.
+In the *Space Settings* form, select the *Template* tab and the form to manage templates appears.
 
 !images/wiki_setting_template.png|align="center"!
 
@@ -703,7 +703,7 @@ All matching results which contain your entered search term are displayed right 
 {docbook}
 <note>
     <para>
-    The <emphasis role="bold">Search</emphasis> function is only performed by the template titles, and you must enter a complete word into the <emphasis role="bold">Search</emphasis> textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly".
+    The <emphasis role="bold">Search</emphasis> function is only performed by the template titles and you must enter a complete word into the <emphasis role="bold">Search</emphasis> textbox. For example, to find the template whose title contains "daily report", you can input "report" rather than "repo", or "daily" rather "ly".
 
     </para>
 </note>

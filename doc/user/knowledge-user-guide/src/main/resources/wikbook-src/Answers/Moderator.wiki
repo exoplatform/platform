@@ -39,7 +39,7 @@ If you are already in a category that you moderate, you can perform all actions 
 * [Move a category|#KSuser.Answer_Moderator.Move_categories]
 * [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
 
-h3. Add new categories {anchor:id=KSuser.Answer_Moderator.Add_categories}
+h3. Add a new category {anchor:id=KSuser.Answer_Moderator.Add_categories}
 
 Notice that only administrators can initialize *Answers* by creating first categories and assigning to moderators for each category.
 Moderator can only add new sub-categories in a category that he moderates.
@@ -59,7 +59,7 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 *Details:*
 ||Field||Description||
-||Asterisk {noformat}(*){noformat}| This mark next to each field means that it is required to enter values in the field. |
+|*Asterisk {noformat}(*){noformat}*| This mark next to each field means that it is required to enter values in the field. |
 |*Category*| The name of the category |
 |*Order*| The order of the category which must be in the numeric format. |
 |*Restricted Audience*| Select specific users/groups to be restricted from the category.|
@@ -72,20 +72,6 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 *3.* Click *Save* to complete.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
 
 h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
@@ -97,43 +83,14 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *4.* Click *Save* to save all changes.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
-
-h3. Delete categories {anchor:id=KSuser.Answer_Moderator.Delete_categories}
+h3. Delete a category {anchor:id=KSuser.Answer_Moderator.Delete_categories}
 
 *1.* Follow one of the approaches described in the [Manage categories|#KSuser.Answer_Moderator.Manage_categories] section.
 
 *2.* Select !images/Delete_category_btn.png! from the drop-down menu and click *OK* in the confirmation message.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
 
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
-
-h3. Move categories {anchor:id=KSuser.Answer_Moderator.Move_categories}
+h3. Move a category {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories] to open the drop-down menu.
 
@@ -143,22 +100,8 @@ h3. Move categories {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 !images/Move_category_form.png|align="center"!
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
 
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
-
-h3. Export/Import categories {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
+h3. Export/Import a category {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
 
 Both functions can be executed on all categories and questions in the *Answers* home or a specific category in *Answers*.
 
@@ -198,20 +141,6 @@ The exported file is in the .zip format and it can be used to import to *Answers
 
 After being imported, all categories and questions will be displayed in the *Answers* homepage.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
 
 h2. Moderate questions {anchor:id=KSuser.Answer_Moderator.Moderate_question}
 
@@ -237,13 +166,6 @@ To view all posted questions, click !images/Manage_question_btn.png! on the *Act
 {docbook}
 
 
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-* [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
-* [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
-
 h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
 
 *1.* Select !images/Manage_question_btn.png! on the *Action* bar to view all the open questions.
@@ -254,21 +176,6 @@ h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions
 
 *4.* Click *Save* to save all changes.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-* [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
-* [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
 h3. Approve/Disapprove a question {anchor:id=Answer_Moderator.Moderate_question.Approve&disapprove_questions}
 
@@ -279,7 +186,7 @@ There are two options for answers: *All* and *Approved*.
 * *All*: all approved and unapproved questions are displayed and visible for all users.
 * *Approved*: only the approved questions are displayed and visible while the unapproved questions are not displayed and invisible.
 
-If you select *Approved*, the *Moderate Question* function will determine the unapproved questions to be displayed or not.
+If you select *Approved*, the *Moderate Question* function will determine the unapproved questions to display or not.
 
 {docbook}
 <citetitle>
@@ -309,21 +216,6 @@ If you select *Approved*, the *Moderate Question* function will determine the un
 
 *2.* Click !images/Yes_icon.png! or !images/No_icon.png! to approve or disapprove the respective question.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-* [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-* [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
-* [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
 
@@ -347,20 +239,6 @@ When a question is activated, it will be displayed and visible to all users. If 
 
 *2.* Click !images/Yes_icon.png! or !images/No_icon.png! to activate or deactivate the respective questions.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-* [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
-* [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 h3. Delete a question {anchor:id=Answer_Moderator.Moderate_question.Delete_questions}
 
 There are several ways to delete questions:
@@ -377,21 +255,6 @@ There are several ways to delete questions:
 
 * Click your desired question and click the delete icon. There will be an alert message, click *OK* to confirm.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-* [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-* [Move a question|#Answer_Moderator.Moderate_question.Move_questions]
 
 h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 
@@ -423,21 +286,6 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 </note>
 {docbook}
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [View all questions|#KSuser.Answer_Moderator.Moderate_question.View_all_questions]
-* [Edit a question|#Answer_Moderator.Moderate_question.Edit_questions]
-* [Approve/Disapprove a question|#Answer_Moderator.Moderate_question.Approve&disapprove_questions]
-* [Activate/Deactivate a question|#Answer_Moderator.Moderate_question.Activate&Deactivate_questions]
-* [Delete a question|#Answer_Moderator.Moderate_question.Delete_questions]
 
 h2. Moderate an answer {anchor:id=KSuser.Answer_Moderator.Moderate_answers}
 
@@ -457,24 +305,11 @@ Click !images/Approve_Answer_icon.png! / !images/Disapprove_Answer_icon.png! on 
 {docbook}
 <note>
     <para>
-    The approved answer is visible to regular users, while the unapproved question is invisible.
+    The approved answer is visible to regular users while the unapproved question is invisible.
     </para>
 </note>
 {docbook}
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
-* [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_answers}
 
@@ -489,37 +324,10 @@ Click !images/Active_answer_icon.png! / !images/Deactive_answer_icon.png! on the
 </note>
 {docbook}
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
-* [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 
 To delete an answer, click the trash icon on the top right of the answer content, then click *OK* in the confirmation message.
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
-* [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
-* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
 
 h3. Promote a comment to answer {anchor:id=KSuser.Answer_Moderator.Promote_comments}
 
@@ -559,16 +367,3 @@ To promote a comment as an answer, click !images/promote_answer_icon.png! on the
 </note>
 {docbook}
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-
-* [View details of Answers|#Answer_user_guide.View_details]
-* [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
-* [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
-* [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]

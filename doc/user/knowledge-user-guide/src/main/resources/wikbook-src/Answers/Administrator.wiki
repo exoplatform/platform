@@ -69,9 +69,9 @@ h3. Change the display mode {anchor:id=KSuser.Answer_Moderator.Change_display_mo
 
 In the *Display Mode* tab, you can set all the default display properties of the *Answers* application, including:
 
-* *Display*: Display all entries in the *Answers* application. 
-** *'All'*: all entries, including approved and unapproved entries/questions, are displayed in a list when users view.
-** *'Approved'*: Only approved entries are displayed in the list when users view.
+* *Display*: Display all entries in the *Answers* application for administrators and moderators..
+** *'All'*: All entries, including approved and unapproved entries/questions, are displayed in a list when administrators and moderators view.
+** *'Approved'*: Only approved entries are displayed in the list when administrators and moderators view.
 * *Order by*: The order to display all questions in the *Answers* application.
 ** *Created Date*: Entries in the list are displayed to the entries's created date order.
 ** *Alphabet/Index*: Entries in the list are displayed to the alphabet order.
@@ -117,6 +117,11 @@ The followings are variables that you can use in your template:
 *{noformat}&questionResponse_{noformat}*: will be replaced by the content of the new questions' reply.
 
 *{noformat}$questionLink_{noformat}*: will be replaced by the link to new questions in the *Answers* portlet.
+
+*{noformat}&questionLink_{noformat}: will be replaced by the link for going to new questions.
+
+*{noformat}&answerNowLink_{noformat}: will be replaced by the link for going to new questions and open pop-up form Answer question.
+
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png!.
 You can use the text editor to format the template as you wish.

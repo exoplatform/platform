@@ -14,7 +14,7 @@ This section describes actions that a regular user can perform in the *Forum* ap
 * Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]
 
 h2. View details of the Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
-Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see all categories of forum, all forums of each category, and the number of posts, and more another information as below.
+Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see all categories of forum, all forums of each category, the number of posts more another information as below.
 
 !images/View_Forum_application.png|align="center"!
 
@@ -27,11 +27,11 @@ With *Quick Search*, users can directly type a search term in the textbox. All t
 
 For example:
 
-* The *Search* function on the main bar to search for items related to categories, forums, topics, and posts.
+* The *Search* function on the main bar to search for items related to categories, forums, topics and posts.
 
 !images/Search_main_bar_forum.png|align="center"!
 
-* The *Search* function inside one specific forum to find topics, and posts in the forum only.
+* The *Search* function inside one specific forum to find topics and posts in the forum only.
 
 !images/Search_in_forum.png|align="center"!
 
@@ -88,11 +88,11 @@ The list of the found objects will be displayed in the *Search Result* form or t
 *Details:*
 
 ||Field||Description||
-|Terms|The keyword related to your desired categories.|
-|Scope| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Titles' option, only results matching the object's titles are returned.|
-|Username| The name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
-|Created between - and| The created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
-|Moderator| The name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
+|*Terms*|The keyword related to your desired categories.|
+|*Scope*| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Titles' option, only results matching the object's titles are returned.|
+|*Username*| The name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
+|*Created between - and*| The created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
+|*Moderator*| The name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
 
 * To find in forums, select *Forum* from the *Search in* drop-down menu.
 
@@ -156,7 +156,7 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 *3.* Enter the topic title, content. The title must be less than 100 characters (special charaters are accepted). You may set [other optional properties|#topic_properties] if you want.
 
 * Click the *Attach files* link to attach files to your message. The max size for the attachment is 20Mb. Click the trash icon next to the attachment to remove it.
-* Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text, or to insert images, videos, and links.
+* Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text, or to insert images, videos and links.
 
 !images/new_topic.png|align="center"!
 
@@ -191,7 +191,7 @@ When posting a new topic, you may also assign an icon to the topic for the quick
 
 h4. Set the topic options {anchor:id=Forum_regular_user.Topics.Start_topics.Set_topic_options}
 
-Go to the *Options* tab, you can select status, state, type of the topic, and more.
+Go to the *Options* tab, you can select status, state, type of the topic and more.
 
 !images/start_topic_options_tab.png|align="center"!      {anchor:id="start_topic_options_tab"}
 
@@ -373,7 +373,7 @@ You can post a reply with the full editor as follows:
 
 *2.* Click !images/Post_reply_btn.png! on the top or bottom of the topic.
 
-*3.* Enter your message in the textbox. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format texts, or insert images, videos, and links.
+*3.* Enter your message in the textbox. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format texts, or insert images, videos and links.
 
 !images/new_post_form.png|align="center"!
 
@@ -447,7 +447,7 @@ This will generate the quotation BBCodes tag for your message. After getting the
 
 
 h3. Edit a post {anchor:id=Forum_regular_user.Posts.Edit_posts}
-After submitting your post, and you want to change it, you can do as follows:
+After submitting your post and you want to change it, you can do as follows:
 
 *1.* Click !images/Edit_post_btn.png! under the post you want to edit.
 
@@ -486,7 +486,7 @@ The *View User Profile* form will be displayed.
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
 
-This function is for all logged-in users to send messages to other users privately. These messages will not be moderated and only viewable to the receiver.
+This function is for all logged-in users who eant to send messages to other users privately. These messages will not be moderated and only viewable to the receiver.
 
 
 h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
@@ -543,7 +543,7 @@ Simply click !images/Remove_icon.png! corresponding to the link that you want to
 The selected bookmarks will be removed from the bookmarks list.
 
 h2. Subscribe to RSS feeds {anchor:id=Forum_user_guide.Forum_regular_user.Subscriptions}
-This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed, click !images/forum_rss_btn.png|! on the *Action* bar;
+This function is for all users to subscribe to a specific category, forum, topic. If there are any changes, the feed of the subscribed category, forum or topic will be updated. To get the RSS feed, click !images/forum_rss_btn.png|! on the *Action* bar.
 
 !images/rss_on_action_bar.png|align="center"!
 
@@ -569,7 +569,7 @@ The following illustration demonstrates the RSS feed subscription using the Fire
 h2. Watch {anchor:id=Forum_user_guide.Forum_regular_user.Bookmarks}
 This function is for all logged-in users to keep track of changes in categories, forums or topics via notification emails. Whenever there are new changes, such new categories, new topics or new posts, you will receive a notification from the *Forum* application.
 
-To watch a desired object, go into the object (category, forum or topic), and click !images/Forum_Watch_btn.png! on the *Action* bar; Or right-click the object title and select *Watch* from the drop-down menu:
+To watch a desired object, go into the object (category, forum or topic) click !images/Forum_Watch_btn.png! on the *Action* bar or right-click the object title and select *Watch* from the drop-down menu:
 
 !images/Forum_watch_rightclick.png|align="center"!
 
@@ -608,7 +608,7 @@ This function is for all users to view and copy the link to a specific forum/top
 
 h2. User settings {anchor:id=Forum_user_guide.Forum_regular_user.User_settings}
 
-You yourself may configure your settings, such as personal profile, forum settings, and subscriptions.
+You may configure your settings yourself, such as personal profile, forum settings and subscriptions.
 
 Click !images/Forum_settings_btn.png! on the *User* bar to go to the *Settings* form. Once you opened the *Settings* form, you can control your personal settings, options and preferences via the following actions:
 
