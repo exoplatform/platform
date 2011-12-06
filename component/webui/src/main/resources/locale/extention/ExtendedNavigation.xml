@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+    <UIActionBar>
+            <tooltip>
+                <DeleteNode>Delete</DeleteNode>
+            </tooltip>
+	</UIActionBar>
+    <UIViewFormTabPane>
+		<label>
+			<deleteNode>Delete node</deleteNode>
+		</label>
+	</UIViewFormTabPane>
+</bundle>
