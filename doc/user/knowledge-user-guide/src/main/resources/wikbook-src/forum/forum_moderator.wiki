@@ -199,7 +199,7 @@ Or, if you are already in a topic, click !images/More_actions_btn.png! on the *A
 </citetitle>
 {docbook}
 
-*1.* Click the username of the poster or simply hover mouse over the poster's avatar.
+*1.* Click the username or avatar of the poster.
 
 *2.* Click *{noformat}All Topics By [User name]{noformat}*.
 

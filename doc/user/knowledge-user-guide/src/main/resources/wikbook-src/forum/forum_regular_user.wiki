@@ -475,7 +475,7 @@ h2. Public user profile {anchor:id=Forum_user_guide.Forum_regular_user.Public_us
 
 Every forum member has a publicly viewable profile. This includes information provided by the member, either during the registration process or later via the [User settings|#Forum_user_guide.Forum_regular_user.User_settings].
 
-Whenever you see a member's name in a topic, you can view his public profile quickly by clicking his username and select *View Public Profile* in the drop-down menu.
+Whenever you see a member's name in a topic, you can view his public profile quickly by clicking his username or avatar and select *View Public Profile* in the drop-down menu.
 
 !images/view_public_profile.png|align="center"!
 
@@ -491,7 +491,7 @@ This function is for all logged-in users to send messages to other users private
 
 h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
 
-*1.* Click the user name of the member you want to send message, then select *Send Private Message* in the drop-down menu.
+*1.* Click the username or avatar of the user you want to send message, then select *Send Private Message* in the drop-down menu.
 
 !images/send_message.png|align="center"!
 
