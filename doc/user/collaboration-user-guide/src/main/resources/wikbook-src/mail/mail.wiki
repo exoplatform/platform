@@ -36,7 +36,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 *Details:*
 ||Field||Description||
 |*Your Display Name*|The name to be displayed when you use the account. This name will be displayed with your email address when you compose a new message.|
-|*Email Address*|The email address corresponding to your created account. It must be in a valid format.|
+|*Email Address*|The email address corresponding to your created account. It must be in a valid format. (See more details about the *Email Address* format [here|#Create_New_Account_form_details].)|
 |*Reply-to Address*|The email address which receives all replies.|
 |*Signature*|The identification text which is automatically inserted at the bottom of your sending messages.|
 
