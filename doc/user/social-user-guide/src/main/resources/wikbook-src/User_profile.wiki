@@ -107,7 +107,7 @@ The followings are changeable information in each pane.
 ||Field||Description||
 |*First name* | The first name which is required with the length from 1 to 45 characters. |
 |*Last name*| The last name which is required with the length from 1 to 45 characters. |
-|*Email*| The email address which must be in a valid format, for example: johnsmith@exoplatform.com. Only lower-case characters are accepted without any spaces.|
+|*Email*| The email address which must be in a valid format, for example, johnsmith@exoplatform.com. (See more details about the *Email Address* format [here|#Create_New_Account_form_details].)|
 
 {docbook}
 <citetitle>
