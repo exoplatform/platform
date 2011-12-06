@@ -346,15 +346,19 @@ h2. Link to an inserted image {anchor:id=KSuser.Work_with_attachment.Link_to_ima
 
 h1. Use the WYSIWYG Editor {anchor:id=KSuser.Wiki.Use_WYSIWYG_editor}
 
-*WYSIWYG* stands for What You See Is What You Get. You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png! or !images/source_editor_btn.png!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the contents to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using *Wiki* markups.
+*WYSIWYG* stands for What You See Is What You Get. The *WYSIWYG* editor allows you to edit an wiki pages directly in wiki markup language. This has the advantage of being faster than the Rich Text Editor for some formatting tasks.
+
+You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png! or !images/source_editor_btn.png!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the contents to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
 
 !images/wiki_wysiwyg_editor.png|align="center"!
-
 
 {docbook}
 <note>
     <para>
     If the final result is not similar to what you wish when editing a page by the <emphasis role="bold">WYSIWYG</emphasis> editor, you can go back to the <emphasis role="bold">Source</emphasis> editor and use <emphasis role="bold">Wiki</emphasis> markups to edit the content.
+    </para>
+    <para>
+    When using the <emphasis role="bold">WYSIWYG</emphasis> editor, examples of commonly used markup are displayed in a lateral panel with a link to the <link linkend="KSuser.Wiki.Syntax_Help"><emphasis role="bold">Full Syntax Notation</emphasis></link> page for more details.
     </para>
 </note>
 {docbook}
@@ -368,7 +372,15 @@ h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
 If you do not know how to use a syntax, you can use the Syntax Help function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png! from the page toolbar. When being clicked, a lateral pane slides beside the editing area will show all the information of the most common syntaxes.
 The lateral pane can be hidden by clicking !images/Close_button.png! in the upper right corner or by clicking !images/Wiki_help_btn.png! again.
 
-You can click !images/More_syntaxes.png! at the bottom of short *Help Tips* form to view the full help.
+!images/Quick_notation.png|align="center"!
+
+You can click !images/More_syntaxes.png! at the bottom of short *Help Tips* form to open the *Full Syntax Notation* page.
+
+You can insert icons, emoticons to emphasise the content. The usage is described in the *Full Syntax Notation* page with example so you can easily remember and use them.
+
+*Example of Emoticons and icons*:
+
+!images/Smiley_special_notation.png|align="center"!
 
 h1. Work with Macros {anchor:id=KSuser.Wiki.Work_with_Macros}
 Using a macro, you can apply extra formatting, functionality and customization to your content.
