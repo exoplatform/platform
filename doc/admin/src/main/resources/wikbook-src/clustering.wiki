@@ -25,7 +25,7 @@ The embedded JCR server requires a portion of its state to be shared on a file s
 * The values storage.
 * The index (in case of shared index usage).
 {note}
-Since Platform 3.5 a local JCR index can be used on each node of the cluster. It's new feature and it needs a special configuration in Platform (desribed below). 
+Since Platform 3.5, a local JCR index can be used on each node of the cluster. It is a new feature and it needs a special configuration in Platform (described below). 
 
 {note}
 
@@ -33,7 +33,7 @@ All nodes must have the read/write access to the shared file system.
 {info}It is strongly recommended that you use a mount point on a SAN.{info}
 
 h2. Set up eXo Platform cluster {anchor:id=ADM.Clustering.Setup_Platform_cluster}
-Following steps describe typical setup of Platform cluster:
+The following steps describe a typical setup of Platform cluster:
 * Switch to a _cluster_ configuration.
 This step is done in the _configuration.properties_ file. This _configuration.properties_ file must be set in the same way on all the cluster nodes.
 First, point the _exo.shared.dir_ variable to a directory shared between cluster nodes.
@@ -115,7 +115,7 @@ gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 h2. Local JCR index in cluster
 
 {note}
-JCR clustering with local index on each node it is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documenation.
+JCR clustering with local index on each node it is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.
 {note}
 
 If cluster will be used with local JCR index on each node apply following changes to the steps described above:

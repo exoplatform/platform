@@ -147,7 +147,8 @@ h3. PicketLinkIDMCacheService {anchor:id=ADM.Management.PicketLinkIDMCacheServer
 
 PicketLinkIDMCacheService is the default implementation for the organization model. 
 
-* The JMX name template of PicketLinkIDMCacheService MBeans: _exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache_.
+* The JMX name template of PicketLinkIDMCacheService MBeans: 
+_exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache_.
 
 ||Operation||Description||
 |{{invalidateAll}}|Invalidate all caches.|
@@ -462,7 +463,6 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 |{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including org.exoplatform.ks.common.user.BusinessProfileContactProvider, org.exoplatform.ks.common.user.DefaultContactProvider, and org.exoplatform.ks.common.user.PersonalProfileContactProvider.|
 |{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in eXo Knowledge.|
 |{{OnlineUsers}}|The list of currently online users.|
-
 
 ||Operation||Description||
 |{{countOnlineUsers}}|Return the number of currently online users.|

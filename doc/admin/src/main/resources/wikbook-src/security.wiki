@@ -24,7 +24,7 @@ gatein-domain {
 };
 {code}
 
-Replace gatein-domain by your own domain name.
+Replace gatein-domain with your own domain name.
 
 {note}
 The PortalLoginModule module was designed to support the 'Remember me' feature. The password wrapped in PasswordCallback is the cookie token key.

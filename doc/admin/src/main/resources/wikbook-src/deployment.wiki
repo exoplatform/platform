@@ -76,7 +76,7 @@ h2. Connect via HTTP protocol (Apache mod{{{_}}}proxy) {anchor:id=ADM.Clustering
 
 With the _glue_ method, it is necessary to configure the Apache HTTP daemon to work as the *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
 
-For this connection type, you need to include the *mod{{{_}}}proxy* module in the HTTP daemon configuratinon file.
+For this connection type, you need to include the *mod{{{_}}}proxy* module in the HTTP daemon configuration file.
 This can be found in the _httpd.conf_ file, which is usually located at _/etc/httpd/conf/_. However, depending on your OS, this path may vary.
 You will then need to add some directives to your virtual host configuration.
 

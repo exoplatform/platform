@@ -1,8 +1,10 @@
+
 eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory. In this chapter, you will see the following topics:
 
 * [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
 * [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
 * [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
+
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 

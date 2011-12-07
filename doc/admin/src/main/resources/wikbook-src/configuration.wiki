@@ -56,12 +56,30 @@ The .xml configuration files also serve as the main way to customize the portal 
 Additionally, the .xml files may contain variables that are populated via properties defined in _configuration.properties_.
 Hence, the _configuration.properties_ file serves as exposing some selected variables that are necessary to configure eXo Platform in a server environment.
 
-*configuration.properties* {anchor:id=ADM.Configuration.Configuration.properties}
-The system configuration is mostly done in the _configuration.properties_ file.
-In most cases, this should be the only file for the system administrator to configure.
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.Configuration.properties">
+<emphasis role="bold">
+configuration.properties
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The system configuration is mostly done in the _configuration.properties_ file. In most cases, this should be the only file for the system administrator to configure.
 * In the Tomcat bundle, this file is located at _/gatein/conf/configuration.properties_.
 * In the JBoss server, this file is located at _server/default/conf/gatein/configuration.properties_.
-*configuration.xml* {anchor:id=ADM.Configuration.Configuration.xml}
+
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.Configuration.xml">
+<emphasis role="bold">
+configuration.xml
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 This file contains the built-in configuration for the "portal" portal container.
 * In most cases, you should not change this file. 
 * In case you do not want to use "portal" as the default portal for your project, this file can be used to import another PortalContainerDefinition into the root container.
@@ -70,7 +88,15 @@ This file contains the built-in configuration for the "portal" portal container.
 To learn more about how to configure a new portal container, please refer to the Kernel reference guide.
 {note}
 
-* *portal/portal/configuration.xml* {anchor:id=ADM.Configuration.portal/portal/configuration.xml}
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.portal/portal/configuration.xml">
+<emphasis role="bold">
+portal/portal/configuration.xml
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 This file is empty by default. This is where further customizations can be placed. Generally, custom configurations are provided by extension wars.
 However, this file is the last loaded by the kernel. It has a higher priority over any other configuration files, including extensions. So, you can override any internal component configuration.
@@ -136,11 +162,11 @@ You need to prepare two database schema, then do as follows:
 *3.* Connect to MySQL: {code}mysql -u root -p{code}
 In this step, you will be prompted for entering your password.
 
-*4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr _$dbname-jcr_). For example:
+*4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr (_$dbname-jcr_). For example:
 
 *i.* Create the first database: {code}create database _$dbname_;{code}
 
-*ii.* Configure the user who have the remote access right (not only from the host server):
+*ii.* Configure the user who has the remote access right (not only from the host server):
 
 {code}grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';{code}
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
@@ -294,7 +320,7 @@ gatein.idm.datasource.name=java:/comp/env/exo-idm
 {code}               
 
 {note}
-eXo Platform automatically appends the portal container name ("_portal" by default) to these values before performing a JNDI lookup.
+eXo Platform automatically appends the portal container name ("{noformat}_portal{noformat}" by default) to these values before performing a JNDI lookup.
 {note}
 
 *ii.* Change the data source name in the application server.
@@ -374,7 +400,7 @@ For more details on the configuration, or some examples on other RDBMS and appli
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
 * http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
 
-*Q3. How to enable managed DataSource
+*Q3. How to enable managed DataSource?* {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Enable_managed_datasource}
 
 When want to use a managed datasource (which is the case under JBoss), configure property {{gatein.jcr.datasource.managed}} to *true* in _configuration.properties_ file:
 {code}
@@ -446,7 +472,7 @@ gatein.jcr.workspace.system=system
 
 h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
 
-JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions you might need a bigger timeout.
+JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions, you might need a bigger timeout.
 {code}
 # JCR Transaction Service
 # TransactionService default timeout (in seconds), set it to one hour here:
@@ -660,7 +686,7 @@ For more details on configuring these files, please refer to the eXo JCR referen
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
 
-Please refer to the Chapter 4 of this guide ([Cache management view|/docs/admin/html/ch04.html#ADM.Management.Cache_management_view]) to see the description about the cache configuration.
+Please refer to the [Cache management view|#ADM.Management.Cache_management_view] to see the description about the cache configuration.
 
 h2. Portal Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.PortalCacheConfig}
 {code}
@@ -794,7 +820,7 @@ This configuration can be added into _{noformat}<GATEIN_CONF_DIR>/portal/<PORTAL
 
 h3. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
 
-The proxy service allow accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
+The proxy service allows accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
 If the site is not defined in neither the white list nor black list, access will be denied.
 Multiple values can be added for each list and wildcards can also be used.
 
