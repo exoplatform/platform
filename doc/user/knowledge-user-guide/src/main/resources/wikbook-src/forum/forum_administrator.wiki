@@ -386,7 +386,7 @@ These variables are used to load the content dynamically. Thus, you should not e
 You can use the text editor to format the template as you wish.
 
 h3. Customize a BBCode {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
-By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]", "[WIKI], "[SLIDESHARE]".{noformat}. You can add, edit or delete the BBCode tags.
+By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[U]", "[FONT]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]", "[WIKI], "[SLIDESHARE]"{noformat}. You can add, edit or delete the BBCode tags.
 
 Click !images/Aministration_btn.png! on the *Forum Administration* bar and click *BBCode* from the drop-down menu to open the *BBCode Manager* form.
 
