@@ -63,7 +63,7 @@ After creating a new calendar group, the created group will be displayed in the 
 h2. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
 This function allows you to change name and description of a specific calendar group.
 
-*1.* Hover your mouse over the calendar group which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar group which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Edit* from the drop-down menu to open the *Calendar Groups* form.
 
@@ -74,7 +74,7 @@ Once a calendar group is deleted, all calendars inside it are also deleted.
 
 *The first way*
 
-*1.* Hover your mouse over the calendar group which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar group which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Delete* from the drop-down menu.
 
@@ -111,7 +111,7 @@ Click !images/Arrow_icon_calendar.png!, then select *Add Calendar* from the drop
 
 *The second way*
 
-*i.* Hover your mouse over the calendar which you want add calendar, then click !images/Calendar-gear-icon.png! that appears.
+*i.* Hover your cursor over the calendar which you want add calendar, then click !images/Calendar-gear-icon.png! that appears.
 
 *ii.* Click *Add Calendar* from the drop-down menu. By this way, the group which contains your new calendar is already selected.
 
@@ -200,7 +200,7 @@ Click !images/Arrow_icon_calendar.png!, then select *Remote Calendar* from the d
 
 *The second way*
 
-*i.* Hover your mouse over the personal calendar which you want to add remote calendars, then click !images/Calendar-gear-icon.png! that appears.
+*i.* Hover your cursor over the personal calendar which you want to add remote calendars, then click !images/Calendar-gear-icon.png! that appears.
 
 *ii.* Click *Remote Calendar* from the drop-down menu.
 
@@ -266,7 +266,7 @@ Meanwhile, for shared calendars, you cannot edit them. If you are granted the <e
 </note>
 {docbook}
 
-*1.* Hover your mouse over the calendar which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to edit, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Edit* from the drop-down menu. The form to edit the calendar will be different, depending on your selected calendar type. For example, if you select a personal calendar, the form only contains the *Calendar Details* tab.
 
@@ -276,7 +276,7 @@ h2. Set the calendar color {anchor:id="Set_calendar_color"}
 
 The *Calendar* application allows you to select different colors for all types of calendars to recognize them easily. 
 
-*1.* Hover your mouse over the calendar which you want to set the color, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to set the color, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Select one color from the available 32-color palette.
 
@@ -291,7 +291,7 @@ You cannot delete group calendars created by ANOTHER users if you are not grante
 </note>
 {docbook}
 
-*1.* Hover your mouse over the calendar which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to delete, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click select *Remove* from the drop-down menu.
 
@@ -317,7 +317,7 @@ You can only export the calendar which contains at least one event or task. Besi
 
 This function allows you to export a calendar and its events/tasks into a separate file on your device.
 
-*1.* Hover your mouse over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Export* from the drop-down menu to open the *Export Calendars* form.
 
@@ -360,7 +360,7 @@ Click !images/Arrow_icon_calendar.png! at the right top of the calendars list, t
 
 *The second way*
 
-*i.* Hover your mouse over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
+*i.* Hover your cursor over the calendar which you want to export, then click !images/Calendar-gear-icon.png! that appears.
 
 *ii.* Click *Import* from the drop-down menu.
 
@@ -373,7 +373,7 @@ Click !images/Arrow_icon_calendar.png! at the right top of the calendars list, t
 
 *The third way*
 
-*i.* Hover your mouse over the calendar which you want to import, then click !images/Calendar-gear-icon.png! that appears.
+*i.* Hover your cursor over the calendar which you want to import, then click !images/Calendar-gear-icon.png! that appears.
 
 *ii.* Click *Import* from the drop-down menu.
 
@@ -429,7 +429,7 @@ If another users share their calendars with you, you will see shared calendars i
 </citetitle>
 {docbook}
 
-*1.* Hover your mouse over the calendar which you want to share, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to share, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Share* from the drop-down menu to open the *Share Calendar* form.
 
@@ -473,7 +473,7 @@ iCal provides a link that allows users to download a {noformat}*.ics{noformat} f
 {docbook}
 
 
-*1.* Hover your mouse over the calendar which you want to get iCal, then click !images/Calendar-gear-icon.png! that appears.
+*1.* Hover your cursor over the calendar which you want to get iCal, then click !images/Calendar-gear-icon.png! that appears.
 
 *2.* Click *Edit* from the drop-down menu to open the *Calendar* form.
 
@@ -537,7 +537,8 @@ Right-click the calendar view pane, and select *Add New Event* from the drop-dow
 !images/add_new_event.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
 *The third way*
-*i.* Hover your mouse over the calendar which you want to add new events, then click !images/Calendar-gear-icon.png! that appears.
+
+*i.* Hover your cursor over the calendar which you want to add new events, then click !images/Calendar-gear-icon.png! that appears.
 *ii.* Click *Add Event* from the drop-down menu.
 
 *The forth way*
@@ -968,7 +969,7 @@ Right-click the *Calendar View pane*, then select *Add New Task* from the drop-d
 
 *The third way*
 
-*i.* Hover your mouse over the calendar which you want add tasks, then click !images/Calendar-gear-icon.png! that appears.
+*i.* Hover your cursor over the calendar which you want add tasks, then click !images/Calendar-gear-icon.png! that appears.
 
 *ii.* Click *Add Task* from the drop-down menu.
 
