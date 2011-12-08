@@ -1,10 +1,32 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 
 eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory. In this chapter, you will see the following topics:
-
-* [Install the Tomcat bundle|#ADM.Installation.Install_Tomcat_Bundle]
-* [Install JBoss EARs|#ADM.Installation.Install_JBoss_EARS]
-* [Profiles of eXo Platform|#ADM.Installation.eXo_profiles]
-
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Installation.Install_Tomcat_Bundle">Install the Tomcat bundle</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Installation.Install_JBoss_EARS">Install JBoss EARs</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Installation.eXo_profiles">Profiles of eXo Platform</link>
+</para>
+</listitem>
+</itemizedlist>
+</para>
+</partintro>
+</para>
+</section>
+{docbook}
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
@@ -63,7 +85,7 @@ In the normal mode, the *{noformat}start_eXo{noformat}* scripts launch eXo Platf
 -Dexo.profiles=default
 {screen}
 
-Details:
+*Details*:
 
 | {{-Xms}} | Minimal Heap Size (defaults to 256 MB). |
 | {{-Xmx}} | Maximal Heap Size (defaults to 1 GB). |
@@ -81,7 +103,7 @@ In the developer mode, the *{noformat}gatein-dev{noformat}* scripts launch eXo P
 -Dexo.product.developing=true 
 {screen}
 
-Details:
+*Details*:
 
 | {noformat}-Dcom.sun.management.jmxremote{noformat} | Activate the remote JMX monitoring. |
 | {noformat}-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n{noformat} | Enable the remote debugging. |
@@ -115,9 +137,13 @@ export CATALINA_OPTS
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
 eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are distributed in the package named _eXo-Platform-jboss-3.5.x.zip_.
-
-To install eXo Platform on JBoss, follow these steps:
-
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">To install eXo Platform on JBoss, follow these steps</emphasis>:
+</para>
+</citetitle>
+{docbook}
 *1.* Copy the following files to _{noformat}jboss-root/server/default/deploy{noformat}_.
 
 - gatein-ds.xml

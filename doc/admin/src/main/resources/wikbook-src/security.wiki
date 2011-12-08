@@ -1,6 +1,27 @@
-This chapter presents [changes on the JAAS realm|#ADM.Security.Change_JAAS_real] with the following sub-topics:
-* [Tomcat|#ADM.Security.Tomcat]
-* [Common changes|#ADM.Security.Common_Changes]
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+This chapter presents <link linkend="ADM.Security.Change_JAAS_real">changes on the JAAS realm</link> with the following sub-topics:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Security.Tomcat">Tomcat</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Security.Common_Changes">Common changes</link>
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
 h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.

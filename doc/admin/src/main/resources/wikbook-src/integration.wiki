@@ -1,13 +1,53 @@
-The eXo Platform integration with another systems is very important. To make eXo Platform work with _predefined organizational data_ properly, it is necessary to initialize some backend settings for each _organizational element_. 
-Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called *organizational model integration*.
-
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+The eXo Platform integration with another systems is very important. To make eXo Platform work with <emphasis>predefined organizational data</emphasis> properly, it is necessary to initialize some backend settings for each <emphasis>organizational element</emphasis>.
+Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called <emphasis role="bold">organizational model integration</emphasis>.
+</para>
+<para>
 The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, through the following topics:
-* [Terminology|#ADM.Integration.Integrate_organizational_model.Terminology]
-* [Integrate the organizational model|#ADM.Integration.Integrate_organizational_model]
-** [eXo Platform start-up|#ADM.Integration.Integrate_organizational_model.Platform_startup]
-** [User login|#ADM.Integration.Integrate_organizational_model.User_login]
-** [Manual sync|#ADM.Integration.Integrate_organizational_model.Manual_sync]
-** [Scheduled/Periodic sync|#ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync]
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model.Terminology">Terminology</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model">Integrate the organizational model</link>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model.Platform_startup">eXo Platform start-up</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model.User_login">User login</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model.Manual_sync">Manual sync</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync">Scheduled/Periodic sync</link>
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
 
 h1. Terminology {anchor:id=ADM.Integration.Integrate_organizational_model.Terminology}
 Before learning about how to integrate the organizational model, you should be aware of the following terms:

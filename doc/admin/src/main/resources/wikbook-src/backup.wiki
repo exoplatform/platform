@@ -1,9 +1,36 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 The backup of eXo Platform instance involves backing up the databases and the file systems for the JCR index and value storage. The following topics are covered in this chapter:
-* [Pre-backup|#ADM.Backup.Plan_backup]
-* [eXo Platform backup|#ADM.Backup.Perform_backup]
-* [Restore|#ADM.Backup.Perform_restore]
-* [Third-party tools|#ADM.Backup.Third_party_tools]
-
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Backup.Plan_backup">Pre-backup</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Backup.Perform_backup">eXo Platform backup</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Backup.Perform_restore">Restore</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Backup.Third_party_tools">Third-party tools</link>
+</para>
+</listitem>
+</itemizedlist>
+</para>
+</partintro>
+</para>
+</section>
+{docbook}
 {note}
 The _gatein.data.dir_ variable is defined in the _configuration.properties_ file and by default points to the _$APPSEVERHOME/gatein/data_ folder.
 {note}
@@ -50,8 +77,15 @@ The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contai
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
 
-
-*Environment:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Environment
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * The eXo Platform server runs on the RedHat Linux server. eXo Platform provides the remote database server MySQL 5.1:
 ** JCR database - _jcrdb_.
@@ -64,8 +98,15 @@ To learn more about the basic principles of eXo Platform backup and how to creat
 
 * The backup storage is located on the dedicated network mounted storage: _{noformat}/mnt/backupfs/my_plf_backup{noformat}_.
 
-*Naming and Rotation*
-
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Naming and Rotation
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 It is a general case when the backup is organized in the two-cycle rotation: backup files are stored everyday and older data are stored weekly, and the data storage history will be planned for three years.
 
 To implement this approach, the daily backup is run (at night when the site is not in use) and stores result files (database and JCR files) on the network storage in the following structure:
@@ -106,7 +147,15 @@ Examples of the script implementation are out of the scope of this guide.
 
 h1. eXo Platform backup {anchor:id=ADM.Backup.Perform_backup}
 
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
 To back up eXo Platform, do the following main steps:
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Stop the whole eXo Platform instance by using the shell command: _{noformat}stop_eXo{noformat}_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
 

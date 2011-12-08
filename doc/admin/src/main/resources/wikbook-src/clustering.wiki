@@ -1,3 +1,54 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
+This chapter covers the following topics:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.About_Platform_Clustering">About clustering in eXo Platform</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Cluster_setup">Set up the eXo Platform cluster</link>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Setup_Platform_cluster">Set up eXo Platform cluster</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Advanced_configuration">Advanced configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link>
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link>
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+
 h1. About clustering in eXo Platform {anchor:id=ADM.Clustering.About_Platform_Clustering}
 Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes.
 The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers.
@@ -8,12 +59,6 @@ A cluster is a set of nodes which is managed together and participate in the wor
 
 These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes.
 Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS) or Shared File Systems, such as SAN and NAS.
-
-In this chapter, only the changes which are necessary for eXo Platform to work in the cluster mode are covered as below:
-* [Set up the eXo Platform cluster|#ADM.Clustering.Cluster_setup]
-** [Shared file system|#ADM.Clustering.Shared_file_system]
-** [Advanced configuration|#ADM.Clustering.Advanced_configuration]
-* [FAQs of clustering|#ADM.Clustering.Clustering_FAQ]
 
 h1. Set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
 
@@ -112,7 +157,7 @@ gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
 gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 {code}
 
-h2. Local JCR index in cluster
+h2. Local JCR index in cluster {anchor:id="ADM.Clustering.Local_JCR_Index"}
 
 {note}
 JCR clustering with local index on each node it is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.

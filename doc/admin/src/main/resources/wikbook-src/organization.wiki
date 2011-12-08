@@ -1,10 +1,37 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 This chapter covers the following topics:
-* [Legacy organization configurations|#ADM.Organization.Introduction]
-** [Hibernate Organization Service|#ADM.Organization.Hibernate]
-** [LDAP Organization Service|#ADM.Organization.LDAP]
-** [AD Organization Service|#ADM.Organization.AD]
-
-h1. Legacy organization configurations
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Organization.Lagacy_Organization_Config">Legacy organization configurations</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Organization.Hibernate">Hibernate Organization Service</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Organization.LDAP">LDAP Organization Service</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Organization.AD">AD Organization Service</link>
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
+h1. Legacy organization configurations {anchor:id=ADM.Organization.Lagacy_Organization_Config}
 
 If you used one of those Organization Data Models.
 * LDAP Organization Service
@@ -13,6 +40,7 @@ If you used one of those Organization Data Models.
 in a previous version of eXo Platform, you will be able to keep working with them on eXo Platform 3.5.
 
 Follow those steps to configure Legacy Organization Services:
+
 1. Add a new file in [exo.conf.dir.name]/portal/portal/configuration.xml
 {code:xml|title=configuration.xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

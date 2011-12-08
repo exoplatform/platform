@@ -1,13 +1,62 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 In this chapter, the following topics are included:
-* [Introduction to eXo Platform management|#ADM.Management.Introduction]
-* [Management views of eXo Platform|#ADM.Management.Management_views_of_eXo_Platform]
-** [PortalContainer management view|#ADM.Management.PortalContainer_management_view]
-** [Cache management view|#ADM.Management.Cache_management_view]
-** [eXo Content management view|#ADM.Management.eXo_Content_management_view]
-** [JCR management view|#ADM.Management.JCR_management_view]
-** [Portal management view|#ADM.Management.Portal_management_view]
-** [eXo Knowledge management view|#ADM.Management.eXo_Knowledge_management_view]
-** [eXo Collaboration management view|#ADM.Management.eXo_Collaboration_management_view]
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Management.Introduction">Introduction to eXo Platform management</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.Management_views_of_eXo_Platform">Management views of eXo Platform</link>
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Management.PortalContainer_management_view">PortalContainer management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.Cache_management_view">Cache management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.eXo_Content_management_view">eXo Content management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.JCR_management_view">JCR management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.Portal_management_view">Portal management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.eXo_Knowledge_management_view">eXo Knowledge management view</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management.eXo_Collaboration_management_view">eXo Collaboration management view</link>
+</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</para>
+</partintro>
+</para>
+</section>{docbook}
 
 h1. Introduction to eXo Platform management {anchor:id=ADM.Management.Introduction}
 
@@ -91,7 +140,7 @@ eXo Platform uses caches at several levels. Monitoring them can provide the crit
 
 h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
-* Portal
+* *Portal*
 
 
 ||Cache Name||Description||
@@ -100,14 +149,14 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 |{{TemplateService}}|Cache all Groovy templates of portal by its template path and ResourceResolver.|
 
 
-* JCR
+* *JCR*
 
 
 ||Cache Name||Description||
 |{{org.exoplatform.services.jcr.impl.core.lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
 
 
-* eXo Content
+* *eXo Content*
 
 
 ||Cache Name||Description||
@@ -119,7 +168,7 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 |{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in eXo Content.|
 
 
-* Social
+* *Social*
 
 
 ||Cache Name||Description||

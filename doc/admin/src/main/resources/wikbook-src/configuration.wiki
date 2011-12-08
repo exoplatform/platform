@@ -1,17 +1,80 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 This chapter covers the following topics:
-* [eXo Platform configuration|#ADM.Configuration.eXo_Configuration]
-* [Database configuration|#ADM.Configuration.Database_Configuration]
-* [File system paths|#ADM.Configuration.File_system_paths]
-* [Mail server|#ADM.Configuration.MailServer]
-* [WebDAV Cache Control|#ADM.Configuration.Mail_server]
-* [Chat server|#ADM.Configuration.Chat_Server]
-* [OpenOffice server|#ADM.Configuration.OpenOffice_server]
-* [Log-in|#ADM.Configuration.Login]
-* [JCR|#ADM.Configuration.JCR]
-* [Cache configuration|#ADM.Configuration.CacheConfiguration]
-* [User configuration|#ADM.Configuration.Users_configuration]
-* [Gadget proxy configuration|#ADM.Configuration.Gadget_proxy_configuration]
-* [Other properties|#ADM.Configuration.Other_properties]
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.eXo_Configuration">eXo Platform configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Database_Configuration">Database configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.File_system_paths">File system paths</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.MailServer">Mail server</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Mail_server">WebDAV Cache Control</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Chat_Server">Chat server</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.OpenOffice_server">OpenOffice server</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Login">Log-in</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.JCR">JCR</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.CacheConfiguration">Cache configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Users_configuration">User configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Gadget_proxy_configuration">Gadget proxy configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration.Other_properties">Other properties</link>
+</para>
+</listitem>
+</itemizedlist>
+</para>
+</partintro>
+</para>
+</section>{docbook}
 
 h1. eXo Platform configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 
@@ -151,7 +214,7 @@ The steps below will show you how to configure eXo Platform to use a MySQL datab
 
 {tip}Refer to the Database FAQ below to find out our sample configuration files for MySQL and other DB systems.{tip}
 
-*Step 1.* Prepare your database server. {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
+*Step 1.* *Prepare your database server.* {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
 You need to prepare two database schema, then do as follows:
 
@@ -179,7 +242,7 @@ In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs o
 eXo Platform does not require tables to be created before it starts because these tables are created automatically on the first startup. If you want to run the DDL script to create the database objects, please contact eXo Support to obtain the script for your database.
 {note}
 
-*Step 2.* Configure eXo Platform. {anchor:id=ADM.Configuration.Configure_eXo_Platform}
+*Step 2.* *Configure eXo Platform*. {anchor:id=ADM.Configuration.Configure_eXo_Platform}
 
 After the database is ready, you need to configure eXo Platform to connect to it. The configuration steps may be different, depending on the application server. Here, instructions are for Tomcat and JBoss.
 
@@ -193,7 +256,16 @@ In Tomcat, the data sources configuration requires you to edit two files:
 Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on the JNDI resources binding in Tomcat.
 {tip}
 
-*To edit the server.xml file:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+To edit the server.xml file:
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Open the file following the _{noformat}$TOMCAT_HOME/conf/server.xml{noformat}_ path.
 
@@ -224,7 +296,15 @@ The code now should look like:
 *3.* Add the JDBC driver.
 In this step, you need to add the MySQL connector to Tomcat by adding _{noformat}mysql-connector-java-5.1.x.jar{noformat}_ to _{noformat}$TOMCAT_HOME/lib/{noformat}_.
 
-*To edit the starter.xml file:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+To edit the starter.xml file:
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Open the _starter.xml_ file to the _{noformat}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{noformat}_ path.
 
@@ -241,8 +321,15 @@ In this step, you need to add the MySQL connector to Tomcat by adding _{noformat
 {code}
 
 *JBoss*: {anchor:id=ADM.Configuration.JBoss}
-
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
 To configure the data source for eXo Platform under JBoss, do as follows:
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * Edit gatein-ds.xml
 

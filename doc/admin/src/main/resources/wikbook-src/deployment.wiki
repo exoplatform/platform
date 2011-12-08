@@ -1,8 +1,36 @@
+{docbook}
+<section>
+<para>
+<partintro>
+<para>
 This chapter covers the following topics:
-* [Remove sample applications|#ADM.Clustering.How_to_remove_sample_application]
-* [Deploy a custom extension|#ADM.Clustering.Deploy_custom_extension]
-* [Set up Apache front-end|#ADM.Clustering.Setup_Apache_Frontend]
-* [Configure the session timeout for the web server|#ADM.Clustering.Configure_session_time-out_for_web_server]
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.How_to_remove_sample_application">Remove sample applications</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Deploy_custom_extension">Deploy a custom extension</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Setup_Apache_Frontend">Set up Apache front-end</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering.Configure_session_time-out_for_web_server">Configure the session timeout for the web server</link>
+</para>
+</listitem>
+</itemizedlist>
+</partintro>
+</para>
+</section>
+{docbook}
 
 h1. Remove sample applications {anchor:id=ADM.Clustering.How_to_remove_sample_application}
 
