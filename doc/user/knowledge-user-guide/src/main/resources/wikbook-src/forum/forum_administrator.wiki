@@ -1,5 +1,5 @@
 h1. Administrator {anchor:id=Forum_user_guide.Forum_Administrator}
-With the highest rights, administrators are in charge of the entire management tasks, including [configuring and customizing the Forum porlet|#Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet], [backing up data|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums], [managing users and granting permissions|#Forum_user_guide.Forum_Administrator.Manage_Users], [managing categories|#Forum_user_guide.Forum_Administrator.Manage_categories] and [forums|#Forum_user_guide.Forum_Administrator.Manage_forums].
+With the highest rights, administrators are in charge of the entire management tasks, including [configuring and customizing the Forum portlet|#Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet], [backing up data|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums], [managing users and granting permissions|#Forum_user_guide.Forum_Administrator.Manage_Users], [managing categories|#Forum_user_guide.Forum_Administrator.Manage_categories] and [forums|#Forum_user_guide.Forum_Administrator.Manage_forums].
 Administrator has the global role.
 
 
@@ -30,7 +30,7 @@ The *Page Manager* page will be displayed.
 
 !images/admin_forum_edit_forum_page.png|align="center"!
 
-*3.* Hover your cursor over the *Forum* portlet, then click !images/edit_icon3.png! in the quick toolbar.
+*3.* Hover your cursor over the *Forum* portlet then click !images/edit_icon3.png! in the quick toolbar.
 
 The settings form allows you to configure the *Forum* portlet in various aspects.
 
@@ -123,7 +123,7 @@ Optionally, select the *Permissions* tab to specify the category permissions. {a
 
 h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
 
-*1.* Select a category to edit from the *Forum* homepage, then click !images/Manage_category_btn.png! on the *Action* bar when you are in the categories list.
+*1.* Select a category to edit from the *Forum* homepage then click !images/Manage_category_btn.png! on the *Action* bar when you are in the categories list.
 
 *2.* Click *Edit* from the drop-down menu.
 
@@ -133,7 +133,7 @@ h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_catego
 
 h3. Delete a category {anchor:id=Forum_Administrator.Manage_categories.Delete_categories}
 
-*1.* Select a category to delete from the *Forum* homepage, then click !images/Manage_category_btn.png! on the *Action* bar.
+*1.* Select a category to delete from the *Forum* homepage then click !images/Manage_category_btn.png! on the *Action* bar.
 
 *2.* Click *Delete* from the drop-down menu.
 
@@ -168,7 +168,7 @@ When creating a new  forum, you can also configure the forum notification settin
 
 !images/admin_add_forum.png|align="center"!
 
-*3.* Enter the forum title which is required and description in the corresponding fields in the *Forum* form. The forum title must be less than 50 charaters.
+*3.* Enter the forum title which is required and description in the corresponding fields in the *Forum* form. The forum title must be less than 50 characters.
 
 !images/admin_add_forum_tab.png|align="center"!
 
@@ -190,8 +190,8 @@ When creating a forum, you can set moderation-related options as follows:
 ||Field||Description||
 | *Moderators* | The username of the moderators. |
 |*Auto-fill the moderator's email*|Check this option if you want the moderator's email is auto-filled. The email address will be taken from in moderator profile. |
-|*Email addresses to notify when there is a new post*|Enter the list of email addresses which will get the notification if any new post is created. This field will be filled automactically if the *Auto-fill the moderator's email* is checked.|
-|*Email addresses to notify when there is a new topic*|Enter the list of email addresses which will get the notification if any new topic is created.This field will be filled automactically if the *Auto-fill the moderator's email* is checked .|
+|*Email addresses to notify when there is a new post*|Enter the list of email addresses which will get the notification if any new post is created. This field will be filled automatically if the *Auto-fill the moderator's email* is checked.|
+|*Email addresses to notify when there is a new topic*|Enter the list of email addresses which will get the notification if any new topic is created.This field will be filled automatically if the *Auto-fill the moderator's email* is checked .|
 |*Moderate Topics*{anchor:id="admin_moderate_topics"}|By default, new topics must be always approved and visible to everyone. If this option is selected, new topics will be pending for approval before being viewable.|
 
 
@@ -200,7 +200,7 @@ Only administrators can perform this action. When a forum is removed, all of its
 
 *1.* Go into the forum you want to remove.
 
-*2.* Click !images/More_actions_btn.png! on the *Action* bar, then select *Delete* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar then select *Delete* from the drop-down menu.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -226,7 +226,7 @@ To promote the user, you have to edit the *Moderator* fields in *Profile* tab.
 ||Field||Description||
 |*Screen Name*|The name displayed in *Forum*.|
 |*User Title*|The title representing the role of user, by default. However, you can enter anything you want.|
-|*Forum Administrator*|Grant the Administrator role to a selected user or not. The Administration role of the default administrator can not be edited in the *User Management* form.|
+|*Forum Administrator*|Grant the Administrator role to a selected user or not. The Administration role of the default administrator cannot be edited in the *User Management* form.|
 |*Moderator of Categories*|The list of categories moderated by the selected user. Click !images/Plus_icon.png! to select a category.|
 |*Moderator of Forums*|The list of forums moderated by the selected user. Click !images/Plus_icon.png! to select a forum.|
 
@@ -251,7 +251,7 @@ In the *User Management* form, go to the *Ban User* tab.
 
 ||Field||Description||
 |*Banned*|Ban one user or not.|
-|*Duration*|The interval during which the user will be banned. This field is only edited when you ban this user in the 'Banned' field. In the ban duration, the banned user only can view forums and topics but he/she can not post replies or send messages.|
+|*Duration*|The interval during which the user will be banned. This field is only edited when you ban this user in the 'Banned' field. In the ban duration, the banned user only can view forums and topics but he/she cannot post replies or send messages.|
 |*Reason*|The reason for banning this user.|
 |*Ban Count*|The ban times of the user.|
 |*Bans Log*|Other log information.|
@@ -500,7 +500,7 @@ Click !images/Plus_icon.png! next to the *Type* field in the *Option* tab of the
 
 (Note that only administrators can see !images/Plus_icon.png!.)
 
-*2.* Enter the topic name in the *Type* field, then select an icon for this topic type.
+*2.* Enter the topic name in the *Type* field then select an icon for this topic type.
 
 !images/admin_forum_topic_type.png|align="center"!
 
@@ -519,7 +519,7 @@ Administrators can ban IP addresses used by users who abuse the forum functions 
 Any users who use banned IPs to add post, will be recognized as the banned user. As a result, the banned user can only view and is prevented from most of basic actions to the forum, such as adding topics, posting, or rating.
 
 
-Click !images/Aministration_btn.png! on the *Forum Administration* bar, then click *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
+Click !images/Aministration_btn.png! on the *Forum Administration* bar then click *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
 
 !images/admin_forum_banned_IPs.png|align="center"!
 {anchor:id="administration-ban-IPs"}
@@ -577,7 +577,7 @@ This function is used to export forums and all topics inside the *Forum* applica
 
 *1.* Go into a category containing the forum you want to export.
 
-*2.* Click !images/Manage_category_btn.png! on the *Action* bar, then click *Export Forums* from the drop-down menu.
+*2.* Click !images/Manage_category_btn.png! on the *Action* bar then click *Export Forums* from the drop-down menu.
 
 !images/admin_forum_export_forum1.png|align="center"!
 
@@ -589,7 +589,7 @@ This function is used to export forums and all topics inside the *Forum* applica
 
 h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.Import_categories}
 
-*1.* Click !images/Aministration_btn.png! on the *Forum Administrator* bar, then click *Import* from the drop-down menu to open the *Import Category* form.
+*1.* Click !images/Aministration_btn.png! on the *Forum Administrator* bar then click *Import* from the drop-down menu to open the *Import Category* form.
 
 !images/admin_forum_import_cat.png|align="center"!
 
@@ -599,7 +599,7 @@ h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.I
 
 h4. Import a forum {anchor:id=Administrative_tasks.Backup_categories_forums.Import_forums}
 
-*1.* Go into one category, then click !images/Manage_category_btn.png! on the *Action* bar.
+*1.* Go into one category then click !images/Manage_category_btn.png! on the *Action* bar.
 
 *2.* Click *Import Forum* from the drop-down menu.
 

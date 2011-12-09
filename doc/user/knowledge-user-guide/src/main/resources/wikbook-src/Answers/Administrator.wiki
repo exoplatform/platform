@@ -36,7 +36,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 !images/edit_pages1.png|align="center"!
 
-*ii.* Click !images/Edit_icon.png! that corresponds to the page contaning the *Answers* portlet in the *Page Management* page.
+*ii.* Click !images/Edit_icon.png! that corresponds to the page containing the *Answers* portlet in the *Page Management* page.
 
 !images/Page_manager_page.png|align="center"!     {anchor:id="page_management_page}
 

@@ -25,7 +25,7 @@ h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
 *1.* Go to the relevant forum.
 
-*2.* Click !images/More_actions_btn.png! on the *Action* bar, then click *Edit* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar then click *Edit* from the drop-down menu.
 
 *3.* Edit the forum properties. 
 
@@ -41,14 +41,14 @@ Moderators can only lock/unlock the forum that they manage.
 
 *1.* Go to the forum.
 
-*2.* Click !images/More_actions_btn.png! on the *Action* bar, then click *Lock/Unlock* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar then click *Lock/Unlock* from the drop-down menu.
 
 h3. Close/Open a forum {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
 Closed forums are invisible to regular users. To administrators and moderators, the contents in a closed forum are still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
 
 *1.* Go into the forum you want to close or open.
 
-*2.* Click !images/More_actions_btn.png! on the *Action* bar, then select *Close* or *Open* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar then select *Close* or *Open* from the drop-down menu.
 
 h3. Move a forum {anchor:id=Forum_Moderator.Moderate_forums.Move_forums}
 
@@ -56,7 +56,7 @@ You can move a forum into another category as follows:
 
 *1.* Go into the forum you want to move.
 
-*2.* Click !images/More_actions_btn.png! on the *Action* bar, then select *Move* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png! on the *Action* bar then select *Move* from the drop-down menu.
 
 A list of existing categories will appear. Select a destination category to	which your selected forum will be moved.
 
@@ -99,7 +99,7 @@ Moderator can view the list of topics to be moderated. See [View all pending mod
 
 *The first way*
 
-*1.* Select topics by checking their relevant checkboxes, then click !images/Moderation_btn.png! on the *Action* bar if you are in a list of topics.
+*1.* Select topics by checking their relevant checkboxes then click !images/Moderation_btn.png! on the *Action* bar if you are in a list of topics.
 
 Or if you are in a topic, simply click !images/More_actions_btn.png! on the *Action* bar.
 
@@ -131,7 +131,7 @@ h3. Close/Open a topic {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_top
 Only administrators and moderators can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
 
 
-*1.* When you are in a topics list, select a topic by checking its corresponding check-box, then click !images/Moderation_btn.png! on the *Action* bar.
+*1.* When you are in a topics list, select a topic by checking its corresponding check-box then click !images/Moderation_btn.png! on the *Action* bar.
 
 When you are in a topic, click !images/More_actions_btn.png! on the *Action* bar.
 
@@ -142,7 +142,7 @@ The icon of the closed topic will be changed to !images/Closed_topic_icon.png! a
 h3. Move a topic {anchor:id=Forum_Moderator.Moderate_topics.Move_topics}
 Only administrators and moderators can perform this action. This function is used to move topics from a forum to another one. Moderator can only move topics between forums that he manages.
 
-*1.* Select a topic by checking its corresponding check-box, then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
+*1.* Select a topic by checking its corresponding check-box then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
 
 Or, if you are in a topic, click !images/More_actions_btn.png! on the *Action* bar.
 
@@ -184,11 +184,11 @@ h3. Delete a topic {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
 {docbook}
 
 
-*1.* Select topics by checking their corresponding checkboxes, then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
+*1.* Select topics by checking their corresponding checkboxes then click !images/Moderation_btn.png! on the Action bar when you are in a topics list.
 
 Or, if you are already in a topic, click !images/More_actions_btn.png! on the *Action* bar.
 
-*2.* Click *Delete* from the drop-down menu, then click *OK* in the confirmation message.
+*2.* Click *Delete* from the drop-down menu then click *OK* in the confirmation message.
 
 
 {docbook}
@@ -209,12 +209,12 @@ All topic posted by the selected user will be displayed.
 
 !images/mod_deletel_topics.png|align="center"!
 
-*3.* Click !images/Delete_icon2.png! corresponding to the desired topic, then click *OK* in the confirmation message.
+*3.* Click !images/Delete_icon2.png! corresponding to the desired topic then click *OK* in the confirmation message.
 
 h3. Lock/Unlock a topic {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
 This function is for administrators and moderators only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting reply will be disabled.
 
-*1.* Select a topic by checking its corresponding checkbox, then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
+*1.* Select a topic by checking its corresponding checkbox then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
 
 Or, click !images/More_actions_btn.png! on the *Action* bar when you are in a topic.
 
@@ -224,7 +224,7 @@ h3. Stick/Unstick a topic {anchor:id=Forum_Moderator.Moderate_topics.Stick-Unsti
 
 This function is for administrators and moderators only to stick topics which will be located at the top of the topics list. The topics will not fall down the list if any new posts are added.
 
-*1.* Select a topic by ticking its corresponding checkbox, then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
+*1.* Select a topic by ticking its corresponding checkbox then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
 
 Or, click !images/More_actions_btn.png! on the *Action* bar when you are already in a topic.
 
@@ -352,7 +352,7 @@ You can show a single or multiple hidden posts at the same time:
 
 *The first way*
 
-* Select the post to be unhidden and click !images/Moderation_btn.png! on the *Action* bar, then click *Show* in the drop-down menu.
+* Select the post to be unhidden and click !images/Moderation_btn.png! on the *Action* bar then click *Show* in the drop-down menu.
 
 *The second way*
 

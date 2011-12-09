@@ -1,7 +1,7 @@
 h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
-After accessing *Answers*, the left pane is hidden by default. To toogle the left panel, click !images/Answer_toogle_panel.png! on the *Action* bar.To view details of a category, simply left-click it to open its details in the right pane.
+After accessing *Answers*, the left pane is hidden by default. To toggle the left panel, click !images/Answer_toogle_panel.png! on the *Action* bar.To view details of a category, simply left-click it to open its details in the right pane.
 
 !images/Details_category.png|align="center"!
 
@@ -540,7 +540,7 @@ The *Advanced search* allows you to do a search with multiple criteria correspon
 
 *2.* Define some search criteria in the *Advanced Search* form. The criteria may vary, depending on where you want to search.
 
-* Search in both categories and entries/questions by unselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
+* Search in both categories and entries/questions by deselecting the categories or entries from the "*Search in*" drop-down menu. This form is set by default.
 !images/search_both_answers.png|align="center"!
 
 * Search in categories by selecting *Category* from the drop-down menu. You will do a search with some specific criteria to find expected categories. Search results will only include categories.
@@ -592,7 +592,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Click your desired question.
 
-*2.* Click !images/Print_icon.png! on the top right of the question pane. You wil see the question and its details as below:
+*2.* Click !images/Print_icon.png! on the top right of the question pane. You will see the question and its details as below:
 
 !images/Print_details_question.png|align="center"!
 

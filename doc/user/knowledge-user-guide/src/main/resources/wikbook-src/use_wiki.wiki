@@ -1,28 +1,28 @@
 h1. Overview {anchor:id=KSuser.Wiki.Wiki_Overview}
 This section provides you a guide to use all *Wiki* features and configure the *Wiki* portlet to make it work in your desired way. Before going further, you should know some basic concepts about *Wiki*.
-After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* homepage will appear automatically as below.
+After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* homepage will appear as below.
 
 !images/wiki_overview.png|align="center"!
 
 *Details*:
 ||Item|| Description||
 |!images/no1.png!|The *Breadcrumb* which shows the page hierarchy.|
-|!images/no2.png!|The Wiki administration area which allows administrators only to do space settings. |
+|!images/no2.png!|The Wiki administration area which allows administrators only to do configure the space settings. |
 |!images/no3.png!|The *Search* box.|
 |!images/no4.png!|The pages tree view.|
 |!images/no5.png!|The *Page Control* area which helps users take actions with the current page.|
-|!images/no6.png!|The defaul content. The small page could be a Wiki quick guide that explains how to create a page, switch between different edit modes, or create a page and more.|
-|!images/7.png!|The page information. Click *View Change* to go to the *Page History* page for comparing changes between versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
+|!images/no6.png!|The pre-created content. This pre-created page could be a quick guide that explains how to create a page, switch between different edit modes or create a page and more.|
+|!images/7.png!|The page information. Click *View Change* to see changes in latest versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively right under the *Page information* bar. These two panes can be collapsed by clicking the relevant links again. |
 
 h2. The page hierarchy in Wiki {anchor:id=KSuser.Wiki_Overview.Page_hierarchy}
-*Wiki* is organized as a tree of pages in which each page may contain many sub-pages. The hierarchy is reflected on UI by the *Breadcrumb* and the page tree at the left pane. When a page is added, it is always defined as a sub-page to the current one. *Wiki* is a wiki platform which can host several wikis. So, you can have wikis for portals, wikis for groups or users. However, the page hierarchy is not reflected in the URLs as they are flatly accessible by their URLs.
+*Wiki* is organized as a page tree in which each page may contain many sub-pages. The hierarchy is reflected on UI by the *Breadcrumb* and the page tree at the left pane. When a page is added, it is always defined as a sub-page to the current one. You can have wikis for portals, wikis for groups or users.
 
 h2. Wiki Spaces {anchor:id=KSuser.Wiki_Overview.Wiki_spaces}
-Spaces represent a partitioning of *Wiki* data. A space is a set of pages. So, the space partitioning means they are independent trees. This separation is to enable *Wiki* to provide silos of knowledge for different interest groups.
+Spaces represent a partitioning of *Wiki* data. A space is a set of pages. So, the space partitioning means they are independent trees. This separation is to enable *Wiki* to provide knowledge spaces for different interest groups.
 
 There are 3 types of spaces:
 
-* *Portal wiki*: wiki for the current portal.
+* *Portal wiki*: wiki for the current portal site.
 
 * *Group wiki*: wiki available for members of a group.
 
@@ -41,11 +41,11 @@ There are 3 types of spaces:
 
 
 h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pages}
-Pages are sites where information in *Wiki* is stored and shared. Pages are stored within a *Space*. To do or view actions on a specific *Wiki* page, you should contact the administrator to get the appropriate permissions. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
+Pages are sites where information in *Wiki* is stored and shared. Pages are stored within a *Space*. Actions that an user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
 
 In a page, you can:
 
-* [Create a page with its content using the simple markup language or the Rich Text editor|#KSuser.Work_with_Wiki_pages.Create_pages].
+* [Create a page with the simple markup language or the Rich Text editor|#KSuser.Work_with_Wiki_pages.Create_pages].
 
 * [Edit a page|#KSuser.Work_with_Wiki_pages.Edit_pages].
 
@@ -123,21 +123,29 @@ To edit a page, click *Edit* in the *Page Control* area. Your page will switch t
 
 !images/page_control.png|align="center"!
 
-Now, you can rename the page and edit the page content. The toolbar in the edit mode will be changed to activate the following actions.
+Now, you can rename the page and edit the page content. In view mode, hover mouse on page title and double click to edit page title. The toolbar in the edit mode will be changed to activate the following actions.
 
 !images/wiki_page_edit.png|align="center"!
 
 *Details:*
 ||Item|| Description||
-|!images/no1.png!| Switch to the Rich Text (WYSIWYG) editor. |
-|!images/no2.png!| Open the Wiki syntax help page. |
-|!images/no3.png!| Display the preview mode of the currently edited content. Previewing a page helps you verify the result of rendering the markup you just entered without saving.|
+|!images/no1.png!| Switch to the *Rich Text (WYSIWYG)* editor. |
+|!images/no2.png!| Display the preview mode of the currently edited content. Previewing a page helps you verify the result of rendering the markup you just entered without saving. |
+|!images/no3.png!| Open the Wiki syntax help pane. |
 |!images/no4.png!| Show more syntax help. |
-|!images/no5.png!| Input the edit reason if neccessary.|
-|!images/no6.png!| Save the current page and go back to the view mode.|
+|!images/no5.png!| Input the edit reason if necessary. |
+|!images/no6.png!| Save the current page and go back to the view mode. Changes will be sent to watchers via mail notification. |
 |!images/7.png!| Save the current page without sending notification to the watcher. |
 |!images/8.png!| Discard the current changes and go back to the view mode. |
+|!images/9.png!| The syntax drop-down. You can select your preferred syntax here.|
 
+{docbook}
+<tip>
+<para>
+In View mode, you can double click the page title to quick edit it.
+</para>
+</tip>
+{docbook}
 
 h2. Move a page to another location {anchor:id=KSuser.Work_with_Wiki_pages.Move_pages}
 
@@ -155,6 +163,14 @@ The form to select the destination page appears.
 
 *4.* Click *Move* to commit.
 
+{docbook}
+<note>
+<para>
+The *Move page* action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space, not between spaces.
+</para>
+</note>
+{docbook}
+
 h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 
 *1.* Open the page you want to delete and select *More* in the *Page Control* area.
@@ -165,6 +181,14 @@ h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
+{docbook}
+<note>
+<para>
+The *Delete page* action is not displayed when you are at the Wiki Home.
+</para>
+</note>
+{docbook}
+
 h2. View page information {anchor:id=KSuser.Work_with_Wiki_pages.View_page_info}
 
 Viewing page information is accessible to users who have the View permission on that page. The page information provides you all details about related pages of the current page, the hierarchy structure of the current page, the page history and more.
@@ -173,7 +197,7 @@ Viewing page information is accessible to users who have the View permission on 
 
 *2.* Click *More* from the page toolbar, then select *Page Info* from the drop-down menu.
 
-All information of the opening page, including page summary, related pages, page hierarchy, recent changes, will be displayed.
+All information of the opening page, including page summary, related pages, page hierarchy, recent changes will be displayed.
 
 !images/wiki_page_info.png|align="center"!
 
@@ -204,7 +228,7 @@ The *History Page* appears.
 ||Area|| Function ||
 |!images/no1.png!|[Compare selected page versions|#KSuser.Work_with_page_version.Compare_versions].|
 |!images/no2.png!|Allow you to select two versions that you want to compare.|
-|!images/no3.png!|Allow you to specify the number of versions of the page and [view a specific version|#KSuser.Work_with_page_version.View_versions].|
+|!images/no3.png!|Allow you to specify the version labels of the page and [link to view a specific version|#KSuser.Work_with_page_version.View_versions].|
 |!images/no4.png!|The date and time when the page is changed. |
 |!images/no5.png!|The authors who make changes of the page.|
 |!images/no6.png!| The summary of reasons why the changes are done. It is optional.|
@@ -212,7 +236,7 @@ The *History Page* appears.
 
 
 h2. Watch a page  {anchor:id=KSuser.Work_with_Wiki_pages.Watch_pages}
-Watching a page allows you to receive a notification message about any additions in the page.
+Watching a page allows you to receive a notification message about any changes in the page.
 
 {docbook}
 <citetitle>
@@ -224,7 +248,7 @@ Watching a page allows you to receive a notification message about any additions
 
 *1.* Open the page you want to watch.
 
-*2.* Click *More* in the *Page Control* area, then select *Watch* from the drop-down menu.
+*2.* Click *More* in the *Page Control* area , then select *Watch* from the drop-down menu.
 
 !images/wiki_watch_page.png|align="center"!
 
@@ -305,7 +329,7 @@ The *Link* form is displayed as below.
 
 *ii.* Click *Browse* to select a file from your local device, then click *Upload*.
 
-* *Select an existing file:* Double-click it or click it, then click *Select* in the *Current page* or *All pages* tab.
+* *Select an existing file:* Click the file, then click *Select* in the *Current page* or *All pages* tab.
 
 The form to edit the link parameters appears.
 
@@ -313,18 +337,7 @@ The form to edit the link parameters appears.
 
 *6.* Edit the link parameters by typing the label and the tooltip for the link.
 
-*7.* Click *Create Link* to commit.
-
-The uploaded file will be in the undefined link format. By clicking this link, you can create a new page.
-
-
-{docbook}
-<note>
-    <para>
-    If you click <emphasis role="bold">Upload new file</emphasis> in the <emphasis role="bold">All pages</emphasis> tab, it means that the attachment is added to all pages.
-    </para>
-</note>
-{docbook}
+*7.* Click *Create Link* to update the link.
 
 h2. Delete an attachment {anchor:id=KSuser.Work_with_attachment.Delete_attachment}
 To delete an attachment, just click !images/Delete_icon.png! corresponding to the attachment.
@@ -363,32 +376,31 @@ You can switch between the *Source* and *WYSIWYG* editors at any time by clickin
 </note>
 {docbook}
 
-To learn how to use the *WYSIWYG* editor, you can refer to these guides.
+To learn how to use the *WYSIWYG* editor, you can refer to this guides.
 
-* [Admin guide|http://platform.xwiki.org/xwiki/bin/view/AdminGuide/WysiwygEditor]
-* [User guide|http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor]
+* [*WYSIWYG* editor user guide|http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor]
 
 h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
-If you do not know how to use a syntax, you can use the Syntax Help function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png! from the page toolbar. When being clicked, a lateral pane slides beside the editing area will show all the information of the most common syntaxes.
+If you do not know how to use a syntax, you can use the Syntax Help function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png! from the page toolbar. When being clicked, a lateral pane slides beside the editing area will show all the information of the currently used syntax.
 The lateral pane can be hidden by clicking !images/Close_button.png! in the upper right corner or by clicking !images/Wiki_help_btn.png! again.
 
 !images/Quick_notation.png|align="center"!
 
 You can click !images/More_syntaxes.png! at the bottom of short *Help Tips* form to open the *Full Syntax Notation* page.
 
-You can insert icons, emoticons to emphasise the content. The usage is described in the *Full Syntax Notation* page with example so you can easily remember and use them.
+You can insert icons, emoticons to emphasize the content. The usage is described in the *Full Syntax Notation* page with example so you can easily remember and use them.
 
 *Example of Emoticons and icons*:
 
 !images/Smiley_special_notation.png|align="center"!
 
 h1. Work with Macros {anchor:id=KSuser.Wiki.Work_with_Macros}
-Using a macro, you can apply extra formatting, functionality and customization to your content.
+By using macros, you can apply extra formatting, functionality and customization to your content.
 You can easily add macro tags by using the *Rich Text* editor.
 
 *1.* Click *Rich Text* to open the rich text editor.
 
-*2.* Click *Macros*, then select *Insert Macros...* from the drop-down menu.
+*2.* Click *Macros*, then  select *Insert Macros...* from the drop-down menu.
 
 !images/wiki_macros.png|align="center"!
 
@@ -396,11 +408,11 @@ The *Insert Macros* form appears.
 
 !images/wiki_macros_form.png|align="center"!
 
-The macros are classified into different categories: *Content*, *Formatting*, *Navigation*.
+The macro is classified into different categories: *Content*, *Formatting*, *Navigation*.
 
 *3.* Select a macro category.
 
-*4.* Select your desired macro from the selected categories list and then click the *Select* button; or double-click it. For example, if you select the *Box* macro, you are redirected to the Macro Parameters form.
+*4.* Select your desired macro from the selected categories list, then click the *Select* or simply double-click it. For example, if you select the *Box* macro, you will go to the *Macro Parameters* form.
 
 !images/Macro_parameters_form.png|align="center"!
 
@@ -412,23 +424,23 @@ The following table describes specific functions of common macros.
 |*Excerpt*| Create additional information for the current page and it can be set to "hidden" in the current page, but displayed to add more information as the summary about the page when it is used with the Page Tree macro.|
 |*Include Page*| Include the content of another page in the current page.|
 |*Box* | Draw a box around the provided content.|
-|*Color*| Change the text color. {example}{example} !images/wiki_macro_color.png|align="center"! |
-|*Code*| Highlight code snippets of various programming languages.  {example}{example} !images/wiki_macro_code.png|align="center"!|
+|*Color*| Change the text color. |
+|*Code*| Highlight code snippets of various programming languages. |
 |*Error Message*|Display an error message note.|
-|*Float* |Allow a content to 'float' on the left or the right. {example}{example} !images/wiki_macro_float.png|align="center"!|
-|*Info Message* |Display an info message. !images/wiki_macro_info_message.png|align="center"! |
-|*NoFormat* |Keep the content displayed when you type. !images/wiki_macro_noFormat.png|align="center"!|
-|*Note Message*|Display a note message. !images/wiki_macro_note.png|align="center"!|
-|*Panel* |Embrace a block of text within a fully customizable panel. !images/wiki_macro_panel.png|align="center"!|
+|*Float* |Allow a content to 'float' on the left or the right. |
+|*Info Message* |Display an info message.|
+|*No Format* |Keep the content displayed like you type.|
+|*Note Message*|Display a note message.|
+|*Panel* |Embrace a block of text within a fully customizable panel. |
 |*Table* {example}{example}*Table cell*{example}{example}*Table row*| Inset a table. {example}{example}Insert a table cell. {example}{example}Insert a table row.|
-|*Tip Message* |Display a tip message block.{example}{example} !images/wiki_macro_tip.png|align="center"! |
-|*Warning Message* |Display a warning message block. {example}{example} !images/wiki_macro_warning.png|align="center"!|
-|*Anchor* |Create an anchor for the selected contents. |
-|*Children* |Display the children and descendants of a specific page in the current page. {example}{example} !images/wiki_macro_children.png|align="center"!  |
-|*Page Tree* |Display the hierarchy of a page in the current page. {example}{example} !images/wiki_macro_page_tree.png|align="center"!|
+|*Tip Message* |Display a tip message block.{example}{example} |
+|*Warning Message* |Display a warning message block. {example}{example} |
+|*Anchor* |Create an anchor in a page. |
+|*Children* |Display the children and descendants of a specific page in the current page.   |
+|*Page Tree* |Display the hierarchy of a page in the current page. |
 |*Related Pages* |Render the related pages of the current page. |
 |*Table of Content* |Generate a table of content for the current page. |
-|*Section* & *Column* |Using the Section and Column macros allows you to write the content in the columns in the section. {example}{example}!images/wiki_macro_section_column.png|align="center"! |
+|*Section* & *Column* |Using the Section and Column macros allows you to write the content in columns.  |
 
 h1. Work with page versions {anchor:id=KSuser.Wiki.Work_with_Page_versions}
 When editing the content of a page, *Wiki* will automatically create a version of that page after it is saved. Thanks to the page versions, you can make changes to the page safely and rollback to an earlier version without worrying about messing things up.
@@ -462,7 +474,7 @@ In the Page History page, you can:
 {docbook}
 
 h2. View versions of a page {anchor:id=KSuser.Work_with_page_version.View_versions}
-To view a specific version of a page, just click a version number in the *Page History* page. The selected version of that page will be displayed.
+To view a specific version of a page, just click a version label in the *Page History* page. The selected version of that page will be displayed.
 
 !images/wiki_view_version.png|align="center"!
 
@@ -477,7 +489,7 @@ At a version of the page, you can do the following actions:
 
 h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
 
-*Wiki* tracks histories of changes to pages by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png!.
+*Wiki* tracks histories of changes to pages by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version. then click !images/Compare_selected_button.png!.
 
 !images/Select_page_version.png|align="center"!
 
@@ -515,7 +527,7 @@ To restore an older version, click !images/Restore_button.png! corresponding to 
 {docbook}
 
 h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
-*Wiki* provides permanent bookmarkable URLs to all wiki pages. *Wiki* will resolve wiki pages by inspecting the URL used to call it and outputting links as clean URLs in the following form:
+*Wiki* provides permanent bookmarkable URLs to all wiki pages. *Wiki* will resolve wiki pages by inspecting the URL used to call it. URLs are in the following form::
 
 {code}http://hostname/$CONTAINER/$SITE/$NAV_URI/[$OWNER_TYPE/$OWNER]/$WIKI_PAGE_URI{code}
 
@@ -527,13 +539,13 @@ h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
 |*$OWNER* |The wiki owner which can be name of user or of group.|
 |*{noformat}$WIKI_PAGE_URI{noformat}* |The URI inferred automatically from the wiki page name.|
 
-Any wiki page should be accessed by a friendly URL, for example:
+Any wiki page should be accessed by a friendly URL. For example:
 
-* Portal wiki URL: http://hostname/portal/classic/*wiki/eXo+Wiki+Specification.
+* Portal wiki URL: http://hostname/portal/classic/wiki/eXo+Wiki+Specification.
 
-* Group wiki URL: http://hostname/portal/classic/*wiki/group/platform/Administrators/Admin+Guide.
+* Group wiki URL: http://hostname/portal/classic/wiki/group/platform/Administrators/Admin+Guide.
 
-* Personal wiki page URL: http://hostname/portal/classic/*wiki/user/john/Sandbox.
+* Personal wiki page URL: http://hostname/portal/classic/wiki/user/john/Sandbox.
 
 
 h1. Search {anchor:id=KSuser.Wiki.Search}
@@ -548,14 +560,22 @@ h2. Quick Search {anchor:id=KSuser.Wiki.Search.Quick_search}
 
 !images/wiki_quick_search.png|align="center"!
 
-*2.* Select your desired page or space from the drop-down menu. You will be redirected to the selected page or space.
+*2.* Select your desired page from the drop-down menu. You will be redirected to the selected page.
+
+{docbook}
+<note>
+<para>
+If you are standing in the portal wiki, quick search will search on all wiki spaces, otherwise it will only search on the current wiki.
+</para>
+</note>
+{docbook}
 
 h2. Advanced Search {anchor:id=KSuser.Wiki.Advanced_Search}
 The Advanced Search function allows you to search with a key word in a specific space. This mode helps you limit the search results.
 
 *1.* Enter a key term into the search box and hit the *Enter* key.
 
-If the results are matched with the key word, the search results are displayed like the illustration below.
+The search results are displayed like the illustration below.
 
 !images/wiki_advanced_search_result.png|align="center"!
 
@@ -591,7 +611,7 @@ For each space, you can manage page templates and change the syntax used.
 {docbook}
 *1.* Open a *Wiki* space.
 
-*2.* Click *Browse*, then select *Space Settings*.
+*2.* Click *Browse*, then  select *Space Settings*.
 
 !images/wiki_space_settings.png|align="center"!
 
@@ -602,7 +622,7 @@ The *Space Settings* page appear.
 Now you can:
 
 * [Manage permissions on spaces and pages|#KSuser.Wiki_Administration.Manage_permissions].
-* [Manage a page template|#KSuser.Wiki_Administration.Manage_page_tempplate].
+* [Manage page templates|#KSuser.Wiki_Administration.Manage_page_tempplate].
 * [Set up wiki syntax|#KSuser.Wiki_Administration.Set_up_syntax].
 
 h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
@@ -613,7 +633,7 @@ h3. Space Permissions  {anchor:id=KSuser.Wiki_Administration.Manage_permissions.
 Each space may have its own permissions. Space permissions determine which actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
 
 To change the space permission, open a space, click *Browse* and select *Space Settings* from the drop-down list.
-Clik *Permission* in the *Space Settings* page that appears.
+Click *Permission* in the *Space Settings* page that appears.
 
 !images/wiki_space_permissions_page.png|align="center"!
 
@@ -621,7 +641,7 @@ There are some permissions to a space as follows:
 || Permission|| Description||
 |*View Pages*|Specify who can view and watch pages of this space, its attachments and history.|
 |*Edit Pages*|Specify who can edit pages of this space.|
-|*Admin Pages*|Specify who have the administration rights on this space.|
+|*Admin Pages*|Specify who have the administration rights on pages of this space.|
 |*Admin Space*|Specify who can administrate the space permissions and settings|
 
 In the *Space Permissions* form, you can add or remove the space permissions of the users, groups and memberships.
@@ -635,7 +655,7 @@ The form to select the user, the group and the membership appears.
 
 *2.* Select a user, a group or a membership, then click  *Add*.
 
-*3.* Click the plus icon to add the selectors to the *Owner* tab in the *Space Permissions* form.
+*3.* Click the plus icon to add the selectors to the *Owner* column in the *Space Permissions* form.
 
 *4.* Click the checkboxes corresponding to each permission you want to assign to the selectors.
 
@@ -729,7 +749,7 @@ h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
 
 *1.* Click the *Edit* icon corresponding to the template you want to edit.
 
-*2.* Change the title, the description, the content as you want.
+*2.* Change the title, the description or the content as you want.
 
 *3.* Click *Save Template* at the *Page Control* area.
 
@@ -742,7 +762,7 @@ h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
 h3. Set up the wiki syntax {anchor:id=KSuser.Wiki_Administration.Set_up_syntax}
 
-By setting up the Wiki syntax, you can select the default syntax or use another one while writing a document.
+By setting up the Wiki syntax, you can select the default syntax and allow user to choose syntax while writing a document or not.
 
 *1.* Click *Syntax* in the *Space Settings* page.
 
@@ -755,7 +775,7 @@ In case you want to use another syntax, tick the "*Allow user to select other sy
 
 {docbook}
 <note>
-<para>It is highly recommended that you should use such simple xyntaxes, such as XWiki 2.0, or Confluence 1.0. </para>
+<para>It is highly recommended that you should use such simple syntaxes, such as XWiki 2.0, or Confluence 1.0. </para>
 </note>
 {docbook}
 

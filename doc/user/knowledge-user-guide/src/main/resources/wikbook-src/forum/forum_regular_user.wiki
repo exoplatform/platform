@@ -325,7 +325,7 @@ This way allows you to untag one or multiple topics.
 
 *2.* Ticking your desired topic checkboxes from the topics list.
 
-*3.* Click !images/Manage_tag_btn.png! on the *Action* bar, then select *Untag* from the drop-down menu.
+*3.* Click !images/Manage_tag_btn.png! on the *Action* bar then select *Untag* from the drop-down menu.
 
 !images/tags_management.png|align="center"!
 
@@ -451,7 +451,7 @@ After submitting your post and you want to change it, you can do as follows:
 
 *1.* Click !images/Edit_post_btn.png! under the post you want to edit.
 
-*2.* Make changes on the post, then click *Submit* to accept your changes. When you edit a post, you also have the opportunity to upload an attachment, or delete an existing one.
+*2.* Make changes on the post then click *Submit* to accept your changes. When you edit a post, you also have the opportunity to upload an attachment, or delete an existing one.
 
 h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 
@@ -486,12 +486,12 @@ The *View User Profile* form will be displayed.
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
 
-This function is for all logged-in users who eant to send messages to other users privately. These messages will not be moderated and only viewable to the receiver.
+This function is for all logged-in users who want to send messages to other users privately. These messages will not be moderated and only viewable to the receiver.
 
 
 h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
 
-*1.* Click the username or avatar of the user you want to send message, then select *Send Private Message* in the drop-down menu.
+*1.* Click the username or avatar of the user you want to send message then select *Send Private Message* in the drop-down menu.
 
 !images/send_message.png|align="center"!
 
@@ -655,9 +655,9 @@ Go to the *My Subscriptions* tab in the *Settings* form, where you can update or
 
 !images/settings_my_subscriptions.png|align="center"!
 
-* In the *RSS* column, you can subscribe or unsubscribe your subscriptions by selecting/deselecting the respective checkboxes, then click *Save*. The selected objects (categories, forums, topics) will be updated to the *Your personal feed URL is* field. You can use this link to view the content of your subscriptions.
+* In the *RSS* column, you can subscribe or unsubscribe your subscriptions by selecting/deselecting the respective checkboxes then click *Save*. The selected objects (categories, forums, topics) will be updated to the *Your personal feed URL is* field. You can use this link to view the content of your subscriptions.
 
-* In the !images/Mail_icon.png! column, you can edit or delete your subscription email. Select an email, then click the trash icon to delete. Enter a new email address into the *Your watches are sent to* field. Click *Update* to add your entered email addresses in the !images/Mail_icon.png! column.
+* In the !images/Mail_icon.png! column, you can edit or delete your subscription email. Select an email then click the trash icon to delete. Enter a new email address into the *Your watches are sent to* field. Click *Update* to add your entered email addresses in the !images/Mail_icon.png! column.
 
 * Click !images/Remove_icon.png! to remove your watched category, topic, post. After being removed, you will no longer receive any email notifications of the removed object.
 
