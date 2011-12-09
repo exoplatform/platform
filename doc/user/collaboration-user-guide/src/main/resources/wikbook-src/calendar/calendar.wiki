@@ -7,7 +7,7 @@ The Calendar interface has 5 basic components:
 *Details:*
 
 ||Number||Description||
-|!images/1.png!|The *Toolbar* contains most of actions in Calendar, such as adding an event/task, switching between view modes, and more.|
+|!images/1.png!|The *Toolbar* contains most of actions in Calendar, such as adding an event/task, switching between view modes and more.|
 |!images/2.png!|The *Search Pane* where you can perform quick and advanced searches.|
 |!images/3.png!|The *Mini calendar* which can be hidden by clicking !images/Upper_arrow_icon.png!.|
 |!images/4.png!|The *Calendars pane* which includes 3 categories: Personal Calendars, Shared Calendars and Group Calendars. Each category may include various calendar groups.|
@@ -20,6 +20,9 @@ The Calendar interface has 5 basic components:
 <note>
     <para>
     In eXo Platform, the left pane of <emphasis role="bold">Calendar</emphasis> is hidden by default. To show this pane, select <emphasis role="bold">Toggle Left Pane</emphasis> on the toolbar.
+    </para>
+    <para>
+    If a calendar is not selected, its events and tasks will be hidden from the *Calendar View Pane*. You can show/hide the events/tasks by simply click the calendar name.
     </para>
 </note>
 {docbook}
@@ -257,7 +260,7 @@ h1. Edit a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar"}
 {docbook}
 <note>
 <para>
-You can ONLY edit personal calendars, and group calendars which have been created by yourself. 
+You can ONLY edit personal calendars and group calendars which have been created by yourself. 
 </para>
 <para>
 For group calendars which are created by another users, you can ONLY EDIT them if you are granted the <emphasis role="bold">Edit</emphasis> permission.
@@ -323,7 +326,7 @@ This function allows you to export a calendar and its events/tasks into a separa
 
 !images/export_calendars.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
-*3.* Enter the exported file name in the *File Name* field, and select its format from the *Export Format* drop-down menu. At present, only the *ICalendar(.ics)* format is supported.
+*3.* Enter the exported file name in the *File Name* field and select its format from the *Export Format* drop-down menu. At present, only the *ICalendar(.ics)* format is supported.
 
 {docbook}
 <warning>
@@ -499,7 +502,7 @@ Hover your cursor over the event to see the detail view.
 
 *The second way*
 
-Right-click the event in the *Calendar View pane*, and select *View* from the drop-down menu.
+Right-click the event in the *Calendar View pane* and select *View* from the drop-down menu.
 
 !images/view_detailed_event2.png|align="center"!
 
@@ -532,7 +535,7 @@ Click !images/event_button.png! on the toolbar.
 
 *The second way*
 
-Right-click the calendar view pane, and select *Add New Event* from the drop-down menu.
+Right-click the calendar view pane and select *Add New Event* from the drop-down menu.
 
 !images/add_new_event.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
@@ -624,15 +627,15 @@ Here, you can define the repeating time for your event as follows:
 * *Yearly:* The event will be repeated every year.
 
 *2.* Select the frequency for repeating your event in the *Repeat Every* option. The selected frequency will work on the *Repeat* value. 
-For example, if you set *Weekly* in the *Repeat* option, and *5* in the *Repeat every* option, the event will be repeated 5 times in each week.
+For example, if you set *Weekly* in the *Repeat* option and *5* in the *Repeat every* option, the event will be repeated 5 times in each week.
 
 *3.* Select the option for ending your repeating event by ticking the relevant checkbox.
 * *Never:* Your repeating event will never end.
 * *After [X] occurrences:* Your repeating event will end after X occurrences.
-* *By this date:* Your repeating event will end before your specified date. Point your cursor over the textbox, and select the date from the drop-down calendar.
+* *By this date:* Your repeating event will end before your specified date. Point your cursor over the textbox and select the date from the drop-down calendar.
 
 h4. Create a reminder for upcoming events {anchor:id="Create_event_reminder"}
-The *Calendar* application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as a title, time, and location. To use this feature, go to the *Reminders* tab. 
+The *Calendar* application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as a title, time and location. To use this feature, go to the *Reminders* tab. 
  
 !images/add_edit_event.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
@@ -667,7 +670,7 @@ Or, use the *Search* function to search for your expected email addresses. Also,
 The list of your selected email addresses are displayed right below the *Also send reminders to* field of the *Reminders* tab.
 
 h4. Add participants to an event {anchor:id="Invite_people_to_event"}
-If you want to invite people to attend an event, go to the *Participants* tab. This tab contains options to add participants, and to send invitation mails.
+If you want to invite people to attend an event, go to the *Participants* tab. This tab contains options to add participants and to send invitation mails.
 
 !images/add_edit_event_participant_tab.png|align="center"!
 
@@ -859,7 +862,7 @@ h2. Export/Import an event {anchor:id="CSUser_guide.How_to_use_Calendar.Export_i
 
 This function allows you to export one event into a file on your device. This file can be imported to use in another Calendar application.
 
-*1.* Right-click the event that you want to export, and select *Export* from the drop-down menu.
+*1.* Right-click the event that you want to export and select *Export* from the drop-down menu.
 
 !images/export.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
@@ -936,7 +939,7 @@ Hover your cursor over the task to open the task preview pane.
 
 *The second way*
 
-Right-click the task in the *Calendar View pane*, and select *View* from the drop-down menu.
+Right-click the task in the *Calendar View pane* and select *View* from the drop-down menu.
 
 !images/view_tasks_details2.png|align="center"!
 
@@ -1022,7 +1025,7 @@ This function is done in the *Reminders* tab. To create a reminder for a task, s
 
 h2. Edit task details {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_task_details}
 
-*1.* Right-click the task you want to edit, and select *Edit* from the drop-down menu.
+*1.* Right-click the task you want to edit and select *Edit* from the drop-down menu.
 
 The *Add/Edit Tasks* form will be displayed.
 
@@ -1086,7 +1089,7 @@ h2. Export/Import a task {anchor:id="CSUser_guide.How_to_use_Calendar.Export_imp
 </citetitle>
 {docbook}
 
-*1.* Right-click the task that you want to export, and select *Export* from the drop-down menu.
+*1.* Right-click the task that you want to export and select *Export* from the drop-down menu.
 
 The *Export Calendars* form will appear.
 
@@ -1260,7 +1263,7 @@ In the Calendar application, you can change default values for its settings.
 ||Field||Description||
 |*View Type*|The view type of Calendar View Pane. You can define the default view type when you start the Calendar application (Day, Week, Work Week, Month, Year, List).|
 |*Date Format*|The date format which is displayed in Calendar, such as Starting date, Ending date of events/tasks.|
-|*Time Format*|The time format which is displayed in Calendar, such as the time of Starting date, or Ending Date, and the time displayed in Calendar View Pane.|
+|*Time Format*|The time format which is displayed in Calendar, such as the time of Starting date, or Ending Date and the time displayed in Calendar View Pane.|
 |*Country (Language)*|The default geographical location displayed in Calendar.|
 |*Time Zone*|The default time zone displayed in Calendar. |
 |*Week Start On*|The first day of the week displayed in the *Week* and *Work Week* views.|
@@ -1298,9 +1301,6 @@ This function allows you to change name and description of a selected category.
 *3.* Click *Save* to finish editing/deleting your selected category.
 
 
-
-
-
 h1. Add Agenda gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.Agenda_gadget"}
 
 The *Agenda* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming events and tasks from your personal calendar.
@@ -1308,7 +1308,7 @@ The *Agenda* gadget is a utility associated with the *Calendar* application. Thi
 {docbook}
 <citetitle>
 <para>
-Add Agenda gadget to your Dashboard
+<emphasis role="bold">Add Agenda gadget to your Dashboard</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -1319,19 +1319,21 @@ Add Agenda gadget to your Dashboard
 
 !images/Gadget_Directory.png|align="center"!
 
-The result:
+You will see the *Agenda* gadget in the Dashboard as below:
 
 !images/Agenda_gadget_sample.png|align="center"!
 
 {docbook}
 <citetitle>
-<para>
-The Agenda gadget settings.
+<para xml:id="Configure_the_Agenda_gadget">
+<emphasis role="bold">
+Configure the Agenda gadget
+</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open its *Settings*.
+*1.* Click !images/Settings_upcoming_events_gadget_icon.png! to open the *Agenda* gadget settings.
 
 !images/Agenda_gadget_settings.png|align="center"!
 
@@ -1348,7 +1350,7 @@ The Agenda gadget settings.
 {docbook}
 <note>
     <para>
-    The <emphasis role="bold">Base url</emphasis> is needed to make the <emphasis role="bold">Show all</emphasis> function work. By clicking the <emphasis role="bold">Show all</emphasis> link, you will go to the Portal page that contains the Calendar application.
+    The <emphasis role="bold">Base URL</emphasis> is needed to make the <emphasis role="bold">Show all</emphasis> function work. By clicking the <emphasis role="bold">Show all</emphasis> link, you will go to the Portal page that contains the Calendar application.
     </para>
 </note>
 {docbook}
@@ -1356,17 +1358,18 @@ The Agenda gadget settings.
 
 h1. Add My Tasks gadget to your page {anchor:id="CSUser_guide.How_to_use_Calendar.My_tasks"}
 The *My Task* gadget is a utility associated with the *Calendar* application. This gadget is used for listing upcoming tasks of the current day from your personal calendar.
+
 {docbook}
 <citetitle>
 <para>
-Add My Tasks gadget to your Dashboard
+<emphasis role="bold">Add My Tasks gadget to your Dashboard</emphasis>
 </para>
 </citetitle>
 {docbook}
 
 The process is similar to [adding Agendar gadget to your Dashboard|#CSUser_guide.How_to_use_Calendar.Agenda_gadget]
 
-The result:
+You will see the *My Task* gadget in the Dashboard as below:
 
 !images/My_Tasks_gadget_sample.png!
 
