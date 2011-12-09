@@ -1,6 +1,6 @@
 The section provides you a guide to use all *Forum* features or to configure the *Forum* portlet to make it work in your desired manner.
 
-In *Forum*, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining *Forum*. With the highest rights, the administrators are in charge of the entire management tasks, including form configurations, users management, permissions, categories, forums, topics, and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
+In *Forum*, the role of each user group is clear and very important. Each role has a set of tasks that they can execute. Administrators and moderators are responsible for setting up and maintaining *Forum*. With the highest rights, the administrators are in charge of the entire management tasks, including form configurations, users management, permissions, categories, forums, topics and messages. With sub-sets of administrative permissions, the moderators will manage the respective sub-sets of the forum.
 
 The user interface will indicate which features are available to you, based on your role.
 
@@ -21,7 +21,7 @@ The user interface will indicate which features are available to you, based on y
 To have an overall look of actions which users of each role can do in the *Forum* application, see the following table: 
 
 || Features || Description ||  Administrator  ||  Moderator  ||  Owner  ||   Regular user   ||  Guest  ||
-|[View details of Forum|#Forum_user_guide.Regular_user.View_details]|View categories, forums, and many another information.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
+|[View details of Forum|#Forum_user_guide.Regular_user.View_details]|View categories, forums and many another information.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Subscribe to RSS feeds|#Forum_user_guide.Forum_regular_user.Subscriptions]|Provide the link to *Forum* for easy sharing.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Attach a file|#Forum_regular_user.Topics.Start_topics]|Upload attachments to a topic/post, preview and download attachments.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|
 |[Search|#Forum_user_guide.Forum_regular_user.Search]|Do the simple and advanced search.|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|!images/Yes_icon2.png!|

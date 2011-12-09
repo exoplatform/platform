@@ -21,10 +21,10 @@ This guide aims at instructing users to use eXo Knowledge features through in-de
 This user guide is divided into four main parts: 
 
 ||Chapters||Main content||
-|[Overview Of eXo Knowledge|#KS_overview]|Introduction to eXo Knowledge, and user roles in different groups, the ways to access various applications of eXo Knowledge.|
-|[How To Use Answers?|#Answer_user_guide]|Actions in the Answers application, such as submiting, commenting or answering a question, and more.|
-|[How To Use Forum?|#Forum_user_guide]|Actions in the Forum application, related to topics, posts, bookmarks, and more.|
-|[How To Use Wiki?|#Wiki_user_guide]|Introduction to Wiki, such as page hierarchy, syntaxes; and how to work with pages, attachments, and more.|
+|[Overview Of eXo Knowledge|#KS_overview]|Introduction to eXo Knowledge and user roles in different groups, the ways to access various applications of eXo Knowledge.|
+|[How To Use Answers?|#Answer_user_guide]|Actions in the Answers application, such as submiting, commenting or answering a question and more.|
+|[How To Use Forum?|#Forum_user_guide]|Actions in the Forum application, related to topics, posts, bookmarks and more.|
+|[How To Use Wiki?|#Wiki_user_guide]|Introduction to Wiki, such as page hierarchy, syntaxes and how to work with pages, attachments and more.|
 
 For each section describing specific functions of an application, instructions are arranged to the user groups:
 actions performed by regular users, those by moderators and administrators and the administration actions for the administrators only.
@@ -47,7 +47,7 @@ h3. References {anchor:id=KSuser.Overview.References}
 - [eXo Social|http://www.exoplatform.com/company/public/website/platform/exo-extended-services/exo-social]
 
 *Resource Center*
-- [Video demos, tutorials, webinar archives, features & benefits tables, and more|http://www.exoplatform.com/company/public/website/resource-center].
+- [Video demos, tutorials, webinar archives, features & benefits tables more|http://www.exoplatform.com/company/public/website/resource-center].
 
 h1. Get started with eXo Knowledge {anchor:id=KSuser.Overview.GetStartedWitheXoKnowledge}
 h2. User roles {anchor:id=KSuser.Overview.User_roles}

@@ -119,7 +119,15 @@ For example:
 h2. Edit a page {anchor:id=KSuser.Work_with_Wiki_pages.Edit_pages}
 You can edit a page at any time if you have the edit permission on that page.
 
-To edit a page, click *Edit* in the *Page Control* area. Your page will switch to the Edit mode.
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Edit a whole page content</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+To edit a whole page content, click *Edit* in the *Page Control* area. Your page will switch to the Edit mode.
 
 !images/page_control.png|align="center"!
 
@@ -139,10 +147,24 @@ Now, you can rename the page and edit the page content. In view mode, hover mous
 |!images/8.png!| Discard the current changes and go back to the view mode. |
 |!images/9.png!| The syntax drop-down. You can select your preferred syntax here.|
 
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Edit a page section</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+To edit only a section in the whole page content, hover the mouse over the title of the section you want to edit and click !images/Wiki_edit_icon.png! that appears.
+
+!images/Wiki_edit_section.png|align="center"!
+
+
 {docbook}
 <tip>
 <para>
-In View mode, you can double click the page title to quick edit it.
+In the View mode, you can quickly edit the page title by double-clicking it and press Enter when finish.
 </para>
 </tip>
 {docbook}
@@ -166,7 +188,7 @@ The form to select the destination page appears.
 {docbook}
 <note>
 <para>
-The *Move page* action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space, not between spaces.
+The Move page action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space and not between spaces.
 </para>
 </note>
 {docbook}
