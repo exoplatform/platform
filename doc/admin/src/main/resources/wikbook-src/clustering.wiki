@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 This chapter covers the following topics:
 </para>
@@ -44,9 +42,7 @@ This chapter covers the following topics:
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 h1. About clustering in eXo Platform {anchor:id=ADM.Clustering.About_Platform_Clustering}

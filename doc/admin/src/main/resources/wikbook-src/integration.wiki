@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 The eXo Platform integration with another systems is very important. To make eXo Platform work with <emphasis>predefined organizational data</emphasis> properly, it is necessary to initialize some backend settings for each <emphasis>organizational element</emphasis>.
 Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called <emphasis role="bold">organizational model integration</emphasis>.
@@ -43,9 +41,7 @@ The goal of this chapter is to instruct you how to connect eXo Platform to a pop
 </itemizedlist>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 

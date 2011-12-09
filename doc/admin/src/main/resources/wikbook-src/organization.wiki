@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 This chapter covers the following topics:
 </para>
@@ -27,9 +25,7 @@ This chapter covers the following topics:
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 h1. Legacy organization configurations {anchor:id=ADM.Organization.Lagacy_Organization_Config}
 

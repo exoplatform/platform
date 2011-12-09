@@ -1,9 +1,8 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 This chapter covers the following topics:
+</para>
 <itemizedlist>
 <listitem>
 <para>
@@ -71,10 +70,8 @@ This chapter covers the following topics:
 </para>
 </listitem>
 </itemizedlist>
-</para>
-</partintro>
-</para>
-</section>{docbook}
+</abstract>
+{docbook}
 
 h1. eXo Platform configuration {anchor:id=ADM.Configuration.eXo_Configuration}
 

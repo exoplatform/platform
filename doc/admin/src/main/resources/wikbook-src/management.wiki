@@ -1,9 +1,8 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 In this chapter, the following topics are included:
+</para>
 <itemizedlist>
 <listitem>
 <para>
@@ -53,10 +52,8 @@ In this chapter, the following topics are included:
 </itemizedlist>
 </listitem>
 </itemizedlist>
-</para>
-</partintro>
-</para>
-</section>{docbook}
+</abstract>
+{docbook}
 
 h1. Introduction to eXo Platform management {anchor:id=ADM.Management.Introduction}
 

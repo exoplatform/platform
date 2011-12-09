@@ -1,10 +1,8 @@
 {docbook}
-<section>
+<abstract>
 <para>
-<partintro>
-<para>
-
 eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory. In this chapter, you will see the following topics:
+</para>
 <itemizedlist>
 <listitem>
 <para>
@@ -22,10 +20,7 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 </para>
 </listitem>
 </itemizedlist>
-</para>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}

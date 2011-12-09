@@ -1,9 +1,8 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 The backup of eXo Platform instance involves backing up the databases and the file systems for the JCR index and value storage. The following topics are covered in this chapter:
+</para>
 <itemizedlist>
 <listitem>
 <para>
@@ -26,10 +25,7 @@ The backup of eXo Platform instance involves backing up the databases and the fi
 </para>
 </listitem>
 </itemizedlist>
-</para>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 {note}
 The _gatein.data.dir_ variable is defined in the _configuration.properties_ file and by default points to the _$APPSEVERHOME/gatein/data_ folder.

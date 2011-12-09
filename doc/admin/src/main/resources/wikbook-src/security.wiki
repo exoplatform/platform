@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 This chapter presents <link linkend="ADM.Security.Change_JAAS_real">changes on the JAAS realm</link> with the following sub-topics:
 </para>
@@ -17,9 +15,7 @@ This chapter presents <link linkend="ADM.Security.Change_JAAS_real">changes on t
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
