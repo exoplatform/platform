@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 eXo Platform provides a set of collaborative applications which help you achieve your goals and enhance your productivity in the corporate environment. This chapter presents the following topics:
 </para>
@@ -23,7 +21,5 @@ eXo Platform provides a set of collaborative applications which help you achieve
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}

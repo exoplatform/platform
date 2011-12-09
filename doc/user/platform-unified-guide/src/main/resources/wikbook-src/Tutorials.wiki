@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 eXo Platform is a full-featured application for users to have many experiences in building and deploying transactional websites, authoring web and social content, creating gadgets
 and dashboards with reliable capabilities of collaboration and knowledge.
@@ -34,9 +32,7 @@ and dashboards with reliable capabilities of collaboration and knowledge.
           </emphasis> includes procedures on how to change the display language permanently and for another users.</para>
       </listitem>
     </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 {docbook}

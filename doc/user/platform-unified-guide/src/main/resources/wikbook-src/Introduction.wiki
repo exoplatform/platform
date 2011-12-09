@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
  <para>This documentation is divided into the following chapters:</para>
         <itemizedlist>
@@ -54,9 +52,7 @@
               </emphasis> covers actions on managing your profiles and spaces, building networks and following activities in your network.</para>
           </listitem>
         </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 

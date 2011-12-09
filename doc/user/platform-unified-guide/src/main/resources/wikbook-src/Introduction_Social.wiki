@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 <emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives rich experiences to users via many options that are similar to social networks, such as Facebook and Linkedln. 
 With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills and team information, to profiles of yourself and another contacts.
@@ -28,9 +26,7 @@ This chapter presents the following topics:
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 In this chapter, most Social-related actions are demonstrated through the *Intranet* site which is a default social portal built in eXo Platform.

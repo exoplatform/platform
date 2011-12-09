@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
   <para>This chapter focuses on how to manage, store, preserve, and deliver content, and more, via the following main topics:</para>
     <itemizedlist>
       <listitem>
@@ -29,7 +27,5 @@
           </emphasis> represents default processes, including holiday and pay raise, and how to create and manage these processes. Also, this section also focuses on how to upload or view details of a process.</para>
       </listitem>
     </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}

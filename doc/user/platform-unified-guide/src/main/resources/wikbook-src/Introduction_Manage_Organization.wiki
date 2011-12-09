@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
  <para>This chapter represents actions related to management of users, groups and memberships. It covers the following topics: </para>
     <itemizedlist>
       <listitem>
@@ -29,7 +27,5 @@
           </emphasis> </para>
       </listitem>
     </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}

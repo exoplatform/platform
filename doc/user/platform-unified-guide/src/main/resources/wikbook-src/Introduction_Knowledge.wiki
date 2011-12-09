@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
 <para>
 In eXo Platform, you can manage your knowledge base easily through the <emphasis role="bold">Knowledge</emphasis> application. <emphasis role="bold">Knowledge</emphasis> includes 3 main portlets, including <emphasis role="bold">Forum</emphasis>, <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">Wiki</emphasis>. With <emphasis role="bold">Knowledge</emphasis>, you can share information, seek supports through helpful answers and post your ideas.
 </para>
@@ -29,9 +27,7 @@ With this application, you and your collaborators can post a series of common qu
 </para>
 </listitem>
 </itemizedlist>
-</partintro>
-</para>
-</section>
+</abstract>
 {docbook}
 
 h1. About user roles  {anchor:id=KSuser.about_role}

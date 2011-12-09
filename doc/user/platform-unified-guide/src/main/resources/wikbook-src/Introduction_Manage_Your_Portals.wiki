@@ -1,7 +1,5 @@
 {docbook}
-<section>
-<para>
-<partintro>
+<abstract>
  <para>This chapter covers the following topics:</para>
 <itemizedlist>
 <listitem>
@@ -35,7 +33,5 @@
           </emphasis> represents actions which can be done on applications inside a portal and a Desktop.</para>
       </listitem>
  </itemizedlist>
- </partintro>
-</para>
-</section>
+</abstract>
 {docbook}
