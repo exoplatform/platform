@@ -1,3 +1,4 @@
+
 {docbook}
 <abstract>
 <para>
@@ -10,7 +11,7 @@ This chapter covers the following topics:
 <listitem>
 <para> <link linkend="Platform_User_Guide.Knowledge.Build_Wiki">Build a wiki</link> through the <emphasis role="bold">Wiki</emphasis> portlet.
 This application provides the content productivity to portal users as a tool to forge the unstructured knowledge. With <emphasis role="bold">Wiki</emphasis>, you can create and edit pages by using a simplified markup language or a WYSIWYG editor.
-Also, your company can use <emphasis role="bold">Wiki</emphasis> as an internal reference, such as work policy, or a public wiki for a comprehensive product information. <emphasis role="bold">Wiki</emphasis>  along with <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">Forum</emphasis> will 
+Also, your company can use <emphasis role="bold">Wiki</emphasis> as an internal reference, such as work policy or a public wiki for a comprehensive product information. <emphasis role="bold">Wiki</emphasis>  along with <emphasis role="bold">Answers</emphasis> and <emphasis role="bold">Forum</emphasis> will
 complete the ideal combination that helps users enhance their experiences on collaboration activities and build valuable knowledge center for clients.
 </para>
 </listitem>
@@ -21,8 +22,8 @@ While <emphasis role="bold">Answers</emphasis> is an ideal site for you to find 
 </listitem>
 <listitem>
 <para><link linkend="Platform_User_Guide.Knowledge.Build_FAQs">Build an Answers &amp; FAQs system</link> through the <emphasis role="bold">Answers</emphasis> portlet.
-<emphasis role="bold">Answers</emphasis> is a collaborative Question &amp; Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged. 
-With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them. 
+<emphasis role="bold">Answers</emphasis> is a collaborative Question &amp; Answer system similar to Yahoo! Answers or StackOverflow.com but for your own enterprise, where the collaboration is encouraged.
+With this application, you and your collaborators can post a series of common questions and find answers on a specific topic. Here, you can edit questions, provide answers and edit them.
 <emphasis role="bold">FAQs</emphasis> takes this content as input and publishes it in a clean and quickly browsable manner. You can point a <emphasis role="bold">FAQs</emphasis> portlet to one or several <emphasis role="bold">Answers</emphasis> categories. As a publishing portlet, it is impossible to edit questions and answers in <emphasis role="bold">FAQs</emphasis>.
 </para>
 </listitem>
@@ -54,17 +55,17 @@ Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then cl
 
 !images/Space_menu_application2.png|align="center"!
 
-Or hover your cursor over *My Spaces*, then click {noformat}[Space name]{noformat}* and click the application name on the Space navigation.
+Or hover your cursor over *My Spaces*, then click *{noformat}[Space name]{noformat}* and click the application name on the Space navigation.
 
 !images/Space_navigation_application2.png|align="center"!
 
 {docbook}
 <note>
-<para>In case the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications are not found, it means that they are not activated. To use these applications,
+<para>In case you do not see the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications, it means that they are not activated or not added to the current page or space. To use these applications,
 
-you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration -->Forum/Answers/Wiki</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration -->Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
 
-You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="edit a specific portlet">sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet</link> section. </para>
+You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">edit a specific portlet</link> section. </para>
 </note>
 {docbook}
 
