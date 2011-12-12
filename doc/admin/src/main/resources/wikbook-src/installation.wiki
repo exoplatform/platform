@@ -234,7 +234,9 @@ h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
 
 eXo Platform comes with different runtime profiles, enabling you to customize which modules you want to enable/disable in each eXo Platform instance.
 
-When using Tomcat, the *{noformat}start_eXo{noformat}* command accepts a comma-separated list of profiles. When using JBoss, you need to modify the run.conf file (run.conf.bat in Windows), then edit the line containing _{noformat}EXO_PROFILES="-Dexo.profiles=default"{noformat}_.
+* When using Tomcat, you can use a comma-separated list of profiles.
+
+* When using JBoss, you just need to edit _{noformat}EXO_PROFILES{noformat}_ in the _run.conf(.bat)_ file.
 
 The following profiles are supported:
 
