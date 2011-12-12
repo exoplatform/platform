@@ -19,7 +19,7 @@ eXo Platform supports 3 ways to change the display language permanently.
 
 *The first way*
 
-*1.* Hover your cursor over *My Sites* on the Administration bar and select your desired site where you want to change the display language. The currently selected site is marked with !images/Language/selected_site_icon.png!.
+*1.* Hover your cursor over *My Sites* on the Administration bar and select your desired site where you want to change the display language. The currently selected site is marked with !images/Language/selected_site_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/Language/Select_site.png|align="center"!
 
@@ -31,17 +31,17 @@ You will be directed to your selected site.
 
 Your selected site will be displayed in the *Edit* mode.
 
-*3.* Click !images/Language/Site_config_button.png! in the *Edit Inline Composer* form. The *Site Settings* form appears:
+*3.* Click !images/Language/Site_config_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Edit Inline Composer* form. The *Site Settings* form appears:
 
 !images/Language/Portal_settings_form.png|align="center"!
 
 *4.* Change the display language of your site by selecting another language from the *Locale* field in the *Portal Settings* tab. 
 
-*5.* Click *Save*, then click !images/Finish_icon.png! to save all changes.
+*5.* Click *Save*, then click !images/Finish_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to save all changes.
 
 *The second way*
 
-*1.* Hover your cursor over !images/gear_icon.png!, then select *Portal --> Sites.*
+*1.* Hover your cursor over !images/gear_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, then select *Portal --> Sites.*
 
 !images/Language/Open_all_sites.png|align="center"! 
 
@@ -63,7 +63,7 @@ This way is only used to set the display language for yourself, not for displayi
 
 !images/Language/Change_language_button.png|align="center"!
 
-The *Interface Language Settings* form will be displayed with the list of all supported languages. The currently used language is marked with !images/Select_icon.png!.
+The *Interface Language Settings* form will be displayed with the list of all supported languages. The currently used language is marked with !images/Select_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/Language/Interface_Language_Settings.png|align="center"!
 
@@ -83,12 +83,13 @@ h1. Change the display language for another user{anchor:id=Platform_User_Guide.G
 
 By this way, you can change not only your display language but also the display language of another users if you have the right to access the *Organization* portlet.
 
-*1.* Hover your cursor over !images/gear_icon.png!, then select *Users --> Group and Roles* from the drop-down menu to open the *User Management* form. 
+*1.* Hover your cursor over !images/gear_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, then select *Users --> Group and Roles* from the drop-down menu to open the *User Management* form. 
 
 !images/Language/User_management.png|align="center"!
 
 
-*2.* Click !images/edit_icon.png! corresponding to the user with the display language you want to change.
+*2.* Click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the user with the display language you want to change.
+
 *3.* Select the *User Profile* sub-tab, then change the display language for this user from the *Language* field.
 
 !images/Language/Select_language_for_another_user.png|align="center"!
