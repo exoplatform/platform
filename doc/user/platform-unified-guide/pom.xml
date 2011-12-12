@@ -281,8 +281,8 @@
 				</replace>
 
        <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage users and groups</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage users and groups</title>
+       <replacetoken><![CDATA[<title>Manage Your Organization</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage Your Organization</title>
 <xi:include href="gatein/modules/portal/User_Management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
        <replace file="${docbook.source}/index.xml">

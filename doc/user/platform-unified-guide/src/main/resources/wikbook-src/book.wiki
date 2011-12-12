@@ -15,8 +15,6 @@ h2. Manage language{anchor:id=Platform_User_Guide.Get_started.Manage_Language}
 {include:document="Manage_language.wiki"}
 
 h1. Manage Your Organization{anchor:id=Platform_User_Guide.Manage_Organization}
-{include:document="Introduction_Manage_Organization.wiki"}
-h2. Manage users and groups{anchor:id=Platform_User_Guide.Manage_Organization.Manage_Users_and_Groups}
 
 h1. Manage Your Portals{anchor:id=Platform_User_Guide.Manage_Your_Portals}
 {include:document="Introduction_Manage_Your_Portals.wiki"}
