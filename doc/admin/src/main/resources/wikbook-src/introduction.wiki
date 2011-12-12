@@ -37,7 +37,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 
 Through the guide, you can do many administrative tasks when implementing eXo Platform 3.5. The administration of eXo Platform 3.5 is categorized into the following main topics:
 
-|[Introduction|#ADM.Introduction]|Overview of eXo Platform 3.5, of the administration guide and its intended readers.|
+|[Introduction|#ADM.Introduction]|Overview of eXo Platform 3.5, of the administrator guide and its intended readers.|
 |[Installation|#ADM.Installation]|Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.|
 |[Configuration|#ADM.Configuration]|Understanding of configuration related to eXo Platform, database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.|
 |[Management|#ADM.Management]|Introduction to eXo Platform management, knowledge of eXo Platform management views.|
