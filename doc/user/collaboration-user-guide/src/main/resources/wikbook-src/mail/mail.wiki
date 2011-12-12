@@ -216,7 +216,7 @@ Your selected location is shown in the breadcrumb.
 *7.* Click *Save* to finish downloading the attachment to the server.
 
 h2. View all headers of a message {anchor:id=View_all_headers}
-The header's information is displayed by default, including email addresses of the sender and receivers and the mail subject. If you want to view full headers of a mail, do as follows:
+The header's information is displayed by default, including email addresses of the sender and recipients and the mail subject. If you want to view full headers of a mail, do as follows:
 
 *1.* Open the message which you want to view its full headers.
 
@@ -333,7 +333,7 @@ Simply tick the checkbox corresponding to the message you want to report as spam
 Drag the message in the right mails list pane and drop it into the *Spam* folder in the left pane.
 
 * The selected email will be moved to the *Spam* folder. Go into the *Spam* folder to verify that the selected message has been moved to it.
-* Once a message is marked as spam, all messages from the _spam_ sender will be automatically moved to the *Spam* folder.
+* All messages marked as spam will be moved to the *Spam* folder.
 
 {docbook}
 <citetitle>
@@ -348,7 +348,7 @@ Drag the message in the right mails list pane and drop it into the *Spam* folder
 
 *2.* Click !images/move_spam_mail_icon.png! on the action bar.
 
-The _spam_ message will be removed from the *Spam* folder. All messages from this sender will be received normally.
+The spam message will be removed from the *Spam* folder. All messages from this sender will be received normally.
 
 h2. Delete a message {anchor:id="Delete_a_message"}
 
@@ -454,7 +454,7 @@ The *To* box must always contain at least one address; everyone who receives you
 {docbook}
 
 
-*4.* Enter a few words into the *Subject* box to give the general topic to receivers.
+*4.* Enter a few words into the *Subject* box to give the general topic to recipients.
 
 *5.* Enter your message in the text-input field. You can use this toolbar to format the message text.
 
@@ -576,7 +576,7 @@ If you are not ready to send your composed message, click !images/save_in_drafts
 
 h2. Set a priority level {anchor:id="Set_priority_level"}
 
-The priority levels set to a message allow recipients to define if one received message is at a high, or normal, or low importance level. It means that when a message is set at the high priority level, its receivers need to read as soon as possible.
+The priority levels set to a message allow recipients to define if one received message is at a high, or normal, or low importance level. It means that when a message is set at the high priority level, its recipients need to read as soon as possible.
 
 This useful tool can be done with a few clicks when you are composing a new message. 
 
@@ -607,7 +607,7 @@ At present, this function only allows you to receive a notification message that
 
 *1.* Click !images/options_icon.png! in the *Compose New Message* form.
 
-*2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the receiver in the [Change Mail settings|#Mail_settings] section.
+*2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the recipient in the [Change Mail settings|#Mail_settings] section.
 
 
 h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message}
@@ -970,7 +970,7 @@ The *Add/Edit Message Filter* will appear.
 ||Field||Description||
 |*Filter Name*|The filter name.|
 |*From*|Filter the email address of sender.|
-|*To*|Filter the email address of receiver.|
+|*To*|Filter the email address of recipient.|
 |*Subject*|Filter the subject of incoming messages.|
 |*Body*|Filter the body of incoming messages.|
 |*Move the message to folder*|The folder to which the filtered messages will be moved.|
@@ -1066,7 +1066,7 @@ The Advanced Search allows you to specify criteria to narrow your search results
 |starts with|Start with the term in the search box.|
 |does not start with|Not start with the term in the search box.|
 
-* *To*: The condition corresponding to the receiver's name or mail address.
+* *To*: The condition corresponding to the recipient's name or mail address.
 * *Subject*: This condition which corresponds to the message subject.
 * *Message*: This condition which corresponds to the message content.
 * *Received Before & Received After*: The interval time when the searched messages were receipted.

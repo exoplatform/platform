@@ -14,7 +14,7 @@ This section describes actions that a regular user can perform in the *Forum* ap
 * Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]
 
 h2. View details of the Forum application {anchor:id=Forum_user_guide.Regular_user.View_details}
-Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see all categories of forum, all forums of each category, the number of posts more another information as below.
+Once clicking *Forum* on the *Administration* bar, you will be directed to the *Forum* homepage. Here, you can see categories of *Forum*, forums in each category, forum statistics as shown below:
 
 !images/View_Forum_application.png|align="center"!
 
@@ -67,19 +67,29 @@ Depending on your selected object, the results which contain the matching keywor
 
 h4. Advanced search {anchor:id=Forum_user_guide.Forum_regular_user.Advanced_search}
 
-The *Advanced Search* allows users to make a search with the particular criteria corresponding to the object you want to find. Using the *Advanced Search*, you can find forums/topics/posts exactly.
+The *Advanced Search* allows users to make a search with particular criteria corresponding to the object you want to find.
 
-The *Advanced Search* icon is placed anywhere in the *Forum* application. To perform the advanced search, do as follows:
+To perform the advanced search, do as follows:
 
 *1.* Click !images/Advance_search_icon.png! at the top right of the *Forum* homepage when being in the *Forum* application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the *Action* bar of each selected object.
 
 Basing on where you want to search: category, forum or post, the search criteria will be changed accordingly.
 
-*2.* Define values of properties corresponding to each object that you want to search.
+*2.* Enter the search criteria.
 
 *3.* Click the *Search* button to do search or *Cancel* to quit. Also, click the *Clear Fields* button to reset the inputted values.
 
-The list of the found objects will be displayed in the *Search Result* form or there will be an alert message when no objects match with the input properties.
+Matched results will be shown in the *Search Result* form. There will be an alert message when there is no object matching with the search criteria.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Find in categories
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * To find in categories, select *Category* from the *Search in* drop-down menu.
 
@@ -91,8 +101,19 @@ The list of the found objects will be displayed in the *Search Result* form or t
 |*Terms*|The keyword related to your desired categories.|
 |*Scope*| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Titles' option, only results matching the object's titles are returned.|
 |*Username*| The name of the category creator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
-|*Created between - and*| The created date interval for searching. Input dates manually or click !images/calendar_selector_icon.png! to open the calendar pop-up.|
+|*Created between - and*| The created date interval for searching. You can input the date manually or click !images/calendar_selector_icon.png! to select a date from the mini calendar.|
 |*Moderator*| The name of the category moderator. Input the name manually or click !images/user_selector_icon.png! to select users from a specific group.|
+
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Find in forums
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * To find in forums, select *Forum* from the *Search in* drop-down menu.
 
@@ -107,6 +128,17 @@ The list of the found objects will be displayed in the *Search Result* form or t
 |Topics|The interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
 |Moderator|The name of the forums' moderators.|
 
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Find in topics
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 * To find in topics, select *Topic* from the *Search in* drop-down menu.
 
 !images/Search_topic_Forum.png|align="center"!
@@ -117,10 +149,20 @@ The list of the found objects will be displayed in the *Search Result* form or t
 |Type|The type of the topic specified by the topic type name and its icon. It can be selected from the existing list.|
 |Status|The status of the topics.|
 |State|The state of the topics.|
-|Created between - and| The created date interval in which you want to search for topics.|
-|Last Post between - and| The last post's created date interval in topics in which you want to search.|
+|Created between - and| The created date interval in which you want to search for topics. You can input the date manually or click !images/calendar_selector_icon.png! to select a date from the mini calendar|
+|Last Post between - and| The last post's created date interval in topics in which you want to search. You can input the date manually or click !images/calendar_selector_icon.png! to select a date from the mini calendar|
 |Posts| The number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
 |Views| The mumber of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Find in posts
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * To find in posts, select *Post* from the *Search in* drop-down menu.
 
@@ -131,7 +173,7 @@ The list of the found objects will be displayed in the *Search Result* form or t
 ||Field||Description||
 |Term|The search keyword.|
 |Scope|The search scale to search. With the "Full" option, returned results are those matching both title and content. With the "Titles", the results only match the post titles.|
-|Created between - and| The created date interval in which you want to search for posts.|
+|Created between - and| The created date interval in which you want to search for posts. You can input the date manually or click !images/calendar_selector_icon.png! to select a date from the mini calendar|
 
 {docbook}
 <para>
@@ -160,14 +202,13 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 
 !images/new_topic.png|align="center"!
 
-*4.* Click *Preview* to see before submitting, or *Submit* to finish your topic.
+*4.* Click *Preview* to see before submitting or *Submit* to finish your topic.
 
 
 {docbook}
 <note>
     <para>
-    If the moderation feature is activated for a forum, it means that new topics must be reviewed and approved by a moderator before they are published.
-    Once a new message is posted in a moderated forum, the forum will tell you that the topic must be approved before being published.
+    In a forum that enables moderation, new topics will need reviewing and approving by moderators before being published.
     </para>
 </note>
 {docbook}
@@ -181,11 +222,11 @@ When creating a topic, you can also add extra properties to this topic: {anchor:
 
 h4. Select a topic icon {anchor:id=Forum_regular_user.Topics.Start_topics.Select_topic_icon}
 
-When posting a new topic, you may also assign an icon to the topic for the quick visual identification as follows:
+When posting a new topic, you may also assign an icon to the topic for the quick visual identification.
 
 *1.* Go to the *Icon* tab in the *New Topic* form.
 
-*2.* Select an icon category and click your desired icon in the right pane. The selected icon is surrounded with the red border and with its name as below.
+*2.* Select an icon category and click your desired icon in the right pane. The selected icon is surrounded with the red border with its name shown below.
 
 !images/new_topic_icon_tab.png|align="center"!
 
@@ -209,7 +250,7 @@ Go to the *Permissions* tab, you can set rights to view and post on your topic f
 
 !images/start_topic_permissions_tab.png|align="center"!
 
-To set the "post" or "view" right to certain users, enter usernames manually in each textbox or click one relevant selector next to the textbox.
+To set the permission to certain users, you can enter usernames manually or:
 
 * Click !images/user_selector_icon.png! to select users.
 
@@ -219,7 +260,7 @@ To set the "post" or "view" right to certain users, enter usernames manually in 
 
 h3. Edit a topic {anchor:id=Forum_regular_user.Topics.Edit_topics}
 
-Follow this method when you are in your topic.
+Regular users can only edit their own topic.
 
 *1.* Click !images/More_actions_btn.png! on the *Action* bar. For regular users, this button is only shown when you are the creator.
 
@@ -347,7 +388,7 @@ You can post a reply quickly with plain texts without taking into account its fo
 
 !images/quick_reply_box.png|align="center"!     {anchor:id="quick_reply_box"}
 
-*2.* Enter you message here. You can use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] in your reply to insert images, videos, or links.
+*2.* Enter you message. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text insert images, videos, or links.
 
 *3.* Optionally, click *Preview* to view your reply before submitting it.
 
@@ -486,7 +527,7 @@ The *View User Profile* form will be displayed.
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
 
-This function is for all logged-in users who want to send messages to other users privately. These messages will not be moderated and only viewable to the receiver.
+This function is for all logged-in users who want to send messages to other users privately. These messages will not be moderated and only viewable to the recipient.
 
 
 h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
@@ -499,7 +540,7 @@ The *Private Messages* form will appear.
 
 !images/private_messages_form.png|align="center"!
 
-*2.* Enter the username of the receivers and type your message title and contents.
+*2.* Enter the username of the recipients and type your message title and contents.
 
 *3.* Click *Save* to send the message.
 
@@ -551,7 +592,7 @@ Or right-click the item you want to subscribe to.
 
 !images/forum_rss_rightclick.png|align="center"!
 
-The detailed information of the category/forum/topic is displayed on another tab. Depending on which browser you are using, this page may look different. In this example, the browser is Firefox 8.0.
+The detailed information of the category/forum/topic is displayed on another tab. Depending on which browser you are using, this page may look different. The browser used in this example is Firefox 8.0.
 
 !images/rss_feed_subscribe_firefox.png|align="center"!
 
@@ -567,7 +608,7 @@ The following illustration demonstrates the RSS feed subscription using the Fire
 
 
 h2. Watch {anchor:id=Forum_user_guide.Forum_regular_user.Bookmarks}
-This function is for all logged-in users to keep track of changes in categories, forums or topics via notification emails. Whenever there are new changes, such new categories, new topics or new posts, you will receive a notification from the *Forum* application.
+This function is for all logged-in users to keep track of changes in categories, forums or topics via notification emails. Whenever there are new changes, such as new categories, topics, posts created, you will receive a notification.
 
 To watch a desired object, go into the object (category, forum or topic) click !images/Forum_Watch_btn.png! on the *Action* bar or right-click the object title and select *Watch* from the drop-down menu:
 
@@ -582,7 +623,7 @@ You will receive the email notifications about new posts/replies of the forum th
 {docbook}
 <note>
     <para>
-    Once a category/forum or a topic has already been watched, the <emphasis role="bold">Unwatch</emphasis> option will appear in the right-click menu or on the *Action* bar, so you can unsubscribe from the object.
+    Once a category/forum or a topic has already been watched, the <emphasis role="bold">Unwatch</emphasis> option will appear in the right-click menu or on the <emphasis role="bold">Action</emphasis> bar, so you can unsubscribe from the object.
     </para>
 </note>
 {docbook}
@@ -591,7 +632,7 @@ h2. Permanent links {anchor:id=Forum_user_guide.Forum_regular_user.Permanent_lin
 
 This function is for all users to view and copy the link to a specific forum/topic and share it with others.
 
-*1.* Go to Forum/Topic which you want to share link.
+*1.* Go to forum/topic which you want to share link.
 
 *2.* Click *Permalink* label at the right corner.
 

@@ -226,7 +226,7 @@ This function is for administrators and moderators only to stick topics which wi
 
 *1.* Select a topic by ticking its corresponding checkbox then click !images/Moderation_btn.png! on the *Action* bar when you are in a topics list.
 
-Or, click !images/More_actions_btn.png! on the *Action* bar when you are already in a topic.
+Click !images/More_actions_btn.png! on the *Action* bar if you are already in a topic you want to stick/unstick.
 
 *2.* Click *Stick* or *Unstick* from the drop-down menu that appears.
 

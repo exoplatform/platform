@@ -157,14 +157,6 @@ h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View
 Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions.
 To view all posted questions, click !images/Manage_question_btn.png! on the *Action* bar to open the *Manage Questions* form. Here, you can have the overview of all the posted questions in the category you manage.
 
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
 
 h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
 
@@ -181,10 +173,10 @@ h3. Approve/Disapprove a question {anchor:id=Answer_Moderator.Moderate_question.
 
 In a category that requires question to be moderated, any new questions will be in the unapproved status and need to be approved before being published.
 
-There are two options for answers: *All* and *Approved*.
+There are two options when approving/disapproving answers:
 
 * *All*: all approved and unapproved questions are displayed and visible for all users.
-* *Approved*: only the approved questions are displayed and visible while the unapproved questions are not displayed and invisible.
+* *Approved*: only the approved questions are displayed while the unapproved questions are hidden.
 
 If you select *Approved*, the *Moderate Question* function will determine the unapproved questions to display or not.
 
@@ -200,19 +192,17 @@ If you select *Approved*, the *Moderate Question* function will determine the un
 
 *1.* Right-click the question title and select *Edit* from the drop-down menu. The *Edit* form will be displayed.
 
-!images/Manage_question_form.png|align="center"!
-
 *2.* Select/Deselect the *Approved* checkbox.
 
 *The second way*
 
-*1.* Right-click the question title and select *Answer Question* from the drop-down menu. The *Answer* form is displayed.
+*1.* Right-click the question title and select *Answer Question* from the drop-down menu. The *Answer* form will be displayed.
 
 *2.* Select/Deselect the *Approved* checkbox.
 
 *The third way*
 
-*1.* Click !images/Manage_question_btn.png! on the *Action* bar. The *Manage Questions* form appears.
+*1.* Click !images/Manage_question_btn.png! on the *Action* bar. The *Manage Questions* form will be displayed.
 
 *2.* Click !images/Yes_icon.png! or !images/No_icon.png! to approve or disapprove the respective question.
 

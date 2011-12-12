@@ -1,7 +1,7 @@
 h1. Administrator {anchor:id=Answer_user_guide.Administrator} 
 The administrators have the global role and take care of the entire management tasks.
 
-h2. Set up Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
+h2. Set up the Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
 
 {docbook}
 <note>
@@ -80,8 +80,8 @@ The type of sorting entries in the list may be: *Ascending* or *Descending*.
 
 * *Enable Votes and Comments*: Enable votes and comments to be available in *Answers*. If this checkbox is selected, users can comment and vote in *Answers*. If not, these functions are disabled.
 * *Anonymous users may submit questions*: Enable anonymous users to submit questions in *Answers* or not. If this checkbox is selected, anonymous users are entitled to submit questions. If not, they cannot submit questions.
-* *Enable Automatic RSS*: Enable the RSS feeds function to be available in Answers or not. If this option is selected, users can get RSS information in *Answers*. If not, the RSS function is disabled.
-* *Display Avatars*: Enable avatars to be viewed in *Answers* or not. If this checkbox is selected, the avatar of eXo members are shown in *Answers*. If not, they are hidden.
+* *Enable Automatic RSS*: Enable the RSS feeds function to be available in Answers or not. If this option is selected, users can get RSS information in *Answers*.
+* *Display Avatars*: Enable avatars to be viewed in *Answers* or not. If this checkbox is selected, the avatar of eXo members are shown in *Answers*.
 * *Allow users to post questions in the root category:* Enable users to post questions in the root category or not.
 
 {docbook}
@@ -98,7 +98,7 @@ The type of sorting entries in the list may be: *Ascending* or *Descending*.
 * [Enable the "Discuss in Forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 	
-h3. Customize email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
+h3. Customize the email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
 When there are new questions or answers in the category or topic that a user has watched, the use will receive the email notification. 
 In the *Email Notifications* tab, change the content of the email notification manually or edit the template for each email notification. 
 
@@ -199,7 +199,7 @@ To hide/show any category, simply deselect/select its checkbox and click *Save*.
 * [Customize email notification template|#KSuser.Answer_Moderator.Customize_Email_template]
 * [Enable the "Discuss in Forum" feature|#KSuser.Answer_Moderator.Enable_discuss_in_forum]
 
-h2. Set up FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet}
+h2. Set up the FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet}
 
 The *FAQ* portlet can be added to a page for users to view questions and answers quickly and easily.
 

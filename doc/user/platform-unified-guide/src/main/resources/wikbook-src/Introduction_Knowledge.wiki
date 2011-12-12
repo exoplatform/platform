@@ -45,13 +45,13 @@ Please note that each user group has different privileges to perform actions. So
 
 * *Guest* (anonymous user) is an unregistered/unlogged-in user who is often limited to a very few features only of Knowledge. For instance, a guest can view topics in Forum but he cannot reply or create new topics.
 
-Notice that there will be no section dedicated to anonymous users. For the actions that an anonymous user can perform, you can refer to the table that summarizes all the actions in each application.
+Notice that there will be no section dedicated to anonymous users. You can refer to the table that summarizes all the actions that different user roles can perform in each application.
 
 h1. How to access knowledge applications {anchor:id=KSuser.access_knowledge}
 
 To access the *Forum*, *Answers* or *Wiki* applications of a space, do as follows:
 
-Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then click the application that you want to access;
+Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then click the application that you want to access:
 
 !images/Space_menu_application2.png|align="center"!
 
@@ -63,7 +63,7 @@ Or hover your cursor over *My Spaces*, then click *{noformat}[Space name]{noform
 <note>
 <para>In case you do not see the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications, it means that they are not activated or not added to the current page or space. To use these applications,
 
-you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration -->Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+you need to add them to a page by dragging and dropping the applications from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
 
 You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">edit a specific portlet</link> section. </para>
 </note>

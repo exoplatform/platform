@@ -439,7 +439,7 @@ The *Print Preview* page will appear with their summary information.
 *2.* Click *Print* to print information of your selected contacts.
 
 h1. Print an Address Book {anchor:id="CSUser_guide.How_to_use_Address_book.Print_address_book"}
-This function allows you to print the summary information of contacts in form of visit cards. You can also print all contacts in an address book at the same time.
+This function allows you to print the summary information of contacts in form of name cards. You can also print all contacts in an address book at the same time.
 
 {docbook}
 <citetitle>

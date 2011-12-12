@@ -26,7 +26,7 @@ The *Page Manager* page will be displayed.
 
 !images/Page_manager_page.png|align="center"!
 
-*2.* Click !images/Edit_icon3.png! that corresponds to the *Forum* page in the pages list.
+*2.* Click !images/edit_icon2.png! that corresponds to the *Forum* page in the pages list.
 
 !images/admin_forum_edit_forum_page.png|align="center"!
 
@@ -414,7 +414,7 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 |*Replacement*|The HTML codes that replace the user-entered BBCode.|
 |*Description*|The brief description about this BBCode tag.|
 |*Example*|The sample of the BBCode in use.|
-|*Use* {noformat}{option}{noformat}|Show that the new BBCode tag supports option or not.|
+|*Use {noformat}option}{noformat}*|Allow BBCode tag to have option or not.|
 |*Preview dialog*|Preview the rendered BBCodes.|
 |!images/Syntax_help_btn.png!|Click this icon to see descriptions of each field.|
 
@@ -504,9 +504,7 @@ Click !images/Plus_icon.png! next to the *Type* field in the *Option* tab of the
 
 !images/admin_forum_topic_type.png|align="center"!
 
-*3.* Click *Save* to accept adding your new topic type.
-
-You will see the new topic type added.
+*3.* Click *Save* to accept adding your new topic type. You will see the new topic type added.
 
 !images/admin_forum_topic_type_manager1.png|align="center"!
 
@@ -516,10 +514,9 @@ You will see the new topic type added.
 
 h3. Ban IPs {anchor:id=Forum_Administrator.Administrative_tasks.Ban_IPs}
 Administrators can ban IP addresses used by users who abuse the forum functions or violate the forum rules and policies. All banned IPs cannot be used to add posts to all forums in the *Forum* application. 
-Any users who use banned IPs to add post, will be recognized as the banned user. As a result, the banned user can only view and is prevented from most of basic actions to the forum, such as adding topics, posting, or rating.
+Any users who use banned IPs to add post, will be recognized as the banned user. As the result, the banned user can only view in Forum.
 
-
-Click !images/Aministration_btn.png! on the *Forum Administration* bar then click *Banned IPs* from the drop-down menu. The *Banned IPs* form opens.
+Click !images/Aministration_btn.png! on the *Forum Administration* bar then click *Banned IPs* from the drop-down menu. The *Banned IPs* form appears.
 
 !images/admin_forum_banned_IPs.png|align="center"!
 {anchor:id="administration-ban-IPs"}
@@ -535,7 +532,7 @@ Besides, you can also filter the banned IPs if there are so many banned IPs.
 To filter banned IPs, enter a part of the IPs address into filter text box, all IPs matching with filter term will be displayed.
 
 h3. Back up a category & forum {anchor:id=Forum_Administrator.Administrative_tasks.Back_up_categories_forums}
-The *Export* function is a best way to back up data in the *Forum* application. This function allows you to export categories and forums in the *Forum* application into the .zip or .xml file. When a category/forum is exported, all its forum, topics, posts and its properties are also exported. The exported file can be used to import into the *Forum* application.
+The *Export* function is a best way to back up data in the *Forum* application. This function allows you to export categories and forums in the *Forum* application into the .zip or .xml file. When a category/forum is exported, all of its forum, topics, posts and properties are also exported. This exported file can be used to import into the *Forum* application.
 
 h4. Export a category {anchor:id=Administrative_tasks.Backup_categories_forums.Export_categories}
 
@@ -552,12 +549,12 @@ h4. Export a category {anchor:id=Administrative_tasks.Backup_categories_forums.E
 |*Export All*|Check this option to export all data in *Forum*, such as all categories, user profiles and forum statistics.|
 |*Only Categories*|Check this option to export the selected categories only.|
 
-*3.* Select category and enter the file name into the *File Name* field.
+*3.* Select categories and enter the file name into the *File Name* field.
 
 *4.* Click *Save*.
 
 h4. Export a forum {anchor:id=Administrative_tasks.Backup_categories_forums.Export_forums}
-This function is used to export forums and all topics inside the *Forum* application in the .xml or .zip format.
+This function is used to export forums and all topics inside the *Forum* application into the .xml or .zip file.
 
 *The first way*
 
@@ -567,7 +564,7 @@ This function is used to export forums and all topics inside the *Forum* applica
 
 !images/admin_forum_export_forums.png|align="center"!
 
-*3.* Input the file name to export.
+*3.* Input the file name.
 
 *4.* Tick the *Compress* checkbox to export the file into the .zip file or leave it blank to export into .xml file.
 

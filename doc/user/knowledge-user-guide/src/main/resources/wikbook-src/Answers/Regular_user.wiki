@@ -1,7 +1,7 @@
 h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
-After accessing *Answers*, the left pane is hidden by default. To toggle the left panel, click !images/Answer_toogle_panel.png! on the *Action* bar.To view details of a category, simply left-click it to open its details in the right pane.
+After accessing *Answers*, the left pane is hidden by default. To toggle the left panel, click !images/Answer_toogle_panel.png! on the *Action* bar. To view details of a category, simply left-click it to open its details in the right pane.
 
 !images/Details_category.png|align="center"!
 
@@ -23,9 +23,9 @@ To view details of a question, simply click it to open its details, including it
 h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
 The *Answers* application allows you to raise your questions on any issues and helps you find the best answer.
 
-*1.* Right-click the category/sub-category where you want to submit your question and then select !images/answer_submit_question_rightclick.png! from the drop-down menu;
+*1.* Right-click the category/sub-category where you want to submit your question and then select !images/answer_submit_question_rightclick.png! from the drop-down menu
 
-Or go into the category that you want to submit questions, then click !images/Submit_question_bt.png! on the *Action* bar.
+or go into the category that you want to submit questions, then click !images/Submit_question_bt.png! on the *Action* bar.
 
 The *Submit Question* form appears as below.
 

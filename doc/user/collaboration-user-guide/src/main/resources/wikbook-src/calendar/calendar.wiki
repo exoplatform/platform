@@ -190,7 +190,7 @@ h2. Create a remote calendar {anchor:id="Create_remote_calendar"}
 {docbook}
 <note>
 <para>
-To create a remote calendar in the Calendar application successfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, visit <link linkend="More_about_iCal_CalDAV">here.</link>
+To create a remote calendar in the Calendar application successfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, refer to <link linkend="More_about_iCal_CalDAV">this section.</link>
 </para>
 </note>
 {docbook}
@@ -860,7 +860,7 @@ h2. Export/Import an event {anchor:id="CSUser_guide.How_to_use_Calendar.Export_i
 </citetitle>
 {docbook}
 
-This function allows you to export one event into a file on your device. This file can be imported to use in another Calendar application.
+This function allows you to export one event into a file on your device. This file can be imported to use in another *Calendar* application.
 
 *1.* Right-click the event that you want to export and select *Export* from the drop-down menu.
 
@@ -1185,14 +1185,14 @@ Advanced Search allows you to make a search with multiple criteria.
 |*Task Status*| The status of the task: Need Actions, Completed, In Process, Canceled. |
 |*Priority*|The priority of your needed tasks/events: Normal, High or Low. If you leave *blank* in the field, your search will be done to all priority levels.|
 |*From Date*| Only the events/tasks having 'To date' greater than or equal the date entered in the *From Date* field are listed in the results form. You can manually input or select the date from drop-down calendar.|
-|*To Date*|Only the events/task having 'From date' less than or equal to the date entered  in the *To date* field are listed in the results form. You can manually input or select the date from the drop-down calendar.|
+|*To Date*|Only the events/task having 'From date' less than or equal to the date entered  in the *To date* field are listed in the results form. You can input the date manually or select the date from the mini calendar.|
 
 *3.* Click the *Search* button to perform your search. All events/tasks matching with your criteria will be listed in the results form.
 
 {docbook}
 <note>
     <para>
-    At the Search Result form, you can also view, edit or delete one event/task by right-clicking it and selecting one action from the drop-down menu.
+    At the <emphasis role="bold">Search Result</emphasis> form, you can also view, edit or delete one event/task by right-clicking it and selecting one action from the drop-down menu.
     </para>
 </note>
 {docbook}
@@ -1338,7 +1338,7 @@ Configure the Agenda gadget
 !images/Agenda_gadget_settings.png|align="center"!
 
 ||Field||Description||
-|Base URL |The portal page that contains the your Calendar application.|
+|Base URL |The portal page that contains the your *Calendar* application.|
 |Subscription URL|The link to the Calendar REST service. Normally, regular users do not need to care about this field.|
 |Number of items displayed | The maximum number of the events and task will be shown.|
 |Calendar| Name of your personal calendar.|
@@ -1350,7 +1350,7 @@ Configure the Agenda gadget
 {docbook}
 <note>
     <para>
-    The <emphasis role="bold">Base URL</emphasis> is needed to make the <emphasis role="bold">Show all</emphasis> function work. By clicking the <emphasis role="bold">Show all</emphasis> link, you will go to the Portal page that contains the Calendar application.
+    The <emphasis role="bold">Base URL</emphasis> is needed to make the <emphasis role="bold">Show all</emphasis> function work. By clicking the <emphasis role="bold">Show all</emphasis> link, you will go to the Portal page that contains the *Calendar* application.
     </para>
 </note>
 {docbook}

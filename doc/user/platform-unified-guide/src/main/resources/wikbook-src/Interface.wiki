@@ -1,6 +1,6 @@
 {docbook}
 <para>
-After starting eXo Platform 3.5 successfully, ask your administrator for the proper link to run eXo Platform, for example <emphasis role="bold">http://localhost:8080/portal/default/</emphasis>. After pasting this link into one browser, you will be directed to the default page of eXo Platform 3.5.
+After starting eXo Platform 3.5 successfully, ask your administrator for the proper link to run eXo Platform, for example <emphasis role="bold">http://Website-domain/portal/default/</emphasis>. After pasting this link into one browser, you will be directed to the default page of eXo Platform 3.5.
 </para>
 {docbook}
 !images/PLFIntroduction/PLF3.5_interface.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
@@ -20,7 +20,7 @@ Therefore, before doing any actions, you first need to go to either of the provi
 {docbook}
 <note>
 <para>
-All actions or your registered information will be auto-synchronized between these sample portals.
+There is also direct links to login as regular users or power users in the sample portals.
 </para>
 </note>
 {docbook}
