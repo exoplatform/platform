@@ -35,7 +35,7 @@ In the Tomcat bundle, the JAAS configuration is controled by the _{noformat}$TOM
 
 {code}
 gatein-domain {
-  org.exoplatform.web.security.PortalLoginModule required;
+  org.gatein.wci.security.WCILoginModule optional;
   org.exoplatform.services.security.jaas.SharedStateLoginModule required;
   org.exoplatform.services.security.j2ee.TomcatLoginModule required; 
 };
