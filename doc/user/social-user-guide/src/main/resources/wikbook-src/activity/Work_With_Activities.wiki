@@ -11,7 +11,7 @@ In *Activity Streams,* you can follow various activities, including:
 * All updates of spaces where you are a member or a manager in the *Space Updates* tab.
 * All your own activities in the *My Status* tab, such as your profile updates, link updates or another activities pushed by yourself.
 
-You can see activities of any registered people by clicking their usernames. However, for people to whom you have not connected, you only can view their activities but cannot post any *activities*, *comments* or *likes* on their spaces.
+You can see activities of any registered people by clicking their usernames. However, for people to whom you have not connected, you only can view their activities but cannot post any *activities*, *comments* or *likes* on their activity streams.
 
 In addition, you can keep track of activities of a space application. For example, whenever there is a new post in the *Space Forum* application, it will be updated in the activity streams.
 
@@ -123,21 +123,21 @@ This action allows you to get ideas, answers, and any additional information whe
 4. Enter your comment into the *Comment* form and press the *Comment* button.
 Your comment will be displayed right below the profile.
 
-h1. Like/Unlike activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
-The function allows you to show your interest by selecting *Like* and/or *Unlike* activities/comments.
+h1. Like/Unlike activities  {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
+The function allows you to show your interest by selecting *Like* and/or *Unlike* activities.
 
 
 {docbook}
 <citetitle>
 <para>
-    <emphasis role="bold">Like activities/comments</emphasis>
+    <emphasis role="bold">Like activities</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-*1.* Select the profile containing the activity/comment you want to like.
+*1.* Select the profile containing the activity you want to like.
 
-*2.* Click *Like* beside the activity/comment. 
+*2.* Click *Like* beside the activity. 
 
 After you have selected *Like*, the text 'You like this' will be displayed below and *Like* will be turned into *Unlike*.
 
@@ -146,9 +146,9 @@ After you have selected *Like*, the text 'You like this' will be displayed below
 {docbook}
 <citetitle>
 <para>
-    <emphasis role="bold">Unlike activities/comments</emphasis>
+    <emphasis role="bold">Unlike activities</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-You only can *Unlike* activities/comments that you selected *Like* by following similar steps when you like activities/comments.
+You only can *Unlike* activities that you selected *Like* by following similar steps when you like activities.

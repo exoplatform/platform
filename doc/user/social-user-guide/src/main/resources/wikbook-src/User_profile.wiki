@@ -9,7 +9,7 @@ The *Account Profile* form is displayed with information you have set previously
 
 Here, you can change your account information in the *Account Profiles* tab, except for *Username*. These changes will be automatically synchronized with details in the *Basic information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
 
-If you want to view and update more details, go to the *My Profile* page by following either of two ways:
+If you want to view and update more details, go to the *My Profile* page by following either of 3 ways:
 
 *The first way*
 
@@ -17,7 +17,7 @@ Hover your cursor over your display name at the top right corner of the page, th
 
 *The second way* 
 
-Go to the *Activity Stream* page first, then select the *My Profile* tab in the left pane.
+Go to the *Activity Streams* page first, then select the *My Profile* tab in the left pane.
 
 *The third way*
 
@@ -41,7 +41,7 @@ From here, you can:
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">View profiles of another eXo Platform users</emphasis>
+<emphasis role="bold">View profiles of other users</emphasis>
 </para>
 </citetitle>
 {docbook}
@@ -57,7 +57,7 @@ From here, you can:
 {docbook}
 <note>
 <para>
-Regardless of being an administrator, you do not have right to edit profiles of another people.
+Regardless of being an administrator, you do not have right to edit profiles of other users.
 </para>
 </note>
 {docbook}
@@ -148,9 +148,9 @@ The followings are changeable information in each pane.
 </para>
 {docbook}
 
-* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
+* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar]
 
-* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
+* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position]
 
 
 h1. Upload your profile avatar{anchor:id=Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar}
@@ -163,7 +163,7 @@ You easily upload a photo to your profile or to the spaces which you have create
 
 *2.* Click *Browse...* to open the *File Upload* form.
 
-*3.* Select your desired image, then click the *Open* button to upload your selected image. The uploaded photo must be smaller than 2 MBs.
+*3.* Select your desired image, then click the *Open* button to upload your selected image. The uploaded photo must be smaller than 2 MB.
 
 *4.* Click *Confirm* to open the *Avatar Preview* form to see some related information, such as file name, file type and image size.
 

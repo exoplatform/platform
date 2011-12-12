@@ -1,4 +1,4 @@
-h1. Join or Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
+h1. Join/Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
 
 {docbook}
 <citetitle>
@@ -79,15 +79,15 @@ Besides, as a space manager or creator, you can:
 
 * [Edit the space settings, including description, priority level, and avatar|#Soc_User_Guide.Space_Management.Edit_Space].
 
-* [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility]
+* [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility].
 
-* [Invite new members to join your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem]
+* [Invite new members to join your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem].
 
-* [Accept/Deny requests for joining a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem]
+* [Accept/Deny requests for joining a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem].
 
-* [Promote/Demote roles of space members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem]
+* [Promote/Demote roles of space members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem].
 
-* [Remove members from your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem]
+* [Remove members from your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem].
 
 h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
 

@@ -1,4 +1,4 @@
-The concept "team work" becomes very familiar in business environments. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
+The concept "team work" becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
 To access a space, click *My Spaces* on the *Administration bar*.

@@ -4,15 +4,15 @@ To build your network, you first need to hover your cursor over the display name
 
 The *Network* page appears and allows you to do the following actions:
 
-* [Search for your contact|#search_contacts]
+* [Search for your contact|#search_contacts].
 
-* [Send connection requests|#Send_connection_requests]
+* [Send connection requests|#Send_connection_requests].
 
 !images/Network_information.png|align="center"!
 
 This page consists of the following tabs:
 
-* *All People*: list users who have registered in your system.
+* *All People*: list users who have registered in the eXo Platform system.
 
 * *Network*: list users who have established connections with you. You can remove these connections by clicking *Delete.*
 
@@ -38,7 +38,7 @@ This function allows you to find your desired contact quickly.
 
 * To stop doing advanced lookups, click *Hide option*.
 
-*2.* Hit the *Enter* key, or click !images/Social_search_icon.png! to find your contact. The results will be listed in the *People Found* pane.
+*3.* Hit the *Enter* key, or click !images/Social_search_icon.png! to find your contact. The results will be listed in the *People Found* pane.
 
 h1. Send connection requests {anchor:id=Send_connection_requests}
 
