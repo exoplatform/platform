@@ -1,9 +1,9 @@
 {docbook}
 <abstract>
 <para>
-<emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives rich experiences to users via many options that are similar to social networks, such as Facebook and Linkedln. 
-With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills and team information, to profiles of yourself and another contacts.
-Besides, <emphasis role="bold">Social</emphasis> provides built-in JavaScript client libraries for OpenSocial API that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
+<emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives users rich experiences with many features that are similar to social networks, such as Facebook and Linkedln. 
+With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills and team information, to your own profile.
+Besides, <emphasis role="bold">Social</emphasis> supports the OpenSocial API standard that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
 </para>
 <para>
 This chapter presents the following topics:
@@ -22,7 +22,7 @@ This chapter presents the following topics:
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Follow_Activities">Follow activities in your organization</link> which allows you to update status, share links, delete activities/comments, comment on activities, or like/unlike activities/comments.
+<para><link linkend="Platform_User_Guide.Social.Follow_Activities">Follow activities in your organization</link> which allows you to update status, share links, delete activities/comments, comment on activities, or like/unlike activities.
 </para>
 </listitem>
 </itemizedlist>
