@@ -482,7 +482,8 @@ exo.shared.dir=../gatein
 
 # Configuration directory (in cluster, this directory is per node)
 # Usual locations of configuration directory:
-# On JBoss app server it is assigned to ${jboss.server.home.dir}/conf/gatein by default.
+# for Tomcat app server it is ${catalina.home}/gatein/conf.
+# for JBoss app server it is ${jboss.server.home.dir}/conf/gatein.
 gatein.conf.dir=${catalina.home}/${exo.conf.dir.name}
 
 # Data directory
