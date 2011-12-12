@@ -245,9 +245,7 @@ After the database is ready, you need to configure eXo Platform to connect to it
 
 *Tomcat bundle*: {anchor:id=ADM.Configuration.Tomcat_Bundle}
 
-In Tomcat, the data sources configuration requires you to edit two files:
-* server.xml
-* starter.xml
+In Tomcat, the data sources configuration requires you to edit the _server.xml_ file.
 
 {tip}
 Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-6.0-doc/jndi-resources-howto.html] for more details on the JNDI resources binding in Tomcat.
@@ -293,29 +291,6 @@ The code now should look like:
 *3.* Add the JDBC driver.
 In this step, you need to add the MySQL connector to Tomcat by adding _{noformat}mysql-connector-java-5.1.x.jar{noformat}_ to _{noformat}$TOMCAT_HOME/lib/{noformat}_.
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">
-To edit the starter.xml file:
-</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*1.* Open the _starter.xml_ file to the _{noformat}$TOMCAT_HOME/conf/Catalina/localhost/starter.xml{noformat}_ path.
-
-*2.* Declare the resource links that make your datasources accessible to the starter webapp which is used when starting eXo Platform.
-
-{code:xml}
-<ResourceLink name="exo-jcr_portal"
-                global="exo-jcr_portal"
-                type="javax.sql.DataSource"/>
-
-<ResourceLink name="exo-idm_portal"
-                global="exo-idm_portal"
-                type="javax.sql.DataSource"/>
-{code}
 
 *JBoss*: {anchor:id=ADM.Configuration.JBoss}
 {docbook}
