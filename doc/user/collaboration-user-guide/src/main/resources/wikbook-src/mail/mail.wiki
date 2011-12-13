@@ -1048,7 +1048,7 @@ Quick search allows you to conduct a search with specific keywords in all of you
 h2. Advanced search {anchor:id="Mail_Advanced_search"}
 The Advanced Search allows you to specify criteria to narrow your search results.
 
-*1.* Click !images/Advanced_search_icon.png! in the left pane to open the *Advanced Search* form.
+*1.* Click !images/advanced_search_icon.png! in the left pane to open the *Advanced Search* form.
 
 *2.* Define the search conditions to your details, including:
 
