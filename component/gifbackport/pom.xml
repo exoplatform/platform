@@ -4,11 +4,11 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.component</artifactId>
-    <version>3.0.7-SNAPSHOT</version>
+    <version>3.0.7</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.component.gifbackport</artifactId>
-  <version>3.0.7-SNAPSHOT</version>
+  <version>3.0.7</version>
   <packaging>jar</packaging>
   <name>eXo Platform - Component javax.imageio GIF plugin backport</name>
   <description>eXo GIF plugin backport</description>
