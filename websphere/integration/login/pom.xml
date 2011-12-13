@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>websphere-integration</artifactId>
-        <version>3.0.7</version>
+        <version>3.0.8-SNAPSHOT</version>
     </parent>
 
     <artifactId>exo.websphere.login</artifactId>
