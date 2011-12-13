@@ -540,6 +540,9 @@ gatein.jcr.transaction.timeout=3600
 {code}
 
 h1. Mail server {anchor:id=ADM.Configuration.MailServer}
+{note}
+The *Mail* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+{note}
 
 eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
 
@@ -602,6 +605,9 @@ exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
 The property expects a comma-separated list of key=pair values, where keys are a list of MIME types followed by the cache-control value to set.
 
 h1. Chat server {anchor:id=ADM.Configuration.Chat_Server}
+{note}
+The *Chat* portlet and its services are deprecated. It remains fully supported for eXo customers, however it will not receive any enhancement and will be removed from the product scope in the future.
+{note}
 
 h2. XMPPMessenger {anchor:id=ADM.Configuration.XMPPMessenger}
 
