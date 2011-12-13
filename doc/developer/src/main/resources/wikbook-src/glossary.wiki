@@ -1,57 +1,441 @@
 This chapter will provide you explanations about some technical terms which are used throughout the documentation.
 
-* *Container templates* are those used to contain the UI components in a specific layout and display them on the portal page.
-* *ConversationState* is an object which stores all information about the state of the current user. This *ConversationState* object also stores acquired attributes of an Identity which is a set of principals to identify a user.
-* *Data container* implements the physical data storage. It enables different types of backend (such as RDB, FS files) to be used as a storage for the JCR data. With the main Data Container, other storages for persisted Property Values can be configured and used. The eXo JCR persistent data container can work in two configuration modes.
-** Multi-database: A database for each workspace (used in the standalone eXo JCR service mode).
-** Single-database: All workspaces persisted in one database (used in the embedded eXo JCR service mode; for example in eXo portal).
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Container templates</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Templates which are used to contain the UI components in a specific layout and display them on the portal page.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">ConversationState</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An object which stores all information about the state of the current user. This object also stores acquired attributes of an Identity which is a set of principals to identify a user.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Data container</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An object which implements the physical data storage. It enables different types of backend (such as RDB, FS files) to be used as a storage for the JCR data. With the main Data Container, other storages for persisted Property Values can be configured and used. The eXo JCR persistent data container can work in two configuration modes.
+* *Multi-database*: A database for each workspace (used in the standalone eXo JCR service mode).
+* *Single-database*: All workspaces persisted in one database (used in the embedded eXo JCR service mode; for example in eXo portal).
 The data container uses the JDBC driver to communicate with the actual database software. For example, any JDBC-enabled data storage can be used with the eXo JCR implementation.
-* *Database Creator* (DBCreator) is a service that is responsible for executing the DDL (Data Definition Language) script in runtime. A DDL script may contain templates for database name, username, and password which will be replaced by real values at execution time.
-* *Drives* are customized workspaces with:
-** a configured path where the user will start when browsing the drive.
-** a set of views with limitations to available actions, such as editing or creating contents while being in the drive.
-** a set of permissions to limit the access (and view) of the drive to a restricted number of people.
-** a set of options to describe the behavior of the drive when users browse it.
-* *eXo Cache* is one which all applications on the top of eXo JCR need. This can rely on an _org.exoplatform.services.cache.ExoCache_ instance managed by _org.exoplatform.services.cache.CacheService_.
-* *eXoContainer* behaves like a class loader that is responsible for loading services/components. The eXoContainer class is inherited by all the containers, including RootContainer, PortalContainer, and StandaloneContainer. It itself inherits from a PicoContainer framework which allows eXo to apply the IoC Inversion of Control principles. 
-* *External Plugin* allows adding configuration for services and components easily.
-* *Folksonomy* is a system of classification derived from the practice and a method of collaboratively creating and managing tags to annotate and categorize content. This practice is also known as collaborative tagging social classification social indexing and social tagging (Source: http://en.wikipedia.org).
-* *Gadgets* are web-based software components based on HTML, CSS, and JavaScript. They allow developers to easily write useful web applications that work anywhere on the web without modification. (Source: opensocial.org)
-* *Groovy template* is widely used in eXo UI framework. It leverages the usage of Groovy language, a scripting language for Java. The template file consists of HTML code and Groovy code blocks.
-* *JCR WebDav* is a service that allows a JCR repository to be accessed via WebDav.
-* *JobSchedulerService* defines a job to execute a given number of times during a given period. It is a service that is in charge of unattended background executions commonly known for historical reasons as batch processing. 
-* *JodConverter* (Java OpenDocument Converter) is a tool that converts documents into different office formats and vice versa.
-* * JCR Item* can be a node or a property.
-* *ListenerService* is an event mechanism which allows triggering and listening to events under specific conditions inside eXo Platform. This mechanism is used in several places in eXo Platform, such as login/logout time, creating/updating users, and groups.
-* *LockManager* stores lock objects so it can give a lock object or can release it. Also, LockManager is responsible for removing Locks that live too long. 
-* *Namespace* is the name of a node and property which may have a prefix delimited by a single ':' colon character. This name indicates the namespace of the item (Source JSR 170) and is used to avoid the naming conflict. 
-* *Navigation node* looks like a label of the link to page on the Navigation bar. By clicking a node, the page content is displayed. A node maps a URI and a portal page for the portal's navigation system. 
-* *Navigation* looks like a menu which is to help users visualize the site structure and to provide hyperlinks to other parts on a Portal. Thus, a bar which contains navigations is called the Navigation bar. 
-* *Node type* defines child nodes and properties which a node may (or must) have. Every node type has attributes, such as name, supertypes, mixin status, orderable child nodes status, property definitions, child node definitions and primary item name (Source: JSR 170). 
-* *Node* is an element in the tree structure that makes up a repository. Each node may have zero or more child nodes and zero or more child properties. There is a single root node per workspace which has no parent. All other nodes have only one parent. 
-* *Organization listener* provides a mechanism to receive notifications via an organization listener, including UserEventListener, GroupEventListener and MembershipEventListener. 
-** UserEventListener is called when a user is created, deleted or modified.
-** GroupEventListener is called when a group is created, deleted or modified.
-** MembershipEventListener is called when a membership is created or removed.
-* *Organization management* is a portlet that manages users groups and memberships. This portlet is often managed by administrators to set up permission for users and groups. 
-* *OrganizationService* is a service that allows accessing the Organization model. This model is composed of users, groups, and memberships. It is the basis of eXo's personalization and authorizations and is used for all over the platform. 
-* *Path constraint* restricts the result node to a scope specified by a path expression. The following path constraints must be supported exact child nodes descendants and descendants or self (Source: JCR 170). 
-* *Permission* is a permission settings control which actions users can or cannot perform within the portal and are set by the portal administrators. Permission types specify what a user can do within the portal. 
-* *Portal Page* consists of one or more various portlets. Their layouts are defined by container templates. To display a portal page, this page must be mapped to a navigation node. 
-* *Portal skins* are graphic styles that display an attractive user interface. Each skin has its own characteristics with different backgrounds, icons, color, and more. 
-* *PortalContainer* is a type of container which is created at the startup of the portal web application in the init method of the PortalController servlet. 
-* *Portlet* is a web-based application that provides a specific piece of content to be included as part of a portal page. In other words, portlets are pluggable user interface components that provide a presentation layer to information systems. There are two following types of portlet:
-** *Functional Portlets* support all functions within the portal. They are integrated into the portal that can be accessed through toolbar links.
-** *Interface Portlets* constitute the interface of a portal. eXo Portal consists of some Interface Portlets, such as Banner Portlet, Footer Portlet, Homepage Portlet, Console Portlet, Breadcrumb Portlet and more. 
-* *Property constraint* is one which may be specified by a query on the result nodes by way of property constraints (Source: JCR 170). 
-* *Property* is an element in the tree structure that makes up a repository. Each property has only one parent node and has no child node. 
-* *Repository* holds references to one or more workspaces. 
-* *eXo REST framework* is used to make eXo services (for example, the components deployed inside eXo Container) simply and transparently accessible via HTTP in a RESTful manner. In other words, those services should be viewed as a set of REST Resources-endpoints of the HTTP request-response chain. Those services are called *ResourceContainers*. 
-* *RootContainer* is a base container. It plays an important role during the startup but it is recommended that it should not be used directly.
-* *RTL Framework* (Right To Left Framework) is a framework that handles the text orientation depending on the current locale settings. It consists of four components, including Groovy template, Stylesheet, Images, and Client java.
-* *StandaloneContainer* is a context independent eXo Container. It is also used for unit tests.
-* *Taxonomy* is used to sort documents to ease searches when browsing documents online.
-* *Tree structure* is defined as a hierarchical structure with a set of linked nodes and properties.
-* *Type constraint* specifies the common primary node type of the returned nodes plus possibly additional mixin types that they also must have. Type constraints are inheritance-sensitive in which specifying a constraint of node type x will include all nodes explicitly declared to be type x and all nodes of subtypes of x (Source: JSR 170).
-* *Web Content* is the textual, visual or aural content that is encountered as part of the user experiences on a website. It may include other things, such as texts images, sounds, videos, and animations. 
-* *Workspace* is a container of single rooted tree that includes items.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Database Creator (DBCreator)</emphasis>
+</citetitle>
+</para>
+{docbook}
+A service that is responsible for executing the DDL (Data Definition Language) script in runtime. A DDL script may contain templates for database name, username, and password which will be replaced by real values at execution time.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Drives</emphasis>
+</citetitle>
+</para>
+{docbook}
+Customized workspaces which include:
+* a configured path where the user will start when browsing the drive.
+* a set of views with limitations to available actions, such as editing or creating contents while being in the drive.
+* a set of permissions to limit the access (and view) of the drive to a restricted number of people.
+* a set of options to describe the behavior of the drive when users browse it.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">eXo Cache</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which all applications on the top of eXo JCR need. This can rely on an _org.exoplatform.services.cache.ExoCache_ instance managed by _org.exoplatform.services.cache.CacheService_.
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">eXoContainer</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An object which behaves like a class loader that is responsible for loading services/components. The eXoContainer class is inherited by all the containers, including RootContainer, PortalContainer, and StandaloneContainer. It itself inherits from a PicoContainer framework which allows eXo to apply the IoC Inversion of Control principles. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">External Plugin</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which allows adding configuration for services and components easily.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Folksonomy</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A system of classification which is derived from the practice and a method of collaboratively creating and managing tags to annotate and categorize content. This practice is also known as collaborative tagging social classification social indexing and social tagging (Source: http://en.wikipedia.org).
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Gadgets</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Web-based software components which are based on HTML, CSS, and JavaScript. They allow developers to easily write useful web applications that work anywhere on the web without modification. (Source: opensocial.org)
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Groovy template</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A template which is widely used in eXo UI framework. It leverages the usage of Groovy language, a scripting language for Java. The template file consists of HTML code and Groovy code blocks.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">JCR WebDav</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A service that allows accessing a JCR repository via WebDav.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">JobSchedulerService</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which defines a job to execute a given number of times during a given period. It is a service that is in charge of unattended background executions commonly known for historical reasons as batch processing. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">JodConverter (Java OpenDocument Converter)</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A tool which converts documents into different office formats and vice versa.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">JCR Item</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which may be a node or a property.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">ListenerService</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An event mechanism which allows triggering and listening to events under specific conditions inside eXo Platform. This mechanism is used in several places in eXo Platform, such as login/logout time, creating/updating users, and groups.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">LockManager</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which stores lock objects, so it can give a lock object or can release it. Also, LockManager is responsible for removing Locks that live too long.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Namespace</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+The name of a node or property which may have a prefix delimited by a single ':' colon character. This name indicates the namespace of the item (Source JSR 170) and is used to avoid the naming conflict. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Navigation node</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A node which looks like a label of the link to page on the Navigation bar. By clicking a node, the page content is displayed. A node maps a URI and a portal page for the portal's navigation system. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Navigation</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which looks like a menu which is to help users visualize the site structure and to provide hyperlinks to other parts on a Portal. Thus, a bar which contains navigations is called the Navigation bar. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Node type</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which defines child nodes and properties which a node may (or must) have. Every node type has attributes, such as name, supertypes, mixin status, orderable child nodes status, property definitions, child node definitions and primary item name (Source: JSR 170). 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Node</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An element in the tree structure that makes up a repository. Each node may have zero or more child nodes and zero or more child properties. There is a single root node per workspace which has no parent. All other nodes have only one parent. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Organization listener</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which provides a mechanism to receive notifications via an organization listener, including UserEventListener, GroupEventListener and MembershipEventListener. 
+* UserEventListener is called when a user is created, deleted or modified.
+* GroupEventListener is called when a group is created, deleted or modified.
+* MembershipEventListener is called when a membership is created or removed.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Organization management</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A portlet that manages users groups and memberships. This portlet is often managed by administrators to set up permission for users and groups. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">OrganizationService</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A service that allows accessing the Organization model. This model is composed of users, groups, and memberships. It is the basis of eXo's personalization and authorizations and is used for all over the platform. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Path constraint</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which restricts the result node to a scope specified by a path expression. The following path constraints must be supported exact child nodes descendants and descendants or self (Source: JCR 170). 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Permission</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A permission settings control which actions users can or cannot perform within the portal and are set by the portal administrators. Permission types specify what a user can do within the portal. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Portal Page</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A page which consists of one or more various portlets. Their layouts are defined by container templates. To display a portal page, this page must be mapped to a navigation node. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Portal skins</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Graphic styles which display an attractive user interface. Each skin has its own characteristics with different backgrounds, icons, color, and more. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">PortalContainer</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A type of container which is created at the startup of the portal web application in the init method of the PortalController servlet. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Portlet</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A web-based application that provides a specific piece of content to be included as part of a portal page. In other words, portlets are pluggable user interface components that provide a presentation layer to information systems. There are two following types of portlet:
+* *Functional Portlets* support all functions within the portal. They are integrated into the portal that can be accessed through toolbar links.
+* *Interface Portlets* constitute the interface of a portal. eXo Portal consists of some Interface Portlets, such as Banner Portlet, Footer Portlet, Homepage Portlet, Console Portlet, Breadcrumb Portlet and more. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Property constraint</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which may be specified by a query on the result nodes by way of property constraints (Source: JCR 170). 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Property</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+An element in the tree structure that makes up a repository. Each property has only one parent node and has no child node. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Repository</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which holds references to one or more workspaces. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">eXo REST framework</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which is used to make eXo services (for example, the components deployed inside eXo Container) simply and transparently accessible via HTTP in a RESTful manner. In other words, those services should be viewed as a set of REST Resources-endpoints of the HTTP request-response chain. Those services are called *ResourceContainers*. 
+
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">RootContainer</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A base container which plays an important role during the startup. However, it is recommended that it should not be used directly.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">RTL Framework (Right To Left Framework)</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A framework which handles the text orientation depending on the current locale settings. It consists of four components, including Groovy template, Stylesheet, Images, and Client java.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">StandaloneContainer</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which is a context independent eXo Container. It is also used for unit tests.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Taxonomy</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which is used to sort documents to ease searches when browsing documents online.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Tree structure</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One structure which is defined as a hierarchical structure with a set of linked nodes and properties.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Type constraint</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+One which specifies the common primary node type of the returned nodes plus possibly additional mixin types that they also must have. Type constraints are inheritance-sensitive in which specifying a constraint of node type x will include all nodes explicitly declared to be type x and all nodes of subtypes of x (Source: JSR 170).
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Web Content</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A textual, visual or aural content that is encountered as part of the user experiences on a website. It may include other things, such as texts images, sounds, videos, and animations. 
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Workspace</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+A container of single rooted tree which includes items.
