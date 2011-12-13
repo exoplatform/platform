@@ -10,7 +10,7 @@ A custom extension contains two mandatory items:
 
 2. *extension activator jar* identifies your webapp as a dependency of the portal container.
 
-To see the sample extension package, go to [here|https://github.com/exoportal/exogtn/tree/d4bc03916a93f9f60480a2410051b359f7adcd9e/examples/extension].
+To see the sample extension package, go to [here|https://github.com/exoportal/exogtn/tree/master/examples/extension].
 
 Once you have modified the sample extension to build your own portal, use "mvn clean install" to create the archive files.
 
