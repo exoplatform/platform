@@ -151,10 +151,10 @@ You need to login as an administrator first, then use one of those links:
 
 Also, you can request for synchronizing all users.
 
-* _/portal/rest/management/orgsync/syncGroup?groupId=GROUP_ID&eventType=EVENT_
+* _{noformat}/portal/rest/management/orgsync/syncGroup?groupId=GROUP_ID&eventType=EVENT{noformat}_
 
 ||Para-value||Description||
-|GROUP_ID|Select a groupId, such as /platform/users.|
+|{noformat}GROUP_ID{noformat}|Select a groupId, such as /platform/users.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Select this option if the group is not yet integrated into eXo Platform. This will integrate the group. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Select this option if the group has been deleted from Organization data source. The group profile is then deleted from eXo Platform.|
 
 * _/portal/rest/management/orgsync/syncAllGroups?eventType=EVENT_
@@ -164,10 +164,10 @@ Also, you can request for synchronizing all users.
 
 You can also request for synchronizing all groups.
 
-* _/portal/rest/management/orgsync/syncMembership?groupId=GROUP_ID&username=USERNAME&eventType=EVENT_
+* _{noformat}/portal/rest/management/orgsync/syncMembership?groupId=GROUP_ID&username=USERNAME&eventType=EVENT{noformat}_
 
 ||Para-value||Description||
-|GROUP_ID|Select a groupId, such as /platform/users.|
+|{noformat}GROUP_ID{noformat}|Select a groupId, such as /platform/users.|
 |USERNAME|Select a username.|
 |EVENT|Select one of the following values: {example} {example} - *ADDED* - Search for memberships that are added to the Organization data source, but not yet integrated into eXo Platform. Those memberships will be integrated. {example} {example} - *UPDATED* - This option is not used any longer. {example} {example} - *DELETED* - Search for memberships that are deleted from the Organization data source. This will synchronize user's memberships related to the selected group.|
 
