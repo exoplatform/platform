@@ -590,7 +590,7 @@ h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.I
 
 !images/admin_forum_import_cat.png|align="center"!
 
-*2.* Browse the file to import.
+*2.* Click *Browse...* or the *Upload Files* field to open the File *Upload* form. Browse and select the file to import.
 
 *3.* Click *Save*. 
 

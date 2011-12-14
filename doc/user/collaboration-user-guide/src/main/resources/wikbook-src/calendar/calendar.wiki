@@ -190,7 +190,7 @@ h2. Create a remote calendar {anchor:id="Create_remote_calendar"}
 {docbook}
 <note>
 <para>
-To create a remote calendar in the Calendar application successfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, refer to <link linkend="More_about_iCal_CalDAV">this section.</link>
+To create a remote calendar in the *Calendar* application successfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, refer to <link linkend="More_about_iCal_CalDAV">this section.</link>
 </para>
 </note>
 {docbook}
@@ -230,7 +230,7 @@ After setting up the remote calendar, you will see one auto-generated group name
 {docbook}
 <note>
 <para>
-After creating a remote calendar, you can ONLY VIEW all events and tasks which are created in the remote calendar server right in the Calendar application by clicking it and selecting <emphasis role="bold">Refresh</emphasis> from the drop-down menu.
+After creating a remote calendar, you can ONLY VIEW all events and tasks which are created in the remote calendar server right in the *Calendar* application by clicking it and selecting <emphasis role="bold">Refresh</emphasis> from the drop-down menu.
 </para>
 </note>
 {docbook}
@@ -263,7 +263,7 @@ h1. Edit a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar"}
 You can ONLY edit personal calendars and group calendars which have been created by yourself. 
 </para>
 <para>
-For group calendars which are created by another users, you can ONLY EDIT them if you are granted the <emphasis role="bold">Edit</emphasis> permission.
+For group calendars which are created by another users, you can ONLY edit them if you are granted the <emphasis role="bold">Edit</emphasis> permission.
 Meanwhile, for shared calendars, you cannot edit them. If you are granted the <emphasis role="bold">Edit</emphasis> permission on them by the calendar creators, you can ONLY have the right on their tasks or events (for example, adding/modifying/deleting, exporting/importing).  
 </para>
 </note>
@@ -384,9 +384,9 @@ The *Calendar* form will appear differently, depending on your selected way.
 
 !images/Import_calendar_form.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
-*2.* Select a format type from the *Format* drop-down menu. At present, the Calendar application only supports the *.ics and *.csv formats.
+*2.* Select a format type from the *Format* drop-down menu. At present, the *Calendar* application only supports the *.ics and *.csv formats.
 
-*3.* Click *Browse...*, or simply point your cursor into the *Upload Files* field to open the *File Upload* form.
+*3.* Click *Browse...* or click the *Upload Files* field to open the *File Upload* form.
 
 *4.* Select a file from your device, then click *Open* to upload your selected file.
 
@@ -1244,7 +1244,7 @@ The created feed will be shown like the illustration below:
 !images/calendar_feed1.png|align="center" width="300" height="30" fo: scalefit="1" html:scalefit="0"!
 
 h2. Edit Calendar settings {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_settings}
-In the Calendar application, you can change default values for its settings.
+In the *Calendar* application, you can change default values for its settings.
 
 *1.* Open the *Calendar Settings* form via either of the following ways:
 
@@ -1261,7 +1261,7 @@ In the Calendar application, you can change default values for its settings.
 *i.* In the *Settings* tab, you can change values in the following fields:
 
 ||Field||Description||
-|*View Type*|The view type of Calendar View Pane. You can define the default view type when you start the Calendar application (Day, Week, Work Week, Month, Year, List).|
+|*View Type*|The view type of Calendar View Pane. You can define the default view type when you start the *Calendar* application (Day, Week, Work Week, Month, Year, List).|
 |*Date Format*|The date format which is displayed in Calendar, such as Starting date, Ending date of events/tasks.|
 |*Time Format*|The time format which is displayed in Calendar, such as the time of Starting date, or Ending Date and the time displayed in Calendar View Pane.|
 |*Country (Language)*|The default geographical location displayed in Calendar.|

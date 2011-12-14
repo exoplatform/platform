@@ -201,7 +201,7 @@ h3. Download and save attachments to server {anchor:id=Download_attachments_to_s
 
 *5.* Select one drive from the drives list to open a list of folders. 
 
-*6.* Select one folder which stores your downloaded file from the folders list; 
+*6.* Select one folder which stores your downloaded file from the folders list.
 
 * Click !images/Create_folder_server_icon.png! to create a new folder in your selected drive.
 
@@ -731,7 +731,7 @@ The *Import Message* form will appear.
 |*Choose File*|The name of the file which you want to import from your computer.|
 |*Import to Folder*| The folder into which the message will be imported.|
 
-*2.* Click *Choose File* to get one .eml file from the computer, then click !images/upload_icon.png! to upload the selected file.
+*2.* Click *Browse...* to get one .eml file from the computer.
 
 *3.* Select the folder into which you want to import the message in the *Import to Folder* field.
 
@@ -1218,3 +1218,4 @@ The function allows you to change the behavior and the layout of *Mail* to your 
 * Click !images/Add_delegated_user.png! to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the *Full* permission or add the *Full* permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the *Full* column of the Accounts table.
 
 *3.* Click *Save* to accept the changes.
+
