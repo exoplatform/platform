@@ -1,65 +1,105 @@
 <%
-	
-	import javax.jcr.Node;
-	import java.util.List;
-	import org.exoplatform.services.cms.taxonomy.TaxonomyService;
-	import org.exoplatform.services.cms.folksonomy.NewFolksonomyService;
-	import org.exoplatform.services.wcm.core.NodeLocation;
-	import org.exoplatform.services.wcm.skin.XSkinService;
-	import org.exoplatform.services.wcm.javascript.XJavascriptService;
-		
-	public boolean getPortletPreference(String name) {
+  import javax.jcr.Node;
+  import java.util.List;
+  import org.exoplatform.services.cms.taxonomy.TaxonomyService;
+  import org.exoplatform.services.cms.folksonomy.NewFolksonomyService;
+  import org.exoplatform.services.wcm.core.NodeLocation;
+  import org.exoplatform.services.wcm.skin.XSkinService;
+  import org.exoplatform.services.wcm.javascript.XJavascriptService;
+
+  public boolean getPortletPreference(String name) {
     String value = _ctx.getRequestContext().getRequest().getPreferences().getValue(name, null);
     if(value != null) return Boolean.parseBoolean(value);
     return false;
   }
-  
-  	def currentNode = uicomponent.getNode() ; 
-    def html = currentNode.getNode("default.html/jcr:content").getProperty("jcr:data").getString();
-  	def css = currentNode.getNode("css/default.css/jcr:content").getProperty("jcr:data").getString();
-  	def js = currentNode.getNode("js/default.js/jcr:content").getProperty("jcr:data").getString();  
-  	// NOTE : You can use services if you're adding external css or js thru WebDAV. If not, direct access to the node is more efficient.
-  	//def css = uicomponent.getApplicationComponent(XSkinService.class).getActiveStylesheet(currentNode);
-  	//def js =  uicomponent.getApplicationComponent(XJavascriptService.class).getActiveJavaScript(currentNode);
-  
-	boolean isShowCategories = getPortletPreference("ShowCategories");
-	boolean isShowTags = getPortletPreference("ShowTags");
-	
-	if((css != null) && (css.length() > 0)) {
-		%>
-			<style type="text/css">
-				/* <![CDATA[ */			
-					<%=css%>
-				/* ]]> */
-				</style>
-		<%
-	}
 
-	if((js != null) && (js.length() > 0)) {
-		%>
-			<script type="text/javascript">
-			/* <![CDATA[ */	
-				<%=js%>
-			/* ]]> */		
-			</script>
-		<% 
-	}
+    def currentNode = uicomponent.getNode() ;
+    def css = currentNode.getNode("css/default.css/jcr:content").getProperty("jcr:data").getString();
+    def cssOption = "CSSData=" + css;
+    def js = currentNode.getNode("js/default.js/jcr:content").getProperty("jcr:data").getString();
+
+
+  boolean isShowCategories = getPortletPreference("ShowCategories");
+  boolean isShowTags = getPortletPreference("ShowTags");
+
+  if((css != null) && (css.length() > 0)) {
+    %>
+      <style type="text/css">
+        /* <![CDATA[ */
+          <%=css%>
+        /* ]]> */
+        </style>
+    <%
+  }
+
+  if((js != null) && (js.length() > 0)) {
+    %>
+      <script type="text/javascript">
+      /* <![CDATA[ */
+        <%=js%>
+      /* ]]> */
+      </script>
+    <%
+  }
+
+  if (isShowCategories || isShowTags) {
+    %>
+      <div class="WebContentContainer">
+        <div class="WebContentInformation">
+          <%
+            if(isShowCategories) {
+              TaxonomyService taxonomyService = uicomponent.getApplicationComponent(TaxonomyService.class);
+              List<Node> categoryNodeList = taxonomyService.getAllCategories(currentNode);
+              if (!categoryNodeList.isEmpty()) {
+                StringBuffer categories = new StringBuffer();
+                 for (Node category: categoryNodeList) {
+                  categories.append(category.getName()).append(", ");
+                 }
+                 categories.replace(categories.lastIndexOf(", "), categories.size(), "");
+                %>
+                  <span class="Categories"><strong><%=_ctx.appRes("Category.view.label")%>:</strong> <%= categories.toString() %></span>
+                <%
+              }
+            }
+            if(isShowTags) {
+              NewFolksonomyService folkService = uicomponent.getApplicationComponent(NewFolksonomyService.class);
+              def nodeLocation = NodeLocation.make(currentNode);
+              List<Node> tagList = folkService.getLinkedTagsOfDocument(currentNode, nodeLocation.getWorkspace());
+              if(!tagList.isEmpty()) {
+                StringBuffer tagBuff = new StringBuffer("[");
+                for(Node tag: tagList) {
+                  tagBuff.append(tag.getName()).append(", ");
+                }
+                tagBuff.replace(tagBuff.lastIndexOf(", "), tagBuff.size(), "]");
+                %>
+                  <span class="Tags"><strong><%=_ctx.appRes("Tag.view.label")%>:</strong> <%= tagBuff.toString() %></span>
+                <%
+              }
+            }
+          %>
+        </div>
+
+    <%if(currentNode.hasProperty("exo:summary")){%>
+                <%=currentNode.getProperty("exo:summary").getString()%></span>
+        <%}%>
+        <% if (uicomponent.isEnableVote())
+             _ctx.include(uicomponent.getViewTemplate("mix:votable", "view1"));
+           if (uicomponent.isEnableComment())
+             _ctx.include(uicomponent.getViewTemplate("exo:comments", "view1"));
+        %>
+      </div>
+    <%
+  } else {
+    %>
+  <%if(currentNode.hasProperty("exo:summary")){%>
+                <%=currentNode.getProperty("exo:summary").getString()%></span>
+        <%}%>
+
+    <% if (uicomponent.isEnableVote())
+        _ctx.include(uicomponent.getViewTemplate("mix:votable", "view1"));
+       if (uicomponent.isEnableComment())
+        _ctx.include(uicomponent.getViewTemplate("exo:comments", "view1"));
+    %>
+    <%
+  }
 %>
-
-<div id="content" class="content">
-	      
-	<div id="$uicomponent.id">
-		<div class="PORTLET-FRAGMENT"  style="width: null;height: null;">
-			<div id="UIBrowseContentPortlet" style="min-width:300px" class="UIBrowseContentPortlet">
-				<span class="UICBPopupAction" id="UICBPopupAction"></span>
-				<div class="UIBrowseContainer" id="UIBrowseContainer">
-					<%= currentNode.getName() %>
-					<br/>
-					<%=html%>
-					
-				</div>          		
-			</div>
-		</div>
-	</div>
-
-</div>  
