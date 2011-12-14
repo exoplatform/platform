@@ -154,6 +154,7 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 - exo-social-intranet-$version.ear
 - exo-acme-website-$version.ear
 - exo-default-portal-$version.ear
+- exo-gadget-pack-$version.ear
 
 *2.* Create the folder _{noformat}jboss-root/server/default/conf/gatein{noformat}_ and then copy these files to this folder.
 

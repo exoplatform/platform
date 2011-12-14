@@ -176,6 +176,13 @@
 					  <destFileName>exo-social-extension-${org.exoplatform.social.version}.ear</destFileName>
 					  <type>ear</type>
 					</artifactItem>
+                                        <artifactItem>
+					  <groupId>org.exoplatform.platform</groupId>
+					  <artifactId>exo-gadget-pack-ear</artifactId>
+					  <version>${project.version}</version>
+					  <destFileName>exo-gadget-pack-${project.version}.ear</destFileName>
+					  <type>ear</type>
+					</artifactItem>
 		          </artifactItems>
 		        </configuration>
 		      </execution>
