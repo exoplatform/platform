@@ -37,7 +37,7 @@ in a previous version of eXo Platform, you will be able to keep working with the
 
 Follow those steps to configure Legacy Organization Services:
 
-1. Add a new file in [exo.conf.dir.name]/portal/portal/configuration.xml
+1. Add a new file named _configuration.xml_ in _{noformat}${exo.conf.dir.name}/portal/portal/{noformat}_ with the following configuration.
 {code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
@@ -51,7 +51,7 @@ Follow those steps to configure Legacy Organization Services:
 </configuration>
 {code}
 
-2. Add a new file in [exo.conf.dir.name]/portal/portal/legacy-organization-configuration.xml with one of the above contents.
+2. Add a new file named _legacy-organization-configuration.xml_ in _{noformat}${exo.conf.dir.name}/portal/portal{noformat}_ with one of the above contents.
 
 h1. Hibernate Organization Service configuration {anchor:id=ADM.Organization.Hibernate}
 
