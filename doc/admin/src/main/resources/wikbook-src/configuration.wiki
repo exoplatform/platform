@@ -553,8 +553,10 @@ The relevant section looks like:
 
 {code}
 #EMail
-mail.from=
-gatein.email.smtp.from=
+# Domain name: Help for sending links from email notifications. The default domain name is http://localhost:8080.
+gatein.email.domain.url=http://localhost:8080
+# Email display in "from" field of email notification.
+gatein.email.smtp.from=noreply@exoplatform.com
 gatein.email.smtp.username=
 gatein.email.smtp.password=
 gatein.email.smtp.host=smtp.gmail.com
@@ -569,7 +571,7 @@ Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the va
 
 The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
 
-| *mail.from* | Sender's email address. |
+| *gatein.email.domain.url* | Domain name. |
 | *gatein.email.smtp.from* | Sender's email address. |
 | *gatein.email.smtp.host* | SMTP hostname. |
 | *gatein.email.smtp.port* | SMTP port. |
@@ -582,14 +584,16 @@ The Forum application uses it in the notification phase as the default sender. I
 
 To see more details, refer to [JavaMail API documentation|http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html].
 
-For eXo Knowledge, you have to add one of the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
+For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
 {screen}
-mail.from= 
-gatein.email.smtp.from=
+gatein.email.domain.url=http://localhost:8080
+gatein.email.smtp.from=noreply@exoplatform.com
 {screen}
 
-The value must be the exact email address of the account configured above.
+{note}
+The value of email address should be in a valid format.
+{note}
 
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
