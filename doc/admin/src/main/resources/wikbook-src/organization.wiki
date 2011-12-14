@@ -21,7 +21,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Organization.AD">AD Organization Service</link>
+<link linkend="ADM.Organization.AD">AD Organization Service</link>:
 </para>
 </listitem>
 </itemizedlist>
@@ -38,7 +38,7 @@ in a previous version of eXo Platform, you will be able to keep working with the
 Follow those steps to configure Legacy Organization Services:
 
 1. Add a new file in [exo.conf.dir.name]/portal/portal/configuration.xml
-{code:xml|title=configuration.xml}
+{code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
 		   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
@@ -53,9 +53,9 @@ Follow those steps to configure Legacy Organization Services:
 
 2. Add a new file in [exo.conf.dir.name]/portal/portal/legacy-organization-configuration.xml with one of the above contents.
 
-h1. The Hibernate Organization Service configuration {anchor:id=ADM.Organization.Hibernate}
+h1. Hibernate Organization Service configuration {anchor:id=ADM.Organization.Hibernate}
 
-{code:xml|title=legacy-organization-configuration.xml}
+{code:xml}
 <configuration
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
@@ -86,9 +86,9 @@ h1. The Hibernate Organization Service configuration {anchor:id=ADM.Organization
 </configuration>  
 {code}
 
-h1. The LDAP Organization Service configuration {anchor:id=ADM.Organization.LDAP}
+h1. LDAP Organization Service configuration {anchor:id=ADM.Organization.LDAP}
 
-{code:xml|title=legacy-organization-configuration.xml}
+{code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 	<component>
 		<key>org.exoplatform.services.ldap.LDAPService</key>
@@ -182,9 +182,9 @@ h1. The LDAP Organization Service configuration {anchor:id=ADM.Organization.LDAP
 </configuration>
 {code}
 
-h1. The AD Organization Service configuration {anchor:id=ADM.Organization.AD}
+h1. AD Organization Service configuration {anchor:id=ADM.Organization.AD}
 
-{code:xml|title=legacy-organization-configuration.xml}
+{code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
   <component>
     <key>org.exoplatform.services.ldap.LDAPService</key>

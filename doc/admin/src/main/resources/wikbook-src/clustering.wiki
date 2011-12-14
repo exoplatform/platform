@@ -88,11 +88,11 @@ gatein.jcr.config.type=cluster
 {code}
 In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
 * Switch to the _cluster_ profile.
-You need to indicate the _cluster_ kernel profile to eXo Platform. This can be done by editing startup script as below: 
+You need to indicate the _cluster_ kernel profile to eXo Platform. This can be done by editing the startup script in the _bin/gatein.sh_ folder as below:
 {code}
 EXO_PROFILES="-Dexo.profiles=default,cluster"
 {code}
-or use the {{start_eXo.sh}} script with such parameters:
+or use the _{noformat}start_eXo.sh{noformat}_ script with such parameters:
 {code}
 ./start_eXo.sh default,cluster
 {code}
@@ -103,10 +103,11 @@ This constraint is only for the initial start.
 As above, you can start the cluster in any order, but it should be started fully from the single node. After that, others can start in any order or in parallel.
 {note}
 * Start up and shut down.
+{note}
 Always start the cluster from a single node, as on initial startup, and then start all others in any order or in parallel.
 Nodes of the cluster will automatically try to join others at startup. Once they have discovered each other, they will synchronize their state.
 During the synchronization, the node is not ready to serve requests.
-
+{note}
 h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
 The cluster mode is preconfigured to work out of the box. The eXo Platform clustering fully relies on the JBossCache replication which  uses JGroups internally.
@@ -115,10 +116,10 @@ Since eXo Platform 3.5, the JCR's JBossCache configuration is externalized to th
 * _jcr_ - folder with cache configuration for JCR
 * _cache_ - folder with cache configuration for eXo Cache 
 * _idm_ - folder with cache configuration for PicketLink IDM organization service 
-* _jgrpoups_ - folder with JGroups configuration used in all caches
+* _jgroups_ - folder with JGroups configuration used in all caches
 
 {note}
-The advanced configuration is optional and don't required in general case. It is recommended to do an advanced configuration only in case of a need.
+The advanced configuration is optional and is not required in general cases. It is recommended to do an advanced configuration only in case of a need.
 {note}
 
 h3. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
@@ -156,19 +157,19 @@ gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 h2. Local JCR index in cluster {anchor:id="ADM.Clustering.Local_JCR_Index"}
 
 {note}
-JCR clustering with local index on each node it is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.
+JCR clustering with local index on each node is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.
 {note}
 
-If cluster will be used with local JCR index on each node apply following changes to the steps described above:
+If the cluster is used with the local JCR index on each node, apply the following changes to the steps described above:
 * configure index data to a local directory on each node:
 {code}
 gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX
 {code}
-* run cluster with additional profile {{cluster-index-local}}, edit startup script:
+* run the cluster with the additional profile named "{{cluster-index-local}}" by adding the following profile to the startup script in the _bin/gatein.sh_ file;
 {code}
 EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"
 {code}
-or in command line with parameters:
+Or, by using the following command with this additional profile.
 {code}
 ./start_eXo.sh default,cluster,cluster-index-local
 {code}

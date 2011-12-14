@@ -163,7 +163,7 @@ However, this file is the last loaded by the kernel. It has a higher priority ov
 
 This may turn handy services or configurations that are not exposed in _configuration.properties_.
 
-For example, you can decide to change the default WebDAV update policy for {{{replace}}} with this piece of xml:
+For example, you can change the default WebDAV update policy by adding the following code to this _configuration.xml_ file:
 
 {code:xml}
   <component>
@@ -203,13 +203,13 @@ The data source is obtained by accessing the Enterprise Naming Context (ENC) thr
 h2. Connect to a production database {anchor:id=ADM.Configuration.Connect_To_A_Production_Database}
 
 If you intend to bring your eXo Platform to production, the embedded hsql database will not be appropriate and you will need to configure your app server to use another one.
-You need to learn how to configure eXo Platform data sources and your app server. If you need to change the data sources name, read *Change the datasources names* below.
+You need to learn how to configure eXo Platform data sources and your app server. If you need to change the data sources name, read the [Rename the data source|#rename_data_source] section below.
 
 {info}
 The steps below will show you how to configure eXo Platform to use a MySQL database. You need to adapt them to your actual production environment.
 {info}
 
-{tip}Refer to the Database FAQ below to find out our sample configuration files for MySQL and other DB systems.{tip}
+{tip}Refer to the [Database FAQ|#ADM.Configuration.FAQDatabaseConfiguration] below to find out our sample configuration files for MySQL and other DB systems.{tip}
 
 *Step 1.* *Prepare your database server.* {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
@@ -356,7 +356,7 @@ In this step, you need to add the MySQL connector library in JBoss by adding _my
 
 {tip}You can get the latest MySQL connector [here|http://dev.mysql.com/downloads/connector/j/].{tip}
 
-*3.* Rename the data source.
+*3.* Rename the data source.  {anchor:id="rename_data_source"}
 
 By default, eXo Platform defines two data sources:
 
@@ -461,7 +461,7 @@ For more details on the configuration, or some examples on other RDBMS and appli
 
 *Q3. How to enable managed DataSource?* {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Enable_managed_datasource}
 
-When want to use a managed datasource (which is the case under JBoss), configure property {{gatein.jcr.datasource.managed}} to *true* in _configuration.properties_ file:
+When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file
 {code}
 # indicates if the jcr datasource is using managed transactions. 
 # false by default. 
@@ -499,7 +499,7 @@ gatein.jcr.storage.data.dir=${gatein.jcr.data.dir}/values
 gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 {code}
 
-The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent.
+The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent (V: temporary, X: persistent).
 
 || Variable || Content || Temporary ||
 | {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}} | JTA transactional data. | V |
@@ -523,7 +523,7 @@ The default configuration combines them to obtain a compact tree:
 {code}
 
 h1. JCR system and default Workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
-
+The following is the configuration of workspaces (default and system) for JCR repository.
 {code}
 # JCR system and default workspaces
 gatein.jcr.workspace.default=collaboration
@@ -684,7 +684,7 @@ To run the chat server properly, several ports must be opened in the firewall.
 
 || Port || Type || Description ||
 | 5222 (1) | Client to server (xmpp) | The standard port for clients is to connect to the server. Connections may or may not be encrypted. You can update the security settings for this port with the _exo.chat.port_ property. |
-| 9090 && 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
+| 9090 & 9091 | Admin Console (http) | The ports used for accessing the unsecured and secured Openfire Admin Console respectively. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities behind a NAT. |
 
 h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
@@ -930,12 +930,12 @@ openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out tes
 openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
 {code}
 
-After creating the new _oauthkey.pem_ file, you can use it to replace the _oauthkey.pem_ default file in the _gatein/gadgets/_ folder.
+After creating the new _oauthkey.pem_ file, you can use it to replace the default _oauthkey.pem_ file in the _gatein/gadgets/_ folder.
 
 
 h1. JCR Links cleaner job {anchor:id=ADM.Configuration.WCM_link_cleaner_job}
 
-The _links cleaning service_ deletes all non valid links, which target nodes has been deleted.
+The _links cleaning service_ deletes all invalid links, which target nodes has been deleted.
 This property is the "cron expression" of the service that is responsible of JCR links cleaning.
 
 You can schedule the job by adding _wcm.linkjob.cron.expression_ in the _configuration.properties_ file.

@@ -1,4 +1,68 @@
-h1. Welcome to eXo Platform 3.5 {anchor:id=DEV.Introduction.Welcome}
+h1. About this guide {anchor:id=DEV.Introduction.AboutGuide}
+
+This guide describes how to get started with eXo Platform 3.5, especially for:
+* *System Administrators* who want to use, deploy and manage the eXo Platform system in their enterprises.
+* *Developers* who want to know how to leverage eXo Platform in their customer projects.
+
+{docbook}
+<abstract>
+<para>Through the guide, you can do many administrative tasks when implementing eXo Platform 3.5. The administration of eXo Platform 3.5 is categorized into the following main topics:</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Introduction">Introduction</link>: The overview of eXo Platform 3.5, of the administrator guide and its intended readers.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Installation">Installation</link>: Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration">Configuration</link>: Understanding of configuration related to eXo Platform, database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.|
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management">Management</link>: Introduction to eXo Platform management, knowledge of eXo Platform management views.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Securit">Security</link>: Changes related to the JAAS realm.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Backup">Backup</link>: Backup of database and file systems for the JCR index and value storage.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering">Clustering</link>: Changes related to clustering, which are necessary for eXo Platform to work in the cluster mode.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Deployment">Deployment</link>: How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration">Integration</link>:Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Organization">Legacy Organization Models</link>: Instructions on how to configure Legacy Organization Services.
+</para>
+</listitem>
+</itemizedlist>
+
+</abstract>
+{docbook}
+h1. About eXo Platform 3.5 {anchor:id=DEV.Introduction.Welcome}
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
@@ -27,22 +91,3 @@ With eXo Platform 3.5, you can customize and extend your portal-based applicatio
 * CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing Groovy commands, without recompiling easily.
 * Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
 
-h1. About this guide {anchor:id=DEV.Introduction.AboutGuide}
-
-This guide describes how to get started with eXo Platform 3.5, especially for:
-
-* _System Administrators_  who want to use, deploy and manage the eXo Platform system in their enterprises.
-
-* _Developers_ who want to know how to leverage eXo Platform in their customer projects. 
-
-Through the guide, you can do many administrative tasks when implementing eXo Platform 3.5. The administration of eXo Platform 3.5 is categorized into the following main topics:
-
-|[Introduction|#ADM.Introduction]|Overview of eXo Platform 3.5, of the administrator guide and its intended readers.|
-|[Installation|#ADM.Installation]|Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.|
-|[Configuration|#ADM.Configuration]|Understanding of configuration related to eXo Platform, database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.|
-|[Management|#ADM.Management]|Introduction to eXo Platform management, knowledge of eXo Platform management views.|
-|[Security|#ADM.Security]|Changes related to the JAAS realm.|
-|[Backup|#ADM.Backup]|Backup of database and file systems for the JCR index and value storage.|
-|[Clustering|#ADM.Clustering]|Changes related to clustering, which are necessary for eXo Platform to work in the cluster mode.|
-|[Deployment|#ADM.Deployment]|How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.|
-|[Integration|#ADM.Integration]|Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.|

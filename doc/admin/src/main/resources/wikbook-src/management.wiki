@@ -579,7 +579,7 @@ h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
 
 ||Operation||Description||
-|{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: URL, JUSTIFY, B, HIGHLIGHT, I, U, RIGHT, EMAIL, LIST, EMAIL, COLOR, URL, CODE, CENTER, CODE, QUOTE, LIST, CSS, LEFT, FONT, GOTO, QUOTE, SIZE, SLIDESHARE, IMG.|
+|{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: {noformat}[URL], [JUSTIFY], [B], [HIGHLIGHT], [I], [U], [RIGHT], [EMAIL], [LIST], [COLOR], [CENTER], [CODE], [QUOTE], [CSS], [LEFT], [FONT], [GOTO], [SIZE], [SLIDESHARE], [IMG], [WIKI]{noformat}.|
 
 h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
