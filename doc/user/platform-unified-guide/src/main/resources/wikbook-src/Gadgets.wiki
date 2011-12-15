@@ -12,13 +12,25 @@ h2. Latest Forum Posts  {anchor:id=GadgetUserguide.AngagementGadgets.LatestForum
 The *Latest Forum Posts* gadget shows the latest posts in Forum. You can decide the specified number of the latest posts to be shown. This gadget helps you always stay updated with what is going on in the forum.
 
 !images/Latest_forum_posts_gadget.png|align="center"!
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Latest Forum Posts settings
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*Latest Forum Posts settings*:
+*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
+
+*Details:*
 
 || Field || Description ||
 | *Total* | The number of last posts to be displayed in this gadget. |
 | *Forum portlet* | The URL pointing to the Forum portlet. |
-| *Subscription URL* | The URL to the service which you request to get data from (in this case, the data are last posts). For example: http://localhost/portal/rest/ks/forum/getmessage. |
+| *Subscription url* | The link to the service which you request to get data from (in this case, the data are last posts). For example: http://localhost/portal/rest/ks/forum/getmessage. |
+
+*2.* Input the values for all the fields, then click *Save* to accept your changes.
 
 h2. Top Voted Topics {anchor:id=GadgetUserguide.AngagementGadgets.TopVotedTopics}
 
@@ -28,11 +40,20 @@ The *Top Voted Topics* gadget lists the highest rated topics in a forum. You can
 
 By clicking the post previewed-content, you will go to that post in the forum.
 
-*Top Voted Topics gadget settings*:
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Top Voted Topics gadget settings
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
 
 !images/Top_voted_raring_topic_setting.png|align="center"!
 
-Select the maximum number of topics to be displayed in the *Maximum to display* drop-down list, then click *Save* to save the changes.
+*2.* Select the maximum number of topics to be displayed in the *Maximum to display* drop-down list, then click *Save* to accept your changes.
 
 h2. Forum Statistics {anchor:id=GadgetUserguide.AngagementGadgets.ForumStatistics}
 
@@ -43,25 +64,43 @@ The statistics include the total number of the topics, posts, members, active me
 
 You can switch between different views:
 
-* Global statistics view (default):
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Global statistics view
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*Global statistics* is the default view.
 
 !images/Forums_statistics_gadget.png|align="center"!
 
-* Weekly statistics view:
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Weekly statistics view
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-Click !images/Calendar_weekly_stat_icon.png! to switch to Weekly statistics view.
+Click !images/Calendar_weekly_stat_icon.png! to switch to *Weekly statistics* view.
 
-After switching to the Weekly statistics view, you can display the statistics in a list or a chart.
+After switching to the *Weekly statistics* view, you can display the statistics in a list or a chart.
 
-** List view:
+* *List view*
 
 !images/Forums_weekly_statistics.png|align="center"!
 
-** Chart view:
-
-Click !images/Calendar_weekly_chart_icon.png! to switch to the Chart view. Click !images/Calendar_weekly_list_icon.png! to go back to the List view or click !images/Calendar_global_stat_icon.png! to go to the Global statistics view:
+* *Chart view*
 
 !images/Forums_weekly_statistics_graph.png|align="center"!
+
+Click !images/Calendar_weekly_chart_icon.png! to switch to the *Chart* view.
+Click !images/Calendar_weekly_list_icon.png! to go back to the *List* view.
+Click !images/Calendar_global_stat_icon.png! to go to the *Global* statistics view.
 
 h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
 
@@ -72,19 +111,18 @@ The *Friend Suggestions* gadget will suggest you to connect with people that hav
 To send the invitation to connect with the suggested people right on this gadget, simply click *Send invitation* under their usernames.
 
 h1. Audit gadgets {anchor:id=GadgetUserguide.AuditGadgets}
-h2. User Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
+h2. Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
 
-The *User Login History* gadget records user's login history and provides statistics.
+The *Login History* gadget records user login history and provides statistics.
 
 !images/Login_history_gadget.png|align="center"!
 
 You can look up a specific user by entering his username in the search box and click *Search*. 
 
-* To view the global statistics and global history, click the *Statistics* and *History* link respectively.
-* Click !images/Calendar_weekly_chart_icon.png! or !images/Calendar_weekly_list_icon.png! corresponding to the user you want to view the login statistics or the login history.
-** User's login statistic:
+* To view the global statistics and global history, click the *Statistics* and *History* links respectively.
+* Click !images/Calendar_weekly_chart_icon.png! corresponding to the user to view his login statistics.
 !images/Login_history_statistic.png|align="center"!
-** User's login history:
+* Click !images/Calendar_weekly_list_icon.png! corresponding to the user to view his login history.
 !images/Login_history_history.png|align="center"!
 
 h1. Collab gadgets {anchor:id=GadgetUserguide.CollabGadgets}
@@ -92,28 +130,54 @@ The *Collab* gadgets include gadgets designed for collaborative activities.
 
 h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget}
 
-The eXo Calendar gadget displays a mini calendar and allows you to quickly add an event.
+The *eXo Calendar* gadget displays a mini calendar and allows you to quickly add an event.
 
 !images/eXo_Calendar_gadget.png|align="center"!
 
-*Appearance*:
+There are three tabs in this gadget, including *Apprearance*, *Quick add*, and *Refresh*.
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Appearance
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 !images/eXo_Calendar_gadget_appearance.png|align="center"!
 
-If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *Save*. Only the event in the calendar of your choice will be displayed. 
+If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *save*. Only the event in the calendar of your choice will be displayed. 
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Quick add
+</emphasis>
+</para>
+</citetitle>
+{docbook} 
+You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then click *add* to create your new event.
 
-*Quick add*: 
-You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then click *Add* to create your new event.
 !images/eXo_Calendar_gadget_quickadd.png|align="center"!
 
-*eXo Calendar Gadget settings*:
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+eXo Calendar Gadget settings
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
 
 !images/eXo_Calendar_gadget_settings.png|align="center"!
 
 || Field || Description ||
-| REST URL | REST URL from which the gadget will get data. For example: http://localhost:8080/rest/ |
+| Rest URL | *Rest URL* from which the gadget will get data. For example: http://localhost:8080/rest/ |
 
-Normally, regular users do not have to care about this setting. If administrators make changes on the server that affects the REST URL, you need to contact administrators to get the new REST URL.
+*2.* Input the *Rest URL*, then click *Save* to accept your changes.
+
+Normally, regular users do not have to care about this setting. If administrators make changes on the server that affects the *Rest URL*, you need to contact administrators to get the new Rest URL.
 
 h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnitoringGadget}
 
@@ -145,13 +209,15 @@ The *Cache Levels* gadget displays the eXo cache levels and settings. Based on t
 
 !images/Caches_gadget_hitratio.png|align="center"!
 
-* The *Details* tab shows the cache level and the current cache settings:
+* The *Details* tab shows the cache level and the current cache settings.
 
 !images/Caches_gadget_details.png|align="center"!
 
-** Max size: The maximum size of the cache.
-** Time to live: The lifetime (in seconds) of cache entries before being cleared.
-** Hit/Missed: The percentage of data fetched from cache versus the percentage of data fetched from database.
+In which:
+
+* Max size: The maximum size of the cache.
+* Time to live: The lifetime (in seconds) of cache entries before being cleared.
+* Hit/Missed: The percentage of data fetched from cache versus the percentage of data fetched from database.
 
 h2. Applications Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics}
 
@@ -159,7 +225,7 @@ The *Application Statistics* gadget displays how fast applications are. It shows
 
 !images/Applications_statistic_gadget.png|align="center"!
 
-Applications that take long time to execute will be highlighted so that you can easily recognize:
+Applications that take long time to execute will be highlighted so that you can easily recognize.
 
 !images/Applications_statistic_highlight.png|align="center"!
 
@@ -201,18 +267,26 @@ The *Services Management* gadget provides an easy access to REST management API.
 
 !images/Service_management_gadget.png|align="center"!
 
-Select the service from the *Services* drop-down list.
+* Select the service from the *Services* drop-down list. For each selected service, its respective method(s) and properties are shown.
 
-Click !images/Service_management_help.png|align="center"! to get the description of the selected service.
+* Click !images/Service_management_help.png|align="center"! to get the description of the selected service.
 
-For each selected service, its method(s) and properties are shown respectively.
 
-*Services Management settings*:
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Services Management settings
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+*1.* To manage a remote service on another Platform installation, click !images/edit_gadget.png! in the *Title* bar.
+
+The form to edit the gadget settings appears.
 
 !images/Service_management_settings.png|align="center"!
 
-|| Field || Description ||
-| *Service URL* | If you want to manage a remote service on another Platform installation, you can enter the link to the service in this field.|
+*2.* Enter the link to the service in the *Services URL* field, then click *Save* to accept your changes.
 
 h2. eXo Scripting Console {anchor:id=GadgetUserguide.ManagementMonitoringGadget.GroovyConsole}
 The *eXo Scripting Console* gadget provides a Groovy console that developers can use to interact with the runtime. This gadget is useful when you want to experiment on code. 
