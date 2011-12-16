@@ -107,8 +107,8 @@
   </script>]]></replacevalue>
 				</replace>
                 <replace file="${project.build.directory}/tomcat-trial/webapps/portal/WEB-INF/web.xml">
-				  <replacetoken><![CDATA[<distributable />]]></replacetoken>
-				  <replacevalue><![CDATA[<distributable />
+				  <replacetoken><![CDATA[<distributable/>]]></replacetoken>
+				  <replacevalue><![CDATA[<distributable/>
 
    <!-- Begin - Lead Capture Filter -->
    <filter>
