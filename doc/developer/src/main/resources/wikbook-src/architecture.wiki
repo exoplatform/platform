@@ -23,18 +23,18 @@ h1. Kernel {anchor:id=DEV.eXoArchitecturePremer.Kernel}
 All eXo Platform services are built around the eXo Kernel, or the service management layer, which manages the configuration and the execution of all components.
 The main kernel object is the eXo Container, a micro-container that glues services together through the dependency injection. The container is responsible for loading services/components.
 
-This part introduces concepts of Container and Services with an overview before configuring basic services.
+This part introduces concepts of *Container* and *Services* with an overview before configuring basic services.
 
 h2. Containers {anchor:id=DEV.eXoArchitecturePremer.Containers}
 
-A container is always required to access a service, because the eXo Kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an *.xml* configuration file that comes with every service. To learn more about the dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
+A container is always required to access a service, because the eXo Kernel relies on the dependency injection. This means that the lifecycle of a service (for example, instantiating, opening and closing streams, disposing) is handled by a dependency provider, such as the eXo Container, rather than the consumer. The consumer only needs a reference to an implementation of the requested service. The implementation is configured in an _.xml_ configuration file that comes with every service. To learn more about the dependency injection, visit [here|http://en.wikipedia.org/wiki/Dependency_injection].
 
 eXo Platform provides two types of containers: RootContainer and PortalContainer.
 
-The RootContainer holds the low level components. It is automatically started before the PortalContainer. You will rarely interact directly with the RootContainer except when you activate your own extension.
-The PortalContainer is created for each portal (one or several portals). All services started by this container will run as embedded in the portal. It also gives access to components of its parent RootContainer.
+The _RootContainer_ holds the low level components. It is automatically started before the _PortalContainer_. You will rarely interact directly with the _RootContainer_ except when you activate your own extension.
+The _PortalContainer_ is created for each portal (one or several portals). All services started by this container will run as embedded in the portal. It also gives access to components of its parent _RootContainer_.
 
-In your code, if you need to invoke a service of a container, you can use the ExoContainerContext helper from any location. The code below shows you a utility method that you can use to invoke any eXo Platform service.
+In your code, if you need to invoke a service of a container, you can use the _ExoContainerContext_ helper from any location. The code below shows you a utility method that you can use to invoke any eXo Platform services.
 
 {code:java}
 public class ExoUtils {
@@ -63,7 +63,7 @@ Containers are used to gain access to services. The followings are important cha
 * Each service has to be implemented as a singleton, which means it is created only once per portal container in a single instance.
 * A component equals a service. A service must not be a large application. A service can be a little component that reads or transforms a document where the term "component" is often used instead of service.
 
-For example, in the lib/folder, you can find services for databases, caching, LDAP:
+For example, in the _/lib_ folder, you can find services for the following databases, caching, and LDAP:
 
 * exo.core.component.database-x.y.z.jar
 * exo.kernel.component.cache-x.y.z.jar
@@ -94,23 +94,21 @@ h3. Components {anchor:id=DEV.eXoArchitecturePremer.Components}
 
 The service registration within the container is done with the <component> element.
 
-For example, open the _exo-ecms-core-services-x.y.z.jar_ file. Next, open the _/conf/portal/configuration.xml_ file. You will see:
+For example, open the _/webapps/exo-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_. You will see the following code:
 
 {code:xml}
-<component>
-  <type>org.exoplatform.services.deployment.ContentInitializerService</type>
-</component>
-<component>
-  <key>org.exoplatform.services.cms.CmsService</key>
-  <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
-</component>	
+    <component>
+        <key>org.exoplatform.services.cms.CmsService</key>
+        <type>org.exoplatform.services.cms.impl.CmsServiceImpl</type>
+    </component>
+
 {code}
 
 Each component has a _key_ which matches with the qualified Java interface name (_org.exoplatform.services.cms.CmsService_).
 
 The specific implementation class of the component (CmsServiceImpl) is defined in the <type> tag.
 
-If a service does not have a separate interface, the <type> will be used as the key in the container. This is the case of ContentInitializerService.
+If a service does not have a separate interface, the <type> will be used as the key in the container. This is the case of _ContentInitializerService_.
 
 
 h3. Parameters {anchor:id=DEV.eXoArchitecturePremer.Parameters}
@@ -143,7 +141,7 @@ You can use the value-param to pass a single value to the service.
 {code}
 
 
-The LocaleConfigService service accesses the value of value-param in its constructor.
+The _LocaleConfigService_ service accesses the value of value-param in its constructor.
 
 {code:java}
 package org.exoplatform.services.resources.impl;
@@ -202,7 +200,7 @@ public class LDAPServiceImpl implements LDAPService {
 }
 {code}
 
-The passed object is LDAPConnectionConfig, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your Java Bean and calls all setters whose values are configured in the configuration file.
+The passed object is _LDAPConnectionConfig_, which is a classic Java Bean. It contains all fields defined in the configuration files and also the appropriate getters and setters (not listed here). You also can provide default values. The container creates a new instance of your Java Bean and calls all setters whose values are configured in the configuration file.
 
 {code:java}
 package org.exoplatform.services.ldap.impl;
@@ -259,7 +257,7 @@ The Kernel startup follows a well-defined sequence to load configuration files. 
 The _external-component-plugins_ declarations are additive, so it is NOT possible to override them.
 {note}
 
-The loading sequence involves loading successively configurations for the RootContainer then from the PortalContainers:
+Configurations for the _RootContainer_ are loaded first, and then for the _PortalContainers_.
 
 * Services default RootContainer configurations from JAR files: _/conf/configuration.xml_.
 * External RootContainer configuration will be found at _$exo.conf.dir/configuration.xml_.
@@ -268,49 +266,52 @@ The loading sequence involves loading successively configurations for the RootCo
 * External configuration for services of the portal will be found at _$exo.conf.dir/portal/$PORTAL/configuration.xml_.
 
 {note}
-* $exo.conf.dir is a system property that points to the external configuration file on the file system. It is passed to the JVM in the startup script like _-Dexo.conf.dir=gatein_.
-* $PORTAL is the name of the portal container. By default, the name "portal" is unique.
+* _$exo.conf.dir_ is a system property which points to the folder containing external configuration files on the file system. It is passed to the JVM in the startup script like _-Dexo.conf.dir=gatein_.
+* _$PORTAL_ is the name of the portal container. By default, the name "portal" is unique.
 {note}
 
 h1. GateIn extensions {anchor:id=DEV.eXoArchitecturePremer.GateInExtensions}
-GateIn extensions are special *.war* files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer. To create your own portal, you will have to create a GateIn extension.
+GateIn extensions are special _.war_ files that are recognized by eXo Platform and contribute to custom configurations to the PortalContainer. To create your own portal, you will have to create a GateIn extension.
 
-The extension mechanism makes possible to extend or even override portal resources in almost plug-and-play way. You simply add a *.war* archive with your custom resources to the war folder and edit the configuration of the PortalContainerConfig service. Customizing a portal does not involve unpacking and repacking the original portal *.war* archives. Instead, you need to create your own *.war* archive with your own configurations, and modify resources. The content of your custom *.war* archive overrides the resources in the original archives.
+The extension mechanism makes possible to extend or even override portal resources in almost plug-and-play way. You simply add a _.war_ archive with your custom resources to the war folder and edit the configuration of the PortalContainerConfig service. Customizing a portal does not involve unpacking and repacking the original portal _.war_ archives. Instead, you need to create your own _.war_ archive with your own configurations, and modify resources. The content of your custom _.war_ archive overrides the resources in the original archives.
 
-The most elegant way to reuse configuration for different coexisting portals is by way of extension mechanism - by inheriting resources and configuration from existing web archives, and just adding extra resources to it, and overriding those that need to be changed by including modified copies.
+The most elegant way to reuse configuration for different coexisting portals is by way of extension mechanism. That is, you can inherit resources and configurations from existing web archives, then simply add extra resources and configurations to your extension, and override ones which need to be changed by including modified copies.
 
 {note}
-Starter is a web application that has been added to create and start all the portals, such as portal containers, at the same time once all the other web applications have already been started. In fact, all other web applications can potentially defined several things at startup, such as skins, Javascripts, Google gadgets and configuration files. The loading order is important as we can define skins or configuration files or a Javascript again from a web application 1. This could depend on another Javascript from a web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged Javascript file.
+Starter is a web application which has been added to create and start all the portal containers once all the other web
+applications have already been started. Generally, each web application of a portal container defines several things,
+such as skins, JavaScripts, Google gadgets and configuration files, at its startup, so the loading order is important.
+For example, at startup of the web application 1, skins or configuration files or Javascript are defined that could depend on another JavaScript from the web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged JavaScript file.
 {note}
 
-If you ship servlets or servlet filters as part of your portal extension, and if you need to access specific resources of portal at any time during processing of the servlet or filter request, you need to make sure that the _servlet/filter_ is associated with the current container. The proper way to do that is to make your servlet extend the _org.exoplatform.container.web.AbstractHttpServlet_ class. This will not only properly initialize the current PortalContainer for you, but  also  set  the  current  thread's  context  classloader  to  one  that  looks  for  resources in associated web applications in the order specified by Dependencies configuration (as explained in the Extension mechanism section).
+If you ship servlets or servlet filters as part of your portal extension, and these servlets/servlet filters need to access specific resources of a portal during the process of the servlets or filters request, make sure that these servlets/filters are associated with the current portal container. The proper way to do that is making your servlet extend the _org.exoplatform.container.web.AbstractHttpServlet_ class. This will not only properly initialize the current _PortalContainer_ for you, but also set the current thread's context ClassLoader to servlets or servlet filters which looks for resources in associated web applications in the order specified by dependencies configuration.
 
-As similar to filters, make  sure that your filter class extends _org.exoplatform.container.web.AbstractFilter_. Both AbstractHttpServlet and AbstractFilter have the method getContainer(), which returns the current PortalContainer.
+As similar to filters, make  sure that your filter class extends _org.exoplatform.container.web.AbstractFilter_. Both _AbstractHttpServlet_ and _AbstractFilter_ have the method named _getContainer()_, which returns the current _PortalContainer_.
 
 
 h2. Default Portal Container {anchor:id=DEV.eXoArchitecturePremer.defaultPortalContainer}
 
-eXo Platform comes with a pre-configured PortalContainer named "portal". This portal container configuration ties the core and extended services stack. The default Portal Container is started from _portal.war_ and naturally maps to the _/portal_ URL.
+eXo Platform comes with a pre-configured PortalContainer named "portal". The configuration of this portal container ties the core and the extended services stack. The default Portal Container is started from _portal.war_ and naturally maps to the _/portal_ URL.
 
-The GateIn extension mechanism lets you extend the portal context easily. This feature is fundamental as it shields you from any changes we may want to do in _portal.war_. You do not need to be afraid of upgrades anymore as your _extension.war_ will be clearly separated from the _portal.war_.
+The GateIn extension mechanism lets you extend the portal context easily. With this feature, you only need to make your desired modifications on your extension, but NOT on the _portal.war_. As a result, your upgrades will become simple as your _extension.war_ is totally independent of the _portal.war_.
 
-To achieve this extensibility, the PortalContainer activates two advanced features: 
+This extensibility is achieved via 2 advanced features of the _PortalContainer_:
 
-* A unified classloader: any classpath resource, such as property files, will be accessible as if it was inside the _portal.war_.
+* A unified ClassLoader: any classpath resource, such as property files, will be accessible as if it was inside the _portal.war_.
 
 {note}
 This is valid only for resources but not for Java classes.
 {note}
 
-* A unified servlet context: any web resource contained in your _extension.war_ will be accessible from /portal/ uri.
+* A unified ServletContext: any web resources contained in your _extension.war_ will be accessible from /portal/ uri.
 
-The next part explains what to do to make a simple extension for "portal" container.
+For more details on how to make a simple extension for a "portal" container, see the [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension] section.
 
 h2. Register Extension {anchor:id=DEV.eXoArchitecturePremer.RegisterExtension}
 
-The webapps are loaded in the order defined in the list of dependencies of the _PortalContainerDefinition_. You then need to deploy the _starter.war_; otherwise, the webapps will be loaded in the default application server's order', such as the loading order of the Application Server.
+The webapps are loaded in the order defined in the list of dependencies of the _PortalContainerDefinition_. You then need to deploy the _starter.war_; otherwise, the webapps will be loaded in the default application server's order, such as the loading order of the Application Server.
 
-If you need to customize your portal by adding a new extension and/or a new portal, you need to define the related _PortalContainerDefinitions_ and to deploy the starter. Otherwise, you do not need to define any _PortalContainerDefinition_ or deploy the starter.
+If you need to customize your portal by adding a new extension and/or a new portal, you need to define the related _PortalContainerDefinitions_ and to deploy the starter. Otherwise, you do not need to define any _PortalContainerDefinition_.
 
 First, you need to tell eXo Platform to load _WEB-INF/conf/configuration.xml_ of your extension, you need to declare it as a _PortalContainerConfigOwner_. Next, open the file _WEB-INF/web.xml_ of your extension and add a listener:
 
@@ -411,8 +412,16 @@ h2. Repositories and workspaces {anchor:id=DEV.eXoArchitecturePremer.Repositorie
 
 A content repository consists of one or more workspaces. Each workspace contains a tree of items.
 
-To access the repository's content from a service:
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Access the repository's content from a service
+</emphasis>
+</citetitle>
+</para>{docbook}
 
+*1.* Get the session object.
 {code:java}
 import javax.jcr.Session;
 
@@ -428,23 +437,21 @@ SessionProvider sessionProvider = WCMCoreUtils.getSessionProvider();
 Session session = sessionProvider.getSession(workspace, manageableRepository);
 {code}
 
-You can use the session object to retrieve your node content.
+*i.* Obtain the _javax.jcr.Repository_ object via one of the following ways:
 
-{code:java}
-String path = "/"; // put your node path here
-Node node = (Node) session.getItem(path);
-{code}
+*The first way*
 
-The javax.jcr.Repository object can be obtained via one of the following ways:
+Call the _getRepository()_ method of _RepositoryService_.
 
-* Using the eXo Container "native" mechanism. All Repositories are kept with a single RepositoryService component. So it can be obtained from eXo Container as below:
 
 {code:java}
 RepositoryService repositoryService = (RepositoryService) container.getComponentInstanceOfType(RepositoryService.class);
 Repository repository = repositoryService.getRepository("repositoryName");
 {code}
 
-* Using the eXo Container "native" mechanism with a thread local saved "current" repository (especially if you plan to use a single repository which covers more than 90% of usecases)
+*The second way*
+
+Call the _getCurrentRepository()_ method, especially when you plan to use a single repository which covers more than 90% of usecases.
 
 {code:java}
 // set current repository at initial time
@@ -455,16 +462,20 @@ repositoryService.setCurrentRepositoryName("repositoryName");
 Repository repository = repositoryService.getCurrentRepository();
 {code}
 
-* Using JNDI as specified in JSR-170.
+*The third way*
+
+Using JNDI as specified in JSR-170.
 
 {code:java}
 Context ctx = new InitialContext();
 Repository repository =(Repository) ctx.lookup("repositoryName");
 {code}
 
-Next, you need to log in the server to get a Session object by either of two ways:
+*ii.* Log in the server to get a Session object by either of two ways:
 
-* Creating a Credential object, for example:
+*The first way*
+
+Create a Credential object, for example:
 
 {code:java}
 Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
@@ -472,29 +483,45 @@ Credentials credentials = new SimpleCredentials("exo", "exo".toCharArray());
 Session jcrSession = repository.login(credentials, "production");
 {code}
 
-* Logging in by using:
+*The second way*
+
+Log in the server without using a Credential object.
 
 {code:java}
 Session jcrSession = repository.login("production");
 {code}
 
-This way is only applied when you run an implementation of eXo Platform embedded in the portal.
+This way is only applied when you run an implementation of eXo Platform. The eXo Platform implementation will directly
+leverage the organization and security services that rely on LDAP or DB storage and JAAS login modules.
+Single-Sign-On products can now also be used as eXo Platform v.2 which supports them.
 
-In embedded cases, the implementation will directly leverage the organization and security services that rely on LDAP or DB storage and JAAS login modules. Single-Sign-On products can now also be used as eXo Platform v.2 which supports them.
+{note}
+There are some JCR Session common considerations as follows:
 
-*JCR Session common considerations:*
+Because _javax.jcr.Session_ is not a safe object of thread, it is recommended that you should not share it between threads.
 
-* javax.jcr.Session is not a safe object of thread. So, you should never try to share it between threads.
-* Do not use System session from the user-related code because a system session has unlimited rights. Call ManageableRepository.getSystemSession() from the process-related code only.
-* Call Session.logout() explicitly to release resources assigned to the session.
-* When designing your application, you should take care of the Session policy inside your application. Two strategies are possible: Stateless (Session per business request) and Stateful (Session per User) or some mixings.
+Do not use the System session from the user-related code because a system session has unlimited rights. Call _ManageableRepository.getSystemSession()_ from the process-related code only.
+
+Call _Session.logout()_ explicitly to release resources assigned to the session.
+
+When designing your application, you should take care of the Session policy inside your application. Two strategies are possible: Stateless (Session per business request) and Stateful (Session per User) or some mixings.
+{note}
+
+*2.* Retrieve your node content of the session object.
+
+{code:java}
+String path = "/"; // put your node path here
+
+Node node = (Node) session.getItem(path);
+{code}
 
 h2. Tree structure: working with nodes and properties {anchor:id=DEV.eXoArchitecturePremer.WorkingWithNodes&Properties}
 
-Every node can only have one primary node type. The primary node type defines names, types and other characteristics of the properties and child nodes that a node is allowed (or required) to have. Every node has a special property called jcr:primaryType that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (for example, more child nodes, properties and their respective names and types).
+Every node can only have one primary node type. The primary node type defines names, types and other characteristics of the properties, and the number of its allowed child nodes.
+Every node has a special property called _{noformat}jcr:primaryType{noformat}_ that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (for example, more child nodes, properties and their respective names and types).
 
 Data are stored in properties, which may hold simple values, such as numbers, strings or binary data of arbitrary length.
 
-The JCR API provides methods to define node types and node properties, create or delete nodes, and add or delete properties to an existing node.
+The JCR API provides methods to define node types and node properties, create or delete nodes, and add or delete properties from an existing node.
 
-You can refer to Section 6.2.3. Node Read Methods in the JCR Specification document.
+You can refer to the "6.2.3 Node Read Methods" in the JCR Specification document.
