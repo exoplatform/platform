@@ -60,13 +60,15 @@ h1. About eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.A
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating to the changes of user behavior driven by the consumer web technologies, such as social networks, social publishing and forums. 
 
-After running eXo Platform 3.5, open a browser window and enter the URL provided by your administrator, for example, http://mycompany.com:8080/portal/default.
-
-You will be directed to the default page of eXo Platform 3.5.
-
-!images/PLFIntroduction/PLF3.5_interface.png|align="center"!
-
-*Architecture of eXo Platform 3.5*
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Architecture of eXo Platform 3.5
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 eXo Platform 3.5 can be deployed in various ways, depending on your aims. However, most applications integrated into eXo Platform are arranged in certain patterns.
 

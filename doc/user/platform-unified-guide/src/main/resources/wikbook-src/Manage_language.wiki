@@ -67,7 +67,7 @@ The *Interface Language Settings* form will be displayed with the list of all su
 
 !images/Language/Interface_Language_Settings.png|align="center"!
 
-*2.* Select another one by clicking the name of that language.
+*2.* Select your desired language.
 
 *3.* Click *Apply* and wait for a few seconds to take effect.
 
