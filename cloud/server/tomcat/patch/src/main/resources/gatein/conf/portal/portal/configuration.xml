@@ -25,6 +25,17 @@
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
   <component>
+    <key>PropertyManagerConfigurator</key>
+    <type>org.exoplatform.container.PropertyConfigurator</type>
+    <init-params>
+      <value-param>
+        <name>properties.url</name>
+        <value>file:${catalina.home}/${exo.conf.dir.name}/cloud.properties</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component>
     <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
     <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
     <init-params>
