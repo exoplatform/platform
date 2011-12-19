@@ -27,7 +27,7 @@ This section provides a number of terms that you will encounter when implementin
 {docbook}
 <citetitle>
 <para xml:id="Platform_User_Guide.eXo_Platform.Tutorials.Glossary.Navigation">
-    <emphasis role="bold">Portlet</emphasis>
+    <emphasis role="bold">Navigation</emphasis>
 </para>
 </citetitle>
 {docbook}
