@@ -9,8 +9,41 @@
   <artifactId>exo.platform.packaging.commons</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Packaging Commons</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.core</artifactId>
+      <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-jcr-ddl-scripts</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+               <artifactItems>
+                 <artifactItem>
+                   <groupId>org.exoplatform.jcr</groupId>
+                   <artifactId>exo.jcr.component.core</artifactId>
+                 </artifactItem>
+               </artifactItems>
+              <includes>**/*.sql</includes>
+              <outputDirectory>${project.build.directory}/jcr-ddl-scripts</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>

@@ -11,5 +11,9 @@
       <directory>src/main/resources</directory>
       <outputDirectory>/</outputDirectory>
     </fileSet>
+    <fileSet>
+      <directory>target/jcr-ddl-scripts/conf/storage</directory>
+      <outputDirectory>/conf/ddl/exojcr-${org.exoplatform.jcr.version}</outputDirectory>
+    </fileSet>
   </fileSets>
 </assembly>
