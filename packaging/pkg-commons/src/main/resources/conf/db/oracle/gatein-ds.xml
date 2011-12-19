@@ -25,8 +25,8 @@
 <datasources>
     <no-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
-      <connection-url>jdbc:oracle:@${db.host}:${db.port}/${db.idm.name}</connection-url>
-      <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+      <connection-url>jdbc:oracle:thin:@${db.host}:${db.port}:${db.idm.name}</connection-url>
+      <driver-class>oracle.jdbc.OracleDriver</driver-class>
       <user-name>${db.username}</user-name>
       <password>${db.password}</password>
       <min-pool-size>16</min-pool-size>
@@ -37,8 +37,8 @@
   
    <no-tx-datasource>
       <jndi-name>exo-jcr_portal</jndi-name>
-      <connection-url>jdbc:oracle:@${db.host}:${db.port}/${db.jcr.name}</connection-url>
-      <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+      <connection-url>jdbc:oracle:thin:@${db.host}:${db.port}:${db.jcr.name}</connection-url>
+      <driver-class>oracle.jdbc.OracleDriver</driver-class>
       <user-name>${db.username}</user-name>
       <password>${db.password}</password>
       <min-pool-size>16</min-pool-size>

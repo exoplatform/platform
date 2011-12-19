@@ -49,14 +49,14 @@
    <!-- eXo JCR Datasource for portal -->
    <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="128" maxIdle="32" maxWait="10000"
-   		       username="${db.username}" password="${db.password}" driverClassName="oracle.jdbc.driver.OracleDriver"
-   		url="jdbc:oracle:thin:@${db.host}:${db.port}/${db.jcr.name}"/>
+   		       username="${db.username}" password="${db.password}" driverClassName="oracle.jdbc.OracleDriver"
+   		url="jdbc:oracle:thin:@${db.host}:${db.port}:${db.jcr.name}"/>
 
     <!-- eXo IDM Datasource for portal -->                
     <Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
                maxActive="128" maxIdle="32" maxWait="10000"
-   		       username="${db.username}" password="${db.password}" driverClassName="oracle.jdbc.driver.OracleDriver"
-               url="jdbc:oracle:thin:@${db.host}:${db.port}/${db.idm.name}"/>
+   		       username="${db.username}" password="${db.password}" driverClassName="oracle.jdbc.OracleDriver"
+               url="jdbc:oracle:thin:@${db.host}:${db.port}:${db.idm.name}"/>
               
   </GlobalNamingResources>
 
