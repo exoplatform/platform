@@ -70,8 +70,10 @@
 		 
 		 .UIgadgetthemes .Gadcont span {
 			font-weight: bold;
-			color: #1A1A1A;
 		 }
+         .UIgadgetthemes .Gadcont span.customLink {
+            font-weight: normal;
+         }
         
       </style>
       <script language="javascript" type="text/javascript" src="scripts/jquery/1.5.2/jquery.min.js"></script>
