@@ -1,17 +1,22 @@
-This chapter presents the issues related to the content in eXo Platform and you can know how to work with the content via the following topics:
-* [Document types|#DEV.WorkWithContent.DocumentTypes]
-* [WCM templates|#DEV.WorkWithContent.WCMTemplates]
+eXo Platform provides you with 2 options to create the content for your new extension:
+
+* Create new content manually.
+* Import an existing content into your extension.
+
+This chapters represents issues related to creating a new content manually via the following topics:
+
+* [Node type|#DEV.WorkWithContent.NodeType]
+* [WCM template|#DEV.WorkWithContent.WCMTemplate]
 * [Document type|#DEV.WorkWithContent.DocumentType]
 * [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
-* [Taxonomies|#DEV.WorkWithContent.Taxonomies]
+* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
 
-h1. Document types {anchor:id=DEV.WorkWithContent.DocumentTypes}
+h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
-Each document type is represented by a node type in the JCR. Therefore, to create a new document type, you have to add a new node type. There are two ways to do this: through XML configuration files, or through the administration portlet.
+To create a content for your extension, you first need to define a node type which represents the document type in the JCR. There are 2 ways to define your node type:
 
-To learn more about how to use the administration portlet, refer to the [Administration Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html].
-
-Otherwise, you can create a new document type by configuring the file _/nodetypes-configuration.xml_ in your extension.
+* Via the *Content administration* portlet. For more details on how to create a note type via the *Content administration* portlet, see the *Manage node types* in the [eXo Platform 3.5 user guide|http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk01ch05.html].
+* Via the .xml configuration files by creating a _nodetypes-configuration.xml_ file in your extension as below.
 
 {code:xml}
 <nodeType name="exo:newnodetype" isMixin="true" hasOrderableChildNodes="false" primaryItemName=""> 
@@ -34,26 +39,29 @@ Otherwise, you can create a new document type by configuring the file _/nodetype
 
 By defining a supertype, you can reuse other node types and extend them with more properties (just like inheritance in Object Oriented Programming).
 
-h1. WCM templates {anchor:id=DEV.WorkWithContent.WCMTemplates}
+h1. WCM template {anchor:id=DEV.WorkWithContent.WCMTemplate}
 
-The templates are applied to a node type or a metadata mixin type. There are two types of templates, including:
+After defining your node type, you need to select templates which are applied to a node type or a metadata mixin type. eXo Platform provides 2 types of WCM templates, including:
 
-* *dialogs* are html forms that enable you to create node instances.
-* *views* are html fragments used to display nodes.
+* *dialogs* which are HTML forms for creating node instances.
+* *views* which are HTML fragments for displaying nodes.
 
-From the ECM admin portlet, *Manage Template* lists all existing node types that have been associated to Dialog and/or View templates. These templates can be attached to permissions (in the usual membership:group form), so that the specific one is displayed according to user rights (which can be useful in a content validation workflow activity).
+From the *Content administration* portlet, the *Manage Template* module lists all existing node types that have been associated with *Dialog* and/or *View* templates.
+These templates can be attached to permissions (in the usual _{noformat}membership:group_ form{noformat}_), so which specific templates are displayed according to user rights (which can be useful in a content validation workflow activity).
+
 
 h1. Document type {anchor:id=DEV.WorkWithContent.DocumentType}
 
-The checkbox 'Document Type' is to define if the node type should be a Document Type or not. If this checkbox is selected, the Site Explorer considers such nodes as user content and applies the following behavior:
+The *Document Type* checkbox is to define if the node type should be a *Document Type* or not. If this checkbox is selected, the *Sites Explorer* considers such nodes as user content and applies the following behavior:
 
-* The View template will be used to display the DocumentType nodes.
+* The *View* template will be used to display the *DocumentType* nodes.
 
-* The document types nodes can be created by the *Add Document* action. The forms shown in the *Add Document* action are the corresponding Dialog templates of each document type.
+* The document types nodes can be created by the *Add Content* action. The forms shown in the *Add Document* action are the corresponding *Dialog* templates of each document type.
 
-* Non-document types are hidden unless the 'Show non document types' option is checked.
+*Non-document types are hidden unless the *Show Non-document Nodes* option is checked.
 
-Templates are written using Groovy Templates and will require some experiences with JCR API and HTML notions.
+Templates are written using Groovy Templates and will require experiences with JCR API and HTML notions.
+
 
 h1. Dialog Syntax {anchor:id=DEV.WorkWithContent.DialogSyntax}
 
@@ -113,6 +121,7 @@ public class PostNodeSaveInterceptor implements CmsScript {
 }
 {code}
 
+
 h2. Hidden fields {anchor:id=DEV.WorkWithContent.HiddenFields}
 
 In the next code sample, each argument is composed of a set of keys and values. The order of arguments are not important and only the key matters. That example defines a field with the id as "hiddenField2", which will generate a hidden field. The value of this field will be automatically set to UTF-8 and no visible field will be printed on the form.
@@ -124,6 +133,7 @@ uicomponent.addHiddenField("hiddenInput2", hiddenField2);
 
 Once the form has been saved, the date value will be saved under the relative JCR path ./exo:image/jcr:lastModified.
 
+
 h3. Non-value field {anchor:id=DEV.WorkWithContent.Non-ValueField}
 
 You cannot either see the non-value field on the form or input value for them. Its value will be automatically created or defined when you are managing templates.
@@ -133,6 +143,7 @@ String[] hiddenField1 = ["jcrPath=/node/jcr:content", "nodetype=nt:resource", "m
 uicomponent.addHiddenField("hiddenInput1", hiddenField1) ;
 {code}
 
+
 h3. Non-editable fields {anchor:id=DEV.WorkWithContent.Non-EditableFields}
 
 It is possible to create widgets that are non-editable (and then only used to print some information).
@@ -140,6 +151,7 @@ It is possible to create widgets that are non-editable (and then only used to pr
 {code:java}
 String[] fieldCategories = ["jcrPath=/node/exo:category", "multiValues=true", "reference=true", "editable=false"]; uicomponent.addTextField("categories", fieldCategories);
 {code}
+
 
 h3. Create node type or mixin type {anchor:id=DEV.WorkWithContent.CreateNodeTypeOrMixinType}
 
@@ -176,7 +188,7 @@ h3. WYSIWYG widget {anchor:id=DEV.WorkWithContent.WYSIWYGWidget}
 
 Widgets are natively part of the Platform product to provide a simple and easy way for users to get information and notification on their application. They complete the portlet application that focuses on more transactional behaviors. 
 
-The "What You See Is What You Get" widget is one of the most powerful tools. It renders an advanced JavaScript text editor with many functionalities, including the ability to dynamically upload images or flash assets into a JCR workspace and then to refer to them from the created HTML text.
+WYSIWYG stands for What You See Is What You Get. This widget is one of the most powerful tools. It renders an advanced JavaScript text editor with many functionalities, including the ability to dynamically upload images or flash assets into a JCR workspace and then to refer to them from the created HTML text.
 
 {code:groovy}
 String[] fieldSummary = ["jcrPath=/node/exo:summary", "options=basic"] ;
@@ -191,11 +203,39 @@ uicomponent.addRichtextField("content", fieldContent)
 
 The "options" argument is used to tell the component which toolbar should be used.
 
-By default, there are three options for the toolbar:
+By default, there are five options for the toolbar: CompleteWCM, Default, BasicWCM, Basic, SuperBasicWCM.
 
-* basic: a minimal set of tools is shown.
-* default: a large set of tools is shown, no "options" argument is needed in that case.
 * CompleteWCM: a full set of tools is shown.
+
+The following buttons are shown: Source, Templates, Show Blocks, Cut, Copy, Paste Text, Undo, Redo, SpellCheck, WCM Insert Gadget, Flash, Table, 
+Insert Special Character, WCM Insert Content Link, Bold, Italic, Underline, Strike Through, Justify Left, Justify Center, Justify Right, Justify Full,
+Ordered List, Unordered List, Text Color, Background Color, Remove Format, Link, WCM Insert Portal Link, Unlink, Anchor, Style, Font Format, Font Name, Font Size, Maximize.
+
+!images/CompleteWCMToolbar.png|align="center"!
+
+* Default: a large set of tools is shown, no "options" argument is needed in that case.
+
+The following buttons are shown: Source, Templates, Cut, Copy, PasteText, Undo, Redo, SpellCheck, RemoveFormat, Bold, Italic, Underline, Strike Through, Ordered List, Unordered List, Link, Unlink, Anchor, Image, Flash, Table, Special Character, Text Color, Background Color, Show Blocks, Style, Font Format, Font Name, Font Size, Maximize.
+
+!images/DefaultToolbar.png|align="center"!
+
+* BasicWCM: a minimal set of tools is shown. 
+
+The following buttons are shown: Source, Bold, Italic, Underline, Strike Through, OrderedList, UnorderedList, Outdent, Indent, Justify Left, Justify Center, Justify Right, JustifyFull, Blockquote, Link, Unlink, WCM Insert Portal Link, WCM Insert Content Link, Show Blocks, Style, Font Format, Font Name, FontSize, Maximize.
+
+!images/BasicWCMToolbar.png|align="center"!
+
+* Basic: 
+
+The following buttons are shown: Source, Bold, Italic, Underline, Strike Through, Ordered List, Unordered List, Outdent, Indent, Justify Left, Justify Center, Justify Right, Justify Full, Blockquote, Link, Unlink, Show Blocks, Style, Font Format, Font Name, Font Size, Maximize.
+
+!images/BasicTools.png|align="center"!
+
+* SuperBasicWCM: 
+
+The following buttons are shown: Source, Bold, Italic, Underline, Justify Left, Justify Center, Justify Right, Justify Full, Link, Unlink, WCM Insert Portal Link, WCM Insert Gadget, WCM Insert Content Link.
+
+!images/SuperBasicWCMToolbar.png|align="center"!
 
 There is also a simple text area widget, which has text-input area only: 
 
@@ -203,6 +243,44 @@ There is also a simple text area widget, which has text-input area only:
 String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
 uicomponent.addTextAreaField("description", descriptionArgs) ;
 {code}
+
+h3. Create a custom RichText editor fields
+
+In the section [WYSIWYG widget|#DEV.WorkWithContent.WYSIWYGWidget], you already know about a set of default toolbars (CompleteWCM, Default, BasicWCM, Basic, SuperBasicWCM). In this section, you will learn how to create a *RichText* editor with custom buttons.
+
+Just edit the configuration file and modify or add new items to the configuration file of the *RichText* editor is located in: _apps/resource-static/src/main/Webapp/eXoConfig.js_
+
+Take a look at the eXoConfig.js file to see a definition of a custom toolbar named "MyCustomToolbar":
+
+{code:java}
+FCKConfig.ToolbarSets["MyCustomToolbar"] = [
+  ['Source','Templates','-','FitWindow','ShowBlocks'],
+ ['Cut','Copy','PasteText','-','SpellCheck','-','Undo','Redo'],
+ ['WCMInsertGadget','Flash','Table','SpecialChar', 'WCMInsertContent'],
+ '/',
+ ['Bold','Italic','Underline','StrikeThrough','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull','-','OrderedList','UnorderedList','-','TextColor','BGColor','-','RemoveFormat'],
+ ['Link','WCMInsertPortalLink','Unlink','Anchor'],
+ '/',
+ ['Style','FontFormat','FontName','FontSize']
+] ;
+{code}
+
+Every toolbar set is composed of a series of "toolbar bands" that are grouped in the final toolbar layout. The bands items move together on new rows when resizing the editor.
+
+Every toolbar band is defined as a separated JavaScript array of strings. Each string corresponds to an available toolbar item defined in the editor code or in a plugin.
+
+* Put the desired button names in square bracket ({noformat}"[" & "]"{noformat}) and separate them by commas to create a toolbar band. You can look at the above code to know all the possible toolbar item. If the toolbar item doesn't exist, a message will be displayed when loading the editor.
+
+* Include a separator in the toolbar band by putting the "-" string on it.
+
+* Separate each toolbar brands with commas.
+
+* Use slash ("/") to tell the editor that you want to force the next bands to be rendered in a new row and not following the previous one.
+
+{note}
+You should notice that the last toolbar band must have no comma after it.
+{note}
+
 
 h3. Simple select box widget {anchor:id=DEV.WorkWithContent.SimpleSelectBoxWidget}
 
@@ -303,13 +381,12 @@ h1. Manage template service {anchor:id=DEV.WorkWithContent.ManageTemplateService
 
 The Template service enables you to create dialogs and view templates for each node type registered. Each node type may have many dialogs and view templates. The template will be used when creating or viewing nodes.
 
-_.../webapps/portal/WEB-INF/conf/ecm/ecm-templates-configuration.xml_
+You can find the template service configuration in /webapps/ecm-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_.
 
 {code:xml}
 <component>
   <key>org.exoplatform.services.cms.templates.TemplateService</key>
   <type>org.exoplatform.services.cms.templates.impl.TemplateServiceImpl</type>
-  ..............
 </component>
 {code}
 
@@ -396,13 +473,13 @@ With init-parameters as:
 </init-params>    
 {code}
 
-h1. Taxonomies {anchor:id=DEV.WorkWithContent.Taxonomies}
+h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
 
 Taxonomy is a particular classification arranged in a hierarchical structure. Taxonomy trees in eXo Platform will help you organize your content into categories.
 
 When you create a new taxonomy tree, you will add a pre-configured _{noformat}exo:action{noformat}_ (_{noformat}exo:scriptAction{noformat}_ or _{noformat}exo:businessProcessAction{noformat}_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _{noformat}exo:taxonomyLink{noformat}_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
 
-Like adding document types, taxonomy trees can be managed through the Administration portlet, or by adding XML files.
+Like adding document types, taxonomy trees can be managed through the *Content administration* portlet, or by adding .xml configuration files.
 
 To configure taxonomy trees by adding configuration files in the _{noformat}/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/{noformat}_ directory, create a new file called _{noformat}$taxonomyName-taxonomies-configuration.xml{noformat}_. For example, if the name of your taxonomy tree is "acme", the file should be named _{noformat}acme-taxonomies-configuration.xml{noformat}_.
 
