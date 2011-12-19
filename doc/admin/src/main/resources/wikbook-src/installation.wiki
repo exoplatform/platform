@@ -27,7 +27,14 @@ h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
 The easiest way to install eXo Platform is to use the Tomcat bundle. This is a ready-made package on top of the Tomcat 6 application server. First, you need to download and extract the package named _eXo-Platform-tomcat-3.5.x.zip_ on your server.
 
-h2. Start up the server.
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Start up the server
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 eXo Platform leverages the application server on which it is deployed. This means that you only need to start and stop your application with the default commands.
 
@@ -41,7 +48,15 @@ The server is started successfully when you see the following message in your lo
 INFO: Server startup in 353590 ms
 {screen}
 
-h2. Shut down the server.
+
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Shut down the server
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
 
@@ -58,7 +73,16 @@ INFO: Stopping Coyote HTTP/1.1 on http-8080
 {screen}
 
 
-h2. Start up eXo Platform by running built-in startup scripts.
+
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Start up eXo Platform by running built-in startup scripts
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 You can start up eXo Platform by running one of the following built-in startup scripts:
 
 * Linux & OS X: *{noformat}start_eXo.sh{noformat}*.
@@ -107,7 +131,15 @@ In the developer mode, the *{noformat}gatein-dev{noformat}* scripts launch eXo P
 
 Now, you can start and run the eXo Platform demo, but you will need to adjust these values for a production setup.
 
-h2. Customize environment variables in tomcat
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Customize environment variables in tomcat
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
 
 This file is located in:
@@ -166,7 +198,7 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 
 *4.* Configure the JVM parameters.
 
-On *Linux*, add these lines to the end of _{noformat}jboss-root/bin/run.conf{noformat}:
+* On *Linux*, add these lines to the end of _{noformat}jboss-root/bin/run.conf{noformat}:
 
 {code}
 # Platform environment variables
@@ -189,7 +221,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
-* To use another implementation of SAX, change the class names in the _{noformat}EXO_XML{noformat}_ variable, for example: com.sun.xml.internal.stream.XMLOutputFactoryImpl.
+* To use another implementation of SAX, change the class names in the _{noformat}EXO_XML{noformat}_ variable. For example: _com.sun.xml.internal.stream.XMLOutputFactoryImpl_.
 * To debug the application, simply add _{noformat}$REMOTE_DEBUG{noformat}_ to the _{noformat}JAVA_OPTS{noformat}_ variable.
 
 *5.* Add the eXo Platform logging categories to _{noformat}jboss-root/server/default/conf/jboss-log4j.xml{noformat}_.
