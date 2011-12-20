@@ -176,8 +176,16 @@ Or, by using the following command with this additional profile.
 
 h1. FAQs of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
-Q1. *How to migrate from local to the cluster mode?* 
 
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Q1. How to migrate from local to the cluster mode?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
 
 *1.* Update the configuration to the cluster mode as explained above on your main server.
@@ -188,8 +196,16 @@ If you intend to migrate your production system from local (non-cluster) to the 
 
 *4.* Start the cluster.
 
-Q2. *Why is startup failed with the "Port value out of range" error?*
 
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Q2. Why is startup failed with the "Port value out of range" error?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 On Linux, your startup is failed if you encounter the following error:
 
 {code}
@@ -204,8 +220,16 @@ You need to verify:
 
 * The host name is NOT defined as localhost or 127.0.0.1.
 
-Q3. *How to solve the "failed sending message to null" error?*
 
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Q3. How to solve the "failed sending message to null" error?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 If you encounter the following error when starting up in the cluster mode on Linux:
 
 {code}

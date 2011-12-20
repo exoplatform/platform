@@ -11,7 +11,7 @@ The backup of eXo Platform instance involves backing up the databases and the fi
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Backup.Perform_backup">eXo Platform backup</link>
+<link linkend="ADM.Backup.Perform_backup">Back up eXo Platform</link>
 </para>
 </listitem>
 <listitem>
@@ -141,17 +141,8 @@ For the files backup, eXo Platform provides a shell script running on the eXo Pl
 Examples of the script implementation are out of the scope of this guide.
 {note}
 
-h1. eXo Platform backup {anchor:id=ADM.Backup.Perform_backup}
+h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">
-To back up eXo Platform, do the following main steps:
-</emphasis>
-</para>
-</citetitle>
-{docbook}
 
 *1.* Stop the whole eXo Platform instance by using the shell command: _{noformat}stop_eXo{noformat}_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
 

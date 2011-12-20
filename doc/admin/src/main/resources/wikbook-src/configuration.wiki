@@ -255,7 +255,7 @@ Please refer to Tomcat's [JNDI Resources How To|http://tomcat.apache.org/tomcat-
 <citetitle>
 <para>
 <emphasis role="bold">
-To edit the server.xml file:
+Edit the server.xml file
 </emphasis>
 </para>
 </citetitle>
@@ -297,7 +297,7 @@ In this step, you need to add the MySQL connector to Tomcat by adding _{noformat
 <citetitle>
 <para>
 <emphasis role="bold">
-To configure the data source for eXo Platform under JBoss, do as follows:
+Configure the data source for eXo Platform under JBoss
 </emphasis>
 </para>
 </citetitle>
@@ -387,8 +387,16 @@ eXo Platform automatically appends the portal container name ("{noformat}_portal
 In this step, you need to change the name under which the data sources are bound in the JNDI tree by the app server. This is a dependent application sever.
 
 h2. FAQs of database configuration {anchor:id=ADM.Configuration.FAQDatabaseConfiguration}
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.FAQDatabaseConfiguration.Connect_to_other_database_system">
+<emphasis role="bold">
+Q1. How to configure eXo Platform to connect to other database systems?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-*Q1. How to configure eXo Platform to connect to other database systems?* {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Connect_to_other_database_system}
 
 Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
 
@@ -427,8 +435,16 @@ You can download the official JDBC connector JARs from the following websites:
 * http://jdbc.postgresql.org/download.html
 * http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html
 
-*Q2. How to remove the idle MySQL connections?* {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Remove_idle_MySQL_connections}
 
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.FAQDatabaseConfiguration.Remove_idle_MySQL_connections">
+<emphasis role="bold">
+Q2. How to remove the idle MySQL connections?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 Some RDBMSs, like MySQL, close the idle connections after a period (8 hours on MySQL by default). Thus, a connection from the pool will be invalid and any application SQL command will fail, resulting in errors as below:
 
 {code}
@@ -459,8 +475,16 @@ For more details on the configuration, or some examples on other RDBMS and appli
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
 * http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
 
-*Q3. How to enable managed DataSource?* {anchor:id=ADM.Configuration.FAQDatabaseConfiguration.Enable_managed_datasource}
 
+{docbook}
+<citetitle>
+<para xml:id="ADM.Configuration.FAQDatabaseConfiguration.Enable_managed_datasource">
+<emphasis role="bold">
+Q3. How to enable managed DataSource?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file
 {code}
 # indicates if the jcr datasource is using managed transactions. 
