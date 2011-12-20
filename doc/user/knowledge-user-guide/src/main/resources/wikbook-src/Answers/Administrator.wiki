@@ -217,7 +217,7 @@ The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display
 
 *1.* Click !images/Setting_gear.png! *--> Portal --> Pages*.
 
-!images/edit_pages1.png.png|align="center"!
+!images/edit_pages1.png|align="center"!
 
 The *Page Manager* page will be displayed.
 
