@@ -1,6 +1,6 @@
 To build your network, you first need to hover your cursor over the display name on the *Administration bar* and select *My Network* from the drop-down menu.
 
-!images/Select_network.png|align="center"!
+!images/Select_network.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 The *Network* page appears and allows you to do the following actions:
 
@@ -8,7 +8,7 @@ The *Network* page appears and allows you to do the following actions:
 
 * [Send connection requests|#Send_connection_requests].
 
-!images/Network_information.png|align="center"!
+!images/Network_information.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 This page consists of the following tabs:
 
@@ -32,13 +32,14 @@ This function allows you to find your desired contact quickly.
 
 *2.* Enter the contact name you want to search into the *Find Contact* field. When you type, the application automatically suggests the contact name containing your entered letter. You just need to select one of suggested names from the drop-down list.
 
-!images/Filter_search.png|align="center"!
+!images/Filter_search.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/Filter_search.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 * To do advanced lookups for your entered name, click *More option*. This option allows you to filter your contacts by positions, skills and gender. 
 
 * To stop doing advanced lookups, click *Hide option*.
 
-*3.* Hit the *Enter* key, or click !images/Social_search_icon.png! to find your contact. The results will be listed in the *People Found* pane.
+*3.* Hit the *Enter* key, or click !images/Social_search_icon.png|align="center" width="13" fo:scalefit="1" html:scalefit="0"! to find your contact. The results will be listed in the *People Found* pane.
 
 h1. Send connection requests {anchor:id=Send_connection_requests}
 
@@ -48,11 +49,11 @@ You easily send a request following one of two ways:
 
 All users will be listed in the *People Found* pane.
 
-!images/Two_ways_People.png|align="center"!
+!images/Two_ways_People.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Invite your desired contact via one of two ways.
 
-!images/Ways_sending_invitation.png|align="center"!
+!images/Ways_sending_invitation.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *The first way*
 
@@ -62,9 +63,9 @@ Click *Invite* to send your connection request.
 
 Click the contact name to go to his/her profile, then click *Invite to connect* at the right corner of the contact profile page.
 
-!images/Invite-to-connect.png|align="center"!
+!images/Invite-to-connect.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
-The !images/Invited_connect_icon.png! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
+The !images/Invited_connect_icon.png|align="center" width="13" fo:scalefit="1" html:scalefit="0"! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
 
 {docbook}
 <note>
@@ -86,7 +87,7 @@ h2. Disconnect from your contacts {anchor:id=Disconect}
 
 In the *Network* or *All People* tab, you can remove the connections between you and the users who are as your contacts anymore via one of two following ways.
 
-!images/Ways_remove_connections.png|align="center"!
+!images/Ways_remove_connections.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *The first way*
 
@@ -96,4 +97,4 @@ Click *Delete* to remove your established connections.
 
 Click the contact name to go to the profile page, then click the *Disconnect* link at the right corner of the contact profile page.
 
-!images/Disconnect_in_profile.png|align="center"!
+!images/Disconnect_in_profile.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!

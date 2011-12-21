@@ -22,7 +22,7 @@ As a guest, you can visit eXo Social but are limited to several contents and app
 
 *2.* Fill in the *Register New Account* form. The asterisk (*) mark indicates mandatory fields.
 
-!images/Register_new_account.png|align=center!
+!images/Register_new_account.png|align=center width="200" fo:scalefit="1" html:scalefit="0"!
 
 The mandatory fields which are marked with the asterisk (*) include:
 
@@ -34,7 +34,7 @@ The mandatory fields which are marked with the asterisk (*) include:
 |*Last Name*| The user's last name which must be between 1 and 45 characters. |
 |*Email Address*| The user's email that must be in the correct form, for example: username@abc.com.|
 
-*3.* Click !images/Find_icon.png! next to the *User Name* field to check if the selected username is available or not.
+*3.* Click !images/Find_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! next to the *User Name* field to check if the selected username is available or not.
 
 *4.* Enter the validation text into the textbox.
 
@@ -70,7 +70,7 @@ To sign in to eXo Social, do as follows:
 
 *3.* Input your registered user name and password in the *Sign in* form.
 
-!images/SignIn.png!
+!images/SignIn.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Select the *Remember My Login* checkbox for the first time if you want to automatically return to the eXo Social page without signing in again. This feature enables you to be automatically authenticated to avoid doing an explicit authentication when you access the eXo Social.
 
@@ -83,7 +83,7 @@ In case the username does not exist or the username/password is invalid, you wil
 After signing in successfully, you will be redirected to the eXo Social homepage and welcomed with your full name on the top right corner of the page.
 
 
-!images/Administration_bar.png!
+!images/Administration_bar.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 
 
@@ -91,7 +91,7 @@ After signing in successfully, you will be redirected to the eXo Social homepage
 To end your authenticated session, simply hover your cursor over the eXo icon on the top left corner of the page and select *Sign out* from the drop-down menu.
 
 
-!images/Sign_Out.png!
+!images/Sign_Out.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 
 
@@ -107,7 +107,7 @@ In case you forget your account or password, you can recover as follows:
 
 *2.* Select the appropriate option and click *Next*. You will be prompted to provide your identity, depending on your choice.
 
-!images/Retrieve_Options.png!
+!images/Retrieve_Options.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Enter your Username/Email in the form.
 
