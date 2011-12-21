@@ -94,7 +94,7 @@ If your invited users have not accepted your requests, you can revoke your invit
 
 h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
-* To promote a member to the manager position, click !images/Plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
+* To promote a member to the manager position, click !images/Social_plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
 
 * To demote a member, click !images/Demote_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
@@ -120,7 +120,7 @@ h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit
 
 !images/space_settings_add_applications.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select the application you want to add by clicking !images/Plus_icon_Application_Social.png|width="13" fo:scalefit="1" html:scalefit="0"!.
+*2.* Select the application you want to add by clicking !images/Social_plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
 If there is no available application, ask your system administrator to gain the access right.
 

@@ -536,7 +536,7 @@ h3. Advanced search {anchor:id=KSuser.Answer_Regular_user.Advanced_search}
 
 The *Advanced search* allows you to do a search with multiple criteria corresponding to the object that is expected to be found. Using the advanced search, you can find questions/categories more exactly.
 
-*1.* Click !images/Advance_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Search* area.
+*1.* Click !images/Advanced_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Search* area.
 
 *2.* Define some search criteria in the *Advanced Search* form. The criteria may vary, depending on where you want to search.
 

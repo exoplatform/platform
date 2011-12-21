@@ -110,7 +110,7 @@ After accessing your desired spaces tab, you can search for spaces by *Name* and
 
 *1.* Enter the key word into the *Find Space* field.
 
-*2.* Press the *Enter* key or click !images/Search_space_icon.png|width="13" fo:scalefit="1" html:scalefit="0".
+*2.* Press the *Enter* key or click !images/Social_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0".
 
 
 {docbook}

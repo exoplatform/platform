@@ -71,7 +71,7 @@ The *Advanced Search* allows users to make a search with particular criteria cor
 
 To perform the advanced search, do as follows:
 
-*1.* Click !images/Advance_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! at the top right of the *Forum* homepage when being in the *Forum* application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the *Action* bar of each selected object.
+*1.* Click !images/Advanced_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! at the top right of the *Forum* homepage when being in the *Forum* application or in the search pop-up or in the *Search this category*/*Search this forum*/*Search this topic*/ on the *Action* bar of each selected object.
 
 Basing on where you want to search: category, forum or post, the search criteria will be changed accordingly.
 
@@ -580,7 +580,7 @@ To view bookmarks, click !images/View_bookmarks.png|width="60" fo:scalefit="1" h
 
 h3. Delete a bookmark {anchor:id=Public_user_profile.Bookmarks.Delete_bookmarks}
 
-Simply click !images/Remove_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the link that you want to delete.
+Simply click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the link that you want to delete.
 
 The selected bookmarks will be removed from the bookmarks list.
 
@@ -701,7 +701,7 @@ Go to the *My Subscriptions* tab in the *Settings* form, where you can update or
 
 * In the !images/Mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! column, you can edit or delete your subscription email. Select an email then click the trash icon to delete. Enter a new email address into the *Your watches are sent to* field. Click *Update* to add your entered email addresses in the !images/Mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! column.
 
-* Click !images/Remove_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! to remove your watched category, topic, post. After being removed, you will no longer receive any email notifications of the removed object.
+* Click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! to remove your watched category, topic, post. After being removed, you will no longer receive any email notifications of the removed object.
 
 Next, click *Save* to accept your changes.
 

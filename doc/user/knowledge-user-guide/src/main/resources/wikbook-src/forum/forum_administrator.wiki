@@ -435,7 +435,7 @@ h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes
 
 h4. Delete a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Delete_BBCodes}
 
-Simply click !images/Remove_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the BBCode you want to delete in the *BBCode Manager* form and then select *OK* in the confirmation message to accept your deletion.
+Simply click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the BBCode you want to delete in the *BBCode Manager* form and then select *OK* in the confirmation message to accept your deletion.
 
 h4. Activate/Deactivate a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes}
 
@@ -509,7 +509,7 @@ Click !images/Plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! next t
 
 * To edit the topic type, click !images/edit_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
-* To delete the topic type, click !images/Remove_icon.png|width="11" fo:scalefit="1" html:scalefit="0"!.
+* To delete the topic type, click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"!.
 
 h3. Ban IPs {anchor:id=Forum_Administrator.Administrative_tasks.Ban_IPs}
 Administrators can ban IP addresses used by users who abuse the forum functions or violate the forum rules and policies. All banned IPs cannot be used to add posts to all forums in the *Forum* application.

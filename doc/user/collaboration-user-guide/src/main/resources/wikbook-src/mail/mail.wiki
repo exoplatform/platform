@@ -515,7 +515,7 @@ Also, you can
 
 !images/addressbook.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
-*iii.* Click !images/Glass_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! to perform your search.
+*iii.* Click !images/Search_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
 * Tick the *Send To All* checkbox if you want to send the email to the contacts defined in the *Address Book* select-box.
 

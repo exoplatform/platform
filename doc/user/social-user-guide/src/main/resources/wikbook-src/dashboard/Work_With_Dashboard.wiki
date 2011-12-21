@@ -51,7 +51,7 @@ To add more gadgets from external sources, do as follows:
 *3.* Click *Add Gadgets* in the *Dashboard* to open the *Dashboard* workspace.
 
 
-*4.* Paste the URL achieved in step 1 into the text box next to !images/Add_external_gadget_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
+*4.* Paste the URL achieved in step 1 into the text box next to !images/Social_plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
 
 *5.* Click the plus icon to add the new gadget to the page.

@@ -725,7 +725,7 @@ The form to select the user, the group and the membership appears.
 
 h4. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_permissions}
 
-To delete the permissions of a user, group or a membership in a space, just click !images/Remove_icon.png| width="11px" fo:scalefit="1" html:scalefit="0"! corresponding to a user/a group or a membership in the *Space Permissions* form.
+To delete the permissions of a user, group or a membership in a space, just click !images/Delete_icon.png| width="11px" fo:scalefit="1" html:scalefit="0"! corresponding to a user/a group or a membership in the *Space Permissions* form.
 
 h3. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
 The *Page Permissions* allows you to set the view and edit permissions for a specific page of a space.
@@ -808,7 +808,7 @@ h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
 
 h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
-*1.* Click !images/Remove_icon.png| width="13" fo:scalefit="1" html:scalefit="0"! corresponding to the template you want to delete.
+*1.* Click !images/Delete_icon.png| width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the template you want to delete.
 
 *2.* Click *OK* in the pop-up confirmation message.
 
