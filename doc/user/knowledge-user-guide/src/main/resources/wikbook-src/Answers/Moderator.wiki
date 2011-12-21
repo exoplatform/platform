@@ -16,13 +16,13 @@ To perform an action on a category, you can select one of these approaches:
 
 *2.* Select an appropriate action from the drop-down menu.
 
-!images/Category_context_menu.png|align="center"!
+!images/Category_context_menu.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *The second way*
 
-If you are already in a category that you moderate, you can perform all actions on this category by clicking !images/Category_btn.png! on the *Action* bar, then select an action from the drop-down menu.
+If you are already in a category that you moderate, you can perform all actions on this category by clicking !images/Category_btn.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select an action from the drop-down menu.
 
-!images/Category_menu.png|align="center"!
+!images/Category_menu.png|align="center" width="330" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -55,7 +55,7 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 *1.* Click *Category* on the *Action* bar, and select *Add Category* from the drop-down menu. The *Add Category* form will be displayed.
 
-!images/Add_category_form.png|align="center"!
+!images/Add_category_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -77,7 +77,7 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories].
 
-*2.* Select !images/edit_icon.png!.
+*2.* Select !images/edit_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
 *3.* Edit the properties.
 
@@ -87,18 +87,18 @@ h3. Delete a category {anchor:id=KSuser.Answer_Moderator.Delete_categories}
 
 *1.* Follow one of the approaches described in the [Manage categories|#KSuser.Answer_Moderator.Manage_categories] section.
 
-*2.* Select !images/Delete_category_btn.png! from the drop-down menu and click *OK* in the confirmation message.
+*2.* Select !images/Delete_category_btn.png|width="40" fo:scalefit="1" html:scalefit="0"! from the drop-down menu and click *OK* in the confirmation message.
 
 
 h3. Move a category {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories] to open the drop-down menu.
 
-*2.* Select !images/Move_category_btn.png!.
+*2.* Select !images/Move_category_btn.png|width="40" fo:scalefit="1" html:scalefit="0"!.
 
 *3.* Select the destination category from the list.
 
-!images/Move_category_form.png|align="center"!
+!images/Move_category_form.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
 
 
 h3. Export/Import a category {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
@@ -115,7 +115,7 @@ Both functions can be executed on all categories and questions in the *Answers* 
 
 
 
-*1.* Click !images/Export_btn.png! to open the *Export* form.
+*1.* Click !images/Export_btn.png|width="40" fo:scalefit="1" html:scalefit="0"! to open the *Export* form.
 
 *2.* Input the file name to export.
 
@@ -133,7 +133,7 @@ The exported file is in the .zip format and it can be used to import to *Answers
 {docbook}
 
 
-*1.* Click !images/Import_icon.png! to open the *Import* form.
+*1.* Click !images/Import_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to open the *Import* form.
 
 *2.* Locate the file to import, then upload the selected file.
 
@@ -155,14 +155,14 @@ In this section, the following topics are covered:
 h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View_all_questions}
 
 Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions.
-To view all posted questions, click !images/Manage_question_btn.png! on the *Action* bar to open the *Manage Questions* form. Here, you can have the overview of all the posted questions in the category you manage.
+To view all posted questions, click !images/Manage_question_btn.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to open the *Manage Questions* form. Here, you can have the overview of all the posted questions in the category you manage.
 
 
 h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions}
 
-*1.* Select !images/Manage_question_btn.png! on the *Action* bar to view all the open questions.
+*1.* Select !images/Manage_question_btn.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to view all the open questions.
 
-*2.* Click !images/Edit_icon.png! next to the question that you want to edit and scroll down to see the *Edit Question* form.
+*2.* Click !images/Edit_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! next to the question that you want to edit and scroll down to see the *Edit Question* form.
 
 *3.* Make changes to your question.
 
@@ -202,9 +202,9 @@ If you select *Approved*, the *Moderate Question* function will determine the un
 
 *The third way*
 
-*1.* Click !images/Manage_question_btn.png! on the *Action* bar. The *Manage Questions* form will be displayed.
+*1.* Click !images/Manage_question_btn.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. The *Manage Questions* form will be displayed.
 
-*2.* Click !images/Yes_icon.png! or !images/No_icon.png! to approve or disapprove the respective question.
+*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to approve or disapprove the respective question.
 
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
@@ -225,9 +225,9 @@ When a question is activated, it will be displayed and visible to all users. If 
 
 *The third way*
 
-*1.* Click !images/Manage_question_btn.png! on the *Action* bar.
+*1.* Click !images/Manage_question_btn.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
-*2.* Click !images/Yes_icon.png! or !images/No_icon.png! to activate or deactivate the respective questions.
+*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to activate or deactivate the respective questions.
 
 h3. Delete a question {anchor:id=Answer_Moderator.Moderate_question.Delete_questions}
 
@@ -239,7 +239,7 @@ There are several ways to delete questions:
 
 *The second way*
 
-* Click !images/Manage_question_btn.png! on the *Action* bar, and then click !images/Delete_icon2.png! corresponding to the question you want to delete.
+* Click !images/Manage_question_btn.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and then click !images/Delete_icon2.png|width="13" fo:scalefit="1" html:scalefit="0"! corresponding to the question you want to delete.
 
 *The third way*
 
@@ -256,11 +256,11 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 
 *The second way*
 
-* Select your desired question and click !images/Move_question_icon.png!.
+* Select your desired question and click !images/Move_question_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
 *2.* Select the category to which you want to move your selected question.
 
-!images/Move_question_form.png|align="center"!
+!images/Move_question_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -290,7 +290,7 @@ On the top right of an answer, you will see icons that represent actions you can
 
 h3. Approve/Disapprove an answer {anchor:id=KSuser.Answer_Moderator.Approve_answers}
 
-Click !images/Approve_Answer_icon.png! / !images/Disapprove_Answer_icon.png! on the top right of the answer content to approve/disapprove that answer.
+Click !images/Approve_Answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Disapprove_Answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to approve/disapprove that answer.
 
 {docbook}
 <note>
@@ -303,7 +303,7 @@ Click !images/Approve_Answer_icon.png! / !images/Disapprove_Answer_icon.png! on 
 
 h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_answers}
 
-Click !images/Active_answer_icon.png! / !images/Deactive_answer_icon.png! on the top right of the answer content to activate/deactivate that answer.
+Click !images/Active_answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Deactive_answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to activate/deactivate that answer.
 
 
 {docbook}
@@ -337,17 +337,17 @@ If the comment is considered as the best answer for the question, it can be prom
 
 *The first way*
 
-* Click the question you want to leave comments and select !images/answer_comment_button1.png!.
+* Click the question you want to leave comments and select !images/answer_comment_button1.png|width="60" fo:scalefit="1" html:scalefit="0"!.
 
 *The second way*
 
-* Right-click a specific question and select !images/comment_button.png! from drop-down menu.
+* Right-click a specific question and select !images/comment_button.png|width="60" fo:scalefit="1" html:scalefit="0"! from drop-down menu.
 
 *2.* Enter your comment in the text-input field.
 
 *3.* Click *Save* to finish.
 
-To promote a comment as an answer, click !images/promote_answer_icon.png! on the top right of the comments panel.
+To promote a comment as an answer, click !images/promote_answer_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the top right of the comments panel.
 
 {docbook}
 <note>

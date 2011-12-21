@@ -70,7 +70,7 @@ h2. Access applications of eXo Knowledge {anchor:id=KSuser.Overview.Access_appli
 
 When eXo Knowledge is deployed as standalone, applications are often displayed right on the administration bar. To access it, simply click one specific application name shown as below: 
 
-!images/Access_applications.png|align="center"!
+!images/Access_applications.png|align="center" width="400" height="30" fo: scalefit="1" html:scalefit="0"!
 
 When being integrated into eXo Platform, you should access eXo Knowledge applications, such as Forum, Wiki, through a space by hovering your cursor over *My Spaces*, then clicking the relevant application from the drop-down menu.
 
@@ -79,4 +79,4 @@ When being integrated into eXo Platform, you should access eXo Knowledge applica
 The application page appears, allowing you to do many actions when you directly access the application.
 Also, when you have any activities in the application, these activities will be added to the Activity Stream of the Space and other members in the space can see them when they access the space as below:
 
-!images/Activities_stream.png|align="center"!
+!images/Activities_stream.png|align="center" width="400" height="30" fo: scalefit="1" html:scalefit="0"!
