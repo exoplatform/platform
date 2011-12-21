@@ -16,7 +16,7 @@ eXo Platform supports two default processes that are used to request tasks from 
 
 To perform these processes, you need to add the *Workflow Controller* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Controller* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
-!images/Workflow/workflow_controller_dagdrop.png|align="center"!
+!images/Workflow/workflow_controller_dagdrop.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Holiday_Process}
 This process is used to request a task related to your holiday. If you want to have a holiday in a time interval, you should use this process.
@@ -25,11 +25,11 @@ h2. Create a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Mana
 
 *1.* Select the *BP Definition Controller* tab to bring up the process list.
 
-!images/Workflow/BPdefinitionController.png|align="center"!
+!images/Workflow/BPdefinitionController.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Open the *Task Management* form by clicking !images/set_up1.png! in accordance with a holiday process that you want to request a task as below.
 
-!images/Workflow/task_manager1.png|align="center"!
+!images/Workflow/task_manager1.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 * *Start (dd/mm/yyyy)* is the start date of your holiday.
@@ -37,7 +37,7 @@ In which:
 
 In this form, you need to set a time interval in the *Start* and *End* field by moving your cursor to each field and then click each field to open the *Calendar* pop-up.
 
-!images/task_manager_request|align="center"!
+!images/task_manager_request|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Submit your task by clicking the *Submit* button.
  
@@ -48,15 +48,15 @@ If you are a member of *{noformat}*:/organization/management/executive-board{nof
 
 *1.* Open the *Workflow Controller* portlet. If there are tasks pending to be evaluated, you will see the task list in *Task Controller* tab.
 
-!images/Workflow/task_controller.png|align="center"!
+!images/Workflow/task_controller.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click the *Manage* function in the *Action* column that corresponds to a task that you want to evaluate. The *Task Management* form will appear.
 
-!images/Workflow/task_management.png|align="center"!
+!images/Workflow/task_management.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 You can see the following dialog for more details about this process.
 
-!images/Workflow/process_dialog.png|align="center"!
+!images/Workflow/process_dialog.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Do one of the following actions.
 
@@ -66,11 +66,11 @@ You can see the following dialog for more details about this process.
 
 Thus, if you are a member of *{noformat}*:/organization/management/human-resources{noformat}* group, you have responsibility to read the approved tasks as below.
 
-!images/Workflow/hr_holiday.png|align="center"!
+!images/Workflow/hr_holiday.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* Select the *Manage* function in the *Action* column to open the *Task Management* form.
 
-!images/Workflow/task_management1.png|align="center"!
+!images/Workflow/task_management1.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *iii.* Click the *Read* button to accept reading the task.
 
@@ -86,9 +86,9 @@ h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Ma
 
 *1.* Select the *BP Definition Controller* tab to bring up process list.
 
-*2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png! that corresponds to a pay raise process which you want to request a task.
+*2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png|width="3mmmm" fo:scalefit="1" html:scalefit="0"! that corresponds to a pay raise process which you want to request a task.
 
-!images/Workflow/Request_payraise.png|align="center"!
+!images/Workflow/Request_payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0" !
 
 In which:
 
@@ -109,11 +109,11 @@ If you are a member of *{noformat}*:/organization/management/executive-board{nof
 
 *1.* Go to the *Workflow Controller* page. If there are tasks pending to be evaluated, you will see the tasks list in the *Task Controller* tab.
 
-!images/Workflow/taskcontroller_evaluate_payraise.png!
+!images/Workflow/taskcontroller_evaluate_payraise.png|width="100mm" fo:scalefit="1" html:scalefit="0" align="center"!
 
 *2.* Click the *Manage* function in the *Action* column that corresponds to a task which you want to evaluate. The *Task Management* form will appear.
 
-!images/evaluate-payraise.png|align="center"!
+!images/evaluate-payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select one of the followings.
 
@@ -125,11 +125,11 @@ If you are a member of *{noformat}*:/organization/management/executive-board{nof
 
 Thus, if you are a member of the *{noformat}*:/organization/management/human-resources{noformat}* group, you have responsibility to read the approved tasks in the *Task Controller* tab by *{noformat}*:/organization/management/executive-board{noformat}* as below.
 
-!images/Workflow/hr_payraise.png|align="center"! 
+!images/Workflow/hr_payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"! 
 
 *iii.* Select the *Manage* function in the *Action* column to open the *Task Management* form.
 
-!images/Workflow/update_salary.png|align="center"!
+!images/Workflow/update_salary.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *iv.* Click *Finish it* to accept reading the task.
 
@@ -140,15 +140,15 @@ Besides two default process supported by system, administrators also can upload 
 
 *1.* Add the *Workflow Administration* portlet to a specific page by dragging and dropping it from *Page Editor --> Applications --> Workflow --> Workflow Administration* to the main pane. This can be done when [creating a new page|#sect-User_Guide-Page_Creation_Wizard] or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page] or [editing the layout of a portal|#proc-User_Guide-Manage_Portals-Edit_Layout].
 
-!images/Workflow/workflow_administration_dagdrop.png|align="center"!
+!images/Workflow/workflow_administration_dagdrop.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Open the *Workflow Administration* portlet.
 
-!images/Workflow/workflow_administration.png|align="center"!
+!images/Workflow/workflow_administration.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Upload Process* to open the *Upload Process* form.
 
-!images/Upload_Process_form.png|align="center"!
+!images/Upload_Process_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Enter a name for the uploaded process in the *Name* field.
 
@@ -161,11 +161,11 @@ This function is used to help administrators keep track of process details as fo
 
 *1.* Open the *Workflow Administration* portlet.
 
-!images/Workflow/view_process_detail.png|align="center"!
+!images/Workflow/view_process_detail.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/Workflow/view-icon1.png! to view requested process list from users as below.
+*2.* Click !images/Workflow/view-icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to view requested process list from users as below.
 
-!images/Workflow/Process_Detail.png|align="center"!
+!images/Workflow/Process_Detail.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -178,8 +178,8 @@ To remove all completed processes from the list in the <emphasis role="bold">Com
 </note>
 {docbook}
 
-*3.* Click !images/Workflow/view-icon1.png! corresponding to your desired process to view its details (including all actions from different users on this task). The *List Tasks of Instance* form will appear.
+*3.* Click !images/Workflow/view-icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to your desired process to view its details (including all actions from different users on this task). The *List Tasks of Instance* form will appear.
 
-!images/Workflow/list_task_instance.png|align="center"!
+!images/Workflow/list_task_instance.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-To delete a process from the requested process list in the *Process Detail* form, click !images/Delete_icon.png! corresponding to that process.
+To delete a process from the requested process list in the *Process Detail* form, click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to that process.

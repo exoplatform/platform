@@ -11,7 +11,7 @@ h2. Latest Forum Posts  {anchor:id=GadgetUserguide.AngagementGadgets.LatestForum
 
 The *Latest Forum Posts* gadget shows the latest posts in Forum. You can decide the specified number of the latest posts to be shown. This gadget helps you always stay updated with what is going on in the forum.
 
-!images/Latest_forum_posts_gadget.png|align="center"!
+!images/Latest_forum_posts_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 {docbook}
 <citetitle>
 <para><emphasis role="bold">
@@ -21,7 +21,7 @@ Latest Forum Posts settings
 </citetitle>
 {docbook}
 
-*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
+*1.* Click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
 
 *Details:*
 
@@ -36,7 +36,7 @@ h2. Top Voted Topics {anchor:id=GadgetUserguide.AngagementGadgets.TopVotedTopics
 
 The *Top Voted Topics* gadget lists the highest rated topics in a forum. You can decide the maximum number of posts to be shown.
 
-!images/Top_voted_raring_topic.png|align="center"!
+!images/Top_voted_raring_topic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 By clicking the post previewed-content, you will go to that post in the forum.
 
@@ -49,9 +49,9 @@ Top Voted Topics gadget settings
 </citetitle>
 {docbook}
 
-*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
+*1.* Click !images/edit_gadget.png| scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
 
-!images/Top_voted_raring_topic_setting.png|align="center"!
+!images/Top_voted_raring_topic_setting.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the maximum number of topics to be displayed in the *Maximum to display* drop-down list, then click *Save* to accept your changes.
 
@@ -75,7 +75,7 @@ Global statistics view
 
 *Global statistics* is the default view.
 
-!images/Forums_statistics_gadget.png|align="center"!
+!images/Forums_statistics_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -86,27 +86,27 @@ Weekly statistics view
 </citetitle>
 {docbook}
 
-Click !images/Calendar_weekly_stat_icon.png! to switch to *Weekly statistics* view.
+Click !images/Calendar_weekly_stat_icon.png| scalefit="1" width="4mm"! to switch to *Weekly statistics* view.
 
 After switching to the *Weekly statistics* view, you can display the statistics in a list or a chart.
 
 * *List view*
 
-!images/Forums_weekly_statistics.png|align="center"!
+!images/Forums_weekly_statistics.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Chart view*
 
-!images/Forums_weekly_statistics_graph.png|align="center"!
+!images/Forums_weekly_statistics_graph.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-Click !images/Calendar_weekly_chart_icon.png! to switch to the *Chart* view.
-Click !images/Calendar_weekly_list_icon.png! to go back to the *List* view.
-Click !images/Calendar_global_stat_icon.png! to go to the *Global* statistics view.
+Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! to switch to the *Chart* view.
+Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! to go back to the *List* view.
+Click !images/Calendar_global_stat_icon.png|scalefit="1" width="4mm"! to go to the *Global* statistics view.
 
 h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
 
 The *Friend Suggestions* gadget will suggest you to connect with people that have mutual friends with you. 
 
-!images/Friend_suggestion_gadget.png|align="center"!
+!images/Friend_suggestion_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 To send the invitation to connect with the suggested people right on this gadget, simply click *Send invitation* under their usernames.
 
@@ -115,15 +115,16 @@ h2. Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
 
 The *Login History* gadget records user login history and provides statistics.
 
-!images/Login_history_gadget.png|align="center"!
+!images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 You can look up a specific user by entering his username in the search box and click *Search*. 
 
 * To view the global statistics and global history, click the *Statistics* and *History* links respectively.
-* Click !images/Calendar_weekly_chart_icon.png! corresponding to the user to view his login statistics.
-!images/Login_history_statistic.png|align="center"!
-* Click !images/Calendar_weekly_list_icon.png! corresponding to the user to view his login history.
-!images/Login_history_history.png|align="center"!
+* Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
+!images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+* Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login history.
+
+!images/Login_history_history.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Collab gadgets {anchor:id=GadgetUserguide.CollabGadgets}
 The *Collab* gadgets include gadgets designed for collaborative activities. 
@@ -132,7 +133,7 @@ h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget
 
 The *eXo Calendar* gadget displays a mini calendar and allows you to quickly add an event.
 
-!images/eXo_Calendar_gadget.png|align="center"!
+!images/eXo_Calendar_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 There are three tabs in this gadget, including *Apprearance*, *Quick add*, and *Refresh*.
 {docbook}
@@ -144,7 +145,7 @@ Appearance
 </citetitle>
 {docbook}
 
-!images/eXo_Calendar_gadget_appearance.png|align="center"!
+!images/eXo_Calendar_gadget_appearance.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *save*. Only the event in the calendar of your choice will be displayed. 
 {docbook}
@@ -157,7 +158,7 @@ Quick add
 {docbook} 
 You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then click *add* to create your new event.
 
-!images/eXo_Calendar_gadget_quickadd.png|align="center"!
+!images/eXo_Calendar_gadget_quickadd.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -168,9 +169,9 @@ eXo Calendar Gadget settings
 </citetitle>
 {docbook}
 
-*1.* Click !images/edit_gadget.png! in the *Title* bar to open the form to edit the gadget settings.
+*1.* Click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
 
-!images/eXo_Calendar_gadget_settings.png|align="center"!
+!images/eXo_Calendar_gadget_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 || Field || Description ||
 | Rest URL | *Rest URL* from which the gadget will get data. For example: http://localhost:8080/rest/ |
@@ -187,7 +188,7 @@ h2. Memory Charts {anchor:id=GadgetUserguide.ManagementMonitoringGadget.MemoryCh
 
 The *Memory Charts* gadget provides the chart of memory used during runtime.
 
-!images/Memory_gadget.png|align="center"!
+!images/Memory_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 The chart shows:
 * The ratio between free and used heap memory.
@@ -201,17 +202,17 @@ The *Cache Levels* gadget displays the eXo cache levels and settings. Based on t
 * If the cache is full and the hit ratio is high, this is good. It means most data are retrieved from the cache not the database, so the system gets better performances.
 * If the cache is empty, it should be configured differently, for example, increasing its lifetime.
 
-!images/Caches_gadget.png|align="center"!
+!images/Caches_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 * The *Consumption* tab shows the overall cache consumption in the system.
 
 * The *Hit ratio* tab shows the ratio between requested data fetched from cache and data fetched from database.
 
-!images/Caches_gadget_hitratio.png|align="center"!
+!images/Caches_gadget_hitratio.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 * The *Details* tab shows the cache level and the current cache settings.
 
-!images/Caches_gadget_details.png|align="center"!
+!images/Caches_gadget_details.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -223,11 +224,11 @@ h2. Applications Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadge
 
 The *Application Statistics* gadget displays how fast applications are. It shows administrators and developers which applications should be optimized.
 
-!images/Applications_statistic_gadget.png|align="center"!
+!images/Applications_statistic_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 Applications that take long time to execute will be highlighted so that you can easily recognize.
 
-!images/Applications_statistic_highlight.png|align="center"!
+!images/Applications_statistic_highlight.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 Each application is provided with these statistics:
 
@@ -239,7 +240,7 @@ h2. All Template Statistics {anchor:id=GadgetUserguide.ManagementMonitoringGadge
 
 The *All Template Statistics* gadget displays how fast templates are. It shows administrators and developers which templates should be optimized.
 
-!images/All_template_statistics_gadget.png|align="center"!
+!images/All_template_statistics_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 Each template is provided with these statistics:
 
@@ -252,7 +253,7 @@ h2. 10 Slowest Templates {anchor:id=GadgetUserguide.ManagementMonitoringGadget.1
 
 The *10 Slowest Templates* gadget displays the 10 slowest groovy templates and their speed statistics. It helps administrators and developers specify what templates are slowing down the system performance most.
 
-!images/10Slowest_templates_gadget.png|align="center"!
+!images/10Slowest_templates_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 Similar to the *All Template Statistics* gadget, each template is provided with these statistics:
 
@@ -265,11 +266,11 @@ h2. Services Management {anchor:id=GadgetUserguide.ManagementMonitoringGadget.Se
 
 The *Services Management* gadget provides an easy access to REST management API.
 
-!images/Service_management_gadget.png|align="center"!
+!images/Service_management_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 * Select the service from the *Services* drop-down list. For each selected service, its respective method(s) and properties are shown.
 
-* Click !images/Service_management_help.png|align="center"! to get the description of the selected service.
+* Click !images/Service_management_help.png|scalefit="1" width="4mm"! to get the description of the selected service.
 
 
 {docbook}
@@ -280,11 +281,11 @@ Services Management settings
 </para>
 </citetitle>
 {docbook}
-*1.* To manage a remote service on another Platform installation, click !images/edit_gadget.png! in the *Title* bar.
+*1.* To manage a remote service on another Platform installation, click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar.
 
 The form to edit the gadget settings appears.
 
-!images/Service_management_settings.png|align="center"!
+!images/Service_management_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the link to the service in the *Services URL* field, then click *Save* to accept your changes.
 
@@ -293,10 +294,10 @@ The *eXo Scripting Console* gadget provides a Groovy console that developers can
 It accepts eXo API and can access eXo components deployed in the portal container, so this can be used as a tool for drafting code, testing or exploring eXo API/components/data interactively on a live system. 
 The eXo Scripting Console gadget is better viewed on the entire screen. You should configure an entire page or a Dashboard tab for it. 
 
-!images/GroovyConsole.png|align="center"!
+!images/GroovyConsole.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-* Click !images/GroovyConsole_font.png! to change the font size.
-* Click !images/GroovyConsoleColor.png! to change the font color.
-* Click !images/GroovyConsoleHelp.png! to view the Groovy Console Help.
+* Click !images/GroovyConsole_font.png|scalefit="1" width="5mm"! to change the font size.
+* Click !images/GroovyConsoleColor.png|scalefit="1" width="5mm"! to change the font color.
+* Click !images/GroovyConsoleHelp.png|scalefit="1" width="5mm"! to view the Groovy Console Help.
 
 
