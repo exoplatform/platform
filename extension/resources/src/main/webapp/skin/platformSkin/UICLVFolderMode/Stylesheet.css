@@ -1,3 +1,16 @@
 .UICLVFolderMode {
 }
 
+.AnnouncementTemplate {
+	margin: 10px 10px 0;
+	padding: 0px 15px;		
+	background-color:#bcddfe;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+.UICLVPortlet .AnnouncementTemplate .RssIcon {
+	margin:4px 0 0 0;
+	padding: 0 0 0 14px;
+}

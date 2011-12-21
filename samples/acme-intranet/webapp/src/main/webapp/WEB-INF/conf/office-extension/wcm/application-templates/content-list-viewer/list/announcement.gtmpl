@@ -18,28 +18,18 @@
     def isShowRssLink = uicomponent.isShowRssLink();
     def isShowHeader = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_HEADER) && header != null && header.trim().length() != 0;
 %>
-    <div class="TopBoxHeader">
+<div class="AnnouncementTemplate">    
         <%if (isShowHeader) {%>
-        <div class="TitleBarL">
-            <div class="TitleBarR">
-        <div class="TitleBarM">$header
-                  <%if (isShowRssLink) {%>
-          <a class="RssIcon" href="$rssLink" target="_newrss" title="<%= _ctx.appRes("UICLVPresentation.label.rssFeed") %>">&nbsp;</a><%
-                  }%>
-                </div>
-            </div>
-        </div>
-        <%}%>
-        <div class="ClearBoth"><span></span></div>
-    </div>
-
+		<div class="TopBoxHeader">
+            <%if (isShowRssLink) {%>
+				<a class="RssIcon" href="$rssLink" target="_newrss" title="<%= _ctx.appRes("UICLVPresentation.label.rssFeed") %>">&nbsp;</a><%
+            }%>$header
+		 </div>		  
+        <%}%>       
   <%if (uicomponent.getUIPageIterator().getAvailable() == 0) {%>
-
     <%} else {%>
 
     <div id="$uicomponent.id" class="UICLVPresentation">
-      <div class="CLV">
-        <div class="Contents">
         <%
           def currentPageData = uicomponent.getCurrentPageData();
           def i=currentPageData.size()-1;
@@ -76,7 +66,6 @@
               <%if(isShowImage) {%>
         <a class="Image" title="$itemName"><img alt="$itemName" src="$imgSrc" /></a><%
               }%>
-              <div class="Content">
                 <%if (isShowTitle) {
           if (isShowLink) {%>
             <div class="Title"><a href="$itemLink">$itemName</a></div><%
@@ -94,12 +83,6 @@
             }%>
           </div>
         <%}%>
-              </div>
-
-            </div>
-
-
-       </div>
   <%}%>
 
   <div class="CaptionFunc">
@@ -116,6 +99,6 @@
         uicomponent.renderChild(UICustomizeablePaginator.class);
             }
     %>
-      <div style="clear: both;"><span></span></div>
     </div>
   </div>
+</div>
