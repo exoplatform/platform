@@ -31,8 +31,8 @@ This chapter presents the following topics:
 
 In this chapter, most Social-related actions are demonstrated through the *Intranet* site which is a default social portal built in eXo Platform.
 
-!images/Enter_Intranet.png|align="center"!
+!images/Enter_Intranet.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 After entering *Intranet*, you will be directed to the *Intranet* homepage as below.
 
-!images/Intranet_homepage.png|align="center"!
+!images/Intranet_homepage.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!

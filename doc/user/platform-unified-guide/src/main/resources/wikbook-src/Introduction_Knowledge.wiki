@@ -53,11 +53,11 @@ To access the *Forum*, *Answers* or *Wiki* applications of a space, do as follow
 
 Hover your cursor over *My Spaces --> {noformat}[Space name]{noformat}*, then click the application that you want to access:
 
-!images/Space_menu_application2.png|align="center"!
+!images/Space_menu_application2.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 Or hover your cursor over *My Spaces*, then click *{noformat}[Space name]{noformat}* and click the application name on the Space navigation.
 
-!images/Space_navigation_application2.png|align="center"!
+!images/Space_navigation_application2.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
