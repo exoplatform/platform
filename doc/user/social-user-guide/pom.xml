@@ -18,12 +18,12 @@
     <dependency>
       <groupId>org.wikbook</groupId>
       <artifactId>wikbook.docbkxstyle</artifactId>
-      <version>0.9.35</version>
+      <version>${version.wikbook.plugin}</version>
     </dependency>
     <dependency>
 		 <groupId>org.exoplatform.doc</groupId>
 		 <artifactId>doc-style</artifactId>
-		 <version>1.0.3-SNAPSHOT</version>
+		 <version>${doc-style.version}</version>
 		 <type>jar</type>
 	   </dependency>
   </dependencies>
@@ -61,7 +61,7 @@
                     <artifactItem>
                       <groupId>org.wikbook</groupId>
                       <artifactId>wikbook.docbkxstyle</artifactId>
-                      <version>0.9.35</version>
+                      <version>${version.wikbook.plugin}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
@@ -69,7 +69,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.doc</groupId>
                       <artifactId>doc-style</artifactId>
-                      <version>1.0.3-SNAPSHOT</version>
+                      <version>${doc-style.version}</version>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                       <excludes>META-INF/**</excludes>
