@@ -15,7 +15,7 @@ h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
 To create a content for your extension, you first need to define a node type which represents the document type in the JCR. There are 2 ways to define your node type:
 
-* Via the *Content administration* portlet. For more details on how to create a note type via the *Content administration* portlet, see the *Manage node types* in the [eXo Platform 3.5 user guide|http://docs.exoplatform.org/PLF35/topic/org.exoplatform.doc.35/bk01ch05.html].
+* Via the *Content administration* portlet. For more details on how to create a note type via the *Content administration* portlet, see the *[Manage node types|../../../user-guide/html/ch05.html#sect-User_Guide-Content_Types-Manage_Node_Types]* in the [eXo Platform 3.5 user guide|../../../user-guide/html/index.html].
 * Via the .xml configuration files by creating a _nodetypes-configuration.xml_ file in your extension as below.
 
 {code:xml}
@@ -293,7 +293,7 @@ uicomponent.addSelectBoxField("mimetype", mimetype) ;
 
 As usual, the value will be stored at the relative path defined by the jcrPath directive argument.
 
-For more examples on how to create WCM templates, refer to [Reference Guide|http://platform.demo.exoplatform.org/docs/refguide/html/index.html].
+For more examples on how to create WCM templates, refer to [Reference Guide|../../../reference/html/bk03ch04.html#CONTref.InsideWCMTemplates].
 
 h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSelectBox}
 
