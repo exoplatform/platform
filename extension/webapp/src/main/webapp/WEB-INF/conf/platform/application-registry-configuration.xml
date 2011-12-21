@@ -379,12 +379,12 @@
               </field>
             </object>
           </object-param><object-param>
-            <name>contents</name>
+            <name>content</name>
             <description>description</description>
             <object type="org.exoplatform.application.registry.ApplicationCategory">
-              <field name="name"><string>Contents</string></field>
-              <field name="displayName"><string>Contents</string></field>
-              <field name="description"><string>Applications for contents</string></field>
+              <field name="name"><string>Content</string></field>
+              <field name="displayName"><string>Content</string></field>
+              <field name="description"><string>Applications for content</string></field>
               <field name="accessPermissions">
                 <collection type="java.util.ArrayList" item-type="java.lang.String">
                   <value><string>*:/platform/web-contributors</string></value>
@@ -395,9 +395,9 @@
                   <value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ParameterizedContentListViewerPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
-                      <field name="displayName"><string>Category Contents</string></field>
-                      <field name="description"><string>Category Contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
+                      <field name="displayName"><string>Category Content</string></field>
+                      <field name="description"><string>Category Content</string></field>
                       <field name="type"><string>portlet</string></field>
                       <field name="contentId"><string>presentation/ParameterizedContentListViewerPortlet</string></field>
                       <field name="accessPermissions">
@@ -409,7 +409,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>CategoryNavigationPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Category Navigation</string></field>
                       <field name="description"><string>Category Navigation</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -423,7 +423,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ParameterizedContentViewerPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Content by URL</string></field>
                       <field name="description"><string>Content by URL</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -437,7 +437,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>SingleContentViewer</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Content Detail</string></field>
                       <field name="description"><string>Single Content Viewer Portlet</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -451,7 +451,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FileExplorerPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Content Explorer</string></field>
                       <field name="description"><string>Content Explorer</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -465,7 +465,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ContentListViewerPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Content List</string></field>
                       <field name="description"><string>Content List</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -479,8 +479,8 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>ContentListViewerByQueryPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
-                      <field name="displayName"><string>Contents By Query</string></field>
+                      <field name="categoryName"><string>content</string></field>
+                      <field name="displayName"><string>Content By Query</string></field>
                       <field name="description"><string>Content List Viewer By Query</string></field>
                       <field name="type"><string>portlet</string></field>
                       <field name="contentId"><string>presentation/ContentListViewerByQueryPortlet</string></field>
@@ -493,7 +493,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FastContentCreatorBasicPortletStandard</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Standard Content Creator</string></field>
                       <field name="description"><string>Standard Content Creator</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -507,7 +507,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>WCMAdvanceSearchPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Advanced Search</string></field>
                       <field name="description"><string>Advanced Search</string></field>
                       <field name="type"><string>portlet</string></field>
@@ -521,7 +521,7 @@
                   </value><value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>LogoPortlet</string></field>
-                      <field name="categoryName"><string>contents</string></field>
+                      <field name="categoryName"><string>content</string></field>
                       <field name="displayName"><string>Simple Logo</string></field>
                       <field name="description"><string>Logo Portlet</string></field>
                       <field name="type"><string>portlet</string></field>

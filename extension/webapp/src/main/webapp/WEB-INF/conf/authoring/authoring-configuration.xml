@@ -34,14 +34,14 @@
       <description>this listener init the portlets are registered in PortletRegister</description>
       <init-params>
         <object-param>
-          <name>Contents</name>
-          <description>Contents</description>
+          <name>Content</name>
+          <description>Content</description>
           <object type="org.exoplatform.application.registry.ApplicationCategory">
             <field name="name">
-              <string>Contents</string>
+              <string>Content</string>
             </field>
             <field name="displayName">
-              <string>Contents</string>
+              <string>Content</string>
             </field>
             <field name="accessPermissions">
               <collection type="java.util.ArrayList" item-type="java.lang.String">
