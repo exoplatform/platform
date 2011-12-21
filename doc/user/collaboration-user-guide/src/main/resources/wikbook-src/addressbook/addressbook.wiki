@@ -8,39 +8,39 @@ The <emphasis role="bold">Address Book</emphasis> portlet and its services are d
 
 Before starting to use *Address Book*, you should familiarize yourself with the *Address Book* interface, which has six basic elements:
 
-!images/address_book_interface.png|align="center"!
+!images/address_book_interface.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 ||Number||Details||
-|!images/No1.png!|The *Toolbar* allows you to add a new contact/address book, import/export an address book, view and customize the layout.|
-|!images/No2.png!|The *Action bar* allows quick access to actions on contacts, such as moving, deleting, copying, printing, adding tags to selected contacts.|
-|!images/No3.png!|The *Contacts list* shows all contacts in a specific address book.|
-|!images/No4.png!|The *Contact view pane* displays details of the selected contact.|
-|!images/No5.png!|The *Search pane* which allows you to do the quick and advanced searches to find contacts.|
-|!images/No6.png!|The *Navigation pane* contains search pane, address books list and tags list.|
+|!images/No1.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Toolbar* allows you to add a new contact/address book, import/export an address book, view and customize the layout.|
+|!images/No2.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Action bar* allows quick access to actions on contacts, such as moving, deleting, copying, printing, adding tags to selected contacts.|
+|!images/No3.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Contacts list* shows all contacts in a specific address book.|
+|!images/No4.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Contact view pane* displays details of the selected contact.|
+|!images/No5.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Search pane* which allows you to do the quick and advanced searches to find contacts.|
+|!images/No6.png|width="13" fo:scalefit="1" html:scalefit="0"!|The *Navigation pane* contains search pane, address books list and tags list.|
 
 The layout can also be customized. You can hide or show specific parts of the *Address Book* interface.
-To change the layout, click !images/layout_button.png! on the main toolbar, then select the layout you want to hide or display from the drop-down menu.
+To change the layout, click !images/layout_button.png|width="60" fo:scalefit="1" html:scalefit="0"! on the main toolbar, then select the layout you want to hide or display from the drop-down menu.
 
 h1. View contacts {anchor:id="CSUser_guide.How_to_use_Address_book.View_contacts"}
 At present, your contacts can be viewed in 2 modes: *List* or *VCards*.
 
-!images/Contact_View_menu.png|align="center"!
+!images/Contact_View_menu.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *List view*:
 
-The list view displays all contacts in the list pane and detailed information of the selected contact in the Contact view pane. On the toolbar, click !images/View_button.png!, then select *List* from the drop-down menu.
+The list view displays all contacts in the list pane and detailed information of the selected contact in the Contact view pane. On the toolbar, click !images/View_button.png|width="40" fo:scalefit="1" html:scalefit="0"!, then select *List* from the drop-down menu.
 
 The contacts are displayed in a list as below.
 
-!images/Contact_List_View_example.png|align="center"!
+!images/Contact_List_View_example.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *VCards view*:
 
-VCard is a file format standard for electronic business cards. It is a powerful new means of Personal Data Interchange that is automating the traditional business card. On the *Toolbar*, click !images/View_button.png!, then select *VCards* from the drop-down menu.
+VCard is a file format standard for electronic business cards. It is a powerful new means of Personal Data Interchange that is automating the traditional business card. On the *Toolbar*, click !images/View_button.png|width="40" fo:scalefit="1" html:scalefit="0"!, then select *VCards* from the drop-down menu.
 
 The contacts are displayed in separate cards as below:
 
-!images/Contact_Vcard_View_example.png|align="center"!
+!images/Contact_Vcard_View_example.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create_new_contact"}
 
@@ -48,7 +48,7 @@ h1. Create a new contact {anchor:id="CSUser_guide.How_to_use_Address_book.Create
 
 *The first way*
 
-Click !images/add_contact_button.png! on the *Toolbar*.
+Click !images/add_contact_button.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *The second way*
 
@@ -64,7 +64,7 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 
 *2.* Input information into fields of each tab in the *Add/Edit Contact* form.
 
-!images/add_edit_contact.png|align="center"!
+!images/add_edit_contact.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -99,8 +99,8 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 </citetitle>
 {docbook}
 
-* Enter the email address into the *Email* field. If you want to add more email addresses, simply click !images/plus_icon.png! to show another *Email* field.
-* Remove your email address by clicking !images/Delete_icon.png!.
+* Enter the email address into the *Email* field. If you want to add more email addresses, simply click !images/plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to show another *Email* field.
+* Remove your email address by clicking !images/Delete_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
 {docbook}
 <citetitle>
@@ -116,9 +116,9 @@ All fields in this tab are optional. In this tab, you can provide the contact's 
 
 * The *IM Contact* 
 
-In this tab, you can enter information about the contact chat identity (IM stands for Instant Message). The default text messaging service is the Chat application of eXo Platform, but you can select other services by clicking !images/plus_down_arrow.png! to open the drop-down menu.
+In this tab, you can enter information about the contact chat identity (IM stands for Instant Message). The default text messaging service is the Chat application of eXo Platform, but you can select other services by clicking !images/plus_down_arrow.png|width="18" fo:scalefit="1" html:scalefit="0"! to open the drop-down menu.
 
-!images/add_edit_contact_IM.png|align="center"!
+!images/add_edit_contact_IM.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 * The *Work*, *Home* and *Note* tabs
 
@@ -157,15 +157,15 @@ Right-click the relevant contact, and select *Tag* from the drop-down menu.
 
 *The second way*
 
-Select the contacts by ticking their respective checkboxes, then click !images/tag_contacts_icon.png! on the *Action bar*.
+Select the contacts by ticking their respective checkboxes, then click !images/tag_contacts_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
 
-!images/tag_contact.png|align="center"!
+!images/tag_contact.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *The third way*
 
 Drag and drop contacts to a specific tag in the *Tags* list in the left pane to open the *Add/Remove Tag* form.
 
-!images/add_remove_tag.png|align="center"!
+!images/add_remove_tag.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 In this form, you can add a new tag, remove or reassign a tag to a contact.
 
@@ -176,10 +176,10 @@ To add a new tag quickly, click <emphasis role="bold">Add</emphasis> in the <emp
 
 <mediaobject>
 <imageobject role="html">
-    <imagedata align="center" fileref="images/tag_panel.png" format="PNG"/>
+    <imagedata align="center" fileref="images/tag_panel.png" format="PNG" scalefit="1" width="70"/>
 </imageobject>
 <imageobject role="fo">
-    <imagedata align="center" fileref="images/tag_panel.png" format="PNG" width="150mm"/>
+    <imagedata align="center" fileref="images/tag_panel.png" format="PNG" scalefit="0" width="70"/>
 </imageobject>
 </mediaobject>
 </para>
@@ -226,7 +226,7 @@ Right-click the contact to whom you want to send mail, then select *Email* from 
 
 *The second way*
 
-Select the contacts that you want to send mail by ticking their respective checkboxes, then click !images/mail_icon.png! on the *Action bar*.
+Select the contacts that you want to send mail by ticking their respective checkboxes, then click !images/mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
 
 *The third way*
 
@@ -234,13 +234,13 @@ Right-click the address book and select *Email* from the drop-down menu. By this
 
 The *Send Email* form will appear.
 
-!images/Send_email_form.png|align="center"!
+!images/Send_email_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Input the recipients' email addresses in the *To* field if needed.
 
 You just need to enter one character included in your desired email address. There will be a list of addresses matching your entered character for you to select quickly.
 
-!images/to_email3.png|align="center"!
+!images/to_email3.png|align="center" width="250" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Enter the subject and content of your message in the *Subject* field and mail body respectively.
 
@@ -262,7 +262,7 @@ This function allows you to make the copies of contacts from an address book and
 
 *1.* Select contacts by ticking their respective checkboxes.
 
-*2.* Click !images/paste_icon.png! on the *Action bar*.
+*2.* Click !images/paste_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
 
 *The second way*
 
@@ -307,17 +307,17 @@ Right-click a contact and select *Move* from the drop-down menu.
 
 *The second way*
 
-Select contacts you want to move, then click !images/move_button.png! on the *Action bar*.
+Select contacts you want to move, then click !images/move_button.png|width="15" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
  
 The *Move Contact* form will appear, allowing you to select a destination address book where your moved contacts are stored.
 
-!images/move_contact.png|align="center"!
+!images/move_contact.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *The third way*
 
 Use the "Drag & Drop" function to move one or more contacts to a new address book.
 
-!images/drag_drop_contact.png|align="center"!
+!images/drag_drop_contact.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 The drag-drop function is done more easily in the VCards view.
 
@@ -346,7 +346,7 @@ This way allows you to delete multiple contacts.
 </note>
 {docbook}
 
-*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/Delete_icon.png! on the *Action bar*.
+*1.* Tick checkboxes corresponding to contacts you want to delete, then click !images/Delete_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -357,7 +357,7 @@ This feature allows you to export one or more contacts into a file to be used in
 
 The *Export Address Books* form will appear.
 
-!images/export_contacts.png|align="center"!
+!images/export_contacts.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select contacts to export by ticking their respective checkboxes.
 
@@ -373,17 +373,17 @@ This function allows you to import one or more contacts from your device to a se
 
 *The first way* 
 
-Click !images/import_button.png! on the toolbar.
+Click !images/import_button.png|width="40" fo:scalefit="1" html:scalefit="0"! on the toolbar.
 
 *The second way*
 
 Right-click a personal or shared address book which you have the *Edit* permission, then click *Import* from the drop-down menu. By this way, you can quickly select the destination address book for the imported contacts.
 
-!images/import_contacts.png|align="center"!
+!images/import_contacts.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/down_arrow_icon1.png! in the *Address Book* field, then select your desired address book into which you want to import your contacts from the drop-down menu;
+*2.* Click !images/down_arrow_icon1.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Address Book* field, then select your desired address book into which you want to import your contacts from the drop-down menu;
 
-Or, click !images/plus_icon.png! to quickly create a new address book. 
+Or, click !images/plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to quickly create a new address book. 
 
 *3.* Select the file format in the *Import Format* field. At present, only *x-vcard* is supported.
 
@@ -408,7 +408,7 @@ The *Print* function allows you to print information of your selected contacts. 
 
 The single Contact Print Preview will appear with the detailed information:
 
-!images/detailed_information.png|align="center"!
+!images/detailed_information.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click the *Print* button to print.
 
@@ -428,13 +428,13 @@ When you are in the <emphasis role="bold">VCards</emphasis> view, the print proc
 </citetitle>
 {docbook}
 
-*1.* Select contacts you want to print by ticking their respective checkboxes, then click !images/print_icon.png! on the *Action bar*.
+*1.* Select contacts you want to print by ticking their respective checkboxes, then click !images/print_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Action bar*.
 
-!images/print_contacts.png|align="center"!
+!images/print_contacts.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
 
 The *Print Preview* page will appear with their summary information.
 
-!images/print_preview.png|align="center"!
+!images/print_preview.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *Print* to print information of your selected contacts.
 
@@ -453,7 +453,7 @@ This function allows you to print the summary information of contacts in form of
 
 The *Print Preview* page will appear.
 
-!images/print_preview1.png|align="center"!
+!images/print_preview1.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *Print* to start printing.
 
@@ -485,19 +485,19 @@ This function allows you to share contacts with other users or groups. The share
 
 The *Share a contact with other users* form will appear. {anchor:id="Share_contact_with_other_users_form"}
 
-!images/Share_contact_with_others_form.png|align="center"!
+!images/Share_contact_with_others_form.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select users or groups that you want to share. {anchor:id="Share_selected_users_and_groups"}
 
-*i.* Click !images/user_selector_icon.png! to open the *User Selector* form;
+*i.* Click !images/user_selector_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to open the *User Selector* form;
 
-!images/user_selector.png|align="center"!
+!images/user_selector.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 In this form, tick the checkboxes corresponding to your desired users, then click *Add*. Also, you can use the *Search* function to look for your users quickly.
 
-*ii.* Or, click !images/group_selector_icon.png! to open the *Group Selector* form.
+*ii.* Or, click !images/group_selector_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to open the *Group Selector* form.
 
-!images/group_selector.png|align="center"!
+!images/group_selector.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 In this form, select the group in the left pane, and its child group in the right pane.
 
@@ -505,7 +505,7 @@ In this form, select the group in the left pane, and its child group in the righ
 
 The shared users/groups will be updated in the Shared Users/Groups table of the [Share a contact with other users|#Share_contact_with_other_users_form] form.
 
-* Click !images/edit_icon.png! if you want to change the *Edit* permission of specific users/groups. Click !images/remove_icon1.png! to remove the shared users/groups.
+* Click !images/edit_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! if you want to change the *Edit* permission of specific users/groups. Click !images/remove_icon1.png|width="13" fo:scalefit="1" html:scalefit="0"! to remove the shared users/groups.
 
 *4.* Click *Save* to accept your sharing.
 
@@ -526,23 +526,23 @@ This function allows you to do a quick search with specific keywords in all your
 
 *1.* Enter your search term in the *Search* textbox in the left pane.
 
-*2.* Click !images/search_icon.png! to perform your search.
+*2.* Click !images/search_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
 Your search results will be displayed in the right *Search Result* pane.
 
 h2. Advanced search {anchor:id="CSUser_guide.How_to_use_Address_book.Advanced_search"} 
 With this mode, you can refine your search by using a variety of criteria. Your search results will be limited as follows:
 
-*1.* Click !images/advanced_search_icon.png! next to the search box. The *Advanced Search* form will appear.
+*1.* Click !images/advanced_search_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the search box. The *Advanced Search* form will appear.
 
-!images/advanced_search.png|align="center"!
+!images/advanced_search.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
 
 *3.* Click the *Search* button to search. All contacts matching your criteria will be shown in the *Search Result* dialog.
 
 h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.book"}
-By default, there are 3 Address Book categories:
+By default, there are three Address Book categories:
 
 * *Personal* contains contacts/address books which are created by yourself. Each group may contain more than one contact.
 ** *My Contacts* is the default group which contains your own default contact generated from your registration information.
@@ -557,17 +557,17 @@ h2. Create an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Crea
 
 *The first way*
 
-Click !images/address_book_button.png! on the *Toolbar*.
+Click !images/address_book_button.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *The second way*
 
-Click !images/Down_arrow_addressbook_icon.png! in the *Address Book* pane, and select *Add* from the drop-down menu.
+Click !images/Down_arrow_addressbook_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Address Book* pane, and select *Add* from the drop-down menu.
 
-!images/add_contact.png|align="center"!
+!images/add_contact.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Type name and description for your new address book in the *Name* and *Description* fields respectively in the *Add/Edit Address Book* form. {anchor:id="Add_edit_address_book_form"}
 
-!images/add_edit_address_book.png|align="center"!
+!images/add_edit_address_book.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Save* to accept adding your address book.
 
@@ -614,11 +614,11 @@ h2. Export an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Expo
 
 *The first way*
 
-Click !images/export_button.png! in the *Toolbar*.
+Click !images/export_button.png|width="40" fo:scalefit="1" html:scalefit="0"! in the *Toolbar*.
 
 *The second way*
 
-Click !images/Down_arrow_addressbook_icon.png! in the *Address Books* pane, and select *Export* from the drop-down menu.
+Click !images/Down_arrow_addressbook_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane, and select *Export* from the drop-down menu.
 
 The *Export Address Books* form will appear with a list of all existing address books.
 
@@ -640,15 +640,15 @@ Click the *Import* button in the *Toolbar*.
 
 *The second way*
 
-Click !images/Down_arrow_addressbook_icon.png! in the *Address Books* pane and select *Import* from the drop-down menu.
+Click !images/Down_arrow_addressbook_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane and select *Import* from the drop-down menu.
 
 The *Import Address Books* form will be displayed.
 
-!images/import_address_books.png|align="center"!
+!images/import_address_books.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the address book which stores your imported address book contact from the *Address Book* drop-down menu; 
 
-Or, click !images/plus_icon.png! to [create a new address book|#CSUser_guide.How_to_use_Address_book.Create_address_book]. 
+Or, click !images/plus_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to [create a new address book|#CSUser_guide.How_to_use_Address_book.Create_address_book]. 
 
 *3.* Select the import format. At present, only *x-card* is supported.
 
@@ -662,18 +662,18 @@ h2. Share a personal address book {anchor:id="CSUser_guide.How_to_use_Address_bo
 
 This feature allows you to share personal address books with specific users or groups. The shared users/groups can view, export, add, edit or delete a shared address book (if they have the *Edit* permission). The shared address book is distinguished from other address books by a hand symbol.
 
-!images/Shared_address_book.png|align="center"!
+!images/Shared_address_book.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
 
 *1.* Right-click the address book you want to share, and select *Share* from the drop-down menu.
 
 The *Share an Address Book with other users* form will appear. {anchor:id="Share_Address_Book_form"}
 
-!images/Share_Address_book_form.png|align="center"!
+!images/Share_Address_book_form.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select users or groups that you want to share. For more details, see [here.|#Share_selected_users_and_groups]
 
 * The shared users/groups will be updated in the Shared Users/Groups table of the [Share an Address Book with other users|#Share_Address_Book_form] form.
-* Click !images/edit_icon.png! to change the *Edit* permission or !images/remove_icon1.png! to remove specific users/groups from the Share Users/Groups table.
+* Click !images/edit_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to change the *Edit* permission or !images/remove_icon1.png|width="13" fo:scalefit="1" html:scalefit="0"! to remove specific users/groups from the Share Users/Groups table.
 
 *3.* Tick the *Edit Permission* checkbox if you want to grant the *Edit* permission to your selected users/groups. 
 
@@ -701,7 +701,7 @@ By default, any member of a group has the *Read* permission and the group manage
 
 The *Permissions* form appears.
 
-!images/Permissions_form.png|align="center"!
+!images/Permissions_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select certain users or groups you want to grant permissions. For more details, see [here.|#Share_selected_users_and_groups]
 

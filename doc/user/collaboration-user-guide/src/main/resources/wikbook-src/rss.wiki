@@ -8,12 +8,7 @@ The RSS (Really Simply Syndication) application of eXo Collaboration allows you 
 
 h1. RSS Interface {anchor:id="CSUser_guide.How_to_use_RSS.Rss_interface}
 
-To access the *RSS Feed Reader* application, click *RSS* on the administration bar:
-!images/rss.png|align="center"!
-
-The *RSS Feed Reader* page appears:
-
-!images/rss_feed_reader.png|align="center"!
+!images/rss_feed_reader.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
 
 h1. Add a category {anchor:id="CSUser_guide.How_to_use_RSS.Add_category}
 In the RSS application of eXo Collaboration, RSS feed is added to a category that allows you to easily manage your feeds.
@@ -22,13 +17,13 @@ In the RSS application of eXo Collaboration, RSS feed is added to a category tha
 
 *1.* Click RSS on the administration bar to open the *RSS feed reader* page.
 
-*2.* Click !images/plus_rss_icon.png! on the *RSS Feed Reader* page:
+*2.* Click !images/plus_rss_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *RSS Feed Reader* page:
 
-!images/rss_feed_reader_navigation.png|align="center"!
+!images/rss_feed_reader_navigation.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 The *Add/Edit Content Node* form appears.
 
-!images/add_edit_content_node.png|align="center"!
+!images/add_edit_content_node.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 Details:
 
@@ -43,7 +38,7 @@ Details:
 
 *4.* Enter an RSS link in the *URL* field. It is required for *RSS* type.
 
-i. To have an RSS link of a site, click !images/rss_icon1.png! on the site to open a page with a lot of  data on it.
+i. To have an RSS link of a site, click !images/rss_icon1.png|width="40" fo:scalefit="1" html:scalefit="0"! on the site to open a page with a lot of  data on it.
 
 ii. Copy the URL of the page on the address bar of the browser.
 
@@ -65,7 +60,7 @@ h1. Edit a category {anchor:id="CSUser_guide.How_to_use_RSS.Edit_category"}
 
 *1.* Select the category you want to edit.
 
-*2.* Click !images/edit_rss_icon.png! on the *RSS Feed Reader* page to open the Add/Edit Content Node.
+*2.* Click !images/edit_rss_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *RSS Feed Reader* page to open the Add/Edit Content Node.
 
 *3.* Changes the information in the fields as you want, except the Id field.
 
@@ -75,6 +70,6 @@ h1. Delete a category {anchor:id="CSUser_guide.How_to_use_RSS.Delete_category"}
 
 *1.* Select the category you want to delete.
 
-*2.* Click !images/delete_rss_icon.png! on the *RSS Feed Reader* page.
+*2.* Click !images/delete_rss_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *RSS Feed Reader* page.
 
 *3.* Click *OK* on the confirmation message.

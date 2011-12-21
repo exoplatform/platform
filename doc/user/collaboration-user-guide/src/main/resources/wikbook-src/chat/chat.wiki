@@ -12,11 +12,11 @@ In particular, actions of the *Chat* portlet are arranged in a window, meanwhile
 
 *Chat portlet*
 
-!images/Chat_portlet.png|align="center"!
+!images/Chat_portlet.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
 
 *Chatbar*
 
-!images/Chatbar.png|align="center"!
+!images/Chatbar.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar to a specific site or page as follows:
 
@@ -24,19 +24,19 @@ To use the *Chat* feature, you first need to add the Chat portlet or the Chatbar
 You can do this step while [creating a new page|#sect-User_Guide-Page_Creation_Wizard], or [editing an existing page|#sect-User_Guide-Manage_Pages-Edit_a_Page], or [editing the portal layout.|#proc-User_Guide-Manage_Portals-Edit_Layout]
 For example, drag and drop the *Chatbar* portlet as the below illustration.
 
-!images/Chat_drag_chat_bar.png|align="center"!
+!images/Chat_drag_chat_bar.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Edit the *Chatbar* portlet by hovering your cursor over it, then clicking !images/Chat_edit_portlet_icon.png!.
+*2.* Edit the *Chatbar* portlet by hovering your cursor over it, then clicking !images/Chat_edit_portlet_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!.
 
-!images/Edit_chat_bar_portlet.png|align="center"!
+!images/Edit_chat_bar_portlet.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Go the the *Windows Settings* tab and uncheck the following options: *Show Info Bar*, *Show Porlet Mode*, *Show Window State*. By unchecking these options, the portlet border will be hidden. This may help the Chatbar portlet look homogeneous with other components of your site/page.
 
-!images/Chat_bar_window_settings.png|align="center"!
+!images/Chat_bar_window_settings.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Click *Save And Close* to finish your changes on the Chatbar portlet and quit the Edit form of the *Chatbar Portlet*.
 
-*5.* Click !images/Edit_inline_composer_Save.png! to save all changes on the page/site and quit the *Edit Inline Composer/Page Editor* form.
+*5.* Click !images/Edit_inline_composer_Save.png|width="12" fo:scalefit="1" html:scalefit="0"! to save all changes on the page/site and quit the *Edit Inline Composer/Page Editor* form.
 After that, you will see the *Chatbar* in your site/page.
 
 {docbook}
@@ -50,13 +50,13 @@ After that, you will see the *Chatbar* in your site/page.
 h1. Add contacts to your friend list {anchor:id="CSUser_guide.How_to_use_Chat.Create_a_chat_room.Add_contact_to_friends_list"}
 You can search for contacts in your *Address Book* and add them to your friend list.
 
-*1.* Click !images/contact_icon.png! on the *Chatbar*, then click !images/chat_add_contact_button.png! from the pop-up menu.
+*1.* Click !images/contact_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/chat_add_contact_button.png|width="13" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
 
-!images/chat_add_contact.png|align="center"!
+!images/chat_add_contact.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
 
 The *Add Contact* form will appear.
 
-!images/add_contact_form.png|align="center"!
+!images/add_contact_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the contacts from the list by ticking their respective checkboxes.
 
@@ -73,9 +73,9 @@ After adding your contacts successfully, the added contacts will be shown in you
 h2. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
 This action is to remove a contact from your friend list.
 
-*1.* Click !images/contact_icon.png! on the Chatbar to show your friend list. Right-click the contact that you want to remove and click *Remove* from the drop-down menu.
+*1.* Click !images/contact_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list. Right-click the contact that you want to remove and click *Remove* from the drop-down menu.
 
-!images/remove_context_menu.png|align="center".png!
+!images/remove_context_menu.png|align="center".png width="150" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *OK* in the confirmation message to accept your removal.
 
@@ -101,11 +101,11 @@ Click the contact name that you want to chat from your friend list.
 
 *The second way*
 
-Click !images/contact_icon.png! on the Chatbar to show your friend list, then right-click your desired contact and select *Send Message* from the drop-down menu.
+Click !images/contact_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list, then right-click your desired contact and select *Send Message* from the drop-down menu.
 
 *2.* Type the message that you want to send into the message textbox, then click the *Send* button or hit the Enter key to send your message.
 
-!images/conversation_window.png|align="center"!
+!images/conversation_window.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -115,9 +115,9 @@ Click !images/contact_icon.png! on the Chatbar to show your friend list, then ri
 </citetitle>
 {docbook}
 
-Click !images/chat_minimize_icon.png! at the right corner of the *Conversation* window to minimize it to the Chatbar. To restore the window, simply click the minimized window (!images/minimized_window_icon.png!) on the Chatbar.
+Click !images/chat_minimize_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! at the right corner of the *Conversation* window to minimize it to the Chatbar. To restore the window, simply click the minimized window (!images/minimized_window_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!) on the Chatbar.
 
-!images/chat_bar1.png|align="center"!
+!images/chat_bar1.png|align="center" width="100" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -128,10 +128,10 @@ Click !images/chat_minimize_icon.png! at the right corner of the *Conversation* 
     You can chat with several contacts at the same time. Each conversation is displayed in its own tab. You can switch between tabs to follow different ongoing conversations.
     <mediaobject>
 <imageobject role="html">
-    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG"/>
+    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="0" width="200"/>
 </imageobject>
 <imageobject role="fo">
-    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" width="150mm"/>
+    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="1" width="200"/>
 </imageobject>
 </mediaobject>
 	</para>
@@ -139,11 +139,11 @@ Click !images/chat_minimize_icon.png! at the right corner of the *Conversation* 
 {docbook}
 
 h2. Set your status {anchor:id="CSUser_guide.How_to_use_Chat.Set_status"}
-When you signed in Chat, by default, your logged-in status is available and your friends will see the online icon !images/online_icon.png! appending to your account name in their friend lists.
+When you signed in Chat, by default, your logged-in status is available and your friends will see the online icon !images/online_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! appending to your account name in their friend lists.
 
 There will be a notification about your friend's status if they are available to chat or go offline:
 
-!images/Chat_notification_status.png|align="center"!
+!images/Chat_notification_status.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -155,18 +155,18 @@ There will be a notification about your friend's status if they are available to
 
 *1.* Click the account icon on the Chatbar.
 
-!images/quick_chat_bar.png|align="center"!
+!images/quick_chat_bar.png|align="center" width="120" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select your desired status from the drop-down list.
 
 *Details:*
 
 ||Icon||Description||
-|!images/online_icon.png! *Online*| This status means you are available to chat. |
-|!images/away_icon.png! *Away*| This status means you are away from your local device. Other users still can send instant messages to you. |
-|!images/extend_away_icon.png! *Busy*| This status means you are away from your local device for an extended period of time. |
-|!images/free_to_chat_icon.png! *Available*| This status means you are free to chat with everyone. |
-|!images/offline_icon.png! *Offline*| With this status, you are invisible to other users. This means everyone will see you offline even though you are actually online. |
+|!images/online_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! *Online*| This status means you are available to chat. |
+|!images/away_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! *Away*| This status means you are away from your local device. Other users still can send instant messages to you. |
+|!images/extend_away_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! *Busy*| This status means you are away from your local device for an extended period of time. |
+|!images/free_to_chat_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! *Available*| This status means you are free to chat with everyone. |
+|!images/offline_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! *Offline*| With this status, you are invisible to other users. This means everyone will see you offline even though you are actually online. |
 
 h2. Send a file {anchor:id="CSUser_guide.How_to_use_Chat.Send_file"}
 
@@ -180,7 +180,7 @@ The *Chat* application allows you to send files to your contact, such as holiday
 </citetitle>
 {docbook}
 
-*1.* Click !images/send_file_button.png! on the *Conversation* window.
+*1.* Click !images/send_file_button.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
 
 You will be prompted to select a file from your local device.
 
@@ -191,7 +191,7 @@ Your contacts may cancel or accept the file transfer.
 h2. Export the Chat history {anchor:id="CSUser_guide.How_to_use_Chat.Export_chat_history"}
 The *Chat* application can archive your chat conversation and allows you to export and save your conversation history to your local device.
 
-*1.* Click !images/export_history.png! on the *Conversation* window.
+*1.* Click !images/export_history.png|width="60" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
 
 You will be prompted to select the location to save the exported file.
 
@@ -206,7 +206,7 @@ Your chat messages history can be shown in a specific time interval.
 
 *2.* Select a time interval.
 
-!images/time_interval.png|align="center"!
+!images/time_interval.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
 
 Currently, the *Chat* application shows messages in the following time ranges:
 
@@ -233,13 +233,13 @@ With *Chat*, you also create a chat room and invite other users to join your roo
 </citetitle>
 {docbook}
 
-*1.* Click !images/chat_icon.png! on the *Chatbar*, then click !images/add_room_button.png! from the pop-up menu.
+*1.* Click !images/chat_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/add_room_button.png|width="40" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
 
-!images/pop_up_menu.png|align="center"!
+!images/pop_up_menu.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
 
 The *New Room* form will appear.
 
-!images/new_room-form.png|align="center"!
+!images/new_room-form.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the room name in the *Name* field without any spaces, then click *OK* to accept adding your new room.
 
@@ -257,7 +257,7 @@ If you cancel this step, the default configuration will be used.
 
 *i.* Set the *General* settings. {anchor:id="Set_the_general_settings"}
 
-!images/Chat_room_configuration_general.png|align="Center"!
+!images/Chat_room_configuration_general.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -272,7 +272,7 @@ If you cancel this step, the default configuration will be used.
 
 Click *Show Security* in the *Room Configuration* form to show the *Security* option.
 
-!images/room_configuration.png|align="center"!
+!images/room_configuration.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -292,11 +292,11 @@ h2. Add people to a room {anchor:id="CSUser_guide.How_to_use_Chat.Add_contact_to
 
 This function is to add people to a chat room where you already participated.
 
-*1.* Click !images/add_contact_to_chat_room_icon.png! on the chat room conversation window.
+*1.* Click !images/add_contact_to_chat_room_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the chat room conversation window.
 
 The *Add Contact* form will appear:
 
-!images/add_contact_to_chat_room.png|align="center"!
+!images/add_contact_to_chat_room.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select contacts you want to add by ticking their respective checkboxes.
 
@@ -308,11 +308,11 @@ h2. Join a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Join_chat_room"}
 
 When joining a chat room, you can learn more about a subject, ask questions and talk with others having common interests. Joining a chat room is just few clicks away.
 
-*1.* Click !images/chat_icon.png! on the Chatbar, then select !images/join_room_icon.png! from the drop-down menu.
+*1.* Click !images/chat_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the Chatbar, then select !images/join_room_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
 
 The *Join Room* form will appear.
 
-!images/join_room_form.png|align="center"!
+!images/join_room_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select a room in the list by checking the appropriate radio button.
 
@@ -328,16 +328,16 @@ The *Join Room* form will appear.
 
 h2. Leave a chat room {anchor:id="CSUser_guide.How_to_use_Calendar.Leave_chat_room"}
 
-Click !images/leave_room_icon.png! on the room conversation window.
+Click !images/leave_room_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the room conversation window.
 
-!images/room_conversation_window.png|align="center"!
+!images/room_conversation_window.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
 
 Your conversation window of this room will be closed and you will not receive messages from the chat room any more.
 
 h2. Configure a chat room {anchor:id="CSUser_guide.How_to_use_Chat.Configure_chat_room}
 When creating a chat room, you are required to configure it before you can start the chat room conversation. However, after the chat room was created, you can also update the room configuration at any time. 
 
-*1.* Click !images/chat_options_icon.png! in the *Conversation* form of the chat room.
+*1.* Click !images/chat_options_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! in the *Conversation* form of the chat room.
 
 *2.* Set values for the fields in this form. For more details, see [here|#Configure_your_chat_room].
 
