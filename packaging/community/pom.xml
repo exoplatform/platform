@@ -108,6 +108,24 @@
                 <!-- Zip new platform-extension.war -->
                 <zip destfile="${tomcat.webapps.dir}/platform-extension.war" basedir="${tomcat.webapps.dir}/plf" />
                 <delete dir="${tomcat.webapps.dir}/plf" />
+                <!-- Remove IDE from UISetupPlatformToolBarPortlet -->
+                <unzip src="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <replace file="${tomcat.lib.dir}/plf/conf/portal/setup-navigation.xml">
+				  <replacetoken><![CDATA[<node>
+			<uri>ide</uri>
+			<name>ide</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.ide}</label>
+			<page-reference>group::developers::ide</page-reference>
+		</node>]]></replacetoken>
+				  <replacevalue><![CDATA[<!--node>
+			<uri>ide</uri>
+			<name>ide</name>
+			<label>#{UISetupPlatformToolBarPortlet.label.ide}</label>
+			<page-reference>group::developers::ide</page-reference>
+		</node-->]]></replacevalue>
+				</replace>
+                <zip destfile="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <delete dir="${tomcat.lib.dir}/plf" />                
                 <!-- Disable IDE configuration in platform config jar -->
                 <unzip src="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
                 <replace file="${tomcat.lib.dir}/plf/conf/platform/configuration.xml">
@@ -126,6 +144,87 @@
 				</replace>
                 <zip destfile="${tomcat.lib.dir}/exo.platform.extension.config-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
                 <delete dir="${tomcat.lib.dir}/plf" />
+
+                <!-- Disable IDE page and URL -->
+                <unzip src="${tomcat.webapps.dir}/acme-intranet.war" dest="${tomcat.webapps.dir}/plf" />
+                <replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/office-extension/portal/group/developers/navigation.xml">
+				  <replacetoken><![CDATA[<node>
+      <uri>ide</uri>
+      <name>ide</name>
+      <label>#{developers.ide}</label>
+      <page-reference>group::developers::ide</page-reference>
+    </node>]]></replacetoken>
+				  <replacevalue><![CDATA[<!--node>
+      <uri>ide</uri>
+      <name>ide</name>
+      <label>#{developers.ide}</label>
+      <page-reference>group::developers::ide</page-reference>
+    </node-->]]></replacevalue>
+		</replace>
+		<replace file="${tomcat.webapps.dir}/plf/WEB-INF/conf/office-extension/portal/group/developers/pages.xml">
+				  <replacetoken><![CDATA[<page>
+      <name>ide</name>
+      <title>eXo IDE</title>
+      <access-permissions>*:/developers</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+	  <container id="eXo-IDE-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>*:/developers</access-permissions>
+	  <portlet-application>
+		  <portlet>
+			<application-ref>dashboard</application-ref>
+			<portlet-ref>GadgetPortlet</portlet-ref>
+			<preferences>
+			  <preference>
+			    <name>url</name>
+			    <value>local://IDE</value>
+			    <read-only>false</read-only>
+			  </preference>
+			  <preference>
+			    <name>fillUpFreeSpace</name>
+			    <value>true</value>
+			  </preference>
+			</preferences>
+		  </portlet>
+		  <title>eXo IDE</title>
+		  <access-permissions>*:/developers</access-permissions>
+		  <show-info-bar>false</show-info-bar>
+		  <show-application-state>false</show-application-state>
+	  </portlet-application>
+	  </container>
+    </page>]]></replacetoken>
+				  <replacevalue><![CDATA[<!--page>
+      <name>ide</name>
+      <title>eXo IDE</title>
+      <access-permissions>*:/developers</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+	  <container id="eXo-IDE-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>*:/developers</access-permissions>
+	  <portlet-application>
+		  <portlet>
+			<application-ref>dashboard</application-ref>
+			<portlet-ref>GadgetPortlet</portlet-ref>
+			<preferences>
+			  <preference>
+			    <name>url</name>
+			    <value>local://IDE</value>
+			    <read-only>false</read-only>
+			  </preference>
+			  <preference>
+			    <name>fillUpFreeSpace</name>
+			    <value>true</value>
+			  </preference>
+			</preferences>
+		  </portlet>
+		  <title>eXo IDE</title>
+		  <access-permissions>*:/developers</access-permissions>
+		  <show-info-bar>false</show-info-bar>
+		  <show-application-state>false</show-application-state>
+	  </portlet-application>
+	  </container>
+    </page-->]]></replacevalue>				  
+		</replace>
+                <zip destfile="${tomcat.webapps.dir}/acme-intranet.war" basedir="${tomcat.webapps.dir}/plf" />
+                <delete dir="${tomcat.webapps.dir}/plf" />                
                 <!-- Replaces the default page by a new one especially for the Community Edition -->
                 <unzip src="${tomcat.webapps.dir}/default-website.war" dest="${tomcat.webapps.dir}/default-website" />
                 <copy file="${project.basedir}/src/main/resources/Welcome.xml" tofile="${tomcat.webapps.dir}/default-website/WEB-INF/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml" overwrite="true" />
