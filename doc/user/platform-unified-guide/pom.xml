@@ -330,11 +330,11 @@
 				  <replacetoken><![CDATA[<title>Manage content</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Manage content</title>
 <xi:include href="ecms/modules/Basics/Contribute_Content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/Content_By_Query.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Content_Inside_Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SitesExplorer/Manage_Content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Webdav.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/FastContentCreator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/Content_By_Query.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/FormGenerator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SEO_management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />

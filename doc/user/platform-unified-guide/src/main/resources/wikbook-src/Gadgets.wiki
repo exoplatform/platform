@@ -28,7 +28,7 @@ Latest Forum Posts settings
 || Field || Description ||
 | *Total* | The number of last posts to be displayed in this gadget. |
 | *Forum portlet* | The URL pointing to the Forum portlet. |
-| *Subscription url* | The link to the service which you request to get data from (in this case, the data are last posts). For example: http://localhost/portal/rest/ks/forum/getmessage. |
+| *Subscription url* | The link to the service which you request to get data from (in this case, the data are last posts). For example: http://mycompany.com:8080/portal/rest/ks/forum/getmessage. |
 
 *2.* Input the values for all the fields, then click *Save* to accept your changes.
 
@@ -177,7 +177,7 @@ eXo Calendar Gadget settings
 !images/eXo_Calendar_gadget_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 || Field || Description ||
-| Rest URL | *Rest URL* from which the gadget will get data. For example: http://localhost:8080/rest/ |
+| Rest URL | *Rest URL* from which the gadget will get data. For example: http://mycompany.com:8080/rest/ |
 
 *2.* Input the *Rest URL*, then click *Save* to accept your changes.
 
