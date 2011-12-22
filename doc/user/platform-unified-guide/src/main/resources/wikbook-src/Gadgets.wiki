@@ -86,21 +86,24 @@ Weekly statistics view
 </citetitle>
 {docbook}
 
-Click !images/Calendar_weekly_stat_icon.png| scalefit="1" width="4mm"! to switch to *Weekly statistics* view.
+* Click !images/Calendar_weekly_stat_icon.png| scalefit="1" width="4mm"! to switch to *Weekly statistics* view.
+* Click !images/Calendar_global_stat_icon.png|scalefit="1" width="4mm"! to back to the *Global* statistics view.
 
 After switching to the *Weekly statistics* view, you can display the statistics in a list or a chart.
 
-* *List view*
+*List view*
 
 !images/Forums_weekly_statistics.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-* *Chart view*
+* Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! to switch to the *Chart* view.
+
+*Chart view*
 
 !images/Forums_weekly_statistics_graph.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! to switch to the *Chart* view.
-Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! to go back to the *List* view.
-Click !images/Calendar_global_stat_icon.png|scalefit="1" width="4mm"! to go to the *Global* statistics view.
+
+* Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! to go back to the *List* view.
+
 
 h2. Friend Suggestions  {anchor:id=GadgetUserguide.EngagementGadgets.FriendSuggestions}
 
@@ -119,7 +122,7 @@ The *Login History* gadget records user login history and provides statistics.
 
 You can look up a specific user by entering his username in the search box and click *Search*. 
 
-* To view the global statistics and global history, click the *Statistics* and *History* links respectively.
+* Click the *Statistics* and *History* links to view the global statistics and global history respectively.
 * Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
 !images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 * Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login history.
