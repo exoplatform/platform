@@ -287,7 +287,7 @@ You also need to configure it to make sure it is imported to the database.
 
 Next, create the templates for this document, including:
 
-* Dialog: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
+* Dialog: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl{noformat}_
 
@@ -298,7 +298,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
   <% uiform.end() %>
 {code}
 
-* View: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
+* View: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl{noformat}_
 
@@ -309,7 +309,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 <!-- Document view template content is here -->
 {code}
 
-* Stylesheet: see the sample [here|http://svn.exoplatform.org:3840/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
+* Stylesheet: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
 
 {warning}
 This document should contain *ONLY* the stylesheet for *THIS* template.
