@@ -106,7 +106,7 @@ Each instance can be configured and customized independently via files located a
 
 {note}
 The name of the configuration file can be altered.
-Please refer to the section dedicated to _PortalContainerDefinition_  in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
+Please refer to the [PortalContainer|../../reference/html/ch-service-configuration-for-beginners.html#d0e11786] section in the Kernel reference for more details on portal containers and other options to modify the location of the properties.
 {note}
 
 Services that run inside a portal container are declared via the xml configuration files like _configuration.xml_. Such files exist in jars, wars and below _exo.conf.dir_.
@@ -145,7 +145,7 @@ This file contains the built-in configuration for the "portal" portal container.
 * In case you do not want to use "portal" as the default portal for your project, this file can be used to import another PortalContainerDefinition into the root container.
 
 {note}
-To learn more about how to configure a new portal container, please refer to the Kernel reference guide.
+To learn more about how to configure a new portal container, please refer to the [Kernel reference guide|../../reference/html/part-kernel.html].
 {note}
 
 {docbook}
@@ -775,7 +775,7 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 | *{{gatein.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode of eXo Cache and PicketLink IDM organization service (see below in _IDM caches_). |
 | *{{gatein.jcr.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode. |
 
-For more details on configuring these files, please refer to the eXo JCR reference guide.
+For more details on configuring these files, please refer to the [eXo JCR reference guide|../../reference/html/bk01.html].
 
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
