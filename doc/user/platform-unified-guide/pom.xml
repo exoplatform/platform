@@ -336,6 +336,7 @@
 <xi:include href="ecms/modules/Basics/Webdav.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/FastContentCreator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/FormGenerator.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+<xi:include href="ecms/modules/Basics/CLV_template.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Categories.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/SEO_management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="ecms/modules/Basics/Print.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
