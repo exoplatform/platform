@@ -9,11 +9,11 @@ The <emphasis role="bold">Mail</emphasis> portlet and its services are deprecate
 h1. Create a Mail account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account}
 To get mails from other mail services, you first need to create a mail account in the *Mail* application which connects to another mail POP3 or SMTP supported servers, such as Gmail, Yahoo! Mail, Hotmail, GMX, Cyrus, Exchange Server. The *Mail* application allows you to get mails from different mail services at one place.
 
-To create one mail account, you first need to click !images/add_mail_acount_icon.png|width="12" fo:scalefit="1" html:scalefit="0"!, then select *Add Account* from the drop-down menu to open the *Create New Account* form. In the *Create New Account* form, there are 5 steps with clear instructions at each step. After completing information at each step, you can:
+To create one mail account, you first need to click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, then select *Add Account* from the drop-down menu to open the *Create New Account* form. In the *Create New Account* form, there are 5 steps with clear instructions at each step. After completing information at each step, you can:
 
 * Click *Next* to go to the next step, or directly left-click any number box at the left bottom of the *Create New Account* form to go to your desired step.
 
-!images/Step_boxes.png|align="center" width="120" fo:scalefit="1" html:scalefit="0"!
+!images/Step_boxes.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 * Click *Back* to return to the previous step.
 
@@ -27,11 +27,11 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 *1.* Fill your account name and brief description in Step 1.
 
-!images/Add_acc_step1.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Add_acc_step1.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Configure identification settings for your mail in Step 2.
 
-!images/Add_acc_step2.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Add_acc_step2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -42,7 +42,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 *3.* Give the server information in Step 3.
 
-!images/Add_acc_step3.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Add_acc_step3.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -53,7 +53,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 *4.* Configure another account properties in Step 4.
 
-!images/Add_acc_step4.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Add_acc_step4.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -65,20 +65,20 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 *5.* Verify your inputted information in Step 5.
 
-!images/Add_acc_step5.png|align="center" width="420" height="300" fo:scalefit="1" html:scalefit="0"!
+!images/Add_acc_step5.png|align="center" width="150mm" height="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Tick the *Start Downloading Messages Now* checkbox to get messages automatically right after your account is successfully created. 
 
 *6.* Click the *Finish* button to complete your registration.
 
 h2. Edit your account details {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account"}
-To make changes on your account, simply click !images/add_mail_acount_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Edit Account* from the drop-down menu;
+To make changes on your account, simply click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Edit Account* from the drop-down menu;
 
-Or, select !images/accounts_icon.png|width="50" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+Or, select !images/accounts_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 The *Edit Account* form will appear, allowing you to change information in the *Identity, Incoming, Outgoing* and *Fetch Options* tabs.
 
-!images/Edit_account_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Edit_account_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Delete your account {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Delete_account}
 If you use multiple accounts, you can delete any unused mail accounts via either of the following ways:
@@ -87,11 +87,11 @@ If you use multiple accounts, you can delete any unused mail accounts via either
 
 *1.* Select the account from the accounts list in the left pane.
 
-!images/Select_mail_account.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Select_mail_account.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/add_mail_acount_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Delete Account* from the drop-down menu.
+*2.* Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Delete Account* from the drop-down menu.
 
-!images/Delete_acc_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Delete_acc_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click !images/Delete_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! corresponding to the account, then click *OK* in the confirmation message to accept your deletion.
 
@@ -99,9 +99,9 @@ If you use multiple accounts, you can delete any unused mail accounts via either
 
 *1.* Open the *Edit Account* form as stated in [Edit your account details|#CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account].
 
-*2.* Select the account you want to delete in the left pane. Your currently selected account is marked with !images/marked_account_icon.png|width="12" fo:scalefit="1" html:scalefit="0"!.
+*2.* Select the account you want to delete in the left pane. Your currently selected account is marked with !images/marked_account_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-*3.* Click !images/delete_account_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to delete your marked account.
+*3.* Click !images/delete_account_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to delete your marked account.
 
 h2. More about Incoming & Outgoing mail server settings {anchor:id="Incoming_outgoing_reference"}
 
@@ -142,34 +142,34 @@ This function is used to receive messages from the remote mail servers and forwa
 
 *1.* Click the folder you want to check for new mails. If no folder is selected, the default folder will be *Inbox*.
 
-*2.* Click !images/get_mail_icon.png|width="50" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*. The status notification with '*Fetching email messages...*' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click *Refresh* if you want to refresh the fetching mails.
+*2.* Click !images/get_mail_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*. The status notification with '*Fetching email messages...*' shows that emails are being loaded. All arrived mails are shown in the messages pane. Click *Refresh* if you want to refresh the fetching mails.
 
-!images/fetching_emails.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/fetching_emails.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Mail views {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views}
-This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking *View as* and selecting either of the views. The selected view is marked with !images/marked_account_icon.png|width="12" fo:scalefit="1" html:scalefit="0"!.
+This function offers three options for viewing messages in your mailbox. Messages are displayed by date, where receipt hours are for today mails and dates are for mails received in previous days. You simply toggle between 3 views by clicking *View as* and selecting either of the views. The selected view is marked with !images/marked_account_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-!images/view_as.png|align="center" width="100" fo:scalefit="1" html:scalefit="0"!
+!images/view_as.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. List view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.List_view}
 In this view mode, all messages are arranged as a list.
 
-!images/list_view.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/list_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Thread view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.Thread_view}
 Messages are arranged as a tree structure. All replies are shown as sub-nodes. When you click one message, its content is displayed in the message details pane with block quotes containing contents of the parent messages.
 
-!images/thread_view.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/thread_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Conversation view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.Conversation_view}
 When this view mode is selected, only the subject of parent message and the number of replies in the conversation are displayed in the messages list pane. When being opened, all messages are shown in the message details pane with separate reading pane which can be expanded by left-clicking the relevant reading pane.
 
-!images/conversation_view.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/conversation_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Read an email {anchor:id="CSUser_guide.How_to_use_Mail.Read_email}
 If you want to read an email, simply click your preferred mail in the mails list and scroll down to read your selected email in the details pane.
 
-!images/read_email.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/read_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *When you read an email, you can:*
 
@@ -183,9 +183,9 @@ If you want to read an email, simply click your preferred mail in the mails list
 h2. Download an attached file {anchor:id=Download_attached_files}
 If your received mail contains any attached file, you can see their details, such as file name, type and size right in the *Attachments* pane of the currently opened message.
 
-!images/Attachment_details.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/Attachment_details.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-Click !images/Download_button.png|width="50" fo:scalefit="1" html:scalefit="0"! to download an attachment to your local system. If the uploaded file is image, you can also click !images/Preview_button.png|width="30" fo:scalefit="1" html:scalefit="0"! to preview the image without downloading.
+Click !images/Download_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! to download an attachment to your local system. If the uploaded file is image, you can also click !images/Preview_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! to preview the image without downloading.
 
 h3. Download and save attachments to server {anchor:id=Download_attachments_to_server}
 
@@ -193,7 +193,7 @@ h3. Download and save attachments to server {anchor:id=Download_attachments_to_s
 
 *2.* Click *Save to server* to open the *Save attachment* form.
 
-!images/Server_saving_folder.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/Server_saving_folder.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Change name of the downloaded file in the *Save file to the server* field if needed.
 
@@ -203,7 +203,7 @@ h3. Download and save attachments to server {anchor:id=Download_attachments_to_s
 
 *6.* Select one folder which stores your downloaded file from the folders list.
 
-* Click !images/Create_folder_server_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! to create a new folder in your selected drive.
+* Click !images/Create_folder_server_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to create a new folder in your selected drive.
 
 {docbook}
 <note>
@@ -220,7 +220,7 @@ By default, the header's information shows email addresses of the sender and rec
 
 *1.* Open the message which you want to view its full headers.
 
-*2.* Click !images/down_arrow_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! at the right corner of message's content and select *View All Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
+*2.* Click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the right corner of message's content and select *View All Headers* from the drop-down menu. All message headers are then appeared in the pop-up window.
 
 h2. Mark/Unmark a message as read {anchor:id="Mark_Unmark_as_read"}
 In the *Mail* application, the unread mails will be recognized in the bold format in the mails list pane, meanwhile the read mails will be unbold.
@@ -283,9 +283,9 @@ Tick the checkboxes corresponding to messages you want to star, then click *More
 
 *The second way*
 
-In the messages list pane, click !images/Grey_star_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the message you want to add a star.
+In the messages list pane, click !images/Grey_star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the message you want to add a star.
 
-After being marked, the selected messages will be appended with !images/star_icon.png|width="12" fo:scalefit="1" html:scalefit="0"!, so that you can recognize them quickly.
+After being marked, the selected messages will be appended with !images/star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, so that you can recognize them quickly.
 
 {docbook}
 <citetitle>
@@ -295,7 +295,7 @@ After being marked, the selected messages will be appended with !images/star_ico
 </citetitle>
 {docbook}
 
-Simply select *Unstar* from the *More Actions* drop-down menu on the action bar; or click !images/star_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the message.
+Simply select *Unstar* from the *More Actions* drop-down menu on the action bar; or click !images/star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the message.
 
 h2. Move a message to other folders {anchor:id="Move_message_to_other_folders"}
 
@@ -311,9 +311,9 @@ Right-click the message you want to move to another folder in the messages list 
 
 Tick the checkbox corresponding to the message you want to move, then click *More Actions* on the action bar and select *Move* from the drop-down menu.
 
-*2.* Tick !images/down_arrow_icon1.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the *Move To Folder* field to select your desired destination folder from the drop-down menu.
+*2.* Tick !images/down_arrow_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Move To Folder* field to select your desired destination folder from the drop-down menu.
 
-!images/Move_message_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
+!images/Move_message_form.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Save* to move messages to your selected folder.
 
@@ -321,12 +321,12 @@ Tick the checkbox corresponding to the message you want to move, then click *Mor
 
 In the mails list pane, tick the message you want to move, then drag and drop it into your desired destination folder in the left pane.
 
-!images/Drag_drop_message.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Drag_drop_message.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Report a message as spam {anchor:id="Report_message_as_spam"}
 *The first way*
 
-Simply tick the checkbox corresponding to the message you want to report as spam, then click !images/spam_mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Simply tick the checkbox corresponding to the message you want to report as spam, then click !images/spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 *The second way*
 
@@ -346,7 +346,7 @@ Drag the message in the right mails list pane and drop it into the *Spam* folder
 
 *1.* Go to the *Spam* folder, then tick the checkbox corresponding to the relevant message.
 
-*2.* Click !images/move_spam_mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the action bar.
+*2.* Click !images/move_spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 The spam message will be removed from the *Spam* folder. All messages from this sender will be received normally.
 
@@ -367,7 +367,7 @@ Right-click the message, then select *Delete* from the drop-down menu.
 
 *The second way* 
 
-Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 *The third way*
 
@@ -396,7 +396,7 @@ All messages which have been deleted permanently cannot be restored any longer. 
 
 *2.* Right-click the relevant message, then select *Delete* from the drop-down menu;
 
-Or, tick the checkbox corresponding to the relevant message, and click !images/add_mail_acount_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Or, tick the checkbox corresponding to the relevant message, and click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 {docbook}
 <citetitle>
@@ -429,13 +429,13 @@ Open the *Trash* folder, then use the [Move|#Move_message_to_other_folders] func
 
 h1. Compose a new message {anchor:id="Compose_new_message"}
 
-*1.* Click !images/write_mail_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Compose New Message* form.
+*1.* Click !images/write_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Compose New Message* form.
 
-!images/compose_message_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/compose_message_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Specify the sender's email address from the From* field.
 
-!images/from_email.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/from_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Enter email addresses of recipients into the *To* field.
 
@@ -458,11 +458,11 @@ The *To* box must always contain at least one address; everyone who receives you
 
 *5.* Enter your message in the text-input field. You can use this toolbar to format the message text.
 
-!images/Compose_toolbar.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Compose_toolbar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Click !images/editor_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the Mail toolbar to switch between *Rich Text* and *Plain Text* editors. If *Rich Text* is selected, the message text can be composed with format tools, meanwhile *Plain Text* only allows you to compose a message with the simple text format.
+Click !images/editor_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the Mail toolbar to switch between *Rich Text* and *Plain Text* editors. If *Rich Text* is selected, the message text can be composed with format tools, meanwhile *Plain Text* only allows you to compose a message with the simple text format.
 
-*6.* Click !images/send_mail_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to send your message. Click !images/discard_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to discard composing your new message.
+*6.* Click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to send your message. Click !images/discard_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to discard composing your new message.
 
 {docbook}
 <note>
@@ -485,11 +485,11 @@ Click !images/editor_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on t
 
 Type more email addresses by separating them with commas.
 
-!images/to_email.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/to_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 If your typed address matches one or more addresses in your Address Book, the list of matching addresses will appear and you can click one address to select.
 
-!images/to_email1.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/to_email1.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *The second way*
 
@@ -497,11 +497,11 @@ Select one or more contacts from your Address Book.
 
 *1.* Click the *To* button.
 
-!images/to_email2.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/to_email2.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Contacts* window listing all of your contacts will appear.
 
-!images/contacts.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/contacts.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Tick the checkboxes corresponding to the contacts who will receive your message.
 
@@ -513,9 +513,9 @@ Also, you can
 
 *ii.* Define the address book where you want to search for your entered contact name to limit the search results in the *Address Book* select-box.
 
-!images/addressbook.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/addressbook.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*iii.* Click !images/Search_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! to perform your search.
+*iii.* Click !images/Search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
 * Tick the *Send To All* checkbox if you want to send the email to the contacts defined in the *Address Book* select-box.
 
@@ -536,43 +536,43 @@ Also, you can
 * [Change message preferences|#Change_message_preferences]
 
 h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
-*1.* Click !images/attach_local_file_icon.png|width="60" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form to open the *Attach Files* window.
+*1.* Click !images/attach_local_file_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form to open the *Attach Files* window.
 
 *2.* Click *Browse...* to open the *File Upload* form.
 
 *3.* Browse the file from your device, then click *Open* to upload your selected file.
 
-* Open more *Attach File* fields by simply clicking !images/Add_more_button.png|width="40" fo:scalefit="1" html:scalefit="0"!.
+* Open more *Attach File* fields by simply clicking !images/Add_more_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
 
 *4.* Click *Save* to accept your attachments and go back to the *Compose New Message* form. 
 
 You will see your uploaded files in the *Attachments* area of the *Compose New Message* window.
 
-!images/Attachments_area.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/Attachments_area.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* Click !images/Download_iconpng|width="12" fo:scalefit="1" html:scalefit="0"! to download or see if your uploaded file is correct or not without browsing the file on your device.
-* Click !images/add_mail_acount_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the attached file to remove it from your message.
+* Click !images/Download_iconpng|width="4mm" fo:scalefit="1" html:scalefit="0"! to download or see if your uploaded file is correct or not without browsing the file on your device.
+* Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the attached file to remove it from your message.
 
 h3. Attach a server file {anchor:id=Attach_server_file}
 
 This function is only featured in eXo Platform 3.5, allowing you to browse and attach one file from your server as follows.
 
-*1.* Click !images/Down_arrow_icon2.png|width="12" fo:scalefit="1" html:scalefit="0"! next to the *Attach a Local File* in the *Compose New Message* form, then select *Attach a Server File* from the drop-down menu.
+*1.* Click !images/Down_arrow_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Attach a Local File* in the *Compose New Message* form, then select *Attach a Server File* from the drop-down menu.
 
-!images/Attach_server_file_form.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/Attach_server_file_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Follow steps 4, 5, and 6 as stated in the [Download and save attachments to server|#Download_attachments_Step_4_5_6] section.
 
 *3.* Click the server file from the files list of your selected folder.
 
-* Click !images/File_Upload_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! if you want to upload a file from your device.
+* Click !images/File_Upload_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! if you want to upload a file from your device.
 
 *4.* Click *Attach* to upload your selected source file into the message;
 
 Or, click *Attach Link* to get the link pointing to the selected source file that is shown in your message body. The *Attach Link* function allows your mail recipients to download the attached source file just clicking the relevant link.
 
 h2. Save a message as draft {anchor:id="Save_message_as_draft"}
-If you are not ready to send your composed message, click !images/save_in_drafts_icon.png| width="60" fo:scalefit="1" html:scalefit="0"! to save it as draft. Your draft message will be in the *Drafts* folder for you to send whenever you like.
+If you are not ready to send your composed message, click !images/save_in_drafts_icon.png| width="17mm" fo:scalefit="1" html:scalefit="0"! to save it as draft. Your draft message will be in the *Drafts* folder for you to send whenever you like.
 
 h2. Set a priority level {anchor:id="Set_priority_level"}
 
@@ -590,11 +590,11 @@ Set a priority level for your composed message
 </citetitle>
 {docbook}
 
-*1.* Click !images/priority_icon.png|width="50" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
+*1.* Click !images/priority_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
 
 *2.* Select your preferred priority from the drop-down menu.
 
-* *Low:* The exclamation icon corresponding to the mail is marked in grey in the !images/Priority_column_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! column.
+* *Low:* The exclamation icon corresponding to the mail is marked in grey in the !images/Priority_column_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! column.
 * *Normal:* There is no the exclamation icon. By default, the message is sent with the *Normal* priority.
 * *High:* The exclamation icon is marked in red.
 
@@ -605,7 +605,7 @@ You can change this signature by [editing your account details|#CSUser_guide.How
 h2. Change message preferences  {anchor:id="Change_message_preferences"}
 At present, this function only allows you to receive a notification message that the recipient has already read your message or not. 
 
-*1.* Click !images/options_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
+*1.* Click !images/options_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form.
 
 *2.* Select the *Return Receipt* option from the drop-down menu. However, seeing the notification message or not also depends on the *[Return Receipts|#Return_Receipts_settings]* configuration of the recipient in the [Change Mail settings|#Mail_settings] section.
 
@@ -624,7 +624,7 @@ h1. Reply to a message {anchor:id="CSUser_guide.How_to_use_Mail.Reply_to_message
 
 *The first way*
 
-Tick the checkbox corresponding to the message you want to reply in the mails list pane, then click !images/reply_mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Tick the checkbox corresponding to the message you want to reply in the mails list pane, then click !images/reply_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 *The second way*
 
@@ -632,11 +632,11 @@ Right-click the message you want to reply and select *Reply* from the drop-down 
 
 *The third way*
 
-Click the message that you want to reply to display its content, then select !images/reply_mail_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content.
+Click the message that you want to reply to display its content, then select !images/reply_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content.
 
 *2.* Compose the content in the *[Compose New Message|#Compose_new_message]* window.
 
-*3.* Click !images/send_mail_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to send your reply.
+*3.* Click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to send your reply.
 
 {docbook}
 <citetitle>
@@ -646,30 +646,30 @@ Click the message that you want to reply to display its content, then select !im
 </citetitle>
 {docbook}
 
-*1.* Tick the checkbox corresponding to the message you want to reply, then click !images/reply_all_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the *Action bar*;
+*1.* Tick the checkbox corresponding to the message you want to reply, then click !images/reply_all_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action bar*;
 
 Or right-click the message, then select *Reply to All* from the drop-down menu.
 
-*2.* Compose your reply message in the *[Compose New Message|#Compose_new_message]* window, then click !images/send_mail_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to send your reply.
+*2.* Compose your reply message in the *[Compose New Message|#Compose_new_message]* window, then click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to send your reply.
 
 h1. Forward a message {anchor:id="CSUser_guide.How_to_use_Mail.Forward_message"}
 This function allows you to resend a message, which has been delivered to your email address, to another email addresses. 
 
 *1.* Open the *Compose New Message* window via either of 3 ways.
 
-*i.* Tick the checkbox corresponding to the message which you want to forward, then click !images/forward_mail_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the action bar.
+*i.* Tick the checkbox corresponding to the message which you want to forward, then click !images/forward_mail_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
-!images/forward_mail.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/forward_mail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* Or, right-click the message, then select *Forward* from the drop-down menu;
 
-*iii.* Or, open the message which you want to forward, then click !images/down_arrow_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content, and select *Forward* from the drop-down menu.
+*iii.* Or, open the message which you want to forward, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content, and select *Forward* from the drop-down menu.
 
 The *Compose New Message* window will be displayed with the original contents of the message you want to forward.
 
 *2.* Enter the recipient's email address in the *To* field.
 
-*3.* Click !images/send_mail_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! to forward the message.
+*3.* Click !images/send_mail_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! to forward the message.
 
 {docbook}
 <note>
@@ -689,11 +689,11 @@ Right-click the message which you want to print and click *Print* from the drop-
 
 *The second way*
 
-Tick the checkbox corresponding to the message, then click !images/print_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Tick the checkbox corresponding to the message, then click !images/print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
 
 *The third way*
 
-Open the message, then click !images/down_arrow_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Print* from the drop-down menu.
+Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Print* from the drop-down menu.
 
 You will be directed to the *Print Preview* page. Here, click *Print* to start printing.
 
@@ -707,11 +707,11 @@ This function allows you to back up your messages, then import them into your an
 
 *ii.* Or, tick the checkbox corresponding to the message, then click *More Actions* on the action bar and select *Export* from the drop-down menu;
 
-*iii.* Open the message, then click !images/down_arrow_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Export {noformat}(*.eml){noformat}* from the drop-down menu.
+*iii.* Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Export {noformat}(*.eml){noformat}* from the drop-down menu.
 
 The *Export Message* form will appear.
 
-!images/export_message.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/export_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the {noformat}*.eml{noformat} format is supported.
 
@@ -724,7 +724,7 @@ The function is used to import a message from your device to your selected folde
 
 The *Import Message* form will appear.
 
-!images/import_message.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/import_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -750,7 +750,7 @@ h2. Folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folde
 
 Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including *Inbox, Drafts, Sent, Spam, Trash*, will be automatically generated. You cannot delete, rename or move these folders.
 
-!images/Mail_folder.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Mail_folder.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Folder||Description||
@@ -763,7 +763,7 @@ Folders help you manage your messages more easily and flexibly. Once your new ma
 
 h3. Create a new folder {anchor:id="Create_new_folder"}
 
-*1.* Click !images/Down_arrow_addressbook_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the *Folders* pane, then select *Add* from the drop-down menu.
+*1.* Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Folders* pane, then select *Add* from the drop-down menu.
 
 *2.* Enter the folder name into the *Folder name* field. Special characters are not accepted in this field.
 
@@ -780,7 +780,7 @@ h3. Create a new folder {anchor:id="Create_new_folder"}
 h3. Manage Personal Folders {anchor:id="Manage_Personal_Folders}
 Right-click any folder under the *Personal Folders* pane to show the drop-down menu. 
 
-!images/personal-folder.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/personal-folder.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 Here you can manage personal folders through the following actions:
 * [Create a sub-folder|#Create_subfolder]
@@ -826,9 +826,9 @@ Tags are used as labels for filtering or categorizing messages from different fo
 
 h3. Create a tag {anchor:id="Create_tag"}
 
-*1.* Click !images/Down_arrow_addressbook_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! on the *Tags* pane of the right pane and select *Add New Tag* from the drop-down menu to open the *Tag* form.
+*1.* Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Tags* pane of the right pane and select *Add New Tag* from the drop-down menu to open the *Tag* form.
 
-!images/tag.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/tag.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description|
@@ -864,7 +864,7 @@ Right-click your selected message, then select *Tag* from the drop-down menu;
 
 The *Tag Message* form will be displayed.
 
-!images/tag_message.png|align="center" width="400" fo:scalefit="1" html:scalefit="0"!
+!images/tag_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Give a new tag name in the *Tag Name* field. This field contains words and keywords which are used to describe the same messages.
 
@@ -901,7 +901,7 @@ h3. Edit a tag {anchor:id="Edit_tag"}
 
 The *Tag* form will appear.
 
-!images/tag.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/tag.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Make changes on the tag, then click *Save* to save your changes.
 
@@ -923,13 +923,13 @@ h3. Change the tag color {anchor:id="Change_tag_color"}
 
 Right-click the tag in the *Tags* pane, then select your desired color from the 32-color palette.
 
-!images/tags_color.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/tags_color.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Filter {anchor:id="Filter"}
 
 By default, the messages list shows all of your received messages in your inbox but you can filter to specify which message to be displayed.
 
-!images/Filter_message_dropdown.png|align="center" width="100" fo:scalefit="1" html:scalefit="0"!
+!images/Filter_message_dropdown.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 You can filter messages according to the following criteria:
 
@@ -956,15 +956,15 @@ Create a new filter by defining all filter rules
 
 By this way, you need to manually define conditions for the new message filter.
 
-*1.* Click !images/filter_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+*1.* Click !images/filter_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
 
-!images/message_filter.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/message_filter.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/add_new_filter_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! or the "Click here to add a new filter" link to create a new filter.
+*2.* Click !images/add_new_filter_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! or the "Click here to add a new filter" link to create a new filter.
 
 The *Add/Edit Message Filter* will appear.
 
-!images/add_edit_message_filter.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_message_filter.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -993,11 +993,11 @@ By this way, you could create a filter which is based on existing conditions of 
 
 *1.* Right-click a message containing the criteria you want to include in your new filter. 
 
-!images/filter_message.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/filter_message.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Add/Edit Message Filter* form will appear with some pre-defined filter conditions of the current selected message.
 
-!images/add_edit_message_filter.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_message_filter.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Modify the rule if necessary, then click *Save* to finish.
 
@@ -1005,11 +1005,11 @@ The created filter will be displayed in the list. All messages matching the defi
 
 h3. Edit a filter {anchor:id="Edit_filter"}
 
-*1.* Click !images/filter_icon.png|width="40" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+*1.* Click !images/filter_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
 
-*2.* Click the filter you want to edit in the left pane. Your selected filter is marked with !images/Selected_filter_iconpng|width="12" fo:scalefit="1" html:scalefit="0"!.
+*2.* Click the filter you want to edit in the left pane. Your selected filter is marked with !images/Selected_filter_iconpng|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-*3.* Click !images/edit_filterpng|width="12" fo:scalefit="1" html:scalefit="0"! on the filter bar to open the *Add/Edit Message Filter* form.
+*3.* Click !images/edit_filterpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar to open the *Add/Edit Message Filter* form.
 
 *4.* Change the filter conditions to your desires.
 
@@ -1017,9 +1017,9 @@ h3. Edit a filter {anchor:id="Edit_filter"}
 
 h3. Delete a filter {anchor:id="Delete_filter"}
 
-*1.* Click !images/filter_iconpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
+*1.* Click !images/filter_iconpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
 
-*2.* Click the filter you want to delete, then select !images/delete_filterpng|width="12" fo:scalefit="1" html:scalefit="0"! on the filter bar.
+*2.* Click the filter you want to delete, then select !images/delete_filterpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -1031,11 +1031,11 @@ Quick search allows you to conduct a search with specific keywords in all of you
 
 *1.* Enter your search term into the search box in the left pane.
 
-!images/Mail_quick_search.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Mail_quick_search.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/Search_icon.png|width="12" fo:scalefit="1" html:scalefit="0"!. All messages containing the search term will be listed in the search results.
+*2.* Click !images/Search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. All messages containing the search term will be listed in the search results.
 
-!images/Mail_quick_search_result.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Mail_quick_search_result.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 {docbook}
@@ -1048,11 +1048,11 @@ Quick search allows you to conduct a search with specific keywords in all of you
 h2. Advanced search {anchor:id="Mail_Advanced_search"}
 The Advanced Search allows you to specify criteria to narrow your search results.
 
-*1.* Click !images/advanced_search_iconpng|width="12" fo:scalefit="1" html:scalefit="0"! in the left pane to open the *Advanced Search* form.
+*1.* Click !images/advanced_search_iconpng|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane to open the *Advanced Search* form.
 
 *2.* Define the search conditions to your details, including:
 
-!images/Advanced_search_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Advanced_search_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Search in Folder*: The folder in which you want to search in the.
 
@@ -1080,15 +1080,15 @@ h1. Add an event {anchor:id="Add_event"}
 
 If you want to invite your colleagues to join a conference or a meeting, you can create an event, invite them or make email notifications to receive reminders right in the *Mail* application.
 
-*1.* Click !images/new_event_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Add Event* form.
+*1.* Click !images/new_event_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Add Event* form.
 
 *2.* Give basic information for your event in the *Event Detail* tab, such as setting the event priority, creating repeating events, attaching files.
 
-!images/add_event.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/add_event.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select the *Reminders* tab to create the event reminder via an email. This step is optional.
 
-!images/add_event_reminder_tab.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/add_event_reminder_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Click *Save* to finish adding your event.
 
@@ -1097,13 +1097,13 @@ h1. Manage Address Book in Mail {anchor:id="Manage_address_books_in_Mail"}
 
 h2. Add a new address book {anchor:id="Add_address_book"}
 
-*1.* Click !images/contacts_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Contacts* form.
+*1.* Click !images/contacts_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Contacts* form.
 
 *2.* Click the *Add Address Book* button to add a new address book.
 
 *3.* Enter values in fields of the *Add Address Book* form.
 
-!images/Add_address_book_from_Mail.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Add_address_book_from_Mail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -1119,7 +1119,7 @@ The function is used to add a new contact to a group.
 
 *The first way*
 
-Click !images/contacts_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"!, then select !images/add_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Contacts* form.
+Click !images/contacts_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"!, then select !images/add_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Contacts* form.
 
 *The second way*
 
@@ -1136,7 +1136,7 @@ This way is used to add the message sender to a specific address book.
 
 The *Contact* form will appear.
 
-!images/contact_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/contact_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter information for your contact. For more details, see the [Create a new contact|#CSUser_guide.How_to_use_Address_book.Create_new_contact] section.
 
@@ -1145,22 +1145,22 @@ The *Contact* form will appear.
 h2. Edit contact details {anchor:id="Edit_contact_details"}
 The function is used to edit a contact in a specific group.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+*1.* Open the *Contacts* form by clicking !images/contacts_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *2.* Select the contact whom you want to edit in the left pane. 
 
-*3.* Click !images/edit_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"!.
+*3.* Click !images/edit_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 *4.* Change the contact details, then click *Save* to finish.
 
 h2. Delete a contact {anchor:id="Delete_contact"}
 The function is used to delete a contact from a specific group. This contact will be removed from your address book as well.
 
-*1.* Open the *Contacts* form by clicking !images/contacts_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+*1.* Open the *Contacts* form by clicking !images/contacts_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *2.* Select the contact whom you want to delete in the *Address Book* form.
 
-*3.* Select !images/delete_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"!, then click *OK* in the confirmation message to accept your deletion.
+*3.* Select !images/delete_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"!, then click *OK* in the confirmation message to accept your deletion.
 
 {docbook}
 <note>
@@ -1173,13 +1173,13 @@ You cannot delete your own contact from your address book.
 h1. Change Mail settings {anchor:id="Mail_settings"}
 The function allows you to change the behavior and the layout of *Mail* to your needs.
 
-*1.* Click !images/settings_buttonpng|width="12" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Settings* form.
+*1.* Click !images/settings_buttonpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Settings* form.
 
 *2.* Change settings for the *Mail* application in 4 tabs: General, Return Receipts, Layout and Delegation.
 
 *i.* In the *General* tab, change basic information.
 
-!images/settings.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/settings.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -1193,7 +1193,7 @@ The function allows you to change the behavior and the layout of *Mail* to your 
 
 *ii.* In the *Return Receipts* tab, set options to specify what the *Mail* application should do when it gets a "[Return Receipt|#Change_message_preferences]" request. It means that you can determine whether to send a notification of having read the message to the sender or not. {anchor:id="Return_Receipts_settings"}
 
-!images/Mail_return_receipts.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Mail_return_receipts.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 ||Field||Description||
@@ -1203,19 +1203,19 @@ The function allows you to change the behavior and the layout of *Mail* to your 
 
 *iii.* In the *Layout* tab, personalize the *Mail* layout by ticking another checkbox corresponding to your desired layout. The *Horizontal Split* type is set by default.
 
-!images/settings2.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/settings2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *iv.* In the *Delegation* tab, delegate your account to any registered user in the system as follows:
 
-!images/Mail_delegation.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Mail_delegation.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* Select the account you want to delegate from the *This account* list by clicking !images/down_arrow_icon1png|width="12" fo:scalefit="1" html:scalefit="0"!.
+* Select the account you want to delegate from the *This account* list by clicking !images/down_arrow_icon1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 * Enter the name of user to whom you want to delegate your selected account in the *will be delegated to* field.
 
-* Tick the *Full* checkbox next to !images/Add_delegated_userpng|width="12" fo:scalefit="1" html:scalefit="0"! if you want to assign all permissions, which can be done on your selected account, to the delegated user. If this checkbox is not selected, the user can only view mails of the delegated account.
+* Tick the *Full* checkbox next to !images/Add_delegated_user.png|width="4mm" fo:scalefit="1" html:scalefit="0"! if you want to assign all permissions, which can be done on your selected account, to the delegated user. If this checkbox is not selected, the user can only view mails of the delegated account.
 
-* Click !images/Add_delegated_userpng|width="12" fo:scalefit="1" html:scalefit="0"! to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the *Full* permission or add the *Full* permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the *Full* column of the Accounts table.
+* Click !images/Add_delegated_user.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the *Full* permission or add the *Full* permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the *Full* column of the Accounts table.
 
 *3.* Click *Save* to accept the changes.
 
