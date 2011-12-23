@@ -100,9 +100,6 @@ a {
 .UIWorkingWorkspace .UIPresentationContainer a:hover {
 	text-decoration: none;
 }
-.DeleteNodeIcon {
-    background: url("/ecmexplorer/skin/icons/16x16/DefaultSkin/DustBin.gif") no-repeat scroll left center transparent;
-}
 
 .UIItemSelector .ItemDetailList .TemplateContainer .acmeImage {
     background: url("/eXoPlatformResources/skin/platformSkin/platform-portal/acme.png") no-repeat scroll center center transparent;
