@@ -88,7 +88,7 @@ h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Ma
 
 *2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png|width="3mmmm" fo:scalefit="1" html:scalefit="0"! that corresponds to a pay raise process which you want to request a task.
 
-!images/Workflow/Request_payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0" !
+!images/Workflow/Request_payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 

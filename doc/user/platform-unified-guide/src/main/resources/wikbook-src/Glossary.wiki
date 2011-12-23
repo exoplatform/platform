@@ -36,7 +36,7 @@ This section provides a number of terms that you will encounter when implementin
 
 * *My Sites:* This menu lets you access the different sites hosted by the portal. The navigation of the current portal is displayed as a sub-menu. This functionality allows different sites to individually control some portal-related aspects, such as portlets, while maintaining other content standardized with the parent portal.
 
-!images/MySitesPortlet.png|align="center"!
+!images/MySitesPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *My Groups:* This menu contains the navigations that are bound to groups that you belong to. Out of the box, this menu does not appear, but a portal administrator can assign you to a functional group that will grant you access to pages restricted to this group.
 ** If you are logged in as a user account, this navigation holds personal links set up by yourself.
@@ -44,23 +44,23 @@ This section provides a number of terms that you will encounter when implementin
 ** If you are logged in as an administrator account, the navigation adds further management capabilities, such as Internationalization and community management. 
 * *My Spaces:* This menu lets you access spaces that you created or spaces that you are a member. The navigation of a space is displayed as a sub-menu which lets you access that space applications.
 
-!images/MySpacePortlet.png|align="center"!
+!images/MySpacePortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Dashboard:* This navigation contains links and portlets (or gadgets) selected by yourself. This user navigation is created automatically when your account registration is successful. This navigation only can be deleted when you are removed.
 
-!images/DashboardPortlet.png|align="center"!
+!images/DashboardPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"
 
 * *Desktop:* The desktop gives you access to applications of the portal in a free-form windowed layout.
 
-!images/Desktop_portlet.png|align="center"!
+!images/Desktop_portlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Edit:* This navigation type appears when you logged in as an administrator or a web-contributor. In spaces, it also appears when you are a space manager. This navigation contains links to add new pages to a portal, to edit a page or to change the portal's layout and navigation.
 
-!images/EditorPortlet.png|align="center"!
+!images/EditorPortlet.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 * *User Menu*: The main menu (located under your display name) to change your account information, the portal language or to sign out, and more.
 
-!images/User_menu.png|align="center"!
+!images/User_menu.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 
 {docbook}
@@ -187,4 +187,4 @@ The *Podcast* term is a combination of *iPod* and *Broadcast*. In eXo Platform, 
 
 *Symlink* stands for Symbolic Link and is a special file containing a reference to a document or a folder. By using symlinks, you can easily access specific nodes (target) that symlinks point to. In *Sites Explorer*, a symlink has a small chain symbol next to its icon.
 
-!images/symlink.png|align="center"!
+!images/symlink.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
