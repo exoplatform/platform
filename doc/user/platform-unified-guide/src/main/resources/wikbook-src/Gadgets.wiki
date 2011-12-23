@@ -299,8 +299,8 @@ The eXo Scripting Console gadget is better viewed on the entire screen. You shou
 
 !images/GroovyConsole.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-* Click !images/GroovyConsole_font.png|scalefit="1" width="5mm"! to change the font size.
-* Click !images/GroovyConsoleColor.png|scalefit="1" width="5mm"! to change the font color.
-* Click !images/GroovyConsoleHelp.png|scalefit="1" width="5mm"! to view the Groovy Console Help.
+* Click !images/GroovyConsole_font.png|scalefit="1" width="8mm"! to change the font size.
+* Click !images/GroovyConsoleColor.png|scalefit="1" width="8mm"! to change the font color.
+* Click !images/GroovyConsoleHelp.png|scalefit="1" width="8mm"! to view the Groovy Console Help.
 
 
