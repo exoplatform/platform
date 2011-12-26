@@ -8,7 +8,7 @@ This chapter will show you how to create a portal via the following topics:
 * [Add/remove languages|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
 * [Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
 ** [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
-** [Configure skin in GateIn|#DEV.CreateYourOwnPortal.ConfigureSkinInGatein]
+** [Configure skin in eXo Platform|#DEV.CreateYourOwnPortal.ConfigureSkinInPlatform]
 ** [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
 ** [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
 ** [Customize Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
@@ -40,131 +40,192 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
-For the JBoss deployment with more details, refer to Reference Guide on [here|../../../reference/html/index.html].
+For the JBoss deployment with more details, refer to the Reference Guide [here|http://platform.demo.exoplatform.org/docs/].
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
 You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.
 
-h2. Page layout {anchor:id=DEV.CreateYourOwnPortal.PageLayout}
+h2. Portal navigation {anchor:id=DEV.CreateYourOwnPortal.PageLayout}
 
-The configuration of "classic" portal can be found in the _/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic_
-directory of your extension webapp.
+The portal navigation incorporates the pages that can be accessed even when the user is not logged in assuming the applicable permissions allow the public access). For example, several portal navigations are used when a company owns multiple trademarks, and sets up a website for each of them.
 
-*Portal:*
+The configuration of the "classic" portal can be found in the _/src/main/WEB-INF/conf/portal/portal/classic_ directory of your extension webapp.
 
-The _portal.xml_ file describes the layout and portlets common to all pages of the portal.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">portal.xml</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The _portal.xml_ file describes the layout and portlets that will be shown on all pages. The layout usually contains the banner, footer, menu and breadcrumbs portlets. eXo Platform 3.5 is extremely configurable as every view element (even the banner and footer) is a portlet.
 
 {code:xml}
-<portal-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0" xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
-  <portal-name>classic</portal-name>
-  <locale>en</locale>
-  <access-permissions>Everyone</access-permissions>
-  <edit-permission>*:/platform/administrators</edit-permission>
-  <properties>
-    <entry key="sessionAlive">onDemand</entry>
-  </properties>
+<portal-config
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+   xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+   <portal-name>classic</portal-name>
+   <locale>en</locale>
+   <access-permissions>Everyone</access-permissions>
+   <edit-permission>*:/platform/administrators</edit-permission>
+   <properties>
+      <entry key="sessionAlive">onDemand</entry>
+      <entry key="showPortletInfo">1</entry>
+   </properties>
 
-  <portal-layout>
-    <portlet-application>
-      <portlet>
-        <application-ref>web</application-ref>
-        <portlet-ref>BannerPortlet</portlet-ref>
-        <preferences>
-          <preference>
-            <name>template</name>
-            <value>par:/groovy/groovy/webui/component/UIBannerPortlet.gtmpl</value>
-            <read-only>false</read-only>
-          </preference>
-        </preferences>
-      </portlet>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
+   <portal-layout>
+      <portlet-application>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>BannerPortlet</portlet-ref>
+            <preferences>
+               <preference>
+                  <name>template</name>
+                  <value>par:/groovy/groovy/webui/component/UIBannerPortlet.gtmpl</value>
+                  <read-only>false</read-only>
+               </preference>
+            </preferences>
+         </portlet>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
 
-    <portlet-application>
-      <portlet>
-        ...
-      </portlet>
-    </portlet-application>
+      <portlet-application>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>NavigationPortlet</portlet-ref>
+         </portlet>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
 
-    <portlet-application>
-      <portlet>
-        ...
-      </portlet>
-    </portlet-application>
+      <portlet-application>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>BreadcumbsPortlet</portlet-ref>
+         </portlet>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
 
-    <page-body> </page-body>
+      <page-body> </page-body>
 
-    <portlet-application>
-      <portlet>
-        ...
-      </portlet>
-    </portlet-application>
-  </portal-layout>
+      <portlet-application>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>FooterPortlet</portlet-ref>
+            <preferences>
+               <preference>
+                  <name>template</name>
+                  <value>par:/groovy/groovy/webui/component/UIFooterPortlet.gtmpl</value>
+                  <read-only>false</read-only>
+               </preference>
+            </preferences>
+         </portlet>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
+
+   </portal-layout>
+
 </portal-config>
 {code}
 
-As you can see, each portlet can be configured with a set of preferences, which will be further detailed in Chapter 6. The tag <page-body> </page-body> is a placeholder for the different pages of your portal. When the user opens a new portal page, all portlets of the portal layout (portal.xml) are remained, whereas the content of <page-body> switches to the page opened by the user.
+Each portlet can be configured with a set of preferences, which will be further detailed in [Chapter 6|#DEV.WorkingwithContent].
 
-*Pages:*
+It is also possible to apply a nested container that can also contain portlets. Row, column or tab containers are then responsible for the layout of their child portlets.
 
-The _pages.xml_ file is used to describe the content of pages of your portal. In particular, pages of your portal will be inside the <page-body> tag of the _portal.xml_ file above.
+Each application references a portlet using the id {noformat}portal#{portalName}:/{portletWarName}/{portletName}/{uniqueId}{noformat}
 
-This is the example of the _pages.xml_ file of the classic portal.
+The <page-body> </page-body> tag is a placeholder for the different pages of your portal, it defines where Platform should render the current page. When the user opens a new portal page, all portlets of the portal layout (_portal.xml_) are remained, whereas the content of <page-body> switches to the page opened by the user.
+
+The defined "classic" portal is accessible to "Everyone" (at _/portal/public/classic_) but only members of the group _/platform/administrators_ can edit it.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">pages.xml</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+The structure of the _pages.xml_ configuration file is very similar to that in the _portal.xml_ of the "classic" portal and it can also contain container tags. Each application can decide whether to render the portlet border, the window state, the icons or portlet's mode.
+
+This is the example of the _pages.xml_ file of the "classic" portal.
 
 {code:xml}
-<page>
-  <name>homepage</name>
-  <title>Home Page</title>
-  <access-permissions>Everyone</access-permissions>
-  <edit-permission>*:/platform/administrators</edit-permission>
-  <container id="ClassicBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-    <access-permissions>Everyone</access-permissions>
-    <container id="ClassicLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+<page-set
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+   xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+
+   <page>
+      <name>homepage</name>
+      <title>Home Page</title>
       <access-permissions>Everyone</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
       <portlet-application>
-        <portlet>
-          <application-ref>presentation</application-ref>
-          <portlet-ref>SingleContentViewer</portlet-ref>
-          <preferences>
-            <preference>
-              <name>repository</name>
-              <value>repository</value>
-              <read-only>false</read-only>
-            </preference>
-            ...
-            <preference>
-              <name>ShowTitle</name>
-              <value>false</value>
-              <read-only>false</read-only>
-            </preference>
-          </preferences>
-        </portlet>
-        <title>Introduce</title>
-        <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-        <show-application-state>false</show-application-state>
-        <show-application-mode>false</show-application-mode>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>HomePagePortlet</portlet-ref>
+            <preferences>
+               <preference>
+                  <name>template</name>
+                  <value>system:/templates/groovy/webui/component/UIHomePagePortlet.gtmpl</value>
+                  <read-only>false</read-only>
+               </preference>
+            </preferences>
+         </portlet>
+         <title>Home Page portlet</title>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+         <show-application-state>false</show-application-state>
+         <show-application-mode>false</show-application-mode>
       </portlet-application>
-    </container>
-  </container>
-</page>
+   </page>
+
+   <page>
+      <name>sitemap</name>
+      <title>Site Map</title>
+      <access-permissions>Everyone</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <portlet-application>
+         <portlet>
+            <application-ref>web</application-ref>
+            <portlet-ref>SiteMapPortlet</portlet-ref>
+         </portlet>
+         <title>SiteMap</title>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+      </portlet-application>
+   </page>
+   .......
+</page-set>
 {code}
 
 {note}
-See Chapter 6 to learn more about the portlet configuration within the _pages.xml_ file.
+See [Chapter 6|#DEV.WorkingwithContent] to learn more about the portlet configuration within the _pages.xml_ file.
 {note}
 
-*Navigation:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">navigation.xml</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-The _navigation.xml_ is used to associate the links in your navigation with your portal pages. The navigation is a tree structure of "navigation nodes". Each navigation node points to one page (called the page node). The tree structure corresponds to a hierarchy of menus and sub-menus of a site.
+The _navigation.xml_ file defines all the navigation nodes of the portal. The syntax is simply using the nested node tags. Each node refers to a page defined in the _pages.xml_ file that will be explained later.
 
-If the pattern {noformat}#{}{noformat} is used, the link label will be loaded from the portal resource bundle. To learn more, refer to [Internationalization Configuration|../../../reference/html/bk02ch03.html#sect-Reference_Guide-Internationalization_Configuration].
+If the administrator wants to create node labels for each language, he will have to use _{noformat}xml:lang{noformat}_ attribute in the label tag with the value of _{noformat}xml:lang{noformat}_ is set to the relevant locale.
+
+Otherwise, if the administrator wants the node label is localized by resource bundle files, the _{noformat}#{...}{noformat}_ syntax will be used. The enclosed property name serves as a key that is automatically passed to the internationalization mechanism. Thus, the emphasis property name is replaced with a localized value taken from the associated properties file matching the current locale.
 
 {code:xml}
-<?xml version="1.0" encoding="UTF-8"?>
 <node-navigation>
   <owner-type>portal</owner-type>
   <owner-id>classic</owner-id>
@@ -190,21 +251,21 @@ If the pattern {noformat}#{}{noformat} is used, the link label will be loaded fr
 This navigation tree is shown and reused in different portlets, such as sitemap, navigation or breadcrumbs. The breadcrumbs portlet renders the position of the current navigation node.
 
 {note}
-For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like <uri>contentmanagement/fileexplorer</uri> where 'contentmanagement' is the name of the parent node and 'fileexplorer' is the name of node (<name>fileexplorer</name>).
+For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like _{noformat}<uri>contentmanagement/fileexplorer</uri>{noformat}_ where 'contentmanagement' is the name of the parent node, and 'fileexplorer' is the name of node (_{noformat}<name>fileexplorer</name>{noformat}_).
 {note}
 
 h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
 When you configure the _navigation.xml_ file, sometimes you need to set the visibility of page (node).
 
-To configure, simply put _{noformat}<visibility>type_of_visibility</visibility>{noformat}_ as a child of <node> tag.
+To configure the page visibility, simply put _{noformat}<visibility>type_of_visibility</visibility>{noformat}_ as a child of the _<node>_ tag.
 
-GateIn supports 4 types of page visibility, including:
+eXo Platform supports 4 types of page visibility, including:
 
 * DISPLAYED: The page will be displayed.
 * HIDDEN: The page is not visible in the navigation but can be accessed directly with its URL.
 * SYSTEM: It is a system page which is visible to superusers. In particular, only superusers can change or delete this system page. 
-* TEMPORAL: The page is displayed in related time range. When the visibility of TEMPORAL page is configured, the start and end date can be specified by using <startpublicationdate> and <endpublicationdate>. For example:
+* TEMPORAL: The page is displayed in related time range. When the visibility of TEMPORAL page is configured, the start and end date can be specified by using _<startpublicationdate>_ and _<endpublicationdate>_. For example:
 
 {code:xml}
 <node>
@@ -215,7 +276,7 @@ GateIn supports 4 types of page visibility, including:
 </node>
 {code}
 
-* To hide a page, use <visibility>HIDDEN</visibility>:
+* To hide a page from menu and navigation, use _<visibility>HIDDEN</visibility>_:
 
 {code:xml}
 <node-navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -234,16 +295,17 @@ GateIn supports 4 types of page visibility, including:
 {code}
 
 h2. Page access permission {anchor:id=DEV.CreateYourOwnPortal.PagesAccessPermission}
-You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create _pages.xml_ and _navigation.xml_ files in folders named after the group and user to which you want to give permission:
+You can easily restrict the access of selected pages and navigation nodes to certain groups and users. You just need to create _pages.xml_ and _navigation.xml_ files in folders named after groups and users to which you want to give permission:
 
 * _sample-ext/portal/group/group-name/your files_
 
 * _sample-ext/portal/user/username/your files_
 
-As you know, the permission on a page has two types: access and edit. 
+As you know, the permission on a page has two types: access (view the page) and edit. 
 
-To configure them, edit the _pages.xml_ file and put tags: <access-permissions> and <edit-permission>.
-Currently, eXo Platform supports several access permissions but only one edit permission. It means that you can configure to make many groups to have the access permission but you can only set one group for edit permission. 
+To configure them, edit the _pages.xml_ file and put tags: _<access-permissions>_ and _<edit-permission>_.
+
+Currently, eXo Platform supports several access permissions but only one edit permission. It means that you can configure to make many groups to have the access permission but you can only set one group for edit permission.
 
 For example:
 
@@ -259,13 +321,26 @@ For example:
 
 h1. Add/remove languages {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
 
-All languages are put in the _myextension.war/WEB-INF/conf/common/locales-config.xml_ directory. Each language consists of information related to key, output-encoding, input-encoding, description and orientation. Different languages will be defined in corresponding _resource bundle_ files with keys specified in the _locale-config.xml_ file.
+Developer can define new or remove a defined language through the locale configuration file. The resource is managed by _org.exoplatform.services.resources.LocaleConfigService_ as following:
 
-All languages defined in the _locale-config.xml_ file are listed in *Interface Language Settings*. 
+{code:xml}
+<component>
+    <key>org.exoplatform.services.resources.LocaleConfigService</key>
+    <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
+      <init-params>
+        <value-param>
+          <name>locale.config.file</name>
+          <value>war:/conf/common/locales-config.xml</value>
+        </value-param>
+      </init-params>
+  </component>
+{code}
+
+All languages defined in the _locale-config.xml_ file are listed in the [*Interface Language Settings*|#DEV.Interface_Language_Setting_window] window.
 
 h2. Add new languages {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
 
-To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as key of the added node.
+To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as the key of the added node.
 
 For example, to add Italian, do as follows:
 
@@ -288,7 +363,9 @@ This step is necessary because the Resource Bundle Service of the portal will fi
 
 *3.* Restart the server.
 
-To check if the added language takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, you will see Italian as shown:
+To check if the added language takes effect, hover the mouse over your username on the *Administration* bar and click *Change Language*. In the *Interface Language Settings* window that appears, you will see the Italian is listed as below:
+
+{anchor:id="DEV.Interface_Language_Setting_window"}
 
 !images/example_addItalian.png|align="center"!
 
@@ -312,16 +389,18 @@ For example, to remove French, do as follows:
 *2.* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
 
 {note}
-It is recommended this step should be done to delete unnecessary data in the application.
+It is recommended this step shoud be done to delete unnecessary data in the application.
 {note}
  
 *3.* Restart the server.
 
-To check if the French removal takes effect, simply click the *Change Language* button on the top right corner of the portal. In the *Interface Language Setting* window, French will not exist on the *Interface Language Setting* window any longer. 
+To check if French is removed, hover the mouse over your username on the *Administration bar* and click the *Change Language*.
+
+In the *Interface Language Settings* window that appears, French is no longer listed.
 
 !images/example_removeFrench.png|align="center"!
 
-h1. Create custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
+h1. Create a custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
 
 {include:document="customize/How_to_create_custom_look_and_feel.wiki"}
 
