@@ -1,11 +1,11 @@
-This section aims at helping you apply eXo Platform to your projects successfully by introducing eXo architecture and giving step-by-step instructions for you to build your own custom portal based on eXo Platform.
+This chapter shows you how to set up maven. The rest of the Developer Guide explains how to setup an entire project/extension.
 
 *Requirements:*
 
 * JDK (Java Development Kit) 6.0 
 * SVN 1.6+
 * Maven 2.2.1+
-* Tomcat 6.0.26 or JBoss 5.1.0
+* Tomcat 6.0.32 or JBoss EAP 5.1.1
 
 *Install and configure Maven:*
 
@@ -24,7 +24,7 @@ export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 
 *Maven settings:*
 
-*1.* Save the _settings.xml_ file to the path: _HOME/.m2/settings.xml_.
+*1.* Save the _settings.xml_ file to the _HOME/.m2/settings.xml_ path.
 
 *2.* Edit and change the _local-properties_ profile, including:
 
@@ -39,3 +39,15 @@ If the _settings.xml_ file has been existing, you can merge them. You will need 
 
 * The [repository|http://repository.exoplatform.org/public] to download our dependencies.
 {note}
+
+{docbook}
+<para>
+<prompt>
+    <emphasis role="bold">See also</emphasis>
+</prompt>
+</para>
+{docbook}
+
+[Create an extension|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+
+[Create a skin|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
