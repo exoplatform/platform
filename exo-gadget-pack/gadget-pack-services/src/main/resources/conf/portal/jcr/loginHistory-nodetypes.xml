@@ -98,6 +98,9 @@
             <propertyDefinition name="exo:LoginHisSvc_userId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
                 <valueConstraints />
             </propertyDefinition>
+            <propertyDefinition name="exo:LoginHisSvc_userName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+                <valueConstraints />
+            </propertyDefinition>
             <propertyDefinition name="exo:LoginHisSvc_lastLogin" requiredType="Long" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
                 <valueConstraints />
             </propertyDefinition>

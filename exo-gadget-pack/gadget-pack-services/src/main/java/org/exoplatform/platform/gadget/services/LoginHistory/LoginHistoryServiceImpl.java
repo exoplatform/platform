@@ -154,7 +154,8 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			QueryManager queryManager = session.getWorkspace().getQueryManager();
 			
 			String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile " +
-									"WHERE exo:LoginHisSvc_userId LIKE '%" + userIdFilter + "%' " +
+									"WHERE (exo:LoginHisSvc_userId LIKE '%" + userIdFilter + 
+									"%') OR (exo:LoginHisSvc_userName LIKE '%" + userIdFilter + "%') " +
 									"ORDER BY exo:LoginHisSvc_lastLogin DESC";
 			
 			QueryImpl query = (QueryImpl)queryManager.createQuery(sqlStatement, Query.SQL);
@@ -166,12 +167,13 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			List<LastLoginBean> lastLogins = new ArrayList<LastLoginBean>();
 			Node node;
 			String userId, userName;
-			ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class); 
+			//ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class); 
 			while(nodeIterator.hasNext()){
 				node = nodeIterator.nextNode();
 				LastLoginBean lastLoginBean = new LastLoginBean();
 				userId = node.getName();
-				userName = forumService.getUserInfo(userId).getFullName();
+				//userName = forumService.getUserInfo(userId).getFullName();
+				userName = node.getProperty("exo:LoginHisSvc_userName").getString();
 				lastLoginBean.setUserId(userId);
 				lastLoginBean.setUserName(userName.isEmpty() ? userId : userName);
 				lastLoginBean.setLastLogin(node.getProperty("exo:LoginHisSvc_lastLogin").getLong());
@@ -204,9 +206,12 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			Node homeNode = session.getRootNode().getNode(HOME);
 
 			Node userNode, loginHistoryNode, loginCounterNode, globalLoginCounterNode;
+			ForumService forumService = (ForumService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ForumService.class);
+			String userName = forumService.getUserInfo(userId).getFullName(); 
 			if(!homeNode.hasNode(userId)){
 				userNode = homeNode.addNode(userId, "exo:LoginHisSvc_userProfile");
 				userNode.setProperty("exo:LoginHisSvc_userId", userId);
+				userNode.setProperty("exo:LoginHisSvc_userName", userName);
 				userNode.setProperty("exo:LoginHisSvc_lastLogin", 0);
 				userNode.setProperty("exo:LoginHisSvc_beforeLastLogin", 0);
 				homeNode.save();
@@ -221,7 +226,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			} else {
 				userNode = homeNode.getNode(userId);				
 			}
-
+                        userNode.setProperty("exo:LoginHisSvc_userName", userName);            
 			userNode.setProperty("exo:LoginHisSvc_beforeLastLogin", userNode.getProperty("exo:LoginHisSvc_lastLogin").getLong());
 			userNode.setProperty("exo:LoginHisSvc_lastLogin", loginTime);
 
