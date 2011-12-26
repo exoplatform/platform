@@ -50,7 +50,7 @@ public class SetCurrentRepositoryValve extends org.exoplatform.cloud.tomcat.SetC
      URI requestUri;
       try
       {
-         requestUri  = new URI(request.getRequestURL().toString());
+         requestUri  = new URI(request.getScheme() + "://" + request.getServerName());
       }
       catch (Exception ex)
       {
