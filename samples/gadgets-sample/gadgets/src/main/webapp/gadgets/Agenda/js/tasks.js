@@ -116,7 +116,7 @@ DOMUtil.prototype.findNextElementByTagName = function(element, tagName) {
 
 DOMUtil = new DOMUtil();
 function eXoEventGadget(){
-} ;
+};
 
 eXoEventGadget.prototype.getPrefs = function(){
 	var setting = (new gadgets.Prefs()).getString("setting");
@@ -151,10 +151,11 @@ eXoEventGadget.prototype.getPrefs = function(){
 //TODO: Need a new solution for creating url replace for using parent 
 eXoEventGadget.prototype.setLink = function(){
 	var url   = eXoEventGadget.prefs.url;
-	baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.accessMode + "/intranet"; //+ parent.eXo.env.portal.portalName;
+	baseUrl = "http://" +  top.location.host + parent.eXo.env.portal.context + "/intranet"; //+ parent.eXo.env.portal.portalName;
 	a = document.getElementById("ShowAll");
 	url = (url)?baseUrl + url: baseUrl + "/calendar";
 	a.href = url;
+	eXoEventGadget.adjustHeight();
 	//a.href = "http://localhost:8080/portal/intranet/calendar";
 }
 
@@ -213,9 +214,13 @@ eXoEventGadget.prototype.render =  function(data){
 		eXoEventGadget.notify();
 		return;
 	}
-	var msg = gadgets.Prefs().getMsg("titleTask");
-	var numberTask = data.length;
-        $("#taskLink").html(msg + " (" + numberTask + ")");
+	var numberTask = 0;
+	for (i=0;i<data.length;i++){
+	        var item1 = data[i];
+	        if (item1.eventState.indexOf("completed") == -1) numberTask++;
+	}
+	
+        $("#numTask").html(" (" + numberTask + ")");
 	var cont = document.getElementById("taskDiv");
 	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
@@ -226,20 +231,20 @@ eXoEventGadget.prototype.render =  function(data){
 	for(var i = 0 ; i < len; i++){	
 		var status = "";
 		var disable = "";
-	  var item = data[i];
+	        var item = data[i];
 		var className = "TaskItem";
-		if(item.eventState == "completed") {
+		if(item.eventState.indexOf("completed") != -1) {
 			status = "checked";
 			className += " TaskDone";
-			disable = "disabled";
+			//disable = "disabled";
 		}
 		var time = 0;
 		if (userTimezoneOffset != null) time = parseInt(item.fromDateTime.time) + parseInt(userTimezoneOffset) + (new Date()).getTimezoneOffset()*60*1000;
 		else time = parseInt(item.fromDateTime.time);
 		var fullDate = eXoEventGadget.getFullTime(new Date(time));
 		//time = DateTimeFormater.format(new Date(time),timemask);
-		html += '<div class="CheckBox">';
-		html += '<input type="checkbox" ' + status + ' name="checkbox" onclick="eXoEventGadget.doTask(this);" ' + disable + ' value="'+ item.id +'"></input>';
+		html += '<div class="CheckBox ' + className + '">';
+		html += '<input type="checkbox" ' + status + ' name="checkbox" onclick="eXoEventGadget.doTask(this);" value="'+ item.id + '"></input>';
 		html += '<label onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
 		html += '</div>';
 		if(item.description) html += '<div class="TaskDetail">' + item.description + '</div>';
@@ -257,9 +262,9 @@ eXoEventGadget.prototype.renderEvent =  function(data){
 		eXoEventGadget.notifyEvent();
 		return;
 	}
-	var msg = gadgets.Prefs().getMsg("title");
+	//var msg = gadgets.Prefs().getMsg("title");
 	var numberEvent = data.length;
-        $("#eventLink").html(msg + " (" + numberEvent + ")");
+        $("#numEvent").html(" (" + numberEvent + ")");
   	var cont = document.getElementById("eventDiv");	
 	var prefs = eXoEventGadget.getPrefs();
 	var gadgetPref = new gadgets.Prefs();
@@ -374,38 +379,46 @@ eXoEventGadget.prototype.ajaxAsyncGetRequestEvent = function(url, callback) {
 }
 
 eXoEventGadget.prototype.doTask = function(obj){
-	var gadgetPref = new gadgets.Prefs();
-	var confirmMsg = gadgetPref.getMsg("confirm");
-	if(confirm(confirmMsg)){
-		var taskitem = obj.parentNode;
-		var url = eXoEventGadget.createRequestUrl();
-		url = url.replace(/calendar.*$/ig,"calendar/updatestatus/"+obj.value);
-		eXoEventGadget.ajaxAsyncGetRequest(url);
-		eXoEventGadget.swapClass(taskitem);
-		obj.disabled = true;
-	}else obj.checked = false;
+	var taskitem = obj.parentNode;
+	var statusid;
+	if (!obj.checked) statusid = 1;
+	else statusid = 3;
+	var url = eXoEventGadget.createRequestUrl();
+	url = url.replace(/calendar.*$/ig,"calendar/updatestatus/"+obj.value + "?statusid=" + statusid);
+	eXoEventGadget.ajaxAsyncGetRequest(url);
+	eXoEventGadget.swapClass(taskitem);
+	eXoEventGadget.updateTaskNum(statusid);	        
+
+}
+
+eXoEventGadget.prototype.updateTaskNum = function(statusid) {
+	var str = $("#numTask").html();
+	var numberTask = str.substring(2,3);
+	if (statusid != 3) numberTask = parseInt(numberTask) + 1;
+	else numberTask = parseInt(numberTask) - 1;
+        $("#numTask").html(" (" + numberTask + ")");					
 }
 
 eXoEventGadget.prototype.swapClass = function(obj){
 	var className = obj.className;
-	if (className.indexOf(" TaskDone") != -1) className =  className.replace(" TaskDone","");
+	if (className.indexOf(" TaskDone") != -1) className = className.replace(" TaskDone","");
 	else className += " TaskDone";
 	obj.className = className;
 }
 
 eXoEventGadget.prototype.notify = function(){
 	var msg = gadgets.Prefs().getMsg("notask");
-	var msg2 = gadgets.Prefs().getMsg("titleTask");
-	document.getElementById("taskDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
-        $("#taskLink").html(msg2 + " (0)");
+	//var msg2 = gadgets.Prefs().getMsg("titleTask");
+	document.getElementById("taskDiv").innerHTML = '<div class="light_message" style="margin-left: 5px">' + msg + '</div>';
+        $("#numTask").html(" (0)");
 	eXoEventGadget.setLink();
 }
 
 eXoEventGadget.prototype.notifyEvent = function(){
 	var msg = gadgets.Prefs().getMsg("noevent");
-	var msg2 = gadgets.Prefs().getMsg("title");
-	document.getElementById("eventDiv").innerHTML = '<div class="light_message">' + msg + '</div>';
-        $("#eventLink").html(msg2 + " (0)");
+	//var msg2 = gadgets.Prefs().getMsg("title");
+	document.getElementById("eventDiv").innerHTML = '<div class="light_message" style="margin-left: 5px">' + msg + '</div>';
+        $("#numEvent").html(" (0)");
 	eXoEventGadget.setLink();
 }
 
@@ -419,9 +432,12 @@ eXoEventGadget.prototype.getCalendars = function(){
 
 eXoEventGadget.prototype.write2Setting = function(data){
 	var frmSetting = document.getElementById("Setting");
-	var html = '';
+	var html = "";
+	var calendarName = "";
 	for(var i=0,len = data.calendars.length; i < len;i++){
-		html += '<option value="' + data.calendars[i].id + '">' + data.calendars[i].name + '</option>';
+	        if(data.calendars[i].name.indexOf("default") != -1) calendarName = gadgets.Prefs().getMsg("default");
+	        else calendarName = data.calendars[i].name;
+		html += '<option value="' + data.calendars[i].id + '">' + calendarName + '</option>';
 	}
 	frmSetting["calendars"].innerHTML = html;
 	eXoEventGadget.getData();
@@ -460,8 +476,8 @@ eXoEventGadget.prototype.saveSetting = function(){
 
 eXoEventGadget.prototype.createSetting = function(frmSetting){
 	var setting = "";
-	setting += frmSetting["url"].value + ";";
-	setting += frmSetting["subscribeurl"].value + ";";
+	setting += "/calendar;";
+	setting += "/portal/rest/cs/calendar/events/personal;";
 	setting += frmSetting["limit"].value + ";";
 	//setting += frmSetting["timeformat"].options[frmSetting["timeformat"].selectedIndex].text + ";";
 	setting += frmSetting["calendars"].options[frmSetting["calendars"].selectedIndex].text + ";";
@@ -471,8 +487,8 @@ eXoEventGadget.prototype.createSetting = function(frmSetting){
 
 eXoEventGadget.prototype.loadSetting = function(){
 	var frmSetting = document.getElementById("Setting");
-	frmSetting["url"].value = eXoEventGadget.prefs.url;
-	frmSetting["subscribeurl"].value = eXoEventGadget.prefs.subscribeurl;
+	//frmSetting["url"].value = eXoEventGadget.prefs.url;
+	//frmSetting["subscribeurl"].value = eXoEventGadget.prefs.subscribeurl;
 	frmSetting["limit"].value = eXoEventGadget.prefs.limit;
 	//eXoEventGadget.selectedValue(frmSetting["timeformat"],eXoEventGadget.prefs.timeformat);
 	eXoEventGadget.selectedValue(frmSetting["calendars"],eXoEventGadget.prefs.calendars);

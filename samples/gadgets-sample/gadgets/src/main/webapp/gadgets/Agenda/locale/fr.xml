@@ -20,8 +20,14 @@
 -->
 
 <messagebundle>
+  <msg name="default">
+    Défaut
+  </msg>
+  <msg name="titlegadget">
+    Mon Agenda
+  </msg>
   <msg name="title">
-    Événements
+    Evénements
   </msg>
   <msg name="baseurl">
     URL de base:
@@ -30,7 +36,7 @@
     URL de Service:
   </msg>
   <msg name="limit">
-    Nombre d'item affichés:
+    Nombre d'item affichés
   </msg>
   <msg name="format">
     Format de l'heure:
@@ -39,19 +45,19 @@
     Calendrier:
   </msg>
   <msg name="showall">
-    Montrer tout
+    Montrer mes calendriers
   </msg>
   <msg name="back">
     Précédent
   </msg>
   <msg name="noevent">
-    Aucun événement aujourd'hui...
+    Aucun événement
   </msg>
   <msg name="titleTask">
     Tâches
   </msg>
   <msg name="notask">
-    Aucune tâche aujourd'hui...
+    Aucune tâche
   </msg>
   <msg name="setting">
     Réglage

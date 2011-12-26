@@ -1,6 +1,7 @@
 .UIGadgetThemes .GadCont .customLink {
 	text-decoration:underline;
-	color:#226ab4; cursor:pointer;
+	color:#226ab4; 
+	cursor:pointer;
 	font-weight: normal;
 }
 .arrowDown {
@@ -28,7 +29,7 @@
 }
 
 .UIGadgetThemes .GadCont {
-	padding: 10px 15px;
+	padding: 20px 15px;
 	font-size: 12px;
 }
 
@@ -63,10 +64,11 @@
 
 .UIGadgetThemes .MyTasks .TaskDetail {
 	display:none;
-	margin:0px 0px 10px 17px;
+	margin:0px 0px 10px 15px;
 }
 
 /** UpcomingEvents **/
+
 .UIGadgetThemes .UpcomingEvents .IconLink {
 	padding-left: 10px;
 	margin-bottom: 5px;
@@ -83,7 +85,7 @@
 
 .UIGadgetThemes .EventDetail {
 	display:none;  
-	margin:0px 0px 10px 10px;
+	margin:0px 0px 10px 15px;
 }
 
 .UIGadgetThemes form input, .UIGadgetThemes form select {

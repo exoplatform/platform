@@ -22,13 +22,13 @@
 
 <messagebundle>
   <msg name="title">
-    Invitations
+    Mes Invitations
   </msg>
   <msg name="people">
     Personnes 
   </msg>
   <msg name="space">
-    Espace
+    Espaces
   </msg>
   <msg name="no_new_contact">
     Aucune nouvelle demande de connexion ...
@@ -42,6 +42,9 @@
   <msg name="members">
     membres
   </msg>
+  <msg name="member">
+    membre
+  </msg>  
   <msg name="find_more">
     Plus
   </msg>

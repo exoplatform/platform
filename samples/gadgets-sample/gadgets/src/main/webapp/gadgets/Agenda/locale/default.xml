@@ -20,6 +20,12 @@
 -->
 
 <messagebundle>
+  <msg name="default">
+    Default
+  </msg>
+  <msg name="titlegadget">
+    My Agenda
+  </msg>
   <msg name="title">
     Events
   </msg>
@@ -30,16 +36,16 @@
     Subscription url:
   </msg>
   <msg name="limit">
-    Number of items is displayed:
+    Number of Items to Display
   </msg>
   <msg name="format">
     Date time format:
   </msg>
   <msg name="showall">
-    Show all
+    Show my calendars
   </msg>
   <msg name="noevent">
-    No events scheduled today ...
+    No events
   </msg>
   <msg name="back">
     Back
@@ -60,7 +66,7 @@
     Tasks
   </msg>
   <msg name="notask">
-    No tasks due today ...
+    No tasks
   </msg>
   <msg name="confirm">
     Are you sure this task completed?

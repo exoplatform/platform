@@ -30,6 +30,6 @@
   <msg name="voter">votants</msg>
   <msg name="total">Total</msg>
   <msg name="discuss">Discutez sur forum</msg>
-  <msg name="nopoll">Il n'y a aucun sondage...</msg>
-  <msg name="createPoll">Créez votre sondage sur</msg>    
+  <msg name="nopoll">Il n'y a aucune question</msg>
+  <msg name="createPoll">Créez votre sondage</msg>    
 </messagebundle>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs author="eXoPlatform"
-    title="Agenda"
+    title="My Agenda"
     title_url="http://www.exoplatform.org"
     description="Tasks and Upcoming Event list.">
     <Locale messages="locale/default.xml" />
@@ -26,14 +26,18 @@
 			function showTask(){
 				$("#eventDiv").hide();
 				$("#taskLink").removeClass();
-				$("#eventLink").addClass("ThemeColor customLink");
+				$("#numTask").removeClass();
+				$("#numEvent").addClass("customLink");
+				$("#eventLink").addClass("customLink");
 				$("#taskDiv").show();
 	
 				}
 			function showEvent(){
 				$("#taskDiv").hide();
 				$("#eventLink").removeClass();
-				$("#taskLink").addClass("ThemeColor customLink");
+				$("#numEvent").removeClass();
+				$("#numTask").addClass("customLink");				
+				$("#taskLink").addClass("customLink");
 				$("#eventDiv").show();
 				}
 
@@ -59,24 +63,24 @@
 <div id="agenda-gadget" class="UIGadgetThemes">
 
         <div class="TitGad ClearFix">
-          <a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
+          <!--a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a-->
 
           <div class="SettingButton" id="SettingButton" title="__MSG_setting__" style="display:block; height:19px">
             <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
           </div>
-          <div class="ContTit">Agenda</div>
+          <div class="ContTit">__MSG_titlegadget__</div>
         </div>
         
      <form id="Setting" action="#" style="display:none;">
       <table>
-        <tr>
+        <!--tr>
           <td>__MSG_baseurl__</td>
           <td><input type="text" name="url"></td>
         </tr>
         <tr>
           <td>__MSG_subscribeurl__</td>
           <td><input type="text" name="subscribeurl"></td>
-        </tr>
+        </tr-->
         <tr>
           <td>__MSG_limit__</td>
           <td><input type="text" name="limit"></td>
@@ -98,10 +102,10 @@
       </form>
       
      <div class="GadCont">
-	<div>
-	<span id="eventLink" href="#" class="ThemeColor customLink"> </span>
-	&nbsp; | &nbsp;
-	<span id="taskLink" href="#" class="ThemeColor customLink"> </span> 
+	<div style="margin-left: 10px">
+	<span id="eventLink" href="#" class="customLink">__MSG_title__ </span><span id="numEvent" class="customLink"></span>
+	&nbsp;&nbsp; | &nbsp;&nbsp;
+	<span id="taskLink" href="#" class="customLink">__MSG_titleTask__ </span><span id="numTask" class="customLink"></span>
 	</div>
 
         <div class="GadCont MyTasks" id="taskDiv">
@@ -109,7 +113,9 @@
 
         <div class="GadCont UpcomingEvents" id="eventDiv">
         </div>
-        
+        <div style="text-align: right">
+                <a href="#" id="ShowAll" target="_parent">__MSG_showall__</a>
+        </div>
      </div>
      
 </div>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs  title="Invitations"
+  <ModulePrefs  title="My Invitations"
   author="Frederic DROUET"
   author_email="fdrouet@exoplatform.com"
-  thumbnail="images/gadget-social-inbox-icon_96x96.png">
+  thumbnail="images/gadget-social-inbox-icon_80x80.png">
     <Require feature="settitle" />
     <Require feature="dynamic-height" />
     <Require feature="opensocial-0.8" />
@@ -16,66 +16,7 @@
     <head>
       <title>__MSG_title__</title>
       <link rel="stylesheet" type="text/css" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
-      <style type="text/css">
-        
-        .requests_container {
-          display: none;
-        }
-        .requests_container, .requests_title {
-          width: 100%;
-        }
-        .requests_title {
-          font-weight: bold;
-          font-size: 14px;
-          text-decoration: underline;
-          padding-bottom: 10px;
-        }
-        .nb_container {
-          /*float: right;*/
-          min-width: 20px;
-          margin-right: 20px;
-          -moz-border-radius: 10px;
-          border-radius: 10px;
-          text-align: center;
-          padding-top: 1px;
-          padding-bottom: 1px;
-          padding-right: 3px;
-          padding-left: 3px;
-        }
-        .nb_no, .nb_yes {
-          border-style: solid;
-          border-width: 1px;
-          font-weight: bold;
-        }
-        .nb_no {
-          color: transparent;
-          border-color: transparent;
-          background-color: transparent;
-        }
-        .nb_yes, .nb_yes a {
-          border-color: red;
-          background-color: red;
-          color: white;
-        }
-        
-        .light_message {
-          color: lightgray;
-        }
-        
-        .customLink {
-           text-decoration:underline;
-           color: #226ab4;
-           cursor:pointer;
-         }
-		 
-		 .UIgadgetthemes .Gadcont span {
-			font-weight: bold;
-		 }
-         .UIgadgetthemes .Gadcont span.customLink {
-            font-weight: normal;
-         }
-        
-      </style>
+      <link rel="stylesheet" type="text/css" href="skin/Invitations.css" />
       <script language="javascript" type="text/javascript" src="scripts/jquery/1.5.2/jquery.min.js"></script>
       <script language="javascript" type="text/javascript" src="scripts/jquery/plugins/jquery.timers-1.2.js"></script>
       <script type="text/javascript">
@@ -131,9 +72,9 @@
           // debuging end
 
           
-          $("#connections_requests_nb").addClass("nb_no");
+          $("#connections_requests_nb").html("(0)");
           $("#connections_requests_handler").html("<div class='light_message'>__MSG_no_new_contact__</div>");
-          $("#space_requests_nb").addClass("nb_no");
+          $("#space_requests_nb").html("(0)");;
           $("#space_requests_handler").html("<div class='light_message'>__MSG_no_new_space__</div>");
           showPeople();
                     
@@ -145,9 +86,9 @@
             $.each(data, function(i, relationRequests) {
               if( relationRequests.length > 0 ) {
                 $('#connections_requests_nb').empty();
-                $('#connections_requests_nb').removeClass();
-                $('#connections_requests_nb').addClass("nb_container nb_yes");
-                $('#connections_requests_nb').append(relationRequests.length);
+                //$('#connections_requests_nb').removeClass();
+                //$('#connections_requests_nb').addClass("nb_container nb_yes");
+                $('#connections_requests_nb').append("(" + relationRequests.length + ")");
                 $('#connections_requests_handler').empty();
                 $.each(relationRequests, function(key, relationRequest) {
                   var contactAvatar = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (relationRequest.avatarUrl == null ? "/social-resources/skin/ShareImages/Avatar.gif" : relationRequest.avatarUrl) + "'>" + "</img></a>";
@@ -176,13 +117,19 @@
             $.each(data, function(i, invitedSpaces) {
               if (invitedSpaces.length > 0) {
                 $('#space_requests_nb').empty();
-                $('#space_requests_nb').removeClass();
-                $('#space_requests_nb').addClass("nb_container nb_yes");
-                $('#space_requests_nb').append(invitedSpaces.length);
+                //$('#space_requests_nb').removeClass();
+                //$('#space_requests_nb').addClass("nb_container nb_yes");
+                $('#space_requests_nb').append("(" + invitedSpaces.length + ")");
                 $('#space_requests_handler').empty();
                 $.each(invitedSpaces, function(key, invitedSpace) {
+                var members = "";
+                  if (invitedSpace.members.length > 1) {
+                        members = " (" + invitedSpace.members.length + " __MSG_members__)";
+                  } else {
+                        members = " (" + invitedSpace.members.length + " __MSG_member__)";
+                  }
                   var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "'>" + "</img>";
-                  var spaceInfo = "<b>" + invitedSpace.prettyName + "</b>" + " (__MSG_members__: " + invitedSpace.invitedUsers.length + ")";
+                  var spaceInfo = "<a href='/portal/intranet/invitationSpace' target='_blank'><b>" + invitedSpace.displayName + "</b></a>" + members;
                                 
                   var spaceRow = "<tr>" +
                                       "<td style='width: 20px;'>" + spaceAvatar + "</td>" +
@@ -203,14 +150,18 @@
         function showPeople(){
           $("#space_requests").hide();
           $("#peopleLink").removeClass();
-          $("#spaceLink").addClass("ThemeColor customLink");
+          $("#connections_requests_nb").removeClass();
+          $("#spaceLink").addClass("customLink");
+          $("#space_requests_nb").addClass("customLink");
           $("#connections_requests").show();
         }
         
         function showSpace(){
           $("#connections_requests").hide();
           $("#spaceLink").removeClass();
-          $("#peopleLink").addClass("ThemeColor customLink");
+          $("#space_requests_nb").removeClass();          
+          $("#peopleLink").addClass("customLink");
+          $("#connections_requests_nb").addClass("customLink");          
           $("#space_requests").show();
         }
 
@@ -236,22 +187,25 @@
       </script>
     </head>
     <body>
-      <div id="social-inbox-gadget" class="UIGadgetThemes UIYellowThemes">
+      <div id="social-inbox-gadget" class="UIGadgetThemes">
         <div class="TitGad ClearFix">
           <div class="ContTit">__MSG_title__</div>
         </div>
         <div id="GadgetContent" class="GadCont">
-            <div align="left"><div id="userIdDiv" class='ThemeColor customLink' style ="font-size:15px;"></div></div>
-            <div align="left" style="padding-bottom: 12px;"><span id='peopleLink' class='ThemeColor customLink'>__MSG_people__</span> <span id="connections_requests_nb" class="nb_container"></span> | <span id='spaceLink' class='ThemeColor customLink'>__MSG_space__ </span> <span id="space_requests_nb" class="nb_container"></span> </div>
+            <div style="margin-left: 10px; padding-bottom: 10px;">
+                <span id="peopleLink" class="customLink">__MSG_people__ </span> 
+                <span id="connections_requests_nb" class="customLink"></span> &nbsp;&nbsp; | &nbsp;&nbsp; <span id="spaceLink" class="customLink">__MSG_space__ </span> 
+                <span id="space_requests_nb" class="customLink"></span>
+            </div>
         
             <div id="connections_requests" class="templates requests_container">
-              <table id="connections_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
+              <table id="connections_requests_handler" style="margin-left: 10px">
               </table>
               <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/connections/receivedInvitations' target='_parent'>__MSG_find_more__</a></div>
             </div>
           
             <div id="space_requests" class="templates requests_container" style="display:none;">
-              <table id="space_requests_handler" cellpadding="2" style="margin-left: 5px; width:90%">
+              <table id="space_requests_handler" style="margin-left: 10px">
               </table>
               <div style="text-align: center; padding-top: 5px;"><a href='/portal/intranet/invitationSpace' target='_parent'>__MSG_find_more__</a></div>
             </div>

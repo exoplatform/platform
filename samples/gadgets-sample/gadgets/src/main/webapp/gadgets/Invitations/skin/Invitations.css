@@ -1,0 +1,63 @@
+.requests_container {
+  display: none;
+}
+
+.requests_container, .requests_title {
+  width: 100%;
+}
+
+.requests_title {
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+
+.nb_container {
+  /*float: right;*/
+  min-width: 20px;
+  margin-right: 20px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.nb_no, .nb_yes {
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+}
+
+.nb_no {
+  color: transparent;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.nb_yes, .nb_yes a {
+  border-color: red;
+  background-color: red;
+  color: white;
+}
+      
+.light_message {
+  color: lightgray;
+}
+       
+.customLink {
+  text-decoration:underline;
+  color: #226ab4;
+  cursor:pointer;
+}
+		 
+.UIgadgetthemes .Gadcont span {
+  font-weight: bold;
+}
+
+.UIgadgetthemes .Gadcont span.customLink {
+  font-weight: normal;
+}
