@@ -186,7 +186,7 @@ uicomponent.addMixinField("name", nameArgs )
 
 h3. WYSIWYG widget {anchor:id=DEV.WorkWithContent.WYSIWYGWidget}
 
-Widgets are natively part of the Platform product to provide a simple and easy way for users to get information and notification on their application. They complete the portlet application that focuses on more transactional behaviors. 
+Widgets are natively part of the eXo Platform product to provide a simple and easy way for users to get information and notification on their application. They complete the portlet application that focuses on more transactional behaviors. 
 
 WYSIWYG stands for What You See Is What You Get. This widget is one of the most powerful tools. It renders an advanced JavaScript text editor with many functionalities, including the ability to dynamically upload images or flash assets into a JCR workspace and then to refer to them from the created HTML text.
 
@@ -244,9 +244,9 @@ String [] descriptionArgs = ["jcrPath=/node/exo:title", "validate=empty"];
 uicomponent.addTextAreaField("description", descriptionArgs) ;
 {code}
 
-h3. Create a custom RichText editor fields
+h3. Create a custom RichText editor fields  {anchor:id=DEV.WorkWithContent.Create_a_custom_Richtext_editor_fields}
 
-In the section [WYSIWYG widget|#DEV.WorkWithContent.WYSIWYGWidget], you already know about a set of default toolbars (CompleteWCM, Default, BasicWCM, Basic, SuperBasicWCM). In this section, you will learn how to create a *RichText* editor with custom buttons.
+In the [WYSIWYG widget|#DEV.WorkWithContent.WYSIWYGWidget] section, you already know about a set of default toolbars (CompleteWCM, Default, BasicWCM, Basic, SuperBasicWCM). In this section, you will learn how to create a *RichText* editor with custom buttons.
 
 Just edit the configuration file and modify or add new items to the configuration file of the *RichText* editor is located in: _apps/resource-static/src/main/Webapp/eXoConfig.js_
 
@@ -269,7 +269,7 @@ Every toolbar set is composed of a series of "toolbar bands" that are grouped in
 
 Every toolbar band is defined as a separated JavaScript array of strings. Each string corresponds to an available toolbar item defined in the editor code or in a plugin.
 
-* Put the desired button names in square bracket ({noformat}"[" & "]"{noformat}) and separate them by commas to create a toolbar band. You can look at the above code to know all the possible toolbar item. If the toolbar item doesn't exist, a message will be displayed when loading the editor.
+* Put the desired button names in square bracket ({noformat}"[" & "]"{noformat}) and separate them by commas to create a toolbar band. You can look at the above code to know all the possible toolbar item. If the toolbar item does not exist, a message will be displayed when loading the editor.
 
 * Include a separator in the toolbar band by putting the "-" string on it.
 
@@ -278,7 +278,7 @@ Every toolbar band is defined as a separated JavaScript array of strings. Each s
 * Use slash ("/") to tell the editor that you want to force the next bands to be rendered in a new row and not following the previous one.
 
 {note}
-You should notice that the last toolbar band must have no comma after it.
+The last toolbar band must have no comma after it.
 {note}
 
 
