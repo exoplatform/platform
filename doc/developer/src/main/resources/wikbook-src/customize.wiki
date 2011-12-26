@@ -427,3 +427,75 @@ In which:
 * _<js-path>_ is the path to your JavaScript file.
 
 * _<js-priority>_ is an optional tag. This tag is used to indicate the loading order of JavaScript files across all eXo Platform. Its value is of the integer type. If its value is not negative (>=0), the loading priority is sorted by the descending order. If its value is negative (<0), the loading priority of the JavaScript file depends on the loading order of the web app (.war file) containing the JavaScript file.
+
+h1. Create custom templates for pages {anchor:id=DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages}
+
+eXo Platform 3.5 provides you with some built-in templates when you create a new page via *Page Creation Wizard*. In this section, you will learn how to create a custom page template for *Page Creation Wizard*.
+
+You should use the extension to add the page layout configuration. In this guide, you are going to work with the _/examples/extension_ project.
+
+To create a custom page template, do as follows:
+
+*1*. Add your sample template "FourRowsLayout"  by overriding the _PageConfigOptions.groovy_ file (portal.war).
+
+Add it to this path: _/examples/extension/war/src/main/webapp/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy_
+
+!images/PageConfigOptions.groovy.png|align="center"!
+
+Sample code:
+
+{code:groovy}
+...
+SelectItemCategory samplePageConfigs = new SelectItemCategory("samplePageConfigs"):
+categories.add(samplePageConfigs):
+samplePageConfigs.addSelectItemOption(new SelectItemOption("samplePage.FourRowsLayout","four-rows","FourRowsLayout:"));
+...
+{code}
+
+*2*. Add your template file into: _/examples/extension/war/src/main/webapp/WEB-INF/conf/portal/template/pages/four-rows/page.xml_
+
+!images/page.xml.png|align="center"!
+
+Sample code:
+
+{code}
+<page
+xmlns:xsi="http://www.w3.org.2001/XMLSchema-instance"
+xsi:schemaLocation="httlp://www.gatein.org/xml/ns/gatein_object_1_2.xsd http://gatein.org/xml/ns/gatein_object_1_2.xsd"
+xmlns:"http://gatein.org/xml/ns/gatein_object_1_2.xsd">
+<name></name>
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+<access-permission>Everyone<access-permission>
+</container>
+
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+<access-permission>Everyone<access-permission>
+</container>
+
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+<access-permission>Everyone<access-permission>
+</container>
+
+<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+<access-permission>Everyone<access-permission>
+</container>
+</page>
+{code}
+
+You can refer to the default template of eXo Platform in this path: _/web/portal/src/main/webapp/WEB-INF/conf/portal/template/pages_
+
+*3*. Add the stylesheet to make the template preview image.
+
+Add your own stylesheet in your extension webapp:
+
+{code:css}
+.UIItemSelector .<FourRowsLayout>{
+ width: 270px; height: 170px;
+ margin: auto;
+ background: url('background/ItemSelector.gif') no-repeat left -1700px;
+}
+{code}
+
+You can refer to the eXo Platform 3.5's default stylesheet in this path: _/web/eXoResources/src/main/webapp/skin/DefaultSkin/webui/component/UISelector/UIItemSelector/Stylesheet.css_
+
+*4*. Deploy your extension project and you should see the template and its preview image in the *Page Creation Wizard*.
