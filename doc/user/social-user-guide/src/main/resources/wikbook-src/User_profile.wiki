@@ -1,11 +1,11 @@
 
 By default, your profile is just initialized with the basic account information entered in the *Registration* form. Therefore, if you only want to view or edit the basic information on account and password, simply hover your cursor over your display name on the top right corner of the page, and select *My Account.*
 
-!images/Select_My_Account.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/Select_My_Account.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Account Profile* form is displayed with information you have set previously.
 
-!images/Account_profile.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Account_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can change your account information in the *Account Profiles* tab, except for *Username*. These changes will be automatically synchronized with details in the *Basic information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
 
@@ -23,11 +23,11 @@ Go to the *Activity Streams* page first, then select the *My Profile* tab in the
 
 Go to the *My Network* page first, then select the *My Profile* tab in the left pane.
 
-!images/Ways_enter_profile.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/Ways_enter_profile.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 The *My Profile* page is displayed as below. {anchor:id="My_Profile_form"}
 
-!images/Profile_page.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Profile_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 From here, you can:
 
@@ -90,7 +90,7 @@ Your own information is visible to all people using the network. You can change 
 
 *2.* Change your desired information. In both *Contact* and *Experience* sections, click *Add* corresponding to one field you want to add more or *Remove* to delete your inputted information.
 
-!images/Change_basic_information.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Change_basic_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Save* to accept all changes, or *Cancel* to close the *Edit* form without any changes.
 
@@ -159,7 +159,7 @@ You easily upload a photo to your profile or to the spaces which you have create
 
 *1.* Click the *Change Avatar* link, or directly click your current avatar in the left pane to open the *Avatar Upload* form.
 
-!images/Avatar_upload_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
+!images/Avatar_upload_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *Browse...* to open the *File Upload* form.
 
@@ -167,7 +167,7 @@ You easily upload a photo to your profile or to the spaces which you have create
 
 *4.* Click *Confirm* to open the *Avatar Preview* form to see some related information, such as file name, file type and image size.
 
-!images/Avatar_preview_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
+!images/Avatar_preview_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *5.* Click *Save* to accept your changes.
 
@@ -183,11 +183,11 @@ h1. Update your current position{anchor:id=Soc_User_Guide.Get_Started.User_Profi
 
 *1.* Click the *Edit* link.
 
-!images/Current_position_edit1.png|align="center" width="80" fo:scalefit="1" html:scalefit="0"!
+!images/Current_position_edit1.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 The form to update the current information will appear.
 
-!images/Current_position_edit2.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/Current_position_edit2.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter your new position which is limited from 3 to 30 characters and click *Save*. Your current position will be immediately updated.
 

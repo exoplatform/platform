@@ -2,7 +2,7 @@ All activities of users are displayed in user's or Space's Activity Streams.
 
 To enter *Activities*, hover your cursor over your display name (for example, John Smith) on the *Administration* bar and select *Activity Streams*.
 
-!images/activities.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/activities.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 In *Activity Streams,* you can follow various activities, including:
 
@@ -27,7 +27,7 @@ There are 2 ways to post your status.
 
 *1.* Hover your cursor over your display name on the right corner of the page.
 
-!images/Update_status_textbox.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/Update_status_textbox.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Input your status into the textbox from the drop-down menu, then hit the *Enter* key to accept updating your status.
 
@@ -38,7 +38,7 @@ There are 2 ways to post your status.
 *2.* Enter your current status in the *Status Update* box.
 
  
-!images/status_update.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/status_update.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 *3.* Click *Share* to accept sharing your status.
@@ -47,26 +47,26 @@ Your new status will be updated in two tabs: *All Updates* and *My Status.*
 
 h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
 
-*1.* Click !images/Share_link_icon.png|width="30" fo:scalefit="1" html:scalefit="0"!.
+*1.* Click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
 
 *2.* Enter the link into the *Attach* field and press the *Attach* button. If the link address is correct, it will be attached, then shown with the overall content of the link.
 
-!images/attach-link-edit.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/attach-link-edit.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * If you do not want the thumbnail to be displayed, select the *No thumbnail* checkbox. If there is more than one thumbnail, you can click blue arrows to go through all available thumbnails.
 * You can edit the link content by double-clicking the content you want to edit.
 
-*3.* Click *Share* to share your entered link with your connections, or click !images/Share_link_icon.png|width="30" fo:scalefit="1" html:scalefit="0"! again to remove your entered link.
+*3.* Click *Share* to share your entered link with your connections, or click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! again to remove your entered link.
 
 h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
 
-*1.* Click !images/Share_file_icon.png|width="20" fo:scalefit="1" html:scalefit="0"! to open the *Browse files* box.
+*1.* Click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! to open the *Browse files* box.
 
-!images/Browse_files_box.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Browse_files_box.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *Browse files* to open the *Select Document* form.
 
-!images/Select_document_form.png|align="center" width="350" fo:scalefit="1" html:scalefit="0"!
+!images/Select_document_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select the relevant drive category from the *Select Drive* drop-down menu.
 
@@ -77,17 +77,17 @@ h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
 <para>
 You can also click <inlinemediaobject>
             <imageobject role="fo">
-              <imagedata fileref="images/Select_local_file_icon.png" format="PNG" scalefit="1" width="13"/>
+              <imagedata fileref="images/Select_local_file_icon.png" format="PNG" scalefit="1" width="5mm"/>
             </imageobject>
             <imageobject role="html">
-              <imagedata fileref="images/Select_local_file_icon.png" format="PNG" scalefit="0" width="13"/>
+              <imagedata fileref="images/Select_local_file_icon.png" format="PNG" scalefit="0" width="5mm"/>
             </imageobject>
           </inlinemediaobject> to select a file from your local device; or click <inlinemediaobject>
             <imageobject role="fo">
-              <imagedata fileref="images/Create_new_folder_icon.png" format="PNG" scalefit="1" width="13"/>
+              <imagedata fileref="images/Create_new_folder_icon.png" format="PNG" scalefit="1" width="5mm"/>
             </imageobject>
             <imageobject role="html">
-              <imagedata fileref="images/Create_new_folder_icon.png" format="PNG" scalefit="0" width="13"/>
+              <imagedata fileref="images/Create_new_folder_icon.png" format="PNG" scalefit="0" width="5mm"/>
             </imageobject>
           </inlinemediaobject> to create a new folder.
 </para>
@@ -96,11 +96,11 @@ You can also click <inlinemediaobject>
 
 You will see your uploaded file in the *Browse files* box as below.
 
-!images/Uploaded_file_form.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Uploaded_file_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *5.* Click *Share* to share your uploaded file with your connections.
 
-* To remove your uploaded file, simply click !images/Remove_file_icon.png|width="13" fo:scalefit="1" html:scalefit="0"! next to your selected file, or click !images/Share_file_icon.png|width="00" fo:scalefit="1" html:scalefit="0"! again.
+* To remove your uploaded file, simply click !images/Remove_file_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to your selected file, or click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! again.
 
 
 h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_Activity}
@@ -109,9 +109,9 @@ You are allowed to delete your activities/comments that you created, and those i
 
 *1.* Select *All Updates* or *My Status* to view all your own activities.
 
-!images/Updates_tabs.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/Updates_tabs.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png|width="13" fo:scalefit="1" html:scalefit="0"!. The confirmation message will be displayed.
+*2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The confirmation message will be displayed.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -124,7 +124,7 @@ This action allows you to get ideas, answers, and any additional information whe
 
 *3.* Click *Comment* in the bottom line of the profile. The *Comment* form will appear below.
 
-!images/comment.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/comment.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 4. Enter your comment into the *Comment* form and press the *Comment* button.
 Your comment will be displayed right below the profile.
@@ -145,7 +145,7 @@ The function allows you to show your interest by selecting *Like* and/or *Unlike
 
 *2.* Click *Like* beside the activity.
 
-!images/like.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/like.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>

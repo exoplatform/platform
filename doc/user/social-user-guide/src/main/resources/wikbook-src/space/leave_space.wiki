@@ -25,7 +25,7 @@ Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab t
 
 * To revoke your request for joining a space that has not been validated by its owner, simply click *Cancel*.
 
-!images/Cancel_request_space.png|align="center" width="250" fo:scalefit="1" html:scalefit="0"!
+!images/Cancel_request_space.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -37,11 +37,11 @@ Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab t
 
 * To leave the space which has been validated, simply click *Leave*.
 
-!images/Leave_validated_space.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/Leave_validated_space.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 If you are the only leader of that space, the message which informs that you cannot leave a space will appear as below.
 
-!images/leave_space.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/leave_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -63,7 +63,7 @@ To view one detailed page of a space, you must become its member first. Then, do
 
 * After entering the *My Spaces* pane within the *Spaces* application, left-click the name of your desired space.
 
-!images/Space_name_link.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Space_name_link.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The detailed page of the space displays information about the space. The functions you can perform depending on your granted permissions or whether you are the space's creator or not.
 
@@ -91,7 +91,7 @@ Besides, as a space manager or creator, you can:
 
 h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
 
-Only the space managers can delete their spaces by clicking !images/Delete_icon.png|width="13" fo:scalefit="1" html:scalefit="0". All information and navigations related to that space are also deleted.
+Only the space managers can delete their spaces by clicking !images/Delete_icon.png|width=4mm" fo:scalefit="1" html:scalefit="0"!. All information and navigations related to that space are also deleted.
 
 h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.Search}
 
@@ -110,7 +110,7 @@ After accessing your desired spaces tab, you can search for spaces by *Name* and
 
 *1.* Enter the key word into the *Find Space* field.
 
-*2.* Press the *Enter* key or click !images/Social_search_icon.png|width="13" fo:scalefit="1" html:scalefit="0".
+*2.* Press the *Enter* key or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 
 {docbook}
@@ -129,7 +129,7 @@ h1. Accept/Deny invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space
 
 This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for acceptance will be listed in the *Received Invitations* tab.
 
-!images/accept_deny_invitation.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/accept_deny_invitation.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * Click *Accept* to accept joining the space.
 
