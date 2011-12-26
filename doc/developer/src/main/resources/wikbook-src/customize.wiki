@@ -40,7 +40,7 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
-For the JBoss deployment with more details, refer to the Reference Guide [here|http://platform.demo.exoplatform.org/docs/].
+For the JBoss deployment with more details, refer to the [Gatein Reference Guide|http://docs.exoplatform.org/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2Fbk06.html].
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
