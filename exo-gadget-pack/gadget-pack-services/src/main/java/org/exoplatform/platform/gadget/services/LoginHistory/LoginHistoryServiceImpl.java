@@ -154,8 +154,8 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			QueryManager queryManager = session.getWorkspace().getQueryManager();
 			
 			String sqlStatement = "SELECT * FROM exo:LoginHisSvc_userProfile " +
-									"WHERE (exo:LoginHisSvc_userId LIKE '%" + userIdFilter + 
-									"%') OR (exo:LoginHisSvc_userName LIKE '%" + userIdFilter + "%') " +
+									"WHERE (UPPER(exo:LoginHisSvc_userId) LIKE '%" + userIdFilter.toUpperCase() + 
+									"%') OR (UPPER(exo:LoginHisSvc_userName) LIKE '%" + userIdFilter.toUpperCase() + "%') " +
 									"ORDER BY exo:LoginHisSvc_lastLogin DESC";
 			
 			QueryImpl query = (QueryImpl)queryManager.createQuery(sqlStatement, Query.SQL);
