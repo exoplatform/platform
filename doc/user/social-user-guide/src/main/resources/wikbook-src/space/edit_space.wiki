@@ -64,7 +64,7 @@ To invite multiple people, use commas to separate your multiple entered username
 
 *1.* Click !images/Select_member_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Select Users* form.
 
-!images/space_settings_select_users.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_select_users.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * To search for your desired member in eXo Platform, do as follows:
 
@@ -112,13 +112,13 @@ Click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! cor
 h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
 To manage space applications, click the *Applications* tab to go the *Applications* page.
 
-!images/space_settings_applications.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_applications.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
 h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App}
 
 *1.* Click *Add Application* to open the *Application List*.
 
-!images/space_settings_add_applications.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_add_applications.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the application you want to add by clicking !images/Social_plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -142,13 +142,13 @@ You can easily edit a space navigation, such as adding a new node, editing a nod
 
 *1.* Click the *Navigations* tab to open the space navigation.
 
-!images/space_settings_navigation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_navigation.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 You can take the following actions:
 
 * Right-click a node name (space name) and takes actions in the context menu, such as adding/editing a node, editing a node's page, copying/cloning a node.
 
-* Right-click any white area to display !images/Add_new_node_icon.png|width="20mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *UI Page Node* form appears that allows you to add information to your new node.
+* Right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *UI Page Node* form appears that allows you to add information to your new node.
 
 For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes] section.
 

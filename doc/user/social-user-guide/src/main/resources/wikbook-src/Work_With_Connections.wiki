@@ -33,7 +33,6 @@ This function allows you to find your desired contact quickly.
 *2.* Enter the contact name you want to search into the *Find Contact* field. When you type, the application automatically suggests the contact name containing your entered letter. You just need to select one of suggested names from the drop-down list.
 
 !images/Filter_search.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-!images/Filter_search.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * To do advanced lookups for your entered name, click *More option*. This option allows you to filter your contacts by positions, skills and gender. 
 
@@ -49,11 +48,11 @@ You easily send a request following one of two ways:
 
 All users will be listed in the *People Found* pane.
 
-!images/Two_ways_People.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/Two_ways_People.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Invite your desired contact via one of two ways.
 
-!images/Ways_sending_invitation.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Ways_sending_invitation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *The first way*
 

@@ -2,7 +2,7 @@ All activities of users are displayed in user's or Space's Activity Streams.
 
 To enter *Activities*, hover your cursor over your display name (for example, John Smith) on the *Administration* bar and select *Activity Streams*.
 
-!images/activities.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/activities.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 In *Activity Streams,* you can follow various activities, including:
 
@@ -27,7 +27,7 @@ There are 2 ways to post your status.
 
 *1.* Hover your cursor over your display name on the right corner of the page.
 
-!images/Update_status_textbox.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/Update_status_textbox.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Input your status into the textbox from the drop-down menu, then hit the *Enter* key to accept updating your status.
 

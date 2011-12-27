@@ -1,11 +1,11 @@
 
 By default, your profile is just initialized with the basic account information entered in the *Registration* form. Therefore, if you only want to view or edit the basic information on account and password, simply hover your cursor over your display name on the top right corner of the page, and select *My Account.*
 
-!images/Select_My_Account.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/Select_My_Account.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Account Profile* form is displayed with information you have set previously.
 
-!images/Account_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Account_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can change your account information in the *Account Profiles* tab, except for *Username*. These changes will be automatically synchronized with details in the *Basic information* in your *Profile* and vice versa. Also, you can change your password by clicking the *Change Password* tab.
 
@@ -23,11 +23,11 @@ Go to the *Activity Streams* page first, then select the *My Profile* tab in the
 
 Go to the *My Network* page first, then select the *My Profile* tab in the left pane.
 
-!images/Ways_enter_profile.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+!images/Ways_enter_profile.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 The *My Profile* page is displayed as below. {anchor:id="My_Profile_form"}
 
-!images/Profile_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Profile_page.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
 From here, you can:
 

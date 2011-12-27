@@ -7,7 +7,7 @@ To access a space, click *My Spaces* on the *Administration bar*.
 
 The *My Spaces* page appears as below.
 
-!images/space_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_page.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Space navigation* includes the following tabs:  {anchor: id="space_navigation"}
 
@@ -27,16 +27,16 @@ The *Space navigation* includes the following tabs:  {anchor: id="space_navigati
 h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
 After redirecting to the *Space* application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
 
-*1.* Click !images/Add_new_space_icon|width=15mm" fo:scalefit="1" html:scalefit="0"! at the right corner of *Space* page.
+*1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the right corner of *Space* page.
 
 *2.* Enter a space name, description and select the priority level in the *Settings* tab of the *Add New Space* form.
 There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations corresponding to each selected preference value.
 
-!images/add_new_space_settings.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select an access level in the *Visibility* tab. {anchor:id=Visibility_space}
 
-!images/add_new_space_visibility.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_visibility.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Visibility*: By default, the *Visibility* value is set to be *Visible*.
 ** Visible: The space is always visible in the public spaces list.
@@ -54,17 +54,17 @@ One of the two following cases occurs when you select this tab.
 
 The *Invite users from group* tab will be displayed as below.
 
-!images/add_new_space_invite_users.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_invite_users.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *i.* Tick the *Select a target group for this space* checkbox to open the selection form.
 
 *ii.* Select the group in the left pane, then its child group in the right pane.
 
-!images/add_new_space_select_user.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_select_user.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You will see your selected group as below.
 
-!images/add_new_space_select_group.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_select_group.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 
 {docbook}
@@ -79,7 +79,7 @@ After you have selected one existing group, all users in that group will be invi
 
 * *The second instance*: You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
 
-!images/add_new_space_invite_users1.png|align="center" width=130mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_new_space_invite_users1.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
