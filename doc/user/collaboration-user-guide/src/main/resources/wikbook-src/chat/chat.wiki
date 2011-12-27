@@ -32,7 +32,7 @@ For example, drag and drop the *Chatbar* portlet as the below illustration.
 
 *3.* Go the the *Windows Settings* tab and uncheck the following options: *Show Info Bar*, *Show Porlet Mode*, *Show Window State*. By unchecking these options, the portlet border will be hidden. This may help the Chatbar portlet look homogeneous with other components of your site/page.
 
-!images/Chat_bar_window_settings.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Chat_bar_window_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Click *Save And Close* to finish your changes on the Chatbar portlet and quit the Edit form of the *Chatbar Portlet*.
 
@@ -52,7 +52,7 @@ You can search for contacts in your *Address Book* and add them to your friend l
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/chat_add_contact_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
 
-!images/chat_add_contact.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
+!images/chat_add_contact.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Add Contact* form will appear.
 
@@ -73,9 +73,11 @@ After adding your contacts successfully, the added contacts will be shown in you
 h2. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
 This action is to remove a contact from your friend list.
 
-*1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list. Right-click the contact that you want to remove and click *Remove* from the drop-down menu.
+*1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list.
 
-!images/remove_context_menu.png|align="center".png width="150" fo:scalefit="1" html:scalefit="0"!
+*2.* Right-click the contact that you want to remove, then select *Remove* from the drop-down menu.
+
+!images/remove_context_menu.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click *OK* in the confirmation message to accept your removal.
 
@@ -105,7 +107,7 @@ Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on
 
 *2.* Type the message that you want to send into the message textbox, then click the *Send* button or hit the Enter key to send your message.
 
-!images/conversation_window.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/conversation_window.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -117,7 +119,7 @@ Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on
 
 Click !images/chat_minimize_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the right corner of the *Conversation* window to minimize it to the Chatbar. To restore the window, simply click the minimized window (!images/minimized_window_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!) on the Chatbar.
 
-!images/chat_bar1.png|align="center" width="100" fo:scalefit="1" html:scalefit="0"!
+!images/chat_bar1.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <note>
@@ -128,10 +130,10 @@ Click !images/chat_minimize_icon.png|width="4mm" fo:scalefit="1" html:scalefit="
     You can chat with several contacts at the same time. Each conversation is displayed in its own tab. You can switch between tabs to follow different ongoing conversations.
     <mediaobject>
 <imageobject role="html">
-    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="0" width="200"/>
+    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="0" width="100mm"/>
 </imageobject>
 <imageobject role="fo">
-    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="1" width="200"/>
+    <imagedata align="center" fileref="images/Chat_conversation_tabs.png" format="PNG" scalefit="1" width="100mm"/>
 </imageobject>
 </mediaobject>
 	</para>
@@ -143,7 +145,7 @@ When you signed in Chat, by default, your logged-in status is available and your
 
 There will be a notification about your friend's status if they are available to chat or go offline:
 
-!images/Chat_notification_status.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Chat_notification_status.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -155,7 +157,7 @@ There will be a notification about your friend's status if they are available to
 
 *1.* Click the account icon on the Chatbar.
 
-!images/quick_chat_bar.png|align="center" width="120" fo:scalefit="1" html:scalefit="0"!
+!images/quick_chat_bar.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select your desired status from the drop-down list.
 
@@ -180,7 +182,7 @@ The *Chat* application allows you to send files to your contact, such as holiday
 </citetitle>
 {docbook}
 
-*1.* Click !images/send_file_button.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
+*1.* Click !images/send_file_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Conversation* window.
 
 You will be prompted to select a file from your local device.
 
@@ -206,7 +208,7 @@ Your chat messages history can be shown in a specific time interval.
 
 *2.* Select a time interval.
 
-!images/time_interval.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/time_interval.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Currently, the *Chat* application shows messages in the following time ranges:
 
@@ -235,11 +237,11 @@ With *Chat*, you also create a chat room and invite other users to join your roo
 
 *1.* Click !images/chat_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Chatbar*, then click !images/add_room_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! from the pop-up menu.
 
-!images/pop_up_menu.png|align="center" width="150" fo:scalefit="1" html:scalefit="0"!
+!images/pop_up_menu.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 The *New Room* form will appear.
 
-!images/new_room-form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/new_room-form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the room name in the *Name* field without any spaces, then click *OK* to accept adding your new room.
 

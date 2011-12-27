@@ -173,16 +173,15 @@ In this form, you can add a new tag, remove or reassign a tag to a contact.
 <tip>
 <para>
 To add a new tag quickly, click <emphasis role="bold">Add</emphasis> in the <emphasis role="bold">Tag</emphasis> pane.
-
+</para>
 <mediaobject>
 <imageobject role="html">
-    <imagedata align="center" fileref="images/tag_panel.png" format="PNG" scalefit="1" width="30mm"/>
+    <imagedata fileref="images/tag_panel.png" format="PNG" align="center" scalefit="0" width="50mm"/>
 </imageobject>
 <imageobject role="fo">
-    <imagedata align="center" fileref="images/tag_panel.png" format="PNG" scalefit="0" width="30mm"/>
+    <imagedata fileref="images/tag_panel.png" format="PNG" align="center" scalefit="1" width="50mm"/>
 </imageobject>
 </mediaobject>
-</para>
 </tip>
 {docbook}
 
@@ -234,7 +233,7 @@ Right-click the address book and select *Email* from the drop-down menu. By this
 
 The *Send Email* form will appear.
 
-!images/Send_email_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Send_email_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Input the recipients' email addresses in the *To* field if needed.
 
@@ -491,7 +490,7 @@ The *Share a contact with other users* form will appear. {anchor:id="Share_conta
 
 *i.* Click !images/user_selector_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to open the *User Selector* form;
 
-!images/user_selector.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/user_selector.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 In this form, tick the checkboxes corresponding to your desired users, then click *Add*. Also, you can use the *Search* function to look for your users quickly.
 
@@ -535,8 +534,6 @@ With this mode, you can refine your search by using a variety of criteria. Your 
 
 *1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box. The *Advanced Search* form will appear.
 
-!images/advanced_search.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
-
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
 
 *3.* Click the *Search* button to search. All contacts matching your criteria will be shown in the *Search Result* dialog.
@@ -563,7 +560,7 @@ Click !images/address_book_button.png|width="17mm" fo:scalefit="1" html:scalefit
 
 Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Book* pane, and select *Add* from the drop-down menu.
 
-!images/add_contact.png|align="center" width="200" fo:scalefit="1" html:scalefit="0"!
+!images/add_contact.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Type name and description for your new address book in the *Name* and *Description* fields respectively in the *Add/Edit Address Book* form. {anchor:id="Add_edit_address_book_form"}
 

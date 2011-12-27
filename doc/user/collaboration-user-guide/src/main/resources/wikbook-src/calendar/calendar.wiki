@@ -35,7 +35,7 @@ This function allows you to organize and personalize calendars in your own way.
 
 *1.* Click !images/Arrow_icon_calendar.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the right of the *Calendars pane*, then select *Add Group* from the drop-down menu.
 
-!images/add_group.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
+!images/add_group.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the group name its description in the respective fields. {anchor:id="Calendar_groups_form"}
 
@@ -126,7 +126,7 @@ Click !images/Arrow_icon_calendar.png|width="4mm" fo:scalefit="1" html:scalefit=
 ||Field||Description||
 |*Display Name*|The calendar name which is displayed.|
 |*Description*|The brief description of the calendar.|
-|*Groups*| The list of groups under the *Personal Calendars* category. Click !images/Arrow_icon_calendar.png! to select one existing group which contains your calendar from the drop-down list. Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to create a new group which contains your calendar. The newly group is only displayed in the *Personal Calendars* category after you finish creating the calendar. |
+|*Groups*| The list of groups under the *Personal Calendars* category. Click !images/Arrow_icon_calendar.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select one existing group which contains your calendar from the drop-down list. Or, click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to create a new group which contains your calendar. The newly group is only displayed in the *Personal Calendars* category after you finish creating the calendar. |
 |*Country (Language)*|The location and language of the calendar. You can change the default value by following steps in the [Edit Calendar settings|#CSUser_guide.How_to_use_Calendar.Edit_calendar_settings] section.|
 |*Time Zone*|The display time zone for the calendar activities. You can personalize your calendar time zone by following steps in the [Edit Calendar settings|#CSUser_guide.How_to_use_Calendar.Edit_calendar_settings] section.|
 |*Color*|The display color of the calendar activities that can be personalized.|
@@ -509,7 +509,7 @@ Hover your cursor over the event to see the detail view.
 
 Right-click the event in the *Calendar View pane* and select *View* from the drop-down menu.
 
-!images/view_detailed_event2.png|align="center"!
+!images/view_detailed_event2.png|align="center" width="50mm"  fo:scalefit="1" html:scalefit="0"!
 
 The *Preview* form will appear.
 
@@ -589,7 +589,7 @@ With a detailed event, you can:
 
 *1.* Open the *[Quick Add Event|#Quick_add_events]* form, then click !images/more_details_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! to open the *Add/Edit Event* form.
 
-!images/Add_event_detailed_tab.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/Add_event_detailed_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Give details of your event in fields of tabs.
 
@@ -641,8 +641,13 @@ For example, if you set *Weekly* in the *Repeat* option and *5* in the *Repeat e
 
 h4. Create a reminder for upcoming events {anchor:id="Create_event_reminder"}
 The *Calendar* application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as a title, time and location. To use this feature, go to the *Reminders* tab. 
- 
-!images/add_edit_event.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+
+{docbook}
+<para>
+</para>
+{docbook}
+
+!images/add_edit_event.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 * *Remind by Email:* This option is to remind users of upcoming events via emails. This option is set default. If you do not use this option, simply untick the checkbox.
@@ -664,7 +669,7 @@ The *Calendar* application provides 2 options for reminding users who will take 
 </citetitle>
 {docbook}
 
-*1.* Click !images/Add_more_button1.png|width="17mm" fo:scalefit="1" html:scalefit="0"! to open the *Select an Email* form.
+*1.* Click !images/Add_more_button1.png|width="12mm" fo:scalefit="1" html:scalefit="0"! to open the *Select an Email* form.
 
 *2.* Tick checkboxes corresponding to email addresses you want to select;
 
@@ -677,7 +682,7 @@ The list of your selected email addresses are displayed right below the *Also se
 h4. Add participants to an event {anchor:id="Invite_people_to_event"}
 If you want to invite people to attend an event, go to the *Participants* tab. This tab contains options to add participants and to send invitation mails.
 
-!images/add_edit_event_participant_tab.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_event_participant_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 
 *1.* Tick the *Privacy* checkbox to select the privacy of your event: public or private. At present, public or private has informative meaning only.
 
@@ -711,7 +716,7 @@ Here, you can select contacts from your Address Book or users who have registere
 
 The participants will receive an invitation mail, for example with the following content, which allows you to import the event directly into their calendars. {anchor:id="Mail.Accept_deny_import_event"}
 
-!images/invitation_mail.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/invitation_mail.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Agree and Import*: Accept attending at the event in the invitation mail and importing it into the calendars to remind them of this event.
 
@@ -721,7 +726,7 @@ The participants will receive an invitation mail, for example with the following
 
 h4. View the availability time of participants {anchor:id="View_time_availability"}
 
-!images/add_edit_event_schedule.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_event_schedule.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Go to the *Schedule* tab to check the availability of the participants in a defined slot time.
 By default, it is the start and end time of the event which you define in the *Detail* tab.
@@ -805,7 +810,7 @@ Double-click the event you want to edit.
 
 Right-click the event that you want to edit and select *Edit* from the drop-down menu.
 
-!images/Edit_event_menu.png|align="center"!
+!images/Edit_event_menu.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Add/Edit Event* form is displayed with information that is similar when adding your event.
 
@@ -837,7 +842,7 @@ The drag-drop feature helps you change the starting date and time of an event mo
 
 You also can hover your cursor over the *Scroll* button to alter the event period.
 
-!images/drag_mouse.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/drag_mouse.png|align="center" width="70mm"  fo:scalefit="1" html:scalefit="0"!
 
 According to the features of the Calendar pane view, the drag-drop feature can be applied to the date and time differently.
 
@@ -869,11 +874,11 @@ This function allows you to export one event into a file on your device. This fi
 
 *1.* Right-click the event that you want to export and select *Export* from the drop-down menu.
 
-!images/export.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export.png|align="center" width="60mm"  fo:scalefit="1" html:scalefit="0"!
 
 The *Export Calendars* form will appear.
 
-!images/export_calendar_form.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
+!images/export_calendar_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter a file name and select the export format.
 
@@ -917,9 +922,9 @@ This function allows you to remove events from a calendar.
 
 *1.* Tick the checkboxes corresponding to the events you want to delete.
 
-*2.* Click !images/delete_checked_button.png| width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
+*2.* Click !images/delete_checked_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"| width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
 
-!images/month_view_calendar_panel.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/month_view_calendar_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -940,7 +945,7 @@ To view details of a task, do one of the following ways:
 
 Hover your cursor over the task to open the task preview pane.
 
-!images/view_tasks_details1.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
+!images/view_tasks_details1.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 *The second way*
 
@@ -950,7 +955,7 @@ Right-click the task in the *Calendar View pane* and select *View* from the drop
 
 The *Preview* form will be displayed.
 
-!images/preview_task.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/preview_task.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 
 At the *Preview* form, if the task includes attachments, you can download them by directly clicking its title. If the attachment is an image, you can also click *View* to preview it.
 
@@ -967,7 +972,7 @@ h3. Quick add a task {anchor:id="CSUser_guide.How_to_use_Calendar.Quick_add_task
 
 *The first way*
 
-Select !images/Task_button_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+Select !images/Task_button_icon.png|width="10mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *The second way*
 
@@ -1002,9 +1007,9 @@ h3. Add a detailed task {anchor:id="CSUser_guide.How_to_use_Calendar.Add_detaile
 
 *1.* Open the *Quick Add Task* form by following steps as stated in the [Quick add a task|#CSUser_guide.How_to_use_Calendar.Quick_add_task] section.
 
-*2.* Click !images/more_details_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Quick Add Task* form to open the *Add/Edit Tasks* form
+*2.* Click !images/more_details_button.png|width="17mm" fo:scalefit="1" html:scalefit="0"! in the *Quick Add Task* form to open the *Add/Edit Tasks* form
 
-!images/add_edit_tasks.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_tasks.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Give details of your task in fields of tabs.
 
@@ -1034,7 +1039,7 @@ h2. Edit task details {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_task_det
 
 The *Add/Edit Tasks* form will be displayed.
 
-!images/add_edit_tasks_details.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/add_edit_tasks_details.png|align="center" width="130mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Modify the information of your selected task, then click *Save* to finish.
 
@@ -1211,7 +1216,7 @@ This function allows you to publish your calendar as a RSS feed. It will build a
 
 *The first way*
 
-Click directly !images/RSS_icon2.png|width="35" fo:scalefit="1" html:scalefit="0"! on the toolbar.
+Click directly !images/RSS_icon2.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the toolbar.
 
 *The second way* 
 
@@ -1253,15 +1258,15 @@ In the *Calendar* application, you can change default values for its settings.
 
 *1.* Open the *Calendar Settings* form via either of the following ways:
 
-*The first way*: Click !images/calendar_settings_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
+*The first way*: Click !images/calendar_settings_button.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
 *The second way*: Click !images/Arrow_icon_calendar.png|width="4mm" fo:scalefit="1" html:scalefit="0"! and select *Calendar Settings* from the drop-down menu.
 
-!images/calendar_settings.png|align="center" width="50mm"  fo:scalefit="1" html:scalefit="0"!
+!images/calendar_settings.png|align="center" width="40mm"  fo:scalefit="1" html:scalefit="0"!
 
 *2.* Make changes on your calendar settings.
 
-!images/settings_tab.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
+!images/settings_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 
 *i.* In the *Settings* tab, you can change values in the following fields:
 
