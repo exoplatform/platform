@@ -72,19 +72,17 @@ In this way, you need to use the toolbar.
 
 If you select *From Template...*, a list of available templates will appear.
 
-!images/wiki_template.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You can:
 
-i. Click *Preview* corresponding to the template you want to see. The template preview appears:
+i. Click *Preview* corresponding to the template you want to see. The template preview appears.
 
-!images/Wiki_template_preview.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Wiki_template_preview.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-ii. Click *Select* corresponding to the template you want to select for your new page.
+ii. Click *Select* corresponding to the template you want to select for your new page. The selected template appears.
 
-The selected template appears:
-
- !images/wiki_available_template.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_available_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Enter the title for your page. The page title must be unique.
 
@@ -137,7 +135,7 @@ To edit a whole page content, click *Edit* in the *Page Control* area. Your page
 
 !images/page_control.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Now, you can rename the page and edit the page content. In view mode, hover mouse on page title and double click to edit page title. The toolbar in the edit mode will be changed to activate the following actions.
+Now, you can rename the page and edit the page content. In view mode, hover your cursor over the page title and double click to edit page title. The toolbar in the edit mode will be changed to activate the following actions.
 
 !images/wiki_page_edit.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -164,7 +162,7 @@ Now, you can rename the page and edit the page content. In view mode, hover mous
 
 To edit only a section in the whole page content, hover the mouse over the title of the section you want to edit and click !images/Wiki_edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-!images/Wiki_edit_section.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Wiki_edit_section.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The selected section will be switched to the Edit mode.
 
@@ -239,7 +237,7 @@ This feature allows you to add pages related to your page. This function can be 
 
 *2.* Click *Select* to add the selected page to the list of the *Related Pages*.
 
-!images/wiki_select_page.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_select_page.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 The related pages of the opening page are displayed in the side pane as below.
 
@@ -370,7 +368,7 @@ You can use this method when editing the page content by *WYSIWYG* editor (Rich 
 
 !images/rich_text_editor.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Click !images/Link_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! on the toolbar of the *Rich Text* editor, then select *Attached File...* from the drop-down menu.
+*4.* Click !images/Link_icon.png| width="13mm" fo:scalefit="1" html:scalefit="0"! on the toolbar of the *Rich Text* editor, then select *Attached File...* from the drop-down menu.
 
 !images/wiki_attach_file.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -666,7 +664,7 @@ For each space, you can manage page templates and change the syntax.
 
 *2.* Click *Browse*, then  select *Space Settings*.
 
-!images/wiki_space_settings.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_space_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Space Settings* page appear.
 
@@ -702,7 +700,7 @@ In the *Space Permissions* form, you can add or remove the space permissions of 
 h4. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
 In the *Space Permissions* form, you can add permissions for individual users, groups of users or memberships.
 
-*1.* Click !images/select_permission_icon.png| width="17mm" fo:scalefit="1" html:scalefit="0"! to assign permissions to a user, a group or a membership respectively.
+*1.* Click !images/select_permission_icon.png| width="14mm" fo:scalefit="1" html:scalefit="0"! to assign permissions to a user, a group or a membership respectively.
 
 The form to select the user, the group and the membership appears.
 
@@ -738,7 +736,7 @@ The *Page Permissions* allows you to set the view and edit permissions for a spe
 
 The *Page Permissions* form appears.
 
-!images/wiki_page_permissions_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_page_permissions_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Pages are viewable/editable according to the space permission. On each page, a user with the *Admin Pages* permission will be able to override the view and edit permissions on this specific page.
 
@@ -786,7 +784,7 @@ h4. Create a new template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
 *1.* Click *Add more...* in the *Spage Settings* page and the sample template form appears.
 
-!images/wiki_sample_template.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_sample_template.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Add the title for the template.
 
@@ -819,7 +817,7 @@ By setting up the Wiki syntax, you can select the default syntax and allow user 
 
 *1.* Click *Syntax* in the *Space Settings* page.
 
- !images/wiki_setting_syntax.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/wiki_setting_syntax.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click the *Default Syntax* box and select a syntax from the drop-down menu. This syntax is set as the default for your document.
 

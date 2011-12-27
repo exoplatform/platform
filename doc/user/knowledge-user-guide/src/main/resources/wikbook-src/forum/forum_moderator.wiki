@@ -29,7 +29,7 @@ h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 
 *3.* Edit the forum properties. 
 
-!images/admin_add_forum_tab.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_add_forum_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Click *Save* to save all the changes.
 
@@ -82,7 +82,7 @@ Moderators can approve pending topics in forums that enable the '[Moderate Topic
 
 The administrator and moderator will know the total number of pending topics at the right corner of their *Forum Administration* bar and *User* bar:
 
-!images/mod_pending_topics_number.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Moderator can view the list of topics to be moderated. See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks] for more details.
 
@@ -110,7 +110,7 @@ Or if you are in a topic, simply click !images/More_actions_btn.png|width="20mm"
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You can preview the post when hovering your cursor over the post title.
 
-!images/mod_unapproved_topics.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_unapproved_topics.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Approve* to accept your approval. Approved posts are shown normally for regular users to view and take some actions.
 
@@ -259,7 +259,7 @@ A topic with more than two posts can be split into separate topics.
 
 *2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select *Split* from the drop-down menu. The *Split Topic* form opens.
 
-!images/mod_split_topic_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_split_topic_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Enter the name for the new topic in the *New Topic* field.
 
@@ -389,13 +389,13 @@ containing these keywords will labeled with 'Pending and Censored!' (for topic) 
 h2. View all pending moderation tasks {anchor:id=Forum-user_guide.Forum_Moderator.View_pending_tasks}
 Administrators and moderators can manage all pending tasks in *Forum* easily. The total number of pending topic/posts that need to be moderated are shown right on the *User* bar/*Forum Administration* bar.
 
-!images/mod_pending_topics_number.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 To open the list of pending tasks, click *Pending* on the *User* bar.
 
 The pending topics and posts are shown in the *Waiting for Approval* form.
 
-!images/mod_unapproved_topics.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_unapproved_topics.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 This form lists all the pending topics, posts and the created dates. From here, you can approve or delete topics/posts.
 

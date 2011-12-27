@@ -34,7 +34,7 @@ The *Page Manager* page will be displayed.
 
 The settings form allows you to configure the *Forum* portlet in various aspects.
 
-!images/admin_forum_edit_mode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_edit_mode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 h3. Specify the category scoping {anchor:id=Forum_Administrator.Set_up_Forums.Specify_category_scoping}
 
@@ -45,7 +45,7 @@ In the *Panels* tab, you can enable/disable some components in the Forum portlet
 
 Simply select/deselect checkboxes of the components that you want to enable or disable.
 
-!images/admin_forum_panels_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_panels_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The following components can be enabled/disabled:
 
@@ -61,13 +61,13 @@ The following components can be enabled/disabled:
 
 *Forum Statistics*:
 
-!images/Forum_statistic_panel.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Forum_statistic_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 h3. Enable/Disable a bookmarkable Forum URL {anchor:id=Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs}
 
 Before doing this function, you first need to have a knowledge of Ajax. Ajax (Asynchronous JavaScript and XML) is used in the *Forum* application, aiming at updating a whole webpage or a part of the webpage.
 
-!images/admin_forum_options_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_options_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 This feature defines how the links are generated in the *Forum* portlet. You can select to use Ajax or not.
 
@@ -170,7 +170,7 @@ When creating a new  forum, you can also configure the forum notification settin
 
 *3.* Enter the forum title which is required and description in the corresponding fields in the *Forum* form. The forum title must be less than 50 characters.
 
-!images/admin_add_forum_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_add_forum_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Click *Save* to finish.
 
@@ -183,7 +183,7 @@ When creating a forum, you can set moderation-related options as follows:
 
 *2.* Do actions in the relevant fields.
 
-!images/admin_forum_moderation_options_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_moderation_options_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -207,7 +207,7 @@ Only administrators can perform this action. When a forum is removed, all of its
 h2. Manage users {anchor:id=Forum_user_guide.Forum_Administrator.Manage_Users}
 To take this action, click !images/users_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administrator* bar. The *User Management* form will be displayed.
 
-!images/admin_forum_user_management.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_user_management.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Now, you can search for specific users to edit their profiles or remove them from *Forum*.
 
@@ -219,7 +219,7 @@ The administrator can edit profiles of members and promote any users to an admin
 
 *2.* Click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the user you want to promote. The profile of this user will be displayed right below the users list.
 
-!images/admin_forum_user_management_profile_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_user_management_profile_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 To promote the user, you have to edit the *Moderator* fields in *Profile* tab.
 
@@ -235,7 +235,7 @@ You can modify the forum settings that users had set in their *User settings*.
 
 Go to the *Settings* tab in the *User Management* form.
 
-!images/admin_forum_user_management_settings_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_user_management_settings_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Now you can modify the forum settings that the selected user has set in their *User settings*. See [User settings|#Forum_user_guide.Forum_regular_user.User_settings] for the detailed descriptions in the *User Settings* form.
 
@@ -245,7 +245,7 @@ In case you know the username of the user who violated your forum policies, you 
 
 In the *User Management* form, go to the *Ban User* tab.
 
-!images/admin_forum_user_management_banuser_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_user_management_banuser_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -323,7 +323,7 @@ This section will describe how to create and edit the email templates that can b
 
 Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *Notifications* from the drop-down menu to open the *Notifications* form.
 
-!images/admin_forum_notifications_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_notifications_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Notification* form consists of two tabs:
 
@@ -390,7 +390,7 @@ By default, there are some default BBCode tags that are initialized via plugins:
 
 Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *BBCode* from the drop-down menu to open the *BBCode Manager* form.
 
-!images/admin_forum_BBCCode_management_form.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_BBCCode_management_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can do the following actions:
 
@@ -405,7 +405,7 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 
 *2.* Input values into the *Add BBCode* form.
 
-!images/admin_forum_add_bbcode_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_add_bbcode_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -426,7 +426,7 @@ h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes
 
 *1.* Click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the relevant BBCode tag in the *BBCode Manager* form.
 
-!images/admin_forum_edit_bbccode_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_edit_bbccode_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Make changes to the BBCode tag.
 
@@ -441,7 +441,7 @@ h4. Activate/Deactivate a BBCode {anchor:id=Administrative_tasks.Customize_BBCod
 
 Any BBCode can be activated/deactivated.
 
-!images/admin_forum_Activate_Deactivate_BBCCode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_Activate_Deactivate_BBCCode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * To activate an existing BBCode tag, tick the relevant checkbox.
 
@@ -453,11 +453,11 @@ The pruning allows you to clean a large amount of obsolete and inactivate topics
 
 *1.* Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *Pruning* from the drop-down menu to open the *Auto Prune* form.
 
-!images/admin_forum_autoPrune.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_autoPrune.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Click !images/prune_settings_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the forum you want to set the prune settings.
 
-!images/admin_forum_Prune_Settings.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_Prune_Settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Specify the criteria.
 
@@ -501,11 +501,11 @@ Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next 
 
 *2.* Enter the topic name in the *Type* field then select an icon for this topic type.
 
-!images/admin_forum_topic_type.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_topic_type.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Save* to accept adding your new topic type. You will see the new topic type added.
 
-!images/admin_forum_topic_type_manager1.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_forum_topic_type_manager1.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * To edit the topic type, click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 

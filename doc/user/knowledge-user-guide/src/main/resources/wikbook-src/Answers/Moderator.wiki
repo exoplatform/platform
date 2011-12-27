@@ -72,7 +72,6 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 *3.* Click *Save* to complete.
 
-
 h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories].
@@ -100,7 +99,6 @@ h3. Move a category {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 !images/Move_category_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-
 h3. Export/Import a category {anchor:id=KSuser.Answer_Moderator.Export&import_categories}
 
 Both functions can be executed on all categories and questions in the *Answers* home or a specific category in *Answers*.
@@ -112,7 +110,6 @@ Both functions can be executed on all categories and questions in the *Answers* 
 </para>
 </citetitle>
 {docbook}
-
 
 
 *1.* Click !images/Export_btn.png|width="14mm" fo:scalefit="1" html:scalefit="0"! to open the *Export* form.
@@ -337,11 +334,11 @@ If the comment is considered as the best answer for the question, it can be prom
 
 *The first way*
 
-* Click the question you want to leave comments and select !images/answer_comment_button1.png|width="60" fo:scalefit="1" html:scalefit="0"!.
+* Click the question you want to leave comments and select !images/answer_comment_button1.png|width="14mm" fo:scalefit="1" html:scalefit="0"!.
 
 *The second way*
 
-* Right-click a specific question and select !images/comment_button.png|width="60" fo:scalefit="1" html:scalefit="0"! from drop-down menu.
+* Right-click a specific question and select !images/comment_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! from drop-down menu.
 
 *2.* Enter your comment in the text-input field.
 
@@ -356,4 +353,3 @@ To promote a comment as an answer, click !images/promote_answer_icon.png|width="
     </para>
 </note>
 {docbook}
-

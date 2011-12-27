@@ -228,13 +228,13 @@ When posting a new topic, you may also assign an icon to the topic for the quick
 
 *2.* Select an icon category and click your desired icon in the right pane. The selected icon is surrounded with the red border with its name shown below.
 
-!images/new_topic_icon_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/new_topic_icon_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 h4. Set the topic options {anchor:id=Forum_regular_user.Topics.Start_topics.Set_topic_options}
 
 Go to the *Options* tab, you can select status, state, type of the topic and more.
 
-!images/start_topic_options_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!      {anchor:id="start_topic_options_tab"}
+!images/start_topic_options_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!      {anchor:id="start_topic_options_tab"}
 
 *Details:*
 ||Field||Description||
@@ -248,7 +248,7 @@ h4. Set topic permissions {anchor:id=Forum_regular_user.Topics.Start_topics.Sele
 
 Go to the *Permissions* tab, you can set rights to view and post on your topic for another users. By default, all users can view and reply on a topic.
 
-!images/start_topic_permissions_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/start_topic_permissions_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 To set the permission to certain users, you can enter usernames manually or:
 
@@ -266,7 +266,7 @@ Regular users can only edit their own topic.
 
 *2.* Click *Edit* from the drop-down menu to open the *Edit Topic* form.
 
-!images/edit_topic_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!      {anchor:id="edit_topic_form"}
+!images/edit_topic_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!      {anchor:id="edit_topic_form"}
 
 *3.* Make changes to your desire. Also, leave the reason in the *Reason* field if needed.
 
@@ -295,7 +295,7 @@ Each topic may have a poll question with pre-defined options for users to select
 
 To perform further actions on this poll, simply left-click *More Actions* on the Poll pane to open the drop-down menu. Here, you can edit, close/reopen or remove the poll by clicking the relevant button.
 
-!images/poll_submitted.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"! {anchor:id="forum-submitted-poll"}
+!images/poll_submitted.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"! {anchor:id="forum-submitted-poll"}
 
 h3. Rate a topic {anchor:id=Forum_regular_user.Topics.Rate_topics}
 
@@ -303,7 +303,7 @@ The *Forum* application provides an intuitive rating experience through a five-s
 
 *1.* Go to the topic you want to vote.
 
-*2.* Click !images/Rate_btn.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
+*2.* Click !images/Rate_btn.png|width="10mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 The *Rate This Topic* form will appear.
 
@@ -387,7 +387,7 @@ You can post a reply quickly with plain texts without taking into account its fo
 
 *1.* Scroll down to the bottom of the topic to see the *Quick Reply* box.
 
-!images/quick_reply_box.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!     {anchor:id="quick_reply_box"}
+!images/quick_reply_box.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!     {anchor:id="quick_reply_box"}
 
 *2.* Enter you message. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text insert images, videos, or links.
 
@@ -417,7 +417,7 @@ You can post a reply with the full editor as follows:
 
 *3.* Enter your message in the textbox. Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format texts, or insert images, videos and links.
 
-!images/new_post_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/new_post_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Optionally, you can:
 
@@ -467,12 +467,11 @@ h3. Reply with a quote {anchor:id=Forum_regular_user.Posts.Reply_with_quote}
 
 You can include a quote from the previous message in your reply to a specific post. This may substantially increase the readability of the discussion topics when it is used correctly.
 
-
 *1.* Click !images/Quote_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! under the post you want to quote.
 
 This will bring up the "Quote" form, with the previous message already quoted in the textbox.
 
-!images/quote_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/quote_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter your message. Edit the quotation if necessary.
 
@@ -506,11 +505,11 @@ BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users
 
 Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click on the respective icon which is shown in the toolbar above the message area.
 
-!images/bbccode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/bbccode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Click !images/Syntax_help_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the tool bar to get the full list of build-in BBCode explanations and examples.
 
-!images/help_bbccode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/help_bbccode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h2. Public user profile {anchor:id=Forum_user_guide.Forum_regular_user.Public_user_profile}
@@ -523,7 +522,7 @@ Whenever you see a member's name in a topic, you can view his public profile qui
 
 The *View User Profile* form will be displayed.
 
-!images/view_user_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/view_user_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
@@ -539,7 +538,7 @@ h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_p
 
 The *Private Messages* form will appear.
 
-!images/private_messages_form.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+!images/private_messages_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Enter the username of the recipients and type your message title and contents.
 
@@ -554,7 +553,7 @@ When you have received a private message, there will be a notification on your *
 
 Click *Private Messages* to open the *Private Messages* form.
 
-!images/private_messages_inbox.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/private_messages_inbox.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
@@ -669,7 +668,7 @@ h3. Edit a profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
 
 By selecting the *Profile* tab, you can see your personal information and other preferences.
 
-!images/settings_profile_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/settings_profile_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can:
 
@@ -687,7 +686,7 @@ h3. Change forum settings {anchor:id=Forum_regular_user.User_settings.Change_for
 
 Go to the *Forum Settings* tab in the *Settings* form. You can change preferences, such as time zone, date and time formats and other display options.
 
-!images/settings_forum_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/settings_forum_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 Check/Uncheck the *Show Forum Jump* if you want to show/hide the *Forum quick navigation* at the bottom of the *Forum* page.
 
@@ -695,7 +694,7 @@ Check/Uncheck the *Show Forum Jump* if you want to show/hide the *Forum quick na
 h3. Edit a subscription {anchor:id=Forum_regular_user.User_settings.Manage_subscriptions}
 Go to the *My Subscriptions* tab in the *Settings* form, where you can update or delete existing subscriptions.
 
-!images/settings_my_subscriptions.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/settings_my_subscriptions.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * In the *RSS* column, you can subscribe or unsubscribe your subscriptions by selecting/deselecting the respective checkboxes then click *Save*. The selected objects (categories, forums, topics) will be updated to the *Your personal feed URL is* field. You can use this link to view the content of your subscriptions.
 
@@ -704,4 +703,3 @@ Go to the *My Subscriptions* tab in the *Settings* form, where you can update or
 * Click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to remove your watched category, topic, post. After being removed, you will no longer receive any email notifications of the removed object.
 
 Next, click *Save* to accept your changes.
-

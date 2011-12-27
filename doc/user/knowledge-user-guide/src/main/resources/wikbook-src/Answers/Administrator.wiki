@@ -34,7 +34,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 *i.* Click !images/Setting_gear.png|width="4mm" fo:scalefit="1" html:scalefit="0"! *--> Portal --> Page* on the *Administration* bar.
 
-!images/edit_pages1.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/edit_pages1.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that corresponds to the page containing the *Answers* portlet in the *Page Management* page.
 
@@ -46,7 +46,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 *ii.* Hover your cursor over *Edit --> Page*, then click *Layout*.
 
-!images/Answer_page_layout.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
+!images/Answer_page_layout.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 Now, you should be in the page edit mode.
 
@@ -102,7 +102,7 @@ h3. Customize the email notification template {anchor:id=KSuser.Answer_Moderator
 When there are new questions or answers in the category or topic that a user has watched, the use will receive the email notification. 
 In the *Email Notifications* tab, change the content of the email notification manually or edit the template for each email notification. 
 
-!images/Answer_porlet_edit_form2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Answer_porlet_edit_form2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * *New Question* tab: The content of the email notification.
 * *Edit/Answer* tab: The content of the email notification that has been answered or edited.
@@ -142,7 +142,7 @@ h3. Enable the "Discuss in Forum" feature {anchor:id=KSuser.Answer_Moderator.Ena
 
 In the *Discussion* tab, enable/disable the *Discuss in Forum* function in *Answers* and set the default forum for this function by selecting/deselecting the checkbox.
 
-!images/Answer_porlet_edit_form3.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Answer_porlet_edit_form3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <para>
@@ -179,7 +179,7 @@ h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderat
 
 In the *Category Scoping* tab, show/hide categories in *Answers*. The hidden category is not displayed in *Answers*.
 
-!images/Answer_porlet_edit_form4.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Answer_porlet_edit_form4.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 To hide/show any category, simply deselect/select its checkbox and click *Save*.
 
@@ -201,7 +201,7 @@ h2. Set up the FAQ portlet {anchor:id=KSuser.Answer_Moderator.Set_up_FAQ_portlet
 
 The *FAQ* portlet can be added to a page for users to view questions and answers quickly and easily.
 
-!images/FAQ_screen.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/FAQ_screen.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display questions and answers in the View mode.
 
@@ -215,7 +215,7 @@ The *Edit Mode* of the *FAQ* portlet allows you to set the properties to display
 
 *1.* Click !images/Setting_gear.png|width="4mm" fo:scalefit="1" html:scalefit="0"! *--> Portal --> Pages*.
 
-!images/edit_pages1.png|align="center" width="170" fo:scalefit="1" html:scalefit="0"!
+!images/edit_pages1.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Page Manager* page will be displayed.
 
@@ -225,17 +225,15 @@ The *Page Manager* page will be displayed.
 
 *3.* Hover your cursor over the *FAQ* portlet and click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the quick edit toolbar that appears.
 
-!images/FAQ_portlet_edit.png|align="center" width="130mm" fo:scalefit="1" html:scalefit="0"!
+!images/FAQ_portlet_edit.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *i.* In the *Display Category* tab, you can control what categories will be displayed.
  
-
-!images/FAQ_portlet_edit_form.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
-
+!images/FAQ_portlet_edit_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *ii.* In the *Edit Template* tab, you can use CSS to customize the *FAQ* template.
 
-!images/FAQ_portlet_edit_form2.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+!images/FAQ_portlet_edit_form2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 This is an example of the *FAQ* template after applying the new style.
 
@@ -243,7 +241,7 @@ This is an example of the *FAQ* template after applying the new style.
 
 *iii.* In the *Preference* tab, you can enable or disable the bookmarkable URLs in *FAQ*.
 
-!images/FAQ_portlet_edit_form3.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+!images/FAQ_portlet_edit_form3.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 By not using Ajax, the *FAQ* will generate plain URLs in the links. The added benefit will be bookmarkability and better SEO as the links will be permalinks.
 Using Ajax, the links will be JavaScript-based and generate Ajax calls. This should make browsing faster because the whole page is not reloaded.
