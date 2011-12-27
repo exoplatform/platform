@@ -33,7 +33,7 @@
     Base url:
   </msg>
   <msg name="subscribeurl">
-    Subscription url:
+    Subscription Url:
   </msg>
   <msg name="limit">
     Number of Items to Display
@@ -42,10 +42,10 @@
     Date time format:
   </msg>
   <msg name="showall">
-    Show my calendars
+    Show My Calendars
   </msg>
   <msg name="noevent">
-    No events
+    No Events
   </msg>
   <msg name="back">
     Back
@@ -66,7 +66,7 @@
     Tasks
   </msg>
   <msg name="notask">
-    No tasks
+    No Tasks
   </msg>
   <msg name="confirm">
     Are you sure this task completed?

@@ -29,8 +29,8 @@
    <msg name="percent">Percent</msg>
    <msg name="voter">voters</msg>
    <msg name="total">Total</msg>
-   <msg name="discuss">Discuss in forum</msg>
-   <msg name="nopoll">No questions available</msg>
-   <msg name="createPoll">Create your own poll</msg>    
+   <msg name="discuss">Discuss in Forum</msg>
+   <msg name="nopoll">No Questions Available</msg>
+   <msg name="createPoll">Create Your Own Poll</msg>    
  </messagebundle>
  

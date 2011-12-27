@@ -113,7 +113,7 @@
 
         <div class="GadCont UpcomingEvents" id="eventDiv">
         </div>
-        <div style="text-align: right">
+        <div style="text-align: center">
                 <a href="#" id="ShowAll" target="_parent">__MSG_showall__</a>
         </div>
      </div>

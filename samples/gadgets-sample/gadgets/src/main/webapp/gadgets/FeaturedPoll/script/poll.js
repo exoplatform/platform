@@ -18,7 +18,7 @@ function init() {
 function createPollDiv() {
   var prefs = new gadgets.Prefs();
   var forumURL = window.location.protocol + "//" + window.location.host + "/portal/intranet/forum";
-  document.getElementById("createpoll").innerHTML = prefs.getMsg("createPoll") + " <a target='_parent' href='" + forumURL + "'>forums</a>";
+  document.getElementById("createpoll").innerHTML = "<a target='_parent' href='" + forumURL + "'>"+ prefs.getMsg("createPoll") + "</a>";
   adjustHeight();  
 }
 
@@ -52,7 +52,7 @@ function createPollList(data){
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
   if(len == 0){
-	document.getElementById("poll").innerHTML = "<div class='light_message'>" + prefs.getMsg("nopoll") + "</div>";
+	document.getElementById("poll").innerHTML = "<div class='light_message' style='margin-left: 15px; margin-bottom: 15px'>" + prefs.getMsg("nopoll") + "</div>";
 	adjustHeight();
 	return;
 

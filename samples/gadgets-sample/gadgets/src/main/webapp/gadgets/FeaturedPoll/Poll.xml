@@ -37,7 +37,7 @@
       <div class="GadCont">
         <div  id="listpoll"></div>
         <div  id="poll" class="ClearFix"></div>
-        <div id="createpoll" class="light_message" style="margin-top: 8px"></div>
+        <div id="createpoll" style="text-align: center"></div>
       </div>
     </div>
   ]]>
