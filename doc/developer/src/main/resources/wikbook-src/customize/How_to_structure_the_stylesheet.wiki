@@ -2,19 +2,37 @@ h2. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets}
 
 The complete skinning of a page can be decomposed into three main parts:
 
-*Portal skin*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Portal skin</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 The portal skin contains styles for the HTML tags (for example, div, th, td) and the portal UI (including the toolbar). This should include all UI components, except for window decorators and portlet specific styles.
 
-*Window styles*
-
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Window style</emphasis>
+</para>
+</citetitle>
+{docbook}
 The CSS styles are associated with the portlet window decorators. The window decorators contain control buttons and borders surrounding each portlet. Individual portlets can have their own window decorators selected, or be rendered without one.
 
-!images/window_decoration.jpg!
+!images/window_decoration.jpg|align="center"!
 
-*Portlet skins*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Portlet skin</emphasis>
+</para>
+</citetitle>
+{docbook}
 
-The portlet skins affect how portlets are rendered on the page. The portlet skins can affect in two main ways:
+The portlet skins affect how portlets are rendered on the page. The portlet skins can affect in two main ways described in the following sections.
 
 h3. Portlet Specification CSS Classes {anchor:id=DEV.CreateYourOwnPortal.PortletSpecificationCSSClasses}
 
@@ -27,23 +45,29 @@ eXo Platform provides a means for portlet CSS files to be loaded that is based o
 
 {note}
 The window decorators and the default portlet specification CSS classes should be considered as separate types of skinning components, but they need to be included as a part of the overall portal skin. The portal skin must include CSS classes of these components or they will not be displayed correctly.
-A portlet skin does not need  to be  included as part of the portal skin and can be included within the portlets web application.
+A portlet skin does not need  to be  included as a part of the portal skin and can be included within the portlets web application.
 {note}
 
 h2. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
 
-h2. Name files and folders {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
+h3. Name files and folders {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}
 
 The id and class names are defined after the WebUI components name and portlets name with the 'UI-' as prefix. The same rule is applied for folder that contains components and portlets. It will help you find and edit correct files easily. 
 For example, the UI portlet will be named as UIFooterPortlet, or UIBannerPortlet and the UI component will be named as UIToolbarContainer, or UIVerticalTab.
 
-h2. Folder structure {anchor:id=DEV.CreateYourOwnPortal.FolderStructure}
-* *Portal skin:*
+h3. Folder structure {anchor:id=DEV.CreateYourOwnPortal.FolderStructure}
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Portal skins</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 The portal skin will appear as a single link to a CSS file. This link will contain contents from all the portal skin classes merged into one file. This enables the portal skin to be transferred more quickly as a single file instead of many smaller files included with every page render.
 
-*The general folder structure for portal skin:*
+* *The general folder structure for portal skin:*
 
 {{/webapp/skin/NameOfPortalSkin/portal}}
 
@@ -51,7 +75,7 @@ For example:
 
 {{/webapp/skin/DefaultSkin/portal}}
 
-*The main entry CSS file:*
+* *The main entry CSS file:*
 
 The main entry CSS file should be placed right in the main portal skin folder. The file is the main entry point to the CSS class definitions for the skin: 
 
@@ -61,7 +85,7 @@ For example:
 
 {{/webapp/skin/SkinBlue/Stylesheet.css}}
 
-*The folder structure for WebUI components:* 
+* *The folder structure for WebUI components:*
 
 {{/webapp/skin/SkinBlue/webui/component/YourUIComponentName}}
 
@@ -69,11 +93,11 @@ For example:
 
 {{/webapp/skin/SkinBlue/webui/component/UIToolbarContainer}}
 
-*Window decorator CSS is put in:*
+* *Window decorator CSS is put in:*
 
 {{webapp/skin/PortletThemes/Stylesheet.css}}
 
-*Where to put images for portal skin?*
+* *Where to put images for portal skin?*
 
 The images for portal skin should be put in the background folder right in the Portal skin folder and for each UI component.
 
@@ -83,30 +107,26 @@ For example:
 
 In summary, the folder structure for a new portal skin should be:
 
+{code}
 webapp
-- skin
--- NameOfPortalSkin
---- stylesheet.css
---- webui 
----- component
------ UIComponentName
------- NameOfPortalSkin.css
------- NameOfPortalSkin
-------- background
+|- skin
+|--- NameOfPortalSkin
+|----- stylesheet.css
+|------- webui
+|---------- component
+|------------ UIComponentName
+|--------------- NameOfPortalSkin.css
+|--------------- NameOfPortalSkin
+|------------------ background
+{code}
 
-For example:
-
-webapp
-- skin
--- DefaultSkin
---- stylesheet.css
---- webui
----- UISpaceSearch
------ DefaultSkin.css
------ DefaultSkin
------- background
-
-* *Portlet skin:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">Portlet skin</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 Each portlet on a page may contribute its own style. The link to the portlet skin will only appear on the page if that portlet is loaded on the current page. A page may contain many portlet skin CSS links or none. The link ID will be named like {noformat}{portletAppName}{PortletName}{noformat}. For example,  ContentPortlet in _content.war_ will have the _id="contentContentPortlet"_.
 

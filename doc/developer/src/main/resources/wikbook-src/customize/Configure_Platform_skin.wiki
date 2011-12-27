@@ -1,0 +1,358 @@
+eXo Platform provides support for skinning the entire User Interface (UI) of portal, including all common portal elements, custom skins and window decorator for individual portlets. Skins are designed to help you pack and reuse common graphic resources.
+
+h2. Select skins within the configuration files {anchor:id=DEV.CreateYourOwnPortal.SelectSkinWithinConfigurationFiles}
+The default skin can be set in the portal configuration files. The skin configured as default is used by Platform as the administrator starts/restarts the server.
+* To change the default skin, add a skin tag to the _portal.war/WEB-INF/conf/portal/portal/classic/portal.xml_ configuration file.
+* To change the skin to MySkin, do as follows:
+
+{code:xml}
+<portal-config>
+  <portal-name>classic</portal-name>
+  <locale>en</locale>
+  <access-permissions>Everyone</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <skin>MySkin</skin>
+  ...
+</portal-config>
+{code}
+
+h2. Skins in the page markup {anchor:id=DEV.CreateYourOwnPortal.SkinsInThePageMarkup}
+The eXo Platform 3.5 skin not only contains CSS styles for the portal's components, but also shares components that may be reused in portlets. When eXo Platform 3.5 generates the page markup of portal, stylesheet links will be inserted in the page's head tag.
+There are two main types of CSS links which appear in the head tag: one to the portal skin CSS file and the other to the portlet skin CSS file.
+* *Portal Skin* appears as a single link to a CSS file. This link contains contents from all portal skin classes merged into one file. The portal skin will be transferred more quickly as a single file instead of multiple smaller files.
+* *Portlet Skin* only appears as the link on the page if that portlet is loaded on the current page. A page may contain many CSS links of portlet skins or none.
+In the code fragment below, you can see two types of links:
+
+{code:html}
+<head>
+  ...
+  <!-- The portal skin -->
+  <link id="CoreSkin" rel="stylesheet" type="text/css" href="/eXoResources/skin/Stylesheet.css" />
+  <!-- The portlet skins -->
+  <link id="web_FooterPortlet" rel="stylesheet" type="text/css"
+    href="/web/skin/portal/webui/
+component/UIFooterPortlet/DefaultStylesheet.css" />
+  <link id="web_NavigationPortlet" rel="stylesheet" type="text/css"
+    href="/web/skin/portal/webui/
+component/UINavigationPortlet/DefaultStylesheet.css" />
+  <link id="web_HomePagePortlet" rel="stylesheet" type="text/css"
+    href="/portal/templates/skin/
+webui/component/UIHomePagePortlet/DefaultStylesheet.css" />
+  <link id="web_BannerPortlet" rel="stylesheet" type="text/css"
+    href="/web/skin/portal/webui/
+component/UIBannerPortlet/DefaultStylesheet.css" />
+  ...
+</head>
+{code}
+
+{note}
+Window styles and portlet specification CSS classes are included within the portal skin.
+{note}
+
+h2. SkinService {anchor:id=DEV.CreateYourOwnPortal.SkinService}
+SkinService in eXo Platform 3.5 is to manage various types of skins. It is used to discover and deploy skins into the portal.
+
+h3. Configure skins {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkins}
+eXo Platform 3.5 automatically discovers web archives that contain a file descriptor for skins (WEB-INF/gatein-resources.xml). This file is to specify which portal, portlet and window decorators will be deployed into the skin service.
+The full schema can be found in the lib directory: _{noformat}exo.portal.component.portal.jar/gatein_resources_1_0.xsd{noformat}_.
+Here is an example where a skin (MySkin) and its CSS location is defined and a few window decorator skins are specified:
+
+{code:xml}
+<gatein-resources>
+  <portal-skin>
+    <skin-name>MySkin</skin-name>
+    <css-path>/skin/myskin.css</css-path>
+    <overwrite>false</overwrite>
+  </portal-skin>
+
+  <!-- window style -->
+  <window-style>
+    <style-name>MyThemeCategory</style-name>
+    <style-theme>
+      <theme-name>MyThemeBlue</theme-name>
+    </style-theme>
+    <style-theme>
+      <theme-name>MyThemeRed</theme-name>
+    </style-theme>
+  </window-style>
+</gatein-resources>
+{code}
+
+h3. ResourceRequestFilter {anchor:id=DEV.CreateYourOwnPortal.ResourceRequestFilter}
+With the Right-To-Left support, you need to retrieve all CSS files through a Servlet filter and to configure the web application to activate this filter. This has been already done for the eXoResources.war web application which contains the default skin.
+Any new web applications containing skinning CSS files need to have the following added to their _web.xml_:
+
+{code:xml}
+<filter>
+  <filter-name>ResourceRequestFilter</filter-name>
+  <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+</filter>
+<filter-mapping>
+  <filter-name>ResourceRequestFilter</filter-name>
+  <url-pattern>*.css</url-pattern>
+</filter-mapping>
+{code}
+
+{note}
+The configuration of Portlet Skin takes an optional parameter application-name, which is the web application wrapping skinned portlet.
+Hence, the display-name element in _web.xml_ needs to be coherent with the application-name in the _gatein-resources.xml_ file.
+{note}
+
+{code:xml}
+<portlet-skin>
+  <!-- the application-name must be identical to display-name of the web application wrapping HomePagePortlet portlet -->
+  <application-name>web</application-name>
+  <portlet-name>HomePagePortlet</portlet-name>
+  <skin-name>Default</skin-name>
+  <css-path>/templates/skin/webui/component/UIHomePagePortlet/DefaultStylesheet.css</css-path>
+</portlet-skin>
+{code}
+
+h2. Default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
+The default skin of eXo Platform 3.5 is located as part of the _eXoResource.war_ file. The main files associated with the skin include:
+* _WEB-INF/gatein-resources.xml_: defines the skin settings to use.
+* _WEB-INF/web.xml_: contains the resource filter with the display-name set.
+* _skin/Stylesheet.css_: contains the CSS class definitions for this skin.
+
+The following block of CSS illustrates content of the _Stylesheet.css_ file:
+
+{code:css}
+@import url(DefaultSkin/portal/webui/component/UIPortalApplicationSkin.css); (1)
+@import url(DefaultSkin/webui/component/Stylesheet.css); (2)
+@import url(PortletThemes/Stylesheet.css); (3)
+@import url(Portlet/Stylesheet.css); (4)
+{code}
+
+In which:
+
+* (1) Skin of the portal page. The _UIPortalApplicationSkin.css_ defines CSS classes shared by all the portal pages.
+* (2) Skins of various portal-owned components, such as WorkingWorkspace, MaskWorkspace, PortalForm, and more.
+* (3) Window decorator skins.
+* (4) The portlet specification CSS classes. (The CSS styles defined in Portlet Specification JSR286)
+
+To make a default skin flexible and highly reusable, instead of defining all CSS classes in this file, CSS classes are arranged in nested stylesheet files, based on the @import statement. This makes easier for new skins to reuse parts of the default skin. 
+To reuse a CSS stylesheet from the default portal skin, you need to refer to the default skin from eXoResources. For example, to include the window decorators from the default skin within a new portal skin, you need to use the following import:
+
+{code:css}
+@import url(/eXoResources/skin/Portlet/Stylesheet.css);
+{code}
+
+{note}
+When the portal skin is added to the page, it merges all CSS stylesheets into a single file.
+{note}
+
+
+h2. Create new skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins}
+
+h3. Create new portal skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewPortalSkins}
+
+h4. Configure portal skins {anchor:id=DEV.CreateYourOwnPortal.ConfigurePortalSkins}
+You need to specify the new portal skin in the _gatein-resources.xml_ file. You also need to specify the name of new skin, where to locate its CSS stylesheet file and whether to overwrite the existing portal theme with the same name.
+
+{code:xml}
+<gatein-resources>
+  <portal-skin>
+    <skin-name>MySkin</skin-name>
+    <css-path>/skin/myskin.css</css-path>
+    <overwrite>false</overwrite>
+  </portal-skin>
+</gatein-resources>
+{code}
+
+The default portal skin and window styles are defined in the _eXoResources.war/WEB-INF/gatein-resources.xml_ file.
+
+{note}
+The CSS for the portal skin needs to contain CSS for all window decorators and portlet specification CSS classes.
+{note}
+
+h4. Portal skin preview icon {anchor:id=DEV.CreateYourOwnPortal.PortalSkinPreviewIcon}
+
+You can preview the appearance of a portal skin when selecting it. To display the preview image of deployed skins, the current skin must be aware of all those icons. Hence, each skin must contain preview images of all other skins.
+
+For any portal skin, the paths to preview images are specified in CSS class UIChangeSkinForm: 
+
+* _eXoResources/src/main/webapp/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css_
+
+For the portal named MySkin, it is required to define the following CSS classes:
+
+{code:css}
+.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage
+{code}
+
+The default skin would be aware of skin icons if the preview screenshot is placed in: 
+
+* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background{noformat}_.
+
+The CSS stylesheet for the default portal needs to have the following updated with the preview icon CSS class. 
+For the skin named MySkin, it is required to update the following:
+* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css{noformat}_.
+
+Now, amending the deployed package eXoResources is inevitable (modifying the default war/jar breaches development convention of Platform-based products). The problem would be resolved in future eXo Platform versions in which different skin modules are fully independent, for example, there will be no preview image duplication.
+
+{code:css}
+.UIChangeSkinForm .UIItemSelector .TemplateContainer .MySkinImage {
+margin: auto;
+width: 329px; height:204px;
+background: url('background/MySkin.jpg') no-repeat top;
+cursor: pointer ;
+}
+{code}
+
+h3. Create new window styles {anchor:id=DEV.CreateYourOwnPortal.CreateNewWindowStyles}
+Window style is the CSS applied to the window decorator. When the administrator selects a new application to add to a page, he can decide which style of decorator surrounding the window if any.
+h4. Configure window styles {anchor:id=DEV.CreateYourOwnPortal.ConfigureWindowStyles}
+Window style is defined within the _gatein-resources.xml_ file used by the SkinService to deploy the window style into the portal. Window styles can belong to a window style category. This category and window styles need to be specified in the resources file.
+The following _gatein-resource.xml_ fragment will add MyThemeBlue and MyThemeRed to the MyTheme category.
+
+{code:xml}
+<window-style>
+  <style-name>MyTheme</style-name>
+  <style-theme>
+    <theme-name>MyThemeBlue</theme-name>
+  </style-theme>
+  <style-theme>
+    <theme-name>MyThemeRed</theme-name>
+  </style-theme>
+</window-style>
+{code}
+
+The windows style of the default skin is configured in the _eXoResources.war/WEB-INF/gatein-resources.xml_ file.
+
+{note}
+When a window style is defined in the _gatein-resources.xml_ file, it will be available to all portlets regardless of whether the current portal skin supports the window decorator or not. When a new window decorator is added, it should be added to all portal skins or the portal skins should share a common stylesheet for window decorators.
+{note}
+
+h4. Window style CSS {anchor:id=DEV.CreateYourOwnPortal.WindowStyleCSS}
+In order for the SkinService to display the window decorators, it must have CSS classes with the specific naming related to the window style name. The service will try and display CSS based on this naming. The CSS class must be included as part of the current portal skin for the window decorators to be displayed.
+The window decorator CSS classes for the default portal theme are located at _eXoResources.war/skin/PortletThemes/Stylesheet.css_.
+
+h4. Set the default window style {anchor:id=DEV.CreateYourOwnPortal.SetDefaultWindowStyle}
+To set the default window style for a portal, you need to specify the CSS classes for a theme called DefaultTheme.
+
+{note}
+You do not need to specify the DefaultTheme in the _gatein-resources.xml_ file.
+{note}
+
+h3. Create new portlet skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewPortletSkins}
+Portlets often require additional styles that may not be defined by the portal skin. eXo Platform 3.5 defines additional stylesheets for each portlet and will append the corresponding link tags to the head. The ID attribute of <link> element will be in the _portletAppName/PortletName_ form.
+For example, the ContentPortlet in content.war takes "content/ContentPortlet" as ID.
+To define a new CSS file to be included whenever a portlet is available on a portal page, the following fragment needs to be added in the _gatein-resources.xml_ file.
+
+{code:xml}
+<portlet-skin>
+  <application-name>portletAppName</application-name>
+  <portlet-name>PortletName</portlet-name>
+  <skin-name>Default</skin-name>
+  <css-path>/skin/DefaultStylesheet.css</css-path>
+</portlet-skin>
+<portlet-skin>
+  <application-name>portletAppName</application-name>
+  <portlet-name>PortletName</portlet-name>
+  <skin-name>OtherSkin</skin-name>
+  <css-path>/skin/OtherSkinStylesheet.css</css-path>
+</portlet-skin>
+{code}
+
+This action will load DefaultStylesheet.css or OtherSkinStylesheet.css when the DefaultSkin or OtherSkin is used respectively.
+
+{note}
+If the current portal skin is not defined as part of the supported skins, the portlet CSS class will not be loaded. The portlet skins should be updated whenever a new portal skin is created.
+{note}
+
+h3. Change portlet icons {anchor:id=DEV.CreateYourOwnPortal.ChangePortletIcons}
+
+Each portlet can be represented by a unique icon that you can see in the portlet registry or page editor. This icon can be changed by adding an image to the directory of portlet web application: _{noformat}skin/DefaultSkin/portletIcons/icon_name.png{noformat}_.
+The icon must be named after the portlet.
+For example, the icon of account portlet must be named AccountPortlet and located at: _skin/DefaultSkin/portletIcons/AccountPortlet.png_.
+
+{note}
+You must use _skin/DefaultSkin/portletIcons/_ for the directory to store the portlet icon regardless of using any skins.
+{note}
+
+h3. Configure right-to-left skins {anchor:id=DEV.CreateYourOwnPortal.ConfigureRightToLeftSkins}
+The SkinService handles stylesheet rewriting to accommodate the orientation. It works by appending _-lt_ or _-rt_ to the stylesheet name.
+For example, _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet-rt.css_ will return the same stylesheet as _/web/skin/portal/webui/component/UIFooterPortlet/DefaultStylesheet.css_ but processed for the RT orientation. The _-lt_ suffix is optional.
+Stylesheet authors can annotate their stylesheet to create content that depends on the orientation.
+
+Example 1. This example uses the orientation to modify the float attribute that will make the horizontal tabs either float on left or on right:
+
+{code:css}
+float: left; /* orientation=lt */
+float: right; /* orientation=rt */
+font-weight: bold;
+text-align: center;
+white-space: nowrap;
+{code}
+
+The LT produced output will be:
+
+{code:css}
+float: left; /* orientation=lt */
+font-weight: bold;
+text-align: center;
+white-space: nowrap;
+{code}
+
+The RT produced output will be:
+{code:css}
+float: right; /* orientation=rt */
+font-weight: bold;
+text-align: center;
+white-space: nowrap;
+{code}
+
+Example 2. In this example, you need to modify the padding based on the orientation:
+
+{code:css}
+color: white;
+line-height: 24px;
+padding: 0px 5px 0px 0px; /* orientation=lt */
+padding: 0px 0px 0px 5px; /* orientation=rt */
+{code}
+
+The LT produced output will be:
+
+{code:css}
+color: white;
+line-height: 24px;
+padding: 0px 5px 0px 0px; /* orientation=lt */
+{code}
+
+The RT produced output will be:
+
+{code:css}
+color: white;
+line-height: 24px;
+padding: 0px 0px 0px 5px; /* orientation=rt */
+{code}
+
+h2. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSkinsWithExtension}
+
+The extension mechanism of eXo Platform 3.5 enables the skin definition to be replaced with the skin resource configured in the extension-deployed web application. This is the example where the CSS path of default portal skin needs to be modified without touching the Platform's files.
+
+{code:xml}
+<gatein-resources>
+  <portal-skin>
+    <skin-name>MySkin</skin-name>
+    <css-path>/skin/myskin.css</css-path>
+    <overwrite>false</overwrite>
+  </portal-skin>
+</gatein-resources>
+{code}
+
+{docbook}
+<para> 
+<citetitle> 
+<para><emphasis role="bold">Override skins with extension</emphasis></para> 
+</citetitle> 
+</para>
+{docbook}
+
+*1.* Create a web application whose _gatein-resources.xml_ contains the same content as the above xml block, except the element <css-path> is modified.
+
+*2.* Register the artifact in the dependencies list of extended Portal Container.
+
+*3.* Ensure that once the server has deployed the artifact, it does not load any web application with _gatein-resources.xml_ configuring the same portal skin.
+
+By the time those lines are written out, the control of loading order required in the third step relies totally on the Web Container Integration (WCI), hence the conflict may occur. That would be resolved by the concept of portal skin priority introduced in the coming version of eXo Platform.
+

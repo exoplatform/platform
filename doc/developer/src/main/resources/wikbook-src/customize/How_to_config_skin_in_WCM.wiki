@@ -12,7 +12,7 @@ h2. Customize portal's layout {anchor:id=DEV.CreateYourOwnPortal.CustomizePortal
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml] You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
 {note}
 
-* For example, you will have a layout like this:
+For example, you will have a layout like this:
 
 !images/samplelayout.jpg|align="center"!
 
@@ -26,9 +26,7 @@ A table column container with three nested containers:
 * Left Column and Right Column: contain one application for each.
 * Main content: contains the page body.
 
-And here is the "short version" of _portal.xml_.
-
-* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml{noformat}_
+And here is the fragment of _portal.xml_ located in this path: {noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml{noformat}_
 
 {code:xml}
 <!-- ... -->
@@ -103,7 +101,8 @@ This section is related to the configuration. You can see a sample [here.|http:/
 {note}
 
 * Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
-[image:sample_page.jpg]
+
+!images/sample_page.jpg|align="center"!
 
 {code:xml}
 <!-- ... -->
@@ -129,15 +128,15 @@ If you want your skin to be applied for every page, do as follows:
 
 If you want your skin to be applied for your *MySite* page only, do as follows:
 
-*1.* Open the browser *> Sites Explorer* portlet *> Sites management* drive *> MySite/css* folder.
+*1.* Click !images/gear_icon.png! *--> Sites Explorer--> Sites Management drive --> MySite/css* folder.
 
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
-{warning}
-This document should contain *ONLY* one stylesheet for the page and portal level.
-{warning}
+{note}
+This document should contain ONLY one stylesheet for the page and portal level.
+{note}
 
-The following is one sample stylesheet:
+The following is the sample stylesheet:
 
 {code:css}
 /* ... */
@@ -222,11 +221,11 @@ To customize the CLV template's style, do as follows:
 
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
-{warning}
-This document should contain *ONLY* the stylesheet for *THIS* template. If you have another template, you should create a new CSS document.
-{warning}
+{note}
+This document should contain ONLY the stylesheet for THIS template. If you have another template, you should create a new CSS document.
+{note}
 
-* The following is one sample stylesheet:
+* The following is the sample stylesheet:
 
 {code:css}
 /* ... */
@@ -245,7 +244,7 @@ This document should contain *ONLY* the stylesheet for *THIS* template. If you h
 
 *3.* Export the document and now you have an XML file.
 
-Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into database.
+Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into the database.
 
 h2. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuemntSkin}
 
@@ -311,9 +310,9 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 
 * Stylesheet: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
 
-{warning}
-This document should contain *ONLY* the stylesheet for *THIS* template.
-{warning}
+{note}
+This document should contain ONLY the stylesheet for THIS template.
+{note}
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css{noformat}_
 
@@ -328,7 +327,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 /* ... */
 {code}
 
-* You also need to import them to database.
+* You also need to import them to the database.
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml{noformat}_
 
