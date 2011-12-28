@@ -10,6 +10,9 @@
   <artifactId>exo.platform.doc</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Docs</name>
+  <properties>
+    <org.exoplatform.jcr.version>1.14.5-GA-CP01</org.exoplatform.jcr.version>
+  </properties>
   <modules>
     <module>admin</module>
     <module>developer</module>
