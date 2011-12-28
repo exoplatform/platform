@@ -12,7 +12,7 @@ h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationInteg
 
 To add a portlet to one of your portal's pages, you should configure the _pages.xml_ file located at _/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/_.
 
-Here is an example of the portlet configuration inside _pages.xml_:
+Here is an example of the portlet configuration in the _pages.xml_ file:
 
 {code:xml}
 <portlet-application>
@@ -78,7 +78,7 @@ In this part, it is assumed that developers have already known how to write a ga
 
 {note}
 
-To get more information on developing gadget, these following references are useful:
+To get more information on developing gadgets, these following references are useful:
 * [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development].
 * [Develop gadgets via a powerful web-based IDE of eXo Platform|http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/developer/html/ide-user-guide/index.html].
 {note}
