@@ -26,6 +26,11 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
+<link linkend="ADM.Configuration.Notification_email_config">Email-notification configuration for watching a document</link>
+</para>
+</listitem>
+<listitem>
+<para>
 <link linkend="ADM.Configuration.Mail_server">WebDAV Cache Control</link>
 </para>
 </listitem>
@@ -618,6 +623,64 @@ gatein.email.smtp.from=noreply@exoplatform.com
 {note}
 The value of email address should be in a valid format.
 {note}
+
+h1. Email-notification configuration for watching a document {anchor:id=ADM.Configuration.Notification_email_config}
+
+eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
+In this section, you will know how to configure such an email notification.
+
+The email notification is configured in the _core-services-configuration.xml_ file which is in _/tomcat/webapps/ecm-wcm-core/WEB-INF/conf/wcm-core_.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">Configure the email notification</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Open the _core-services-configuration.xml_ file, then customize the _messageConfig_ init-param of the _WatchDocumentService_ component.
+ 
+{code:xml}
+<component>
+   <key>org.exoplatform.services.cms.watch.WatchDocumentService</key>
+   <type>org.exoplatform.services.cms.watch.impl.WatchDocumentServiceImpl</type>
+   <init-params>
+      <object-param>
+        <name>messageConfig</name>
+        <description>description</description>
+        <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
+          <field  name="sender"><string>support@exoplatform.com</string></field>
+          <field  name="subject"><string>Your watching document is changed</string></field>
+          <field  name="mimeType"><string>text/html</string></field>
+          <field  name="content">
+            <string><![CDATA[
+                    Dear $user_name,<br>
+                    <br>
+                    The document $doc_name ($doc_title) has changed.<br>
+                    <br>
+                    Please go to <a href="$doc_url">$doc_title</a> to see this change.<br>
+                    <br>
+                    ]]>
+            </string>
+          </field>
+        </object>
+      </object-param>
+    </init-params>
+ </component>
+{code}
+In which:
+* *sender*: The email address of the sender.
+* *subject*: The subject of the notification email.
+* *mimeType*: The mimeType used to writing the notification email. There are two types: *text/html* and *text/plain*.
+* *content*: The content of the notification email.
+At present, eXo Platform supports 4 following parameters in the *content* of the email:
+** *{noformat}$user_name{noformat}*: The full name of the receiver.
+** *{noformat} $doc_name{noformat}*: The name of the document.
+** *{noformat}$doc_title{noformat}*: The title of the document.
+** *{noformat}$doc_url{noformat}*: The link to view the document in *Sites Explorer*.
+
+*2.* Save the file.
 
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
