@@ -44,11 +44,14 @@ public class LogbackLoggingFilter extends AbstractFilter implements Filter
    {
       try
       {
-         if (ConversationState.getCurrent() != null)
+         ConversationState current = ConversationState.getCurrent();
+         String currentTenant = null;
+         if (current != null)
          {
-            if (ConversationState.getCurrent().getAttribute("currentTenant") != null)
+            currentTenant = (String)current.getAttribute("currentTenant");
+            if (currentTenant != null)
             {
-               MDC.put("currentTenant", (String)ConversationState.getCurrent().getAttribute("currentTenant"));
+               MDC.put("currentTenant", currentTenant);
             }
          }
          chain.doFilter(request, response);
