@@ -92,7 +92,7 @@ The predefined groups are specified in the *group* field of the OrganizationConf
           <string></string>
         </field>
         <field name="type">
-          <string>hierarchy</string>
+          <string>hierachy</string>
         </field>
         <field name="description">
           <string>the /portal group</string>
@@ -108,7 +108,7 @@ The predefined groups are specified in the *group* field of the OrganizationConf
           <string>/portal</string>
         </field>
         <field name="type">
-          <string>hierarchy</string>
+          <string>hierachy</string>
         </field>
         <field name="description">
           <string>the /portal/community group</string>
@@ -182,7 +182,7 @@ The _exo.platform.services.organization_ package has five main components: user,
 h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntegration}
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.
 
-The configuration is done in the _ldap-configuration.xml_ file and this part will explain the numerous parameters which it contains.
+The configuration is done in the _ldap-configuration.xml_ file, and this part will explain the numerous parameters which it contains.
 
 h2. Connection Settings {anchor:id=DEV.SystemIntegration.ConnectionSettings}
 First, start by connection settings which will tell eXo how to connect to your directory server. These settings are very close to the [JNDI API|http://java.sun.com/products/jndi] context parameters. This configuration is activated by the init-param _ldap.config_ of service _LDAPServiceImpl_.
@@ -229,7 +229,7 @@ First, start by connection settings which will tell eXo how to connect to your d
 
 h2.  Organization Service Configuration {anchor:id=DEV.SystemIntegration.OrganizationServiceConfiguration}
 Next, you need to configure the eXo *OrganizationService* to show how the directory is structured and how to interact with it.
-This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribute.mapping* in file _ldap-configuration.xml_ (by default located at _portal.war/WEB-INF/conf/organization_)
+This is managed by a couple of init-params: *ldap.userDN.key* and *ldap.attribute.mapping* in the _ldap-configuration.xml_ file (by default located at _portal.war/WEB-INF/conf/organization_)
 
 {code:xml}
 <component>
@@ -706,7 +706,7 @@ gatein.email.smtp.socketFactory.port=465
 gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 {code}
 
-It is pre-configured for Gmail, so any Gmail account can easily be used. You simply need to use the full Gmail address as username and fill in the password.
+It is pre-configured for Gmail, so any Gmail account can easily be used. You simply need to use the full Gmail address as username, and fill in the password.
 
 In corporate environments, you will want to use your corporate SMTP gateway. When using it over SSL, like in the default configuration, you may need to configure a certificate trust-store, containing your SMTP server's public certificate. Depending on the key sizes, you might also need to install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files for your Java Runtime Environment.
 
