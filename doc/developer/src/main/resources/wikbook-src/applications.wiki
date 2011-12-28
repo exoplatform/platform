@@ -78,7 +78,7 @@ In this part, it is assumed that developers have already known how to write a ga
 
 {note}
 
-To get more information on developing gadgets, these following references are useful:
+To get more information on developing gadgets, refer to the following references:
 * [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development].
 * [Develop gadgets via a powerful web-based IDE of eXo Platform|http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/developer/html/ide-user-guide/index.html].
 {note}
