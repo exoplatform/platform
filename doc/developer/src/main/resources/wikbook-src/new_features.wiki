@@ -1,13 +1,13 @@
 This chapter presents new features added to eXo Platform 3.5. 
 At present, in this chapter, you will have opportunity to learn about one feature called *Navigation By Content* with the following specific topics:
 
-* [What is Navigation By Content?|#DEV.NewFeatures.NavigationByContent.whatisNavigationByContent]
 * [Actual content navigation|#DEV.NewFeatures.NavigationByContent.ContentNavigation]
-* [How-To|#DEV.NewFeatures.NavigationByContent.HowTo]
-* [Actions on Navigation By Content|#DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent]
-** [Create a new product|#DEV.NewFeatures.NavigationByContent.CreateNewProduct]
-** [Develop product content|#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent]
+* [Add content to the navigation|#DEV.NewFeatures.NavigationByContent.Add_content_to_the_navigation]
+* [Actions on the Navigation By Content|#DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent]
+* [Example of creating data for Navigation By Content|#DEV.NewFeatures.NavigationByContent.CreateDataForNavigationByContentExamples]
+** [Create a Product page|#DEV.NewFeatures.NavigationByContent.CreateNewProductPage]
+** [Develop your own Product content|#DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent]
 
-h1. Navigation by content {anchor:id=DEV.Cookbook.NavigationByContent}
+h1. Manage Navigation By Content {anchor:id=DEV.Cookbook.NavigationByContent}
 {include:document=new_features/navigation_by_content_feature.wiki|syntax=confluence/1.0}
 
