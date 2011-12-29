@@ -279,6 +279,7 @@ public class TrialService implements Startable {
         remindDate = Utils.parseDateBase64(rdate);
         computeUnlockedInformation();
         if (!outdated) {
+          firstStart = false;
           Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
         }
         response.sendRedirect(TrialService.calledUrl);

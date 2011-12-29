@@ -103,7 +103,7 @@ li {
 /* /// BANNER \\\ */
 
 .UIBanner {
-	background: url("../background/bgBanner.png") repeat-x;
+	background: url("./background/bgBanner.png") repeat-x;
 	height: 142px;
 }
 
@@ -181,19 +181,19 @@ li {
 }
 
 .UIContent .Container .GreenRect{
-	background: url("../background/bgSubmit.png") repeat-x scroll left top transparent;
+	background: url("./background/bgSubmit.png") repeat-x scroll left top transparent;
 }
 
 .UIContent .Container .OrangeRect{
-	background: url("../background/bgSubmit.png") repeat-x scroll left -40px transparent;
+	background: url("./background/bgSubmit.png") repeat-x scroll left -40px transparent;
 }
 
 .UIContent .Container .GrayRect{
-	background: url("../background/bgSubmit.png") repeat-x scroll left -125px transparent;
+	background: url("./background/bgSubmit.png") repeat-x scroll left -125px transparent;
 }
 
 .UIContent .Container .BlueRect{
-	background: url("../background/bgSubmit.png") repeat-x scroll left -80px transparent;
+	background: url("./background/bgSubmit.png") repeat-x scroll left -80px transparent;
 }
 
 .UIContent .Container .TriangleItem {	
@@ -205,19 +205,19 @@ li {
 }
 
 .UIContent .Container .OrangeIcon {
-	background: url("../background/IconBox.png") no-repeat scroll left top transparent;
+	background: url("./background/IconBox.png") no-repeat scroll left top transparent;
 }
 
 .UIContent .Container .GreenIcon {
-	background: url("../background/IconBox.png") no-repeat scroll left -40px transparent;
+	background: url("./background/IconBox.png") no-repeat scroll left -40px transparent;
 }
 
 .UIContent .Container .GrayIcon {
-	background: url("../background/IconBox.png") no-repeat scroll left -80px transparent;
+	background: url("./background/IconBox.png") no-repeat scroll left -80px transparent;
 }
 
 .UIContent .Container .BlueIcon {
-	background: url("../background/IconBox.png") no-repeat scroll left -120px transparent;
+	background: url("./background/IconBox.png") no-repeat scroll left -120px transparent;
 }
 
 .UIContent .FormContainer .FormSubmit {
@@ -236,7 +236,7 @@ li {
 }
 
 .UIContent .FormContainer .BlueFormRect{
-	background: url("../background/bgSubmit.png") repeat-x scroll left -80px transparent;
+	background: url("./background/bgSubmit.png") repeat-x scroll left -80px transparent;
 }
 
 
