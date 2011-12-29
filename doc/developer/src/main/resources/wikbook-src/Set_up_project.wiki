@@ -1,13 +1,30 @@
 This chapter shows you how to set up maven. The rest of the Developer Guide explains how to setup an entire project/extension.
 
-*Requirements:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Requirements
+</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 * JDK (Java Development Kit) 6.0 
 * SVN 1.6+
 * Maven 2.2.1+
 * Tomcat 6.0.32 or JBoss EAP 5.1.1
 
-*Install and configure Maven:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Install and configure Maven
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 You need to add a system environment variable _{noformat}MAVEN_OPTS{noformat}_ (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
@@ -22,7 +39,16 @@ set MAVEN_OPTS=-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M
 export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 {code}
 
-*Maven settings:*
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Maven settings
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 
 *1.* Save the _settings.xml_ file to the _HOME/.m2/settings.xml_ path.
 

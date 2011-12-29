@@ -1,4 +1,32 @@
-h1. Welcome to eXo Platform 3.5 {anchor:id=DEV.Introduction.Welcome}
+h1. Contribute to this document {anchor:id=DEV.eXoPlatform.ContributeToThisDocument}
+
+Your feedbacks are so important to our documentation. If you find typographical errors in this manual, or think of a way to make this guide 
+better, we are always pleased to hear from you. Let us know your questions and suggestions on both eXo Platform 3.5 and this user guide by participating in our community website:
+
+http://community.exoplatform.org
+
+h1. Introduction  {anchor:id=DEV.eXoPlatform.Introduction}
+
+The eXo Platform Developer Guide presents a complete overview of the eXo Platform 3.5 capabilities. This guide is intended for system integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portals. Accordingly, this guide introduces the eXo Platform architecture, and shows developers how to perform some of the most common tasks needed for customizing and working with eXo Platform 3.5. It also serves as an entry point for the Reference Guide, which provides in-depth technical reference for developers about eXo Platform 3.5. 
+
+After reading this guide, developers are expected to be able to customize their own portals and develop applications to run on eXo Platform 3.5.
+
+This guide includes the following topics.
+
+|[Introduction|#DEV.Introduction]| The overview of eXo Platform 3.5, this developer guide and its intended readers.|
+|[Glossary|#DEV.Glossary]|Terms commonly used in the developers' aspect in the process of implementing the eXo Platform applications.|
+|[Set Up Maven Settings|#DEV.SetupMavenSettings]|Step-by-step instructions on how to set up Maven settings.|
+|[eXo Architecture Primer|#DEV.eXoArchitecturePrimer]|Introduction to Kernel, GateIn Extensions, Java Content Repository, and their components.|
+|[Create Your Own Portal|#DEV.CreatingYourOwnPortal]|Steps of creating and customizing your own portal.|
+|[Work with Content|#DEV.WorkingwithContent]|Topics related to the eXo Platform content.|
+|[Work with Applications|#DEV.WorkingwithApplications]|Instructions on how to integrate applications into your portal and how to deploy your own applications.|
+|[Integrate eXo Platform 3.5 into one information system|#DEV.SystemIntegration]|Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.|
+|[eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]|Information about APIs.|
+|[Cookbook|#DEV.Cookbook]|Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.|
+|[New Features|#DEV.NewFeatures]|New features integrated into eXo Platform 3.5. At present, only the called Navigation By Content feature is introduced in this chapter.|
+
+
+h2. About eXo Platform 3.5 {anchor:id=DEV.eXoPlatform.AbouteXoPlatform}
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
@@ -27,19 +55,4 @@ With eXo Platform 3.5, you can customize and extend your portal-based applicatio
 * CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing Groovy commands, without recompiling easily.
 * Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
  
-h1. About this guide {anchor:id=DEV.Introduction.AboutDeveloperGuide}
-The eXo Platform Developer Guide presents a complete overview of the eXo Platform 3.5 capabilities. This guide is intended for system integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portals. Accordingly, this guide introduces the eXo Platform architecture, and shows developers how to perform some of the most common tasks needed for working with eXo Platform 3.5. It also serves as an entry point for the Reference Guide, which provides more in-depth technical details about eXo Platform 3.5. As a result, developers could be able to customize their own portals with eXo Platform 3.5.
 
-This guide includes the following topics.
-
-|[Introduction|#DEV.Introduction]|Overview of eXo Platform 3.5, of the developer guide and its intended readers.|
-|[Glossary|#DEV.Glossary]|Terms commonly used in the developers' aspect in the process of implementing the eXo Platform applications.|
-|[Set Up Your Project|#DEV.SettingUpYourProject]|Step-by-step instructions on how to set up projects.|
-|[eXo Architecture Primer|#DEV.eXoArchitecturePrimer]|Introduction to Kernel, GateIn Extensions, and Java Content Repository and their components.|
-|[Create Your Own Portal|#DEV.CreatingYourOwnPortal]|Steps of creating a portal.|
-|[Work with Content|#DEV.WorkingwithContent]|Topics related to the eXo Platform content.|
-|[Work with Applications|#DEV.WorkingwithApplications]|Instructions on how to integrate applications into your portal and how to deploy your own applications.|
-|[Integrate eXo Platform 3.5 into one information system|#DEV.SystemIntegration]|Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.|
-|[eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]|Information about APIs.|
-|[Cookbook|#DEV.Cookbook]|Introduction to Cookbook, particularly steps on how to copy a site.|
-|[New Features|#DEV.NewFeatures]|New features integrated into eXo Platform 3.5. At present, in this chapter, only one feature called Navigation By Content is introduced.|
