@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo-gadget-pack</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.1</version>
   </parent>
   
   <artifactId>gwt-gadgets</artifactId>
