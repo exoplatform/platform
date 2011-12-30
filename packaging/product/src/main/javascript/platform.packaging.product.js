@@ -166,7 +166,9 @@ function getProduct(version) {
 //  product.addServerPatch("jonas",  portal.server.jonas.patch) ;
 //  product.addServerPatch("ear",  portal.server.websphere.patch) ;
 
-
+	
+	// upgrade plugins
+  product.addDependencies(platform.upgrade.platform);
 
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));

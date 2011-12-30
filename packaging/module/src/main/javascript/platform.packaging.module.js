@@ -32,6 +32,9 @@ function getModule(params)
    var crashVersion = "${org.crsh.version}";
    var webosVersion = "${org.exoplatform.webos.version}";
    var integVersion = "${org.exoplatform.integ.version}";
+   var socialVersion = "${org.exoplatform.social.version}";
+   var csVersion = "${org.exoplatform.cs.version}";
+   var ksVersion = "${org.exoplatform.ks.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
@@ -193,6 +196,17 @@ function getModule(params)
    addDependency(new Project("org.exoplatform.integration", "integ-cs-social", "jar", integVersion)).
    addDependency(new Project("org.exoplatform.integration", "integ-social-ecms", "jar", integVersion));
 
+   // upgrade plugins
+   module.upgrade = {};
+   module.upgrade.platform = new Project("org.exoplatform.platform","exo.platform.upgrade.plugins","jar", module.version).
+   addDependency(new Project("org.exoplatform.commons","exo.platform.commons.component.upgrade","jar", commonsVersion)).
+   addDependency(new Project("org.exoplatform.social","exo.social.extras.migration","jar", socialVersion)).
+   addDependency(new Project("org.exoplatform.social","exo.social.extras.updater","jar", socialVersion)).
+   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-voting-nodetype","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-thumbnails","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-favorite","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.cs","exo.cs.component.upgrade","jar", csVersion)).
+   addDependency(new Project("org.exoplatform.ks","exo.ks.component.upgrade","jar", ksVersion));
    
    return module;
 }

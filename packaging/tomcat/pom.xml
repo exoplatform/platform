@@ -74,6 +74,11 @@
     <!-- KS -->
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
+      <artifactId>exo.ks.component.upgrade</artifactId>
+      <version>${org.exoplatform.ks.version}</version>
+		</dependency>
+    <dependency>
+      <groupId>org.exoplatform.ks</groupId>
       <artifactId>ks.packaging.module</artifactId>
       <version>${org.exoplatform.ks.version}</version>
       <type>js</type>
@@ -85,6 +90,11 @@
       <type>js</type>
     </dependency>
     <!-- CS -->
+    <dependency>
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.component.upgrade</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+		</dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>cs.packaging.module</artifactId>
@@ -100,6 +110,18 @@
     <!-- SOCIAL -->
     <dependency>
       <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.extras.migration</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.extras.updater</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
       <artifactId>social.packaging.module</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <type>js</type>
@@ -111,6 +133,21 @@
       <type>js</type>
     </dependency>
     <!-- ECMS -->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-voting-nodetype</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+		</dependency>
+		<dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-favorite</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+		</dependency>
+		<dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-thumbnails</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+		</dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>workflow.packaging.module</artifactId>
