@@ -833,6 +833,91 @@
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
+    
+    <!-- upgrade plugins -->
+    <dependency>
+	<groupId>org.exoplatform.commons</groupId>
+	<artifactId>exo.platform.commons.component.upgrade</artifactId>
+	<version>${org.exoplatform.commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.extras.migration</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.staxnav</groupId>
+          <artifactId>staxnav.core</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>exo.social.extras.updater</artifactId>
+      <version>${org.exoplatform.social.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.exoplatform.portal</groupId>
+          <artifactId>exo.portal.component.common</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-voting-nodetype</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-core-services</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-thumbnails</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-core-services</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-upgrade-favorite</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <exclusions>
+      	<exclusion>
+          <groupId>org.exoplatform.jcr</groupId>
+          <artifactId>exo.jcr.component.ext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-core-services</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.cs</groupId>
+      <artifactId>exo.cs.component.upgrade</artifactId>
+      <version>${org.exoplatform.cs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ks</groupId>
+      <artifactId>exo.ks.component.upgrade</artifactId>
+      <version>${org.exoplatform.ks.version}</version>
+    </dependency>
+		
   </dependencies>
   <build>
     <finalName>platform-extension</finalName>
