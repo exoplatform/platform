@@ -9,11 +9,12 @@
   padding: 0px;
 }
 
-.BookMarks li {
+.BookMarks .ListItem {
   list-style-type: none;
   font-family: verdana, arial,sans-serif;
   font-size: 12px;
   line-height: 23px;
+  clear: both;
 }
 
 .ContBookmark {padding-left: 10px;}
@@ -45,8 +46,14 @@
 .ContBookmark .Button {
   display: block;
   float: left;
-  margin: 5px 5px 0px 0px;
+  margin: 5px 4px 0px 0px;
   }
+  
+.ContBookmark .ButtonDel {
+  display: block;
+  float: left;
+  margin-top: 5px;
+}  
 
 .ContBookmark .btnAdd {
   font-size: 12px;

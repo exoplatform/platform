@@ -19,16 +19,16 @@
       $(function(){
       
         function addBookmark(id, name, link) {
-          var icon = "<div class='ArrowIcon'><img class='listIcon off CustomImage' src='/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif' ></img></div>";
-          var item = "<a id='bookmark" + id + "' href='" + link + "' target='_parent'>" + name + "</a>";
-          var form = "<div class='Form' style='display:none;'> \
-                        <div class='Label ClearFix'><input type='text' class='EditFormName'></input></div> \
-                        <div class='Label ClearFix LabelBelow'><input type='text' class='EditFormLink'></input> \
-                          <a class='Button EditFormOK' href='#'><img alt='' src='/exo-gadget-resources/skin/exo-gadget/images/Ok.gif'></img></a> \
-                          <a class='Button EditFormDelete' href='#'><img alt='' src='/exo-gadget-resources/skin/exo-gadget/images/Del.gif'></img></a> \
+          var icon = '<div class="ArrowIcon"><img class="listIcon off CustomImage" src="/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif"></img></div>';
+          var item = '<a id="bookmark' + id + '" href="' + link + '" target="_parent">' + name + '</a>';
+          var form = '<div class="Form" style="display:none;"> \
+                        <div class="Label"><input type="text" class="EditFormName"></input></div> \
+                        <div class="Label LabelBelow"><input type="text" class="EditFormLink"></input> \
+                          <a class="Button EditFormOK" href="#"><img alt="" src="/exo-gadget-resources/skin/exo-gadget/images/Ok.gif"></img></a> \
+                          <a class="Button EditFormDelete" href="#"><img alt="" src="/exo-gadget-resources/skin/exo-gadget/images/Del.gif"></img></a> \
                         </div> \
-                      </div>";
-          $("#BookmarkList").append("<li>" + icon + item + form + "</li>");
+                      </div>';
+          $("#BookmarkList").append("<div class='ListItem'>" + icon + item + form + "</div>");
         }
 
         var imageSource = "/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif";
@@ -79,11 +79,11 @@
 
 
         $("body").delegate(".Editable", "click", function(){
-          var $thisForm = $(this).closest("li").find(".Form");
+          var $thisForm = $(this).closest(".ListItem").find(".Form");
           $thisForm.find("input:text[class=EditFormName]").val($(this).text());
           $thisForm.find("input:text[class=EditFormLink]").val($(this).attr("href"));
 
-          var $imgNew = $(this).closest("li").find("img.listIcon");
+          var $imgNew = $(this).closest(".ListItem").find("img.listIcon");
 
           if ($thisForm.is(':hidden')) {
             $(".Form").hide();
@@ -104,20 +104,20 @@
         $("body").delegate(".EditFormOK", "click", function(){
           var newName = $(this).closest(".Form").find("input:text[class=EditFormName]").val();
           var newLink = $(this).closest(".Form").find("input:text[class=EditFormLink]").val();
-          var $thisBookmark = $(this).closest("li").find("a[id^=bookmark]");
+          var $thisBookmark = $(this).closest(".ListItem").find("a[id^=bookmark]");
           $thisBookmark.text(newName);
           $thisBookmark.attr("href", newLink);
           $(this).closest(".Form").hide();
-          var $link = $(this).closest("li").find("a[id^=bookmark]");
+          var $link = $(this).closest(".ListItem").find("a[id^=bookmark]");
           $link.show();
-          var $imgNew = $(this).closest("li").find("img.listIcon");
+          var $imgNew = $(this).closest(".ListItem").find("img.listIcon");
           $imgNew.removeClass('on').addClass('off').attr({src:imageSource});
           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
         });
 
 
         $("body").delegate(".EditFormDelete", "click", function(){
-          $(this).closest('li').remove();
+          $(this).closest('.ListItem').remove();
           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
         });
       
@@ -133,7 +133,7 @@
       
 
         $("#btnNewOK").live("click", function(){
-          var newId = $("#BookmarkList li").size();
+          var newId = $("#BookmarkList .ListItem").size();
           var newName = $("#txtNewName").val();
           var newLink = $("#txtNewLink").val();
           if(newName.length==0 || newLink.length==0) return false;
@@ -143,7 +143,7 @@
           $thisBookmark.addClass("Editable");
           $("#txtNewName").val("");
           $("#txtNewLink").val("");
-          $thisBookmark.closest("li").find("img.listIcon").addClass("EditImage");
+          $thisBookmark.closest(".ListItem").find("img.listIcon").addClass("EditImage");
           gadgets.window.adjustHeight($("#content").get(0).offsetHeight);
         });
             
@@ -157,16 +157,16 @@
         $("body").delegate(".EditImage", "click", function(){
           if ($(this).hasClass('on')) {
             $(this).removeClass('on').addClass('off').attr({src:imageSource});
-            $(this).closest("li").find("a[id^=bookmark]").click();
+            $(this).closest(".ListItem").find("a[id^=bookmark]").click();
           } else if ($(this).hasClass('off')) {
             $(this).removeClass('off').addClass('on').attr({src:imageSource2});
-            $(this).closest("li").find("a[id^=bookmark]").click();
+            $(this).closest(".ListItem").find("a[id^=bookmark]").click();
           }
         });
 
         function toJson(){
           var bookmarks = [];  
-          $("#BookmarkList li").each(function(index) {
+          $("#BookmarkList .ListItem").each(function(index) {
             $bookmark = $(this).find("a[id^=bookmark]");
             var bookmark="{";
             bookmark += '"name":"' + $bookmark.text() + '",';
@@ -180,22 +180,22 @@
     </script>
   </head>
 
-  <body>
-   <div id="content">
-    <div class="UIGadgetThemes">
-      <div class="TitGad ClearFix">
-        <div style="float:right; display:block; margin:3px 9px;">
-                <img id="customize" class='on' src='/exo-gadget-resources/skin/exo-gadget/images/settings.png' ></img>
-        </div>
-        <div class="ContTit" style="float:left;">__MSG_title__</div>
-      </div>
-      <br/>
-    
-      <div class="ContBookmark">
-        <ul id="BookmarkList" class="BookMarks"></ul>
-        <a id="btnAdd" class="btnAdd" style="display:none;">__MSG_addbutton__</a>
+    <div id="content" class="UIGadgetThemes">
       
-        <table id="frmNew" class="Form" style="display:none;">
+       <div class="TitGad ClearFix">
+
+          <div style="float:right; margin-top:2px; margin-right:10px;">
+                <img id="customize" class="on" src="/exo-gadget-resources/skin/exo-gadget/images/settings.png"></img>
+          </div>
+          <div class="ContTit">__MSG_title__</div>
+       </div>
+    
+      <div class="ContBookmark GadCont">
+        <div id="BookmarkList" class="BookMarks"></div>
+        <div style="clear: both; padding-top: 6px;">
+        <a id="btnAdd" class="btnAdd" style="display:none; cursor: pointer;">__MSG_addbutton__</a>
+      
+        <table id="frmNew" class="Form" style="display:none; margin-left: 8px;">
           <tr>
             <td>__MSG_name__</td>
             <td><input type="text" id="txtNewName"></input></td>
@@ -205,15 +205,14 @@
             <td><input type="text" id="txtNewLink"></input></td>
             <td>
               <a id="btnNewOK" class="Button" href="#"><img alt="" src="images/Ok.gif"></img></a>
-              <a id="btnNewCancel" class="Button" href="#"><img alt="" src="images/Del.gif"></img></a>
+              <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="" src="images/Del.gif"></img></a>
             </td>
           </tr>
         </table>
+        </div>
       </div>
+      
      </div>
-    </div>
-  </body>
-    
   ]]>
 </Content>
 </Module>
