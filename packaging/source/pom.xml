@@ -74,9 +74,8 @@
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
-				</artifactItem>
-                                <!--Inactive Until PLF uses JCR CR4 versions -->
-                                <!--artifactItem>
+				</artifactItem>                               
+                                <artifactItem>
 					<groupId>org.exoplatform.core</groupId>
 					<artifactId>core-parent</artifactId>
 					<version>${org.exoplatform.core.version}</version>
@@ -115,7 +114,23 @@
  					<type>zip</type>
                                          <outputDirectory>${project.build.directory}/source</outputDirectory>
  					<classifier>source-release</classifier>
- 				</artifactItem-->
+ 				</artifactItem>
+                                <artifactItem>
+					<groupId>org.exoplatform.portal</groupId>
+					<artifactId>exo.portal.parent</artifactId>
+					<version>${org.exoplatform.portal.version}</version>
+					<type>zip</type>
+                                        <outputDirectory>${project.build.directory}/source</outputDirectory>
+					<classifier>source-release</classifier>
+				</artifactItem>
+                                <artifactItem>
+					<groupId>org.exoplatform.integration</groupId>
+					<artifactId>integ</artifactId>
+					<version>${org.exoplatform.integ.version}</version>
+					<type>zip</type>
+                                        <outputDirectory>${project.build.directory}/source</outputDirectory>
+					<classifier>source-release</classifier>
+				</artifactItem>                      
                 </artifactItems>
               </configuration>
             </execution>
