@@ -48,17 +48,34 @@ echo Starting eXo ...
 
 cd ./bin
 
+#for debug mode##########
+EXO_CONFIG="-Dorg.exoplatform.container.configuration.debug"
+REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
+DEBUG_MODE="-Dexo.product.developing=true"
+########################
+
 if [ "$1" = "" ] ; then 
 	EXO_PROFILES="-Dexo.profiles=default"
+	CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $EXO_PROFILES"
 else
-	EXO_PROFILES="-Dexo.profiles=$*"
+        if [ "$1" = "-debug" ]; then
+                if [ "$2" = "" ]; then
+        	        EXO_PROFILES="-Dexo.profiles=default"        
+	        else
+	                EXO_PROFILES="-Dexo.profiles=$2"
+	        fi
+        	CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $EXO_PROFILES $DEBUG_MODE $EXO_CONFIG $REMOTE_DEBUG"  
+                echo This is debug mode        	      
+	else
+	        EXO_PROFILES="-Dexo.profiles=$*"
+        	CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $EXO_PROFILES"
+	fi
 fi
 
 echo eXo is launched with the $EXO_PROFILES option as profile
 
 export EXO_PROFILES
-
-CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $EXO_PROFILES"
+#CATALINA_OPTS="$JVM_OPTS $CATALINA_OPTS $EXO_PROFILES"
 export CATALINA_OPTS
 
 # Launches the server
