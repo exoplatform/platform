@@ -562,6 +562,7 @@
 					
 					$("#latestBtn").click(function(){
 						isFinding = false;
+						document.getElementById("searchTxt").value = "";
 						var restURI = "/rest/loginhistory/lastlogins/5/%25";
 						$.getJSON(restURI, function(lastLoginsJson){
 							lastLogins2html(lastLoginsJson);

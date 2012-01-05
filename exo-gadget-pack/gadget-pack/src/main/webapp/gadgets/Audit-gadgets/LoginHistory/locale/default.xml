@@ -31,7 +31,7 @@
     Find
   </msg>
   <msg name="loginHistory.latest">
-    Latest
+    Reset
   </msg>
   <msg name="loginHistory.lastLogin">
     Last login
