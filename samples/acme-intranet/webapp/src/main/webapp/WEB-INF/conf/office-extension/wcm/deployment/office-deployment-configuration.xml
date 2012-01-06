@@ -27,7 +27,20 @@
   <component>
     <type>org.exoplatform.services.deployment.WCMContentInitializerService</type>
   </component>
-
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
+    <component-plugin>
+      <name>Add intranet as ignored portal</name>
+      <set-method>addIgnorePortalPlugin</set-method>
+      <type>org.exoplatform.services.wcm.portal.artifacts.IgnorePortalPlugin</type>
+      <init-params>
+        <values-param>
+          <name>ignored.portals</name>
+          <value>intranet</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
   <external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
@@ -58,7 +71,7 @@
             </field>
           </object>
         </object-param>
-		  <object-param>
+        <object-param>
           <name>Office Navigation Data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -80,7 +93,7 @@
             </field>
           </object>
         </object-param>
-		 <object-param>
+        <object-param>
           <name>Office welcome Data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -102,7 +115,7 @@
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>Office Footer data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -119,12 +132,12 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Footer.xml</string>
             </field>
-			<field name="cleanupPublication">
+            <field name="cleanupPublication">
               <boolean>true</boolean>
             </field>
           </object>
         </object-param>
-		<object-param>
+        <object-param>
           <name>Office jira Data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -190,9 +203,9 @@
             </field>
           </object>
         </object-param>
-		
-		
-		 <object-param>
+
+
+        <object-param>
           <name>Linkregister</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -214,8 +227,8 @@
             </field>
           </object>
         </object-param>
-		
-		<object-param>
+
+        <object-param>
           <name>ACME Intranet Images data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
@@ -259,7 +272,7 @@
             </field>
           </object>
         </object-param>
-		
+
       </init-params>
     </component-plugin>
   </external-component-plugins>

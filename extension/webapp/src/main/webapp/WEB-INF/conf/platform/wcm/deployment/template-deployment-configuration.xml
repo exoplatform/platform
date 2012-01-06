@@ -24,22 +24,10 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-
-
 	<component>
 		<key>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</key>
 		<type>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsServiceImpl</type>
-		<init-params>
-			<values-param>
-				<name>ignored.portals</name>
-				<description>initial portals. the service will not deploy data to the initial portal</description>
-				<value>intranet</value>
-				<value>default</value>
-				<value>acme</value>
-			</values-param>
-		</init-params>
 	</component>
-
 	<external-component-plugins>
 		<target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
 		<component-plugin>

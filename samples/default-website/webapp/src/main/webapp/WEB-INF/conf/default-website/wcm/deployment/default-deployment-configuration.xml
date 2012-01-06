@@ -28,6 +28,20 @@
     <type>org.exoplatform.services.deployment.WCMContentInitializerService</type>
   </component>
   <external-component-plugins>
+    <target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
+    <component-plugin>
+      <name>Add default as ignored portal</name>
+      <set-method>addIgnorePortalPlugin</set-method>
+      <type>org.exoplatform.services.wcm.portal.artifacts.IgnorePortalPlugin</type>
+      <init-params>
+        <values-param>
+          <name>ignored.portals</name>
+          <value>default</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  <external-component-plugins>
     <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
     <component-plugin>
       <name>Content Initializer Service</name>
@@ -53,7 +67,7 @@
               <string>war:/conf/default-website/wcm/artifacts/site-resources/default/Welcome.xml</string>
             </field>
             <field name="cleanupPublication">
-               <boolean>true</boolean>
+              <boolean>true</boolean>
             </field>
           </object>
         </object-param>
