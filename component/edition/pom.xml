@@ -10,7 +10,7 @@
 	<packaging>pom</packaging>
 	<name>eXo Platform - Edition Information</name>
 	<modules>
-		<module>parent</module>
 		<module>enterprise</module>
+		<module>community</module>
 	</modules>
 </project>

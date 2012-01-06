@@ -6,7 +6,7 @@
 		<artifactId>exo.platform.component.edition</artifactId>
 		<version>3.5.2-SNAPSHOT</version>
 	</parent>
-	<artifactId>exo.platform.component.edition.parent</artifactId>
+	<artifactId>exo.platform.component.edition.community</artifactId>
 	<packaging>jar</packaging>
-	<name>eXo Platform - Edition Parent Information</name>
+	<name>eXo Platform - Community Edition Information</name>
 </project>
