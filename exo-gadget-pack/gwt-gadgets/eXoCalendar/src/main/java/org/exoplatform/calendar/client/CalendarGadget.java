@@ -171,9 +171,12 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
     }
     
     String relPath = "/calgad/hdays/" + fromDate.getTime() + "/" + toDate.getTime() + "/";
+    StringBuilder sb = new StringBuilder();
     for (String s : visibleCals) {
-      relPath += s + '/';
+      sb.append(s).append('/');
     }
+    relPath += sb.toString();
+    
     RestRequestController.instance().makeGetJsonRequest(relPath, new ResponseReceivedHandler<JavaScriptObject>() {
       public void onResponseReceived(ResponseReceivedEvent<JavaScriptObject> event) {
         // update datePicker to highlight dates
