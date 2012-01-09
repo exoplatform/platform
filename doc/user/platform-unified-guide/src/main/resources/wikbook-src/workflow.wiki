@@ -27,7 +27,7 @@ h2. Create a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Mana
 
 !images/Workflow/BPdefinitionController.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Open the *Task Management* form by clicking !images/set_up1.png! in accordance with a holiday process that you want to request a task as below.
+*2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in accordance with a holiday process that you want to request a task as below.
 
 !images/Workflow/task_manager1.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -35,9 +35,9 @@ In which:
 * *Start (dd/mm/yyyy)* is the start date of your holiday.
 * *End (dd/mm/yyyy)* is the end date of your holiday.
 
-In this form, you need to set a time interval in the *Start* and *End* field by moving your cursor to each field and then click each field to open the *Calendar* pop-up.
+In this form, you need to set a time interval in the *Start* and *End* field by moving your cursor to each field, then click each field to open the *Calendar* pop-up.
 
-!images/task_manager_request|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/task_manager_request|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Submit your task by clicking the *Submit* button.
  
@@ -86,28 +86,29 @@ h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Ma
 
 *1.* Select the *BP Definition Controller* tab to bring up process list.
 
-*2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png|width="3mmmm" fo:scalefit="1" html:scalefit="0"! that corresponds to a pay raise process which you want to request a task.
+*2.* Open the *Task Management* form by clicking !images/Workflow/set_up1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that corresponds to a pay raise process which you want to request a task.
 
 !images/Workflow/Request_payraise.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-In which:
+*Details:*
 
-* *Amount* is the amount of money that you want to request.
-* *Priority* is the priority level of this task. It can be: not important, important or critical.
-* *Rewarded* is the amount of money that you requested including reward or not.
-* *Reason* is the reason why you want to request this amount.
+|| Field || Description ||
+| *Amount* | The amount of money that you want to request.|
+| *Priority* | The priority level of this task. It may be: not important, important or critical. |
+| *Rewarded* | The amount of money that you requested including reward or not. |
+| *Reason* | The reason why you want to request this amount. |
 
-*4.* Enter values for fields in this form.
+*3.* Enter values for fields in the form.
 
-*5.* Submit this task by clicking the *Submit* button.
+*4.* Click the *Submit* button to submit your task.
 
-This task will be sent to members in _{noformat}*:/organization/management/executive-board{noformat}_ group to manage it.
+This task will be sent to members of the _{noformat}*:/organization/management/executive-board{noformat}_ group that manage it.
 
 h2. Manage a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_pay_raise}
 
 If you are a member of _{noformat}*:/organization/management/executive-board{noformat}_ group, you have a responsibility to evaluate received tasks. To do this action, do as follows:
 
-*1.* Go to the *Workflow Controller* page. If there are tasks pending to be evaluated, you will see the tasks list in the *Task Controller* tab.
+*1.* Go to the *Workflow Controller* page. If there are tasks which are pending for evaluation, you will see the tasks list in the *Task Controller* tab.
 
 !images/Workflow/taskcontroller_evaluate_payraise.png|width="150mm" fo:scalefit="1" html:scalefit="0" align="center"!
 
@@ -152,7 +153,7 @@ Besides two default process supported by system, administrators also can upload 
 
 *4.* Enter a name for the uploaded process in the *Name* field.
 
-*5.* Click the *Browse* button to select the location which contains the configuration of a new process, and double-click to upload it.
+*5.* Click the *Browse* button to select the location which contains the configuration of a new process, then double-click to upload it.
 
 *6.* Click *Save* to save the uploaded process.
 

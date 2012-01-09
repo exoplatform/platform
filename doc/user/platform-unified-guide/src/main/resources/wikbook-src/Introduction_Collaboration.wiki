@@ -17,7 +17,7 @@ eXo Platform provides a set of collaborative applications which help you achieve
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat">Chat</link> with your contacts through the <emphasis role="bold">Chat</emphasis> application. <emphasis role="bold">Chat</emphasis> allows you to communicate with other users in your contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your <emphasis role="bold">Address Book</emphasis> to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
+<para><link linkend="Platform_User_Guide.Collaboration.Communicate_with_Contacts.Chat">Chat with your contacts</link> through the <emphasis role="bold">Chat</emphasis> application. <emphasis role="bold">Chat</emphasis> allows you to communicate with other users in your contact book quickly with an easy-to-use integrated text messaging application. You can chat with other people in real time, create chat rooms and add contacts from your <emphasis role="bold">Address Book</emphasis> to your friends list. This will save time and enhance the productivity when you want to have an instant communication with your contact without sending mails.
 </para>
 </listitem>
 </itemizedlist>

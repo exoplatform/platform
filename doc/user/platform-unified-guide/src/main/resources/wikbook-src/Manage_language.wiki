@@ -31,7 +31,7 @@ You will be directed to your selected site.
 
 Your selected site will be displayed in the *Edit* mode.
 
-*3.* Click !images/Language/Site_config_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Edit Inline Composer* form. The *Site Settings* form appears:
+*3.* Click !images/Language/Site_config_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! in the *Edit Inline Composer* form. The *Site Settings* form appears.
 
 !images/Language/Portal_settings_form.png|align="center" width="100mm" scalefit="1"!
 
