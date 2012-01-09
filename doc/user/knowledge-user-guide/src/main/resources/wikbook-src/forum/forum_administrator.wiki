@@ -30,7 +30,7 @@ The *Page Manager* page will be displayed.
 
 !images/admin_forum_edit_forum_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Hover your cursor over the *Forum* portlet then click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the quick toolbar.
+*3.* Hover your cursor over the *Forum* portlet, then click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the quick toolbar.
 
 The settings form allows you to configure the *Forum* portlet in various aspects.
 
@@ -93,9 +93,7 @@ Only when you are assigned as an *administrator*, you can do this function. Norm
 In the *Category* tab, optionally you can also:
 
 * Enter the order of category in the numeric format into the *Order* field.
-
 * Give a brief description for your category into the *Description* field.
-
 * Make the created category restricted by limiting the number of audiences via one of the following ways: {anchor:id=Manage_categories.Add_categories.Add_restricted_categories}
 
 *The first way* 
@@ -123,7 +121,7 @@ Optionally, select the *Permissions* tab to specify the category permissions. {a
 
 h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_categories}
 
-*1.* Select a category to edit from the *Forum* homepage then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in the categories list.
+*1.* Select a category to edit from the *Forum* homepage, then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in the categories list.
 
 *2.* Click *Edit* from the drop-down menu.
 
@@ -133,11 +131,11 @@ h3. Edit a category {anchor:id=Forum_Administrator.Manage_categories.Edit_catego
 
 h3. Delete a category {anchor:id=Forum_Administrator.Manage_categories.Delete_categories}
 
-*1.* Select a category to delete from the *Forum* homepage then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
+*1.* Select a category to delete from the *Forum* homepage, then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *2.* Click *Delete* from the drop-down menu.
 
-*3.* Click *OK* in the confirmation message.
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 {docbook}
 <note>
@@ -164,7 +162,9 @@ When creating a new  forum, you can also configure the forum notification settin
 
 *1.* Go into the category to which you want to add new forum.
 
-*2.* Click !images/Add_forum_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on *Forum Administration* bar or click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select *Add Forum*.
+*2.* Click !images/Add_forum_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on *Forum Administration* bar;
+
+Or, click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select *Add Forum*.
 
 !images/admin_add_forum.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -200,7 +200,7 @@ Only administrators can perform this action. When a forum is removed, all of its
 
 *1.* Go into the forum you want to remove.
 
-*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar then select *Delete* from the drop-down menu.
+*2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Delete* from the drop-down menu.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -275,34 +275,24 @@ All of administrative tasks can be reached via the menu that appears after click
 
 In this section, you are going to learn how to perform all of these administrative tasks and customizations:
 * [Set up Sort Settings|#Forum_Administrator.Administrative_tasks.Set_up_sort_settings]
-
 * [Define censored keywords|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]
-
 * [Customize email notification template|#Forum_Administrator.Administrative_tasks.Customize_email_template]
-
 * [Customize BBCode|#Forum_Administrator.Administrative_tasks.Customize_BBcodes]
-
 * [Customize the topic types|#Forum_Administrator.Administrative_tasks.Create_topic_types]
-
 * [Set up Auto-pruning|#Forum_Administrator.Administrative_tasks.Set_up_auto-prune]
-
 * [Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]
-
 * [Back up Category/Forum|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums]
 
 
 h3. Set up Sort Settings {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_sort_settings}
-Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *Sort Settings* from the drop-down menu. The *Sort Settings* form opens. 
+Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar, then click *Sort Settings* from the drop-down menu. The *Sort Settings* form opens. 
 Now, you can set properties for how forums and topics are sorted in *Forum*.
 
 !images/admin_forum_sort_setting.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Sort Forums by*: Sort forums by several criteria: name, order, lock status, creation date, modification date, topic count and post count.
-
 * *Direction*: Sort forums in the Ascending or Descending order.
-
 * *Sort Topics by*: Sort topics by name, lock status, creation date, modification date, date of last post, post count, view count, attachments count.
-
 * *Direction*: Sort topics in the Ascending or Descending order.
 
 
@@ -325,11 +315,10 @@ Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="
 
 !images/admin_forum_notifications_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Notification* form consists of two tabs:
+The *Notifications* form consists of two tabs:
 
-* *New Post Notification*: allow you to customize the template of the notification email when there is a new post/topic in categories/forums/topics that users are watching.
-
-* *Moved Notification*: allow you customize the template of the notification email when a category/forum/topic/post that is being watching is moved to another location.
+* *New Posts Notification*: allow you to customize the template of the notification email when there is a new post/topic in categories/forums/topics that users are watching.
+* *Moved Notification*: allow you customize the template of the notification email when a category/forum/topic/post which is being watched is moved to another location.
 
 *Details:*
 
@@ -388,7 +377,7 @@ You can use the text editor to format the template as you wish.
 h3. Customize a BBCode {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
 By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[U]", "[FONT]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]", "[WIKI], "[SLIDESHARE]"{noformat}. You can add, edit or delete the BBCode tags.
 
-Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *BBCode* from the drop-down menu to open the *BBCode Manager* form.
+Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar, then select *BBCode* from the drop-down menu to open the *BBCode Manager* form.
 
 !images/admin_forum_BBCCode_management_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -401,7 +390,7 @@ Here, you can do the following actions:
 
 h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_BBCodes}
 
-*1.* In the *BBCode Manager* form, click *Add BBCode* to open the *Add BBCode* form.
+*1.* Click *Add BBCode* in the *BBCode Manager* form to open the *Add BBCode* form.
 
 *2.* Input values into the *Add BBCode* form.
 
@@ -414,11 +403,11 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 |*Replacement*|The HTML codes that replace the user-entered BBCode.|
 |*Description*|The brief description about this BBCode tag.|
 |*Example*|The sample of the BBCode in use.|
-|*Use {noformat}option}{noformat}*|Allow BBCode tag to have option or not.|
+|*Use {noformat}{option}{noformat}*|Allow BBCode tag to have option or not.|
 |*Preview dialog*|Preview the rendered BBCodes.|
 |!images/Syntax_help_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to see descriptions of each field.|
 
-*3.* Optionally, click *Preview* to preview your created BBCode tag.
+*3.* Click *Preview* if you want to view your created BBCode tag.
 
 *4.* Click *Save* to finish or *Reset* to clear all input fields.
 
@@ -428,14 +417,14 @@ h4. Edit a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Edit_BBCodes
 
 !images/admin_forum_edit_bbccode_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Make changes to the BBCode tag.
+*2.* Make changes on the BBCode tag.
 
 *3.* Click *Preview* to preview the BBCode tag after being edited, or click *Save* to finish your changes.
 
 
 h4. Delete a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Delete_BBCodes}
 
-Simply click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the BBCode you want to delete in the *BBCode Manager* form and then select *OK* in the confirmation message to accept your deletion.
+Simply click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the BBCode you want to delete in the *BBCode Manager* form, then select *OK* in the confirmation message to accept your deletion.
 
 h4. Activate/Deactivate a BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes}
 
@@ -444,9 +433,7 @@ Any BBCode can be activated/deactivated.
 !images/admin_forum_Activate_Deactivate_BBCCode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * To activate an existing BBCode tag, tick the relevant checkbox.
-
 * To deactivate an existing BBCode tag, simply deselect the relevant checkbox. The entered BBCode will be displayed as the plain text.
-
 
 h3. Set up auto-pruning {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_auto-prune}
 The pruning allows you to clean a large amount of obsolete and inactivate topics based on criteria.
@@ -589,13 +576,13 @@ h4. Import a category {anchor:id=Administrative_tasks.Backup_categories_forums.I
 
 !images/admin_forum_import_cat.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Browse...* or the *Upload Files* field to open the File *Upload* form. Browse and select the file to import.
+*2.* Click *Browse...* or the *Upload Files* field to open the *File Upload* form. Browse and select the file to import.
 
 *3.* Click *Save*. 
 
 h4. Import a forum {anchor:id=Administrative_tasks.Backup_categories_forums.Import_forums}
 
-*1.* Go into one category then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
+*1.* Go into one category, then click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *2.* Click *Import Forum* from the drop-down menu.
 

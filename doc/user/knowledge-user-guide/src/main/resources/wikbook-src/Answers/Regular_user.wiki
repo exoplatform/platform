@@ -1,13 +1,13 @@
 h1. Regular user {anchor:id=Answer_user_guide.Regular_user}
 
 h2. View details of Answers {anchor:id=Answer_user_guide.View_details}
-After accessing *Answers*, the left pane is hidden by default. To toggle the left panel, click !images/Answer_toogle_panel.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. To view details of a category, simply left-click it to open its details in the right pane.
+After accessing *Answers*, the left pane is hidden by default. To toggle the left pane, click !images/Answer_toogle_panel.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. To view details of a category, simply left-click it to open its details in the right pane.
 
 !images/Details_category.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Here, you can view all activated questions of this category, some basic information of questions, such as authors, scores, number of answers.
 
-To view details of a question, simply click it to open its details, including its content, answers and comments, uploaded files, preview the attached image, or download the attached files.
+To view details of a question, simply click it to open its details, including its content, answers and comments, uploaded files. Here, you can also preview the attached image, or download the attached files.
 
 {docbook}
 <para>
@@ -23,7 +23,7 @@ To view details of a question, simply click it to open its details, including it
 h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
 The *Answers* application allows you to raise your questions on any issues and helps you find the best answer.
 
-*1.* Right-click the category/sub-category where you want to submit your question and then select !images/answer_submit_question_rightclick.png|width="17mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu
+*1.* Right-click the category/sub-category where you want to submit your question, then select !images/answer_submit_question_rightclick.png|width="17mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu
 
 or go into the category that you want to submit questions, then click !images/Submit_question_bt.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
@@ -70,7 +70,7 @@ Regular users can only edit their own questions.
 
 *The first way*
 
-* Right-click the question that you want to edit and then select *Edit* from drop-down menu.
+* Right-click the question that you want to edit, then select *Edit* from drop-down menu.
 
 *The second way*
 
@@ -78,9 +78,9 @@ Regular users can only edit their own questions.
 
 !images/Edit_question_panel.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Make changes to your question. You can add more or remove the language options, attach files, approve or disapprove the question and its answers.
+*2.* Make changes on your question. You can add more or remove the language options, attach files, approve or disapprove the question and its answers.
 
-*3.* Click *Save* to save all the changes.
+*3.* Click *Save* to accept your changes.
 
 {docbook}
 <para>
@@ -105,7 +105,7 @@ A question may have multiple answers and each can be moderated separately.
 
 *The first way*
 
-* Right-click the question you want to answer and select *Answer Question*.
+* Right-click the question you want to answer, then select *Answer Question*.
 
 !images/Answer_question_menu.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -141,9 +141,9 @@ Regular users can only edit their answers.
 
 *1.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the answer that you want to edit.
 
-*2.* Make changes to your selected answer.
+*2.* Make changes on your selected answer.
 
-*3.* Click *Save* to save all the changes.
+*3.* Click *Save* to accept your changes.
 
 {docbook}
 <para>
@@ -170,7 +170,7 @@ You can leave comments on a question when you are not sure about the answer, or 
 
 *The second way*
 
-* Right-click a specific question and select *Comment* from the drop-down menu.
+* Right-click a specific question, then select *Comment* from the drop-down menu.
 
 *2.* Type your answer in the text-input field.
 
@@ -206,17 +206,15 @@ When you find a question interesting, you can share it with others easily. Regul
 
 *The first way*
 
-* Right-click the question that you want to send and select *Send* from the drop-down menu.
+* Right-click the question that you want to send, then select *Send* from the drop-down menu.
 
 *The second way*
 
-* Click your desired question and select !images/Send_question_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"!.
+* Click your desired question, then select !images/Send_question_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"!.
 
 *2.* Enter the receiver's email address into the *To* field.
 
-
 !images/Send_question_form.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
-
 
 *3.* Select the display language for the question content. English is set by default.
 
@@ -311,7 +309,7 @@ After being rated, the vote statistics will be updated.
 
 !images/Rated_stars.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Click *OK* on the confirmation message.
+*3.* Click *OK* in the confirmation message.
 
 {docbook}
 <note>
@@ -452,7 +450,7 @@ You can select to display entries by created date/alphabetical order and sorted 
 
 !images/Answer_Watch_manager_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click the category title if you would like to view details or click !images/Unwatch_icon.png|width="14" fo:scalefit="1" html:scalefit="0"! to unwatch the corresponding category.
+*2.* Click the category title if you want to view its details, or click !images/Unwatch_icon.png|width="14" fo:scalefit="1" html:scalefit="0"! to unwatch the corresponding category.
 
 
 {docbook}

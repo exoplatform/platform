@@ -6,18 +6,14 @@ h2. Set up the Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Ans
 {docbook}
 <note>
 <para>
-In case the <emphasis role="bold">Answers</emphasis> portlet has not been activated yet, you need to add it to a page by
+In case the <emphasis role="bold">Answers</emphasis> portlet has not been activated yet, you need to add it to a page by dragging and dropping it from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Answers</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Add_a_new_Page_in_the_Page_List">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
 
-dragging and dropping it from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Answers</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
-
-You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="edit a specific portlet">sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet</link> section.
+You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">Edit a specific portlet</link> section.
 </para>
 </note>
 {docbook}
 
-
 When adding a portlet to a page, you have to configure this portlet to make it work in your desired way.
-
 
 {docbook}
 <citetitle>

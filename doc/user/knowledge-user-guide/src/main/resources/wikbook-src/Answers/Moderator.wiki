@@ -60,7 +60,7 @@ Moderator can only add new sub-categories in a category that he moderates.
 *Details:*
 ||Field||Description||
 |*Asterisk {noformat}(*){noformat}*| This mark next to each field means that it is required to enter values in the field. |
-|*Category*| The name of the category |
+|*Category*| The name of the category. |
 |*Order*| The order of the category which must be in the numeric format. |
 |*Restricted Audience*| Select specific users/groups to be restricted from the category.|
 |*Moderate New Questions*| Check this option if you want moderate all newly posted questions before they are viewable.|
@@ -80,13 +80,15 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *3.* Edit the properties.
 
-*4.* Click *Save* to save all changes.
+*4.* Click *Save* to accept your changes.
 
 h3. Delete a category {anchor:id=KSuser.Answer_Moderator.Delete_categories}
 
 *1.* Follow one of the approaches described in the [Manage categories|#KSuser.Answer_Moderator.Manage_categories] section.
 
-*2.* Select !images/Delete_Category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu and click *OK* in the confirmation message.
+*2.* Select !images/Delete_Category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
+
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 
 h3. Move a category {anchor:id=KSuser.Answer_Moderator.Move_categories}
@@ -161,7 +163,7 @@ h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions
 
 *2.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the question that you want to edit and scroll down to see the *Edit Question* form.
 
-*3.* Make changes to your question.
+*3.* Make changes on your question.
 
 *4.* Click *Save* to save all changes.
 
@@ -180,28 +182,28 @@ If you select *Approved*, the *Moderate Question* function will determine the un
 {docbook}
 <citetitle>
 <para>
-    <emphasis role="bold">Approve/disapprove a question</emphasis>
+    <emphasis role="bold">Approve/Disapprove a question</emphasis>
 </para>
 </citetitle>
 {docbook}
 
 *The first way*
 
-*1.* Right-click the question title and select *Edit* from the drop-down menu. The *Edit* form will be displayed.
+*1.* Right-click the question title, then select *Edit* from the drop-down menu to open the *Edit* form.
 
 *2.* Select/Deselect the *Approved* checkbox.
 
 *The second way*
 
-*1.* Right-click the question title and select *Answer Question* from the drop-down menu. The *Answer* form will be displayed.
+*1.* Right-click the question title, then select *Answer Question* from the drop-down menu to open the *Answer* form.
 
 *2.* Select/Deselect the *Approved* checkbox.
 
 *The third way*
 
-*1.* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. The *Manage Questions* form will be displayed.
+*1.* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to open the *Manage Questions* form.
 
-*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to approve or disapprove the respective question.
+*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to approve or disapprove the question respectively.
 
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
@@ -224,7 +226,7 @@ When a question is activated, it will be displayed and visible to all users. If 
 
 *1.* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
-*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to activate or deactivate the respective questions.
+*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to activate or deactivate the question respectively.
 
 h3. Delete a question {anchor:id=Answer_Moderator.Moderate_question.Delete_questions}
 
@@ -232,16 +234,15 @@ There are several ways to delete questions:
 
 *The first way*
 
-* Right-click your desired question and then select *Delete* from the drop-down menu.
+* Right-click your desired question, then select *Delete* from the drop-down menu.
 
 *The second way*
 
-* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and then click !images/Delete_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the question you want to delete.
+* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click !images/Delete_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the question you want to delete.
 
 *The third way*
 
-* Click your desired question and click the delete icon. There will be an alert message, click *OK* to confirm.
-
+* Click your desired question, then select the delete icon. Next, click *OK* in the confirmation message to accept your deletion.
 
 h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 
@@ -249,11 +250,11 @@ h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions
 
 *The first way*
 
-* Right-click your desired question and then select *Move to* from the drop-down menu.
+* Right-click your desired question, then select *Move to* from the drop-down menu.
 
 *The second way*
 
-* Select your desired question and click !images/Move_question_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+* Select your desired question, then click !images/Move_question_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 *2.* Select the category to which you want to move your selected question.
 
@@ -334,17 +335,27 @@ If the comment is considered as the best answer for the question, it can be prom
 
 *The first way*
 
-* Click the question you want to leave comments and select !images/answer_comment_button1.png|width="14mm" fo:scalefit="1" html:scalefit="0"!.
+* Click the question you want to leave comments, then select !images/answer_comment_button1.png|width="14mm" fo:scalefit="1" html:scalefit="0"!.
 
 *The second way*
 
-* Right-click a specific question and select !images/comment_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! from drop-down menu.
+* Right-click a specific question, then select !images/comment_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
 
 *2.* Enter your comment in the text-input field.
 
 *3.* Click *Save* to finish.
 
-To promote a comment as an answer, click !images/promote_answer_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the comments panel.
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Promote a comment as answer
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Simply click !images/promote_answer_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the comments panel.
 
 {docbook}
 <note>
