@@ -11,7 +11,6 @@ h1. Join/Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
 Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab to display all spaces which *Visibility* is set to "Visible". There are two cases to join a space:
 
 * *The first instance*: For spaces without validation required, click *Join* corresponding to your desired space. You will automatically become their members.
-
 * *The second instance*: For spaces with validation required, after clicking *Join*, you have to wait for the validation from the space's owner who can accept or deny your request.
 
 {docbook}
