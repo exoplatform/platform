@@ -29,8 +29,6 @@
 	  <%@include file="button/productKeyButton.jsp" %>
 <%} %>
 
-<%@include file="button/buyNowButton.jsp" %>
-
 <% 
   if(!firstStart){
 	if(outdated){%>
@@ -41,6 +39,9 @@
 	}
   }
 %>
+
+<%@include file="button/buyNowButton.jsp" %>
+
 <%@include file="static/footer.jsp" %>
 
 <% 	if(!TrialService.isLoopfuseFormDisplayed()){ %>

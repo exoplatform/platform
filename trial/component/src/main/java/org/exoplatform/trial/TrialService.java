@@ -280,6 +280,7 @@ public class TrialService implements Startable {
         computeUnlockedInformation();
         if (!outdated) {
           firstStart = false;
+          dismissed = true;
           Utils.writeRemindDate(rdate, Utils.HOME_CONFIG_FILE_LOCATION);
         }
         response.sendRedirect(TrialService.calledUrl);
