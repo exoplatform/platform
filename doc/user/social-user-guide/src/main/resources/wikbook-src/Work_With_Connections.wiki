@@ -38,7 +38,7 @@ This function allows you to find your desired contact quickly.
 
 * To stop doing advanced lookups, click *Hide option*.
 
-*3.* Hit the *Enter* key, or click !images/Social_search_icon.png|align="center" width="4mm" fo:scalefit="1" html:scalefit="0"! to find your contact. The results will be listed in the *People Found* pane.
+*3.* Hit the *Enter* key, or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to find your contact. The results will be listed in the *People Found* pane.
 
 h1. Send connection requests {anchor:id=Send_connection_requests}
 
@@ -64,7 +64,7 @@ Click the contact name to go to his/her profile, then click *Invite to connect* 
 
 !images/Invite-to-connect.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-The !images/Invited_connect_icon.png|align="center" width="5mm" fo:scalefit="1" html:scalefit="0"! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
+The !images/Invited_connect_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
 
 {docbook}
 <note>
