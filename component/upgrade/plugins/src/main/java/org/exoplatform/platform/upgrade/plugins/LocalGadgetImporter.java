@@ -17,9 +17,13 @@ import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.configuration.ConfigurationManager;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.gatein.common.io.IOTools;
 
 public class LocalGadgetImporter extends GadgetImporter {
+
+  private static Log logger = ExoLogger.getExoLogger(LocalGadgetImporter.class);
   private ConfigurationManager configurationManager;
   private PortalContainer container;
   private String gadgetPath;
@@ -223,7 +227,7 @@ public class LocalGadgetImporter extends GadgetImporter {
       }
       return childList;
     } catch (Exception exception) {
-      exception.printStackTrace();
+        logger.error("Exception when getting Children",exception);
     }
     return null;
   }
