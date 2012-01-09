@@ -128,7 +128,6 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
     datePicker.addValueChangeHandler(new ValueChangeHandler<Date>() {
       
       public void onValueChange(ValueChangeEvent<Date> event) {
-        // TODO Auto-generated method stub
         handleDatePickerSelection(event.getValue());
       }
     });
@@ -144,7 +143,6 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
     cellList.getCellList().addRangeChangeHandler(new RangeChangeEvent.Handler() {
       
       public void onRangeChange(RangeChangeEvent event) {
-        // TODO Auto-generated method stub
         heightFeature.adjustHeight();
       }
     });
@@ -171,11 +169,11 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
     }
     
     String relPath = "/calgad/hdays/" + fromDate.getTime() + "/" + toDate.getTime() + "/";
-    StringBuilder sb = new StringBuilder();
+    StringBuilder sb = new StringBuilder(relPath);
     for (String s : visibleCals) {
       sb.append(s).append('/');
     }
-    relPath += sb.toString();
+    relPath = sb.toString();
     
     RestRequestController.instance().makeGetJsonRequest(relPath, new ResponseReceivedHandler<JavaScriptObject>() {
       public void onResponseReceived(ResponseReceivedEvent<JavaScriptObject> event) {
@@ -201,9 +199,12 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
     Date fromDate = datePicker.getFirstDate();
     Date toDate = datePicker.getLastDate();
     String relPath = "/calgad/events/" + fromDate.getTime() + "/" + toDate.getTime() + "/";
+    StringBuilder sb = new StringBuilder(relPath);
     for (String s : visibleCals) {
-      relPath += s + '/';
+      sb.append(s).append('/');
     }
+    relPath = sb.toString();
+
     RestRequestController.instance().makeGetJsonRequest(relPath, new ResponseReceivedHandler<JavaScriptObject>() {
       public void onResponseReceived(ResponseReceivedHandler.ResponseReceivedEvent<JavaScriptObject> event) {
         // update list data provider
