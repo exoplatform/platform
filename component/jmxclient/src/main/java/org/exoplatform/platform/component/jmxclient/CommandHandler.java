@@ -32,7 +32,14 @@ import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 
+
+import java.util.logging.Level;
+import  java.util.logging.Logger;
+
 public class CommandHandler {
+
+  public static Logger logger = Logger.getAnonymousLogger();
+
   public static Map<String, Object> environmentMap = null;
   public static String hostname;
   public static String hostport;
@@ -43,8 +50,12 @@ public class CommandHandler {
   public static void main(String[] args) {
     try {
       if ((args.length < 4)) {
-        System.out.println("<HOST_NAME> <HOST_PORT> -u<USER>(Optionnal) -p<PASSWORD>(Optionnal)"
-            + " <BEAN_NAME> <OPERATION_NAME> <OPERATION_ARG_1> <OPERATION_ARG_2>...");
+
+        if (logger.isLoggable(Level.INFO)) {
+
+            logger.info("<HOST_NAME> <HOST_PORT> -u<USER>(Optionnal) -p<PASSWORD>(Optionnal) <BEAN_NAME> <OPERATION_NAME> <OPERATION_ARG_1> <OPERATION_ARG_2>...");
+        }
+
         return;
       }
       extractArguments(args);
@@ -56,7 +67,11 @@ public class CommandHandler {
         ObjectInstance instance = (ObjectInstance) beans.iterator().next();
         invokeOperation(serverConnection, instance, command, mBeanArguments);
       } else {
-        System.out.println("Cannot find bean: " + objectName.getCanonicalName());
+
+        if (logger.isLoggable(Level.INFO)) {
+
+            logger.info("Cannot find bean: " + objectName.getCanonicalName());
+        }
       }
       jmxConnector.close();
     } catch (Exception exception) {
@@ -102,8 +117,12 @@ public class CommandHandler {
       }
     }
     if (beanOperationInfo == null) {
-      System.out.println("Operation (" + command + ") not found in bean(" + instance.getObjectName()
-          + ")\n list of available operations: ");
+
+        if (logger.isLoggable(Level.INFO)) {
+
+            logger.info("Operation (" + command + ") not found in bean(" + instance.getObjectName()+ ")\n list of available operations: ");
+        }
+
       for (MBeanOperationInfo beanOperationInfoTmp : beanOperationInfos) {
         System.out.println(beanOperationInfoTmp.getName());
       }
@@ -120,9 +139,18 @@ public class CommandHandler {
           params[i] = c.newInstance(new Object[] { mBeanArguments[i] });
           signature[i] = paraminfo.getType();
         }
-        System.out.println("Invocation response: " + mbsc.invoke(instance.getObjectName(), command, params, signature));
+
+        if (logger.isLoggable(Level.INFO)) {
+
+            logger.info("Invocation response: " + mbsc.invoke(instance.getObjectName(), command, params, signature));
+        }
+
       } else {
-        System.out.println("Parameters does not match operation signature");
+
+          if (logger.isLoggable(Level.INFO)) {
+
+              logger.info("Parameters does not match operation signature");
+          }
       }
     }
   }
