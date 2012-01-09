@@ -72,7 +72,7 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 
 ||Field||Description||
 |*Asterisk (*)*|This mark next to each field means that it is required to enter values in the field.|
-|*First name*|First name of your contact which must be between 1 and 40 characters.|
+|*First Name*|First name of your contact which must be between 1 and 40 characters.|
 |*Last Name*|Last name of your contact. Its length must be between 1 and 40 characters.|
 |*Nick Name*|Nick name of your contact with any unlimited length.|
 |*Gender*|Gender of your contact. Simply tick the two available checkboxes: Male or Female.|
@@ -314,11 +314,11 @@ The *Move Contact* form will appear, allowing you to select a destination addres
 
 *The third way*
 
-Use the "Drag & Drop" function to move one or more contacts to a new address book.
+Use the drag-and-drop function to move one or more contacts to a new address book.
 
 !images/drag_drop_contact.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-The drag-drop function is done more easily in the VCards view.
+The drag-and-drop function is done more easily in the VCards view.
 
 {docbook}
 <note>
@@ -331,7 +331,7 @@ The drag-drop function is done more easily in the VCards view.
 h1. Delete a contact {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_contact"}
 *The first way*
 
-*1.* Right-click a contact you want to remove, then click *Delete* from the drop-down menu.
+*1.* Right-click a contact you want to remove, then select *Delete* from the drop-down menu.
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -362,7 +362,9 @@ The *Export Address Books* form will appear.
 
 *3.* Enter the file name and select the export format. At present, only *x-vcard* is supported.
 
-*4.* Click *Export All* to export all contacts in all pages or click the *Export Selected Only* button to export your selected contacts only.
+*4.* Click *Export All* to export all contacts in all pages; 
+
+Or, click the *Export Selected Only* button to export your selected contacts only.
 
 
 h1. Import contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Import_contacts"}
@@ -459,7 +461,7 @@ The *Print Preview* page will appear.
 h1. Share contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Share_contacts"}
 This function allows you to share contacts with other users or groups. The shared users/groups may have *View* or *Edit* permissions on the shared contacts.
 
-* The *View* permission allows users to view, copy, export, print, delete but cannot move your shared contacts. The shared users cannot make changes on the information of the shared contacts or move your shared contacts if they have view permission only.
+* The *View* permission allows users to view, copy, export, print, delete but cannot move your shared contacts. The shared users cannot make changes on the information of the shared contacts or move your shared contacts if they only have the *View* permission.
 
 * The *Edit* permission allows users to view, copy, export, print, move, delete and edit the shared contacts. If you have the *Edit* permission on the shared contacts, you can share them with another users.
 
@@ -480,7 +482,9 @@ This function allows you to share contacts with other users or groups. The share
 </citetitle>
 {docbook}
 
-*1.* Right-click the contact you want to share and click *Share* from the drop-down menu or drag and drop this contact to the *Shared* address book in the *Address Books* pane.
+*1.* Right-click the contact you want to share, then select *Share* from the drop-down menu;
+
+Or, drag and drop this contact to the *Shared* address book in the *Address Books* pane.
 
 The *Share a contact with other users* form will appear. {anchor:id="Share_contact_with_other_users_form"}
 
@@ -492,7 +496,7 @@ The *Share a contact with other users* form will appear. {anchor:id="Share_conta
 
 !images/user_selector.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-In this form, tick the checkboxes corresponding to your desired users, then click *Add*. Also, you can use the *Search* function to look for your users quickly.
+In this form, tick the checkboxes corresponding to your desired users, then click *Add*. Also, you can use the *Search* function to look for your desired users quickly.
 
 *ii.* Or, click !images/group_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to open the *Group Selector* form.
 
@@ -513,7 +517,7 @@ h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_
 This function allows you to find contacts easily and quickly via two search modes: [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search] and [Advanced search|#CSUser_guide.How_to_use_Address_book.Advanced_search].
 
 h2. Quick search {anchor:id="CSUser_guide.How_to_use_Address_book.Quick_search"}
-This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching with your search team will be displayed in the *Search Result* dialog.
+This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching your search term will be displayed in the *Search Result* dialog.
 
 {docbook}
 <citetitle>
@@ -532,14 +536,14 @@ Your search results will be displayed in the right *Search Result* pane.
 h2. Advanced search {anchor:id="CSUser_guide.How_to_use_Address_book.Advanced_search"} 
 With this mode, you can refine your search by using a variety of criteria. Your search results will be limited as follows:
 
-*1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box. The *Advanced Search* form will appear.
+*1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box to open the *Advanced Search* form.
 
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
 
 *3.* Click the *Search* button to search. All contacts matching your criteria will be shown in the *Search Result* dialog.
 
 h1. Manage Address Books {anchor:id="CSUser_guide.How_to_use_Address_book.Manage_address.book"}
-By default, there are three Address Book categories:
+By default, there are 3 Address Book categories:
 
 * *Personal* contains contacts/address books which are created by yourself. Each group may contain more than one contact.
 ** *My Contacts* is the default group which contains your own default contact generated from your registration information.
@@ -593,13 +597,14 @@ h2. Edit an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_a
 {docbook}
 
 h2. Remove an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Remove_address_book"}
-*1.* Right-click an existing address book, and then select *Delete* from the drop-down menu.
+*1.* Right-click an existing address book, then select *Delete* from the drop-down menu.
 
-*2.* Click *OK* in the confirmation message to accept deleting the address book.
+*2.* Click *OK* in the confirmation message to accept your deletion.
+
 {docbook}
 <note>
     <para>
-    You cannot delete your default and group address book.
+    You cannot delete your default and group address books.
     </para>
 </note>
 {docbook}
@@ -627,7 +632,7 @@ The *Export Address Books* form will appear with a list of all existing address 
 
 
 h2. Import an address book {anchor:id="CSUser_guide.How_to_use_Address_book.Import_address_book"}
-Once you export your address books, your retrieve them easily at any time. Others can also import your address book to store in their address book. The process to import address books is simple as exporting address books.
+Once you have exported your address books, you can retrieve them easily at any time. Others can also import your address book to store in their address book. The process to import address books is simple as exporting address books.
 
 *1.* Open the *Import Address Books* form via one of the following ways.
 
@@ -637,7 +642,7 @@ Click the *Import* button in the *Toolbar*.
 
 *The second way*
 
-Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane and select *Import* from the drop-down menu.
+Click !images/Down_arrow_addressbook_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Address Books* pane, then select *Import* from the drop-down menu.
 
 The *Import Address Books* form will be displayed.
 

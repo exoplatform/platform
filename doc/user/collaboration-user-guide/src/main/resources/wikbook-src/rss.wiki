@@ -32,7 +32,7 @@ Details:
 |*URL*|The RSS feed link of the website that you want to subscribe to the category.|
 |*Label*|The display name of the category.|
 |*Description*|The description of the category.|
-|*Type*|The type of the content node. There are two types:{example}{example} *RSS*:  displays the content of a RSS feed. {example}{example} *DESC*: is like a category that contains RSS feeds.|
+|*Type*|The type of the content node. There are two types:{example}{example} *RSS*:  displays the content of an RSS feed. {example}{example} *DESC*: is like a category that contains RSS feeds.|
 
 *3.* Enter an id for the content node.
 

@@ -72,7 +72,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 *6.* Click the *Finish* button to complete your registration.
 
 h2. Edit your account details {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account"}
-To make changes on your account, simply click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Edit Account* from the drop-down menu;
+To make changes on your account, simply click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane, then select *Edit Account* from the drop-down menu;
 
 Or, select !images/accounts_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar*.
 
@@ -89,7 +89,7 @@ If you use multiple accounts, you can delete any unused mail accounts via either
 
 !images/Select_mail_account.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the left pane and select *Delete Account* from the drop-down menu.
+*2.* Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane and select *Delete Account* from the drop-down menu.
 
 !images/Delete_acc_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -237,7 +237,7 @@ In the *Mail* application, the unread mails will be recognized in the bold forma
 
 *1.* Select checkboxes corresponding to messages you want to mark as read.
 
-*2.* Click *More Actions* and select *Mark as Read* from the drop-down menu.
+*2.* Click *More Actions*, then select *Mark as Read* from the drop-down menu.
 
 *The second way*
 
@@ -265,7 +265,7 @@ After being marked as read, all unread messages inside the folder will be marked
 
 *1.* Select the messages you want to mark as unread.
 
-*2.* Click *More Actions* and select *Mark as Unread* from the drop-down menu.
+*2.* Click *More Actions*, then select *Mark as Unread* from the drop-down menu.
 
 h2. Star/Unstar a message  {anchor:id="Star_unstar_a_message"}
 
@@ -295,7 +295,9 @@ After being marked, the selected messages will be appended with !images/star_ico
 </citetitle>
 {docbook}
 
-Simply select *Unstar* from the *More Actions* drop-down menu on the action bar; or click !images/star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the message.
+Simply select *Unstar* from the *More Actions* drop-down menu on the action bar;
+
+Or, click !images/star_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the message.
 
 h2. Move a message to other folders {anchor:id="Move_message_to_other_folders"}
 
@@ -447,9 +449,9 @@ The *To* box must always contain at least one address; everyone who receives you
     You can use <emphasis role="bold">CC</emphasis> and <emphasis role="bold">BCC</emphasis> to send mail to more than one person easily and quickly.
     </para>
     <para>
-    Use the <emphasis role="bold">CC</emphasis> (carbon copy) box for the addresses of people you want to send a copy of the message to other recipients. Everyone who receives your message can also see the addresses in the CC box. If someone responds to your message using "Reply to all", the carbon-copied recipients also receive the message.
+    Use the <emphasis role="bold">CC</emphasis> (Carbon Copy) box for the addresses of people you want to send a copy of the message to other recipients. Everyone who receives your message can also see the addresses in the CC box. If someone responds to your message using "Reply to all", the carbon-copied recipients also receive the message.
     </para>
-    <para><emphasis role="bold">BCC</emphasis> (blind carbon copy) mails are private to the sender and the BCC recipients. Use BCC when you want to send the message to undisclosed recipients. It means you send the message to people and they do not know about other recipients. Addresses listed in the BBC box will not receive replies sent to this message.</para>
+    <para><emphasis role="bold">BCC</emphasis> (Blind Carbon Copy) mails are private to the sender and the BCC recipients. Use BCC when you want to send the message to undisclosed recipients. It means you send the message to people and they do not know about other recipients. Addresses listed in the BBC box will not receive replies sent to this message.</para>
 </note>
 {docbook}
 
@@ -628,7 +630,7 @@ Tick the checkbox corresponding to the message you want to reply in the mails li
 
 *The second way*
 
-Right-click the message you want to reply and select *Reply* from the drop-down menu.
+Right-click the message you want to reply, then select *Reply* from the drop-down menu.
 
 *The third way*
 
@@ -726,12 +728,7 @@ The *Import Message* form will appear.
 
 !images/import_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*Details:*
-||Field||Description||
-|*Choose File*|The name of the file which you want to import from your computer.|
-|*Import to Folder*| The folder into which the message will be imported.|
-
-*2.* Click *Browse...* to get one .eml file from the computer.
+*2.* Click *Browse...* to get one _.eml_ file from your device.
 
 *3.* Select the folder into which you want to import the message in the *Import to Folder* field.
 
@@ -1019,7 +1016,7 @@ h3. Delete a filter {anchor:id="Delete_filter"}
 
 *1.* Click !images/filter_icon.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Message Filter* form.
 
-*2.* Click the filter you want to delete, then select !images/delete_filterpng|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar.
+*2.* Click the filter you want to delete, then select !images/delete_filter.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the filter bar.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -1059,12 +1056,12 @@ The Advanced Search allows you to specify criteria to narrow your search results
 * *From*: The condition corresponding to the sender's name or mail address. There are some further conditions:
 
 ||Condition||Function||
-|contains|Include the term in the search box.|
-|doesn't contain|Not include the term in the search box.|
-|is|Include exactly the term in the search box.|
-|is not|Not include exactly the term in the search box.|
-|starts with|Start with the term in the search box.|
-|does not start with|Not start with the term in the search box.|
+|*contains*|Include the term in the search box.|
+|*doesn't contain*|Not include the term in the search box.|
+|*is*|Include exactly the term in the search box.|
+|*is not*|Not include exactly the term in the search box.|
+|*starts with*|Start with the term in the search box.|
+|*does not start with*|Not start with the term in the search box.|
 
 * *To*: The condition corresponding to the recipient's name or mail address.
 * *Subject*: This condition which corresponds to the message subject.
@@ -1216,5 +1213,5 @@ The function allows you to change the behavior and the layout of *Mail* to your 
 
 * Click !images/Add_delegated_user.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to accept adding your delegated user. The delegated user will be updated in the Accounts table. In this table, you can revoke the *Full* permission or add the *Full* permission to your delegated accounts by unticking or ticking the relevant checkbox respectively in the *Full* column of the Accounts table.
 
-*3.* Click *Save* to accept the changes.
+*3.* Click *Save* to accept your changes.
 

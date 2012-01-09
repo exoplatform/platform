@@ -34,7 +34,7 @@ For example, drag and drop the *Chatbar* portlet as the below illustration.
 
 !images/Chat_bar_window_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Click *Save And Close* to finish your changes on the Chatbar portlet and quit the Edit form of the *Chatbar Portlet*.
+*4.* Click *Save And Close* to finish your changes and quit the Edit form of the *ChatBar Portlet*.
 
 *5.* Click !images/Edit_inline_composer_Save.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to save all changes on the page/site and quit the *Edit Inline Composer/Page Editor* form.
 After that, you will see the *Chatbar* in your site/page.
@@ -213,11 +213,8 @@ Your chat messages history can be shown in a specific time interval.
 Currently, the *Chat* application shows messages in the following time ranges:
 
 * *Today*: All messages of the current date.
-
 * *This week*: All messages of the current week.
-
 * *Last 30 days*: All messages during the last 30 days.
-
 * *Beginning*: All instant messages from the beginning to the current time.
 
 All messages with the created time and date will be shown in the *Conversation* window.
