@@ -4,10 +4,14 @@ import java.util.Map;
 
 import javax.jcr.Node;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.webui.ext.filter.UIExtensionAbstractFilter;
 import org.exoplatform.webui.ext.filter.UIExtensionFilterType;
 
 public class UINavigationFilter extends UIExtensionAbstractFilter {
+
+    private static Log logger = ExoLogger.getExoLogger(UINavigationFilter.class);
   /**
    * This method checks if the current node is of the right type
    */
@@ -28,7 +32,10 @@ public class UINavigationFilter extends UIExtensionAbstractFilter {
    * This is called when the filter has failed
    */
   public void onDeny(Map<String, Object> context) throws Exception {
-    System.out.println("This document has been rejected");
+
+      if (logger.isInfoEnabled()) {
+            logger.info("This document has been rejected");
+      }
   }
 
 }

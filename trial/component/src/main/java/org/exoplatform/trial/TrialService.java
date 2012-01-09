@@ -24,11 +24,15 @@ import org.exoplatform.commons.info.MissingProductInformationException;
 import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.web.filter.Filter;
 import org.picocontainer.Startable;
 
 public class TrialService implements Startable {
 
+
+  private static Log logger = ExoLogger.getExoLogger(TrialService.class);
   private static String registrationFormUrl = null;
   private static String extendFormUrl = null;
   private static String pingBackUrl = null;
@@ -43,6 +47,8 @@ public class TrialService implements Startable {
   private static int delayPeriod = Utils.DEFAULT_DELAY_PERIOD;
   private static int nbDaysBeforeExpiration = 0;
   private static Calendar remindDate;
+
+
 
   private ScheduledExecutorService executor;
 
@@ -326,9 +332,10 @@ public class TrialService implements Startable {
         urlConn.connect();
         return (HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode());
       } catch (MalformedURLException e) {
-        System.err.println("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+          logger.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+
       } catch (IOException e) {
-        System.err.println("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+          logger.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
       }
       return false;
     }
