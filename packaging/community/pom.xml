@@ -21,6 +21,12 @@
         <type>zip</type>
         <scope>provided</scope>
     </dependency>
+	<dependency>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.component.edition.community</artifactId>
+		<version>${project.version}</version>
+		<scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <properties>
@@ -59,6 +65,27 @@
               </artifactItems>
             </configuration>
           </execution>
+		  
+		  <!--
+ | Step 02: copy PlatformInformations service artifacts
+ 
+-->		   <execution>
+            <id>01-copy-platformInformation-service</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.exoplatform.platform</groupId>
+				  <artifactId>exo.platform.component.edition.community</artifactId>
+				  <version>${project.version}</version>
+                  <outputDirectory>${project.build.directory}/community/tomcat-bundle/lib</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
       <plugin>
@@ -67,7 +94,7 @@
         <executions>
           <execution>
 <!--
- | Step 02: Delete IDE and acme website bits
+ | Step 03: Delete IDE and acme website bits
 -->
             <id>02-prepare-package</id>
             <phase>prepare-package</phase>
@@ -91,6 +118,7 @@
 				  <fileset dir="${tomcat.webapps.dir}" includes="gadget-pack.war" />
 				  <fileset dir="${tomcat.conf.dir}" includes="gadget-pack.xml" />
 				  <fileset dir="${tomcat.lib.dir}" includes="gadget-pack-*.jar" />
+				  <fileset dir="${tomcat.lib.dir}" includes="exo.platform.component.edition.enterprise*.jar" />
 				</delete>
                 <!-- Disable IDE configuration in platform-extension.war -->
                 <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />
@@ -257,7 +285,7 @@
         </executions>
       </plugin>
 <!--
- | Step 03: Package a new zip
+ | Step 04: Package a new zip
 -->
       <plugin>
             <artifactId>maven-assembly-plugin</artifactId>
