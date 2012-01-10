@@ -93,7 +93,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
-	  <scope>provided</scope>
+	    <scope>provided</scope>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -832,14 +832,7 @@
       <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
       <version>${project.version}</version>
       <type>war</type>
-    </dependency>
-    
-    <!-- upgrade plugins -->
-    <dependency>
-	<groupId>org.exoplatform.commons</groupId>
-	<artifactId>exo.platform.commons.component.upgrade</artifactId>
-	<version>${org.exoplatform.commons.version}</version>
-    </dependency>
+    </dependency>    
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extras.migration</artifactId>
