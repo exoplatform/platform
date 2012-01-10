@@ -75,7 +75,10 @@ public class CommandHandler {
       }
       jmxConnector.close();
     } catch (Exception exception) {
-      exception.printStackTrace();
+
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info(exception.getMessage());
+        }
     }
   }
 
