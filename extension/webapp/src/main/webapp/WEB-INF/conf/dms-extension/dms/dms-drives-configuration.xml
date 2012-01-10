@@ -61,7 +61,7 @@
               <field  name="name"><string>Personal Documents</string></field>
               <field  name="workspace"><string>collaboration</string></field>
               <field  name="permissions"><string>*:/platform/users</string></field>
-              <field  name="homePath"><string>/Users/${userId}/Private</string></field>
+              <field  name="homePath"><string>/Users/${userId}</string></field>
               <field  name="icon"><string></string></field>
               <field  name="views">
                 <string>b_list-view, c_icon-view, e_admin-view</string>

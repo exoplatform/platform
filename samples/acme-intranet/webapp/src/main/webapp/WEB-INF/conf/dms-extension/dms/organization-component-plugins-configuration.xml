@@ -330,12 +330,5 @@
 	    </init-params>
 	  </component-plugin>
 
-      <component-plugin>
-        <name>drive.new.user.event.listener</name>
-        <set-method>addListenerPlugin</set-method>
-        <type>org.exoplatform.platform.common.ext.UserDriveExtListener</type>
-        <description>Create a symlink to the user public drive from private drive</description>
-       </component-plugin>
-
 	</external-component-plugins>
 </configuration>
