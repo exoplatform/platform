@@ -178,4 +178,4 @@ h3. Use JMX {anchor:id=ADM.Integration.Integrate_organizational_model.Use_JMX}
 To access the Integration Service features via JMX, you can use JMX-compliant monitoring tools, such as [JConsole|http://download.oracle.com/javase/6/docs/technotes/guides/management/jconsole.html].
 The name of the MBean is: exo:portal="portal",service=extensions,name=OrganizationIntegrationService,type=platform.
 
-!images/integration/jmx_console.png!
+!images/integration/jmx_console.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!

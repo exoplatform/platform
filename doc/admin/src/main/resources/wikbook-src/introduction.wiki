@@ -1,4 +1,4 @@
-h1. About this guide {anchor:id=DEV.Introduction.AboutGuide}
+h1. About this guide {anchor:id=IDEdev.Introduction.AboutGuide}
 
 This guide describes how to get started with eXo Platform 3.5, especially for:
 * *System Administrators* who want to use, deploy and manage the eXo Platform system in their enterprises.
@@ -62,7 +62,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 
 </abstract>
 {docbook}
-h1. About eXo Platform 3.5 {anchor:id=DEV.Introduction.Welcome}
+h1. About eXo Platform 3.5 {anchor:id=IDEdev.Introduction.Welcome}
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
@@ -72,7 +72,7 @@ The following illustration gives you the overall architecture of eXo Platform 3.
  <para></para>
 {docbook}
  
-!images/Architecture_PLF3.png|align="center"!
+!images/Architecture_PLF3.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The foundation of eXo Platform 3.5 is an enterprise portal and content management system. This provides a powerful set of REST-based services for rapid website development, content management and gadget-based development and deployment. eXo Platform 3.5 includes the following features.
 
