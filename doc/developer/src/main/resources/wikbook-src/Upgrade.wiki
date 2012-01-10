@@ -1,0 +1,337 @@
+This chapter aims at instructing you how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.
+
+The following topics are covered:
+
+* [Prerequisites|#DEV.Upgrade.Prerequisites]
+* [Prepare your extension project|#DEV.Upgrade.Prepare_extension_project]
+* [What needs to be adapted in eXo Platform extension|#DEV.Upgrade.What_need_to_be_adapted]
+* [Update project Maven dependencies|#DEV.Upgrade.Update_project_Maven_dependencies]
+* [Update configurations|#DEV.Upgrade.Update_configuration]
+* [Update components|#DEV.Upgrade.Update_components]
+* [Update extension|#DEV.Upgrade.Update_extension]
+
+h1. Prerequisites {anchor:id=DEV.Upgrade.Prerequisites}
+
+Before upgrading, you first need to understand how to create a project which is based on eXo Platform 3.5. For more details, refer to the [eXo Platform Developer Guide.|../../../developer-guide/html/developer-guide/index.html]
+
+And now, you need to gather all requirements for your upgraded project by clarifying the following questions:
+* Do you actually need to migrate your project sources?
+* Have you created any new portal containers in your system?
+* Have you made any lifetime-related changes on eXo Platform? Would you like to keep these changes?
+* Have you developed a custom application? Where have you stored your application data?
+* Have you configured a dedicated JCR workspace?
+* Which eXo APIs are you using in your code?
+* Have you overridden any files of eXo Platform?
+* Have you disabled any services of eXo Platform?
+* Which Kernel configurations have you customized?
+
+h1. Prepare your extension project {anchor:id=DEV.Upgrade.Prepare_extension_project}
+
+You need to create a new branch for eXo Platform 3.5 extension project, then clone your source code of eXo Platform 3.0 with that of eXo Platform 3.5.
+
+The way to package your project customization called extensions has been introduced in eXo Platform 3.0. Therefore, by using the WAR extension configuration approach, you can overload eXo Platform's default files defined in WARs, such as _gtmpl, favicon, xml, jsp_. 
+For more details on how to create your extension project, refer to the [Create Your Own Portal|#DEV.CreatingYourOwnPortal] section.
+
+Because there are not any changes on the eXo Platform 3.5 extension mechanism, your extensions should be mostly compatible.
+However, if your extension was overriding either of the eXo Platform 3.0 built-in files, you should check that the file has not been changed in eXo Platform 3.5 and update it if any.
+
+h1. What needs to be adapted in eXo Platform extension {anchor:id=DEV.Upgrade.What_need_to_be_adapted}
+
+There are 4 main steps which need to be defined for updating eXo Platform extension from 3.0 to 3.5:
+
+* Update your project Maven dependencies in the _POM_ files.
+* Update your eXo Platform 3.5 configurations.
+* Update eXo Platform components which have been used in your extension from 3.0 to 3.5.
+* Update new features/components which were added in your eXo Platform 3.0 extension.
+
+h1. Update project Maven dependencies {anchor:id=DEV.Upgrade.Update_project_Maven_dependencies}
+
+eXo Platform include many components, so if you want to update your eXo Platform extension to use eXo Platform 3.5, you need to update all dependencies version in the _POM_ files, and select dependencies version which are compatible with the eXo Platform 3.5.
+For example, eXo Platform 3.5.1 needs to have the following main dependencies:
+
+{code:xml}
+<!-- kernel -->
+<dependency>
+	<groupId>org.exoplatform.kernel</groupId>
+	<artifactId>kernel-parent</artifactId>
+	<version>2.3.5-GA</version>
+</dependency>
+<!-- core -->
+<dependency>
+   <groupId>org.exoplatform.core</groupId>
+   <artifactId>core-parent</artifactId>
+   <version>2.4.5-GA</version>
+</dependency>
+<!-- ws -->
+<dependency>
+   <groupId>org.exoplatform.ws</groupId>
+   <artifactId>ws-parent</artifactId>
+   <version>2.2.5-GA</version>
+</dependency>
+
+<!-- jcr -->
+<dependency>
+  <groupId>org.exoplatform.jcr</groupId>
+  <artifactId>jcr-parent</artifactId>
+  <version>1.14.5-GA</version>
+</dependency>
+
+<!-- jcr service -->
+<dependency>
+  <groupId>org.exoplatform</groupId>
+  <artifactId>exo-jcr-services</artifactId>
+  <version>1.14.5-GA</version>
+</dependency>
+
+<!-- commons -->
+<dependency>
+  <groupId>org.exoplatform.commons</groupId>
+  <artifactId>exo.platform.commons</artifactId>
+  <version>1.1.5</version>
+</dependency>
+
+<!-- exogtn -->
+<dependency>
+   <groupId>org.exoplatform.portal</groupId>
+   <artifactId>exo.portal.parent</artifactId>
+   <version>3.2.2-PLF</version>
+</dependency>
+
+<!-- webos -->
+<dependency>
+  <groupId>org.exoplatform.webos</groupId>
+  <artifactId>webos-parent</artifactId>
+  <version>2.0.2</version>
+</dependency>
+
+<!-- ecms -->
+<dependency>
+  <groupId>org.exoplatform.ecms</groupId>
+  <artifactId>exo-ecms</artifactId>
+  <version>2.3.5</version>
+</dependency>
+
+<!-- ide -->
+<dependency>
+   <groupId>org.exoplatform.ide</groupId>
+   <artifactId>exo-ide-parent</artifactId>
+   <version>1.1.4</version>
+</dependency>
+
+<!-- cs -->
+<dependency>
+  <groupId>org.exoplatform.cs</groupId>
+  <artifactId>cs</artifactId>
+  <version>2.2.7</version>
+</dependency>
+
+<!-- ks -->
+<dependency>
+  <groupId>org.exoplatform.ks</groupId>
+  <artifactId>ks</artifactId>
+  <version>2.2.7</version>
+</dependency>
+
+<!-- social -->
+<dependency>
+  <groupId>org.exoplatform.social</groupId>
+  <artifactId>social-project</artifactId>
+  <version>1.2.7</version>
+</dependency>
+
+<!-- integration -->
+<dependency>
+  <groupId>org.exoplatform.integration</groupId>
+  <artifactId>integ</artifactId>
+  <version>1.0.5</version>
+</dependency>
+{code}
+
+h1. Update configurations {anchor:id=DEV.Upgrade.Update_configuration}
+After updating Maven dependencies, you need to update configurations via answering two questions:
+* In your eXo Platform extension, did you override anything in _$PLATFORM-TOMCAT-HOME/gatein/conf_?
+** If NO, you can skip this step, and simply keep all configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf_.
+** If YES, you first need to keep all configurations of eXo Platform 3.5, then define which configurations you want to add/remove/update.
+After that, you can put them into _$PLATFORM-TOMCAT-HOME/gatein/conf_.
+
+* In your eXo Platform extension, did you override anything in _$PLATFORM-TOMCAT-HOME/bin_?
+** If NO, you can skip this step, and simply keep all configurations in _$PLATFORM-TOMCAT-HOME/bin_.
+** If YES, you first need to keep all eXo Platform 3.5's origin configurations, then add/remove/update your extension configuration into it.
+
+{note}
+_$PLATFORM-TOMCAT-HOME/bin/gatein.sh_ and _$PLATFORM-TOMCAT-HOME/bin/gatein.bat_ are no longer used. Therefore, you should add your customized configurations in a more official way to set environment variables via _setenv.sh_ or _setenv.bat_.
+{note}
+
+h1. Update components {anchor:id=DEV.Upgrade.Update_components}
+
+There are many components in eXo Platform, so if you update your eXo Platform extension to eXo Platform 3.5, you need to update the version of all eXo Platform 3.5's components. 
+To do so, simply configure the Maven POM file that allows you to use the artifacts (eXo Platform 3.5 and its components). For more details, see the [Update project Maven dependencies|#DEV.Upgrade.Update_project_Maven_dependencies] section.
+All eXo Platform 3.5's components will be automatically included in your eXo Platform extension.
+
+There are some new components in eXo Platform 3.5 that have not been existing in eXo Platform 3.0, including Webos, Wiki, and Gadget-pack. To use these components, simply activate their profiles. For more details, see the [Profiles of eXo Platform|../../../admin-guide/html/ch02.html#ADM.Installation.eXo_profiles] section.
+
+In eXo Platform 3.5, the "intranet" portal is defined in the _acme-intranet.war_ file (not in the _office-portal.war_ file of eXo Platform 3.0). So if you have overridden anything in the "intranet" portal, you need to synchronize your extension with the _acme-intranet.war_ file of eXo Platform-3.5.
+
+h1. Update extension {anchor:id=DEV.Upgrade.Update_extension}
+
+This section details how to update your custom eXo Platform extension, including updating [Kernel XML Schema|#DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema], [portal|#DEV.Upgrade.Update_extension.Update_portal] and [APIs|#DEV.Upgrade.Update_extension.Update_APIs].
+
+h2. Update Kernel XML Schema {anchor:id=DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema}
+
+* Simply upgrade the version from _{noformat}kernel_1_0.xsd{noformat}_ to _{noformat}kernel_1_2.xsd{noformat}_ in all _.xml_ configurations files.
+
+{code:xml}
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	.....
+</configuration>
+{code}
+
+h2. Update portal {anchor:id=DEV.Upgrade.Update_extension.Update_portal}
+
+h3. Portal data import {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Portal_data_import}
+
+{note}
+It is recommended you have the knowledge of the import mechanism by referring to the [Data Import Strategy|../../../reference/html/bk02ch03.html#sect-Reference_Guide-Import_Strategy] section.
+{note}
+
+Processing the portal data import includes the following tasks:
+* Improve the current data import strategy so that it becomes more flexible in various scenarios.
+* Deploy an extension after you have initialized the portal that allows the extension to contribute its entities to an existing site.
+* Reimport data by overwriting an existing entire configuration at each startup.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+What's new?
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+{docbook}
+<informaltable>
+<tgroup cols="2">
+  <thead>
+	<row>
+	  <entry>Previous behavior</entry>
+	  <entry>New behavior</entry>
+	</row>
+  </thead>
+  <tbody>
+	<row>
+	  <entry>
+		<para>The previous mode for navigations is defined using the overridden configuration. </para>
+		<itemizedlist>
+		  <listitem>
+			<para><emphasis role="bold">Merge</emphasis>: Merge data from the XML descriptor to the existing data.</para>
+		  </listitem>
+		  <listitem>
+		<para><emphasis role="bold">Override</emphasis>: Destroy any existing data, and create new ones.</para>
+		  </listitem>
+		</itemizedlist>
+		<para>The previous mode has two main issues:</para>
+		<itemizedlist>
+		  <listitem>
+			<para>The behavior for instance disables the "always merge data" usecase. It means that it is always impossible to merge new navigations nodes from XML to MOP.</para>
+          </listitem>
+          <listitem>
+		    <para>The behavior is configured by the overridden parameter.</para>
+		  </listitem>
+		</itemizedlist>
+	  </entry>
+	  <entry>
+	  <para>The new behavior which is configured at the import level with a field parameter would have the following values:</para>
+      <itemizedlist>
+		<listitem>
+		  <para><emphasis role="bold">conserve</emphasis>: Import data. However, if the navigation has been existing, it will be kept.</para>
+        </listitem>
+        <listitem>
+		  <para><emphasis role="bold">insert</emphasis>: Insert the missing descriptor data by adding new nodes without any modifications on the existing nodes.</para>
+		</listitem>
+		<listitem>
+		   <para><emphasis role="bold">merge</emphasis>: Merge the descriptor data, add missing nodes and update the nodes of the same name.</para>
+		</listitem>
+		<listitem>
+		  <para><emphasis role="bold">overwrite</emphasis>: Always destroy the previous data and create new ones.</para>
+		</listitem>
+	   </itemizedlist>
+	 </entry>
+	</row>
+  </tbody>
+</tgroup>
+</informaltable>
+{docbook}
+
+For example, if you want to merge the new portal navigation from the configuration file and the existing portal navigation into the current eXo Platform, you can configure as below:
+
+{code:xml}
+<object-param>
+  <name>portal.configuration</name>
+  <object type="org.exoplatform.portal.config.NewPortalConfig">
+    <field name="predefinedOwner">
+     <collection type="java.util.HashSet">
+       <value><string>classic</string></value>
+     </collection>
+    </field>
+    <field name="ownerType">
+      <string>portal</string>
+    </field>
+    <field name="templateLocation">
+      <string>war:/conf/portal</string>
+    </field>
+    <field name="importMode">
+      <string>merge</string>
+    </field>
+  </object>
+</object-param>
+{code}
+
+{note}
+When a mode is not specified, the default mode will be *conserve*.
+{note}
+
+h3. Authentication {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Authentication}
+
+eXo Platform 3.5 uses a new authentication mechanism so-called the WCI authentication mechanism. This change from GateIn into the WCI module is because:
+* Authentication is commonly part of Java EE and happens at the Servlet Container layer, while WCI is the layer of integration between our stack and the Servlet Container. 
+* WCI provides an easier integration of SSO providers that allows the SSO module to depend on the WCI module instead of integrating directly with the GateIn module. Its main benefit is to improve the quality of SSO and to decouple SSO from GateIn.
+* The GateIn stack wants to support and leverage specifications of both Servlet 3.0 and Servlet 2.5 that are not supported by the GateIn module. Meanwhile, WCI can serve both.
+* The Servlet 3.0 provides a programmatic login feature which can be used to implement WCI.
+* WCI provides the stronger guaranty of the authentication quality, meanwhile the authentication of GateIn was not unit tested. By moving the GateIn to WCI module, the test can be made against several implementations.
+
+If there are other new portal containers in your eXo Platform extension, you need to update the authentication mechanism in the _$PLATFORM-TOMCAT-HOME/conf/jaas.conf_ file. 
+For example, in case you have added a new portal container named "company" to eXo Platform, you need to configure the new authentication module for the new portal container as follows:
+
+{code}
+<!--this configuration for defaul portal container with name "portal"-->
+gatein-domain {
+  org.gatein.wci.security.WCILoginModule optional;
+  org.exoplatform.services.security.jaas.SharedStateLoginModule required;
+  org.exoplatform.services.security.j2ee.TomcatLoginModule required;
+};
+
+<!--this configuration for new portal container with name "company"-->
+gatein-domain-company {
+  org.gatein.wci.security.WCILoginModule optional
+    portalContainerName="company"
+  	realmName="gatein-domain-company";
+  org.exoplatform.services.security.jaas.SharedStateLoginModule required
+    portalContainerName="company"
+  	realmName="gatein-domain-company";
+  org.exoplatform.services.security.j2ee.TomcatLoginModule required
+    portalContainerName="company"
+  	realmName="gatein-domain-company";
+};
+{code}
+
+For more details, see the [Change the JAAS realm|../../../admin-guide/html/ch05.html#ADM.Security.Change_JAAS_real] section.
+
+h2. Update APIs {anchor:id=DEV.Upgrade.Update_extension.Update_APIs}
+
+eXo Platform 3.5 has many changes on the data model and APIs. Therefore, if there are any new customized components in your eXo Platform extension that use eXo Platform 3.0 APIs, you need to check if they can work well in eXo Platform 3.5 or not.
+For more details, see the [eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs] section. 
+
+Finally, you need to update your customized components if needed. 
