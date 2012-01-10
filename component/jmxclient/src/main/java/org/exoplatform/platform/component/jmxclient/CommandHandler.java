@@ -124,7 +124,11 @@ public class CommandHandler {
         }
 
       for (MBeanOperationInfo beanOperationInfoTmp : beanOperationInfos) {
-        System.out.println(beanOperationInfoTmp.getName());
+
+          if (logger.isLoggable(Level.INFO)) {
+
+              logger.info(beanOperationInfoTmp.getName());
+          }
       }
     } else {
       MBeanParameterInfo paraminfos[] = beanOperationInfo.getSignature();
