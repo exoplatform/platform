@@ -89,11 +89,11 @@ function showPoll(data, isVoteAgain){
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="checkbox" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+        html.push('<div><label for="rdoVote">Vote: </label><input class="radio" type="checkbox" id="rdoVote" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="radio" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+        html.push('<div><label for="rdoVote">Vote: </label><input class="radio" type="radio" id="rdoVote" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
       }
     }
     html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");

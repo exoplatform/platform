@@ -75,15 +75,15 @@
       <table>
         <!--tr>
           <td>__MSG_baseurl__</td>
-          <td><input type="text" name="url"></td>
+          <td><label for="url">Url: </label><input type="text" id="url" name="url"></td>
         </tr>
         <tr>
           <td>__MSG_subscribeurl__</td>
-          <td><input type="text" name="subscribeurl"></td>
+          <td><label for="subscribeurl">Subscribe url: </label><input type="text" id="subscribeurl" name="subscribeurl"></td>
         </tr-->
         <tr>
           <td>__MSG_limit__</td>
-          <td><input type="text" name="limit"></td>
+          <td><label for="limit">Limit: </label><input type="text" id="limit" name="limit"></td>
         </tr>   
         <tr>
           <td>__MSG_calendars__</td>

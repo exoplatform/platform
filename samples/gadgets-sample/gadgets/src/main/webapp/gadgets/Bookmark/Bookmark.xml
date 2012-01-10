@@ -22,8 +22,8 @@
           var icon = '<div class="ArrowIcon"><img class="listIcon off CustomImage" src="/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif"></img></div>';
           var item = '<a id="bookmark' + id + '" href="' + link + '" target="_parent">' + name + '</a>';
           var form = '<div class="Form" style="display:none;"> \
-                        <div class="Label"><input type="text" class="EditFormName"></input></div> \
-                        <div class="Label LabelBelow"><input type="text" class="EditFormLink"></input> \
+                        <div class="Label"><label for="EditFormName">Edit form name: </label><input type="text" id="EditFormName" class="EditFormName"></input></div> \
+                        <div class="Label LabelBelow"><label for="EditFormLink">Edit form link: </label><input type="text" id="EditFormLink" class="EditFormLink"></input> \
                           <a class="Button EditFormOK" href="#"><img alt="" src="/exo-gadget-resources/skin/exo-gadget/images/Ok.gif"></img></a> \
                           <a class="Button EditFormDelete" href="#"><img alt="" src="/exo-gadget-resources/skin/exo-gadget/images/Del.gif"></img></a> \
                         </div> \
@@ -198,11 +198,11 @@
         <table id="frmNew" class="Form" style="display:none; margin-left: 8px;">
           <tr>
             <td>__MSG_name__</td>
-            <td><input type="text" id="txtNewName"></input></td>
+            <td><label for="txtNewName">New name: </label><input type="text" id="txtNewName"></input></td>
           </tr>
           <tr>
             <td>__MSG_url__</td>
-            <td><input type="text" id="txtNewLink"></input></td>
+            <td><label for="txtNewLink">New link: </label><input type="text" id="txtNewLink"></input></td>
             <td>
               <a id="btnNewOK" class="Button" href="#"><img alt="" src="images/Ok.gif"></img></a>
               <a id="btnNewCancel" class="ButtonDel" href="#"><img alt="" src="images/Del.gif"></img></a>

@@ -31,6 +31,7 @@
           <label class="TextForm">Your Evaluation Key:</label>
         </td>
         <td>
+          <label for="hashMD5">Key: </label>
           <input class="Text" type="text" name="hashMD5" id="hashMD5">
         </td>
         <td>
