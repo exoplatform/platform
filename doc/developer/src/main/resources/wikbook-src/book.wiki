@@ -41,6 +41,10 @@ h1. Cookbook {anchor:id=DEV.Cookbook}
 
 {include:document=cookbook.wiki|syntax=confluence/1.0}
 
+h1. Upgrade eXo Platform {anchor:id=DEV.Upgrade}
+
+{include:document=Upgrade.wiki|syntax=confluence/1.0}
+
 h1. New Features {anchor:id=DEV.NewFeatures}
 
 {include:document=new_features.wiki|syntax=confluence/1.0}
