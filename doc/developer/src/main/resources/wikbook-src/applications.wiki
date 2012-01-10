@@ -182,7 +182,7 @@ A gadget should use static resources available in _exo-gadget-resources_ instead
 
 The sample gadget:
 
-!images/sample_gadget.png|align="center"!
+!images/sample_gadget.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -269,7 +269,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 </Module> 
 {code}
 
-!images/setting_demo_form.png|align="center"!
+!images/setting_demo_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -282,13 +282,11 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 The gadget thumbnails are displayed in the *Page Editor* window when you edit a page. The thumbnail image size needs to be consistent for all gadgets in the list. 
 The current size (in eXo Platform 3.5) is 80 x 80px, so you should choose an image of this size in PNG (preferred), JPG or GIF format for your gadget thumbnail. 
 
-!images/gadget_thumbnail.png|align="center"!
+!images/gadget_thumbnail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * The image can also be an image from a public website (absolute URL), for example: {noformat}<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>{noformat}
 
 or from an internal image (relative URL): {noformat}<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>{noformat}
-
-
 
 
 h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}

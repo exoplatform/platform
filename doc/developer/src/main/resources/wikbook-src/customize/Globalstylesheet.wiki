@@ -4,15 +4,15 @@ Global stylesheets of eXo Platform are put into the CSS folder to manage the sty
 
 h2. Create and apply the global stylesheet by Sites Explorer {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByContentExplorer}
 
-*1.* Click !images/gear_icon.png! *--> Content --> Sites Explorer --> Sites Management drive*.
+*1.* Click !images/gear_icon.png width="5mm" fo:scalefit="1" html:scalefit="0"! *--> Content --> Sites Explorer --> Sites Management drive*.
 
 *2.* Select one site node in the *Sites Management* pane, for example *acme*, and then select the CSS folder.
 
-!images/CreateNewGlobalStylesheet.png|align="center"!
+!images/CreateNewGlobalStylesheet.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *Add Content* to open the form to create the new global stylesheet.
 
-!images/CreateGlobalStylesheetForm.png|align="center"!
+!images/CreateGlobalStylesheetForm.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Enter the name of global stylesheet into the *Name* field, for example *{noformat}GlobalStylesheet_Orange{noformat}*.
 
@@ -30,7 +30,7 @@ The default global stylesheet will be automatically created in the CSS folder wh
 
 *8.* Click the *Save* or *Save & Close* button to save your newly created global stylesheet. You will see your global stylesheet in the *Sites Management* pane.
 
-!images/GlobalStylesheet_org.png|align="center"! 
+!images/GlobalStylesheet_org.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
 
@@ -43,7 +43,7 @@ After being created as above, your desired global stylesheet can be initialized 
 
 *2.* Select *System* and click *Export Node* on the action bar.
 
-!images/ExportImportGlobalStylesheet.png|align="center"!
+!images/ExportImportGlobalStylesheet.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Copy and paste the file you have exported, for example *StylesheetOrange.xml*, into the folder containing all stylesheets for your site, such as "/acme-website/WEB-INF/conf/acme-portal/wcm/artifacts/site-resources/acme/".
 
@@ -92,8 +92,8 @@ You can have several global stylesheets in one site. To see differences when app
 
 If you activate *{noformat}GlobalStylesheet_Blue{noformat}* (the pre-defined stylesheet), your site will be displayed as below:
 
-!images/DisplayGlobalStyleBlue.png|align="center"!
+!images/DisplayGlobalStyleBlue.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 When you activate *{noformat}GlobalStylesheet_Orange{noformat}* (your CSS stylesheet), you can see your site is now displayed in a different style:
 
-!images/DisplayGlobalStyleOrange.png|align="center"!
+!images/DisplayGlobalStyleOrange.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!

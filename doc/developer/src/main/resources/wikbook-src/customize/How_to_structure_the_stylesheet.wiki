@@ -22,7 +22,7 @@ The portal skin contains styles for the HTML tags (for example, div, th, td) and
 {docbook}
 The CSS styles are associated with the portlet window decorators. The window decorators contain control buttons and borders surrounding each portlet. Individual portlets can have their own window decorators selected, or be rendered without one.
 
-!images/window_decoration.jpg|align="center"!
+!images/window_decoration.jpg|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>

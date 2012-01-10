@@ -36,7 +36,7 @@ Once you have modified the sample extension to build your own portal, use the _m
 This will only work if the starter.war is the last .war file to be loaded, so you may need to rename it if your war files are loaded in the alphabetical order.
 {note}
 
-*4.* Add the .jar file named exo.portal.sample.extension.config-X.Y.Z.jar from _sample/extension/config/target/_ to the _tomcat/lib_ directory.
+*4.* Add the .jar file named _exo.portal.sample.extension.config-X.Y.Z.jar_ from _sample/extension/config/target/_ to the _tomcat/lib_ directory.
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
@@ -367,7 +367,7 @@ To check if the added language takes effect, hover the mouse over your username 
 
 {anchor:id="DEV.Interface_Language_Setting_window"}
 
-!images/example_addItalian.png|align="center"!
+!images/example_addItalian.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Remove languages {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
 
@@ -398,7 +398,7 @@ To check if French is removed, hover the mouse over your username on the *Admini
 
 In the *Interface Language Settings* window that appears, French is no longer listed.
 
-!images/example_removeFrench.png|align="center"!
+!images/example_removeFrench.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Create a custom look and feel {anchor:id=DEV.CreateYourOwnPortal.CreateCustomLookAndFeel}
 
@@ -440,7 +440,7 @@ To create a custom page template, do as follows:
 
 Add it to this path: _/examples/extension/war/src/main/webapp/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy_
 
-!images/PageConfigOptions.groovy.png|align="center"!
+!images/PageConfigOptions.groovy.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Sample code:
 
@@ -454,7 +454,7 @@ samplePageConfigs.addSelectItemOption(new SelectItemOption("samplePage.FourRowsL
 
 *2*. Add your template file into: _/examples/extension/war/src/main/webapp/WEB-INF/conf/portal/template/pages/four-rows/page.xml_
 
-!images/page.xml.png|align="center"!
+!images/page.xml.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Sample code:
 

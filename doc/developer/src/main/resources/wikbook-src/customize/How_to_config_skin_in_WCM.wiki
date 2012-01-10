@@ -14,7 +14,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 For example, you will have a layout like this:
 
-!images/samplelayout.jpg|align="center"!
+!images/samplelayout.jpg|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -102,7 +102,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 * Like _portal.xml_, you can define the layout for each page in your site as shown in the following example:
 
-!images/sample_page.jpg|align="center"!
+!images/sample_page.jpg|align="center"  width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 {code:xml}
 <!-- ... -->

@@ -29,7 +29,7 @@ The procedure of each step will be detailed as follows:
 
 *3.* Click *Export Node* to export the node with its version history as below:
 
-!images/how_to_copy_a_site/export_site_nodes2.png|align="center"!
+!images/how_to_copy_a_site/export_site_nodes2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Select *Export* and *Export Version History* to perform the exporting.
 
@@ -37,7 +37,7 @@ The procedure of each step will be detailed as follows:
 
 *6.* Select the exported nodes and version history to be imported.
 
-!images/how_to_copy_a_site/import_site_nodes2.png|align="center"!
+!images/how_to_copy_a_site/import_site_nodes2.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 One pop-up message will appear to inform that you have imported successfully.
 
@@ -52,15 +52,15 @@ One pop-up message will appear to inform that you have imported successfully.
 
 *1.* Go to the *Content Administration* page and add a new drive to both target and source servers.
 
-!images/how_to_copy_a_site/add_portal_system_drive.png|align="center"!
+!images/how_to_copy_a_site/add_portal_system_drive.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Export the navigation node.
 
-!images/how_to_copy_a_site/export_site_navigations.png|align="center"!
+!images/how_to_copy_a_site/export_site_navigations.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Import the nodes navigation.
 
-!images/how_to_copy_a_site/import_site_navigations.png|align="center"!
+!images/how_to_copy_a_site/import_site_navigations.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 {docbook}
@@ -73,23 +73,23 @@ One pop-up message will appear to inform that you have imported successfully.
 
 *1.* Add the *System* drive to both servers.
 
-!images/how_to_copy_a_site/add_system_drive.png|align="center"!
+!images/how_to_copy_a_site/add_system_drive.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Open _{noformat}system:/jcr:system/exo:namespaces/{namespace_name}{noformat}_, and export it.
 
-!images/how_to_copy_a_site/export_namespace.png|align="center"!
+!images/how_to_copy_a_site/export_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Open _{noformat}system:/jcr:system/exo:namespaces/{noformat}_, and import the exported file as described in [*Step 2*|#DEV.Cookbook.CopyNavigationNodesOfSites].
 
-!images/how_to_copy_a_site/import_namespace.png|align="center"!
+!images/how_to_copy_a_site/import_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *4.* Open _{noformat}system:/jcr:system/jcr:nodetypes/{node_type}{noformat}_, and export it.
 
-!images/how_to_copy_a_site/export_node_type.png|align="center"!
+!images/how_to_copy_a_site/export_node_type.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *5.* Open _{noformat}system:/jcr:system/jcr:nodetypes/{noformat}_, and import the exported file as described in [*Step 4*|#DEV.Cookbook.CopyWCMTemplates].
 
-!images/how_to_copy_a_site/import_nodetype.png|align="center"!
+!images/how_to_copy_a_site/import_nodetype.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
 If you have some specific JCR namespaces and node types, you need to import them into the new server.
@@ -109,11 +109,11 @@ If you have some specific JCR namespaces and node types, you need to import them
 
 *2.* Open _{noformat}dms-system:/exo:ecm/templates/{node_type}{noformat}_, and export it.
 
-!images/how_to_copy_a_site/export_node_type_templates.png|align="center"!
+!images/how_to_copy_a_site/export_node_type_templates.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Open _{noformat}dms-system:/exo:ecm/templates/{noformat}_, and import the exported file.
 
-!images/how_to_copy_a_site/import_node_type_templates.png|align="center"!
+!images/how_to_copy_a_site/import_node_type_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Also, for CLV/PCLV templates, you can find all template views defined in the _{noformat}dms-system:/exo:ecm/views{noformat}_ path with:
 
@@ -128,7 +128,7 @@ Also, for CLV/PCLV templates, you can find all template views defined in the _{n
 
 If you want to reuse one of the non-predefined templates above, simply export and import it into the new server at the same place.
 
-!images/how_to_copy_a_site/WCM_templates.png|align="center"!
+!images/how_to_copy_a_site/WCM_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {note}
 If you have some specific WCM (CLV/PCLV) views and/or templates of node types, you will need to import them into the new server.
@@ -144,7 +144,7 @@ If you have some specific WCM (CLV/PCLV) views and/or templates of node types, y
 {docbook}
 
 
-By importing the whole site as described in the [*Copy the site content folder with its version history*|#DEV.Cookbook.CopySitesContentFolderWithVersionHistory] section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you need to do is to add this Taxonomy tree definition by following those steps:
+By importing the whole site as described in the [*Copy a site's content folder with its version history*|#DEV.Cookbook.CopySitesContentFolderWithVersionHistory] section, you will also have the Taxonomy tree imported. The default location where the site's Taxonomy is placed in a sub-folder is named *category*. So, you do not need to export or import them because this step is automatically done. But the Taxonomy tree definition is still not fully imported in the new server. What you need to do is to add this Taxonomy tree definition by following these steps:
 
 *1.* Open the *DMS Administration* drive in the new server.
 
@@ -152,19 +152,19 @@ By importing the whole site as described in the [*Copy the site content folder w
 
 *3.* Add a symlink to the *Taxonomy Tree Root Node*, for example _{noformat}collaboration:/sites content/live/acme/categories/acme{noformat}_.
 
-!images/how_to_copy_a_site/select_TaxonomyTree_rootNode.png|align="center"!
+!images/how_to_copy_a_site/select_TaxonomyTree_rootNode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The name of symlink is displayed as "acme".
 
-!images/how_to_copy_a_site/select_TaxonomyTree_rootNode2.png|align="center"!
+!images/how_to_copy_a_site/select_TaxonomyTree_rootNode2.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The symlink will be generated as below:
 
-!images/how_to_copy_a_site/select_TaxonomyTree_rootNode3.png|align="center"!
+!images/how_to_copy_a_site/select_TaxonomyTree_rootNode3.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 In some cases, to see changes, you need to clear the cache by disconnecting or restarting the server.
 
-!images/how_to_copy_a_site/TaxonomyTree_added_successfully.png|align="center"!
+!images/how_to_copy_a_site/TaxonomyTree_added_successfully.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -243,7 +243,7 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 *1.* Open the drive that points into the *Portal-System* Workspace.
 
-*2.* Go to your gadget _{noformat}portal-system:/production/app:gadgets/{gadget_namee}{noformat}_.
+*2.* Go to your gadget by following the _{noformat}portal-system:/production/app:gadgets/{gadget_name}{noformat}_ path.
 
 *3.* Export and import it in the same location in the new server again.
 
@@ -258,7 +258,7 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 After importing the site navigation nodes, the site may look quite broken, so you need to restart the server first. After the server is restarted, the site will look like:
 
-!images/how_to_copy_a_site/acme_site_after_import_and_restart.png|align="center"!
+!images/how_to_copy_a_site/acme_site_after_import_and_restart.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 

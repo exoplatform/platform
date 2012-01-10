@@ -211,31 +211,31 @@ The following buttons are shown: Source, Templates, Show Blocks, Cut, Copy, Past
 Insert Special Character, WCM Insert Content Link, Bold, Italic, Underline, Strike Through, Justify Left, Justify Center, Justify Right, Justify Full,
 Ordered List, Unordered List, Text Color, Background Color, Remove Format, Link, WCM Insert Portal Link, Unlink, Anchor, Style, Font Format, Font Name, Font Size, Maximize.
 
-!images/CompleteWCMToolbar.png|align="center"!
+!images/CompleteWCMToolbar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Default: a large set of tools is shown, no "options" argument is needed in that case.
 
 The following buttons are shown: Source, Templates, Cut, Copy, PasteText, Undo, Redo, SpellCheck, RemoveFormat, Bold, Italic, Underline, Strike Through, Ordered List, Unordered List, Link, Unlink, Anchor, Image, Flash, Table, Special Character, Text Color, Background Color, Show Blocks, Style, Font Format, Font Name, Font Size, Maximize.
 
-!images/DefaultToolbar.png|align="center"!
+!images/DefaultToolbar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * BasicWCM: a minimal set of tools is shown. 
 
 The following buttons are shown: Source, Bold, Italic, Underline, Strike Through, OrderedList, UnorderedList, Outdent, Indent, Justify Left, Justify Center, Justify Right, JustifyFull, Blockquote, Link, Unlink, WCM Insert Portal Link, WCM Insert Content Link, Show Blocks, Style, Font Format, Font Name, FontSize, Maximize.
 
-!images/BasicWCMToolbar.png|align="center"!
+!images/BasicWCMToolbar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Basic: 
 
 The following buttons are shown: Source, Bold, Italic, Underline, Strike Through, Ordered List, Unordered List, Outdent, Indent, Justify Left, Justify Center, Justify Right, Justify Full, Blockquote, Link, Unlink, Show Blocks, Style, Font Format, Font Name, Font Size, Maximize.
 
-!images/BasicTools.png|align="center"!
+!images/BasicTools.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * SuperBasicWCM: 
 
 The following buttons are shown: Source, Bold, Italic, Underline, Justify Left, Justify Center, Justify Right, Justify Full, Link, Unlink, WCM Insert Portal Link, WCM Insert Gadget, WCM Insert Content Link.
 
-!images/SuperBasicWCMToolbar.png|align="center"!
+!images/SuperBasicWCMToolbar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 There is also a simple text area widget, which has text-input area only: 
 

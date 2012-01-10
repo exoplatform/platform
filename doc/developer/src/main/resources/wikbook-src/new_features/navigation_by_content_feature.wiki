@@ -29,7 +29,7 @@ In this example, all contents in the _/Sites Management/acme/events/All_ node wi
 
 *i. Configure the left portlet as follows*:
 
-!images/navigation_by_content_feature/browseByCLV.png|align="center" !
+!images/navigation_by_content_feature/browseByCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -42,7 +42,7 @@ In which:
 
 *ii. Configure the right portlet as follows*:
 
-!images/navigation_by_content_feature/showListCLV.png|align="center" !
+!images/navigation_by_content_feature/showListCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -54,7 +54,7 @@ In which:
 
 As a result, the created *Events* page will look like:
 
-!images/navigation_by_content_feature/eventsPage.png|align="center"!
+!images/navigation_by_content_feature/eventsPage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 You can now navigate from the left portlet to see contents displayed in the right portlet.
 
@@ -77,7 +77,7 @@ h1. Add content to the navigation {anchor:id=DEV.NewFeatures.NavigationByContent
 
 *3.* Fill values into the *Content Navigation* form:
 
-!images/navigation_by_content_feature/Navigation_form.png|align="center"!
+!images/navigation_by_content_feature/Navigation_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -93,7 +93,7 @@ In which:
 
 *4.* Save changes, then go back to the ACME homepage, you will see changes from the *Events* drop-down menu.
 
-!images/navigation_by_content_feature/contextualMenu.png|align="center" !
+!images/navigation_by_content_feature/contextualMenu.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 In which:
 
@@ -107,13 +107,13 @@ In which:
 
 Click the *Earth* menu item from the contextual menu, you will see that contents of the *Earth* directory are rendered in a separate page (catalog):
 
-!images/navigation_by_content_feature/listEarth.png|align="center" !
+!images/navigation_by_content_feature/listEarth.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Page for detail*: The details of child nodes (if a child node is a sample content) will be rendered in this page.
 
 Select the *Power 1 - Fire* menu item from the contextual menu to see the *Fire* content displayed in a separate page (details):
 
-!images/navigation_by_content_feature/Power1_fire_item.png|align="center" !
+!images/navigation_by_content_feature/Power1_fire_item.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent}
 
@@ -133,7 +133,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *4.* Go back to the ACME homepage, you will see that the *Fire* sub-menu is not displayed in the contextual menu anymore.
 
-!images/navigation_by_content_feature/Restrict_content_visibility.png|align="center" !
+!images/navigation_by_content_feature/Restrict_content_visibility.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 {docbook}
 <citetitle>
@@ -187,7 +187,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *4.* Save changes and go back to the *Acme/Overview* homepage and see that the *Fire* node is attached to the *News* drop-down menu from the site menu:
 
-!images/navigation_by_content_feature/Attach_node_ to_another_page.png|align="center" !
+!images/navigation_by_content_feature/Attach_node_ to_another_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 However, if you want to add your newly created content directly to the contextual menu, you need to add the *populateToMenu* action first.
 
@@ -205,35 +205,35 @@ However, if you want to add your newly created content directly to the contextua
 
 *2.* Click the *Manage Actions* button and add the *{noformat}exo:populateToMenu{noformat}* action.
 
-!images/navigation_by_content_feature/populateToMenuAction.png|align="center"!
+!images/navigation_by_content_feature/populateToMenuAction.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Create a document under the _/Sites Management/acme/events/All/Fire_ node and publish it.
 
 *4.* Go back to the homepage and see that your newly created document is added to the contextual menu.
 
-!images/navigation_by_content_feature/docPDF.png|align="center" !
+!images/navigation_by_content_feature/docPDF.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 The sample ACME website comes with a configured navigation by content menu:
 
-!images/navigation_by_content_feature/productsMenu.png|align="center" !
+!images/navigation_by_content_feature/productsMenu.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 You can click the *Vision* sub-menu and see contents of *Vision* directory rendered in the *catalog* page:
 
-!images/navigation_by_content_feature/visionSubMenuList.png|align="center" !
+!images/navigation_by_content_feature/visionSubMenuList.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Select the *X-Ray* content and see the newly implemented content using new visual effects and presentation.
 
 * "Benefits" and "Features" tabs:
 
-!images/navigation_by_content_feature/Benefits_tab.png|align="center" !
+!images/navigation_by_content_feature/Benefits_tab.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * Coverflow section:
 
-!images/navigation_by_content_feature/Coverflow.png|align="center" !
+!images/navigation_by_content_feature/Coverflow.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * Related documents:
 
-!images/navigation_by_content_feature/relatedDocuments.png|align="center" !
+!images/navigation_by_content_feature/relatedDocuments.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h1.  Example of creating data for Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByContent.CreateDataForNavigationByContentExamples}
@@ -271,13 +271,13 @@ h2. Create a Product page {anchor:id=DEV.NewFeatures.NavigationByContent.CreateN
 
 *2.* Upload some images and publish them.
 
-!images/navigation_by_content_feature/sampleProductImages.png|align="center"!
+!images/navigation_by_content_feature/sampleProductImages.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Go to _somePath/someDirectory/sampleProduct/medias/videos_.
 
 *4.* Upload a video and publish it.
 
-!images/navigation_by_content_feature/sampleProductVideos.png|align="center" !
+!images/navigation_by_content_feature/sampleProductVideos.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0" !
 
 *5.* Go to _somePath/someDirectory/sampleProduct/documents_.
 
@@ -285,7 +285,7 @@ h2. Create a Product page {anchor:id=DEV.NewFeatures.NavigationByContent.CreateN
 
 *7.* Upload a PDF document and publish it under each sub-folder.
 
-!images/navigation_by_content_feature/sampleProductDocuments.png|align="center" !
+!images/navigation_by_content_feature/sampleProductDocuments.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *8.* Add your *sampleProduct* to some categories or add it to the *Content List* portlet.
 
@@ -293,11 +293,11 @@ Your newly created product is now ready to be displayed in some pages.
 
 *9.* Publish your newly created product. Note that you can select this content from a CLV:
 
-!images/navigation_by_content_feature/sampleProductCLV.png|align="center" !
+!images/navigation_by_content_feature/sampleProductCLV.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 As a result, the content will be displayed in a detailed page as follows:
 
-!images/navigation_by_content_feature/sampleProductDetail.png|align="center" !
+!images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
 h2. Develop your own Product content {anchors:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
