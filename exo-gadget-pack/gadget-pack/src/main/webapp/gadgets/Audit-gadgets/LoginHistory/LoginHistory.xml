@@ -676,10 +676,10 @@
 			<div id="lastLoginsDiv">
 				<table width="100%">
 					<tr>
-						<td align="left" width="7%"><label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label></td>
-						<td align="right" width="50%"><input id="searchTxt" style="width: 100%; border-width: 1px; padding: 0px;" type="text"></td>
-						<td align="right" width="20%"><input style="width: 100%; border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="findBtn" value="__MSG_loginHistory.find__" type="button"></td>
-						<td align="right" width="23%"><input style="width: 100%; border-width: 1px; padding-left: 2px; padding-right: 2px; margin-left: 0px; margin-right: 0px;" id="latestBtn" value="__MSG_loginHistory.latest__" type="button"></td>
+						<td align="left" width="3%"><label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label></td>
+						<td align="right" width="47%"><input id="searchTxt" style="width: 100%; border-width: 1px; padding: 0px;" type="text"></td>
+						<td align="right" width="23%"><input style="width: 100%; border-width: 1px;" id="findBtn" value="__MSG_loginHistory.find__" type="button"></td>
+						<td align="right" width="27%"><input style="width: 100%; border-width: 1px;" id="latestBtn" value="__MSG_loginHistory.latest__" type="button"></td>
 					</tr>
 				</table>
 				<div id="lastLoginsContainerDiv"><div id="lastLoginsDataDiv"><table id="lastLoginsTable" width="100%"></table></div></div>
