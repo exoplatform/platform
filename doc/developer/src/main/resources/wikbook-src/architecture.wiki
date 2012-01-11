@@ -83,8 +83,8 @@ Containers configuration files must comply with the kernel configuration grammar
 {code:xml}
 <configuration
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
-  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd http://www.exoplatform.org/xml/ns/kernel_1_1.xsd"
+  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd">
 </configuration>
 {code}
 
