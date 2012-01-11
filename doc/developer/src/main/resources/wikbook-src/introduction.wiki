@@ -21,8 +21,9 @@ This guide includes the following topics.
 |[Work with Content|#DEV.WorkingwithContent]|Topics related to the eXo Platform content.|
 |[Work with Applications|#DEV.WorkingwithApplications]|Instructions on how to integrate applications into your portal and how to deploy your own applications.|
 |[Integrate eXo Platform 3.5 into one information system|#DEV.SystemIntegration]|Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.|
-|[eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]|Information about APIs.|
+|[eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]|Information of APIs.|
 |[Cookbook|#DEV.Cookbook]|Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.|
+|[Upgrade eXo Platform|#DEV.Upgrade]|Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.|
 |[New Features|#DEV.NewFeatures]|New features integrated into eXo Platform 3.5. At present, only the called Navigation By Content feature is introduced in this chapter.|
 
 
