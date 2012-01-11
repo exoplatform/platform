@@ -154,6 +154,10 @@ After updating Maven dependencies, you need to update configurations via answeri
 ** If YES, you first need to keep all configurations of eXo Platform 3.5, then define which configurations you want to add/remove/update.
 After that, you can put them into _$PLATFORM-TOMCAT-HOME/gatein/conf_.
 
+{note}
+There are some new configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf/_ which are related to [how to deploy the eXo Platform clustering|../../../admin-guide/html/ch07.html], and [JBoss Cache configuration.|../../../reference/html/ch-jbosscache-configuration-templates.html]
+{note}
+
 * In your eXo Platform extension, did you override anything in _$PLATFORM-TOMCAT-HOME/bin_?
 ** If NO, you can skip this step, and simply keep all configurations in _$PLATFORM-TOMCAT-HOME/bin_.
 ** If YES, you first need to keep all eXo Platform 3.5's origin configurations, then add/remove/update your extension configuration into it.
