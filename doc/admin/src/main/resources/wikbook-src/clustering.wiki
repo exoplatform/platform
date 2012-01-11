@@ -176,7 +176,6 @@ Or, by using the following command with this additional profile.
 
 h1. FAQs of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
 
-
 {docbook}
 <citetitle>
 <para>
@@ -240,4 +239,39 @@ java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
 
 Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to JVM parameters:
 {code} -Djava.net.preferIPv4Stack=true {code}
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Q3. How to hide JGroups protocol warnings in the log?
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+In cluster mode several Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport.
+And in case of used by default UDP transport it might cause a side effect - lot of warnings, like these below:
+{screen}
+WARNING: discarded message from different group "gatein-idm-api-cluster" (our group is "gatein-idm-store-cluster"). Sender was 192.168.1.55:54232
+Dec 16, 2011 4:46:09 PM org.jgroups.protocols.TP passMessageUp
+WARNING: discarded message from different group "gatein-idm-store-cluster" (our group is "gatein-idm-api-cluster"). Sender was 192.168.1.55:63364
+Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
+{screen}
+
+To hide such warnings need configure the Application Server logger in appropriate way:
+* Apache Tomcat, in {{{${CATALINA_HOME}/conf/logging.properties}}} add following lines
+{code}
+org.jgroups.level = SEVERE
+org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
+{code}
+* JBoss Application Server, for server profile _all_, add in {{{${jboss_server}/server/all/conf/jboss-log4j.xml}}} following
+{code}
+  <category name="org.jgroups.protocols.UDP">
+    <priority value="ERROR"/>
+  </category>
+{code}
+
+
+
+
 
