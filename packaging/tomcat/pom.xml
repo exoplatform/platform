@@ -14,36 +14,42 @@
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exopackage</artifactId>
       <version>${org.exoplatform.exopackage.version}</version>
+      <scope>provided</scope>
       <type>zip</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>kernel.packaging.module</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
+      <scope>provided</scope>
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>core.packaging.module</artifactId>
       <version>${org.exoplatform.core.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>ws.packaging.module</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>jcr.packaging.module</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>portal.packaging.module</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- PLATFORM -->
@@ -51,24 +57,28 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.server.tomcat.patch</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.module</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.product</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.packaging.commons</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>zip</type>
     </dependency>
     <!-- KS -->
@@ -76,17 +86,20 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.upgrade</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>
 		</dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>ks.packaging.module</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>portal.packaging.product</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- CS -->
@@ -94,17 +107,20 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.component.upgrade</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>
 		</dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>cs.packaging.module</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>cs.packaging.product</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- SOCIAL -->
@@ -112,24 +128,28 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extras.migration</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extras.updater</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social.packaging.module</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social.packaging.product</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>
       <type>js</type>
     </dependency>
     <!-- ECMS -->
@@ -137,39 +157,46 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-upgrade-voting-nodetype</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
 		</dependency>
 		<dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-upgrade-favorite</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
 		</dependency>
 		<dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-upgrade-thumbnails</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>
 		</dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>workflow.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>dms.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>wcm.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>wcm.packaging.product</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>js</type>
     </dependency>
 
@@ -177,30 +204,35 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-delivery-wkf-wcm</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-webui-seo</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-portlet-seo</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 	<!-- 2.2.0-SNAPSHOT-->
@@ -208,18 +240,21 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.packaging.assembly</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.packaging.assembly</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.packaging.pkg</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>pom</type>
     </dependency>
     <!-- workflow dependencies -->
@@ -227,12 +262,14 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-jbpm-content</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -240,6 +277,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-content-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -247,6 +285,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-content-plugin</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -254,6 +293,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-content-publication</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     
@@ -262,6 +302,7 @@
 		    <groupId>org.exoplatform.platform</groupId>
 		    <artifactId>exo.platform.extension</artifactId>
 		    <version>${project.version}</version>
+      <scope>provided</scope>      
 		    <type>jar</type>
 		  </dependency-->
     <!-- ////////////// Deploy dependencies ////////////// -->
@@ -271,66 +312,77 @@
       <groupId>org.exoplatform.gwt</groupId>
       <artifactId>exo-gwtframework-smartgwt</artifactId>
       <version>${org.exoplatform.gwtframework.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-client-gadget</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.script.groovy</artifactId>
       <version>${org.exoplatform.core.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-gadget-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-netvibes-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-groovy-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-extension-chromattic-server</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.ext</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.groovy</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.dataobject</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -339,6 +391,7 @@
       <groupId>org.crsh</groupId>
       <artifactId>crsh.core</artifactId>
       <version>${org.crsh.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <!-- INTEGRATION PROJECTS -->
@@ -346,24 +399,28 @@
       <groupId>org.exoplatform.integration</groupId>
       <artifactId>integ-ecms-social</artifactId>
       <version>${org.exoplatform.integ.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
        <groupId>org.exoplatform.integration</groupId>
        <artifactId>integ-ks-social</artifactId>
        <version>${org.exoplatform.integ.version}</version>
+      <scope>provided</scope>      
        <type>jar</type>
     </dependency>
     <dependency>
        <groupId>org.exoplatform.integration</groupId>
        <artifactId>integ-cs-social</artifactId>
        <version>${org.exoplatform.integ.version}</version>
+      <scope>provided</scope>      
        <type>jar</type>
     </dependency>
     <dependency>
        <groupId>org.exoplatform.integration</groupId>
        <artifactId>integ-social-ecms</artifactId>
        <version>${org.exoplatform.integ.version}</version>
+      <scope>provided</scope>      
        <type>jar</type>
     </dependency>
     <!-- MISSING DEPENDENCIES -->
@@ -371,12 +428,14 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.fck</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.webapp.portlet</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -384,12 +443,14 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -397,6 +458,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.webapp.resources</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -404,6 +466,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.comet.webapp</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -411,6 +474,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.comet.service</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -418,6 +482,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -425,6 +490,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.resources</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -432,6 +498,7 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.extension.webapp</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -439,6 +506,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.webapp.opensocial</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -446,6 +514,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extras.link-composer-plugin</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -453,6 +522,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.common</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -460,6 +530,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.starter.war</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -467,6 +538,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-connector</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -474,6 +546,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-search</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -481,6 +554,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -488,6 +562,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${org.slf4j.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     
@@ -495,6 +570,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk14</artifactId>
       <version>${org.slf4j.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -502,6 +578,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.common</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -509,6 +586,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.ftp</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -516,6 +594,7 @@
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.command</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -523,6 +602,7 @@
       <groupId>org.gatein.wci</groupId>
       <artifactId>wci-exo</artifactId>
       <version>${org.gatein.wci.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -530,6 +610,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.service</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -537,6 +618,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.web.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -544,6 +626,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-newsletter-portlet</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -551,6 +634,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.portlet.web</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -558,6 +642,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.portlet.exoadmin</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -565,6 +650,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-portlet-presentation</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -572,6 +658,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.eXoGadgets</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -579,6 +666,7 @@
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.rest.core</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -586,6 +674,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-resources-static</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -593,6 +682,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-webui-administration</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -600,6 +690,7 @@
       <groupId>bsh</groupId>
       <artifactId>bsh</artifactId>
       <version>${bsh.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -607,6 +698,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-resources</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -614,6 +706,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.web.webservice</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -621,27 +714,32 @@
         <groupId>net.oauth.core</groupId>
         <artifactId>oauth</artifactId>
         <version>${net.oauth.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
         <groupId>net.oauth.core</groupId>
         <artifactId>oauth-provider</artifactId>
         <version>${net.oauth.version}</version>
+      <scope>provided</scope>      
     </dependency>
 	<dependency>
 	  <groupId>net.oauth.core</groupId>
 	  <artifactId>oauth-consumer</artifactId>
       <version>${net.oauth-consumer.version}</version>
+      <scope>provided</scope>      
 	</dependency>
 	<dependency>
 	  <groupId>net.oauth.core</groupId>
 	  <artifactId>oauth-httpclient4</artifactId>
 	  <version>${net.oauth-httpclient.version}</version>
+      <scope>provided</scope>      
 	</dependency>
 
     <dependency>
       <groupId>cglib</groupId>
       <artifactId>cglib</artifactId>
       <version>${cglib.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -649,6 +747,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -656,6 +755,7 @@
       <groupId>org.reflext</groupId>
       <artifactId>reflext.jlr</artifactId>
       <version>${org.reflext.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -663,6 +763,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.bbcode</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -670,6 +771,7 @@
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.commons</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -677,6 +779,7 @@
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.ext.cache.impl.jboss.v3</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -684,6 +787,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.mail.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -691,6 +795,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-viewer</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -698,6 +803,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-jbpm-holiday</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -705,6 +811,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.core</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -712,6 +819,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-gadget-publication</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -719,6 +827,7 @@
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.frameworks.servlet</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -726,6 +835,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.organization.client.openfire</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -733,6 +843,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-bp-jbpm-payraise</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -740,6 +851,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.forum.service</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -747,6 +859,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-portlet-administration</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -754,6 +867,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.chat.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -761,6 +875,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-newsletter-services</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -768,6 +883,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.portlet.dashboard</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -775,6 +891,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.dashboard</artifactId>  <!-- changed in 3.2 -->
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -783,6 +900,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.webdav</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -790,6 +908,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.faq.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -797,6 +916,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.poll.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -804,6 +924,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.faq.service</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -811,6 +932,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.content.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -818,6 +940,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.contact.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -825,6 +948,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-workflow-portlet-administration</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -832,6 +956,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-resources-dms</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -839,6 +964,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-webui-explorer</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -846,6 +972,7 @@
       <groupId>jcr</groupId>
       <artifactId>jcr</artifactId>
       <version>${jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -853,6 +980,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-resources-wcm</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -860,12 +988,14 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.management</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.identity</artifactId>
+      <scope>provided</scope>      
       <version>${org.exoplatform.portal.version}</version>
       <type>jar</type>
     </dependency>
@@ -874,6 +1004,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.common</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
@@ -881,6 +1012,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.gadgets-core</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
@@ -888,6 +1020,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.core</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
@@ -895,6 +1028,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
@@ -902,6 +1036,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.pc</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -910,6 +1045,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.eXo</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- 2.1.0-SNAPSHOT-->
@@ -917,6 +1053,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -925,6 +1062,7 @@
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.cache</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -932,12 +1070,14 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.forum.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.common</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -945,12 +1085,14 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-portlet-search</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-publication-plugins</artifactId>
+      <scope>provided</scope>      
       <version>${org.exoplatform.ecms.version}</version>
       <type>jar</type>
     </dependency>
@@ -959,6 +1101,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.ext</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -966,6 +1109,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.extension.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -973,6 +1117,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-formgenerator-portlet</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -980,6 +1125,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.web.rest</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -988,6 +1134,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extras.feedmash</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -995,6 +1142,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.gadgets-server</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1002,6 +1150,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.component.rendering</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1009,6 +1158,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-apps-portlet-explorer</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1016,6 +1166,7 @@
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exo.tool.webunit</artifactId>
       <version>${org.exoplatform.tool.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1023,6 +1174,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.framework.command</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1030,6 +1182,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.extension.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1037,6 +1190,7 @@
       <groupId>findbugs</groupId>
       <artifactId>annotations</artifactId>
       <version>${findbugs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1044,6 +1198,7 @@
       <groupId>html-parser</groupId>
       <artifactId>html-parser</artifactId>
       <version>${html-parser.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1051,6 +1206,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.content.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1058,6 +1214,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.contact.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1065,6 +1222,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.organization.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1072,6 +1230,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.chatbar.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <!-- cs extended lib -->
@@ -1079,23 +1238,27 @@
       <groupId>ical4j</groupId>
       <artifactId>ical4j</artifactId>
       <version>${ical4j.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.apache.jackrabbit</groupId>
       <artifactId>jackrabbit-webdav</artifactId>
       <version>${org.apache.jackrabbit.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.apache.jackrabbit</groupId>
       <artifactId>jackrabbit-jcr-commons</artifactId>
       <version>${org.apache.jackrabbit.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.jvnet.jaxb2.maven2</groupId>
       <artifactId>maven-jaxb2-plugin</artifactId>
       <version>${org.jvnet.jaxb2.maven2.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1103,6 +1266,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.calendar.webapp</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1110,6 +1274,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.extension.war</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1117,6 +1282,7 @@
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.frameworks.json</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1124,6 +1290,7 @@
       <groupId>org.jsecurity</groupId>
       <artifactId>jsecurity</artifactId>
       <version>${org.jsecurity.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1131,6 +1298,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-packaging-workflow-webapp</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1138,6 +1306,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.web.csResources</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1145,6 +1314,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-authoring-services</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1152,6 +1322,7 @@
       <groupId>xml-apis</groupId>
       <artifactId>xml-apis</artifactId>
       <version>${xml-apis.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1159,6 +1330,7 @@
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>exo.ws.rest.ext</artifactId>
       <version>${org.exoplatform.ws.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1166,6 +1338,7 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.chat.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1173,6 +1346,7 @@
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.core</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1180,6 +1354,7 @@
       <groupId>org.chromattic</groupId>
       <artifactId>chromattic.apt</artifactId>
       <version>${org.chromattic.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency><!-- 1.1.0-beta2-->
 
@@ -1187,6 +1362,7 @@
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.web.eXoResources</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1194,6 +1370,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.poll.service</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1201,6 +1378,7 @@
       <groupId>org.gatein.pc</groupId>
       <artifactId>pc-controller</artifactId>
       <version>${org.gatein.pc.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1208,6 +1386,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-deprecated-portlet-browsecontent</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1215,6 +1394,7 @@
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.common</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1222,6 +1402,7 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.web.ksResources</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 
@@ -1229,6 +1410,7 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.framework.web</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1236,6 +1418,7 @@
       <groupId>org.jboss</groupId>
       <artifactId>jboss-common-core</artifactId>
       <version>${org.jboss.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1243,6 +1426,7 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>exo.social.component.opensocial</artifactId>
       <version>${org.exoplatform.social.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1250,6 +1434,7 @@
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
       <version>${org.gatein.shindig.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1257,6 +1442,7 @@
       <groupId>asm</groupId>
       <artifactId>asm</artifactId>
       <version>${asm.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1264,6 +1450,7 @@
       <groupId>org.jcrom</groupId>
       <artifactId>jcrom</artifactId>
       <version>${jcrom.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1271,6 +1458,7 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-authoring-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 
@@ -1278,114 +1466,133 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-ext-authoring-apps</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.common</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.gadgets</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.webui</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-intranet.config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-intranet.webapp</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-intranet.portlet</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.webapp</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.resources</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.default-website.webapp</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.portlets.platformNavigation</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.edition.enterprise</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.component.file-explorer</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.acme-website.component.navigation-rest</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.default-website.config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.webapp</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>   
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.extension.resources</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <!-- WebOS dependencies -->
@@ -1393,54 +1600,63 @@
       <groupId>org.exoplatform.webos</groupId>
       <artifactId>exo.webos.extension.war</artifactId>
       <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 	<dependency>
       <groupId>org.exoplatform.webos</groupId>
       <artifactId>exo.webos.portlet.webosadmin</artifactId>
       <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
 	<dependency>
       <groupId>org.exoplatform.webos</groupId>
       <artifactId>exo.webos.web.webosResources</artifactId>
       <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.webos</groupId>
       <artifactId>exo.webos.component.web</artifactId>
       <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency> 
     <dependency>
       <groupId>org.exoplatform.webos</groupId>
       <artifactId>exo.webos.webui.webos</artifactId>
       <version>${org.exoplatform.webos.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
 	<dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.calendar.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.eXoApplication.mail.service</artifactId>
       <version>${org.exoplatform.cs.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-parser</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>exo-ecms-core-webapp</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <!-- wiki dependencies -->
@@ -1448,205 +1664,243 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.wiki.service</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>exo.ks.eXoApplication.wiki.webapp</artifactId>
       <version>${org.exoplatform.ks.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
       <version>${javax.validation.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>${hibernate-validator.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.python</groupId>
       <artifactId>jython-standalone</artifactId>
       <version>${jython-standalone.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>pygments</groupId>
       <artifactId>pygments</artifactId>
       <version>${pygments.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>net.sourceforge.htmlcleaner</groupId>
       <artifactId>htmlcleaner</artifactId>
       <version>${net.sourceforge.htmlcleaner.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-web-gwt-wysiwyg-client</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-configuration-api</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-model</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-context</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-component-api</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-component-default</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-properties</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-xml</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-script</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-api</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-syntax-wikimodel</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-macro-box</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-macro-toc</artifactId>
       <version>${org.xwiki.platform.version}</version>
       <type>jar</type>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-macro-message</artifactId>
       <version>${org.xwiki.platform.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <!-- don't upgrade version for code macro -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-core-rendering-macro-code</artifactId>
       <version>2.3.2</version>
+      <scope>provided</scope>      
     </dependency>
     <!--dependency>
       <groupId>org.xwiki.contrib</groupId>
       <artifactId>xwiki-macro-column</artifactId>
       <version>${column-macro.version}</version>
+      <scope>provided</scope>      
     </dependency-->
     <dependency>
       <groupId>org.wikimodel</groupId>
       <artifactId>org.wikimodel.wem</artifactId>
       <version>${org.wikimodel.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.suigeneris</groupId>
       <artifactId>jrcs.diff</artifactId>
       <version>${org.suigeneris.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>org.suigeneris</groupId>
       <artifactId>jrcs.rcs</artifactId>
       <version>${org.suigeneris.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>ecs</groupId>
       <artifactId>ecs</artifactId>
       <version>${ecs.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <!-- end wiki dependencies -->
     <dependency>
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
       <version>${commons-httpclient.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>commons-pool</groupId>
       <artifactId>commons-pool</artifactId>
       <version>${commons-pool.version}</version>
       <type>jar</type>
+      <scope>provided</scope>      
     </dependency>
     <dependency>
       <groupId>commons-dbcp</groupId>
       <artifactId>commons-dbcp</artifactId>
       <version>${commons-dbcp.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.gatein.shindig</groupId>
       <artifactId>shindig-common</artifactId>
       <version>${org.gatein.shindig.version}</version>
+      <scope>provided</scope>      
     </dependency>
     <!-- needed since switch to portal 3.2 -->
     <dependency>
       <groupId>org.gatein.wci</groupId>
       <artifactId>wci-tomcat6</artifactId>
       <version>${org.gatein.wci.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency><!-- 2.0.2-GA-->
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.jdbc</artifactId>
       <version>${org.exoplatform.core.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.resources</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.scripting</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.webui.ext</artifactId>
       <version>${org.exoplatform.commons.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.upgrade.plugins</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.component.organization</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- Gadgets-->
@@ -1654,24 +1908,28 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.gadgets-sample.gadgets</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.gadgets-sample.service</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.sample.gadgets-sample.config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <!-- Gadget pack -->
@@ -1679,30 +1937,35 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>gadget-pack-config</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>gadget-pack-services</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>gadget-pack</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>      
       <type>war</type>
     </dependency>	 
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency><!-- r07-->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
       <version>${httpcomponents.httpclient.version}</version>
+      <scope>provided</scope>      
       <type>jar</type>
     </dependency><!-- 4.0-->
   </dependencies>
