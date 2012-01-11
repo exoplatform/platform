@@ -1,0 +1,1068 @@
+{docbook}
+<abstract>
+<para>
+The eXo Platform migration from 3.0 to 3.5 is performed automatically when Tomcat is started. This chapter represents step-by-step instructions that allows you to migrate eXo Platform from 3.0 to 3.5 through the following topics:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Migration.What_needs_to_be_migrated">What needs to be migrated?</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Migration.Migrate_Transparent_Configuration">Migrate with transparent configuration</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Migration.Upgrade_plugins_details">Upgrade plugins details</link>
+</para>
+</listitem>
+</itemizedlist>
+</abstract>
+{docbook}
+
+h1. What needs to be migrated? {anchor:id=ADM.Migration.What_needs_to_be_migrated}
+
+There are many changes between eXo Platform 3.0 and eXo Platform 3.5, including data type structure (JCR node type), data content, gadget, and groovy-template:
+
+* Social data: model, and space templates.
+* Knowledge data: data of Forums, Wiki and Answers.
+* Collaboration data: data of Calendar.
+* Content data structure: Document's vote, favorite, thumbnail illustration.
+* Platform navigation.
+* Content Re-import/Migration. At the first time when eXo Platform 3.0 was deployed, the XML contents file in webapps were imported into database. During the eXo Platform 3.0 runtime, the content might be updated/deleted. Now, there are the same content in eXo Platform 3.5 webapps, so you can re-import/override the old one of eXo Platform 3.0 by new one from the eXo Platform 3.5's XML content file.
+* Many Gadgets.
+* Users directories structure in JCR data.
+
+All of changes above will be migrated automatically by the migration tools that are detailed as below.
+
+h1. Migrate with transparent configuration {anchor:id=ADM.Migration.Migrate_Transparent_Configuration}
+
+{info}
+This section discusses how to migrate eXo Platform with only one Tomcat start-up.
+Every configuration will be put in 2 files: _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ and _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_.
+{info}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Step 1. Prepare an environment.
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Back up the eXo Platform 3.0 and its data.
+
+*2.* Configure eXo Platform 3.5 to start with the eXo Platform 3.0 data as follows:
+
+*i.* Copy 2 _index_ and _value_ folders from _$PLATFORM-3.0-TOMCAT-HOME/gatein/data/jcr_ to _$PLATFORM-3.5-TOMCAT/gatein/data/jcr_.
+
+*ii.* Configure the database connections in the _$PLATFORM-3.5-TOMCAT-HOME/conf/server.xml_ file to point to the eXo Platform 3.0 database. 
+
+For example, if your eXo Platform 3.0 runs on mySQL database, you need to configure the _server.xml_ file as below:
+
+{code:xml}
+<!-- eXo JCR Datasource for portal -->
+	<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+		maxActive="128" maxIdle="32" maxWait="10000"
+		testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
+		username="${db.username}" password="${db.password}" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"/>
+
+<!-- eXo IDM Datasource for portal -->
+	<Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+	   maxActive="128" maxIdle="32" maxWait="10000"
+	   testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
+	   username="${db.username}" password="${db.password}" driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://${db.host}:${db.port}/${db.idm.name}"/>
+{code}
+
+*iii.* Delete the _JCR{noformat}_{noformat}CONFIG_ table in the JCR database: {noformat}"jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"{noformat}
+
+*3.* Prepare the migration tools which have been integrated in eXo Platform 3.5.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Step 2. Set some configurations.
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Add the following code to the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ file.
+
+{code}
+############
+# Upgrades #
+############
+# JCR user directories structure migration configuration
+# This configuration is optional, if you don't want run it, you need put use-old-user-distribution=true and run-jcr-user-directories-migrate=false
+use-old-user-distribution=false
+run-jcr-user-directories-migrate=true
+
+#This configuration for JCR session time-out. It is very important to run JCR user directories migration
+#This configuration is example for a Platform with 1000 users
+#Please see more detail in section
+gatein.jcr.transaction.timeout=10000
+
+### Commons upgrade plugins configuration
+## indicates if upgrade plugins is enabled or not
+
+#Gadget upgrade plugin, it is required
+commons.upgrade.Upgrade-Gadgets.enable=true
+
+#ECMS upgrade plugin, all of them are required
+commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true
+commons.upgrade.FavoriteActionUpgradePlugin.enable=true
+commons.upgrade.ThumbnailNodeTypeUpgradePlugin.enable=true
+
+#CS upgrade plugin, it is required
+commons.upgrade.UpgradeCalendarPlugin.enable=true
+
+#Social upgrade plugin, it is required
+commons.upgrade.UpgradeToMOSPlugin.enable=true
+
+#Social space template upgrade plugin, it is required
+commons.upgrade.UpgradeTemplatePlugin.enable=true
+
+#KS forums, all of them are required
+commons.upgrade.UpgradeForumPlugin.enable=true
+commons.upgrade.UpgradeWikiPlugin.enable=true
+commons.upgrade.UpgradeAnswerPlugin.enable=true
+
+#Portal navigation upgrade plugin
+#This Configuration is optional. If you don't want migrate your portal/groups navigation, set commons.upgrade.Upgrade-Navigations.enable=false
+commons.upgrade.Upgrade-Navigations.enable=true
+
+#Space home page template plugin, it is required
+commons.upgrade.Upgrade-Spaces-Home-page.enable=true
+
+#This Configuration is optional. If you don't want re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false
+commons.upgrade.Upgrade-WCM-Contents.enable=true
+
+## indicates the desired execution order (names of upgrade plugins separated with commas ",")
+commons.upgrade.plugins.order=Upgrade-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin
+
+## Proceed to the upgrade if it's first time you run this service
+commons.upgrade.proceedIfFirstRun=true
+{code}
+
+*2.* Add the following code to the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ file. 
+
+{code:xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+	 <!--Configuration for migration JCR user directories structure-->
+	 <component>
+	      <key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
+	      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
+	      <init-params>
+		 <value-param>
+		    <name>old-user-distribution</name>
+		    <value>${use-old-user-distribution:false}</value>
+	         </value-param>
+		 <value-param>
+		    <name>auto-migrate</name>
+		    <value>${run-jcr-user-directories-migrate:false}</value>
+		 </value-param>
+	      </init-params>
+	 </component>
+
+	<!-- Configuration for migration Portal/groups navigation-->
+	<!-- This Configuration is optional. If you don't want migrate your portal/groups navigation, remove this session -->
+	<!-- If there are some portals in your Platform, you need configure for each portal-->
+	<external-component-plugins>
+		<!-- The full qualified name of the UserPortalConfigService -->
+		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>new.portal.config.user.listener</name>
+			<!-- The name of the method to call on the UserPortalConfigService in order to register the NewPortalConfigs -->
+			<set-method>initListener</set-method>
+			<!-- The full qualified name of the NewPortalConfigListener -->
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
+				<object-param>
+					<name>portal.configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.portal.config.NewPortalConfig">
+						<field name="predefinedOwner">
+							<collection type="java.util.HashSet">
+								<value>
+									<string>intranet</string>
+								</value>
+							</collection>
+						</field>
+						<field name="ownerType">
+							<string>portal</string>
+						</field>
+						<field name="templateLocation">
+							<string>war:/conf/office-extension/portal</string>
+						</field>
+						<field name="importMode"><string>merge</string></field>
+					</object>
+				</object-param>
+				<object-param>
+				  <name>group.configuration</name>
+				  <description>description</description>
+				  <object type="org.exoplatform.portal.config.NewPortalConfig">
+					<field name="predefinedOwner">
+					  <collection type="java.util.HashSet">
+						<value>
+						  <string>/developers</string>
+						</value>
+					  </collection>
+					</field>
+					<field name="ownerType">
+					  <string>group</string>
+					</field>
+					<field name="templateLocation">
+					  <string>war:/conf/office-extension/portal</string>
+					</field>
+					<field name="importMode"><string>overwrite</string></field>
+				  </object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+        <!-- Configuration for re-import WCM content from webapp (.war files) file-->
+        <!-- You can define the .war file that you want re-import content-->
+	<external-component-plugins>
+		<target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+		<!-- ECMS-Contents upgrade plugin-->
+		<component-plugin>
+			<name>Upgrade-WCM-Contents</name>
+			<set-method>addUpgradePlugin</set-method>
+			<type>org.exoplatform.platform.upgrade.plugins.UpgradeContentPlugin</type>
+			<description>WCM Contents Upgrade Plugin</description>
+			<init-params>
+				<value-param>
+					<name>product.group.id</name>
+					<description>The groupId of the product</description>
+					<value>org.exoplatform.platform</value>
+				</value-param>
+				<!--value-param>
+					<name>plugin.execution.order</name>
+					<description>The plugin execution order</description>
+					<value>4</value>
+				</value-param-->
+				<values-param>
+					<name>webapps-mames</name>
+					<description>webapps to upgrade</description>
+					<value>acme-intranet</value>
+					<value>acme-intranet-portlet</value>
+					<value>acme-website</value>
+					<value>acme-websiteResources</value>
+					<value>authoring-apps</value>
+					<value>calendar</value>
+					<value>chat</value>
+					<value>chatbar</value>
+					<value>cometd</value>
+					<value>commons-extension</value>
+					<value>CommonsResources</value>
+					<value>contact</value>
+					<value>content</value>
+					<value>crash</value>
+					<value>cs-extension</value>
+					<value>csResources</value>
+					<value>dashboard</value>
+					<value>default-website</value>
+					<value>ecm-wcm-core</value>
+					<value>ecm-wcm-extension</value>
+					<value>ecmadmin</value>
+					<value>ecmbrowsecontent</value>
+					<value>ecmexplorer</value>
+					<value>ecmworkflow-extension</value>
+					<value>exo-gadget-resources</value>
+					<value>exoadmin</value>
+					<value>eXoDMSGadgets</value>
+					<value>eXoDMSResources</value>
+					<value>eXoGadgets</value>
+					<value>eXoGadgetServer</value>
+					<value>eXoPlatformResources</value>
+					<value>eXoResources</value>
+					<value>eXoStaticResources</value>
+					<value>eXoWCMResources</value>
+					<value>eXoWorkflowResources</value>
+					<value>faq</value>
+					<value>fck</value>
+					<value>formgenerator</value>
+					<value>forum</value>
+					<value>gadget-pack</value>
+					<value>IDE</value>
+					<value>intranet-gadget</value>
+					<value>ks-extension</value>
+					<value>ksResources</value>
+					<value>mail</value>
+					<value>newsletter</value>
+					<value>platform-extension</value>
+					<value>platformNavigation</value>
+					<value>poll</value>
+					<value>portal</value>
+					<value>presentation</value>
+					<value>rest</value>
+					<value>searches</value>
+					<value>seo</value>
+					<value>SmartGWT</value>
+					<value>social</value>
+					<value>social-extension</value>
+					<value>social-portlet</value>
+					<value>social-resources</value>
+					<value>web</value>
+					<value>webos-ext</value>
+					<value>webosadmin</value>
+					<value>webosResources</value>
+					<value>wiki</value>
+					<value>workflow</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+
+		<!-- Configuration for Gadget upgrade plugin-->
+		<!-- In can define "what are the gadget those you want update" in this configuration-->
+		<component-plugin>
+			<name>Upgrade-Gadgets</name>
+			<set-method>addUpgradePlugin</set-method>
+			<type>org.exoplatform.platform.upgrade.plugins.UpgradeLocalGadgetsPlugin</type>
+			<description>Gadgets Upgrade Plugin</description>
+			<init-params>
+				<value-param>
+					<name>product.group.id</name>
+					<description>The groupId of the product</description>
+					<value>org.exoplatform.platform</value>
+				</value-param>
+				<!--value-param>
+					<name>plugin.execution.order</name>
+					<description>The plugin execution order</description>
+					<value>1</value>
+				</value-param-->
+				<object-param>
+					<name>eventslist</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>eventslist</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/events/Events.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>taskslist</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>taskslist</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/tasks/Tasks.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>messageslist</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>messageslist</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/messages/Messages.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>To-do</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>To-do</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/Todo/Todo.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Calendar</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>Calendar</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/Calendar/Calendar.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Calculator</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>Calculator</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/Calculator/Calculator.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>rssAggregator</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>rssAggregator</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/rssAggregator/rssAggregator.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>IDE</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>IDE</string>
+						</field>
+						<field name="path">
+							<string>war:/ide.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>lastpost</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>lastpost</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/lastpost/Lastpost.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>pollslist</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>pollslist</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/polls/Polls.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Activities</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>Activities</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/Activities/Activities.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ViewerFriends</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>ViewerFriends</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/ViewerFriends/ViewerFriends.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>SocialRssReader</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>SocialRssReader</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/SocialRssReader/SocialRssReader.xml</string>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>MySpaces</name>
+					<object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+						<field name="name">
+							<string>MySpaces</string>
+						</field>
+						<field name="path">
+							<string>war:/gadgets/MySpaces/MySpaces.xml</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
+{code}
+
+{note}
+If this file has not been existing, you need to create it first.
+{note}
+
+*3.* Increase the JCR session time-out and JVM Xmx if you have a lot of data in eXo Platform 3.0. For example, in your current eXo Platform 3.0, there are about 200 users, 2 Gigabytes in the _gatein/data/jcr/values_ folder, and 1 Gigabyte in the _mySQL_ data, you will need to:
+
+*i.* Configure the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ file by adding the following configuration.
+
+{code}
+gatein.jcr.transaction.timeout=10000
+{code}
+
+*ii.* Change the _JAVA{noformat}_{noformat}OPTS Xmx_ value into *4G* in the _$PLATFORM-3.5-TOMCAT-HOME/bin/gatein.sh_ file (or.bat).
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Step 3. Perform the eXo Platform data migration from 3.0 to 3.5.
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+In this step, you only need to start Tomcat, and the migration will be run automatically.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Step 4. Finish your migration.
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Stop Tomcat and remove the migration configurations through the sub-steps:
+
+*i.* Disable all migration plugins in the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ file.
+
+{code}
+############
+# Upgrades #
+############
+# JCR user directories structure migration configuration
+use-old-user-distribution=false
+run-jcr-user-directories-migrate=false
+#gatein.jcr.transaction.timeout=10000
+
+# Commons upgrade plugins configuration
+## indicates if upgrade plugins is enabled or not
+commons.upgrade.Upgrade-Gadgets.enable=false
+
+#ECMS upgrade plugin
+commons.upgrade.UpgradeVotingNodeTypePlugin.enable=false
+commons.upgrade.FavoriteActionUpgradePlugin.enable=false
+commons.upgrade.ThumbnailNodeTypeUpgradePlugin.enable=false
+
+#CS upgrade plugin
+commons.upgrade.UpgradeCalendarPlugin.enable=false
+
+#Social upgrade plugin
+commons.upgrade.UpgradeToMOSPlugin.enable=false
+
+#Social space template upgrade plugin
+commons.upgrade.UpgradeTemplatePlugin.enable=false
+
+#KS forums
+commons.upgrade.UpgradeForumPlugin.enable=false
+commons.upgrade.UpgradeWikiPlugin.enable=false
+commons.upgrade.UpgradeAnswerPlugin.enable=false
+
+#Portal navigation upgrade plugin
+commons.upgrade.Upgrade-Navigations.enable=false
+
+#Space home page template plugin
+commons.upgrade.Upgrade-Spaces-Home-page.enable=false
+
+#Re-import the contents
+commons.upgrade.Upgrade-WCM-Contents.enable=false
+
+## indicates the desired execution order (names of upgrade plugins separated with commas ",")
+commons.upgrade.plugins.order=Upgrade-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin
+
+## Proceed to the upgrade if it's first time you run this service
+commons.upgrade.proceedIfFirstRun=true
+{code}
+
+*ii.* Delete the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ file.
+
+* If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ file with the content as below:
+
+{code:xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	 <component>
+	      <key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
+	      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
+	      <init-params>
+		 <value-param>
+		    <name>old-user-distribution</name>
+		    <value>true</value>
+	         </value-param>
+	      </init-params>
+	 </component>
+</configuration>
+{code}
+
+*2.* Restart Tomcat.
+
+h1. Upgrade plugins details {anchor:id=ADM.Migration.Upgrade_plugins_details}
+
+{info}
+eXo Platform 3.5's Upgrade Framework is used to migrate existing data from eXo Platform 3.0 to 3.5.
+{info}
+
+Plugin is a _.jar_ file which is used for performing a specific task, especially for modifying the old data so that they are matched or compatible with the new structure. 
+
+Plugins can be enabled/disabled via _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_, some of which are mandatory and must be always enabled; meanwhile the others are optional and can be disabled. Plugins should also be disabled if you do not use certain features, such as Collaboration, Knowledge, Social, in your project.
+
+To enable or disable a plugin, set the "enable" properties to "true" or "false" respectively, for example:
+
+{code}
+commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true
+{code}
+
+When not specified, the plugins will be enabled by default.
+
+
+h2. List of eXo Platform 3.5 Upgrade plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins}
+
+h3. Mandatory plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Mandatory_plugins}
+
+These following plugins are required for upgrading to eXo Platform 3.5's new data structure, skin and services.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Content
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.UpgradeVotingNodeTypePlugin_: upgrade voting node type.
+* _commons.upgrade.FavoriteActionUpgradePlugin_: upgrade favorite action.
+* _commons.upgrade.ThumbnailNodeTypeUpgradePlugin_: upgrade thumbnail node type.
+
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Collaboration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.UpgradeCalendarPlugin_: upgrade Calendar.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Knowledge
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.UpgradeForumPlugin_: upgrade Forum.
+* _commons.upgrade.UpgradeWikiPlugin_: upgrade Wiki.
+* _commons.upgrade.UpgradeAnswerPlugin_: upgrade Answers.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Social
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.UpgradeToMOSPlugin_: upgrade Social Data Model.
+* _commons.upgrade.UpgradeTemplatePlugin_: upgrade Social Template.
+* _commons.upgrade.Upgrade-Spaces-Home-page_: upgrade spaces and homepage.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Gadgets
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.Upgrade-Gadgets_: update gadgets with new skin and services. The list of gadgets to be updated is defined in the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ file, for example:
+
+{code:xml}
+<component-plugin>
+    <name>Upgrade-Gadgets</name>
+    <set-method>addUpgradePlugin</set-method>
+    <type>org.exoplatform.platform.upgrade.plugins.UpgradeLocalGadgetsPlugin</type>
+    <description>Gadgets Upgrade Plugin</description>
+    <init-params>
+        <value-param>
+            <name>product.group.id</name>
+            <description>The groupId of the product</description>
+            <value>org.exoplatform.platform</value>
+        </value-param>
+        <!--value-param>
+            <name>plugin.execution.order</name>
+            <description>The plugin execution order</description>
+            <value>1</value>
+        </value-param-->
+        <object-param>
+            <name>eventslist</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>eventslist</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/events/Events.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>taskslist</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>taskslist</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/tasks/Tasks.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>messageslist</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>messageslist</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/messages/Messages.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>To-do</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>To-do</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/Todo/Todo.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>Calendar</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>Calendar</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/Calendar/Calendar.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>Calculator</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>Calculator</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/Calculator/Calculator.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>rssAggregator</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>rssAggregator</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/rssAggregator/rssAggregator.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>IDE</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>IDE</string>
+                </field>
+                <field name="path">
+                    <string>war:/ide.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>lastpost</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>lastpost</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/lastpost/Lastpost.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>pollslist</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>pollslist</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/polls/Polls.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>Activities</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>Activities</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/Activities/Activities.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>ViewerFriends</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>ViewerFriends</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/ViewerFriends/ViewerFriends.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>SocialRssReader</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>SocialRssReader</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/SocialRssReader/SocialRssReader.xml</string>
+                </field>
+            </object>
+        </object-param>
+        <object-param>
+            <name>MySpaces</name>
+            <object type="org.exoplatform.platform.upgrade.plugins.GadgetUpgrade">
+                <field name="name">
+                    <string>MySpaces</string>
+                </field>
+                <field name="path">
+                    <string>war:/gadgets/MySpaces/MySpaces.xml</string>
+                </field>
+            </object>
+        </object-param>
+    </init-params>
+</component-plugin>
+{code}
+
+
+h3. Optional plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Optional_plugins}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Portal navigation
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.Upgrade-Navigations_: upgrade navigations.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+WCM contents
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* _commons.upgrade.Upgrade-WCM-Contents_: Import new content of eXo Platform 3.5 from the XML content file in webapps. If the content has been existing in eXo Platform 3.0, they will be overwritten. The list of webapps containing the XML content to be overridden is defined in the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ file. For example:
+
+{code:xml}
+<component-plugin>
+    <name>Upgrade-WCM-Contents</name>
+    <set-method>addUpgradePlugin</set-method>
+    <type>org.exoplatform.platform.upgrade.plugins.UpgradeContentPlugin</type>
+    <description>WCM Contents Upgrade Plugin</description>
+    <init-params>
+        <value-param>
+            <name>product.group.id</name>
+            <description>The groupId of the product</description>
+            <value>org.exoplatform.platform</value>
+        </value-param>
+        <value-param>
+            <name>plugin.execution.order</name>
+            <description>The plugin execution order</description>
+            <value>4</value>
+        </value-param>
+        <values-param>
+            <name>webapps-mames</name>
+            <description>webapps to upgrade</description>
+            <value>acme-intranet</value>
+            <value>acme-intranet-portlet</value>
+            <value>acme-website</value>
+            <value>acme-websiteResources</value>
+            <value>authoring-apps</value>
+            <value>calendar</value>
+            <value>chat</value>
+            <value>chatbar</value>
+            <value>cometd</value>
+            <value>commons-extension</value>
+            <value>CommonsResources</value>
+            <value>contact</value>
+            <value>content</value>
+            <value>crash</value>
+            <value>cs-extension</value>
+            <value>csResources</value>
+            <value>dashboard</value>
+            <value>default-website</value>
+            <value>ecm-wcm-core</value>
+            <value>ecm-wcm-extension</value>
+            <value>ecmadmin</value>
+            <value>ecmbrowsecontent</value>
+            <value>ecmexplorer</value>
+            <value>ecmworkflow-extension</value>
+            <value>exo-gadget-resources</value>
+            <value>exoadmin</value>
+            <value>eXoDMSGadgets</value>
+            <value>eXoDMSResources</value>
+            <value>eXoGadgets</value>
+            <value>eXoGadgetServer</value>
+            <value>eXoPlatformResources</value>
+            <value>eXoResources</value>
+            <value>eXoStaticResources</value>
+            <value>eXoWCMResources</value>
+            <value>eXoWorkflowResources</value>
+            <value>faq</value>
+            <value>fck</value>
+            <value>formgenerator</value>
+            <value>forum</value>
+            <value>gadget-pack</value>
+            <value>IDE</value>
+            <value>intranet-gadget</value>
+            <value>ks-extension</value>
+            <value>ksResources</value>
+            <value>mail</value>
+            <value>newsletter</value>
+            <value>platform-extension</value>
+            <value>platformNavigation</value>
+            <value>poll</value>
+            <value>portal</value>
+            <value>presentation</value>
+            <value>rest</value>
+            <value>searches</value>
+            <value>seo</value>
+            <value>SmartGWT</value>
+            <value>social</value>
+            <value>social-extension</value>
+            <value>social-portlet</value>
+            <value>social-resources</value>
+            <value>web</value>
+            <value>webos-ext</value>
+            <value>webosadmin</value>
+            <value>webosResources</value>
+            <value>wiki</value>
+            <value>workflow</value>
+        </values-param>
+    </init-params>
+</component-plugin>
+{code}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+JCR user directory structure
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+This plugin is built-in in JCR that provides an option for migrating user database to use a new JCR directory structure. With this plugin, the performance will be improved when there are a lot of users in database.
+
+For example, the table below shows the difference in response time of eXo Platform 3.5 (new user directory structure) against eXo Platform 3.0 (old user directory structure) while some actions are performed:
+
+|| Number of users || Type Account & Login || Load Intranet Welcome Page || Load /portal/rest/jcr/repository/collaboration/Users || Load User Private JCR Folder ||
+| 500 | 13.61% | -20.83% | -30.12% | 14.29% |
+| 1000 | 8.82% | -25.00% | -86.06% | 8.96% |
+| 2000 | 0.20% | -29.63% | -93.89% | -1.37% |
+| 5000 | -4.30% | -33.93% | -95.45% | -10.67% |
+
+(Formula: (_PLF350 value_ - _PLF307 value_) * 100 / _PLF307 value_, negative value means better)
+
+Based on the table above, with a larger number of users, the new user directory structure performs faster than the old structure, especially when accessing the user directory directly.
+
+To enable the migration, set the 2 following flags in the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ file as below:
+
+{code}
+use-old-user-distribution=false
+run-jcr-user-directories-migrate=true
+{code}
+
+The JCR user directory structure migration will take much time, so you need to increase the JCR session time-out.
+
+First, measure the amount of data in the current eXo Platform 3.0. For example, if there are 1000 users in the current eXo Platform 3.0, you should configure in the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ file as below:
+
+{code}
+gatein.jcr.transaction.timeout=10000
+{code}
+
+The time you need to migrate the JCR user directories structure depends on the amount of data and your server's infrastructure.
+The migration will consume a lot of memory, so make sure that you have enough resource on your server and configure enough memory for the _-Xmx Java_ option of Tomcat (in _$PLATFORM-3.5-TOMCAT-HOME/bin/gatein.sh_) before running.
+
+See the sample test below for a brief estimation:
+
+{code}
+Server configuration:
+ CPU:       8 cores Intel Xeon CPU E5620 @ 2.40GHz / 12288 KB cache
+ RAM:       16 GB
+ JAVA_OPTS: -Xms14g -Xmx14g -XX:MaxPermSize=1g -XX:NewSize=512m -XX:MaxNewSize=512m -XX:GCTimeRatio=9 -XX:+UseParallelGC -XX:ParallelGCThreads=20
+
+Statistics:
+_______________________________________________________________________
+|  Number of users   | 500   |  1000  |   2000   |        5000        |
+|---------------------------------------------------------------------|
+| Running time (min) |  20   |    40  |     90   |        140         |   
+|---------------------------------------------------------------------|
+|       Memory       |  2G   |    4G  |     8G   | 14.5G+ (> Xmx=14G) |
+|---------------------------------------------------------------------|
+|        CPU         | ~13-20% in JConsole, ~100% in System Monitor)  |
+-----------------------------------------------------------------------
+{code}
