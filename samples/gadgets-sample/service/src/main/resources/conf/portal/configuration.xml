@@ -45,4 +45,9 @@
     <type>org.exoplatform.platform.gadget.services.Bookmark.BookmarkRestService</type>
   </component>
   
+  <!-- MY AGENDA -->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.Agenda.AgendaRestServices</type>
+  </component>  
+  
 </configuration>

@@ -186,7 +186,7 @@ eXoEventGadget.prototype.createRequestUrlEvent = function(){
 }
 
 eXoEventGadget.prototype.getData = function(){					 
-	var url = eXoEventGadget.createRequestUrl();					
+	var url = eXoEventGadget.createRequestUrl();
 	eXoEventGadget.ajaxAsyncGetRequest(url,eXoEventGadget.render);
 	var urlEvent = eXoEventGadget.createRequestUrlEvent();					
 	eXoEventGadget.ajaxAsyncGetRequestEvent(urlEvent,eXoEventGadget.renderEvent);
@@ -299,6 +299,35 @@ eXoEventGadget.prototype.showDetail = function(obj){
 	eXoEventGadget.adjustHeight();
 }
 
+eXoEventGadget.prototype.showTask = function(){
+				$("#eventDiv").hide();
+				$("#taskLink").removeClass();
+				$("#numTask").removeClass();
+				$("#numEvent").addClass("customLink");
+				$("#eventLink").addClass("customLink");
+				$("#taskDiv").show();
+	
+}
+
+eXoEventGadget.prototype.showEvent = function(){
+				$("#taskDiv").hide();
+				$("#eventLink").removeClass();
+				$("#numEvent").removeClass();
+				$("#numTask").addClass("customLink");				
+				$("#taskLink").addClass("customLink");
+				$("#eventDiv").show();
+}
+
+eXoEventGadget.prototype.click_taskLink = function() {
+			eXoEventGadget.showTask();
+			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+}
+
+eXoEventGadget.prototype.click_eventLink = function() {
+			eXoEventGadget.showEvent();
+			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+}
+
 eXoEventGadget.prototype.showDetailEvent = function(obj){
 	var detail = DOMUtil.findNextElementByTagName(obj,"div");
 	if(!detail) return;
@@ -325,6 +354,7 @@ eXoEventGadget.prototype.onLoadHander = function(){
 	eXoEventGadget.getPrefs();
 	eXoEventGadget.getCalendars();
 	eXoEventGadget.trigger();
+	eXoEventGadget.showEvent();
 	eXoEventGadget.adjustHeight();
 }
 
@@ -346,17 +376,56 @@ eXoEventGadget.prototype.ajaxAsyncGetRequest = function(url, callback) {
 	if(!callback) return;
 	request.onreadystatechange = function(){
 		if (request.readyState == 4) {
+	  	        if (request.status == 503) {
+	  	                eXoEventGadget.unavailableService();
+	  	        }
 			if (request.status == 200) {
 				var data = gadgets.json.parse(request.responseText);
 				callback(data);
 			}
 			//IE treats a 204 success response status as 1223. This is very annoying
-			if (request.status == 404  || request.status == 204  || request.status == 1223) {
+			if (request.status == 404 || request.status == 204 || request.status == 1223) {
 				eXoEventGadget.notify();
-	  	}
+	  	        }
 		}
 	}					
 }
+
+eXoEventGadget.prototype.unavailableService = function(){
+                        var content = document.getElementById("agenda-gadget");
+                        while (content.hasChildNodes()) {
+                                content.removeChild(content.lastChild);
+                        }
+                        content.innerHTML = '<div><div id="required_profiles" class="ContentDisabled"><b>My Agenda Gadget</b> requires the <b>[default, collaboration, all]</b> profile. \
+                                                <a id="fixThisLink" href="#" onclick="eXoEventGadget.click_fixthisLink()">[Fix this]</a>.</div> \
+                                                <div class="FixThis" style="display:none;" id="fix_this"> \
+                                                </div></div>';
+       			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
+}
+
+				
+eXoEventGadget.prototype.displayProfileInfo = function(required_profiles, fix_this){
+                                var popup = document.getElementById(required_profiles);
+                                popup.style.display= "none";
+                                var popupMaskLayer = document.getElementById(fix_this);
+                                popupMaskLayer.style.display= "block";
+                                gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);                                
+                        }
+                        
+eXoEventGadget.prototype.click_fixthisLink = function() {
+                                var url = "/portal/rest/plf/gadgets/getprofiles";
+                                $.getJSON(url, function(data){
+                                var required_profiles_form = document.getElementById("required_profiles");
+                                required_profiles_form.style.display = "none";
+                                var fix_this_form = document.getElementById("fix_this");
+                                fix_this_form.style.display = "block";                                  
+                                fix_this_form.innerHTML = '<p><b>Your system is currently running: [' + data.profiles + ']</b></p> \
+                                                        <p>You can enable <b>[default, collaboration, all]</b> profile with:<br/> \
+                                                        <b>-Dexo.profiles=[default, collaboration, all]</b></p>\
+                                                        <a onclick="eXoEventGadget.displayProfileInfo(\'fix_this\',\'required_profiles\')" href="#">[OK]</a>';
+                                gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);                                                                            
+                          });
+                        }
 
 eXoEventGadget.prototype.ajaxAsyncGetRequestEvent = function(url, callback) {
 	
@@ -373,7 +442,7 @@ eXoEventGadget.prototype.ajaxAsyncGetRequestEvent = function(url, callback) {
 			//IE treats a 204 success response status as 1223. This is very annoying
 			if (request.status == 404  || request.status == 204  || request.status == 1223) {
 				eXoEventGadget.notifyEvent();
-	  	}
+	  	        }
 		}
 	}					
 }
@@ -504,10 +573,12 @@ eXoEventGadget.prototype.trigger = function(){
   this.moreButton = document.getElementById("ShowAll");
   this.settingButton = document.getElementById("SettingButton");
   this.hiddenTimeout = null;
+  if (this.moreButton && this.settingButton) {
   this.moreButton.onmouseover = this.moveOver;
   this.moreButton.onmouseout = this.moveOut;
   this.settingButton.onmouseover = this.moveOver;
   this.settingButton.onmouseout = this.moveOut;
+  }
 }
 eXoEventGadget.prototype.moveOver = function(){
   if(eXoEventGadget.hiddenTimeout) window.clearTimeout(eXoEventGadget.hiddenTimeout);

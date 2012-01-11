@@ -1,3 +1,16 @@
+.ContentDisabled {
+    background: url('skin/warningIcon.png') no-repeat scroll 10px 8px #FFFFBB;
+    border-radius: 4px 4px 4px 4px;
+    padding: 5px 15px 5px 40px;
+}
+
+.FixThis {
+    background-color: #FFFFBB;
+    border-radius: 4px 4px 4px 4px;
+    padding: 2px 10px;
+    text-align: center;
+}
+
 .UIGadgetThemes .GadCont .customLink {
 	text-decoration:underline;
 	color:#226ab4; 

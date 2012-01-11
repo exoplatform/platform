@@ -20,45 +20,6 @@
 	<script type="text/javascript">        
 		var defaultCalendar = "";
 	</script>
-	
-	<script type="text/javascript">
-
-			function showTask(){
-				$("#eventDiv").hide();
-				$("#taskLink").removeClass();
-				$("#numTask").removeClass();
-				$("#numEvent").addClass("customLink");
-				$("#eventLink").addClass("customLink");
-				$("#taskDiv").show();
-	
-				}
-			function showEvent(){
-				$("#taskDiv").hide();
-				$("#eventLink").removeClass();
-				$("#numEvent").removeClass();
-				$("#numTask").addClass("customLink");				
-				$("#taskLink").addClass("customLink");
-				$("#eventDiv").show();
-				}
-
-
-	  $(document).ready(function(){
-
-		showEvent();
-
-		$("#taskLink").click(function () {
-			showTask();
-			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
-		});
-
-		$("#eventLink").click(function () {
-			showEvent();
-			gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
-		});
-		//gadgets.window.adjustHeight($("#agenda-gadget").get(0).offsetHeight);
-
-	  });
-  </script>
 
 <div id="agenda-gadget" class="UIGadgetThemes">
 
@@ -83,7 +44,7 @@
         </tr-->
         <tr>
           <td>__MSG_limit__</td>
-          <td><label for="limit">Limit: </label><input type="text" id="limit" name="limit"></td>
+          <td><input type="text" id="limit" name="limit"></td>
         </tr>   
         <tr>
           <td>__MSG_calendars__</td>
@@ -103,9 +64,9 @@
       
      <div class="GadCont">
 	<div style="margin-left: 10px">
-	<span id="eventLink" href="#" class="customLink">__MSG_title__ </span><span id="numEvent" class="customLink"></span>
+	<span id="eventLink" href="#" class="customLink" onclick="eXoEventGadget.click_eventLink()">__MSG_title__ </span><span id="numEvent" class="customLink"></span>
 	&nbsp;&nbsp; | &nbsp;&nbsp;
-	<span id="taskLink" href="#" class="customLink">__MSG_titleTask__ </span><span id="numTask" class="customLink"></span>
+	<span id="taskLink" href="#" class="customLink" onclick="eXoEventGadget.click_taskLink()">__MSG_titleTask__ </span><span id="numTask" class="customLink"></span>
 	</div>
 
         <div class="GadCont MyTasks" id="taskDiv">
