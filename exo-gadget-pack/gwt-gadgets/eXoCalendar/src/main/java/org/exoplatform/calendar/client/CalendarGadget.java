@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.exoplatform.calendar.client.EventDatabase;
-import org.exoplatform.calendar.client.UserPrefs;
 import org.exoplatform.calendar.client.JSO.Calendar;
 import org.exoplatform.calendar.client.JSO.CalendarEvent;
 import org.exoplatform.calendar.client.JSO.ResponseData;
@@ -20,6 +19,7 @@ import com.google.gwt.gadgets.client.DynamicHeightFeature;
 import com.google.gwt.gadgets.client.Gadget;
 import com.google.gwt.gadgets.client.NeedsDynamicHeight;
 import com.google.gwt.gadgets.client.Gadget.ModulePrefs;
+import com.google.gwt.gadgets.client.UserPreferences;
 import com.google.gwt.gadgets.client.io.Response;
 import com.google.gwt.gadgets.client.io.ResponseReceivedHandler;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -36,7 +36,7 @@ import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
 
 @ModulePrefs(title = "eXo Calendar Gadget", author = "Le Thanh Quang - Do Hoang Khiem (eXo CT)", author_email = "letquang@gmail.com, dohoangkhiem@gmail.com")
-public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHeight {
+public class CalendarGadget extends Gadget<UserPreferences> implements NeedsDynamicHeight {
   
   List<String> visibleCals = new ArrayList<String>();
   
@@ -94,12 +94,8 @@ public class CalendarGadget extends Gadget<UserPrefs> implements NeedsDynamicHei
   }
   
   @Override
-  protected void init(UserPrefs preferences) {
-    String restUrl = preferences.restURL().getValue();
-    if (restUrl != null && restUrl.length() > 0) {
-      if (restUrl.endsWith("/")) restUrl = restUrl.substring(0, restUrl.length() - 1);
-      RestRequestController.REST_BASE_URL = restUrl;
-    }
+  protected void init(UserPreferences preferences) {
+    RestRequestController.REST_BASE_URL = "http://localhost:8080/rest";
     mainPanel = new VerticalPanel();
     mainPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
     mainPanel.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
