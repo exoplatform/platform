@@ -10,7 +10,6 @@
     <Require feature="tabs" />
     <Require feature="setprefs" />
   </ModulePrefs>
-  <UserPref name="selectedTab" datatype="hidden" />
   <Content type="html">
     <![CDATA[ 
     <html>
