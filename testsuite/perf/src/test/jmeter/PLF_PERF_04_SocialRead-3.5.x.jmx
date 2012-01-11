@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="2.1">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_3.5.x_PERF_04_SocialRead" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="PLF_PERF_04_SocialRead-3.5.x" enabled="true">
       <stringProp name="TestPlan.comments">recorded from PLF 3.5.0 GA</stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
@@ -14,12 +14,12 @@
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
             <stringProp name="Argument.name">LoopCount</stringProp>
-            <stringProp name="Argument.value">${__P(expLoopCount,10)}</stringProp>
+            <stringProp name="Argument.value">${__P(expLoopCount,1000000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
             <stringProp name="Argument.name">Duration</stringProp>
-            <stringProp name="Argument.value">${__P(expDuration,10)}</stringProp>
+            <stringProp name="Argument.value">${__P(expDuration,300)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Server" elementType="Argument">
@@ -34,7 +34,32 @@
           </elementProp>
           <elementProp name="RampUpPeriod" elementType="Argument">
             <stringProp name="Argument.name">RampUpPeriod</stringProp>
-            <stringProp name="Argument.value">${__P(expRampup,300)}</stringProp>
+            <stringProp name="Argument.value">${__P(expRampup,10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ImportanceAssertionHighlightString" elementType="Argument">
+            <stringProp name="Argument.name">ImportanceAssertionHighlightString</stringProp>
+            <stringProp name="Argument.value">STOP-TEST-IF-FAIL</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="MaxUserId" elementType="Argument">
+            <stringProp name="Argument.name">MaxUserId</stringProp>
+            <stringProp name="Argument.value">${__P(expMaxUserId,9)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserIdPrefix" elementType="Argument">
+            <stringProp name="Argument.name">UserIdPrefix</stringProp>
+            <stringProp name="Argument.value">${__P(expUserIdPrefix,bench.user)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UserPassword" elementType="Argument">
+            <stringProp name="Argument.name">UserPassword</stringProp>
+            <stringProp name="Argument.value">${__P(expUserPassword,exo)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="UseDemoAccount" elementType="Argument">
+            <stringProp name="Argument.name">UseDemoAccount</stringProp>
+            <stringProp name="Argument.value">${__P(expUseDemoAccount,false)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -89,19 +114,29 @@
             <stringProp name="Argument.value">xinteractionstatex</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="UserName" elementType="Argument">
-            <stringProp name="Argument.name">UserName</stringProp>
-            <stringProp name="Argument.value">${__P(expUserName,root)}</stringProp>
+          <elementProp name="LoginUserId" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserId</stringProp>
+            <stringProp name="Argument.value">bench.user</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="UserPassword" elementType="Argument">
-            <stringProp name="Argument.name">UserPassword</stringProp>
-            <stringProp name="Argument.value">${__P(expUserPassword,gtn)}</stringProp>
+          <elementProp name="LoginUserPassword" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserPassword</stringProp>
+            <stringProp name="Argument.value">exo</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="continue" elementType="Argument">
             <stringProp name="Argument.name">continue</stringProp>
-            <stringProp name="Argument.value">true</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="activitiesPortalComponentId" elementType="Argument">
+            <stringProp name="Argument.name">activitiesPortalComponentId</stringProp>
+            <stringProp name="Argument.value">xactivitiesPortalComponentIdx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="interactionstate" elementType="Argument">
+            <stringProp name="Argument.name">interactionstate</stringProp>
+            <stringProp name="Argument.value">xinteractionstatex</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -113,14 +148,41 @@
         <stringProp name="CookieManager.policy">rfc2109</stringProp>
       </CookieManager>
       <hashTree/>
-      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="UNIQUEREQUESTNUMBER" enabled="true">
         <stringProp name="variableName">UNIQUEREQUESTNUMBER</stringProp>
         <stringProp name="outputFormat"></stringProp>
         <stringProp name="minimumValue">${__time(MMddHHmmss)}</stringProp>
         <stringProp name="maximumValue">1231235900</stringProp>
         <stringProp name="randomSeed"></stringProp>
-        <boolProp name="perThread">true</boolProp>
+        <boolProp name="perThread">false</boolProp>
       </RandomVariableConfig>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="UserId" enabled="true">
+        <stringProp name="maximumValue">${MaxUserId}</stringProp>
+        <stringProp name="minimumValue">0</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName">UserId</stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="UNIQUENUMBER" enabled="true">
+        <stringProp name="CounterConfig.start">${__P(expCountStart,${__time(MMddHHmmss,CurrentDateTime)})}</stringProp>
+        <stringProp name="CounterConfig.end">1231235900</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">UNIQUENUMBER</stringProp>
+        <stringProp name="CounterConfig.format"></stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+        <stringProp name="CounterConfig.start">${__P(expCountStart,${__time(MMddHHmmss,CurrentDateTime)})}</stringProp>
+        <stringProp name="CounterConfig.end">1231235900</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">IterationCounter</stringProp>
+        <stringProp name="CounterConfig.format"></stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -220,7 +282,20 @@
             <stringProp name="BeanShellSampler.query">long epoch =  System.currentTimeMillis()/1000;
 vars.put(&quot;epoch&quot;,epoch.toString());
 vars.put(&quot;continue&quot;,&quot;true&quot;);
-log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;));
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+vars.get(&quot;UserId&quot;));
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
 ResponseCode=2*100;
 ResponseMessage=&quot;initialize continue variable&quot;;
 return &quot;continue variable=true&quot;;</stringProp>
@@ -228,7 +303,12 @@ return &quot;continue variable=true&quot;;</stringProp>
             <stringProp name="BeanShellSampler.parameters"></stringProp>
             <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
           </BeanShellSampler>
-          <hashTree/>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1000. ++Login" enabled="true">
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -368,7 +448,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="-490398431">My Spaces</stringProp>
                   <stringProp name="2062200472">My Sites</stringProp>
@@ -378,6 +458,462 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <intProp name="Assertion.test_type">2</intProp>
               </ResponseAssertion>
               <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract BookmarkSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">BookmarkSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Bookmark\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxBookmarkSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AgendaSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">AgendaSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Agenda\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxAgendaSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract InvitationsSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">InvitationsSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Invitations\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxInvitationsSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract PollSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">PollSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Poll\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxPollSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract FavoriteDocumentSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">FavoriteDocumentSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(FavoriteDocument\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxFavoriteDocumentSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract WhoIsOnlineSecureToken " enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">WhoIsOnlineSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(WhoIsOnline\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxWhoIsOnlineSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract ProfileSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">ProfileSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Profile\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxProfileSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateSpaceActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateSpaceActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateMyStatus" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateMyActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*My Status</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateMyActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AllImportanceValue" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">AllImportanceValue</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxAllImportanceValuexxx</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">${ProfileSecureToken}-${InvitationsSecureToken}-${BookmarkSecureToken}-${activitiesPortalComponentId}-${interactionstateSpaceActivity}${interactionstateMyActivity}</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-25006536">(ProfileSecureToken)|(InvitationsSecureToken)|(BookmarkSecureToken)|(activitiesPortalComponentId)|(interactionstateSpaceActivity)|(interactionstateMyActivity)</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">AllImportanceValue</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+                <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
+     if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
+     {
+		for (int i = 0; i &lt; assertionResults.length; i++) 
+		{
+			if ((assertionResults[i].isFailure() || assertionResults[i].isError())
+			&amp;&amp; assertionResults[i].getName().indexOf(vars.get(&quot;ImportanceAssertionHighlightString&quot;)) &gt; -1)
+			{
+				Failure =true ;
+				FailureMessage=assertionResults[i].getFailureMessage();
+				vars.put(&quot;continue&quot;,&quot;false&quot;);
+				vars.put(&quot;loggedin&quot;,&quot;false&quot;);
+				break;
+			}
+		}
+		break;
+     }
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If continue != true then execute [1000. ++Login]" enabled="true">
+          <stringProp name="IfController.condition">${__javaScript(&quot;${continue}&quot;!=&quot;true&quot;)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Startup Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">long epoch =  System.currentTimeMillis()/1000;
+vars.put(&quot;epoch&quot;,epoch.toString());
+vars.put(&quot;continue&quot;,&quot;true&quot;);
+vars.put(&quot;loggedin&quot;,&quot;true&quot;);
+
+if ( (vars.get(&quot;UseDemoAccount&quot;).toString().equals(&quot;true&quot;)))
+{
+	vars.put(&quot;UserName&quot;,&quot;demo&quot;);
+	vars.put(&quot;UserPassword&quot;,&quot;gtn&quot;);
+}
+else
+{
+	vars.put(&quot;UserName&quot;,vars.get(&quot;UserIdPrefix&quot;)+vars.get(&quot;UserId&quot;));
+}
+
+
+log.info(&quot;Thread [&quot; +ctx.getThread().getThreadName() + &quot;] start iteration number: &quot; + vars.get(&quot;IterationCounter&quot;)+ &quot;, account: [&quot; + vars.get(&quot;UserName&quot;) +&quot;,&quot; + vars.get(&quot;UserPassword&quot;) +&quot;]&quot;) ;
+ResponseCode=2*100;
+ResponseMessage=&quot;initialize continue variable&quot;;
+return &quot;continue variable=true&quot;;</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1000. ++Login" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100.Goto Intranet (/portal/public/intranet)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/public/intranet</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/default/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="71152865">Welcome to ACME</stringProp>
+                  <stringProp name="1317375467">By logging in as one of the Acme user profiles below</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200.Type Account And Login (/portal/login)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="initialURI" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">initialURI</stringProp>
+                    <stringProp name="Argument.value">%2Fportal%2Fintranet%2F</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="username" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">username</stringProp>
+                    <stringProp name="Argument.value">${UserName}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="password" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">password</stringProp>
+                    <stringProp name="Argument.value">${UserPassword}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/login</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-490398431">My Spaces</stringProp>
+                  <stringProp name="2062200472">My Sites</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract BookmarkSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">BookmarkSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Bookmark\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxBookmarkSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AgendaSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">AgendaSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Agenda\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxAgendaSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract InvitationsSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">InvitationsSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Invitations\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxInvitationsSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract PollSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">PollSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Poll\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxPollSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract FavoriteDocumentSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">FavoriteDocumentSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(FavoriteDocument\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxFavoriteDocumentSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract WhoIsOnlineSecureToken " enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">WhoIsOnlineSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(WhoIsOnline\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxWhoIsOnlineSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract ProfileSecureToken" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">ProfileSecureToken</stringProp>
+                <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Profile\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
+                <stringProp name="RegexExtractor.template">$4$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxProfileSecureTokenxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateSpaceActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateSpaceActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateMyStatus" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateMyActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*My Status</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateMyActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AllImportanceValue" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">AllImportanceValue</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxAllImportanceValuexxx</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">${ProfileSecureToken}-${InvitationsSecureToken}-${BookmarkSecureToken}-${activitiesPortalComponentId}-${interactionstateSpaceActivity}${interactionstateMyActivity}</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-25006536">(ProfileSecureToken)|(InvitationsSecureToken)|(BookmarkSecureToken)|(activitiesPortalComponentId)|(interactionstateSpaceActivity)|(interactionstateMyActivity)</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">AllImportanceValue</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+                <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
+     if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
+     {
+		for (int i = 0; i &lt; assertionResults.length; i++) 
+		{
+			if ((assertionResults[i].isFailure() || assertionResults[i].isError())
+			&amp;&amp; assertionResults[i].getName().indexOf(vars.get(&quot;ImportanceAssertionHighlightString&quot;)) &gt; -1)
+			{
+				Failure =true ;
+				FailureMessage=assertionResults[i].getFailureMessage();
+				vars.put(&quot;continue&quot;,&quot;false&quot;);
+				vars.put(&quot;loggedin&quot;,&quot;false&quot;);
+				break;
+			}
+		}
+		break;
+     }
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
             </hashTree>
           </hashTree>
         </hashTree>
@@ -386,7 +922,7 @@ return &quot;continue variable=true&quot;;</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2000. ++Goto Home" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2000.  ++Goto Home" enabled="true">
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -439,7 +975,17 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="BookmarkSecureToken" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-490398431">My Spaces</stringProp>
+                  <stringProp name="2062200472">My Sites</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract BookmarkSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">BookmarkSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Bookmark\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -448,7 +994,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="AgendaSecureToken" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AgendaSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">AgendaSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Agenda\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -457,7 +1003,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="InvitationsSecureToken" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract InvitationsSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">InvitationsSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Invitations\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -466,7 +1012,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="PollSecureToken" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract PollSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">PollSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Poll\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -475,7 +1021,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="FavoriteDocumentSecureToken" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract FavoriteDocumentSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">FavoriteDocumentSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(FavoriteDocument\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -484,7 +1030,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="WhoIsOnlineSecureToken " enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract WhoIsOnlineSecureToken " enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">WhoIsOnlineSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(WhoIsOnline\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -493,7 +1039,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="ProfileSecureToken" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract ProfileSecureToken" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">ProfileSecureToken</stringProp>
                 <stringProp name="RegexExtractor.regex">(eXo\.gadget\.UIGadget\.createGadget).*(Profile\.xml).*(&quot;secureToken&quot;:&quot;)([^&quot;]+)(&quot;,&quot;)</stringProp>
@@ -501,6 +1047,77 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="RegexExtractor.default">xxxProfileSecureTokenxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateSpaceActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateSpaceActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateMyStatus" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateMyActivity</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*My Status</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateMyActivityxxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract AllImportanceValue" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">AllImportanceValue</stringProp>
+                <stringProp name="RegexExtractor.regex">xxxAllImportanceValuexxx</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">${ProfileSecureToken}-${InvitationsSecureToken}-${BookmarkSecureToken}-${activitiesPortalComponentId}-${interactionstateSpaceActivity}${interactionstateMyActivity}</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - ${ImportanceAssertionHighlightString}" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-25006536">(ProfileSecureToken)|(InvitationsSecureToken)|(BookmarkSecureToken)|(activitiesPortalComponentId)|(interactionstateSpaceActivity)|(interactionstateMyActivity)</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">AllImportanceValue</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="true">
+                <stringProp name="BeanShellAssertion.query">org.apache.jmeter.assertions.AssertionResult[] assertionResults = SampleResult.getAssertionResults();
+     if ((assertionResults != null) &amp;&amp; (assertionResults.length &gt; 0)) 
+     {
+		for (int i = 0; i &lt; assertionResults.length; i++) 
+		{
+			if ((assertionResults[i].isFailure() || assertionResults[i].isError())
+			&amp;&amp; assertionResults[i].getName().indexOf(vars.get(&quot;ImportanceAssertionHighlightString&quot;)) &gt; -1)
+			{
+				Failure =true ;
+				FailureMessage=assertionResults[i].getFailureMessage();
+				vars.put(&quot;continue&quot;,&quot;false&quot;);
+				vars.put(&quot;loggedin&quot;,&quot;false&quot;);
+				break;
+			}
+		}
+		break;
+     }
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
               <hashTree/>
             </hashTree>
             <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Bookmark Gadget (/eXoGadgetServer/gadgets/ifr)" enabled="true">
@@ -844,7 +1461,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="InvitationsSecureToken Regular Expression Extractor" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*InvitationsSecureToken*" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">URL</stringProp>
                 <stringProp name="RegexExtractor.refname">InvitationsSecureTokenEncoded</stringProp>
                 <stringProp name="RegexExtractor.regex">st=(default[^&amp;]+)&amp;</stringProp>
@@ -967,7 +1584,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="PollSecureTokenEncoded" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*PollSecureToken*" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">URL</stringProp>
                 <stringProp name="RegexExtractor.refname">PollSecureTokenEncoded</stringProp>
                 <stringProp name="RegexExtractor.regex">st=(default[^&amp;]+)&amp;</stringProp>
@@ -1090,7 +1707,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="FavoriteDocumentSecureToken Regular Expression Extractor" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*FavoriteDocumentSecureToken*" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">URL</stringProp>
                 <stringProp name="RegexExtractor.refname">FavoriteDocumentSecureTokenEncoded</stringProp>
                 <stringProp name="RegexExtractor.regex">st=(default[^&amp;]+)&amp;</stringProp>
@@ -1327,7 +1944,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="ProfileSecureToken Regular Expression Extractor" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*ProfileSecureToken*" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">URL</stringProp>
                 <stringProp name="RegexExtractor.refname">ProfileSecureTokenEncoded</stringProp>
                 <stringProp name="RegexExtractor.regex">st=(default[^&amp;]+)&amp;</stringProp>
@@ -1373,7 +1990,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=5&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3ADcxGL0oAGwoNQ4VafRJImauh4611GF91CAOtPrb9BxFoU6J0MW67gp85ENoVsECV5Y0hsVjeGTdUh02h0n1ehy3hcdecSA9vEmzTDcMLguiJFcuRVBv_oziZTUlpBJOvDEJuFWr6Y2kFCPw46CcI5fedkD-1w_mdJTlglQjyC643snKqxf_OlHV7gqYzsn6iU46Ttwi2UqLYYsiu0ywzYqZ__pfODDB0cP2bHm92j24Jh1eH7OyRxtlRxkpX-HGCwhH3HePrqRqnmn6X3UlaqE0mCzbtOhGoe8nFXhRz-eYdJlyy63xdPjSbmpY3Njq6o94E6iozAQP-wqN8H6wcjhmd1TcHV1eACSM-vmKpXrVCp4Wrtlb2MmCACX1_akns7NX6VBV0KOBbHM1ryO0MbQXrtz4&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3ABookmark%2Fapp%3Adata%2Fapp%3Aresources%2FBookmark.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=5&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${BookmarkSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3ABookmark%2Fapp%3Adata%2Fapp%3Aresources%2FBookmark.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -1454,7 +2071,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=3&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A83MJsodxREBn_pG8zcjizeRdZ4MmjNT4dIbfr87F65tfO50dOTlgzEoBG0CTF38HlR603pRQ2V4qb_Vi2ZiXv-MCp1iN1EoxAsUyCzWHfwla9PG_7C4IsitaCXRMB18oFZz-Qj3MZtxqnL4il7gu9KMubf-p6qKeKwx-pIIJiq1V6FMZJeyvGagJwRr-brgHqaM5ryX3lgwRnbVsLk2E9l3GGbqLjKeo2a3DoRqjSOZowZkMQmGRBQQK6FbXl3-5csbsnVU5BfR91DgdJ8SjNZblzSnS2Nr43wm-9YXIVRcRisRQR-EedmsHYiZ2cRsk-9Y1G79kbxzqBV055Pjol0zEI4B9HdsvBZoYTQqtaNVv8im8kFNLjeQxLCRxAb7_aYpUdE-x_350dQVYNkvzW9P-QlI&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFeaturedPoll%2Fapp%3Adata%2Fapp%3Aresources%2FPoll.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=3&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${PollSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFeaturedPoll%2Fapp%3Adata%2Fapp%3Aresources%2FPoll.xml</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
@@ -1523,7 +2140,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3ADNM8XEBgIwHNaHszUR9EJdopSDRJtap-33EeCa8-ryYuVR44mZTnHrBv_EC-Iu9LpNkx3smKY7QDD4V0trftxctZMW5KLW0McMoqIHFf3QYqis0NplbvdAiXLQT5u3lszXRabyX2sOCrdPM5S-t8teXgHJ9oZT76Oj8IujK5hcgOWGSMhAjp-iU5XL4CWEeDqdDeMjmghnTZeVFZ3xO7aLEfxfi_sligq0hIUTsHyc1nZNQiRGsjt_cJF9RVuCwwTw7ag5vGButN4_UlRrdcJ3RuqjxEkheHbLWZtOmL0g0kTW7OiY17eP3wQyKiQ4ZwyI7L0zrSF_xot_qS-cQ9JPstydHMoAxWyP2EEDHMg_JXtukxNOBSBXX85IpqCSIHSaDYQ02QIaNNOMB-7dmHrzdKihmnsGDizn9CrP02qDgr03YZ&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${InvitationsSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
@@ -1592,7 +2209,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=0&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3AtxyCYIAZtHTJDFKP5Tv89NU_-gPfxFO_ptkmgN2RxNBbRUyhZWH-NgPy08ztq9mIjjy6mXv2hfAIcXkTYbQGCvesEsoyX8W2aMi9tFqU4lSx24wFUjE2IMyHcc1J4mbDCsqACAufOFSUhP4occEvhqxJvSuBVM7wXh6U3FKLzomUN2cqfuZqt7lKaXwHfW8zZL6d_BGrsQTYk-dnVlYSaTGNhJp4cDEiKOa6m6aGbIbpHzA1RoJKAIqk3KAvUYFCk73-rX06D9hboq8RKrBIdzHPu02AXD8ieCbFn5ph06T3mxw5aJ-l1yTkoz1N2fAfJiWiuChmEymk8zK6BzCiPCR9vZ3SD08lyGhM2OcKuS3vJnQbBhiyURagQg2baw7NxcsuYCR6Hn1iiphrM5HJUoLvp4c&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AProfile%2Fapp%3Adata%2Fapp%3Aresources%2FProfile.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=0&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${ProfileSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AProfile%2Fapp%3Adata%2Fapp%3Aresources%2FProfile.xml</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
@@ -1634,7 +2251,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=4&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A7FFWHi1QiXE9Y4jQC4WkGM0l3E4ZZP2x7-Hvp0cTevsj_tAtM3TMlj2892d5IVjaXKwN6LxpOWJOa0G00mkp534zHemj1k898YRVqqj2lN42F_i0FQpIBF2Ba98z7yBypm7QgHq2XKnXHEi4zphbmXSBRDjKgpWQI63Tkiq1a79TVWj5onYmre6BwKGTm6wdL6j5Gvt9TFEn_ED41Yj2vTVTxNi22PC5av7URL_CIYZdGZrataLCZ7S15Upfe4v4j-szrjDj2QfPQdEGMaxbmYVsRZNExM6PS6CswHDpLtiAmBvKIN38gWyQU9f__0EPGHi71g2hX03CjFj9lmeNk9hZAQv0XdZdiTdG9T2SJ5Pim5ayhYILqJb9Xo9S_3kzACHMA4_9xSQZKSvF1pvQlGz1aRPcwgOzdjgdnnaQwKBLaru-&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AWhoIsOnline%2Fapp%3Adata%2Fapp%3Aresources%2FWhoIsOnline.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=4&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${WhoIsOnlineSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AWhoIsOnline%2Fapp%3Adata%2Fapp%3Aresources%2FWhoIsOnline.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -1688,7 +2305,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http:/${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3ADNM8XEBgIwHNaHszUR9EJdopSDRJtap-33EeCa8-ryYuVR44mZTnHrBv_EC-Iu9LpNkx3smKY7QDD4V0trftxctZMW5KLW0McMoqIHFf3QYqis0NplbvdAiXLQT5u3lszXRabyX2sOCrdPM5S-t8teXgHJ9oZT76Oj8IujK5hcgOWGSMhAjp-iU5XL4CWEeDqdDeMjmghnTZeVFZ3xO7aLEfxfi_sligq0hIUTsHyc1nZNQiRGsjt_cJF9RVuCwwTw7ag5vGButN4_UlRrdcJ3RuqjxEkheHbLWZtOmL0g0kTW7OiY17eP3wQyKiQ4ZwyI7L0zrSF_xot_qS-cQ9JPstydHMoAxWyP2EEDHMg_JXtukxNOBSBXX85IpqCSIHSaDYQ02QIaNNOMB-7dmHrzdKihmnsGDizn9CrP02qDgr03YZ&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
+                    <stringProp name="Header.value">http:/${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${InvitationsSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -1706,7 +2323,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Gadget Contacts (/rest/gadgets/social-inbox/v1/contacts/root/pending)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Gadget Contacts (/rest/gadgets/social-inbox/v1/contacts/{UserName}/pending)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -1742,7 +2359,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3ADNM8XEBgIwHNaHszUR9EJdopSDRJtap-33EeCa8-ryYuVR44mZTnHrBv_EC-Iu9LpNkx3smKY7QDD4V0trftxctZMW5KLW0McMoqIHFf3QYqis0NplbvdAiXLQT5u3lszXRabyX2sOCrdPM5S-t8teXgHJ9oZT76Oj8IujK5hcgOWGSMhAjp-iU5XL4CWEeDqdDeMjmghnTZeVFZ3xO7aLEfxfi_sligq0hIUTsHyc1nZNQiRGsjt_cJF9RVuCwwTw7ag5vGButN4_UlRrdcJ3RuqjxEkheHbLWZtOmL0g0kTW7OiY17eP3wQyKiQ4ZwyI7L0zrSF_xot_qS-cQ9JPstydHMoAxWyP2EEDHMg_JXtukxNOBSBXX85IpqCSIHSaDYQ02QIaNNOMB-7dmHrzdKihmnsGDizn9CrP02qDgr03YZ&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=1&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${InvitationsSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AInvitations%2Fapp%3Adata%2Fapp%3Aresources%2FInvitations.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -1796,7 +2413,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=3&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A83MJsodxREBn_pG8zcjizeRdZ4MmjNT4dIbfr87F65tfO50dOTlgzEoBG0CTF38HlR603pRQ2V4qb_Vi2ZiXv-MCp1iN1EoxAsUyCzWHfwla9PG_7C4IsitaCXRMB18oFZz-Qj3MZtxqnL4il7gu9KMubf-p6qKeKwx-pIIJiq1V6FMZJeyvGagJwRr-brgHqaM5ryX3lgwRnbVsLk2E9l3GGbqLjKeo2a3DoRqjSOZowZkMQmGRBQQK6FbXl3-5csbsnVU5BfR91DgdJ8SjNZblzSnS2Nr43wm-9YXIVRcRisRQR-EedmsHYiZ2cRsk-9Y1G79kbxzqBV055Pjol0zEI4B9HdsvBZoYTQqtaNVv8im8kFNLjeQxLCRxAb7_aYpUdE-x_350dQVYNkvzW9P-QlI&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFeaturedPoll%2Fapp%3Adata%2Fapp%3Aresources%2FPoll.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=3&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${PollSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFeaturedPoll%2Fapp%3Adata%2Fapp%3Aresources%2FPoll.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -1850,7 +2467,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=4&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A7FFWHi1QiXE9Y4jQC4WkGM0l3E4ZZP2x7-Hvp0cTevsj_tAtM3TMlj2892d5IVjaXKwN6LxpOWJOa0G00mkp534zHemj1k898YRVqqj2lN42F_i0FQpIBF2Ba98z7yBypm7QgHq2XKnXHEi4zphbmXSBRDjKgpWQI63Tkiq1a79TVWj5onYmre6BwKGTm6wdL6j5Gvt9TFEn_ED41Yj2vTVTxNi22PC5av7URL_CIYZdGZrataLCZ7S15Upfe4v4j-szrjDj2QfPQdEGMaxbmYVsRZNExM6PS6CswHDpLtiAmBvKIN38gWyQU9f__0EPGHi71g2hX03CjFj9lmeNk9hZAQv0XdZdiTdG9T2SJ5Pim5ayhYILqJb9Xo9S_3kzACHMA4_9xSQZKSvF1pvQlGz1aRPcwgOzdjgdnnaQwKBLaru-&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AWhoIsOnline%2Fapp%3Adata%2Fapp%3Aresources%2FWhoIsOnline.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=4&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${WhoIsOnlineSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AWhoIsOnline%2Fapp%3Adata%2Fapp%3Aresources%2FWhoIsOnline.xml</stringProp>
                   </elementProp>
                   <elementProp name="X-Requested-With" elementType="Header">
                     <stringProp name="Header.name">X-Requested-With</stringProp>
@@ -2093,7 +2710,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=6&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A-fWxozEKUgzjrHbwhxenKs-Gfuk0QIFfHIyLswBHjB0VbD3-2GhmzIuLMX20_yej1CpFkMNQcDVmExQw7TeChAkU75etpQvmtk13q9R3fQoI_MhGv_dJ0XJHRf5iE3d9N8ieJSrZtA3YEALnv7PIQGYYgdM_Mhp2Ux5m4pXKjpFW8l47oASlAozX4GYsQgIW7H9OEXKFo0qiqPdY_qraDd84LE9shmucaESLr5e6u8V11qrsnyAaOkWy_P5088QIxdL0lwyo6wylt8HNyMv3zosugHXHpxaYBnxaakBKewWr9ieaQnF8jC5583RZm84jPDaBmIuxUgdns7O-sMkKXTNFaMtOotNV6I2GOW8ra3o93DhZDFlWOTFo1Oyn5E1fYlrkPhISDxi55yU0rlhhc4C_5G-M-kin3X_R1ymzGHQb7j4C&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFavoriteDocument%2Fapp%3Adata%2Fapp%3Aresources%2FFavoriteDocument.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=6&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${FavoriteDocumentSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFavoriteDocument%2Fapp%3Adata%2Fapp%3Aresources%2FFavoriteDocument.xml</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
@@ -2112,7 +2729,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="url" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">url</stringProp>
-                    <stringProp name="Argument.value">http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fplf%2Ffavorite%2Fget-documents%2Froot%3Fnocache%3D${UNIQUEREQUESTNUMBER}</stringProp>
+                    <stringProp name="Argument.value">http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fplf%2Ffavorite%2Fget-documents%2F${UserName}%3Fnocache%3D${UNIQUEREQUESTNUMBER}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2248,7 +2865,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=6&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2Flocalhost%3A8080%2Fportal%2Fintranet%2F%3A%2F%2Flocalhost%3A8080&amp;st=default%3A-fWxozEKUgzjrHbwhxenKs-Gfuk0QIFfHIyLswBHjB0VbD3-2GhmzIuLMX20_yej1CpFkMNQcDVmExQw7TeChAkU75etpQvmtk13q9R3fQoI_MhGv_dJ0XJHRf5iE3d9N8ieJSrZtA3YEALnv7PIQGYYgdM_Mhp2Ux5m4pXKjpFW8l47oASlAozX4GYsQgIW7H9OEXKFo0qiqPdY_qraDd84LE9shmucaESLr5e6u8V11qrsnyAaOkWy_P5088QIxdL0lwyo6wylt8HNyMv3zosugHXHpxaYBnxaakBKewWr9ieaQnF8jC5583RZm84jPDaBmIuxUgdns7O-sMkKXTNFaMtOotNV6I2GOW8ra3o93DhZDFlWOTFo1Oyn5E1fYlrkPhISDxi55yU0rlhhc4C_5G-M-kin3X_R1ymzGHQb7j4C&amp;url=http%3A%2F%2Flocalhost%3A8080%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFavoriteDocument%2Fapp%3Adata%2Fapp%3Aresources%2FFavoriteDocument.xml</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/eXoGadgetServer/gadgets/ifr?container=default&amp;mid=6&amp;nocache=undefined&amp;country=ALL&amp;lang=en&amp;view=canvas&amp;parent=http%3A%2F%2F${Server}%3A${Port}%2Fportal%2Fintranet%2F%3A%2F%2F${Server}%3A${Port}&amp;st=${FavoriteDocumentSecureTokenEncoded}&amp;url=http%3A%2F%2F${Server}%3A${Port}%2Frest%2Fjcr%2Frepository%2Fportal-system%2Fproduction%2Fapp%3Agadgets%2Fapp%3AFavoriteDocument%2Fapp%3Adata%2Fapp%3Aresources%2FFavoriteDocument.xml</stringProp>
                   </elementProp>
                   <elementProp name="Accept-Encoding" elementType="Header">
                     <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -2263,9 +2880,181 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3000. ++Goto My Space (/portal/intranet/spaces)" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3000.  ++Click on Spaces in user activities (/portal/intranet/)" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3000. ++Goto My Space (/portal/intranet/spaces)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="3000.  ++click on Spaces in user activities (/portal/intranet/)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="portal:componentId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">portal:componentId</stringProp>
+                    <stringProp name="Argument.value">${activitiesPortalComponentId}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="interactionstate" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">interactionstate</stringProp>
+                    <stringProp name="Argument.value">${interactionstateSpaceActivity}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="portal:type" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">portal:type</stringProp>
+                    <stringProp name="Argument.value">action</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="ajaxRequest" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">ajaxRequest</stringProp>
+                    <stringProp name="Argument.value">true</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">text/plain;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4000.  ++Click on My status in activities  (/portal/intranet/)" enabled="true"/>
+          <hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="4000.  ++click on My status in activities  (/portal/intranet/)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="portal:componentId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">portal:componentId</stringProp>
+                    <stringProp name="Argument.value">${activitiesPortalComponentId}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="interactionstate" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">interactionstate</stringProp>
+                    <stringProp name="Argument.value">${interactionstateMyActivity}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="portal:type" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                    <stringProp name="Argument.name">portal:type</stringProp>
+                    <stringProp name="Argument.value">action</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="ajaxRequest" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">ajaxRequest</stringProp>
+                    <stringProp name="Argument.value">true</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">text/plain;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5000.  ++Goto /portal/intranet/people" enabled="true"/>
+          <hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5000.  ++Goto /portal/intranet/people" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2275,7 +3064,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/spaces</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/people</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2314,199 +3103,61 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-490398431">My Spaces</stringProp>
-                  <stringProp name="-2099336753">Spaces Found</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4000. ++Goto Stream Activities (/portal/intranet/activities)" enabled="true"/>
-          <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="4000. ++Goto Stream Activities (/portal/intranet/activities)" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="portal:componentId" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.name">portal:componentId</stringProp>
-                    <stringProp name="Argument.value"></stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                  <elementProp name="interactionstate" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.name">interactionstate</stringProp>
-                    <stringProp name="Argument.value"></stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                  <elementProp name="portal:type" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.name">portal:type</stringProp>
-                    <stringProp name="Argument.value">action</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                  <elementProp name="ajaxRequest" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.name">ajaxRequest</stringProp>
-                    <stringProp name="Argument.value">${continue}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/activities</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSampler>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Content-Type" elementType="Header">
-                    <stringProp name="Header.name">Content-Type</stringProp>
-                    <stringProp name="Header.value">text/plain;charset=UTF-8</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
-                  </elementProp>
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/activities</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip, deflate</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Charset" elementType="Header">
-                    <stringProp name="Header.name">Accept-Charset</stringProp>
-                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-486687514">My Status</stringProp>
-                  <stringProp name="1705430896">Space Updates</stringProp>
-                  <stringProp name="-970254184">Network Updates</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5000. ++Load Connections (/portal/intranet/connections/all-people/{UserName})" enabled="true"/>
-          <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="5000. ++Load Connections (/portal/intranet/connections/all-people/{UserName})" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/connections/all-people/${UserName}</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <boolProp name="HTTPSampler.monitor">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            </HTTPSampler>
-            <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Accept-Language" elementType="Header">
-                    <stringProp name="Header.name">Accept-Language</stringProp>
-                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept" elementType="Header">
-                    <stringProp name="Header.name">Accept</stringProp>
-                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                  </elementProp>
-                  <elementProp name="User-Agent" elementType="Header">
-                    <stringProp name="Header.name">User-Agent</stringProp>
-                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
-                  </elementProp>
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/activities</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Encoding" elementType="Header">
-                    <stringProp name="Header.name">Accept-Encoding</stringProp>
-                    <stringProp name="Header.value">gzip, deflate</stringProp>
-                  </elementProp>
-                  <elementProp name="Accept-Charset" elementType="Header">
-                    <stringProp name="Header.name">Accept-Charset</stringProp>
-                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </HeaderManager>
-              <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*intranetPeopleComponentId*" enabled="false">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">intranetPeopleComponentId</stringProp>
                 <stringProp name="RegexExtractor.regex">\&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/private/intranet/people\?portal:componentId=([a-zA-Z0-9\-]+)&amp;</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default">xintranetPeopleComponentIdx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
+                <stringProp name="TestPlan.comments">&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/intranet/people?portal:componentId=afeb6271-73a3-46be-b875-4945e95d8365&amp;interactionstate=JBPNS_rO0ABXcvAAt1aWNvbXBvbmVudAAAAAEAE1VJUHJvZmlsZVVzZXJTZWFyY2gAB19fRU9GX18*&amp;portal:type</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">interactionstate</stringProp>
-                <stringProp name="RegexExtractor.regex">\&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/private/intranet/people\?portal:componentId=([a-zA-Z0-9\-]+)&amp;&amp;interactionstate=([a-zA-Z0-9]+)&amp;</stringProp>
-                <stringProp name="RegexExtractor.template">$2$</stringProp>
-                <stringProp name="RegexExtractor.default">xinteractionstatex</stringProp>
+                <stringProp name="RegexExtractor.refname">searchPeopleComponentId</stringProp>
+                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxsearchPeopleComponentIdxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">interactionstateSearchPeople</stringProp>
+                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
+                <stringProp name="RegexExtractor.template">$2$</stringProp>
+                <stringProp name="RegexExtractor.default">xxxinteractionstateSearchPeoplexxx</stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - searchPeopleComponentId" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="172439661">Pending Requests</stringProp>
-                  <stringProp name="1601315899">Received Invitations</stringProp>
+                  <stringProp name="-2096607199">searchPeopleComponentId</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                 <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">searchPeopleComponentId</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - interactionstateSearchPeople" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="357320118">interactionstateSearchPeople</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">6</intProp>
+                <stringProp name="Assertion.scope">variable</stringProp>
+                <stringProp name="Scope.variable">searchPeopleComponentId</stringProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="6000. ++Match search on /people (/portal/intranet/connections/all-people/root?portal:componentId=&amp;interactionstate=&amp;portal:type=action&amp;ajaxRequest=${continue}" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="6000.  ++Matching search on (/portal/intranet/people)" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="6000. ++Match search on /people (/portal/intranet/connections/all-people/root?portal:componentId=&amp;interactionstate=&amp;portal:type=action&amp;ajaxRequest=${continue}" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="6000.  ++Matching search on (/portal/intranet/people)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="formOp" elementType="HTTPArgument">
@@ -2519,7 +3170,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="Search" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">true</boolProp>
                     <stringProp name="Argument.name">Search</stringProp>
-                    <stringProp name="Argument.value">John Smith</stringProp>
+                    <stringProp name="Argument.value">Mary Williams</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2552,7 +3203,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/connections/all-people/root?portal:componentId=${intranetPeopleComponentId}&amp;interactionstate=${interactionstate}&amp;portal:type=action&amp;ajaxRequest=${continue}</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/people?portal:componentId=${searchPeopleComponentId}&amp;interactionstate=${interactionstateSearchPeople}&amp;portal:type=action&amp;ajaxRequest=true</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2598,14 +3249,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://localhost:8080/portal/intranet/connections/all-people/root</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/people</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion - 1 matching &apos;Mary Williams&apos; search." enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-574108975">People found</stringProp>
+                  <stringProp name="407892931">1 matching &apos;Mary Williams&apos; search</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                 <boolProp name="Assertion.assume_success">false</boolProp>
@@ -2614,34 +3265,19 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="7000. ++Signout From Intranet (/portal/intranet/connections/all-people/{UserName})" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="7000.  ++Goto /portal/intranet/connections/network/{UserName}" enabled="true"/>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7000. ++Signout From Intranet (/portal/intranet/connections/all-people/{UserName})" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="7000.  ++Goto  /portal/intranet/connections/network/{UserName}" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="portal:componentId" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.name">portal:componentId</stringProp>
-                    <stringProp name="Argument.value">UIPortal</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                  <elementProp name="portal:action" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.name">portal:action</stringProp>
-                    <stringProp name="Argument.value">Logout</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  </elementProp>
-                </collectionProp>
+                <collectionProp name="Arguments.arguments"/>
               </elementProp>
               <stringProp name="HTTPSampler.domain"></stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/connections/all-people/${UserName}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/connections/network/${UserName}</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2667,7 +3303,7 @@ return &quot;continue variable=true&quot;;</stringProp>
                   </elementProp>
                   <elementProp name="Referer" elementType="Header">
                     <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/connections/all-people/root</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/profile/mary</stringProp>
                   </elementProp>
                   <elementProp name="Accept-Encoding" elementType="Header">
                     <stringProp name="Header.name">Accept-Encoding</stringProp>
@@ -2680,14 +3316,58 @@ return &quot;continue variable=true&quot;;</stringProp>
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="71152865">Welcome to ACME</stringProp>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="8000.  ++Goto /portal/intranet/spaces" enabled="true"/>
+          <hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="8000.  ++Goto /portal/intranet/spaces" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/spaces</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/connections/network/${UserName}</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
                 </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
+              </HeaderManager>
               <hashTree/>
             </hashTree>
           </hashTree>
