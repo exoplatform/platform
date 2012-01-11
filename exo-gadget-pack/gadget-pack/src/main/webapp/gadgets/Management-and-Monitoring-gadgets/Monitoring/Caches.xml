@@ -267,9 +267,9 @@
         <!--
         <div class="UIGadgetThemes">
         <div class="TitGad ClearFix">
-        <a target="_blank" id="ShowAll" class="IconDropDown"> </a>
+        <a target="_blank" id="ShowAll" class="IconDropDown" title="Show all"> </a>
         <div title="Setting" id="SettingButton" class="SettingButton">
-        <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+        <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
       </div>
         <div class="ContTit">Caches</div>
       </div>

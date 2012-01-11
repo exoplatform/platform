@@ -50,7 +50,7 @@ if(pagesNodes!=null && !pagesNodes.isEmpty()) {
 %>
   <ul class="UISetupPlatformToolBarPortlet UIHorizontalTabs" id="$uicomponent.id">
     <li class="UITab NormalToolbarTab">
-      <a href="#" class="SetupMenuItem TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/setup.png"/></a>
+      <a href="#" class="SetupMenuItem TBIcon"><img src="/eXoPlatformResources/skin/platformSkin/icons/setup.png" alt="Setup" /></a>
       <ul style="display: none" class="MenuItemContainer">
         <%  renderPageNodes(pagesNodes); %>
       </ul>

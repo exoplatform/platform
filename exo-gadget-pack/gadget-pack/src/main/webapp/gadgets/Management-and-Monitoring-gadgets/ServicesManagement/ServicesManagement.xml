@@ -59,7 +59,7 @@
                 <div class="ServicesBox ClearFix">
                     <div class="Text">__MSG_services__</div>
                     <select id="servicesSelector"></select>
-                    <a class="DesIconHome"><span></span></a>
+                    <a class="DesIconHome" title="Home"><span></span></a>
                 </div>
                 <p class="DescriptionBox"><b>__MSG_description__:</b> <span id="ServiceDescription">__MSG_noDescription__</span></p>
               </div>

@@ -161,7 +161,7 @@
 									if (mimeType.equals("application/pdf")){
 									def itemPreviewLink = getBaseURI() + "/" + getPortalName() + "/" + getAccessMode() + "/acme/detail?content-id=/" + getRepositoryName(node) + "/" +  getWorkspaceName(node) + node.getPath();
 								%>
-									<a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" /></a>
+									<a href="$itemPreviewLink" style="margin-left:5px;"><img src="/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SearchIcon.png" alt="Search" /></a>
 								<%
 									}
 								%>
@@ -245,7 +245,7 @@
 		def imageURI = imagesRenderer.generateImageURI(currentNode.getNode("medias/images/illustration"),null);
 		if (imageURI != null){
 		%>
-	<a class="Image"><img width="93" src="$imageURI" alt=""></a>
+	<a class="Image"><img width="93" src="$imageURI" alt="Illustration"></a>
 		<%
 		}
 		%>

@@ -27,7 +27,7 @@
           <!--a href="#demo" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a-->
 
           <div class="SettingButton" id="SettingButton" title="__MSG_setting__" style="display:block; height:19px">
-            <a href="javascript:eXoEventGadget.showHideSetting(true);"><span></span></a>
+            <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting Button"><span></span></a>
           </div>
           <div class="ContTit">__MSG_titlegadget__</div>
         </div>

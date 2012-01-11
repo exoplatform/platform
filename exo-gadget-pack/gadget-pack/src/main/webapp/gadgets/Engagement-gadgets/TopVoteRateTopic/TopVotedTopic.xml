@@ -30,7 +30,7 @@
     <div id="TopVotedTopic-Gadget" class="UIGadgetThemes">
       <div class="TitGad ClearFix">
         <div title="Setting" id="SettingButton" class="SettingButton">
-          <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+          <a href="javascript:eXoEventGadget.showHideSetting(true);" title="Setting"></a>
         </div>
         <div class="ContTit">__MSG_topic.top.vote.title__</div>
       </div>

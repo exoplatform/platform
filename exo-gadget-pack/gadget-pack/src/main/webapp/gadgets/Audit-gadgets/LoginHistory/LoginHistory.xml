@@ -688,9 +688,9 @@
 					
 			<div id="statisticDiv">
 				<div class='ThemeColor' style="text-align: center; height:10px; font-size: small;">
-					<a id="prevBtn" href="#" style="text-decoration: none;">&lt;&lt;&nbsp;</a>						
+					<a id="prevBtn" href="#" style="text-decoration: none;" title="Previous">&lt;&lt;&nbsp;</a>						
 					<span id="loginStatsChartTitle"></span>
-					<a id="nextBtn" href="#" style="text-decoration: none;">&nbsp;&gt;&gt;</a>						
+					<a id="nextBtn" href="#" style="text-decoration: none;" title="Next">&nbsp;&gt;&gt;</a>						
 				</div>
 				<div id="loginStatsChart" style="height:150px;"></div>
 				<div id="chartTooltipDiv" class="jqplot-highlighter-tooltip"></div>
@@ -700,7 +700,7 @@
 	
 			<div id="historyDiv">
 				<div id="accordion">
-					<h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#"></a></h3>
+					<h3 id="selectedDayHeaderContainer"><a id="selectedDayHeader" href="#" title="Selected day"></a></h3>
 					<div id="selectedDayDiv" class="loginHistoryContent"></div>
 					<h3><a id="todayHeader" href="#">__MSG_loginHistory.today__</a></h3>
 					<div id="todayDiv" class="loginHistoryContent"></div>

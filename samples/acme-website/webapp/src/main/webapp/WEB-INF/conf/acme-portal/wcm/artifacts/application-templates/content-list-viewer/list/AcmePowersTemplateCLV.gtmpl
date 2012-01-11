@@ -73,7 +73,7 @@ padding:0 0 !important;
 				<%
                 if(imgSrc != null && uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_ILLUSTRATION)) {
                     %>
-					<a class="ImgNorNews"><img width="51" src="$imgSrc" alt=""/></a>
+					<a class="ImgNorNews"><img width="51" src="$imgSrc" alt="News"/></a>
 					<%
                 }
 				%>
