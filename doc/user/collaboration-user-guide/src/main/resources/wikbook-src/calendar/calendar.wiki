@@ -918,7 +918,7 @@ This function allows you to remove events from a calendar.
 
 *1.* Tick the checkboxes corresponding to the events you want to delete.
 
-*2.* Click !images/delete_checked_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"| width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
+*2.* Click !images/delete_checked_button.png|width="12mm" fo:scalefit="1" html:scalefit="0"! on the *Month* information bar.
 
 !images/month_view_calendar_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
