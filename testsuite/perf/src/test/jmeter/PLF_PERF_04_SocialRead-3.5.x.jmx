@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="ThreadCount" elementType="Argument">
             <stringProp name="Argument.name">ThreadCount</stringProp>
-            <stringProp name="Argument.value">${__P(expThreadCount,1)}</stringProp>
+            <stringProp name="Argument.value">${__P(expThreadCount,3)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
@@ -109,9 +109,9 @@
             <stringProp name="Argument.value">xIntranetPeopleComponentIdx</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="interactionstate" elementType="Argument">
-            <stringProp name="Argument.name">interactionstate</stringProp>
-            <stringProp name="Argument.value">xinteractionstatex</stringProp>
+          <elementProp name="LoginUserId" elementType="Argument">
+            <stringProp name="Argument.name">LoginUserId</stringProp>
+            <stringProp name="Argument.value">bench.user</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoginUserId" elementType="Argument">
@@ -373,7 +373,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200.Type Account And Login (/portal/login)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200.Type Account And Login (/portal/login) " enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="initialURI" elementType="HTTPArgument">
@@ -386,14 +386,14 @@ return &quot;continue variable=true&quot;;</stringProp>
                   <elementProp name="username" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">username</stringProp>
-                    <stringProp name="Argument.value">${UserName}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserId,${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
                   <elementProp name="password" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">password</stringProp>
-                    <stringProp name="Argument.value">${UserPassword}</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -917,8 +917,8 @@ return &quot;continue variable=true&quot;;</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If continue == true then execute main scenario" enabled="true">
-          <stringProp name="IfController.condition">${__javaScript(&quot;${continue}&quot;==&quot;true&quot;)}</stringProp>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If continue != true then execute [1000. ++Login]" enabled="true">
+          <stringProp name="IfController.condition">${__javaScript(&quot;${continue}&quot;!=&quot;true&quot;)}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
@@ -926,7 +926,7 @@ return &quot;continue variable=true&quot;;</stringProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100.Load Intranet Page After Login (/portal/intranet/)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1100.Goto Intranet (/portal/public/intranet)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -935,8 +935,8 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-              <stringProp name="HTTPSampler.path">/portal/intranet/</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/public/intranet</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -948,6 +948,92 @@ return &quot;continue variable=true&quot;;</stringProp>
             <hashTree>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/default/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="71152865">Welcome to ACME</stringProp>
+                  <stringProp name="1317375467">By logging in as one of the Acme user profiles below</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="1200.Type Account And Login (/portal/login)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="initialURI" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">initialURI</stringProp>
+                    <stringProp name="Argument.value">%2Fportal%2Fintranet%2F</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="username" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">username</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserId,${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})})}${__P(expLoginUserSequence,${LoginUserSequence})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="password" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">password</stringProp>
+                    <stringProp name="Argument.value">${__P(expLoginUserPassword,${LoginUserPassword})}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/portal/login</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                  </elementProp>
                   <elementProp name="Accept-Language" elementType="Header">
                     <stringProp name="Header.name">Accept-Language</stringProp>
                     <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
@@ -1118,6 +1204,67 @@ return &quot;continue variable=true&quot;;</stringProp>
                 <stringProp name="BeanShellAssertion.parameters"></stringProp>
                 <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
               </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If continue == true then execute main scenario" enabled="true">
+          <stringProp name="IfController.condition">${__javaScript(&quot;${continue}&quot;==&quot;true&quot;)}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2000.  ++Goto Home" enabled="true">
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2100.Load Intranet Page After Login (/portal/intranet/)" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/portal/intranet/</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-us,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Ubuntu; X11; Linux x86_64; rv:8.0) Gecko/20100101 Firefox/8.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">http://${Server}:${Port}/portal/intranet/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Charset" elementType="Header">
+                    <stringProp name="Header.name">Accept-Charset</stringProp>
+                    <stringProp name="Header.value">ISO-8859-1,utf-8;q=0.7,*;q=0.7</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
               <hashTree/>
             </hashTree>
             <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Bookmark Gadget (/eXoGadgetServer/gadgets/ifr)" enabled="true">
@@ -2269,7 +2416,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Gadget Spaces (/rest/gadgets/social-inbox/v1/spaces/{UserName}/pending)" enabled="true">
+            <HTTPSampler guiclass="HttpTestSampleGui" testclass="HTTPSampler" testname="2110.Load Gadget Spaces (/rest/gadgets/social-inbox/v1/spaces/{LoginUserId}/pending)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2279,7 +2426,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/rest/gadgets/social-inbox/v1/spaces/${UserName}/pending</stringProp>
+              <stringProp name="HTTPSampler.path">/rest/gadgets/social-inbox/v1/spaces/${__P(expLoginUserId,${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})})}${__P(expLoginUserSequence,${LoginUserSequence})}/pending</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2333,7 +2480,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">/rest/gadgets/social-inbox/v1/contacts/${UserName}/pending</stringProp>
+              <stringProp name="HTTPSampler.path">/rest/gadgets/social-inbox/v1/contacts/${__P(expLoginUserId,${__P(expLoginUserId,${LoginUserId})}${__P(expLoginUserSequence,${LoginUserSequence})})}${__P(expLoginUserSequence,${LoginUserSequence})}/pending</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -3105,10 +3252,10 @@ return &quot;continue variable=true&quot;;</stringProp>
               <hashTree/>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor*intranetPeopleComponentId*" enabled="false">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">intranetPeopleComponentId</stringProp>
-                <stringProp name="RegexExtractor.regex">\&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/private/intranet/people\?portal:componentId=([a-zA-Z0-9\-]+)&amp;</stringProp>
+                <stringProp name="RegexExtractor.refname">searchPeopleComponentId</stringProp>
+                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
-                <stringProp name="RegexExtractor.default">xintranetPeopleComponentIdx</stringProp>
+                <stringProp name="RegexExtractor.default">xxxsearchPeopleComponentIdxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
                 <stringProp name="TestPlan.comments">&lt;form class=&quot;UIForm&quot; id=&quot;UIProfileUserSearch&quot; action=&quot;/portal/intranet/people?portal:componentId=afeb6271-73a3-46be-b875-4945e95d8365&amp;interactionstate=JBPNS_rO0ABXcvAAt1aWNvbXBvbmVudAAAAAEAE1VJUHJvZmlsZVVzZXJTZWFyY2gAB19fRU9GX18*&amp;portal:type</stringProp>
               </RegexExtractor>
