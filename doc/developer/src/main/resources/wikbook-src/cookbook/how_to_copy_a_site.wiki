@@ -5,7 +5,7 @@ This chapter describes how to copy a work done on the eXo Platform server, such 
 * [Copy navigation nodes of sites|#DEV.Cookbook.CopyNavigationNodesOfSites].
 * [Copy templates of node types templates|#DEV.Cookbook.CopyTemplateOfNodeType].
 * [Copy the WCM template|#DEV.Cookbook.CopyWCMTemplates].
-* [Copy a Taxonomy tree.|#DEV.Cookbook.CopyTaxonomyTree].
+* [Copy a Taxonomy tree|#DEV.Cookbook.CopyTaxonomyTree].
 * [Copy Metadata templates|#DEV.Cookbook.CopyMetadataTemplates].
 * [Copy queries|#DEV.Cookbook.CopyQueries].
 * [Copy scripts|#DEV.Cookbook.CopyScripts].
@@ -15,13 +15,13 @@ This chapter describes how to copy a work done on the eXo Platform server, such 
 
 The procedure of each step will be detailed as follows:
 
- {docbook}
+{docbook}
  <citetitle>
  <para xml:id="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">
  <emphasis role="bold">Step 1. Copy a site's content folder with its version history.</emphasis>
  </para>
  </citetitle>
- {docbook}
+{docbook}
 
 *1.* Go to the *Sites Management* drive.
 
@@ -40,7 +40,6 @@ The procedure of each step will be detailed as follows:
 !images/how_to_copy_a_site/import_site_nodes2.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 One pop-up message will appear to inform that you have imported successfully.
-
 
 {docbook}
 <citetitle>
@@ -61,7 +60,6 @@ One pop-up message will appear to inform that you have imported successfully.
 *3.* Import the nodes navigation.
 
 !images/how_to_copy_a_site/import_site_navigations.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
 
 {docbook}
 <citetitle>
@@ -94,8 +92,6 @@ One pop-up message will appear to inform that you have imported successfully.
 {note}
 If you have some specific JCR namespaces and node types, you need to import them into the new server.
 {note}
-
-
 
 {docbook}
 <citetitle>
@@ -181,8 +177,6 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 
 *3.* Export and import it in the same location in the new server again.
 
-
-
 {docbook}
 <citetitle>
 <para xml:id="DEV.Cookbook.CopyQueries">
@@ -259,6 +253,3 @@ You will find three folders referring to the three types of groovy scripts in eX
 After importing the site navigation nodes, the site may look quite broken, so you need to restart the server first. After the server is restarted, the site will look like:
 
 !images/how_to_copy_a_site/acme_site_after_import_and_restart.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-
-
