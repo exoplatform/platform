@@ -9,12 +9,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="ThreadCount" elementType="Argument">
             <stringProp name="Argument.name">ThreadCount</stringProp>
-            <stringProp name="Argument.value">${__P(expThreadCount,3)}</stringProp>
+            <stringProp name="Argument.value">${__P(expThreadCount,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="LoopCount" elementType="Argument">
             <stringProp name="Argument.name">LoopCount</stringProp>
-            <stringProp name="Argument.value">${__P(expLoopCount,2)}</stringProp>
+            <stringProp name="Argument.value">${__P(expLoopCount,10000000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
@@ -29,7 +29,7 @@
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,18080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="RampUpPeriod" elementType="Argument">
