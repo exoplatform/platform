@@ -413,13 +413,13 @@ eXoEventGadget.prototype.displayProfileInfo = function(required_profiles, fix_th
                         }
                         
 eXoEventGadget.prototype.click_fixthisLink = function() {
-                                var url = "/portal/rest/plf/gadgets/getprofiles";
+                                var url = "/rest/platform/info";
                                 $.getJSON(url, function(data){
                                 var required_profiles_form = document.getElementById("required_profiles");
                                 required_profiles_form.style.display = "none";
                                 var fix_this_form = document.getElementById("fix_this");
                                 fix_this_form.style.display = "block";                                  
-                                fix_this_form.innerHTML = '<p><b>Your system is currently running: [' + data.profiles + ']</b></p> \
+                                fix_this_form.innerHTML = '<p><b>Your system is currently running: [' + data.runningProfile + ']</b></p> \
                                                         <p>You can enable <b>[default, collaboration, all]</b> profile with:<br/> \
                                                         <b>-Dexo.profiles=[default, collaboration, all]</b></p>\
                                                         <a onclick="eXoEventGadget.displayProfileInfo(\'fix_this\',\'required_profiles\')" href="#">[OK]</a>';

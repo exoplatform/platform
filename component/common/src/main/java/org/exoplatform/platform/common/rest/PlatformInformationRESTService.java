@@ -32,6 +32,7 @@ import org.exoplatform.commons.info.ProductInformations;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.container.PortalContainer;
 
 /**
  * @author <a href="mailto:anouar.chattouna@exoplatform.com">Anouar
@@ -60,12 +61,15 @@ public class PlatformInformationRESTService implements ResourceContainer {
     cacheControl.setNoCache(true);
     cacheControl.setNoStore(true);
     try {
+      String plfProfile = PortalContainer.getProfiles().toString().trim();
+      String runningProfile = plfProfile.substring(1,plfProfile.length()-1);
       JsonPlatformInfo jsonPlatformInfo = new JsonPlatformInfo();
       jsonPlatformInfo.setPlatformVersion(platformInformations.getVersion());
       jsonPlatformInfo.setPlatformBuildNumber(platformInformations.getBuildNumber());
       jsonPlatformInfo.setPlatformRevision(platformInformations.getRevision());
       jsonPlatformInfo.setPlatformEdition(getPlatformEdition());
       jsonPlatformInfo.setIsMobileCompliant(isMobileCompliant().toString());
+      jsonPlatformInfo.setRunningProfile(runningProfile);      
       if (logger.isDebugEnabled()) {
         logger.debug("Getting Platform Informations: eXo Platform (v" + platformInformations.getVersion() + " - build "
             + platformInformations.getBuildNumber() + " - rev. " + platformInformations.getRevision());
@@ -101,6 +105,7 @@ public class PlatformInformationRESTService implements ResourceContainer {
     private String platformRevision;
     private String platformEdition;
     private String isMobileCompliant;
+    private String runningProfile;
 
     public JsonPlatformInfo() {}
 
@@ -142,6 +147,14 @@ public class PlatformInformationRESTService implements ResourceContainer {
 
     public void setPlatformEdition(String platformEdition) {
       this.platformEdition = platformEdition;
+    }
+    
+    public String getRunningProfile() {
+      return this.runningProfile;
+    }
+
+    public void setRunningProfile(String runningProfile) {
+      this.runningProfile = runningProfile;
     }
 
   }
