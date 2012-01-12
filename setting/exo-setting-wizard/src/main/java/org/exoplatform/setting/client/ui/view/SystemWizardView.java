@@ -90,7 +90,7 @@ public class SystemWizardView extends WizardView {
     if(datas != null) {
       int i = 0;
       for(Map.Entry<String, String> entry : datas.entrySet()) {
-        systemInfoOptions.setHTML(i, 0, "<b>" + entry.getKey() + ": </b>");
+        systemInfoOptions.setHTML(i, 0, "<strong>" + entry.getKey() + ": </strong>");
         systemInfoOptions.setHTML(i, 1, entry.getValue());
         i++;
       }

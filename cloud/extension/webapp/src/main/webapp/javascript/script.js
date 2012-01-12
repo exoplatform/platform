@@ -93,13 +93,13 @@
 				var doc = data[i];
 				var AppClass = document.createElement('div');
 
-				var showHTML = "<b>Name:</b> ";
+				var showHTML = "<strong>Name:</strong> ";
                                 showHTML += doc["tenantName"];
                                 showHTML += "<br/>";
-                                showHTML += "<b>Id :</b> ";
+                                showHTML += "<strong>Id :</strong> ";
                                 showHTML += doc["uuid"];
                                 showHTML += "<br/>";
-                                showHTML += "<b>State:</b> ";
+                                showHTML += "<strong>State:</strong> ";
                                 if (doc["state"]=="ONLINE")
  				     showHTML += "<img src=\"/cloud-extension/gadgets/skin/green.png\" title=\"" + doc["state"]+ "\" />";
                                 else if (doc["state"]=="UNKNOWN" || doc["state"]=="SUSPENDED")
