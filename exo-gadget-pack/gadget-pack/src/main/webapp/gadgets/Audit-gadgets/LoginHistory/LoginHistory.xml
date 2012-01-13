@@ -116,12 +116,12 @@
 				if (selectedUser == "AllUsers") {
 					$.each(loginHistory, function(i, loginHistory){
 						loginHistoryHtml += "<div class='loginHistoryItem'>" + "<b>" + "<span id='" + loginHistory.userId + "' class='userNameLink customLink'>" + loginHistory.userName.replace(/ /g, "&nbsp;") + "</span>" + "</b>" + "&nbsp;-&nbsp;" + (loginHistory.loginTime > new Date().getTime() ? "next&nbsp;" + prettyTimeDiff(loginHistory.loginTime, true) : prettyTimeDiff(loginHistory.loginTime, true) + "&nbsp;ago").replace(/ /g, "&nbsp;") + "</div>";
-						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<em>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</em>" + "</div>";
+						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<i>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</i>" + "</div>";
 					});
 				} else {
 					$.each(loginHistory, function(i, loginHistory){
 						loginHistoryHtml += "<div class='loginHistoryItem'>" + (loginHistory.loginTime > new Date().getTime() ? "next " + prettyTimeDiff(loginHistory.loginTime) : prettyTimeDiff(loginHistory.loginTime) + " ago") + "</div>";
-						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<em>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</em>" + "</div>";
+						loginHistoryHtml += "<div class='loginHistoryItemDetail'>" + "<i>" + new Date(loginHistory.loginTime).toString("ddd MMM dd yyyy hh:mm:ss tt") + "</i>" + "</div>";
 					});
 				}
 				return loginHistoryHtml;
@@ -245,7 +245,7 @@
 					var yearLink = "<a class='chartTitleLink' href='#yearstats/" + Date.parse("Jan 01 " + year).getTime() + "'>" + year + "</a>";
 					var quarter = getQuarter(titleWeek.getTime());
 					var quarterLink = "<a class='chartTitleLink' href='#quarterstats/" + quarter.date + "'>" + "Q" + quarter.number + "</a>";
-					var chartTitle = "<strong>" + "__MSG_loginHistory.week__ " + currentWeek.getWeek() + "</strong>" + " (" + quarterLink + " - " + monthLink + " " + yearLink + ")";
+					var chartTitle = "<b>" + "__MSG_loginHistory.week__ " + currentWeek.getWeek() + "</b>" + " (" + quarterLink + " - " + monthLink + " " + yearLink + ")";
 					$("#loginStatsChartTitle").html(chartTitle);
 					drawChart($("#loginStatsChart"), counts, weekDays);
 					$("#stats").html("__MSG_loginHistory.averagePerDay__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
@@ -321,11 +321,11 @@
 					var quarter = getQuarter(currentMonth);
 					var chartTitle;
 					if (numOfMonths == 3) {
-						chartTitle = "<strong>" + "Q" + quarter.number + "</strong>" + " (" + yearLink + ")";
+						chartTitle = "<b>" + "Q" + quarter.number + "</b>" + " (" + yearLink + ")";
 					}
 					else {
 						var quarterLink = "<a class='chartTitleLink' href='#quarterstats/" + quarter.date + "'>" + "Q" + quarter.number + "</a>";
-						chartTitle = "<strong>" + currentMonth.toString("MMMM") + "</strong>" + " (" + quarterLink + " - " + yearLink + ")";
+						chartTitle = "<b>" + currentMonth.toString("MMMM") + "</b>" + " (" + quarterLink + " - " + yearLink + ")";
 					}
 					$("#loginStatsChartTitle").html(chartTitle);
 					drawChart($("#loginStatsChart"), counts, weeks.map(function(x){return "w" + x}));
@@ -410,7 +410,7 @@
 						}
 					});
 	
-					var chartTitle = "<strong>" + currentYear.getFullYear() + "</strong>";
+					var chartTitle = "<b>" + currentYear.getFullYear() + "</b>";
 					$("#loginStatsChartTitle").html(chartTitle);
 					drawChart($("#loginStatsChart"), counts, months);								
 					$("#stats").html("__MSG_loginHistory.averagePerMonth__: " + (counted == 0 ? 0 : (counts.sum()/counted)).toFixed(2));
@@ -459,7 +459,7 @@
 				$("#navigationLinksDiv").show();
 				$("#statisticLink").removeClass();
 				$("#historyLink").addClass("ThemeColor customLink");
-				$("#userIdDiv").html("<strong>" + selectedUserName + "</strong>");
+				$("#userIdDiv").html("<b>" + selectedUserName + "</b>");
 	
 				if(selectedUser == "AllUsers") {
 					$("#userIdDiv").hide();
@@ -480,7 +480,7 @@
 				$("#navigationLinksDiv").show();
 				$("#statisticLink").addClass("ThemeColor customLink");
 				$("#historyLink").removeClass();
-				$("#userIdDiv").html("<strong>" +selectedUserName + "</strong>");
+				$("#userIdDiv").html("<b>" +selectedUserName + "</b>");
 	
 				if(selectedUser == "AllUsers") {
 					$("#userIdDiv").hide();
@@ -676,7 +676,7 @@
 			<div id="lastLoginsDiv">
 				<table width="100%">
 					<tr>
-						<td align="left" width="3%"><label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><strong>__MSG_loginHistory.user__&nbsp;</strong></label></td>
+						<td align="left" width="3%"><label style="border-width: 1px 1px 1px 0px;" for="searchTxt"><b>__MSG_loginHistory.user__&nbsp;</b></label></td>
 						<td align="right" width="47%"><input id="searchTxt" style="width: 100%; border-width: 1px; padding: 0px;" type="text"></td>
 						<td align="right" width="23%"><input style="width: 100%; border-width: 1px;" id="findBtn" value="__MSG_loginHistory.find__" type="button"></td>
 						<td align="right" width="27%"><input style="width: 100%; border-width: 1px;" id="latestBtn" value="__MSG_loginHistory.latest__" type="button"></td>

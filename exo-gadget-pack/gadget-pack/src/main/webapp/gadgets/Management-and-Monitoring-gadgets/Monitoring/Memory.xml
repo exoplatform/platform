@@ -46,7 +46,7 @@
             $.each(dataGraphs, function (key, graph) {
               var graphName = graph[0];
               plot1 = $.jqplot('memoryGraph_'+graphName, [graph[2]], {
-                title: '<strong>' + graphName+' memory</strong> <br />'+graph[1],
+                title: '<b>' + graphName+' memory</b> <br />'+graph[1],
                 seriesDefaults:{
                   renderer:$.jqplot.PieRenderer,
                   rendererOptions:{sliceMargin:4, fill:true, shadow:true, lineWidth:5},

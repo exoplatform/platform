@@ -131,7 +131,7 @@ public class SummaryWizardView extends WizardView {
     if(datas != null) {
       int i = 0;
       for(Map.Entry<SetupWizardData, String> entry : datas.entrySet()) {
-        summary.setHTML(i, 0, "<strong>" + entry.getKey() + ": </strong>");
+        summary.setHTML(i, 0, "<b>" + entry.getKey() + ": </b>");
         summary.setHTML(i, 1, entry.getValue());
         i++;
       }
