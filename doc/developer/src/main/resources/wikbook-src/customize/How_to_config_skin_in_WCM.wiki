@@ -1,12 +1,10 @@
-h2. Goal {anchor:id=DEV.CreateYourOwnPortal.Goal}
-This tutorial will help you to create a new layout and skin, and give some best practices you should know and respect when creating a new layout and skin for your portal and page.
+This tutorial will help you to create a new layout and skin, and give some best practices when creating a new layout and skin for your portal and page.
+Instructions described here are based on the following assumptions:
+* You have an extension named "MyPortal", and you need to create a site called "MySite" inside this portal.
+* The _{{{<myportal_path>}}}_ below is replaced with the based path of your "MyPortal" extension.
+* If you see any folder/file which does not exist, you should create a new one.
 
-h2. Assumptions {anchor:id=DEV.CreateYourOwnPortal.Assumptions}
-- You have an extension named "MyPortal", and you need to create a site called "MySite" inside this portal.
-- The _{{{<myportal_path>}}}_ below is replaced by the based path of your "MyPortal" extension.
-- If you see any folder/file which does not exist, you should create a new one.
-
-h2. Customize portal's layout {anchor:id=DEV.CreateYourOwnPortal.CustomizePortalLayout}
+h1. Customize portal's layout {anchor:id=DEV.CreateYourOwnPortal.CustomizePortalLayout}
 
 {note}
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/portal.xml] You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
@@ -23,8 +21,8 @@ In which:
 
 A table column container with three nested containers:
 
-* Left Column and Right Column: contain one application for each.
-* Main content: contains the page body.
+* Left Column and Right Column: Contain one application for each.
+* Main content: Contain the page body.
 
 And here is the fragment of _portal.xml_ located in this path: {noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml{noformat}_
 
@@ -94,7 +92,7 @@ So, in the *table* element (which represents the outer container), there are man
 
 To learn more, see [Customize portal and page's style|#customize-portal-and-page-style].
 
-h2. Customize page's layouts {anchor:id=DEV.CreateYourOwnPortal.CustomizePageLayout}
+h1. Customize page's layouts {anchor:id=DEV.CreateYourOwnPortal.CustomizePageLayout}
 
 {note}
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/ecmdemo/webapp/src/main/webapp/WEB-INF/conf/sample-portal/portal/portal/acme/pages.xml] You can leave all the portlet's preferences as blank, that means the default value will be taken and you do not need to care about it at this time.
@@ -119,16 +117,34 @@ This section is related to the configuration. You can see a sample [here.|http:/
 <!-- ... -->
 {code}
 
-h2. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
-If you want your skin to be applied for every page, do as follows:
+h1. Customize portal and page's style {anchor:id=customize-portal-and-page-style}
 
-*1.* Go to *Sites Explorer >* *Shared* drive *> CSS* folder.
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Apply your skin into all pages
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Go to *Sites Explorer -->* *Shared* drive *--> CSS* folder.
 
 *2.* Create a new CSS document which contains your stylesheet. You can use any name for this document and put a priority number.
 
-If you want your skin to be applied for your *MySite* page only, do as follows:
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Apply your skin into your MySite page only
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-*1.* Click !images/gear_icon.png! *--> Sites Explorer--> Sites Management drive --> MySite/css* folder.
+
+*1.* Click !images/gear_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! *--> Sites Explorer--> Sites Management drive --> MySite/css* folder.
 
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
@@ -157,7 +173,7 @@ The following is the sample stylesheet:
 The order of applying CSS files (of site and web content) depends on their own *priority* property value. It means that we can apply the site CSS first and then web content CSS, or vice versa.
 {note}
 
-h2. Customize CLV portlet's template {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVPortletTemplate}
+h1. Customize CLV portlet's template {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVPortletTemplate}
 
 {note}
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-artifacts/application-templates/content-list-viewer/list-by-folder/TwoColumnsCLVTemplate.gtmpl]
@@ -165,7 +181,9 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 * Apply your HTML/Groovy template code for this template. 
 
-For example: _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl{noformat}_
+For example: 
+
+_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl{noformat}_
 
 {code:html}
 <div id="$uicomponent.id" class="ACustomizedCLVTemplate">
@@ -213,16 +231,14 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/temp
 </external-component-plugins>
 {code}
 
-h2. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVTemplateStyle}
+h1. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVTemplateStyle}
 
-To customize the CLV template's style, do as follows:
-
-*1.* Go to *Sites explorer* portlet *> Sites management* drive *> MySite/css* folder.
+*1.* Go to *Sites explorer* portlet *--> Sites management* drive *--> MySite/css* folder.
 
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 
 {note}
-This document should contain ONLY the stylesheet for THIS template. If you have another template, you should create a new CSS document.
+This document should contain ONLY one stylesheet for THIS template. If you have another template, you should create a new CSS document.
 {note}
 
 * The following is the sample stylesheet:
@@ -246,7 +262,7 @@ This document should contain ONLY the stylesheet for THIS template. If you have 
 
 Please check out [this tutorial|http://wiki.exoplatform.com/xwiki/bin/view/WCM/How+to+create+and+deploy+pre-defined+contents+in+WCM] to know how to import this XML into the database.
 
-h2. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuemntSkin}
+h1. Customize Document's skin {anchor:id=DEV.CreateYourOwnPortal.CustomizeDocuemntSkin}
 
 {note}
 This section is related to the configuration. You can see a sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/wcm-extension/wcm/nodetypes-configuration.xml]
@@ -286,7 +302,7 @@ You also need to configure it to make sure it is imported to the database.
 
 Next, create the templates for this document, including:
 
-* Dialog: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
+* Dialog: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl{noformat}_
 
@@ -297,7 +313,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
   <% uiform.end() %>
 {code}
 
-* View: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
+* View: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
 
 _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl{noformat}_
 
@@ -308,7 +324,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 <!-- Document view template content is here -->
 {code}
 
-* Stylesheet: see the sample [here|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
+* Stylesheet: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/skins/Stylesheet-lt.css]
 
 {note}
 This document should contain ONLY the stylesheet for THIS template.

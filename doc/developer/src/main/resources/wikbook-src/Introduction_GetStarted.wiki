@@ -1,0 +1,4 @@
+This chapter will provide you the basic knowledge of eXo Platform 3.5 through the following topics:
+* [Glossary|#DEV.Glossary]
+* [Set up Maven settings|#DEV.SetupMavenSettings]
+* [eXo Architecture Primer|#DEV.eXoArchitecturePrimer]

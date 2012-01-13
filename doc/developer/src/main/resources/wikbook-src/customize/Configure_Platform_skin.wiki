@@ -1,9 +1,31 @@
 eXo Platform provides support for skinning the entire User Interface (UI) of portal, including all common portal elements, custom skins and window decorator for individual portlets. Skins are designed to help you pack and reuse common graphic resources.
 
-h2. Select skins within the configuration files {anchor:id=DEV.CreateYourOwnPortal.SelectSkinWithinConfigurationFiles}
+h1. Select skins within the configuration files {anchor:id=DEV.CreateYourOwnPortal.SelectSkinWithinConfigurationFiles}
 The default skin can be set in the portal configuration files. The skin configured as default is used by Platform as the administrator starts/restarts the server.
-* To change the default skin, add a skin tag to the _portal.war/WEB-INF/conf/portal/portal/classic/portal.xml_ configuration file.
-* To change the skin to MySkin, do as follows:
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Change the default skin
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Simply add a skin tag to the _portal.war/WEB-INF/conf/portal/portal/classic/portal.xml_ configuration file.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Change the skin to MySkin
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Use the following code:
 
 {code:xml}
 <portal-config>
@@ -16,7 +38,7 @@ The default skin can be set in the portal configuration files. The skin configur
 </portal-config>
 {code}
 
-h2. Skins in the page markup {anchor:id=DEV.CreateYourOwnPortal.SkinsInThePageMarkup}
+h1. Skins in the page markup {anchor:id=DEV.CreateYourOwnPortal.SkinsInThePageMarkup}
 The eXo Platform 3.5 skin not only contains CSS styles for the portal's components, but also shares components that may be reused in portlets. When eXo Platform 3.5 generates the page markup of portal, stylesheet links will be inserted in the page's head tag.
 There are two main types of CSS links which appear in the head tag: one to the portal skin CSS file and the other to the portlet skin CSS file.
 * *Portal Skin* appears as a single link to a CSS file. This link contains contents from all portal skin classes merged into one file. The portal skin will be transferred more quickly as a single file instead of multiple smaller files.
@@ -49,7 +71,7 @@ component/UIBannerPortlet/DefaultStylesheet.css" />
 Window styles and portlet specification CSS classes are included within the portal skin.
 {note}
 
-h2. SkinService {anchor:id=DEV.CreateYourOwnPortal.SkinService}
+h1. SkinService {anchor:id=DEV.CreateYourOwnPortal.SkinService}
 SkinService in eXo Platform 3.5 is to manage various types of skins. It is used to discover and deploy skins into the portal.
 
 * *Configure skins* {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkins}
@@ -109,7 +131,7 @@ Hence, the display-name element in _web.xml_ needs to be coherent with the appli
 </portlet-skin>
 {code}
 
-h2. Default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
+h1. Default skin {anchor:id=DEV.CreateYourOwnPortal.DefaultSkin}
 The default skin of eXo Platform 3.5 is located as part of the _eXoResource.war_ file. The main files associated with the skin include:
 * _WEB-INF/gatein-resources.xml_: defines the skin settings to use.
 * _WEB-INF/web.xml_: contains the resource filter with the display-name set.
@@ -143,7 +165,7 @@ When the portal skin is added to the page, it merges all CSS stylesheets into a 
 {note}
 
 
-h2. Create new skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins}
+h1. Create new skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins}
 
 {docbook}
 <para xml:id="DEV.CreateYourOwnPortal.CreateNewPortalSkins">
@@ -365,7 +387,7 @@ line-height: 24px;
 padding: 0px 0px 0px 5px; /* orientation=rt */
 {code}
 
-h2. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSkinsWithExtension}
+h1. Override skins with extension {anchor:id=DEV.CreateYourOwnPortal.OverrideSkinsWithExtension}
 
 The extension mechanism of eXo Platform 3.5 enables the skin definition to be replaced with the skin resource configured in the extension-deployed web application. This is the example where the CSS path of default portal skin needs to be modified without touching the Platform's files.
 

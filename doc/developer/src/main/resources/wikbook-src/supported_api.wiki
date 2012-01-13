@@ -5,7 +5,7 @@ This chapter presents the information about APIs that help you build your own ap
 ** [Java APIs|#DEV.eXoPlatformSupportedAPIs.JavaAPIs]
 ** [JavaScript APIs|#DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs]
 ** [Web Services|#DEV.eXoPlatformSupportedAPIs.WebServices]
-* [Provisional APIs|#DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs}]
+* [Provisional APIs|#DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs]
 ** [Java APIs|#DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs]
 
 h1. Definitions of API Levels {anchor:id=DEV.eXoPlatformSupportedAPIs.DefinitionsOfAPILevels}
@@ -79,7 +79,7 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 h2. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
-*[OpenSocial 0.8 Gadget Specification:|http://www.opensocial.org/Technical-Resources/opensocial-spec-v08/opensocial-reference08]* A standard that defines how to write gadgets and provide APIs. Gadgets are particularly useful for integrating external applications into eXo Platform.
+*[OpenSocial 0.8 Gadget Specification:|http://docs.opensocial.org/display/OSD/Specs]* A standard that defines how to write gadgets and provide APIs. Gadgets are particularly useful for integrating external applications into eXo Platform.
 
 h2. Web Services {anchor:id=DEV.eXoPlatformSupportedAPIs.WebServices}
 
@@ -95,7 +95,7 @@ h1. Provisional APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs}
 
 h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.ProvisionalAPIs.JavaAPIs}
 
-*[UI Extensions|../../../reference/html/bk03ch04.html#CONTref.Extensions.UIExtensions]*: An API to plug new actions into the eXo Platform UI.
+*[UI Extensions:|../../../reference/html/bk03ch04.html#CONTref.Extensions.UIExtensions]* An API to plug new actions into the eXo Platform UI.
 
 *[DocumentExplorer Toolbar|../../../reference/html/bk03ch04.html#CONTref.Extensions.UIExtensions.AddOwnTabInECMAdministration.AddOwnUIAction]*
 

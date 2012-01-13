@@ -1,4 +1,4 @@
-This chapter shows you how to set up maven. The rest of the Developer Guide explains how to setup an entire project/extension.
+Before setting up a complete project/extension, you need to have knowledge of how to install a Maven project.
 
 {docbook}
 <citetitle>
@@ -74,6 +74,6 @@ If the _settings.xml_ file has been existing, you can merge them. You will need 
 </para>
 {docbook}
 
-[Create an extension|#DEV.CreateYourOwnPortal.CreateExtensionProject]
+[Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
 
-[Create a skin|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
+[Create a custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]

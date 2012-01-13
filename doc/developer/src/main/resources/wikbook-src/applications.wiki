@@ -1,14 +1,14 @@
-Applications play an important role in each eXo service and so it is necessary for you to further understand about them.
+Applications play an important role in each eXo service, so it is necessary for you to further understand about them.
 
-This chapter will help you know how to integrate an application into your portal and how to develop your own application:
-* [Application integration|#DEV.WorkWithApplications.ApplicationIntegration]
-* [Develop your own applications|#DEV.WorkWithApplications.DevelopYourOwnApplications]
+In this chapter, you will know how to integrate an application into your portal, and how to develop your own application:
+* [Integrate an application|#DEV.WorkWithApplications.ApplicationIntegration]
+* [Develop your own application|#DEV.WorkWithApplications.DevelopYourOwnApplications]
 ** [Gadget vs Portlet|#DEV.WorkWithContent.GadgetvsPortlet]
 ** [Develop a gadget for eXo Platform|#DEV.WorkWithApplications.DevelopAGadgetForPlatform]
 ** [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
 
 
-h1. Application integration {anchor:id=DEV.WorkWithApplications.ApplicationIntegration}
+h1. Integrate an application {anchor:id=DEV.WorkWithApplications.ApplicationIntegration}
 
 To add a portlet to one of your portal's pages, you should configure the _pages.xml_ file located at _/war/src/main/webapp/WEB-INF/conf/sample-ext/portal/portal/classic/_.
 
@@ -46,7 +46,7 @@ Here is an example of the portlet configuration in the _pages.xml_ file:
 </portlet-application>
 {code}
 
-Details:
+*Details:*
 
 || XML tag name || Description ||
 | {{application-ref}} | The name of the webapp that contains the portlet. |
@@ -56,21 +56,19 @@ Details:
 | {{show-info-bar}} | Show the top bar with the portlet title. |
 | {{show-application-state}} | Show the collapse/expand icons. |
 | {{show-application-mode}} | Show the change portlet mode icon. |
-| {{preferences}} | Contain a list of _preferences_ specific to each portlet. Each _preference_ has a _name_ and a _value_. You can also lock it by setting the _read-only_ element to true. To learn more, refer to [eXo JCR and Extension Services Reference|../../../reference/html/index.html]. |
+| {{preferences}} | Contain a list of _preferences_ specific to each portlet. Each _preference_ has a _name_ and a _value_. You can also lock it by setting the _read-only_ element to "true". To learn more, refer to [eXo JCR and Extension Services Reference|../../../reference/html/index.html]. |
 
 
-h1. Develop your own applications {anchor:id=DEV.WorkWithApplications.DevelopYourOwnApplications}
+h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYourOwnApplications}
 
 h2. Gadget vs Portlet {anchor:id=DEV.WorkWithContent.GadgetvsPortlet}
 
 It is important to understand distinctions between gadgets and portlets. Portlets are user interface components that provide fragments of markup code from the server side, while gadgets generate dynamic web content on the client side. With Gadgets, small applications can be built quickly, and mashed up on the client side using the lightweight Web-Oriented Architecture (WOA) technologies, like REST or RSS.
 
 {note}
-For more information on how to develop gadgets and portlets, see in the GateIn Reference Guide:
-
-* [Portlet development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Portlet_development]
-* [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development]
+For more information on how to develop gadgets and portlets, see the [Portlet development|../../../reference/html/bk02ch04.html] and [Gadget development|../../../reference/html/bk02ch05.html] sections.
 {note}
+
 h2. Develop a gadget for eXo Platform {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform}
 
 Because a gadget is basically an independent HTML content, the gadget UI such as layout, font, color may be different. Thus, making consistent in the look and feel of all eXo Platform gadgets is very important.
@@ -78,9 +76,7 @@ In this part, it is assumed that developers have already known how to write a ga
 
 {note}
 
-To get more information on developing gadgets, refer to the following references:
-* [Gadget development|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-Gadget_development].
-* [Develop gadgets via a powerful web-based IDE of eXo Platform|http://community.exoplatform.org/rest/jcr/repository/knowledge/doc/PLF305/developer/html/ide-user-guide/index.html].
+To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/bk02ch05.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../../../developer-guide/html/ide-user-guide/index.html] sections.
 {note}
 
 h3. Get the consistent look and feel
@@ -94,7 +90,7 @@ h3. Get the consistent look and feel
 {docbook}
 
 To achieve the consistent look and feel, you have to collect the common features of all gadgets as much as possible and put in a place where it can be shared for all gadgets. You will use exo-gadget-resources for this purpose. 
-It is a _.war_ file that contains commonly used static resources (style sheets, images, Javascript libraries, etc) available for all gadgets in eXo Platform at runtime: 
+It is a _.war_ file that contains commonly used static resources (stylesheets, images, JavaScript libraries, and more) available for all gadgets in eXo Platform at runtime: 
 
 {code}
 /exo-gadget-resources 
@@ -113,29 +109,30 @@ It is a _.war_ file that contains commonly used static resources (style sheets, 
 
 The resources are divided into 2 categories: skin and script.
 
-*Skin*: is the place for the shared stylesheets of the gadgets (_exo-gadget/gadget-common.css_) and other third-party components styles adapted to eXo Platform skin (jqPlot, Flexigrid,etc).
+*Skin*: is the place for the shared stylesheets of the gadgets (_exo-gadget/gadget-common.css_) and other third-party components styles adapted to the eXo Platform skin (jqPlot, Flexigrid, and more).
 This is a copy of the component's original CSS with some modifications to match the eXo Platform's skin. You can find this original file at the component's folder under _exo-gadget-resources/script_ 
 , then link to it or make your own copy (put it in your gadget's folder and refer to it in gadget's .xml file) to suit your need.
 
 The _gadget-common.css_ file is the main place for the global stylesheets. When the eXo Platform skin is changed, updating stylesheets in this file will affect all gadgets skins accordingly. In this file,
-you will define stylesheets applied for all gadgets such as gadget title, gadget body, fonts, colors, tables, etc and some commonly used icons like drop down arrow, list bullet, setting button, etc.
+you will define stylesheets applied for all gadgets, such as gadget title, gadget body, fonts, colors, tables, and some commonly used icons, such as drop-down arrow, list bullet, setting button, and more.
+
+For example:
 
 * UIGadgetThemes: the gadget container.
 * TitGad: the gadget title.
 * ContTit: the gadget title content.
 * GadCont: the gadget content.
 * SettingButton: the setting button for gadget's User Preferences.
-* etc.
 
-*Script*: is the place for commonly used third-party javascript libraries (e.g: jQuery and its plugins) and a library of useful utility scripts (the utils folder). 
+*Script*: is the place for commonly used third-party JavaScript libraries (e.g: jQuery and its plugins) and a library of useful utility scripts (the utils folder). 
 
 jQuery and plugins:
 
-* _jquery/<version>_: jQuery Javascript library (http://jquery.com/).
-* _jquery/plugins/jqplot_: Charts and Graphs for jQuery (http://www.jqplot.com/).
-* _jquery/plugins/flexigrid_: Lightweight but rich data grid (http://flexigrid.info/).
-* _jquery/plugins/date.js_: Javascript date library (http://www.datejs.com/).
-* _jquery/plugins/jquery.timers_: Javascript timer (http://plugins.jquery.com/project/timers).
+* _jquery/<version>_: [jQuery JavaScript library|http://jquery.com/].
+* _jquery/plugins/jqplot_: [Charts and Graphs for jQuery|http://www.jqplot.com/].
+* _jquery/plugins/flexigrid_: [Lightweight but rich data grid|http://flexigrid.info/].
+* _jquery/plugins/date.js_: [JavaScript date library|http://www.datejs.com/].
+* _jquery/plugins/jquery.timers_: [JavaScript timer|http://plugins.jquery.com/project/timers].
 
 (Here you should keep the latest and several versions of jQuery because some plugins may not work with the latest version. Several versions of a plugin are also kept).
 
@@ -151,9 +148,9 @@ The utilities scripts:
 </citetitle>
 {docbook}
 
-A gadget should use static resources available in _exo-gadget-resources_ instead of including them in their own package. This helps reduce packaging size, avoid duplication (considering that every gadget includes a version of jQuery is in its own package) and take advantages of automatic skin changing/updating when the resources in _exo-gadget-resources_ is updated to the new eXo Platform skin. To make it work, the applied gadget must use the CSS classes defined in _gadget-common.css_ (at least for the gadget title) like the sample gadget below:
+A gadget should use static resources available in _exo-gadget-resources_ instead of including them in their own package. This helps reduce packaging size, avoid duplication (considering that every gadget includes a version of jQuery is in its own package) and take advantages of automatic skin changing/updating when the resources of _exo-gadget-resources_ are updated to the new eXo Platform skin. To make it work, the applied gadget must use the CSS classes defined in _gadget-common.css_ (at least for the gadget title) like the sample gadget below:
 
-{code: language="xml"}
+{code:xml}
 <Module> 
 <ModulePrefs title="Sample gadget" /> 
 <Content type="html"> 
@@ -192,9 +189,9 @@ The sample gadget:
 </citetitle>
 {docbook}
 
-The following gadget gives the demo of a user settings screen which uses eXo Platform standard icons (setting button, list item bullet, etc) that are defined in the _gadget-common.css_.
+The following gadget gives the demo of a user settings screen which uses eXo Platform standard icons (setting button, list item bullet, and more) that are defined in the _gadget-common.css_.
 
-{code: language="xml"}
+{code:xml}
 <Module> 
 <ModulePrefs title="Setting demo"> 
   <Require feature="dynamic-height"/> 
@@ -280,13 +277,11 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 {docbook}
 
 The gadget thumbnails are displayed in the *Page Editor* window when you edit a page. The thumbnail image size needs to be consistent for all gadgets in the list. 
-The current size (in eXo Platform 3.5) is 80 x 80px, so you should choose an image of this size in PNG (preferred), JPG or GIF format for your gadget thumbnail. 
+The current size (in eXo Platform 3.5) is 80 x 80px, so you should select an image of this size in PNG (preferred), JPG or GIF format for your gadget thumbnail. 
 
 !images/gadget_thumbnail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* The image can also be an image from a public website (absolute URL), for example: {noformat}<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>{noformat}
-
-or from an internal image (relative URL): {noformat}<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>{noformat}
+* The image can also be an image from a public website (absolute URL), for example: {noformat}<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>{noformat}; or from an internal image (relative URL): {noformat}<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>{noformat}
 
 
 h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}
@@ -295,11 +290,6 @@ The Portlet Bridge is an adapter for a web framework to the portlet container ru
 
 The JavaTM Specification Request 168 Portlet Specification (JSR 168) standardizes how components for portal servers are developed. This standard has industry backing from major portal server vendors. A Portlet Bridge allows you to create a JSR-168 compliant portlet with very little change on your existing web application.
 
-For example, the JSF Bridge allows you to transparently deploy your existing JSF Applications as a Portlet Application or Web Application.
+For example, the JSF Bridge allows you to transparently deploy your existing JSF Applications as a Portlet Application or Web Application. For more details, see http://wiki.apache.org/myfaces/PortletBridge.
 
-[http://wiki.apache.org/myfaces/PortletBridge]
-
-
-The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks, such as RichFaces and Seam. 
-
-[http://jboss.org/portletbridge/docs.html]
+The JBoss implementation of the Portlet Bridge has enhancements to support other web frameworks, such as RichFaces and Seam. For more details, see http://jboss.org/portletbridge/docs.html.

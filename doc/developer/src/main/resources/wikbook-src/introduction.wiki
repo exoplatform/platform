@@ -5,27 +5,22 @@ better, we are always pleased to hear from you. Let us know your questions and s
 
 http://community.exoplatform.org
 
-h1. Introduction  {anchor:id=DEV.eXoPlatform.Introduction}
+h1. Introduction {anchor:id=DEV.eXoPlatform.Introduction}
 
 The eXo Platform Developer Guide presents a complete overview of the eXo Platform 3.5 capabilities. This guide is intended for system integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portals. Accordingly, this guide introduces the eXo Platform architecture, and shows developers how to perform some of the most common tasks needed for customizing and working with eXo Platform 3.5. It also serves as an entry point for the Reference Guide, which provides in-depth technical reference for developers about eXo Platform 3.5. 
 
-After reading this guide, developers are expected to be able to customize their own portals and develop applications to run on eXo Platform 3.5.
+After reading this guide, developers are expected to be able to customize their own portals and develop applications to run on eXo Platform 3.5 through the following topics:
 
-This guide includes the following topics.
-
-|[Introduction|#DEV.Introduction]| The overview of eXo Platform 3.5, this developer guide and its intended readers.|
-|[Glossary|#DEV.Glossary]|Terms commonly used in the developers' aspect in the process of implementing the eXo Platform applications.|
-|[Set Up Maven Settings|#DEV.SetupMavenSettings]|Step-by-step instructions on how to set up Maven settings.|
-|[eXo Architecture Primer|#DEV.eXoArchitecturePrimer]|Introduction to Kernel, GateIn Extensions, Java Content Repository, and their components.|
-|[Create Your Own Portal|#DEV.CreatingYourOwnPortal]|Steps of creating and customizing your own portal.|
-|[Work with Content|#DEV.WorkingwithContent]|Topics related to the eXo Platform content.|
-|[Work with Applications|#DEV.WorkingwithApplications]|Instructions on how to integrate applications into your portal and how to deploy your own applications.|
-|[Integrate eXo Platform 3.5 into one information system|#DEV.SystemIntegration]|Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.|
-|[eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]|Information of APIs.|
-|[Cookbook|#DEV.Cookbook]|Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.|
-|[Upgrade eXo Platform|#DEV.Upgrade]|Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.|
-|[New Features|#DEV.NewFeatures]|New features integrated into eXo Platform 3.5. At present, only the called Navigation By Content feature is introduced in this chapter.|
-
+* [Introduction|#DEV.Introduction]: The overview of eXo Platform 3.5, this developer guide and its intended readers.
+* [Get Started|#DEV.Introduction.GetStarted]: Introduction to terms commonly used, how to set up Maven settings and eXo Architecture Primer.
+* [Create Your Own Portal|#DEV.CreatingYourOwnPortal]: Steps on how to create and customize your own portal.
+* [Work With Content|#DEV.WorkingwithContent]: Topics related to the eXo Platform content.
+* [Work With Applications|#DEV.WorkingwithApplications]: Instructions on how to integrate applications into your portal and how to deploy your own applications.
+* [System Integration|#DEV.SystemIntegration]: Topics related to the eXo Platform 3.5 integration into information systems through specific topics, such as authentication, user integration, LDAP integration and Email configuration.
+* [eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]: Information of APIs.
+* [Cookbook|#DEV.Cookbook]: Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.
+* [Upgrade eXo Platform|#DEV.Upgrade]: Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.
+* [New Features|#DEV.NewFeatures]: New features integrated into eXo Platform 3.5. At present, only the called Navigation By Content feature is introduced in this chapter.
 
 h2. About eXo Platform 3.5 {anchor:id=DEV.eXoPlatform.AbouteXoPlatform}
 

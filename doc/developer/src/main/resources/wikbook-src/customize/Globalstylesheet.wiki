@@ -2,11 +2,11 @@ Global stylesheet is the shared stylesheet which is applied to your entire site 
 
 Global stylesheets of eXo Platform are put into the CSS folder to manage the stylesheet of your desired site. This section aims at showing you how to create and apply your own global stylesheet by *Sites Explorer* and by configuration.
 
-h2. Create and apply the global stylesheet by Sites Explorer {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByContentExplorer}
+h1. Create and apply the global stylesheet by Sites Explorer {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByContentExplorer}
 
-*1.* Click !images/gear_icon.png width="5mm" fo:scalefit="1" html:scalefit="0"! *--> Content --> Sites Explorer --> Sites Management drive*.
+*1.* Click !images/gear_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! *--> Content --> Sites Explorer --> Sites Management drive*.
 
-*2.* Select one site node in the *Sites Management* pane, for example *acme*, and then select the CSS folder.
+*2.* Select one site node in the *Sites Management* pane, for example *acme*, then select the CSS folder.
 
 !images/CreateNewGlobalStylesheet.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -35,7 +35,7 @@ The default global stylesheet will be automatically created in the CSS folder wh
 * To edit your global stylesheet or predefined global stylesheets, simply select the corresponding file and click *Edit Document* on the action bar to open the *Edit* form. To rename the document, right-click the corresponding global stylesheets in the *Sites Management* pane, then select *Rename*.
 
 
-h2. Create and apply the global stylesheet by configuration {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByConfiguration}
+h1. Create and apply the global stylesheet by configuration {anchor:id=DEV.CreateYourOwnPortal.CreateAndApplyGlobalStylesheetByConfiguration}
 
 After being created as above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
 
@@ -82,7 +82,7 @@ After being created as above, your desired global stylesheet can be initialized 
 *6.* Start eXo Platform. After accessing the *Sites Explorer* page, you will find your global stylesheet in the CSS folder of the relevant site.
 
 
-h2. Check the display of global stylesheets {anchor:id=DEV.CreateYourOwnPortal.CheckDisplayOfGlobalStylesheet}
+h1. Check the display of global stylesheets {anchor:id=DEV.CreateYourOwnPortal.CheckDisplayOfGlobalStylesheet}
 
 You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *{noformat}GlobalStylesheet_Blue{noformat}* and *{noformat}GlobalStylesheet_Orange{noformat}*, do as follows:
 

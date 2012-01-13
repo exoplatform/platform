@@ -16,11 +16,11 @@ h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 
 h2. Single-Sign-On (SSO) {anchor:id=DEV.SystemIntegration.SingleSignON}
 
-When logging into the portal, you can gain access to many systems through portlets using a single identity. However, in many cases, the portal infrastructure must be integrated with other SSO-enabled systems. There are many different Identity Management solutions available. The GateIn documentation gives detailed configuration for different SSO implementation. For more details, see [Single Sign On|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-SSO_Single_Sign_On].
+When logging into the portal, you can gain access to many systems through portlets using a single identity. However, in many cases, the portal infrastructure must be integrated with other SSO-enabled systems. There are many different Identity Management solutions available. The GateIn documentation gives detailed configuration for different SSO implementation. For more details, see [SSO - Single Sign On|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-SSO_Single_Sign_On].
 
 h2. Central Authentication Service (CAS) {anchor:id=DEV.SystemIntegration.CenterAuthenticationService}
 
-Central Authentication Service (CAS) is a Web Single-Sign-On (WebSSO), developed by JA-SIG as an open source project. CAS enables you to work on different applications to log in only once and to be recognized and authenticated by all applications. Details about CAS can be found [here|http://www.ja-sig.org/products/cas/].
+Central Authentication Service (CAS) is a Web Single-Sign-On (WebSSO), developed by JA-SIG as an open source project. CAS enables you to work on different applications to log in only once and to be recognized and authenticated by all applications. Details about CAS can be found [here|http://www.jasig.org/cas].
 
 The CAS integration consists of two steps:
 
@@ -177,7 +177,7 @@ The predefined users are specified in the *membershipType* field of the Organiza
 
 h2. Organization API {anchor:id=DEV.SystemIntegration.OrganizationAPI}
 
-The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for five components. For more details, take a look at the [GateIn documentation|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html/chap-Reference_Guide-Authentication_And_Identity.html#sect-Reference_Guide-APIs-Organization_API].
+The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for five components. For more details, see the [Organization API|../../../reference/html/bk02ch06.html#sect-Reference_Guide-APIs-Organization_API] section.
 
 h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntegration}
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.
@@ -219,10 +219,10 @@ First, start by connection settings which will tell eXo how to connect to your d
 </component>
 {code}
 
-* *providerURL*: LDAP server URL (see [PROVIDER_URL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#PROVIDER_URL]). For multiple LDAP servers, use comma separated list of host:port (For example, ldap://127.0.0.1:389,10.0.0.1:389).
-* *rootdn*: distinguished name of user that will be used by the service to authenticate on the server (see [SECURITY_PRINCIPAL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_PRINCIPAL]).
-* *password*: password for user _rootdn_ (see [SECURITY_CREDENTIALS|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_CREDENTIALS]).
-* *authenticationType*: type of authentication to be used (see [SECURITY_AUTHENTICATION|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_AUTHENTICATION]). Use one of _none_, _simple_, _strong_. Default is _simple_.
+* *providerURL*: LDAP server URL (see [PROVIDER URL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#PROVIDER_URL]). For multiple LDAP servers, use comma separated list of host:port (For example, ldap://127.0.0.1:389,10.0.0.1:389).
+* *rootdn*: distinguished name of user that will be used by the service to authenticate on the server (see [SECURITY PRINCIPAL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_PRINCIPAL]).
+* *password*: password for user _rootdn_ (see [SECURITY CREDENTIALS|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_CREDENTIALS]).
+* *authenticationType*: type of authentication to be used (see [SECURITY AUTHENTICATION|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#SECURITY_AUTHENTICATION]). Use one of _none_, _simple_, _strong_. Default is _simple_.
 * *version*: LDAP protocol version (see [java.naming.ldap.version|http://java.sun.com/products/jndi/tutorial/ldap/misc/version.html]). Set to 3 if your server supports LDAP V3.
 * *referralMode*: one of _follow_, _ignore_, _throw_ (see [REFERRAL|http://java.sun.com/products/jndi/1.2/javadoc/javax/naming/Context.html#REFERRAL]).
 * *serverName*: you will need to set this to _active.directory_ to work with Active Directory servers. Any other value will be ignored and the service will act as on a standard LDAP.

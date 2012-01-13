@@ -17,7 +17,7 @@ In this example, all contents in the _/Sites Management/acme/events/All_ node wi
 </citetitle>
 {docbook}
 
-*1.* Log in to the sample ACME website.
+*1.* Log into the sample ACME website.
 
 *2.* Add a new page, for example "Events".
 
@@ -91,7 +91,7 @@ In which:
 
 * *Page for detail* = detail. This page is a system page that contains a *Single Content Viewer* portlet and will be used to display details of child nodes.
 
-*4.* Save changes, then go back to the ACME homepage, you will see changes from the *Events* drop-down menu.
+*4.* Save changes, then go back to the ACME homepage. You will see changes from the *Events* drop-down menu.
 
 !images/navigation_by_content_feature/contextualMenu.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -127,11 +127,11 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *1.* Go to the *Sites Explorer* page and navigate to the _/Sites Management/acme/events/All/Fire_ node.
 
-*2.* Click the *Content Navigation* button, the *Navigation* form will appear.
+*2.* Click the *Content Navigation* button to open the *Navigation* form.
 
 *3.* Uncheck the *Visible* field and save.
 
-*4.* Go back to the ACME homepage, you will see that the *Fire* sub-menu is not displayed in the contextual menu anymore.
+*4.* Go back to the ACME homepage. You will see that the *Fire* sub-menu is not displayed in the contextual menu anymore.
 
 !images/navigation_by_content_feature/Restrict_content_visibility.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -147,7 +147,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *2.* Select the _/Sites Management/acme/events/All/Earth_ node.
 
-*3.* Click the *Content Navigation* button, the *Navigation* form will appear.
+*3.* Click the *Content Navigation* button to open the *Navigation* form.
 
 *4.* Set the *Display order* field to "1" and save.
 
@@ -163,7 +163,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *10.* Set the *Display order* field to "3" and save.
 
-*11.* Go back to the ACME homepage, you will see that the display order from the contextual menu is *Earth*, *Water*, *Air*. Note that the *Fire* sub-menu is not displayed because it is set to "Invisible" in the previous example.
+*11.* Go back to the ACME homepage. You will see that the display order from the contextual menu is *Earth*, *Water*, *Air*. Note that the *Fire* sub-menu is not displayed because it is set to "Invisible" in the previous example.
 
 {docbook}
 <citetitle>
@@ -175,7 +175,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 
 *1.* Go to the *Sites Explorer* page and navigate to the _/Sites Management/acme/events/All/Fire_ node.
 
-*2.* Click the *Content Navigation* button, the *Navigation* form will appear.
+*2.* Click the *Content Navigation* button to open the *Navigation* form.
 
 *3.* Fill values into the *Navigation* form fields, including:
 
@@ -185,7 +185,7 @@ h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationBy
 * *Page for list* = catalog
 * *Page for detail* = detail
 
-*4.* Save changes and go back to the *Acme/Overview* homepage and see that the *Fire* node is attached to the *News* drop-down menu from the site menu:
+*4.* Save changes and go back to the *Acme/Overview* homepage. You will see that the *Fire* node is attached to the *News* drop-down menu from the site menu:
 
 !images/navigation_by_content_feature/Attach_node_ to_another_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -209,7 +209,7 @@ However, if you want to add your newly created content directly to the contextua
 
 *3.* Create a document under the _/Sites Management/acme/events/All/Fire_ node and publish it.
 
-*4.* Go back to the homepage and see that your newly created document is added to the contextual menu.
+*4.* Go back to the homepage. You will see that your newly created document is added to the contextual menu.
 
 !images/navigation_by_content_feature/docPDF.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -300,7 +300,7 @@ As a result, the content will be displayed in a detailed page as follows:
 !images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
-h2. Develop your own Product content {anchors:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
+h2. Develop your own Product content {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
 
 The sample *Product* page is composed of the following fields and folders:
 

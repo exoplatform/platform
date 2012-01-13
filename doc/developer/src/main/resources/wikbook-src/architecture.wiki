@@ -1,6 +1,6 @@
-With the aim of helping readers further understand about the eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more, this chapter is divided into 3 main sections with their sub-topics as follows:
+This section aims at helping readers further understand about the eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more. In this section, the sub-topics will be covered:
 
-The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part presents the following main contents:
+*[Kernel|#DEV.eXoArchitecturePremer.Kernel]*
 
 * [Containers|#DEV.eXoArchitecturePremer.Containers]
 * [Services|#DEV.eXoArchitecturePremer.Services]
@@ -8,12 +8,12 @@ The *[Kernel|#DEV.eXoArchitecturePremer.Kernel]* part presents the following mai
 * [Plugins|#DEV.eXoArchitecturePremer.Plugins]
 * [Configuration loading sequence|#ADM.eXoArchitecturePremer.ConfigureLoadingSequence]
 
-The *[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]* part includes contents of the followings:
+*[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]*
 
 * [Default Portal Container|#DEV.eXoArchitecturePremer.defaultPortalContainer]
 * [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension]
 
-The *[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]* part shows you the following main contents:
+*[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]*
 
 * [Repositories and workspaces|#DEV.eXoArchitecturePremer.Repositories&Workspaces]
 * [Tree structure: working with nodes and properties|#DEV.eXoArchitecturePremer.WorkingWithNodes&Properties]
@@ -281,7 +281,7 @@ The most elegant way to reuse configuration for different coexisting portals is 
 Starter is a web application which has been added to create and start all the portal containers once all the other web
 applications have already been started. Generally, each web application of a portal container defines several things,
 such as skins, JavaScripts, Google gadgets and configuration files, at its startup, so the loading order is important.
-For example, at startup of the web application 1, skins or configuration files or Javascript are defined that could depend on another JavaScript from the web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged JavaScript file.
+For example, at startup of the web application 1, skins or configuration files or JavaScripts are defined that could depend on another JavaScript from the web application 2. Thus, if the web application 2 is loaded after the web application 1, you will get errors in the merged JavaScript file.
 {note}
 
 If you ship servlets or servlet filters as part of your portal extension, and these servlets/servlet filters need to access specific resources of a portal during the process of the servlets or filters request, make sure that these servlets/filters are associated with the current portal container. The proper way to do that is making your servlet extend the _org.exoplatform.container.web.AbstractHttpServlet_ class. This will not only properly initialize the current _PortalContainer_ for you, but also set the current thread's context ClassLoader to servlets or servlet filters which looks for resources in associated web applications in the order specified by dependencies configuration.
@@ -403,7 +403,7 @@ In your portal, if you want to add your own property file to support localizatio
 
 h1. Java Content Repository {anchor:id=DEV.eXoArchitecturePremer.JavaContentRepository}
 
-All data of eXo Platform are stored in a Java Content Repository (JCR). JCR is the Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html] ) for a type of Object Database tailored to the storage, searching, and retrieval of hierarchical data. It is useful for the content management systems, which require storage of objects associated with metadata. The JCR also provides versioning, transactions, observations of changes in data, and import or export of data in XML. The data in JCR are stored hierarchically in a tree of nodes with associated properties.
+All data of eXo Platform are stored in a Java Content Repository (JCR). JCR is the Java specification ([JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html]) for a type of Object Database tailored to the storage, searching, and retrieval of hierarchical data. It is useful for the content management systems, which require storage of objects associated with metadata. The JCR also provides versioning, transactions, observations of changes in data, and import or export of data in XML. The data in JCR are stored hierarchically in a tree of nodes with associated properties.
 
 Also, the JCR is primarily used as an internal storage engine. Accordingly, eXo Content lets you manipulate JCR data directly in several places. 
 
@@ -464,7 +464,7 @@ Repository repository = repositoryService.getCurrentRepository();
 
 *The third way*
 
-Using JNDI as specified in JSR-170.
+Using JNDI as specified in [JSR-170|http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html].
 
 {code:java}
 Context ctx = new InitialContext();

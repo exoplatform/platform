@@ -5,13 +5,13 @@ This chapter will show you how to create a portal via the following topics:
 
 * [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
 * [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
-* [Add/remove languages|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
+* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
 * [Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
 ** [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
 ** [Configure skin in eXo Platform|#DEV.CreateYourOwnPortal.ConfigureSkinInPlatform]
 ** [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
 ** [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
-** [Customize Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
+** [Customize the Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
 * [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
 
 h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
@@ -24,7 +24,15 @@ To see the sample extension package, visit [here|http://anonsvn.jboss.org/repos/
 
 Once you have modified the sample extension to build your own portal, use the _maven clean install_ command to create the archive files.
 
-*To deploy your extension in Tomcat:*
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Deploy your extension in Tomcat
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 *1.* Add the _sample-ext.war_ file from the _sample/extension/war/target/_ to the _tomcat/webapps_ directory.
 
@@ -40,7 +48,7 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *5.* Add the .jar file named _exo.portal.sample.extension.jar-X.Y.Z.jar_ from _sample/extension/jar/target/_ to the _tomcat/lib_ directory.
 
-For the JBoss deployment with more details, refer to the [Gatein Reference Guide|http://docs.exoplatform.org/PLF35/index.jsp?topic=%2Forg.exoplatform.doc.35%2Fbk06.html].
+For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/bk02.html].
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
@@ -135,7 +143,7 @@ The _portal.xml_ file describes the layout and portlets that will be shown on al
 </portal-config>
 {code}
 
-Each portlet can be configured with a set of preferences, which will be further detailed in [Chapter 6|#DEV.WorkingwithContent].
+Each portlet can be configured with a set of preferences, which will be further detailed in [Chapter 5|#DEV.WorkingwithApplications].
 
 It is also possible to apply a nested container that can also contain portlets. Row, column or tab containers are then responsible for the layout of their child portlets.
 
@@ -208,7 +216,7 @@ This is the example of the _pages.xml_ file of the "classic" portal.
 {code}
 
 {note}
-See [Chapter 6|#DEV.WorkingwithContent] to learn more about the portlet configuration within the _pages.xml_ file.
+See [Chapter 5|#DEV.WorkingwithApplications] to learn more about the portlet configuration within the _pages.xml_ file.
 {note}
 
 {docbook}
@@ -319,7 +327,7 @@ For example:
 </page>
 {code}
 
-h1. Add/remove languages {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
+h1. Add/Remove a language {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
 
 Developer can define new or remove a defined language through the locale configuration file. The resource is managed by _org.exoplatform.services.resources.LocaleConfigService_ as following:
 
@@ -338,7 +346,7 @@ Developer can define new or remove a defined language through the locale configu
 
 All languages defined in the _locale-config.xml_ file are listed in the [*Interface Language Settings*|#DEV.Interface_Language_Setting_window] window.
 
-h2. Add new languages {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
+h2. Add a new language {anchor:id=DEV.CreateYourOwnPortal.AddNewLanguages}
 
 To add a new language, you need to add the corresponding language node in the _locale-config.xml_ file. Next, you must create a new _resource bundle_ file containing the suffix name as the key of the added node.
 
@@ -369,7 +377,7 @@ To check if the added language takes effect, hover the mouse over your username 
 
 !images/example_addItalian.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Remove languages {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
+h2. Remove a language {anchor:id=DEV.CreateYourOwnPortal.RemoveLanguages}
 
 To remove an existing language, you need to delete the relevant language node in the _locale-config.xml_ file and all files containing the suffix name as the key of language.
 
@@ -389,7 +397,7 @@ For example, to remove French, do as follows:
 *2.* Continue removing all _resource bundle_ files containing the suffix name as *fr* in all folders.
 
 {note}
-It is recommended this step shoud be done to delete unnecessary data in the application.
+It is recommended this step be done to delete unnecessary data in the application.
 {note}
  
 *3.* Restart the server.
@@ -434,9 +442,17 @@ eXo Platform 3.5 provides you with some built-in templates when you create a new
 
 You should use the extension to add the page layout configuration. In this guide, you are going to work with the _/examples/extension_ project.
 
-To create a custom page template, do as follows:
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Create a custom page template
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-*1*. Add your sample template "FourRowsLayout"  by overriding the _PageConfigOptions.groovy_ file (portal.war).
+*1.* Add your sample template "FourRowsLayout" by overriding the _PageConfigOptions.groovy_ file (portal.war).
 
 Add it to this path: _/examples/extension/war/src/main/webapp/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy_
 
@@ -452,7 +468,7 @@ samplePageConfigs.addSelectItemOption(new SelectItemOption("samplePage.FourRowsL
 ...
 {code}
 
-*2*. Add your template file into: _/examples/extension/war/src/main/webapp/WEB-INF/conf/portal/template/pages/four-rows/page.xml_
+*2.* Add your template file into the _/examples/extension/war/src/main/webapp/WEB-INF/conf/portal/template/pages/four-rows/page.xml_ file.
 
 !images/page.xml.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -498,4 +514,4 @@ Add your own stylesheet in your extension webapp:
 
 You can refer to the eXo Platform 3.5's default stylesheet in this path: _/web/eXoResources/src/main/webapp/skin/DefaultSkin/webui/component/UISelector/UIItemSelector/Stylesheet.css_
 
-*4*. Deploy your extension project and you should see the template and its preview image in the *Page Creation Wizard*.
+*4*. Deploy your extension project. You will see the template and its preview image in the *Page Creation Wizard*.

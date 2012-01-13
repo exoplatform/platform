@@ -293,7 +293,7 @@ uicomponent.addSelectBoxField("mimetype", mimetype) ;
 
 As usual, the value will be stored at the relative path defined by the jcrPath directive argument.
 
-For more examples on how to create WCM templates, refer to [Reference Guide|../../../reference/html/bk03ch04.html#CONTref.InsideWCMTemplates].
+For more examples on how to create WCM templates, refer to the [WCM Templates|../../../reference/html/bk03ch04.html#CONTref.InsideWCMTemplates] section.
 
 h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSelectBox}
 

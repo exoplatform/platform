@@ -1,4 +1,4 @@
-h2. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets} 
+h1. Page skin Elements {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets} 
 
 The complete skinning of a page can be decomposed into three main parts:
 
@@ -47,7 +47,7 @@ The window decorators and the default portlet specification CSS classes should b
 A portlet skin does not need  to be  included as a part of the portal skin and can be included within the portlets web application.
 {note}
 
-h2. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
+h1. Best practices to customize a skin {anchor:id=DEV.CreateYourOwnPortal.BestPracticeToCustomizeSkin}
 The skin folder structure must be prepared once you start the design. Follow these conventions and best practices to ease the integration of your design in eXo Platform.
 
 *Name files and folders* {anchor:id=DEV.CreateYourOwnPortal.NameFiles&Folder}

@@ -1,4 +1,4 @@
-h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
+h1. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
 The current color of *Administration* bar is gray gradient. However, you can change the color to match your brand colors.
 
 The default *Administration* style:
@@ -11,7 +11,7 @@ Edit this CSS file to customize the *Administration* bar to your preferred color
 
 !images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Change the content on the Administration bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
+h1. Change the content on the Administration bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
 
 !images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
