@@ -701,7 +701,7 @@ You will be directed to the *Print Preview* page. Here, click *Print* to start p
 
 h1. Export a message {anchor:id="CSUser_guide.How_to_use_Mail.Export_messages}
 
-This function allows you to back up your messages, then import them into your another accounts. Messages are exported in the {noformat}*.eml{noformat} file.
+This function allows you to back up your messages, then import them into your another accounts. Messages are exported in the \*.eml file.
 
 *1.* Open the *Export Message* form via either of 3 ways.
 
@@ -709,13 +709,13 @@ This function allows you to back up your messages, then import them into your an
 
 *ii.* Or, tick the checkbox corresponding to the message, then click *More Actions* on the action bar and select *Export* from the drop-down menu;
 
-*iii.* Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Export {noformat}(*.eml){noformat}* from the drop-down menu.
+*iii.* Open the message, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content and select *Export (\*.eml)* from the drop-down menu.
 
 The *Export Message* form will appear.
 
 !images/export_message.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the {noformat}*.eml{noformat} format is supported.
+*2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the \*.eml format is supported.
 
 *3.* Click the *Export* button to accept exporting your selected message.
 
