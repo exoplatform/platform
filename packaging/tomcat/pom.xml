@@ -14,42 +14,36 @@
       <groupId>org.exoplatform.tool</groupId>
       <artifactId>exopackage</artifactId>
       <version>${org.exoplatform.exopackage.version}</version>
-      <scope>provided</scope>
       <type>zip</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>kernel.packaging.module</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
-      <scope>provided</scope>
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>core.packaging.module</artifactId>
       <version>${org.exoplatform.core.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ws</groupId>
       <artifactId>ws.packaging.module</artifactId>
       <version>${org.exoplatform.ws.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>jcr.packaging.module</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>portal.packaging.module</artifactId>
       <version>${org.exoplatform.portal.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- PLATFORM -->
@@ -64,14 +58,12 @@
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.module</artifactId>
       <version>${project.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform.packaging.product</artifactId>
       <version>${project.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
@@ -92,14 +84,12 @@
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>ks.packaging.module</artifactId>
       <version>${org.exoplatform.ks.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ks</groupId>
       <artifactId>portal.packaging.product</artifactId>
       <version>${org.exoplatform.ks.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- CS -->
@@ -113,14 +103,12 @@
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>cs.packaging.module</artifactId>
       <version>${org.exoplatform.cs.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>cs.packaging.product</artifactId>
       <version>${org.exoplatform.cs.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <!-- SOCIAL -->
@@ -142,14 +130,12 @@
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social.packaging.module</artifactId>
       <version>${org.exoplatform.social.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social.packaging.product</artifactId>
       <version>${org.exoplatform.social.version}</version>
-      <scope>provided</scope>
       <type>js</type>
     </dependency>
     <!-- ECMS -->
@@ -175,28 +161,24 @@
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>workflow.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>dms.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>wcm.packaging.module</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>wcm.packaging.product</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
-      <scope>provided</scope>      
       <type>js</type>
     </dependency>
 
