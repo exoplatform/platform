@@ -110,7 +110,6 @@ The specific implementation class of the component (CmsServiceImpl) is defined i
 
 If a service does not have a separate interface, the <type> will be used as the key in the container. This is the case of _ContentInitializerService_.
 
-
 h3. Parameters {anchor:id=DEV.eXoArchitecturePremer.Parameters}
 
 You can provide initial parameters for your service by defining them in the configuration file. The followings are different parameters:
@@ -121,7 +120,6 @@ You can provide initial parameters for your service by defining them in the conf
 * collection
 * map
 * native-array
-
 
 h4. Value-param {anchor:id=DEV.eXoArchitecturePremer.Value-param}
 
@@ -140,7 +138,6 @@ You can use the value-param to pass a single value to the service.
 </component>
 {code}
 
-
 The _LocaleConfigService_ service accesses the value of value-param in its constructor.
 
 {code:java}
@@ -154,7 +151,6 @@ public class LocaleConfigServiceImpl implements LocaleConfigService {
   }
 }
 {code}
-
 
 h4. Object-param {anchor:id=DEV.eXoArchitecturePremer.Object-param}
 
