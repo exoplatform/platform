@@ -59,7 +59,7 @@ Moderator can only add new sub-categories in a category that he moderates.
 
 *Details:*
 ||Field||Description||
-|*Asterisk {noformat}(*){noformat}*| This mark next to each field means that it is required to enter values in the field. |
+|*Asterisk (\*)*| This mark next to each field means that it is required to enter values in the field. |
 |*Category*| The name of the category. |
 |*Order*| The order of the category which must be in the numeric format. |
 |*Restricted Audience*| Select specific users/groups to be restricted from the category.|

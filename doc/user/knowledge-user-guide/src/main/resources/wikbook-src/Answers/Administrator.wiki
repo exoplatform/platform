@@ -106,15 +106,15 @@ In the *Email Notifications* tab, change the content of the email notification m
 
 The followings are variables that you can use in your template:
 
-*{noformat}&categoryName_{noformat}*: will be replaced by the watched category.
+*&categoryName\_*: will be replaced by the watched category.
 
-*{noformat}&questionContent_{noformat}*: will be replaced by the content of the new questions.
+*&questionContent\_*: will be replaced by the content of the new questions.
 
-*{noformat}&questionResponse_{noformat}*: will be replaced by the content of the new questions' reply.
+*&questionResponse\_*: will be replaced by the content of the new questions' reply.
 
-*{noformat}&questionLink_{noformat}*: will be replaced by the link for going to new questions.
+*&questionLink\_*: will be replaced by the link for going to new questions.
 
-*{noformat}&answerNowLink_{noformat}*: will be replaced by the link for going to new questions and open pop-up form Answer question.
+*&answerNowLink\_*: will be replaced by the link for going to new questions and open pop-up form Answer question.
 
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.

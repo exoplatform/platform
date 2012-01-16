@@ -99,13 +99,13 @@ In the *Wiki* application of eXo Platform, you can add a link pointing to a page
 </citetitle>
 {docbook}
 
-*1.* Add a link by typing the page title between square brackets '{noformat}[[...]]{noformat}' or '{noformat}[.... ]{noformat}' (depending on your selected syntax) into your page body.
+*1.* Add a link by typing the page title between square brackets '\[\[...]]' or '\[.... ]' (depending on your selected syntax) into your page body.
 
 For example:
 
 ||Syntax||What you type|| What you get||
-|Xwiki 2.0 |{noformat}[[eXo User Guide]]{noformat}|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
-|Confluence 1.0|{noformat}[eXo User Guide]{noformat}|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+|Xwiki 2.0 |\[\[eXo User Guide\]\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+|Confluence 1.0|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
 
 *2.* Click *Save* to save the page containing the link. The undefined link is colored in red with the underline.
 
@@ -565,10 +565,10 @@ h1. Work with Spaces {anchor:id=KSuser.Wiki.Work_with_Spaces}
 || Item|| Description||
 |*$CONTAINER$*|The portal container.|
 |*$SITE*|The portal site (e.g,'classic').|
-|*{noformat}$NAV_URI{noformat}* |The URI of navigation bound to a page containing the *Wiki* portlet.|
-|*{noformat}$OWNER_TYPE{noformat}*| May be 'group' or 'user'.|
+|*$NAV\_URI* |The URI of navigation bound to a page containing the *Wiki* portlet.|
+|*$OWNER\_TYPE*| May be 'group' or 'user'.|
 |*$OWNER* |The wiki owner which can be name of user or of group.|
-|*{noformat}$WIKI_PAGE_URI{noformat}* |The URI inferred automatically from the wiki page name.|
+|*$WIKI\_PAGE\_URI* |The URI inferred automatically from the wiki page name.|
 
 Any wiki page should be accessed by a friendly URL. For example:
 

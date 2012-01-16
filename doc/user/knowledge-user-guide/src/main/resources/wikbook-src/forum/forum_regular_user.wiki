@@ -480,12 +480,12 @@ This will bring up the "Quote" form, with the previous message already quoted in
 
 *2.* Enter your message. Edit the quotation if necessary.
 
-*i.* In the *Content* tab, the quoted content is wrapped between BBCodes tags {noformat}[QUOTE][/QUOTE] {noformat} which is automatically generated. Add your message content before or after this quoted content.
+*i.* In the *Content* tab, the quoted content is wrapped between BBCodes tags \[QUOTE\]\[/QUOTE\] which is automatically generated. Add your message content before or after this quoted content.
 You can create a quoted content manually by clicking !images/quote_content_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! from the *WYSIWYG* editor toolbar:
 
 !images/post_wysiwyg_editor.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-This will generate the quotation BBCodes tag for your message. After getting the quotation tag, enter your quotation between {noformat}[QUOTE] and [/QUOTE]{noformat}.
+This will generate the quotation BBCodes tag for your message. After getting the quotation tag, enter your quotation between \[QUOTE\] and \[/QUOTE\].
 
 *ii.* In the *Icons and Smileys* tab, select an icon for your reply here.
 
@@ -505,7 +505,7 @@ h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
 h2. Use BBCodes {anchor:id=Forum_user_settings.Forum_regular_user.BBcodes}
-BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the html markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces {noformat}"[" and "]"{noformat} rather than {noformat}"<" and ">"{noformat} and it offers greater control over what and how something is displayed.
+BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the html markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces "\[" and "\]" rather than "\<" and "\>" and it offers greater control over what and how something is displayed.
 
 Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click on the respective icon which is shown in the toolbar above the message area.
 

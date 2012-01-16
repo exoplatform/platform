@@ -199,7 +199,7 @@ Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefi
 
 *1.* Click the username or avatar of the poster.
 
-*2.* Click *{noformat}All Topics By [User name]{noformat}*.
+*2.* Click *All Topics By \[User name\]*.
 
 !images/mod_view_all_topics.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 

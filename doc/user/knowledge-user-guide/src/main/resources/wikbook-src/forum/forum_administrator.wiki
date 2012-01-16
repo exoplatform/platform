@@ -330,52 +330,52 @@ The followings are variables which can be used in the template:
 
 *The common variables for both tabs:*
 
-* *\VIEWPOST_\LINK*: Will be replaced by the public link referring to the new topic/post.
+* *VIEWPOST\_LINK*: Will be replaced by the public link referring to the new topic/post.
 
-* *{noformat}$VIEWPOST_PRIVATE_LINK{noformat}*: Will be replaced by the private link referring to the new topic/post.
+* *$VIEWPOST\_PRIVATE\_LINK*: Will be replaced by the private link referring to the new topic/post.
 
-* *{noformat}$REPLYPOST_LINK{noformat}*: Will be replaced by the private link referring to the topic and a form to reply will be automatically opened.
+* *$REPLYPOST\_LINK*: Will be replaced by the private link referring to the topic and a form to reply will be automatically opened.
 
 *The variables used in the New Post Notification tab:*
 
-* *{noformat}$OBJECT_WATCH_TYPE{noformat}*: Will be replaced by the watched object type (category/forum/topic).
+* *$OBJECT\_WATCH\_TYPE*: Will be replaced by the watched object type (category/forum/topic).
 
-* *{noformat}$OBJECT_NAME{noformat}*: Will be replaced by the name of the watched object (category/forum/topic).
+* *$OBJECT\_NAME*: Will be replaced by the name of the watched object (category/forum/topic).
 
-* *{noformat}$ADD_TYPE{noformat}*: Will be replaced by the newly added object type (topic/post).
+* *$ADD\_TYPE*: Will be replaced by the newly added object type (topic/post).
 
-* *{noformat}$ADD_NAME{noformat}*: Will be replaced by the newly added object name (topic name/post name).
+* *$ADD\_NAME*: Will be replaced by the newly added object name (topic name/post name).
 
-* *{noformat}$POSTER{noformat}*: Will be replaced by the topic/post owner.
+* *$POSTER*: Will be replaced by the topic/post owner.
 
-* *{noformat}$POST_CONTENT{noformat}*: Will be replaced by the topic/post contents.
+* *$POST\_CONTENT*: Will be replaced by the topic/post contents.
 
-* *{noformat}$TIME{noformat}*: Will be replaced by the time when the topic/post was added.
+* *$TIME*: Will be replaced by the time when the topic/post was added.
 
-* *{noformat}$DATE{noformat}*: Will be replaced by the date when the topic/post was added.
+* *$DATE*: Will be replaced by the date when the topic/post was added.
 
-* *{noformat}$CATEGORY{noformat}*: Will be replaced by the category name.
+* *$CATEGORY*: Will be replaced by the category name.
 
-* *{noformat}$FORUM{noformat}*: Will be replaced by the forum name.
+* *$FORUM*: Will be replaced by the forum name.
 
-* *{noformat}$TOPIC{noformat}*: Will be replaced by the topic name.
+* *$TOPIC*: Will be replaced by the topic name.
 
 *The variables used in the Moved Notification tab:*
 
-* *{noformat}$OBJECT_PARENT_NAME{noformat}*: Will be replaced by the forum name (if moving topics) or the topic name (if moving posts).
+* *$OBJECT\_PARENT\_NAME*: Will be replaced by the forum name (if moving topics) or the topic name (if moving posts).
 
-* *{noformat}$OBJECT_PARENT_TYPE{noformat}*: Will be replaced by the type of the moved parent object, such as forum (if moving topics) or topic (if moving posts).
+* *$OBJECT\_PARENT\_TYPE*: Will be replaced by the type of the moved parent object, such as forum (if moving topics) or topic (if moving posts).
 
-* *{noformat}$OBJECT_NAME{noformat}*: Will be replaced by the name of the moved object (topic name/post name).
+* *$OBJECT\_NAME*: Will be replaced by the name of the moved object (topic name/post name).
 
-* *{noformat}$OBJECT_TYPE{noformat}*: Will be replaced by the type of the moved object (topic/post).
+* *$OBJECT\_TYPE*: Will be replaced by the type of the moved object (topic/post).
 
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png|width="5mm" fo:scalefit="1" html:scalefit="0"!.
 You can use the text editor to format the template as you wish.
 
 h3. Customize a BBCode {anchor:id=Forum_Administrator.Administrative_tasks.Customize_BBcodes}
-By default, there are some default BBCode tags that are initialized via plugins: {noformat}"[B]", "[I]", "[U]", "[FONT]", "[HIGHLIGHT]", "[IMG]", "[CSS]", "[URL]", "[GOTO]", "[QUOTE]", "[LEFT]", "[RIGHT]", "[CENTER]", "[JUSTIFY]", "[SIZE]", "[COLOR]", "[CSS]", "[EMAIL]", "[CODE]", "[LIST]", "[WIKI], "[SLIDESHARE]"{noformat}. You can add, edit or delete the BBCode tags.
+By default, there are some default BBCode tags that are initialized via plugins: "\[B\]", "\[I\]", "\[U\]", "\[FONT\]", "\[HIGHLIGHT\]", "\[IMG\]", "\[CSS\]", "\[URL\]", "\[GOTO\]", "\[QUOTE\]", "\[LEFT\]", "\[RIGHT\]", "\[CENTER\]", "\[JUSTIFY\]", "\[SIZE\]", "\[COLOR\]", "\[CSS\]", "\[EMAIL\]", "\[CODE\]", "\[LIST\]", "\[WIKI\], "\[SLIDESHARE\]". You can add, edit or delete the BBCode tags.
 
 Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar, then select *BBCode* from the drop-down menu to open the *BBCode Manager* form.
 
@@ -403,7 +403,7 @@ h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_B
 |*Replacement*|The HTML codes that replace the user-entered BBCode.|
 |*Description*|The brief description about this BBCode tag.|
 |*Example*|The sample of the BBCode in use.|
-|*Use {noformat}{option}{noformat}*|Allow BBCode tag to have option or not.|
+|*Use {{{ {option} }}}*|Allow BBCode tag to have option or not.|
 |*Preview dialog*|Preview the rendered BBCodes.|
 |!images/Syntax_help_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to see descriptions of each field.|
 
@@ -507,11 +507,11 @@ Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="
 !images/admin_forum_banned_IPs.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 {anchor:id="administration-ban-IPs"}
 
-* To ban an IP, simply enter the IP address into the IP textboxes and click *{noformat}[Add]{noformat}*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
+* To ban an IP, simply enter the IP address into the IP textboxes and click *\[Add\]*. All banned IPs will be listed in the banned IPs table. You can view all posts which are posted from the specific banned IP or delete them from the banned IPs list.
 
-* To view all posts submitted from a specific IPs, click the *{noformat}[Posts]{noformat}* link of the respective IPs. These posts can be viewed and deleted by the administrator.
+* To view all posts submitted from a specific IPs, click the *\[Posts\]* link of the respective IPs. These posts can be viewed and deleted by the administrator.
 
-* To remove banned IPs from the banned IP list, click the *{noformat}[x]{noformat}* icon of the respective IP.
+* To remove banned IPs from the banned IP list, click the *\[x\]* icon of the respective IP.
 
 Besides, you can also filter the banned IPs if there are so many banned IPs.
 
