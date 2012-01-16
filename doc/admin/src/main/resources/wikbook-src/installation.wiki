@@ -178,9 +178,15 @@ CATALINA_OPTS="$CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_
 export CATALINA_OPTS
 {code}
 
+{note}
+In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
+By default, the number of open files is limited to "1024". You should execute the command "ulimit -n 8196" as root before starting the server to avoid this issue.
+{note}
+
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
 eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are distributed in the package named _eXo-Platform-jboss-3.5.x.zip_.
+
 {docbook}
 <citetitle>
 <para>
@@ -188,6 +194,7 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 </para>
 </citetitle>
 {docbook}
+
 *1.* Copy the following files to _{noformat}jboss-root/server/default/deploy{noformat}_.
 
 - gatein-ds.xml
