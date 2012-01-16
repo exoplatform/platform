@@ -41,10 +41,10 @@ In this form, you need to set a time interval in the *Start* and *End* field by 
 
 *3.* Submit your task by clicking the *Submit* button.
  
-After being submitted, this task will be sent to members of _{noformat}*:/organization/management/executive-board{noformat}_ group for waiting to be approved/disapproved or refused.
+After being submitted, this task will be sent to members of _\*:/organization/management/executive-board_ group for waiting to be approved/disapproved or refused.
 
 h2. Manage a holiday process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_Process}
-If you are a member of _{noformat}*:/organization/management/executive-board{noformat}_ group, you have a responsibility to evaluate received tasks. To take this action, do as follows:
+If you are a member of _\*:/organization/management/executive-board_ group, you have a responsibility to evaluate received tasks. To take this action, do as follows:
 
 *1.* Open the *Workflow Controller* portlet. If there are tasks pending to be evaluated, you will see the task list in *Task Controller* tab.
 
@@ -62,9 +62,9 @@ You can see the following dialog for more details about this process.
 
 * If you agree with the period proposed by the user in the received task:
 
-*i.* Click the *Approve* button on the *Task Management* form. Automatically, this task will be sent to members of _{noformat}*:/organization/management/human-resources{noformat}_ to read it. 
+*i.* Click the *Approve* button on the *Task Management* form. Automatically, this task will be sent to members of _\*:/organization/management/human-resources_ to read it. 
 
-Thus, if you are a member of _{noformat}*:/organization/management/human-resources{noformat}_ group, you have responsibility to read the approved tasks as below.
+Thus, if you are a member of _\*:/organization/management/human-resources_ group, you have responsibility to read the approved tasks as below.
 
 !images/Workflow/hr_holiday.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -75,7 +75,7 @@ Thus, if you are a member of _{noformat}*:/organization/management/human-resourc
 *iii.* Click the *Read* button to accept reading the task.
 
 * If you do not agree with the period proposed, click the *Disapprove* button on the *Task Management* form. This task will be sent to the creator of this task to modify it again. 
-** If the creator agrees to modify the period of time and click the *Modify* button, this task will be sent to members of _{noformat}*:/organization/management/human-resources{noformat}_ again to manage it.
+** If the creator agrees to modify the period of time and click the *Modify* button, this task will be sent to members of _\*:/organization/management/human-resources_ again to manage it.
 ** If the creator does not agree to modify the period of time and click the *Disagree* button, the task is not existed.
 * If you do not agree with this task, click the *Refuse* button on the *Task Management* form. This task will be removed.
 
@@ -102,11 +102,11 @@ h2. Create a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Ma
 
 *4.* Click the *Submit* button to submit your task.
 
-This task will be sent to members of the _{noformat}*:/organization/management/executive-board{noformat}_ group that manage it.
+This task will be sent to members of the _\*:/organization/management/executive-board_ group that manage it.
 
 h2. Manage a pay raise process{anchor:id=Platform_User_Guide.Organize_Content.Manage_Workflows.Manage_pay_raise}
 
-If you are a member of _{noformat}*:/organization/management/executive-board{noformat}_ group, you have a responsibility to evaluate received tasks. To do this action, do as follows:
+If you are a member of _\*:/organization/management/executive-board_ group, you have a responsibility to evaluate received tasks. To do this action, do as follows:
 
 *1.* Go to the *Workflow Controller* page. If there are tasks which are pending for evaluation, you will see the tasks list in the *Task Controller* tab.
 
@@ -122,9 +122,9 @@ If you are a member of _{noformat}*:/organization/management/executive-board{nof
 
 *i.* Input the number that the creator wants in the *Grant* field.
 
-*ii.* Click the *Grant* button. Automatically, this task will be sent to members of _{noformat}*:/organization/management/human-resources{noformat}_ to read it. 
+*ii.* Click the *Grant* button. Automatically, this task will be sent to members of _\*:/organization/management/human-resources_ to read it. 
 
-Thus, if you are a member of the *{noformat}*:/organization/management/human-resources{noformat}* group, you have responsibility to read the approved tasks in the *Task Controller* tab by *{noformat}*:/organization/management/executive-board{noformat}* as below.
+Thus, if you are a member of the _\*:/organization/management/human-resources_ group, you have responsibility to read the approved tasks in the *Task Controller* tab by _\*:/organization/management/executive-board_ as below.
 
 !images/Workflow/hr_payraise.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"! 
 
