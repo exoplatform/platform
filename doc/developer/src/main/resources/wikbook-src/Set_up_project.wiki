@@ -64,6 +64,10 @@ If the _settings.xml_ file has been existing, you can merge them. You will need 
 * The _local-properties_ profile, which defines properties, is used to build application server distributions of our products.
 
 * The [repository|http://repository.exoplatform.org/public] to download our dependencies.
+
+{note}
+In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
+By default, the number of open files is limited to "1024". You should execute the command "ulimit -n 8196" as root before starting the server to avoid this issue.
 {note}
 
 {docbook}
