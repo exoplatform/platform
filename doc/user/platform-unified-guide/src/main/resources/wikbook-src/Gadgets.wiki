@@ -120,7 +120,9 @@ The *Login History* gadget records user login history and provides statistics.
 
 !images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-You can look up a specific user by entering his username in the search box and click *Search*. 
+You can look up a specific user by entering his username in the *User* field and click *Find*. 
+
+Click *Reset* to clear the *User* field and return the default list of users who have signed in.
 
 * Click the *Statistics* and *History* links to view the global statistics and global history respectively.
 * Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
