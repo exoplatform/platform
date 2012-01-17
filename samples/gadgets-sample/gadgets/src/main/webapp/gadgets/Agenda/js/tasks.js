@@ -575,8 +575,10 @@ eXoEventGadget.prototype.trigger = function(){
   this.hiddenTimeout = null;
   if (this.moreButton && this.settingButton) {
   this.moreButton.onmouseover = this.moveOver;
+  this.moreButton.onfocus = this.moveOver;
   this.moreButton.onmouseout = this.moveOut;
   this.settingButton.onmouseover = this.moveOver;
+  this.settingButton.onfocus = this.moveOver;
   this.settingButton.onmouseout = this.moveOut;
   }
 }
