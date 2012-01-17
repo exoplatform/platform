@@ -109,7 +109,7 @@
     <version.clean.plugin>2.4.1</version.clean.plugin>
     <version.compiler.plugin>2.3.1</version.compiler.plugin>
     <version.deploy.plugin>2.5</version.deploy.plugin>
-    <version.docbkx.plugin>2.0.7</version.docbkx.plugin>
+    <version.docbkx.plugin>2.0.13</version.docbkx.plugin>
     <version.ear.plugin>2.4.2</version.ear.plugin>
     <version.exec.plugin>1.2</version.exec.plugin>
     <version.install.plugin>2.3.1</version.install.plugin>
@@ -120,7 +120,7 @@
     <version.surefire.plugin>2.6</version.surefire.plugin>
     <version.versions.plugin>1.2</version.versions.plugin>
     <version.war.plugin>2.1</version.war.plugin>
-    <version.wikbook.plugin>0.9.32</version.wikbook.plugin>
+    <version.wikbook.plugin>0.9.35</version.wikbook.plugin>
     <version.xml.plugin>1.0-beta-3</version.xml.plugin>
     <!-- ********************* -->
     <!-- Build settings        -->
