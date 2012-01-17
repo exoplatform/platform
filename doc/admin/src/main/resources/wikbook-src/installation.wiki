@@ -55,9 +55,17 @@ Start up the server
 
 eXo Platform leverages the application server on which it is deployed. This means that you only need to start and stop your application with the default commands.
 
-* On Linux and OS X:   {screen}$TOMCAT_HOME/start_eXo.sh{screen}
+* On Linux and OS X:   
 
-* On Windows:          {screen}%TOMCAT_HOME%\\\\start_eXo.bat{screen}
+{screen}
+$TOMCAT_HOME/start_eXo.sh
+{screen}
+
+* On Windows:       
+
+{screen}
+%TOMCAT_HOME%\\start_eXo.bat
+{screen}
 
 The server is started successfully when you see the following message in your log/console:
 
@@ -75,13 +83,23 @@ Shut down the server
 </citetitle>
 {docbook}
 
-* On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
+* On Linux and OS X: 
 
-* On Windows:        {screen}%TOMCAT_HOME%\\\\stop_eXo.bat {screen}
+{screen}
+$TOMCAT_HOME/stop_eXo.sh
+{screen}
 
-If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing Ctrl+C or by killing with the {noformat}-9{noformat} command. To perform the *kill* action automatically, you can run *{noformat}stop_eXo.sh -force{noformat}* that is only available on Linux and OS X systems.
+* On Windows:        
 
-{screen}Tomcat did not stop in time. The PID file was not removed.{screen}
+{screen}
+%TOMCAT_HOME%\\stop_eXo.bat
+{screen}
+
+If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *Ctrl+C* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh -force_ that is only available on Linux and OS X systems.
+
+{screen}
+Tomcat did not stop in time. The PID file was not removed.
+{screen}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
@@ -102,15 +120,31 @@ Start up eXo Platform by running built-in startup scripts
 
 You can start up eXo Platform by running one of the following built-in startup scripts:
 
-* Linux & OS X: *{noformat}start_eXo.sh{noformat}*.
+* Linux & OS X: 
 
-* Windows: *{noformat}start_eXo.bat{noformat}*.
+{screen}
+start_eXo.sh
+{screen}
 
-* Linux and OS X in the developer mode: *{noformat}bin/gatein-dev.sh{noformat}*.
+* Windows:
 
-* Windows in the developer mode: *{noformat}bin/gatein-dev.bat{noformat}*.
+{screen}
+start_eXo.bat
+{screen}
 
-In the normal mode, the *{noformat}start_eXo{noformat}* scripts launch eXo Platform with the following JVM options:
+* Linux and OS X in the developer mode: 
+
+{screen}
+bin/gatein-dev.sh
+{screen}
+
+* Windows in the developer mode: 
+
+{screen}
+bin/gatein-dev.bat
+{screen}
+
+In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the following JVM options:
 
 {screen}
 -Xms256m 
@@ -121,7 +155,7 @@ In the normal mode, the *{noformat}start_eXo{noformat}* scripts launch eXo Platf
 -Dexo.profiles=default
 {screen}
 
-*Details*:
+*Details:*
 
 | {{-Xms}} | Minimal Heap Size (defaults to 256 MB). |
 | {{-Xmx}} | Maximal Heap Size (defaults to 1 GB). |
@@ -130,7 +164,7 @@ In the normal mode, the *{noformat}start_eXo{noformat}* scripts launch eXo Platf
 | {{-Dexo.profiles}} | List of comma-separated profiles of eXo Plaform to activate. |
 
 
-In the developer mode, the *{noformat}gatein-dev{noformat}* scripts launch eXo Platform in the developer mode with a few JVM options.
+In the developer mode, the _gatein-dev_ scripts launch eXo Platform in the developer mode with a few JVM options.
 
 {screen}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
@@ -141,10 +175,10 @@ In the developer mode, the *{noformat}gatein-dev{noformat}* scripts launch eXo P
 
 *Details*:
 
-| {noformat}-Dcom.sun.management.jmxremote{noformat} | Activate the remote JMX monitoring. |
-| {noformat}-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n{noformat} | Enable the remote debugging. |
-| {noformat}-Dorg.exoplatform.container.configuration.debug{noformat} | The container will log in to the console which the .xml file loads. |
-| {noformat}-Dexo.product.developing=true{noformat} | Deactivate Javascript and CSS merging for debugging more easily. Next, activate a special language called Magic Locale "ma" showing the property keys instead of the translations. |
+| {{-Dcom.sun.management.jmxremote}} | Activate the remote JMX monitoring. |
+| {{-Xdebug {{-}}Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n}} | Enable the remote debugging. |
+| {{-Dorg.exoplatform.container.configuration.debug}} | The container will log in to the console which the _.xml_ file loads. |
+| {{-Dexo.product.developing=true}} | Deactivate JavaScript and CSS merging for debugging more easily. Next, activate a special language called Magic Locale "ma" showing the property keys instead of the translations. |
 
 Now, you can start and run the eXo Platform demo, but you will need to adjust these values for a production setup.
 
@@ -160,8 +194,8 @@ Customize environment variables in tomcat
 Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
 
 This file is located in:
-* Linux & OS X: _{noformat}$TOMCAT_HOME/bin/setenv.sh{noformat}_.
-* Windows: _{noformat}$TOMCAT_HOME/bin/setenv.bat{noformat}_.
+* Linux & OS X: _$TOMCAT\_HOME/bin/setenv.sh_.
+* Windows: _$TOMCAT\_HOME/bin/setenv.bat_.
 
 The following is the content of this file:
 
@@ -190,12 +224,11 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">To install eXo Platform on JBoss, follow these steps</emphasis>:
+<emphasis role="bold">Install eXo Platform on JBoss</emphasis>
 </para>
 </citetitle>
 {docbook}
-
-*1.* Copy the following files to _{noformat}jboss-root/server/default/deploy{noformat}_.
+*1.* Copy the following files to _jboss-root/server/default/deploy_.
 
 - gatein-ds.xml
 - gatein.ear
@@ -212,17 +245,17 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 - exo-default-portal-$version.ear
 - exo-gadget-pack-$version.ear
 
-*2.* Create the folder _{noformat}jboss-root/server/default/conf/gatein{noformat}_ and then copy these files to this folder.
+*2.* Create the _jboss-root/server/default/conf/gatein_ folder, then copy these files to this folder.
 
 - configuration.properties
 
 - configuration.xml
 
-*3.* Copy the file _{noformat}oauthkey.pem{noformat}_ to _{noformat}jboss-root/server/default/conf/gatein/gadgets{noformat}_.
+*3.* Copy the _oauthkey.pem_ file to _jboss-root/server/default/conf/gatein/gadgets_.
 
 *4.* Configure the JVM parameters.
 
-* On *Linux*, add these lines to the end of _{noformat}jboss-root/bin/run.conf{noformat}:
+* On *Linux*, add these lines to the end of _jboss-root/bin/run.conf:
 
 {code}
 # Platform environment variables
@@ -233,7 +266,7 @@ EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFact
 JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
-* On *Windows*, add these lines to the end of *{noformat}jboss-root/bin/run.conf.bat{noformat}*:
+* On *Windows*, add these lines to the end of _jboss-root/bin/run.conf.bat_:
 
 {code}
 rem # Platform environment variables
@@ -245,10 +278,10 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
-* To use another implementation of SAX, change the class names in the _{noformat}EXO_XML{noformat}_ variable. For example: _com.sun.xml.internal.stream.XMLOutputFactoryImpl_.
-* To debug the application, simply add _{noformat}$REMOTE_DEBUG{noformat}_ to the _{noformat}JAVA_OPTS{noformat}_ variable.
+* To use another implementation of SAX, change the class names in the _EXO\_XML_ variable. For example: _com.sun.xml.internal.stream.XMLOutputFactoryImpl_.
+* To debug the application, simply add _$REMOTE\_DEBUG_ to the _JAVA\_OPTS_ variable.
 
-*5.* Add the eXo Platform logging categories to _{noformat}jboss-root/server/default/conf/jboss-log4j.xml{noformat}_.
+*5.* Add the eXo Platform logging categories to _jboss-root/server/default/conf/jboss-log4j.xml_.
 
 {code:xml}
 <!-- Limit the JSR170 categories -->
@@ -277,9 +310,17 @@ For example, if you are using the AJP Connector, the configuration should be as 
 
 *7.* Start up the server.
 
-* On Linux and OS X:   {screen}$JBOSS_HOME/bin/run.sh{screen}
+* On Linux and OS X:  
 
-* On Windows:          {screen}%JBOSS_HOME%\\\\bin\\\\run.bat{screen}
+{screen}
+$JBOSS_HOME/bin/run.sh
+{screen}
+
+* On Windows:          
+
+{screen}
+%JBOSS_HOME%\\bin\\run.bat
+{screen}
 
 The server is started successfully when you see the following message in your log/console:
 
@@ -289,9 +330,17 @@ INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontaine
 
 *8.* Shut down the server.
 
-* On Linux and OS X: {screen}$JBOSS_HOME/bin/shutdown.sh{screen}
+* On Linux and OS X:
 
-* On Windows: {screen}%JBOSS_HOME%\\\\bin\\\\shutdown.bat {screen}
+{screen}
+$JBOSS_HOME/bin/shutdown.sh
+{screen}
+
+* On Windows: 
+
+{screen}
+%JBOSS_HOME%\\bin\\shutdown.bat
+{screen}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
@@ -307,27 +356,27 @@ eXo Platform comes with different runtime profiles, enabling you to customize wh
 
 * When using Tomcat, you can use a comma-separated list of profiles.
 
-* When using JBoss, you just need to edit _{noformat}EXO_PROFILES{noformat}_ in the _run.conf(.bat)_ file.
+* When using JBoss, you just need to edit _EXO\_PROFILES_ in the _run.conf(.bat)_ file.
 
 The following profiles are supported:
 
 || Profile || Description ||
-| {{collaboration}} | Enable the eXo Collaboration module. |
-| {{knowledge}} | Enable the eXo Knowledge module.|
-| {{social}} | Enable the eXo Social module. |
-| {{workflow}} | Enable the Workflow add-ons within the eXo Content module.|
+| {{collaboration}} | Enable the Collaboration module. |
+| {{knowledge}} | Enable the Knowledge module.|
+| {{social}} | Enable the Social module. |
+| {{workflow}} | Enable the Workflow add-ons within the Content module.|
 | {{webos}} | Enable the eXo WebOS module.|
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-| {{minimal}} | Contains GateIn + eXo Content. |
-| {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, eXo Collaboration, eXo Social, eXo Knowledge).|
+| {{minimal}} | Contains GateIn + Content. |
+| {{default}} | Contains all modules except workflow and webos (GateIn, eXo IDE, Collaboration, Social, Knowledge).|
 | {{all}} | All available modules. |
 
 For example:
 
-* _{noformat}./start_eXo.sh default,workflow{noformat}_: Start default modules + workflow.
+* _./start\_eXo.sh default,workflow_: Start default modules + workflow.
 
-* _{noformat}./start_eXo.sh collaboration,knowledge{noformat}_: Start eXo Platform with GateIn, eXo Content, eXo Collaboration and eXo Knowledge enabled.
+* _./start\_eXo.sh collaboration,knowledge_: Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
 
-* _{noformat}./start_eXo.sh minimal,social{noformat}_: Start with eXo Social, GateIn and eXo Content.
+* _./start\_eXo.sh minimal,social_: Start with Social, GateIn and Content.

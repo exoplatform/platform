@@ -81,7 +81,7 @@ For example, if your eXo Platform 3.0 runs on mySQL database, you need to config
 			url="jdbc:mysql://${db.host}:${db.port}/${db.idm.name}"/>
 {code}
 
-*iii.* Delete the _JCR{noformat}_{noformat}CONFIG_ table in the JCR database: {noformat}"jdbc:mysql://${db.host}:${db.port}/${db.jcr.name}"{noformat}
+*iii.* Delete the _JCR\_CONFIG_ table in the JCR database: "jdbc\:mysql\://${{{ {db.host} }}}:${{{ {db.port} }}}/${{{ {db.jcr.name} }}}"
 
 *3.* Prepare the migration tools which have been integrated in eXo Platform 3.5.
 
@@ -520,7 +520,7 @@ If this file has not been existing, you need to create it first.
 gatein.jcr.transaction.timeout=10000
 {code}
 
-*ii.* Change the _JAVA{noformat}_{noformat}OPTS Xmx_ value into *4G* in the _$PLATFORM-3.5-TOMCAT-HOME/bin/gatein.sh_ file (or.bat).
+*ii.* Change the _JAVA\_OPTS Xmx_ value into *4G* in the _$PLATFORM-3.5-TOMCAT-HOME/bin/gatein.sh_ file (or.bat).
 
 {docbook}
 <para>

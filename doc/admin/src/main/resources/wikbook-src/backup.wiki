@@ -54,11 +54,11 @@ In case of the eXo Platform clustering, every node should be stopped before the 
 The backup of eXo Platform consists of the following parts:
 
 * Backup of the JCR data:
-** JCR index files, pointed by the configuration property: _{noformat}gatein.jcr.index.data.dir{noformat}_.
-** JCR value storage files, pointed by the configuration property: _{noformat}gatein.jcr.storage.data.dir{noformat}_.
-** JCR database backup, database specified in the JDNI configuration of Application server with the _{noformat}exo-jcr_portal{noformat}_ name.
-* Backup of Organization service database specified in the JDNI configuration of Application server with the _{noformat}exo-idm_portal{noformat}_ name.
-* Backup of Transaction service files pointed by the configuration property: _{noformat}com.arjuna.ats.arjuna.objectstore.objectStoreDir{noformat}_.
+** JCR index files, pointed by the configuration property: _gatein.jcr.index.data.dir_.
+** JCR value storage files, pointed by the configuration property: _gatein.jcr.storage.data.dir_.
+** JCR database backup, database specified in the JDNI configuration of Application server with the _exo-jcr\_portal_ name.
+* Backup of Organization service database specified in the JDNI configuration of Application server with the _exo-idm\_portal_ name.
+* Backup of Transaction service files pointed by the configuration property: _com.arjuna.ats.arjuna.objectstore.objectStoreDir_.
 
 In the pre-backup, it is recommended that you prepare for tools, such as scripts, to restore data quickly and safely. 
 
@@ -68,7 +68,7 @@ eXo Platform indicates to one Portal application in this context, which is set b
 Information provided in this chapter only describes the backup of the single-portal Platform. The backup can be repeated for each portal in your system. 
 Only two types of JCR files are important in the backup: index and value storages. 
 
-The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database (see the JCR configuration guide) and has no meaning for backup.
+The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database and has no meaning for backup. For more details, see the [eXo JCR configuration|../../reference/html/ch-exo-jcr-configuration.html] section. 
 {note}
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
@@ -92,7 +92,7 @@ Environment
 ** JCR index files in _/mnt/netfs/platform/jcr/index_.
 ** Transaction service stored in _/mnt/netfs/platform/jta_.
 
-* The backup storage is located on the dedicated network mounted storage: _{noformat}/mnt/backupfs/my_plf_backup{noformat}_.
+* The backup storage is located on the dedicated network mounted storage: _/mnt/backupfs/my\_plf\_backup_.
 
 {docbook}
 <citetitle>
@@ -144,7 +144,7 @@ Examples of the script implementation are out of the scope of this guide.
 h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 
 
-*1.* Stop the whole eXo Platform instance by using the shell command: _{noformat}stop_eXo{noformat}_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
+*1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
 
 *2.* Run the backup procedure, including:
 

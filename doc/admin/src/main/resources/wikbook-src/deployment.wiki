@@ -38,7 +38,15 @@ h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Ac
 
 Both Acme website and Acme Social Intranet are sample extensions that demonstrate the intranet you can implement with eXo Platform. 
 
-To remove the Acme site/Acme Social Intranet, do as follows:
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Remove the Acme site/Acme Social Intranet
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 *1.* Stop the server using the command: _shutdown.sh_.
 
@@ -50,11 +58,19 @@ To remove the Acme site/Acme Social Intranet, do as follows:
 
 *3.* Restart the server.
 
-h2. Remove crash {anchor:id=ADM.Clustering.Remove_crash}
+h2. Remove a crash {anchor:id=ADM.Clustering.Remove_crash}
 
 Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove crash for your production deployments. The crash is covered in the *crash.war* file in _tomcat/webapps_.
 
-To remove crash, do as follows:
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Remove a crash
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 *1.* Stop the serve by using the _shutdown.sh_ command.
 
@@ -112,8 +128,8 @@ ProxyPassReverse "/" http://YOUR_AS_HOST:AS_HTTP_PORT/
 
 Details:
 
-* _{noformat}YOUR_AS_HOST{noformat}_ - host (IP or DNS name) is the location of your application server. If you run the HTTP daemon on the same host as your app server, you can change this to *localhost*.
-* _{noformat}AS_HTTP_PORT{noformat}_ - port is the location where your app server will listen to incoming requests. For Tomcat, this value is 8080 by default. You can find the value at _tomcat/conf/server.xml_.
+* _YOUR\_AS\_HOST_ - host (IP or DNS name) is the location of your application server. If you run the HTTP daemon on the same host as your app server, you can change this to *localhost*.
+* _AS\_HTTP\_PORT_ - port is the location where your app server will listen to incoming requests. For Tomcat, this value is 8080 by default. You can find the value at _tomcat/conf/server.xml_.
 
 In the above example, the HTTP daemon will work in the *reverse proxy* mode (ProxyRequests Off) and will redirect all requests to the tcp port 8080 on the localhost.
 So, the configuration of a virtual host looks like the following:
@@ -143,7 +159,7 @@ With the second method, you can obtain more settings, but you will need to downl
 
 h3. AJP proxy module {anchor:id=ADM.Clustering.AJP_proxy_module}
 
-Make sure that _{noformat}mod_proxy_ajp.so{noformat}_ is included in the list of loadable modules.
+Make sure that _mod\_proxy\_ajp.so_ is included in the list of loadable modules.
 Add the following to your virtual host configuration setting:
 
 {code}
@@ -165,9 +181,9 @@ h3. Apache Tomcat's AJP connector {anchor:id=ADM.Clustering.Apache_Tomcat's_AJP_
 
 *1.* Download AJP connector module [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/].
 
-*2.* Move the downloaded _{noformat}mod_jk.so{noformat}_ file to the HTTPD's module directory, for example _/etc/httpd/modules_. The directory may be different, depending on the OS.
+*2.* Move the downloaded _mod\_jk.so_ file to the HTTPD's module directory, for example _/etc/httpd/modules_. The directory may be different, depending on the OS.
 
-*3.* Create the configuration file for the _{noformat}mod_jk.conf{noformat}_ module.
+*3.* Create the configuration file for the _mod\_jk.conf_ module.
 
 {code}
 LoadModule    jk_module  modules/mod_jk.so
@@ -188,9 +204,9 @@ LoadModule    jk_module  modules/mod_jk.so
 
 For more details, see the [Tomcat documentation|http://tomcat.apache.org/connectors-doc/reference/apache.html].
 
-*4.* Place the _{noformat}mod_jk.conf{noformat}_ file into the directory where other configuration files for Apache HTTP daemon are located. For example, _/etc/httpd/conf.d/_.
+*4.* Place the _mod\_jk.conf_ file into the directory where other configuration files for Apache HTTP daemon are located. For example, _/etc/httpd/conf.d/_.
 
-*5.* Create the workers.properties file, which defines [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for the HTTP daemon.
+*5.* Create the _workers.properties_ file, which defines the [AJP workers|http://tomcat.apache.org/connectors-doc/generic_howto/workers.html] for the HTTP daemon.
 
 {code}
 worker.list=status, WORKER_NAME
@@ -207,10 +223,10 @@ worker.WORKER_NAME.socket_keepalive=true
 {code}
 
 {note}
-In the example above, you can change _{noformat}WORKER_NAME{noformat}_ to any value.
+In the example above, you can change _WORKER\_NAME_ to any value.
 {note}
 
-*6.* Put this file in the same directory as the _{noformat}mod_jk.conf{noformat}_ file.
+*6.* Put this file in the same directory as the _mod\_jk.conf_ file.
 
 *7.* Update the virtual host configuration.
 
@@ -245,7 +261,17 @@ The session timeout is configurable individually for each web application in the
 
 h2. Tomcat server {anchor:id=ADM.Clustering.TomcatServer}
 
-In the Tomcat bundle, this file is located at _{noformat}$TOMCAT_HOME/conf/web.xml{noformat}_. To configure the session timeout of Server Tomcat, do as follows:
+In the Tomcat bundle, this file is located at _$TOMCAT\_HOME/conf/web.xml_.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Configure the session timeout of Server Tomcat
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 *1.* Stop the server by the _shutdown.sh_ command.
 
@@ -257,7 +283,17 @@ In the Tomcat bundle, this file is located at _{noformat}$TOMCAT_HOME/conf/web.x
 
 h2. JBoss server {anchor:id=ADM.Clustering.JBossServer}
 
-In the JBoss server, this file is located at _{noformat}$Jboss_home/server/default/deployers/jbossweb.deployer/web.xml{noformat}_. To configure the session timeout of the JBoss server, do as follows:
+In the JBoss server, this file is located at _$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Configure the session timeout of the JBoss server
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 *1.* Stop the server by using the _shutdown.sh_ command.
 

@@ -26,7 +26,7 @@ In this chapter, the following topics are included:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Content_management_view">eXo Content management view</link>
+<link linkend="ADM.Management.eXo_Content_management_view">Content management view</link>
 </para>
 </listitem>
 <listitem>
@@ -41,12 +41,12 @@ In this chapter, the following topics are included:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Knowledge_management_view">eXo Knowledge management view</link>
+<link linkend="ADM.Management.eXo_Knowledge_management_view">Knowledge management view</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Management.eXo_Collaboration_management_view">eXo Collaboration management view</link>
+<link linkend="ADM.Management.eXo_Collaboration_management_view">Collaboration management view</link>
 </para>
 </listitem>
 </itemizedlist>
@@ -112,7 +112,7 @@ h2. Cache management view  {anchor:id=ADM.Management.Cache_management_view}
 
 eXo Platform uses caches at several levels. Monitoring them can provide the critical performance information, especially useful for tuning the server. Each cache is exposed with statistics and management operations. 
 
-* The JMX name template of Cache MBeans: _{noformat}exo:service=cache,name={CacheName}{noformat}_ where _CacheName_ is the name of each cache instance.
+* The JMX name template of Cache MBeans: _exo:service=cache,name= {{{ {CacheName} }}}_ where _CacheName_ is the name of each cache instance.
 
 ||Attribute||Description||
 |{{Name}}|The name of the cache.|
@@ -153,7 +153,7 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 |{{org.exoplatform.services.jcr.impl.core.lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
 
 
-* *eXo Content*
+* *Content*
 
 
 ||Cache Name||Description||
@@ -162,7 +162,7 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 |{{org.exoplatform.services.cms.scripts.impl.ScriptService}}|Cache all Groovy script files by the script name.|
 |{{org.exoplatform.services.cms.templates.TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript.text.TemplateService.|
 |{{org.exoplatform.services.wcm.webcontent.InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
-|{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in eXo Content.|
+|{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in Content.|
 
 
 * *Social*
@@ -183,7 +183,7 @@ h3. CacheManager {anchor:id=ADM.Management.Chache_manager}
 
 The CacheManager management view enables you to control different caches. 
 
-* The JMX name template of CacheManager Mbeans: _{noformat}exo:service=cachemanager{noformat}_.
+* The JMX name template of CacheManager Mbeans: _exo\:service=cachemanager_.
 
 ||Operation||Description||
 |{{clearCaches()}}|Force a programmatic flush of all the registered caches.|
@@ -194,7 +194,8 @@ h3. PicketLinkIDMCacheService {anchor:id=ADM.Management.PicketLinkIDMCacheServer
 PicketLinkIDMCacheService is the default implementation for the organization model. 
 
 * The JMX name template of PicketLinkIDMCacheService MBeans: 
-_exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache_.
+
+_exo\:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache_.
 
 ||Operation||Description||
 |{{invalidateAll}}|Invalidate all caches.|
@@ -208,9 +209,9 @@ PicketLinkIDMCacheService can be controlled through the following path:
 However, the REST View managements of Cache instances and CacheManager are not currently exposed in this version.
 {note}
 
-h2. eXo Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
+h2. Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
 
-eXo Content provides a management view for three following services:
+The Content application provides a management view for three following services:
 
 h3. WCMComposer {anchor:id=ADM.Management.WCMComposer}
 
@@ -302,7 +303,7 @@ h3. LockManager {anchor:id=ADM.Management.Lock_manager}
 
 LockManager stores lock objects and is reponsible for removing expired locks.
 
-* The JMX name template of LockManager MBeans: _{noformat}exo:portal="portal",service=lockmanager,repository="repository",workspace={WorkspaceName}{noformat}_ where _WorkspaceName_ is the name of each workspace.
+* The JMX name template of LockManager MBeans: _exo\:portal="portal",service=lockmanager,repository="repository",workspace={{{ {WorkspaceName} }}}_ where _WorkspaceName_ is the name of each workspace.
 
 ||Attribute||Description||
 |{{NumLocks}}|The number of active locks.|
@@ -331,7 +332,7 @@ LockManager stores lock objects and is reponsible for removing expired locks.
 
 h3. Repository {anchor:id=ADM.Management.Repository}
 
-* The JMX name template of Repository MBeans: _{noformat}exo:portal="portal",container=repository,name="repository"{noformat}_.
+* The JMX name template of Repository MBeans: _exo\:portal="portal",container=repository,name="repository"_.
 
 ||Attribute||Description||
 |{{Name}}|The name of the repository container.|
@@ -344,7 +345,7 @@ h3. Repository {anchor:id=ADM.Management.Repository}
 
 h3. Workspace {anchor:id=ADM.Management.Workspace}
 
-* The JMX name template of Workspace MBeans: _{noformat}exo:portal="portal",container=workspace,repository="repository",name={WorkspaceName}{noformat}_ where _WorkspaceName_ is the name of each workspace.
+* The JMX name template of Workspace MBeans: _exo\:portal="portal",container=workspace,repository="repository",name={{{ {WorkspaceName} }}}_ where _WorkspaceName_ is the name of each workspace.
 
 ||Attribute||Description||
 |{{Name}}|The name of the workspace container.|
@@ -366,7 +367,7 @@ h3. Template statistics {anchor:id=ADM.Management.Temaplate_statistics}
  
 Template statistics exposes various templates used by the portal and its components to render markups. Various statistics are available for individual templates, and aggregated statistics, such as the list of the slowest templates. Most management operations are performed on a single template; those operations take the template identifier as an argument. 
 
-* The JMX name template of Template statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=template{noformat}_.
+* The JMX name template of Template statistics MBeans: _exo\:portal="portal",service=statistic,view=portal,type=template_.
 
 ||Attribute||Description||
 |{{TemplateList}}|The list of templates loaded.|
@@ -389,7 +390,7 @@ h3. Template management {anchor:id=ADM.Management.Template_management}
 
 Template management provides the capability to force the reload of a specified template. 
 
-* The JMX name template of Template management MBeans: _{noformat}exo:portal="portal",service=management,view=portal,type=template{noformat}_.
+* The JMX name template of Template management MBeans: _exo\:portal="portal",service=management,view=portal,type=template_.
 
 ||Operation||Description||
 |{{reloadTemplates}}|Clear the template cache.|
@@ -399,7 +400,7 @@ Template management provides the capability to force the reload of a specified t
 
 h3. Skin management {anchor:id=ADM.Management.Skin_management}
 
-* The JMX name template of Skin management MBeans: _{noformat}exo:portal="portal",service=management,view=portal,type=skin{noformat}_.
+* The JMX name template of Skin management MBeans: _exo\:portal="portal",service=management,view=portal,type=skin_.
 
 ||Attribute||Description||
 |{{SkinList}}|The list of loaded skins by the skin service.|
@@ -412,7 +413,7 @@ h3. Skin management {anchor:id=ADM.Management.Skin_management}
 
 h3. TokenStore {anchor:id=ADM.Management.TokenStore}
 
-* The JMX name template of TokenStore MBeans: _{noformat}exo:service=TokenStore, name={Name}{noformat}_ where _Name_ is the name of each specific token.
+* The JMX name template of TokenStore MBeans: _exo\:service=TokenStore, name={Name}_ where _Name_ is the name of each specific token.
 
 ||Attribute||Description||
 |{{Name}}|The name of one specific token.|
@@ -440,7 +441,7 @@ eXo Platform provides the following TokenStore instances:
 
 h3. Portal statistics {anchor:id=ADM.Management.Portal_statistic}
 
-* The JMX name template of Portal statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=portal{noformat}_.
+* The JMX name template of Portal statistics MBeans: _exo\:portal="portal",service=statistic,view=portal,type=portal_.
 
 ||Attribute||Description||
 |{{PortalList}}|The list of identifiers of loaded portals.|
@@ -458,7 +459,7 @@ h3. Application statistics {anchor:id=ADM.Management.Application_statistics}
 
 Various applications are exposed to provide relevant statistics.
 
-* The JMX name template of Application statistics MBeans: _{noformat}exo:portal="portal",service=statistic,view=portal,type=application{noformat}_.
+* The JMX name template of Application statistics MBeans: _exo\:portal="portal",service=statistic,view=portal,type=application_.
 
 ||Attribute||Description||
 |{{ApplicationList}}|The list of loaded applications.|
@@ -494,20 +495,20 @@ Template statistics, Template management, Skin management, Portal statistics and
 However, the REST View management of TokenStore is currently not exposed in this version.
 {note}
 
-h2. eXo Knowledge management view {anchor:id=ADM.Management.eXo_Knowledge_management_view}
+h2. Knowledge management view {anchor:id=ADM.Management.eXo_Knowledge_management_view}
 
-eXo Knowledge provides a management view, enabling you to control rules, statistics, information of data storage in Forum and Answers.
+The Knowledge application provides a management view, enabling you to control rules, statistics, information of data storage in Forum and Answers.
 
 h3. Forum {anchor:id=ADM.Management.Forum}
 
 With the Forum Service management view, you can view ADMIN rules, statistics, such as the number of online users, and information of Mail Service configuration.
 
-* The JMX name template of Forum MBeans: _{noformat}exo:portal="portal",service=forum{noformat}_.
+* The JMX name template of Forum MBeans: _exo\:portal="portal",service=forum_.
 
 ||Attribute||Description||
 |{{AdminRules}}|The list of rules defining administrators.|
 |{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including org.exoplatform.ks.common.user.BusinessProfileContactProvider, org.exoplatform.ks.common.user.DefaultContactProvider, and org.exoplatform.ks.common.user.PersonalProfileContactProvider.|
-|{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in eXo Knowledge.|
+|{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in Knowledge.|
 |{{OnlineUsers}}|The list of currently online users.|
 
 ||Operation||Description||
@@ -517,14 +518,14 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 |{{getOnlineUsers}}|Return the list of online users.|
 |{{getContactProvider}}|Return the name of a specific ContactProvider implementation.|
 |{{setContactProvider(String contactProviderClassName}}|Set a specific ContactProvider implementation. The user profile on portal is obtained to populate into that of Forum.|
-|{{getMailServiceConfig}}|Return the Mail service configuration used to send notifications in eXo Knowledge.|
+|{{getMailServiceConfig}}|Return the Mail service configuration used to send notifications in Knowledge.|
 
 
 h3. Job {anchor:id=ADM.Management.Job}
 
-The Job management view enables you to view state information of Jobs used in eXo Knowledge.
+The Job management view enables you to view state information of Jobs used in Knowledge.
 
-* The JMX name template of Job MBeans: _{noformat}exo:portal="portal",service=forum,view=jobs,name={Name}{noformat}_ where _Name_ is the name of each specific Job instance. 
+* The JMX name template of Job MBeans: _exo\:portal="portal",service=forum,view=jobs,name={{{ {Name} }}}_ where _Name_ is the name of each specific Job instance. 
 
 ||Attribute||Description||
 |{{DataMap}}|The map containing the state information for Job instances.|
@@ -536,7 +537,7 @@ The Job management view enables you to view state information of Jobs used in eX
 |{{getDataMap}}|Return the state information of Job instances.|
 
 
-eXo Knowledge provides the following Job instances:
+Knowledge provides the following Job instances:
 
 
 ||Job||Description||
@@ -552,7 +553,7 @@ h3. Plugin {anchor:id=ADM.Management.Plugin}
 
 h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 
-* The JMX name template of RoleRulesPlugin MBeans: _{noformat}exo:portal="portal",service=forum,view=plugins,name="add.role.rules.plugin"{noformat}_.
+* The JMX name template of RoleRulesPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name="add.role.rules.plugin"_.
 
 ||Attribute||Description||
 |{{AllRules}}|The list of all rules of RoleRulesPlugin. For example, the rule defining 'root' user as an administrator follows the form of ADMIN=[root].|
@@ -572,43 +573,43 @@ h4. RoleRulesPlugin {anchor:id=ADM.Management.Roles_Plugin}
 
 h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
-* The JMX name template of BBCodePlugin MBeans: _{noformat}exo:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"{noformat}_.
+* The JMX name template of BBCodePlugin MBeans: _exo\:portal="portal",service=ks,view=plugins,name="forum.default.bbcodes"_.
 
 ||Attribute||Description||
 |{{BBCodes}}|The list of BBCodes defined in the plugin.|
 
 
 ||Operation||Description||
-|{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: {noformat}[URL], [JUSTIFY], [B], [HIGHLIGHT], [I], [U], [RIGHT], [EMAIL], [LIST], [COLOR], [CENTER], [CODE], [QUOTE], [CSS], [LEFT], [FONT], [GOTO], [SIZE], [SLIDESHARE], [IMG], [WIKI]{noformat}.|
+|{{getBBCodes}}|Return the list of BBCodes. The Forum application currently provides the following BBCodes: \[URL\], \[JUSTIFY\], \[B\], \[HIGHLIGHT\], \[I\], \[U\], \[RIGHT\], \[EMAIL\], \[LIST\], \[COLOR\], \[CENTER\], \[CODE\], \[QUOTE\], \[CSS\], \[LEFT\], \[FONT\], \[GOTO\], \[SIZE\], \[SLIDESHARE\], \[IMG\], \[WIKI\].|
 
 h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
-* The JMX name template of ForumInitialDataPlugin MBeans: _{noformat}exo:portal="portal",service=forum,view=plugins,name={Name}{noformat}_.
+* The JMX name template of ForumInitialDataPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name={Name}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the Forum export file is stored.|
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the Forum export file is stored, for example _{noformat}war:/data/forum/data-full-forum.zip{noformat}_.|
+|{{getLocation}}|Return the location where the Forum export file is stored, for example _war\:/data/forum/data-full-forum.zip_.|
 
 h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 
-* The JMX name template of InitialDataPlugin MBeans: _{noformat}exo:portal="portal",service=faq,view=plugins,name={Name}{noformat}_.
+* The JMX name template of InitialDataPlugin MBeans: _exo\:portal="portal",service=faq,view=plugins,name={{{ {Name} }}}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the FAQ export file is stored.|
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the FAQ export file is stored, for example _{noformat}war:/data/Technical-FAQ.zip{noformat}_.|
+|{{getLocation}}|Return the location where the FAQ export file is stored, for example _war\:/data/Technical-FAQ.zip_.|
 |{{isForceXML}}|Indicate if the data loaded from the FAQ export file should override any data found in the existing database.|
 
 h3. Storage {anchor:id=ADM.Management.Storage}
 
-The Storage management view enables you to get storage information in eXo Knowledge, such as data path, repository and workspace.
+The Storage management view enables you to get storage information in Knowledge, such as data path, repository and workspace.
 
-* The JMX name template of Forum Storage MBeans: _{noformat}exo:portal="portal",service=forum,view=storage{noformat}_.
+* The JMX name template of Forum Storage MBeans: _exo\:portal="portal",service=forum,view=storage_.
 
 ||Attribute||Description||
 |{{Path}}|The JCR data path of the Forum Storage.|
@@ -627,9 +628,9 @@ Currently, the REST View managements of Forum, Job, Plugin, Storage are not expo
 {note}
 
 
-h2. eXo Collaboration management view {anchor:id=ADM.Management.eXo_Collaboration_management_view}
+h2. Collaboration management view {anchor:id=ADM.Management.eXo_Collaboration_management_view}
 
-eXo Collaboration provides a management view, enabling you to view some state information of Jobs used in itself. 
+The Collaboration application provides a management view, enabling you to view some state information of Jobs used in itself. 
 
 ||Attribute||Description||
 |{{DataMap}}|The map containing the state information for the Job instances.|
@@ -640,13 +641,13 @@ eXo Collaboration provides a management view, enabling you to view some state in
 |{{getName}}|Return the name of Job instances.|
 |{{getDataMap}}|Return the state information of Job instances.|
 
-eXo Collaboration provides the following Job instances:
+The Collaboration application provides the following Job instances:
 
 ||Job Name||Description||
 |{{PopupReminderJob}}|Show pop-up reminders in the Calendar application.|
 |{{ReminderJob}}|Send email reminders in the Calendar application.|
-|{{messageToHistoricalMessageJob}}|Save messages in the Chat application in the data storage of eXo Collaboration.|
+|{{messageToHistoricalMessageJob}}|Save messages in the Chat application in the data storage of Collaboration.|
 
 {note}
-Currently, the REST View management of eXo Collaboration is not exposed.
+Currently, the REST View management of Collaboration is not exposed.
 {note}

@@ -31,7 +31,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Mail_server">WebDAV Cache Control</link>
+<link linkend="ADM.Configuration.Mail_server">WebDAV cache control</link>
 </para>
 </listitem>
 <listitem>
@@ -61,7 +61,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Users_configuration">User configuration</link>
+<link linkend="ADM.Configuration.Users_configuration">Users configuration</link>
 </para>
 </listitem>
 <listitem>
@@ -107,7 +107,7 @@ The default portal container in eXo Platform is simply called "portal". This exp
 The default portal container can be configured directly inside _exo.conf.dir_.
 
 However, eXo Platform is capable of running several portal instances simultaneously on the same server. 
-Each instance can be configured and customized independently via files located at: _{noformat}/gatein/conf/portal/$PORTAL_NAME{noformat}_, where _{noformat}$PORTAL_NAME{noformat}_ is the name of the portal container.
+Each instance can be configured and customized independently via files located at: _/gatein/conf/portal/$PORTAL\_\NAME_, where _$PORTAL\_\NAME_ is the name of the portal container.
 
 {note}
 The name of the configuration file can be altered.
@@ -214,7 +214,9 @@ You need to learn how to configure eXo Platform data sources and your app server
 The steps below will show you how to configure eXo Platform to use a MySQL database. You need to adapt them to your actual production environment.
 {info}
 
-{tip}Refer to the [Database FAQ|#ADM.Configuration.FAQDatabaseConfiguration] below to find out our sample configuration files for MySQL and other DB systems.{tip}
+{tip}
+Refer to the [FAQs of database configuration |#ADM.Configuration.FAQDatabaseConfiguration] section to find out our sample configuration files for MySQL and other DB systems.
+{tip}
 
 *Step 1.* *Prepare your database server.* {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
 
@@ -267,13 +269,13 @@ Edit the server.xml file
 {docbook}
 
 
-*1.* Open the file following the _{noformat}$TOMCAT_HOME/conf/server.xml{noformat}_ path.
+*1.* Open the file following the _$TOMCAT\_\HOME/conf/server.xml_ path.
 
 *2.* Declare the binding of the data sources in the GlobalNaming context:
 
-* Change the driver from _{noformat}org.hsqldb.jdbcDriver{noformat}_ to _{noformat}com.mysql.jdbc.Driver{noformat}_.
+* Change the driver from _org.hsqldb.jdbcDriver_ to _com.mysql.jdbc.Driver_.
 * Change the username and password to the values set above.
-* Change the URL to access your DataBase from _{noformat}jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr_portal{noformat}_ to _{noformat}jdbc:mysql://_$host_:3306/_$dbname_{noformat}_.
+* Change the URL to access your DataBase from _jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr\_\portal_ into _jdbc:mysql://\_\$host\_\:3306/\_\$dbname\_\_.
 
 The code now should look like:
 
@@ -294,7 +296,7 @@ The code now should look like:
 {code}
 
 *3.* Add the JDBC driver.
-In this step, you need to add the MySQL connector to Tomcat by adding _{noformat}mysql-connector-java-5.1.x.jar{noformat}_ to _{noformat}$TOMCAT_HOME/lib/{noformat}_.
+In this step, you need to add the MySQL connector to Tomcat by adding _mysql-connector-java-5.1.x.jar_ to _$TOMCAT\_\HOME/lib/_.
 
 
 *JBoss*: {anchor:id=ADM.Configuration.JBoss}
@@ -314,15 +316,15 @@ Configure the data source for eXo Platform under JBoss
 
 *1.* Edit the _gatein-ds.xml_ file.
 
-*i.* Open the file following the _{noformat}$JBOSS_HOME/server/default/deploy/gatein-ds.xml{noformat}_ path.
+*i.* Open the file following the _$JBOSS\_\HOME/server/default/deploy/gatein-ds.xml_ path.
 
 *ii.* Declare the binding of the data sources in the GlobalNaming context:
 
-* Change the driver: _{noformat}org.hsqldb.jdbcDriver{noformat}_ to _{noformat}com.mysql.jdbc.Driver{noformat}_.
+* Change the driver: _org.hsqldb.jdbcDriver_ into _com.mysql.jdbc.Driver_.
 
 * Change the username and password to the values set earlier.
 
-* Change the URL to access your database: _{noformat}<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>{noformat}_ to _{noformat}<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>{noformat}_.
+* Change the URL to access your database: _<connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}exo${/}hypersonic${/}exo-xxx_portal-localDB</connection-url>_ to _<connection-url>jdbc:mysql://_$host_:3306/_$dbname_</connection-url>_.
 
 The configuration should now look like:
 
@@ -357,7 +359,7 @@ The configuration should now look like:
 {code}
 
 *2.* Add the JDBC driver.
-In this step, you need to add the MySQL connector library in JBoss by adding _mysql-connector-java-5.1.x.jar_ to _{noformat}$JBOSS_HOME/server/default/lib/{noformat}_.
+In this step, you need to add the MySQL connector library in JBoss by adding _mysql-connector-java-5.1.x.jar_ to _$JBOSS\_\HOME/server/default/lib/_.
 
 {tip}You can get the latest MySQL connector [here|http://dev.mysql.com/downloads/connector/j/].{tip}
 
@@ -384,7 +386,7 @@ gatein.idm.datasource.name=java:/comp/env/exo-idm
 {code}               
 
 {note}
-eXo Platform automatically appends the portal container name ("{noformat}_portal{noformat}" by default) to these values before performing a JNDI lookup.
+eXo Platform automatically appends the portal container name ("\_\portal" by default) to these values before performing a JNDI lookup.
 {note}
 
 *ii.* Change the data source name in the application server.
@@ -405,7 +407,7 @@ Q1. How to configure eXo Platform to connect to other database systems?
 
 Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
 
-* {noformat}eXo Platform-3.5.x.zip/conf/db/{noformat}
+* *eXo Platform-3.5.x.zip/conf/db/*
 ** mysql
 ** oracle
 ** postgres
@@ -575,8 +577,8 @@ The *Mail* portlet and its services are deprecated. It remains fully supported f
 
 eXo Platform requires the SMTP server to send emails, such as notifications or password reminders.
 
-The Email service can use any SMTP account that needs to be configured in _/server/default/conf/gatein/configuration.properties_ (Or _{noformat}$TOMCAT_HOME/
-gatein/conf/configuration.properties{noformat}_ if you are using Tomcat).
+The Email service can use any SMTP account that needs to be configured in _/server/default/conf/gatein/configuration.properties_ (Or _$TOMCAT\_\HOME/
+gatein/conf/configuration.properties_ if you are using Tomcat).
 
 The relevant section looks like:
 
@@ -600,16 +602,16 @@ Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the va
 
 The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
 
-| *gatein.email.domain.url* | Domain name. |
-| *gatein.email.smtp.from* | Sender's email address. |
-| *gatein.email.smtp.host* | SMTP hostname. |
-| *gatein.email.smtp.port* | SMTP port. |
-| *gatein.email.smtp.starttls.enable* | True to enable the secure (TLS) SMTP. See  RFC 3207. |
-| *gatein.email.smtp.auth* | True to enable the SMTP authentication. |
-| *gatein.email.smtp.username* | Username to send for authentication. |
-| *gatein.email.smtp.password* | Password to send for authentication. |
-| *gatein.email.smtp.socketFactory.port* | Specify the port to connect to when using the specified socket factory. |
-| *gatein.email.smtp.socketFactory.class* | This class will be used to create SMTP sockets. |
+| {{{gatein.email.domain.url}}} | Domain name. |
+| {{{gatein.email.smtp.from}}} | Sender's email address. |
+| {{{gatein.email.smtp.host}}} | SMTP hostname. |
+| {{{gatein.email.smtp.port}}} | SMTP port. |
+| {{{gatein.email.smtp.starttls.enable}}} | True to enable the secure (TLS) SMTP. See  RFC 3207. |
+| {{{gatein.email.smtp.auth}}} | True to enable the SMTP authentication. |
+| {{{gatein.email.smtp.username}}} | Username to send for authentication. |
+| {{{gatein.email.smtp.password}}} | Password to send for authentication. |
+| {{{gatein.email.smtp.socketFactory.port}}} | Specify the port to connect to when using the specified socket factory. |
+| {{{gatein.email.smtp.socketFactory.class}}} | This class will be used to create SMTP sockets. |
 
 To see more details, refer to [JavaMail API documentation|http://java.sun.com/products/javamail/javadocs/com/sun/mail/smtp/package-summary.html].
 
@@ -669,16 +671,18 @@ The email notification is configured in the _core-services-configuration.xml_ fi
     </init-params>
  </component>
 {code}
+
 In which:
 * *sender*: The email address of the sender.
 * *subject*: The subject of the notification email.
 * *mimeType*: The mimeType used to writing the notification email. There are two types: *text/html* and *text/plain*.
 * *content*: The content of the notification email.
+
 At present, eXo Platform supports 4 following parameters in the *content* of the email:
-** *{noformat}$user_name{noformat}*: The full name of the receiver.
-** *{noformat} $doc_name{noformat}*: The name of the document.
-** *{noformat}$doc_title{noformat}*: The title of the document.
-** *{noformat}$doc_url{noformat}*: The link to view the document in *Sites Explorer*.
+* *$user\_name*: The full name of the receiver.
+* *$doc\_name*: The name of the document.
+* *$doc\_title*: The title of the document.
+* *$doc\_url*: The link to view the document in *Sites Explorer*.
 
 *2.* Save the file.
 
@@ -714,7 +718,7 @@ exo.chat.port=5222
 
 h2. Chat server configuration {anchor:id=ADM.Configuration.Chat_server_configuration}
 
-The standalone Chat server is configured in the _{noformat}$CHATSERVER/conf/openfire.xml{noformat}_ file.
+The standalone Chat server is configured in the _$CHATSERVER/conf/openfire.xml_ file.
 
 Configuration is based on properties expressed in the XML syntax. For example, to set the _prop.name.is.blah=value_ property, you would write this xml snippet:
 
@@ -782,7 +786,7 @@ eXo Platform allows users to view documents of various types directly on the con
 
 h1. Log-in {anchor:id=ADM.Configuration.Login}
 
-The login to eXo Platform is controlled by the [Java Logging API|http://download-llnw.oracle.com/javase/1.5.0/docs/guide/logging/index.html].
+The login to eXo Platform is controlled by the [Java Logging API|http://docs.oracle.com/javase/6/docs/technotes/guides/logging/index.html].
 
 By default, the login is configured to:
 
@@ -838,12 +842,12 @@ gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
 | *{{gatein.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode of eXo Cache and PicketLink IDM organization service (see below in _IDM caches_). |
 | *{{gatein.jcr.jgroups.config}}* | Path to the JGroups configuration to use for the cluster mode. |
 
-For more details on configuring these files, please refer to the [eXo JCR reference guide|../../reference/html/bk01.html].
+For more details on configuring these files, please refer to the [eXo JCR Reference Guide|../../reference/html/bk01.html].
 
 
 h1. Cache configuration {anchor:id=ADM.Configuration.CacheConfiguration}
 
-Please refer to the [Cache management view|#ADM.Management.Cache_management_view] to see the description about the cache configuration.
+Please refer to the [Cache management view|#ADM.Management.Cache_management_view] section to see the description about the cache configuration.
 
 h2. Portal Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.PortalCacheConfig}
 {code}
@@ -930,7 +934,7 @@ cache.exo.ecms.WCMComposer.Capacity=1000
 cache.exo.ecms.WCMComposer.TimeToLive=3600
 {code}
  
-h1. Users configurations {anchor:id=ADM.Configuration.Users_configuration}
+h1. Users configuration {anchor:id=ADM.Configuration.Users_configuration}
 
 h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configuration}
 
@@ -971,9 +975,9 @@ The default configuration is set as below:
 </component>
 {code}
 
-This configuration can be added into _{noformat}<GATEIN_CONF_DIR>/portal/<PORTAL_CONTAINER_NAME>/configuration.xml{noformat}_.
-* _{noformat}<GATEIN_CONF_DIR>{noformat}_= _{noformat}TOMCAT_HOME/gatein/conf/{noformat}_ if you are using Tomcat and _{noformat}JBOSS_HOME/server/<PROFILE>/conf/gatein/{noformat}_ if you are using JBoss.
-* _{noformat}<PORTAL_CONTAINER_NAME>{noformat}_= the name of the used portal container, by default it is set to _portal_.
+This configuration can be added into _<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml_.
+* _<GATEIN\_CONF\_DIR>_ = _TOMCAT\_HOME/gatein/conf/_ if you are using Tomcat and _JBOSS\_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
+* _<PORTAL\_CONTAINER\_NAME>_ = the name of the used portal container, by default it is set to _portal_.
 
 h3. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
 
@@ -1003,12 +1007,12 @@ The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Co
 
 h2. Default OAuth key configuration {anchor:id=ADM.Configuration.Gadget_OAuth_configuration}
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
-There is always a default key defined in the _{noformat}oauthkey.pem{noformat}_ file.
+There is always a default key defined in the _oauthkey.pem_ file.
 This key will be used in case the OAuth gadgets do not indicate a key.
 
-* If you are using Tomcat, the _oauthkey.pem_ file is found at the _{noformat}TOMCAT_HOME/gatein/gadgets{noformat}_ path.
+* If you are using Tomcat, the _oauthkey.pem_ file is found at the _TOMCAT\_HOME/gatein/gadgets_ path.
 
-* If you are using Jboss, the _oauthkey.pem_ file is found at the _{noformat}JBOSS_HOME/server/<PROFILE>/conf/gatein/gadgets{noformat}_ path.
+* If you are using Jboss, the _oauthkey.pem_ file is found at the _JBOSS\_HOME/server/<PROFILE>/conf/gatein/gadgets_ path.
 
 It is strongly recommended that you create your own _oauthkey.pem_ file by using the *openssl* tool and some commands as follows:
 
@@ -1038,7 +1042,7 @@ wcm.linkjob.cron.expression=0 30 1 * * ?
 
 {note}
 
-To understand more about CRON expression, refer to [http://en.wikipedia.org/wiki/CRON_expression#CRON_expression].
+To understand more about CRON expression, see [here|http://en.wikipedia.org/wiki/CRON_expression#CRON_expression].
 
 {note}
 

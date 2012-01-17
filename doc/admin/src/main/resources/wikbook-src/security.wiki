@@ -31,7 +31,7 @@ Since the security configuration is highly dependent of the app server, each app
 
 h2. Tomcat {anchor:id=ADM.Security.Tomcat}
 
-In the Tomcat bundle, the JAAS configuration is controled by the _{noformat}$TOMCAT_HOME/conf/jaas.conf{noformat}_:
+In the Tomcat bundle, the JAAS configuration is controled by the _$TOMCAT\_HOME/conf/jaas.conf_:
 
 {code}
 gatein-domain {
@@ -130,4 +130,6 @@ You also need to modify _rest.war_ to provide secured REST services properly.
 </login-config>
 {code}
 
-{note}This change is very important, allowing you to secure the file downloads via WEBDAV.{note}
+{note}
+This change is very important, allowing you to secure the file downloads via WEBDAV.
+{note}

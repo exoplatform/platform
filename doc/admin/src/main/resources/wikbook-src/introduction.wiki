@@ -30,7 +30,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Securit">Security</link>: Changes related to the JAAS realm.
+<link linkend="ADM.Security">Security</link>: Changes related to the JAAS realm.
 </para>
 </listitem>
 <listitem>

@@ -92,7 +92,7 @@ You need to indicate the _cluster_ kernel profile to eXo Platform. This can be d
 {code}
 EXO_PROFILES="-Dexo.profiles=default,cluster"
 {code}
-or use the _{noformat}start_eXo.sh{noformat}_ script with such parameters:
+or use the _start\_eXo.sh_ script with such parameters:
 {code}
 ./start_eXo.sh default,cluster
 {code}
