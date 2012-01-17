@@ -34,11 +34,11 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">Name:</td>
-                                         <td><label for="t_cred_name">Name: </label><input type="text" id="t_cred_name"  size="22" value="cloudadmin"/></td>
+                                         <td><input type="text" id="t_cred_name"  size="22" value="cloudadmin"/></td>
                                        </tr>
                                        <tr>
                                          <td class="TenantFormRow">Pass:</td>
-                                         <td><label for="t_cred_pass">Pass: </label><input type="password" id="t_cred_pass" size="22"/></td>
+                                         <td><input type="password" id="t_cred_pass" size="22"/></td>
                                        </tr>
                                         <tr>
                                            <td colspan="2" align="center"><input type="Submit" id="t_submitId" name="t_submitId" value="Submit" onClick="tenants.getStatus();"></td>

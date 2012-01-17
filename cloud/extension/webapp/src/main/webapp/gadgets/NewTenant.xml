@@ -34,11 +34,11 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">Email:</td>
-                                         <td><label for="t_email">Email: </label><input type="text" id="t_email" size="22"/></td>
+                                         <td><input type="text" id="t_email" size="22"/></td>
                                        </tr>
                                        <tr>                          
                                           <td class="TenantFormRow">Tenant name :</td>
-       				          <td><label for="t_name">Tenant name: </label><input type="text" id="t_name" size="22"/></td>
+       				          <td><input type="text" id="t_name" size="22"/></td>
                                        </tr>
                                         <tr>
                                            <td colspan="2" align="center"><input type="Submit" id="t_submit" name="t_submit" value="Create" onClick="tenants.doCreationRequest();"></td>

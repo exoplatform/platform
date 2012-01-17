@@ -36,15 +36,15 @@
       <table>
         <!--tr>
           <td>__MSG_baseurl__</td>
-          <td><label for="url">Url: </label><input type="text" id="url" name="url"></td>
+          <td><input type="text" name="url"></td>
         </tr>
         <tr>
           <td>__MSG_subscribeurl__</td>
-          <td><label for="subscribeurl">Subscribe url: </label><input type="text" id="subscribeurl" name="subscribeurl"></td>
+          <td><input type="text" name="subscribeurl"></td>
         </tr-->
         <tr>
           <td>__MSG_limit__</td>
-          <td><input type="text" id="limit" name="limit"></td>
+          <td><input type="text" name="limit"></td>
         </tr>   
         <tr>
           <td>__MSG_calendars__</td>

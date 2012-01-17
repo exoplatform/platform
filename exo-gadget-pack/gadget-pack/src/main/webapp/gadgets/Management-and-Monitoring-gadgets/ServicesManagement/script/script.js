@@ -241,12 +241,8 @@ ServicesManagement.prototype.renderMethodsForCanvas = function(methodData) {
     for ( var j = 0; j < method.parameters.length; j++) {
       methodForCanvas += "<div class='SkinID'>"
           + util.escapeString(method.parameters[j].name) + " "
-          + "<label for='" + util.escapeString(method.parameters[j].name) + "'>Parameter: </label>"
-          + "<input type='text' id='"
-          + util.escapeString(method.parameters[j].name) + "'" 
-          + " name='"
-          + util.escapeString(method.parameters[j].name) + "' />" 
-          + "</div>";
+          + "<input type='text' name='"
+          + util.escapeString(method.parameters[j].name) + "'>" + "</div>";
     }
     methodForCanvas += "</form></td>" + "<td>"
         + "<div class='MethodActionButton GadgetStyle FL'>"

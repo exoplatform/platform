@@ -36,7 +36,7 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">ID:</td>
-                                         <td><label for="t_id">ID: </label><input type="text" id="t_id" size="28"/></td>
+                                         <td><input type="text" id="t_id" size="28"/></td>
                                        </tr>
                                         <tr>
                                            <td colspan="2" align="center"><input type="Submit" id="t_submitId" name="t_submitId" value="Submit" onClick="tenants.doConfirmationRequest();"></td>
