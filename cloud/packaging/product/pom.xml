@@ -22,12 +22,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.server.tomcat.patch</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.server.tomcat.plugin</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <type>jar</type>
