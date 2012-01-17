@@ -577,9 +577,11 @@ eXoEventGadget.prototype.trigger = function(){
   this.moreButton.onmouseover = this.moveOver;
   this.moreButton.onfocus = this.moveOver;
   this.moreButton.onmouseout = this.moveOut;
+  this.moreButton.onblur = this.moveOut;
   this.settingButton.onmouseover = this.moveOver;
   this.settingButton.onfocus = this.moveOver;
   this.settingButton.onmouseout = this.moveOut;
+  this.settingButton.onblur = this.moveOut;
   }
 }
 eXoEventGadget.prototype.moveOver = function(){

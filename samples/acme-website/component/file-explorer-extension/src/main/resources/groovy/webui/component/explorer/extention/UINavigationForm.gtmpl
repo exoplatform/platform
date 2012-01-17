@@ -71,7 +71,7 @@
 		String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
 		String link = uicomponent.event(action) ;
 		%>
-		<a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onfocus="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">$actionLabel</a>
+		<a href="javascript:void(0);" onclick="$link" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onfocus="this.style.color = '#058ee6'" onmouseout="this.style.color='black'" onblur="this.style.color='black'">$actionLabel</a>
 		<%}%>
 	</div>
 </div>
