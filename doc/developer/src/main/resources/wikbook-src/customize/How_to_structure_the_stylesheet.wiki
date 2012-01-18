@@ -127,7 +127,7 @@ webapp
 </citetitle>
 {docbook}
 
-Each portlet on a page may contribute its own style. The link to the portlet skin will only appear on the page if that portlet is loaded on the current page. A page may contain many portlet skin CSS links or none. The link ID will be named like {noformat}{portletAppName}{PortletName}{noformat}. For example,  ContentPortlet in _content.war_ will have the _id="contentContentPortlet"_.
+Each portlet on a page may contribute its own style. The link to the portlet skin will only appear on the page if that portlet is loaded on the current page. A page may contain many portlet skin CSS links or none. The link ID will be named like {{{{portletAppName}{PortletName}}}}. For example,  ContentPortlet in _content.war_ will have the _id="contentContentPortlet"_.
 
 *General folder structure for portlet skin:* _/webapp/skin/portlet/webui/component/YourUIPortletName_
 

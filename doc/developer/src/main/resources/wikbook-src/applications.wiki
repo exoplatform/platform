@@ -281,8 +281,7 @@ The current size (in eXo Platform 3.5) is 80 x 80px, so you should select an ima
 
 !images/gadget_thumbnail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* The image can also be an image from a public website (absolute URL), for example: {noformat}<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>{noformat}; or from an internal image (relative URL): {noformat}<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>{noformat}
-
+* The image can also be one from a public website (absolute URL), for example: \<ModulePrefs title="Sample gadget" thumbnail="http://www.example.com/images/sample-icon.jpg"/>; or from an internal image (relative URL): \<ModulePrefs title="Sample gadget" thumbnail="image/sample-icon_80x80.png"/>.
 
 h2. Portlet Bridges {anchor:id=DEV.WorkWithApplications.PortletBridges}
 

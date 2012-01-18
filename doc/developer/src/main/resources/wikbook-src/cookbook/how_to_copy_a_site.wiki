@@ -58,19 +58,19 @@ One pop-up message will appear to inform that you have imported successfully.
 
 !images/how_to_copy_a_site/add_system_drive.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Open _{noformat}system:/jcr:system/exo:namespaces/{namespace_name}{noformat}_, and export it.
+*2.* Open _system\:/jcr:system/exo:namespaces/{{{{namespace_name}}}}_, and export it.
 
 !images/how_to_copy_a_site/export_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Open _{noformat}system:/jcr:system/exo:namespaces/{noformat}_, and import the exported file as described in [*Step 2*|#DEV.Cookbook.CopyNavigationNodesOfSites].
+*3.* Open _system\:/jcr\:system/exo\:namespaces/_, and import the exported file as described in [*Step 2*|#DEV.Cookbook.CopyNavigationNodesOfSites].
 
 !images/how_to_copy_a_site/import_namespace.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Open _{noformat}system:/jcr:system/jcr:nodetypes/{node_type}{noformat}_, and export it.
+*4.* Open _system\:/jcr\:system/jcr\:nodetypes/{{{{node_type}}}}_, and export it.
 
 !images/how_to_copy_a_site/export_node_type.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*5.* Open _{noformat}system:/jcr:system/jcr:nodetypes/{noformat}_, and import the exported file as described in [*Step 4*|#DEV.Cookbook.CopyWCMTemplates].
+*5.* Open _system\:/jcr\:system/jcr\:nodetypes/_, and import the exported file as described in [*Step 4*|#DEV.Cookbook.CopyWCMTemplates].
 
 !images/how_to_copy_a_site/import_nodetype.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -88,15 +88,15 @@ If you have some specific JCR namespaces and node types, you need to import them
 
 *1.* Open the *DMS Administration* drive.
 
-*2.* Open _{noformat}dms-system:/exo:ecm/templates/{node_type}{noformat}_, and export it.
+*2.* Open _dms-system\:/exo\:ecm/templates/{{{{node_type}}}}_, and export it.
 
 !images/how_to_copy_a_site/export_node_type_templates.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Open _{noformat}dms-system:/exo:ecm/templates/{noformat}_, and import the exported file.
+*3.* Open _dms-system\:/exo\:ecm/templates/_, and import the exported file.
 
 !images/how_to_copy_a_site/import_node_type_templates.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Also, for the CLV/PCLV templates, you can find all template views defined in the _{noformat}dms-system:/exo:ecm/views{noformat}_ path with:
+Also, for the CLV/PCLV templates, you can find all template views defined in the _dms-system\:/exo\:ecm/views_ path with:
 
 * userviews: this folder contains views of Sites Explorer with a set of actions.
 * templates: where you can find all gtmpl templates of:
@@ -129,9 +129,9 @@ By importing the whole site as described in the [*Copy a site's content folder w
 
 *1.* Open the *DMS Administration* drive in the new server.
 
-*2.* Go to _{noformat}dms-system:/exo:ecm/exo:taxonomyTrees/definition/{noformat}_.
+*2.* Go to _dms-system\:/exo\:ecm/exo\:taxonomyTrees/definition/_.
 
-*3.* Add a symlink to the *Taxonomy Tree Root Node*, for example _{noformat}collaboration:/sites content/live/acme/categories/acme{noformat}_.
+*3.* Add a symlink to the *Taxonomy Tree Root Node*, for example _collaboration\:/sites content/live/acme/categories/acme_.
 
 !images/how_to_copy_a_site/select_TaxonomyTree_rootNode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -158,7 +158,7 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 
 *1.* Open the *DMS Administration* drive in the new server.
 
-*2.* Go to _{noformat}/exo:ecm/metadata/{meta_data_name}{noformat}_.
+*2.* Go to _/exo\:ecm/metadata/{{{{meta_data_name}}}}_.
 
 *3.* Export and import it in the same location in the new server again.
 
@@ -172,7 +172,7 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 
 *1.* Open the *DMS Administration* drive in the new server.
 
-*2.* Go to _{noformat}/exo:ecm/queries/{query_name}{noformat}_.
+*2.* Go to _/exo\:ecm/queries/{{{{query_name}}}}_.
 
 *3.* Export and import it in the same location in the new server again.
 
@@ -186,7 +186,7 @@ In some cases, to see changes, you need to clear the cache by disconnecting or r
 
 *1.* Open the *DMS Administration* drive in the new server.
 
-*2.* Go to _{noformat}/exo:ecm/scripts/ecm-explorer{noformat}_.
+*2.* Go to _/exo\:ecm/scripts/ecm-explorer_.
 
 You will find three folders referring to the three types of groovy scripts in eXo Platform, including:
 
@@ -208,7 +208,7 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 *1.* Open the *DMS Administration* drive in the new server.
 
-*2.* Go to _{noformat}/exo:ecm/exo:drives/{drive_name}{noformat}_.
+*2.* Go to _/exo\:ecm/exo\:drives/{{{{drive_name}}}}_.
 
 *3.* Export and import it in the same location in the new server again.
 
@@ -222,7 +222,7 @@ You will find three folders referring to the three types of groovy scripts in eX
 
 *1.* Open the drive that points into the *Portal-System* Workspace.
 
-*2.* Go to your gadget by following the _{noformat}portal-system:/production/app:gadgets/{gadget_name}{noformat}_ path.
+*2.* Go to your gadget by following the _portal-system\:/production/app:gadgets/{{{{gadget_name}}}}_ path.
 
 *3.* Export and import it in the same location in the new server again.
 

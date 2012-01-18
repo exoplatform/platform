@@ -26,7 +26,7 @@ Install and configure Maven
 {docbook}
 
 
-You need to add a system environment variable _{noformat}MAVEN_OPTS{noformat}_ (it could be in a .profile startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
+You need to add a system environment variable _MAVEN\_OPTS_ (it could be in a _.profile_ startup script on Linux/MacOS operating systems or in the global environment variables panel on Windows).
 
 * Windows:*
 

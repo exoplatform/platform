@@ -88,7 +88,7 @@ Containers configuration files must comply with the kernel configuration grammar
 </configuration>
 {code}
 
-The {noformat}kernel_1_1.xsd{noformat} file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
+The _kernel\_1\_1.xsd_ file mentioned in the example above can be found inside {{exo.kernel.container-x.y.z.jar!org/exoplatform/container/configuration/}} along with other versions.
 
 h3. Components {anchor:id=DEV.eXoArchitecturePremer.Components}
 
@@ -514,7 +514,7 @@ Node node = (Node) session.getItem(path);
 h2. Tree structure: working with nodes and properties {anchor:id=DEV.eXoArchitecturePremer.WorkingWithNodes&Properties}
 
 Every node can only have one primary node type. The primary node type defines names, types and other characteristics of the properties, and the number of its allowed child nodes.
-Every node has a special property called _{noformat}jcr:primaryType{noformat}_ that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (for example, more child nodes, properties and their respective names and types).
+Every node has a special property called _jcr\:primaryType_ that records the name of its primary node type. A node may also have one or more mixin types. These are node type definitions that can mandate extra characteristics (for example, more child nodes, properties and their respective names and types).
 
 Data are stored in properties, which may hold simple values, such as numbers, strings or binary data of arbitrary length.
 

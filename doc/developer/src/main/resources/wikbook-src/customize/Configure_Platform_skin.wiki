@@ -77,7 +77,7 @@ SkinService in eXo Platform 3.5 is to manage various types of skins. It is used 
 * *Configure skins* {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkins}
 
 eXo Platform 3.5 automatically discovers web archives that contain a file descriptor for skins (WEB-INF/gatein-resources.xml). This file is to specify which portal, portlet and window decorators will be deployed into the skin service.
-The full schema can be found in the lib directory: _{noformat}exo.portal.component.portal.jar/gatein_resources_1_0.xsd{noformat}_.
+The full schema can be found in the lib directory: _exo.portal.component.portal.jar/gatein\_resources\_1\_0.xsd_.
 Here is an example where a skin (MySkin) and its CSS location is defined and a few window decorator skins are specified:
 
 {code:xml}
@@ -211,11 +211,11 @@ For the portal named MySkin, it is required to define the following CSS classes:
 
 The default skin would be aware of skin icons if the preview screenshot is placed in: 
 
-* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background{noformat}_.
+* _eXoResources.war\:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background_.
 
 The CSS stylesheet for the default portal needs to have the following updated with the preview icon CSS class. 
 For the skin named MySkin, it is required to update the following:
-* _{noformat}eXoResources.war:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css{noformat}_.
+* _eXoResources.war\:/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/Stylesheet.css_.
 
 Now, amending the deployed package eXoResources is inevitable (modifying the default war/jar breaches development convention of Platform-based products). The problem would be resolved in future eXo Platform versions in which different skin modules are fully independent, for example, there will be no preview image duplication.
 
@@ -315,7 +315,7 @@ If the current portal skin is not defined as part of the supported skins, the po
 </para>
 {docbook}
 
-Each portlet can be represented by a unique icon that you can see in the portlet registry or page editor. This icon can be changed by adding an image to the directory of portlet web application: _{noformat}skin/DefaultSkin/portletIcons/icon_name.png{noformat}_.
+Each portlet can be represented by a unique icon that you can see in the portlet registry or page editor. This icon can be changed by adding an image to the directory of portlet web application: _skin/DefaultSkin/portletIcons/icon\_name.png_.
 The icon must be named after the portlet.
 For example, the icon of account portlet must be named AccountPortlet and located at: _skin/DefaultSkin/portletIcons/AccountPortlet.png_.
 

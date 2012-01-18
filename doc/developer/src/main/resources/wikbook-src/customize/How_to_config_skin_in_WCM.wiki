@@ -24,7 +24,7 @@ A table column container with three nested containers:
 * Left Column and Right Column: Contain one application for each.
 * Main content: Contain the page body.
 
-And here is the fragment of _portal.xml_ located in this path: {noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml{noformat}_
+And here is the fragment of _portal.xml_ located in this path: _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/portal/portal/mysite/portal.xml_.
 
 {code:xml}
 <!-- ... -->
@@ -75,7 +75,7 @@ and the details of this container:
 RightColumnTDContainer
 {code}
 
-The reason is, when you have a look in the file system: _{noformat}/groovy/portal/webui/container/UITableColumnContainer.gtmpl{noformat}_ shown above, you will see this code fragment:
+The reason is, when you have a look in the file system: _/groovy/portal/webui/container/UITableColumnContainer.gtmpl_ shown above, you will see this code fragment:
 
 {code:html}
 <table class="UITableColumnContainer"
@@ -183,7 +183,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 For example: 
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/list/ACustomizedCLVTemplate.gtmpl_
 
 {code:html}
 <div id="$uicomponent.id" class="ACustomizedCLVTemplate">
@@ -195,7 +195,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/temp
 
 * Now, you need to import this template to the database.
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/configuration.xml_
 
 {code:xml}
 <external-component-plugins>
@@ -270,7 +270,7 @@ This section is related to the configuration. You can see a sample [here.|http:/
 
 First, you need to create a new document definition.
 
-* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml{noformat}_
+* _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/ACustomizedDocument.xml_
 	
 {code}
 	node type name :exo:customizedDocument
@@ -279,7 +279,7 @@ First, you need to create a new document definition.
 
 You also need to configure it to make sure it is imported to the database.
 
-* _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml{noformat}_
+* _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/definition-configuration.xml_
 
 {code:xml} 
 <external-component-plugins>
@@ -304,7 +304,7 @@ Next, create the templates for this document, including:
 
 * Dialog: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/dialogs/dialog1.gtmpl]
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/dialog.gtmpl_
 
 {code:html}
 <div class="UIForm ACustomizedDocument">
@@ -315,7 +315,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 
 * View: see the sample [here.|http://svn.exoplatform.org/projects/ecms/tags/2.1.0-GA/packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/templates/article/views/view1.gtmpl]
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/view.gtmpl_
 
 {code:html}
 <style>
@@ -330,7 +330,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 This document should contain ONLY the stylesheet for THIS template.
 {note}
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/stylesheet.css_
 
 
 {code:css}
@@ -345,7 +345,7 @@ _{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/docu
 
 * You also need to import them to the database.
 
-_{noformat}<myportal_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml{noformat}_
+_<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/document/template-configuration.xml_
 
 {code:xml}
 <external-component-plugins>

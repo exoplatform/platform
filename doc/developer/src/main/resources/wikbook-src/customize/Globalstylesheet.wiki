@@ -14,7 +14,7 @@ h1. Create and apply the global stylesheet by Sites Explorer {anchor:id=DEV.Crea
 
 !images/CreateGlobalStylesheetForm.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Enter the name of global stylesheet into the *Name* field, for example *{noformat}GlobalStylesheet_Orange{noformat}*.
+*4.* Enter the name of global stylesheet into the *Name* field, for example *GlobalStylesheet\_Orange*.
 
 *5.* Set the value as "True" to activate your global stylesheet for your site in the *Active* field. By default, "True" will be set when you create a new global stylesheet. If you select "False", your newly created global style will be disabled.
 
@@ -84,16 +84,16 @@ After being created as above, your desired global stylesheet can be initialized 
 
 h1. Check the display of global stylesheets {anchor:id=DEV.CreateYourOwnPortal.CheckDisplayOfGlobalStylesheet}
 
-You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *{noformat}GlobalStylesheet_Blue{noformat}* and *{noformat}GlobalStylesheet_Orange{noformat}*, do as follows:
+You can have several global stylesheets in one site. To see differences when applying various global stylesheets, for example *GlobalStylesheet\_Blue* and *GlobalStylesheet\_Orange*, do as follows:
 
-*1.* Activate the *{noformat}GlobalStylesheet_Blue{noformat}* and *{noformat}GlobalStylesheet_Orange{noformat}* by turns.
+*1.* Activate the *GlobalStylesheet\_Blue* and *GlobalStylesheet\_Orange* by turns.
 
 *2.* Click *My Spaces* on the *Administration* bar and select the relevant site that you have customized the style.
 
-If you activate *{noformat}GlobalStylesheet_Blue{noformat}* (the pre-defined stylesheet), your site will be displayed as below:
+If you activate *GlobalStylesheet\_Blue* (the pre-defined stylesheet), your site will be displayed as below:
 
 !images/DisplayGlobalStyleBlue.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-When you activate *{noformat}GlobalStylesheet_Orange{noformat}* (your CSS stylesheet), you can see your site is now displayed in a different style:
+When you activate *GlobalStylesheet\_Orange* (your CSS stylesheet), you can see your site is now displayed in a different style:
 
 !images/DisplayGlobalStyleOrange.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!

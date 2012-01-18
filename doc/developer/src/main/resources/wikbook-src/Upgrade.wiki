@@ -182,7 +182,7 @@ This section details how to update your custom eXo Platform extension, including
 
 h2. Update Kernel XML Schema {anchor:id=DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema}
 
-* Simply upgrade the version from _{noformat}kernel_1_0.xsd{noformat}_ to _{noformat}kernel_1_2.xsd{noformat}_ in all _.xml_ configurations files.
+* Simply upgrade the version from _kernel\_1\_0.xsd_ to _kernel\_1\_2.xsd_ in all _.xml_ configurations files.
 
 {code:xml}
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

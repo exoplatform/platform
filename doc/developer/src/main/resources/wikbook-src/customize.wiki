@@ -147,7 +147,7 @@ Each portlet can be configured with a set of preferences, which will be further 
 
 It is also possible to apply a nested container that can also contain portlets. Row, column or tab containers are then responsible for the layout of their child portlets.
 
-Each application references a portlet using the id {noformat}portal#{portalName}:/{portletWarName}/{portletName}/{uniqueId}{noformat}
+Each application references a portlet using the id: _{{{portal#{portalName}:/{portletWarName}/{portletName}/{uniqueId}}}}_
 
 The <page-body> </page-body> tag is a placeholder for the different pages of your portal, it defines where Platform should render the current page. When the user opens a new portal page, all portlets of the portal layout (_portal.xml_) are remained, whereas the content of <page-body> switches to the page opened by the user.
 
@@ -229,9 +229,9 @@ See [Chapter 5|#DEV.WorkingwithApplications] to learn more about the portlet con
 
 The _navigation.xml_ file defines all the navigation nodes of the portal. The syntax is simply using the nested node tags. Each node refers to a page defined in the _pages.xml_ file that will be explained later.
 
-If the administrator wants to create node labels for each language, he will have to use _{noformat}xml:lang{noformat}_ attribute in the label tag with the value of _{noformat}xml:lang{noformat}_ is set to the relevant locale.
+If the administrator wants to create node labels for each language, he will have to use _xml\:lang_ attribute in the label tag with the value of _xml\:lang_ is set to the relevant locale.
 
-Otherwise, if the administrator wants the node label is localized by resource bundle files, the _{noformat}#{...}{noformat}_ syntax will be used. The enclosed property name serves as a key that is automatically passed to the internationalization mechanism. Thus, the emphasis property name is replaced with a localized value taken from the associated properties file matching the current locale.
+Otherwise, if the administrator wants the node label is localized by resource bundle files, the _\#{{{{...}}}}_ syntax will be used. The enclosed property name serves as a key that is automatically passed to the internationalization mechanism. Thus, the emphasis property name is replaced with a localized value taken from the associated properties file matching the current locale.
 
 {code:xml}
 <node-navigation>
@@ -259,14 +259,14 @@ Otherwise, if the administrator wants the node label is localized by resource bu
 This navigation tree is shown and reused in different portlets, such as sitemap, navigation or breadcrumbs. The breadcrumbs portlet renders the position of the current navigation node.
 
 {note}
-For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like _{noformat}<uri>contentmanagement/fileexplorer</uri>{noformat}_ where 'contentmanagement' is the name of the parent node, and 'fileexplorer' is the name of node (_{noformat}<name>fileexplorer</name>{noformat}_).
+For the top nodes, the URI and the navigation node name must have the same value. For other nodes, the URI is composed like _<uri>contentmanagement/fileexplorer</uri>_ where 'contentmanagement' is the name of the parent node, and 'fileexplorer' is the name of node (_<name>fileexplorer</name>_).
 {note}
 
 h2. Visibility of pages {anchor:id=DEV.CreateYourOwnPortal.VisibilityPages}
 
 When you configure the _navigation.xml_ file, sometimes you need to set the visibility of page (node).
 
-To configure the page visibility, simply put _{noformat}<visibility>type_of_visibility</visibility>{noformat}_ as a child of the _<node>_ tag.
+To configure the page visibility, simply put _<visibility>type\_of\_visibility</visibility>_ as a child of the _<node>_ tag.
 
 eXo Platform supports 4 types of page visibility, including:
 

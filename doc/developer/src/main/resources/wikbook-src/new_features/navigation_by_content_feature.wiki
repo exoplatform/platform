@@ -50,7 +50,7 @@ In which:
 * *Template* = _OneColumnCLVTemplate.gtmpl_: The template used for displaying the content list.
 * *Contextual Folder* = _Enabled_: The Contextual Content property is set to "Enable". This portlet is configured with the provided parameter (content-id by default).
 * *Show in page* = _Details_: A single content in CLV will be shown in the "Details" page.
-* *With* = _{noformat}content-id{noformat}_: The parameter containing the content path.
+* *With* = _content-id_: The parameter containing the content path.
 
 As a result, the created *Events* page will look like:
 
@@ -203,7 +203,7 @@ However, if you want to add your newly created content directly to the contextua
 
 *1.* Go to the *Sites Explorer* page and navigate to the _/Sites Management/acme/events/All/Fire_ node.
 
-*2.* Click the *Manage Actions* button and add the *{noformat}exo:populateToMenu{noformat}* action.
+*2.* Click the *Manage Actions* button and add the *exo\:populateToMenu* action.
 
 !images/navigation_by_content_feature/populateToMenuAction.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 

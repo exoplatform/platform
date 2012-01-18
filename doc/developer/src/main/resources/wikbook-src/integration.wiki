@@ -650,7 +650,7 @@ Here is how to use the LDAPs protocol with the Active Directory:
 
 *ii.* Set the Java options as below:
 
-  _{noformat}JAVA_OPTS="${JAVA_OPTS} -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStore=/home/user/java/jdk1.6/jre/lib/security/ca"{noformat}_
+  _{{{JAVA_OPTS="${JAVA_OPTS} -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStore=/home/user/java/jdk1.6/jre/lib/security/ca"}}}_
 
 h2. Picketlink IDM {anchor:id=DEV.SystemIntegration.PicketlinkIDM}
 eXo Platform uses the PicketLink IDM component to keep the necessary identity information, such as users, groups, memberships.
@@ -690,7 +690,7 @@ If you want to switch between different implementations, you just need to uncomm
 
 h1. Email {anchor:id=DEV.SystemIntegration.Email}
 
-The email service can use any SMTP account configured in _{noformat}$JBOSS_HOME/server/default/conf/gatein/configuration.properties{noformat}_ or _{noformat}$TOMCAT_HOME/gatein/conf/configuration.properties{noformat}_ if you are using Tomcat.
+The email service can use any SMTP account configured in _$JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ or _$TOMCAT\_HOME/gatein/conf/configuration.properties_ if you are using Tomcat.
 
 The relevant section looks like:
 

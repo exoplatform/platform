@@ -47,7 +47,7 @@ After defining your node type, you need to select templates which are applied to
 * *views* which are HTML fragments for displaying nodes.
 
 From the *Content administration* portlet, the *Manage Template* module lists all existing node types that have been associated with *Dialog* and/or *View* templates.
-These templates can be attached to permissions (in the usual _{noformat}membership:group_ form{noformat}_), so which specific templates are displayed according to user rights (which can be useful in a content validation workflow activity).
+These templates can be attached to permissions (in the usual _membership\:group_ form), so which specific templates are displayed according to user rights (which can be useful in a content validation workflow activity).
 
 
 h1. Document type {anchor:id=DEV.WorkWithContent.DocumentType}
@@ -269,7 +269,7 @@ Every toolbar set is composed of a series of "toolbar bands" that are grouped in
 
 Every toolbar band is defined as a separated JavaScript array of strings. Each string corresponds to an available toolbar item defined in the editor code or in a plugin.
 
-* Put the desired button names in square bracket ({noformat}"[" & "]"{noformat}) and separate them by commas to create a toolbar band. You can look at the above code to know all the possible toolbar item. If the toolbar item does not exist, a message will be displayed when loading the editor.
+* Put the desired button names in square bracket ("\[" & "\]") and separate them by commas to create a toolbar band. You can look at the above code to know all the possible toolbar item. If the toolbar item does not exist, a message will be displayed when loading the editor.
 
 * Include a separator in the toolbar band by putting the "-" string on it.
 
@@ -477,13 +477,13 @@ h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
 
 Taxonomy is a particular classification arranged in a hierarchical structure. Taxonomy trees in eXo Platform will help you organize your content into categories.
 
-When you create a new taxonomy tree, you will add a pre-configured _{noformat}exo:action{noformat}_ (_{noformat}exo:scriptAction{noformat}_ or _{noformat}exo:businessProcessAction{noformat}_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _{noformat}exo:taxonomyLink{noformat}_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
+When you create a new taxonomy tree, you will add a pre-configured _exo\:action_ (_exo\:scriptAction_ or _exo\:businessProcessAction_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _exo\:taxonomyLink_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
 
 Like adding document types, taxonomy trees can be managed through the *Content administration* portlet, or by adding .xml configuration files.
 
-To configure taxonomy trees by adding configuration files in the _{noformat}/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/{noformat}_ directory, create a new file called _{noformat}$taxonomyName-taxonomies-configuration.xml{noformat}_. For example, if the name of your taxonomy tree is "acme", the file should be named _{noformat}acme-taxonomies-configuration.xml{noformat}_.
+To configure taxonomy trees by adding configuration files in the _/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/_ directory, create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
 
-You can view the file here: _{noformat}$PLF-HOME_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml{noformat}_.
+You can view the file here: _$PLF-HOME\_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml_.
 
 As you can see, the value-params enable you to define the repository, workspace, name of the tree and its JCR path. You can then configure 
 permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
