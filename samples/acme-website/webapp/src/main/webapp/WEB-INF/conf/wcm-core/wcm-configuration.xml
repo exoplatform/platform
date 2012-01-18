@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+        xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+
+    <component>
+        <key>org.exoplatform.services.wcm.portal.LivePortalManagerService</key>
+        <type>org.exoplatform.services.wcm.portal.impl.LivePortalManagerServiceImpl</type>
+    </component>
+
+    <component>
+        <type>org.exoplatform.services.wcm.images.RESTImagesRendererService</type>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</key>
+        <type>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsServiceImpl</type>
+        <init-params>
+            <values-param>
+                <name>ignored.portals</name>
+                <description>initial portals. the service will not deploy data to the initial portal</description>
+                <value>classic</value>
+            </values-param>
+        </init-params>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.portal.artifacts.RemovePortalArtifactsService</key>
+        <type>org.exoplatform.services.wcm.portal.artifacts.RemovePortalArtifactsServiceImpl</type>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.link.LiveLinkManagerService</key>
+        <type>org.exoplatform.services.wcm.link.LiveLinkManagerServiceImpl</type>
+        <init-params>
+            <properties-param>
+                <name>server.config</name>
+                <description>server.address</description>
+                <property name="scheme" value="http" />
+                <property name="hostName" value="localhost" />
+                <property name="port" value="8080" />
+            </properties-param>
+        </init-params>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.core.WebSchemaConfigService</key>
+        <type>org.exoplatform.services.wcm.core.impl.WebSchemaConfigServiceImpl</type>
+        <component-plugins>
+            <component-plugin>
+                <name>CSSFileHandler</name>
+                <set-method>addWebSchemaHandler</set-method>
+                <type>org.exoplatform.services.wcm.skin.CSSFileHandler</type>
+            </component-plugin>
+            <component-plugin>
+                <name>JSFileHandler</name>
+                <set-method>addWebSchemaHandler</set-method>
+                <type>org.exoplatform.services.wcm.javascript.JSFileHandler</type>
+            </component-plugin>
+            <component-plugin>
+                <name>WebContentSchemaHandler</name>
+                <set-method>addWebSchemaHandler</set-method>
+                <type>org.exoplatform.services.wcm.webcontent.WebContentSchemaHandler</type>
+            </component-plugin>
+            <component-plugin>
+                <name>HTMLFileSchemaHandler</name>
+                <set-method>addWebSchemaHandler</set-method>
+                <type>org.exoplatform.services.wcm.webcontent.HTMLFileSchemaHandler</type>
+            </component-plugin>
+            <component-plugin>
+                <name>PortalFolderSchemaHandler</name>
+                <set-method>addWebSchemaHandler</set-method>
+                <type>org.exoplatform.services.wcm.portal.PortalFolderSchemaHandler</type>
+            </component-plugin>
+        </component-plugins>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.core.WCMService</key>
+        <type>org.exoplatform.services.wcm.core.impl.WCMServiceImpl</type>
+        <init-params>
+            <properties-param>
+                <name>server.config</name>
+                <description>server.config</description>
+                <property name="expirationCache" value="30" />
+            </properties-param>
+        </init-params>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.portletcache.FragmentCacheService</key>
+        <type>org.exoplatform.services.portletcache.FragmentCacheService</type>
+        <init-params>
+            <value-param>
+                <name>cleanup-cache</name>
+                <description>The cleanup cache period in seconds</description>
+                <value>300</value>
+            </value-param>
+        </init-params>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.skin.XSkinService</key>
+        <type>org.exoplatform.services.wcm.skin.XSkinService</type>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.javascript.XJavascriptService</key>
+        <type>org.exoplatform.services.wcm.javascript.XJavascriptService</type>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.wcm.webcontent.TOCGeneratorService</key>
+        <type>org.exoplatform.services.wcm.webcontent.TOCGeneratorService</type>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.jcr.ext.classify.NodeClassifyService</key>
+        <type>org.exoplatform.services.jcr.ext.classify.impl.NodeClassifyServiceImpl</type>
+        <component-plugins>
+            <component-plugin>
+                <name>AlphabetClassifyPlugin</name>
+                <set-method>addClassifyPlugin</set-method>
+                <type>org.exoplatform.services.jcr.ext.classify.impl.AlphabetClassifyPlugin</type>
+            </component-plugin>
+            <component-plugin>
+                <name>DateTimeClassifyPlugin</name>
+                <set-method>addClassifyPlugin</set-method>
+                <type>org.exoplatform.services.jcr.ext.classify.impl.DateTimeClassifyPlugin</type>
+                <init-params>
+                    <properties-param>
+                        <name>plugin-params</name>
+                        <description>service-params</description>
+                        <property name="DateTimeTemplate" value="YYYY-#{YYYY+4}/MM" />
+                        <property name="DateTimePropertyName" value="" />
+                        <property name="StartTime" value="2002-2" />
+                        <property name="EndTime" value="2020-9" />
+                    </properties-param>
+                </init-params>
+            </component-plugin>
+            <component-plugin>
+                <name>TypeClassifyPlugin</name>
+                <set-method>addClassifyPlugin</set-method>
+                <type>org.exoplatform.services.jcr.ext.classify.impl.TypeClassifyPlugin</type>
+            </component-plugin>
+        </component-plugins>
+    </component>
+
+    <component>
+        <key>org.exoplatform.services.jcr.ext.distribution.DataDistributionManager</key>
+        <type>org.exoplatform.services.jcr.ext.distribution.impl.DataDistributionManagerImpl</type>
+    </component>
+
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+        <component-plugin>
+            <name>add.nodeType</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+            <priority>98</priority>
+            <init-params>
+                <values-param>
+                    <name>autoCreatedInNewRepository</name>
+                    <description>Node types configuration file</description>
+                    <value>war:/conf/wcm-core/nodetypes/wcm-nodetypes.xml</value>
+                </values-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+            <name>org.exoplatform.portal.config.DataStorage.portalConfigCreated</name>
+            <set-method>addListener</set-method>
+            <type>org.exoplatform.services.wcm.portal.listener.CreateLivePortalEventListener</type>
+            <description>this listener create new live portal content storage</description>
+            <init-params>
+                <value-param>
+                    <name>autoCreatedDrive</name>
+                    <description>A drive will be automatically created during the portal creation.</description>
+                    <value>false</value>
+                </value-param>
+                <values-param>
+                    <name>targetDrives</name>
+                    <description>The list of drives which are not automatically created during the portal creation with "autoCreatedDrive=false".</description>
+                    <value>acme</value>
+                </values-param>
+            </init-params>
+        </component-plugin>
+        <component-plugin>
+            <name>org.exoplatform.portal.config.DataStorage.portalConfigRemoved</name>
+            <set-method>addListener</set-method>
+            <type>org.exoplatform.services.wcm.portal.listener.RemoveLivePortalEventListener</type>
+            <description>this listener new live portal content storage</description>
+        </component-plugin>
+        <component-plugin>
+            <name>org.exoplatform.portal.config.DataStorage.portalConfigUpdated</name>
+            <set-method>addListener</set-method>
+            <type>org.exoplatform.services.wcm.portal.listener.UpdateLivePortalEventListener</type>
+            <description>this listener new live portal content storage</description>
+        </component-plugin>
+    </external-component-plugins>
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</target-component>
+        <component-plugin>
+            <name>addActions</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+            <description>Reload all templates after edit</description>
+            <init-params>
+                <object-param>
+                    <name>actions</name>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+                        <field name="actions">
+                            <collection type="java.util.ArrayList">
+                                <value>
+                                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                                        <field name="workspace">
+                                            <string>dms-system</string>
+                                        </field>
+                                        <field name="path">
+                                            <string>/exo:ecm/views/templates/</string>
+                                        </field>
+                                        <field name="isDeep">
+                                            <boolean>true</boolean>
+                                        </field>
+                                        <field name="nodeTypes">
+                                            <string>exo:resources</string>
+                                        </field>
+                                        <field name="eventTypes">
+                                            <string>changeProperty</string>
+                                        </field>
+                                        <field name="actionClassName">
+                                            <string>org.exoplatform.services.wcm.template.TemplateModificationAction</string>
+                                        </field>
+                                    </object>
+                                </value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</target-component>
+        <component-plugin>
+            <name>addActions</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+            <description>Add mixin exo:sortable and property exo:title of TARGET NODE for SYMLINK NODE</description>
+            <init-params>
+                <object-param>
+                    <name>actions</name>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+                        <field name="actions">
+                            <collection type="java.util.ArrayList">
+                                <value>
+                                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                                        <field name="nodeTypes">
+                                            <string>exo:taxonomyLink</string>
+                                        </field>
+                                        <field name="eventTypes">
+                                            <string>addProperty</string>
+                                        </field>
+                                        <field name="actionClassName">
+                                            <string>org.exoplatform.services.wcm.symlink.CreateLinkAction</string>
+                                        </field>
+                                    </object>
+                                </value>
+                            </collection>
+                        </field>
+                    </object>
+                </object-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+            <name>WCMPublicationService.event.updateState</name>
+            <set-method>addListener</set-method>
+            <type>org.exoplatform.services.wcm.symlink.PublicationUpdateStateListener</type>
+            <description>this listener will update the link's metadata</description>
+        </component-plugin>
+    </external-component-plugins>
+
+</configuration>
