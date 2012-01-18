@@ -1,6 +1,6 @@
 h1. Moderator  {anchor:id=Answer_user_guide.Moderator}
 Moderators in *Answers* manage the content of questions and answers before and after they are posted to a moderated category.
-The Moderator can read new contents (editing or removing if necessary), approve or activate answers, and more. The moderator has the category-specific role.
+The Moderator can read new content (editing or removing if necessary), approve or activate answers, and more. The moderator has the category-specific role.
 
 h2. Manage categories {anchor:id=KSuser.Answer_Moderator.Manage_categories}
 

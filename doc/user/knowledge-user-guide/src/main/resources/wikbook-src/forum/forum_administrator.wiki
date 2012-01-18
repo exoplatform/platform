@@ -348,7 +348,7 @@ The followings are variables which can be used in the template:
 
 * *$POSTER*: Will be replaced by the topic/post owner.
 
-* *$POST\_CONTENT*: Will be replaced by the topic/post contents.
+* *$POST\_CONTENT*: Will be replaced by the topic/post content.
 
 * *$TIME*: Will be replaced by the time when the topic/post was added.
 

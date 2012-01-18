@@ -119,12 +119,12 @@ You can edit a page at any time if you have the *Edit* permission on that page.
 {docbook}
 <citetitle>
 <para>
-<emphasis role="bold">Edit a whole page content</emphasis>
+<emphasis role="bold">Edit the whole page content</emphasis>
 </para>
 </citetitle>
 {docbook}
 
-To edit a whole page content, click *Edit* in the *Page Control* area. Your page will be switched to the Edit mode.
+To edit the whole page content, click *Edit* in the *Page Control* area. Your page will be switched to the Edit mode.
 
 !images/page_control.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -397,7 +397,7 @@ h1. Use the WYSIWYG Editor (Rich Text editor) {anchor:id=KSuser.Wiki.Use_WYSIWYG
 
 *WYSIWYG* stands for What You See Is What You Get. The *WYSIWYG* editor allows you to edit an wiki page directly in the wiki markup language. This has the advantage of being faster than the Rich Text Editor for some formatting tasks.
 
-You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png| width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png| width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the contents to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
+You can switch between the *Source* and *WYSIWYG* editors at any time by clicking !images/rich_text_editor.png| width="40mm" fo:scalefit="1" html:scalefit="0"! or !images/source_editor_btn.png| width="20mm" fo:scalefit="1" html:scalefit="0"!. In the *Source* editor, which is selected by default when you edit a page, you have to use the wiki markup language for text formatting, while the *WYSIWYG* editor enables the content to be appeared during editing that is very similar to the published result. Thanks to available tools on this editor, you can format your content visually without using wiki markups.
 
 !images/wiki_wysiwyg_editor.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -461,7 +461,7 @@ The following table describes specific functions of common macros.
 |*Color*| Change the text color. |
 |*Code*| Highlight code snippets of various programming languages. |
 |*Error Message*| Display an error message note.|
-|*Float* | Allow a content to 'float' on the left or the right. |
+|*Float* | Allow content to 'float' on the left or the right. |
 |*Info Message* |Display an info message.|
 |*No Format* |Keep the content displayed like you type.|
 |*Note Message*|Display a note message.|
@@ -547,7 +547,7 @@ To restore an older version, click !images/Restore_button.png| width="30" fo:sca
 {docbook}
 <note>
     <para>
-    Restoring an older version will create a copy of that version. For example, if the [current version (v.2)] is restored to the [older version (v.1)], <emphasis role="bold">Wiki</emphasis> will create a new version (v.3) containing contents of v.1. The version v.3 will become the current version.
+    Restoring an older version will create a copy of that version. For example, if the [current version (v.2)] is restored to the [older version (v.1)], <emphasis role="bold">Wiki</emphasis> will create a new version (v.3) containing content of v.1. The version v.3 will become the current version.
     </para>
 </note>
 {docbook}
@@ -724,7 +724,7 @@ You can add and delete the *View Pages Permission* or the *Edit Pages Permission
 
 h3. Manage a page template {anchor:id=KSuser.Wiki_Administration.Manage_page_tempplate}
 
-When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a *Wiki* page with predefined contents.
+When adding a new page, you are not required to write the content from scratch. You can start by selecting a page template which is actually a *Wiki* page with predefined content.
 
 In the *Space Settings* form, select the *Template* tab and the form to manage templates appears.
 

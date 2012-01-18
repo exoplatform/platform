@@ -1,5 +1,5 @@
 h1. Moderator {anchor:id=Forum_user_guide.Moderator}
-Moderators in *Forum* are responsible for managing contents of posts and replies before and after they are posted to the category where they are assigned as moderators.
+Moderators in *Forum* are responsible for managing content of posts and replies before and after they are posted to the category where they are assigned as moderators.
 
 {docbook}
 <para>
@@ -33,7 +33,7 @@ h3. Edit a forum {anchor:id=Forum_Moderator.Moderate_forums.Edit_forums}
 *4.* Click *Save* to save all the changes.
 
 h3. Lock/Unlock a forum {anchor:id=Forum_Moderator.Moderate_forums.Lock-unlock_forums}
-Locking a forum will prevent all members from creating new topics and posting replies in this forum. All topics in a locked forum will be locked also, but their contents are still viewable. 
+Locking a forum will prevent all members from creating new topics and posting replies in this forum. All topics in a locked forum will be locked also, but their content is still viewable.
 Moderators can only lock/unlock the forum that they manage.
 
 *1.* Go into the forum.
@@ -41,7 +41,7 @@ Moderators can only lock/unlock the forum that they manage.
 *2.* Click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Lock/Unlock* from the drop-down menu.
 
 h3. Close/Open a forum {anchor:id=Forum_Moderator.Moderate_forums.Close-open_forums}
-Closed forums are invisible to regular users. To administrators and moderators, the contents in a closed forum are still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
+Closed forums are invisible to regular users. To administrators and moderators, the content in a closed forum is still viewable, but creating topics and comments is disabled. Moderators can only close the forum that they are assigned to manage.
 
 *1.* Go into the forum you want to close or open.
 

@@ -327,7 +327,7 @@ The *Rate This Topic* form will appear.
 
 h3. Tag/Untag a topic {anchor:id=Forum_regular_user.Topics.Tag-Untag_topics}
 
-This function is for all logged-in users. Tags are keywords which are used as labels to describe or categorize the topic contents. One topic may have several tag names. Using tags allows you to categorize topics based on the actual content. Even, it can be a better way to find a specific topic than a full-text search.
+This function is for all logged-in users. Tags are keywords which are used as labels to describe or categorize the topic content. One topic may have several tag names. Using tags allows you to categorize topics based on the actual content. Even, it can be a better way to find a specific topic than a full-text search.
 
 {docbook}
 <citetitle>
@@ -544,7 +544,7 @@ The *Private Messages* form will appear.
 
 !images/private_messages_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Enter the username of the recipients and type your message title and contents.
+*2.* Enter the username of the recipients and type your message title and content.
 
 *3.* Click *Save* to send the message.
 
