@@ -2,7 +2,7 @@ Content is a main part of a website that may consist of various elements, such a
 
 To create and manage the content more effectively and dynamically, you need to pay attention to the structure of each content, including:
 
-* *Main content* contains all key contents, such as texts, images, links, tables, and more.
+* *Main content* contains all key content, such as texts, images, links, tables, and more.
 * *Illustration* is an image which is used to clarify or explain the content. Also, a summary also can be added to this image.
 * *default.css* contains CSS data which are used to present the web content, such as layout, font, color, and more.
 * *default.js* contains JS data which are used to make web content more animating and dynamic.

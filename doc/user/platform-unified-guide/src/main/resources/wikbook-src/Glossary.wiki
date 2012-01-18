@@ -95,8 +95,8 @@ eXo Platform offers two access modes by default:
 
 *Permission* settings control actions of a user within the portal and are set by the portal administrators.
 * *Permission types* define what a user can do within the portal.
-** *Access permission* enables users to utilize portal contents, such as signing in, viewing 	contents,  rearranging portlets. This permission can be set for multiple member groups.
-** *Edit permission* enables users to change portal contents (changing portal or page 	information, deleting a portal/page). The edit permission is set for only one group at one 	time.
+** *Access permission* enables users to utilize portal content, such as signing in, viewing content, rearranging portlets. This permission can be set for multiple member groups.
+** *Edit permission* enables users to change portal content (changing portal or page information, deleting a portal/page). The edit permission is set for only one group at one time.
 * *Permission levels* specify where the users' permission types can be applied in the portal.
 ** *Portal*: The permission at the portal level includes actions permitted in all pages within the portal. Users with the access permission can view (but not edit) all the pages within the portal. Meanwhile, users with the edit permission at the portal level can modify any page of the portal.
 ** *Page*: The permission at the page level restricts users to several particular pages. Users are only able 	to see and/or edit pages they have been given access to, depending on each permission type assigned to them.
@@ -110,7 +110,7 @@ eXo Platform offers two access modes by default:
 </citetitle>
 {docbook}
 
-A locus where contents or digital data are maintained. Users can access without traveling across a network.
+A locus where content or digital data are maintained. Users can access without traveling across a network.
 
 
 
