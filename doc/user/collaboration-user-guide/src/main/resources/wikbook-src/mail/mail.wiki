@@ -157,7 +157,7 @@ In this view mode, all messages are arranged as a list.
 !images/list_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Thread view {anchor:id="CSUser_guide.How_to_use_Mail.Mail_views.Thread_view}
-Messages are arranged as a tree structure. All replies are shown as sub-nodes. When you click one message, its content is displayed in the message details pane with block quotes containing contents of the parent messages.
+Messages are arranged as a tree structure. All replies are shown as sub-nodes. When you click one message, its content is displayed in the message details pane with block quotes containing content of the parent messages.
 
 !images/thread_view.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -667,7 +667,7 @@ This function allows you to resend a message, which has been delivered to your e
 
 *iii.* Or, open the message which you want to forward, then click !images/down_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! at the upper right corner of the message content, and select *Forward* from the drop-down menu.
 
-The *Compose New Message* window will be displayed with the original contents of the message you want to forward.
+The *Compose New Message* window will be displayed with the original content of the message you want to forward.
 
 *2.* Enter the recipient's email address in the *To* field.
 
