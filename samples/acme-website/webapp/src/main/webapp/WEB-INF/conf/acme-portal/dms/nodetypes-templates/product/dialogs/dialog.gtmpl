@@ -75,7 +75,7 @@
 									<div>
 										<image src="$imgSrc" width="100px" height="80px"/>
 										<a onclick="$actionLink">
-											<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon"/>
+											<img src="/eXoResources/skin/DefaultSkin/background/Blank.gif" class="ActionIcon Remove16x16Icon" alt="" />
 										</a>
 									</div>
 								<%

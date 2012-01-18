@@ -3,6 +3,6 @@
 %>
 <div id="<%=uicomponent.id%>">
 	<a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
-		<img src="/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png" style="margin-bottom:5px;"/>
+		<img src="/eXoPlatformResources/skin/platformSkin/UIToolbarContainer/background/HomeIcon.png" alt="Home" style="margin-bottom:5px;"/>
 	</a>
 </div>

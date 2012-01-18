@@ -1,6 +1,6 @@
 <div id="<%=uicomponent.getId()%>">
 	<a href="<%=uicomponent.event("PinOrUnpin", ""+(!uicomponent.isPinned()))%>" class="PinLink">
-		<img src="<%=uicomponent.isPinned() ? "/eXoPlatformResources/skin/toolbarPin/unpin.png":"/eXoPlatformResources/skin/toolbarPin/pin.png"%>"/>
+		<img src="<%=uicomponent.isPinned() ? "/eXoPlatformResources/skin/toolbarPin/unpin.png":"/eXoPlatformResources/skin/toolbarPin/pin.png"%>" alt="Pin Link" />
 	</a>
 
 	<script type="text/javascript">

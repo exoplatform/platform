@@ -64,7 +64,7 @@ def uicomponentId = uicomponent.getId();
 						}
 				%>
 				<a class="UISpaceAdminAvatar" href="${adminProfileURL}">
-					<img class="buttom" src="$administratorImageSource" title="$userName"/>
+					<img class="buttom" src="$administratorImageSource" title="$userName" alt="Avatar"/>
 				</a>
 				
 				<%

@@ -110,7 +110,7 @@
   </script>
   <% uiform.begin() %>
 		<div class="NavigationAvatar">
-	      <img src="<%= uicomponent.getAvatarURL() %>">
+	      <img src="<%= uicomponent.getAvatarURL() %>" alt="avatar">
 	    </div>
 		<div class="NavigationComposer" onkeypress="shareKeyPress(event);">
       		<% uicomponent.renderChild(UIFormTextAreaInput.class) %>

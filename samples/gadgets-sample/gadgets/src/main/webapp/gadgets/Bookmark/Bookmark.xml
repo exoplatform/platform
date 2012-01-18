@@ -19,7 +19,7 @@
       $(function(){
       
         function addBookmark(id, name, link) {
-          var icon = '<div class="ArrowIcon"><img class="listIcon off CustomImage" src="/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif"></img></div>';
+          var icon = '<div class="ArrowIcon"><img class="listIcon off CustomImage" src="/exo-gadget-resources/skin/exo-gadget/images/ArrowRight.gif" alt=""></img></div>';
           var item = '<a id="bookmark' + id + '" href="' + link + '" target="_parent">' + name + '</a>';
           var form = '<div class="Form" style="display:none;"> \
                         <div class="Label"><input type="text" class="EditFormName"></input></div> \
@@ -185,7 +185,7 @@
        <div class="TitGad ClearFix">
 
           <div style="float:right; margin-top:2px; margin-right:10px;">
-                <img id="customize" class="on" src="/exo-gadget-resources/skin/exo-gadget/images/settings.png"></img>
+                <img id="customize" class="on" src="/exo-gadget-resources/skin/exo-gadget/images/settings.png" alt=""></img>
           </div>
           <div class="ContTit">__MSG_title__</div>
        </div>

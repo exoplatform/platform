@@ -1,4 +1,4 @@
-
+²
 	                 function Tenants() { }
 	               
 	        	 var prefixUrl = location.protocol + '//' + location.hostname;
@@ -101,13 +101,13 @@
                                 showHTML += "<br/>";
                                 showHTML += "<b>State:</b> ";
                                 if (doc["state"]=="ONLINE")
- 				     showHTML += "<img src=\"/cloud-extension/gadgets/skin/green.png\" title=\"" + doc["state"]+ "\" />";
+ 				     showHTML += "<img src=\"/cloud-extension/gadgets/skin/green.png\" alt="" title=\"" + doc["state"]+ "\" />";
                                 else if (doc["state"]=="UNKNOWN" || doc["state"]=="SUSPENDED")
-                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/grey.png\" title=\"" + doc["state"]+ "\" />";
+                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/grey.png\" alt="" title=\"" + doc["state"]+ "\" />";
                                 else if (doc["state"]=="EMAIL_VALIDATE_FAIL" || doc["state"]=="CREATION_FAIL")
-                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/red.png\" title=\"" + doc["state"]+ "\" />";
+                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/red.png\" alt="" title=\"" + doc["state"]+ "\" />";
                                  else
-                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/yellow.png\" title=\"" + doc["state"]+ "\" />";
+                                    showHTML += "<img src=\"/cloud-extension/gadgets/skin/yellow.png\" alt="" title=\"" + doc["state"]+ "\" />";
 
                                 showHTML += "<br>";
 

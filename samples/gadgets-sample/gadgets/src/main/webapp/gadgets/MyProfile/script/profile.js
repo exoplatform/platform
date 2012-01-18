@@ -37,7 +37,7 @@ function onLoadProfile(data) {
   
   var html = new Array();
   html.push('<div class="ProfilePicture">',
-            '<img class="GadCont ProfilePicture" src="' + profileThumb + '"/></div>',
+            '<img class="GadCont ProfilePicture" src="' + profileThumb + '" alt="Thumb"/></div>',
             '<div class="GadCont ProfileInfo">', profileName, "<br/>",
             '<a target="_parent" href="' + profileUrl + '">' + linkmodifylabel + '</a>');
   

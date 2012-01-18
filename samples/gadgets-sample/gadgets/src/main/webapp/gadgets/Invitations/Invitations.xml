@@ -128,7 +128,7 @@
                   } else {
                         members = " (" + invitedSpace.members.length + " __MSG_member__)";
                   }
-                  var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "'>" + "</img>";
+                  var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "' alt=''>" + "</img>";
                   var spaceInfo = "<a href='/portal/intranet/invitationSpace' target='_blank'><b>" + invitedSpace.displayName + "</b></a>" + members;
                                 
                   var spaceRow = "<tr>" +
