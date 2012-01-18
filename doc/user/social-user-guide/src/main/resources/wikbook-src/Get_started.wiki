@@ -16,7 +16,7 @@ To get started with eXo Social, it is more useful to learn about some terms ofte
 h1. Account  {anchor:id=Soc_User_Guide.Get_Started.Account}
 
 h2. Register your account {anchor:id=Soc_User_Guide.Get_Started.Account.Create_Your_Account}
-As a guest, you can visit eXo Social but are limited to several contents and applications. To access more contents or perform some functionalities, you first need to register by yourself and contact the portal administrator to gain certain permissions.
+As a guest, you can visit eXo Social but are limited to some content and applications. To access more content or perform some functionalities, you first need to register by yourself and contact the portal administrator to gain certain permissions.
 
 *1.* Click *Register* on the top right corner of the eXo Social homepage.
 
