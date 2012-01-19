@@ -15,7 +15,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Installation">Installation</link>: Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.
+<link linkend="ADM.Installation_and_Startup">Installation and Startup</link>: Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.
 </para>
 </listitem>
 <listitem>

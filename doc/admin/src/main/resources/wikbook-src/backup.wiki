@@ -144,7 +144,7 @@ Examples of the script implementation are out of the scope of this guide.
 h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 
 
-*1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
+*1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Chapter 2. Installation and Startup|#ADM.Installation_and_Startup].
 
 *2.* Run the backup procedure, including:
 
@@ -168,7 +168,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 
 *1.* Unarchive the backup files from the backup storage to the temporary location.
 
-*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the [Chapter 2. Installation.|#ADM.Installation]
+*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the [Chapter 2. Installation and Startup|#ADM.Installation_and_Startup].
 
 *3.* Run the restoring procedure to restore from the backup local files for:
 

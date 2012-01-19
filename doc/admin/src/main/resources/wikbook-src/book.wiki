@@ -2,7 +2,7 @@ h1. Introduction {anchor:id=ADM.Introduction}
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
-h1. Installation {anchor:id=ADM.Installation}
+h1. Installation and Startup {anchor:id=ADM.Installation_and_Startup}
 
 {include:document=installation.wiki|syntax=confluence/1.0}
 
