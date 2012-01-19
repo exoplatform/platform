@@ -172,7 +172,7 @@ public class UIPageNodeForm extends UIFormTabPane
          getUIStringInput("name").setEditable(UIFormStringInput.ENABLE);
          getChild(UIFormInputIconSelector.class).setSelectedIcon("Default");
          setShowPublicationDate(false);
-         switchLabelMode(false);
+         switchLabelMode(true);
          return;
       }
       getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);
@@ -331,7 +331,6 @@ public class UIPageNodeForm extends UIFormTabPane
          isExtendedMode = false;
       }
       
-      getUIFormCheckBoxInput(SWITCH_MODE).setChecked(isExtendedMode);
       this.switchLabelMode(isExtendedMode);
    }
 
@@ -739,8 +738,9 @@ public class UIPageNodeForm extends UIFormTabPane
    
    private void switchLabelMode(boolean isExtendedMode)
    {
+      getUIFormCheckBoxInput(SWITCH_MODE).setChecked(isExtendedMode);
       getUIStringInput(LABEL).setRendered(!isExtendedMode);
       getUIStringInput(I18N_LABEL).setRendered(isExtendedMode);
       getUIFormSelectBox(LANGUAGES).setRendered(isExtendedMode);
-   }
+    }
 }
