@@ -23,7 +23,7 @@
 
   <clustering mode="replication" clusterName="exo-cache-cluster">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <sync replTimeout="20000" />
+    <sync replTimeout="60000" />
     <jgroupsConfig configFile="${gatein.jgroups.config}"/>
   </clustering>
 
