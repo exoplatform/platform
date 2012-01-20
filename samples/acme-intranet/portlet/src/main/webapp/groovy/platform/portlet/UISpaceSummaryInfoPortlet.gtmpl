@@ -86,3 +86,13 @@ def uicomponentId = uicomponent.getId();
 	</div>
 </div>
 <%}%>
+
+<%
+if(isSpace){
+%>
+<script type="text/javascript">
+eXo.webui.navigationLabel="<%=uicomponent.getSpaceDisplayName()%>" ;
+</script>
+<%
+	}
+%>
