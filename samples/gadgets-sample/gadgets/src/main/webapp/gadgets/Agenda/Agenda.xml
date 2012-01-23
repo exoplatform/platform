@@ -47,9 +47,9 @@
           <td><input type="text" id="limit" name="limit"></td>
         </tr>   
         <tr>
-          <td>__MSG_calendars__</td>
+          <td><label for="calendars">__MSG_calendars__</label></td>
           <td>
-            <select type="text" name="calendars">
+            <select type="text" name="calendars" id="calendars">
             </select>
           </td>
         </tr>

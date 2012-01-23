@@ -193,11 +193,11 @@
   <body>
     <div id="gadgetContent" class="UIGadgetConsole">
       <ul class="ToolBarMenu">
-        <li><a href="#">__MSG_language__</a>&nbsp;<select id="langSelect"></select></li>    
+        <li><a href="#"><label for="langSelect">__MSG_language__</label></a>&nbsp;<select id="langSelect"></select></li>    
         <li class="FontControl"><a class="item FontItem" href="#" >__MSG_font__</a>
           <!-- Start of  popup font Dialog -->  
           <div class="dialogFonts">      
-            <label>__MSG_fontSize__ : </label>
+            <label for= "fontSize">__MSG_fontSize__ : </label>
             <select class="text" id= "fontSize" >
               <option value="10px">10px</option>
               <option value="12px">12px</option>
