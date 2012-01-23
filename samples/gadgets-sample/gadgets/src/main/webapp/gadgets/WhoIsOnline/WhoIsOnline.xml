@@ -46,9 +46,9 @@
 										if (idx != -1) {
 											var contact = myContactsJson.data[idx];
 											var avatar =	 "<a href='/portal/intranet/profile/" + contact.id + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' alt='Avatar' src='" + (contact.avatarUrl == null ? "/intranet-gadget/gadgets/WhoIsOnline/images/Avatar.gif" : contact.avatarUrl) + "'>" + "</img>" + "</a>";
-											var userInfo = "<a href='/portal/intranet/profile/" + contact.id + "' target='_parent'>" + "<b>" + contact.fullName + "</b>" + "</a>" + 
+											var userInfo = "<a href='/portal/intranet/profile/" + contact.id + "' target='_parent'>" + "<strong>" + contact.fullName + "</strong>" + "</a>" + 
 													(contact.position == null ? "" : " (" + "<span style='font-size: smaller;'>" + contact.position + "</span>" + ")") + "<br/>" + 
-													(contact.latestActivity == null ? "" : "<i style='font-size: smaller;'>" + contact.latestActivity + "</i>");
+													(contact.latestActivity == null ? "" : "<em style='font-size: smaller;'>" + contact.latestActivity + "</em>");
 											var newRow = "<tr>" +
 																			"<td style='width: 20px;'>" + avatar + "</td>" +
 																			"<td style='padding-left: 3px;'>" + userInfo + "</td>" + 

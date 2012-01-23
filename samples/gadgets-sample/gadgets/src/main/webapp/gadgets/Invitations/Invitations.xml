@@ -92,7 +92,7 @@
                 $('#connections_requests_handler').empty();
                 $.each(relationRequests, function(key, relationRequest) {
                   var contactAvatar = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<img style='width: 24px; height: 24px; border-width: 0px;' alt='Avatar' src='" + (relationRequest.avatarUrl == null ? "/social-resources/skin/ShareImages/Avatar.gif" : relationRequest.avatarUrl) + "'>" + "</img></a>";
-                  var contactInfo = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<b>" + relationRequest.requesterName + "</b>" + "</a>" +
+                  var contactInfo = "<a href='/portal/intranet/profile/" + relationRequest.relationshipId + "' target='_parent'>" + "<strong>" + relationRequest.requesterName + "</strong>" + "</a>" +
                                        (relationRequest.postion == null ? "" : " (" + "<span style='font-size: smaller;'>" + relationRequest.postion + "</span>" + ")") + "<br/>";
                   var contactRow = "<tr>" +
                                       "<td style='width: 20px;'>" + contactAvatar + "</td>" +
@@ -129,7 +129,7 @@
                         members = " (" + invitedSpace.members.length + " __MSG_member__)";
                   }
                   var spaceAvatar = "<img style='width: 24px; height: 24px; border-width: 0px;' src='" + (invitedSpace.avatarUrl == null ? "/social-resources/skin/ShareImages/SpaceImages/SpaceLogoDefault_61x61.gif" : invitedSpace.avatarUrl) + "' title='" + invitedSpace.description + "' alt=''>" + "</img>";
-                  var spaceInfo = "<a href='/portal/intranet/invitationSpace' target='_blank'><b>" + invitedSpace.displayName + "</b></a>" + members;
+                  var spaceInfo = "<a href='/portal/intranet/invitationSpace' target='_blank'><strong>" + invitedSpace.displayName + "</strong></a>" + members;
                                 
                   var spaceRow = "<tr>" +
                                       "<td style='width: 20px;'>" + spaceAvatar + "</td>" +
