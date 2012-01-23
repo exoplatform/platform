@@ -33,11 +33,11 @@
                                            <td colspan="2" align="center" class="TenantFormHeadRow">Please enter cloud-admin credentials:</td>
                                         </tr>
                                        <tr>
-                                         <td class="TenantFormRow">Name:</td>
+                                         <td class="TenantFormRow"<label for="t_cred_name">Name: </label></td>
                                          <td><input type="text" id="t_cred_name"  size="22" value="cloudadmin"/></td>
                                        </tr>
                                        <tr>
-                                         <td class="TenantFormRow">Pass:</td>
+                                         <td class="TenantFormRow"><label for="t_cred_pass">Pass: </label></td>
                                          <td><input type="password" id="t_cred_pass" size="22"/></td>
                                        </tr>
                                         <tr>

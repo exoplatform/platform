@@ -46,11 +46,11 @@
                                            <td colspan="2" align="center" class="TenantFormHeadRow">Fill the form to start tenant creation:</td>
                                         </tr>
                                        <tr>
-                                         <td class="TenantFormRow">Email:</td>
+                                         <td class="TenantFormRow"><label for="t_email">Email:</label></td>
                                          <td><input type="text" id="t_email" size="22"/></td>
                                        </tr>
                                        <tr>                          
-                                          <td class="TenantFormRow">Tenant name :</td>
+                                          <td class="TenantFormRow"><label for="t_name">Tenant name : </label></td>
        				          <td><input type="text" id="t_name" size="22"/></td>
                                        </tr>
                                         <tr>
@@ -71,7 +71,7 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">ID:</td>
-                                         <td><input type="text" id="t_id" size="28"/></td>
+                                         <td><label for="t_id">ID: </label><input type="text" id="t_id" size="28"/></td>
                                        </tr>
                                         <tr>
                                            <td colspan="2" align="center"><input type="Submit" id="t_submitId" name="t_submitId" value="Submit" onClick="tenants.doConfirmationRequest();"></td>
@@ -91,11 +91,11 @@
                                         </tr>
                                        <tr>
                                          <td class="TenantFormRow">Name:</td>
-                                         <td><input type="text" id="t_cred_name"  size="22" value="root"/></td>
+                                         <td><label for="t_cred_name">Name: </label><input type="text" id="t_cred_name"  size="22" value="root"/></td>
                                        </tr>
                                        <tr>
                                          <td class="TenantFormRow">Pass:</td>
-                                         <td><input type="password" id="t_cred_pass" size="22"/></td>
+                                         <td><label for="t_cred_pass">Pass: </label><input type="password" id="t_cred_pass" size="22"/></td>
                                        </tr>
                                         <tr>
                                            <td colspan="2" align="center"><input type="Submit" id="t_submitId" name="t_submitId" value="Submit" onClick="tenants.getStatus();"></td>

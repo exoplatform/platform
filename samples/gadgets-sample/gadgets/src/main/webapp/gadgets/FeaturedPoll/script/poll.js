@@ -52,9 +52,9 @@ function createPollList(data){
   var url = baseURL + "viewpoll/" + pollIds[randomPollId];
 
   if(len == 0){
-	document.getElementById("poll").innerHTML = "<div class='light_message' style='margin-left: 15px; margin-bottom: 15px'>" + prefs.getMsg("nopoll") + "</div>";
-	adjustHeight();
-	return;
+  document.getElementById("poll").innerHTML = "<div class='light_message' style='margin-left: 15px; margin-bottom: 15px'>" + prefs.getMsg("nopoll") + "</div>";
+  adjustHeight();
+  return;
 
   }
   
@@ -89,11 +89,11 @@ function showPoll(data, isVoteAgain){
     html.push('<input type="hidden" name="pollid" value="'+ data.id +'"/>')
     if(data.isMultiCheck){
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="checkbox" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+        html.push('<div><input class="radio" type="checkbox" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
       }
     } else {
       for(var i = 0, len = options.length; i < len; i++){
-        html.push('<div><input class="radio" type="radio" name="rdoVote" value="' + i + '"><span>' + options[i] + '</span></div>');
+        html.push('<div><input class="radio" type="radio" id="rdoVote_' + i + '" name="rdoVote" value="' + i + '"><span><label for="rdoVote_' + i + '">' + options[i] + '</label></span></div>');
       }
     }
     html.push("<center style='margin-top: 5px'><input type='button' onclick='doVote(this);' name='btnVote' value='" + lblVote + "'/></center>");
