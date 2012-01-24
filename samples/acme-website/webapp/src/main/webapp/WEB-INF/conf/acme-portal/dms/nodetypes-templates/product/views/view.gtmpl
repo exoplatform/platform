@@ -217,7 +217,7 @@
 						
 						def folderTitle = node.getName();
 						%>
-								<h3>$folderTitle</h3>
+								<div class="FolderTitle">$folderTitle</div>
 								<%
 								List<Node> childeNodes = getChildNodeListFromNodeIterator(node.getNodes());
 								sortChildNodes(childeNodes);
