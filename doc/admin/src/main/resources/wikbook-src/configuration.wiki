@@ -631,7 +631,7 @@ h1. Email-notification configuration for watching a document {anchor:id=ADM.Conf
 eXo Platform 3.5 provides the *Watch document* function in *Sites Explorer* that allows you to receive email notifications of changes on your selected documents.
 In this section, you will know how to configure such an email notification.
 
-The email notification is configured in the _core-services-configuration.xml_ file which is in _/tomcat/webapps/ecm-wcm-core/WEB-INF/conf/wcm-core_.
+The email notification is configured in an _.xml_ file.
 
 {docbook}
 <para>
@@ -641,22 +641,29 @@ The email notification is configured in the _core-services-configuration.xml_ fi
 </para>
 {docbook}
 
-*1.* Open the _core-services-configuration.xml_ file, then customize the _messageConfig_ init-param of the _WatchDocumentService_ component.
- 
-{code:xml}
-<component>
-   <key>org.exoplatform.services.cms.watch.WatchDocumentService</key>
-   <type>org.exoplatform.services.cms.watch.impl.WatchDocumentServiceImpl</type>
-   <init-params>
-      <object-param>
-        <name>messageConfig</name>
-        <description>description</description>
-        <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
-          <field  name="sender"><string>support@exoplatform.com</string></field>
-          <field  name="subject"><string>Your watching document is changed</string></field>
-          <field  name="mimeType"><string>text/html</string></field>
-          <field  name="content">
-            <string><![CDATA[
+*1.* Create a new .xml file (e.g. _WEB-INF/conf/sample-portal/wcm/watch-document-configuration.xml_) with the following external component plugin, then import it to the _configuration.xml_ file defined at _/WEB-INF/conf/_ path;
+{code}
+<import>war:/conf/sample-portal/wcm/watch-document-configuration.xml</import>
+{code}
+Or, add this plugin directly to the _configuration.xml_ file.
+{code}
+<external-component-plugins>
+    <target-component>org.exoplatform.services.cms.watch.WatchDocumentService</target-component>
+    <component-plugin>
+      <name>watching document notification email contents setting</name>
+      <set-method>initializeMessageConfig</set-method>
+      <type>org.exoplatform.services.cms.watch.impl.MessageConfigPlugin</type>
+      <description>Initialize the settings for watching document notification email contents</description>
+      <init-params>
+        <object-param>
+          <name>messageConfig</name>
+          <description>Message Configuration</description>
+          <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
+            <field name="sender"><string>support@exoplatform.com</string></field>
+            <field name="subject"><string>Your watching document is changed</string></field>
+            <field name="mimeType"><string>text/html</string></field>
+            <field name="content">
+              <string><![CDATA[
                     Dear $user_name,<br>
                     <br>
                     The document $doc_name ($doc_title) has changed.<br>
@@ -664,27 +671,34 @@ The email notification is configured in the _core-services-configuration.xml_ fi
                     Please go to <a href="$doc_url">$doc_title</a> to see this change.<br>
                     <br>
                     ]]>
-            </string>
-          </field>
-        </object>
-      </object-param>
-    </init-params>
- </component>
+              </string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+</external-component-plugins>
 {code}
 
 In which:
+* *target-component*: _org.exoplatform.services.cms.watch.WatchDocumentService_
+* *set-method*: _initializeMessageConfig_
+* *type*: _org.exoplatform.services.cms.watch.impl.MessageConfigPlugin_
+
+*2.* Customize the following fields in the _messageConfig_ init-param of the _MessageConfigPlugin_.
+
 * *sender*: The email address of the sender.
 * *subject*: The subject of the notification email.
 * *mimeType*: The mimeType used to writing the notification email. There are two types: *text/html* and *text/plain*.
 * *content*: The content of the notification email.
 
-At present, eXo Platform supports 4 following parameters in the *content* of the email:
+At present, eXo Platform provides 4 parameters below in the *content* of the email:
 * *$user\_name*: The full name of the receiver.
 * *$doc\_name*: The name of the document.
 * *$doc\_title*: The title of the document.
 * *$doc\_url*: The link to view the document in *Sites Explorer*.
 
-*2.* Save the file.
+*3.* Save the file.
 
 h1. WebDAV cache control {anchor:id=ADM.Configuration.Mail_server}
 
