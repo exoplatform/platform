@@ -25,7 +25,7 @@
 <datasources>
     <local-tx-datasource>
       <jndi-name>exo-idm_portal</jndi-name>
-      <connection-url>jdbc:hsqldb:${gatein.data.dir}/hsql/exo-idm_portal</connection-url>
+      <connection-url>jdbc:hsqldb:${gatein.data.dir}/jcr/hsql/exo-idm_portal</connection-url>
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
       <user-name>sa</user-name>
       <password></password>
@@ -37,7 +37,7 @@
   
    <local-tx-datasource>
       <jndi-name>exo-jcr_portal</jndi-name>
-      <connection-url>jdbc:hsqldb:${gatein.data.dir}/hsql/exo-jcr_portal</connection-url>
+      <connection-url>jdbc:hsqldb:${gatein.data.dir}/jcr/hsql/exo-jcr_portal</connection-url>
       <driver-class>org.hsqldb.jdbcDriver</driver-class>
       <user-name>sa</user-name>
       <password></password>

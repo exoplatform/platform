@@ -35,10 +35,6 @@
           <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoaderPlugin</type>
           <init-params>
             <value-param>
-              <name>repository</name>
-              <value>repository</value>
-            </value-param>
-            <value-param>
               <name>workspace</name>
               <value>portal-system</value>
             </value-param>
@@ -78,9 +74,6 @@
        <object-param>
           <name>observation.config</name>
           <object type="org.exoplatform.services.jcr.ext.script.groovy.ObservationListenerConfiguration">
-             <field name="repository">
-                <string>repository</string>
-             </field>
              <field name="workspaces">
                 <collection type="java.util.ArrayList">
                    <value>
