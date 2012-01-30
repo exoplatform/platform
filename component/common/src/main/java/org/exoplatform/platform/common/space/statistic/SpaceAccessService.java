@@ -16,8 +16,13 @@ import org.exoplatform.commons.chromattic.ChromatticLifeCycle;
 import org.exoplatform.commons.chromattic.ChromatticManager;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 public class SpaceAccessService {
+
+  private static Log logger = ExoLogger.getLogger(SpaceAccessService.class);
+  
   private static final String PARENT_PLATFORM_RELATIVE_PATH = "Platform";
   private static final String PARENT_TOOLBAR_RELATIVE_PATH = "toolbar";
   private static final String PARENT_RELATIVE_PATH = PARENT_PLATFORM_RELATIVE_PATH + "/" + PARENT_TOOLBAR_RELATIVE_PATH;
@@ -112,7 +117,9 @@ public class SpaceAccessService {
     try {
       spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
     } catch (Exception exception) {
-      // spaceAccess for this user isn't yet created
+      if (logger.isDebugEnabled()) {
+        logger.debug("spaceAccess for this user isn't yet created ", exception);
+      }
     }
     if (spaceAccess == null || spaceAccess.getMostAccessedSpaces() == null || spaceAccess.getMostAccessedSpaces().length == 0) {
       return new ArrayList<String>();

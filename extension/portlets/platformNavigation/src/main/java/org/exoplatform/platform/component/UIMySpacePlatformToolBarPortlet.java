@@ -30,6 +30,8 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
@@ -45,6 +47,9 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl", events = { @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.NavigationChangeActionListener.class) })
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
+
+  private static Log logger = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
+  
   private static final String SPACE_SETTINGS = "settings";
 
   private SpaceService spaceService = null;
@@ -73,6 +78,9 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     } catch (Exception exception) {
       // spaceService could be "null" when the Social profile isn't
       // activated
+      if (logger.isDebugEnabled()) {
+        logger.debug("paceService could be 'null' when the Social profile isn't activated ", exception);
+      }
     }
     if (spaceService == null) { // Social profile disabled
       return;

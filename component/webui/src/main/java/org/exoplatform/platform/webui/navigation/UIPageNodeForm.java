@@ -49,6 +49,8 @@ import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.ResourceBundleService;
@@ -83,6 +85,8 @@ import org.exoplatform.webui.form.validator.Validator;
 public class UIPageNodeForm extends UIFormTabPane
 {
 
+  private static Log logger = ExoLogger.getLogger(UIPageNodeForm.class);
+  
    private TreeNode pageNode_;
 
    private Object selectedParent;
@@ -218,7 +222,9 @@ public class UIPageNodeForm extends UIFormTabPane
          }
          catch (Exception e)
          {
-
+           if (logger.isDebugEnabled()) {
+             logger.debug("Problem with ressource bundle recovery ", e);
+           }
          }
 
          option = new SelectItemOption<String>(displayName, language);

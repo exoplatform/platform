@@ -17,8 +17,13 @@ import java.util.Properties;
 
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
 public class Utils {
+
+  private static Log logger = ExoLogger.getLogger(Utils.class);
+  
   public static final int DEFAULT_DELAY_PERIOD = 30;
   public static final String REMIND_DATE = "remindDate";
   public static final String LOOP_FUSE_FORM_DISPLAYED = "formDisplayed";
@@ -118,14 +123,18 @@ public class Utils {
         try {
           outputStream.close();
         } catch (IOException ioException) {
-          // Nothing to do
+          if (logger.isDebugEnabled()) {
+            logger.debug("Error during close outputStream ", ioException);
+          }
         }
       }
       if (inputStream != null) {
         try {
           inputStream.close();
         } catch (IOException ioException) {
-          // Nothing to do
+          if (logger.isDebugEnabled()) {
+            logger.debug("Error during close inputStream ", ioException);
+          }
         }
       }
     }

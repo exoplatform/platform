@@ -25,12 +25,16 @@ import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 
 public class Util {
+
+  private static Log logger = ExoLogger.getLogger(Util.class);
 
   final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
   final public static String MEMBERSHIP_SEPARATOR = "---";
@@ -47,7 +51,11 @@ public class Util {
     Node homePathNode = null;
     try {
       homePathNode = (Node) session.getItem(HOME_PATH);
-    } catch (Exception e) {}
+    } catch (Exception e) {
+      if (logger.isDebugEnabled()) {
+        logger.debug("Problem during recovery of item ", e);
+      }
+    }
     if (homePathNode == null) {
       homePathNode = createFolder(session.getRootNode(), HOME_PATH);
     }

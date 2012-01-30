@@ -11,8 +11,8 @@ import java.util.List;
 import org.chromattic.ext.ntdef.NTFolder;
 import org.chromattic.ext.ntdef.Resource;
 import org.exoplatform.application.gadget.EncodingDetector;
-import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.GadgetImporter;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.impl.GadgetDefinition;
 import org.exoplatform.application.gadget.impl.LocalGadgetData;
 import org.exoplatform.container.PortalContainer;
@@ -22,7 +22,7 @@ import org.exoplatform.services.log.Log;
 import org.gatein.common.io.IOTools;
 
 public class LocalGadgetImporter extends GadgetImporter {
-
+  
   private static Log logger = ExoLogger.getExoLogger(LocalGadgetImporter.class);
   private ConfigurationManager configurationManager;
   private PortalContainer container;
@@ -240,8 +240,9 @@ public class LocalGadgetImporter extends GadgetImporter {
         isFile = file.isFile();
       }
     } catch (Exception exception) {
-      // Nothing to do, the file doesn't exist or may be the path has
-      // another format
+      if (logger.isDebugEnabled()) {
+        logger.debug("file doesn't exist or may be the path has another format ", exception);
+      }
     }
     if (isFile == null) {
       return !resourcePath.endsWith("/") && !resourcePath.endsWith("\\");
