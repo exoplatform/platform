@@ -69,7 +69,7 @@
   <!--cloud-agent -->
   <component>
     <key>org.exoplatform.platform.cloud.services.rest.CloudAgentApplication</key>
-    <type>org.exoplatform.platform.cloud.services.rest.CloudAgentApplication</type>
+    <type>org.exoplatform.cloudmanagement.CloudAgentApplication</type>
   </component>
 
 
