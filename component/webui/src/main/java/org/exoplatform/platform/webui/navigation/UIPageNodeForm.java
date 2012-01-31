@@ -222,9 +222,7 @@ public class UIPageNodeForm extends UIFormTabPane
          }
          catch (Exception e)
          {
-           if (logger.isDebugEnabled()) {
-             logger.debug("Problem with ressource bundle recovery ", e);
-           }
+           logger.error("Problem with ressource bundle recovery ", e);
          }
 
          option = new SelectItemOption<String>(displayName, language);

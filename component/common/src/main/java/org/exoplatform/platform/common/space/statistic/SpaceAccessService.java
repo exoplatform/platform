@@ -117,9 +117,7 @@ public class SpaceAccessService {
     try {
       spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
     } catch (Exception exception) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("spaceAccess for this user isn't yet created ", exception);
-      }
+      logger.error("spaceAccess for this user isn't yet created ", exception);
     }
     if (spaceAccess == null || spaceAccess.getMostAccessedSpaces() == null || spaceAccess.getMostAccessedSpaces().length == 0) {
       return new ArrayList<String>();

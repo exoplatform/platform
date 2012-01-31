@@ -52,9 +52,7 @@ public class Util {
     try {
       homePathNode = (Node) session.getItem(HOME_PATH);
     } catch (Exception e) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Problem during recovery of item ", e);
-      }
+      logger.error("Problem during recovery of item ", e);
     }
     if (homePathNode == null) {
       homePathNode = createFolder(session.getRootNode(), HOME_PATH);

@@ -76,11 +76,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     try {
       spaceService = getApplicationComponent(SpaceService.class);
     } catch (Exception exception) {
-      // spaceService could be "null" when the Social profile isn't
-      // activated
-      if (logger.isDebugEnabled()) {
-        logger.debug("paceService could be 'null' when the Social profile isn't activated ", exception);
-      }
+      logger.error("paceService could be 'null' when the Social profile isn't activated ", exception);
     }
     if (spaceService == null) { // Social profile disabled
       return;

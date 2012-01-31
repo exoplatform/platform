@@ -406,9 +406,7 @@ public class OrganizationIntegrationService implements Startable {
               invokeDeleteGroupListeners(group.getId());
             }
           } catch (Exception e) {
-            if (LOG.isDebugEnabled()) {
-              LOG.debug("Error during recovery of activated chidren group ", e);
-            }
+            LOG.error("Error during recovery of activated chidren group ", e);
           } finally {
             if (session != null) {
               session.logout();

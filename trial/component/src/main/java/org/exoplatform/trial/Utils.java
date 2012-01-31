@@ -123,18 +123,14 @@ public class Utils {
         try {
           outputStream.close();
         } catch (IOException ioException) {
-          if (logger.isDebugEnabled()) {
-            logger.debug("Error during close outputStream ", ioException);
-          }
+          logger.error("Error during close outputStream ", ioException);
         }
       }
       if (inputStream != null) {
         try {
           inputStream.close();
         } catch (IOException ioException) {
-          if (logger.isDebugEnabled()) {
-            logger.debug("Error during close inputStream ", ioException);
-          }
+          logger.error("Error during close inputStream ", ioException);
         }
       }
     }

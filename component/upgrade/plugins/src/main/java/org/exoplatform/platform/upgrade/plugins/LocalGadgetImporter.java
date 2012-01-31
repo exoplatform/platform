@@ -240,9 +240,7 @@ public class LocalGadgetImporter extends GadgetImporter {
         isFile = file.isFile();
       }
     } catch (Exception exception) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("file doesn't exist or may be the path has another format ", exception);
-      }
+      logger.error("file doesn't exist or may be the path has another format ", exception);
     }
     if (isFile == null) {
       return !resourcePath.endsWith("/") && !resourcePath.endsWith("\\");

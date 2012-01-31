@@ -95,9 +95,7 @@ public class InvitationsRestServices implements ResourceContainer {
 			spaces = spaceService.getInvitedSpaces(userId);
 		}catch (Exception e) {
 			// TODO: handle exception
-      if (logger.isDebugEnabled()) {
-        logger.debug("cannot get invited spaces ", e);
-      }
+      logger.error("cannot get invited spaces ", e);
 		}
 		List<Object> listData=  new ArrayList<Object>();
 		for (Space space : spaces) {
