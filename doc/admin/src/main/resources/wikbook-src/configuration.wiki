@@ -555,11 +555,13 @@ The default configuration combines them to obtain a compact tree:
 
 h1. JCR system and default Workspaces {anchor:id=ADM.Configuration.JCR_Workspaces}
 The following is the configuration of workspaces (default and system) for JCR repository.
-{code}
+{code:java}
 # JCR system and default workspaces
+gatein.jcr.repository.default=repository
 gatein.jcr.workspace.default=collaboration
 gatein.jcr.workspace.system=system
 {code}
+
 
 h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
 
