@@ -86,7 +86,7 @@
               </object>
             </field>
             <field name="sourcePath">
-              <string>war:/conf/default-website/wcm/artifacts/site-resources/default/css.xml</string>
+              <string>war:/conf/default-website/wcm/artifacts/site-resources/default/GlobalStylesheet_Blue.xml</string>
             </field>
             <field name="cleanupPublication">
               <boolean>true</boolean>
