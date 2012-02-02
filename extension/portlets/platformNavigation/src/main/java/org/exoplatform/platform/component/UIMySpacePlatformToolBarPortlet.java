@@ -139,10 +139,10 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     return computedNavigations;
   }
 
-  public boolean isRender(PageNode spaceNode, PageNode applicationNode) throws SpaceException {
+  public boolean isRender(UserNode spaceNode, UserNode applicationNode) throws SpaceException {
     if (spaceService != null) {
       String remoteUser = getUserId();
-      String spaceUrl = spaceNode.getUri();
+      String spaceUrl = spaceNode.getURI();
       if (spaceUrl.contains("/")) {
         spaceUrl = spaceUrl.split("/")[0];
       }
