@@ -107,8 +107,6 @@ The server has been stopped successfully when you see the following message in y
 INFO: Stopping Coyote HTTP/1.1 on http-8080
 {screen}
 
-
-
 {docbook}
 <citetitle>
 <para><emphasis role="bold">
@@ -120,29 +118,11 @@ Start up eXo Platform by running built-in startup scripts
 
 You can start up eXo Platform by running one of the following built-in startup scripts:
 
-* Linux & OS X: 
+* Linux & OS X: _start\_eXo.sh_
+* Windows: _start\_eXo.bat_
+* Linux and OS X in the developer mode: _start\_eXo.sh_ with the _\-debug_ option.
+* Windows in the developer mode: _start\_eXo.bat_ with the _\-debug_ option.
 
-{screen}
-start_eXo.sh
-{screen}
-
-* Windows:
-
-{screen}
-start_eXo.bat
-{screen}
-
-* Linux and OS X in the developer mode: 
-
-{screen}
-bin/gatein-dev.sh
-{screen}
-
-* Windows in the developer mode: 
-
-{screen}
-bin/gatein-dev.bat
-{screen}
 
 In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the following JVM options:
 
@@ -164,7 +144,7 @@ In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the follow
 | {{-Dexo.profiles}} | List of comma-separated profiles of eXo Plaform to activate. |
 
 
-In the developer mode, the _gatein-dev_ scripts launch eXo Platform in the developer mode with a few JVM options.
+In the developer mode, the _start\_eXo_ scripts launch eXo Platform in the developer mode with a few JVM options.
 
 {screen}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
@@ -185,7 +165,7 @@ Now, you can start and run the eXo Platform demo, but you will need to adjust th
 {docbook}
 <citetitle>
 <para><emphasis role="bold">
-Customize environment variables in tomcat
+Customize environment variables in Tomcat
 </emphasis>
 </para>
 </citetitle>
@@ -194,8 +174,17 @@ Customize environment variables in tomcat
 Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
 
 This file is located in:
-* Linux & OS X: _$TOMCAT\_HOME/bin/setenv.sh_.
-* Windows: _$TOMCAT\_HOME/bin/setenv.bat_.
+* Linux & OS X:
+
+{screen}
+$TOMCAT_HOME/bin/setenv.sh
+{screen}
+
+* Windows: 
+
+{screen}
+$TOMCAT_HOME\\bin\\setenv.bat
+{screen}
 
 The following is the content of this file:
 
@@ -375,8 +364,34 @@ Additionally, you can use these composite profiles:
 
 For example:
 
-* _./start\_eXo.sh default,workflow_: Start default modules + workflow.
+* Start default modules + workflow:
 
-* _./start\_eXo.sh collaboration,knowledge_: Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
+{screen}
+./start_eXo.sh default,workflow
+{screen}
 
-* _./start\_eXo.sh minimal,social_: Start with Social, GateIn and Content.
+* Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
+
+{screen}
+./start_eXo.sh collaboration,knowledge
+{screen}
+
+* Start with Social, GateIn and Content.
+
+{screen}
+./start_eXo.sh minimal,social
+{screen}
+
+*For the developer mode*
+
+* Start eXo Platform with your selected profiles in Linux and OS X:
+
+{screen}
+./start_eXo.sh -debug [profiles]
+{screen}
+
+* Start eXo Platform with your selected profiles in Windows:
+
+{screen}
+.\\start_eXo.bat -debug [profiles]
+{screen}
