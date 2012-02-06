@@ -1,0 +1,36 @@
+
+
+.UIGadgetThemes .spaceDetail {
+ margin-bottom:10px;
+}
+.UIGadgetThemes .spaceAvatar {
+ float: left;
+ width: 50px;
+}
+.UIGadgetThemes .spaceAvatarImage {
+ width: 40px;
+ max-height:50px;
+}
+.UIGadgetThemes .spaceNoAvatarImage {
+ width: 40px;
+ height:40px;
+ background: url('images/SpaceLogoDefault_61x61.gif') no-repeat center;
+}
+.UIGadgetThemes .spaceAvatarLink {
+ color:#ffffff;
+}
+.UIGadgetThemes .spaceInfo {
+ padding-left:40px;
+}
+.UIGadgetThemes .spaceItemLink {
+ font-weight:bold;
+ color: #226AB4;
+}
+.UIGadgetThemes .itemDetail {
+ padding-left: 10px;
+}
+.UIGadgetThemes .itemDetail-italic {
+ padding-left: 10px;
+ font-style: italic;
+ color: #226AB4;
+}
