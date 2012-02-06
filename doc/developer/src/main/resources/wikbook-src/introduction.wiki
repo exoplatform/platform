@@ -20,7 +20,6 @@ After reading this guide, developers are expected to be able to customize their 
 * [eXo Platform 3.5 APIs|#DEV.eXoPlatformAPIs]: Information of APIs.
 * [Cookbook|#DEV.Cookbook]: Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.
 * [Upgrade eXo Platform|#DEV.Upgrade]: Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.
-* [New Features|#DEV.NewFeatures]: New features integrated into eXo Platform 3.5. At present, only the called Navigation By Content feature is introduced in this chapter.
 
 h2. About eXo Platform 3.5 {anchor:id=DEV.eXoPlatform.AbouteXoPlatform}
 
@@ -50,5 +49,3 @@ With eXo Platform 3.5, you can customize and extend your portal-based applicatio
 * Custom development in the web-based IDE is an intuitive web-based development environment where you can build, test and deploy client applications, such as gadgets and mash-ups, and RESTful services online. Offering the ability to extend eXo Platform online, eXo IDE instantly publishes any application that you can create and deploy immediately in your portal-based solutions.
 * CRaSH is an open source tool to view and query content within a JCR server at runtime. It enables you to browse JCR trees, and serves as a shell for executing JCR operations easily, such as importing or exporting data securely. You can now extend the shell by writing Groovy commands, without recompiling easily.
 * Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
- 
-

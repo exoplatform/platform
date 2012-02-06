@@ -1,8 +1,4 @@
-*Navigation By Content* is a feature which allows users to browse content of each page easily.
-
-With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.
-
-h1. Actual content navigation {anchor:id=DEV.NewFeatures.NavigationByContent.ContentNavigation}
+h1. Actual content navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.ContentNavigation}
 
 One of the powerful features of Enterprise Content Management System (ECMS) that comes out with eXo Platform 3.5 is the ability to navigate in site contents using taxonomies.
 This functionality can easily be added in a page with the help of two *Content List Viewer* (CLV) portlets. The pre-configured example can be found in the *News* page of the sample ACME website.
@@ -60,7 +56,7 @@ You can now navigate from the left portlet to see contents displayed in the righ
 
 The new *Navigation By Content* feature will traduce this example in a contextual menu.
 
-h1. Add content to the navigation {anchor:id=DEV.NewFeatures.NavigationByContent.Add_content_to_the_navigation}
+h1. Add content to the navigation {anchor:id=DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigation}
 
 {docbook}
 <citetitle>
@@ -115,7 +111,7 @@ Select the *Power 1 - Fire* menu item from the contextual menu to see the *Fire*
 
 !images/navigation_by_content_feature/Power1_fire_item.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-h1. Actions on the Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByContent.ActionsNavigationByContent}
+h1. Actions on Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContent}
 
 {docbook}
 <citetitle>
@@ -236,8 +232,8 @@ Select the *X-Ray* content and see the newly implemented content using new visua
 !images/navigation_by_content_feature/relatedDocuments.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
-h1.  Example of creating data for Navigation By Content {anchor:id=DEV.NewFeatures.NavigationByContent.CreateDataForNavigationByContentExamples}
-h2. Create a Product page {anchor:id=DEV.NewFeatures.NavigationByContent.CreateNewProductPage}
+h1. Examples of creating data for Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples}
+h2. Create a Product page {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPage}
 
 {docbook}
 <citetitle>
@@ -300,7 +296,7 @@ As a result, the content will be displayed in a detailed page as follows:
 !images/navigation_by_content_feature/sampleProductDetail.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
-h2. Develop your own Product content {anchor:id=DEV.NewFeatures.NavigationByContent.HowCreateNewProduct.DevelopProductContent}
+h2. Develop your own Product content {anchor:id=DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent}
 
 The sample *Product* page is composed of the following fields and folders:
 
