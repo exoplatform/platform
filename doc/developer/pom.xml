@@ -50,6 +50,7 @@
       <groupId>org.exoplatform.ide</groupId>
       <artifactId>exo-ide-user-guide</artifactId>
       <version>${org.exoplatform.ide.version}</version>
+	  <classifier>doc</classifier>
       <type>zip</type>
     </dependency>
   </dependencies>
@@ -98,6 +99,7 @@
                       <groupId>org.exoplatform.ide</groupId>
                       <artifactId>exo-ide-user-guide</artifactId>
                       <version>${org.exoplatform.ide.version}</version>
+					  <classifier>doc</classifier>
                       <type>zip</type>
                       <outputDirectory>${ide.source}</outputDirectory>
                       <includes>**</includes>
