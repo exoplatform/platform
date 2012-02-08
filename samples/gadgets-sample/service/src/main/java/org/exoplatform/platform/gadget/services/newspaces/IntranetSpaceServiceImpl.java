@@ -74,7 +74,10 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 		try {
 			Session session = this.getSession(sProvider);
 			Node rootNode = session.getRootNode();
-			return rootNode.getNode(SPACE_HOME);
+			if(rootNode.hasNode(SPACE_HOME))
+			{
+				return rootNode.getNode(SPACE_HOME);
+			}
 		}
 		catch (Exception e) {
 			log.error("Can not get get SpaceHome", e);
@@ -99,6 +102,11 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
     try {
 
       Node spaceHomeNode = getSpaceHome();
+      if(spaceHomeNode ==null)
+      {
+    	  return listSpaces;
+      }
+      
       Calendar pastTime = Calendar.getInstance();
       pastTime.setTime(new Date(new Date().getTime() - maxday*24*60*60*1000)); // the days ago
 
