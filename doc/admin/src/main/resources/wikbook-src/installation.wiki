@@ -171,7 +171,7 @@ Customize environment variables in Tomcat
 </citetitle>
 {docbook}
 
-Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
+Previously, users got used to changing the _gatein.sh_ file, but this file is no longer used since Platform 3.5.0-CR1. Now, to customize the environment variables and JVM memory parameters, you have to modify the _setenv.sh_ file (_setenv.bat_ file in Windows).
 
 This file is located in:
 * Linux & OS X:
@@ -193,11 +193,11 @@ LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Simpl
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf"
 IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
-if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default"] ; then 
-EXO_PROFILES="-Dexo.profiles=default"
+if [ "$EXO_PROFILES" = "" -o "$EXO_PROFILES" = "-Dexo.profiles=default" ] ; then 
+	EXO_PROFILES="-Dexo.profiles=default"
 fi
 
-CATALINA_OPTS="$CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES"
+CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m $CATALINA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES"
 export CATALINA_OPTS
 {code}
 

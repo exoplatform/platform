@@ -41,7 +41,7 @@ set profiles=%profiles:~7%
  
 if "%1" == "" (
     set EXO_PROFILES=-Dexo.profiles=default
-    set CATALINA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %CATALINA_OPTS% %EXO_PROFILES%
+    set CATALINA_OPTS=%CATALINA_OPTS% %EXO_PROFILES%
 ) else (
         if "%1" == "-debug" (
                 if "%2" == "" (
@@ -49,10 +49,10 @@ if "%1" == "" (
                 ) else (
                     set EXO_PROFILES=-Dexo.profiles=%profiles%
                 )
-                set CATALINA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %CATALINA_OPTS% %EXO_PROFILES% %DEBUG_MODE% %EXO_CONFIG% %REMOTE_DEBUG%
+                set CATALINA_OPTS=%CATALINA_OPTS% %EXO_PROFILES% %DEBUG_MODE% %EXO_CONFIG% %REMOTE_DEBUG%
         ) else (       
             set EXO_PROFILES=-Dexo.profiles=%*
-            set CATALINA_OPTS=-Xms256m -Xmx1024m -XX:MaxPermSize=256m %CATALINA_OPTS% %EXO_PROFILES%
+            set CATALINA_OPTS=%CATALINA_OPTS% %EXO_PROFILES%
         )
 )
  
