@@ -231,14 +231,23 @@ In this step, you will be prompted for entering your password.
 
 *4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr (_$dbname-jcr_). For example:
 
-*i.* Create the first database: {code}create database _$dbname_;{code}
+*i.* Create the first database.
+ 
+{code}
+create database _$dbname_;
+{code}
 
 *ii.* Configure the user who has the remote access right (not only from the host server):
 
-{code}grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';{code}
+{code}
+grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';
+{code}
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
 
-*5.* Verify that both databases were created successfully: {code}show databases;{code}
+*5.* Verify that both databases were created successfully.
+
+{code}show databases;
+{code}
 
 *6.* Quit the server with the *exit* command.
 
@@ -275,7 +284,7 @@ Edit the server.xml file
 
 * Change the driver from _org.hsqldb.jdbcDriver_ to _com.mysql.jdbc.Driver_.
 * Change the username and password to the values set above.
-* Change the URL to access your DataBase from _jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr\_\portal_ into _jdbc:mysql://\_\$host\_\:3306/\_\$dbname\_\_.
+* Change the URL to access your DataBase from _jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr\_\portal_ into _jdbc\:mysql\://\_\$host\_\:3306/\_\$dbname\__.
 
 The code now should look like:
 
@@ -619,10 +628,10 @@ To see more details, refer to [JavaMail API documentation|http://java.sun.com/pr
 
 For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
-{screen}
+{code}
 gatein.email.domain.url=http://localhost:8080
 gatein.email.smtp.from=noreply@exoplatform.com
-{screen}
+{code}
 
 {note}
 The value of email address should be in a valid format.
@@ -709,9 +718,9 @@ This is useful for fine-tuning your website.
 
 The configuration property is _exo.webdav.cache-control_.
 
-{screen}
+{code}
 exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
-{screen}
+{code}
 
 The property expects a comma-separated list of key=pair values, where keys are a list of MIME types followed by the cache-control value to set.
 
@@ -724,13 +733,13 @@ h2. XMPPMessenger {anchor:id=ADM.Configuration.XMPPMessenger}
 
 If you change the host name and port for the Chat server, you will need to edit two properties:
 
-{screen}
+{code}
 # IP or hostname for the eXo Chat XMPP server
 exo.chat.server=127.0.0.1
 
 # TCP port for where the eXo Chat server listens for XMPP calls
 exo.chat.port=5222
-{screen}
+{code}
 
 h2. Chat server configuration {anchor:id=ADM.Configuration.Chat_server_configuration}
 
@@ -797,7 +806,9 @@ To run the chat server properly, several ports must be opened in the firewall.
 h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
 eXo Platform allows users to view documents of various types directly on the content explorer through the OpenOffice server. To do so, the OpenOffice application must be available in your local device first. Next, start the OpenOffice server by running the command below:
 
-{screen}soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard{screen}
+{code}
+soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+{code}
 
 
 h1. Log-in {anchor:id=ADM.Configuration.Login}
@@ -1057,9 +1068,7 @@ wcm.linkjob.cron.expression=0 30 1 * * ?
  
 
 {note}
-
 To understand more about CRON expression, see [here|http://en.wikipedia.org/wiki/CRON_expression#CRON_expression].
-
 {note}
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}

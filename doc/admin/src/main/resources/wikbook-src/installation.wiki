@@ -57,21 +57,21 @@ eXo Platform leverages the application server on which it is deployed. This mean
 
 * On Linux and OS X:   
 
-{screen}
+{code}
 $TOMCAT_HOME/start_eXo.sh
-{screen}
+{code}
 
 * On Windows:       
 
-{screen}
+{code}
 %TOMCAT_HOME%\\start_eXo.bat
-{screen}
+{code}
 
 The server is started successfully when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO: Server startup in 353590 ms
-{screen}
+{code}
 
 
 {docbook}
@@ -85,27 +85,27 @@ Shut down the server
 
 * On Linux and OS X: 
 
-{screen}
+{code}
 $TOMCAT_HOME/stop_eXo.sh
-{screen}
+{code}
 
 * On Windows:        
 
-{screen}
+{code}
 %TOMCAT_HOME%\\stop_eXo.bat
-{screen}
+{code}
 
-If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *Ctrl+C* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh -force_ that is only available on Linux and OS X systems.
+If you receive the message when you try to stop Tomcat as below, you must stop Tomcat by pressing *Ctrl+C* or by killing with the *-9* command. To perform the *kill* action automatically, you can run _stop\_eXo.sh \-force_ that is only available on Linux and OS X systems.
 
-{screen}
+{code}
 Tomcat did not stop in time. The PID file was not removed.
-{screen}
+{code}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO: Stopping Coyote HTTP/1.1 on http-8080
-{screen}
+{code}
 
 {docbook}
 <citetitle>
@@ -126,14 +126,14 @@ You can start up eXo Platform by running one of the following built-in startup s
 
 In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the following JVM options:
 
-{screen}
+{code}
 -Xms256m 
 -Xmx1024m 
 -XX:MaxPermSize=256m 
 -Djava.security.auth.login.config=../conf/jaas.conf  
 -Dexo.conf.dir.name=gatein/conf 
 -Dexo.profiles=default
-{screen}
+{code}
 
 *Details:*
 
@@ -146,12 +146,12 @@ In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the follow
 
 In the developer mode, the _start\_eXo_ scripts launch eXo Platform in the developer mode with a few JVM options.
 
-{screen}
+{code}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
 -Dcom.sun.management.jmxremote 
 -Dorg.exoplatform.container.configuration.debug 
 -Dexo.product.developing=true 
-{screen}
+{code}
 
 *Details*:
 
@@ -176,15 +176,15 @@ Previously, users got used to changing the _gatein.sh_ file, but this file is no
 This file is located in:
 * Linux & OS X:
 
-{screen}
+{code}
 $TOMCAT_HOME/bin/setenv.sh
-{screen}
+{code}
 
 * Windows: 
 
-{screen}
+{code}
 $TOMCAT_HOME\\bin\\setenv.bat
-{screen}
+{code}
 
 The following is the content of this file:
 
@@ -203,7 +203,7 @@ export CATALINA_OPTS
 
 {note}
 In Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you may get the error message about "Too many open files" because the ulimit had limited the opened files.
-By default, the number of open files is limited to "1024". You should execute the command "ulimit -n 8196" as root before starting the server to avoid this issue.
+By default, the number of open files is limited to "1024". You should execute the command "ulimit \-n 8196" as root before starting the server to avoid this issue.
 {note}
 
 h1. Install JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
@@ -301,41 +301,41 @@ For example, if you are using the AJP Connector, the configuration should be as 
 
 * On Linux and OS X:  
 
-{screen}
+{code}
 $JBOSS_HOME/bin/run.sh
-{screen}
+{code}
 
 * On Windows:          
 
-{screen}
+{code}
 %JBOSS_HOME%\\bin\\run.bat
-{screen}
+{code}
 
 The server is started successfully when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.1.1 (build: ...)] Started in 5m:29s:259ms
-{screen}
+{code}
 
 *8.* Shut down the server.
 
 * On Linux and OS X:
 
-{screen}
+{code}
 $JBOSS_HOME/bin/shutdown.sh
-{screen}
+{code}
 
 * On Windows: 
 
-{screen}
+{code}
 %JBOSS_HOME%\\bin\\shutdown.bat
-{screen}
+{code}
 
 The server has been stopped successfully when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shutdown complete
-{screen}
+{code}
 
 
 h1. Profiles of eXo Platform {anchor:id=ADM.Installation.eXo_profiles}
@@ -366,32 +366,32 @@ For example:
 
 * Start default modules + workflow:
 
-{screen}
+{code}
 ./start_eXo.sh default,workflow
-{screen}
+{code}
 
 * Start eXo Platform with GateIn, Content, Collaboration and Knowledge enabled.
 
-{screen}
+{code}
 ./start_eXo.sh collaboration,knowledge
-{screen}
+{code}
 
 * Start with Social, GateIn and Content.
 
-{screen}
+{code}
 ./start_eXo.sh minimal,social
-{screen}
+{code}
 
 *For the developer mode*
 
 * Start eXo Platform with your selected profiles in Linux and OS X:
 
-{screen}
+{code}
 ./start_eXo.sh -debug [profiles]
-{screen}
+{code}
 
 * Start eXo Platform with your selected profiles in Windows:
 
-{screen}
+{code}
 .\\start_eXo.bat -debug [profiles]
-{screen}
+{code}
