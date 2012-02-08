@@ -193,8 +193,8 @@
 									 <div class="EdittingToolBar " >
 										<div class="EdittingToolBarL">
 											<div class="EdittingToolBarR">
-												<div class="EdittingToolBarC clearfix">
-													<div style="float: right"  id="<%=manageContentBlockId%>">
+												<div class="EdittingToolBarC ClearFix">
+													<div class="FR"  id="<%=manageContentBlockId%>">
 														<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
 														  &nbsp;
 														</a>           
@@ -343,8 +343,8 @@
 			 <div class="EdittingToolBar " >
 				<div class="EdittingToolBarL">
 					<div class="EdittingToolBarR">
-						<div class="EdittingToolBarC clearfix">
-							<div style="float: right"  id="<%=manageContentBlockId%>">
+						<div class="EdittingToolBarC ClearFix">
+							<div class="FR"  id="<%=manageContentBlockId%>">
 								<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
 								  &nbsp;
 								</a>           
@@ -502,8 +502,8 @@ if(originalNode.hasNode("documents")){
 				 <div class="EdittingToolBar " >
 					<div class="EdittingToolBarL">
 						<div class="EdittingToolBarR">
-							<div class="EdittingToolBarC clearfix">
-								<div style="float: right"  id="<%=manageContentBlockId%>">
+							<div class="EdittingToolBarC ClearFix">
+								<div class="FR"  id="<%=manageContentBlockId%>">
 									<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
 									  &nbsp;
 									</a>           
@@ -577,8 +577,8 @@ if(originalNode.hasNode("documents")){
 		 <div class="EdittingToolBar " >
 			<div class="EdittingToolBarL">
 				<div class="EdittingToolBarR">
-					<div class="EdittingToolBarC clearfix">
-						<div style="float: right"  id="<%=manageContentBlockId%>">
+					<div class="EdittingToolBarC ClearFix">
+						<div class="FR"  id="<%=manageContentBlockId%>">
 							<a class="ManageContentIcon" onclick = "eXo.ecm.CLV.addURL(this)" href="<%=manageContentsLink%>" title="<%= _ctx.appRes("UICLVContainer.label.ManageContent");%>">
 							  &nbsp;
 							</a>           
