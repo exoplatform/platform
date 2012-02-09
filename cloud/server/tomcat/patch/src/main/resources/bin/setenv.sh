@@ -37,7 +37,8 @@ EXO_CLOUD_ADMIN_OPTS="-Dcloud.admin.log.dir=../logs/cloud-admin \
 	-Dcloud.admin.configuration.dir=../gatein/conf/cloud/cloud-admin 
 	-Dcloud.admin.configuration.file=../gatein/conf/cloud/cloud-admin/admin.properties"
 
-JMX_OPTS="-Dcom.sun.management.jmxremote.password.file=${CATALINA_HOME}/conf/jmxremote.password \
+JMX_OPTS="-Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=localhost \
+	-Dcom.sun.management.jmxremote.password.file=${CATALINA_HOME}/conf/jmxremote.password \
 	-Dcom.sun.management.jmxremote.access.file=${CATALINA_HOME}/conf/jmxremote.access \
 	-Dcom.sun.management.jmxremote.authenticate=true \
 	-Dcom.sun.management.jmxremote.ssl=false"
