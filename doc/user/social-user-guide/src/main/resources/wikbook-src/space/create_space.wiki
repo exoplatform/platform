@@ -1,7 +1,7 @@
 The concept "team work" becomes very familiar in business environment. By establishing one specific team or group, you and your collaborators can work together on important projects. Based on the importance of team working, eXo Platform develops the
 *Space* application, allowing you to collaborate with specific people. This means that if you want to work on a team project, you can create a space for your team members to make organizations, share links and information related to the project.
 
-To access a space, click *My Spaces* on the *Administration bar*.
+To access a space, click *My Spaces* on the *Administration* bar.
 
 !images/spaces.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -27,7 +27,7 @@ The *Space navigation* includes the following tabs:  {anchor: id="space_navigati
 h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
 After redirecting to the *Space* application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
 
-*1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the right corner of *Space* page.
+*1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the left corner of *Space* page.
 
 *2.* Enter a space name, description and select the priority level in the *Settings* tab of the *Add New Space* form.
 There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations corresponding to each selected preference value.
@@ -38,10 +38,10 @@ There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations 
 
 !images/add_new_space_visibility.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* *Visibility*: By default, the *Visibility* value is set to be *Visible*.
+* *Visibility*: By default, the *Visibility* value is set to be *Visible*. {anchor:id="visibility"}
 ** Visible: The space is always visible in the public spaces list.
 ** Hidden: The space is not visible in the public spaces list.
-* *Registration*: By default, the *Registration* value is set as *Validation*. There will be an explanation text (within two round brackets) corresponding to each your selection. 
+* *Registration*: By default, the *Registration* value is set as *Validation*.
 ** Open: The users sending their requests can join the space without any validation.
 ** Validation: The membership must be validated by the space manager.
 ** Close: The user cannot request for joining, but only the space manager can invite him.
@@ -84,7 +84,7 @@ After you have selected one existing group, all users in that group will be invi
 {docbook}
 <note>
     <para>
-    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration bar</emphasis>. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
+    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration</emphasis> bar. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
     </para>
 </note>
 {docbook}

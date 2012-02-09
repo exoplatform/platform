@@ -1,10 +1,12 @@
-To build your network, you first need to hover your cursor over the display name on the *Administration bar* and select *My Network* from the drop-down menu.
+To build your network, you first need to hover your cursor over the display name on the *Administration* bar and select *My Network* from the drop-down menu.
 
 !images/Select_network.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
 The *Network* page appears and allows you to do the following actions:
 
-* [Search for your contact|#search_contacts].
+* [Search for contacts|#search_contacts].
+
+* [View profiles of contacts|#view_profile_of_contacts].
 
 * [Send connection requests|#Send_connection_requests].
 
@@ -20,7 +22,7 @@ This page consists of the following tabs:
 
 * *Pending Requests*: list users to whom you have sent connection requests. You can also click *Cancel* to revoke your request.
 
-h1. Search for your contact {anchor:id=search_contacts}
+h1. Search for contacts {anchor:id=search_contacts}
 
 This function allows you to find your desired contact quickly.
 
@@ -40,17 +42,20 @@ This function allows you to find your desired contact quickly.
 
 *3.* Hit the *Enter* key, or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to find your contact. The results will be listed in the *People Found* pane.
 
+{note}
+You can also search contacts by alphabets. See details in the [Search by alphabets|#search_by_alphabets] section.
+{note}
+
+h1. View profiles of contacts {anchor:id=view_profile_of_contacts}
+
+To view the profile of a contact, simply click the contact name. You will be directed to his/her profile.
+
+{note}
+Regardless of being an administrator, you do not have right to edit profiles of other contacts.
+{note}
+
 h1. Send connection requests {anchor:id=Send_connection_requests}
-
-You easily send a request following one of two ways:
-
-*1.* Hover your cursor over your display name on the *Administration bar*, and select *My Network --> All People*, or simply select *Find People* from the drop-down menu.
-
-All users will be listed in the *People Found* pane.
-
-!images/Two_ways_People.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Invite your desired contact via one of two ways.
+After [specifying your desired contact|#search_contacts], you can send a connection request via one of two way.
 
 !images/Ways_sending_invitation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 

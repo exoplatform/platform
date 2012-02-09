@@ -8,7 +8,9 @@ h1. Join/Leave a space {anchor:id=Soc_User_Guide.Space_Management.Join_Space}
 </citetitle>
 {docbook}
 
-Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab to display all spaces which *Visibility* is set to "Visible". There are two cases to join a space:
+Click *My Spaces* on the *Administration* bar, then click the *All Spaces* tab to display all your spaces and ones whose *[Visibility|#visibility]* is set to "Visible".
+
+There are two cases to join a space:
 
 * *The first instance*: For spaces without validation required, click *Join* corresponding to your desired space. You will automatically become their members.
 * *The second instance*: For spaces with validation required, after clicking *Join*, you have to wait for the validation from the space's owner who can accept or deny your request.
@@ -34,7 +36,7 @@ Click *My Spaces* on the *Administration bar*, then click the *All Spaces* tab t
 </citetitle>
 {docbook}
 
-* To leave the space which has been validated, simply click *Leave*.
+* To leave a space, simply click *Leave*.
 
 !images/Leave_validated_space.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -45,7 +47,7 @@ If you are the only leader of that space, the message which informs that you can
 {docbook}
 <note>
     <para>
-    After you have left a space, the space will not exist in the <emphasis role="bold">My Spaces</emphasis> tab, but in the <emphasis role="bold">All Spaces</emphasis> tab.
+    After you have left a space, the space will not exist in the <emphasis role="bold">My Spaces</emphasis> tab, but in the <emphasis role="bold">All Spaces</emphasis> tab (for the "visible" space only).
     </para>
 </note>
 {docbook}
@@ -56,7 +58,7 @@ To view one detailed page of a space, you must become its member first. Then, do
 
 *The first way*
 
-* Hover your cursor over *My Spaces* on the *Administration bar*, and select your desired space from the drop-down menu.
+* Hover your cursor over *My Spaces* on the *Administration* bar, and select your desired space from the drop-down menu.
 
 *The second way*
 
@@ -111,22 +113,25 @@ After accessing your desired spaces tab, you can search for spaces by *Name* and
 
 *2.* Press the *Enter* key or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
+The found spaces will be listed in the *Spaces Found* pane.
 
 {docbook}
 <citetitle>
-<para>
+<para xml:id="search_by_alphabets">
     <emphasis role="bold">Search by alphabets</emphasis>
 </para>
 </citetitle>
 {docbook}
 
- Simply click a specific letter which is covered in the space name.
+Simply click a specific letter.
 
-The found spaces will be listed in the *Spaces Found* pane.
+!images/search_space_by_alphabets.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+
+Only spaces whose name's first character matches with the letter will be listed in the *Spaces Found* pane.
 
 h1. Accept/Deny invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
 
-This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for acceptance will be listed in the *Received Invitations* tab.
+This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for your acceptance will be listed in the *Invitations Received* tab.
 
 !images/accept_deny_invitation.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
 
