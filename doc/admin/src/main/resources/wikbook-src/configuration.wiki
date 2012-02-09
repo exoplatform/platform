@@ -66,7 +66,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Gadget_proxy_configuration">Gadget proxy configuration</link>
+<link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link>
 </para>
 </listitem>
 <listitem>
@@ -976,62 +976,6 @@ h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configurat
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
 
 h1. Gadget configuration {anchor:id=ADM.Configuration.Gadget_configuration}
-h2. Gadget proxy configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
-
-In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployed as an open web proxy.
-This implies configuring ProxyFilterService.
-
-The default configuration is set as below:
-
-{code:xml}
-<component>
-  <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
-  <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
-  <init-params>
-    <values-param>
-      <!-- The white list -->
-      <name>white-list</name>
-      <!-- Accept anything not black listed -->
-      <value>*</value>
-    </values-param>
-    <values-param>
-      <name>black-list</name>
-      <value>*.evil.org</value>
-    </values-param>
-  </init-params>
-</component>
-{code}
-
-This configuration can be added into _<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml_.
-* _<GATEIN\_CONF\_DIR>_ = _TOMCAT\_HOME/gatein/conf/_ if you are using Tomcat and _JBOSS\_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
-* _<PORTAL\_CONTAINER\_NAME>_ = the name of the used portal container, by default it is set to _portal_.
-
-h3. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
-
-The proxy service allows accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
-If the site is not defined in neither the white list nor black list, access will be denied.
-Multiple values can be added for each list and wildcards can also be used.
-
-The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
-
-{code:xml}
-<component>
-  <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
-  <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
-  <init-params>
-    <values-param>
-      <name>white-list</name>
-      <value>*.example.com</value>
-      <value>www.example.net</value>
-    </values-param>
-    <values-param>
-      <name>black-list</name>
-      <value>evil.example.com</value>
-    </values-param>
-  </init-params>
-</component>
-{code}
-
 h2. Default OAuth key configuration {anchor:id=ADM.Configuration.Gadget_OAuth_configuration}
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
 There is always a default key defined in the _oauthkey.pem_ file.
