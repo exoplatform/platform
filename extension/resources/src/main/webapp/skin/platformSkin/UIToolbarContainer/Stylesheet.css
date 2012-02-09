@@ -34,9 +34,9 @@
 }
 
 #UIToolbarContainer .HomeLinkTDContainer {
-    line-height: 31px;
-    margin: 0px 5px;
-    vertical-align: middle;
+    /*line-height: 31px;*/
+    margin: 4px 5px;
+    /*vertical-align: middle;*/
 }
 
 .UIToolbarContainer .NormalContainerBlock  .ToolbarContainer {
