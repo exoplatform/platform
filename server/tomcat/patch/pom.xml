@@ -49,9 +49,6 @@
         <includes>
           <include>**/*</include>
         </includes>
-        <excludes>
-          <exclude>bin/gatein*</exclude>
-        </excludes>
       </resource>
     </resources>
     <!--plugins>
