@@ -30,50 +30,9 @@ The *My Profile* page is displayed as below. {anchor:id="My_Profile_form"}
 
 From here, you can:
 
-* [Modify your contact information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], including basic information, contact details, and experiences.
+* [Edit your information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], including basic information, contact details, and experiences.
 * [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
 * [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
-
-
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">View profiles of other users</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*1.* Hover your cursor over your display name at the top right corner of the page, then select either of the following pages from the drop-down menu:
-
-* *Find People*; or
-* *My Network* --> *All People*; or
-* *Activity Streams* --> *All Updates*
- 
-*2.* Click the appropriate username to be directed to his/her profile. 
-
-{docbook}
-<note>
-<para>
-Regardless of being an administrator, you do not have right to edit profiles of other users.
-</para>
-</note>
-{docbook}
-
-
-{docbook}
-<para>
-<prompt>
-    <emphasis role="bold">See also</emphasis>
-</prompt>
-</para>
-{docbook}
-
-* [Manage accounts|#Platform_User_Guide.Get_started.Accounts]
-* [Build networks|#Platform_User_Guide.Social.Build_Network]
-* [Follow activities in your organization|#Platform_User_Guide.Social.Follow_Activities]
-* [Manage spaces|#Platform_User_Guide.Social.Manage_Spaces]
-* [Use the Dashboard workspace|#sect-User_Guide-Dashboard_Portlet-Using_the_Dashboard_Workspace]
-
 
 h1. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_Information}
 
@@ -81,7 +40,7 @@ Your own information is visible to all people using the network. You can change 
 
 *1.* Click *Edit* at the top of each corresponding section in the right pane of the *[My Profile|#My_Profile_form]* page.
 
-*2.* Change your desired information. In both *Contact* and *Experience* sections, click *Add* corresponding to one field you want to add more or *Remove* to delete your inputted information.
+*2.* Change your desired information. In both *Contact* and *Experience* sections, click *Add* corresponding to one field you want to add more or *Remove* to delete your input information.
 
 !images/Change_basic_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -112,9 +71,9 @@ The followings are changeable information in each pane.
 
 ||Field||Description||
 |*Gender*| The gender of user. Select your gender from the select box, either male or female.|
-|*Phone*| The phone numbers at work, home or at other sites which must be between 3 to 20 numeric characters.|
+|*Phone*| The phone numbers at work, home or at other sites which must be from 3 to 20 numeric characters.|
 |*IMs*| The nickname of either IM services that must be between 3 to 60 characters. |
-|*Urls*| The website address which must be in the correct format, for example: http://exoplatform.com/. |
+|*Urls*| The website address which must be in the correct format, for example, http://exoplatform.com/. |
 
 {docbook}
 <citetitle>
