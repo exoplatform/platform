@@ -41,8 +41,8 @@ There are 4 main steps which need to be defined for updating eXo Platform extens
 
 * Update your project Maven dependencies in the _POM_ files.
 * Update your eXo Platform 3.5 configurations.
-* Update eXo Platform components which have been used in your extension from 3.0 to 3.5.
-* Update new features/components which were added in your eXo Platform 3.0 extension.
+* Update components in your eXo Platform extension to use components of Platform 3.5
+* Update your eXo Platform extension which are customised features/components (were added new/ modified/ delete in eXo Platform 3.0 extension), and make sure they can work well in eXo Platform 3.5 environment.
 
 h1. Update project Maven dependencies {anchor:id=DEV.Upgrade.Update_project_Maven_dependencies}
 

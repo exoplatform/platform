@@ -64,7 +64,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public List<Category> getCategories() throws Exception {
+	public List<Category> getCategories(){
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -116,7 +116,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public Forum getForum(String categoryId, String forumId) throws Exception {
+  public Forum getForum(String categoryId, String forumId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -204,8 +204,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void setViewCountTopic(String path, String userRead)
-			throws Exception {
+  public void setViewCountTopic(String path, String userRead) {
 		// TODO Auto-generated method stub
 
 	}
@@ -231,7 +230,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void modifyTopic(List<Topic> topics, int type) throws Exception {
+  public void modifyTopic(List<Topic> topics, int type) {
 		// TODO Auto-generated method stub
 
 	}
@@ -245,8 +244,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public Topic removeTopic(String categoryId, String forumId, String topicId)
-			throws Exception {
+  public Topic removeTopic(String categoryId, String forumId, String topicId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -317,14 +315,13 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void modifyPost(List<Post> posts, int type) throws Exception {
+  public void modifyPost(List<Post> posts, int type) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Post removePost(String categoryId, String forumId, String topicId,
-			String postId) throws Exception {
+  public Post removePost(String categoryId, String forumId, String topicId, String postId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -370,8 +367,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void unTag(String tagId, String userName, String topicPath)
-			throws Exception {
+  public void unTag(String tagId, String userName, String topicPath) {
 		// TODO Auto-generated method stub
 
 	}
@@ -493,9 +489,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public List<ForumSearch> getAdvancedSearch(ForumEventQuery eventQuery,
-			List<String> listCateIds, List<String> listForumIds)
-			throws Exception {
+  public List<ForumSearch> getAdvancedSearch(ForumEventQuery eventQuery, List<String> listCateIds, List<String> listForumIds) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -597,8 +591,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public ForumSubscription getForumSubscription(String userId)
-			throws Exception {
+  public ForumSubscription getForumSubscription(String userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -625,8 +618,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public List<ForumSearch> getJobWattingForModerator(String[] paths)
-			throws Exception {
+  public List<ForumSearch> getJobWattingForModerator(String[] paths) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -668,7 +660,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void evaluateActiveUsers(String query) throws Exception {
+  public void evaluateActiveUsers(String query) {
 		// TODO Auto-generated method stub
 
 	}
@@ -680,15 +672,13 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void updateTopicAccess(String userId, String topicId)
-			throws Exception {
+  public void updateTopicAccess(String userId, String topicId) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateForumAccess(String userId, String forumId)
-			throws Exception {
+  public void updateForumAccess(String userId, String forumId) {
 		// TODO Auto-generated method stub
 
 	}
@@ -843,7 +833,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public void setDefaultAvatar(String userName) throws Exception {
+	public void setDefaultAvatar(String userName) {
 		// TODO Auto-generated method stub
 
 	}
@@ -898,7 +888,7 @@ public class MockForumService implements ForumService {
 	}
 
 	@Override
-	public List<TopicType> getTopicTypes() throws Exception {
+  public List<TopicType> getTopicTypes() {
 		// TODO Auto-generated method stub
 		return null;
 	}

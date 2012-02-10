@@ -121,7 +121,6 @@
         <init-params>
           <properties-param>
             <name>repo1</name>
-            <property name="repository" value="repository" />
             <property name="workspace" value="dev-monit" />
             <property name="path" value="/" />
           </properties-param>
@@ -132,9 +131,6 @@
       <object-param>
         <name>observation.config</name>
         <object type="org.exoplatform.services.jcr.ext.script.groovy.ObservationListenerConfiguration">
-          <field name="repository">
-            <string>repository</string>
-          </field>
           <field name="workspaces">
             <collection type="java.util.ArrayList">
               <value>

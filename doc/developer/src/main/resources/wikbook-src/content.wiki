@@ -10,6 +10,8 @@ This chapters represents issues related to creating a new content manually via t
 * [Document type|#DEV.WorkWithContent.DocumentType]
 * [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
 * [Taxonomy|#DEV.WorkWithContent.Taxonomy]
+* [Manage Template service|#DEV.WorkWithContent.ManageTemplateService]
+* [Manage Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
 
 h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
@@ -377,11 +379,26 @@ h3. Multi-valued widget {anchor:id=DEV.WorkWithContent.Multi-valueWidget}
 
 A widget can have multiple values if you add the argument "multiValues=true" to the directive.
 
-h1. Manage template service {anchor:id=DEV.WorkWithContent.ManageTemplateService}
+h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
+
+Taxonomy is a particular classification arranged in a hierarchical structure. Taxonomy trees in eXo Platform will help you organize your content into categories.
+
+When you create a new taxonomy tree, you will add a pre-configured _exo\:action_ (_exo\:scriptAction_ or _exo\:businessProcessAction_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _exo\:taxonomyLink_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
+
+Like adding document types, taxonomy trees can be managed through the *Content administration* portlet, or by adding .xml configuration files.
+
+To configure taxonomy trees by adding configuration files in the _/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/_ directory, create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
+
+You can view the file here: _$PLF-HOME\_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml_.
+
+As you can see, the value-params enable you to define the repository, workspace, name of the tree and its JCR path. You can then configure 
+permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
+
+h1. Manage Template service {anchor:id=DEV.WorkWithContent.ManageTemplateService}
 
 The Template service enables you to create dialogs and view templates for each node type registered. Each node type may have many dialogs and view templates. The template will be used when creating or viewing nodes.
 
-You can find the template service configuration in /webapps/ecm-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_.
+You can find the template service configuration in _/webapps/ecm-wcm-core/WEB-INF/conf/wcm-core/core-services-configuration.xml_.
 
 {code:xml}
 <component>
@@ -473,17 +490,17 @@ With init-parameters as:
 </init-params>    
 {code}
 
-h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
+h1. Manage Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent}
 
-Taxonomy is a particular classification arranged in a hierarchical structure. Taxonomy trees in eXo Platform will help you organize your content into categories.
+*Navigation By Content* is a feature which allows users to browse content of each page easily. With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.
 
-When you create a new taxonomy tree, you will add a pre-configured _exo\:action_ (_exo\:scriptAction_ or _exo\:businessProcessAction_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _exo\:taxonomyLink_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
+In this part, you will have opportunity to learn how to manage *Navigation By Content* through the following topics:
 
-Like adding document types, taxonomy trees can be managed through the *Content administration* portlet, or by adding .xml configuration files.
+* [Actual content navigation|#DEV.WorkWithContent.NavigationByContent.ContentNavigation]
+* [Add content to the navigation|#DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigation]
+* [Actions on Navigation By Content|#DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContent]
+* [Examples of creating data for Navigation By Content|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples]
+** [Create a Product page|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPage]
+** [Develop your own Product content|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent]
 
-To configure taxonomy trees by adding configuration files in the _/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/_ directory, create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
-
-You can view the file here: _$PLF-HOME\_/samples/acme-website/webapp/src/main/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/acme-taxonomies-configuration.xml_.
-
-As you can see, the value-params enable you to define the repository, workspace, name of the tree and its JCR path. You can then configure 
-permissions for each group of users in the portal, and the triggered action when a new document is added to the taxonomy tree. Finally, you can describe the structure and names of the categories inside your taxonomy tree.
+{include:document=navigation_by_content_feature.wiki|syntax=confluence/1.0}

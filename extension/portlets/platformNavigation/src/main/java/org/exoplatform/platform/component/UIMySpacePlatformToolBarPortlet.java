@@ -30,6 +30,8 @@ import org.exoplatform.portal.mop.user.UserNode;
 import org.exoplatform.portal.mop.user.UserNodeFilterConfig;
 import org.exoplatform.portal.mop.user.UserPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.social.core.space.SpaceException;
@@ -45,6 +47,9 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl", events = { @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.NavigationChangeActionListener.class) })
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
+
+  private static Log logger = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
+  
   private static final String SPACE_SETTINGS = "settings";
 
   private SpaceService spaceService = null;
@@ -71,8 +76,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     try {
       spaceService = getApplicationComponent(SpaceService.class);
     } catch (Exception exception) {
-      // spaceService could be "null" when the Social profile isn't
-      // activated
+      logger.error("paceService could be 'null' when the Social profile isn't activated ", exception);
     }
     if (spaceService == null) { // Social profile disabled
       return;
@@ -135,10 +139,10 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     return computedNavigations;
   }
 
-  public boolean isRender(PageNode spaceNode, PageNode applicationNode) throws SpaceException {
+  public boolean isRender(UserNode spaceNode, UserNode applicationNode) throws SpaceException {
     if (spaceService != null) {
       String remoteUser = getUserId();
-      String spaceUrl = spaceNode.getUri();
+      String spaceUrl = spaceNode.getURI();
       if (spaceUrl.contains("/")) {
         spaceUrl = spaceUrl.split("/")[0];
       }

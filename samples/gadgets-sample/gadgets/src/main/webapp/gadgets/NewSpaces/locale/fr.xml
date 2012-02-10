@@ -1,0 +1,18 @@
+<?xmfl version='1.0' encoding='UTF-8'?>
+<messagebundle>
+  <msg name="title">
+    Nouveaux espaces
+  </msg> 
+  <msg name="Created">
+    Créé
+  </msg>
+  <msg name="maxtime">
+    Afficher les nouveaux espaces
+  </msg>
+  <msg name="no_space">
+    Aucun espace n'a été créé récemment
+  </msg>  
+  <msg name="showAll">
+    Afficher tous les espaces
+  </msg>  
+</messagebundle>

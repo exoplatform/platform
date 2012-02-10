@@ -143,7 +143,10 @@
 		            if(!node.getVisibility().equals(Visibility.DISPLAYED)) {
 		              continue;
 		            }
-					renderPageNode(child, idx++ % 2 == 0);
+					   def isRender = uicomponent.isRender(node, child);
+                       if (isRender) { 
+					     renderPageNode(child, idx++ % 2 == 0);
+                       }
 				}
 			print """
 				</ul>

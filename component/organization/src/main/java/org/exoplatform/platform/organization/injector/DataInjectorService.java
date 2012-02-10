@@ -443,7 +443,7 @@ public class DataInjectorService implements Startable {
       xmlInputStream.read(bytes);
       xmlContent = new String(bytes);
     } catch (Exception exception) {
-      // Exception if file wasn't found
+      logger_.error("file wasn't found ", exception);
     }
     return xmlContent;
   }

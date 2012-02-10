@@ -79,7 +79,6 @@
             <description>Groups drive template</description>
             <object type="org.exoplatform.services.cms.drives.DriveData">
               <field  name="name"><string>Groups</string></field>
-              <field  name="repository"><string>repository</string></field>
               <field  name="workspace"><string>collaboration</string></field>
               <field  name="permissions"><string>*:${groupId}</string></field>
               <field  name="homePath"><string>/Groups${groupId}</string></field>

@@ -25,6 +25,16 @@
    xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
    xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
+  <!-- NEW SPACES -->
+  <component>
+    <key>org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceService</key>  
+    <type>org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceServiceImpl</type>
+  </component>    
+  
+  <component>
+    <type>org.exoplatform.platform.gadget.services.newspaces.NewSpaceRestService</type>
+  </component>
+  
   <!-- WHO IS ONLINE -->
   <component>
     <type>org.exoplatform.platform.gadget.services.Online.OnlineRestService</type>

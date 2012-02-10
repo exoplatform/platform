@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs 
+  title="New Spaces"
+  author="Do Thanh Tung"
+  author_email="tungdt@exoplatform.com"
+  thumbnail="./skin/images/SpaceLogoDefault_61x61.gif"
+  description="Display the latest created spaces">
+    <Require feature="dynamic-height"/>
+    <Locale messages="locale/default.xml" />
+    <Locale lang="fr" messages="locale/fr.xml" />
+  </ModulePrefs>
+  <UserPref name="maxtime" display_name="__MSG_maxtime__" default_value="10" datatype="enum" >
+    <EnumValue value="5" />
+    <EnumValue value="10" />
+    <EnumValue value="15" /> 
+    <EnumValue value="20" /> 
+  </UserPref>
+  
+  <Content type="html">
+    <![CDATA[     
+    <link type="text/css" rel="stylesheet" href="./skin/newspaces.css"/>
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    
+    <script type="text/javascript" src="./script/newSpaces.js"></script>
+    <script type="text/javascript" src="./script/date.format.js"></script>
+    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+       
+    <div id="NewSpaces-Gadget" class="UIGadgetThemes UIYellowThemes">
+      <div class="TitGad ClearFix">
+        <a target="_parent" id="ShowAll" class="IconDropDown">__MSG_showAll__</a>
+        <div title="Setting" id="SettingButton" class="SettingButton">
+          <a href="javascript:eXoEventGadget.showHideSetting(true);"></a>
+        </div>
+        <div class="ContTit" id="newSpacesGadgetTitle">__MSG_title__</div>
+      </div>
+      <div id="newSpacesContainer" class="GadCont">
+      </div>    
+    </div>
+    
+    
+    ]]>
+  </Content>
+</Module>

@@ -29,6 +29,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.RuntimeDelegate;
 
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.core.identity.model.Identity;
@@ -43,6 +45,8 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Path("/gadgets/social-inbox/v1")
 @Produces("application/json")
 public class InvitationsRestServices implements ResourceContainer {
+
+  private static Log logger = ExoLogger.getLogger(InvitationsRestServices.class);
 
 	private static final CacheControl cacheControl;
 	static {
@@ -91,6 +95,7 @@ public class InvitationsRestServices implements ResourceContainer {
 			spaces = spaceService.getInvitedSpaces(userId);
 		}catch (Exception e) {
 			// TODO: handle exception
+      logger.error("cannot get invited spaces ", e);
 		}
 		List<Object> listData=  new ArrayList<Object>();
 		for (Space space : spaces) {
