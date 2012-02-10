@@ -73,9 +73,9 @@ public class NewSpaceRestService implements ResourceContainer {
  * @return
  */
    @GET
-   @Path("/space/latestCreatedSpace/{maxtime}")
+   @Path("/space/latestCreatedSpace/{maxtime}/{language}")
    @Produces(MediaType.APPLICATION_JSON)
-   public Response latestCreatedSocialSpace(@PathParam("maxtime") int maxtime) {
+   public Response latestCreatedSocialSpace(@PathParam("maxtime") int maxtime, @PathParam("language") String language) {
      CacheControl cacheControl = new CacheControl();
      cacheControl.setNoCache(true);
      cacheControl.setNoStore(true);
@@ -86,7 +86,7 @@ public class NewSpaceRestService implements ResourceContainer {
      List<String> allGroupAndMembershipOfUser = getAllGroupAndMembershipOfUser();
      try
      {
-       listIntranetSpace = intranetSpaceService.getLatestCreatedSpace(maxtime, allGroupAndMembershipOfUser);
+       listIntranetSpace = intranetSpaceService.getLatestCreatedSpace(maxtime, language, allGroupAndMembershipOfUser);
        for (IntranetSpace space : listIntranetSpace) {
            if(space.getIsMember() || space.getIsInvitedUser() || space.getIsPendingUser()){
              listResponseIntranetSpace.add(space);

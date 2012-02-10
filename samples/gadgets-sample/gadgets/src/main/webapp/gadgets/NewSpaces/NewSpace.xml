@@ -6,9 +6,14 @@
   author_email="tungdt@exoplatform.com"
   thumbnail="./skin/images/SpaceLogoDefault_61x61.gif"
   description="Display the latest created spaces">
-    <Require feature="dynamic-height"/>
-    <Locale messages="locale/default.xml" />
-    <Locale lang="fr" messages="locale/fr.xml" />
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height" />
+    <Require feature="settitle" />
+    <Require feature="views" />
+    <Require feature="minimessage" />
+    <Locale messages="locale/ALL_ALL.xml" />
+    <Locale lang="en" messages="locale/en_ALL.xml" />
+    <Locale lang="fr" messages="locale/fr_ALL.xml" />
   </ModulePrefs>
   <UserPref name="maxtime" display_name="__MSG_maxtime__" default_value="10" datatype="enum" >
     <EnumValue value="5" />
@@ -24,8 +29,7 @@
     
     <script type="text/javascript" src="./script/newSpaces.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
-    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-
+    <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
        
     <div id="NewSpaces-Gadget" class="UIGadgetThemes UIYellowThemes">
       <div class="TitGad ClearFix">
@@ -38,8 +42,6 @@
       <div id="newSpacesContainer" class="GadCont">
       </div>    
     </div>
-    
-    
     ]]>
   </Content>
 </Module>

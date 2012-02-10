@@ -39,10 +39,11 @@
     eXoNewSpaceGadget.prototype.createServiceRequestUrl = function(){
       var prefs = eXoNewSpaceGadget.getPrefs();
       var serviceUrl = window.location.protocol + "//" + window.location.host;
+      var lang = new gadgets.Prefs().getLang();
       if(typeof(parent.eXo) != "undefined") {
-        serviceUrl += parent.eXo.env.server.context + "/" + parent.eXo.env.portal.rest + "/intranetNewSpaceService/space/latestCreatedSpace/" + prefs.maxtime ;
+        serviceUrl += parent.eXo.env.server.context + "/" + parent.eXo.env.portal.rest + "/intranetNewSpaceService/space/latestCreatedSpace/" + prefs.maxtime + "/" + lang;
       } else {
-        serviceUrl += "/portal/rest/intranetNewSpaceService/space/latestCreatedSpace/"  + prefs.maxtime ;
+        serviceUrl += "/portal/rest/intranetNewSpaceService/space/latestCreatedSpace/"  + prefs.maxtime + "/" + lang;
       }
       return serviceUrl;
     }
@@ -121,10 +122,11 @@
         html += '<div><a class="spaceItemLink" target="_parent" title="' + item.description +  '" href=\"'+ spaceURL + '\">' + item.displayName +'</a></div>';
 
         html += '<div class = "ClearFix">';
-        var cratedDate = new Date(item.createdDate.time);
-        var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
+        //var cratedDate = new Date(item.createdDate.time);
+        //var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
+        var createdTimeAgo = item.createdTimeAgo;
         html += '<div class = "itemDetail">' + eXoNewSpaceGadget.truncText (item.description, 100)  + '</div>';
-        html += '<div class = "itemDetail-italic">' + gadgets.Prefs().getMsg("Created") + " " +createdDateStr + '</div>';
+        html += '<div class = "itemDetail-italic">' + gadgets.Prefs().getMsg("Created") + " " +createdTimeAgo + '</div>';
         html += '</div>';
         html += '</div>';
         
@@ -147,7 +149,7 @@
         
     eXoNewSpaceGadget.prototype.notify = function(){
       var msg = gadgets.Prefs().getMsg("no_space");
-      document.getElementById("newSpacesContainer").innerHTML = '<div class="itemDetail-italic">' + msg + '</div>';
+      document.getElementById("newSpacesContainer").innerHTML = '<div class="noItem">' + msg + '</div>';
       document.getElementById("newSpacesGadgetTitle").innerHTML = gadgets.Prefs().getMsg("title");
       gadgets.window.adjustHeight($("#NewSpaces-Gadget").get(0).offsetHeight);
     }

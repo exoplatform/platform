@@ -34,3 +34,8 @@
  font-style: italic;
  color: #226AB4;
 }
+.UIGadgetThemes .noItem {
+ padding-left: 10px;
+ font-style: italic;
+ color: lightgray;
+}

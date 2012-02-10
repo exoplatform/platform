@@ -40,6 +40,9 @@ public class IntranetSpace {
   /** the created date */
   private Date createdDate;
   
+  /** the created time ago*/
+  private String createdTimeAgo;
+  
   /** isMember= true if user is member of space */
   private Boolean isMember = false;
   
@@ -85,6 +88,15 @@ public class IntranetSpace {
 
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
+  }
+
+  
+  public String getCreatedTimeAgo() {
+	return createdTimeAgo;
+  }
+
+  public void setCreatedTimeAgo(String createdTimeAgo) {
+	this.createdTimeAgo = createdTimeAgo;
   }
 
   public String getUrl() {

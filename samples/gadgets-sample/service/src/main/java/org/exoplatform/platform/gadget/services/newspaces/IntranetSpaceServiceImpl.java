@@ -29,11 +29,13 @@ import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.SpaceIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
+import org.exoplatform.webui.utils.TimeConvertUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -91,7 +93,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
    * 
    * @see org.exoplatform.intranet.component.social.IntranetSpaceService#getLatestCreatedSpace()
    */
-  public List<IntranetSpace> getLatestCreatedSpace(int maxday, List<String> allGroupAndMembershipOfUser) {
+  public List<IntranetSpace> getLatestCreatedSpace(int maxday, String language, List<String> allGroupAndMembershipOfUser) {
     
     if (maxday <=0) maxday = 10;
     String userName = (allGroupAndMembershipOfUser!=null && allGroupAndMembershipOfUser.size()>0)? allGroupAndMembershipOfUser.get(0):null;
@@ -130,7 +132,11 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
         space.setDisplayName(spaceNode.getProperty("soc:displayName").getString());
         space.setDescription(spaceNode.getProperty("soc:description").getString());
         space.setUrl(spaceNode.getProperty("soc:url").getString());
-        space.setCreatedDate(spaceNode.getProperty("exo:dateCreated").getDate().getTime());
+        Date createdDate =  spaceNode.getProperty("exo:dateCreated").getDate().getTime();
+        space.setCreatedDate(createdDate);
+        Locale local = new Locale(language);
+        String createdTimeAgo = TimeConvertUtils.convertXTimeAgo(createdDate, "yyyy/MM/dd", local);
+        space.setCreatedTimeAgo(createdTimeAgo);
         space.setRegistration(spaceNode.getProperty("soc:registration").getString());
         space.setVisibility(spaceNode.getProperty("soc:visibility").getString());
         

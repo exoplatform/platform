@@ -32,6 +32,6 @@ public interface IntranetSpaceService {
  * @param maxday is the days ago
  * @return
  */
-  public List<IntranetSpace> getLatestCreatedSpace (int maxday,List<String> allGroupAndMembershipOfUser ) ;
+  public List<IntranetSpace> getLatestCreatedSpace (int maxday, String language, List<String> allGroupAndMembershipOfUser ) ;
 
 }
