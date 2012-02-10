@@ -78,7 +78,7 @@ Moderators can approve pending topics in forums that enable the '[Moderate Topic
 
 !images/mod_pending_topics.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
-The administrator and moderator will know the total number of pending topics at the right corner of their *Forum Administration* bar and *User* bar:
+The administrator and moderator will know the total number of pending topics at the right corner of their *Forum Administration* bar and *User* bar.
 
 !images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 

@@ -3,17 +3,7 @@ The administrators have the global role and take care of the entire management t
 
 h2. Set up the Answers portlet {anchor:id=KSuser.Answer_Administrator.Set_up_Answers_portlet}
 
-{docbook}
-<note>
-<para>
-In case the <emphasis role="bold">Answers</emphasis> portlet has not been activated yet, you need to add it to a page by dragging and dropping it from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Answers</emphasis> to the main pane. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Add_a_new_Page_in_the_Page_List">creating a new page</link> or <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
-
-You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">Edit a specific portlet</link> section.
-</para>
-</note>
-{docbook}
-
-When adding a portlet to a page, you have to configure this portlet to make it work in your desired way.
+When adding the *Answwers* portlet to a page, you have to configure this portlet to make it work in your desired way.
 
 {docbook}
 <citetitle>
@@ -24,7 +14,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 {docbook}
 
 
-*1.*  Open the page edit mode via one of the following ways:
+*1.* Open the page edit mode via one of the following ways:
 
 * *The first way*
 
@@ -44,7 +34,7 @@ When adding a portlet to a page, you have to configure this portlet to make it w
 
 !images/Answer_page_layout.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-Now, you should be in the page edit mode.
+Now, you should be in the *Edit* mode of the page.
 
 !images/Answer_portlet_edit_mode.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -65,7 +55,7 @@ h3. Change the display mode {anchor:id=KSuser.Answer_Moderator.Change_display_mo
 
 In the *Display Mode* tab, you can set all the default display properties of the *Answers* application, including:
 
-* *Display*: Display all entries in the *Answers* application for administrators and moderators..
+* *Display*: Display all entries in the *Answers* application for administrators and moderators.
 ** *All*: All entries, including approved and unapproved entries/questions, are displayed in a list when administrators and moderators view.
 ** *Approved*: Only approved entries are displayed in the list when administrators and moderators view.
 * *Order by*: The order to display all questions in the *Answers* application.

@@ -23,9 +23,9 @@ To view details of a question, simply click it to open its details, including it
 h2. Submit a question {anchor:id=KSuser.Answer_Regular_user.Submit_question}
 The *Answers* application allows you to raise your questions on any issues and helps you find the best answer.
 
-*1.* Right-click the category/sub-category where you want to submit your question, then select !images/answer_submit_question_rightclick.png|width="17mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu
+*1.* Right-click the category/sub-category where you want to submit your question, then select !images/answer_submit_question_rightclick.png|width="17mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu;
 
-or go into the category that you want to submit questions, then click !images/Submit_question_bt.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
+Or, go into the category that you want to submit questions, then click !images/Submit_question_bt.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 The *Submit Question* form appears as below.
 
@@ -39,13 +39,15 @@ In this form, you can also:
 
 *ii.* Select your desired language in the *Language* drop-down list.
 
-*iii.* Enter your email in the valid format, such as: username@abc.com, into the *Email* form.
+*iii.* Enter your email in the valid format, such as _username@abc.com_ into the *Email* form.
 
 *iv.* Attach different-typed files to your question by clicking the *Attach a file* link. The max size for the attachment is 20Mb. To remove the attached files, click the corresponding *Remove* link next to the file attachments.
 
 *3.* Click *Save* to complete submitting your question.
 
-A message will appear informing that your question has been added successfully. If the moderation option was ticked when your selected category was created by the owner, there will be a message informing that your question needs to be approved before being displayed in that category.
+A message will inform that your question has been added successfully.
+
+If you submit a question to the [moderated category|#moderate_new_question], a message informs that your question needs to be approved before being displayed in that category.
 
 {docbook}
 <para>
@@ -412,7 +414,10 @@ The RSS information page will appear on another tab. Depending on the browser yo
 * [View details of Answers|#Answer_user_guide.View_details]
 h2. Edit user settings {anchor:id=KSuser.Answer_Regular_user.Edit_user_settings}
 
-When going to user settings, you can [change how Answers will display the entries|#Answer_user_settings.Change_display_settings], [manage your subscriptions|#Answer_user_settings.Manage_watches] and [change your avatar|#Answer_user_settings.Change_avatar] here.
+When going to user settings, you can:
+* [Change how Answers will display the entries|#Answer_user_settings.Change_display_settings].
+* [Manage your subscriptions|#Answer_user_settings.Manage_watches].
+* [Change your avatar|#Answer_user_settings.Change_avatar].
 
 {docbook}
 <citetitle>
@@ -590,7 +595,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Click your desired question.
 
-*2.* Click !images/Print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the top right of the question pane. You will see the question and its details as below:
+*2.* Click !images/Print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the top right of the question pane. You will see the question and its details as below.
 
 !images/Print_details_question.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 

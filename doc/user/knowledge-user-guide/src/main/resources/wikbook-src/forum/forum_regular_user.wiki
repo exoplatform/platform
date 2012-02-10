@@ -481,7 +481,7 @@ This will bring up the "Quote" form, with the previous message already quoted in
 *2.* Enter your message. Edit the quotation if necessary.
 
 *i.* In the *Content* tab, the quoted content is wrapped between BBCodes tags \[QUOTE\]\[/QUOTE\] which is automatically generated. Add your message content before or after this quoted content.
-You can create a quoted content manually by clicking !images/quote_content_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! from the *WYSIWYG* editor toolbar:
+You can create a quoted content manually by clicking !images/quote_content_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! from the *WYSIWYG* editor toolbar.
 
 !images/post_wysiwyg_editor.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -507,11 +507,11 @@ h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 h2. Use BBCodes {anchor:id=Forum_user_settings.Forum_regular_user.BBcodes}
 BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the html markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces "\[" and "\]" rather than "\<" and "\>" and it offers greater control over what and how something is displayed.
 
-Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click on the respective icon which is shown in the toolbar above the message area.
+Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click the respective icon which is shown on the toolbar above the message area.
 
 !images/bbccode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-Click !images/Syntax_help_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the toolbar to get the full list of build-in BBCode explanations and examples.
+Click !images/Syntax_help_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the toolbar to get the full list of built-in BBCode explanations and examples.
 
 !images/help_bbccode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -531,7 +531,7 @@ The *View User Profile* form will be displayed.
 
 h2. Private messages {anchor:id=Forum_user_guide.Forum_regular_user.Private_messages}
 
-This function is for all logged-in users who want to send messages to other users privately. These messages will not be moderated and only viewable to the recipient.
+This function is for all logged-in users to send private messages to others. These messages will not be moderated and only viewable to the recipients.
 
 
 h3. Send a private message {anchor:id=Forum_regular_user.Private_messages.Send_private_message}
@@ -544,9 +544,12 @@ The *Private Messages* form will appear.
 
 !images/private_messages_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Enter the username of the recipients and type your message title and content.
+*2.* Enter the username of the other recipients;
+ Or click the icons next to the *Send to* field to select more others (if you want to send to many users at the same time).
 
-*3.* Click *Save* to send the message.
+*3.* Type your message title and content.
+
+*4.* Click *Save* to send the message.
 
 
 h3. Receive a private message {anchor:id=Forum_regular_user.Private_messages.Receive_private_message}
@@ -602,7 +605,7 @@ The detailed information of the category/forum/topic is displayed on another tab
 
 !images/rss_feed_subscribe_firefox.png|align="center" width="90mm" fo:scalefit="1" html:scalefit="0"!
 
-The following illustration demonstrates the RSS feed subscription using the Firefox Live Bookmark:
+The following illustration demonstrates the RSS feed subscription using the Firefox Live Bookmark.
 
 !images/rss_example.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -671,7 +674,7 @@ You may configure your settings yourself, such as personal profile, forum settin
 Click !images/Forum_settings_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! on the *User* bar to go to the *Settings* form. Once you opened the *Settings* form, you can control your personal settings, options and preferences via the following actions:
 
 * [Edit your profile|#Forum_regular_user.User_settings.Edit_profile].
-* [Change your avatar|#Forum_regular_user.User_settings.Edit_profile].
+* [Change your avatar|#Forum_regular_user.User_settings.Change_your_avatar].
 * [Change the watch settings|#Forum_regular_user.User_settings.Manage_subscriptions].
 * [Change forum settings|#Forum_regular_user.User_settings.Change_forum_settings].
 * [Edit your subscriptions|#Forum_regular_user.User_settings.Manage_subscriptions].
@@ -686,7 +689,7 @@ Here, you can:
 
 * Edit your screen name and title displayed in forums in the *Screen Name* and *User Title* fields.
 * Edit your signature which will be displayed at the bottom of your post. Enter your signature in the *Signature* textbox. Tick/Untick the *Display Signature* checkbox to enable/disable your signature.
-* Change your avatar by clicking the *Update* link. Tick/Untick the *Display Avatar* checkbox to show/hide your avatar.
+* Change your avatar{anchor:id="Forum_regular_user.User_settings.Change_your_avatar} by clicking the *Update* link. Tick/Untick the *Display Avatar* checkbox to show/hide your avatar.
 * Follow your created topics by selecting the *Watch topics I start* checkbox. You will receive email notifications when there are any new posts added to your topics.
 * Follow topics which you have posted by ticking the *Watch topics I post in* checkbox. You will receive email notifications when there are any new posts added to your created topic.
 
