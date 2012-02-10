@@ -251,12 +251,13 @@ Q3. How to hide JGroups protocol warnings in the log?
 {docbook}
 In cluster mode several Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport.
 And in case of used by default UDP transport it might cause a side effect - lot of warnings, like these below:
-{screen}
+
+{code}
 WARNING: discarded message from different group "gatein-idm-api-cluster" (our group is "gatein-idm-store-cluster"). Sender was 192.168.1.55:54232
 Dec 16, 2011 4:46:09 PM org.jgroups.protocols.TP passMessageUp
 WARNING: discarded message from different group "gatein-idm-store-cluster" (our group is "gatein-idm-api-cluster"). Sender was 192.168.1.55:63364
 Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
-{screen}
+{code}
 
 To hide such warnings need configure the Application Server logger in appropriate way:
 * Apache Tomcat, in {{{${CATALINA_HOME}/conf/logging.properties}}} add following lines

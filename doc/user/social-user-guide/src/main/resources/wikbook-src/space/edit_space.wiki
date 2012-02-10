@@ -1,11 +1,17 @@
 h1. Edit a space       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space}
-This function allows you to change the information of a space, manage members and applications if you are the creator or have the *Manage* permission on it.
+This function allows you to change the initial settings of a space if you are the creator or have the *Manage* permission on it. With this function, you can
+do the following actions:
+* [Change space information|#Soc_User_Guide.Space_Management.Edit_Space.Change_Info]
+* [Change visibility|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility]
+* [Manage members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members]
+* [Manage space applications|#Soc_User_Guide.Space_Management.Edit_Space.Manage_App]
+* [Edit space navigation|#Soc_User_Guide.Space_Management.Edit_Space.Edit_Space_Navigation]
 
-To access the *Space Settings*, follow one of 2 ways:
+To perform the actions above, first access the *Space Settings* by following one of 2 ways:
 
 *The first way*
 
-*1.* Click *My Spaces* on the *Administration bar* to direct to the *My Spaces* page.
+*1.* Click *My Spaces* on the *Administration* bar to direct to the *My Spaces* page.
 
 *2.* Click *Edit* corresponding to the space which you have the *Edit* permission.
 
@@ -13,14 +19,14 @@ To access the *Space Settings*, follow one of 2 ways:
 
 *The second way*
 
-*1.* Hover your cursor over *My Spaces* on the *Administration bar*, then select one space from the drop-down menu.
+*1.* Hover your cursor over *My Spaces* on the *Administration* bar, then select one space from the drop-down menu.
 
 *2.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/access_edit_space.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Change space information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
-This function allows you to edit the basic information of a space as follows:
+This function allows you to edit the basic information of a space.
 
 *1.* Select the *Settings* tab in the *Space Settings* page.
 
@@ -74,23 +80,15 @@ To invite multiple people, use commas to separate your multiple entered username
 
 *iii.* Click !images/Find_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform searching.
 
-*2.* Select users by ticking their corresponding checkboxes and click *Add*.
+*2.* Select users by ticking their corresponding checkboxes, and click *Add*.
 
 *3.* Click !images/Invite_member_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to invite your selected users.
 
- After inviting, you will see the list of invited users.
+ After that, you will see the list of invited users.
 
-
-{docbook}
-<note>
-    <para>
-    You can invite multiple users which will be separated by commas in the <emphasis role="bold">Select Users</emphasis> field.
-    </para>
-</note>
-{docbook}
 
 h3. Revoke your invitations       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke}
-If your invited users have not accepted your requests, you can revoke your invitations by clicking !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
+If your invited users have not accepted your requests yet, you can revoke your invitations by clicking !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
 
 h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
@@ -146,9 +144,9 @@ You can easily edit a space navigation, such as adding a new node, editing a nod
 
 You can take the following actions:
 
-* Right-click a node name (space name) and takes actions in the context menu, such as adding/editing a node, editing a node's page, copying/cloning a node.
+* Right-click a node name (space name) and take actions in the context menu, such as adding/editing a node, editing a node's page, and copying/cloning a node.
 
-* Right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *UI Page Node* form appears that allows you to add information to your new node.
+* Right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *UI Page Node* form appears and allows you to add information to your new node.
 
 For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes] section.
 

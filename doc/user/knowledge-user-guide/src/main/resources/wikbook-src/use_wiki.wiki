@@ -39,7 +39,7 @@ There are 3 space types:
 
 
 h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pages}
-Pages are places where information in *Wiki* is stored and shared. Pages are stored within a spaces. Actions that a user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
+Pages are places where information in *Wiki* is stored and shared. Pages are stored within a space. Actions that a user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
 
 In a page, you can:
 
@@ -107,7 +107,7 @@ For example:
 |Xwiki 2.0 |\[\[eXo User Guide\]\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
 |Confluence 1.0|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
 
-*2.* Click *Save* to save the page containing the link. The undefined link is colored in red with the underline.
+*2.* Click *Save* to save the page containing the link. The undefined link is underlined.
 
 *3.* Click this link to open the *Add Page* form.
 
@@ -124,11 +124,11 @@ You can edit a page at any time if you have the *Edit* permission on that page.
 </citetitle>
 {docbook}
 
-To edit the whole page content, click *Edit* in the *Page Control* area. Your page will be switched to the Edit mode.
+To edit the whole page content, click *Edit* in the *Page Control* area. Your page will be switched to the *Edit* mode.
 
 !images/page_control.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Now, you can rename the page and edit the page content. In the View mode, hover your cursor over the page title and double-click to edit it. The toolbar in the edit mode will be changed to activate the following actions.
+Now, you can rename the page and edit the page content. In the *View* mode, hover your cursor over the page title and double-click to edit it. The toolbar in the *Edit* mode will be changed to activate the following actions.
 
 !images/wiki_page_edit.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -141,7 +141,7 @@ Now, you can rename the page and edit the page content. In the View mode, hover 
 |!images/no5.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Input the edit reason if necessary. |
 |!images/no6.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Save the current page and go back to the view mode. Changes will be sent to watchers via mail notification. |
 |!images/7.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Save the current page without sending notification to the watcher. |
-|!images/8.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Discard the current changes and go back to the view mode. |
+|!images/8.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Discard the current changes and go back to the *View* mode. |
 |!images/9.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| The *Syntax* drop-down list. You can select your preferred syntax here.|
 
 
@@ -157,12 +157,12 @@ To edit only a section in the whole page content, hover your cursor over the tit
 
 !images/Wiki_edit_section.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The selected section will be switched to the Edit mode.
+The selected section will be switched to the *Edit* mode.
 
 {docbook}
 <tip>
 <para>
-In the View mode, you can quickly edit the page title by double-clicking it, then press Enter when finishing.
+In the *View* mode, you can quickly edit the page title by double-clicking it, then press *Enter* when finishing.
 </para>
 </tip>
 {docbook}
@@ -183,13 +183,9 @@ The form to select the destination page appears.
 
 *4.* Click *Move*.
 
-{docbook}
-<note>
-<para>
-The Move page action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space and not between spaces.
-</para>
-</note>
-{docbook}
+{note}
+The *Move page* action is not displayed when you are at the Wiki Home. You can only move pages inside a wiki space and not between spaces.
+{note}
 
 h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 
@@ -204,7 +200,7 @@ h2. Delete a page {anchor:id=KSuser.Work_with_Wiki_pages.Delete_pages}
 {docbook}
 <note>
 <para>
-The Delete page action is not displayed when you are in the Wiki Home.
+The <emphasis role="bold">Delete page</emphasis> action is not displayed when you are in the Wiki Home.
 </para>
 </note>
 {docbook}
@@ -222,6 +218,9 @@ All information of the opening page, including page summary, related pages, page
 
 !images/wiki_page_info.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
+Here, you can do the following actions:
+* [Add a related page|#KSuser.Work_with_Wiki_pages.Add_related_pages]
+* [View a page history|#KSuser.Work_with_Wiki_pages.View_page_history]
 
 h3. Add a related page {anchor:id=KSuser.Work_with_Wiki_pages.Add_related_pages}
 This feature allows you to add pages related to your page. This function can be done in the *Page Info* view and is activated to users with the Edit permission.
@@ -415,16 +414,16 @@ You can switch between the *Source* and *WYSIWYG* editors at any time by clickin
 To learn more about the *WYSIWYG* editor, you can refer to the [*WYSIWYG* editor user guide|http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor].
 
 h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
-If you do not know how to use a syntax, you can use the Syntax Help function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! from the page toolbar. When being clicked, a lateral pane slides beside the editing area will show all the information of the currently used syntax.
+If you do not know how to use a syntax, you can use the *Syntax Help* function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! from the page toolbar. When being clicked, a lateral pane beside the editing area will show all the information of the currently used syntax.
 The lateral pane can be hidden by clicking !images/Close_button.png| width="4mm" fo:scalefit="1" html:scalefit="0"! in the upper right corner or by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! again.
 
 !images/Quick_notation.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-You can click !images/More_syntaxes.png| width="7mm" fo:scalefit="1" html:scalefit="0"! at the bottom of short *Help Tips* form to open the *Full Syntax Notation* page.
+You can click !images/More_syntaxes.png| width="7mm" fo:scalefit="1" html:scalefit="0"! at the bottom of the short *Help Tips* form to open the *Full Syntax Notation* page.
 
 You can insert icons, emoticons to emphasize the content. The usage is described in the *Full Syntax Notation* page with example so you can easily remember and use them.
 
-*Example of Emoticons and icons*:
+*Example of emoticons and icons*
 
 !images/Smiley_special_notation.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -446,7 +445,7 @@ The macro is classified into different categories: *Content*, *Formatting*, *Nav
 
 *3.* Select a macro category.
 
-*4.* Select your desired macro from the selected categories list, then click the *Select* button, or simply double-click it. For example, if you select the *Box* macro, you will go to the *Macro Parameters* form.
+*4.* Select your desired macro from the selected categories list, then click the *Select* button, or simply double-click it. For example, if you select the *Box* macro, you will go to the macro parameters form.
 
 !images/Macro_parameters_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -488,7 +487,7 @@ Each version includes the following information:
 * Date and time when changes are made.
 * Summary (if any).
 
-In the Page History page, you can:
+In the *Page History page*, you can:
 
 * [View versions of a page|#KSuser.Work_with_page_version.View_versions].
 * [Compare page versions|#KSuser.Work_with_page_version.Compare_versions].
@@ -518,7 +517,7 @@ At a version of the page, you can do the following actions:
 
 h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
 
-*Wiki* tracks histories of changes on the pages by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png| width="25mm" fo:scalefit="1" html:scalefit="0"!.
+*Wiki* keeps track of histories of changes on a page by maintaining a version of the page each time it is modified. To compare two versions, select two checkboxes corresponding to each relevant version, then click !images/Compare_selected_button.png| width="25mm" fo:scalefit="1" html:scalefit="0"!.
 
 !images/Select_page_version.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -624,7 +623,7 @@ h1. Wiki Administration {anchor:id=KSuser.Wiki.Wiki_Administration}
 </note>
 {docbook}
 
-The administrator has the highest right in *Wiki*. The administrator can delete a page, change the space settings, set the edit permission for users and more.
+The administrator has the highest right in *Wiki*. The administrator can delete a page, change the space settings, set the Edit permission for users and more.
 
 h2. Set up space settings {anchor:id=KSuser.Wiki_Administration.Set_up_space_settings}
 
@@ -683,7 +682,7 @@ The form to select the user, the group and the membership appears.
 
 *2.* Select a user, a group or a membership, then click  *Add*.
 
-*3.* Click the plus icon to add the selectors to the *Owner* column in the *Space Permissions* form.
+*3.* Click !images/Add_selectors.png|width="14mm" fo:scalefit="1" html:scalefit="0"! to add the selectors to the *Owner* column in the *Space Permissions* form.
 
 *4.* Tick the checkboxes corresponding to each permission you want to assign to the selectors.
 
@@ -703,7 +702,7 @@ h4. Delete space permissions {anchor:id=KSuser.Wiki_Administration.Delete_space_
 To delete the permissions of a user, group or a membership in a space, just click !images/Delete_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to a user or group or membership in the *Space Permissions* form.
 
 h3. Page Permissions {anchor:id=KSuser.Wiki_Administration.Page_permissions}
-The *Page Permissions* allows you to set the view and edit permissions for a specific page of a space.
+The *Page Permissions* allows you to set the View and Edit permissions for a specific page of a space.
 
 *1.* Open a page of the space that you want to set the permissions.
 

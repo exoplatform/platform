@@ -66,7 +66,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Configuration.Gadget_proxy_configuration">Gadget proxy configuration</link>
+<link linkend="ADM.Configuration.Gadget_configuration">Gadget configuration</link>
 </para>
 </listitem>
 <listitem>
@@ -231,14 +231,23 @@ In this step, you will be prompted for entering your password.
 
 *4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr (_$dbname-jcr_). For example:
 
-*i.* Create the first database: {code}create database _$dbname_;{code}
+*i.* Create the first database.
+ 
+{code}
+create database _$dbname_;
+{code}
 
 *ii.* Configure the user who has the remote access right (not only from the host server):
 
-{code}grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';{code}
+{code}
+grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';
+{code}
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
 
-*5.* Verify that both databases were created successfully: {code}show databases;{code}
+*5.* Verify that both databases were created successfully.
+
+{code}show databases;
+{code}
 
 *6.* Quit the server with the *exit* command.
 
@@ -275,7 +284,7 @@ Edit the server.xml file
 
 * Change the driver from _org.hsqldb.jdbcDriver_ to _com.mysql.jdbc.Driver_.
 * Change the username and password to the values set above.
-* Change the URL to access your DataBase from _jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr\_\portal_ into _jdbc:mysql://\_\$host\_\:3306/\_\$dbname\_\_.
+* Change the URL to access your DataBase from _jdbc:hsqldb:file:../gatein/data/hsql/exo-jcr\_\portal_ into _jdbc\:mysql\://\_\$host\_\:3306/\_\$dbname\__.
 
 The code now should look like:
 
@@ -619,10 +628,10 @@ To see more details, refer to [JavaMail API documentation|http://java.sun.com/pr
 
 For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
-{screen}
+{code}
 gatein.email.domain.url=http://localhost:8080
 gatein.email.smtp.from=noreply@exoplatform.com
-{screen}
+{code}
 
 {note}
 The value of email address should be in a valid format.
@@ -709,9 +718,9 @@ This is useful for fine-tuning your website.
 
 The configuration property is _exo.webdav.cache-control_.
 
-{screen}
+{code}
 exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;*/*:no-cache;
-{screen}
+{code}
 
 The property expects a comma-separated list of key=pair values, where keys are a list of MIME types followed by the cache-control value to set.
 
@@ -724,13 +733,13 @@ h2. XMPPMessenger {anchor:id=ADM.Configuration.XMPPMessenger}
 
 If you change the host name and port for the Chat server, you will need to edit two properties:
 
-{screen}
+{code}
 # IP or hostname for the eXo Chat XMPP server
 exo.chat.server=127.0.0.1
 
 # TCP port for where the eXo Chat server listens for XMPP calls
 exo.chat.port=5222
-{screen}
+{code}
 
 h2. Chat server configuration {anchor:id=ADM.Configuration.Chat_server_configuration}
 
@@ -797,7 +806,9 @@ To run the chat server properly, several ports must be opened in the firewall.
 h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
 eXo Platform allows users to view documents of various types directly on the content explorer through the OpenOffice server. To do so, the OpenOffice application must be available in your local device first. Next, start the OpenOffice server by running the command below:
 
-{screen}soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard{screen}
+{code}
+soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+{code}
 
 
 h1. Log-in {anchor:id=ADM.Configuration.Login}
@@ -965,62 +976,6 @@ h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configurat
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
 
 h1. Gadget configuration {anchor:id=ADM.Configuration.Gadget_configuration}
-h2. Gadget proxy configuration {anchor:id=ADM.Configuration.Gadget_proxy_configuration}
-
-In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployed as an open web proxy.
-This implies configuring ProxyFilterService.
-
-The default configuration is set as below:
-
-{code:xml}
-<component>
-  <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
-  <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
-  <init-params>
-    <values-param>
-      <!-- The white list -->
-      <name>white-list</name>
-      <!-- Accept anything not black listed -->
-      <value>*</value>
-    </values-param>
-    <values-param>
-      <name>black-list</name>
-      <value>*.evil.org</value>
-    </values-param>
-  </init-params>
-</component>
-{code}
-
-This configuration can be added into _<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml_.
-* _<GATEIN\_CONF\_DIR>_ = _TOMCAT\_HOME/gatein/conf/_ if you are using Tomcat and _JBOSS\_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
-* _<PORTAL\_CONTAINER\_NAME>_ = the name of the used portal container, by default it is set to _portal_.
-
-h3. How does it work {anchor:id=ADM.Configuration.Gadget_proxy_configuration.How_does_it_work}
-
-The proxy service allows accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
-If the site is not defined in neither the white list nor black list, access will be denied.
-Multiple values can be added for each list and wildcards can also be used.
-
-The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
-
-{code:xml}
-<component>
-  <key>org.exoplatform.web.security.proxy.ProxyFilterService</key>
-  <type>org.exoplatform.web.security.proxy.ProxyFilterService</type>
-  <init-params>
-    <values-param>
-      <name>white-list</name>
-      <value>*.example.com</value>
-      <value>www.example.net</value>
-    </values-param>
-    <values-param>
-      <name>black-list</name>
-      <value>evil.example.com</value>
-    </values-param>
-  </init-params>
-</component>
-{code}
-
 h2. Default OAuth key configuration {anchor:id=ADM.Configuration.Gadget_OAuth_configuration}
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
 There is always a default key defined in the _oauthkey.pem_ file.
@@ -1057,9 +1012,7 @@ wcm.linkjob.cron.expression=0 30 1 * * ?
  
 
 {note}
-
 To understand more about CRON expression, see [here|http://en.wikipedia.org/wiki/CRON_expression#CRON_expression].
-
 {note}
 
 h1. Other properties {anchor:id=ADM.Configuration.Other_properties}

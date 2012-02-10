@@ -28,6 +28,16 @@
          </includes>
          <fileMode>755</fileMode>
       </fileSet>
+      <!-- JMX remote access files -->
+      <fileSet>
+         <directory>target/tomcat</directory>
+         <outputDirectory></outputDirectory>
+         <includes>
+            <include>**/jmxremote.access</include>
+            <include>**/jmxremote.password</include>
+         </includes>
+         <fileMode>600</fileMode>
+      </fileSet>
        <!-- ROOT webapp -->
      <fileSet>
         <directory>src/main/ROOT</directory>

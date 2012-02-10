@@ -124,7 +124,7 @@ Click !images/chat_minimize_icon.png|width="4mm" fo:scalefit="1" html:scalefit="
 {docbook}
 <note>
     <para>
-    When you send a message to offline contacts, they will receive your message to them at their next logins.
+    When you send a message to offline contacts, they will receive your message at their next logins.
     </para>
     <para>
     You can chat with several contacts at the same time. Each conversation is displayed in its own tab. You can switch between tabs to follow different ongoing conversations.
@@ -141,9 +141,9 @@ Click !images/chat_minimize_icon.png|width="4mm" fo:scalefit="1" html:scalefit="
 {docbook}
 
 h2. Set your status {anchor:id="CSUser_guide.How_to_use_Chat.Set_status"}
-When you signed in Chat, by default, your logged-in status is available and your friends will see the online icon !images/online_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! appending to your account name in their friend lists.
+When you signed in *Chat*, by default, your logged-in status is available and your friends will see the online icon !images/online_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! appending to your account name in their friend lists.
 
-There will be a notification about your friend's status if they are available to chat or go offline:
+There will be a notification about your friend's status if they are available to chat or go offline.
 
 !images/Chat_notification_status.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -155,7 +155,7 @@ There will be a notification about your friend's status if they are available to
 </citetitle>
 {docbook}
 
-*1.* Click the account icon on the Chatbar.
+*1.* Click the account icon on the *Chatbar*.
 
 !images/quick_chat_bar.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -172,7 +172,7 @@ There will be a notification about your friend's status if they are available to
 
 h2. Send a file {anchor:id="CSUser_guide.How_to_use_Chat.Send_file"}
 
-The *Chat* application allows you to send files to your contact, such as holiday pictures or documents needed for the incoming meeting.
+The *Chat* application allows you to send files to your contact, such as holiday pictures, or documents needed for the incoming meeting.
 
 {docbook}
 <citetitle>

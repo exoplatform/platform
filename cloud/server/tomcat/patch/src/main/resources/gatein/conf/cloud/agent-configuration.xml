@@ -250,5 +250,15 @@
          </advices>
       </pointcut>
 
+      <!-- Monitor time of tenants last access -->
+      <pointcut pointcut-class-name="org.exoplatform.instrument.transformer.MethodExecutionPoincut">
+         <recipients>
+            <recipient method-name="onService" class-name="org.exoplatform.services.rest.servlet.RestServlet" />
+            <recipient method-name="save" class-name="org.exoplatform.services.jcr.impl.dataflow.persistent.WorkspacePersistentDataManager" />
+         </recipients>
+         <advices>
+            <advice class-name="org.exoplatform.instrument.transformer.MethodCallTimeCollectorAdvice" />
+         </advices>
+      </pointcut>
    </pointcuts>
 </agent-configuration>

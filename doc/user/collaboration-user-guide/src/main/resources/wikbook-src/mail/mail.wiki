@@ -46,7 +46,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 *Details:*
 ||Field||Description||
-|*Server type*|Type of the mail server. Select either of two types supported by your mail server: {example}{example} * POP3 (Post Office Protocol - Version 3) which is a protocol to get emails from a remote server. This type is selected by default. {example}{example} * IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.|
+|*Server type*|Type of the mail server. Select either of two types supported by your mail server: {example}{example} - POP3 (Post Office Protocol - Version 3) which is a protocol to get emails from a remote server. This type is selected by default. {example}{example} - IMAP (Internet Message Access Protocol) which retrieves emails from a remote server over a TCP/IP connection.|
 |*Incoming Mail Server & Outgoing Mail Server*|The Incoming Mail Server (POP3) and Outgoing Mail Server (SMTP) of your current email provider. Each email provider has different Incoming Mail Server and Outgoing Mail Server settings. By default, the value of this field is "pop.gmail.com" and "smtp.gmail.com" which are the settings for Gmail. For settings of other mail servers, you can find the information on their websites. See [More about Incoming & Outgoing mail server settings|#Incoming_outgoing_reference] for more information.|
 |*Use Incoming SSL*|This option allows using SSL (Secure Sockets Layer) or not. SSL is a cryptographic protocol which provides secure communication on Internet, such as web browsing, email, Internet faxing. The Incoming SSL allows using SSL to check incoming emails.
 |*Use Outgoing SSL*|This option is to use SSL to send mail in the *Mail* application.|
@@ -69,7 +69,7 @@ To create one mail account, you first need to click !images/add_mail_acount_icon
 
 * Tick the *Start Downloading Messages Now* checkbox to get messages automatically right after your account is successfully created. 
 
-*6.* Click the *Finish* button to complete your registration.
+*6.* Click *Finish* to complete your registration.
 
 h2. Edit your account details {anchor:id="CSUser_guide.How_to_use_Mail.Create_mail_account.Edit_account"}
 To make changes on your account, simply click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane, then select *Edit Account* from the drop-down menu;
@@ -171,7 +171,7 @@ If you want to read an email, simply click your preferred mail in the mails list
 
 !images/read_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*When you read an email, you can:*
+When reading an email, you can:
 
 * [Download an attached file|#Download_attached_files]
 * [View all headers of a message|#View_all_headers]
@@ -181,7 +181,7 @@ If you want to read an email, simply click your preferred mail in the mails list
 * [Delete a message|#Delete_a_message]
 
 h2. Download an attached file {anchor:id=Download_attached_files}
-If your received mail contains any attached file, you can see their details, such as file name, type and size right in the *Attachments* pane of the currently opened message.
+If your received mail contains any attached file, you can see their details, such as file name, type, and size right in the *Attachments* pane of the currently opened message.
 
 !images/Attachment_details.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -195,7 +195,7 @@ h3. Download and save attachments to server {anchor:id=Download_attachments_to_s
 
 !images/Server_saving_folder.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Change name of the downloaded file in the *Save file to the server* field if needed.
+*3.* Change the name of the downloaded file in the *Save file to the server* field if needed.
 
 *4.* Select a drive category from the *Select Drives* drop-down menu. The number of shown drive categories depends on your role. {anchor:id="Download_attachments_Step_4_5_6"}
 
@@ -328,7 +328,7 @@ In the mails list pane, tick the message you want to move, then drag and drop it
 h2. Report a message as spam {anchor:id="Report_message_as_spam"}
 *The first way*
 
-Simply tick the checkbox corresponding to the message you want to report as spam, then click !images/spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Simply tick the checkbox corresponding to the message you want to report as spam, then click !images/spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *The second way*
 
@@ -348,7 +348,7 @@ Drag the message in the right mails list pane and drop it into the *Spam* folder
 
 *1.* Go to the *Spam* folder, then tick the checkbox corresponding to the relevant message.
 
-*2.* Click !images/move_spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
+*2.* Click !images/move_spam_mail_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 The spam message will be removed from the *Spam* folder. All messages from this sender will be received normally.
 
@@ -369,7 +369,7 @@ Right-click the message, then select *Delete* from the drop-down menu.
 
 *The second way* 
 
-Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the action bar.
+Tick the checkbox corresponding to the message you want to delete, then select !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
 *The third way*
 
@@ -717,7 +717,7 @@ The *Export Message* form will appear.
 
 *2.* Change the file name in the *File Name* field if needed, and select the export format. At present, only the \*.eml format is supported.
 
-*3.* Click the *Export* button to accept exporting your selected message.
+*3.* Click *Export* to accept exporting your selected message.
 
 h1. Import a message {anchor:id="CSUser_guide.How_to_use_Mail.Import_messages}
 The function is used to import a message from your device to your selected folder in *Mail*.
@@ -732,7 +732,7 @@ The *Import Message* form will appear.
 
 *3.* Select the folder into which you want to import the message in the *Import to Folder* field.
 
-*4.* Click the *Import* button to accept importing your selected file.
+*4.* Click *Import* to accept importing your selected file.
 
 {docbook}
 <note>
@@ -1071,7 +1071,7 @@ The Advanced Search allows you to specify criteria to narrow your search results
 * *Has Attachment*: Search for messages that have the attachment.
 * *Priority*: The priority of the search messages.
 
-*3.* Click the *Search* button to perform your search.
+*3.* Click *Search* to perform your search.
 
 h1. Add an event {anchor:id="Add_event"}
 
@@ -1096,7 +1096,7 @@ h2. Add a new address book {anchor:id="Add_address_book"}
 
 *1.* Click !images/contacts_button.png|width="14mm" fo:scalefit="1" html:scalefit="0"! on the *Toolbar* to open the *Contacts* form.
 
-*2.* Click the *Add Address Book* button to add a new address book.
+*2.* Click *Add Address Book* to add a new address book.
 
 *3.* Enter values in fields of the *Add Address Book* form.
 

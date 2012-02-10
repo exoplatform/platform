@@ -34,9 +34,9 @@
 }
 
 #UIToolbarContainer .HomeLinkTDContainer {
-    line-height: 31px;
-    margin: 0px 5px;
-    vertical-align: middle;
+    /*line-height: 31px;*/
+    margin: 4px 5px;
+    /*vertical-align: middle;*/
 }
 
 .UIToolbarContainer .NormalContainerBlock  .ToolbarContainer {
@@ -223,14 +223,16 @@
 
 .UIToolbarContainer .ToolbarContainer a.SetupMenuItem  {
 	padding: 0 8px;
-	line-height:25px;
+	line-height: 25px;
+}
+
+.UIToolbarContainer .ToolbarContainer a.SetupMenuItem img  {
+	margin: 5px 0;
 }
 
 *+html .UIToolbarContainer .ToolbarContainer a.SetupMenuItem img  {
-	margin-top:5px;
+	margin-top: 5px;
 }
-
-
 
 .UIToolbarContainer a.ArrowIcon {
 	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */

@@ -20,7 +20,7 @@
 %>
 <div class="AnnouncementTemplate">    
         <%if (isShowHeader) {%>
-		<div class="TopBoxHeader">
+		<div class="TopBoxHeader ClearFix">
             <%if (isShowRssLink) {%>
 				<a class="RssIcon" href="$rssLink" target="_newrss" title="<%= _ctx.appRes("UICLVPresentation.label.rssFeed") %>">&nbsp;</a><%
             }%>$header
@@ -85,7 +85,7 @@
         <%}%>
   <%}%>
 
-  <div class="CaptionFunc">
+  <div class="CaptionFunc ClearFix">
       <% String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");
         def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
         if (isShowRefresh) {

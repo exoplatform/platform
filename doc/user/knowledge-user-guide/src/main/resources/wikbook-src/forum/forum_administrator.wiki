@@ -59,7 +59,7 @@ The following components can be enabled/disabled:
 
 !images/forum_components.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*Forum Statistics*:
+*Forum Statistics*
 
 !images/Forum_statistic_panel.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -177,7 +177,7 @@ Or, click !images/Manage_category_btn.png|width="22mm" fo:scalefit="1" html:scal
 The administrators and moderators of a forum may want to get updated of what is new in forums under their management. This can be done when creating a new forum.
 
 h4. Configure the moderation settings {anchor:id=Forum_Administrator.Manage_forums.Add_forums.Configure_moderation_settings}
-When creating a forum, you can set moderation-related options as follows:
+When creating a forum, you can set moderation-related options.
 
 *1.* Select the *Moderation Options* tab in the *Forum* form.
 
@@ -309,7 +309,7 @@ If there are new posts in the category or topic that a user has watched, the use
 
 !images/admin_forum_email_notification.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-This section will describe how to create and edit the email templates that can be used to send notification emails to users.
+This section will describe how to create and edit the email templates that can be used to send email notifications to users.
 
 Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *Notifications* from the drop-down menu to open the *Notifications* form.
 
@@ -317,14 +317,14 @@ Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="
 
 The *Notifications* form consists of two tabs:
 
-* *New Posts Notification*: allow you to customize the template of the notification email when there is a new post/topic in categories/forums/topics that users are watching.
-* *Moved Notification*: allow you customize the template of the notification email when a category/forum/topic/post which is being watched is moved to another location.
+* *New Posts Notification*: allow you to customize the template of the email notification when there is a new post/topic in categories/forums/topics that users are watching.
+* *Moved Notification*: allow you to customize the template of the email notification when a category/forum/topic/post which is being watched is moved to another location.
 
 *Details:*
 
 * *Notification Subject Template*: The template for the notification subject.
 * *Add a prefix to notifications*: Tick the checkbox to add a prefix to the email notification.
-* *Content Notification*: The template content of the notification email of new topics/posts that can be modified with the built-in Editor.
+* *Content Notification*: The template content of the email notification of new topics/posts that can be modified with the built-in Editor.
 
 The followings are variables which can be used in the template:
 

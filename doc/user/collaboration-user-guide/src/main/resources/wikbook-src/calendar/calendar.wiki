@@ -1,6 +1,6 @@
 h1. Calendar views {anchor:id="CSUser_guide.How_to_use_Calendar.Calendar_views"}
 
-The Calendar interface has 5 basic components:
+The Calendar interface has 5 basic components.
 
 !images/calendar-interface.png|align="center" width="150mm"  fo:scalefit="1" html:scalefit="0"!
 
@@ -10,7 +10,7 @@ The Calendar interface has 5 basic components:
 |!images/1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Toolbar* contains most of actions in Calendar, such as adding an event/task, switching between view modes and more.|
 |!images/2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Search Pane* where you can perform quick and advanced searches.|
 |!images/3.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Mini calendar* which can be hidden by clicking !images/Upper_arrow_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0" !.|
-|!images/4.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Calendars pane* which includes 3 categories: Personal Calendars, Shared Calendars and Group Calendars. Each category may include various calendar groups.|
+|!images/4.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Calendars pane* which includes 3 categories: Personal Calendars, Shared Calendars, and Group Calendars. Each category may include various calendar groups.|
 |!images/5.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The *Calendar View pane* where you can create tasks/events quickly and view your own tasks/events.|
 
 {docbook}
@@ -64,7 +64,7 @@ After creating a new calendar group, the created group will be displayed in the 
 {docbook}
 
 h2. Edit a calendar group {anchor:id="CSUser_guide.How_to_use_Calendar.Edit_calendar_group}
-This function allows you to change name and description of a specific calendar group.
+This function allows you to change the name and description of a specific calendar group.
 
 *1.* Hover your cursor over the calendar group that you want to edit, then click !images/Calendar-gear-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! that appears.
 
@@ -91,7 +91,7 @@ Once a calendar group is deleted, all calendars inside it are also deleted.
 
 *3.* Click *OK* in the confirmation message to accept your deletion. 
 
-The deleted calendar group will be removed from the Groups table.
+The deleted calendar group will be removed from the *Groups* table.
 h1. Create a calendar {anchor:id="CSUser_guide.How_to_use_Calendar.Create_calendars"}
 
 You may create a [personal calendar|#Create_personal_calendar] or [group calendar|#Create_group_calendar] that can be shared with specific users or groups to your desires. You can also create a calendar which is synchronized with a [remote calendar|#Create_remote_calendar].
@@ -416,7 +416,7 @@ You can set permissions on your shared calendar to two levels:
 {docbook}
 <note>
 <para>
-If another users share their calendars with you, you will see shared calendars in the <emphasis role="bold">Shared Calendars</emphasis> category.
+If other users share their calendars with you, you will see shared calendars in the <emphasis role="bold">Shared Calendars</emphasis> category.
 </para>
 </note>
 {docbook}
@@ -458,7 +458,7 @@ Or, click !images/user_selector_icon.png|width="9" fo:scalefit="1" html:scalefit
 </citetitle>
 {docbook}
 
-iCal provides a link that allows users to download a _*.ics_ file which contains all events and tasks of a calendar. iCal is supported by many popular products, such as Microsoft Outlook, Google Calendar, Apple iCal.
+iCal provides a link that allows users to download a _\*.ics_ file which contains all events and tasks of a calendar. iCal is supported by many popular products, such as Microsoft Outlook, Google Calendar, Apple iCal.
 
 * *Public URL*: The Public URL link allows you to share your calendar with other users. They do not need to have Calendar accounts to download the file, but they must use a calendar application which supports the .ics to open and view it. By default, Public URL is empty and it is only accessible when public access is explicitly enabled.
 
@@ -636,7 +636,7 @@ For example, if you set *Weekly* in the *Repeat* option and *5* in the *Repeat e
 
 *3.* Select the option for ending your repeating event by ticking the relevant checkbox.
 * *Never:* Your repeating event will never end.
-* *After [X] occurrences:* Your repeating event will end after X occurrences.
+* *After \[X] occurrences:* Your repeating event will end after X occurrences.
 * *By this date:* Your repeating event will end before your specified date. Point your cursor over the textbox and select the date from the drop-down calendar.
 
 h4. Create a reminder for upcoming events {anchor:id="Create_event_reminder"}
@@ -702,7 +702,7 @@ Here, you can select contacts from your Address Book or users who have registere
 
 *iv.* Click *Save* to add your selected contacts/users to the *Participants* table.
 
-* If the *Invitation Sent* checkbox is ticked, participants will receive invitations via emails. Your selected participants will be updated in the the *Participant* table. Their statuses, which may be *Yes*, *No* or *Pending*, are listed in the *Status* column. These statuses depend on the participants' confirmation when they receive invitations: Yes, No or Not sure.
+* If the *Invitation Sent* checkbox is ticked, participants will receive invitations via emails. Your selected participants will be updated in the the *Participant* table. Their statuses, which may be *Yes*, *No* or *Pending*, are listed in the *Status* column. These statuses depend on the participants' confirmation when they receive invitations: *Yes*, *No* or *Not sure*.
 ** If the participants answer *Yes*, their statuses will be *Yes*. It means that the participants accept to join the event.
 ** If the participants answer *No*, their statuses will be *No*. It means that the participants will not join the event.
 ** If the participants answer *Not sure*, their statuses will be *Pending*. It means that the participants have not decided to take part in the event or not yet. 
@@ -1025,7 +1025,7 @@ h4. Assign a task delegation {anchor:id="Assign_task_delegation"}
 This function is done in the the *Detail* tab. To delegate a task to users, simply enter their names manually, or click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select users from the *Select Users* form.
 
 h4. Create a reminder {anchor:id="Create_task_reminder"}
-The reminder function is used to remind users of their tasks. A reminder includes the summary information of the task, such as title, time, place where the task will happen.
+The reminder function is used to remind users of their tasks. A reminder includes the summary information of the task, such as title, time, and place where the task will happen.
 
 This function is done in the *Reminders* tab. To create a reminder for a task, see the [Create a reminder for upcoming events|#Create_event_reminder] section for more details. 
 
@@ -1061,7 +1061,7 @@ The *Add/Edit Tasks* form will be displayed.
 
 
 h2. Drag and drop a task {anchor:id="CSUser_guide.How_to_use_Calendar.Drag_drop_task}
-Like dragging and dropping an event, *drag-and-drop* is a feature to change the starting date and time of a task conveniently. You only need to click and hold your cursor over the task, drag and drop it to a new day and a new time area in Calendar View Pane.
+Like dragging and dropping an event, *drag-and-drop* is a feature to change the starting date and time of a task conveniently. You only need to click and hold your cursor over the task, drag and drop it to a new day and a new time area in Calendar View pane.
 
 * To change a task duration (in the Day, Week and Work Week views only), point your cursor to the *Scroll* button at the bottom of the task and drag it.
 * To change the date and time of a task, simply drag and drop the task to another area.
@@ -1241,7 +1241,7 @@ Click !images/Settings_icon_calendar.png|width="13mm" fo:scalefit="1" html:scale
 
 *6.* Click *Save* to accept generating the feed, then click *OK* in the notification message.
 
-The created feed will be shown like the illustration below:
+The created feed will be shown like the illustration below.
 
 !images/calendar_setting_feeds.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
 

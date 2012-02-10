@@ -6,7 +6,7 @@ The <emphasis role="bold">Address Book</emphasis> portlet and its services are d
 </note>
 {docbook}
 
-Before starting to use *Address Book*, you should familiarize yourself with the *Address Book* interface, which has six basic elements:
+Before starting to use *Address Book*, you should familiarize yourself with the *Address Book* interface, which has six basic elements.
 
 !images/address_book_interface.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -72,9 +72,9 @@ You can also add a new contact from the <emphasis role="bold">Mail</emphasis> ap
 
 ||Field||Description||
 |*Asterisk (*)*|This mark next to each field means that it is required to enter values in the field.|
-|*First Name*|First name of your contact which must be between 1 and 40 characters.|
-|*Last Name*|Last name of your contact. Its length must be between 1 and 40 characters.|
-|*Nick Name*|Nick name of your contact with any unlimited length.|
+|*First Name*|The first name of your contact which must be between 1 and 40 characters.|
+|*Last Name*|The last name of your contact. Its length must be between 1 and 40 characters.|
+|*Nick Name*|The nick name of your contact with any unlimited length.|
 |*Gender*|Gender of your contact. Simply tick the two available checkboxes: Male or Female.|
 |*Birthday*|Birthday of your contact. Click the relevant down arrows to select the day, month and year from the drop-down menu.|
 |*Job Title*|The job title of your contact. Its length must be between 0 and 40 characters.|
@@ -116,7 +116,7 @@ All fields in this tab are optional. In this tab, you can provide the contact's 
 
 * The *IM Contact* 
 
-In this tab, you can enter information about the contact chat identity (IM stands for Instant Message). The default text messaging service is the Chat application of eXo Platform, but you can select other services by clicking !images/plus_down_arrow.png|width="18" fo:scalefit="1" html:scalefit="0"! to open the drop-down menu.
+In this tab, you can enter information about the contact chat identity (IM stands for Instant Message). The default text messaging service is the *Chat* application of eXo Platform, but you can select other services by clicking !images/plus_down_arrow.png|width="18" fo:scalefit="1" html:scalefit="0"! to open the drop-down menu.
 
 !images/add_edit_contact_IM.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 

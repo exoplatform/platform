@@ -62,15 +62,7 @@
                 count = 1;
                 %>
                 <%=uicomponent.addQuickEditDiv("HotNews", viewNode)%>
-                  <div class="TL">
-                    <div class="TR">
-                      <div class="TC"><span></span></div>
-                    </div>
-                  </div>
-                  <div class="ML">
-                    <div class="MR">
-                      <div class="MC">
-                        <div class="TopBoxHeader">
+                        <div class="TopBoxHeader ClearFix">
                           <%  
                           if (isShowHeader) {
                             %>
@@ -80,10 +72,9 @@
                           if (isShowRssLink) {
                             %><a class="RssIcon" href="$rssLink" target="_newrss"><%= _ctx.appRes("UICLVPresentation.label.rssFeed") %></a><%
                           }
-                          %>
-                            <div class="ClearBoth"><span></span></div>
+                          %>                            
                         </div>  
-                        <div class="HotNewsMainContent">  
+                        <div class="HotNewsMainContent ClearFix">  
                         <%
                           if (isShowImage) {
                             %><a class="ImageHotNews" href="$itemLink"><img width="101" alt="$imgSrc" src="$imgSrc" /></a><%
@@ -108,26 +99,17 @@
                               }
                               
                             %>
-                          </div>
-                          <div class="ClearRight"><span></span></div>
+                          </div>                          
                         </div>
                         
                         <%if (isShowReadmore) {
                             %><div class="ReadLink"><a href="$itemLink"><%= _ctx.appRes("UICLVPresentation.label.readmore") %></a></div><%
-                    }%>
-                    </div>
-                  </div>
-                </div>
-                <div class="BL">
-                  <div class="BR">
-                    <div class="BC"><span></span></div>
-                  </div>
-                </div>
+                    }%>                   
               </div>
                 <%
               } else {
                 %>                                
-                <%=uicomponent.addQuickEditDiv("NormalNews", viewNode)%>  
+                <%=uicomponent.addQuickEditDiv("NormalNews ClearFix", viewNode)%>  
                   <%
                     if (isShowImage) {
                       %><a class="ImageNormalNews" href="$itemLink"><img width="62" alt="$imgSrc" src="$imgSrc" /></a><%
@@ -163,7 +145,7 @@
                         %><div class="ReadLink"><a href="$itemLink"><%= _ctx.appRes("UICLVPresentation.label.readmore") %></a></div>
                     <% } %>
           </div>
-                    <div style="clear: both;"><span></span></div>
+                   
                   </div>
                 <%
               } // End is else
@@ -172,7 +154,7 @@
         %>
         <!-- </div> -->
         </div>
-        <div class="CaptionFunc">
+        <div class="CaptionFunc ClearFix">
           <%
               String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");
               def isShowRefresh = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_REFRESH_BUTTON);
@@ -187,8 +169,7 @@
             if (uicomponent.showPaginator()) {
               uicomponent.renderChild(UICustomizeablePaginator.class);
             }
-          %>
-          <div style="clear:left"><span></span></div>
+          %>        
         </div>
 </div>
 
