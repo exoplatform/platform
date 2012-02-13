@@ -26,38 +26,6 @@
     xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
 
 	<page>
-		<name>newAccount</name>
-		<title>New Account</title>
-		<access-permissions>manager:/platform/administrators</access-permissions>
-		<edit-permission>manager:/platform/administrators</edit-permission>
-		<portlet-application>
-			<portlet>
-				<application-ref>exoadmin</application-ref>
-				<portlet-ref>AccountPortlet</portlet-ref>
-			</portlet>
-			<title>New Account</title>
-			<access-permissions>manager:/platform/administrators</access-permissions>
-			<show-info-bar>false</show-info-bar>
-		</portlet-application>
-	</page>           
-
-	<page>
-		<name>communityManagement</name>
-		<title>Community Management</title>
-		<access-permissions>manager:/platform/administrators</access-permissions>
-		<edit-permission>manager:/platform/administrators</edit-permission>
-		<portlet-application>
-			<portlet>
-				<application-ref>exoadmin</application-ref>
-				<portlet-ref>OrganizationPortlet</portlet-ref>
-			</portlet>
-			<title>Community Management</title>
-			<access-permissions>manager:/platform/administrators</access-permissions>
-			<show-info-bar>false</show-info-bar>      
-		</portlet-application>
-	</page>
-
-	<page>
 		<name>registry</name>
 		<title>Registry</title>
 		<access-permissions>manager:/platform/administrators</access-permissions>
@@ -91,7 +59,7 @@
 	<page>
 		<name>newStaff</name>
 		<title>New Staff</title>
-		<access-permissions>*:/platform/administrators</access-permissions>
+		<access-permissions>manager:/platform/administrators</access-permissions>
 		<edit-permission>manager:/platform/administrators</edit-permission>
 
 		<portlet-application>
@@ -109,7 +77,7 @@
 	<page>
 		<name>management</name>
 		<title>Organization Management</title>
-		<access-permissions>*:/platform/administrators</access-permissions>
+		<access-permissions>manager:/platform/administrators</access-permissions>
 		<edit-permission>manager:/platform/administrators</edit-permission>
 
 		<portlet-application>
