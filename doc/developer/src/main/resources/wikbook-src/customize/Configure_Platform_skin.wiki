@@ -137,6 +137,11 @@ The default skin of eXo Platform 3.5 is located as part of the _eXoResource.war_
 * _WEB-INF/web.xml_: contains the resource filter with the display-name set.
 * _skin/Stylesheet.css_: contains the CSS class definitions for this skin.
 
+{note}
+To get a new portal skin declared in _gatein-resources.xml_ to be loaded successfully, _display-name_ of the extension webapp 
+(in _web.xml_) should be identical to the context path of the extension webapp.
+{note}
+
 The following block of CSS illustrates content of the _Stylesheet.css_ file:
 
 {code:css}
