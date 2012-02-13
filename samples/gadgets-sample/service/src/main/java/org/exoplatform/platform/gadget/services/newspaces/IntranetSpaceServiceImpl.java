@@ -34,6 +34,7 @@ import org.exoplatform.webui.utils.TimeConvertUtils;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -135,7 +136,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
         Date createdDate =  spaceNode.getProperty("exo:dateCreated").getDate().getTime();
         space.setCreatedDate(createdDate);
         Locale local = new Locale(language);
-        String createdTimeAgo = TimeConvertUtils.convertXTimeAgo(createdDate, "yyyy/MM/dd", local);
+        String createdTimeAgo = TimeConvertUtils.convertXTimeAgo(getGreenwichMeanTime(createdDate).getTime(), "yyyy/MM/dd", local, TimeConvertUtils.MONTH);
         space.setCreatedTimeAgo(createdTimeAgo);
         space.setRegistration(spaceNode.getProperty("soc:registration").getString());
         space.setVisibility(spaceNode.getProperty("soc:visibility").getString());
@@ -203,6 +204,18 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
       strArrays[i] = values[i].getString();
     }
     return strArrays;
+  }
+  
+  /**
+   * Get time GMT/Zulu or UTC,(zone time is 0+GMT)
+   * @return Calendar 
+   */
+  public static Calendar getGreenwichMeanTime(Date date) {
+    Calendar calendar = GregorianCalendar.getInstance();
+    calendar.setLenient(false);
+    int gmtoffset = calendar.get(Calendar.DST_OFFSET) + calendar.get(Calendar.ZONE_OFFSET);
+    calendar.setTimeInMillis(date.getTime()- gmtoffset);
+    return calendar;
   }
 
 }
