@@ -1,8 +1,8 @@
 {docbook}
 <abstract>
 <para>
-<emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives users rich experiences with many features that are similar to social networks, such as Facebook and Linkedln. 
-With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills and team information, to your own profile.
+<emphasis role="bold">Social</emphasis> is an application of eXo Platform, which gives users rich experiences with many features that are similar to social networks, such as Facebook, and Linkedln.
+With <emphasis role="bold">Social</emphasis>, you can establish more meaningful connections and improve your communication and collaboration. <emphasis role="bold">Social</emphasis> allows you to add details, including experiences, skills, and team information, to your own profile.
 Besides, <emphasis role="bold">Social</emphasis> supports the OpenSocial API standard that allows developers to write social gadgets intuitively and easily for displaying and mashing up activity information for contacts, applications, services and social networks.
 </para>
 <para>

@@ -63,9 +63,9 @@ Or, hover your cursor over *My Spaces*, then select your space name and click th
 <note>
 <para>In case you do not see the <emphasis role="bold">Forum, Answers or Wiki</emphasis> applications, it means that they are not activated or not added to the current page or space. To use these applications,
 
-you need to add them to a page by dragging and dropping them from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Manage_Pages-Adding_a_new_Page">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link> or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
+you need to add them to a page by dragging and dropping them from <emphasis role="bold">Page Editor/Edit Inline Composer --> Applications --> Collaboration --> Forum/Answers/Wiki</emphasis> to the main page. This can be done when <link linkend="sect-User_Guide-Page_Creation_Wizard">creating a new page</link>, <link linkend="sect-User_Guide-Manage_Pages-Edit_a_Page">editing an existing page</link>, or <link linkend="proc-User_Guide-Manage_Portals-Edit_Layout">editing the layout of a portal</link>.
 
-You can also configure the <emphasis role="bold">Answers</emphasis> portlet as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">edit a specific portlet</link> section. </para>
+You can also configure the portlets as in the <link linkend="sect-User_Guide-Dashboard_Portlet-Edit_Specific_Portlet">edit a specific portlet</link> section. </para>
 </note>
 {docbook}
 
