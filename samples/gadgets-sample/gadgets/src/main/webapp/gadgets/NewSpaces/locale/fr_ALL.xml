@@ -14,5 +14,11 @@
   </msg>  
   <msg name="showAll">
     Montrer tout
-  </msg>  
+  </msg>
+  <msg name="join">
+    Joindre
+  </msg>
+  <msg name="join_title">
+    Rejoindre l'espace
+  </msg>
 </messagebundle>

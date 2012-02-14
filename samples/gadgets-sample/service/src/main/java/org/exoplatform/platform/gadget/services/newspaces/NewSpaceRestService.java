@@ -109,6 +109,39 @@ public class NewSpaceRestService implements ResourceContainer {
      data.setData(dataIntranetSpace);
      return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
    }
+   
+   /**
+    * request to join space
+    * @param maxtime
+    * @param spaceUrl
+    * @return space information that user has join OR empty if request was failure
+    */
+   @GET
+   @Path("/space/requestJoinSpace/{spaceUrl}")
+   @Produces(MediaType.APPLICATION_JSON)
+   public Response requestJoinSpace(@PathParam("spaceUrl") String spaceUrl) {
+     CacheControl cacheControl = new CacheControl();
+     cacheControl.setNoCache(true);
+     cacheControl.setNoStore(true);
+     IntranetSpaceService intranetSpaceService = (IntranetSpaceService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(IntranetSpaceService.class);
+     
+     List<IntranetSpace> listResponseIntranetSpace= new ArrayList<IntranetSpace>(); 
+     
+     try
+     {
+    	 listResponseIntranetSpace = intranetSpaceService.requestToJoinOpenSpace(spaceUrl, this.getUserId());
+     }
+     catch (Exception e)
+     {
+       log.error("has not any space", e);
+     }
+     List<Object> dataIntranetSpace = new ArrayList<Object>();
+
+     dataIntranetSpace.add(listResponseIntranetSpace);
+     MessageBean data = new MessageBean();
+     data.setData(dataIntranetSpace);
+     return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
+   }
 
    public class MessageBean {
      private List<Object> data;
@@ -126,6 +159,9 @@ public class NewSpaceRestService implements ResourceContainer {
      List<String> listOfUser = new ArrayList<String>();
      try {
        Identity identity = ConversationState.getCurrent().getIdentity();
+       if(identity.getGroups() == null || identity.getGroups().size() == 0){
+    	   return listOfUser;
+       }
        listOfUser.add(identity.getUserId());
        Set<String> list = new HashSet<String>();
        list.addAll(identity.getGroups());
@@ -141,6 +177,17 @@ public class NewSpaceRestService implements ResourceContainer {
      }
      return listOfUser;
    }
+   
+   private String getUserId()
+   {
+	   Identity identity = ConversationState.getCurrent().getIdentity();
+	   if(identity.getGroups() == null || identity.getGroups().size() == 0)
+	   {
+		   return null;
+	   }
+	   return identity.getUserId();
+   }
+   
 
 }
 

@@ -1,5 +1,3 @@
-
-
 .UIGadgetThemes .spaceDetail {
  margin-bottom:10px;
 }
@@ -38,4 +36,8 @@
  padding-left: 10px;
  font-style: italic;
  color: lightgray;
+}
+.UIGadgetThemes .joinLink {
+ float: right;
+ font-weight: normal;
 }

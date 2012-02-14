@@ -103,7 +103,7 @@
         html += '<div class="spaceDetail">'; //SpaceItem
         
         html += '<div class="spaceAvatar">';  //avatarImage
-        
+
         html += '<a target="_parent" class="spaceAvatarLink" href="' + spaceURL + '">'; //link to space
         
         if(item.avatarURL != null){
@@ -119,8 +119,16 @@
         
         html += '<div class="spaceInfo">';
         
-        html += '<div><a class="spaceItemLink" target="_parent" title="' + item.description +  '" href=\"'+ spaceURL + '\">' + item.displayName +'</a></div>';
-
+        if(item.isMember == false && item.registration == "open"){
+           html += '<div>';
+           html+= '<a class="spaceItemLink" target="_parent" title="' + item.description +  '" href=\"'+ spaceURL + '\">' + item.displayName +'</a>';
+           html+= '<a  onclick= "javascript:eXoNewSpaceGadget.requestToJoinSpace(\'' + item.url  + '\')" title="' + gadgets.Prefs().getMsg("join_title") + " \'" + item.displayName + "\'" +  '" href="javascript:void(0)" class="joinLink">['+  gadgets.Prefs().getMsg("join") + ']</a>'
+           html+= '</div>';
+        }
+        else{
+          html += '<div><a class="spaceItemLink" target="_parent" title="' + item.description +  '" href=\"'+ spaceURL + '\">' + item.displayName +'</a></div>';
+    	}
+    
         html += '<div class = "ClearFix">';
         //var cratedDate = new Date(item.createdDate.time);
         //var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
@@ -144,8 +152,45 @@
     eXoNewSpaceGadget.prototype.ajaxAsyncGetRequest = function(url, callback) {
       $.getJSON(url, callback);
       return;    
-    }   
+    }
+    
+    eXoNewSpaceGadget.prototype.requestToJoinSpace = function(spaceUrl)
+    {
+      var serviceUrl = "/portal/rest/intranetNewSpaceService/space/requestJoinSpace/"  + spaceUrl;
+      $.getJSON(serviceUrl, eXoNewSpaceGadget.requestToJoinSpaceProcess);  //callback is requestToJoinSpaceProcess
+      return;   
+    }
+    
+    eXoNewSpaceGadget.prototype.requestToJoinSpaceProcess =  function(obj){
+      var spaceList = new Array();
+      data = obj;
+      
+      $.each(data, function(i, listSpaces) {
+          $.each(listSpaces, function(key, spaces) {
+            $.each(spaces, function(index, item) {
+                      spaceList[index]= item;
+            });
 
+          });
+      });
+      
+      //if data== empty, the request to join space was failure
+      //todo: render list new spaces again
+      if(!data || spaceList.length == 0){
+        eXoNewSpaceGadget.onLoadHander();
+        return;
+      }
+      
+      //if data != empty, else the request to join space was successfully
+      //redirect to the space
+      var item = spaceList[0];
+      //switch link to for each space_type
+      if(item.isMember){
+         spaceURL = window.location.protocol + "//" + window.location.host + "/portal/g/:spaces:" + item.url + "/" + item.url;
+         parent.document.location=spaceURL;
+      }
+      
+    }
         
     eXoNewSpaceGadget.prototype.notify = function(){
       var msg = gadgets.Prefs().getMsg("no_space");
@@ -155,6 +200,5 @@
     }
   
     eXoNewSpaceGadget =  new eXoNewSpaceGadget();
-
 
     gadgets.util.registerOnLoadHandler(eXoNewSpaceGadget.onLoadHander);

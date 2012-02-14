@@ -33,5 +33,16 @@ public interface IntranetSpaceService {
  * @return
  */
   public List<IntranetSpace> getLatestCreatedSpace (int maxday, String language, List<String> allGroupAndMembershipOfUser ) ;
+  
+  /**
+   * Request to join Open Space,
+   * @param spaceId
+   * @param userId
+   * @param maxday
+   * @param language
+   * @param allGroupAndMembershipOfUser
+   * @return list contain IntranetSpace bean that user has joined
+   */
+  public List<IntranetSpace> requestToJoinOpenSpace(String spaceUrl,String userId);
 
 }

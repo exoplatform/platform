@@ -29,6 +29,8 @@ import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
 import org.exoplatform.social.core.identity.provider.SpaceIdentityProvider;
 import org.exoplatform.social.core.manager.IdentityManager;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.webui.utils.TimeConvertUtils;
 
 import java.util.ArrayList;
@@ -95,7 +97,11 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
    * @see org.exoplatform.intranet.component.social.IntranetSpaceService#getLatestCreatedSpace()
    */
   public List<IntranetSpace> getLatestCreatedSpace(int maxday, String language, List<String> allGroupAndMembershipOfUser) {
-    
+    //check permission
+	if(allGroupAndMembershipOfUser==null || allGroupAndMembershipOfUser.size() ==0){
+		return new ArrayList<IntranetSpace>();
+	}
+	
     if (maxday <=0) maxday = 10;
     String userName = (allGroupAndMembershipOfUser!=null && allGroupAndMembershipOfUser.size()>0)? allGroupAndMembershipOfUser.get(0):null;
     
@@ -105,8 +111,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
     try {
 
       Node spaceHomeNode = getSpaceHome();
-      if(spaceHomeNode ==null)
-      {
+      if(spaceHomeNode ==null){
     	  return listSpaces;
       }
       
@@ -189,6 +194,43 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
       sProvider.close();
     }
 
+  }
+  
+  public List<IntranetSpace> requestToJoinOpenSpace(String spaceUrl,String userId)
+  {
+	  if(userId == null){
+		  return new ArrayList<IntranetSpace>();
+	  }
+
+	  try {
+		  PortalContainer portalContainer = PortalContainer.getInstance();
+		  SpaceService spaceService = (SpaceService) portalContainer.getComponentInstanceOfType(SpaceService.class);
+		  Space space = spaceService.getSpaceByUrl(spaceUrl);
+		  if (space != null) {
+			  if (spaceService.isInvitedUser(space, userId)) {
+				  spaceService.addMember(space, userId);
+			  }
+			  else if(!spaceService.isMember(space, userId)){
+				  spaceService.addPendingUser( space, userId); 
+			  }
+		  }
+
+		  //return space if success
+		  Space result = spaceService.getSpaceByUrl(spaceUrl); 
+		  if(spaceService.isMember(result, userId)){
+			  IntranetSpace intranetSpaceBean = new IntranetSpace();
+			  intranetSpaceBean.setUrl(result.getUrl());
+			  intranetSpaceBean.setDisplayName(result.getDisplayName());
+			  intranetSpaceBean.setIsMember(true);
+			  List<IntranetSpace> listIntranetSpace = new ArrayList<IntranetSpace>();
+			  listIntranetSpace.add(intranetSpaceBean);
+			  return listIntranetSpace;
+		  }
+	  } catch (Exception e) {
+		  log.warn("Can not join space " + spaceUrl ,e);
+	  }
+	  
+	  return new ArrayList<IntranetSpace>();
   }
   
   private Session getSession(SessionProvider sessionProvider) throws Exception {
