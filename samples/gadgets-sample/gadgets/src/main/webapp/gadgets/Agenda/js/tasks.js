@@ -245,7 +245,7 @@ eXoEventGadget.prototype.render =  function(data){
 		//time = DateTimeFormater.format(new Date(time),timemask);
 		html += '<div class="CheckBox ' + className + '">';
 		html += '<input type="checkbox" ' + status + ' id="checkbox_fd_' + i + '" name="checkbox" onclick="eXoEventGadget.doTask(this);" value="'+ item.id + '"></input>';
-		html += '<label for="checkbox_fd_' + i + " onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
+		html += '<label for="checkbox_fd_' + i + '" onclick="eXoEventGadget.showDetail(this);">' + fullDate +  '<span>'+ item.summary +'</span></label>';
 		html += '</div>';
 		if(item.description) html += '<div class="TaskDetail">' + item.description + '</div>';
 	}		
