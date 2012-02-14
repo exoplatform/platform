@@ -95,12 +95,12 @@
 	-moz-box-shadow: 1px 1px 1px #e3e3e3;
 	-webkit-box-shadow: 1px 1px 1px #e3e3e3;
 	box-shadow: 1px 1px 1px #e3e3e3;
-	margin: -1px 0px 0px -2px;
-	padding: 5px 0px 1px 0px;
+	margin: 0;
+	padding: 1px;
 }
 
 .UIToolbarContainer .MenuItemContainer .MenuItemContainer {
-	margin-left: 1px;
+	margin-left: 2px;
 }
 
 .UIToolbarContainer .MenuItem  .SEOToolbar a {
