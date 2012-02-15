@@ -37,6 +37,23 @@ The templates are applied to a node type or a metadata mixin type. There are two
 
 From the ECM admin portlet, Manage Template lists all existing node types that have been associated to Dialog and/or View templates. These templates can be attached to permissions (in the usual membership:group form), so that a specific one is displayed according to user rights (which can be useful in a content validation workflow activity).
 
+In eXo Platform, you can specify whether JavaScript is allowed to run on a field of the content template or not by using the _"option"_ parameter.
+
+To enable JavaScript to work with a content template, do as follows:
+
+*1.* Go to *My Groups --> Content Administration --> Content Presentation --> Manage Templates*.
+
+*2.* Edit your desired template.
+
+*3.* Select the *Dialog* tab, and then edit the content of _dialog1_ in the *View & Edit Template* form.
+
+*4.* Add _option = noSanitization_ to the code in the *Content* field as the example below:
+
+{code}
+String[] htmlArguments = ["jcrPath=/node/default.html/jcr:content/jcr:data", "options=toolbar:CompleteWCM,height:'410px',noSanitization", htmlContent];
+{code}
+By default, JavaScript is disabled for any fields of some content templates to prevent the XSS attacks.
+
 h1. Document type {anchor:id=DEV.WorkWithContent.DocumentType}
 
 The checkbox 'Document Type' is to define if the node type should be a Document Type or not. If this checkbox is selected, the Site Explorer considers such nodes as user content and applies the following behavior:
