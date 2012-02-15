@@ -197,11 +197,11 @@
       
         <table id="frmNew" class="Form" style="display:none; margin-left: 8px;">
           <tr>
-            <td>__MSG_name__</td>
+            <td><label for="txtNewName">__MSG_name__</label></td>
             <td><input type="text" id="txtNewName"></input></td>
           </tr>
           <tr>
-            <td>__MSG_url__</td>
+            <td><label for="txtNewLink">__MSG_url__</label></td>
             <td><input type="text" id="txtNewLink"></input></td>
             <td>
               <a id="btnNewOK" class="Button" href="#"><img alt="New OK" src="images/Ok.gif"></img></a>

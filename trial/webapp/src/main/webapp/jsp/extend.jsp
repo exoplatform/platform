@@ -28,7 +28,7 @@
     <table>
       <tr>
         <td>
-          <label class="TextForm">Your Evaluation Key:</label>
+          <label class="TextForm" id="hashMD5">Your Evaluation Key:</label>
         </td>
         <td>
           <input class="Text" type="text" name="hashMD5" id="hashMD5">

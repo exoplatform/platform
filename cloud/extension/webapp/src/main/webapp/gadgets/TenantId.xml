@@ -35,7 +35,7 @@
                                            <td colspan="2" align="center" class="TenantFormHeadRow">Enter the confirmation ID you received in email:</td>
                                         </tr>
                                        <tr>
-                                         <td class="TenantFormRow">ID:</td>
+                                         <td class="TenantFormRow"><label for="t_id">ID: </label></td>
                                          <td><input type="text" id="t_id" size="28"/></td>
                                        </tr>
                                         <tr>

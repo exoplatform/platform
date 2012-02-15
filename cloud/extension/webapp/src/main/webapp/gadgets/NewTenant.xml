@@ -33,11 +33,11 @@
                                            <td colspan="2" align="center" class="TenantFormHeadRow">Fill the form to start tenant creation:</td>
                                         </tr>
                                        <tr>
-                                         <td class="TenantFormRow">Email:</td>
+                                         <td class="TenantFormRow"><label for="t_email">Email: </label></td>
                                          <td><input type="text" id="t_email" size="22"/></td>
                                        </tr>
                                        <tr>                          
-                                          <td class="TenantFormRow">Tenant name :</td>
+                                          <td class="TenantFormRow"><label for="t_name">Tenant name: </label></td>
        				          <td><input type="text" id="t_name" size="22"/></td>
                                        </tr>
                                         <tr>

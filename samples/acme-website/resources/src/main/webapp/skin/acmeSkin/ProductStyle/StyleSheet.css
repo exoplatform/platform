@@ -218,6 +218,13 @@ li {
 	font-weight: normal;
 }
 
+.ProDetailPage .ProBoxControl .FolderTitle {
+    color: #6D6D6D;
+    font-size: 16px!important;
+	  font-weight: normal;
+    margin: 10px 0;
+}
+
 .ProDetailPage .BoxContainer .TitleBar {
 	background: url("/portal/rest/jcr/repository/collaboration/sites content/live/acme/medias/images/GlobalImages/TitleBarBg.png") repeat-x left top;
     color: #FFFFFF;

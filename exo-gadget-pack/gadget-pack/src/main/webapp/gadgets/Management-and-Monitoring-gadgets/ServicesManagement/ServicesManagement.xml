@@ -57,15 +57,15 @@
             <div class="UIGadget">
               <div class="TopGadget">
                 <div class="ServicesBox ClearFix">
-                    <div class="Text">__MSG_services__</div>
+                    <div class="Text"><label for="servicesSelector">__MSG_services__</label></div>
                     <select id="servicesSelector"></select>
                     <a class="DesIconHome" title="Home"><span></span></a>
                 </div>
-                <p class="DescriptionBox"><b>__MSG_description__:</b> <span id="ServiceDescription">__MSG_noDescription__</span></p>
+                <p class="DescriptionBox"><strong>__MSG_description__:</strong> <span id="ServiceDescription">__MSG_noDescription__</span></p>
               </div>
               <div class="TitleGrid ClearFix">
                 <div class="BgTitle ClearFix">
-                    <h3>__MSG_method__</h3>
+                    <h3><label for="methodsSelector">__MSG_method__</label></h3>
                     <select id="methodsSelector"></select>  
                 </div>
               </div>
@@ -105,7 +105,7 @@
               <!-- Start Properties UIGrid -->
               <div class="TitleGrid ClearFix">
                 <div class="BgTitle ClearFix">
-                    <h3>Properties</h3>
+                    <h3><label for="propertiesSelector">Properties</label></h3>
                     <select id="propertiesSelector"></select>
                 </div>
               </div>
@@ -151,13 +151,13 @@
                 <table cellspacing="0" style="margin: 0px auto;">
                     <tbody>
                         <tr>
-                            <td><div class="Text">__MSG_services__</div></td>
+                            <td><div class="Text"><label for="servicesSelector">__MSG_services__</label></div></td>
                             <td>
                                 <select id="servicesSelector"></select>                            
                             </td>
                         </tr>
                         <tr>
-                            <td class="Description" colspan="2"><p><b>__MSG_description__: </b><span id="ServiceDescription">__MSG_noDescription__</span></p></td>
+                            <td class="Description" colspan="2"><p><strong>__MSG_description__: </strong><span id="ServiceDescription">__MSG_noDescription__</span></p></td>
                         </tr>
                     </tbody>
                 </table> 
