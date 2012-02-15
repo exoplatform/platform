@@ -37,11 +37,6 @@
             <portlet-ref>SingleContentViewer</portlet-ref>
             <preferences>
               <preference>
-                <name>repository</name>
-                <value>repository</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
                 <name>workspace</name>
                 <value>collaboration</value>
                 <read-only>false</read-only>
@@ -722,11 +717,6 @@
             <portlet-ref>SingleContentViewer</portlet-ref>
             <preferences>
               <preference>
-                <name>repository</name>
-                <value>repository</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
                 <name>workspace</name>
                 <value>collaboration</value>
                 <read-only>false</read-only>
@@ -790,11 +780,6 @@
         <application-ref>searches</application-ref>
         <portlet-ref>WCMAdvanceSearchPortlet</portlet-ref>
         <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
           <preference>
             <name>workspace</name>
             <value>collaboration</value>
@@ -860,11 +845,6 @@
         <application-ref>presentation</application-ref>
         <portlet-ref>SingleContentViewer</portlet-ref>
         <preferences>
-          <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
           <preference>
             <name>workspace</name>
             <value>collaboration</value>
@@ -1050,11 +1030,6 @@
             <read-only>false</read-only>
           </preference>
           <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
             <name>treeName</name>
             <value>acme</value>
             <read-only>false</read-only>
@@ -1146,11 +1121,6 @@
 						<portlet-ref>SingleContentViewer</portlet-ref>
 						<preferences>
 						  <preference>
-							<name>repository</name>
-							<value>repository</value>
-							<read-only>false</read-only>
-						  </preference>
-						  <preference>
 							<name>workspace</name>
 							<value>collaboration</value>
 							<read-only>false</read-only>
@@ -1219,10 +1189,6 @@
 							<value>collaboration</value>
 						  </preference>
 						  <preference>
-							<name>repository</name>
-							<value>repository</value>
-						  </preference>
-						  <preference>
 							<name>isRedirect</name>
 							<value>true</value>
 						  </preference>
@@ -1265,11 +1231,6 @@
 					<application-ref>presentation</application-ref>
 					<portlet-ref>SingleContentViewer</portlet-ref>
 					<preferences>
-					  <preference>
-						<name>repository</name>
-						<value>repository</value>
-						<read-only>false</read-only>
-					  </preference>
 					  <preference>
 						<name>workspace</name>
 						<value>collaboration</value>
@@ -1334,11 +1295,6 @@
         <portlet-ref>SingleContentViewer</portlet-ref>
         <preferences>
           <preference>
-            <name>repository</name>
-            <value>repository</value>
-            <read-only>false</read-only>
-          </preference>
-          <preference>
             <name>workspace</name>
             <value>collaboration</value>
             <read-only>false</read-only>
@@ -1398,11 +1354,6 @@
 						<application-ref>presentation</application-ref>
 						<portlet-ref>SingleContentViewer</portlet-ref>
 						<preferences>
-							<preference>
-								<name>repository</name>
-								<value>repository</value>
-								<read-only>false</read-only>
-							</preference>
 							<preference>
 								<name>workspace</name>
 								<value>collaboration</value>

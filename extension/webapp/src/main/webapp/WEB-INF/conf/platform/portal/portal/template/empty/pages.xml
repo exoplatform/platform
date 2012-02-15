@@ -41,11 +41,6 @@
 				<portlet-ref>WCMAdvanceSearchPortlet</portlet-ref>
 				<preferences>
 					<preference>
-						<name>repository</name>
-						<value>repository</value>
-						<read-only>false</read-only>
-					</preference>
-					<preference>
 						<name>workspace</name>
 						<value>collaboration</value>
 						<read-only>false</read-only>
