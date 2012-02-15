@@ -22,7 +22,7 @@
 @import url(UITabPaneDashboard/Stylesheet.css);
 @import url(UICLVFolderMode/Stylesheet.css);
 
-*, div, table, th, tr, td, img, form {
+div,span,a,ol,ul,li,fieldset,label,input,select,button,textarea,legend,table,caption,tbody,tfoot,thead,tr,th,td,img,form  {
 	padding: 0px; margin: 0px;
 	outline: none;
 	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
@@ -38,7 +38,6 @@ body {
 a {
 	color: #28175a;
 }
-
 
 .UIPageBody .BLPagebody {
 	display: none;
@@ -79,20 +78,26 @@ a {
 	background: url('background/BannerBg.jpg') no-repeat right top;
 	height: 50px;
 }
-/*
-.UIWorkingWorkspace #ACMEBanner {
-	margin:20px;
-}
-*/
 
-.TxtDarkBlue {color: #28175a;}
-.TxtGray {color: #484848;}
-.TxtOrange {color: #f58220;}
-.TxtYellow {color: #ffd400;}
+.TxtDarkBlue {
+	color: #28175a;
+}
+
+.TxtGray {
+	color: #484848;
+}
+
+.TxtOrange {
+	color: #f58220;
+}
+
+.TxtYellow {
+	color: #ffd400;
+}
+
 /*###############################################################################################*/
 
-.UIGadgetPortlet {
-}
+
 
 .UIGadgetPortlet .UIGadgetViewMode {
 	height: 100%;
@@ -110,7 +115,6 @@ a {
 	width: 100%;
 }
 
-/**/
 .UIWorkingWorkspace .UIHomePagePortlet {
 	margin:0 auto;
 }
