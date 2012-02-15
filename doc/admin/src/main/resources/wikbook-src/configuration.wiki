@@ -222,11 +222,24 @@ Refer to the [FAQs of database configuration |#ADM.Configuration.FAQDatabaseConf
 
 You need to prepare two database schema, then do as follows:
 
-*1.* Connect to your database server using the *ssh* command: {code}ssh root@db.example.org{code}
+*1.* Connect to your database server using the *ssh* command: 
 
-*2.* Verify that MySQL is running: {code}sudo /etc/init.d/mysqld status{code}
+{code}
+ssh root@db.example.org
+{code}
 
-*3.* Connect to MySQL: {code}mysql -u root -p{code}
+*2.* Verify that MySQL is running: 
+
+{code}
+sudo /etc/init.d/mysqld status
+{code}
+
+*3.* Connect to MySQL: 
+
+{code}
+mysql -u root -p
+{code}
+
 In this step, you will be prompted for entering your password.
 
 *4.* Create 2 databases: one for idm (_$dbname-idm_) and the other for jcr (_$dbname-jcr_). For example:
@@ -242,11 +255,13 @@ create database _$dbname_;
 {code}
 grant all on _$dbname_.* to '_$username_'@'_$IP_' identified by '_$password_';
 {code}
+
 In which, $IP = AS host name, $IP = IP with wildcard (eg 192.168.1.% = all IPs on 192.168.1.x network) and $username = username that eXo Platform will connect with (i.e. 'dbname_user').
 
 *5.* Verify that both databases were created successfully.
 
-{code}show databases;
+{code}
+show databases;
 {code}
 
 *6.* Quit the server with the *exit* command.
@@ -425,7 +440,7 @@ In each folder, you will find two sample xml files: _gatein-ds.xml_ for JBoss an
 
 Each file contains 2 preconfigured datasources. For example (JCR datasource in _mysql/server.xml_):
 
-{code:xml}
+{code}
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
           maxActive="128" maxIdle="32" maxWait="10000"
           testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
