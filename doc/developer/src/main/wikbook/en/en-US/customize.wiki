@@ -31,7 +31,7 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 *Step 5:* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
 
 
-For JBoss deployment and more details, refer to Reference Guide on [here|http://platform.demo.exoplatform.org/docs/].
+For JBoss deployment and more details, refer to Reference Guide on [here|http://docs.exoplatform.org/PLF30/refguide/html/index.html].
 
 
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
@@ -155,7 +155,7 @@ See Chapter 6 to learn more about the portlet configuration within the pages.xml
 
 The *navigation.xml* is used to associate the links in your navigation with your portal pages. The navigation is a tree structure of "navigation nodes". Each navigation node points to one page (called the page node). The tree structure corresponds to a hierarchy of menus and sub-menus of a site.
 
-If the pattern #{} is used, the link label will be loaded from the portal resource bundle. To learn more, refer to [Internationalization Configuration|http://platform.demo.exoplatform.org/docs/refguide/html/gatein/chap-Reference_Guide-Development.html#sect-Reference_Guide-Internationalization_Configuration].
+If the pattern #{} is used, the link label will be loaded from the portal resource bundle. To learn more, refer to [Internationalization Configuration|http://docs.exoplatform.org/PLF30/refguide/html/bk02ch03.html#sect-Reference_Guide-Internationalization_Configuration].
 
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>

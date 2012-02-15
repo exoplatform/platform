@@ -3,7 +3,7 @@ h1. Document types {anchor:id=DEV.WorkWithContent.DocumentTypes}
 
 Each document type is represented by a node type in the JCR. Therefore, to create a new document type, you have to add a new node type. There are two ways to do this: through XML configuration files, or through the administration portlet.
 
-To learn more about how to use the administration portlet, refer to the [Administration Guide|http://platform.demo.exoplatform.org/docs/admin/html/index.html].
+To learn more about how to use the administration portlet, refer to the [Administration Guide|http://docs.exoplatform.org/PLF30/admin/html/index.html].
 
 Otherwise, you can create a new document type by configuring the file {{/nodetypes-configuration.xml}} in your extension.
 
@@ -206,7 +206,7 @@ uicomponent.addSelectBoxField("mimetype", mimetype) ;
 
 As usual, the value will be stored at the relative path defined by the jcrPath directive argument.
 
-For more examples on how to create WCM templates, refer to [Reference Guide|http://platform.demo.exoplatform.org/docs/refguide/html/index.html].
+For more examples on how to create WCM templates, refer to [Reference Guide|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch04.html].
 
 h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSelectBox}
 

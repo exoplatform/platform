@@ -48,7 +48,7 @@ Here are details of this configuration:
 | {{show-info-bar}} | Show the top bar with the portlet title. | |
 | {{show-application-state}} | Show the collapse/expand icons. | |
 | {{show-application-mode}} | Show the change portlet mode icon. | |
-| {{preferences}} | Contain a list of {{preferences}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. To learn more, refer to [eXo JCR and Extension Services Reference|http://platform.demo.exoplatform.org/docs/refguide/html/jcr/index.html] | |
+| {{preferences}} | Contain a list of {{preferences}} specific to each portlet. Each {{preference}} has a {{name}} and a {{value}}. You can also lock it by setting the {{read-only}} element to true. To learn more, refer to [eXo JCR and Extension Services Reference|http://docs.exoplatform.org/PLF30/refguide/html/bk01.html] | |
 
 
 h1. Develope your own applications {anchor:id=DEV.WorkWithApplications.DevelopeYourOwnApplications}

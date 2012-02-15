@@ -6,7 +6,7 @@ h1. Modifications details between versions {anchor:id=ADM.Upgrade.Modification_d
 
 h2. Modifications between Platform v.3.0.1 and 3.0.2 {anchor:id=ADM.Upgrade.Modification_details.3.0.1_3.0.2}
 
-*[ECMS Application templates|http://platform.demo.exoplatform.org/docs/refguide/html/bk03ch03.html#d0e28054]*
+*[ECMS Application templates|http://docs.exoplatform.org/PLF30/refguide/html/bk03ch03.html#CONTref.Configuration.Templates.Application_template]*
 
 It is about some Groovy template files (.gtmpl) stored in the JCR. These templates are used by the *Content List Portlet* and *Category Navigation Portlet* to diplay content lists in a pagination mode.
 There are four template types available, including:
