@@ -2,7 +2,7 @@ By default, your profile is just initialized with the basic account information 
 
 !images/Select_My_Account.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Account Profile* form is displayed with information you have set previously.
+The *Account Profiles* form is displayed with information you have set previously.
 
 !images/Account_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -16,7 +16,7 @@ Hover your cursor over your display name at the top right corner of the page, th
 
 *The second way* 
 
-Go to the *Activity Streams* page first, then select the *My Profile* tab in the left pane.
+Go to the *Activity Stream* page first, then select the *My Profile* tab in the left pane.
 
 *The third way*
 
@@ -107,15 +107,15 @@ h1. Upload your profile avatar{anchor:id=Soc_User_Guide.Get_Started.User_Profile
 
 You easily upload a photo to your profile or to the spaces which you have created or have the *Manage* permission.
 
-*1.* Click the *Change Avatar* link, or directly click your current avatar in the left pane to open the *Avatar Upload* form.
+*1.* Click the *Change Picture* link, or directly click your current avatar in the left pane to open the *Upload an Image* form.
 
 !images/Avatar_upload_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Browse...* to open the *File Upload* form.
+*2.* Click *Browse...* to select an image from your local device.
 
-*3.* Select your desired image, then click the *Open* button to upload your selected image. The uploaded photo must be smaller than 2 MB.
+*3.* Select your desired image, then click the *Open* button or double-click the image to upload it. The uploaded image must be smaller than 2 MB.
 
-*4.* Click *Confirm* to open the *Avatar Preview* form to see some related information, such as file name, file type and image size.
+*4.* Click *Confirm* to open the *Image Preview* form to see some related information, such as file name, file type, and image size.
 
 !images/Avatar_preview_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -142,10 +142,7 @@ The form to update the current information will appear.
 *2.* Enter your new position which is limited from 3 to 30 characters and click *Save*. Your current position will be immediately updated.
 
 
-{docbook}
-<note>
-    <para>
-    The information entered in the <emphasis role="bold">Position</emphasis> field is only used for providing more details, not for searching. Meanwhile, the information entered in the <emphasis role="bold">Position</emphasis> field of the <emphasis role="bold">Experience</emphasis> section will be retrieved when you do the <emphasis role="bold">Search</emphasis> function.
-    </para>
-</note>
-{docbook}
+{note}
+The information entered in the *Position* field will be retrieved when you do the [Search|#search_contacts] function.
+{note}
+

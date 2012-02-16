@@ -1,19 +1,19 @@
-All activities of users are displayed in user's or Space's Activity Streams.
+All activities of a user are displayed in the user's and Space's Activity Stream.
 
-To enter *Activities*, hover your cursor over your display name (for example, John Smith) on the *Administration* bar and select *Activity Streams*.
+To enter the *Activity Stream* page{anchor:id="go_to_activity_stream"}, hover your cursor over your display name (for example, John Smith) on the *Administration* bar and select *Activity Streams*.
 
 !images/activities.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-In *Activity Streams,* you can follow various activities, including:
+The *Activity Stream* page consists of the following tabs:
 
-* All updates related to users who have registered in your system in the *All Updates* tab.
-* All updates of users who have established their connections with you in the *Network Updates* tab.
-* All updates of spaces where you are a member or a manager in the *Space Updates* tab.
-* All your own activities in the *My Status* tab, such as your profile updates, link updates or another activities pushed by yourself.
+* *All Updates*: lists all updates of yours, of your connections, and of your spaces.
+* *Network Updates*: lists all updates of users who have established their connections with you.
+* *Space Updates*: lists all updates of spaces where you are a member or a manager.
+* *My Status*: lists all your own activities, such as your profile updates, link updates or another activities pushed by yourself.
 
-You can see activities of any registered people by clicking their usernames. However, for people to whom you have not connected, you only can view their activities but cannot post any *activities*, *comments* or *likes* on their activity streams.
+You can see activities of any registered people by clicking their display name to go their profile page, then select *Activity Stream* on the left pane. However, for people to whom you have not connected, you only can view their activities but cannot post any *activities*, *comments* or *like* on their activity streams.
 
-In addition, you can keep track of activities of a space application. For example, whenever there is a new post in the *Space Forum* application, it will be updated in the activity streams.
+In addition, you can keep track of activities of a space application. For example, whenever there is a new post in the *Forum* application, it will be updated in the activity stream.
 
 The actions described in this section are those which you can do on activity streams of yours, of your connections or of any spaces where you are a member or manager, depending on the accessed tab.
 
@@ -33,7 +33,7 @@ There are 2 ways to post your status.
 
 *The second way*
 
-*1.* Go into the *Activity* page.
+*1.* Go into the *Activity Stream* page as [here|#go_to_activity_stream].
 
 *2.* Enter your current status in the *Status Update* box.
 
@@ -49,22 +49,27 @@ h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
 
 *1.* Click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
 
-*2.* Enter the link into the *Attach* field and press the *Attach* button. If the link address is correct, it will be attached, then shown with the overall content of the link.
+!images/share_link.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*2.* Enter the link and click !images/Add_link_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"!.
+
+If the link address is correct, it will be attached, then shown with the overall content of the link.
 
 !images/attach-link-edit.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-* If you do not want the thumbnail to be displayed, select the *No thumbnail* checkbox. If there is more than one thumbnail, you can click blue arrows to go through all available thumbnails.
-* You can edit the link content by double-clicking the content you want to edit.
+* If you do not want the thumbnail to be displayed, select the *No thumbnail* checkbox.
+* If there is more than one thumbnail, you can click blue arrows to go through all available thumbnails.
+* If you want to edit the link content, double-click the content and edit.
 
 *3.* Click *Share* to share your entered link with your connections, or click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! again to remove your entered link.
 
 h1. Share a file {anchor:id=Soc_User_Guide.Activity_Management.Share_File}
 
-*1.* Click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! to open the *Browse files* box.
+*1.* Click !images/Share_file_icon.png|width="11mm" fo:scalefit="1" html:scalefit="0"! to open the *Select File* box.
 
 !images/Browse_files_box.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click *Browse files* to open the *Select Document* form.
+*2.* Click *Select File* to open the *Select Document* form.
 
 !images/Select_document_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -82,7 +87,7 @@ You can also click <inlinemediaobject>
             <imageobject role="html">
               <imagedata fileref="images/Select_local_file_icon.png" format="PNG" scalefit="0" width="5mm"/>
             </imageobject>
-          </inlinemediaobject> to select a file from your local device; or click <inlinemediaobject>
+          </inlinemediaobject> to select a file from your local device; Or click <inlinemediaobject>
             <imageobject role="fo">
               <imagedata fileref="images/Create_new_folder_icon.png" format="PNG" scalefit="1" width="5mm"/>
             </imageobject>
@@ -94,7 +99,7 @@ You can also click <inlinemediaobject>
 </note>
 {docbook}
 
-You will see your uploaded file in the *Browse files* box as below.
+You will see your uploaded file in the *Select File* box as below.
 
 !images/Uploaded_file_form.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -105,29 +110,30 @@ You will see your uploaded file in the *Browse files* box as below.
 
 h1. Delete activities/comments  {anchor:id=Soc_User_Guide.Activity_Management.Delete_Activity}
 
-You are allowed to delete your activities/comments that you created, and those in your activity streams and in the space where your are the manager.
+You are allowed to delete your activities/comments that you created, and those in your activity stream and in the space where your are the manager.
 
 *1.* Select *All Updates* or *My Status* to view all your own activities.
 
 !images/Updates_tabs.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The confirmation message will be displayed.
+*2.* Select the activity you want to delete, then click !images/Delete_activity_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+
+!images/Delete_activity.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
 h1. Comment on activities  {anchor:id=Soc_User_Guide.Activity_Management.Comment}
 This action allows you to get ideas, answers, and any additional information when your collaborators respond to your status updates. Besides, you yourself give your ideas about any contacts' status update as follows:
 
-*1.* Click *Network Updates* to see all activities of your established contacts.
+*1.* Select an activity on which you want to comment.
 
-*2.* Select one profile containing the activity you want to comment.
-
-*3.* Click *Comment* in the bottom line of the profile. The *Comment* form will appear below.
+*2.* Click *Comment* in the bottom line of the profile to open the *Comment* form.
 
 !images/comment.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-4. Enter your comment into the *Comment* form and press the *Comment* button.
+3. Enter your comment into the *Comment* form and press the *Comment* button.
 Your comment will be displayed right below the profile.
+
 
 h1. Like/Unlike activities  {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
 The function allows you to show your interest by selecting *Like* and/or *Unlike* activities.
@@ -156,3 +162,7 @@ The function allows you to show your interest by selecting *Like* and/or *Unlike
 {docbook}
 
 You only can *Unlike* an activity after you liked it.
+
+*1.* Select an activity that you clicked *Like*.
+
+*2.* Click *Unlike* beside the activity.

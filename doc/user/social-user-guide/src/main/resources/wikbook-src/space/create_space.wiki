@@ -11,10 +11,10 @@ The *My Spaces* page appears as below.
 
 The *Space navigation* includes the following tabs:  {anchor: id="space_navigation"}
 
-* *All Spaces:* all spaces which have been created with the Visibility value as Visible.
+* *All Spaces*: all spaces, including your spaces, [visible spaces|#visible_space], and [hidden spaces|#hidden_space] where you are invited to become members.
 * *My Spaces*: spaces where you have the role as a member or a manager. 
-* *Received Invitations*: spaces where you are invited to become members by space managers.
-* *Pending Requests*: spaces where you have requested to become their members.  
+* *Invitations Received*: spaces where you are invited to become members by space managers.
+* *Requests Pending*: spaces where you have requested for becoming their members.
 
 {docbook}
 <note>
@@ -27,7 +27,7 @@ The *Space navigation* includes the following tabs:  {anchor: id="space_navigati
 h1. Create a space   {anchor:id=Soc_User_Guide.Space_Management.Create_Space}
 After redirecting to the *Space* application, you can add a new space so that you and your collaborators can work together or discuss specific topics as follows:
 
-*1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the left corner of *Space* page.
+*1.* Click !images/Add_new_space_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! at the left corner of the *Space* page.
 
 *2.* Enter a space name, description and select the priority level in the *Settings* tab of the *Add New Space* form.
 There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations corresponding to each selected preference value.
@@ -39,8 +39,8 @@ There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations 
 !images/add_new_space_visibility.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * *Visibility*: By default, the *Visibility* value is set to be *Visible*. {anchor:id="visibility"}
-** Visible: The space is always visible in the public spaces list.
-** Hidden: The space is not visible in the public spaces list.
+** Visible:{anchor:id="visible_space"} The space is always visible in the public spaces list.
+** Hidden:{anchor:id="hidden_space"} The space is not visible in the public spaces list.
 * *Registration*: By default, the *Registration* value is set as *Validation*.
 ** Open: The users sending their requests can join the space without any validation.
 ** Validation: The membership must be validated by the space manager.
@@ -94,7 +94,7 @@ After you have selected one existing group, all users in that group will be invi
 {docbook}
 <note>
     <para>
-    When more than two space characters are input between words, these spaces will be converted to ONLY ONE space when being displayed. With space characters at the beginning and end of space names, these space characters will be omitted.
+    When more than two space characters are input between words in the space name, these spaces will be converted to ONLY ONE space when being displayed. With space characters at the beginning and end of space names, these space characters will be also omitted.
     </para>
 </note>
 {docbook}

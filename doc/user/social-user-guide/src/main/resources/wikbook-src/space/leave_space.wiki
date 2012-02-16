@@ -12,8 +12,8 @@ Click *My Spaces* on the *Administration* bar, then click the *All Spaces* tab t
 
 There are two cases to join a space:
 
-* *The first instance*: For spaces without validation required, click *Join* corresponding to your desired space. You will automatically become their members.
-* *The second instance*: For spaces with validation required, after clicking *Join*, you have to wait for the validation from the space's owner who can accept or deny your request.
+* *The first instance*: For spaces without validation required, click *Request to join* corresponding to your desired space. You will automatically become their members.
+* *The second instance*: For spaces with validation required, after clicking *Request to join*, you have to wait for the validation from the space's owner who can accept or deny your request.
 
 {docbook}
 <citetitle>
@@ -62,7 +62,7 @@ To view one detailed page of a space, you must become its member first. Then, do
 
 *The second way*
 
-* After entering the *My Spaces* pane within the *Spaces* application, left-click the name of your desired space.
+* After entering the *My Spaces* pane within the *Spaces* application, click the name of your desired space.
 
 !images/Space_name_link.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -74,17 +74,13 @@ As a normal user, you can:
 
 * [Accept or deny to join a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem].
 
-* [Invite colleagues to take part in your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem].
+* [Invite new members to take part in your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem].
 
-Besides, as a space manager or creator, you can:
+Besides the actions above, as a space manager or creator, you can:
 
 * [Edit the space settings, including description, priority level, and avatar|#Soc_User_Guide.Space_Management.Edit_Space].
 
 * [Change the visibility of your space|#Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility].
-
-* [Invite new members to join your space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem].
-
-* [Accept/Deny requests for joining a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem].
 
 * [Promote/Demote roles of space members|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem].
 
@@ -92,7 +88,7 @@ Besides, as a space manager or creator, you can:
 
 h1. Delete a space {anchor:id=Soc_User_Guide.Space_Management.Delete_Space}
 
-Only the space managers can delete their spaces by clicking !images/Delete_icon.png|width=4mm" fo:scalefit="1" html:scalefit="0"!. All information and navigations related to that space are also deleted.
+Only the space managers can delete their spaces by clicking *Delete* under the space name. All information and navigations related to that space are also deleted.
 
 h1. Search for spaces      {anchor:id=Soc_User_Guide.Space_Management.Join_Space.Search}
 
@@ -111,7 +107,7 @@ After accessing your desired spaces tab, you can search for spaces by *Name* and
 
 *1.* Enter the key word into the *Find Space* field.
 
-*2.* Press the *Enter* key or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+*2.* Press the *Enter* key or click *Search*.
 
 The found spaces will be listed in the *Spaces Found* pane.
 
@@ -125,16 +121,28 @@ The found spaces will be listed in the *Spaces Found* pane.
 
 Simply click a specific letter.
 
-!images/search_space_by_alphabets.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/search_space_by_alphabets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 Only spaces whose name's first character matches with the letter will be listed in the *Spaces Found* pane.
 
-h1. Accept/Deny invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
+h1. Accept/Ignore invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
 
-This function allows you to accept and/or deny invitations that you received from others. Spaces which are being waited for your acceptance will be listed in the *Invitations Received* tab.
+This function allows you to accept and/or deny invitations that you received from others. You can see all spaces which are being waited for your acceptance in the *Invitations Received* tab, or
+in the *My invitations* tab in the left pane of the Intranet homepage.
 
-!images/accept_deny_invitation.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+*1.* [Access the Intranet homepage|#Access_intranet], then click *Space* in the *My Invitations* tab on the left of the Intranet homepage.
+A list of spaces which you are invited to join appears.
+
+!images/Space_invitation_homepage.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+
+*2.* Click the space name to open the *Invitations Received* tab.
+
+!images/accept_deny_invitation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 * Click *Accept* to accept joining the space.
 
-* Click *Deny* to refuse joining the space.
+* Click *Ignore* to deny joining the space.
+
+{note}
+You can also go to the *Invitations Received* tab by clicking *My Space --> Invitations Received*.
+{note}

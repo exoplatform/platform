@@ -17,13 +17,19 @@ To perform the actions above, first access the *Space Settings* by following one
 
 !images/Edit_space.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
+*3.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
+
 *The second way*
 
 *1.* Hover your cursor over *My Spaces* on the *Administration* bar, then select one space from the drop-down menu.
 
-*2.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+*2.* Click !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the space name.
 
 !images/access_edit_space.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
+
+{note}
+You only see !images/edit-space-icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! for spaces which you have the Edit permission.
+{note}
 
 h2. Change space information   {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Info}
 This function allows you to edit the basic information of a space.
@@ -34,7 +40,7 @@ This function allows you to edit the basic information of a space.
 
 *2.* Change information in the *Description* and *Priority* fields, and the space avatar. 
 
-* To change the space avatar, click !images/Space_Avatar_Upload_Form.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, or directly click the current space avatar to open the *Avatar Upload* form. For more details, see the [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar] section.
+* To change the space avatar, click !images/Space_Avatar_Upload_Form.png|width="4mm" fo:scalefit="1" html:scalefit="0"!, or directly click the current space avatar to open the *Upload an Image* form. For more details, see the [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar] section.
 
 {docbook}
 <note>
@@ -47,7 +53,7 @@ This function allows you to edit the basic information of a space.
 
 h2. Change visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Change_Visibility}
 
-*1.* Select *Access & Edit* in the left pane of the *Space Settings* page.
+*1.* Select the *Access & Edit* tab in the left pane of the *Space Settings* page.
 
 *2.* Change values of *Visibility* and *Registration* if you want. For more details, see [here|#Visibility_space].
 
@@ -55,7 +61,7 @@ h2. Change visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Chan
 
 h2. Manage members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members}
 
-Select *Members* in the left pane of the *Space Settings* page to open the *Manage members* form. Here, you can do many actions on members as stated below.
+Select the *Members* tab in the left pane of the *Space Settings* page to open the *Manage members* form. Here, you can do many actions on members as stated below.
 
 h3. Invite new members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem}
 You can invite other users to join your spaces as follows:
@@ -72,15 +78,15 @@ To invite multiple people, use commas to separate your multiple entered username
 
 !images/space_settings_select_users.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* To search for your desired member in eXo Platform, do as follows:
+*2.* Select your desired users by ticking their corresponding checkboxes, and click *Add*.
+
+You can also search for your desired members in eXo Platform, do as follows:
 
 *i.* Enter a search term into the *Search* box.
 
 *ii.* Select a criterion you want to find in the combo box next to the *Search* box.
 
 *iii.* Click !images/Find_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform searching.
-
-*2.* Select users by ticking their corresponding checkboxes, and click *Add*.
 
 *3.* Click !images/Invite_member_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to invite your selected users.
 
@@ -90,9 +96,17 @@ To invite multiple people, use commas to separate your multiple entered username
 h3. Revoke your invitations       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke}
 If your invited users have not accepted your requests yet, you can revoke your invitations by clicking !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
 
+h3. Validate/Decline request {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request}
+As a manager or creator of a space, you can validate other users' requests for joining your space.
+
+!images/validate_decline_request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+* To accept a user's request for joining your space, click !images/validate_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
+* To decline a user's request for joining your space, click !images/decline_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
+
 h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
-* To promote a member to the manager position, click !images/Social_plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
+* To promote a member to the manager position, click !images/promote_plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
 
 * To demote a member, click !images/Demote_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -108,15 +122,15 @@ h3. Remove a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_
 Click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the member you want to delete in the *Members* list.
 
 h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
-To manage space applications, click the *Applications* tab to go the *Applications* page.
+Select the *Applications* tab to go the *Applications* page which allows you to manage space applications.
 
-!images/space_settings_applications.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_applications.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 h3. Add a new space application  {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App.Add_App}
 
-*1.* Click *Add Application* to open the *Application List*.
+*1.* Click *Add Application* to open the *Space Application Installer* form.
 
-!images/space_settings_add_applications.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_add_applications.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *2.* Select the application you want to add by clicking !images/Social_plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
@@ -140,13 +154,13 @@ You can easily edit a space navigation, such as adding a new node, editing a nod
 
 *1.* Click the *Navigations* tab to open the space navigation.
 
-!images/space_settings_navigation.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+!images/space_settings_navigation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 You can take the following actions:
 
-* Right-click a node name (space name) and take actions in the context menu, such as adding/editing a node, editing a node's page, and copying/cloning a node.
+* Right-click a node name (space name) and take actions in the context menu, such as adding/editing/deleting a node, editing a node's page, copying/cloning a node, and more.
 
-* Right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *UI Page Node* form appears and allows you to add information to your new node.
+* Click *Add node*; Or right-click any white area to display !images/Add_new_node_icon.png|width="15mm" fo:scalefit="1" html:scalefit="0"!, then select this button. The *Add/ Edit Page Node* form appears and allows you to add information to your new node.
 
 For more details, see the [Manage Navigation Nodes|#Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes] section.
 

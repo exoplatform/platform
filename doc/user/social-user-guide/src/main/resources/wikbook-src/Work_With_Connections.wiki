@@ -1,104 +1,136 @@
-To build your network, you first need to hover your cursor over the display name on the *Administration* bar and select *My Network* from the drop-down menu.
+To build your connections, you first need to hover your cursor over the display name on the *Administration* bar and select *My Network* from the drop-down menu.
 
 !images/Select_network.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Network* page appears and allows you to do the following actions:
-
-* [Search for contacts|#search_contacts].
-
-* [View profiles of contacts|#view_profile_of_contacts].
-
-* [Send connection requests|#Send_connection_requests].
+The *Network* page appears.
 
 !images/Network_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 This page consists of the following tabs:
 
-* *All People*: list users who have registered in the eXo Platform system.
+* *Everyone*: lists users who have registered in the eXo Platform system.
 
-* *Network*: list users who have established connections with you. You can remove these connections by clicking *Delete.*
+* *My Connections*: lists users who have established connections with you. You can remove these connections by clicking *Remove Connection.*
 
-* *Received Invitations*: list users who have sent you connection request. You can click *Accept* to accept being as his/her contact or *Deny* to refuse.
+* *Requests Received*: lists users who have sent you connection request. You can click *Confirm* to accept being as his/her contact or *Ignore* to refuse.
 
-* *Pending Requests*: list users to whom you have sent connection requests. You can also click *Cancel* to revoke your request.
+* *Requests Sent*: lists users to whom you have sent connection requests. You can also click *Cancel Request* to revoke your request.
+
+Depending each accessed tab, you can perform different actions:
+* [Search for contacts|#search_contacts].
+* [View profiles of contacts|#view_profile_of_contacts].
+* [Send connection requests|#Send_connection_requests].
+* [Revoke a connection request|#Revoke_connection_request].
+* [Accept/Deny a connection request|#Accept_deny_request].
+* [Disconnect from your contacts|#Disconect].
 
 h1. Search for contacts {anchor:id=search_contacts}
 
-This function allows you to find your desired contact quickly.
+This function allows you to find your desired contact quickly by searching by name, and/or searching by role (by position, and/or work skills), and searching by alphabets.
 
 *1.* Select the relevant tab in which you want to do your search.
 
-* To search across all users in eXo Platform, select the *All People* tab. Alternatively, you can hover your cursor over your display name and select *Find People* from the drop-down menu.
+* To search across all users in eXo Platform, select the *Everyone* tab. Alternatively, you can hover your cursor over your display name and select *Find People* from the drop-down menu.
 
-* To reduce the returned search results, select the appropriate tab first before using the search box. For example, to search for contacts with whom you have established connections, you need to select the *Network* tab. 
+* To reduce the returned search results, select the appropriate tab before using the search box. For example, to search for contacts with whom you have established connections, you need to select the *My Connections* tab.
 
-*2.* Enter the contact name you want to search into the *Find Contact* field. When you type, the application automatically suggests the contact name containing your entered letter. You just need to select one of suggested names from the drop-down list.
+*2.* Select the search criteria:
+* *Search by name*: Enter the contact name you want to search into the *Search by Name* field. When you type, the application automatically suggests contact names containing your entered letter. You just need to select one of suggested names from the drop-down list.
 
 !images/Filter_search.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* To do advanced lookups for your entered name, click *More option*. This option allows you to filter your contacts by positions, skills and gender. 
+* *Search by role*: Enter the position, and/or skills of the contacts you want to search for.
 
-* To stop doing advanced lookups, click *Hide option*.
+* *Search by alphabets*. See details in the [Search by alphabets|#search_by_alphabets] section. (If you search by this criteria, skip *Step 3*).
 
-*3.* Hit the *Enter* key, or click !images/Social_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to find your contact. The results will be listed in the *People Found* pane.
+*3.* Hit the *Enter* key, or click *Search* to find your desired contacts. The results will be listed in the *People Found* pane.
 
-{note}
-You can also search contacts by alphabets. See details in the [Search by alphabets|#search_by_alphabets] section.
-{note}
-
-h1. View profiles of contacts {anchor:id=view_profile_of_contacts}
-
+h1. View profiles of other contacts {anchor:id="view_profile_of_contacts"}
 To view the profile of a contact, simply click the contact name. You will be directed to his/her profile.
+
+!images/other_profile.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+
+From his/her profile, you can see all his/her activities and connections.
+* To see his/her activities, click *Activity Stream* on the left pane.
+* To see his/her connections, click *My Connections* on the left pane.
+* To return his/her profile page, click *My Profile* on the left pane.
 
 {note}
 Regardless of being an administrator, you do not have right to edit profiles of other contacts.
 {note}
 
 h1. Send connection requests {anchor:id=Send_connection_requests}
-After [specifying your desired contact|#search_contacts], you can send a connection request via one of two way.
+After [specifying your desired contact|#search_contacts], you can send a connection request via one of two ways.
 
-!images/Ways_sending_invitation.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/Ways_sending_invitation.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *The first way*
 
-Click *Invite* to send your connection request.
+Click *Connect* to send your connection request.
 
 *The second way*
 
-Click the contact name to go to his/her profile, then click *Invite to connect* at the right corner of the contact profile page.
+[Access the profile page of the contact|#view_profile_of_contacts] to whom you want to send a connection request, then click *Invite to connect* at the right corner of the profile page.
 
 !images/Invite-to-connect.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-The !images/Invited_connect_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! icon is then displayed next to the contact name. This means that your connection request is in the pending status until the invited contact confirms it.
 
 {docbook}
 <note>
 <para>
-If you follow the first way, the <emphasis role="bold">Invite</emphasis> link will become <emphasis role="bold">Cancel</emphasis>. Meanwhile, if you follow the second way, the <emphasis role="bold">Invite to connect</emphasis> text will be turned into <emphasis role="bold">Revoke</emphasis>.
+If you follow the first way, the <emphasis role="bold">Connect</emphasis> text will become <emphasis role="bold">Cancel Request</emphasis>. Meanwhile, if you follow the second way, the <emphasis role="bold">Invite to connect</emphasis> text will be turned into <emphasis role="bold">Revoke</emphasis>.
 </para>
 </note>
 {docbook}
 
 
-h2. Revoke a connection request {anchor:id=Revoke_connection_request}
-In the *People Found* pane, simply select *Cancel*, or click the contact name to go to the relevant profile and select *Revoke* at the right corner of the contact's profile page.
+h1. Revoke a connection request {anchor:id=Revoke_connection_request}
+After sending connection requests to other users, you still can remove the requests by selecting the *Requests Sent* tab and do one of two following ways.
 
-h2. Accept/Deny a connection request {anchor:id=Accept_refuse_request}
-You can find all the connection requests in the *Received Invitations* tab. You can click *Accept* to accept the request,
- or *Deny* to reject the connection request. 
+*The first way*
 
-h2. Disconnect from your contacts {anchor:id=Disconect}
+Click *Cancel Request* to revoke the connection request.
 
-In the *Network* or *All People* tab, you can remove the connections between you and the users who are as your contacts anymore via one of two following ways.
+!images/Cancel_Request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*The second way*
+
+[Access the profile page of the contact|#view_profile_of_contacts] to whom you sent a connection request, then click *Revoke* at the right corner of the profile page.
+
+!images/Revoke_request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+h1. Accept/Deny a connection request {anchor:id=Accept_deny_request}
+You can perform these actions via one of the following way:
+
+*The first way*
+
+Select the *Requests Received* tab to see the list of all connection requests sent to you
+
+* Click *Confirm* to accept the request.
+
+* Click *Ignore* to deny the request.
+
+*The second way*
+
+*1.* [Access the Intranet homepage|#Access_intranet] to see the list of all connection requests sent to you in *My Invitations* on the left pane.
+
+!images/my_invitations_homepage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*2.* Click the contact name in the list to go his/her profile page.
+* Select *Connect* to accept the request.
+* Click *Deny* to deny the request.
+
+h1. Disconnect from your contacts {anchor:id=Disconect}
+
+In the *My Connections* or *Everyone* tab, you can remove the connections between you and the users who are as your contacts via one of two following ways.
 
 !images/Ways_remove_connections.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *The first way*
 
-Click *Delete* to remove your established connections.
+Click *Remove Connection* to remove your established connection.
 
 *The second way*
 
-Click the contact name to go to the profile page, then click the *Disconnect* link at the right corner of the contact profile page.
+[Accessing the profile page of the contact|#view_profile_of_contacts] who is your connection, then click the *Disconnect* link at the right corner of the profile page.
 
 !images/Disconnect_in_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
