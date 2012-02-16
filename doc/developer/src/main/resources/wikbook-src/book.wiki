@@ -1,9 +1,9 @@
 
-h1. eXo Platform {anchor:id=DEV.eXoPlatform}
+h1. Introduction {anchor:id=DEV.Introduction}
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
-h1. Get Started {anchor:id=DEV.Introduction.GetStarted}
+h1. Get Started {anchor:id=DEV.GetStarted}
 
 {include:document=Introduction_GetStarted.wiki|syntax=confluence/1.0}
 

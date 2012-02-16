@@ -1,18 +1,9 @@
-h1. Contribute to this document {anchor:id=DEV.eXoPlatform.ContributeToThisDocument}
-
-Your feedbacks are so important to our documentation. If you find typographical errors in this manual, or think of a way to make this guide 
-better, we are always pleased to hear from you. Let us know your questions and suggestions on both eXo Platform 3.5 and this user guide by participating in our community website:
-
-http://community.exoplatform.org
-
-h1. Introduction {anchor:id=DEV.eXoPlatform.Introduction}
-
 The eXo Platform Developer Guide presents a complete overview of the eXo Platform 3.5 capabilities. This guide is intended for system integrators who want to know how to leverage eXo Platform in their customer projects and IT enterprises who need to customize and deploy their portals. Accordingly, this guide introduces the eXo Platform architecture, and shows developers how to perform some of the most common tasks needed for customizing and working with eXo Platform 3.5. It also serves as an entry point for the Reference Guide, which provides in-depth technical reference for developers about eXo Platform 3.5. 
 
 After reading this guide, developers are expected to be able to customize their own portals and develop applications to run on eXo Platform 3.5 through the following topics:
 
 * [Introduction|#DEV.Introduction]: The overview of eXo Platform 3.5, this developer guide and its intended readers.
-* [Get Started|#DEV.Introduction.GetStarted]: Introduction to terms commonly used, how to set up Maven settings and eXo Architecture Primer.
+* [Get Started|#DEV.GetStarted]: Introduction to terms commonly used, how to set up Maven settings and eXo Architecture Primer.
 * [Create Your Own Portal|#DEV.CreatingYourOwnPortal]: Steps on how to create and customize your own portal.
 * [Work With Content|#DEV.WorkingwithContent]: Topics related to the eXo Platform content.
 * [Work With Applications|#DEV.WorkingwithApplications]: Instructions on how to integrate applications into your portal and how to deploy your own applications.
@@ -21,7 +12,7 @@ After reading this guide, developers are expected to be able to customize their 
 * [Cookbook|#DEV.Cookbook]: Introduction to Cookbook, particularly steps on how to copy a site to another eXo Platform server.
 * [Upgrade eXo Platform|#DEV.Upgrade]: Steps on how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.
 
-h2. About eXo Platform 3.5 {anchor:id=DEV.eXoPlatform.AbouteXoPlatform}
+*About eXo Platform 3.5*
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
