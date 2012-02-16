@@ -18,7 +18,7 @@ This chapter presents the following topics:
 </para>
 </listitem>
 <listitem>
-<para><link linkend="Platform_User_Guide.Social.Build_Network">Build networks</link> which includes actions related to searching for contacts and sending connection requests.
+<para><link linkend="Platform_User_Guide.Social.Manage_connections">Manage connections</link> which includes actions related to searching for contacts and sending connection requests.
 </para>
 </listitem>
 <listitem>
@@ -28,11 +28,11 @@ This chapter presents the following topics:
 </itemizedlist>
 </abstract>
 {docbook}
-
+{anchor:id="Access_intranet"}
 In this chapter, most Social-related actions are demonstrated through the *Intranet* site which is a default social portal built in eXo Platform.
 
-!images/Enter_Intranet.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
+!images/Enter_Intranet.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 After entering *Intranet*, you will be directed to the *Intranet* homepage as below.
 
-!images/Intranet_homepage.png|align="center" width="420" fo:scalefit="1" html:scalefit="0"!
+!images/Intranet_homepage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
