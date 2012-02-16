@@ -1,5 +1,3 @@
-h1. About this guide {anchor:id=ADM.Introduction.AboutGuide}
-
 This guide describes how to get started with eXo Platform 3.5, especially for:
 * *System Administrators* who want to use, deploy and manage the eXo Platform system in their enterprises.
 * *Developers* who want to know how to leverage eXo Platform in their customer projects.
@@ -67,7 +65,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 </abstract>
 {docbook}
 
-h1. About eXo Platform 3.5 {anchor:id=ADM.Introduction.Welcome}
+*About eXo Platform 3.5* {anchor:id=ADM.Introduction.Welcome}
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating changing user behavior driven by consumer web technologies, such as social networks, social publishing and forums. 
 
