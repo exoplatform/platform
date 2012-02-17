@@ -1,7 +1,4 @@
-h1. eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform}
-h2. Contribute to documentation{anchor:id=Platform_User_Guide.eXo_Platform.Contribute_to_documentation}
-{include:document="Contribute_to_documentation.wiki"}
-h2. Introduction{anchor:id=Platform_User_Guide.eXo_Platform.Introduction}
+h1. Introduction{anchor:id=Platform_User_Guide.Introduction}
 {include:document="Introduction.wiki"}
 
 h1. Get Started{anchor:id=Platform_User_Guide.Get_started}
@@ -15,6 +12,11 @@ h2. Manage language{anchor:id=Platform_User_Guide.Get_started.Manage_Language}
 {include:document="Manage_language.wiki"}
 
 h1. Manage Your Organization{anchor:id=Platform_User_Guide.Manage_Organization}
+{include:document="Introduction_Manage_Organization.wiki"}
+h2. Add a user{anchor:id=Platform_User_Guide.Manage_Organization.Add_user}
+h2. Manage users{anchor:id=Platform_User_Guide.Manage_Organization.Manage_users}
+h2. Manage groups{anchor:id=Platform_User_Guide.Manage_Organization.Manage_groups}
+h2. Manage memberships{anchor:id=Platform_User_Guide.Manage_Organization.Manage_memberships}
 
 h1. Manage Your Portals{anchor:id=Platform_User_Guide.Manage_Your_Portals}
 {include:document="Introduction_Manage_Your_Portals.wiki"}

@@ -1,31 +1,31 @@
 {docbook}
 <abstract>
- <para>This chapter represents actions related to management of users, groups and memberships. It covers the following topics: </para>
+ <para>This chapter covers the following topics: </para>
     <itemizedlist>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="sect-User_Guide-User_Management-Add_a_user">Add a user</link>
+            <link linkend="Platform_User_Guide.Manage_Organization.Add_user">Add a user</link>
           </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="sect-User_Guide-User_Management-Manage_users">Manage users</link>
+            <link linkend="Platform_User_Guide.Manage_Organization.Manage_users">Manage users</link>
           </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="sect-User_Guide-User_Management-Manage_groups">Manage groups</link>
+            <link linkend="Platform_User_Guide.Manage_Organization.Manage_groups">Manage groups</link>
           </emphasis> </para>
       </listitem>
       <listitem>
         <para>
           <emphasis role="bold">
-            <link linkend="sect-User_Guide-User_Management-Manage_memberships">Manage memberships</link>
+            <link linkend="Platform_User_Guide.Manage_Organization.Manage_memberships">Manage memberships</link>
           </emphasis> </para>
       </listitem>
     </itemizedlist>
-</abstract>
+	</abstract>
 {docbook}

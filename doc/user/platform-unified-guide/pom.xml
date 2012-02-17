@@ -279,11 +279,25 @@
 <xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
 				</replace>
-
        <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage Your Organization</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage Your Organization</title>
-<xi:include href="gatein/modules/portal/User_Management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+       <replacetoken><![CDATA[<title>Add a user</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Add a user</title>
+<xi:include href="gatein/modules/portal/Add_user.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage users</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage users</title>
+<xi:include href="gatein/modules/portal/Manage_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage groups</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage groups</title>
+<xi:include href="gatein/modules/portal/Manage_groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
+				</replace>
+       <replace file="${docbook.source}/index.xml">
+       <replacetoken><![CDATA[<title>Manage memberships</title>]]></replacetoken>
+				  <replacevalue><![CDATA[<title>Manage memberships</title>
+<xi:include href="gatein/modules/portal/Manage_memberships.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
        <replace file="${docbook.source}/index.xml">
        <replacetoken><![CDATA[<title>Manage permissions</title>]]></replacetoken>

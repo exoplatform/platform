@@ -1,3 +1,5 @@
+*About this guide*
+
 {docbook}
 <abstract>
 <para>The intended readers of this document are users using eXo Platform. This user guide explains all the basic and advanced features of eXo Platform by providing a series of in-depth examples and clear explanations which help users easily benefit from the eXo Platform capabilities and features. </para>
@@ -6,8 +8,8 @@
           <listitem>
             <para>
               <emphasis role="bold">
-                <link linkend="Platform_User_Guide.eXo_Platform">eXo Platform</link>
-              </emphasis> provides you basic information of eXo Platform, and browser compatibility. </para>
+                <link linkend="Platform_User_Guide.Introduction">Introduction</link>
+              </emphasis> provides you basic information of this guide, eXo Platform, and browser compatibility. </para>
           </listitem>
           <listitem>
             <para>
@@ -56,7 +58,7 @@
 {docbook}
 
 
-h1. About eXo Platform{anchor:id=Platform_User_Guide.eXo_Platform.Introduction.About_eXo_Platform}
+*About eXo Platform* {anchor:id=Platform_User_Guide.Introduction.About_eXo_Platform}
 
 eXo Platform is the first and only integrated, cloud-ready user experience platform for building and deploying transactional websites, managing web and social content and creating gadgets and dashboards. eXo Platform lets companies leverage their existing Java infrastructure, while accommodating to the changes of user behavior driven by the consumer web technologies, such as social networks, social publishing and forums. 
 
@@ -98,7 +100,7 @@ With eXo Platform 3.5, you can customize and extend your portal-based applicatio
 * Native mobile applications for iPhone, iPad and Android allow users to easily and securely access their personalized intranet dashboards, activity streams, documents and more.
 
 
-h1. Browser compatibility {anchor:id=Platform_User_Guide.eXo_Platform.Get_started.Browser_Compatibility}
+*Browser compatibility* {anchor:id=Platform_User_Guide.Introduction.Browser_Compatibility}
 
 eXo Platform 3.5 is designed to work within an Internet browser, and we have made every effort to make eXo Platform 3.5 compatible with as many of common web browsers as possible.
 
