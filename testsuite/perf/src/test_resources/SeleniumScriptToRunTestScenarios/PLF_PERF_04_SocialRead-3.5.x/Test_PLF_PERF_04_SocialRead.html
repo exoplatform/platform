@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>PLF_PERF_04_SocialRead-3.5.1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PLF_PERF_04_SocialRead-3.5.1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/portal/default/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login to the ACME social intranet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp} 1000.&nbsp;&nbsp;++Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//b[contains(text(),'Sign in')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=username</td>
+	<td>bench.user2</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>exo</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=UIPortalLoginFormAction</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp1</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp1} 1000.&nbsp;&nbsp;--Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp2</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp2} 2000.&nbsp;&nbsp;++Goto Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.ContTit</td>
+	<td>My Profile</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.ContTit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=div.ContTit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp3</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp3} 2000.&nbsp;&nbsp;--Goto Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp4</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp4} 3000.&nbsp;&nbsp;++click on Space in user activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Space Updates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Space Updates</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp5</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp5} 3000.&nbsp;&nbsp;--click on Space in user activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp6</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp6} 4000.&nbsp;&nbsp;++click on My status on activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=My Status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=My Status</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp7</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp7} 4000.&nbsp;&nbsp;--click on My status on activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp8</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp8} 5000.&nbsp;&nbsp;++Goto people porlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Find People</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp9</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp} 5000.&nbsp;&nbsp;--Goto people porlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp10</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp10} 6000.&nbsp;&nbsp;++Mathching search on people porlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Search</td>
+	<td>Mary Williams</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Mary Williams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp11</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp11} 6000.&nbsp;&nbsp;--Mathching search on people porlet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp12</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp12} 7000.&nbsp;&nbsp;++Goto myConnections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=My Connections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Connections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Requests Received</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Requests Sent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp13</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp13} 7000.&nbsp;&nbsp;--Goto myConnections</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp14</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp14} 8000.&nbsp;&nbsp;++Goto publicSpace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=My Spaces</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Spaces</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Add New Space</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>{ var stamp,year,month,day,hours,mins,secs,result ;stamp = new Date(); year=stamp.getYear()+1900;&nbsp;&nbsp;month = stamp.getMonth()+1;&nbsp;&nbsp;day = stamp.getDate();&nbsp;&nbsp;&nbsp;hours = stamp.getHours();&nbsp;&nbsp;mins = stamp.getMinutes();&nbsp;&nbsp;secs = stamp.getSeconds();if (month &lt; 10){month=&quot;0&quot;+month;} if (day &lt; 10){day=&quot;0&quot;+day;} if (hours &lt; 10)&nbsp;&nbsp;{ hours=&quot;0&quot;+hours;} if (mins &lt; 10)&nbsp;&nbsp;{&nbsp;&nbsp;mins=&quot;0&quot;+mins;}&nbsp;&nbsp;if (secs &lt; 10)&nbsp;&nbsp;{secs=&quot;0&quot;+secs; }&nbsp;&nbsp;result = &quot; &quot; + year + month + day + &quot;_&quot; + hours + mins + secs; }</td>
+	<td>timestamp15</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${timestamp15} 8000.&nbsp;&nbsp;--Goto publicSpace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
