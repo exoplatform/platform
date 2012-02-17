@@ -23,9 +23,9 @@ set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Si
 set SECURITY_OPTS=-Djava.security.auth.login.config=..\conf\jaas.conf
 
 set EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein/conf
-set IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib
-
-set EXO_CLOUD_OPTS=-javaagent:..\lib\cloud-instrument-1.1-M2.jar=..\gatein\conf\cloud\agent-configuration.xml -Dgroovy.script.method.iteration.time=60000
+set IDE_OPTS=-Djavasrc=%JAVA_HOME%/src.zip -Djre.lib=%JAVA_HOME%/jre/lib
+set EXO_BACKUP_DIR=%CATALINA_HOME%/gatein/backup
+set EXO_CLOUD_OPTS=-javaagent:..\lib\cloud-instrument-1.1-M2.jar=..\gatein\conf\cloud\agent-configuration.xml -Dgroovy.script.method.iteration.time=60000 -Dexo.backup.dir=%EXO_BACKUP_DIR% 
 set EXO_CLOUD_SECURITY_OPTS=-Djava.security.manager=org.exoplatform.cloudmanagement.security.TenantSecurityManager -Djava.security.policy==..\conf\catalina.policy
 
 @REM set Cloud Admin properties in command line (can be used in standalone admin server)
