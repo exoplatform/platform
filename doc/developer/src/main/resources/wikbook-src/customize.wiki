@@ -326,6 +326,8 @@ For example:
   ...
 </page>
 {code}
+h1. Enable/Disable a drive creation during the portal creation {anchor:id=DEV.CreateYourOwnPortal.EnableDisableDriveCreation}
+{include:document=customize/Enable_drive_creation.wiki|syntax=confluence/1.0}
 
 h1. Add/Remove a language {anchor:id=DEV.CreateYourOwnPortal.AddOrRemoveLanguages}
 
