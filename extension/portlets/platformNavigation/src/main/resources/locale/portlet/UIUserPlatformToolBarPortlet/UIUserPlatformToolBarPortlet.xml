@@ -2,10 +2,10 @@
 <bundle>
 	<UIUserPlatformToolBarPortlet>
 		<label>
-		<activities>Activity Streams</activities>
+		<activities>Activity Stream</activities>
 		<profile>My Profile</profile>
-		<network>My Network</network>
-		<find>Find People</find>
+		<network>My Connections</network>
+		<find>Find Connections</find>
 		<account>My Account</account>
 		<language>Change Language</language>
 		<logout>Logout</logout>
