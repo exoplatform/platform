@@ -44,7 +44,9 @@ There are 2 ways to post your status.
 *3.* Click *Share* to accept sharing your status.
 
 Your new status will be updated in two tabs: *All Updates* and *My Status.*
-
+{note}
+You can use some HTML tags when updating your status. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management.HTML_tags] section.
+{note}
 h1. Share a link  {anchor:id=Soc_User_Guide.Activity_Management.Share_Link}
 
 *1.* Click !images/Share_link_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"!.
@@ -134,6 +136,9 @@ This action allows you to get ideas, answers, and any additional information whe
 3. Enter your comment into the *Comment* form and press the *Comment* button.
 Your comment will be displayed right below the profile.
 
+{note}
+You can use some HTML tags when commenting on activities. See more details in the [Create rich activities with allowed HTML tags|#Soc_User_Guide.Activity_Management.HTML_tags] section.
+{note}
 
 h1. Like/Unlike activities  {anchor:id=Soc_User_Guide.Activity_Management.Like_Activity}
 The function allows you to show your interest by selecting *Like* and/or *Unlike* activities.
@@ -166,3 +171,137 @@ You only can *Unlike* an activity after you liked it.
 *1.* Select an activity that you clicked *Like*.
 
 *2.* Click *Unlike* beside the activity.
+
+h1. Create rich activities with allowed HTML tags    {anchor:id=Soc_User_Guide.Activity_Management.HTML_tags}
+When updating the status or writing a comment, you can use the following HTML tags:
+
+{docbook}
+<informaltable>
+          <tgroup cols="2">
+            <thead>
+              <row>
+                <entry>Tags</entry>
+                <entry> Description</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;b&gt;</emphasis>
+                </entry>
+                <entry> Render as bold text.
+                 <para>For example:</para>
+                 <programlisting>
+                 &lt;b&gt;Bold text&lt;/b&gt;
+                 </programlisting>
+                  </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;i&gt;</emphasis>
+                </entry>
+                <entry> Render as italic text.
+                 <para>For example:</para>
+                 <programlisting>
+                 &lt;i&gt;Italic text&lt;/i&gt;
+                 </programlisting>
+                  </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;a&gt;</emphasis>
+                </entry>
+                <entry>Refer to an external link by using the <emphasis role="italic">href</emphasis> attribute.
+                <para> For example:</para>
+                 <programlisting>
+                 &lt;a href="http://cloud-workspaces.com"&gt;Cloud Workspace&lt;/a&gt;
+                 </programlisting>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;span&gt;</emphasis>
+                </entry>
+                <entry>Group inline-elements in a document. </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;em&gt;</emphasis>
+                </entry>
+                <entry> Render as emphasized text.
+                 <para>For example:</para>
+                 <programlisting>
+                 &lt;em&gt;Emphasized text&lt;/em&gt;
+                 </programlisting></entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;strong&gt;</emphasis>
+                </entry>
+                <entry> Render as strong (highlighted) text.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;p&gt;</emphasis>
+                </entry>
+                <entry> Define a paragraph.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;ol&gt;</emphasis>
+                </entry>
+                <entry> Define an ordered list. An ordered list can be numerical or alphabetical.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;ul&gt;</emphasis>
+                </entry>
+                <entry>Define an unordered or bulleted list.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;li&gt;</emphasis>
+                </entry>
+                <entry> Define a list item. The &lt;li&gt; tag is used in both ordered (&lt;ol&gt;) and unordered (&lt;ul&gt;) lists.
+                 <para>For example:</para>
+                 <programlisting>
+                  &lt;ul&gt;
+                    &lt;li&gt;Bullet 1&lt;/li&gt;
+                    &lt;li&gt;Bullet 2&lt;/li&gt;
+                  &lt;/ul&gt;
+                  </programlisting>
+                  </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;br&gt;</emphasis>
+                </entry>
+                <entry> Insert a single line break.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;img&gt;</emphasis>
+                </entry>
+                <entry> Define an image in an HTML page. The &lt;img&gt; tag has an required attribute named <emphasis role="italic">src</emphasis> which specifies the URL of the image.
+                  <para>For example: </para>
+                   <programlisting>
+                   &lt;img src="http://t2.gstatic.com/images?q=tbn:ANd9GcR59KE-ltJTWbaNBpB3K_uOJYMGE0HaQOx4htrm8DML6lUj90t4"/&gt;.
+                   </programlisting>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;blockquote&gt;</emphasis>
+                </entry>
+                <entry> Define a long quotation.</entry>
+              </row>
+              <row>
+                <entry>
+                  <emphasis role="bold">&lt;q&gt;</emphasis>
+                </entry>
+                <entry> Define a short quotation.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+{docbook}
