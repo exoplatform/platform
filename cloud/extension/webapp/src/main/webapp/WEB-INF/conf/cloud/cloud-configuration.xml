@@ -30,7 +30,7 @@
     <init-params>
       <value-param>
         <name>properties.url</name>
-        <value>file:${catalina.home}/${exo.conf.dir.name}/cloud.properties</value>
+        <value>file:${gatein.conf.dir}/cloud.properties</value>
       </value-param>
     </init-params>
   </component>
