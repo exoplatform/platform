@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2011 eXo Platform SAS.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.social.core.manager.ActivityManager</target-component>
+    <component-plugin>
+      <name>MentionsProcessor</name>
+      <set-method>addProcessorPlugin</set-method>
+      <type>org.exoplatform.social.core.processor.MentionsProcessor</type>
+      <init-params>
+        <value-param>
+          <name>priority</name>
+          <description>priority of this processor (lower are executed first)</description>
+          <value>2</value>
+        </value-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>TemplateParamsProcessor</name>
+      <set-method>addProcessorPlugin</set-method>
+      <type>org.exoplatform.social.core.processor.TemplateParamsProcessor</type>
+      <init-params>
+        <value-param>
+          <name>priority</name>
+          <value>1</value>
+        </value-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.social.core.manager.IdentityManager</target-component>
+    <component-plugin>
+      <name>ProfileUpdatesPublisher</name>
+      <set-method>addProfileListener</set-method>
+      <type>org.exoplatform.social.core.application.ProfileUpdatesPublisher</type>
+    </component-plugin>
+  </external-component-plugins>
+
+<!-- Disable RelationshipPublisher listener -->
+<!--
+  <external-component-plugins>
+    <target-component>org.exoplatform.social.core.manager.RelationshipManager</target-component>
+    <component-plugin>
+      <name>RelationshipPublisher</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.social.core.application.RelationshipPublisher</type>
+    </component-plugin>
+  </external-component-plugins>
+-->
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+    <component-plugin>
+      <name>social.new.user.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.social.core.listeners.SocialUserEventListenerImpl</type>
+    </component-plugin>
+    <component-plugin>
+      <name>social.update.membership.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.social.core.listeners.SocialMembershipListenerImpl</type>
+    </component-plugin>
+    <component-plugin>
+      <name>social.update.profile.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.social.core.listeners.SocialUserProfileEventListenerImpl</type>
+    </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy</target-component>
+      <component-plugin>
+        <name>setAllowedTagPlugin</name>
+        <set-method>setAllowedTagPlugin</set-method>
+        <type>org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTagPlugin</type>
+        <init-params>
+          <object-param>
+            <name>b tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>b</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>i tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>i</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>a tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>a</string></field>
+              <field name="tagAttributes">
+                <collection type="java.util.HashSet" item-type="java.lang.String">
+                  <value><string>href</string></value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>span tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>span</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>em tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>em</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>strong tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>strong</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>p tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>p</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>ol tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>ol</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>ul tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>ul</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>li tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>li</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>br tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>br</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>img tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>img</string></field>
+              <field name="tagAttributes">
+                <collection type="java.util.HashSet" item-type="java.lang.String">
+                  <value><string>src</string></value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>blockquote tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>blockquote</string></field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>q tag</name>
+            <object type="org.exoplatform.social.common.xmlprocessor.model.XMLTagFilterPolicy$AllowedTag">
+              <field name="tagName"><string>q</string></field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.social.common.xmlprocessor.XMLProcessor</target-component>
+    <component-plugin>
+      <name>XMLTagFilterPlugin</name>
+      <set-method>addFilterPlugin</set-method>
+      <type>org.exoplatform.social.common.xmlprocessor.filters.XMLTagFilterPlugin</type>
+    </component-plugin>
+    <component-plugin>
+      <name>XMLBalancerFilterPlugin</name>
+      <set-method>addFilterPlugin</set-method>
+      <type>org.exoplatform.social.common.xmlprocessor.filters.XMLBalancerFilterPlugin</type>
+    </component-plugin>
+    <component-plugin>
+      <name>LineBreakerFilterPlugin</name>
+      <set-method>addFilterPlugin</set-method>
+      <type>org.exoplatform.social.common.xmlprocessor.filters.LineBreakerFilterPlugin</type>
+    </component-plugin>
+    <component-plugin>
+      <name>URLConverterFilterPlugin</name>
+      <set-method>addFilterPlugin</set-method>
+      <type>org.exoplatform.social.common.xmlprocessor.filters.URLConverterFilterPlugin</type>
+      <init-params>
+        <value-param>
+          <name>urlMaxLength</name>
+          <description>the max length of URL</description>
+          <value>-1</value>
+        </value-param>
+      </init-params>
+    </component-plugin>    
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+    <component-plugin>
+      <name>addPaths</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>
+      <init-params>
+        <object-param>
+          <name>cms.configuration</name>
+          <description>configuration for the cms path</description>
+          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+            <field name="workspaces">
+              <collection type="java.util.ArrayList">
+                <value><string>social</string></value>
+              </collection>
+            </field>
+            <field  name="jcrPaths">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+                     <field  name="alias"><string>eXoApplications</string></field>
+                    <field  name="path"><string>/exo:applications</string></field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>*:/platform/administrators</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>true</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>true</string></field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>any</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>false</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>false</string></field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+                     <field  name="alias"><string>production</string></field>
+                    <field  name="path"><string>/production</string></field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>*:/platform/administrators</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>true</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>true</string></field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>any</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>false</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>false</string></field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+                     <field  name="alias"><string>groupsPath</string></field>
+                    <field  name="path"><string>/Groups</string></field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>*:/platform/administrators</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>true</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>true</string></field>
+                          </object>
+                        </value>
+                        <value>
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
+                            <field name="identity"><string>any</string></field>
+                            <field name="read"><string>true</string></field>
+                            <field name="addNode"><string>false</string></field>
+                            <field name="setProperty"><string>true</string></field>
+                            <field name="remove"><string>false</string></field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+</configuration>
