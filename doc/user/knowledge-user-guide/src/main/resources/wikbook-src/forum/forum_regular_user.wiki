@@ -105,11 +105,11 @@ Select *Category* from the *Search in* drop-down menu.
 *Details:*
 
 ||Field||Description||
-|*Terms*|The keyword related to your desired categories.|
-|*Scope*| The search scale. With the 'Full' option, returned results are those matching both title and content containing the entered keyword. With the 'Titles' option, only results matching the object's titles are returned.|
-|*Username*| The name of the category creator. Input the name manually, or click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
-|*Created between - and*| The created date interval for searching. You can input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
-|*Moderator*| The name of the category moderator. Input the name manually, or click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
+|*Terms*| The search keyword.|
+|*Scope*| The search scale. With the "Full" option selected, returned results are those with both titles and content matching the keyword. With the "Titles" option selected, returned results are those with titles matching the keyword.|
+|*Username*| Filter search results by the category creator. Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
+|*Created between - and*| Filter search results by categories created within an interval. Input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
+|*Moderator*| Filter search results by the category moderator. Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
 
 
 {docbook}
@@ -129,11 +129,11 @@ Select *Forum* from the *Search in* drop-down menu.
 *Details:*
 ||Field||Description||
 |*Terms*|The search keyword.|
-|*Status*|The status of the forums.|
-|*State*|The state of the forums.|
-|*Posts*|The interval of forum's posts number you want to search. Simply click and drag your cursor on the slidebar to define the post interval.|
-|*Topics*|The interval of forum's topics number you want to search. Click and drag your cursor on the slidebar to define the topic interval.|
-|*Moderator*|The name of the forums' moderators.|
+|*Status*|The status of the forums ("Locked" or "Unlocked").|
+|*State*|The state of the forums ("Open" or "Closed").|
+|*Posts*|Filter search results by the minimum number of posts in the forum. Click and drag the slider bar to set the number of posts.|
+|*Topics*|Filter search results by the minimum number of topics in the forum. Click and drag the slider bar to set the number of topics.|
+|*Moderator*|Filter search results by the forum moderator.  Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
 
 
 {docbook}
@@ -154,12 +154,12 @@ Select *Topic* from the *Search in* drop-down menu.
 ||Field||Description||
 |*Terms*| The search keyword.|
 |*Type*|The type of the topic specified by the topic type name and its icon. It can be selected from the existing list.|
-|*Status*|The status of the topics.|
-|*State*|The state of the topics.|
-|*Created between - and*| The created date interval in which you want to search for topics. You can input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
-|*Last Post between - and*| The last post's created date interval in topics in which you want to search. You can input the date manually or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
-|*Posts*| The number of the topic's posts interval in which you want to search for those topics. Simply click and drag the cursor on the slidebar to define the post interval.|
-|*Views*| The number of the views interval of topics in which you want to search. Simply click and drag the cursor on the slidebar to define the views interval.|
+|*Status*|The status of the topics ("Locked" or "Unlocked").|
+|*State*|The state of the topics ("Open" or "Closed").|
+|*Created between - and*| Filter search results by topics created within an interval. Input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
+|*Last Post between - and*| Filter search results by the last post's created date in the topic. You can input the date manually or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
+|*Posts*| Filter search results by the minimum number of posts in the topic. Click and drag the slider bar to set the number of posts.|
+|*Views*| Filter search results by the minimum number of topic views. Click and drag the slider bar to set the number of views.|
 
 {docbook}
 <citetitle>
@@ -179,8 +179,9 @@ Select *Post* from the *Search in* drop-down menu.
 
 ||Field||Description||
 |Term|The search keyword.|
-|Scope|The search scale to search. With the "Full" option, returned results are those matching both title and content. With the "Titles", the results only match the post titles.|
-|Created between - and| The created date interval in which you want to search for posts. You can input the date manually or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
+|Scope|The search scale to search. With the "Full" option selected, returned results are those with both title and content matching the keyword. With the "Titles" option selected, returned results are those with post titles matching the keyword.|
+|Username|Filter search results by the posters' usernames. Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
+|Created between - and|Filter search results by posts created within an interval. You can input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
 
 {docbook}
 <para>
