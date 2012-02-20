@@ -20,6 +20,8 @@
 	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
 	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
 	String seoLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Properties");
+  String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
+	String addSiteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddSite");
 
 	String quiEditClass = "QuickEditUnchecked";
 	PortalRequestContext context = Util.getPortalRequestContext();
@@ -32,7 +34,6 @@
 	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
 	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
 	
-  	String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
 %>
 <script src="/eXoWCMResources/javascript/eXo/wcm/frontoffice/private/QuickEdit.js" type="text/javascript" id="QuickEdit"></script>
 	
@@ -83,6 +84,12 @@
 					<% if(userCouldEditNavigation){ %>
 					<li class="MenuItem">	
 						<a href="<%=uicomponent.event("EditNavigation", null);%>" title="" class="ItemIcon Navigation">$editNavigation</a>
+					</li>
+					<% } %>
+					<% if(userCouldEditPortal){ %>
+					<li class="HorizontalLine">&nbsp;</li>
+					<li class="MenuItem">	
+						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon AddSiteIcon">$addSiteLabel</a>
 					</li>
 					<% } %>
 				</ul>

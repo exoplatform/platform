@@ -9,9 +9,10 @@
          <Page>Page</Page>
          <Site>Site</Site>
          <Layout>Layout</Layout>
-		 <ManagePages>Manage Pages</ManagePages>
-		 <GroupSite>Group Site</GroupSite>
-		 <Properties>SEO</Properties>
+         <ManagePages>Manage Pages</ManagePages>
+         <GroupSite>Group Site</GroupSite>
+         <Properties>SEO</Properties>
+         <AddSite>Add Site</AddSite>
       </action>
 		<ManageSites>Manage sites</ManageSites>
 		<ManageGroupSites>Manage group sites</ManageGroupSites>

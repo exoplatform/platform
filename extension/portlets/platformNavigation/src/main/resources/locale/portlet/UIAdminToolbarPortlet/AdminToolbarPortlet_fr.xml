@@ -12,6 +12,7 @@
 			<ManagePages>Gestion des pages</ManagePages>
 		 	<GroupSite>Site de groupe</GroupSite>
 			<Properties>SEO</Properties>
+      <AddSite>Ajouter un site</AddSite>
 		</action>
 		<ManageSites>Gestion des sites</ManageSites>
 		<ManageGroupSites>Gestion des sites des groupes</ManageGroupSites>

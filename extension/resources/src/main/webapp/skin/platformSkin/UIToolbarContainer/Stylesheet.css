@@ -294,6 +294,11 @@
 	background: url('background/ToolbarContainer.png') no-repeat  right -23px;/* orientation=rt */
 }
 
+.UIToolbarContainer .MenuItem .AddSiteIcon {
+	background: url('background/ToolbarContainer.png') no-repeat  left -23px;/* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat  right -23px;/* orientation=rt */
+}
+
 .UIToolbarContainer .MenuItem .ChangeLanguageIcon {
 	background: none;
 }
