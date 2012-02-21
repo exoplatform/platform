@@ -58,10 +58,10 @@
 						<a href="$editPageRequest" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 					</li>
 					<li class="MenuItem SEOMenuItem">
-                        <div class="seolabel FloatLeft">
+                        <div class="seolabel FL">
                           <%=seoLabel %>
                         </div>
-						<div class="FloatLeft SEOImgBlock">
+						<div class="FL SEOImgBlock">
 							<%uicomponent.renderChild(UISEOToolbarForm.class);%>
 						</div>
 					</li>	  				
