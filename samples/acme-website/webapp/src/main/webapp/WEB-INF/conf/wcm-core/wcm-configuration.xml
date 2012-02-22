@@ -112,11 +112,6 @@
     </component>
 
     <component>
-        <key>org.exoplatform.services.wcm.webcontent.TOCGeneratorService</key>
-        <type>org.exoplatform.services.wcm.webcontent.TOCGeneratorService</type>
-    </component>
-
-    <component>
         <key>org.exoplatform.services.jcr.ext.classify.NodeClassifyService</key>
         <type>org.exoplatform.services.jcr.ext.classify.impl.NodeClassifyServiceImpl</type>
         <component-plugins>
