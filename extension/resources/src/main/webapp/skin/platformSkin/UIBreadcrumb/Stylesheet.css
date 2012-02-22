@@ -30,7 +30,7 @@
     /*vertical-align: bottom;*/
 }
 
-.UIBreadcrumbPortlet a: hover {
+.UIBreadcrumbPortlet a:hover {
 	text-decoration: underline;
 }
 

@@ -16,7 +16,7 @@ public void renderCategories(def categories) {
 }
 %>
 
-<style>
+<style type="text/css">
 .CategorySelected {
   color: #3366CC !important;
 }

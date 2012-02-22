@@ -376,7 +376,7 @@ ol li ol li ol{
 th{
 	background:#323863;
 	color:RGB(255,208,8);
-	box-shadow:0 1px 1px #A1A1A1;
+	box-shadow:0px 1px 1px #A1A1A1;
 	font-size:14px;
 	text-align:center;
 	padding: 6px;
@@ -646,7 +646,7 @@ td {
 .chapter .note .title {
     float: left;
     font-weight: bold;
-	font-size: 14px !important
+	font-size: 14px !important;
     margin: 3px 0 0;
     padding: 0px 10px 0 42px;
 }
@@ -666,7 +666,7 @@ td {
     border-left:1px solid #A3A3A3;
     margin: 5px 0 0 86px;
     padding-left: 12px;
-    *padding: 0px 0px 12px 12px;
+    /*padding: 0px 0px 12px 12px;*/
 }
 
 .note .itemizedlist ul li {
@@ -689,7 +689,7 @@ td {
 .chapter .warning .title {
     float: left;
     font-weight: bold;
-	font-size: 14px !important
+	font-size: 14px !important;
     margin: 3px 0 0;
     padding: 0px 10px 0 42px;
 }
@@ -709,7 +709,7 @@ td {
     border-left:1px solid #A3A3A3;
     margin: 5px 0 0 86px;
     padding-left: 12px;
-    *padding: 0px 0px 12px 12px;
+    /*padding: 0px 0px 12px 12px;*/ /*PLF-2571 CSS 3 validation*/
 }
 
 .warning .itemizedlist ul li {
@@ -733,7 +733,7 @@ td {
 .chapter .tip .title {
     float: left;
     font-weight: bold;
-	font-size: 14px !important
+	font-size: 14px !important;
     margin: 3px 0 0;
     padding: 0px 10px 0 42px;
 }
@@ -753,7 +753,7 @@ td {
     border-left:1px solid #A3A3A3;
     margin: 5px 0 0 86px;
     padding-left: 12px;
-    *padding: 0px 0px 12px 12px;
+    /*padding: 0px 0px 12px 12px;*/
 }
 
 .tip .itemizedlist ul li {
@@ -848,4 +848,5 @@ td {
 
 .code {
 	font-size: 15px;
+}
 

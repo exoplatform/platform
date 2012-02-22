@@ -5,11 +5,11 @@
 	import org.exoplatform.wcm.webui.Utils;
 	import org.exoplatform.services.wcm.core.NodeLocation;
 %>
-<style>
+<style type="text/css">
 .UICLVFolderMode .UICLVPresentation {
 background:none !important;
 border:none !important;
-color:none !important;
+color:inherit !important;
 height:0px !important;
 line-height:15px !important;
 padding:0 0 !important;

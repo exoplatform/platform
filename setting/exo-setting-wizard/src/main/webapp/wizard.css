@@ -19,7 +19,7 @@ h1 {
 
 .blockDescription {
   font-size: 12px;
-  font-weight: italic;
+  /*font-style: italic;*/ /*PLF-2571 - CSS 3 validation*/
   margin: 7px;
   /*border: 1px solid green;*/
 }
@@ -47,7 +47,7 @@ h1 {
 }
 
 .buttonAction {
-	spacing: 3px;
+	/*spacing: 3px;*/
 }
 
 .loadingImage {

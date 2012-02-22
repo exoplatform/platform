@@ -64,7 +64,7 @@
 	 }
 	}
 %>
-<style>
+<style type="text/css">
 .ACMEParameterizedTDContainer {
 padding:10px;
 width:auto !important;

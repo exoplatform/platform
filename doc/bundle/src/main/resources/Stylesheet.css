@@ -39,13 +39,13 @@ h1 {
 }
 
 h2 {
- margin: 6px 0 0 6px;
+ margin: 6px 0px 0px 6px;
  font-size: 16;
 }
 
 h3 {
- margin: 5px 10 20px 6px;
- font-size: 12;
+ /*margin: 5px 10 20px 6px;*/ /*PLF-2571 CSS 3 validation*/
+ font-size: 12pt;
  font-weight: lighter;
 }
 
@@ -88,8 +88,7 @@ ul ul {
 	-moz-border-radius: 5px;
 	padding:12px;
 	margin-left: 8px;
-        width: 1075px;
-}
+        width: 1075px;}
 
 .Doc .User{
 	background:transparent url(background/UIbackgrounds.gif) no-repeat left;

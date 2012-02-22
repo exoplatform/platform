@@ -100,7 +100,7 @@ h2{
 .UIGadgetConsole .dialogFonts {
   display:none;
   position:absolute;
-  top:30;
+  /*top:30;*/ /*PLF-2571 - CSS 3 validation*/
   left:0;
   width:260px;
   padding:20px 10px;

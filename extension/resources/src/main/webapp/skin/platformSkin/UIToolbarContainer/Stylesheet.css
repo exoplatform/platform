@@ -415,7 +415,7 @@
 
 .UIUserToolBarPortlet .MenuItemContainer .MenuItem {
 	height: auto;
-	line-height: auto;
+	line-height: normal;
 	margin: 0;
 	padding: 5px 10px;
 	width: 80%;

@@ -25,7 +25,7 @@
 
   Node webContentNode = uicomponent.getNode();
 %>
-<style>
+<style type="text/css">
   .UIForm .HorizontalLayout .textarea {
     font-size:11px;
     height:275px;
