@@ -24,10 +24,13 @@
   <msg name="title">
     Qui est en ligne?
   </msg>
-  <msg name="yourConnections">
-    Vos connexions
+  <msg name="myConnections">
+    Mes Connexions
   </msg>
   <msg name="other">
     Autres
   </msg>
+  <msg name="noOnlineUsers">
+    Personne n'est en ligne
+  </msg>  
 </messagebundle>

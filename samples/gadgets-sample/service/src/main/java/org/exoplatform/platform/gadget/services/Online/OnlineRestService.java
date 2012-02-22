@@ -38,6 +38,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.impl.RuntimeDelegateImpl;
 import org.exoplatform.services.rest.resource.ResourceContainer;
+import org.exoplatform.social.common.RealtimeListAccess;
 import org.exoplatform.social.core.activity.model.ExoSocialActivity;
 import org.exoplatform.social.core.identity.model.Identity;
 import org.exoplatform.social.core.identity.model.Profile;
@@ -45,7 +46,8 @@ import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvide
 import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.manager.RelationshipManager;
-import org.exoplatform.social.core.relationship.model.Relationship;
+import org.exoplatform.social.core.service.LinkProvider;
+import org.exoplatform.commons.utils.ListAccess;
 
 
 /**
@@ -82,27 +84,28 @@ public class OnlineRestService implements ResourceContainer {
 			RelationshipManager relationshipManager = (RelationshipManager)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RelationshipManager.class);
 			ActivityManager activityManager = (ActivityManager)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(ActivityManager.class);
 			
-			Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, viewerId);
+			Identity identity = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, viewerId, true);
 			Profile profile = identity.getProfile();
-			List<Relationship> confirmedContacts = relationshipManager.getContacts(identity);
+			ListAccess<Identity> confirmedContacts = relationshipManager.getConnections(identity);
 
-			List<Object> contacts = new ArrayList<Object>(confirmedContacts.size());
+			List<Object> contacts = new ArrayList<Object>(confirmedContacts.getSize());
 
-			for(Relationship contact : confirmedContacts){
-				Identity contactIdentity = contact.getSender();
-				if(viewerId.equals(contactIdentity.getRemoteId())) {
-				   contactIdentity = contact.getReceiver();
-				}              				
-				profile = contactIdentity.getProfile();
+			Identity[] myConnections = confirmedContacts.load(0, confirmedContacts.getSize());
+			for(Identity contact : myConnections){
+				
+				profile = contact.getProfile();
 
 				ContactBean contactBean = new ContactBean();
-				contactBean.setId(contactIdentity.getRemoteId());
+				contactBean.setId(contact.getRemoteId());
 				contactBean.setFullName(profile.getFullName());
-				contactBean.setAvatarUrl(profile.getAvatarImageSource());
+				contactBean.setAvatarUrl(profile.getAvatarUrl());
 				Object position = profile.getProperty("position");
 				contactBean.setPosition(position == null ? null : position.toString());
-				List<ExoSocialActivity> activities = activityManager.getActivities(contactIdentity, 0, 1);
-				contactBean.setLatestActivity(activities.isEmpty() ? null : activities.get(0).getName());
+				RealtimeListAccess<ExoSocialActivity> activities = activityManager.getActivitiesWithListAccess(contact);
+				ExoSocialActivity[] latestAct = activities.load(0, 1);
+				contactBean.setLatestActivity((latestAct.length == 0) ? null : latestAct[0].getTitle());
+				String profileLink = LinkProvider.getProfileLink(contact.getRemoteId());
+				contactBean.setProfileLink(profileLink);
 				
 				contacts.add(contactBean);
 			}
@@ -141,6 +144,8 @@ public class OnlineRestService implements ResourceContainer {
 				ContactBean contactBean = new ContactBean();
 				contactBean.setId(userId);
 				contactBean.setFullName(forumService.getUserInfo(userId).getFullName());
+				String profileLink = LinkProvider.getProfileLink(userId);
+				contactBean.setProfileLink(profileLink);
 				
 				profiles.add(contactBean);
 			}
@@ -183,6 +188,7 @@ public class OnlineRestService implements ResourceContainer {
 		private String avatarUrl;
 		private String position;
 		private String latestActivity;
+		private String profileLink;
 
 		public String getId() {
 			return id;
@@ -214,6 +220,12 @@ public class OnlineRestService implements ResourceContainer {
 		public void setLatestActivity(String latestActivity) {
 			this.latestActivity = latestActivity;
 		}
+		public String getProfileLink() {
+			return profileLink;
+		}
+		public void setProfileLink(String profileLink) {
+			this.profileLink = profileLink;
+		}		
 	}
 
 	public class MessageBean {
