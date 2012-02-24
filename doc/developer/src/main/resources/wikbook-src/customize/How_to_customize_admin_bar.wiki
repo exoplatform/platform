@@ -1,28 +1,19 @@
-h1. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
-The current color of *Administration* bar is gray gradient. However, you can change the color to match your brand colors.
+h2. sharedlayout.xml
+The Administration bar is a special container composed of portlets. It is defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_.
 
-The default *Administration* style:
+If you want to redefine these portlets, you need to override this file by creating your own _sharedlayout.xml_ located into your extension: _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_. 
 
-!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+We give you two examples of configuration, one to remove a portlet, the other to add a new portlet to the admin bar.
 
-The style of *Administration* bar is defined in the *stylesheet.css* located in _src/main/webapp/skin/officeSkin/UIToolbarContainer_.
-
-Edit this CSS file to customize the *Administration* bar to your preferred color scheme. The following is a customized *Administration* bar.
-
-!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-h1. Change the content on the Administration bar {anchor:id=DEV.CreateYourOwnPortal.ChangeAdminbarContent}
+h2. Remove a content from the Administration bar {anchor:id=DEV.CreateYourOwnPortal.RemoveAdminbarContent}
 
 !images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Portlets on the Administration bar*
 
-The Administration bar is a special container composed of portlets. It is defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_. In the illustration above, each circle represents a portlet defined in the Administration bar and configured in _sharedlayout.xml_.
-
-It is possible to override the whole Administration bar by adding it into an extension at _custom-extension.war!WEB-INF/conf/portal/portal/sharedlayout.xml_.
+In the illustration above, each circle represents a portlet defined in the Administration bar and configured in _sharedlayout.xml_.
 
 The _sharedlayout.xml_ file configures the current displayed portlets on the Administration bar. For example, to remove the *Dashboard* menu, you will need to remove the following block:
-
 
 {code:xml}
 ...
@@ -35,6 +26,56 @@ The _sharedlayout.xml_ file configures the current displayed portlets on the Adm
     <access-permissions>Everyone</access-permissions>
     <show-info-bar>false</show-info-bar>
   </portlet-application>
- ...
 </container>
+ ...
 {code}
+
+h2. Add a content to the Administration bar {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
+
+!images/admin_bar_portlets_add.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+*Add a portlet to the administration bar to logout user*
+
+In the same way you removed a portlet from the admin bar, you can add your own portlet by editing your _sharedlayout.xml_.
+
+{code:xml}
+...
+<container id="UILogoutPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  <access-permissions>*:/platform/users</access-permissions>
+  <portlet-application>
+    <portlet>
+      <application-ref>platformNavigation</application-ref>
+      <portlet-ref>UILogoutPortlet</portlet-ref>
+    </portlet>
+    <access-permissions>*:/platform/users</access-permissions>
+    <show-info-bar>false</show-info-bar>
+  </portlet-application>
+</container>
+...
+{code}
+
+Style of portlet container can be changed by editing this css file: 
+
+_eXoResources/skin/DefaultSkin/portal/webui/component/view/UIToolbarContainer/Stylesheet.css_
+
+{code:css}
+.UIToolbarContainer .UILogoutPortletTDContainer {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+{code}
+
+      
+
+h2. Change the color scheme {anchor:id=DEV.CreateYourOwnPortal.ChangeColorScheme}
+The current color of *Administration* bar is gray gradient. However, you can change the color to match your brand colors.
+
+The default *Administration* style:
+
+!images/admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+The style of *Administration* bar is defined in the *stylesheet.css* located in _src/main/webapp/skin/officeSkin/UIToolbarContainer_.
+
+Edit this CSS file to customize the *Administration* bar to your preferred color scheme. The following is a customized *Administration* bar.
+
+!images/modified_admin_bar.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
