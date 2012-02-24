@@ -30,7 +30,7 @@
              <configuration>
                <artifactItems>
                  <artifactItem>
-                   <groupId>org.exoplatform.calendar</groupId>
+                   <groupId>org.exoplatform.platform</groupId>
                    <artifactId>CalendarGadget</artifactId>
                    <version>${project.version}</version>
                    <type>war</type>

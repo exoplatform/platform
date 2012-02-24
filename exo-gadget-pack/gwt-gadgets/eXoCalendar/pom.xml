@@ -9,7 +9,7 @@
     
   <!-- POM file generated with GWT webAppCreator -->
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.exoplatform.calendar</groupId>
+  <groupId>org.exoplatform.platform</groupId>
   <artifactId>CalendarGadget</artifactId>
   <version>3.5.2-SNAPSHOT</version>
   <packaging>war</packaging>
