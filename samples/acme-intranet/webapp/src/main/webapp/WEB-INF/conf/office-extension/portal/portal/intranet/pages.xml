@@ -380,6 +380,7 @@
 				</portlet-application>
 				
                                 <!-- New Spaces gadget -->
+				<!--
 				<portlet-application>
 					<portlet>
 						<application-ref>dashboard</application-ref>
@@ -397,7 +398,7 @@
 					<show-info-bar>false</show-info-bar>
 					<show-application-state>true</show-application-state>
 				</portlet-application>
-				
+				-->
 			</container>
 		</container>
 
