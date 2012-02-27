@@ -1,0 +1,27 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+   <id>tomcat-bonita</id>
+   <formats>
+      <format>zip</format>
+   </formats>
+   <includeBaseDirectory>false</includeBaseDirectory>
+   <fileSets>
+      <!-- Default files -->
+      <fileSet>
+         <directory>target/tomcat-bundle</directory>
+         <outputDirectory></outputDirectory>
+         <excludes>
+           <exclude>**/*.sh</exclude>
+         </excludes>
+      </fileSet>
+      <!-- Executable files-->
+      <fileSet>
+         <directory>target/tomcat-bundle</directory>
+         <outputDirectory></outputDirectory>
+         <includes>
+            <include>**/*.sh</include>
+         </includes>
+         <fileMode>755</fileMode>
+      </fileSet>
+   </fileSets>
+</assembly>

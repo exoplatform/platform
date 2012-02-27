@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.bonita.component</artifactId>
+		<version>3.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.platform.bonita.component.filter</artifactId>
+	<packaging>jar</packaging>
+	<name>eXo Platform for Bonita - Web filters</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.console</groupId>
+			<artifactId>security-server-ext</artifactId>
+			<version>${bonitasoft.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.webui.portal</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

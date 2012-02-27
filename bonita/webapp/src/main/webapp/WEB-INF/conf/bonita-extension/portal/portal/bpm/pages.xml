@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2010 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+
+-->
+<page-set
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
+
+
+	<page>
+		<name>homepage</name>
+		<title>Home Page</title>
+		<access-permissions>*:/platform/users</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+			<access-permissions>*:/platform/users</access-permissions>
+			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
+				<!-- Process List gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://processListGadget</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>processList Gadget</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+
+
+			</container>
+
+
+			<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>*:/platform/users</access-permissions>
+
+
+				<!-- user activities portlet -->
+				<portlet-application>
+					<portlet>
+						<application-ref>social-portlet</application-ref>
+						<portlet-ref>UserActivityStreamPortlet</portlet-ref>
+					</portlet>
+					<title>User Activity Stream</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>false</show-application-state>
+					<show-application-mode>false</show-application-mode>
+				</portlet-application>
+			</container>
+
+			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+
+				<!-- Todos List gadget -->		
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>local://todoListGadget</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>todoList Gadget</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+
+
+			</container>
+		</container>
+	</page>
+	<page>
+		<name>welcome</name>
+		<title>Welcome Page</title>
+		<access-permissions>Everyone</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+				<portlet-application>
+					<portlet>
+						<application-ref>presentation</application-ref>
+						<portlet-ref>SingleContentViewer</portlet-ref>
+						<preferences>
+							<preference>
+								<name>workspace</name>
+								<value>collaboration</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>nodeIdentifier</name>
+								<value>/sites content/live/bpm/web contents/site artifacts/Welcome</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowQuickEdit</name>
+								<value>true</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowPrintAction</name>
+								<value>false</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowTOC</name>
+								<value>false</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowTags</name>
+								<value>false</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowCategories</name>
+								<value>false</value>
+								<read-only>false</read-only>
+							</preference>
+							<preference>
+								<name>ShowTitle</name>
+								<value>false</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Welcome</title>
+					<access-permissions>Everyone</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>false</show-application-state>
+					<show-application-mode>false</show-application-mode>
+				</portlet-application>
+			</container>
+
+
+		</container>
+
+	</page>
+
+	<page>
+
+		<name>workflow</name>
+		<title>workflow</title>
+		<access-permissions>member:/platform/users</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>bonita-portlet</application-ref>
+				<portlet-ref>UIParametrizedIFramePortlet</portlet-ref>
+			</portlet>
+			<title>workflow</title>
+			<access-permissions>member:/platform/users</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<height>450px</height>
+		</portlet-application>
+		<container id="ecmexplorer" template="system:/groovy/portal/webui/container/UIWfContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+			<portlet-application>
+				<portlet>
+					<application-ref>ecmexplorer</application-ref>
+					<portlet-ref>FileExplorerPortlet</portlet-ref>
+					<preferences>
+						<preference>
+							<name>driveName</name>     
+							<value>collaboration</value>        
+							<read-only>false</read-only>
+						</preference>        	
+						<preference>
+							<name>showActionBar</name>     
+							<value>false</value>        
+							<read-only>false</read-only>
+						</preference>        	
+						<preference>
+							<name>editInNewWindow</name>     
+							<value>false</value>        
+							<read-only>false</read-only>
+						</preference>        	
+						<preference>
+							<name>usecase</name>     
+							<value>selection</value>        
+							<read-only>false</read-only>
+						</preference>        	
+						<preference>
+							<name>showSideBar</name>     
+							<value>false</value>        
+							<read-only>false</read-only>
+						</preference>        	
+						<preference>
+							<name>showTopBar</name>     
+							<value>false</value>        
+							<read-only>false</read-only>
+						</preference>        	
+					</preferences>
+				</portlet>
+				<title>workflow</title>
+				<access-permissions>member:/platform/users</access-permissions>
+				<show-info-bar>false</show-info-bar>
+			</portlet-application>
+		</container> 
+	</page>
+
+	<page>
+		<name>bonitaTODO</name>
+		<title>bonitaTODO</title>
+		<access-permissions>member:/platform/users</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>bonita-portlet</application-ref>
+				<portlet-ref>UIIFrameLocalPortlet</portlet-ref>
+				<preferences>
+					<preference>
+						<name>url</name>
+						<value>/bonita/console/BonitaConsole.html?#CaseList/lab:Inbox</value>
+						<read-only>false</read-only>
+					</preference>
+				</preferences>
+			</portlet>
+			<title>bonitaTODO</title>
+			<access-permissions>member:/platform/users</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<height>640px</height>
+		</portlet-application>
+	</page>
+</page-set>

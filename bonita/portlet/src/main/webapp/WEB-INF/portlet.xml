@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<!--
+<portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"> 
+ -->
+ 
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="1.0">
+
+	<portlet>
+		<description xml:lang="EN">IFrame Custom Portlet</description>
+		<portlet-name>UIParametrizedIFramePortlet</portlet-name>
+		<display-name xml:lang="EN">IFrame Custom Portlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+
+		<init-param>
+			<name>webui.configuration</name>
+			<value>/WEB-INF/conf/portlet/web/UIParametrizedIFramePortlet/webui/configuration.xml</value>
+		</init-param>
+
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
+		<portlet-info>
+			<title>IFrame Custom Portlet</title>
+			<short-title>IFrame Custom Portlet</short-title>
+		</portlet-info>
+
+	</portlet>
+	
+	<portlet>
+		<description xml:lang="EN">IFrame Local Portlet</description>
+		<portlet-name>UIIFrameLocalPortlet</portlet-name>
+		<display-name xml:lang="EN">IFrame Local Portlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+
+		<init-param>
+			<name>webui.configuration</name>
+			<value>/WEB-INF/conf/portlet/web/UIIFramePortlet/webui/configuration.xml</value>
+		</init-param>
+
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
+		<portlet-info>
+			<title>IFrame Local Portlet</title>
+			<short-title>IFrame Local Portlet</short-title>
+		</portlet-info>
+
+	</portlet>
+  
+</portlet-app>

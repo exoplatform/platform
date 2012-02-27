@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="TodoList gadget" author="eXoPlatform"> 
+  <Locale messages="locale/default.xml" />
+  <Locale lang="en" messages="locale/en.xml" />
+  <Locale lang="fr" messages="locale/fr.xml" />  
+  <Require feature="dynamic-height" />
+  <Require feature="opensocial-0.8" />
+  <Require feature="settitle" />
+  <Require feature="views" />
+  <Require feature="minimessage" />
+  </ModulePrefs  >
+  <Content type="html">
+  
+  <![CDATA[
+	<link type="text/css" rel="stylesheet" href="skin/skin.css" />
+    <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+    <link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+	<script type="text/javascript" src="javascript/locale.js"></script>
+	<script type="text/javascript" src="javascript/todoList.js"></script>   
+	<script type="text/javascript">
+ 
+       gadgets.util.registerOnLoadHandler(init);
+	   
+    </script>
+	
+	<div id="TodosList-Gadget" class="UIGadgetThemes">
+          <div class="TitGad ClearFix">
+            <a href="/portal/bpm/bonitaTODO" class="IconDropDown" id="ShowAll" target="_parent">__MSG_showall__</a>
+
+            <div class="ContTit">__MSG_title__</div>
+          </div>
+          
+          <div class="GadCont">
+
+                <div id="TodosList" class="GadCont TodosList">
+                </div> 
+          </div>   
+    </div>
+ 
+  ]]>
+  </Content>
+</Module>

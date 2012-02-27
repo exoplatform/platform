@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>Bonita REST Server</display-name>
+	<servlet>
+		<servlet-name>BonitaRESTServer</servlet-name>
+		<servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+		</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>org.ow2.bonita.rest.server.BonitaRESTServerApplication</param-value>
+		</init-param>
+		<init-param>
+			<param-name>resteasy.providers</param-name>
+			<param-value>
+            		org.ow2.bonita.facade.rest.stringconverter.BusinessArchiveStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.CollectionStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.MapStringConverter,            		
+            		org.ow2.bonita.facade.rest.stringconverter.HashMapStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.AttachementInstanceStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.ActivityInstanceStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.ActivityInstanceImplStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.CommandStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.GenericObjectStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.InitialAttachmentStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.RuleStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.RuleImplStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.DateStringConverter,
+            		org.ow2.bonita.facade.rest.stringconverter.CatchingEventStringConverter,
+            		org.ow2.bonita.facade.rest.provider.GenericObjectProvider,
+        		    org.ow2.bonita.facade.rest.provider.OctectStreamProvider,
+            		org.ow2.bonita.facade.rest.exceptionmapper.BonitaExceptionMapper,
+            		org.ow2.bonita.facade.rest.interceptor.LoginPreProcessorInterceptor           		
+			</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BonitaRESTServer</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>BonitaSecuredMethods</web-resource-name>
+			<url-pattern>/API/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>restuser</role-name>         
+		</auth-constraint>
+	</security-constraint>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>BonitaUncheckedMethods</web-resource-name>
+			<url-pattern>/API/managementAPI/checkUserCredentials/*</url-pattern>
+			<url-pattern>/API/managementAPI/checkUserCredentialsWithPasswordHash/*</url-pattern>
+			<url-pattern>/API/webAPI/getIdentityKeyFromTemporaryToken/*</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>BonitaRESTServer</realm-name>
+	</login-config>
+
+	<security-role>
+		<role-name>restuser</role-name>
+	</security-role>
+
+</web-app>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<gadgets
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gadgets_1_0"
+    xmlns="http://www.gatein.org/xml/ns/gadgets_1_0">
+
+	<gadget name="todoListGadget">
+		<path>/gadgets/todolist/todoListGadget.xml</path>
+	</gadget>
+	<gadget name="processListGadget">
+		<path>/gadgets/processList/processListGadget.xml</path>
+	</gadget>
+</gadgets>

@@ -1,0 +1,76 @@
+.UIGadgetThemes .TitGad {
+	line-height: 22px;
+	border-top: 1px solid #ffd400;
+	border-bottom: 6px solid #ffd400;
+	color: #484848;
+	font-size: 12px;
+	padding: 0px 15px;
+	font-weight: bold;
+}
+
+.UIGadgetThemes .TitGad .IconDropDown {
+	background: url('skin/images/IconDropDown.gif') no-repeat right 7px;
+	float: right;
+	padding-right: 12px;
+	font-size: 11px;
+	color: #484848;
+	display: block;
+	text-decoration: none;
+}
+
+.UIGadgetThemes .TitGad .ContTit {
+	margin-right: 45px;
+}
+
+.UIGadgetThemes .GadCont {
+	padding: 10px 15px;
+	font-size: 12px;
+}
+
+.UIGadgetThemes .GadCont .IconLink {
+	background: url('skin/images/IconLink.gif') no-repeat left center;
+	display: block;
+}
+
+/** MyTasks **/
+.UIGadgetThemes .MySpace .IconLink {
+	padding-left: 10px;
+	margin-bottom: 5px;
+	color: #484848;
+	text-decoration: none;
+}
+
+.UIGadgetThemes .MySpace .NoneSpace {
+	padding-left: 10px;
+	margin-bottom: 5px;
+	color: #484848;
+	text-decoration: none;
+	display: block;
+}
+
+
+.link_0 {
+color: green !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;
+}
+
+.link_1 {
+color: #EC8E00 !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;  
+}
+
+.link_2 {
+color: red !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;
+}
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.bonita</artifactId>
+		<version>3.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.bonita.doc</artifactId>
+	<packaging>pom</packaging>
+	<name>eXo Platform for Bonita - Docs</name>
+
+	<properties>
+		<wikbook.source>${project.build.directory}/wikbook-src</wikbook.source>
+		<wikbook.resources>${project.basedir}/src/main/resources</wikbook.resources>
+		<wikbook.target>${project.build.directory}/wikbook</wikbook.target>
+		<wikbook.version>0.9.35</wikbook.version>
+	</properties>
+	<modules>
+		<module>installguide</module>
+	</modules>
+	<profiles>
+		<profile>
+			<id>docs</id>
+			<activation>
+				<property>
+					<name>!skip.doc</name>
+				</property>
+			</activation>
+			<modules>
+				<module>userguide</module>
+			</modules>
+		</profile>
+	</profiles>
+</project>

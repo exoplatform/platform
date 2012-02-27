@@ -1,0 +1,265 @@
+h1. {anchor:_Toc292457544}Introduction
+
+
+h2. About this document
+
+This user manual is targeted at end users that will take part of workflows integrated in "Platform for Bonita".
+ 
+This manual will explain all the basic and advanced features of Bonita and eXo integration.
+
+It gives an in-depth explanation on how to use the sample workflows bundled in the product.
+
+This user guide will:
+- Show how to use Platform for Bonita
+- Give some scenarios of workflow integrated into Platform for Bonita like: Publication of document and leave application.
+
+About the structure of this user guide:
+
+This user guide contains two main chapters. Each chapter is dedicated to a workflow's scenario.
+
+h2. {anchor:_Toc288484684}{anchor:_Toc292457545}Purpose
+
+The purpose of this document is to present some samples of process which show the integration in Content explorer for publish WCM content and also the integration of "Bonita User Experience" in Platform.
+
+
+h2. Features Overview
+
+
+Platform for Bonita combines the best of Platform and Bonita and bring additional unique features:
+
+- Publication Process: use a bonita workflow to publish a WCM content.
+
+- Leave Application Process: a process for requesting a leave pass.
+
+- Notification of workflow progress in social activity streams
+
+- My Workflow Tasks : displays the pending workflow tasks assigned to you
+
+- Business Processes : displays the list process integrated in the plf.
+
+h2. Sample Users
+
+The default package comes with built in users that you can use to evaluate the product.
+
+| User Name | Password | Process'sRole | Portal's Role |
+| admin | bpm | Initiator | Administrator |
+| root | gtn | Initiator | Administrator |
+| james | gtn | Auditor | Simple User |
+| mary | gtn | Publisher | Simple User |
+
+
+h1. {anchor:_Toc292457549}Publication Process
+
+
+h2. {anchor:_Toc292457550}Presentation
+
+The Publication Process shows how to leverage a buiness process to publish documents on a WCM website. It is based on a simple
+approval workflow. 
+
+The diagram below describes the workflow:
+
+!images/worddavdd70579910f557029ad9b97c9e2cf5f9.png|height=263,width=624!
+
+*Figure 1: Publication Process*
+
+* Validation: Verification of document: the state of the document passes from "draft" to "pending".
+
+
+* Publication: Publication of document: The state of the document will be "Approved";  if approved, the process proceeds to Step "Publish Document" else the document will be reviewed again.
+
+
+* Publish Document: The state of the document will be "Published" (automatic step).
+
+* Activity Stream: An activity will be added to the stream of the publisher.
+h2. {anchor:_Toc292457551}Scenario
+
+
+Consider a scenario where a user named "admin" creat a document and wants to publish it. So this must be approved by "James" and published by "Mary ".
+
+# The user "admin" goes  to the "SiteExplorer" and adds a document named "Test" after he saved it , he clicks on the button "Request Approval":
+
+
+Beside the content, you see the publication summary panel:
+
+!images/worddav3126353dfd10856a7642ab3179ecd4d8.png|height=126,width=322!
+
+*Figure 2 :Draft State*
+
+ 1. The state of the document: Currently draft.
+
+ 2. The button "Request approval" for sending a request to publish the document.
+
+ 3. Link to show the comments on the document of the publisher and the auditor. If there are no comments the link shows nothing.
+
+After clicking on "Request approval", the button disappears and a message displays to inform the creator that his Approval request sent and the state of the Document change from "Draft" to "Pending" which means that the document is now submitted for approval to the auditors:
+
+!images/worddavcab6da88f930280e312d4d845b33071e.png|height=113,width=329!
+
+*Figure 3: Information Message*
+
+# The auditor "james" received a verification task of the document  in his "My Todos" in the Homepage:
+
+!images/worddavee8d6d7840af873cbc1fc2ebcb9e2f8a.png|height=119,width=251!
+
+*Figure 4: James 's "TodoList"*
+
+He clicks on "1 |Validation : "test" " and is redirected to the step "Verification" of "Publication Process":
+
+!images/worddavc6022c4abacd874fa4fe86e58d1b8402.png|height=347,width=624!
+
+*Figure 5: Verification's Step*
+
+This screen is composed of:
+
+* Title of the Document.
+
+* A field for the auditor for commenting the document. This comment will be sent to the publisher of document when the auditor clicks on "verified" and stocked in the "Last Comments".
+
+* When the auditor finishes the verification of the document , he clicks on "Approve". A request is thensent to the publisher. Otherwise, the process is finished and state of the document returns to "Draft"
+
+* Last comments exchanged between the publisher (Mary) and the auditor (James).
+
+* Document's view: View of document witch is verified.
+
+
+After clicking on button "Approve", the worflow action is finished and a link to return the "Home Page" is shown:
+
+!images/worddav83d78d1191c61ca1ceaebe90624f4d7f.png|height=122,width=623!
+
+# A task will be added in the "My Todos" of the publisher "Mary" :
+
+!images/worddave03b880cc7bfed7ace1a4ea4bde37cbc.png|height=111,width=260!
+
+*Figure 6: Mary's "TodoList"*
+
+The state of the document is  changed to "Approved" and the comment of "James" appears in the Publication's tab when clicking on "Comment".
+
+!images/worddav4135d6de7c658877fa89aa6347e7b93b.png|height=133,width=333!
+
+*Figure 7: Publication Tab*
+
+
+When he clicks on the task, he is redirected to "Final validation before publication" step he founds the form to field and the Document's view:
+
+!images/worddavbbc7b137e18ba5dba8af51284cc15b0c.png|height=381,width=623!
+
+*Figure 8: Validation's step*
+
+If the publisher is not satisfied, he can click on "refuse" and indicate the motivation of his refusal.
+!images/worddava0f1d682cf89869c0fe3317c49a64dd7.png|height=130,width=474!
+
+*Figure 9: Last Comments exchanged*
+
+So, the document state back to "Pending" and the comment of "Mary" was added in "Publication tab ":
+
+!images/worddav9f7ba4b4cc6a87f1d997cf3232c31196.png|height=134,width=328!
+
+*Figure 10:Publication tab*
+
+Finally, when the publisher agrees to publish the document (he clicks on "Publish"):
+
+The document is published in WCM. At any time, the state of a document can be viewed  in the Manage Publications panel:{anchor:_GoBack}
+- Go to the Document in "Content Explorer".
+- Click on "Manage Publication" in  the actions bar.
+The Manage Publications form appears:
+
+!images/worddav0d7f55e99680add4f24bb186af278d55.png|height=449,width=624!
+
+*Figure 11: Published State*
+
+Additionnaly, an entry is added in Mary's activity stream. The activity contains a link to the document:
+
+!images/worddava2906000e3b1c18543770aa7f704a4c1.png|height=69,width=594!
+
+*Figure 12: Mary's Activity Stream*
+
+An e-mail is sent to the creator of document (Initiator) to inform him that his document is valid, this e-mail contains an overview of comments exchanged between auditor and publisher and a link to the document:
+
+!images/worddav2442229b29721d10d3236888b2ae3ad7.png|height=212,width=600!
+
+*Figure 13 : e-mail validation*
+
+h1. {anchor:_Toc288484688}{anchor:_Toc292457554}Leave Application Process
+
+
+h2. {anchor:_Toc288484689}{anchor:_Toc292457555}Presentation
+
+The second sample workflow is called "Leave Application". This is a classic hr process commonly implemented in many companies to manage employees vacations requests.
+
+This sample, shows that, not only content-publication workflows can be integrated, but any type of business process can be smoothly integrated into "Platform for Bonita".
+
+The diagram below illustrates the different steps of this process.
+
+!images/worddav659a686e755a232598ac4bb3eeefda90.png|height=374,width=622!
+
+*Figure 14:Leave Application Process*
+
+The steps of the process involve:
+
+* *Leave Application Submission* : The employee fill the application form for leave.
+
+
+* *Manager's Approval* : The manager of the employee receives the form and gives an approval decision.
+
+if the manager approves, the process passes to "Administrator's" approval, otherwise, the process passes to the "Reject" step.
+
+* *Administrator's Approval* : after the agreement of the manager, the administration (typically HR department) records and the employee leave.
+
+
+h2. {anchor:_Toc292457556}Scenario
+
+
+Consider a scenario where "james" wants to take a leave. His manager is "admin" and the HR administrator is "john".
+
+* James clicks on the "Leave Application" found in "Process List" in the homepage.
+
+!images/worddav6247ccb3c95b06a7c456f0cd1382b4ff.png|height=206,width=257!
+
+*Figure 15:Process List*
+
+* He is redirected to the form.
+
+!images/worddav4441af7c6d709611b6924c951ddfff51.png|height=309,width=625!
+
+*Figure 16:Leave Application Submission*
+
+* He clicks "Submit", a new activity is added to the applicant's activity stream "james".
+
+!images/worddavfbb374e2377bbc8f114d5091774b0d1c.png|height=310,width=624!
+
+*Figure 17:James's Activity Stream*
+
+* A new  workflow task appears in the "TodoList" of manager "admin".
+
+!images/worddav6380f560c9e11438b8de20f27d65e284.png|height=237,width=623!
+
+*Figure 18:Admin 's TodoList*
+
+* When clicking on the task in the TODOList, he is redirected to the Manager Approval's form :
+
+!images/worddav19cbaf4d0ad3e3c722d1ac05202b5f1d.png|height=229,width=626!
+
+*Figure 19:Manager's Approval Form*
+
+* He fills the form, giving his decision, and submits the form.
+* In case the decision is favorable, a new task appears for the administrator "john ".
+
+!images/worddava27665761f0097e5066d01e0c546a5e7.png|height=274,width=623!
+
+*Figure 20: John's Activity Stream*
+
+
+!images/worddav96a4acd1e5759f32487e91fa4d0bb809.png|height=203,width=625!
+
+*Figure 21:Administrator's Approval step*
+
+
+* Once the decision is submitted, we can see the activities of each stakeholder.
+
+!images/worddav6fa6008b74d300610203ec4a4e513d6f.png|height=270,width=624!
+
+*Figure 22:John's Activity Stream*
+
+!images/worddav3abe0bfb1e402681816eaee61ffb27e8.png|height=243,width=623!
+
+*Figure 23:NO pending Tasks*

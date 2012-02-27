@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.social.ActivitiesStreamManager</type>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.process.ProcessManager</type>
+		<init-params>
+			<value-param>
+				<name>publication.process.path</name>
+				<value>/PublicationProcess--1.0</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.publication.PublicationRestService</type>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.bonita.BonitaService</type>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.mail.ManageMail</type>
+		<init-params>
+			<value-param>
+				<name>mail.sender</name>
+				<value>test@localhost.com</value>
+			</value-param>
+		</init-params>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.comment.ManageComment</type>
+	</component>
+	<component>
+		<type>org.exoplatform.bonitasoft.services.rest.BonitaLifecycle.GetBonitaLifeCycle</type>
+	</component>
+</configuration>

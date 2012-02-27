@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.packaging</artifactId>
+		<version>3.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.platform.packaging.bonita</artifactId>
+	<packaging>pom</packaging>
+	<name>eXo Platform - Packaging Bonita</name>
+
+	<profiles>
+		<profile>
+			<id>pkg-bonita</id>
+			<dependencies>
+				<!-- Bonita Integration Server -->
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.webapp</artifactId>
+					<version>${project.version}</version>
+					<type>war</type>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.portlet</artifactId>
+					<version>${project.version}</version>
+					<type>war</type>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.config</artifactId>
+					<version>${project.version}</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.component.services</artifactId>
+					<version>${project.version}</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.component.uiextension</artifactId>
+					<version>${project.version}</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.exoplatform.platform</groupId>
+					<artifactId>exo.platform.bonita.component.filter</artifactId>
+					<version>${project.version}</version>
+					<scope>provided</scope>
+				</dependency>
+
+				<dependency>
+					<groupId>org.bonitasoft</groupId>
+					<artifactId>bonita</artifactId>
+					<version>5.6.1</version>
+					<type>war</type>
+				</dependency>
+
+				<dependency>
+					<groupId>org.bonitasoft</groupId>
+					<artifactId>bonita-server-rest</artifactId>
+					<version>5.6.1</version>
+					<type>war</type>
+				</dependency>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<version>1.2.139</version>
+				</dependency>
+			</dependencies>
+
+			<properties>
+				<tomcat.webapps.dir>${project.build.directory}/tomcat-bundle/webapps</tomcat.webapps.dir>
+				<tomcat.lib.dir>${project.build.directory}/tomcat-bundle/lib</tomcat.lib.dir>
+				<tomcat.conf.dir>${project.build.directory}/tomcat-bundle/conf/Catalina/localhost</tomcat.conf.dir>
+			</properties>
+
+			<build>
+				<finalName>exo-platform-for-bonita-${project.version}-tomcat6-bundle</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<!--
+ | Step 00: download and unpack the base Tomcat package
+-->
+								<id>00-copy-as-tomcat</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<overWriteSnapshots>true</overWriteSnapshots>
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.packaging.tomcat</artifactId>
+											<type>zip</type>
+											<version>${project.version}</version>
+											<outputDirectory>${project.build.directory}</outputDirectory>
+											<excludes>conf/</excludes>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+							<!--
+ | Step 01: copy lead capture filter artifacts
+-->
+							<execution>
+								<id>01-copy-bonita-artifacts</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.webapp</artifactId>
+											<version>${project.version}</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/webapps</outputDirectory>
+											<destFileName>bonita-extension.war</destFileName>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.bonitasoft</groupId>
+											<artifactId>bonita</artifactId>
+											<version>5.6.1</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/webapps</outputDirectory>
+											<destFileName>bonita.war</destFileName>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.bonitasoft</groupId>
+											<artifactId>bonita-server-rest</artifactId>
+											<version>5.6.1</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/webapps</outputDirectory>
+											<destFileName>bonita-server-rest.war</destFileName>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.portlet</artifactId>
+											<version>${project.version}</version>
+											<type>war</type>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/webapps</outputDirectory>
+											<destFileName>bonita-portlet.war</destFileName>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.config</artifactId>
+											<version>${project.version}</version>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.component.services</artifactId>
+											<version>${project.version}</version>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.component.uiextension</artifactId>
+											<version>${project.version}</version>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>org.exoplatform.platform</groupId>
+											<artifactId>exo.platform.bonita.component.filter</artifactId>
+											<version>${project.version}</version>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
+										</artifactItem>
+										<artifactItem>
+											<groupId>com.h2database</groupId>
+											<artifactId>h2</artifactId>
+											<version>1.2.139</version>
+											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+
+								<id>02-prepare-bonita</id>
+								<phase>prepare-package</phase>
+								<configuration>
+									<target>
+										<copy file="${project.basedir}/src/main/resources/bin/gatein.bat" tofile="${project.build.directory}/tomcat-bundle/bin/gatein.bat" overwrite="true" />
+										<copy file="${project.basedir}/src/main/resources/bin/gatein.sh" tofile="${project.build.directory}/tomcat-bundle/bin/gatein.sh" overwrite="true" />
+										<copy file="${project.basedir}/src/main/resources/conf/server.xml" tofile="${project.build.directory}/tomcat-bundle/conf/server.sh" overwrite="true" />
+										<copy file="${project.basedir}/src/main/resources/conf/logging.properties" tofile="${project.build.directory}/tomcat-bundle/conf/logging.properties" overwrite="true" />
+										<copy file="${project.basedir}/src/main/resources/conf/jaas.conf" tofile="${project.build.directory}/tomcat-bundle/conf/jaas.conf" overwrite="true" />
+										<copy file="${project.basedir}/src/main/resources/conf/context.xml" tofile="${project.build.directory}/tomcat-bundle/conf/context.xml" overwrite="true" />
+										<copy todir="${project.build.directory}/tomcat-bundle/bonita">
+											<fileset dir="${project.basedir}/src/main/resources/bonita" includes="**/*" />
+										</copy>
+										<unzip src="${tomcat.webapps.dir}/bonita.war" dest="${tomcat.webapps.dir}/plf-bonita" />
+										<copy file="${project.basedir}/src/main/resources/webapps/bonita/webapp/WEB-INF/web.xml" tofile="${tomcat.webapps.dir}/plf-bonita/WEB-INF/web.xml" overwrite="true" />
+
+										<copy file="${project.basedir}/src/main/resources/webapps/bonita/webapp/console/gwt/chrome/chrome.css" tofile="${tomcat.webapps.dir}/plf-bonita/console/gwt/chrome/chrome.css" overwrite="true" />
+										
+										<copy todir="${tomcat.webapps.dir}/plf-bonita/WEB-INF/lib">
+											<fileset file="${tomcat.lib.dir}/exo.platform.bonita.component.filter-${project.version}.jar"/>
+										</copy>
+
+										<!--
+										<copy file="${tomcat.lib.dir}/exo.platform.bonita.component.filter-${project.version}.jar" todir="${tomcat.webapps.dir}/plf-bonita/lib" />
+										-->
+										<zip destfile="${tomcat.webapps.dir}/bonita.war" basedir="${tomcat.webapps.dir}/plf-bonita" />
+
+										<delete dir="${tomcat.webapps.dir}/plf-bonita" />
+
+										<delete>
+
+											<!-- Identity Filter to set current user on BUXP -->
+
+											<fileset dir="${tomcat.lib.dir}" includes="exo.platform.bonita.component.filter-${project.version}.jar" />
+										</delete>	
+
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>03-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<descriptors>
+										<descriptor>src/main/assembly/tomcat-bonita-archive.xml</descriptor>
+									</descriptors>
+									<appendAssemblyId>false</appendAssemblyId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

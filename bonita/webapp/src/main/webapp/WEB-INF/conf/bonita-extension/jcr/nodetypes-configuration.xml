@@ -1,0 +1,22 @@
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<external-component-plugins>
+		<!-- The full qualified name of the RepositoryServiceConfiguration -->
+		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+		<component-plugin>
+			<name>add.bonita.nodeType</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+			<init-params>
+				<values-param>
+					<name>autoCreatedInNewRepository</name>
+					<description>Node types configuration file</description>
+					<value>war:/conf/bonita-extension/jcr/bonitasoft-nodetypes.xml
+					</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

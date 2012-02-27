@@ -1,0 +1,527 @@
+.bonita_transparent_body {
+	background: transparent none repeat scroll 0 0;
+}
+
+/** Loading */
+div#loading {
+	height: 100px;
+	left: 50%;
+	margin-left: -50px;
+	margin-top: -50px;
+	position: absolute;
+	top: 50%;
+	width: 100px;
+}
+
+.bonita_form_entry {
+	clear: both;
+}
+
+.bonita_form_label {
+	color: #333333;
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.bonita_form_label_left {
+	float: left;
+	text-align: right;
+	width: 32%;
+}
+
+.bonita_form_label_right {
+	float: left;
+	margin-left: 1%;
+	text-align: left;
+	width: 32%;
+}
+
+.bonita_form_label_top {
+	margin-bottom: 3px;
+	text-align: left;
+	width: 85%;
+}
+
+.bonita_form_label_bottom {
+	float: left;
+	margin-top: 3px;
+	text-align: left;
+	width: 85%;
+}
+
+.bonita_form_popup_tooltip_icon {
+	float: left;
+}
+
+.bonita_form_popup_tooltip_img {
+	width: 12px;
+	height: 12px;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.bonita_form_field {
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.bonita_form_field[type="text"][disabled], .bonita_form_field[type="password"][disabled], textarea.bonita_form_field[disabled] {
+	color: #606060;
+	background-color: #EBEBE4;
+	-webkit-text-fill-color: #606060;
+}
+
+.bonita_form_field_left {
+	text-align: right;
+	width: 52%;
+}
+
+.bonita_form_field_right {
+	margin-left: 1%;
+	text-align: left;
+	width: 52%;
+}
+
+.bonita_form_field_top {
+	text-align: left;
+	width: 85%;
+}
+
+.bonita_form_field_bottom {
+	text-align: left;
+	width: 85%;
+}
+
+.bonita_form_image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+}
+
+.bonita_form_image_container {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	overflow-x:	auto;
+}
+
+.bonita_form_text {
+	font-size: 13px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	overflow-x:	auto;
+	white-space: normal;
+}
+
+.bonita_form_date {
+	background: url("../images/date_16x16.png") no-repeat scroll right center #FFF;
+	border-top: 1px #acaeb4 solid;
+    border-left: 1px #dde1e7 solid;
+    border-right: 1px #dde1e7 solid;
+    border-bottom: 1px #e3e9ef solid;
+	width: 200px;
+}
+
+.bonita_form_date:hover {
+	border-top: 1px #5794bf solid;
+    border-left: 1px #c5daed solid;
+    border-right: 1px #b7d5ea solid;
+    border-bottom: 1px #c7e2f1 solid;
+}
+
+.bonita_form_static_field_left {
+	float: left;
+	text-align: right;
+	max-width: 65%;
+}
+
+.bonita_form_static_field_right {
+	float: left;
+	margin-left: 1%;
+	text-align: left;
+	width: 65%;
+}
+
+.bonita_form_static_field_top {
+	text-align: left;
+	max-width: 85%;
+}
+
+.bonita_form_static_field_bottom {
+	text-align: left;
+	max-width: 85%;
+}
+
+.bonita_form_message {
+	font-size: 13px;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	text-align: center;
+	width: 100%;
+	overflow-x: auto;
+}
+
+.bonita_form_table {
+	border-width: 2px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #DEDEDE;
+	border-collapse: collapse;
+	width: 100%
+}
+
+.bonita_form_editable_grid {
+	border-width: 2px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: #DEDEDE;
+	border-collapse: collapse;
+	width: 100%
+}
+
+.bonita_form_table_container {
+	overflow-x:	auto;
+}
+
+.bonita_form_table_cell {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: #DEDEDE;
+	text-align: center;
+	height: 21px;
+}
+
+.bonita_form_table_selectable:hover {
+	cursor: pointer;
+}
+
+.bonita_form_table_selected {
+	background-color: #EEEEEE;
+}
+
+.bonita_form_table_selected td {
+	padding-top: 4px;
+	padding-left: 4px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+}
+
+.bonita_form_pagination_container {
+	margin-top: 2px;
+	height: 18px;
+}
+
+.bonita_form_pagination_control {
+	float: right;
+	margin-left: 4px;
+}
+
+.bonita_form_pagination_text {
+	float: right;
+	margin-left: 4px;
+}
+
+.bonita_form_pagination_control:hover {
+	cursor: pointer;
+}
+
+.bonita_form_table_edition {
+	border-width: 1px;
+	padding: 0px;
+	border-style: solid;
+	border-color: #DEDEDE;
+}
+
+.bonita_form_table_edition textarea {
+	border-width: 0px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.bonita_form_table_editable:hover {
+	cursor: pointer;
+}
+
+.bonita_form_grid_row_buttons {
+	clear: both;
+	height: 19px;
+}
+
+.bonita_form_grid_column_buttons {
+	float: right;
+	width: 35px;
+	margin-left: 3px;
+	margin-bottom: 3px;
+}
+
+.bonita_form_grid_add_button {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-top: 3px;
+	background: transparent url(../images/sprite.png) no-repeat scroll -370px 0px;
+}
+
+.bonita_form_grid_add_button:hover {
+	cursor: pointer;
+}
+
+.bonita_form_grid_remove_button {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+	margin-top: 3px;
+	background: transparent url(../images/sprite.png) no-repeat scroll -334px 0px;
+}
+
+.bonita_form_grid_remove_button:hover {
+	cursor: pointer;
+}
+
+a.bonita_download_link {
+	margin-top: 3px;
+	color: #333333;
+	text-decoration: underline;
+	display: block;
+	outline: none;
+}
+
+a.bonita_download_link:visited {
+	color: #333333;
+	text-decoration: underline;
+}
+
+a.bonita_download_link:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.bonita_image_preview {
+	max-width: 180px;
+	max-height: 140px;
+	border: 0;
+}
+
+.bonita_file_upload {
+	width: 100%;
+}
+
+.bonita_upload_button_group {
+	clear: both;
+}
+
+.bonita_upload_button {
+	float:	left;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	margin-right: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.bonita_form_mandatory {
+	color: #C8071D;
+	font-size: 13px;
+	float: left;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	margin-left: 1%;
+	text-align: left;
+}
+
+.bonita_form_radio {
+	display: block;
+}
+
+.bonita_datetime_item {
+	float: left;
+	margin-right: 1%;
+}
+
+.bonita_datetime_list_item {
+	text-align: left;
+	float: left;
+}
+
+.bonita_datetime_label_item {
+	color: #333333;
+	font-size: 13px;
+	margin-left: 2px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	text-align: left;
+	float: left;
+}
+
+.bonita_form_buttonlabel {
+	display: inline;
+}
+
+.bonita_form_buttonlabel_entry {
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: underline;
+	text-align: center;
+	display: inline;
+}
+
+.bonita_form_button {
+	width: auto;
+}
+
+.bonita_form_button_entry {
+	text-align: center;
+}
+
+.bonita_form_field_validation_message {
+	color: #C8071D;
+	clear: both;
+	margin-bottom: 5px;
+	margin-left: 33%;
+	width: 52%;
+	text-align: left;
+}
+
+.bonita_form_page_validation_message {
+	color: #C8071D;
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 33%;
+	width: 52%;
+	text-align: left;
+}
+
+.bonita_form_page_validation_container{
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+.bonita_form_button_container {
+	clear: both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+.bonita_form_group_label {
+	color: #333333;
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 5px;
+	margin-bottom: 1px;
+	margin-left: 5px;
+	float: left;
+	text-align: left;
+	overflow: hidden;
+}
+
+.bonita_form_group_item {
+	border: 1px solid #CCCCCC;
+	clear: both;
+	margin: 1px;
+	overflow-x:	auto;
+}
+
+.bonita_form_end_group_item {
+	clear: both;
+}
+
+.bonita_form_group_children {
+	width: 100%;
+}
+
+.bonita_form_add_item_container {
+	clear: both;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	text-align: right;
+}
+
+.bonita_form_add_item_label {
+	cursor: pointer;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: underline;
+	float: right;
+}
+
+.bonita_form_remove_item_container {
+	clear: both;
+	height: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.bonita_form_remove_item_label {
+	cursor: pointer;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: underline;
+	float: right;
+}
+
+.bonita_clear_float {
+	clear: both;
+	visibility: hidden;
+}
+
+.bonita_rich_text {
+  border: 1px solid #BBBBBB;
+  border-spacing: 0px;
+}
+
+.bonita_toolbarElement {
+	float: left;
+}
+
+.bonita_toolbarList {
+	margin-bottom: 4px;
+	margin-right: 4px;
+}
+
+.bonita_richTextArea {
+	border: 0px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.bonita_richTextArea_disabled {
+	color: #606060;
+	background-color: #EBEBE4;
+}
+
+.bonita_iframe {
+	width: 100%;
+	border: 0px solid #FFFFFF;
+}
+
+.bonita_form_field_sub_title {
+	color: #6E6969;
+	text-align: left;
+	margin-left: 33%;
+	width: 52%;
+}
+
+.bonita_form_vertical_panel {
+	width: 100%;
+}

@@ -1,0 +1,22 @@
+<bookinfo>
+	<title>eXo Platform for Bonita User Guide</title>
+	<edition>1.0</edition>
+	<pubsnumber>1</pubsnumber>
+	<productname>eXo Platform</productname>
+	<productnumber>3.5</productnumber>
+	<copyright>
+		<year>2012</year>
+		<holder>eXo Platform SAS</holder>
+	</copyright>
+	<authorgroup>
+		<author>
+			<firstname>eXo</firstname>
+			<surname>Platform</surname>
+		</author>
+		<editor>
+			<affiliation>
+				<shortaffil>eXo Platform</shortaffil>
+			</affiliation>
+		</editor>
+	</authorgroup>
+</bookinfo>

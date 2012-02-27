@@ -1,0 +1,37 @@
+<assembly>
+  <id>html-docs</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+   <fileSet>
+    <directory>target/wikbook/src</directory>
+	<outputDirectory>user guide</outputDirectory>
+	<!--
+    <outputDirectory>org.exoplatform.bonita</outputDirectory>
+	-->
+    <includes>
+      <include>**/*.xml</include>
+      <include>**/*.ext</include>
+     </includes>
+    <!--excludes>
+      <exclude>**/*.fo</exclude>
+      <exclude>**/*.pdf</exclude>
+    </excludes-->
+   </fileSet>
+   <fileSet>
+    <directory>target/wikbook-src/images</directory>
+	
+	<outputDirectory>user guide/images</outputDirectory>
+	<!--
+    <outputDirectory>org.exoplatform.bonita/images</outputDirectory>
+	-->
+    <includes>
+      <include>**/*.gif</include>
+      <include>**/*.png</include>
+      <include>**/*.jpg</include>
+     </includes>
+   </fileSet>
+  </fileSets>
+</assembly>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Default message bundle
+-->
+<messageBundle>
+  <msg name="title">Mes tâches</msg>
+  <msg name="showall">Montrer Tout</msg>
+  <msg name="notask">Aucune Tâche N'est Affectée</msg>
+</messageBundle>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2007 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+
+-->
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+		<component-plugin>
+			<name>init.service.listener</name>
+			<set-method>addListenerPlugin</set-method>
+			<type>org.exoplatform.services.organization.OrganizationDatabaseInitializer</type>
+			<description>this listener populate organization data for the first launch</description>
+			<init-params>
+				<value-param>
+					<name>checkDatabaseAlgorithm</name>
+					<description>check database</description>
+					<value>entry</value>
+				</value-param>
+				<value-param>
+					<name>printInformation</name>
+					<description>Print information init database</description>
+					<value>false</value>
+				</value-param>
+				<object-param>
+					<name>configuration</name>
+					<description>description</description>
+					<object type="org.exoplatform.services.organization.OrganizationConfig">
+
+						<field name="user">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.organization.OrganizationConfig$User">
+										<field name="userName">
+											<string>admin</string>
+										</field>
+										<field name="password">
+											<string>bpm</string>
+										</field>
+										<field name="firstName">
+											<string>admin</string>
+										</field>
+										<field name="lastName">
+											<string>admin</string>
+										</field>
+										<field name="email">
+											<string>admin@exoplatform.com</string>
+										</field>
+										<field name="groups">
+											<string>*:/platform/administrators,*:/platform/web-contributors, *:/platform/users</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

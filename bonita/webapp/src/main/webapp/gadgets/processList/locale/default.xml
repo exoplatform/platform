@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Default message bundle
+-->
+<messageBundle>
+  <msg name="title">Business Processes</msg>
+  <msg name="noprocess">No Business Process Deployed</msg>
+ 
+</messageBundle>

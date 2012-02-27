@@ -1,0 +1,27 @@
+@IMPORT url("html.css");
+
+th {
+  background-color: #EEE;
+  text-align: left;
+  font-weight: normal;
+  font-family: Verdana,Arial,helvetica,sans-serif;
+  font-size: 80%;
+  padding: 10px;
+}
+
+table {
+  border: solid 1px;
+}
+
+div.section h2 {
+  border-bottom: 1px solid #999999;
+}
+
+table[summary^="Note"], table[summary^="Warning"], table[summary^="Tip"] {
+  background-color:#F8F8F8;
+  border:1px solid #999;
+}
+
+.programlisting {
+	overflow: auto;
+}

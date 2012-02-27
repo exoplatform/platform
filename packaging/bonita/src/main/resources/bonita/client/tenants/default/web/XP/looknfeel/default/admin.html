@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+
+		<link type="text/css" rel="stylesheet" href="themeResource?theme=default&location=css/bonita_forms.css"/>
+		<link type="text/css" rel="stylesheet" href="themeResource?theme=default&location=css/BonitaConsole.css"/>
+		
+		<!--             -->
+		<!-- The favicon -->
+		<!--        	 -->
+		<link rel="icon" type="image/png" href="themeResource?theme=default&location=images/favicon2.ico" />
+		<link rel="shortcut icon" href="themeResource?theme=default&location=images/favicon2.ico" type="image/x-icon"> 
+		
+		<title>Bonita User Experience (admin)</title>
+
+		<script type="text/javascript" language="javascript" src="console.nocache.js"></script>
+		<script type="text/javascript" language="javascript" src="scripts/bonita.js"></script>
+		
+		
+
+	</head>
+
+	<body>
+
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+
+
+
+		<div id="static_console">
+			<div id="loading" >
+				<div id="bottom-right-shadow">
+					<div id="loading-content">
+						<img src="themeResource?theme=default&location=images/large-loading.gif"/><!-- Please wait while loading... -->
+					</div>
+				</div>
+			</div>
+			<!-- Default view -->
+			
+			<div id="default_view_container" style="display: none;">
+				<div>
+					<div class="headerContainer" style="height:30px;">
+						
+						
+						<div class="identif-2 bos_float_right">
+							<div onclick="window.location = 'homepage?ui=user&' + getParams(window.location.href, false)" id="ui_mode_selector"></div>
+						</div>
+					</div>
+				</div> 
+										
+				<div class="panels_container">
+					<div class="unified_panels">
+						<div id="unified_panels_top_right_corner"></div>
+  						<div id="unified_panels_shadow_top"></div>
+						<div id="left_panel">
+							<div id="WidgetContainerHeaderTop"></div>
+							<div id="bos_ProcessesMenu" class="collapsible_widget collapsible_widget-open bos_empty_menu">
+							<div id="bos_ProcessesMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_ProcessesMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_ProcessesMenuHeaderTitle"></span></div>
+								<div id="bos_ProcessesMenuWrapper" class="content">
+									<div id="bos_ProcessesLinkContainer"></div>
+									<div id="bos_CasesLinkContainer"></div>
+									<div id="bos_DocumentsLinkContainer"></div>
+									<div id="bos_CategoriesLinkContainer"></div>
+								</div>
+							</div>
+							<div id="bos_OrganizationMenu" class="collapsible_widget collapsible_widget-open bos_empty_menu">
+								<div id="bos_OrganizationMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_OrganizationMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_OrganizationMenuHeaderTitle"></span></div>
+								<div id="bos_OrganizationMenuWrapper" class="content">
+									<div id="bos_UsersLinkContainer"></div>
+									<div id="bos_PrivilegesLinkContainer"></div>
+								</div>
+							</div>
+							<div id="bos_ReportingMenu" class="collapsible_widget collapsible_widget-closed bos_empty_menu">
+								<div id="bos_ReportingMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_ReportingMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_ReportingMenuHeaderTitle"></span></div>
+								<div id="bos_ReportingMenuWrapper" class="content">
+									<div id="bos_ReportDeploymentLinkContainer"></div>
+									<div id="bos_ReportingLinkContainer"></div>
+									<div id="bos_GlobalSettingsLinkContainer"></div>
+								</div>
+							</div>
+							<div id="bos_UserLabelMenu" class="collapsible_widget collapsible_widget-closed bos_empty_menu">
+								<div id="bos_UserLabelMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_UserLabelMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_UserLabelMenuHeaderTitle"></span></div>
+								<div id="bos_UserLabelMenuWrapper" class="content">
+									<div id="bos_LabelsSettingsLinkContainer"></div>
+									<div id="bos_SyncDBLinkContainer"></div>
+								</div>
+							</div>
+							<div id="bos_MonitoringMenu" class="collapsible_widget collapsible_widget-closed bos_empty_menu">
+								<div id="bos_MonitoringMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_MonitoringMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_MonitoringMenuHeaderTitle"></span></div>
+								<div id="bos_MonitoringsMenuWrapper" class="content">
+									<div id="bos_MonitoringJVMContainer"></div>
+									<div id="bos_MonitoringProcessesContainer"></div>
+									<div id="bos_MonitoringSystemPropertiesContainer"></div>
+								</div>
+							</div>	
+							<div id="bos_ServerMenu" class="collapsible_widget collapsible_widget-closed bos_empty_menu">
+								<div id="bos_ServerMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_ServerMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_ServerMenuHeaderTitle"></span></div>
+								<div id="bos_ServerMenuWrapper" class="content">
+									<div id="bos_RemoteDeploymentLinkContainer"></div>
+									<div id="bos_LicenseLinkContainer"></div>
+								</div>							
+							</div>
+							<div id="bos_ConfigurationMenu" class="collapsible_widget collapsible_widget-closed bos_empty_menu">
+								<div id="bos_ConfigurationMenuHeader" class="bos_menu_header" onclick="toggleMenu('bos_ConfigurationMenu')"><img src="themeResource?theme=default&location=images/cleardot.gif" class="collapsible_widget_action_icon"/><span id="bos_ConfigurationMenuHeaderTitle"></span></div>
+								<div id="bos_ConfigurationMenuWrapper" class="content">
+									<div id="bos_CaseListsConfigurationLinkContainer"></div>
+									<div id="bos_ThemeSettingContainer"></div>
+								</div>
+							</div>
+							
+						</div>
+						<div id="content_panel">
+							<div class="rounded_wrapper">
+								<div id="WidgetContainer">
+									<div class="header_right_side">
+										<div class="header_left_side">
+											<div id="WidgetContainerHeaderTop">
+												<div id="you_are_here"></div>
+												<div id="MessageContainer"></div>
+											</div>
+										</div>
+									</div>
+									<div class="right_side">
+										<div class="left_side">
+											<div id="WidgetContainerContainer">
+												<div id="WidgetContainerContent"></div>
+											</div>
+										</div>
+									</div>
+									<div id="WidgetContainerContainer_bottom_left_corner">
+										<div id="WidgetContainerContainer_bottom_right_corner">
+											<div id="WidgetContainerContainer_bottom"></div>
+										</div>
+									</div>
+									<div id="WidgetContainerHeaderBottom"></div>
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="unified_panels_bottom_right_corner"></div>
+  						<div id="unified_panels_bottom"></div>
+					</div>
+				</div>
+				<div id="WidgetRefreshCasesContainer" style="display:none;"></div>
+			</div>
+		</div>
+		<div id="static_application">
+			<div id="loading">
+				<div id="bottom-right-shadow">
+					<div id="loading-content">
+						<img src="themeResource?theme=default&location=images/large-loading.gif" />
+						<!-- Please wait while loading... -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

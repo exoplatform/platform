@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Default message bundle
+-->
+<messageBundle>
+  <msg name="title">Processus Métier</msg>
+  <msg name="noprocess">Aucun Processus Déployé</msg>
+</messageBundle>

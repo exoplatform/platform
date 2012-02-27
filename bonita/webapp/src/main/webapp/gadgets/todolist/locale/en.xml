@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Default message bundle
+-->
+<messageBundle>
+  <msg name="title">My Workflow Tasks</msg>
+  <msg name="showall">Show all</msg>
+  <msg name="notask">No Pending Task</msg>
+</messageBundle>

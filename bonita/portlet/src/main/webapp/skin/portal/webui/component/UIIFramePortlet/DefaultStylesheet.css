@@ -1,0 +1,74 @@
+/**
+ * Copyright (C) 2009 eXo Platform SAS.
+ * 
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ * 
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+
+.UIIFramePortlet {
+	border: 0px solid #b7b7b7;
+	background: white;
+	margin: 7px;
+	height: auto;
+}
+	
+.UIPageDesktop .UIIFramePortlet {
+	min-height: 0;
+}
+
+*html .UIFormTabPane .UIIFramePortlet {
+	height: auto;
+}
+
+*html .UIIFramePortlet {
+	height: 400px;
+	width: 97.5%;
+}
+
+*html .UIPageDesktop .UIIFramePortlet {
+	height: auto;
+}
+
+.UIIFramePortlet iframe {
+	border: none;
+	width: 100%; height: 100%;
+	padding: 0px; margin: 0px;
+}
+
+.UIWindow .UIIFramePortlet {
+	border: none;
+	margin: 0px auto;
+	height: 100%;
+}
+
+.UIIFramePortlet .UIFormWithTitle .UIFormGrid {
+	width: auto;
+	margin: auto;
+}
+
+.UIIFramePortlet .UIFormWithTitle .HorizontalLayout {
+	border: none;
+	padding: 0px;
+}
+
+.UIIFramePortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+	border: 1px solid #c7c7c7;
+	border-top: none;
+}
+
+.UIIFramePortlet .UIFormWithTitle {
+	padding: 70px 0px;
+	margin: auto;
+}

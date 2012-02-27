@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+
+		<link href="css/bonita_forms.css" rel="stylesheet" type="text/css"/>
+		<link type="text/css" rel="stylesheet" href="css/BonitaConsole.css">
+		
+		<!--             -->
+		<!-- The favicon -->
+		<!--        	 -->
+		<link rel="icon" type="image/png" href="pictures/favicon2.ico" />
+		<link rel="shortcut icon" href="pictures/favicon2.ico" type="image/x-icon"> 
+		
+		<title>Bonita User Experience</title>
+
+		<script type="text/javascript" language="javascript" src="scripts/bonita.js"></script>
+		<script type="text/javascript" language="javascript" src="console.nocache.js"></script>
+		
+	</head>
+
+	<body>
+
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+
+
+
+		<div id="static_console">
+			<div id="loading" >
+				<div id="bottom-right-shadow">
+					<div id="loading-content">
+						<img src="pictures/large-loading.gif"/><!-- Please wait while loading... -->
+					</div>
+				</div>
+			</div>
+			<!-- Default view -->
+			
+			<div id="default_view_container" style="display: none;">
+				<div>
+					<div class="headerContainer" style="height:30px;">
+						<div id="bos_top_right_links" class="bos_float_right">
+							<span id="ui_mode_selector_parent" class="bos_empty_menu">
+								<span onclick="window.location = 'admin.html?ui=admin&' + getParams(window.location.href, false)" class="identif-2" id="ui_mode_selector"></span>
+							</span>
+						</div>
+					</div>
+				</div> 
+										
+				<div class="panels_container">
+  		
+					<div class="unified_panels">
+						<div id="unified_panels_top_right_corner"></div>
+  						<div id="unified_panels_shadow_top"></div>
+						<div id="left_panel">
+							<div id="SystemLabelBrowserContainer" ></div>
+							<div><hr class="left_panel_separator"></hr></div>
+							<div id="CategoryBrowserContainer" ></div>
+							<div><hr class="left_panel_separator"></hr></div>
+							<div id="UserLabelBrowserContainer" ></div>
+							<div id="MoreLabelAndCategoryBrowserContainer" ></div>
+							<div id="ProcessBrowserContainer"></div>
+							<div id="StatisticsViewerContainer"></div>
+							<div id="AdminContainer"></div>
+							<div id="bos_UserExternalContentContainer"></div>
+						</div>
+						<div id="content_panel">
+							<div class="rounded_wrapper">
+								<div id="WidgetContainer">
+									<div class="header_right_side">
+										<div class="header_left_side">
+											<div id="WidgetContainerHeaderTop">
+												<div id="you_are_here"></div>
+												<div id="MessageContainer"></div>
+											</div>
+										</div>
+									</div>
+									<div class="right_side">
+										<div class="left_side">
+											<div id="WidgetContainerContainer">
+												<div id="WidgetContainerContent"></div>
+											</div>
+										</div>
+									</div>
+									<div id="WidgetContainerContainer_bottom_left_corner">
+										<div id="WidgetContainerContainer_bottom_right_corner">
+											<div id="WidgetContainerContainer_bottom"></div>
+										</div>
+									</div>
+									<div id="WidgetContainerHeaderBottom"></div>
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div id="unified_panels_bottom_right_corner"></div>
+  						<div id="unified_panels_bottom"></div>
+					</div>
+				</div>
+				<div id="WidgetRefreshCasesContainer" style="display:none;"></div>
+			</div>
+		</div>
+		<div id="static_application"></div>
+	</body>
+</html>

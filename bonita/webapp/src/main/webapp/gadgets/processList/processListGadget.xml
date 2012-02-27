@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="BonitaProcessList gadget" author="eXoPlatform">
+	  <Locale messages="locale/default.xml" />
+	  <Locale lang="en" messages="locale/en.xml" />
+	  <Locale lang="fr" messages="locale/fr.xml" />  
+	  <Require feature="dynamic-height" />
+	  <Require feature="opensocial-0.8" />
+	  <Require feature="settitle" />
+	  <Require feature="views" />
+	  <Require feature="minimessage" />
+	</ModulePrefs>
+	<Content type="html">
+	
+		<![CDATA[
+		
+			<link type="text/css" rel="stylesheet" href="skin/skin.css" />
+			<link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
+			<link type="text/css" rel="stylesheet" href="/eXoDMSResources/skin/DefaultSkin/Stylesheet-lt.css" />
+			<script type="text/javascript" src="javascript/locale.js"></script>
+			<script type="text/javascript" src="javascript/processList.js"></script>   
+			
+		<div id="ProcessList-Gadget" class="UIGadgetThemes">
+			<div class="TitGad ClearFix">
+				<div class="ContTit">__MSG_title__</div>
+			</div>
+          
+			<div class="GadCont">
+
+				<div id="ProcessList" class="GadCont ProcessList"></div> 
+			</div>   
+		</div>	
+		<script type="text/javascript">
+		 
+			   gadgets.util.registerOnLoadHandler(init);
+			   
+		</script>
+			
+			
+		]]>
+	</Content>
+</Module>

@@ -1,0 +1,192 @@
+<environment-definition>
+
+	<environment-factory>
+		<!-- Description: Implementation of the BlobStrategy interface which will be used to store Blobs. -->
+		<object name='blob-strategy' class='org.ow2.bonita.type.lob.BlobStrategyBlob' />
+
+		<!-- Description: Implementation of the Classdata loader Service. -->
+		<classdata-loader name='classdata-loader' class='org.ow2.bonita.runtime.ClassDataLoader'/>
+
+		<!-- Description: Implementation of the LobCreator interface which will be used to store Clobs. -->
+		<object name='clob-strategy' class='org.ow2.bonita.type.lob.ClobStrategyChopped' />
+
+		<!-- Description: Service which executes commands -->
+		<command-service name='command-service'>
+			<retry-interceptor retries='5' delay='50' delay-factor='10'/>
+			<environment-interceptor />
+			<standard-transaction-interceptor />
+		</command-service>
+
+		<!-- Description: Implementation of the documentation manager. -->
+		<documentation-manager name='documentation-manager' class='org.ow2.bonita.services.impl.CMISDocumentManager'>
+			<arg><string value='ATOM' /></arg>
+			<arg><string value='http://localhost:8080/rest/private/cmisatom' /></arg>
+			<arg><string value='ProcessDocuments' /></arg>
+			<arg>
+				<object class='org.ow2.bonita.services.impl.ClassicCmisUserProvider'>
+					<constructor>
+						<arg><string value='root'/></arg>
+						<arg><string value='gtn'/></arg>
+					</constructor>
+				</object>
+			</arg>
+		</documentation-manager>
+
+		<!-- Description: Specify the domain of this environment -->
+		<domain id='default' />
+
+		<!-- Description: Service which executes events -->
+		<event-executor idle-min='50' idle='10000' threads='3' lock='120000' retries='5' auto-start='true' command-service='command-service'/>
+
+		<!-- Description: List of services called when an instance is finished. -->
+		<chainer name='finished-instance-handler'>
+			<!-- Description:  -->
+			<object class='org.ow2.bonita.services.handlers.impl.ArchiveFinishedInstanceHandler' />
+		</chainer>
+
+		<!-- Description: Configuration of the Hibernate session factory used by Bonita core. -->
+		<hibernate-configuration name='hibernate-configuration:core' >
+			<properties file='${BONITA_HOME}/server/default/conf/bonita-journal.properties' />
+			<mappings resource='bonita.mappings.hbm.xml' />
+			<cache-configuration resource='bonita.core.cache.xml' usage='read-write' />
+		</hibernate-configuration>
+
+		<!-- Description: Configuration of the Hibernate session factory used by Bonita history. -->
+		<hibernate-configuration name='hibernate-configuration:history' >
+			<properties file='${BONITA_HOME}/server/default/conf/bonita-history.properties' />
+			<mappings resource='bonita.mappings.hbm.xml' />
+			<cache-configuration resource='bonita.history.cache.xml' usage='nonstrict-read-write' />
+		</hibernate-configuration>
+
+		<!-- Description: Hibernate session factory used by hibernate session factory for Bonita core.. -->
+		<hibernate-session-factory name='hibernate-session-factory:core' configuration='hibernate-configuration:core' init='eager'/>
+
+		<!-- Description: Hibernate session factory used by hibernate session factory for Bonita history.. -->
+		<hibernate-session-factory name='hibernate-session-factory:history' configuration='hibernate-configuration:history' init='eager'/>
+
+		<!-- Description: Implementation of the large data repository. -->
+		<large-data-repository name='large-data-repository' class='org.ow2.bonita.services.impl.FileLargeDataRepository'>
+			<arg><string value='${BONITA_HOME}/server/default/work' /></arg>
+		</large-data-repository>
+
+		<!-- Description: Implementation of the LobCreator interface which will be used to create SQL Blobs, Clobs. -->
+		<object name='lob-creator' class='org.ow2.bonita.services.impl.HibernateLobCreator' />
+
+		<!-- Description: Mapping from java variable to database type -->
+		<variable-types resource='bonita.type.resolver.xml' />
+
+		<!-- Description: Implementation of the UUID Service. -->
+		<uuid-service name='uuid-service' class='org.ow2.bonita.services.impl.DbUUIDService'/>
+
+		<!-- Description: Properties of variables management. -->
+		<variables store-history='true'/>
+
+	</environment-factory>
+
+	<environment>
+		<!-- Description: DB Implementation of the history. This implementation is full conformant with the spec (but not optimized). -->
+		<!--
+      <history name='history' class='org.ow2.bonita.services.impl.DbHistory'/>
+       -->
+
+		<!-- Description: Optimized DB Implementation of the history. This implementation contains optimized methods. For example, a call to getUserTasks(final String userId, final ActivityState taskState)  looks in DB only if the state is an expected one in History (FINISHED is one, READY is not...) -->
+		<history name='history' class='org.ow2.bonita.services.impl.OptimizedDbHistory'>
+			<arg><string value='bonita-session:history' /></arg>
+		</history>
+
+		<!-- Description: List of archivers. -->
+		<chainer name='archiver'>
+			<!-- Description: Archiver which writes archived data to logs. -->
+			<!--
+        <archiver class='org.ow2.bonita.services.impl.LoggerArchiver' />
+         -->
+			<!-- Description: Reference to the history -->
+			<ref object='history' />
+		</chainer>
+
+		<!-- Description: Implementation of the authentication service. -->
+		<!--
+      <authentication-service name='authentication-service' class='org.ow2.bonita.services.impl.DbAuthentication'>
+        <arg><string value='bonita-session:core' /></arg>
+      </authentication-service>
+	   -->
+		<authentication-service name='authentication-service' class='org.bonitasoft.integration.ExoDemoAuthenticationImpl' />
+
+		<!-- Description: Querier used in hibernate session name for Bonita core.. -->
+		<db-session name='bonita-session:core' session='hibernate-session:core'/>
+
+		<!-- Description: Querier used in hibernate session name for Bonita history.. -->
+		<db-session name='bonita-session:history' session='hibernate-session:history'/>
+
+		<!-- Description: Implementation of the Event Service. -->
+		<event-service name='event-service' class='org.ow2.bonita.services.impl.DbThreadEventService'> 
+			<arg><string value='bonita-session:core' /></arg>
+		</event-service>
+
+		<!-- Description: Hibernate session used by hibernate session for Bonita core.. -->
+		<hibernate-session name='hibernate-session:core' factory='hibernate-session-factory:core' />
+
+		<!-- Description: Hibernate session used by hibernate session for Bonita history.. -->
+		<hibernate-session name='hibernate-session:history' factory='hibernate-session-factory:history' />
+
+		<!-- Description: List of Queriers to use. -->
+		<queryApi name='historyQueryList'>
+			<!-- Description: Reference to the history -->
+			<ref object='history' />
+		</queryApi>
+
+		<!-- Description: Implementation of the identity service. -->
+		<identity-service name='identity-service' class='org.ow2.bonita.services.impl.DbIdentity'>
+			<arg><string value='bonita-session:core' /></arg>
+		</identity-service>
+
+		<!-- Description: Implementation of the journal. -->
+		<journal name='journal' class='org.ow2.bonita.services.impl.DbJournal'> 
+			<arg><string value='bonita-session:core' /></arg>
+		</journal>
+
+		<!-- Description: List of Queriers to use. -->
+		<queryApi name='journalQueryList'>
+			<!-- Description: Reference to the journal -->
+			<ref object='journal' />
+		</queryApi>
+
+		<!-- Description: Implementation of the privilege service. -->
+		<privilege-service name='privilege-service' class='org.ow2.bonita.services.impl.DbPrivilegeService'>
+			<arg><string value='bonita-session:core' /></arg>
+		</privilege-service>
+
+		<!-- Description: List of Queriers to use. -->
+		<queryApi name='queryList'>
+			<!-- Description: Reference to the journal -->
+			<ref object='journal' />
+			<!-- Description: Reference to the history -->
+			<ref object='history' />
+		</queryApi>
+
+		<!-- Description: List of recorders. -->
+		<chainer name='recorder'>
+			<!-- Description: Recorder which writes recorded data to logs. -->
+			<!--
+        <recorder class='org.ow2.bonita.services.impl.LoggerRecorder' />
+         -->
+			<!-- Description: Reference to the journal -->
+			<ref object='journal' />
+		</chainer>
+
+		<!-- Description: Db Transaction. -->
+		<object name='transaction' class='org.ow2.bonita.runtime.tx.StandardTransaction' />
+
+		<!-- Description: Implementation of the Web Service. -->
+		<web-service name='web-service' class='org.ow2.bonita.services.impl.DbWebService'> 
+			<arg><string value='bonita-session:core' /></arg>
+		</web-service>
+
+		<!-- Description: Implementation of the web token management service. -->
+		<web-token-service name='web-token-service' class='org.ow2.bonita.services.impl.DbWebTokenManagementService'>
+			<arg><string value='bonita-session:core' /></arg>
+		</web-token-service>
+
+	</environment>
+
+</environment-definition>

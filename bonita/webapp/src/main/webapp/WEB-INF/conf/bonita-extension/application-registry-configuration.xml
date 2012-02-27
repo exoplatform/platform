@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.application.registry.ApplicationRegistryService</target-component>
+		<component-plugin>
+			<name>bonita.portlets.registry</name>
+			<set-method>initListener</set-method>
+			<type>org.exoplatform.application.registry.ApplicationCategoriesPlugins</type>
+			<description>this listener init the gadgets are registered in PortletRegister</description>
+			<init-params>
+				<object-param>
+					<name>web</name>
+					<description>description</description>
+					<object type="org.exoplatform.application.registry.ApplicationCategory">
+						<field name="name">
+							<string>web</string>
+						</field>
+						<field name="displayName">
+							<string>web</string>
+						</field>
+						<field name="description">
+							<string>BasicPortlets</string>
+						</field>
+						<field name="accessPermissions">
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value>
+									<string>*:/platform/users</string>
+								</value>
+							</collection>
+						</field>
+						<field name="applications">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.application.registry.Application">
+										<field name="categoryName">
+											<string>bonita-portlet</string>
+										</field>
+										<field name="applicationName">
+											<string>IFrameCustomPortlet</string>
+										</field>
+										<field name="displayName">
+											<string>IFrameCustom</string>
+										</field>
+										<field name="description">
+											<string>IFrameCustom</string>
+										</field>
+										<field name="type">
+											<string>portlet</string>
+										</field>
+										<field name="contentId">
+											<string>bonita-portlet/IFrameCustomPortlet</string>
+										</field>
+										<field name="accessPermissions">
+											<collection type="java.util.ArrayList" item-type="java.lang.String">
+												<value>
+													<string>*:/platform/users</string>
+												</value>
+											</collection>
+										</field>
+									</object>
+								</value>
+								<value>
+									<object type="org.exoplatform.application.registry.Application">
+										<field name="categoryName">
+											<string>bonita-portlet</string>
+										</field>
+										<field name="applicationName">
+											<string>IFrameLocalPortlet</string>
+										</field>
+										<field name="displayName">
+											<string>IFrameLocal</string>
+										</field>
+										<field name="description">
+											<string>IFrameLocal</string>
+										</field>
+										<field name="type">
+											<string>portlet</string>
+										</field>
+										<field name="contentId">
+											<string>bonita-portlet/IFrameLocalPortlet</string>
+										</field>
+										<field name="accessPermissions">
+											<collection type="java.util.ArrayList" item-type="java.lang.String">
+												<value>
+													<string>*:/platform/users</string>
+												</value>
+											</collection>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>

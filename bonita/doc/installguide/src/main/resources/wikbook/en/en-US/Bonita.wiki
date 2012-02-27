@@ -1,0 +1,75 @@
+h1.{anchor:_Toc297897628}Quick Start 
+Unzip the Platform for Bonita tomcat bundle, and execute the "start_eXo" script found at root. Use "start_eXo.bat" for Windows and "start_eXo.sh" for Linux or Mac OS/. 
+h2.{anchor:_Toc297897629}Configure Bonita server hostname 
+eXo must know where the Bonita server is located to interact via the REST api. This is controlled by two system variables set in "gatein.sh" (gatein.bat) script. By default, Platform for Bonita will use the embedded engine on localhost. For a simple local evaluation you should not need to change it. But if you want to install it on a public server, you may need to adjust the variables: 
+
+gatein.bat 
+{code}
+set BPM_HOSTNAME=localhost 
+set BPM_HTTP_PORT=8080 
+{code}
+gatein.sh 
+{code}
+BPM_HOSTNAME=localhost 
+BPM_HTTP_PORT=8080 
+{code}
+h2.{anchor:_Toc297897630}Install the licence file 
+
+{anchor:OLE_LINK1}{anchor:OLE_LINK2}Platform for Bonita requires you to install a valid BOS-SP licence otherwhise, the bonita engine will not work properly. You can get this file from your BonitaSoft account manager. If you have troubles with your existing license file, please contact the support portal [https://support.bonitasoft.com/|https://support.bonitasoft.com/]. 
+h1.{anchor:_Toc297897631}How to configure the database 
+
+The tomcat bundle comes with embedded databases configured for Bonita and Platform. You should not rely on these databases for a production environment, but change for a production database such as MySQl or Oracle. Bonita and Platform have different means of configuring their respective databases. 
+h2.{anchor:_Toc297897632}Used database 
+This bundle work on two databases: 
+* HSQL, for Platform. 
+* H2, for Bonita. 
+
+h2.{anchor:_Toc297897633}PLF database 
+To change the database used by Platform, please refer to the Platform administrator guide: [DataBase Configuration|http://docs.exoplatform.org/PLF35/index.jsp?topic=/org.exoplatform.doc.35/bk02ch03s02.html].
+h2.{anchor:_Toc297897634}Bonita database 
+In the Platform for Bonita tomcat bundle, bonita database configuration can be found under "tomcat/bonita/server/default/conf" in "bonita-history.properties" and "bonita-journal.properties". These files contain some sample configurations for supported databases (MYSQL, POSTGRESQL, ORACLE).  
+
+For details, please refer to Bonita install guides: [http://www.bonitasoft.org/wiki/doku.php?id=installation_guides|http://www.bonitasoft.org/wiki/doku.php?id=installation_guides] 
+h1.{anchor:_Toc297897635}Deploying a Process 
+
+Platform for Bonita let's you install any Bonita process via the "Bonita UXP" page embedded in the portal. To install a new process, follow these instructions: 
+* Access to the portal, http://localhost:8080/portal 
+* Login with "root/gtn" user or "admin/bpm" 
+* Go to the page "bonitaXP" 
+
+!images/worddavd9e288ae0def9795ffe11124d2dc0c6a.png|height=320,width=623! 
+
+*Figure 1 Access to "bonitaXP" menu* 
+* You will find a link "Administration" at the top right of the page to allow you to administrate the bonita engine. Click on this link. 
+
+!images/worddav9ecb05506b017447b43b2016b50f54be.png|height=296,width=624! 
+
+*Figure 2.UXP homepage* 
+
+
+!images/worddavc31004453ce8dcaa4e8662dd781309eb.png|height=296,width=624! 
+
+*Figure 3 Administration view* 
+* Click on "install" buttom to have a popup that will allow us to select the "bar" file to be installed on the engine. On this case, we will installe the "leave application" process. See the screen. 
+
+!images/worddav19fa6b6976491930a7e179c3ae24ca6c.png|height=296,width=624! 
+
+*Figure 4 install Process* 
+* As shown below, the process appears in the list, indicating the install has been done successfully. 
+
+!images/worddav6fa51b590c84fd1d72684c8dc9e34d0d.png|height=296,width=624! 
+
+*Figure 5 view installed process* 
+* Return to the intranet homepage: 
+
+!images/worddav43da5db2354f2b690330f86d6fc3166a.png|height=296,width=624! 
+
+*Figure 6 intranet homepage* 
+* To start this process, click on the appropriate link showed on the gadget "process list". 
+
+!images/worddav086d1c11bc68c99abfecbc7fe17ca558.png|height=296,width=624! 
+
+*Figure 7 leave application start page* 
+h1.{anchor:_Toc297897636}Migrating from an existing BOS install 
+If you are an existing BOS-SP customer, you may want reuse your processes done in BOS standalone inside Platform for Bonita. This requires a straightforward migration procedure that is detailed in the migration toolkit delivered in this package. 
+Open "bos-migration/doc/index.hml" for full instructions.

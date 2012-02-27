@@ -1,0 +1,53 @@
+.UIGadgetThemes .TodosList .ReadPost {
+ color:#cccccc;
+}
+
+.UIGadgetThemes .GadCont span {
+    color: #1A1A1A;
+    font-weight: bold;
+}
+
+.UIGadgetThemes .GadCont .customLink {
+	text-decoration:underline;
+	color:#226ab4; 
+	cursor:pointer;
+	font-weight: normal;
+}
+
+.UIGadgetThemes .TodosList .CreatedDate {
+ color:#707070;
+ font-style: italic;
+ padding-left: 25px;
+ padding-top: 2px;
+}
+
+.UIGadgetThemes .Icon {
+  color: #000000;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  text-decoration: none;
+}
+.link_0 {
+color: green !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;
+}
+
+.link_1 {
+color: #EC8E00 !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;  
+}
+
+.link_2 {
+color: red !important;
+margin-bottom: 5px;
+padding-left: 0px;
+text-decoration: none;
+display: block;
+}
+

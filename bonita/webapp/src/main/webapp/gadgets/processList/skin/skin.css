@@ -1,0 +1,22 @@
+.UIGadgetThemes .ProcessList .ReadPost {
+ color:#cccccc;
+}
+.UIGadgetThemes .GadCont .ProcessList {
+    font-size: 11px;
+    padding: 10px 8px;
+	color: lightgray;
+}
+.UIGadgetThemes .GadCont .customLink {
+	text-decoration:underline;
+	color:#226ab4; 
+	cursor:pointer;
+	font-weight: normal;
+}
+.UIGadgetThemes .ProcessList .CreatedDate {
+ color:#707070;
+ font-style: italic;
+ padding-left: 25px;
+ padding-top: 2px;
+}
+.ArrowIcon {float: left; padding-top: 5px; margin-right: 10px;}
+.ArrowIcon img {width: 9px; height: 9px; background: url('images/ArrowRight.gif') no-repeat top;}

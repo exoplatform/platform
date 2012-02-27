@@ -1,0 +1,518 @@
+/* */
+.bos_admin_mode .unified_panels {
+	margin-right: inherit;	
+}
+
+/* */
+/* Rule list (Begin) */
+.bos_rule_list_name {
+	width: 20%;
+}
+
+.bos_rule_list_type {
+	width: 20%
+}
+
+.bos_rule_list_description {
+	overflow: hidden;
+	width: 60%
+}
+
+.bos_global_policy_label{
+	color:grey;
+	cursor:default;
+	font-size: large;
+}
+
+.item_list_content_row_title td {
+    padding-right: 7px;
+    padding-top: 3px;
+}
+
+.bos_rule_creation {
+	width: 100%;
+}
+/* Rule list (End) */
+/* Privilege mgmt (Begin) */
+.bos_privilege_action_panel{
+	text-align: center;
+	width: 100%;
+}
+
+.bos_rule_editor{
+	background:none repeat scroll 0 0 #F5F5F5;
+	padding: 7px;
+}
+
+.bos_rule_editor .link_label {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.bos_rule_editor_header {
+	background-color: #CCCCCC;
+	font-weight: bold;
+	padding: 3px;
+	text-align: left;
+}
+
+.bos_rule_editor_header_message {
+	font-weight: lighter;
+	font-style: italic;
+	padding-left: 7px;
+	text-align: left;
+	display: inline;
+}
+
+.bos_rule_editor_empty_message {
+	color: grey;
+}
+
+.bos_rule_editor TEXTAREA, .bos_rule_editor_dialog TEXTAREA{
+	font-size: 10pt;
+	width: 100%;
+}
+
+.bos_rule_editor INPUT, .bos_rule_editor_dialog INPUT{
+	width: 100%;
+}
+
+.bos_rule_mandatory_symbol {
+	color: #DE1C18;
+	text-align: right;
+}
+
+.bos_rule_feature_target input {
+ width: auto;
+ margin-left: 10px;
+}
+
+.bos_rule_feature_target {
+  margin-right: 20px;
+}
+
+.bos_rule_editor .item_list input {
+	width:12px;
+}
+
+.bos_rule_type_policy_chooser_sentence {
+	display: inline;
+	padding-left:	5px;
+}
+
+.bos_rule_editor_definition {
+	white-space: normal;
+}
+
+.bos_rule_editor_definition div{
+	display: inline;
+	padding-left: 3px;
+}
+
+.bos_rule_editor_tabpanel {
+	float: left;
+	margin: 7px auto auto;
+	width: 100%;
+}
+
+.bos_rule_editor_tabpanel .gwt-TabPanelBottom {
+	background-color:#FFFFFF;
+}
+
+.bos_rule_editor .bos_group_panel_content .bos_textbox_editor, .bos_rule_editor .bos_group_panel_content .bos_textarea_editor,
+.bos_rule_editor .bos_group_panel_content .bos_listbox_editor {
+	float: left;
+	width: 24%
+}
+.bos_rule_editor .bos_group_panel {
+	background-color:#FFFFFF;
+	float: left;
+	margin:7px auto 5px;
+	width: 100%;
+}
+
+.bos_rule_editor .bos_group_panel .bos_group_panel_content {
+	float:	left;
+	padding-bottom:	5px;
+	padding-left:	5px;
+}
+
+.bos_rule_overview {
+	min-height: 400px;
+}
+
+.bos_allow {
+	color: green;
+	font-weight: bold;
+}
+
+.bos_deny {
+	color: red;
+	font-weight: bold;
+}
+/* Privilege mgmt (End) */
+/* Remote deployment (Begin) */
+.disabled_settings_element_label {
+	color: #B1B5BE;
+}
+
+.half_size_settings_element {
+	width: 50%;
+}
+
+.half_size_settings_element_field {
+	width: 98%;
+	padding: 2px;
+}
+/* Remote deployment (End) */
+/* Item list editor (Begin) */
+.bos_groups_list_editor{
+	width: 100%;
+}
+
+.bos_membership_list_editor{
+	width: 100%;
+}
+
+.bos_users_list_editor{
+	width: 100%;
+}
+
+.bos_roles_list_editor{
+	width: 100%;
+}
+/* Item list editor (End) */
+/* Item filter editor (Begin) */
+.bos_item_filter_editor_col_wrapper {
+	background-color:#F5F5F5;
+	border:1px solid lightgray;
+	clear:both;
+	float:left;
+	margin: auto auto auto 1%;
+	padding:0;
+	width:98%;
+}
+.bos_filter_element_column_1 {
+	float:left;
+	padding-left:50px;
+	padding-top:5px;
+}
+.bos_filter_element_column_2 {
+	float:left;
+	padding-left:50px;
+	padding-top:5px;
+}
+.bos_item_filter_editor-open {
+	clear: both;
+	float: none;
+}
+
+.bos_item_filter_editor-closed {
+	clear: none;
+	float: right;
+}
+
+.bos_item_filter_editor-closed .bos_item_filter_editor_content .bos_filter_element {
+	float: left;
+	margin-right: 20px;
+}
+
+.bos_item_filter_editor-open .bos_item_filter_editor_content {
+	float: none;
+}
+.bos_item_filter_editor-open .bos_item_filter_editor_page_browser {
+	float: right;
+}
+.bos_item_filter_editor-open .bos_item_filter_editor_content .b-MenuBar {
+	clear: both; 
+	margin-left: 42%;
+}
+.bos_item_filter_editor-open .bos_item_filter_editor_content .bos_filter_element_column_1 .b-MenuBar, .bos_item_filter_editor-open .bos_item_filter_editor_content .bos_filter_element_column_2 .b-MenuBar{
+	clear: none; 
+	margin-left: 0;
+}
+.bos_item_filter_editor-open .bos_filter_element_title {
+	font-weight: bold;
+	padding: 5px;
+}
+.bos_filter_element .bos_item_viewer {
+	float: left;
+	padding-left: 7px;
+}
+.bos_filter_element_wrapper {
+	padding-left: 7px;
+	float: left;
+}
+.bos_filter_element_wrapper .gwt-Label {
+	font-weight: normal;
+	float: left;
+}
+.bos_filter_element_wrapper .gwt-DateBox {
+	float: left;
+}
+.bos_filter_element_wrapper .gwt-TextBox {
+	float: left;
+}
+.bos_filter_element_any {
+	color: gray;
+	font-style: italic;
+}
+.bos_item_filter_editor-open .bos_filter_element .bos_item_filter_history {
+	margin-top: 5px;
+}
+/*Item filter editor (End) */
+/** Rule filter editor (Begin) */
+.bos_rule_filter_editor_ruletype_selector {
+	margin-top: 3px;
+}
+.bos_rule_filter_editor_ruletype_selector .gwt-Label {
+	float: left;
+}
+
+.bos_rule_filter_editor_ruletype_selector .gwt-ListBox {
+	float: left;
+}
+/** Rule filter editor (End) */
+/** Report editor (Begin) */
+.bos_report_editor_panel {
+	
+}
+.bos_report_editor {
+	width: 540px;
+	margin: auto;
+}
+
+.bos_report_editor_panel .bos_report_definition_editor {
+	width: 100%;
+}
+
+.bos_report_definition_editor .gwt-TextBox {
+	width: 90%;
+}
+
+.bos_report_definition_editor .gwt-TextArea {
+	width: 90%;
+}
+
+.bos_report_definition_editor .gwt-TextArea {
+	width: 90%;
+}
+
+.bos_report_editor .bos_file_upload_editor .field_label {
+	float: left;
+	margin-right: 7px;
+}
+
+.bos_report_definition_editor .bos_file_upload_editor .field_edit {
+	float: left;
+}
+.bos_report_definition_editor .bos_file_upload_editor .field_view {
+	float: left;
+}
+.bos_report_definition_editor .bos_file_upload_editor .empty_field {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.bos_document_editor .bos_file_upload_editor .empty_field {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.bos_report_editor_panel .bos_title_text {
+	margin-bottom: 7px;
+	margin-top: 14px;
+	text-align: center;
+}
+
+.bos_report_editor_panel .bos_multi_select_listBox {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 7px;
+	width: 540px;
+}
+
+.bos_report_editor_panel .bos_report_lib_editor_wrapper .bos_report_lib_actions_wrapper {
+}
+
+.bos_report_editor_panel .bos_report_lib_editor_wrapper .bos_report_lib_actions_wrapper .b-MenuBar {
+	margin: auto;
+}
+
+.bos_report_editor_panel .bos_report_datasource_panel {
+	margin-left: auto;
+	margin-right: auto;
+	width: 540px;
+}
+
+.bos_report_editor_panel .bos_report_datasource_panel .bos_report_datasource {
+	width: 100%;
+}
+
+.bos_report_editor_panel .bos_report_datasource_panel .bos_report_datasource input {
+	width: 100%;
+}
+
+.bos_report_editor_panel .bos_report_datasource_panel .b-MenuBar {
+	margin: auto;
+}
+
+.bos_report_editor_panel .bos_report_test_wrapper .bos_report_parameters {
+	width: 540px;
+	margin: auto;
+}
+.bos_report_editor_panel .bos_report_test_wrapper .bonita_report {
+	width: 800px;
+}
+
+.bos_deploy_resource_panel {
+
+}
+
+.bos_pdf_button {
+	float: right;
+	padding-right: 10px;
+	cursor: pointer;
+	width: 22px;
+	height: 22px;
+}
+
+/**  Report editor (End)  */
+/** Remote deployment (Begin) */
+.bos_remoteDeployment_panel table {
+	margin: auto;
+}
+/** */
+/** Reports list (Begin) */
+.bos_report_deploy .bos_report_definition_editor {
+	width: 100%;
+}
+/** Reports list (End) */
+/** Documents list (End) */
+.bos_documents_list_editor {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+}
+.bos_documents_list_editor .item_list{
+	border: solid lightgrey 1px;
+}
+.bos_caseid_document_column {
+	width: 100%;
+}
+/** Documents list (End) */
+/** Document editor (Begin) */
+.bos_document_editor {
+	width: 100%;
+}
+.bos_document_editor_panel .bos_title_text {
+	display: inline;
+	margin-right: 5px;
+}
+/** Document editor (End) */
+/** Case editor (Begin) */
+.bos_attachment_panel .bos_title_text {
+	display: inline;
+	margin-right: 5px;
+}
+/** Case editor (End) */
+
+/* Monitoring (Begin) */
+.bos_monitoring_panel {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+}
+.bos_jvm_monitoring_graph {
+	float:left;
+}
+.bos_jvm_monitoring_graph_title{
+	font-weight: bold;
+}
+.bos_jvm_monitoring_label {
+	align:right;
+}
+.bos_monitoring_help{
+	margin-left:3px;
+}
+
+.bos_processes_monitoring_graph {
+	float:left;
+}
+.bos_processes_monitoring_label {
+	align:right;
+}
+.bos_processes_monitoring_help{
+	margin-left:3px;
+}
+.bos_main_fieldset_chart{		 	
+	margin:20px;
+  	margin-right: auto;
+	margin-left: auto;	
+}
+.bos_fieldset_chart{
+	background: #ECEDF0;
+	margin: 10px;
+	width: 1090px;
+	height: 340px;
+	float:left;
+}
+.bos_monitoring_line{
+  	margin-right: auto;
+	margin-left: auto;
+}
+.bos_monitoring_grid{
+	/* width: 1000px; */
+}
+.bos_monitoring_grid_title{
+	text-align: center;
+	font-size: 18px;
+}
+.bos_monitoring_grid td{
+	width: 150px;
+}
+.bos_monitoring_system_properties_grid_name{
+	text-align:left;
+	font-weight:bold;
+	color:#555555;
+	width:400px;
+	word-wrap: break-word;
+	padding:5px;
+}
+.bos_monitoring_system_properties_grid_value{
+	word-wrap: break-word;
+	padding:5px;
+	width: 100%;
+}
+.bos_monitoring_system_properties_grid{
+	table-layout: fixed;
+}
+.bos_monitoring_grid_background-even{
+	background-color:#E9E9E9;
+}
+.bos_monitoring_grid_value_column_size{
+	width: 100%;
+}
+.bos_monitoring_scroll_panel{
+	margin-bottom:20px;
+}
+.bos_monitoring_grid_row{
+	padding:5px;
+}
+.bos_monitoring_chart{
+	margin-top: 40px
+}
+.bos_monitoring_info{
+	font-weight:bold;
+  	margin-right: auto;
+	margin-left: auto;	
+}
+/* Monitoring (End) */
+
+.bos_licence_grid_title{
+	text-align:left;
+	font-weight:bold;
+	color:#555555;		
+}

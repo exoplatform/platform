@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<page-set
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_2 http://www.gatein.org/xml/ns/gatein_objects_1_2"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_2">
+
+	<page>
+		<name>newAccount</name>
+		<title>New Account</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>AccountPortlet</portlet-ref>
+			</portlet>
+			<title>New Account</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>           
+
+	<page>
+		<name>communityManagement</name>
+		<title>Community Management</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>OrganizationPortlet</portlet-ref>
+			</portlet>
+			<title>Community Management</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>      
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>registry</name>
+		<title>Registry</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>ApplicationRegistryPortlet</portlet-ref>
+			</portlet>
+			<title>Application Registry</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>pageManagement</name>
+		<title>Page Management</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>    
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>PageManagementPortlet</portlet-ref>
+			</portlet>
+			<title>Page Management</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+	<page>
+		<name>bonitaXP</name>
+		<title>Business Process Management</title>
+		<access-permissions>manager:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>bonita-portlet</application-ref>
+				<portlet-ref>UIIFrameLocalPortlet</portlet-ref>
+				<preferences>
+					<preference>
+						<name>url</name>
+						<value>/bonita</value>
+						<read-only>false</read-only>
+					</preference>
+				</preferences>
+			</portlet>
+			<title>Business Process Management</title>
+			<access-permissions>manager:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<height>640px</height>
+		</portlet-application>
+	</page>
+	<page>
+		<name>newStaff</name>
+		<title>New Staff</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>AccountPortlet</portlet-ref>
+			</portlet>
+			<title>New Staff</title>
+			<access-permissions>*:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<show-application-state>false</show-application-state>
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>management</name>
+		<title>Organization Management</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>manager:/platform/administrators</edit-permission>
+
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>OrganizationPortlet</portlet-ref>
+			</portlet>
+			<title>Organization Management</title>
+			<access-permissions>*:/platform/administrators</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+
+	<page>
+		<name>portalnavigation</name>
+		<title>Portal Navigation</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>    
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>PortalNavigationPortlet</portlet-ref>
+			</portlet>
+			<title>Portal Navigation</title>
+			<access-permissions>Everyone</access-permissions>
+			<show-info-bar>false</show-info-bar>
+			<show-application-state>false</show-application-state>
+			<show-application-mode>false</show-application-mode>
+		</portlet-application>
+	</page>
+	<page>
+		<name>groupnavigation</name>
+		<title>Group Navigation</title>
+		<access-permissions>*:/platform/administrators</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<portlet-application>
+			<portlet>
+				<application-ref>exoadmin</application-ref>
+				<portlet-ref>GroupNavigationPortlet</portlet-ref>
+			</portlet>
+			<title>Group Navigation</title>
+			<access-permissions>Everyone</access-permissions>
+			<show-info-bar>false</show-info-bar>
+		</portlet-application>
+	</page>
+  <page>
+    <name>servicesManagement</name>
+    <title>Services Management</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>    
+    <gadget-application>
+      <gadget>
+        <gadget-ref>ServicesManagement</gadget-ref>
+      </gadget>
+      <title>Services Management</title>
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </gadget-application>
+  </page>
+  <page>
+    <name>monitoring</name>
+    <title>Monitoring</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+
+    <container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <!-- MemoryCharts gadget -->
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://MemoryCharts</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://CacheLevels</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+
+      <container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>manager:/platform/administrators</access-permissions>
+        <!-- ApplicationsStatistics gadget -->
+        <portlet-application>
+          <portlet>
+            <application-ref>dashboard</application-ref>
+            <portlet-ref>GadgetPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>url</name>
+                <value>local://ApplicationsStatistics</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Gadget Portlet</title>
+          <access-permissions>manager:/platform/administrators</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>true</show-application-state>
+        </portlet-application>
+      </container>
+    </container>
+  </page>
+</page-set>

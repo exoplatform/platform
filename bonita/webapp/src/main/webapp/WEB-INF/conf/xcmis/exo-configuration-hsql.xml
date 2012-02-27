@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	
+	<!--
+	<component>
+		<type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
+		<init-params>
+			<properties-param>
+				<name>locations</name>
+				<property name="repository" value="system" />
+			</properties-param>
+		</init-params>
+	</component>
+	
+	
+	<component>
+		<type>org.exoplatform.ecms.xcmis.sp.DriveCmisRegistry</type>
+		<init-params>
+			<value-param>
+				<name>indexDir</name>
+				<value>${gatein.jcr.index.data.dir}/</value>
+			</value-param>
+			<value-param>
+				<name>repository</name>
+				<value>repository</value>
+			</value-param>
+		</init-params>
+	</component>
+	-->
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>Sample RepositoryServiceConfiguration Plugin</name>
+			<!-- The name of the method to call on the RepositoryServiceConfiguration in order to add the RepositoryServiceConfigurations -->
+			<set-method>addConfig</set-method>
+			<!-- The full qualified name of the RepositoryServiceConfigurationPlugin -->
+			<type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationPlugin</type>
+			<init-params>
+				<value-param>
+					<name>conf-path</name>
+					<description>JCR configuration file</description>
+					<value>war:/conf/xcmis/cmis-jcr-configuration-hsql.xml</value>
+				</value-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+		<component-plugin>
+			<name>addPaths</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>
+			<init-params>
+				<object-param>
+					<name>cms.drive.path.configuration</name>
+					<description>config for storage to store running sites content</description>
+					<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+						<field name="workspaces">
+							<collection type="java.util.ArrayList">
+								<value>
+									<string>cmis1</string>
+								</value>
+							</collection>
+						</field>
+						<field name="jcrPaths">
+							<collection type="java.util.ArrayList">
+								<value>
+									<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
+										<field name="alias">
+											<!--<string>exoDrivesPath</string>-->
+											<string>xcmisDrivesPath</string>
+										</field>
+										<field name="path">
+											<string>/exo:drives</string>
+										</field>
+									</object>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.cms.drives.ManageDriveService</target-component>
+		<component-plugin>
+			<name>manage.drive.plugin</name>
+			<set-method>setManageDrivePlugin</set-method>
+			<type>org.exoplatform.services.cms.drives.impl.ManageDrivePlugin</type>
+			<description>Nothing</description>
+			<init-params>
+				<object-param>
+					<name>ProcessDocuments</name>
+					<description>Bonita Document Library</description>
+					<object type="org.exoplatform.services.cms.drives.DriveData">
+						<field name="name">
+							<string>ProcessDocuments</string>
+						</field>
+						<field name="workspace">
+							<string>cmis1</string>
+						</field>
+						<field name="permissions">
+							<string>*:/platform/administrators</string>
+						</field>
+						<field name="homePath">
+							<string>/</string>
+						</field>
+						<field name="icon">
+							<string></string>
+						</field>
+						<field name="views">
+							<string>wcm-category-view</string>
+						</field>
+						<field name="viewPreferences">
+							<boolean>false</boolean>
+						</field>
+						<field name="viewNonDocument">
+							<boolean>true</boolean>
+						</field>
+						<field name="viewSideBar">
+							<boolean>true</boolean>
+						</field>
+						<field name="showHiddenNode">
+							<boolean>false</boolean>
+						</field>
+						<field name="allowCreateFolders">
+							<string>nt:folder,nt:unstructured</string>
+						</field>
+						<field name="allowNodeTypesOnTree">
+							<string>*</string>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	
+
+</configuration>

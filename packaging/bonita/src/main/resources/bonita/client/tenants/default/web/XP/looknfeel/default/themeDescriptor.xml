@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<theme author="bonitasoft" creationDate="1312979182074" description="The default theme" imagePreview="preview.jpg" name="default" provided="true" type="userXP" updateDate="1313660940312">
+  <bindings>
+	<binding description="You can set the background of the whole userXP" name="user experience">
+      <css-rule>.user_experience</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	 <binding description="header: The page's header. Set header's style, eg:background,width, height and so on" name="header">
+      <css-rule>.headerContainer</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="The positions of logo. Set the logo what you want" name="logo">
+      <css-rule>div#logo</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: UserXP's title. Set header's title for your userXP" name="header title">
+      <css-rule>div#header_title</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: Show the user name who login userXP, you can set 'Color, font family, size and so on'" name="header username">
+      <css-rule>.identif-1</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: The position of locale choose. you can set locale chooser's style" name="header language selector">
+      <css-rule>.bonita_locale_chooser</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: The about of your userXP. you can set about's style" name="header userXP about">
+      <css-rule>.identif-2, .identif-2:visited, .identif-2:hover</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: The position of mode selector. you can set mode selector's style" name="header mode selector">
+      <css-rule>#ui_mode_selector</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="header: The position of logout. you can set logout's style" name="header logout">
+      <css-rule>.identif-2 a, .identif-2 a:visited, .identif-2 a:hover</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+
+	<binding description="body: Admin's unified panels" name="body admin panels">
+      <css-rule>.bos_admin_mode .unified_panels</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="body: User's unified panels" name="body user view panels">
+      <css-rule>.unified_panels</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="body: The left panel of page's body" name="body left panel">
+      <css-rule>div#left_panel</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="body: The center panel of page's body" name="body center panel">
+      <css-rule>.center_panel</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+	<binding description="widget container: Show your postion in the top panel of widget container.eg:inbox, starred,my cases" name="you are here">
+      <css-rule>div#you_are_here</css-rule>
+      <css-file>css/BonitaConsole.css</css-file>
+    </binding>
+  </bindings>
+</theme>

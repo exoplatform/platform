@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.bonita.component</artifactId>
+		<version>3.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.platform.bonita.component.uiextension</artifactId>
+	<packaging>jar</packaging>
+	<name>Platform for Bonita - WebUI extensionfilters</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.exoplatform.commons</groupId>
+			<artifactId>exo.platform.commons.webui.ext</artifactId>
+			<version>${org.exoplatform.commons.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.webui.portal</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>exo-ecms-core-webui-explorer</artifactId>
+			<version>${org.exoplatform.ecms.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.platform</groupId>
+			<artifactId>exo.platform.bonita.component.services</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

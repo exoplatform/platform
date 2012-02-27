@@ -1,0 +1,36 @@
+<%
+	import javax.portlet.PortletMode ;
+%>
+
+<div class="UIIFramePortlet" id="$uicomponent.id" name="test">
+	<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {%>
+		<iframe src="<%=uicomponent.getURL()%>"></iframe>
+	<%} else {
+			uicomponent.renderChildren();
+		}
+	%>
+</div>
+<script type="text/javascript">
+	var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
+	if (uiWorkingWS) {
+		var iFrames = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWS, "div", "UIIFramePortlet");
+		if (iFrames.length) {
+			for (var i = 0; i < iFrames.length; i ++) {
+				var portletFrag = eXo.core.DOMUtil.findAncestorByClass(iFrames[i], "PORTLET-FRAGMENT");
+				portletFrag.style.overflow = "hidden" ;
+				iFrames[i].style.height = "98%";
+				if(!portletFrag.style.height) {
+					portletFrag.style.height = "400px" ;
+					var iframe = eXo.core.DOMUtil.getChildrenByTagName(iFrames[i], "iframe")[0] ;
+					if(iframe.offsetHeight < iFrames[i].offsetHeight) iframe.style.height = iFrames[i].offsetHeight + "px" ;
+				} /*else {
+					var uiWindow = eXo.core.DOMUtil.findAncestorByClass(portletFrag, "UIWindow");
+					if(!uiWindow) {
+						var windowHeight = parseInt(portletFrag.style.height) - 15 + "px";
+						iFrames[i].style.height = windowHeight;
+					}
+				}*/
+			}
+		}
+	}
+</script>

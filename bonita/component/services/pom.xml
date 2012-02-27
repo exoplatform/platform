@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.platform</groupId>
+		<artifactId>exo.platform.bonita.component</artifactId>
+		<version>3.5.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>exo.platform.bonita.component.services</artifactId>
+	<packaging>jar</packaging>
+	<name>Platform for Bonita - Core Services</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.component.web.api</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.portal</groupId>
+			<artifactId>exo.portal.webui.portal</artifactId>
+			<version>${org.exoplatform.portal.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.jcr</groupId>
+			<artifactId>exo.jcr.component.core</artifactId>
+			<version>${org.exoplatform.jcr.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>exo-ecms-core-publication</artifactId>
+			<version>${org.exoplatform.ecms.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.ecms</groupId>
+			<artifactId>exo-ecms-core-publication-plugins</artifactId>
+			<version>${org.exoplatform.ecms.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.exoplatform.social</groupId>
+			<artifactId>exo.social.component.core</artifactId>
+			<version>${org.exoplatform.social.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
