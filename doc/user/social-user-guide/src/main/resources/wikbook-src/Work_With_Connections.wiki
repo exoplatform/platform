@@ -1,8 +1,8 @@
-To build your connections, you first need to hover your cursor over the display name on the *Administration* bar and select *My Network* from the drop-down menu.
+To build your connections, you first need to hover your cursor over the display name on the *Administration* bar and select *My Connections* from the drop-down menu.
 
 !images/Select_network.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
-The *Network* page appears.
+The *Connections* page appears.
 
 !images/Network_information.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -30,7 +30,7 @@ This function allows you to find your desired contact quickly by searching by na
 
 *1.* Select the relevant tab in which you want to do your search.
 
-* To search across all users in eXo Platform, select the *Everyone* tab. Alternatively, you can hover your cursor over your display name and select *Find People* from the drop-down menu.
+* To search across all users in eXo Platform, select the *Everyone* tab. Alternatively, you can hover your cursor over your display name and select *Find Connections* from the drop-down menu.
 
 * To reduce the returned search results, select the appropriate tab before using the search box. For example, to search for contacts with whom you have established connections, you need to select the *My Connections* tab.
 

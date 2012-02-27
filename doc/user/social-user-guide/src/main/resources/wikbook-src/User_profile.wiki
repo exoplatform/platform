@@ -20,7 +20,7 @@ Go to the *Activity Stream* page first, then select the *My Profile* tab in the 
 
 *The third way*
 
-Go to the *My Network* page first, then select the *My Profile* tab in the left pane.
+Go to the *My Connections* page first, then select the *My Profile* tab in the left pane.
 
 !images/Ways_enter_profile.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
