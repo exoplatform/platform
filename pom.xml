@@ -234,6 +234,6 @@
     <module>doc</module>
     <module>packaging</module>
     <module>testsuite</module>
-    <module>cloud</module>
+    <!-- module>cloud</module -->
   </modules>
 </project>
