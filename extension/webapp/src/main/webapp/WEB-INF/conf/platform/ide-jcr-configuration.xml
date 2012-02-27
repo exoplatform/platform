@@ -15,9 +15,13 @@
    <component>
       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
       <init-params>
-         <properties-param>
-            <name>locations</name>
-         </properties-param>
+        <properties-param>
+          <name>locations</name>
+        </properties-param>
+        <values-param>
+          <name>mixin-names</name>
+          <value>exo:hiddenable</value>
+        </values-param>
       </init-params>
    </component>
 
