@@ -109,26 +109,7 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
     return page == null || UIDesktopPage.DESKTOP_FACTORY_ID.equals(page.getFactoryId());
   }
 
-  private UserNode findDashboardNode() throws Exception {
-    Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
-    if(nodes == null) {
-      return null;
-      
-    }
-    else
-      {
-         for(UserNode node : nodes)
-         {
-            if(!isWebOSNode(node))
-            {
-               return node;
-            }
-         }
-        return null;
-       }
-  }
-
-  public String getDashboardURL() throws Exception {
+   public String getDashboardURL() throws Exception {
     Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
     if (nodes == null || nodes.isEmpty()) {
       return NavigationURLUtils.getURL(SiteKey.user(WebuiRequestContext.getCurrentInstance().getRemoteUser()), DEFAULT_TAB_NAME);
