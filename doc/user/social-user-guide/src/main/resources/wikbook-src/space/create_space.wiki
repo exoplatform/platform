@@ -81,20 +81,22 @@ After you have selected one existing group, all users in that group will be invi
 
 !images/add_new_space_invite_users1.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<note>
-    <para>
-    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration</emphasis> bar. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
-    </para>
-</note>
-{docbook}
-
 *5.* Click *Create* to finish adding your new space.
+
+The new space appears.
+
+!images/new_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+* Click each application on the space *Navigation* bar to use its functions.
+* When a new space is created, a forum with the same name as this space is also created in the *Forum* application. In case this forum is removed from the *Forum* application, all members of the space cannot see the space's forum anymore when clicking *Discussions* on the space *Navigation* bar.
 
 {docbook}
 <note>
     <para>
     When more than two space characters are input between words in the space name, these spaces will be converted to ONLY ONE space when being displayed. With space characters at the beginning and end of space names, these space characters will be also omitted.
+    </para>
+    <para>
+    After being created, your space will be automatically added to the <emphasis role="bold">My Spaces</emphasis> button on the <emphasis role="bold">Administration</emphasis> bar. Therefore, you can access your space by clicking <emphasis role="bold">My Spaces --> [Space Name]</emphasis> from the drop-down menu.
     </para>
 </note>
 {docbook}
