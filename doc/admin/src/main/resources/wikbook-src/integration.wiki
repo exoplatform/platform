@@ -5,7 +5,7 @@ The eXo Platform integration with another systems is very important. To make eXo
 Operations involved in synchronizing eXo Platform's backend settings with the organizational entities are called <emphasis role="bold">organizational model integration</emphasis>.
 </para>
 <para>
-The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, through the following topics:
+By default, the integration with an enteprise directory is done via picketlink IDM. You can refer to <ulink url="../../reference/html/bk02ch06.html#sect-Reference_Guide-PicketLink_IDM_integration">PicketLink IDM Integration</ulink> chapter for details. The goal of this chapter is to instruct you how to connect eXo Platform to a populated organizational data source, such as LDAP Server, MS ActiveDirectory, or Database, through the following topics:
 </para>
 <itemizedlist>
 <listitem>
@@ -15,27 +15,32 @@ The goal of this chapter is to instruct you how to connect eXo Platform to a pop
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model">Integrate the organizational model</link>
+<link linkend="ADM.Integration.Integrate_organizational_model">Sync Platform with an existing Directory</link>
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Platform_startup">eXo Platform start-up</link>
+<link linkend="ADM.Integration.Integrate_organizational_model.Platform_startup">Sync at startup</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.User_login">User login</link>
+<link linkend="ADM.Integration.Integrate_organizational_model.User_login">Sync at login time</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Manual_sync">Manual sync</link>
+<link linkend="ADM.Integration.Integrate_organizational_model.Manual_sync">Sync on demand</link>
 </para>
 </listitem>
 <listitem>
 <para>
 <link linkend="ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync">Scheduled/Periodic sync</link>
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Organization.Lagacy_Organization_Config">Use Legacy Organization Models</link>
 </para>
 </listitem>
 </itemizedlist>
@@ -58,14 +63,14 @@ Before learning about how to integrate the organizational model, you should be a
 
 * *Listener* is a part of eXo Platform organization management. When an organizational element is added, a set of listeners is triggered to integrate it into eXo Platform. For example, when a user is added to eXo Platform, there is a listener which will add its private and public drives.
 
-h1. Integrate the organizational model {anchor:id=ADM.Integration.Integrate_organizational_model}
+h1. Sync Platform with an existing Directory {anchor:id=ADM.Integration.Integrate_organizational_model}
 
 When an external organizational data source (LDAP server, MS ActiveDirectory) is used, eXo Platform must be notified of any changes on organizational entities, including addition, deletion and update. These changes are reflected in the backend settings of eXo Platform. 
 These notifications are performed thanks to several means provided by eXo Platform. Pick up one of the following use cases related to your needs.
 
 Pick up one of the following use cases of integration execution related to your needs. {anchor:id=ADM.Integration.Integrate_organizational_model.Integration_execution_use_cases}
 
-h2. eXo Platform start-up {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
+h2. Sync at startup {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
 
 At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*.
 
@@ -84,11 +89,11 @@ In case you want to disable groups synchronization at start-up, and proceed manu
 </component>
 {code}
 
-h2. User login {anchor:id=ADM.Integration.Integrate_organizational_model.User_login}
+h2. Sync at login time {anchor:id=ADM.Integration.Integrate_organizational_model.User_login}
 
 Once users have logged in, their profile, memberships and related groups will be auto-synchronized. Also, administrators can activate the synchronization process manually without depending on the users' login. (See the next sections for more details).
 
-h2. Manual sync {anchor:id=ADM.Integration.Integrate_organizational_model.Manual_sync}
+h2. Sync on demand {anchor:id=ADM.Integration.Integrate_organizational_model.Manual_sync}
 
 You could enforce the integration of some _organizational elements_ via REST or JMX. See the operations you can perform in the following table.
 
@@ -179,3 +184,285 @@ To access the Integration Service features via JMX, you can use JMX-compliant mo
 The name of the MBean is: exo:portal="portal",service=extensions,name=OrganizationIntegrationService,type=platform.
 
 !images/integration/jmx_console.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+
+h1. Use Legacy Organization Models {anchor:id=ADM.Organization.Lagacy_Organization_Config}
+
+If you used one of those Organization Data Models.
+* LDAP Organization Service
+* Active Directory
+* Hibernate
+in a previous version of eXo Platform, you will be able to keep working with them on eXo Platform 3.5.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Configure Legacy Organization Services
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*1.* Add a new file named _configuration.xml_ in _{{{${exo.conf.dir.name}/portal/portal/}}}_ with the following configuration.
+
+{code:xml}
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+		   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+		   
+	<import>legacy-organization-configuration.xml</import>
+	
+	<!-- Remove unnecessary Picket LINK Services -->
+	<remove-configuration>org.exoplatform.services.organization.idm.PicketLinkIDMCacheService</remove-configuration>
+	<remove-configuration>org.exoplatform.services.organization.idm.PicketLinkIDMService</remove-configuration>
+</configuration>
+{code}
+
+*2.* Add a new file named _legacy-organization-configuration.xml_ in _{{{${exo.conf.dir.name}/portal/portal}}}_ with one of the contents below.
+
+
+{docbook}
+<citetitle>
+<para xml:id="ADM.Organization.Hibernate">
+<emphasis role="bold">
+Hibernate Organization Service configuration
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+{code:xml}
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.organization.hibernate.OrganizationServiceImpl</type>
+  </component>
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.database.HibernateService</target-component>
+    <component-plugin> 
+      <name>add.hibernate.mapping</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
+      <init-params>
+        <values-param>
+          <name>hibernate.mapping</name>
+          <value>org/exoplatform/services/organization/impl/UserImpl.hbm.xml</value>
+          <value>org/exoplatform/services/organization/impl/MembershipImpl.hbm.xml</value>
+          <value>org/exoplatform/services/organization/impl/GroupImpl.hbm.xml</value>
+          <value>org/exoplatform/services/organization/impl/MembershipTypeImpl.hbm.xml</value>
+          <value>org/exoplatform/services/organization/impl/UserProfileData.hbm.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  <import>classpath:/conf/portal/organization-configuration.xml</import>    
+</configuration>  
+{code}
+
+
+{docbook}
+<citetitle>
+<para xml:id="ADM.Organization.LDAP">
+<emphasis role="bold">
+LDAP Organization Service configuration
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+{code:xml}
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+	<component>
+		<key>org.exoplatform.services.ldap.LDAPService</key>
+		<type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
+		<init-params>
+			<object-param>
+				<name>ldap.config</name>
+				<description>Default ldap config</description>
+				<object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">         
+					<field name="providerURL"><string>ldap://127.0.0.1:389,10.0.0.1:389</string></field>
+					<field name="rootdn"><string>CN=Manager,DC=exoplatform,DC=org</string></field>
+					<field name="password"><string>secret</string></field> 	  		
+					<field name="version"><string>3</string></field>
+					<field name="minConnection"><int>5</int></field>
+					<field name="maxConnection"><int>10</int></field>    	
+					<field name="referralMode"><string>follow</string></field>  
+					<field name="serverName"><string>default</string></field>
+				</object>
+			</object-param>
+		</init-params>
+	</component>
+	<component>
+		<key>org.exoplatform.services.organization.OrganizationService</key>
+		<type>org.exoplatform.services.organization.ldap.OrganizationServiceImpl</type>
+		<component-plugins>
+			<component-plugin>
+				<name>init.service.listener</name>
+				<set-method>addListenerPlugin</set-method>
+				<type>org.exoplatform.services.organization.ldap.OrganizationLdapInitializer</type>
+				<description>this listener populate organization ldap service create default dn</description>      
+			</component-plugin>  
+		</component-plugins> 
+		<init-params>
+			<value-param>
+				<name>ldap.userDN.key</name>
+				<description>The key used to compose user DN</description>
+				<value>cn</value>
+			</value-param>
+			<object-param>
+				<name>ldap.attribute.mapping</name>
+				<description>ldap attribute mapping</description>
+				<object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">                
+					<field name="userLDAPClasses"><string>top,person,organizationalPerson,inetOrgPerson</string></field>
+					<field name="profileLDAPClasses"><string>top,organizationalPerson</string></field>
+					<field name="groupLDAPClasses"><string>top,organizationalUnit</string></field>
+					<field name="membershipTypeLDAPClasses"><string>top,organizationalRole</string></field>
+					<field name="membershipLDAPClasses"><string>top,groupOfNames</string></field>
+					<field name="baseURL"><string>dc=exoplatform,dc=org</string></field>
+					<field name="groupsURL"><string>ou=groups,ou=portal,dc=exoplatform,dc=org</string></field>
+					<field name="membershipTypeURL"><string>ou=memberships,ou=portal,dc=exoplatform,dc=org</string></field>
+					<field name="userURL"><string>ou=users,ou=portal,dc=exoplatform,dc=org</string></field>
+					<field name="profileURL"><string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string></field>
+					<field name="userUsernameAttr"><string>uid</string></field>
+					<field name="userPassword"><string>userPassword</string></field>
+					<field name="userFirstNameAttr"><string>givenName</string></field>
+					<field name="userLastNameAttr"><string>sn</string></field>
+					<field name="userDisplayNameAttr"><string>displayName</string></field>
+					<field name="userMailAttr"><string>mail</string></field>
+					<field name="userObjectClassFilter"><string>objectClass=person</string></field>
+					<field name="membershipTypeMemberValue"><string>member</string></field>
+					<field name="membershipTypeRoleNameAttr"><string>cn</string></field>
+					<field name="membershipTypeNameAttr"><string>cn</string></field>
+					<field name="membershipTypeObjectClassFilter"><string>objectClass=organizationalRole</string></field>
+					<field name="membershiptypeObjectClass"><string>organizationalRole</string></field>
+					<field name="groupObjectClass"><string>organizationalUnit</string></field>
+					<field name="groupObjectClassFilter"><string>objectClass=organizationalUnit</string></field>
+					<field name="membershipObjectClass"><string>groupOfNames</string></field>
+					<field name="membershipObjectClassFilter"><string>objectClass=groupOfNames</string></field>
+					<field name="ldapCreatedTimeStampAttr"><string>createdTimeStamp</string></field>
+					<field name="ldapModifiedTimeStampAttr"><string>modifiedTimeStamp</string></field>
+					<field name="ldapDescriptionAttr"><string>description</string></field>
+				</object>
+			</object-param>
+		</init-params>     
+	</component>
+
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.database.HibernateService</target-component>
+		<component-plugin> 
+			<name>add.hibernate.mapping</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
+			<init-params>
+				<values-param>
+					<name>hibernate.mapping</name>          
+					<value>org/exoplatform/services/organization/impl/UserProfileData.hbm.xml</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
+{code}
+
+
+{docbook}
+<citetitle>
+<para xml:id="ADM.Organization.AD">
+<emphasis role="bold">
+AD Organization Service configuration
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+{code:xml}
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+  <component>
+    <key>org.exoplatform.services.ldap.LDAPService</key>
+    <type>org.exoplatform.services.ldap.impl.LDAPServiceImpl</type>
+    <init-params>
+      <object-param>
+        <name>ldap.config</name>
+        <description>Default ldap config</description>
+        <object type="org.exoplatform.services.ldap.impl.LDAPConnectionConfig">
+          <field name="providerURL"><string>ldap://192.168.2.88:389</string></field>
+          <field name="rootdn"><string>CN=Administrator,CN=Users, DC=exoplatform,DC=org</string></field>
+          <field name="password"><string>Secret1234</string></field>
+          <field name="version"><string>3</string></field>
+          <field name="minConnection"><int>5</int></field>
+          <field name="maxConnection"><int>10</int></field>
+          <field name="referralMode"><string>ignore</string></field>
+          <field name="serverName"><string>active.directory</string></field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.organization.ldap.OrganizationServiceImpl</type>
+    <component-plugins>
+      <component-plugin>
+        <name>init.service.listener</name>
+        <set-method>addListenerPlugin</set-method>
+        <type>org.exoplatform.services.organization.ldap.OrganizationLdapInitializer</type>
+        <description>this listener populate organization ldap service create default dn</description>
+      </component-plugin>
+    </component-plugins>
+    <init-params>
+      <object-param>
+        <name>ldap.attribute.mapping</name>
+        <description>ldap attribute mapping</description>
+        <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">
+          <field name="userLDAPClasses"><string>top,person,organizationalPerson,user</string></field>
+          <field name="profileLDAPClasses"><string>top,organizationalPerson</string></field>
+          <field name="groupLDAPClasses"><string>top,organizationalUnit</string></field>
+          <field name="membershipTypeLDAPClasses"><string>top,group</string></field>
+          <field name="membershipLDAPClasses"><string>top,group</string></field>
+          <field name="baseURL"><string>DC=test,DC=man</string></field>
+          <field name="groupsURL"><string>ou=groups,ou=portal,DC=test,DC=man</string></field>
+		  <field name="membershipTypeURL"><string>ou=memberships,ou=portal,DC=test,DC=man</string></field>
+          <field name="userURL"><string>ou=users,ou=portal,DC=test,DC=man</string></field>
+          <field name="profileURL"><string>ou=profiles,ou=portal,DC=test,DC=man</string></field>
+          <field name="userUsernameAttr"><string>sAMAccountName</string></field>
+          <field name="userPassword"><string>unicodePwd</string></field>
+          <field name="userFirstNameAttr"><string>givenName</string></field>
+          <field name="userLastNameAttr"><string>sn</string></field>
+          <field name="userDisplayNameAttr"><string>displayName</string></field>
+          <field name="userMailAttr"><string>mail</string></field>
+          <field name="userObjectClassFilter"><string>objectClass=user</string></field>
+          <field name="membershipTypeMemberValue"><string>member</string></field>
+          <field name="membershipTypeRoleNameAttr"><string>cn</string></field>
+          <field name="membershipTypeNameAttr"><string>cn</string></field>
+          <field name="membershipTypeObjectClassFilter"><string>objectClass=group</string></field>
+          <field name="membershiptypeObjectClass"><string>group</string></field>
+          <field name="groupObjectClass"><string>organizationalUnit</string></field>
+          <field name="groupObjectClassFilter"><string>objectClass=organizationalUnit</string></field>
+          <field name="membershipObjectClass"><string>group</string></field>
+          <field name="membershipObjectClassFilter"><string>objectClass=group</string></field>
+          <field name="ldapCreatedTimeStampAttr"><string>createdTimeStamp</string></field>
+          <field name="ldapModifiedTimeStampAttr"><string>modifiedTimeStamp</string></field>
+          <field name="ldapDescriptionAttr"><string>description</string></field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.database.HibernateService</target-component>
+    <component-plugin>
+      <name>add.hibernate.mapping</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
+      <init-params>
+        <values-param>
+          <name>hibernate.mapping</name>
+          <value>org/exoplatform/services/organization/impl/UserProfileData.hbm.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>
+{code}

@@ -37,7 +37,3 @@ h1. Migration {anchor:id=ADM.Migration}
 h1. Organization Integration {anchor:id=ADM.Integration}
 
 {include:document=integration.wiki|syntax=confluence/1.0}
-
-h1. Legacy Organization Models {anchor:id=ADM.Organization}
-
-{include:document=organization.wiki|syntax=confluence/1.0}
