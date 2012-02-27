@@ -16,8 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
-import org.exoplatform.services.jcr.util.IdGenerator;
-
 import java.util.Date;
 
 /**

@@ -16,11 +16,7 @@
  */
 package org.exoplatform.calendar.client.JSO;
 
-import java.util.Date;
-
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONValue;
 
 /**
  * Created by The eXo Platform SAS
