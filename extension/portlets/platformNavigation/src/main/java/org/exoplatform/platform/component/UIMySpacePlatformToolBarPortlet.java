@@ -21,7 +21,6 @@ import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.platform.common.space.statistic.SpaceAccessService;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.mop.SiteKey;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.Scope;
