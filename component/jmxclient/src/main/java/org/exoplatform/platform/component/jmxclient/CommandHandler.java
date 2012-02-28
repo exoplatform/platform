@@ -38,7 +38,7 @@ import  java.util.logging.Logger;
 
 public class CommandHandler {
 
-  public static Logger logger = Logger.getAnonymousLogger();
+  public static final Logger logger = Logger.getAnonymousLogger();
 
   public static Map<String, Object> environmentMap = null;
   public static String hostname;
