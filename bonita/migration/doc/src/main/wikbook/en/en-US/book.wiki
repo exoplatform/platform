@@ -1,0 +1,1 @@
+{include:document=bos-tools.wiki|syntax=confluence/1.0}

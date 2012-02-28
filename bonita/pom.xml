@@ -20,7 +20,7 @@
 		<module>webapp</module>
 		<module>config</module>
 		<module>portlet</module>
-		<module>doc</module>
+		<module>migration</module>
 	</modules>
 
 </project>
