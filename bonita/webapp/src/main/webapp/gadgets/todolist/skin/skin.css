@@ -28,25 +28,25 @@
   text-decoration: none;
 }
 .link_0 {
-color: green !important;
+background: url('images/minor.png') no-repeat left center;
 margin-bottom: 5px;
-padding-left: 0px;
+padding-left: 14px;
 text-decoration: none;
 display: block;
 }
 
 .link_1 {
-color: #EC8E00 !important;
+background: url('images/major.png') no-repeat left center;
 margin-bottom: 5px;
-padding-left: 0px;
+padding-left: 14px;
 text-decoration: none;
 display: block;  
 }
 
 .link_2 {
-color: red !important;
+background: url('images/critical.png') no-repeat left center;
 margin-bottom: 5px;
-padding-left: 0px;
+padding-left: 14px;
 text-decoration: none;
 display: block;
 }
