@@ -278,7 +278,25 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
   
   */
   
-
+  @SuppressWarnings("unused")
+private UserNode findDashboardNode() throws Exception {
+	    Collection<UserNode> nodes = getUserNodes(getCurrentUserNavigation());
+	    if(nodes == null) {
+	      return null;
+	      
+	    }
+	    else
+	      {
+	         for(UserNode node : nodes)
+	         {
+	            if(!isWebOSNode(node))
+	            {
+	               return node;
+	            }
+	         }
+	        return null;
+	       }
+	  }
   public Collection<UserNode> getUserNodes(UserNavigation nav) {
     UserPortal userPortall = getUserPortal();
     if (nav != null) {
