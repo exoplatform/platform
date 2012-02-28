@@ -143,7 +143,7 @@ public class UIPageNodeForm extends UIFormTabPane
               .addUIFormInput(uiSwitchLabelMode)
               .addUIFormInput(new UIFormStringInput(LABEL, LABEL, null).addValidator(StringLengthValidator.class, 3, 120))
               .addUIFormInput(uiFormLanguagesSelectBox)
-      				.addUIFormInput(new UIFormStringInput(I18N_LABEL, null, null).setMaxLength(255).addValidator(StringLengthValidator.class, 3, 120))
+      		  .addUIFormInput(new UIFormStringInput(I18N_LABEL, null, null).setMaxLength(255).addValidator(StringLengthValidator.class, 3, 120))
               .addUIFormInput(uiVisibleCheck.setChecked(true))
               .addUIFormInput(uiDateInputCheck)
               .addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class))
@@ -564,13 +564,16 @@ public class UIPageNodeForm extends UIFormTabPane
       @Override
       public void execute(Event<UIPageNodeForm> event) throws Exception
       {
-         UIPageNodeForm uiForm = event.getSource();
-         UIFormSelectBox languageSelection = uiForm.getUIFormSelectBox(LANGUAGES);
-         UIFormStringInput label = uiForm.getUIStringInput(I18N_LABEL);
-         uiForm.updateCachedLabels(uiForm.getSelectedLocale(), label.getValue());
-         
-         uiForm.setSelectedLocale(languageSelection.getValue());
-         label.setValue(uiForm.getLabelOnLocale(uiForm.getSelectedLocale()));
+
+          UIPageNodeForm uiForm = event.getSource();
+          UIFormSelectBox languageSelection = uiForm.getUIFormSelectBox(LANGUAGES);
+          UIFormStringInput label = uiForm.getUIStringInput(I18N_LABEL);
+          uiForm.updateCachedLabels(uiForm.getSelectedLocale(), label.getValue());
+
+          uiForm.setSelectedLocale(languageSelection.getValue());
+          label.setValue(uiForm.getLabelOnLocale(uiForm.getSelectedLocale()));
+          event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
+
       }
    }
    
