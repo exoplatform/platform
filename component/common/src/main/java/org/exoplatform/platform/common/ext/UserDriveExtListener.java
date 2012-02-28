@@ -28,7 +28,7 @@ public class UserDriveExtListener  extends UserEventListener {
 
 
 
-    private static final Log log = ExoLogger.getLogger("exo.platform.component.common.UserDriveExtListener");
+    private static final Log log = ExoLogger.getLogger(UserDriveExtListener.class);
 
     private static final String SYMLINK_NAME        = "Public";
 
