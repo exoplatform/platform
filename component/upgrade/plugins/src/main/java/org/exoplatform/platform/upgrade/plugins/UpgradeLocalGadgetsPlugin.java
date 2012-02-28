@@ -17,7 +17,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
-  private static final Log log = ExoLogger.getLogger(UpgradeLocalGadgetsPlugin.class);
+  private static final Log LOG = ExoLogger.getLogger(UpgradeLocalGadgetsPlugin.class);
 
   private List<GadgetUpgrade> gadgets;
 
@@ -41,24 +41,24 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
 
   @Override
   public void processUpgrade(String oldVersion, String newVersion) {
-    log.info("processing upgrading gadgets from version " + oldVersion + " to " + newVersion);
+    LOG.info("processing upgrading gadgets from version " + oldVersion + " to " + newVersion);
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
       for (GadgetUpgrade gadgetUpgrade : gadgets) {
         try {
           Gadget gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
           if (gadget == null) {
-            log.warn("Can't find gadget '" + gadgetUpgrade.getName() + "'.");
+            LOG.warn("Can't find gadget '" + gadgetUpgrade.getName() + "'.");
             continue;
           }
-          log.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
+          LOG.info("Replacing gadget " + gadgetUpgrade.getName() + " with new content ...");
 
           try {
             gadgetRegistryService.removeGadget(gadgetUpgrade.getName());
           } catch (Exception noSuchGadgetException) {
             // if gadget doesn't exist
-            if (log.isDebugEnabled()) {
-              log.debug("gadget doesn't exist in the store: " + gadget.getName());
+            if (LOG.isDebugEnabled()) {
+              LOG.debug("gadget doesn't exist in the store: " + gadget.getName());
             }
           }
 
@@ -71,21 +71,21 @@ public class UpgradeLocalGadgetsPlugin extends UpgradeProductPlugin {
 
             gadget = gadgetRegistryService.getGadget(gadgetUpgrade.getName());
             if (gadget != null) {
-              log.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
+              LOG.info("gadget " + gadgetUpgrade.getName() + " upgraded successfully.");
             } else {
-              log.info("Gadget " + gadgetUpgrade.getName()
+              LOG.info("Gadget " + gadgetUpgrade.getName()
                   + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
             }
           } catch (Exception exception) {
-            log.info("Gadget " + gadgetUpgrade.getName()
+            LOG.info("Gadget " + gadgetUpgrade.getName()
                 + " wasn't imported. It will be imported automatically with GadgetDeployer Service.");
           }
         } catch (Exception exception) {
-          log.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
+          LOG.error("Error while proceeding '" + gadgetUpgrade.getName() + "' gadget upgrade.", exception);
         }
       }
     } catch (Exception e) {
-      log.error("Could not upgrade local gadget", e);
+      LOG.error("Could not upgrade local gadget", e);
     } finally {
       RequestLifeCycle.end();
     }

@@ -39,7 +39,7 @@ import org.picocontainer.Startable;
     @Property(key = "service", value = "extensions"), @Property(key = "type", value = "platform") })
 @RESTEndpoint(path = "orgsync")
 public class JMXDataInjector implements Startable {
-  private static final Log logger_ = ExoLogger.getLogger(JMXDataInjector.class);
+  private static final Log LOG = ExoLogger.getLogger(JMXDataInjector.class);
 
   private DataInjectorService dataInjectorService;
 
@@ -67,7 +67,7 @@ public class JMXDataInjector implements Startable {
       throw new IllegalArgumentException(filePath + " already exists.");
     }
 
-    logger_.info("Extracting Organization model data to : " + filePath);
+    LOG.info("Extracting Organization model data to : " + filePath);
 
     OutputStream out = new FileOutputStream(filePath);
     ZipOutputStream zos = new ZipOutputStream(out);
@@ -77,7 +77,7 @@ public class JMXDataInjector implements Startable {
     dataInjectorService.writeOrganizationModelData(zos);
 
     zos.close();
-    logger_.info("Organization model data successfully exported.");
+    LOG.info("Organization model data successfully exported.");
   }
 
   @Managed
@@ -94,9 +94,9 @@ public class JMXDataInjector implements Startable {
       dataInjectorService.readUserProfilesData(filePath);
       dataInjectorService.doImport(true);
     } catch (Exception e) {
-      logger_.error("Can not import users profile .. ", e);
+      LOG.error("Can not import users profile .. ", e);
     }
-    logger_.info("Organization model data successfully imported.");
+    LOG.info("Organization model data successfully imported.");
   }
 
   @Override

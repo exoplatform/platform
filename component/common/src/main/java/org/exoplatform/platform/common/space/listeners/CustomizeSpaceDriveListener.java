@@ -14,7 +14,7 @@ public class CustomizeSpaceDriveListener extends SpaceListenerPlugin {
   private static final String SPACE_DRIVE_VIEW = "space.drive.view";
   private SpaceCustomizationService spaceCustomizationService = null;
   private String viewNodeName = null;
-  private static Log logger = ExoLogger.getExoLogger(CustomizeSpaceDriveListener.class);
+  private static Log LOG = ExoLogger.getExoLogger(CustomizeSpaceDriveListener.class);
 
   public CustomizeSpaceDriveListener(SpaceCustomizationService spaceCustomizationService_, InitParams params) {
     this.spaceCustomizationService = spaceCustomizationService_;
@@ -22,7 +22,7 @@ public class CustomizeSpaceDriveListener extends SpaceListenerPlugin {
     if (viewParamName != null) {
       viewNodeName = viewParamName.getValue();
     } else {
-      logger.warn("No such property found: " + SPACE_DRIVE_VIEW + "\nPlease make sure to have the correct ECMS view name.");
+      LOG.warn("No such property found: " + SPACE_DRIVE_VIEW + "\nPlease make sure to have the correct ECMS view name.");
     }
   }
 
@@ -34,12 +34,12 @@ public class CustomizeSpaceDriveListener extends SpaceListenerPlugin {
       if (viewNodeName != null) {
         spaceCustomizationService.editSpaceDriveViewPermissions(viewNodeName, permission);
       } else {
-        if (logger.isDebugEnabled()) {
-          logger.debug("Can not edit view's permissions for view node: null");
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Can not edit view's permissions for view node: null");
         }
       }
     } catch (Exception e) {
-      logger.error("Can not edit view's permission for space drive: " + groupId, e);
+      LOG.error("Can not edit view's permission for space drive: " + groupId, e);
     }
 
   }

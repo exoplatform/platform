@@ -39,7 +39,7 @@ import java.util.GregorianCalendar;
  * @version 1.0
  */
 public class ForumsWeeklyStatisticJob implements Job {
-  private static final Log log = ExoLogger.getLogger(ForumsWeeklyStatisticJob.class);
+  private static final Log LOG = ExoLogger.getLogger(ForumsWeeklyStatisticJob.class);
 
   public ForumsWeeklyStatisticJob() {
   }
@@ -69,7 +69,7 @@ public class ForumsWeeklyStatisticJob implements Job {
       service.saveForumsWeeklyStatistic(weeklyStatistic);
 
     } catch (Exception e) {
-      log.error("Failed to update ForumsWeeklyStatistic", e);
+      LOG.error("Failed to update ForumsWeeklyStatistic", e);
     }
   }
 

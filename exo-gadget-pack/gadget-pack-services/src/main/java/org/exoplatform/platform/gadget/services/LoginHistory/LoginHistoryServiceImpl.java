@@ -46,7 +46,7 @@ import org.exoplatform.services.log.Log;
  */
 
 public class LoginHistoryServiceImpl implements LoginHistoryService {
-	private static final Log log = ExoLogger.getLogger(LoginHistoryServiceImpl.class);	
+	private static final Log LOG = ExoLogger.getLogger(LoginHistoryServiceImpl.class);	
 	private static String HOME = "exo:LoginHistoryHome";
 	private static String LOGIN_HISTORY = "loginHistory";
 	private static String LOGIN_COUNTER = "loginCounter";
@@ -88,7 +88,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 				}
 			}
 			catch (Exception e) {
-				log.debug("Error in LoginHistoryServiceImpl's constructor: " + e.getMessage(), e);
+				LOG.debug("Error in LoginHistoryServiceImpl's constructor: " + e.getMessage(), e);
 				throw e;
 			}
 			finally {
@@ -96,7 +96,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			}
 		}
 		else{
-			log.warn("RepositoryService is null");
+			LOG.warn("RepositoryService is null");
 		}
 	}
 	
@@ -132,7 +132,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			Node homeNode = session.getRootNode().getNode(HOME);
 			return !homeNode.hasNode(userId) ? 0 : homeNode.getNode(userId).getProperty("exo:LoginHisSvc_lastLogin").getLong();
 		} catch(Exception e) {
-			log.debug("Error while retrieving " + userId + "'s last login: " + e.getMessage(), e);
+			LOG.debug("Error while retrieving " + userId + "'s last login: " + e.getMessage(), e);
 			throw e;
 		}
 		finally {
@@ -184,7 +184,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			return lastLogins;
 		}
 		catch (Exception e){
-			log.debug("Error while retrieving last logins: " + e.getMessage(), e);
+			LOG.debug("Error while retrieving last logins: " + e.getMessage(), e);
 			throw e;
 		}
 		finally {
@@ -336,7 +336,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			globalLoginCounterNode.save();			
 		}
 		catch (Exception e){
-			log.debug("Error while adding login history entry for user '" + userId + "': " + e.getMessage(), e);
+			LOG.debug("Error while adding login history entry for user '" + userId + "': " + e.getMessage(), e);
 			throw e;
 		}
 		finally {
@@ -382,7 +382,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			return list;
 		}
 		catch (Exception e){
-			log.debug("Error while getting login history of user '" + userId + "': " + e.getMessage(), e);
+			LOG.debug("Error while getting login history of user '" + userId + "': " + e.getMessage(), e);
 			throw e;
 		}
 		finally {
@@ -419,7 +419,7 @@ public class LoginHistoryServiceImpl implements LoginHistoryService {
 			return list;
 		}
 		catch (Exception e){
-			log.debug("Error while getting login counts of user '" + userId + "': " + e.getMessage(), e);
+			LOG.debug("Error while getting login counts of user '" + userId + "': " + e.getMessage(), e);
 			throw e;
 		}
 		finally {

@@ -85,7 +85,7 @@ import org.exoplatform.webui.form.validator.Validator;
 public class UIPageNodeForm extends UIFormTabPane
 {
 
-  private static Log logger = ExoLogger.getLogger(UIPageNodeForm.class);
+  private static Log LOG = ExoLogger.getLogger(UIPageNodeForm.class);
   
    private TreeNode pageNode_;
 
@@ -222,7 +222,7 @@ public class UIPageNodeForm extends UIFormTabPane
          }
          catch (Exception e)
          {
-           logger.error("Problem with ressource bundle recovery ", e);
+           LOG.error("Problem with ressource bundle recovery ", e);
          }
 
          option = new SelectItemOption<String>(displayName, language);

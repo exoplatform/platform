@@ -11,7 +11,7 @@ import org.exoplatform.webui.ext.filter.UIExtensionFilterType;
 
 public class UINavigationFilter extends UIExtensionAbstractFilter {
 
-    private static Log logger = ExoLogger.getExoLogger(UINavigationFilter.class);
+    private static Log LOG = ExoLogger.getExoLogger(UINavigationFilter.class);
   /**
    * This method checks if the current node is of the right type
    */
@@ -33,8 +33,8 @@ public class UINavigationFilter extends UIExtensionAbstractFilter {
    */
   public void onDeny(Map<String, Object> context) throws Exception {
 
-      if (logger.isInfoEnabled()) {
-            logger.info("This document has been rejected");
+      if (LOG.isInfoEnabled()) {
+            LOG.info("This document has been rejected");
       }
   }
 

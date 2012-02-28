@@ -46,7 +46,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Produces("application/json")
 public class InvitationsRestServices implements ResourceContainer {
 
-  private static Log logger = ExoLogger.getLogger(InvitationsRestServices.class);
+  private static Log LOG = ExoLogger.getLogger(InvitationsRestServices.class);
 
 	private static final CacheControl cacheControl;
 	static {
@@ -95,7 +95,7 @@ public class InvitationsRestServices implements ResourceContainer {
 			spaces = spaceService.getInvitedSpaces(userId);
 		}catch (Exception e) {
 			// TODO: handle exception
-      logger.error("cannot get invited spaces ", e);
+      LOG.error("cannot get invited spaces ", e);
 		}
 		List<Object> listData=  new ArrayList<Object>();
 		for (Space space : spaces) {

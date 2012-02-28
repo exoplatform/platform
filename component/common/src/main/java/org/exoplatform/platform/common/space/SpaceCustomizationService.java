@@ -44,7 +44,7 @@ import org.exoplatform.social.core.space.SpaceUtils;
 import org.exoplatform.social.core.space.spi.SpaceService;
 
 public class SpaceCustomizationService {
-  final static private Log logger = ExoLogger.getExoLogger(SpaceCustomizationService.class);
+  final static private Log LOG = ExoLogger.getExoLogger(SpaceCustomizationService.class);
   final static private String GROUPS_PATH = "groupsPath";
   private static final String SPACE_GROUP_ID_PREFERENCE = "{spaceGroupId}";
   private static final String SPACE_NEW_HOME_PAGE_TEMPLATE = "custom space";
@@ -77,8 +77,8 @@ public class SpaceCustomizationService {
   }
 
   public void editSpaceDriveViewPermissions(String viewNodeName, String permission) throws RepositoryException {
-    if (logger.isDebugEnabled()) {
-      logger.debug("Trying to add permission " + permission + " for ECMS view " + viewNodeName);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("Trying to add permission " + permission + " for ECMS view " + viewNodeName);
     }
     String viewsPath = nodeHierarchyCreator.getJcrPath(BasePath.CMS_VIEWS_PATH);
     ManageableRepository manageableRepository = repositoryService.getCurrentRepository();
@@ -90,12 +90,12 @@ public class SpaceCustomizationService {
       String contentNodePermissions = contentNode.getProperty("exo:accessPermissions").getString();
       contentNode.setProperty("exo:accessPermissions", contentNodePermissions.concat(",").concat(permission));
       viewHomeNode.save();
-      if (logger.isDebugEnabled()) {
-        logger.debug("Permission " + permission + " added with success to ECMS view " + viewNodeName);
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Permission " + permission + " added with success to ECMS view " + viewNodeName);
       }
     } else {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Can not find view node: " + viewNodeName);
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Can not find view node: " + viewNodeName);
       }
     }
   }
@@ -109,7 +109,7 @@ public class SpaceCustomizationService {
       throws Exception {
 
     String sourcePath = deploymentDescriptor.getSourcePath();
-    logger.info("Deploying '" + sourcePath + "'content to '" + spaceId + "' Space JCR location");
+    LOG.info("Deploying '" + sourcePath + "'content to '" + spaceId + "' Space JCR location");
 
     // sourcePath should start with: war:/, jar:/, classpath:/, file:/
     Boolean cleanupPublication = deploymentDescriptor.getCleanupPublication();
@@ -164,7 +164,7 @@ public class SpaceCustomizationService {
       // determines wether this is a new node or not
       if (!initialChildNodesUUID.contains(uuid)) {
         if (initialChildNodesNames.contains(childNode.getName())) {
-          logger.info(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
+          LOG.info(childNode.getName() + " already exists under " + fullTargetNodePath + ". This node will not be imported!");
           childNode.remove();
         } else {
           newChildNodesUUID.add(childNode);
@@ -193,7 +193,7 @@ public class SpaceCustomizationService {
          * will be visible in front side.
          */
         if (extendedNode.hasProperty("publication:liveRevision") && extendedNode.hasProperty("publication:currentState")) {
-          logger.info("\"" + extendedNode.getName() + "\" publication lifecycle has been cleaned up");
+          LOG.info("\"" + extendedNode.getName() + "\" publication lifecycle has been cleaned up");
           extendedNode.setProperty("publication:liveRevision", "");
           extendedNode.setProperty("publication:currentState", "published");
         }
@@ -202,14 +202,14 @@ public class SpaceCustomizationService {
 
     session.save();
     session.logout();
-    logger.info(deploymentDescriptor.getSourcePath() + " is deployed succesfully into " + fullTargetNodePath);
+    LOG.info(deploymentDescriptor.getSourcePath() + " is deployed succesfully into " + fullTargetNodePath);
   }
 
   public void createSpaceHomePage(String spacePrettyName, String spaceGroupId, ExoProperties welcomeSCVCustomPreferences) {
 
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
-      logger.info("Updating '" + spaceGroupId + "' Space Home Page");
+      LOG.info("Updating '" + spaceGroupId + "' Space Home Page");
       // creates the new home page
 
       Page oldSpaceHomePage = dataStorageService.getPage(PortalConfig.GROUP_TYPE + "::" + spaceGroupId + "::"
@@ -238,12 +238,12 @@ public class SpaceCustomizationService {
       dataStorageService.save(customSpaceHomePage);
 
     } catch (Exception e) {
-      logger.error("Error while customizing the Space home page for space: " + spaceGroupId, e);
+      LOG.error("Error while customizing the Space home page for space: " + spaceGroupId, e);
     } finally {
       try {
         RequestLifeCycle.end();
       } catch (Exception e) {
-        logger.warn("An exception has occurred while proceed RequestLifeCycle.end() : " + e.getMessage());
+        LOG.warn("An exception has occurred while proceed RequestLifeCycle.end() : " + e.getMessage());
       }
     }
   }
@@ -260,8 +260,8 @@ public class SpaceCustomizationService {
     // loads the scv preferences
     Portlet prefs = dataStorageService.load(selectedPortlet.getState(), ApplicationType.PORTLET);
     if (prefs == null) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("The portlet prefs == null : portlet application " + selectedPortlet.getId());
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("The portlet prefs == null : portlet application " + selectedPortlet.getId());
       }
       prefs = new Portlet();
     }
@@ -278,8 +278,8 @@ public class SpaceCustomizationService {
   @SuppressWarnings("unchecked")
   private void editSpaceURLPreference(List<ModelObject> children, String prefValue) throws Exception {
     if (children == null || children.size() == 0) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Can not get a portlet application from children.\nChildren == null or have no items");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Can not get a portlet application from children.\nChildren == null or have no items");
       }
     }
     // parses the children list
@@ -305,8 +305,8 @@ public class SpaceCustomizationService {
   @SuppressWarnings("unchecked")
   private Application<Portlet> getPortletApplication(List<ModelObject> children, String portletName) throws Exception {
     if (children == null || children.size() == 0) {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Can not get a portlet application from children.\nChildren == null or have no items");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Can not get a portlet application from children.\nChildren == null or have no items");
       }
     }
     for (ModelObject modelObject : children) {

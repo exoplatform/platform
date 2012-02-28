@@ -28,7 +28,7 @@ public class UserDriveExtListener  extends UserEventListener {
 
 
 
-    private static final Log log = ExoLogger.getLogger(UserDriveExtListener.class);
+    private static final Log LOG = ExoLogger.getLogger(UserDriveExtListener.class);
 
     private static final String SYMLINK_NAME        = "Public";
 
@@ -101,7 +101,7 @@ public class UserDriveExtListener  extends UserEventListener {
 
         } catch (Exception E) {
 
-            log.error("An error occurs while processing the creation of Public Symlink " +E);
+            LOG.error("An error occurs while processing the creation of Public Symlink " +E);
 
         }  finally {
 
