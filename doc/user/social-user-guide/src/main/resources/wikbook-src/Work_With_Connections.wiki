@@ -45,6 +45,10 @@ This function allows you to find your desired contact quickly by searching by na
 
 *3.* Hit the *Enter* key, or click *Search* to find your desired contacts. The results will be listed in the *People Found* pane.
 
+{note}
+* When searching by alphabets, only contacts whose last names start with the search letter are listed in the *Connections Found* pane.
+* The search results are also ordered by the last name.
+{note}
 h1. View profiles of other contacts {anchor:id="view_profile_of_contacts"}
 To view the profile of a contact, simply click the contact name. You will be directed to his/her profile.
 

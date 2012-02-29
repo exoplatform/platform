@@ -123,8 +123,7 @@ Simply click a specific letter.
 
 !images/search_space_by_alphabets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-Only spaces whose name's first character matches with the letter will be listed in the *Spaces Found* pane.
-The search results are ordered by the first character of the space's last name.
+Only spaces whose names start with the search letter are listed in the *Spaces Found* pane.
 
 h1. Accept/Ignore invitations{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem}
 
