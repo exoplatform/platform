@@ -340,7 +340,7 @@ public class DataInjectorService implements Startable {
     Collection<Membership> memberships = organizationService.getMembershipHandler().findMembershipsByUser(user.getUserName());
     String groups = "";
     for (Membership membership : memberships) {
-      groups += membership.getMembershipType() + ":" + membership.getGroupId() + ",";
+      groups += new StringBuffer().append(membership.getMembershipType()).append(":").append(membership.getGroupId()).append(",").toString();
       groups.substring(0, groups.lastIndexOf(","));
     }
     orgConfigUser.setGroups(groups);

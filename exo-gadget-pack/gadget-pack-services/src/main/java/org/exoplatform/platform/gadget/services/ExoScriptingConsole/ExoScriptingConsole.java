@@ -94,7 +94,7 @@ public class ExoScriptingConsole{
 
 			if(outputType.equals("error")){
 				if(!isDebug){
-					output = "ERROR: " + output;
+				    output=new StringBuffer().append("ERROR: ").append(output).toString();
 					System.out.print(output + "\n");
 					System.out.print(">> ");
 				}
@@ -118,7 +118,7 @@ public class ExoScriptingConsole{
 	public String toString(){
 		ScriptEngineFactory factory = _engine.getFactory();
 		String info = "Scripting engine: " + factory.getEngineName() + " (v" + factory.getEngineVersion() + ")\n";
-		info += "Language version: " + factory.getLanguageName() + " " + factory.getLanguageVersion() + "\n";
+		info += new StringBuffer().append("Language version: ").append(factory.getLanguageName()).append(" ").append(factory.getLanguageVersion()).append("\n");
 		return info;
 	}
 

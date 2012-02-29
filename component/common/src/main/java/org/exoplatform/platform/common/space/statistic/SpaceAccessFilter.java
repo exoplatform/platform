@@ -26,7 +26,7 @@ public class SpaceAccessFilter implements Filter {
     String spaceId = uri.split(":spaces:")[1];
     spaceId = spaceId.split("/", 2)[0];
     spaceId = spaceId.replace(":", "/");
-    spaceId = "/spaces/" + spaceId;
+    spaceId=new StringBuffer().append("spaces/").append(spaceId).toString();
 
     getSpaceAccessService().incrementSpaceAccess(spaceId, httpServletRequest.getRemoteUser());
     chain.doFilter(request, response);

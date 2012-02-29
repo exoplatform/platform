@@ -163,7 +163,7 @@ public class ForumRestService implements ResourceContainer {
       for (MembershipEntry membership : identity.getMemberships()) {
         String value = membership.getGroup();
         list.add(value); // its groups
-        value = membership.getMembershipType() + ":" + value;
+        value =  new StringBuffer().append(membership.getMembershipType()).append(":").append(value).toString();
         list.add(value);
       }
       listOfUser.addAll(list);
