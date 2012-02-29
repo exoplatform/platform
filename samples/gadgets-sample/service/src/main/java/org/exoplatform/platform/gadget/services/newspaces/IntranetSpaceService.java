@@ -16,7 +16,7 @@
  */
 package org.exoplatform.platform.gadget.services.newspaces;
 
-import org.exoplatform.platform.gadget.services.newspaces.IntranetSpace;
+
 
 import java.util.List;
 

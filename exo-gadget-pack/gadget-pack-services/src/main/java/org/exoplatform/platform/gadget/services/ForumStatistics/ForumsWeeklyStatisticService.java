@@ -16,7 +16,7 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
-import org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatistic;
+
 
 import java.util.List;
 

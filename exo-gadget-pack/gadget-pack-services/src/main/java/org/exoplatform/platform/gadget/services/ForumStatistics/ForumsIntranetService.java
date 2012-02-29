@@ -16,7 +16,6 @@
  ***************************************************************************/
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
-import org.exoplatform.platform.gadget.services.ForumStatistics.TopicBean;
 
 import java.util.List;
 
