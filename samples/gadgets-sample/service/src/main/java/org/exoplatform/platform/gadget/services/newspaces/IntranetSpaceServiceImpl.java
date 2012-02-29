@@ -55,7 +55,7 @@ import javax.jcr.query.QueryResult;
  */
 public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 
-  private static final Log log = ExoLogger.getLogger(IntranetSpaceServiceImpl.class);
+  private static final Log LOG = ExoLogger.getLogger(IntranetSpaceServiceImpl.class);
   private RepositoryService _repoService;
   private final String SOCIAL_WORKSPACE ="social";
   private final String SPACE_HOME = "production/soc:spaces";
@@ -85,7 +85,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 			}
 		}
 		catch (Exception e) {
-			log.error("Can not get get SpaceHome", e);
+			LOG.error("Can not get get SpaceHome", e);
 			sProvider.close();
 		}
     }
@@ -188,7 +188,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
       }
       return listSpaces;
     } catch (Exception e) {
-      log.error("Can not get Latest Created Space", e);
+      LOG.error("Can not get Latest Created Space", e);
       return null;
     } finally {
       sProvider.close();
@@ -227,7 +227,7 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
 			  return listIntranetSpace;
 		  }
 	  } catch (Exception e) {
-		  log.warn("Can not join space " + spaceUrl ,e);
+		  LOG.warn("Can not join space " + spaceUrl ,e);
 	  }
 	  
 	  return new ArrayList<IntranetSpace>();

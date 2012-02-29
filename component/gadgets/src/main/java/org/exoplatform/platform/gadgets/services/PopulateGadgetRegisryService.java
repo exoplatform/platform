@@ -45,7 +45,7 @@ public class PopulateGadgetRegisryService implements Startable {
   private static final String DEFAULT_GADGETS_CATEGORY_NAME = "Gadgets";
   private static String CATEGORY_NAME;
   private static String GADGETS_CATEGORY_ACCESS_PERMISSION;
-  private static final Log LOG = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
+  private static final Log LOG = ExoLogger.getExoLogger(PopulateGadgetRegisryService.class);
   private GadgetRegistryService gadgetRegistryService = null;
   private ApplicationRegistryService applicationRegistryService = null;
   private List<Gadget> gadgets;

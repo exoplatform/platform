@@ -31,7 +31,7 @@ import org.exoplatform.services.organization.UserEventListener;
  */
 public class InitNewUserDashboardListener extends UserEventListener {
 
-  private static final Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
+  private static final Log LOG = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
   private UserDashboardConfigurationService userDashboardConfigurationService = null;
 
   public InitNewUserDashboardListener(UserDashboardConfigurationService userDashboardConfigurationService) {
@@ -57,7 +57,7 @@ public class InitNewUserDashboardListener extends UserEventListener {
     try {
       userDashboardConfigurationService.prepopulateUserDashboard(user.getUserName());
     } catch (Exception e) {
-      logger.error("Error while prepopulationg user dashboard: ", e);
+      LOG.error("Error while prepopulationg user dashboard: ", e);
     }
   }
 }

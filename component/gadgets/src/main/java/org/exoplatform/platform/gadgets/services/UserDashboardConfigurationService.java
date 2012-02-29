@@ -66,7 +66,7 @@ public class UserDashboardConfigurationService {
   private GadgetRegistryService gadgetRegistryService = null;
   private List<UserDashboardConfiguration> separateUsersconfig;
   private List<Gadget> allUsersConfig;
-  private static Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
+  private static Log LOG = ExoLogger.getExoLogger(UserDashboardConfigurationService.class);
 
   public UserDashboardConfigurationService(DataStorage dataStorageService, UserPortalConfigService userPortalConfigService,
       GadgetRegistryService gadgetRegistryService, InitParams initParams) {
@@ -114,7 +114,7 @@ public class UserDashboardConfigurationService {
         // prepopulate its dashboard
         for (UserDashboardConfiguration userDashboardConfig : separateUsersconfig) {
           if (userId.equals(userDashboardConfig.getUserId())) {
-            logger.info("Prepopulate the dashboard of user " + userId);
+            LOG.info("Prepopulate the dashboard of user " + userId);
             Page dashboardPage = getUserDashboardPage(userId);
             if (dashboardPage == null) {
               createUserDashboard(userId);
@@ -125,7 +125,7 @@ public class UserDashboardConfigurationService {
         }
       } else {
         // if all users, prepopulate all users dashboard
-        logger.info("Prepopulate the dashboard of user " + userId);
+        LOG.info("Prepopulate the dashboard of user " + userId);
         Page dashboardPage = getUserDashboardPage(userId);
         if (dashboardPage == null) {
           createUserDashboard(userId);
@@ -147,7 +147,7 @@ public class UserDashboardConfigurationService {
         userPortal = getUserPortal(userId);
         userNavigation = userPortal.getNavigation(SiteKey.user(userId));
       } catch (Exception e) {
-        logger.error("Could not create user site for user " + userId, e);
+        LOG.error("Could not create user site for user " + userId, e);
         throw e;
       }
     }
@@ -183,7 +183,7 @@ public class UserDashboardConfigurationService {
       UserPortal userPortal = getUserPortal(userId);
       UserNavigation userNav = getUserNavigation(userId);
       if (userNav == null) {
-        logger.warn("User navigation for '" + userId + "' cannot be found. Cannot prePopulate gadgets in user's dashboard.");
+        LOG.warn("User navigation for '" + userId + "' cannot be found. Cannot prePopulate gadgets in user's dashboard.");
         return;
       }
       SiteKey siteKey = userNav.getKey();
@@ -201,7 +201,7 @@ public class UserDashboardConfigurationService {
         userPortal.saveNode(rootNode, null);
       }
     } catch (Exception e) {
-      logger.error("Error while creating the user dashboard page for: " + userId, e);
+      LOG.error("Error while creating the user dashboard page for: " + userId, e);
     }
   }
 
@@ -237,7 +237,7 @@ public class UserDashboardConfigurationService {
       }
       dataStorageService.saveDashboard(dashboard);
     } catch (Exception e) {
-      logger.error("Error while configuring the user dashboard for: " + userDashboardPage.getOwnerId(), e);
+      LOG.error("Error while configuring the user dashboard for: " + userDashboardPage.getOwnerId(), e);
     }
   }
 

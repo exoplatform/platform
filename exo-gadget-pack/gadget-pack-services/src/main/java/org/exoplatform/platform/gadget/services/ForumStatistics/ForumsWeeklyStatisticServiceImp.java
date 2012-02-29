@@ -47,7 +47,7 @@ import javax.jcr.query.QueryResult;
  */
 public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticService, Startable {
 
-  private static final Log   log                 = ExoLogger.getLogger(ForumsWeeklyStatisticServiceImp.class);
+  private static final Log LOG= ExoLogger.getLogger(ForumsWeeklyStatisticServiceImp.class);
 
   public static final String STATISTIC_WEEK_HOME = "statisticWeekHome"; //node node of node that contain weekly statistic
 
@@ -99,7 +99,7 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
         session.save();
       }
     } catch (Exception e) {
-      log.error("can not start ForumsWeeklyStatisticService", e);
+      LOG.error("can not start ForumsWeeklyStatisticService", e);
     } finally {
       sProvider.close();
     }
@@ -152,7 +152,7 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
       if (iter != null && iter.getSize() > 0)
         return getForumsWeeklyStatistic(iter.nextNode());
     } catch (Exception e) {
-      log.error("can not get getLastForumsWeeklyStatistic", e);
+      LOG.error("can not get getLastForumsWeeklyStatistic", e);
     } finally {
       sProvider.close();
     }
@@ -181,7 +181,7 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
         listForumsWeeklyStatistic.add(getForumsWeeklyStatistic(iter.nextNode()));
       }
     } catch (Exception e) {
-      log.error("can not get getAllForumsWeeklyStatistic", e);
+      LOG.error("can not get getAllForumsWeeklyStatistic", e);
     } finally {
       sProvider.close();
     }
@@ -227,7 +227,7 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
         forumStatisticHome.save();
 
     } catch (Exception e) {
-      log.error("save ForumsWeeklyStatistic failure", e);
+      LOG.error("save ForumsWeeklyStatistic failure", e);
     } finally {
       sProvider.close();
     }
@@ -246,7 +246,7 @@ public class ForumsWeeklyStatisticServiceImp implements ForumsWeeklyStatisticSer
                                          .getNode(dataLocator.getForumStatisticsLocation());
       return new PropertyReader(statisticNode).l("exo:postCount", 0);
     } catch (Exception e) {
-      log.error("getPostCountForumStatistic failure", e);
+      LOG.error("getPostCountForumStatistic failure", e);
     } finally {
       sProvider.close();
     }

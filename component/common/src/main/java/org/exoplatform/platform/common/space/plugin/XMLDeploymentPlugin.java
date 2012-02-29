@@ -37,7 +37,7 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
   private SpaceCustomizationService spaceCustomizationService = null;
 
   /** The log. */
-  private Log log = ExoLogger.getLogger(this.getClass());
+  private static final Log LOG = ExoLogger.getLogger(XMLDeploymentPlugin.class);
 
   /**
    * Instantiates a new XML deployment plugin.
@@ -69,7 +69,7 @@ public class XMLDeploymentPlugin extends SpaceListenerPlugin {
             deploymentDescriptor);
       }
     } catch (Exception e) {
-      log.error("An unexpected problem occurs while deploying contents", e);
+      LOG.error("An unexpected problem occurs while deploying contents", e);
     } finally {
       sessionProvider.close();
     }

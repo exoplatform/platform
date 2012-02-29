@@ -60,7 +60,7 @@ import org.exoplatform.services.security.ConversationState;
 @Path(DashboardInformationRESTService.WS_ROOT_PATH)
 public class DashboardInformationRESTService implements ResourceContainer {
 
-  private Log logger = ExoLogger.getLogger(this.getClass());
+  private static final Log LOG = ExoLogger.getLogger(DashboardInformationRESTService.class);
 
   protected final static String WS_ROOT_PATH = "/dashboards";
   protected final static String STANDALONE_ROOT_PATH = "/standalone";
@@ -145,15 +145,15 @@ public class DashboardInformationRESTService implements ResourceContainer {
         }
       }
       
-      if (logger.isDebugEnabled()) {
-        logger.debug("Getting Dashboards Information");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Getting Dashboards Information");
       }
 
       // Response to client
       return Response.ok(list, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     }
     catch (Exception e) {
-      logger.error("An error occured while getting dashboards information.", e);
+      LOG.error("An error occured while getting dashboards information.", e);
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
   }
@@ -175,8 +175,8 @@ public class DashboardInformationRESTService implements ResourceContainer {
     cacheControl.setNoCache(true);
     cacheControl.setNoStore(true);
     try {
-      if (logger.isDebugEnabled()) {
-        logger.debug("Getting Gadgets Information");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Getting Gadgets Information");
       }
       
       Page page = dataStorageService.getPage("user::" + userName + "::" + dashboardName);
@@ -217,14 +217,14 @@ public class DashboardInformationRESTService implements ResourceContainer {
       return Response.ok(gadgetsInfo, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } 
     catch (Exception e) {
-      logger.error("An error occured while getting dashboards information.", e);
+      LOG.error("An error occured while getting dashboards information.", e);
       return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
     }
     finally {
       try {
         RequestLifeCycle.end();
       } catch (Exception e) {
-        logger.warn("An exception has occurred while proceed RequestLifeCycle.end() : " + e.getMessage());
+        LOG.warn("An exception has occurred while proceed RequestLifeCycle.end() : " + e.getMessage());
       }
     }
   }
@@ -261,7 +261,7 @@ public class DashboardInformationRESTService implements ResourceContainer {
                 gadgetsInfo.add(info);
               }
               else {
-                logger.warn("Gadget with name " + gadgetName + " is no longer registered in Gadget Registry");
+                LOG.warn("Gadget with name " + gadgetName + " is no longer registered in Gadget Registry");
               }
             }
           }

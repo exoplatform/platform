@@ -44,7 +44,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet.gtmpl")
 public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
-  public Log log = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
+  public static final Log LOG = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
 
   private UserACL userACL = null;
   private UserNodeFilterConfig userFilterConfig;
@@ -74,12 +74,12 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
         if (portalConfig != null && userACL.hasEditPermission(portalConfig.getPortalConfig())) {
           allowedPortalList.add(portalName);
         } else {
-          if (log.isDebugEnabled()) {
-            log.debug(getRemoteUser() + " has no permission to access " + portalName);
+          if (LOG.isDebugEnabled()) {
+            LOG.debug(getRemoteUser() + " has no permission to access " + portalName);
           }
         }
       } catch (Exception exception) {
-        log.warn("Can't access to the portal " + portalName, exception);
+        LOG.warn("Can't access to the portal " + portalName, exception);
       }
     }
     return allowedPortalList;
@@ -98,12 +98,12 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
         if (portalConfig != null) {
           allowedPortalList.add(portalName);
         } else {
-          if (log.isDebugEnabled()) {
-            log.debug(getRemoteUser() + " has no permission to access " + portalName);
+          if (LOG.isDebugEnabled()) {
+            LOG.debug(getRemoteUser() + " has no permission to access " + portalName);
           }
         }
       } catch (Exception exception) {
-        log.warn("Can't access to the portal " + portalName);
+        LOG.warn("Can't access to the portal " + portalName);
       }
     }
     return allowedPortalList;
@@ -142,7 +142,7 @@ public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
         UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
         return rootNode.getChildren();
       } catch (Exception exp) {
-        log.warn(nav.getKey().getName() + " has been deleted");
+        LOG.warn(nav.getKey().getName() + " has been deleted");
       }
     }
     return Collections.emptyList();

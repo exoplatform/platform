@@ -36,7 +36,7 @@ public class PortletDisablerFilter implements RenderFilter {
 
   private static final String DISABLED_HTML_FILE_PATH = "war:/../portlet-disabled.html";
 
-  private static Log LOG = ExoLogger.getExoLogger(PortletDisablerFilter.class);
+  private static final Log LOG = ExoLogger.getExoLogger(PortletDisablerFilter.class);
 
   private PortletContext context;
 

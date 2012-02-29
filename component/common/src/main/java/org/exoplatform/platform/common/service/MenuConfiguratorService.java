@@ -25,7 +25,7 @@ import org.picocontainer.Startable;
 
 public class MenuConfiguratorService implements Startable {
 
-  private Log log = ExoLogger.getLogger(this.getClass());
+  private static final Log LOG = ExoLogger.getLogger(MenuConfiguratorService.class);
   private ConfigurationManager configurationManager;
   private String setupNavigationFilePath;
   private List<PageNode> setupPageNodes = new ArrayList<PageNode>();
@@ -68,7 +68,7 @@ public class MenuConfiguratorService implements Startable {
       builder.withTemporalCheck();
       myGroupsFilterConfig = builder.build();
 
-      log.info("Loading setup menu configuration from: " + setupNavigationFilePath);
+      LOG.info("Loading setup menu configuration from: " + setupNavigationFilePath);
       UnmarshalledObject<PageNavigation> obj = ModelUnmarshaller.unmarshall(PageNavigation.class,
           configurationManager.getInputStream(setupNavigationFilePath));
       PageNavigation pageNavigation = obj.getObject();
@@ -106,8 +106,8 @@ public class MenuConfiguratorService implements Startable {
       if (userNode != null) {
         userNodes.add(userNode);
       } else {
-        if (log.isDebugEnabled()) {
-          log.debug("Can't find a navigation with pageReference: " + pageReference);
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("Can't find a navigation with pageReference: " + pageReference);
         }
       }
       if (pageNode.getChildren() != null && !pageNode.getChildren().isEmpty()) {
@@ -128,7 +128,7 @@ public class MenuConfiguratorService implements Startable {
           return searchUserNodeByPageReference(rootNode.getChildren(), pageReference);
         }
       } catch (Exception exp) {
-        log.warn(nav.getKey().getName() + " has been deleted");
+        LOG.warn(nav.getKey().getName() + " has been deleted");
       }
     }
     return null;

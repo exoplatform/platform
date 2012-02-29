@@ -42,7 +42,7 @@ import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 @Path("/content-navigation")
 public class ContentNavigationService implements ResourceContainer {
 
-  private static Log LOG = ExoLogger.getExoLogger(ContentNavigationService.class);
+  private static final Log LOG = ExoLogger.getExoLogger(ContentNavigationService.class);
 
   // private String repository = null;
   private String workspace = null;

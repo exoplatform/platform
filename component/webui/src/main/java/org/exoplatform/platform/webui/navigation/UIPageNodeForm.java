@@ -203,7 +203,8 @@ public class UIPageNodeForm extends UIFormTabPane
          country = locale.getCountry();
          if (country != null && country.length() > 0)
          {
-            language = language + "_" + country;
+        	
+            language=new StringBuffer().append(language).append("_").append(country).toString();
          }
 
          ResourceBundle localeResourceBundle;
