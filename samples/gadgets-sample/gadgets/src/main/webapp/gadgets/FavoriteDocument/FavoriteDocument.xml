@@ -120,9 +120,15 @@
       
             
       Favorites.prototype.setShowAllLink = function(){
-	   var url = prefixUrl + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName + "/documents?path=Private/Favorites";
-	   a = document.getElementById("ShowAll");
-           a.href = url;
+        var getFavoriteFoldUrl = prefixUrl + '/rest/plf/favorite/favorite-folder/' + user;
+        $.ajax({
+          url: getFavoriteFoldUrl,
+          success: function(data){
+                 a = document.getElementById("ShowAll");
+                 a.href = prefixUrl + parent.eXo.env.portal.context + "/" + parent.eXo.env.portal.portalName + "/documents?path=Personal Documents" + data.value.toString();
+            },
+          dataType: 'json'
+        });
       }
       
       Favorites.prototype.displayDocument = function(resp) {
@@ -142,7 +148,7 @@
           var showHTML = "<a target='_parent' class='Icon " + doc.linkImage + "'";
           if (accessUrl.length > 0 && doc.nodePath.length > 0) {
             showHTML += "href='";  
-            showHTML += accessUrl + "?path=";            
+            showHTML += accessUrl + "?path=Personal Documents";            
             showHTML += doc.nodePath;
             showHTML += "'"; 
           }
@@ -191,7 +197,7 @@
           var showHTML = "<a target='_parent' class='Icon " + doc.linkImage + "'";
           if (accessUrl.length > 0 && doc.nodePath.length > 0) {
             showHTML += "href='";  
-            showHTML += accessUrl + "?path=";            
+            showHTML += accessUrl + "?path=Personal Documents";            
             showHTML += doc.nodePath;
             showHTML += "'"; 
           }

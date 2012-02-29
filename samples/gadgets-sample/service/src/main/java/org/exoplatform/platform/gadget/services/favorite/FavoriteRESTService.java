@@ -28,6 +28,7 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 import org.exoplatform.services.jcr.ext.app.SessionProviderService;
 import org.exoplatform.services.cms.link.LinkManager;
+import org.json.JSONObject;
 
 /**
  * @author lamphan AUG 01, 2010
@@ -84,7 +85,7 @@ public class FavoriteRESTService implements ResourceContainer {
         favoriteNode.setName(favorite.getName());
         favoriteNode.setTitle(getTitle(favorite));
         favoriteNode.setDateAddFavorite(getDateFormat(favorite.getProperty(DATE_MODIFIED).getDate()));
-        favoriteNode.setNodePath(createFullLink(userNode, favorite));
+        favoriteNode.setNodePath(favorite.getPath());
         String linkImage = "Icon16x16 default16x16Icon" + getNodeTypeIcon(favorite, "16x16Icon");
         favoriteNode.setLinkImage(linkImage);
 
@@ -132,7 +133,7 @@ public class FavoriteRESTService implements ResourceContainer {
         favoriteNode.setName(favorite.getName());
         favoriteNode.setTitle(getTitle(favorite));
         favoriteNode.setDateAddFavorite(getDateFormat(favorite.getProperty(DATE_MODIFIED).getDate()));
-        favoriteNode.setNodePath(createFullLink(userNode, favorite));
+        favoriteNode.setNodePath(favorite.getPath());
         String linkImage = "Icon16x16 default16x16Icon" + getNodeTypeIcon(favorite, "16x16Icon");
         favoriteNode.setLinkImage(linkImage);
         
@@ -155,6 +156,32 @@ public class FavoriteRESTService implements ResourceContainer {
 
     DateFormat dateFormat = new SimpleDateFormat(IF_MODIFIED_SINCE_DATE_FORMAT);
     return Response.ok(listResultNode, new MediaType("application", "json")).header(LAST_MODIFIED_PROPERTY, dateFormat.format(new Date())).build();
+  }
+  
+  
+  @GET
+  @Path("/favorite-folder/{userName}")
+  
+  public Response getFavoriteNode(@PathParam("userName") String userName) throws Exception {
+    
+    try {
+      NodeHierarchyCreator nodeHierarchyCreator = (NodeHierarchyCreator)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(NodeHierarchyCreator.class);
+      SessionProviderService sessionProviderService = (SessionProviderService)ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(SessionProviderService.class);
+        
+      Node userNode = nodeHierarchyCreator.getUserNode(sessionProviderService.getSystemSessionProvider(null), userName);
+      Node favoriteNode = userNode.getNode("Private/Favorites");
+      
+      JSONObject json = new JSONObject();                    
+      json.put("name", "favoriteNode");
+      json.put("value", favoriteNode.getPath());
+      
+      DateFormat dateFormat = new SimpleDateFormat(IF_MODIFIED_SINCE_DATE_FORMAT);
+      return Response.ok(json.toString(), MediaType.APPLICATION_JSON).header(LAST_MODIFIED_PROPERTY, dateFormat.format(new Date())).build();
+      
+    } catch (Exception e) {
+        LOG.error(e);
+        return Response.serverError().build();
+      }
   }
   
   public static String getNodeTypeIcon(Node node, String appended) throws RepositoryException {
@@ -228,13 +255,13 @@ public class FavoriteRESTService implements ResourceContainer {
 	    return ret;
 	  }
   
-  public String createFullLink(Node userNode, Node document) throws Exception{
+ /* public String createFullLink(Node userNode, Node document) throws Exception{
 	  
     	String userPath = userNode.getPath();
       	String favoritePath = document.getPath();
       	String NodeUrl = favoritePath.substring(userPath.length()+1);
 	    return NodeUrl;
-  }
+  }*/
 
 
   private String getTitle(Node node) throws Exception {
