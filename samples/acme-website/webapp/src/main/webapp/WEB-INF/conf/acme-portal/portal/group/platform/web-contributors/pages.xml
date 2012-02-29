@@ -119,12 +119,12 @@
     			</preference>        	
     			<preference>
     				<name>showSideBar</name>     
-    				<value>true</value>        
+    				<value>false</value>        
     				<read-only>false</read-only>
     			</preference>        	
     			<preference>
     				<name>showTopBar</name>     
-    				<value>false</value>        
+    				<value>true</value>        
     				<read-only>false</read-only>
     			</preference>        	
         </preferences>
