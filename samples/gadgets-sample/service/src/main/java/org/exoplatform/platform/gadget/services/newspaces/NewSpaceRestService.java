@@ -17,8 +17,6 @@
 package org.exoplatform.platform.gadget.services.newspaces;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceService;
-import org.exoplatform.platform.gadget.services.newspaces.IntranetSpace;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;

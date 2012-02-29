@@ -18,8 +18,6 @@ package org.exoplatform.platform.gadget.services.newspaces;
 
 import org.exoplatform.commons.utils.ISO8601;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceService;
-import org.exoplatform.platform.gadget.services.newspaces.IntranetSpace;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;

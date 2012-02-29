@@ -17,8 +17,6 @@
 package org.exoplatform.platform.gadget.services.ForumStatistics;
 
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService;
-import org.exoplatform.platform.gadget.services.ForumStatistics.TopicBean;
 import org.exoplatform.ks.common.jcr.KSDataLocation;
 import org.exoplatform.ks.common.jcr.PropertyReader;
 import org.exoplatform.ks.common.jcr.SessionManager;

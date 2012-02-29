@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.exoplatform.calendar.client.EventDatabase;
 import org.exoplatform.calendar.client.JSO.Calendar;
 import org.exoplatform.calendar.client.JSO.CalendarEvent;
 import org.exoplatform.calendar.client.JSO.ResponseData;

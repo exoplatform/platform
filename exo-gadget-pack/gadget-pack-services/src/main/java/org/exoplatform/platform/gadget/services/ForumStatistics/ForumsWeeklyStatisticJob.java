@@ -20,8 +20,6 @@ package org.exoplatform.platform.gadget.services.ForumStatistics;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService;
-import org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatistic;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.quartz.Job;
