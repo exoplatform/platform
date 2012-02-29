@@ -44,7 +44,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIUserPlatformToolBarSitePortlet/UIUserPlatformToolBarSitePortlet.gtmpl")
 public class UIUserPlatformToolBarSitePortlet extends UIPortletApplication {
-  public static final Log LOG = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
+  private static final Log LOG = ExoLogger.getExoLogger(UIUserPlatformToolBarSitePortlet.class);
 
   private UserACL userACL = null;
   private UserNodeFilterConfig userFilterConfig;

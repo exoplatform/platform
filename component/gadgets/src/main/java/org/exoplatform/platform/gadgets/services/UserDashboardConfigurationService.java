@@ -66,7 +66,7 @@ public class UserDashboardConfigurationService {
   private GadgetRegistryService gadgetRegistryService = null;
   private List<UserDashboardConfiguration> separateUsersconfig;
   private List<Gadget> allUsersConfig;
-  private static Log LOG = ExoLogger.getExoLogger(UserDashboardConfigurationService.class);
+  private static final Log LOG = ExoLogger.getExoLogger(UserDashboardConfigurationService.class);
 
   public UserDashboardConfigurationService(DataStorage dataStorageService, UserPortalConfigService userPortalConfigService,
       GadgetRegistryService gadgetRegistryService, InitParams initParams) {
