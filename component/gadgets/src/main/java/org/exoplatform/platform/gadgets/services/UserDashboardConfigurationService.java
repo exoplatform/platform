@@ -28,7 +28,6 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.platform.gadgets.listeners.InitNewUserDashboardListener;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
