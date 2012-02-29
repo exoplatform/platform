@@ -99,9 +99,9 @@ public class UserDriveExtListener  extends UserEventListener {
             linkNode.save();
 
 
-        } catch (Exception E) {
+        } catch (Exception e) {
 
-            LOG.error("An error occurs while processing the creation of Public Symlink " +E);
+            LOG.error("An error occurs while processing the creation of Public Symlink " ,e);
 
         }  finally {
 

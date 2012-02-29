@@ -189,7 +189,7 @@ public class OrganizationIntegrationService implements Startable {
         syncAllGroups(EventType.DELETED.toString());
       }
     } catch (Exception e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     } finally {
       if (session != null) {
         session.logout();
@@ -280,7 +280,7 @@ public class OrganizationIntegrationService implements Startable {
       }
       syncAllUsers(EventType.DELETED.toString());
     } catch (Exception e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     }
     endRequest();
   }
@@ -1191,7 +1191,7 @@ public class OrganizationIntegrationService implements Startable {
       try {
         ((ComponentRequestLifecycle) organizationService).endRequest(container);
       } catch (Exception e) {
-        LOG.warn(e);
+        LOG.warn(e.getMessage(),e);
       }
       requestStarted = false;
     }

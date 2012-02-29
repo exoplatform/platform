@@ -96,11 +96,11 @@ public class FavoriteRESTService implements ResourceContainer {
       }
       
     } catch (ItemNotFoundException e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     } catch (RepositoryException e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     } catch (Exception e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
       return Response.serverError().build();
     }
     ListResultNode listResultNode = new ListResultNode();
@@ -144,11 +144,11 @@ public class FavoriteRESTService implements ResourceContainer {
       }
       
     } catch (ItemNotFoundException e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     } catch (RepositoryException e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
     } catch (Exception e) {
-      LOG.error(e);
+      LOG.error(e.getMessage(),e);
       return Response.serverError().build();
     }
     ListResultNode listResultNode = new ListResultNode();
@@ -179,7 +179,7 @@ public class FavoriteRESTService implements ResourceContainer {
       return Response.ok(json.toString(), MediaType.APPLICATION_JSON).header(LAST_MODIFIED_PROPERTY, dateFormat.format(new Date())).build();
       
     } catch (Exception e) {
-        LOG.error(e);
+        LOG.error(e.getMessage(),e);
         return Response.serverError().build();
       }
   }
