@@ -34,7 +34,7 @@ There are 3 levels: *High*, *Intermediate*, and *Low* with textual explanations 
 
 !images/add_new_space_settings.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Select an access level in the *Visibility* tab. {anchor:id=Visibility_space}
+*3.* Select an access level in the *Access & Edit* tab. {anchor:id=Visibility_space}
 
 !images/add_new_space_visibility.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
