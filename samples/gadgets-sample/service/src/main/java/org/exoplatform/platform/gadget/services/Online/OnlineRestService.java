@@ -57,7 +57,7 @@ import org.exoplatform.commons.utils.ListAccess;
 
 @Path("/online")
 public class OnlineRestService implements ResourceContainer {
-	private static final Log log = ExoLogger.getLogger(OnlineRestService.class);
+	private static final Log LOG = ExoLogger.getLogger(OnlineRestService.class);
 
 	private static final CacheControl cacheControl;
 	static {
@@ -114,7 +114,7 @@ public class OnlineRestService implements ResourceContainer {
 			data.setData(contacts);
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		} catch(Exception e) {
-			log.debug("Exception in my-contacts REST service: " + e.getMessage(), e);
+			LOG.debug("Exception in my-contacts REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -153,7 +153,7 @@ public class OnlineRestService implements ResourceContainer {
 			data.setData(profiles);
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		} catch(Exception e) {
-			log.debug("Exception in online-users REST service: " + e.getMessage(), e);
+			LOG.debug("Exception in online-users REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}

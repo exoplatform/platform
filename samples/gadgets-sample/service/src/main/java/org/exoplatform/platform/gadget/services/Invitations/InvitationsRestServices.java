@@ -46,7 +46,7 @@ import org.exoplatform.social.core.space.spi.SpaceService;
 @Produces("application/json")
 public class InvitationsRestServices implements ResourceContainer {
 
-  private static Log LOG = ExoLogger.getLogger(InvitationsRestServices.class);
+  private static final Log LOG = ExoLogger.getLogger(InvitationsRestServices.class);
 
 	private static final CacheControl cacheControl;
 	static {

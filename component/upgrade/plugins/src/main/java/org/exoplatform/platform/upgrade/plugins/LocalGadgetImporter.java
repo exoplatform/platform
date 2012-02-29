@@ -23,7 +23,7 @@ import org.gatein.common.io.IOTools;
 
 public class LocalGadgetImporter extends GadgetImporter {
   
-  private static Log logger = ExoLogger.getExoLogger(LocalGadgetImporter.class);
+  private static final Log LOG = ExoLogger.getExoLogger(LocalGadgetImporter.class);
   private ConfigurationManager configurationManager;
   private PortalContainer container;
   private String gadgetPath;
@@ -227,7 +227,7 @@ public class LocalGadgetImporter extends GadgetImporter {
       }
       return childList;
     } catch (Exception exception) {
-        logger.error("Exception when getting Children",exception);
+        LOG.error("Exception when getting Children",exception);
     }
     return null;
   }
@@ -240,7 +240,7 @@ public class LocalGadgetImporter extends GadgetImporter {
         isFile = file.isFile();
       }
     } catch (Exception exception) {
-      logger.error("file doesn't exist or may be the path has another format ", exception);
+      LOG.error("file doesn't exist or may be the path has another format ", exception);
     }
     if (isFile == null) {
       return !resourcePath.endsWith("/") && !resourcePath.endsWith("\\");

@@ -32,7 +32,7 @@ import org.picocontainer.Startable;
 public class TrialService implements Startable {
 
 
-  private static Log logger = ExoLogger.getExoLogger(TrialService.class);
+  private static final Log LOG = ExoLogger.getExoLogger(TrialService.class);
   private static String registrationFormUrl = null;
   private static String extendFormUrl = null;
   private static String pingBackUrl = null;
@@ -332,10 +332,10 @@ public class TrialService implements Startable {
         urlConn.connect();
         return (HttpURLConnection.HTTP_NOT_FOUND != urlConn.getResponseCode());
       } catch (MalformedURLException e) {
-          logger.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+          LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
 
       } catch (IOException e) {
-          logger.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
+          LOG.error("LeadCapture : Error creating HTTP connection to the server : " + pingServerURL);
       }
       return false;
     }

@@ -14,7 +14,7 @@ public class CustomizeSpaceDriveListener extends SpaceListenerPlugin {
   private static final String SPACE_DRIVE_VIEW = "space.drive.view";
   private SpaceCustomizationService spaceCustomizationService = null;
   private String viewNodeName = null;
-  private static Log LOG = ExoLogger.getExoLogger(CustomizeSpaceDriveListener.class);
+  private static final Log LOG = ExoLogger.getExoLogger(CustomizeSpaceDriveListener.class);
 
   public CustomizeSpaceDriveListener(SpaceCustomizationService spaceCustomizationService_, InitParams params) {
     this.spaceCustomizationService = spaceCustomizationService_;

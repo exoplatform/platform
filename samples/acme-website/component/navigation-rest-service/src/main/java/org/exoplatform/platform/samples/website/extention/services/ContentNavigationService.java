@@ -42,7 +42,7 @@ import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 @Path("/content-navigation")
 public class ContentNavigationService implements ResourceContainer {
 
-  private static Log logger = ExoLogger.getExoLogger(ContentNavigationService.class);
+  private static Log LOG = ExoLogger.getExoLogger(ContentNavigationService.class);
 
   // private String repository = null;
   private String workspace = null;
@@ -154,7 +154,7 @@ public class ContentNavigationService implements ResourceContainer {
       // jcr session logout
       session.logout();
     } catch (Exception e) {
-      logger.error("Error while retrieving navigable nodes", e);
+      LOG.error("Error while retrieving navigable nodes", e);
     }
 
     return jsonMenu_;
@@ -320,7 +320,7 @@ public class ContentNavigationService implements ResourceContainer {
     try {
       jsonSubMenuNode.setViewable(navigableNode.isViewableNode());
     } catch (Exception e) {
-      logger.error("Can not get isViewableNode property for navigableNode " + navigableNode.getNode().getPath(), e);
+      LOG.error("Can not get isViewableNode property for navigableNode " + navigableNode.getNode().getPath(), e);
     }
     /**/
 

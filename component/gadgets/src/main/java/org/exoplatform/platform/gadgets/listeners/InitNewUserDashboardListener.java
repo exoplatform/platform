@@ -31,7 +31,7 @@ import org.exoplatform.services.organization.UserEventListener;
  */
 public class InitNewUserDashboardListener extends UserEventListener {
 
-  private static Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
+  private static final Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
   private UserDashboardConfigurationService userDashboardConfigurationService = null;
 
   public InitNewUserDashboardListener(UserDashboardConfigurationService userDashboardConfigurationService) {

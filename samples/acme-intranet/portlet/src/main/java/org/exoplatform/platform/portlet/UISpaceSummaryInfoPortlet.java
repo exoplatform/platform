@@ -54,7 +54,7 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
   private boolean isSpace = false;
   private List<User> administratorsList = null;
   private final UIPageIterator iteratorAdministrators;
-  private Log log = ExoLogger.getLogger(this.getClass());
+  private static final Log LOG = ExoLogger.getLogger(UISpaceSummaryInfoPortlet.class);
 
   public UISpaceSummaryInfoPortlet() throws Exception {
     iteratorAdministrators = createUIComponent(UIPageIterator.class, null, ITERATOR_ADMINISTRATORS_ID);
@@ -64,8 +64,8 @@ public class UISpaceSummaryInfoPortlet extends UIPortletApplication {
     if (space != null) {
       isSpace = true;
     }else{
-      if(log.isDebugEnabled()){
-        log.debug("Can not add the portlet to this page navigation.\nSPACE_URL preference could not be set.");
+      if(LOG.isDebugEnabled()){
+        LOG.debug("Can not add the portlet to this page navigation.\nSPACE_URL preference could not be set.");
       }
     }
   }

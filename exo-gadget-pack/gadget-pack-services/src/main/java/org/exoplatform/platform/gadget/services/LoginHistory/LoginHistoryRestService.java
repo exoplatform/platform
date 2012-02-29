@@ -44,7 +44,7 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 
 @Path("loginhistory")
 public class LoginHistoryRestService implements ResourceContainer {
-	private static final Log log = ExoLogger.getLogger(LoginHistoryRestService.class);
+	private static final Log LOG = ExoLogger.getLogger(LoginHistoryRestService.class);
 
 	private static final CacheControl cacheControl;
 	static {
@@ -78,7 +78,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in get user login history REST service: " + e.getMessage(), e);
+			LOG.debug("Error in get user login history REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -109,7 +109,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in weekstats REST service: " + e.getMessage(), e);
+			LOG.debug("Error in weekstats REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -140,7 +140,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in monthstats REST service: " + e.getMessage(), e);
+			LOG.debug("Error in monthstats REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -171,7 +171,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in yearstats REST service: " + e.getMessage(), e);
+			LOG.debug("Error in yearstats REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -196,7 +196,7 @@ public class LoginHistoryRestService implements ResourceContainer {
 			return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in get last logins REST service: " + e.getMessage(), e);
+			LOG.debug("Error in get last logins REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}

@@ -65,7 +65,7 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 public class DataInjectorService implements Startable {
   private static final String CONFIGURATION_XML_SUFFIX = "-configuration.xml";
 
-  private static final Log logger_ = ExoLogger.getLogger(DataInjectorService.class);
+  private static final Log LOG = ExoLogger.getLogger(DataInjectorService.class);
 
   private List<UserImpl> usersData = new ArrayList<UserImpl>();
   private List<UserProfileImpl> userProfilesData = new ArrayList<UserProfileImpl>();
@@ -86,7 +86,7 @@ public class DataInjectorService implements Startable {
     try {
       doImport(false);
     } catch (Exception exception) {
-      logger_.error("Cannot inject Organization Model Data", exception);
+      LOG.error("Cannot inject Organization Model Data", exception);
     }
   }
 
@@ -142,7 +142,7 @@ public class DataInjectorService implements Startable {
             }
             organizationService.getUserHandler().saveUser(user, false);
           } else {
-            logger_.warn("user = " + importedUser.getUserName() + " doesn't exist");
+            LOG.warn("user = " + importedUser.getUserName() + " doesn't exist");
           }
         }
 
@@ -151,7 +151,7 @@ public class DataInjectorService implements Startable {
           if (user != null) {
             organizationService.getUserProfileHandler().saveUserProfile(userProfile, true);
           } else {
-            logger_.warn("userProfile = " + userProfile.getUserName() + " doesn't exist");
+            LOG.warn("userProfile = " + userProfile.getUserName() + " doesn't exist");
           }
         }
       }
@@ -209,7 +209,7 @@ public class DataInjectorService implements Startable {
 
         this.addDataPlugin(dataPlugin);
       } catch (Exception e) {
-        logger_.error("Failed to instanciate component plugin " + plugin.getName() + ", type=" + plugin.getClass(), e);
+        LOG.error("Failed to instanciate component plugin " + plugin.getName() + ", type=" + plugin.getClass(), e);
       }
     }
   }
@@ -280,8 +280,8 @@ public class DataInjectorService implements Startable {
                 + SerializationUtils.PROFILE_FILE_SUFFIX));
             zos.write(xml.getBytes());
             zos.closeEntry();
-            if (logger_.isDebugEnabled()) {
-              logger_.debug("Adding entry for userProfile: " + userProfile.getUserName());
+            if (LOG.isDebugEnabled()) {
+              LOG.debug("Adding entry for userProfile: " + userProfile.getUserName());
             }
           }
         }
@@ -295,8 +295,8 @@ public class DataInjectorService implements Startable {
   public void writeUsers(ZipOutputStream zos) throws Exception {
     RequestLifeCycle.begin(PortalContainer.getInstance());
     try {
-      if (logger_.isDebugEnabled()) {
-        logger_.debug("Adding entries for each user, additional fields are missing: LastLoginTime & CreatedDate");
+      if (LOG.isDebugEnabled()) {
+        LOG.debug("Adding entries for each user, additional fields are missing: LastLoginTime & CreatedDate");
       }
       ListAccess<User> usersListAccess = organizationService.getUserHandler().findAllUsers();
       XStream xstream_ = new XStream(new XppDriver());
@@ -313,8 +313,8 @@ public class DataInjectorService implements Startable {
                 + SerializationUtils.USER_FILE_SUFFIX));
             zos.write(xml.getBytes());
             zos.closeEntry();
-            if (logger_.isDebugEnabled()) {
-              logger_.debug("Adding entry for user: " + user.getUserName());
+            if (LOG.isDebugEnabled()) {
+              LOG.debug("Adding entry for user: " + user.getUserName());
             }
           }
         }
@@ -410,7 +410,7 @@ public class DataInjectorService implements Startable {
         allGroups.add(orgConfGroup);
       }
     } catch (Exception e) {
-      logger_.error("Error when recovering of all groups ... ", e);
+      LOG.error("Error when recovering of all groups ... ", e);
       return null;
     }
     return allGroups;
@@ -429,7 +429,7 @@ public class DataInjectorService implements Startable {
         allMembershipTypes.add(orgConfMemberShipType);
       }
     } catch (Exception e) {
-      logger_.error("Error when recovering of all membershipTypes ... ", e);
+      LOG.error("Error when recovering of all membershipTypes ... ", e);
       return null;
     }
     return allMembershipTypes;
@@ -443,7 +443,7 @@ public class DataInjectorService implements Startable {
       xmlInputStream.read(bytes);
       xmlContent = new String(bytes);
     } catch (Exception exception) {
-      logger_.error("file wasn't found ", exception);
+      LOG.error("file wasn't found ", exception);
     }
     return xmlContent;
   }

@@ -14,7 +14,7 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 
 public class DataPlugin extends BaseComponentPlugin {
-  private static final Log logger_ = ExoLogger.getLogger(DataPlugin.class);
+  private static final Log LOG = ExoLogger.getLogger(DataPlugin.class);
 
   private OrganizationService organizationService;
   private OrganizationConfig config;
@@ -29,15 +29,15 @@ public class DataPlugin extends BaseComponentPlugin {
   }
 
   public void init() throws Exception {
-    logger_.info("=======> Initialize the  organization data");
+    LOG.info("=======> Initialize the  organization data");
     createGroups();
     createMembershipTypes();
     createUsers();
-    logger_.info("<=======");
+    LOG.info("<=======");
   }
 
   private void createGroups() throws Exception {
-    logger_.info("  Init Group Data injection");
+    LOG.info("  Init Group Data injection");
 
     @SuppressWarnings("unchecked")
     List<OrganizationConfig.Group> groups = config.getGroup();
@@ -53,7 +53,7 @@ public class DataPlugin extends BaseComponentPlugin {
         groupId = data.getParentId() + "/" + data.getName();
 
       if (organizationService.getGroupHandler().findGroupById(groupId) == null) {
-        logger_.info("    Creating Group " + groupId);
+        LOG.info("    Creating Group " + groupId);
         Group group = organizationService.getGroupHandler().createGroupInstance();
         group.setGroupName(data.getName());
         group.setDescription(data.getDescription());
@@ -65,13 +65,13 @@ public class DataPlugin extends BaseComponentPlugin {
           organizationService.getGroupHandler().addChild(parentGroup, group, false);
         }
       } else {
-        logger_.info("    Ignoring existing Group " + groupId);
+        LOG.info("    Ignoring existing Group " + groupId);
       }
     }
   }
 
   private void createMembershipTypes() throws Exception {
-    logger_.info("  Init  MembershipType  Data ijection");
+    LOG.info("  Init  MembershipType  Data ijection");
 
     @SuppressWarnings("unchecked")
     List<OrganizationConfig.MembershipType> types = config.getMembershipType();
@@ -80,20 +80,20 @@ public class DataPlugin extends BaseComponentPlugin {
     }
     for (OrganizationConfig.MembershipType data : types) {
       if (organizationService.getMembershipTypeHandler().findMembershipType(data.getType()) == null) {
-        logger_.info("    Creating MembershipType " + data.getType());
+        LOG.info("    Creating MembershipType " + data.getType());
         MembershipType type = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
         type.setName(data.getType());
         type.setDescription(data.getDescription());
         organizationService.getMembershipTypeHandler().createMembershipType(type, false);
       } else {
-        logger_.info("    Ignoring existing MembershipType " + data.getType());
+        LOG.info("    Ignoring existing MembershipType " + data.getType());
       }
     }
   }
 
   @SuppressWarnings({ "unchecked" })
   private void createUsers() throws Exception {
-    logger_.info("  Init  User  Data injection");
+    LOG.info("  Init  User  Data injection");
     List<OrganizationConfig.User> users = config.getUser();
     if (users == null || users.isEmpty()) {
       return;
@@ -108,10 +108,10 @@ public class DataPlugin extends BaseComponentPlugin {
       user.setEmail(data.getEmail());
 
       if (organizationService.getUserHandler().findUserByName(data.getUserName()) == null) {
-        logger_.info("    Creating user " + data.getUserName());
+        LOG.info("    Creating user " + data.getUserName());
         organizationService.getUserHandler().createUser(user, false);
       } else {
-        logger_.info("    Ignoring existing User " + data.getUserName());
+        LOG.info("    Ignoring existing User " + data.getUserName());
       }
 
       String groups = data.getGroups();
@@ -126,9 +126,9 @@ public class DataPlugin extends BaseComponentPlugin {
             MembershipType mt = organizationService.getMembershipTypeHandler().createMembershipTypeInstance();
             mt.setName(membership);
             mhandler.linkMembership(user, group, mt, false);
-            logger_.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
+            LOG.info("    Creating membership " + data.getUserName() + ", " + groupId + ", " + membership);
           } else {
-            logger_.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
+            LOG.info("    Ignoring existing membership " + data.getUserName() + ", " + groupId + ", " + membership);
           }
         }
       }

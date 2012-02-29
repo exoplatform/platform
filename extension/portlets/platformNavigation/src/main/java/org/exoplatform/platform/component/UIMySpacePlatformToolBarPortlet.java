@@ -47,7 +47,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UIMySpacePlatformToolBarPortlet/UIMySpacePlatformToolBarPortlet.gtmpl", events = { @EventConfig(listeners = UIMySpacePlatformToolBarPortlet.NavigationChangeActionListener.class) })
 public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
 
-  private static Log logger = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
+  private static final Log LOG = ExoLogger.getLogger(UIMySpacePlatformToolBarPortlet.class);
   
   private static final String SPACE_SETTINGS = "settings";
 
@@ -75,7 +75,7 @@ public class UIMySpacePlatformToolBarPortlet extends UIPortletApplication {
     try {
       spaceService = getApplicationComponent(SpaceService.class);
     } catch (Exception exception) {
-      logger.error("paceService could be 'null' when the Social profile isn't activated ", exception);
+      LOG.error("paceService could be 'null' when the Social profile isn't activated ", exception);
     }
     if (spaceService == null) { // Social profile disabled
       return;

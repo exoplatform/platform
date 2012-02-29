@@ -48,7 +48,7 @@ import javax.ws.rs.core.Response;
 @Path("intranetNewSpaceService")
 public class NewSpaceRestService implements ResourceContainer {
 
-  private static final Log   log                 = ExoLogger.getLogger(NewSpaceRestService.class);
+  private static final Log LOG = ExoLogger.getLogger(NewSpaceRestService.class);
   
   /** The Constant REGISTRATION is OPEN. */
   public final static String REGISTRATION_OPEN = "open";
@@ -100,7 +100,7 @@ public class NewSpaceRestService implements ResourceContainer {
      }
      catch (Exception e)
      {
-       log.error("has not any space", e);
+       LOG.error("has not any space", e);
      }
      List<Object> dataIntranetSpace = new ArrayList<Object>();
 
@@ -133,7 +133,7 @@ public class NewSpaceRestService implements ResourceContainer {
      }
      catch (Exception e)
      {
-       log.error("has not any space", e);
+       LOG.error("has not any space", e);
      }
      List<Object> dataIntranetSpace = new ArrayList<Object>();
 
@@ -173,7 +173,7 @@ public class NewSpaceRestService implements ResourceContainer {
        }
        listOfUser.addAll(list);
      } catch (Exception e) {
-       log.warn("Failed to add all info of user.");
+       LOG.warn("Failed to add all info of user.");
      }
      return listOfUser;
    }

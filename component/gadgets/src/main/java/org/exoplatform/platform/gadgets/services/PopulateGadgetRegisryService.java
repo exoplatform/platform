@@ -45,7 +45,7 @@ public class PopulateGadgetRegisryService implements Startable {
   private static final String DEFAULT_GADGETS_CATEGORY_NAME = "Gadgets";
   private static String CATEGORY_NAME;
   private static String GADGETS_CATEGORY_ACCESS_PERMISSION;
-  private static Log logger = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
+  private static final Log LOG = ExoLogger.getExoLogger(InitNewUserDashboardListener.class);
   private GadgetRegistryService gadgetRegistryService = null;
   private ApplicationRegistryService applicationRegistryService = null;
   private List<Gadget> gadgets;
@@ -55,13 +55,13 @@ public class PopulateGadgetRegisryService implements Startable {
     CATEGORY_NAME = initParams.getValueParam("gadgetsCategoryName").getValue();
     if (CATEGORY_NAME == null) {
       CATEGORY_NAME = DEFAULT_GADGETS_CATEGORY_NAME;
-      logger.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryName").getName()
+      LOG.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryName").getName()
           + " init param. Default category name will be used: " + DEFAULT_GADGETS_CATEGORY_NAME);
     }
     GADGETS_CATEGORY_ACCESS_PERMISSION = initParams.getValueParam("gadgetsCategoryAccessPermission").getValue();
     if (GADGETS_CATEGORY_ACCESS_PERMISSION == null) {
       GADGETS_CATEGORY_ACCESS_PERMISSION = UserACL.EVERYONE;
-      logger.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryAccessPermission").getName()
+      LOG.warn("Failed to retrieve " + initParams.getValueParam("gadgetsCategoryAccessPermission").getName()
           + " init param. Default access permission will be used: " + UserACL.EVERYONE);
     }
     gadgets = initParams.getObjectParamValues(Gadget.class);
@@ -110,7 +110,7 @@ public class PopulateGadgetRegisryService implements Startable {
           applicationRegistryService.save(applicationRegistryService.getApplicationCategory(CATEGORY_NAME), registryApplication);
         }
       } catch (Exception e) {
-        logger.error("Error while saving gadget: " + gadget.getName() + " with " + CATEGORY_NAME + " application category. ", e);
+        LOG.error("Error while saving gadget: " + gadget.getName() + " with " + CATEGORY_NAME + " application category. ", e);
         throw new RuntimeException(e);
       } finally {
         RequestLifeCycle.end();

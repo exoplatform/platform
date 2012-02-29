@@ -22,7 +22,7 @@ import org.exoplatform.services.log.Log;
 
 public class Utils {
 
-  private static Log logger = ExoLogger.getLogger(Utils.class);
+  private static final Log LOG = ExoLogger.getLogger(Utils.class);
   
   public static final int DEFAULT_DELAY_PERIOD = 30;
   public static final String REMIND_DATE = "remindDate";
@@ -123,14 +123,14 @@ public class Utils {
         try {
           outputStream.close();
         } catch (IOException ioException) {
-          logger.error("Error during close outputStream ", ioException);
+          LOG.error("Error during close outputStream ", ioException);
         }
       }
       if (inputStream != null) {
         try {
           inputStream.close();
         } catch (IOException ioException) {
-          logger.error("Error during close inputStream ", ioException);
+          LOG.error("Error during close inputStream ", ioException);
         }
       }
     }

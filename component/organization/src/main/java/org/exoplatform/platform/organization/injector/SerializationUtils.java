@@ -22,7 +22,7 @@ import org.jibx.runtime.IMarshallingContext;
 import org.jibx.runtime.impl.UnmarshallingContext;
 
 public class SerializationUtils {
-  private static final Log logger_ = ExoLogger.getLogger(SerializationUtils.class);
+  private static final Log LOG = ExoLogger.getLogger(SerializationUtils.class);
 
   public static final int MAX_USERS_IN_FILE_PARAM_NAME = 100;
 
@@ -40,8 +40,8 @@ public class SerializationUtils {
     zos.putNextEntry(new ZipEntry(entryName));
     zos.write(bytes);
     zos.closeEntry();
-    if (logger_.isDebugEnabled()) {
-      logger_.debug("Adding entry: " + entryName);
+    if (LOG.isDebugEnabled()) {
+      LOG.debug("Adding entry: " + entryName);
     }
   }
 

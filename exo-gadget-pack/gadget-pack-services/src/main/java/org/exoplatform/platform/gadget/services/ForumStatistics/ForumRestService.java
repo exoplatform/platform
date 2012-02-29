@@ -54,7 +54,7 @@ import javax.ws.rs.core.Response;
 @Path("forumsService")
 public class ForumRestService implements ResourceContainer {
   
-  private static final Log   log                 = ExoLogger.getLogger(ForumRestService.class);
+  private static final Log LOG= ExoLogger.getLogger(ForumRestService.class);
                                                                        
    public ForumRestService() { }
    
@@ -80,7 +80,7 @@ public class ForumRestService implements ResourceContainer {
      }
      catch (Exception e)
      {
-       log.error("forumStatistic not found", e);
+       LOG.error("forumStatistic not found", e);
      }
      List<Object> dataForumStatistic = new ArrayList<Object>();
 
@@ -112,7 +112,7 @@ public class ForumRestService implements ResourceContainer {
      }
      catch (Exception e)
      {
-       log.error("forumWeeklyStatistic not found", e);
+       LOG.error("forumWeeklyStatistic not found", e);
      }
      List<Object> dataForumStatistic = new ArrayList<Object>();
 
@@ -147,7 +147,7 @@ public class ForumRestService implements ResourceContainer {
       data.setData(listData);
       return Response.ok(data, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
     } catch (Exception e) {
-      log.debug("Failed to get top voted rating topics");
+      LOG.debug("Failed to get top voted rating topics");
     }
     return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
   }
@@ -168,7 +168,7 @@ public class ForumRestService implements ResourceContainer {
       }
       listOfUser.addAll(list);
     } catch (Exception e) {
-      log.warn("Failed to add all info of user.");
+      LOG.warn("Failed to add all info of user.");
     }
     return listOfUser;
   }

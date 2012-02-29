@@ -31,7 +31,7 @@ import org.exoplatform.services.security.ConversationState;
  * Apr 21, 2011 6:19:21 PM
  */
 public class LoginHistoryListener extends Listener<ConversationRegistry, ConversationState> {
-	private static final Log log = ExoLogger.getLogger(LoginHistoryListener.class);
+	private static final Log LOG = ExoLogger.getLogger(LoginHistoryListener.class);
 	private ExoContainerContext context;
 
 	public LoginHistoryListener(ExoContainerContext context) throws Exception {
@@ -53,10 +53,10 @@ public class LoginHistoryListener extends Listener<ConversationRegistry, Convers
 			long now = System.currentTimeMillis();
 			if(now - loginHistoryService.getLastLogin(userId) > 180000) {
 				loginHistoryService.addLoginHistoryEntry(userId, now);
-				log.info("User " + userId + " logged in.");
+				LOG.info("User " + userId + " logged in.");
 			}
 		} catch (Exception e) {
-			log.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
+			LOG.debug("Error while logging the login of user '" + userId + "': " + e.getMessage(), e);
 		}
 	}
 }

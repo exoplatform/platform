@@ -34,7 +34,7 @@ import org.exoplatform.services.organization.impl.MembershipImpl;
 
 public class Util {
 
-  private static Log logger = ExoLogger.getLogger(Util.class);
+  private static final Log LOG = ExoLogger.getLogger(Util.class);
 
   final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
   final public static String MEMBERSHIP_SEPARATOR = "---";
@@ -52,7 +52,7 @@ public class Util {
     try {
       homePathNode = (Node) session.getItem(HOME_PATH);
     } catch (Exception e) {
-      logger.error("Problem during recovery of item ", e);
+      LOG.error("Problem during recovery of item ", e);
     }
     if (homePathNode == null) {
       homePathNode = createFolder(session.getRootNode(), HOME_PATH);

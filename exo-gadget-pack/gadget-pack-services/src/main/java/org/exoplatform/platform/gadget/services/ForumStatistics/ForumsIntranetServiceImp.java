@@ -43,7 +43,8 @@ import javax.jcr.query.QueryResult;
  */
 public class ForumsIntranetServiceImp implements ForumsIntranetService {
 
-  private static final Log   log      = ExoLogger.getLogger(ForumsIntranetServiceImp.class);
+  private static final Log LOG = ExoLogger.getLogger(ForumsIntranetServiceImp.class);
+  
 
   public static final String JCR_ROOT = "/jcr:root";
 
@@ -91,7 +92,7 @@ public class ForumsIntranetServiceImp implements ForumsIntranetService {
         }
       }
     } catch (Exception e) {
-      log.debug("Failed to get top voted rating topics");
+      LOG.debug("Failed to get top voted rating topics");
     } finally {
       sProvider.close();
     }
@@ -116,7 +117,7 @@ public class ForumsIntranetServiceImp implements ForumsIntranetService {
       Node userNode = sessionManager.getSession(sProvider).getRootNode().getNode(userPatch);
       return new PropertyReader(userNode).l("exo:userRole", 3);
     } catch (Exception e) {
-      log.debug("Failed to get user role of forum.", e);
+      LOG.debug("Failed to get user role of forum.", e);
     }
     return 3;
   }
@@ -168,7 +169,7 @@ public class ForumsIntranetServiceImp implements ForumsIntranetService {
         }
       }
     } catch (Exception e) {
-      log.debug("Failed to checking has premission viewing topic add in forum.");
+      LOG.debug("Failed to checking has premission viewing topic add in forum.");
     }
     return false;
   }

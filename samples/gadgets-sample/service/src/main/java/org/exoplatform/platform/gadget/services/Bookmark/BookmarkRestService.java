@@ -43,7 +43,7 @@ import org.exoplatform.services.rest.resource.ResourceContainer;
 @Path("bookmarks/")
 @Produces(MediaType.APPLICATION_JSON)
 public class BookmarkRestService implements ResourceContainer {
-	private static final Log log = ExoLogger.getLogger(BookmarkRestService.class);
+	private static final Log LOG = ExoLogger.getLogger(BookmarkRestService.class);
 
 	private static final CacheControl cacheControl;
 	static {
@@ -88,7 +88,7 @@ public class BookmarkRestService implements ResourceContainer {
 			return Response.ok(bookmarks, MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in get bookmarks REST service: " + e.getMessage(), e);
+			LOG.debug("Error in get bookmarks REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}
@@ -123,7 +123,7 @@ public class BookmarkRestService implements ResourceContainer {
 			return Response.ok("{\"status\":\"successed\"}", MediaType.APPLICATION_JSON).cacheControl(cacheControl).build();
 		}
 		catch (Exception e) {
-			log.debug("Error in set bookmarks REST service: " + e.getMessage(), e);
+			LOG.debug("Error in set bookmarks REST service: " + e.getMessage(), e);
 			return Response.status(HTTPStatus.INTERNAL_ERROR).cacheControl(cacheControl).build();
 		}
 	}

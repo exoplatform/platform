@@ -147,11 +147,11 @@ public class UIUserPlatformToolbarDesktopPortlet extends UIPortletApplication {
   }
 
   static public class NavigationChangeActionListener extends EventListener<UIUserPlatformToolbarDesktopPortlet> {
-    private Log log = ExoLogger.getExoLogger(NavigationChangeActionListener.class);
+    private static final Log LOG = ExoLogger.getExoLogger(NavigationChangeActionListener.class);
 
     @Override
     public void execute(Event<UIUserPlatformToolbarDesktopPortlet> event) throws Exception {
-      log.debug("PageNode : " + ((EventRequest) event.getRequestContext().getRequest()).getEvent().getValue() + " is deleted");
+      LOG.debug("PageNode : " + ((EventRequest) event.getRequestContext().getRequest()).getEvent().getValue() + " is deleted");
     }
   }
 

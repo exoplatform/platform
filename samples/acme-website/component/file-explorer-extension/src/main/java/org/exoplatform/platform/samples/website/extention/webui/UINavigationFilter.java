@@ -11,7 +11,7 @@ import org.exoplatform.webui.ext.filter.UIExtensionFilterType;
 
 public class UINavigationFilter extends UIExtensionAbstractFilter {
 
-    private static Log LOG = ExoLogger.getExoLogger(UINavigationFilter.class);
+    private static final Log LOG = ExoLogger.getExoLogger(UINavigationFilter.class);
   /**
    * This method checks if the current node is of the right type
    */

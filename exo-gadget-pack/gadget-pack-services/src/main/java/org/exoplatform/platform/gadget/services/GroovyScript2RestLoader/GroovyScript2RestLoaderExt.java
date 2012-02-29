@@ -22,7 +22,7 @@ import org.exoplatform.services.script.groovy.GroovyScriptInstantiator;
 
 @Path("script/groovy")
 public class GroovyScript2RestLoaderExt extends GroovyScript2RestLoader{
-    static final Log LOG = ExoLogger.getLogger(GroovyScript2RestLoaderExt.class);
+  private static final Log LOG = ExoLogger.getLogger(GroovyScript2RestLoaderExt.class);
     
     public GroovyScript2RestLoaderExt(ResourceBinder binder,
             GroovyScriptInstantiator groovyScriptInstantiator,

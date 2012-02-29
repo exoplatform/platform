@@ -85,7 +85,7 @@ import org.exoplatform.webui.form.validator.Validator;
 public class UIPageNodeForm extends UIFormTabPane
 {
 
-  private static Log LOG = ExoLogger.getLogger(UIPageNodeForm.class);
+  private static final Log LOG = ExoLogger.getLogger(UIPageNodeForm.class);
   
    private TreeNode pageNode_;
 

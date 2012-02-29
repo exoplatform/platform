@@ -32,7 +32,7 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
 public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
-  private static final Log log = ExoLogger.getLogger(UpgradeNodeTypesTemplatesService.class);
+  private static final Log LOG = ExoLogger.getLogger(UpgradeNodeTypesTemplatesService.class);
 
   private TemplateService templateService = null;
   private ConfigurationManager configurationManager = null;
@@ -76,25 +76,25 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
           TemplateService.class.getName());
       List<ComponentPlugin> componentPlugins = new ArrayList<ComponentPlugin>();
       if (externalComponentPlugins != null && externalComponentPlugins.getComponentPlugins() != null) {
-        log.info("add Template Services externalComponentPlugins");
+        LOG.info("add Template Services externalComponentPlugins");
         componentPlugins.addAll(externalComponentPlugins.getComponentPlugins());
       }
 
       // Get inner ComponentPlugins
       Component component = configurationManager.getComponent(TemplateService.class);
       if (component.getComponentPlugins() != null) {
-        log.info("add Template Services componentPlugins");
+        LOG.info("add Template Services componentPlugins");
         componentPlugins.addAll(component.getComponentPlugins());
       }
 
       // End: Get all TemplateService declared componentPlugins
 
       for (ComponentPlugin componentPlugin : componentPlugins) {
-        log.info("Begin processing Component Plugin '" + componentPlugin.getName() + "'...");
+        LOG.info("Begin processing Component Plugin '" + componentPlugin.getName() + "'...");
         // Test if The ComponentPlugin is declared as "upgradable"
         if (!componentPlugin.getType().equals(TemplatePlugin.class.getName())
             || !pluginNamesList.contains(componentPlugin.getName())) {
-          log.info("not upgradable component plugin");
+          LOG.info("not upgradable component plugin");
           continue;
         }
 
@@ -118,24 +118,24 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         // End: Read ComponentPlugin's initParams
 
         if (autoCreateInNewRepository) { // if templates are defined in multiple repositories
-          log.info("templates are defined in multiple repositories, upgrade in all repos");
+          LOG.info("templates are defined in multiple repositories, upgrade in all repos");
           List<RepositoryEntry> repositories = repositoryService.getConfig().getRepositoryConfigurations();
           for (RepositoryEntry repo : repositories) {
-            log.info("upgrade templates in '" + repo.getName() + "' repository");
+            LOG.info("upgrade templates in '" + repo.getName() + "' repository");
             upgradePredefinedTemplates(repo.getName(), templatesConfig, storedLocation);
           }
         } else { // if templates are defined in a single repository
           ValueParam valueParam = initParams.getValueParam("repository");
           String repository = valueParam != null ? valueParam.getValue() : repositoryService.getCurrentRepository()
               .getConfiguration().getName();
-          log.info("upgrade templates in '" + repository + "' repository");
+          LOG.info("upgrade templates in '" + repository + "' repository");
           upgradePredefinedTemplates(repository, templatesConfig, storedLocation);
         }
       }
     } catch (Exception exception) {
       StringWriter sw = new StringWriter();
       exception.printStackTrace(new PrintWriter(sw));
-      log.error(sw.toString());
+      LOG.error(sw.toString());
     }
   }
 
@@ -155,22 +155,22 @@ public class UpgradeNodeTypesTemplatesService extends UpgradeProductPlugin {
         TemplateConfig.NodeType nodeType = (TemplateConfig.NodeType) object;
 
         // Add new version of all declared dialogs
-        if (log.isDebugEnabled()) {
-          log.debug("upgrade dialogs for nodeType '" + nodeType.getNodetypeName() + "'");
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("upgrade dialogs for nodeType '" + nodeType.getNodetypeName() + "'");
         }
         List dialogs = nodeType.getReferencedDialog();
         updateTemplateContent(storedLocation, nodeType, dialogs, TemplatePlugin.DIALOGS, templatesHome);
 
         // Add new version of all declared views
-        if (log.isDebugEnabled()) {
-          log.debug("upgrade views for nodeType '" + nodeType.getNodetypeName() + "'");
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("upgrade views for nodeType '" + nodeType.getNodetypeName() + "'");
         }
         List views = nodeType.getReferencedView();
         updateTemplateContent(storedLocation, nodeType, views, TemplatePlugin.VIEWS, templatesHome);
 
         // Add new version of all declared skins
-        if (log.isDebugEnabled()) {
-          log.debug("upgrade skins for nodeType '" + nodeType.getNodetypeName() + "'");
+        if (LOG.isDebugEnabled()) {
+          LOG.debug("upgrade skins for nodeType '" + nodeType.getNodetypeName() + "'");
         }
         List skins = nodeType.getReferencedSkin();
         if (skins != null) {

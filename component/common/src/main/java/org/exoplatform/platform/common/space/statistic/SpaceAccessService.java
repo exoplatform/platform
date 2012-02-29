@@ -21,7 +21,7 @@ import org.exoplatform.services.log.Log;
 
 public class SpaceAccessService {
 
-  private static Log logger = ExoLogger.getLogger(SpaceAccessService.class);
+  private static final Log LOG = ExoLogger.getLogger(SpaceAccessService.class);
   
   private static final String PARENT_PLATFORM_RELATIVE_PATH = "Platform";
   private static final String PARENT_TOOLBAR_RELATIVE_PATH = "toolbar";
@@ -117,7 +117,7 @@ public class SpaceAccessService {
     try {
       spaceAccess = getSession().findByPath(SpaceAccess.class, parentNodePath + "/" + SPACE_ACCESS_NODE_NAME, false);
     } catch (Exception exception) {
-      logger.error("spaceAccess for this user isn't yet created ", exception);
+      LOG.error("spaceAccess for this user isn't yet created ", exception);
     }
     if (spaceAccess == null || spaceAccess.getMostAccessedSpaces() == null || spaceAccess.getMostAccessedSpaces().length == 0) {
       return new ArrayList<String>();
