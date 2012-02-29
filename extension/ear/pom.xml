@@ -46,6 +46,16 @@
       <artifactId>exo.platform.upgrade.plugins</artifactId>
       <version>${project.version}</version>
       <type>jar</type>
+      <exclusions>
+        <exclusion>
+          <groupId>org.exoplatform.doc</groupId>
+          <artifactId>doc-style</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.chromattic</groupId>
+          <artifactId>chromattic.core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
@@ -93,7 +103,6 @@
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>exo.platform.commons.component.upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
-	    <scope>provided</scope>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
