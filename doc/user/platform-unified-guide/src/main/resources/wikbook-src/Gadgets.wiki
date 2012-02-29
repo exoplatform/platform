@@ -165,25 +165,6 @@ You can add a new event to your personal calendar in this gadget by simply enter
 
 !images/eXo_Calendar_gadget_quickadd.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-eXo Calendar Gadget settings
-</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*1.* Click !images/edit_gadget.png|scalefit="1" width="4mm"! in the *Title* bar to open the form to edit the gadget settings.
-
-!images/eXo_Calendar_gadget_settings.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-|| Field || Description ||
-| *Rest URL* | Where the gadget will get data. For example: http://mycompany.com:8080/rest/ |
-
-*2.* Input the *Rest URL*, then click *Save* to accept your changes.
-
-Normally, regular users do not have to care about this setting. If administrators make changes on the server that affects the *Rest URL*, you need to contact administrators to get the new Rest URL.
 
 h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnitoringGadget}
 
