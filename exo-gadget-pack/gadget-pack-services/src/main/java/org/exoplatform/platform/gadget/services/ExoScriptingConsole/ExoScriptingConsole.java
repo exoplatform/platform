@@ -118,7 +118,7 @@ public class ExoScriptingConsole{
 	public String toString(){
 		ScriptEngineFactory factory = _engine.getFactory();
 		String info = "Scripting engine: " + factory.getEngineName() + " (v" + factory.getEngineVersion() + ")\n";
-		info += new StringBuffer().append("Language version: ").append(factory.getLanguageName()).append(" ").append(factory.getLanguageVersion()).append("\n");
+		info = new StringBuffer().append(info).append("Language version: ").append(factory.getLanguageName()).append(" ").append(factory.getLanguageVersion()).append("\n").toString();
 		return info;
 	}
 
