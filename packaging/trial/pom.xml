@@ -149,6 +149,16 @@
 				</replace>
                 <zip destfile="${project.build.directory}/tomcat-bundle/webapps/platform-extension.war" basedir="${project.build.directory}/tomcat-bundle/webapps/plf" />
                 <delete dir="${project.build.directory}/tomcat-bundle/webapps/plf" />
+    
+                <!-- Comment filter Terms and Conditions -->
+                <unzip src="${project.build.directory}/tomcat-bundle/lib/exo.platform.component.common-${project.version}.jar" dest="${project.build.directory}/tomcat-bundle/lib/plf" />
+                <replace file="${project.build.directory}/tomcat-bundle/lib/plf/conf/portal/configuration.xml">
+                  <replacetoken><![CDATA[<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>]]></replacetoken>
+                  <replacevalue><![CDATA[<!--<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>-->]]></replacevalue>
+                </replace>
+                <zip destfile="${project.build.directory}/tomcat-bundle/lib/exo.platform.component.common-${project.version}.jar" basedir="${project.build.directory}/tomcat-bundle/lib/plf" />
+                <delete dir="${project.build.directory}/tomcat-bundle/lib/plf" />
+                
                 <!-- comment the gatein.data.dir variable out, to use one given by the cargo plugin -->
                 <replace file="${project.build.directory}/tomcat-bundle/gatein/conf/configuration.properties" token="gatein.data.dir=" value="#gatein.data.dir=" />
                 <!-- uses the gatein.data.dir to store the db at the correct location, in tomcat-bundle/gatein/data -->

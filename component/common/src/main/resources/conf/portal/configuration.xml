@@ -1,423 +1,458 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd" xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-	<component>
-		<type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
-	</component>
-	<component>
-		<type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
-	</component>
-	<component>
-		<type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
-	</component>
-	<component profiles="all,default,social">
-		<type>org.exoplatform.platform.common.space.statistic.SpaceAccessService</type>
-	</component>
-	<component>
-		<type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
-		<init-params>
-			<value-param>
-				<name>setup.navigation.file</name>
-				<value>jar:/conf/portal/setup-navigation.xml</value>
-			</value-param>
-		</init-params>
-	</component>
-	<!-- Defines the builtin Modules -->
-	<component>
-		<type>org.exoplatform.platform.common.module.ModuleRegistry</type>
-		<!-- We could put modules definitions by init-param or by component plugin -->
-		<component-plugins>
-			<component-plugin>
-				<name>webos.module.plugin</name>
-				<set-method>addModule</set-method>
-				<type>org.exoplatform.platform.common.module.ModulePlugin</type>
-				<init-params>
-					<object-param>
-						<name>module</name>
-						<object type="org.exoplatform.platform.common.module.Module">
-							<field name="name">
-								<string>webos</string>
-							</field>
-							<field name="description">
-								<string>WebOS</string>
-							</field>
-							<field name="webapps">
-								<collection type="java.util.ArrayList">
-									<value>
-										<string>webos-ext</string>
-									</value>
-									<value>
-										<string>webosadmin</string>
-									</value>
-									<value>
-										<string>webosResources</string>
-									</value>
-								</collection>
-							</field>
-							<!-- List of portletId = {webappName}/portletName -->
-							<field name="portlets">
-								<collection type="java.util.ArrayList"/>
-							</field>
-						</object>
-					</object-param>
-				</init-params>
-			</component-plugin>
-		</component-plugins>
-		<init-params>
-			<object-param>
-				<name>default.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>default</string>
-					</field>
-					<field name="description">
-						<string>default profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>cs-extension</string>
-							</value>
-							<value>
-								<string>cometd</string>
-							</value>
-							<value>
-								<string>csResources</string>
-							</value>
-							<value>
-								<string>mail</string>
-							</value>
-							<value>
-								<string>contact</string>
-							</value>
-							<value>
-								<string>chat</string>
-							</value>
-							<value>
-								<string>chatbar</string>
-							</value>
-							<value>
-								<string>content</string>
-							</value>
-							<value>
-								<string>calendar</string>
-							</value>
-							<value>
-								<string>social-resources</string>
-							</value>
-							<value>
-								<string>social-portlet</string>
-							</value>
-							<value>
-								<string>social</string>
-							</value>
-							<value>
-								<string>social-extension</string>
-							</value>
-							<value>
-								<string>ksResources</string>
-							</value>
-							<value>
-								<string>faq</string>
-							</value>
-							<value>
-								<string>forum</string>
-							</value>
-							<value>
-								<string>poll</string>
-							</value>
-							<value>
-								<string>wiki</string>
-							</value>
-							<value>
-								<string>ks</string>
-							</value>
-							<value>
-								<string>SmartGWT</string>
-							</value>
-							<value>
-								<string>IDE</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>collaboration.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>collaboration</string>
-					</field>
-					<field name="description">
-						<string>collaboration profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>cs-extension</string>
-							</value>
-							<value>
-								<string>cometd</string>
-							</value>
-							<value>
-								<string>csResources</string>
-							</value>
-							<value>
-								<string>mail</string>
-							</value>
-							<value>
-								<string>contact</string>
-							</value>
-							<value>
-								<string>chat</string>
-							</value>
-							<value>
-								<string>chatbar</string>
-							</value>
-							<value>
-								<string>content</string>
-							</value>
-							<value>
-								<string>calendar</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>dms.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>dms</string>
-					</field>
-					<field name="description">
-						<string>dms profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>ecmbrowsecontent</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>workflow.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>workflow</string>
-					</field>
-					<field name="description">
-						<string>workflow profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>ecmworkflow-extension</string>
-							</value>
-							<value>
-								<string>workflow</string>
-							</value>
-							<value>
-								<string>eXoWorkflowResources</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>social.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>social</string>
-					</field>
-					<field name="description">
-						<string>social profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>social-resources</string>
-							</value>
-							<value>
-								<string>social-portlet</string>
-							</value>
-							<value>
-								<string>social</string>
-							</value>
-							<value>
-								<string>social-extension</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>knowledge.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>knowledge</string>
-					</field>
-					<field name="description">
-						<string>knowledge profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>ksResources</string>
-							</value>
-							<value>
-								<string>faq</string>
-							</value>
-							<value>
-								<string>forum</string>
-							</value>
-							<value>
-								<string>poll</string>
-							</value>
-							<value>
-								<string>wiki</string>
-							</value>
-							<value>
-								<string>ks</string>
-							</value>
-							<value>
-								<string>cometd</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-			<object-param>
-				<name>ide.webapps</name>
-				<object type="org.exoplatform.platform.common.module.Module">
-					<field name="name">
-						<string>ide</string>
-					</field>
-					<field name="description">
-						<string>ide profile modules</string>
-					</field>
-					<field name="webapps">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>SmartGWT</string>
-							</value>
-							<value>
-								<string>IDE</string>
-							</value>
-						</collection>
-					</field>
-					<!-- List of portletId = {webappName}/portletName -->
-					<field name="portlets">
-						<collection type="java.util.ArrayList"/>
-					</field>
-				</object>
-			</object-param>
-		</init-params>
-	</component>
-	<external-component-plugins profiles="all,default,social">
-		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-		<component-plugin>
-			<name>add.namespaces</name>
-			<set-method>addPlugin</set-method>
-			<type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
-			<init-params>
-				<properties-param>
-					<name>namespaces</name>
-					<property name="plf" value="http://www.exoplatform.org/jcr/plf/1.0/"/>
-				</properties-param>
-			</init-params>
-		</component-plugin>
-		<component-plugin>
-			<name>add.space.access.nodeType</name>
-			<set-method>addPlugin</set-method>
-			<type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-			<init-params>
-				<values-param>
-					<name>autoCreatedInNewRepository</name>
-					<description>Node types configuration file</description>
-					<value>jar:/conf/portal/space-access-chromattic-nodetypes.xml</value>
-				</values-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
-	<external-component-plugins profiles="all,default,social">
-		<target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-		<component-plugin>
-			<name>chromattic</name>
-			<set-method>addLifeCycle</set-method>
-			<type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
-			<init-params>
-				<value-param>
-					<name>domain-name</name>
-					<value>spaceaccess</value>
-				</value-param>
-				<value-param>
-					<name>workspace-name</name>
-					<value>collaboration</value>
-				</value-param>
-				<values-param>
-					<name>entities</name>
-					<value>org.chromattic.ext.ntdef.NTFile</value>
-					<value>org.chromattic.ext.ntdef.NTFolder</value>
-					<value>org.chromattic.ext.ntdef.NTResource</value>
-					<value>org.exoplatform.platform.common.space.statistic.SpaceAccess</value>
-				</values-param>
-				<properties-param>
-					<name>options</name>
-					<property name="org.chromattic.api.Option.root_node.path" value="/Users"/>
-					<property name="org.chromattic.api.Option.root_node.create" value="true"/>
-				</properties-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
-	<external-component-plugins profiles="all,default,social">
-		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
-		<component-plugin>
-			<name>Space Access Statistics filter Plugin</name>
-			<set-method>addFilterDefinitions</set-method>
-			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
-			<init-params>
-				<object-param>
-					<name>Space Access Statistics filter</name>
-					<object type="org.exoplatform.web.filter.FilterDefinition">
-						<field name="filter">
-							<object type="org.exoplatform.platform.common.space.statistic.SpaceAccessFilter"/>
-						</field>
-						<field name="patterns">
-							<collection type="java.util.ArrayList" item-type="java.lang.String">
-								<value>
-									<string>.*:spaces:.*</string>
-								</value>
-							</collection>
-						</field>
-					</object>
-				</object-param>
-			</init-params>
-		</component-plugin>
-	</external-component-plugins>
+  <component>
+    <type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
+  </component>
+  <component>
+    <type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
+  </component>
+  <component>
+    <type>org.exoplatform.platform.common.space.SpaceCustomizationService</type>
+  </component>
+  <component profiles="all,default,social">
+    <type>org.exoplatform.platform.common.space.statistic.SpaceAccessService</type>
+  </component>
+  <component profiles="all,default,social">
+    <key>org.exoplatform.platform.common.admin.TermsAndConditionsService</key>
+    <type>org.exoplatform.platform.common.admin.impl.TermsAndConditionsServiceImpl</type>
+  </component>
+  <component>
+    <type>org.exoplatform.platform.common.service.MenuConfiguratorService</type>
+    <init-params>
+      <value-param>
+        <name>setup.navigation.file</name>
+        <value>jar:/conf/portal/setup-navigation.xml</value>
+      </value-param>
+    </init-params>
+  </component>
+  <!-- Defines the builtin Modules -->
+  <component>
+    <type>org.exoplatform.platform.common.module.ModuleRegistry</type>
+    <!-- We could put modules definitions by init-param or by component plugin -->
+    <component-plugins>
+      <component-plugin>
+        <name>webos.module.plugin</name>
+        <set-method>addModule</set-method>
+        <type>org.exoplatform.platform.common.module.ModulePlugin</type>
+        <init-params>
+          <object-param>
+            <name>module</name>
+            <object type="org.exoplatform.platform.common.module.Module">
+              <field name="name">
+                <string>webos</string>
+              </field>
+              <field name="description">
+                <string>WebOS</string>
+              </field>
+              <field name="webapps">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <string>webos-ext</string>
+                  </value>
+                  <value>
+                    <string>webosadmin</string>
+                  </value>
+                  <value>
+                    <string>webosResources</string>
+                  </value>
+                </collection>
+              </field>
+              <!-- List of portletId = {webappName}/portletName -->
+              <field name="portlets">
+                <collection type="java.util.ArrayList"/>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+    </component-plugins>
+    <init-params>
+      <object-param>
+        <name>default.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>default</string>
+          </field>
+          <field name="description">
+            <string>default profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>cs-extension</string>
+              </value>
+              <value>
+                <string>cometd</string>
+              </value>
+              <value>
+                <string>csResources</string>
+              </value>
+              <value>
+                <string>mail</string>
+              </value>
+              <value>
+                <string>contact</string>
+              </value>
+              <value>
+                <string>chat</string>
+              </value>
+              <value>
+                <string>chatbar</string>
+              </value>
+              <value>
+                <string>content</string>
+              </value>
+              <value>
+                <string>calendar</string>
+              </value>
+              <value>
+                <string>social-resources</string>
+              </value>
+              <value>
+                <string>social-portlet</string>
+              </value>
+              <value>
+                <string>social</string>
+              </value>
+              <value>
+                <string>social-extension</string>
+              </value>
+              <value>
+                <string>ksResources</string>
+              </value>
+              <value>
+                <string>faq</string>
+              </value>
+              <value>
+                <string>forum</string>
+              </value>
+              <value>
+                <string>poll</string>
+              </value>
+              <value>
+                <string>wiki</string>
+              </value>
+              <value>
+                <string>ks</string>
+              </value>
+              <value>
+                <string>SmartGWT</string>
+              </value>
+              <value>
+                <string>IDE</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>collaboration.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>collaboration</string>
+          </field>
+          <field name="description">
+            <string>collaboration profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>cs-extension</string>
+              </value>
+              <value>
+                <string>cometd</string>
+              </value>
+              <value>
+                <string>csResources</string>
+              </value>
+              <value>
+                <string>mail</string>
+              </value>
+              <value>
+                <string>contact</string>
+              </value>
+              <value>
+                <string>chat</string>
+              </value>
+              <value>
+                <string>chatbar</string>
+              </value>
+              <value>
+                <string>content</string>
+              </value>
+              <value>
+                <string>calendar</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>dms.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>dms</string>
+          </field>
+          <field name="description">
+            <string>dms profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>ecmbrowsecontent</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>workflow.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>workflow</string>
+          </field>
+          <field name="description">
+            <string>workflow profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>ecmworkflow-extension</string>
+              </value>
+              <value>
+                <string>workflow</string>
+              </value>
+              <value>
+                <string>eXoWorkflowResources</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>social.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>social</string>
+          </field>
+          <field name="description">
+            <string>social profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>social-resources</string>
+              </value>
+              <value>
+                <string>social-portlet</string>
+              </value>
+              <value>
+                <string>social</string>
+              </value>
+              <value>
+                <string>social-extension</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>knowledge.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>knowledge</string>
+          </field>
+          <field name="description">
+            <string>knowledge profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>ksResources</string>
+              </value>
+              <value>
+                <string>faq</string>
+              </value>
+              <value>
+                <string>forum</string>
+              </value>
+              <value>
+                <string>poll</string>
+              </value>
+              <value>
+                <string>wiki</string>
+              </value>
+              <value>
+                <string>ks</string>
+              </value>
+              <value>
+                <string>cometd</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>ide.webapps</name>
+        <object type="org.exoplatform.platform.common.module.Module">
+          <field name="name">
+            <string>ide</string>
+          </field>
+          <field name="description">
+            <string>ide profile modules</string>
+          </field>
+          <field name="webapps">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>SmartGWT</string>
+              </value>
+              <value>
+                <string>IDE</string>
+              </value>
+            </collection>
+          </field>
+          <!-- List of portletId = {webappName}/portletName -->
+          <field name="portlets">
+            <collection type="java.util.ArrayList"/>
+          </field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+  <external-component-plugins profiles="all,default,social">
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+      <name>add.namespaces</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+      <init-params>
+        <properties-param>
+          <name>namespaces</name>
+          <property name="plf" value="http://www.exoplatform.org/jcr/plf/1.0/"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>add.space.access.nodeType</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+      <init-params>
+        <values-param>
+          <name>autoCreatedInNewRepository</name>
+          <description>Node types configuration file</description>
+          <value>jar:/conf/portal/space-access-chromattic-nodetypes.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  <external-component-plugins profiles="all,default,social">
+    <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
+    <component-plugin>
+      <name>chromattic</name>
+      <set-method>addLifeCycle</set-method>
+      <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+      <init-params>
+        <value-param>
+          <name>domain-name</name>
+          <value>spaceaccess</value>
+        </value-param>
+        <value-param>
+          <name>workspace-name</name>
+          <value>collaboration</value>
+        </value-param>
+        <values-param>
+          <name>entities</name>
+          <value>org.chromattic.ext.ntdef.NTFile</value>
+          <value>org.chromattic.ext.ntdef.NTFolder</value>
+          <value>org.chromattic.ext.ntdef.NTResource</value>
+          <value>org.exoplatform.platform.common.space.statistic.SpaceAccess</value>
+        </values-param>
+        <properties-param>
+          <name>options</name>
+          <property name="org.chromattic.api.Option.root_node.path" value="/Users"/>
+          <property name="org.chromattic.api.Option.root_node.create" value="true"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>chromattic</name>
+      <set-method>addLifeCycle</set-method>
+      <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+      <init-params>
+        <value-param>
+          <name>domain-name</name>
+          <value>termsandconditions</value>
+        </value-param>
+        <value-param>
+          <name>workspace-name</name>
+          <value>collaboration</value>
+        </value-param>
+        <values-param>
+          <name>entities</name>
+          <value>org.chromattic.ext.ntdef.NTFile</value>
+          <value>org.chromattic.ext.ntdef.NTFolder</value>
+          <value>org.chromattic.ext.ntdef.NTResource</value>
+        </values-param>
+        <properties-param>
+          <name>options</name>
+          <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
+          <property name="org.chromattic.api.Option.root_node.create" value="true"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  <external-component-plugins profiles="all,default,social">
+    <target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+    <component-plugin>
+      <name>Space Access Statistics filter Plugin</name>
+      <set-method>addFilterDefinitions</set-method>
+      <type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+      <init-params>
+        <object-param>
+          <name>Space Access Statistics filter</name>
+          <object type="org.exoplatform.web.filter.FilterDefinition">
+            <field name="filter">
+              <object type="org.exoplatform.platform.common.space.statistic.SpaceAccessFilter"/>
+            </field>
+            <field name="patterns">
+              <collection type="java.util.ArrayList" item-type="java.lang.String">
+                <value>
+                  <string>.*:spaces:.*</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  
+  <!-- Terms and Conditions filter -->
+  <import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>
+  
+  
 </configuration>
