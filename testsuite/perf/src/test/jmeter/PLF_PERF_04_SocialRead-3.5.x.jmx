@@ -29,7 +29,7 @@
           </elementProp>
           <elementProp name="Port" elementType="Argument">
             <stringProp name="Argument.name">Port</stringProp>
-            <stringProp name="Argument.value">${__P(expPort,8080)}</stringProp>
+            <stringProp name="Argument.value">${__P(expPort,18080)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="RampUpPeriod" elementType="Argument">
@@ -64,7 +64,7 @@
           </elementProp>
           <elementProp name="Usersfile" elementType="Argument">
             <stringProp name="Argument.name">Usersfile</stringProp>
-            <stringProp name="Argument.value">${__P(expUsersfile,/home/qahudson/testsuite/scripts/exo-users100.csv)}</stringProp>
+            <stringProp name="Argument.value">${__P(expUsersfile,/mnt/nfs/DATASETS/PLF/PLF3.5.x/3.5.x_02/plf-3.5.x-datasets-3.5.x_02-ds2_users_with_spaces.csv)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -221,7 +221,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -532,7 +532,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-\_]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*Space Updates</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -541,7 +541,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">interactionstateSpaceActivity</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-\_]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*Space Updates</stringProp>
                 <stringProp name="RegexExtractor.template">$2$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxinteractionstateSpaceActivityxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -550,7 +550,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateMyStatus" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">interactionstateMyActivity</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*My Status</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\_\-]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*My Status</stringProp>
                 <stringProp name="RegexExtractor.template">$2$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxinteractionstateMyActivityxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -601,6 +601,14 @@ return &quot;continue variable=true&quot;;</stringProp>
               </BeanShellAssertion>
               <hashTree/>
             </hashTree>
+            <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler" enabled="true">
+              <boolProp name="SUCCESFULL">true</boolProp>
+              <stringProp name="RESPONSE_CODE">200</stringProp>
+              <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+              <stringProp name="RESPONSE_DATA">${AllImportanceValue}</stringProp>
+              <stringProp name="RESPONSE_TIME">${__Random(1,1000)}</stringProp>
+            </kg.apc.jmeter.samplers.DummySampler>
+            <hashTree/>
           </hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Users List" enabled="true">
             <stringProp name="delimiter">,</stringProp>
@@ -748,7 +756,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">activitiesPortalComponentId</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-\_]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*Space Updates</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxactivitiesPortalComponentIdxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -757,7 +765,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">interactionstateSpaceActivity</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*Space Updates</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-\_]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*Space Updates</stringProp>
                 <stringProp name="RegexExtractor.template">$2$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxinteractionstateSpaceActivityxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -766,7 +774,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateMyStatus" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">interactionstateMyActivity</stringProp>
-                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\-]+)&amp;interactionstate=([a-zA-Z0-9_\*]+)&amp;portal:type=action.*My Status</stringProp>
+                <stringProp name="RegexExtractor.regex">/portal/intranet/\?portal:componentId=([a-zA-Z0-9\_\-]+)&amp;[amp;]*interactionstate=([a-zA-Z0-9_\*]+)&amp;[amp;]*portal:type=action.*My Status</stringProp>
                 <stringProp name="RegexExtractor.template">$2$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxinteractionstateMyActivityxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -2813,7 +2821,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor activitiesPortalComponentId" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">searchPeopleComponentId</stringProp>
-                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
+                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;[amp;]*interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
                 <stringProp name="RegexExtractor.template">$1$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxsearchPeopleComponentIdxxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -2822,7 +2830,7 @@ return &quot;continue variable=true&quot;;</stringProp>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extractor interactionstateSpaceActivity" enabled="true">
                 <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                 <stringProp name="RegexExtractor.refname">interactionstateSearchPeople</stringProp>
-                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;interactionstate=([0-9a-zA-Z_\-\*]+)&amp;</stringProp>
+                <stringProp name="RegexExtractor.regex">form.*id=&quot;UIProfileUserSearch&quot;.*/portal/intranet/people\?portal:componentId=([0-9a-zA-Z_\-\*]+)&amp;[amp;]*interactionstate=([0-9a-zA-Z_\-\*]+)&amp;[amp;]*</stringProp>
                 <stringProp name="RegexExtractor.template">$2$</stringProp>
                 <stringProp name="RegexExtractor.default">xxxinteractionstateSearchPeoplexxx</stringProp>
                 <stringProp name="RegexExtractor.match_number">1</stringProp>
