@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>weblogic-integration</artifactId>
-        <version>3.0.8-SNAPSHOT</version>
+        <version>3.0.8</version>
     </parent>    
 
     <artifactId>exo.weblogic.authenticator</artifactId>
