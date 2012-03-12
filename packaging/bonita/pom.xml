@@ -160,7 +160,7 @@
 										</artifactItem>
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
-											<artifactId>exo.platform.bonita.config</artifactId>
+											<artifactId>exo.platform.sample.bonita-website.config</artifactId>
 											<version>${project.version}</version>
 											<outputDirectory>${project.build.directory}/tomcat-bundle/lib</outputDirectory>
 										</artifactItem>
