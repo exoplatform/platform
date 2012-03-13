@@ -23,7 +23,6 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
   
   private static Log logger = ExoLogger.getLogger(TermsAndConditionsActionServlet.class);
   private final static String PARAM_CHECKTC = "checktc";
-  private final static String PORTAL_URI = "/portal";
   
   private TermsAndConditionsService termsAndConditionsService;
   public TermsAndConditionsService getTermsAndConditionsService() {
@@ -34,7 +33,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
   }
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     // Get usefull parameters
     String initialURI = request.getParameter(TermsAndConditionsViewServlet.INITIAL_URI_PARAM);
@@ -47,7 +46,7 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
     }
     
     if(initialURI == null || initialURI.length() == 0) {
-      initialURI = PORTAL_URI;
+      initialURI = request.getContextPath();
     }
     
     // Check tc with service
@@ -60,8 +59,8 @@ public class TermsAndConditionsActionServlet extends HttpServlet {
   }
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doPost(request, response);
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    doGet(request, response);
   }
 
 }

@@ -18,7 +18,6 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 --%>
-
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="javax.servlet.http.Cookie"%>
 <%@ page import="org.exoplatform.container.PortalContainer"%>
@@ -29,21 +28,21 @@
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
+	String lang = request.getLocale().getLanguage();
 
   ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
-
-  //String uri = (String)request.getParameter("initialURI");
 
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
 
   response.setCharacterEncoding("UTF-8"); 
   response.setContentType("text/html; charset=UTF-8");
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-  <head><title>eXo Subscription Agreement US 200411.docx</title>
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
+  <head><title>eXo Subscription Agreement</title>
   <style type="text/css">
   
   
@@ -277,10 +276,7 @@ copy style from here (dont use css line up , they exiting on product)
 }
 </style>
 </head>
-  
-  
-  
-  
+
 <body>
   <!--begin popup terms conditions-->
   <div class="MaskLayer"  style="position:absolute;width:100%;height:100%;background:#000;z-index:4;left:0;top:0;opacity:0.7;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)'; filter: alpha(opacity=70); "></div><!--set again height use javasript (get height screen resolution)-->
@@ -1945,7 +1941,7 @@ copy style from here (dont use css line up , they exiting on product)
             <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
             
             <% if (uri != null) { %>
-            <input type="hidden" name="initialURI" value="<%=uri%>" />
+            <input type="hidden" name="tacURI" value="<%=uri%>" />
             <% } %>
             
             <div class="UIAction FR">
@@ -1977,17 +1973,17 @@ copy style from here (dont use css line up , they exiting on product)
                 }
               }
               function setInactive() {
-                var elt = document.getElementById("continueButton");
-                var classValue = elt.getAttribute('class');
-                var newClassValue = classValue.replace("active", "inactive");
-                elt.setAttribute('class', newClassValue);
-              }
-              function setActive() {
-                var elt = document.getElementById("continueButton");
-                var classValue = elt.getAttribute('class');
-                var newClassValue = classValue.replace("inactive", "active");
-                elt.setAttribute('class', newClassValue);
-              }
+                  var elt = document.getElementById("continueButton");
+                  var classValue = elt.className;
+                  var newClassValue = classValue.replace("active", "inactive");
+                  elt.className = newClassValue;
+                }
+                function setActive() {
+                  var elt = document.getElementById("continueButton");
+                  var classValue = elt.className;
+                  var newClassValue = classValue.replace("inactive", "active");
+                  elt.className = newClassValue;
+                }
             </script>
             </form>
           </div>
