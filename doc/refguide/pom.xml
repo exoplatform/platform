@@ -125,7 +125,8 @@
                       <groupId>org.exoplatform.social</groupId>
                       <artifactId>exo.social.docs.refguide</artifactId>
                       <version>${org.exoplatform.social.version}</version>
-                      <type>zip</type>
+                      <classifier>html-zip</classifier>
+		      <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>
                     </artifactItem>
