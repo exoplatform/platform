@@ -150,18 +150,18 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.services.jcr.impl.core.lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
+|{{org.exoplatform.services.jcr.impl.core. lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
 
 
 * *Content*
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.ecm.REST.viewer.PDFViewerRESTService}}|Cache data of PDF files by the ObjectKey object.|
-|{{org.exoplatform.services.cms.drives.ManageDriveService}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
-|{{org.exoplatform.services.cms.scripts.impl.ScriptService}}|Cache all Groovy script files by the script name.|
-|{{org.exoplatform.services.cms.templates.TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript.text.TemplateService.|
-|{{org.exoplatform.services.wcm.webcontent.InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
+|{{org.exoplatform.ecm.REST.viewer. PDFViewerRESTService}}|Cache data of PDF files by the ObjectKey object.|
+|{{org.exoplatform.services.cms.drives. ManageDriveService}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
+|{{org.exoplatform.services.cms.scripts. impl.ScriptService}}|Cache all Groovy script files by the script name.|
+|{{org.exoplatform.services.cms.templates. TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript. text.TemplateService.|
+|{{org.exoplatform.services.wcm. webcontent.InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
 |{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in Content.|
 
 
@@ -169,14 +169,14 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.social.core.manager.ActivityManageractivityCache}}|Cache an activity by its id.|
-|{{org.exoplatform.social.core.manager.ActivityManageractivityListCache}}|Cache the list of all activities by identityId and their segments.|
-|{{org.exoplatform.social.core.manager.ActivityManagercommentsCache}}|Cache all comments of an activity by its id.|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityCache}}|Cache an identity by its globalId.|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityCacheById}}|Cache an identity by its uuid. {example}Cache an identity by providerId:remoteId.{example}|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityListCache}}|Cache the list of identities by identityProvider.|
-|{{org.exoplatform.social.core.manager.RelationshipManagerrelationshipIdCache}}|Cache the relationship by its id.|
-|{{org.exoplatform.social.core.manager.RelationshipManagerrelationshipListCache}}|Cache the list of relationships by identityId.|
+|{{org.exoplatform.social.core.manager. ActivityManageractivityCache}}|Cache an activity by its id.|
+|{{org.exoplatform.social.core.manager. ActivityManageractivityListCache}}|Cache the list of all activities by identityId and their segments.|
+|{{org.exoplatform.social.core.manager. ActivityManagercommentsCache}}|Cache all comments of an activity by its id.|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityCache}}|Cache an identity by its globalId.|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityCacheById}}|Cache an identity by its uuid. {example}Cache an identity by providerId:remoteId.{example}|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityListCache}}|Cache the list of identities by identityProvider.|
+|{{org.exoplatform.social.core.manager. RelationshipManagerrelationshipIdCache}}|Cache the relationship by its id.|
+|{{org.exoplatform.social.core.manager.Re lationshipManagerrelationshipListCache}}|Cache the list of relationships by identityId.|
 
 
 h3. CacheManager {anchor:id=ADM.Management.Chache_manager}
@@ -268,7 +268,7 @@ h3. WCMService {anchor:id=ADM.Management.WCMService}
 
 ||Operation||Description||
 |{{getPortletExpirationCache}}|Return the expiration period of porlet cache in seconds.|
-|{{setPortletExpirationCache(expirationCache)}}|Set the expiration period of portlet cache by entering the value into the *expirationCache* field.|
+|{{setPortletExpirationCache (expirationCache)}}|Set the expiration period of portlet cache by entering the value into the *expirationCache* field.|
 
 {note}
 WCMComposer, FriendlyService, and WCMService can be controlled through the following paths respectively:  
@@ -433,15 +433,15 @@ eXo Platform provides the following TokenStore instances:
 
 
 ||Token Name||Description||
-|{{gadget-token}}|Store tokens of the Oauth gadget into the JCR node, such as *org.exoplatform.portal.gadget.core.GadgetTokenInfoService*.|
-|{{jcr-token}}|Store common tokens into the JCR node, such as *org.exoplatform.web.security.security.CookieTokenService*, and  *org.exoplatform.web.security.security.RemindPasswordTokenService*.|
-|{{memory-token}}|Store temporary tokens into the transient memory, such as *org.exoplatform.web.security.security.TransientTokenService*.|
+|{{gadget-token}}|Store tokens of the Oauth gadget into the JCR node, such as *org.exoplatform.portal. gadget.core.Gadget TokenInfoService*.|
+|{{jcr-token}}|Store common tokens into the JCR node, such as *org.exoplatform.web.security. security.CookieTokenService*, and *org.exoplatform.web.security.security.Rem indPasswordTokenService*.|
+|{{memory-token}}|Store temporary tokens into the transient memory, such as *org.exoplatform.web. security.security.TransientTokenService*.|
 |{{getPortalList}}|Return the list of identifiers of all loaded portals.|
 
 
 h3. Portal statistics {anchor:id=ADM.Management.Portal_statistic}
 
-* The JMX name template of Portal statistics MBeans: _exo\:portal="portal",service=statistic,view=portal,type=portal_.
+* The  JMX name template of Portal statistics MBeans: _exo\:portal="portal",service=statistic,view=portal,type=portal_.
 
 ||Attribute||Description||
 |{{PortalList}}|The list of identifiers of loaded portals.|
@@ -507,7 +507,7 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 
 ||Attribute||Description||
 |{{AdminRules}}|The list of rules defining administrators.|
-|{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including org.exoplatform.ks.common.user.BusinessProfileContactProvider, org.exoplatform.ks.common.user.DefaultContactProvider, and org.exoplatform.ks.common.user.PersonalProfileContactProvider.|
+|{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including: *org.exoplatform.ks.com mon.user.BusinessProfileContactProvider*, *org.exoplatform.ks.common.user.DefaultCo  ntactProvider*,*org.exoplatform.ks.common. user.PersonalProfileContactProvider*.|
 |{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in Knowledge.|
 |{{OnlineUsers}}|The list of currently online users.|
 

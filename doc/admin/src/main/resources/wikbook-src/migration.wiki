@@ -1051,10 +1051,10 @@ This plugin is built-in in JCR that provides an option for migrating user databa
 For example, the table below shows the difference in response time of eXo Platform 3.5 (new user directory structure) against eXo Platform 3.0 (old user directory structure) while some actions are performed:
 
 || Number of users || Type Account & Login || Load Intranet Welcome Page || Load /portal/rest/jcr/repository/collaboration/Users || Load User Private JCR Folder ||
-| 500 | 13.61% | -20.83% | -30.12% | 14.29% |
-| 1000 | 8.82% | -25.00% | -86.06% | 8.96% |
-| 2000 | 0.20% | -29.63% | -93.89% | -1.37% |
-| 5000 | -4.30% | -33.93% | -95.45% | -10.67% |
+| 500 | 13.61% | \-20.83% | \-30.12% | 14.29% |
+| 1000 | 8.82% | \-25.00% | \-86.06% | 8.96% |
+| 2000 | 0.20% | \-29.63% | \-93.89% | \-1.37% |
+| 5000 | \-4.30% | \-33.93% | \-95.45% | \-10.67% |
 
 (Formula: (_PLF350 value_ - _PLF307 value_) * 100 / _PLF307 value_, negative value means better)
 

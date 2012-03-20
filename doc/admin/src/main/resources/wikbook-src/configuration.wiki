@@ -557,10 +557,10 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent (V: temporary, X: persistent).
 
 || Variable || Content || Temporary ||
-| {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}} | JTA transactional data. | V |
+| {{com.arjuna.ats.arjuna. objectstore.objectStoreDir}} | JTA transactional data. | V |
 | {{gatein.jcr.data.dir}} | Directory for JCR data. | X |
-| {{gatein.jcr.data.dir}}/swap | Directory for swapped data of JCR | V |
-| {{gatein.jcr.storage.data.dir}} | Binary value storage for JCR.| X |
+| {{gatein.jcr.data.dir/swap}} | Directory for swapped data of JCR | V |
+| {{gatein.jcr.storage.data. dir}} | Binary value storage for JCR.| X |
 | {{gatein.jcr.index.data.dir}} | Lucene index for JCR. | X |
 
 Each variable can be defined as an absolute or a relative path.
@@ -784,7 +784,7 @@ The following properties are used to configure it.
 | *restContextName* | Name of the rest context. | rest |
 | *provider* |  |  |
 | *authorizedUser.name* | Username to authenticate against the HTTP REST service. | root  |
-| *authorizedUser.password* | Password matching with provider.authorizeduser.name. | password  |
+| *authorizedUser.password* | Password matching with *pro vider.authorizeduser.name*. | password  |
 | *eXoAuthProvider* |  |  |
 | *authenticationURL* | URL to authenticate users. | /organization/authenticate/ |
 | *authenticationMethod* | HTTP method used to pass parameters. | POST |

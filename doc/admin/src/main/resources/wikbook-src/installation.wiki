@@ -156,8 +156,8 @@ In the developer mode, the _start\_eXo_ scripts launch eXo Platform in the devel
 *Details*:
 
 | {{-Dcom.sun.management.jmxremote}} | Activate the remote JMX monitoring. |
-| {{-Xdebug {{-}}Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n}} | Enable the remote debugging. |
-| {{-Dorg.exoplatform.container.configuration.debug}} | The container will log in to the console which the _.xml_ file loads. |
+| {{-Xdebug \-Xrunjdwp:transport=dt_socket, address=8000,server=y,suspend=n}} | Enable the remote debugging. |
+| {{-Dorg.exoplatform.container. configuration.debug}} | The container will log in to the console which the _.xml_ file loads. |
 | {{-Dexo.product.developing=true}} | Deactivate JavaScript and CSS merging for debugging more easily. Next, activate a special language called Magic Locale "ma" showing the property keys instead of the translations. |
 
 Now, you can start and run the eXo Platform demo, but you will need to adjust these values for a production setup.
