@@ -99,13 +99,12 @@ In the *Wiki* application of eXo Platform, you can add a link pointing to a page
 </citetitle>
 {docbook}
 
-*1.* Add a link by typing the page title between square brackets '\[\[...]]' or '\[.... ]' (depending on your selected syntax) into your page body.
+*1.* Add a link by typing the page title between square brackets '\[.... ]' into your page body.
 
 For example:
 
-||Syntax||What you type|| What you get||
-|Xwiki 2.0 |\[\[eXo User Guide\]\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
-|Confluence 1.0|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
+||What you type|| What you get||
+|\[eXo User Guide\]|!images/undefined_link.png| width="17mm" fo:scalefit="1" html:scalefit="0"!|
 
 *2.* Click *Save* to save the page containing the link. The undefined link is underlined.
 
@@ -142,8 +141,6 @@ Now, you can rename the page and edit the page content. In the *View* mode, hove
 |!images/no6.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Save the current page and go back to the view mode. Changes will be sent to watchers via mail notification. |
 |!images/7.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Save the current page without sending notification to the watcher. |
 |!images/8.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| Discard the current changes and go back to the *View* mode. |
-|!images/9.png|width="4mm" fo:scalefit="1" html:scalefit="0"!| The *Syntax* drop-down list. You can select your preferred syntax here.|
-
 
 {docbook}
 <citetitle>
@@ -411,7 +408,7 @@ You can switch between the *Source* and *WYSIWYG* editors at any time by clickin
 To learn more about the *WYSIWYG* editor, you can refer to the [*WYSIWYG* editor user guide|http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor].
 
 h1. Syntax Help {anchor:id=KSuser.Wiki.Syntax_Help}
-If you do not know how to use a syntax, you can use the *Syntax Help* function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! from the page toolbar. When being clicked, a lateral pane beside the editing area will show all the information of the currently used syntax.
+If you do not know how to use a syntax, you can use the *Syntax Help* function. The *Syntax Help* is displayed by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! from the page toolbar. When being clicked, a lateral pane beside the editing area will show all the Confluence syntax information.
 The lateral pane can be hidden by clicking !images/Close_button.png| width="4mm" fo:scalefit="1" html:scalefit="0"! in the upper right corner or by clicking !images/Wiki_help_btn.png| width="30" fo:scalefit="1" html:scalefit="0"! again.
 
 !images/Quick_notation.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
@@ -624,7 +621,7 @@ The administrator has the highest right in *Wiki*. The administrator can delete 
 
 h2. Set up space settings {anchor:id=KSuser.Wiki_Administration.Set_up_space_settings}
 
-For each space, you can manage page templates and change the syntax.
+For each space, you can manage page templates.
 
 {docbook}
 <citetitle>
@@ -647,7 +644,6 @@ Now, you can:
 
 * [Manage permissions on spaces and pages|#KSuser.Wiki_Administration.Manage_permissions].
 * [Manage page templates|#KSuser.Wiki_Administration.Manage_page_tempplate].
-* [Set up wiki syntax|#KSuser.Wiki_Administration.Set_up_syntax].
 
 h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
 *Wiki* gives you the choice to make a space or an individual page to be open or restricted to specific users, groups or memberships.
@@ -764,9 +760,7 @@ h4. Create a new template {anchor:id=KSuser.Wiki_Administration.Add_templates}
 
 *4.* Write the content for the template.
 
-*5.* Select the *Syntax* to write the content.
-
-*6.* Click *Save Template* at the *Page Control* area. A message will inform your successful template creation.
+*5.* Click *Save Template* at the *Page Control* area. A message will inform your successful template creation.
 
 h4. Edit a template {anchor:id=KSuser.Wiki_Administration.Edit_templates}
 
@@ -782,24 +776,5 @@ h4.  Delete a template {anchor:id=KSuser.Wiki_Administration.Delete_templates}
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
-
-h3. Set up the wiki syntax {anchor:id=KSuser.Wiki_Administration.Set_up_syntax}
-
-By setting up the Wiki syntax, you can select the default syntax and allow user to select syntax while writing a document or not.
-
-*1.* Click *Syntax* in the *Space Settings* page.
-
-!images/wiki_setting_syntax.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
-
-*2.* Click the *Default Syntax* box and select a syntax from the drop-down menu. This syntax is set as the default for your document.
-
-In case you want to use another syntax, tick the "*Allow user to select other syntaxes*" checkbox.
-
-
-{docbook}
-<note>
-<para>It is highly recommended that you should use such simple syntaxes, such as XWiki 2.0, or Confluence 1.0. </para>
-</note>
-{docbook}
 
 
