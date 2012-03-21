@@ -626,6 +626,12 @@ gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 
 Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the value for 'sender' or 'from' in the email message that must be identical to the SMTP user and host.
 
+In case you do not use SSL nor log in your account for SMTP authentication, to connect with the email server, you just customize the following properties in the _configuration.properties_ as follows:
+{code:java}
+gatein.email.smtp.starttls.enable=false
+gatein.email.smtp.auth=false
+{code}
+
 The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
 
 | {{{gatein.email.domain.url}}} | Domain name. |
