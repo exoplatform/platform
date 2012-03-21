@@ -19,7 +19,7 @@ Therefore, before doing any actions, you first need to go to either of the provi
 {docbook}
 <note>
 <para>
-There is also direct links to login as regular users or superusers in the sample portals.
+There are also direct links to login as regular users or superusers in the sample portals.
 </para>
 </note>
 {docbook}
