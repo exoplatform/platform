@@ -219,6 +219,9 @@ Refer to the [FAQs of database configuration |#ADM.Configuration.FAQDatabaseConf
 {tip}
 
 *Step 1.* *Prepare your database server.* {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
+{note}
+If you want to use the charset UTF-8 to support multi-languages, please refer to the [MYSQL|../../reference/html/ch-multilanguage-support.html#d0e1431] section of eXo Platform reference guide.
+{note}
 
 You need to prepare two database schema, then do as follows:
 
