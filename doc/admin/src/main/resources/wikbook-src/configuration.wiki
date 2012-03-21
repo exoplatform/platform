@@ -219,9 +219,6 @@ Refer to the [FAQs of database configuration |#ADM.Configuration.FAQDatabaseConf
 {tip}
 
 *Step 1.* *Prepare your database server.* {anchor:id=ADM.Configuration.Prepare_Your_Database_Server}
-{note}
-If you want to use the charset UTF-8 to support multi-languages, please refer to the [MYSQL|../../reference/html/ch-multilanguage-support.html#d0e1431] section of eXo Platform reference guide.
-{note}
 
 You need to prepare two database schema, then do as follows:
 
@@ -390,7 +387,7 @@ In this step, you need to add the MySQL connector library in JBoss by adding _my
 
 {tip}You can get the latest MySQL connector [here|http://dev.mysql.com/downloads/connector/j/].{tip}
 
-*3.* Rename the data source.  {anchor:id="rename_data_source"}
+*3.* Rename the data source.  {anchor:id=rename_data_source}
 
 By default, eXo Platform defines two data sources:
 
@@ -560,10 +557,10 @@ gatein.jcr.index.data.dir=${gatein.jcr.data.dir}/index
 The following table explains what goes in which path. The *Temporary* column indicates if the data are temporary or persistent (V: temporary, X: persistent).
 
 || Variable || Content || Temporary ||
-| {{com.arjuna.ats.arjuna. objectstore.objectStoreDir}} | JTA transactional data. | V |
+| {{com.arjuna.ats.arjuna.objectstore.objectStoreDir}} | JTA transactional data. | V |
 | {{gatein.jcr.data.dir}} | Directory for JCR data. | X |
-| {{gatein.jcr.data.dir/swap}} | Directory for swapped data of JCR | V |
-| {{gatein.jcr.storage.data. dir}} | Binary value storage for JCR.| X |
+| {{gatein.jcr.data.dir}}/swap | Directory for swapped data of JCR | V |
+| {{gatein.jcr.storage.data.dir}} | Binary value storage for JCR.| X |
 | {{gatein.jcr.index.data.dir}} | Lucene index for JCR. | X |
 
 Each variable can be defined as an absolute or a relative path.
@@ -628,12 +625,6 @@ gatein.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 {code}
 
 Some authenticated SMTP systems, such as GMail, GMX, MS Exchange, require the value for 'sender' or 'from' in the email message that must be identical to the SMTP user and host.
-
-In case you do not use SSL nor log in your account for SMTP authentication, to connect with the email server, you just customize the following properties in the _configuration.properties_ as follows:
-{code:java}
-gatein.email.smtp.starttls.enable=false
-gatein.email.smtp.auth=false
-{code}
 
 The Forum application uses it in the notification phase as the default sender. If it is not set, the sender will be empty.
 
@@ -793,7 +784,7 @@ The following properties are used to configure it.
 | *restContextName* | Name of the rest context. | rest |
 | *provider* |  |  |
 | *authorizedUser.name* | Username to authenticate against the HTTP REST service. | root  |
-| *authorizedUser.password* | Password matching with *pro vider.authorizeduser.name*. | password  |
+| *authorizedUser.password* | Password matching with provider.authorizeduser.name. | password  |
 | *eXoAuthProvider* |  |  |
 | *authenticationURL* | URL to authenticate users. | /organization/authenticate/ |
 | *authenticationMethod* | HTTP method used to pass parameters. | POST |
@@ -918,44 +909,70 @@ cache.exo.portal.MOPSessionManager.ExpirationTimeout=60000
 
 h2. Social Cache Configuration  {anchor:id=ADM.Configuration.CacheConfiguration.SocialCacheConfig}
 {code}
-# Social Cache Configuration - ActivityManager
-## ActivityManager.ActivityCache 
-cache.exo.social.ActivityManager.ActivityCache.Capacity=4000
-cache.exo.social.ActivityManager.ActivityCache.TimeToLive=43200
+# Social Cache Configuration - IdentityCache
+cache.exo.social.IdentityCache.Capacity:300
+cache.exo.social.IdentityCache.TimeToLive:-1
 
-## ActivityManager.ActivityListCache
-cache.exo.social.ActivityManager.ActivityListCache.Capacity=1000
-cache.exo.social.ActivityManager.ActivityListCache.TimeToLive=7200
+# Social Cache Configuration - IdentityIndexCache
+cache.exo.social.IdentityIndexCache.Capacity:300
+cache.exo.social.IdentityIndexCache.TimeToLive:-1
 
-## ActivityManager.CommentsCache
-cache.exo.social.ActivityManager.CommentsCache.Capacity=1000
-cache.exo.social.ActivityManager.CommentsCache.TimeToLive=86400
+# Social Cache Configuration - ProfileCache
+cache.exo.social.ProfileCache.Capacity:300
+cache.exo.social.ProfileCache.TimeToLive:-1
 
-# Social Cache Configuration - IdentityManager
-## IdentityManager.IdentityCache
-cache.exo.social.IdentityManager.IdentityCache.Capacity=1000
-cache.exo.social.IdentityManager.IdentityCache.TimeToLive=3600
+# Social Cache Configuration - IdentitiesCountCache
+cache.exo.social.IdentitiesCountCache.Capacity:2000
+cache.exo.social.IdentitiesCountCache.TimeToLive:86400
 
-## IdentityManager.IdentityCacheById
-cache.exo.social.IdentityManager.IdentityCacheById.Capacity=3000
-cache.exo.social.IdentityManager.IdentityCacheById.TimeToLive=3600
+# Social Cache Configuration - IdentitiesCache
+cache.exo.social.IdentitiesCache.Capacity:2000
+cache.exo.social.IdentitiesCache.TimeToLive:86400
 
-## IdentityManager.IdentityListCache
-cache.exo.social.IdentityManager.IdentityListCache.Capacity=300
-cache.exo.social.IdentityManager.IdentityListCache.TimeToLive=600
+# Social Cache Configuration - RelationshipCache
+cache.exo.social.RelationshipCache.Capacity:10000
+cache.exo.social.RelationshipCache.TimeToLive:-1
 
-# Social Cache Configuration - RelationshipManager
-##  RelationshipManager.RelationshipIdCache
-cache.exo.social.RelationshipManager.RelationshipIdCache.Capacity=300
-cache.exo.social.RelationshipManager.RelationshipIdCache.TimeToLive=600
+# Social Cache Configuration - RelationshipFromIdentityCache
+cache.exo.social.RelationshipFromIdentityCache.Capacity:10000
+cache.exo.social.RelationshipFromIdentityCache.TimeToLive:-1
 
-## RelationshipManager.RelationshipListCache
-cache.exo.social.RelationshipManager.RelationshipListCache.Capacity=1000
-cache.exo.social.RelationshipManager.RelationshipListCache.TimeToLive=3600
+# Social Cache Configuration - RelationshipsCountCache
+cache.exo.social.RelationshipsCountCache.Capacity:800
+cache.exo.social.RelationshipsCountCache.TimeToLive:-1
 
-# Social Cache Configuration - SpaceStorage
-cache.exo.social.SpaceStorage.SpaceCache.Capacity=300
-cache.exo.social.SpaceStorage.SpaceCache.TimeToLive=7200
+# Social Cache Configuration - RelationshipsCache
+cache.exo.social.RelationshipsCache.Capacity:800
+cache.exo.social.RelationshipsCache.TimeToLive:-1
+
+# Social Cache Configuration - ActivityCache
+cache.exo.social.ActivityCache.Capacity:6000
+cache.exo.social.ActivityCache.TimeToLive:-1
+
+# Social Cache Configuration - ActivitiesCountCache
+cache.exo.social.ActivitiesCountCache.Capacity:4000
+cache.exo.social.ActivitiesCountCache.TimeToLive:-1
+
+# Social Cache Configuration - ActivitiesCache
+cache.exo.social.ActivitiesCache.Capacity:4000
+cache.exo.social.ActivitiesCache.TimeToLive:-1
+
+# Social Cache Configuration - SpaceCache
+cache.exo.social.SpaceCache.Capacity:100
+cache.exo.social.SpaceCache.TimeToLive:-1
+
+# Social Cache Configuration - SpaceRefCache
+cache.exo.social.SpaceRefCache.Capacity:400
+cache.exo.social.SpaceRefCache.TimeToLive:-1
+
+# Social Cache Configuration - SpacesCountCache
+cache.exo.social.SpacesCountCache.Capacity:2000
+cache.exo.social.SpacesCountCache.TimeToLive:86400
+
+# Social Cache Configuration - SpacesCache
+cache.exo.social.SpacesCache.Capacity:2000
+cache.exo.social.SpacesCache.TimeToLive:86400
+
 {code}
 
 h2. ECMS Cache Configuration {anchor:id=ADM.Configuration.CacheConfiguration.ECMSCacheConfig}
