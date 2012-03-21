@@ -53,12 +53,7 @@ This guide describes how to get started with eXo Platform 3.5, especially for:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration">Organization Integration</link>:Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Organization">Legacy Organization Models</link>: Instructions on how to configure Legacy Organization Services.
+<link linkend="ADM.Integration">Organization Integration</link>: Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
 </para>
 </listitem>
 </itemizedlist>
