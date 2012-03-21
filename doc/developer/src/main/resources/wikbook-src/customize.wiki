@@ -50,6 +50,9 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 For the JBoss deployment with more details, refer to the [GateIn Reference Guide|../../../reference/html/bk02.html].
 
+h1. Define a default portal {anchor:id=DEV.CreateYourOwnPortal.Create_default_portal}
+{include:document="customize/Create_default_portal.wiki"}
+
 h1. Structure of portal, pages and menus {anchor:id=DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus}
 
 You can create multiple pages within a single portal. Permissions can be defined to make them visible only to specific groups and/or users. This chapter describes how to define this structure.

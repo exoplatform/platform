@@ -1,0 +1,35 @@
+When entering the link of the portal in the address bar of the browser without defining a specific portal (e.g. _localhost\:8080/portal/_), you will be directed to a default portal.
+
+To configure the default portal, the portal must already exist first. Then, you just use the _NewPortalConfigListener_ plugin as the sample code below.
+
+To use this plugin in the component configuration, you must use the following target-component:
+{code:xml}
+<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+{code}
+
+The sample code below is the configuration of the portal named "_default_".
+{code:xml}
+<external-component-plugins>
+		<target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+		<component-plugin>
+			<name>default.portal.config.user.listener</name>
+			<set-method>initListener</set-method>
+			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+			<description>this listener init the portal configuration</description>
+			<init-params>
+				<value-param>
+					<name>default.portal</name>
+					<description>The default portal for checking db is empty or not</description>
+					<value>default</value>
+				</value-param>
+				<object-param>
+					....
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+{code}
+
+*Init-param*
+||Name||Type||Value|| Description||
+|default.portal|String|default| The name of the default portal to which you are redirected when accessing the portal.|
