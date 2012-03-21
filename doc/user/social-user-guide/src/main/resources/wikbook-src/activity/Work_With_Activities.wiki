@@ -191,9 +191,9 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry> Render as bold text.
                  <para>For example:</para>
-                 <programlisting>
+                 <para>
                  &lt;b&gt;Bold text&lt;/b&gt;
-                 </programlisting>
+                 </para>
                   </entry>
               </row>
               <row>
@@ -202,9 +202,9 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry> Render as italic text.
                  <para>For example:</para>
-                 <programlisting>
+                 <para>
                  &lt;i&gt;Italic text&lt;/i&gt;
-                 </programlisting>
+                 </para>
                   </entry>
               </row>
               <row>
@@ -213,9 +213,9 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry>Refer to an external link by using the <emphasis role="italic">href</emphasis> attribute.
                 <para> For example:</para>
-                 <programlisting>
+                 <para>
                  &lt;a href="http://cloud-workspaces.com"&gt;Cloud Workspace&lt;/a&gt;
-                 </programlisting>
+                 </para>
                 </entry>
               </row>
               <row>
@@ -230,9 +230,9 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry> Render as emphasized text.
                  <para>For example:</para>
-                 <programlisting>
+                 <para>
                  &lt;em&gt;Emphasized text&lt;/em&gt;
-                 </programlisting></entry>
+                 </para></entry>
               </row>
               <row>
                 <entry>
@@ -264,12 +264,12 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry> Define a list item. The &lt;li&gt; tag is used in both ordered (&lt;ol&gt;) and unordered (&lt;ul&gt;) lists.
                  <para>For example:</para>
-                 <programlisting>
+                 <para>
                   &lt;ul&gt;
                     &lt;li&gt;Bullet 1&lt;/li&gt;
                     &lt;li&gt;Bullet 2&lt;/li&gt;
                   &lt;/ul&gt;
-                  </programlisting>
+                  </para>
                   </entry>
               </row>
               <row>
@@ -284,9 +284,9 @@ When updating the status or writing a comment, you can use the following HTML ta
                 </entry>
                 <entry> Define an image in an HTML page. The &lt;img&gt; tag has an required attribute named <emphasis role="italic">src</emphasis> which specifies the URL of the image.
                   <para>For example: </para>
-                   <programlisting>
+                   <para>
                    &lt;img src="http://t2.gstatic.com/images?q=tbn:ANd9GcR59KE-ltJTWbaNBpB3K_uOJYMGE0HaQOx4htrm8DML6lUj90t4"/&gt;.
-                   </programlisting>
+                   </para>
                 </entry>
               </row>
               <row>
