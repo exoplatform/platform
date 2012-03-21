@@ -159,13 +159,10 @@ To edit only a section in the whole page content, hover your cursor over the tit
 
 The selected section will be switched to the *Edit* mode.
 
-{docbook}
-<tip>
-<para>
+{tip}
 In the *View* mode, you can quickly edit the page title by double-clicking it, then press *Enter* when finishing.
-</para>
-</tip>
-{docbook}
+{tip}
+
 
 h2. Move a page to another location {anchor:id=KSuser.Work_with_Wiki_pages.Move_pages}
 
