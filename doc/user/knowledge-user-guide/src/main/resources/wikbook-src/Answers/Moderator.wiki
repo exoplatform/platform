@@ -61,9 +61,9 @@ Moderator can only add new sub-categories in a category that he moderates.
 ||Field||Description||
 |*Asterisk (\*)*| This mark next to each field means that it is required to enter values in the field. |
 |*Category*| The name of the category. |
-|*Order*| The order of the category which must be in the numeric format. |
+|*Order*| The order of the category which must be in the positive integer format. |
 |*Restricted Audience*| Select specific users/groups to be restricted from the category.|
-|*Moderate New Questions*{anchor:id="moderate_new_question"}| Check this option if you want moderate all newly posted questions before they are viewable.|
+|*Moderate New Questions*{anchor:id="moderate_new_question"}| Check this option if you want to moderate all newly posted questions before they are viewable.|
 |*View Question Authors*| Check this option if you want information of the question poster to be shown.|
 |*Moderate Answers*|Check this option to moderate all answers before they are viewable.|
 |*Moderator* |The moderator of the category. |
@@ -76,9 +76,9 @@ h3. Edit category properties {anchor:id=KSuser.Answer_Moderator.Edit_category}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories].
 
-*2.* Select !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+*2.* Select !images/edit_category_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
 
-*3.* Edit the properties.
+*3.* Edit the category properties.
 
 *4.* Click *Save* to accept your changes.
 
@@ -153,7 +153,7 @@ In this section, the following topics are covered:
 
 h3. View all questions {anchor:id=KSuser.Answer_Moderator.Moderate_question.View_all_questions}
 
-Each question may be displayed in different ways, depending on the preset properties when creating or editing these questions.
+Each question may be displayed in different ways, depending on the preset properties when it is created or edited.
 To view all posted questions, click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to open the *Manage Questions* form. Here, you can have the overview of all the posted questions in the category you manage.
 
 
@@ -161,7 +161,7 @@ h3. Edit a question {anchor:id=Answer_Moderator.Moderate_question.Edit_questions
 
 *1.* Select !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to view all the open questions.
 
-*2.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the question that you want to edit and scroll down to see the *Edit Question* form.
+*2.* Click !images/Edit_icon4.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the question that you want to edit and scroll down to see the *Edit Question* form.
 
 *3.* Make changes on your question.
 
@@ -172,7 +172,7 @@ h3. Approve/Disapprove a question {anchor:id=Answer_Moderator.Moderate_question.
 
 In a category that requires question to be moderated, any new questions will be in the unapproved status and need to be approved before being published.
 
-There are two options when approving/disapproving answers:
+There are two options when approving/disapproving questions:
 
 * *All*: all approved and unapproved questions are displayed and visible for all users.
 * *Approved*: only the approved questions are displayed while the unapproved questions are hidden.
@@ -195,15 +195,9 @@ If you select *Approved*, the *Moderate Question* function will determine the un
 
 *The second way*
 
-*1.* Right-click the question title, then select *Answer Question* from the drop-down menu to open the *Answer* form.
-
-*2.* Select/Deselect the *Approved* checkbox.
-
-*The third way*
-
 *1.* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar to open the *Manage Questions* form.
 
-*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to approve or disapprove the question respectively.
+*2.* Click !images/Yes_icon.png|width="12" fo:scalefit="1" html:scalefit="0"! or !images/No_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! to disapprove or approve the question respectively.
 
 
 h3. Activate/Deactivate a question {anchor:id=Answer_Moderator.Moderate_question.Activate&Deactivate_questions}
@@ -217,12 +211,6 @@ When a question is activated, it will be displayed and visible to all users. If 
 *2.* Select/Deselect the *Activated* checkbox.
 
 *The second way*
-
-*1.* Go to the *Answer* form.
-
-*2.* Select/Deselect the *Activated* checkbox.
-
-*The third way*
 
 *1.* Click !images/Manage_question_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
 
@@ -242,7 +230,7 @@ There are several ways to delete questions:
 
 *The third way*
 
-* Click your desired question, then select the delete icon. Next, click *OK* in the confirmation message to accept your deletion.
+* Click your desired question, then click !images/Delete_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. Next, click *OK* in the confirmation message to accept your deletion.
 
 h3. Move a question {anchor:id=Answer_Moderator.Moderate_question.Move_questions}
 
@@ -282,13 +270,13 @@ In this section, the following topics are covered:
 * [Approve/Disapprove an answer|#KSuser.Answer_Moderator.Approve_answers]
 * [Activate/Deactivate an answer|#KSuser.Answer_Moderator.Activate_answers]
 * [Delete an answer|#KSuser.Answer_Moderator.Delete_answers]
-* [Promote a comment to answer|#KSuser.Answer_Moderator.Promote_comments]
+* [Promote a comment as answer|#KSuser.Answer_Moderator.Promote_comments]
 
 On the top right of an answer, you will see icons that represent actions you can do on that answer.
 
 h3. Approve/Disapprove an answer {anchor:id=KSuser.Answer_Moderator.Approve_answers}
 
-Click !images/Approve_Answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Disapprove_Answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to approve/disapprove that answer.
+Click !images/Disapprove_Answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Approve_Answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to approve/disapprove that answer.
 
 {docbook}
 <note>
@@ -301,7 +289,7 @@ Click !images/Approve_Answer_icon.png|width="11" fo:scalefit="1" html:scalefit="
 
 h3. Activate/Deactivate an answer {anchor:id=KSuser.Answer_Moderator.Activate_answers}
 
-Click !images/Active_answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Deactive_answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to activate/deactivate that answer.
+Click !images/Deactive_answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0"! / !images/Active_answer_icon.png|width="10" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content to activate/deactivate that answer.
 
 
 {docbook}
@@ -315,9 +303,9 @@ Click !images/Active_answer_icon.png|width="11" fo:scalefit="1" html:scalefit="0
 
 h3. Delete an answer {anchor:id=KSuser.Answer_Moderator.Delete_answers}
 
-To delete an answer, click the trash icon on the top right of the answer content, then click *OK* in the confirmation message.
+To delete an answer, click !images/Delete_icon.png|width="4" fo:scalefit="1" html:scalefit="0"! on the top right of the answer content, then click *OK* in the confirmation message.
 
-h3. Promote a comment to answer {anchor:id=KSuser.Answer_Moderator.Promote_comments}
+h3. Promote a comment as answer {anchor:id=KSuser.Answer_Moderator.Promote_comments}
 
 This function enables users to log in and give comments on specific questions.
 
@@ -360,7 +348,7 @@ Simply click !images/promote_answer_icon.png|width="4mm" fo:scalefit="1" html:sc
 {docbook}
 <note>
     <para>
-    Comments can be written in different languages. If a question is posted in multiple languages, it can also have comments in multiple languages.
+    Comments can be written in different languages. However, you can only put comments on a question in multiple languages only when the question has been posted in multiple languages.
     </para>
 </note>
 {docbook}

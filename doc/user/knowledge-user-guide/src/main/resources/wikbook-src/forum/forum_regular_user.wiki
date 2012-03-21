@@ -133,7 +133,7 @@ Select *Forum* from the *Search in* drop-down menu.
 |*State*|The state of the forums ("Open" or "Closed").|
 |*Posts*|Filter search results by the minimum number of posts in the forum. Click and drag the slider bar to set the number of posts.|
 |*Topics*|Filter search results by the minimum number of topics in the forum. Click and drag the slider bar to set the number of topics.|
-|*Moderator*|Filter search results by the forum moderator.  Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
+|*Moderator*|Filter search results by the forum moderator. Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
 
 
 {docbook}
@@ -157,7 +157,7 @@ Select *Topic* from the *Search in* drop-down menu.
 |*Status*|The status of the topics ("Locked" or "Unlocked").|
 |*State*|The state of the topics ("Open" or "Closed").|
 |*Created between - and*| Filter search results by topics created within an interval. Input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
-|*Last Post between - and*| Filter search results by the last post's created date in the topic. You can input the date manually or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
+|*Last Post between - and*| Filter search results by the last post's created date in the topic. You can input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
 |*Posts*| Filter search results by the minimum number of posts in the topic. Click and drag the slider bar to set the number of posts.|
 |*Views*| Filter search results by the minimum number of topic views. Click and drag the slider bar to set the number of views.|
 
@@ -179,7 +179,7 @@ Select *Post* from the *Search in* drop-down menu.
 
 ||Field||Description||
 |Term|The search keyword.|
-|Scope|The search scale to search. With the "Full" option selected, returned results are those with both title and content matching the keyword. With the "Titles" option selected, returned results are those with post titles matching the keyword.|
+|Scope|The scale for searching. With the "Full" option selected, returned results are those with both title and content matching the keyword. With the "Titles" option selected, returned results are those with post titles matching the keyword.|
 |Username|Filter search results by the posters' usernames. Input the name manually, or click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! to select users from a specific group.|
 |Created between - and|Filter search results by posts created within an interval. You can input the date manually, or click !images/calendar_selector_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a date from the mini calendar.|
 
@@ -205,7 +205,7 @@ h3. Start a topic {anchor:id=Forum_regular_user.Topics.Start_topics}
 
 *3.* Enter the topic title and its content. The title must be less than 100 characters (special characters are accepted). You may set [other optional properties|#topic_properties] if you want.
 
-* Click the *Attach files* link to attach files to your message. The maximum size for the attachment is 20Mb. Click the trash icon next to the attachment to remove it.
+* Click the *Attach files* link to attach files to your message. The maximum size for the attachment is 20Mb. Click !images/Delete_icon.png|width="4" fo:scalefit="1" html:scalefit="0"! next to the attachment to remove it.
 * Use [BBCodes|#Forum_user_settings.Forum_regular_user.BBcodes] to format text, or to insert images, videos and links.
 
 !images/new_topic.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
@@ -292,7 +292,7 @@ Each topic may have a poll question with pre-defined options for users to select
 *Details:*
 ||Field||Description||
 |*Poll Question*|Question raised for polling that is required.|
-|*Poll Options*|Brief content of the poll.|
+|*Poll Options*|Options which allow users to select as their answers.|
 |*Close Poll After*| Period after which the poll is closed.|
 |*Users may change their votes*|Allow users to change their votes or not.|
 |*Allow Multiple Choices*|Allow users to vote for multiple options or not.|
@@ -373,7 +373,7 @@ This way allows you to untag one or multiple topics.
 
 *2.* Tick your desired topic checkboxes from the topics list.
 
-*3.* Click !images/Manage_tag_btn.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar then select *Untag* from the drop-down menu.
+*3.* Click !images/Manage_tag_btn.png|width="17mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Untag* from the drop-down menu.
 
 !images/tags_management.png|align="center" width="300" fo:scalefit="1" html:scalefit="0"!
 
@@ -401,7 +401,7 @@ You can post a reply quickly with plain texts without taking into account its fo
 
 *4.* Click *Quick Reply* to send you message.
 
-After posting your post, it will be highlighted so you can notice it easily.
+After posting your post, it will be highlighted, so you can notice it easily.
 
 {docbook}
 <para>
@@ -427,7 +427,7 @@ You can post a reply with the full editor as follows:
 
 Optionally, you can:
 
-* Attach files to the topic by clicking the *Attach files* link. The max size for the attachment is 10 Mb by default.
+* Attach files to the topic by clicking the *Attach files* link. The attachment size must be less than 20Mb.
 
 * Select an icon or smiley for the post in the *Icons and Smileys* tab.
 
@@ -464,7 +464,7 @@ You can send a private reply in a topic, which only allows the responded user to
 {docbook}
 <note>
     <para>
-    Private posts will not be checked for approval when it is posted in a topic that has the 'Posts moderation' enabled. Private posts are displayed with the 'private!' label.
+    Private posts will not be checked for approval when it is posted in a topic that has the 'Posts moderation' enabled. Private posts are displayed with the 'Post private!' label.
     </para>
 </note>
 {docbook}
@@ -492,12 +492,12 @@ This will generate the quotation BBCodes tag for your message. After getting the
 
 *3.* Click *Submit* to finish.
 
-h3. Edit a post {anchor:id=Forum_regular_user.Posts.Edit_posts}
+h3. Edit your post {anchor:id=Forum_regular_user.Posts.Edit_posts}
 This function is to make changes on the post which has been submitted.
 
 *1.* Click !images/Edit_post_btn.png|width="13mm" fo:scalefit="1" html:scalefit="0"! under the post you want to edit.
 
-*2.* Make changes on the post, then click *Submit* to accept your changes. When you edit a post, you also have the opportunity to upload an attachment, or delete an existing one.
+*2.* Make changes on the post, then click *Submit* to accept your changes. When you edit your post, you also can upload attachments, or delete an existing ones.
 
 h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 
@@ -506,7 +506,7 @@ h3. Delete a post {anchor:id=Forum_regular_user.Posts.Delete_posts}
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
 h2. Use BBCodes {anchor:id=Forum_user_settings.Forum_regular_user.BBcodes}
-BBCodes (Bulletin Board Codes) are special tags in bulletin boards to help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the html markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces "\[" and "\]" rather than "\<" and "\>" and it offers greater control over what and how something is displayed.
+BBCodes (Bulletin Board Codes) are special tags in bulletin boards that help users enrich their posts with formatting and inclusions. They are useful to provide guarded formatting capabilities to the forum users without the risk of breaking the HTML markup of the page. BBCode itself is similar in style to HTML: tags are enclosed in square braces "\[" and "\]" rather than "\<" and "\>" and it offers greater control over what and how something is displayed.
 
 Depending on the [BBCode template customized|#Forum_Administrator.Administrative_tasks.Customize_BBcodes] by administrators only, you may find it very easy to add BBCodes to your posts through a toolbar above the message area on the posting form. You can either type the BBCode tags manually or use the toolbar in the posting form. To easily get the BBCode tags without typing them, simply click the respective icon which is shown on the toolbar above the message area.
 
@@ -635,7 +635,7 @@ Or, right-click the object title and select *Watch* from the drop-down menu.
 
 !images/Forum_watch_rightclick.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
-The watched objects are also listed in the *My Subscriptions* tab in the *User Settings* form. When being unwatched, they also have been existed in this list.
+The watched objects are also listed in the *My Subscriptions* tab in the *Settings* form. When being unwatched, they also have been existed in this list.
 
 You will receive the notification message of the successful watching.
 You will receive the email notifications about new posts/replies of the forum that you are watching as well. In the notification email, you will be provided links that help you go directly to the topic or go to reply to the post. After clicking this link, the new posts in your watched topic will be highlighted.
@@ -680,7 +680,7 @@ Click !images/Forum_settings_btn.png|width="15mm" fo:scalefit="1" html:scalefit=
 * [Change forum settings|#Forum_regular_user.User_settings.Change_forum_settings].
 * [Edit your subscriptions|#Forum_regular_user.User_settings.Manage_subscriptions].
 
-h3. Edit a profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
+h3. Edit your profile {anchor:id=Forum_regular_user.User_settings.Edit_profile}
 
 By selecting the *Profile* tab, you can see your personal information and other preferences.
 
@@ -708,7 +708,7 @@ Go to the *My Subscriptions* tab in the *Settings* form, where you can update or
 
 !images/settings_my_subscriptions.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-* In the *RSS* column, you can subscribe or unsubscribe your subscriptions by selecting/deselecting the respective checkboxes, then click *Save*. The selected objects (categories, forums, topics) will be updated to the *Your personal feed URL is* field. You can use this link to view the content of your subscriptions.
+* In !images/RSS_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! column, you can subscribe or unsubscribe your subscriptions by selecting/deselecting the respective checkboxes, then click *Save*. The selected objects (categories, forums, topics) will be updated to the *Your personal feed URL is* field. You can use this link to view the content of your subscriptions.
 * In the !images/Mail_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! column, you can edit or delete your subscription email. Select an email, then click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to delete. Enter a new email address into the *Your watches are sent to* field. Click *Update* to add your entered email addresses in the !images/Mail_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! column.
 * Click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to remove your watched category, topic, post. After being removed, you will no longer receive any email notifications of the removed object.
 

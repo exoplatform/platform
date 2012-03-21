@@ -76,14 +76,11 @@ The followings are actions that a moderator can execute on topics:
 h3. Approve a topic {anchor:id=Forum_Moderator.Moderate_topics.Approve_topics}
 Moderators can approve pending topics in forums that enable the '[Moderate Topic|#admin_moderate_topics]' option. All new topics added to these forums will be pending for approval. It means that nobody can view these topics except administrators and moderators of the forums. Pending topics are only viewable when they are approved.
 
-!images/mod_pending_topics.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
-
 The administrator and moderator will know the total number of pending topics at the right corner of their *Forum Administration* bar and *User* bar.
 
-!images/mod_pending_topics_number.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
+!images/mod_pending_topics.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 
 Moderator can view the list of topics to be moderated. See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pending_tasks] for more details.
-
 
 {docbook}
 <citetitle>
@@ -92,7 +89,6 @@ Moderator can view the list of topics to be moderated. See [View all pending mod
 </para>
 </citetitle>
 {docbook}
-
 
 *The first way*
 
@@ -116,13 +112,11 @@ h3. Edit a topic {anchor:id=Forum_Moderator.Moderate_topics.Edit_topics}
 
 *1.* Select a topic to edit by ticking its respective checkbox.
 
-*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar.
-
-*3.* Click *Edit* from the drop-down menu that appears.
+*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Edit* from the drop-down menu that appears.
 
 !images/mod_edit_topic.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-*4.* Edit the topic as you wish. Leave the reason for the editing in the *Reason* field if needed.
+*3.* Make changes on the topic. Leave the reason for editing in the *Reason* field if needed.
 
 h3. Close/Open a topic {anchor:id=Forum_Moderator.Moderate_topics.Close-Open_topics}
 Only administrators and moderators can perform these actions. Closed topics will be invisible to regular users. Moderator can only close or open topics in the category that he manages.
@@ -170,16 +164,6 @@ Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefi
 
 h3. Delete a topic {anchor:id=Forum_Moderator.Moderate_topics.Delete_topics}
 
-
-{docbook}
-<citetitle>
-<para>
-    <emphasis role="bold">Delete a specific topic</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-
 *1.* Select topics by ticking their corresponding checkboxes, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar if you are already in a topic.
@@ -188,31 +172,10 @@ Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefi
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
-
-{docbook}
-<citetitle>
-<para>
-    <emphasis role="bold">Delete topics of a specific user</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-*1.* Click the username or avatar of the poster.
-
-*2.* Click *All Topics By \[User name\]*.
-
-!images/mod_view_all_topics.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
-
-All topic posted by the selected user will be displayed.
-
-!images/mod_deletel_topics.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Click !images/Delete_icon2.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the desired topic, then click *OK* in the confirmation message.
-
 h3. Lock/Unlock a topic {anchor:id=Forum_Moderator.Moderate_topics.Lock-Unlock_topics}
-This function is for administrators and moderators only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting reply will be disabled.
+This function is for administrators and moderators only to lock inappropriate topics. All posts in a clocked topic are still viewable, but posting replies will be disabled.
 
-*1.* Select a topic by ticking the corresponding checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topics list;
+*1.* Select a topic by ticking its corresponding checkbox, then click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topics list;
 
 Or, click !images/More_actions_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar when you are in a topic.
 
@@ -277,7 +240,7 @@ As a moderator, you have some specific rights on a post. To moderate a post, you
 
 !images/mod_moderate_posts.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
-Next, click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select a desired action from the drop-down menu. All the moderation actions will be reached via this menu.
+Next, click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar and select your desired action from the drop-down menu. All the moderation actions will be reached via this menu.
 
 !images/mod_moderation.png|align="center" width="60mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -307,7 +270,7 @@ See [View all pending moderation tasks|#Forum-user_guide.Forum_Moderator.View_pe
 
 *The second way*
 
-*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and click *Approve* from the drop-down menu. The *Waiting for Approval* form opens.
+*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, and click *Approve* from the drop-down menu. The *Unapproved Topics List* form opens.
 
 *2.* Select checkboxes corresponding to the posts you want to approve. You will see the preview of the post when hovering your cursor over the post title.
 
@@ -319,9 +282,11 @@ h3. Delete a post {anchor:id=Forum_Moderator.Moderate_posts.Delete_posts}
 
 *The first way*
 
-*1.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Show* from the drop-down menu.
+*1.* Tick the checkbox corresponding to the post you want to delete.
 
-*2.* Click *OK* in the confirmation message to accept your deletion.
+*2.* Click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then select *Delete* from the drop-down menu.
+
+*3.* Click *OK* in the confirmation message to accept your deletion.
 
 *The second way*
 
@@ -338,7 +303,7 @@ You can move posts to a topic of your choice.
 
 *3.* Select a destination topic in the topics list that appears.
 
-The moderator will be checked for moving permission. He can only move post inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator has the "move" permission, are listed.
+The moderator will be checked for "Move" permission. He can only move posts inside the forum that he manages. Therefore, at the destination topics list, only the topics which the Moderator has the "move" permission, are listed.
 
 h3. Hide a post {anchor:id=Forum_Moderator.Moderate_posts.Hide_posts}
 When a post is hidden, only administrators and moderators can view and manage it. 
@@ -367,22 +332,22 @@ You can show a single or multiple hidden posts at the same time:
 *3.* Click *Show*.
 
 h3. Uncensor a post {anchor:id=Forum_Moderator.Moderate_posts.Uncensor_posts}
-The administrators and moderators can censor all topics, posts containing censored keywords. These censored keywords are [specified by Administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts 
-containing these keywords will be labeled with 'Pending and Censored!' (for topic) or 'Post Censored!' (for post).
+The administrators and moderators can uncensor all topics, posts containing censored keywords. These censored keywords are [specified by Administrator|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]. All topics and posts
+containing these keywords will be labeled with 'Pending and Censored!' or 'Post Censored!' respectively.
 
 *The first way*
 
 * Follow this method to uncensor a specific post/topic.
 
-*1.* Select hidden posts/topics by ticking their checkboxes.
+*1.* Select censored posts/topics by ticking their checkboxes.
 
-*2.* Select !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Show* from the drop-down menu.
+*2.* Select !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar, then click *Censor* from the drop-down menu.
 
 *The second way*
 
 * Follow this method to uncensor posts/topics in the list of existing hidden posts/topics.
 
-*1.* Click *Moderation* on the *Action* bar, then select *Show* from the drop-down menu. A list of hidden posts appears.
+*1.* Click *Moderation* on the *Action* bar, then select *Censor* from the drop-down menu. A list of hidden posts appears.
 
 *2.* Select hidden posts by ticking their relevant checkboxes.
 
@@ -430,7 +395,7 @@ Simply click the *Delete This Topic/Delete This Post* button. The pending topic/
 h2. Ban IPs {anchor:id=Forum-user_guide.Forum_Moderator.Ban_IPs}
 This function allows banning IPs that may be used by users who abuse the forum functions or violate the forum rules and policies.
 
-This function is similar to the [Ban IPs tool used by administrators|#Forum_Administrator.Administrative_tasks.Ban_IPs]. However, the Ban IPs tool used by administrators can ban IP from the whole forum, while moderators can only ban IP in a specific forum only. 
+This function is similar to the [Ban IPs tool used by administrators|#Forum_Administrator.Administrative_tasks.Ban_IPs]. However, the Ban IPs tool used by administrators can ban IP from all forums, while moderators can only ban IP from forums which he manages.
 
 {docbook}
 <citetitle>

@@ -85,7 +85,7 @@ The type of sorting entries in the list may be: *Ascending* or *Descending*.
 * [Define the default category for discussions|#KSuser.Answer_Moderator.Define_discuss_category]
 	
 h3. Customize the email notification template {anchor:id=KSuser.Answer_Moderator.Customize_Email_template}
-When there are new questions or answers in the category or topic that a user has watched, the use will receive the email notification. 
+When there are new questions or answers in the category or topic that a user has watched, the user will receive the email notification.
 In the *Email Notifications* tab, change the content of the email notification manually or edit the template for each email notification. 
 
 !images/Answer_porlet_edit_form2.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
@@ -96,15 +96,15 @@ In the *Email Notifications* tab, change the content of the email notification m
 
 The followings are variables that you can use in your template:
 
-*&categoryName\_*: will be replaced by the watched category.
+*&categoryName\_*: will be replaced with the watched category.
 
-*&questionContent\_*: will be replaced by the content of the new questions.
+*&questionContent\_*: will be replaced with the content of the new question.
 
-*&questionResponse\_*: will be replaced by the content of the new questions' reply.
+*&questionResponse\_*: will be replaced with the content of the new question's reply.
 
-*&questionLink\_*: will be replaced by the link for going to new questions.
+*&questionLink\_*: will be replaced with the link for going to new questions.
 
-*&answerNowLink\_*: will be replaced by the link for going to new questions and open pop-up form Answer question.
+*&answerNowLink\_*: will be replaced with the link for going to new questions and open a pop-up form which allows you to answer the question..
 
 
 These variables are used to load the content dynamically. Thus, you should not edit them. In case the template is changed unexpectedly, you can go back to the default template by clicking !images/Back_to_default_btn.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
@@ -146,7 +146,7 @@ In the *Discussion* tab, enable/disable the *Discuss in Forum* function in *Answ
 
 h3. Define the default category for discussions {anchor:id=KSuser.Answer_Moderator.Define_discuss_category}
 
-*1.* Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Select the forum* field to open the *Select a forum* form in the *Discussion* tab.
+*1.* Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the *Select a forum* field to open the *Select a forum* form in the *Discussion* tab.
 
 !images/Select_forum_form.png|align="center" width="80mm" fo:scalefit="1" html:scalefit="0"!
 

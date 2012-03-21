@@ -41,7 +41,7 @@ In this form, you can also:
 
 *iii.* Enter your email in the valid format, such as _username@abc.com_ into the *Email* form.
 
-*iv.* Attach different-typed files to your question by clicking the *Attach a file* link. The max size for the attachment is 20Mb. To remove the attached files, click the corresponding *Remove* link next to the file attachments.
+*iv.* Attach different-typed files to your question by clicking the *Attach a file* link. The max size for the attachment is 20Mb. To remove the attached files, click respective !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the file attachments.
 
 *3.* Click *Save* to complete submitting your question.
 
@@ -76,7 +76,7 @@ Regular users can only edit their own questions.
 
 *The second way*
 
-* Click a question, then select !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! as below.
+* Click a question, then select !images/Edit_icon4.png|width="4mm" fo:scalefit="1" html:scalefit="0"! as below.
 
 !images/Edit_question_panel.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -117,13 +117,7 @@ A question may have multiple answers and each can be moderated separately.
 
 *2.* Enter your answer into the *Answer* field.
 
-*3.* Select/Deselect the *Approved* and *Activated* checkboxes if you want to approve this answer (optional). If this answer is in the category that requires moderation, the *Approved* checkbox  will be selected by default.
-
-The *Activated* option enables your answer to be shown or hidden. By default, an answer is always shown.
-
-*4.* Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to link the question to reference entries (optional).
-
-*5.* Click *Save* to submit your answer.
+*3.* Click *Save* to submit your answer.
 
 {docbook}
 <para>
@@ -141,7 +135,7 @@ The *Activated* option enables your answer to be shown or hidden. By default, an
 h3. Edit an answer {anchor:id=KSuser.Answer_Regular_user.Edit_answers}
 Regular users can only edit their answers.
 
-*1.* Click !images/Edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the answer that you want to edit.
+*1.* Click !images/Edit_icon4.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the top right of the answer that you want to edit.
 
 *2.* Make changes on your selected answer.
 
@@ -174,13 +168,13 @@ You can leave comments on a question when you are not sure about the answer, or 
 
 * Right-click a specific question, then select *Comment* from the drop-down menu.
 
-*2.* Type your answer in the text-input field.
+*2.* Type your comment in the text-input field.
 
 *3.* Click *Save* to finish.
 {docbook}
 <note>
     <para>
-    Comments can be written in different languages. If a question is posted in multiple languages, it can also have comments in multiple languages.
+    Comments can be written in different languages. However, you only can put comments on a question in multiple languages only when the question has been posted in multiple languages.
     </para>
 </note>
 {docbook}
@@ -303,15 +297,13 @@ If you want to evaluate the quality of the question, you can use the intuitive r
 
 *1.* Open the question which you want to rate.
 
-*2.* Click the star on the top left of the question content.
+*2.* Click the star on the top right of the question content.
 
 !images/Unrated_stars.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
 
 After being rated, the vote statistics will be updated.
 
 !images/Rated_stars.png|align="center" width="30mm" fo:scalefit="1" html:scalefit="0"!
-
-*3.* Click *OK* in the confirmation message.
 
 {docbook}
 <note>
@@ -348,8 +340,7 @@ If you think the answer is good, click the thumb-up icon. If you think the answe
 {docbook}
 <note>
     <para>
-    You cannot vote for an option twice but changing your voting is possible.
-    </para>
+    You cannot vote both (+1 and -1) for an answer at the same time. By clicking either of thumb icons, your voting will accordingly be changed.    </para>
 </note>
 {docbook}
 
@@ -484,7 +475,7 @@ You can select to display entries by created date/alphabetical order and sorted 
 
 h2. View public user profile {anchor:id=KSuser.Answer_Regular_user.View_public_user_profile}
 
-The function is for all users, even when you are not logged in (guest). To view a specific user's profile, click his username. The profile of that
+The function is for all logged in users. To view a specific user's profile, click his username. The profile of that
 user will be displayed.
 
 !images/Answer_User_profile_form.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
@@ -577,9 +568,9 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Select one parent category from the *Categories* list on the left pane.
 
-*2.* Click the *Print* button on the action bar under the selected category.
+*2.* Click the !images/Print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the action bar under the selected category.
 
-!images/Print_action_bar.png|align="center" width="320" fo:scalefit="1" html:scalefit="0"!
+!images/Print_action_bar.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Click the *Print* button to accept printing or *Close* to quit the *Print Preview* form without printing.
 
@@ -595,7 +586,7 @@ h2. Print {anchor:id=Answer_user_guide.View_details.Print}
 
 *1.* Click your desired question.
 
-*2.* Click !images/Print_icon.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the top right of the question pane. You will see the question and its details as below.
+*2.* Click !images/Print_icon2.png|width="5mm" fo:scalefit="1" html:scalefit="0"! on the top right of the question pane. You will see the question and its details as below.
 
 !images/Print_details_question.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
