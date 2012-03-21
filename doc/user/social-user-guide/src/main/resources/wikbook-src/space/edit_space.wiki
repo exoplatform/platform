@@ -61,7 +61,11 @@ h2. Change visibility {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Chan
 
 h2. Manage members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members}
 
-Select the *Members* tab in the left pane of the *Space Settings* page to open the *Manage members* form. Here, you can do many actions on members as stated below.
+Select the *Members* tab in the left pane of the *Space Settings* page to open the *Manage members* form.
+
+!images/member_tab_space.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+
+Here, you can do many actions on members as stated below.
 
 h3. Invite new members {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Invite_Mem}
 You can invite other users to join your spaces as follows:
@@ -94,21 +98,19 @@ You can also search for your desired members in eXo Platform, do as follows:
 
 
 h3. Revoke your invitations       {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Revoke}
-If your invited users have not accepted your requests yet, you can revoke your invitations by clicking !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
+If your invited users have not accepted your requests yet, you can revoke your invitations by clicking !images/Cancel_request_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"!. The users will be removed from the *Invited* list.
 
 h3. Validate/Decline request {anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Validate_decline_request}
 As a manager or creator of a space, you can validate other users' requests for joining your space.
 
-!images/validate_decline_request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-* To accept a user's request for joining your space, click !images/validate_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
-* To decline a user's request for joining your space, click !images/decline_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
+* To accept a user's request for joining your space, click !images/validate_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
+* To decline a user's request for joining your space, click !images/decline_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Action* column.
 
 h3. Promote/Demote a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Promote_Mem}
 
-* To promote a member to the manager position, click !images/promote_plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
+* To promote a member to the manager position, click !images/promote_plus_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! in the *Manager* column. The user will be automatically promoted as a manager in the current space.
 
-* To demote a member, click !images/Demote_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+* To demote a member, click !images/Demote_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"!.
 
 {docbook}
 <note>
@@ -119,7 +121,7 @@ Be careful not to remove the rights for yourself; otherwise, you will not be abl
 {docbook}
 
 h3. Remove a member{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Remove_Mem}
-Click !images/Delete_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the member you want to delete in the *Members* list.
+Click !images/Remove_member_icon.png|width="18mm" fo:scalefit="1" html:scalefit="0"! corresponding to the member you want to delete in the *Members* list.
 
 h2. Manage space applications{anchor:id=Soc_User_Guide.Space_Management.Edit_Space.Manage_App}
 Select the *Applications* tab to go the *Applications* page which allows you to manage space applications.
