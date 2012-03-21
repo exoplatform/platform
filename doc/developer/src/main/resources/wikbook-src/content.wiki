@@ -17,7 +17,7 @@ h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
 To create a content for your extension, you first need to define a node type which represents the document type in the JCR. There are 2 ways to define your node type:
 
-* Via the *Content administration* portlet. For more details on how to create a note type via the *Content administration* portlet, see the *[Manage node types|../../../user-guide/html/ch05.html#sect-User_Guide-Content_Types-Manage_Node_Types]* in the [eXo Platform 3.5 user guide|../../../user-guide/html/index.html].
+* Via the *Content Administration* portlet. For more details on how to create a note type via the *Content Administration* portlet, see the *[Manage node types|../../../user-guide/html/ch05.html#sect-User_Guide-Content_Types-Manage_Node_Types]* in the [eXo Platform 3.5 user guide|../../../user-guide/html/index.html].
 * Via the .xml configuration files by creating a _nodetypes-configuration.xml_ file in your extension as below.
 
 {code:xml}
@@ -87,7 +87,7 @@ The *Document Type* checkbox is to define if the node type should be a *Document
 
 * The document types nodes can be created by the *Add Content* action. The forms shown in the *Add Document* action are the corresponding *Dialog* templates of each document type.
 
-*Non-document types are hidden unless the *Show Non-document Nodes* option is checked.
+* Non-document types are hidden unless the *Show Non-document Nodes* option is checked.
 
 Templates are written using Groovy Templates and will require experiences with JCR API and HTML notions.
 
@@ -412,7 +412,7 @@ Taxonomy is a particular classification arranged in a hierarchical structure. Ta
 
 When you create a new taxonomy tree, you will add a pre-configured _exo\:action_ (_exo\:scriptAction_ or _exo\:businessProcessAction_) to the root node of the taxonomy tree. This action is triggered when a new document is added anywhere in the taxonomy tree. The default action moves the document to the physical storage location and replaces the document in the taxonomy tree with a symlink of the _exo\:taxonomyLink_ type pointing to it. The physical storage location is defined by a workspace name, a path and the current date and time.
 
-Like adding document types, taxonomy trees can be managed through the *Content administration* portlet, or by adding .xml configuration files.
+Like adding document types, taxonomy trees can be managed through the *Content Administration* portlet, or by adding .xml configuration files.
 
 To configure taxonomy trees by adding configuration files in the _/webapp/WEB-INF/conf/acme-portal/wcm/taxonomy/_ directory, create a new file called _$taxonomyName-taxonomies-configuration.xml_. For example, if the name of your taxonomy tree is "acme", the file should be named _acme-taxonomies-configuration.xml_.
 

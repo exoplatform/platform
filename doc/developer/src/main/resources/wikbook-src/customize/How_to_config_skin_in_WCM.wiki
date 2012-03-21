@@ -233,7 +233,7 @@ _<myportal\_path>/src/main/webapp/WEB-INF/conf/myportal/customized/template/conf
 
 h1. Customize CLV template's style {anchor:id=DEV.CreateYourOwnPortal.CustomizeCLVTemplateStyle}
 
-*1.* Go to *Sites explorer* portlet *--> Sites management* drive *--> MySite/css* folder.
+*1.* Go to *Sites Explorer* portlet *--> Sites Management* drive *--> MySite/css* folder.
 
 *2.* Create a new CSS document which contains your stylesheet for the portal and the page layout. You can use any name for this document and put a priority number.
 

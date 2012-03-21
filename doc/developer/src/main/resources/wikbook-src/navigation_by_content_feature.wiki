@@ -199,7 +199,7 @@ However, if you want to add your newly created content directly to the contextua
 
 *1.* Go to the *Sites Explorer* page and navigate to the _/Sites Management/acme/events/All/Fire_ node.
 
-*2.* Click the *Manage Actions* button and add the *exo\:populateToMenu* action.
+*2.* Click the *Actions* button and add the *exo\:populateToMenu* action.
 
 !images/navigation_by_content_feature/populateToMenuAction.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -245,7 +245,7 @@ h2. Create a Product page {anchor:id=DEV.WorkWithContent.NavigationByContent.Cre
 
 *1.* Go to the *Sites Explorer* page and navigate to _somePath/someDirectory_.
 
-*2.* Click the *Add Content* button on the *Action* bar. There will be a several content type appears.
+*2.* Click the *New Content* button on the *Action* bar. There will be a several content type appears.
 
 *3.* Select the *Product* content type. 
 
@@ -265,19 +265,19 @@ h2. Create a Product page {anchor:id=DEV.WorkWithContent.NavigationByContent.Cre
 
 *1.* Go to _somePath/someDirectory/sampleProduct/medias/images_.
 
-*2.* Upload some images and publish them.
+*2.* Click *Upload* on the *Action* bar to upload some images from your local device and publish them.
 
 !images/navigation_by_content_feature/sampleProductImages.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Go to _somePath/someDirectory/sampleProduct/medias/videos_.
 
-*4.* Upload a video and publish it.
+*4.* Click *Upload* on the *Action* bar to upload some videos from your local device and publish it.
 
 !images/navigation_by_content_feature/sampleProductVideos.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0" !
 
 *5.* Go to _somePath/someDirectory/sampleProduct/documents_.
 
-*6.* Create two directories, including Sales Materials and Technical Documentations.
+*6.* Create two directories, including *Sale Materials* and *Technical Documentations*.
 
 *7.* Upload a PDF document and publish it under each sub-folder.
 

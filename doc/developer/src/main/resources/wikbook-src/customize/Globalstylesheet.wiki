@@ -10,7 +10,7 @@ h1. Create and apply the global stylesheet by Sites Explorer {anchor:id=DEV.Crea
 
 !images/CreateNewGlobalStylesheet.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Click *Add Content* to open the form to create the new global stylesheet.
+*3.* Click *New Content* to open the form to create the new global stylesheet.
 
 !images/CreateGlobalStylesheetForm.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -39,9 +39,9 @@ h1. Create and apply the global stylesheet by configuration {anchor:id=DEV.Creat
 
 After being created as above, your desired global stylesheet can be initialized automatically when the application is started by doing as follows:
 
-*1.* Open the CSS folder.
+*1.* Open the *CSS* folder.
 
-*2.* Select *System* and click *Export Node* on the action bar.
+*2.* Select *System* and click *Export* on the *Action* bar.
 
 !images/ExportImportGlobalStylesheet.png|align="center"  width="150mm" fo:scalefit="1" html:scalefit="0"!
 

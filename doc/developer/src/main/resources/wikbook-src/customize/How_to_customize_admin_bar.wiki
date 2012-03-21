@@ -32,7 +32,7 @@ The _sharedlayout.xml_ file configures the current displayed portlets on the Adm
 
 h2. Add a content to the Administration bar {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
 
-!images/admin_bar_portlets_add.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/admin_bar_portlets.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *Add a portlet to the administration bar to logout user*
 
