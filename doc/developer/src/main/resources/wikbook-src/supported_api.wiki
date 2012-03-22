@@ -67,15 +67,35 @@ h2. Java APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaAPIs}
 
 *[Taxonomy:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.TaxonomyService]* An API that allows you to organize your content.
 
-*[Link Management:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.LinkManager]* An API that provides a way to manage links when developing WCM features.
+*[LinkManager:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.LinkManager]* An API that provides a way to manage links when developing WCM features.
 
-*[Publication Management:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.PublicationManager]* An API that provides different ways to manage the publication of content when developing WCM features.
+*[PublicationManager:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.PublicationManager]* An API that provides different ways to manage the publication of content when developing WCM features.
 
-*[WCM Composer:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.WCMComposer]* An API to get content shown in the website. The cache management is used in this service, and methods to update the content cache.
+*[WCMComposer:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.WCMComposer]* An API to get content shown in the website. The cache management is used in this service, and methods to update the content cache.
 
-*[WCM Templates:|../../../reference/html/bk03ch04.html#CONTref.InsideWCMTemplates]* An API to provide views and dialogs to node types (system or document).
+*[NewFolksonomy:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.NewFolksonomy]*
+
+*[ApplicationTemplateManager:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.ApplicationTemplateManager]*   An API to manage dynamic groovy templates for WCM-based products.
+
+*[NodeFinder:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.NodeFinder]* An API to find a node with a given path.
+
+*[JodConverter:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.JodConverter]* An API to convert documents into different office formats.
+
+*[SiteSearchService:|../../../html/bk03ch04.html#CONTref.JavaServices.SiteSearchService]* An API that allows users to find all information matching with their given keyword.
+
+*[SEOService:|../../../reference/html/bk03ch04.html#CONTref.JavaServices.SEOService]* An API that manages SEO data of a page or a content.
+
+*[TimelineService:|../../../reference/html/bk03ch03.html#CONTref.Configuration.Components.TimelineService]* An API that allows documents to be displayed by days, months and years.
 
 *[XML Configuration:|../../../reference/html/ch-services-wiring.html#d0e13290]* A set of DTD for configuring eXo Platform.
+
+*[ActivityManager:|../../../reference/html/bk08ch03.html#Developer_document.Java_APIs.Activity_Manager]* An API to manage activities (create/delete/like activity; delete/like/create comment; get activities of space/user/connection).
+
+*[IdentityManager:|../../../reference/html/bk08ch03.html#Developer_document.Java_APIs.Identity_Manager]* An API to manage identities (create identity, save profile, get connection of an identity).
+
+*[RelationshipManager:|../../reference/html/bk08ch03.html#Developer_document.Java_APIs.Relationship_manager]* An API which is used to work with connections between 2 identities, interact between identities, get list access to get list of connections, incomings, outgoings.
+
+*[SpaceService:|../../reference/html/bk08ch03.html#Developer_document.JavaAPIs.Java_APIs.SpaceService]*  An API that provides methods for working with space (create new space, delete, get space by url, groupid, display name, pretty name)
 
 h2. JavaScript APIs {anchor:id=DEV.eXoPlatformSupportedAPIs.JavaScriptAPIs}
 
