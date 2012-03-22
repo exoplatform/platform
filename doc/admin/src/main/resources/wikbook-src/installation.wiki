@@ -285,7 +285,7 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 
 *6.* Configure the _emptySessionPath_ attribute.
 
-To make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _server/default/deploy/jbossweb.sar/server.xml/_ path.
+From JBoss AS 4 or lower, to make Wiki work properly, you have to configure the _emptySessionPath_ attribute in the _server.xml_ file. If you are running Jboss with the "default" profile, this file will be located in _server/default/deploy/jbossweb.sar/server.xml/_ path.
 
 Depending on the Connector you are using, you have to set the _emptySessionPath_ attribute to "true" for that Connector respectively.
 
@@ -297,6 +297,12 @@ For example, if you are using the AJP Connector, the configuration should be as 
     emptySessionPath="true" enableLookups="false" redirectPort="8443" />
 {code}
 
+However, from JBoss AS 5 or higher, _emptySessionPath="true"_ no longer sets the cookie path / by default. Instead, the cookie path
+is set via the following element in the _Context_ element in the _server/default/deploy/jbossweb.sar/context.xml_ file.
+{code}
+<SessionCookie path="/" />
+{code}
+Session cookies are now scoped to the context by default.
 *7.* Start up the server.
 
 * On Linux and OS X:  
