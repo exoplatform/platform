@@ -1,0 +1,43 @@
+h2. Existing configurations of sharedlayout.xml {anchor:id=DEV.CreateYourOwnPortal.ExistingConfigurationsOfSharedlayout}
+For now, there are four configurations of _sharedLayout.xml_:
+* _portal/WEB-INF/conf/portal/portal/sharedlayout.xml_
+* _webos-ext/WEB-INF/conf/portal/portal/sharedlayout.xml_
+* _ecm-wcm-extension/WEB-INF/conf/portal/portal/sharedlayout.xml_
+* _platform-extension/WEB-INF/conf/portal/portal/sharedlayout.xml_
+
+The order of _sharedlayout.xml_ loading is important. The last extension loaded defines _sharedlayout.xml_ used by the system to define portlets displayed in the Admin bar.
+
+To make sure your extension is last loaded, look at this configuration file jar:_/conf/configuration.xml_. The component *PortalContainerConfig* can be used to define
+the order of war loading.
+
+h2. How it works {anchor:id=DEV.CreateYourOwnPortal.HowItWorks}
+The code which is responsible for _sharedlayout.xml_ loading is located into class _POMDataStorage.java_ from portal.
+
+{code:java}
+   public Container getSharedLayout() throws Exception
+   {
+      String path = "war:/conf/portal/portal/sharedlayout.xml";
+      String out = IOUtil.getStreamContentAsString(confManager_.getInputStream(path));
+      ByteArrayInputStream is = new ByteArrayInputStream(out.getBytes("UTF-8"));
+      IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
+      UnmarshallingContext uctx = (UnmarshallingContext)bfact.createUnmarshallingContext();
+      uctx.setDocument(is, null, "UTF-8", false);
+      Container container = (Container)uctx.unmarshalElement();
+      generateStorageName(container);
+      return container;
+   }
+{code}
+
+You can see the path is hard-coded. 
+
+Once the good configuration file is chosen by the portal container, this one uses it to add portlets to the admin bar:
+
+!images/admin_bar_portlets_visible.png|align="center"!
+
+In this illustration, you can see all sharedlayout portlets are configured with parameter _show-info-bar_ set to "true".
+
+h2. Sharedlayout.xml overriding {anchor:id=DEV.CreateYourOwnPortal.Overriding}
+
+To override _sharedlayout.xml_, you need to add your configuration file located by example into _custom-extension.war/WEB-INF/conf/portal/portal/Sharedlayout.xml_
+
+Do not forget to configure your extension loaded to override other _sharedlayout.xml_ configuration.
