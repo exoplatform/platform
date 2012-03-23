@@ -1097,3 +1097,70 @@ _______________________________________________________________________
 |        CPU         | ~13-20% in JConsole, ~100% in System Monitor)  |
 -----------------------------------------------------------------------
 {code}
+
+
+h1. Upgrade ECMS templates migration tools  {anchor:id=ADM.Migration.Upgrade-ECMS-template-migration-tools}
+By default, all the ECMS templates will be automatically migrated. In case you want to migrate a specific template manually, you need to specify your desired template in the _configuration.properties_ file.
+* Specify the node type templates, like _view1.gtmpl_, _dialog1.gtmpl_, _stylesheet-rt.css_, _stylesheet-lt.css_ with the following syntax:
+{code}
+unchanged-nodetype-templates=<node name list>
+{code}
+For example:
+{code}
+unchanged-nodetype-templates=nt:file, exo:article
+{code}
+{note}
+This upgrade is done by the _NodeTypeTemplateUpgradePlugin_ plugin.
+{note}
+
+* Specify the pre-defined queries with the following syntax:
+{code}
+unchanged-queries=<query name list>
+{code}
+For example:
+{code}
+unchanged-queries=Created Documents
+{code}
+
+{note}
+This upgrade is done by the _QueryUpgradePlugin_ plugin.
+{note}
+
+* Specify templates of *Sites Explorer* with the following syntax:
+{code}
+unchanged-site-explorer-templates=<templates name list>
+{code}
+For example:
+{code}
+unchanged-site-explorer-templates=ThumbnailsView, ContentView
+{code}
+{note}
+This upgrade is done by the _SiteExplorerTemplatePlugin_ plugin.
+{note}
+
+* Specify views of *Sites Explorer* with the following syntax:
+{code}
+unchanged-site-explorer-views=<view name list>
+{code}
+For example:
+{code}
+unchanged-site-explorer-views=anonymous-view
+{code}
+{note}
+This upgrade is done by the _UserViewUpgradePlugin_ plugin.
+{note}
+
+* Specify the templates of _Content-list-viewer_ and _Search_ portlets with the following templates:
+{code}
+unchanged-clv-templates=<template name list>
+unchanged-wcm-search-templates=<template name list>
+{code}
+For example:
+{code}
+unchanged-clv-templates=list/BigHotNewsTemplateCLV.gtmpl,navigation/CategoryList.gtmpl
+unchanged-wcm-search-templates=search-form/UIDefaultSearchForm.gtmpl
+{code}
+
+{note}
+This upgrade is done by the _WCMTemplateUpgradePlugin_ plugin.
+{note}
