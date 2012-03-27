@@ -28,9 +28,9 @@ This chapter covers the following topics:
 </abstract>
 {docbook}
 
-h1. Remove sample websites {anchor:id=ADM.Clustering.How_to_remove_sample_application}
+h1. Remove sample portals {anchor:id=ADM.Clustering.How_to_remove_sample_application}
 
-eXo Platform comes with two sample websites that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample websites. In some cases, you usually want to remove them before deploying your system in production.
+eXo Platform comes with two sample portals that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample portals. In some cases, you usually want to remove them before deploying your system in production.
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
@@ -42,7 +42,7 @@ Both Acme website and Acme Social Intranet are sample extensions demonstrating t
 <para>
 <citetitle>
 <emphasis role="bold">
-Remove the Acme site/Acme Social Intranet
+Remove the Acme website/Acme Social Intranet
 </emphasis>
 </citetitle>
 </para>
@@ -51,10 +51,13 @@ Remove the Acme site/Acme Social Intranet
 *1.* Stop the server using the _shutdown.sh_ command.
 
 *2.* Delete the following relevant files:
+*Tomcat*
+* For the Acme website: _webapps/acme-website.war_, _lib/exo.platform.sample.acme-website.config.jar_, _Tomcat/conf/Catalina/localhost/acme-website.xml_ and _gatein/data_.
+* For the Acme Social Intranet: _webapps/acme-intranet.war_, _lib/exo.platform.sample.acme-intranet.config.jar_, _Tomcat/conf/Catalina/localhost/acme-intranet.xml_ and _gatein/data_.
 
-* For the Acme website: _acme-website.war_, _exo.platform.sample.acme-website.config.jar_, _Tomcat/conf/Catalina/localhost/acme-website.xml_ and _gatein/data_.
-
-* For the Acme Social Intranet: _acme-intranet.war_, _exo.platform.sample.acme-intranet.config.jar_, _Tomcat/conf/Catalina/localhost/acme-intranet.xml_ and _gatein/data_.
+*JBoss*
+* For the Acme website: _server/default/deploy/exo-acme-website-3.5.1.ear_.
+* For the Acme Social Intranet: _server/default/deploy/exo-social-intranet-3.5.1.ear_. 
 
 *3.* Restart the server.
 
