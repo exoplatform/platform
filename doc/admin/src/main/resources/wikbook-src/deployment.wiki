@@ -28,15 +28,15 @@ This chapter covers the following topics:
 </abstract>
 {docbook}
 
-h1. Remove sample applications {anchor:id=ADM.Clustering.How_to_remove_sample_application}
+h1. Remove sample websites {anchor:id=ADM.Clustering.How_to_remove_sample_application}
 
-eXo Platform comes with two sample portals that show the capabilities of the product. However, once implementing your own extensions, you may not need the sample applications. In some cases, you usually want to remove them before deploying your system in production.
+eXo Platform comes with two sample websites that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample websites. In some cases, you usually want to remove them before deploying your system in production.
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
 h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme/SocialIntranet}
 
-Both Acme website and Acme Social Intranet are sample extensions that demonstrate the intranet you can implement with eXo Platform. 
+Both Acme website and Acme Social Intranet are sample extensions demonstrating the intranet that you can implement with eXo Platform.
 
 {docbook}
 <para>
@@ -48,25 +48,25 @@ Remove the Acme site/Acme Social Intranet
 </para>
 {docbook}
 
-*1.* Stop the server using the command: _shutdown.sh_.
+*1.* Stop the server using the _shutdown.sh_ command.
 
 *2.* Delete the following relevant files:
 
-* For the Acme website: _acme-portal.war_, _exo.ecms.ext.acme.config.jar_ and _gatein/data_.
+* For the Acme website: _acme-website.war_, _exo.platform.sample.acme-website.config.jar_, _Tomcat/conf/Catalina/localhost/acme-website.xml_ and _gatein/data_.
 
-* For the Acme Social Intranet: _office-portal.war_, _exo.platform.office.config.jar_, and _gatein/data_.
+* For the Acme Social Intranet: _acme-intranet.war_, _exo.platform.sample.acme-intranet.config.jar_, _Tomcat/conf/Catalina/localhost/acme-intranet.xml_ and _gatein/data_.
 
 *3.* Restart the server.
 
-h2. Remove a crash {anchor:id=ADM.Clustering.Remove_crash}
+h2. Remove Crash {anchor:id=ADM.Clustering.Remove_crash}
 
-Crash is a complementary tool for development and maintenance. As it opens telnet and ssh sockets, it is highly recommended that you remove crash for your production deployments. The crash is covered in the *crash.war* file in _tomcat/webapps_.
+Crash is a complementary tool for development and maintenance. As it opens telnet and SSH sockets, it is highly recommended that you remove Crash for your production deployments. Crash is in the _crash.war_ file in _tomcat/webapps_.
 
 {docbook}
 <para>
 <citetitle>
 <emphasis role="bold">
-Remove a crash
+Remove a Crash
 </emphasis>
 </citetitle>
 </para>
