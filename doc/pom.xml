@@ -18,6 +18,7 @@
     <module>developer</module>
     <module>refguide</module>
     <module>user</module>
+    <module>introduction</module>
     <module>bundle</module>
   </modules>
 </project>

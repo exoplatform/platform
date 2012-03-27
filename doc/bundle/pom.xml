@@ -70,6 +70,20 @@
           <classifier>html</classifier>
           <type>zip</type>
         </dependency>
+        <!-- Introduction guide -->
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.introduction</artifactId>
+          <version>${project.version}</version>
+          <classifier>html</classifier>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>exo.platform.doc.introduction</artifactId>
+          <version>${project.version}</version>
+          <type>pdf</type>
+        </dependency>
       </dependencies>
       <build>
         <finalName>eXo-Platform-docs-${project.version}</finalName>
@@ -124,6 +138,15 @@
                        <classifier>html</classifier>
 		               <type>zip</type>
 		               <outputDirectory>${project.build.directory}/work/user-guide/html</outputDirectory>
+		             </artifactItem>
+                     <!-- Introduction Guide -->
+		             <artifactItem>
+                       <groupId>${project.groupId}</groupId>
+                       <artifactId>exo.platform.doc.introduction</artifactId>
+                       <version>${project.version}</version>
+                       <classifier>html</classifier>
+                       <type>zip</type>
+		               <outputDirectory>${project.build.directory}/work/introduction/html</outputDirectory>
 		             </artifactItem>
 		           </artifactItems>
 		         </configuration>
@@ -182,6 +205,15 @@
 		               <version>${project.version}</version>
 		               <type>pdf</type>
 		               <outputDirectory>${project.build.directory}/work/user-guide/pdf</outputDirectory>
+		             </artifactItem>
+                    <!-- Introduction Guide -->
+		             <artifactItem>
+                       <groupId>${project.groupId}</groupId>
+                       <artifactId>exo.platform.doc.introduction</artifactId>
+                       <version>${project.version}</version>
+                       <type>pdf</type>
+		               <outputDirectory>${project.build.directory}/work/introduction/pdf</outputDirectory>
+		              <destFileName>eXo-Introduction.pdf</destFileName>
 		             </artifactItem>
 		          </artifactItems>
 		        </configuration>
