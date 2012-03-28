@@ -177,6 +177,7 @@
               </execution>
             </executions>
             <configuration>
+              <bookId>DeveloperGuide</bookId>
               <sourceDirectory>${wikbook.source}</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
               <destinationDirectory>${docbook.source}</destinationDirectory>
