@@ -246,6 +246,7 @@
               </execution>
             </executions>
             <configuration>
+              <bookId>UserGuide</bookId>
               <sourceDirectory>${wikbook.source}</sourceDirectory>
               <sourceFileName>book.wiki</sourceFileName>
               <destinationDirectory>${docbook.source}</destinationDirectory>
