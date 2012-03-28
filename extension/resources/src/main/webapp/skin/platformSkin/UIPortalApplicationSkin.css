@@ -93,6 +93,12 @@ a {
 }
 
 /**/
+
+.UIMaskWorkspace {
+    width: 677px;
+}
+
+/**/
 .UIWorkingWorkspace .UIHomePagePortlet {
 	margin:0 auto;
 }
