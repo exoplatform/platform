@@ -451,8 +451,4 @@
     </component-plugin>
   </external-component-plugins>
   
-  <!-- Terms and Conditions filter -->
-  <import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>
-  
-  
 </configuration>
