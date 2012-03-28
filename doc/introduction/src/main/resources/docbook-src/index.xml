@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book xml:id="eXo_Platform_overview">
+<book xml:id="Overview">
     <title>Overview</title>
-<chapter id="eXo_Platform_Introduction">
+<chapter id="AbouteXoPlatform">
 	<title>About eXo Platform</title>
       <!--<section>-->
       <para>
@@ -97,7 +97,7 @@
 	 <!--</section>-->
    </chapter>
 
-  <chapter id="eXo_Platform_Browser_Compatibility">
+  <chapter id="BrowserCompatibility">
     <title>Browser compatibility</title>
   <para>eXo Platform 3.5 is designed to work within an Internet browser, and we have made every effort to make eXo Platform 3.5 compatible with as many of common web browsers as possible.</para>
   <para>
