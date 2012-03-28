@@ -255,13 +255,13 @@
                 <delete dir="${tomcat.webapps.dir}/plf" />
     
                 <!-- Comment filter Terms and Conditions -->
-                <unzip src="${tomcat.webapps.dir}/platform-extension.war" dest="${tomcat.webapps.dir}/plf" />
-                <replace file="${tomcat.lib.dir}/plf/conf/configuration.xml">
-                  <replacetoken><![CDATA[<import>war:/conf/termsandconditions/web-filter-configuration.xml</import>]]></replacetoken>
-                  <replacevalue><![CDATA[<!--<import>war:/conf/termsandconditions/web-filter-configuration.xml</import>-->]]></replacevalue>
+                <unzip src="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" dest="${tomcat.lib.dir}/plf" />
+                <replace file="${tomcat.lib.dir}/plf/conf/portal/configuration.xml">
+                  <replacetoken><![CDATA[<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>]]></replacetoken>
+                  <replacevalue><![CDATA[<!--<import>jar:/conf/termsandconditions/web-filter-configuration.xml</import>-->]]></replacevalue>
                 </replace>
-                <zip destfile="${tomcat.webapps.dir}/platform-extension.war" basedir="${tomcat.webapps.dir}/plf" />
-                <delete dir="${tomcat.webapps.dir}/plf" />
+                <zip destfile="${tomcat.lib.dir}/exo.platform.component.common-${project.version}.jar" basedir="${tomcat.lib.dir}/plf" />
+                <delete dir="${tomcat.lib.dir}/plf" />
       
                 <!-- Replaces the default page by a new one especially for the Community Edition -->
                 <unzip src="${tomcat.webapps.dir}/default-website.war" dest="${tomcat.webapps.dir}/default-website" />
