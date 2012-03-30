@@ -32,6 +32,7 @@
   <properties>
     <org.exoplatform.doc-style.version>1</org.exoplatform.doc-style.version>
     <docbook.source>${project.build.directory}/docbook-src</docbook.source>
+    <jcr.source>${project.build.directory}/docbook-src/org.exoplatform.jcr</jcr.source>
   </properties>
   <profiles>
     <profile>
@@ -231,6 +232,77 @@
               </execution>
             </executions>
           </plugin>
+          
+        <!--
+        3/fix error in JCR ref guide
+        -->
+        
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>e-fix-error-jcr</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <target>
+                    <replace file="${jcr.source}/docbook/en-US/modules/kernel.xml">
+                      <replacetoken><![CDATA[ <para>eXo Kernel]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>eXo Kernel]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/kernel.xml">
+                      <replacetoken><![CDATA[ services.</para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ services.</para></partintro>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/faq.xml">
+                      <replacetoken><![CDATA[ <para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/faq.xml">
+                      <replacetoken><![CDATA[ </para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ </para></partintro>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/core.xml">
+                      <replacetoken><![CDATA[ <para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/core.xml">
+                      <replacetoken><![CDATA[ </para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ </para></partintro>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/ws.xml">
+                      <replacetoken><![CDATA[ <para>The Web Services]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>The Web Services]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/ws.xml">
+                      <replacetoken><![CDATA[ transformer.</para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ transformer.</para></partintro>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/jcr-with-gatein.xml">
+                      <replacetoken><![CDATA[ <para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/jcr-with-gatein.xml">
+                      <replacetoken><![CDATA[ </title>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ </title><partintro><para>Some information about how eXo JCR works with GateIn.</para></partintro>]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/jcr.xml">
+                      <replacetoken><![CDATA[ <para>eXo provides]]></replacetoken>
+            		  		<replacevalue><![CDATA[ <partintro><para>eXo provides]]></replacevalue>
+		            		</replace>
+		            		<replace file="${jcr.source}/docbook/en-US/modules/jcr.xml">
+                      <replacetoken><![CDATA[ standalone.</para>]]></replacetoken>
+            		  		<replacevalue><![CDATA[ standalone.</para></partintro>]]></replacevalue>
+		            		</replace>
+		            		
+                  </target>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
     <!--
     3/
      - process all the xml files (plf + other products) from target/
@@ -242,14 +314,14 @@
             <version>2.1.1</version>
             <executions>
               <execution>
-                <id>e-jdocbook-resources</id>
+                <id>f-jdocbook-resources</id>
                 <phase>process-resources</phase>
                 <goals>
                   <goal>resources</goal>
                 </goals>
               </execution>
               <execution>
-                <id>f-jdocbook-generate</id>
+                <id>g-jdocbook-generate</id>
                 <phase>compile</phase>
                 <goals>
                   <goal>generate</goal>
@@ -312,7 +384,7 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
               <execution>
-		        <id>g-assemble-archives</id>
+		        <id>h-assemble-archives</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -333,7 +405,7 @@
 		    <version>1.7</version>
 		    <executions>
 		      <execution>
-		        <id>h-attach-pdf</id>
+		        <id>i-attach-pdf</id>
 		        <phase>package</phase>
 		        <goals>
 		          <goal>attach-artifact</goal>
