@@ -1836,6 +1836,12 @@
       <scope>provided</scope>
       <type>jar</type>
     </dependency><!-- 4.0-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-apps-wai-template</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>war</type>
+      </dependency>
   </dependencies>
 
   <build>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	
+	<external-component-plugins>
+		<target-component>org.exoplatform.services.wcm.portal.artifacts.CreatePortalArtifactsService</target-component>
+		<component-plugin>
+			<name>template-intranet-webcontent</name>
+			<set-method>addPlugin</set-method>
+			<type>org.exoplatform.services.wcm.webcontent.InitialWebContentPlugin</type>
+			<description>This plugin deploy some initial webcontent as site artifact to site artifact folder of portal when a portal is created</description>
+			<init-params>
+				<object-param>
+					<name>Portal logo data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Logo.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Newsletter header</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/NewsletterHeader.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal signin data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Signin_en.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal searchbox data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Searchbox.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal navigation data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Navigation.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal footer data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Footer.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal introduce data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Introduce.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Portal images data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/medias/images</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Images.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Office welcome Data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Welcome.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Office jira Data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/announcement.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>Linkregister</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/LinkHome.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Intranet Stylesheet data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/css</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Stylesheet.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME French translations directory</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/FrenchTranslations.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Users data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Users.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Social Bookmarking data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/SocialBookmarking.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>               
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME JcarouselliteImages data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/medias/images</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/JcarouselliteImages.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>              
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Flags data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/medias/images</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Flags.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>              
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME News data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/News.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Events data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Events.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME NewEvents data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/NewEvents.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Powers data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Powers.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>        
+					<name>ACME Contact US Intro data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field  name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field  name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field  name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field  name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/ContactUSIntro.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>        
+					<name>ACME Contact US Countries data</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field  name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field  name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field  name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field  name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Locations.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Doc Word</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/documents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/DocWord.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>              
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Doc Jpg</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/documents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/DocJpg.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+
+				</object-param>
+				<object-param>
+					<name>ACME Doc Pdf</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/documents</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/DocPdf.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>  
+				</object-param>
+				<object-param>
+					<name>ACME Newsletter header</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/NewsletterHeader.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>             
+					</object>
+				</object-param>
+				<object-param>
+					<name>ACME Form Confirmation</name>
+					<description>Deployment Descriptor</description>
+					<object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+						<field name="target">
+							<object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+								<field name="workspace">
+									<string>collaboration</string>
+								</field>
+								<field name="nodePath">
+									<string>/sites content/live/{portalName}/web contents/site artifacts</string>
+								</field>
+							</object>
+						</field>
+						<field name="sourcePath">
+							<string>war:/conf/platform/wcm/artifacts/site-resources/templates/Confirmation.xml</string>
+						</field>
+						<field name="cleanupPublication">
+							<boolean>true</boolean>
+						</field>            
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+
+</configuration>

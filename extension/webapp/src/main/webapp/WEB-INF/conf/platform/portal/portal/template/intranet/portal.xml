@@ -28,7 +28,7 @@
     <entry key="showPortletInfo">0</entry>
   </properties>
 
-   <portal-layout>
+   <portal-layout id="template-intranet">
     
  <page-body> </page-body>
     

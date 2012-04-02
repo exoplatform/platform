@@ -919,7 +919,13 @@
       <artifactId>exo.ks.component.upgrade</artifactId>
       <version>${org.exoplatform.ks.version}</version>
     </dependency>
-		
+    <!-- WAI portal template-->
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>exo-ecms-apps-wai-template</artifactId>
+      <version>${org.exoplatform.ecms.version}</version>
+      <type>war</type>
+    </dependency>		
   </dependencies>
   <build>
     <finalName>platform-extension</finalName>
@@ -1075,6 +1081,13 @@
               <artifactId>exo.platform.sample.gadgets-sample.exo-gadget-resources</artifactId>
               <contextRoot>exo-gadget-resources</contextRoot>
               <bundleFileName>exo-gadget-resources.war</bundleFileName>
+            </webModule>
+            <!-- WAI portal template-->
+            <webModule>
+              <groupId>org.exoplatform.ecms</groupId>
+              <artifactId>exo-ecms-apps-wai-template</artifactId>
+              <contextRoot>exo-ecms-wai-template</contextRoot>
+              <bundleFileName>ecm-template-waiportal.war</bundleFileName>
             </webModule>
           </modules>
         </configuration>

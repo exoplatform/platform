@@ -106,6 +106,7 @@ function getProduct(version) {
   product.addDependencies(wcm.web.eXoWCMResources) ;
   product.addDependencies(wcm.web.eXoStaticResources) ;
   product.addDependencies(wcm.authoring.war);
+  product.addDependencies(wcm.waitemplate.war);
   
   // rest-ecmdemo.war not deployed
 
