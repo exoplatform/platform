@@ -205,6 +205,7 @@ function getModule(params)
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-voting-nodetype","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-thumbnails","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-favorite","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-templates","jar", ecmsVersion)).
    addDependency(new Project("org.exoplatform.cs","exo.cs.component.upgrade","jar", csVersion)).
    addDependency(new Project("org.exoplatform.ks","exo.ks.component.upgrade","jar", ksVersion));
    
