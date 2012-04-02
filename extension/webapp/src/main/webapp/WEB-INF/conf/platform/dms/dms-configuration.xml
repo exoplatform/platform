@@ -85,6 +85,12 @@
         <name>cache-control</name>
         <value>${exo.webdav.cache-control}</value>
       </value-param>
+
+      <values-param>
+          <name>untrusted-user-agents</name>
+          <value>Microsoft Office Core Storage Infrastructure/1.0</value>
+      </values-param>
+
     </init-params>
   </component>
 </configuration>
