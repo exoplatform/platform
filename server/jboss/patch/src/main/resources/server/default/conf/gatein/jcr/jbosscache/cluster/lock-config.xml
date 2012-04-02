@@ -23,7 +23,7 @@
 
   <locking useLockStriping="false" concurrencyLevel="64" lockParentForChildInsertRemove="false" lockAcquisitionTimeout="20000" />
 
-  <clustering mode="replication" clusterName="${jbosscache-cluster-name}">
+  <clustering mode="replication" clusterName="${jboss.partition.name:DefaultPartition}-${jbosscache-cluster-name}">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
     <sync />
   </clustering>
@@ -32,7 +32,7 @@
     <preload>
       <node fqn="/" />
     </preload>
-    <loader class="org.jboss.cache.loader.JDBCCacheLoader" async="false" fetchPersistentState="false"
+    <loader class="org.exoplatform.services.jcr.impl.core.lock.jbosscache.JDBCCacheLoader" async="false" fetchPersistentState="false"
       ignoreModifications="false" purgeOnStartup="false">
       <properties>
         cache.jdbc.table.name=${jbosscache-cl-cache.jdbc.table.name}

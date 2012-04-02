@@ -4,7 +4,7 @@
 
   <clustering mode="replication" clusterName="gatein-idm-api-cluster">
     <stateRetrieval timeout="20000" fetchInMemoryState="false" />
-    <!-- jgroupsConfig configFile="${gatein.jgroups.config}"/ -->
+    <jgroupsConfig configFile="${gatein.jgroups.config}"/>
     <sync />
   </clustering>
 

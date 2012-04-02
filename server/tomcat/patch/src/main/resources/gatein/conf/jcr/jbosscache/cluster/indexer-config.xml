@@ -25,7 +25,7 @@
    <!-- Configure the TransactionManager -->
    <transaction transactionManagerLookupClass="org.jboss.cache.transaction.JBossStandaloneJTAManagerLookup" />
 
-   <clustering mode="replication" clusterName="${jbosscache-cluster-name}">
+   <clustering mode="replication" clusterName="${jboss.partition.name:DefaultPartition}-${jbosscache-cluster-name}">
       <stateRetrieval timeout="20000" fetchInMemoryState="false" />
       <sync />
    </clustering>
