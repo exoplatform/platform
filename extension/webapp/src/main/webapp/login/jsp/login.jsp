@@ -169,7 +169,9 @@
 				</div>
         <div class="CenterLoginContent">
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">
-                <% if (uri != null) { %>
+                <% if (uri != null) { 
+                        uri = EntityEncoder.FULL.encode(uri);
+                %>
           		<input type="hidden" name="initialURI" value="<%=uri%>"/>
                 <% } %>
 								
