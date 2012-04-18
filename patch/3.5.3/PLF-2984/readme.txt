@@ -22,12 +22,10 @@ Fix description
 Problem analysis
     * When a node is created under the user directory, wcm publication service detects it and attempts to set its publication status. This is also detected by the listenerservice that publishes an activity for it. 
       Here is the chain : user created > symlink created > publication state set > activity created
+    * When a new Symlink is added, the LinkManager service throws an event with name CmsService.event.postEdit, we should prevent such as behavior in the case of the UserDriveExtListener that we use in PLF.  
 
 How is the problem fixed?
-    * Add a new publication context named "context2" that matches the default publication lifecycles, and enroll only content under collaboration:/sites content/live.
-      Add this component plugin to  wcm-publication-configuration.xml
-    * Remove the old publication context contextdefault
-    * Use the new implementation of PublicationManager Plugin 
+    * The chain should stop after symlink created. And for this we need to implement our symlink creation to manage nodes that are under /Users subtree (more precisely using our own implementation instead of the one used in LinkManagerImpl)
 
 Patch file: PLF-2984.patch
 
