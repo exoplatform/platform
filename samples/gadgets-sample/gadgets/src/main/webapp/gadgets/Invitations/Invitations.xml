@@ -10,6 +10,7 @@
     <Require feature="views" />
     <Locale messages="locales/default.xml" />
     <Locale lang="fr" messages="locales/fr.xml" />
+    <Locale lang="it" messages="locales/it.xml" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[     
