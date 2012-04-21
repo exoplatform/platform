@@ -19,6 +19,7 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 
@@ -31,46 +32,48 @@ import org.exoplatform.services.organization.MembershipEventListener;
  */
 public class NewMembershipListener extends MembershipEventListener {
 
-  private RepositoryService repositoryService;
+    private RepositoryService repositoryService;
+    private DataDistributionManager dataDistributionManager;
 
-  public NewMembershipListener(RepositoryService repositoryService) throws Exception {
-    this.repositoryService = repositoryService;
-  }
+    public NewMembershipListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+        this.dataDistributionManager = dataDistributionManager;
+        this.repositoryService = repositoryService;
+    }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postSave(Membership m, boolean isNew) throws Exception {
-    if (!isNew) {
-      return;
+    /**
+     * {@inheritDoc}
+     */
+    public void postSave(Membership m, boolean isNew) throws Exception {
+        if (!isNew) {
+            return;
+        }
+        Session session  = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (!Util.hasMembershipFolder(dataDistributionManager, session, m)) {
+                Util.createMembershipFolder(dataDistributionManager, session, m);
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasMembershipFolder(session, m)) {
-        Util.createMembershipFolder(session, m);
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
-    }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postDelete(Membership m) throws Exception {
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasMembershipFolder(session, m)) {
-        Util.deleteMembershipFolder(session, m);
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
+    /**
+     * {@inheritDoc}
+     */
+    public void postDelete(Membership m) throws Exception {
+        Session session = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (Util.hasMembershipFolder(dataDistributionManager, session, m)) {
+                Util.deleteMembershipFolder(dataDistributionManager, session, m);
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-  }
 }

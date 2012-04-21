@@ -19,6 +19,7 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
 
@@ -31,46 +32,48 @@ import org.exoplatform.services.organization.GroupEventListener;
  */
 public class NewGroupListener extends GroupEventListener {
 
-  private RepositoryService repositoryService;
+    private RepositoryService repositoryService;
+    private DataDistributionManager dataDistributionManager;
 
-  public NewGroupListener(RepositoryService repositoryService) throws Exception {
-    this.repositoryService = repositoryService;
-  }
+    public NewGroupListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+        this.dataDistributionManager = dataDistributionManager;
+        this.repositoryService = repositoryService;
+    }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postSave(Group group, boolean isNew) throws Exception {
-    if (!isNew) {
-      return;
+    /**
+     * {@inheritDoc}
+     */
+    public void postSave(Group group, boolean isNew) throws Exception {
+        if (!isNew) {
+            return;
+        }
+        Session session = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (!Util.hasGroupFolder(dataDistributionManager, session, group.getId())) {
+                Util.createGroupFolder(dataDistributionManager, session, group.getId());
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasGroupFolder(session, group.getId())) {
-        Util.createGroupFolder(session, group.getId());
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
-    }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postDelete(Group group) throws Exception {
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasGroupFolder(session, group.getId())) {
-        Util.deleteGroupFolder(session, group.getId());
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
+    /**
+     * {@inheritDoc}
+     */
+    public void postDelete(Group group) throws Exception {
+        Session session = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (Util.hasGroupFolder(dataDistributionManager, session, group.getId())) {
+                Util.deleteGroupFolder(dataDistributionManager, session, group.getId());
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-  }
 }
