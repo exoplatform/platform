@@ -16,17 +16,8 @@
  */
 package org.exoplatform.platform.organization.integration;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.jcr.Node;
-import javax.jcr.PathNotFoundException;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.XppDriver;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionMode;
 import org.exoplatform.services.log.ExoLogger;
@@ -36,114 +27,118 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.XppDriver;
+import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.util.*;
 
 public class Util {
 
-  private static final Log LOG = ExoLogger.getLogger(Util.class);
+    private static final Log LOG = ExoLogger.getLogger(Util.class);
 
-  final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
-  final public static String MEMBERSHIP_SEPARATOR = "---";
-  final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
-  final public static String USERS_FOLDER = "users";
-  final public static String GROUPS_FOLDER = "groups";
-  final public static String MEMBERSHIPS_FOLDER = "memberships";
-  final public static String PROFILES_FOLDER = "profiles";
+    final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
+    final public static String MEMBERSHIP_SEPARATOR = "---";
+    final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
+    final public static String USERS_FOLDER = "users";
+    final public static String GROUPS_FOLDER = "groups";
+    final public static String MEMBERSHIPS_FOLDER = "memberships";
+    final public static String PROFILES_FOLDER = "profiles";
 
-  public static String WORKSPACE = "collaboration";
-  public static String HOME_PATH = "/";
+    public static String WORKSPACE = "collaboration";
+    public static String HOME_PATH = "/";
 
     public static XStream xstreamList_ = null;
+
     static {
         xstreamList_ = new XStream(new XppDriver());
         xstreamList_.alias("list", HashSet.class);
     }
 
-  public static void init(Session session) throws Exception {
-    Node homePathNode = null;
-    try {
-      homePathNode = (Node) session.getItem(HOME_PATH);
-    } catch (Exception e) {
-      LOG.error("Problem during recovery of item ", e);
+    public static void init(Session session) throws Exception {
+        Node homePathNode = null;
+        try {
+            homePathNode = (Node) session.getItem(HOME_PATH);
+        } catch (Exception e) {
+            LOG.error("Problem during recovery of item ", e);
+        }
+        if (homePathNode == null) {
+            homePathNode = createFolder(session.getRootNode(), HOME_PATH);
+        }
+        Node organizationInitializersHomePathNode = null;
+        if (!homePathNode.hasNode(ORGANIZATION_INITIALIZATIONS)) {
+            organizationInitializersHomePathNode = createFolder(homePathNode, ORGANIZATION_INITIALIZATIONS);
+        } else {
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(USERS_FOLDER)) {
+            Node usersNode = createFolder(organizationInitializersHomePathNode, USERS_FOLDER);
+            saveListActivation(usersNode, new HashSet<String>(), true);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(GROUPS_FOLDER)) {
+            Node groupsNode = createFolder(organizationInitializersHomePathNode, GROUPS_FOLDER);
+            saveListActivation(groupsNode, new HashSet<String>(), true);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(MEMBERSHIPS_FOLDER)) {
+            createFolder(organizationInitializersHomePathNode, MEMBERSHIPS_FOLDER);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(PROFILES_FOLDER)) {
+            createFolder(organizationInitializersHomePathNode, PROFILES_FOLDER);
+        }
+        session.save();
     }
-    if (homePathNode == null) {
-      homePathNode = createFolder(session.getRootNode(), HOME_PATH);
-    }
-    Node organizationInitializersHomePathNode = null;
-    if (!homePathNode.hasNode(ORGANIZATION_INITIALIZATIONS)) {
-      organizationInitializersHomePathNode = createFolder(homePathNode, ORGANIZATION_INITIALIZATIONS);
-    } else {
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(USERS_FOLDER)) {
-        Node usersNode = createFolder(organizationInitializersHomePathNode, USERS_FOLDER);
-        saveListActivation(usersNode, new HashSet<String>(), true);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(GROUPS_FOLDER)) {
-        Node groupsNode = createFolder(organizationInitializersHomePathNode, GROUPS_FOLDER);
-        saveListActivation(groupsNode, new HashSet<String>(), true);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(MEMBERSHIPS_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, MEMBERSHIPS_FOLDER);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(PROFILES_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, PROFILES_FOLDER);
-    }
-    session.save();
-  }
 
-  public static Node getUsersFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+    public static Node getUsersFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(USERS_FOLDER);
     }
-    return organizationInitializersHomePathNode.getNode(USERS_FOLDER);
-  }
 
-  public static Node getGroupsFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+    public static Node getGroupsFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(GROUPS_FOLDER);
     }
-    return organizationInitializersHomePathNode.getNode(GROUPS_FOLDER);
-  }
 
-  public static Node getMembershipsFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+    public static Node getMembershipsFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(MEMBERSHIPS_FOLDER);
     }
-    return organizationInitializersHomePathNode.getNode(MEMBERSHIPS_FOLDER);
-  }
 
-  public static Node getProfilesFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+    public static Node getProfilesFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(PROFILES_FOLDER);
     }
-    return organizationInitializersHomePathNode.getNode(PROFILES_FOLDER);
-  }
 
     public static boolean hasUserFolder(DataDistributionManager distributionManager, Session session, String username)
             throws RepositoryException, Exception {
@@ -289,14 +284,14 @@ public class Util {
 
         String membershipId = computeMembershipId(membership);
 
-        if(hasGroupFolder(distributionManager, session, membership.getGroupId())) {
+        if (hasGroupFolder(distributionManager, session, membership.getGroupId())) {
             Node groupNode = getGroupNode(distributionManager, session, membership.getGroupId());
             Set<String> groupMembershipList = getListActivation(groupNode);
             groupMembershipList.remove(membershipId);
             saveListActivation(groupNode, groupMembershipList, false);
         }
 
-        if(hasUserFolder(distributionManager, session, membership.getUserName())) {
+        if (hasUserFolder(distributionManager, session, membership.getUserName())) {
             Node userNode = getUserNode(distributionManager, session, membership.getUserName());
             Set<String> userMembershipList = getListActivation(userNode);
             userMembershipList.remove(membershipId);
@@ -413,14 +408,14 @@ public class Util {
 
     private static String getMembershipFolderName(Membership membership) {
         String dataId = membership.getId();
-        if(dataId == null || dataId.isEmpty()) {
+        if (dataId == null || dataId.isEmpty()) {
             dataId = membership.getUserName() + membership.getGroupId() + membership.getMembershipType();
         }
         return "" + dataId.hashCode();
     }
 
     private static String getGroupFolderName(String groupId) {
-        return ""+groupId.hashCode();
+        return "" + groupId.hashCode();
     }
 
 }

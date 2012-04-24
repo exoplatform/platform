@@ -25,30 +25,30 @@ import org.exoplatform.services.security.ConversationState;
 
 /**
  * After a user login first time, this listener gets his data initialized.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 public class FirstLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
-  private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
+    private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
 
-  private OrganizationIntegrationService organizationIntegrationService;
+    private OrganizationIntegrationService organizationIntegrationService;
 
-  public FirstLoginListener(OrganizationIntegrationService organizationIntegrationService) throws Exception {
-    this.organizationIntegrationService = organizationIntegrationService;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
-    String userId = event.getData().getIdentity().getUserId();
-    if (LOG.isDebugEnabled()) {
-      LOG.debug("Apply listeners for user" + userId);
+    public FirstLoginListener(OrganizationIntegrationService organizationIntegrationService) throws Exception {
+        this.organizationIntegrationService = organizationIntegrationService;
     }
-    organizationIntegrationService.syncUser(userId, EventType.ADDED.toString());
-    if (LOG.isDebugEnabled()) {
-      LOG.debug("User listeners applied for " + userId);
+
+    /**
+     * {@inheritDoc}
+     */
+    public void onEvent(Event<ConversationRegistry, ConversationState> event) throws Exception {
+        String userId = event.getData().getIdentity().getUserId();
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Apply listeners for user" + userId);
+        }
+        organizationIntegrationService.syncUser(userId, EventType.ADDED.toString());
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("User listeners applied for " + userId);
+        }
     }
-  }
 }

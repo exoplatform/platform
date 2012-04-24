@@ -16,19 +16,6 @@
  */
 package org.exoplatform.platform.organization.integration;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.jcr.Session;
-
 import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
@@ -37,11 +24,7 @@ import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.management.annotations.Impact;
-import org.exoplatform.management.annotations.ImpactType;
-import org.exoplatform.management.annotations.Managed;
-import org.exoplatform.management.annotations.ManagedDescription;
-import org.exoplatform.management.annotations.ManagedName;
+import org.exoplatform.management.annotations.*;
 import org.exoplatform.management.jmx.annotations.NameTemplate;
 import org.exoplatform.management.jmx.annotations.Property;
 import org.exoplatform.management.rest.annotations.RESTEndpoint;
@@ -49,32 +32,26 @@ import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.GroupEventListener;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipEventListener;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.OrganizationServiceInitializer;
-import org.exoplatform.services.organization.User;
-import org.exoplatform.services.organization.UserEventListener;
-import org.exoplatform.services.organization.UserProfile;
-import org.exoplatform.services.organization.UserProfileEventListener;
+import org.exoplatform.services.organization.*;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 import org.exoplatform.services.organization.impl.UserImpl;
 import org.exoplatform.services.organization.impl.UserProfileImpl;
 import org.picocontainer.Startable;
 
+import javax.jcr.Session;
+import java.util.*;
+
 /**
  * This Service create Organization Model profiles, for User & Groups not
  * created via eXo OrganizationService.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 @Managed
 @ManagedDescription("Platform Organization Model Integration Service")
-@NameTemplate({ @Property(key = "name", value = "OrganizationIntegrationService"),
-    @Property(key = "service", value = "extensions"), @Property(key = "type", value = "platform") })
+@NameTemplate({@Property(key = "name", value = "OrganizationIntegrationService"),
+        @Property(key = "service", value = "extensions"), @Property(key = "type", value = "platform")})
 @RESTEndpoint(path = "orgsync")
 public class OrganizationIntegrationService implements Startable {
 
@@ -193,7 +170,7 @@ public class OrganizationIntegrationService implements Startable {
                 syncAllGroups(EventType.DELETED.toString());
             }
         } catch (Exception e) {
-            LOG.error(e.getMessage(),e);
+            LOG.error(e.getMessage(), e);
         } finally {
             if (session != null) {
                 session.logout();
@@ -201,14 +178,14 @@ public class OrganizationIntegrationService implements Startable {
         }
     }
 
-    public void stop() {}
+    public void stop() {
+    }
 
     /**
      * Add a list of OrganizationService listeners into
      * OrganizationIntegrationService
      *
-     * @param plugins
-     *          List of OrganizationService ComponentPlugins
+     * @param plugins List of OrganizationService ComponentPlugins
      */
     public void addComponentPlugin(List<org.exoplatform.container.xml.ComponentPlugin> plugins) {
         if (plugins == null)
@@ -231,9 +208,8 @@ public class OrganizationIntegrationService implements Startable {
     /**
      * Add a listener instance to dedicated list of one organization element.
      *
-     * @param listener
-     *          have to extends UserEventListener, GroupEventListener,
-     *          MembershipEventListener or UserProfileEventListener.
+     * @param listener have to extends UserEventListener, GroupEventListener,
+     *                 MembershipEventListener or UserProfileEventListener.
      */
     public void addListenerPlugin(ComponentPlugin listener) {
         if (listener instanceof OrganizationServiceInitializer) {
@@ -284,7 +260,7 @@ public class OrganizationIntegrationService implements Startable {
             }
             syncAllUsers(EventType.DELETED.toString());
         } catch (Exception e) {
-            LOG.error(e.getMessage(),e);
+            LOG.error(e.getMessage(), e);
         }
         endRequest();
     }
@@ -292,10 +268,8 @@ public class OrganizationIntegrationService implements Startable {
     /**
      * Invoke Groups listeners to all Organization Model Elements
      *
-     * @param eventType
-     *          ADDED/DELETED/UPDATED
-     * @throws Exception
-     *           JCR or IDM operation failure
+     * @param eventType ADDED/DELETED/UPDATED
+     * @throws Exception JCR or IDM operation failure
      */
     @Managed
     @ManagedDescription("invoke all groups listeners")
@@ -379,10 +353,8 @@ public class OrganizationIntegrationService implements Startable {
     /**
      * Apply OrganizationService listeners on a selected group.
      *
-     * @param groupId
-     *          The group Identifier
-     * @param eventType
-     *          ADDED/UPDATED/DELETED
+     * @param groupId   The group Identifier
+     * @param eventType ADDED/UPDATED/DELETED
      */
     @Managed
     @ManagedDescription("invoke a group listeners")
@@ -441,8 +413,7 @@ public class OrganizationIntegrationService implements Startable {
     /**
      * Apply all users OrganizationService listeners
      *
-     * @param username
-     *          The user name
+     * @param eventType The user name
      */
     @Managed
     @ManagedDescription("invoke all users listeners")
@@ -545,10 +516,8 @@ public class OrganizationIntegrationService implements Startable {
     /**
      * Apply OrganizationService listeners on selected User
      *
-     * @param username
-     *          The user name
-     * @param eventType
-     *          ADDED/UPDATED/DELETED
+     * @param username  The user name
+     * @param eventType ADDED/UPDATED/DELETED
      */
     @SuppressWarnings("deprecation")
     @Managed
@@ -1197,7 +1166,7 @@ public class OrganizationIntegrationService implements Startable {
             try {
                 ((ComponentRequestLifecycle) organizationService).endRequest(container);
             } catch (Exception e) {
-                LOG.warn(e.getMessage(),e);
+                LOG.warn(e.getMessage(), e);
             }
             requestStarted = false;
         }

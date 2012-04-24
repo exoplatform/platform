@@ -16,18 +16,18 @@
  */
 package org.exoplatform.platform.organization.integration;
 
-import javax.jcr.Session;
-
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileEventListener;
 
+import javax.jcr.Session;
+
 /**
  * This Listener is invoked when a User Profile is updated/added. Its
  * purpose is to ensure that OrganizationServiceIntegration don't apply
  * Organization Model Data listeners twice.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 public class NewProfileListener extends UserProfileEventListener {

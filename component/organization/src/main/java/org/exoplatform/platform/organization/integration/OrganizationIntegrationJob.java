@@ -26,35 +26,36 @@ import org.exoplatform.services.scheduler.JobContext;
 /**
  * This is a scheduled job that invoke all OrganizationService listeners on
  * Users & Groups.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 public class OrganizationIntegrationJob extends BaseJob {
-  private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
-  private OrganizationIntegrationService organizationIntegrationService;
+    private static final Log LOG = ExoLogger.getLogger(OrganizationIntegrationJob.class);
+    private OrganizationIntegrationService organizationIntegrationService;
 
-  public OrganizationIntegrationJob() {}
-
-  /**
-   * {@inheritDoc}
-   */
-  public void execute(JobContext context) throws Exception {
-    LOG.info("Start all Organizational model synchronization.");
-    getOrganizationIntegrationService().syncAll();
-    LOG.info("Organizational model synchronization finished successfully.");
-  }
-
-  public OrganizationIntegrationService getOrganizationIntegrationService() {
-    if (this.organizationIntegrationService == null) {
-      ExoContainer exoContainer = ExoContainerContext.getCurrentContainer();
-      this.organizationIntegrationService = (OrganizationIntegrationService) exoContainer
-          .getComponentInstanceOfType(OrganizationIntegrationService.class);
-      if (this.organizationIntegrationService == null) {
-        throw new IllegalStateException(
-            "Could not retrieve an instance of service 'OrganizationIntegrationService' from the selected container: "
-                + exoContainer);
-      }
+    public OrganizationIntegrationJob() {
     }
-    return this.organizationIntegrationService;
-  }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void execute(JobContext context) throws Exception {
+        LOG.info("Start all Organizational model synchronization.");
+        getOrganizationIntegrationService().syncAll();
+        LOG.info("Organizational model synchronization finished successfully.");
+    }
+
+    public OrganizationIntegrationService getOrganizationIntegrationService() {
+        if (this.organizationIntegrationService == null) {
+            ExoContainer exoContainer = ExoContainerContext.getCurrentContainer();
+            this.organizationIntegrationService = (OrganizationIntegrationService) exoContainer
+                    .getComponentInstanceOfType(OrganizationIntegrationService.class);
+            if (this.organizationIntegrationService == null) {
+                throw new IllegalStateException(
+                        "Could not retrieve an instance of service 'OrganizationIntegrationService' from the selected container: "
+                                + exoContainer);
+            }
+        }
+        return this.organizationIntegrationService;
+    }
 }

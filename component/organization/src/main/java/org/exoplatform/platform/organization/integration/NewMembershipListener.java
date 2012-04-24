@@ -16,18 +16,18 @@
  */
 package org.exoplatform.platform.organization.integration;
 
-import javax.jcr.Session;
-
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipEventListener;
 
+import javax.jcr.Session;
+
 /**
  * This Listener is invoked when a Mambership is updated/added. Its purpose
  * is to ensure that OrganizationServiceIntegration don't apply
  * Organization Model Data listeners twice.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 public class NewMembershipListener extends MembershipEventListener {
@@ -47,7 +47,7 @@ public class NewMembershipListener extends MembershipEventListener {
         if (!isNew) {
             return;
         }
-        Session session  = null;
+        Session session = null;
         try {
             session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
             if (!Util.hasMembershipFolder(dataDistributionManager, session, m)) {
