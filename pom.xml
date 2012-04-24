@@ -13,8 +13,8 @@
 	<name>eXo Platform</name>
 	<description>Parent POM for platform projects.</description>
 	<scm>
-		<connection>scm:git:ssh://github.com/exoplatform/platform.git</connection>
-		<developerConnection>scm:git:ssh://github.com/exoplatform/platform.git</developerConnection>
+		<connection>scm:git:git://github.com/exoplatform/platform.git</connection>
+		<developerConnection>scm:git:git@github.com:exoplatform/platform.git</developerConnection>
 		<url>https://fisheye.exoplatform.com/browse/platform</url>
 	</scm>
 	<properties>
