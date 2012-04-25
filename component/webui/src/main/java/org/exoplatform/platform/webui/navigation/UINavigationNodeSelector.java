@@ -338,7 +338,8 @@ public class UINavigationNodeSelector extends UIContainer {
       String nodeID = context.getRequestParameter(UIComponent.OBJECTID);
       TreeNode node;
       if (ParameterValidation.isNullOrEmpty(nodeID)) {
-        node = uiNodeSelector.getRootNode();
+        String selectedNodeID = uiNodeSelector.getSelectedNode().getId();
+        node = uiNodeSelector.findNode(selectedNodeID);
       } else {
         node = uiNodeSelector.findNode(nodeID);
       }
