@@ -1,18 +1,14 @@
 package org.exoplatform.platform.component.organization.test;
 
-import java.io.File;
-
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.platform.organization.injector.DataInjectorService;
 import org.exoplatform.platform.organization.injector.JMXDataInjector;
-import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipType;
-import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.*;
 import org.exoplatform.test.BasicTestCase;
 import org.picocontainer.Startable;
+
+import java.io.File;
 
 public class TestOrganizationInjector extends BasicTestCase {
   PortalContainer container = null;
