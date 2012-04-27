@@ -26,16 +26,16 @@
 		<org.exoplatform.ws.version>2.2.7-GA</org.exoplatform.ws.version>
 		<org.exoplatform.jcr.version>1.14.7-GA</org.exoplatform.jcr.version>
 		<org.exoplatform.jcr-services.version>1.14.7-GA</org.exoplatform.jcr-services.version>
-		<org.exoplatform.portal.version>3.2.4-PLF-SNAPSHOT</org.exoplatform.portal.version>
-		<org.exoplatform.webos.version>2.0.4-SNAPSHOT</org.exoplatform.webos.version>
-		<org.exoplatform.commons.version>1.1.8-SNAPSHOT</org.exoplatform.commons.version>
-		<org.exoplatform.gwtframework.version>1.1.3-SNAPSHOT</org.exoplatform.gwtframework.version>
-		<org.exoplatform.ide.version>1.1.6-SNAPSHOT</org.exoplatform.ide.version>
-		<org.exoplatform.cs.version>2.2.9-SNAPSHOT</org.exoplatform.cs.version>
-		<org.exoplatform.ks.version>2.2.9-SNAPSHOT</org.exoplatform.ks.version>
-		<org.exoplatform.ecms.version>2.3.7-SNAPSHOT</org.exoplatform.ecms.version>
-		<org.exoplatform.social.version>1.2.9-SNAPSHOT</org.exoplatform.social.version>
-		<org.exoplatform.integ.version>1.0.7-SNAPSHOT</org.exoplatform.integ.version>
+		<org.exoplatform.portal.version>3.2.4-PLF</org.exoplatform.portal.version>
+		<org.exoplatform.webos.version>2.0.4</org.exoplatform.webos.version>
+		<org.exoplatform.commons.version>1.1.8</org.exoplatform.commons.version>
+		<org.exoplatform.gwtframework.version>1.1.2</org.exoplatform.gwtframework.version>
+		<org.exoplatform.ide.version>1.1.6</org.exoplatform.ide.version>
+		<org.exoplatform.cs.version>2.2.9</org.exoplatform.cs.version>
+		<org.exoplatform.ks.version>2.2.9</org.exoplatform.ks.version>
+		<org.exoplatform.ecms.version>2.3.7</org.exoplatform.ecms.version>
+		<org.exoplatform.social.version>1.2.9</org.exoplatform.social.version>
+		<org.exoplatform.integ.version>1.0.7</org.exoplatform.integ.version>
 		<org.exoplatform.leadcapture.version>3.4</org.exoplatform.leadcapture.version>
 		<org.crsh.version>1.0.0-beta15</org.crsh.version>
 		<org.exoplatform.exopackage.version>1.1.4</org.exoplatform.exopackage.version>
@@ -76,7 +76,7 @@
 		<org.apache.jackrabbit.version>1.6.4</org.apache.jackrabbit.version><!-- needed for cs -->
 		<org.hsqldb.version>2.0.0</org.hsqldb.version>
 		<!-- 3rd parties for docs generation -->
-		<doc-style.version>1.0.3</doc-style.version>
+		<doc-style.version>1.0.6</doc-style.version>
 		<!-- Begin wiki properties -->
 		<org.xwiki.platform.version>2.7.1</org.xwiki.platform.version>
 		<org.wikimodel.version>2.0.7-20101027</org.wikimodel.version>
