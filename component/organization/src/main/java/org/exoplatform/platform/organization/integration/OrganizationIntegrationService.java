@@ -83,8 +83,8 @@ public class OrganizationIntegrationService implements Startable {
     private boolean requestStarted = false;
     private boolean synchronizeGroups = false;
 
-    public OrganizationIntegrationService(DataDistributionManager dataDistributionManager, OrganizationService organizationService, RepositoryService repositoryService,
-                                          ConfigurationManager manager, PortalContainer container, InitParams initParams) {
+    public OrganizationIntegrationService(DataDistributionManager dataDistributionManager, OrganizationService organizationService,
+                                          RepositoryService repositoryService, ConfigurationManager manager, PortalContainer container, InitParams initParams) {
         this.organizationService = organizationService;
         this.repositoryService = repositoryService;
         this.container = container;
@@ -661,7 +661,10 @@ public class OrganizationIntegrationService implements Startable {
                 Session session = null;
                 try {
                     session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-                    List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, username);
+                    List<Membership> activatedMemberships = new ArrayList<Membership>();
+                    if (Util.hasUserFolder(dataDistributionManager, session, username)) {
+                        activatedMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, username);
+                    }
                     // Select memberships with given username and groupId
                     int i = 0;
                     while (i < activatedMemberships.size()) {
@@ -706,7 +709,7 @@ public class OrganizationIntegrationService implements Startable {
             }
             case ADDED:
             case UPDATED: {
-                boolean isNew = EventType.ADDED.equals(eventType);
+                boolean isNew = EventType.ADDED.toString().equals(eventType);
                 Session session = null;
                 try {
                     List<Membership> memberships = null;
@@ -725,7 +728,10 @@ public class OrganizationIntegrationService implements Startable {
                     }
 
                     session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-                    List<Membership> activatedMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, username);
+                    List<Membership> activatedMemberships = new ArrayList<Membership>();
+                    if (Util.hasUserFolder(dataDistributionManager, session, username)) {
+                        activatedMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, username);
+                    }
                     // Select memberships with given username and groupId
                     int i = 0;
                     while (i < activatedMemberships.size()) {
@@ -765,6 +771,10 @@ public class OrganizationIntegrationService implements Startable {
             }
         }
         endRequest();
+    }
+
+    public boolean isSynchronizeGroups() {
+        return this.synchronizeGroups;
     }
 
     private void invokeMembershipListeners(String username, String groupId, String membershipType, EventType eventType) {

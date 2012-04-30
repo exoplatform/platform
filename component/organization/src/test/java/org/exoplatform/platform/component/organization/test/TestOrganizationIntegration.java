@@ -49,6 +49,12 @@ public class TestOrganizationIntegration extends BasicTestCase {
         Session session = null;
         try {
             session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+
+            verifyMembershipFoldersCreation("demo", "/platform/guests", "member", false);
+            organizationIntegrationService.syncMembership("demo", "/platform/guests",
+                    EventType.ADDED.toString());
+            verifyMembershipFoldersCreation("demo", "/platform/guests", "member", true);
+
             organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.ADDED.toString());
             organizationIntegrationService.syncGroup("/organization/management/executive-board", EventType.DELETED.toString());
 
@@ -61,6 +67,8 @@ public class TestOrganizationIntegration extends BasicTestCase {
             assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization"));
             assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management"));
             assertTrue(Util.hasGroupFolder(dataDistributionManager, session, "/organization/management/executive-board"));
+
+            verifyUserFoldersCreation("root", false);
 
             organizationIntegrationService.syncUser("root", EventType.ADDED.toString());
             List<Membership> rootUserMemberships = Util.getActivatedMembershipsRelatedToUser(dataDistributionManager, session, "root");
@@ -217,7 +225,9 @@ public class TestOrganizationIntegration extends BasicTestCase {
                     assertEquals(creationAssertionValue, Util.hasGroupFolder(dataDistributionManager, session, group.getId()));
                 }
             } else {
-                assertTrue(memberships == null || memberships.isEmpty());
+                for (Object objectMembership : memberships) {
+                    assertEquals(creationAssertionValue, Util.hasMembershipFolder(dataDistributionManager, session, (Membership) objectMembership));
+                }
             }
             if (organizationService instanceof ComponentRequestLifecycle) {
                 ((ComponentRequestLifecycle) organizationService).endRequest(container);

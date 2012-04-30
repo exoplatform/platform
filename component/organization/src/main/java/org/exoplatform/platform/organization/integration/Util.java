@@ -20,8 +20,6 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.jcr.ext.distribution.DataDistributionMode;
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.impl.GroupImpl;
@@ -35,15 +33,14 @@ import java.util.*;
 
 public class Util {
 
-    private static final Log LOG = ExoLogger.getLogger(Util.class);
-
+    final public static String MEMBERSHIPS_LIST_NODE_NAME = "list";
     final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
     final public static String MEMBERSHIP_SEPARATOR = "---";
-    final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
-    final public static String USERS_FOLDER = "users";
-    final public static String GROUPS_FOLDER = "groups";
-    final public static String MEMBERSHIPS_FOLDER = "memberships";
-    final public static String PROFILES_FOLDER = "profiles";
+    final public static String ORGANIZATION_INITIALIZATIONS = "integration_data";
+    final public static String USERS_FOLDER = "usersData";
+    final public static String GROUPS_FOLDER = "groupsData";
+    final public static String MEMBERSHIPS_FOLDER = "membershipsData";
+    final public static String PROFILES_FOLDER = "profilesData";
 
     public static String WORKSPACE = "collaboration";
     public static String HOME_PATH = "/";
@@ -52,17 +49,14 @@ public class Util {
 
     static {
         xstreamList_ = new XStream(new XppDriver());
-        xstreamList_.alias("list", HashSet.class);
+        xstreamList_.alias(MEMBERSHIPS_LIST_NODE_NAME, HashSet.class);
     }
 
     public static void init(Session session) throws Exception {
         Node homePathNode = null;
         try {
             homePathNode = (Node) session.getItem(HOME_PATH);
-        } catch (Exception e) {
-            LOG.error("Problem during recovery of item ", e);
-        }
-        if (homePathNode == null) {
+        } catch (PathNotFoundException e) {
             homePathNode = createFolder(session.getRootNode(), HOME_PATH);
         }
         Node organizationInitializersHomePathNode = null;
@@ -191,8 +185,8 @@ public class Util {
         users.add(username);
         saveListActivation(usersNode, users, false);
 
-        Node userNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(
-                usersNode, username);
+        Node userNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(usersNode,
+                username);
         saveListActivation(userNode, new HashSet<String>(), true);
         session.save();
     }
@@ -231,20 +225,18 @@ public class Util {
         groups.add(groupId);
         saveListActivation(groupsNode, groups, false);
 
-        Node groupNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(
-                groupsNode, getGroupFolderName(groupId));
+        Node groupNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(groupsNode,
+                getGroupFolderName(groupId));
         saveListActivation(groupNode, new HashSet<String>(), true);
         session.save();
     }
 
-    public static Node getUserNode(DataDistributionManager distributionManager, Session session, String username)
-            throws Exception {
+    public static Node getUserNode(DataDistributionManager distributionManager, Session session, String username) throws Exception {
         return distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getUsersFolder(session),
                 username);
     }
 
-    public static Node getGroupNode(DataDistributionManager distributionManager, Session session, String groupId)
-            throws Exception {
+    public static Node getGroupNode(DataDistributionManager distributionManager, Session session, String groupId) throws Exception {
         return distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getGroupsFolder(session),
                 getGroupFolderName(groupId));
     }
@@ -388,7 +380,7 @@ public class Util {
 
     @SuppressWarnings("unchecked")
     private static Set<String> getListActivation(Node parentNode) throws Exception {
-        String xml = parentNode.getProperty("list/jcr:data").getString();
+        String xml = parentNode.getProperty(MEMBERSHIPS_LIST_NODE_NAME + "/jcr:data").getString();
         return (Set<String>) xstreamList_.fromXML(xml);
     }
 
@@ -396,9 +388,9 @@ public class Util {
         String content = xstreamList_.toXML(list);
         Node fileNode = null;
         if (isNew) {
-            fileNode = parentNode.addNode("list", "nt:resource");
+            fileNode = parentNode.addNode(MEMBERSHIPS_LIST_NODE_NAME, "nt:resource");
         } else {
-            fileNode = parentNode.getNode("list");
+            fileNode = parentNode.getNode(MEMBERSHIPS_LIST_NODE_NAME);
         }
         fileNode.setProperty("jcr:data", content);
         fileNode.setProperty("jcr:mimeType", "text/xml");

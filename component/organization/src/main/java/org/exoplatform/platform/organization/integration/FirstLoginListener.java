@@ -16,6 +16,7 @@
  */
 package org.exoplatform.platform.organization.integration;
 
+import org.exoplatform.services.listener.Asynchronous;
 import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.log.ExoLogger;
@@ -28,6 +29,7 @@ import org.exoplatform.services.security.ConversationState;
  *
  * @author Boubaker KHANFIR
  */
+@Asynchronous
 public class FirstLoginListener extends Listener<ConversationRegistry, ConversationState> {
 
     private static final Log LOG = ExoLogger.getLogger(FirstLoginListener.class);
