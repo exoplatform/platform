@@ -30,6 +30,10 @@ This will only work if the starter.war is the last .war file to be loaded, so yo
 
 *Step 5:* Add the .jar file {{exo.portal.sample.extension.jar-X.Y.Z.jar}} from {{sample/extension/jar/target/}} to the {{tomcat/lib}} directory.
 
+*Step 6:* Create a sample-ext.xml file(this file is [a Context Descriptor|http://tomcat.apache.org/tomcat-6.0-doc/deployer-howto.html#A_word_on_Contexts] to configure a Context within Tomcat) and add this file to the directory {{tomcat/conf/Catalina/localhost}} with following content
+{code:xml}
+<Context path="/sample-ext" docBase="sample-ext" debug="0" reloadable="true" crossContext="true"/>
+{code}
 
 For JBoss deployment and more details, refer to Reference Guide on [here|http://docs.exoplatform.org/PLF30/refguide/html/index.html].
 
