@@ -109,6 +109,11 @@ The default skin of GateIn 3.1 is located as part of the eXoResource.war. The ma
 # WEB-INF/web.xml: contains the resource filter with the display-name set.
 # skin/Stylesheet.css: contains the CSS class definitions for this skin.
 
+{note}
+To get a new portal skin declared in _gatein-resources.xml_ to be loaded successfully, _display-name_ of the extension webapp 
+(in _web.xml_) should be identical to the context path of the extension webapp.
+{note}
+
 The following block of CSS illustrates content of the _Stylesheet.css_ file:
 {code}
 @import url(DefaultSkin/portal/webui/component/UIPortalApplicationSkin.css); (1)
