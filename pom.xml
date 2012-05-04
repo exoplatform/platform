@@ -86,6 +86,7 @@
 		<version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
 		<version.archetype.plugin>2.0-alpha-5</version.archetype.plugin>
 		<version.buildhelper.plugin>1.5</version.buildhelper.plugin>
+                <version.buildnumber.plugin>1.0</version.buildnumber.plugin>
 		<version.clean.plugin>2.4.1</version.clean.plugin>
 		<version.compiler.plugin>2.3.1</version.compiler.plugin>
 		<version.deploy.plugin>2.5</version.deploy.plugin>
@@ -96,6 +97,7 @@
 		<version.jar.plugin>2.3.1</version.jar.plugin>
 		<version.jmeter.plugin>1.0</version.jmeter.plugin>
 		<version.jodconverter.plugin>2.2.1</version.jodconverter.plugin>
+                <version.release.plugin>2.2.1</version.release.plugin>
 		<version.resources.plugin>2.4.3</version.resources.plugin>
 		<version.surefire.plugin>2.6</version.surefire.plugin>
 		<version.versions.plugin>1.2</version.versions.plugin>
