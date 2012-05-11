@@ -95,7 +95,7 @@ So the main entry point for the eXo Platform configuration is _/gatein/conf/_. T
 * _portal/portal/configuration.xml_: the main external customization entry point for the default portal container.
 
 
-h2. Portal Containers, Customization and Configurations {anchor:id=ADM.Configuration.Portal_Containers_Customization_and_Configuration}
+
 
 This section explains some parts of the eXo Platform internals so that you can understand the roles of these configuration files.
 
@@ -809,7 +809,15 @@ The following properties are used to configure it.
 | *groupsCountURL* | URL to count groups. | organization/xml/group/count |
 | *groupsCountMethod*  | HTTP method for group/count. | GET |
 
-h3. Ports {anchor:id=ADM.Configuration.Ports}
+{docbook}
+<para xml:id="ADM.Configuration.Ports">
+<citetitle>
+<emphasis role="bold">
+Ports
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 To run the chat server properly, several ports must be opened in the firewall.
 
@@ -1056,7 +1064,15 @@ h2. Grant users access to toolbar  {anchor:id=ADM.Configuration.Users_configurat
 {include:document=accesstoolbar.wiki|syntax=confluence/1.0}
 
 h1. Gadget configuration {anchor:id=ADM.Configuration.Gadget_configuration}
-h2. Default OAuth key configuration {anchor:id=ADM.Configuration.Gadget_OAuth_configuration}
+{docbook}
+<para xml:id="ADM.Configuration.Gadget_OAuth_configuration">
+<citetitle>
+<emphasis role="bold">
+Default OAuth key configuration
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 In eXo Platform, OAuth gadgets use a OAuth key to authorize with external service providers.
 There is always a default key defined in the _oauthkey.pem_ file.
 This key will be used in case the OAuth gadgets do not indicate a key.

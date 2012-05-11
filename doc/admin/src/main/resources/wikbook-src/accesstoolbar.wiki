@@ -1,4 +1,4 @@
-h2. Grant all users access to toolbar but not CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar.toolbar}
+h1. Grant all users access to toolbar but not CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar.toolbar}
 If all new members require access to the toolbar (but NOT the Content Management System (CMS)), administrators can change the default portal behavior to meet your request by doing the following steps:
 
 *1.* Define the group of new members in the _organization-configuration.xml_ file defined in the path _tomcat/webapps/ecmdemo/WEB-INF/conf/sample-portal/portal/organization-configuration.xml_.
@@ -48,7 +48,7 @@ The sample configuration above sets the group of new users to the _/platform/use
 
 *3.* Restart the server.
 
-h2. Grant all new users access to toolbar and CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar_CMS}
+h1. Grant all new users access to toolbar and CMS {anchor:id=ADM.Configuration.Users_configuration.Grant_access_toolbar_CMS}
 If all users require access to both the toolbar and the underlying CMS implementation, administrators can change the default portal behavior to grant the appropriate permissions to newly registered users:
 
 *1.* Do the same as Step 1 and Step 2 of "[Grant all users access to toolbar but not CMS|#ADM.Configuration.Users_configuration.Grant_access_toolbar.toolbar]".
