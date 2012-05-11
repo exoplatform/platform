@@ -1,18 +1,49 @@
-This chapter aims at instructing you how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.
-
-The following topics are covered:
-
-* [Prerequisites|#DEV.Upgrade.Prerequisites]
-* [Prepare your extension project|#DEV.Upgrade.Prepare_extension_project]
-* [What needs to be adapted in eXo Platform extension|#DEV.Upgrade.What_need_to_be_adapted]
-* [Update project Maven dependencies|#DEV.Upgrade.Update_project_Maven_dependencies]
-* [Update configurations|#DEV.Upgrade.Update_configuration]
-* [Update components|#DEV.Upgrade.Update_components]
-* [Update extension|#DEV.Upgrade.Update_extension]
-
+{docbook}
+<abstract>
+<para>This chapter aims at instructing you how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.</para>
+<para>The following topics are covered:</para>
+<itemizedlist>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Prerequisites">Prerequisites</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Prepare_extension_project">Prepare your extension project</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.What_need_to_be_adapted">What needs to be adapted in eXo Platform extension</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Update_project_Maven_dependencies">Update project Maven dependencies</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Update_configuration">Update configurations</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Update_components">Update components</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.Upgrade.Update_extension">Update extension</link>
+	</para>
+  </listitem>
+</itemizedlist>
+</abstract>
+{docbook}
 h1. Prerequisites {anchor:id=DEV.Upgrade.Prerequisites}
 
-Before upgrading, you first need to understand how to create a project which is based on eXo Platform 3.5. For more details, refer to the [eXo Platform Developer Guide.|../../../developer-guide/html/developer-guide/index.html]
+Before upgrading, you first need to understand how to create a project which is based on eXo Platform 3.5. For more details, refer to [Create Your Own Portal|#DEV.CreatingYourOwnPortal].
 
 And now, you need to gather all requirements for your upgraded project by clarifying the following questions:
 * Do you actually need to migrate your project sources?
@@ -155,7 +186,7 @@ After updating Maven dependencies, you need to update configurations via answeri
 After that, you can put them into _$PLATFORM-TOMCAT-HOME/gatein/conf_.
 
 {note}
-There are some new configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf/_ which are related to [how to deploy the eXo Platform clustering|../../../admin-guide/html/ch07.html], and [JBoss Cache configuration.|../../../reference/html/ch-jbosscache-configuration-templates.html]
+There are some new configurations in _$PLATFORM-TOMCAT-HOME/gatein/conf/_ which are related to [how to deploy the eXo Platform clustering|../../../admin-guide/html/ADM.Clustering.html], and [JBoss Cache configuration.|../../../reference/html/JCR.JBossCacheConfigurationTemplates.html]
 {note}
 
 * In your eXo Platform extension, did you override anything in _$PLATFORM-TOMCAT-HOME/bin_?
@@ -172,13 +203,13 @@ There are many components in eXo Platform, so if you update your eXo Platform ex
 To do so, simply configure the Maven POM file that allows you to use the artifacts (eXo Platform 3.5 and its components). For more details, see the [Update project Maven dependencies|#DEV.Upgrade.Update_project_Maven_dependencies] section.
 All eXo Platform 3.5's components will be automatically included in your eXo Platform extension.
 
-There are some new components in eXo Platform 3.5 that have not been existing in eXo Platform 3.0, including Webos, Wiki, and Gadget-pack. To use these components, simply activate their profiles. For more details, see the [Profiles of eXo Platform|../../../admin-guide/html/ch02.html#ADM.Installation.eXo_profiles] section.
+There are some new components in eXo Platform 3.5 that have not been existing in eXo Platform 3.0, including Webos, Wiki, and Gadget-pack. To use these components, simply activate their profiles. For more details, see the [Profiles of eXo Platform|../../../admin-guide/html/ADM.Installation.eXo_profiles.html] section.
 
 In eXo Platform 3.5, the "intranet" portal is defined in the _acme-intranet.war_ file (not in the _office-portal.war_ file of eXo Platform 3.0). So if you have overridden anything in the "intranet" portal, you need to synchronize your extension with the _acme-intranet.war_ file of eXo Platform-3.5.
 
 h1. Update extension {anchor:id=DEV.Upgrade.Update_extension}
 
-This section details how to update your custom eXo Platform extension, including updating [Kernel XML Schema|#DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema], [portal|#DEV.Upgrade.Update_extension.Update_portal] and [APIs|#DEV.Upgrade.Update_extension.Update_APIs].
+This section details how to update your custom eXo Platform extension, including updating [Kernel XML Schema|DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema.html], [portal|DEV.Upgrade.Update_extension.Update_portal.html] and [APIs|DEV.Upgrade.Update_extension.Update_APIs.html].
 
 h2. Update Kernel XML Schema {anchor:id=DEV.Upgrade.Update_extension.Update_Kernel_XML_Schema}
 
@@ -197,7 +228,7 @@ h2. Update portal {anchor:id=DEV.Upgrade.Update_extension.Update_portal}
 h3. Portal data import {anchor:id=DEV.Upgrade.Update_extension.Update_portal.Portal_data_import}
 
 {note}
-It is recommended you have the knowledge of the import mechanism by referring to the [Data Import Strategy|../../../reference/html/bk02ch03.html#sect-Reference_Guide-Import_Strategy] section.
+It is recommended you have the knowledge of the import mechanism by referring to the [Data Import Strategy|../../../reference/html/sect-Reference_Guide-Import_Strategy.html] section.
 {note}
 
 Processing the portal data import includes the following tasks:
@@ -331,7 +362,7 @@ gatein-domain-company {
 };
 {code}
 
-For more details, see the [Change the JAAS realm|../../../admin-guide/html/ch05.html#ADM.Security.Change_JAAS_real] section.
+For more details, see the [Change the JAAS realm|../../../admin-guide/html/ADM.Security.Change_JAAS_real.html] section.
 
 h2. Update APIs {anchor:id=DEV.Upgrade.Update_extension.Update_APIs}
 

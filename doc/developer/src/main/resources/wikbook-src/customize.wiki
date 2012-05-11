@@ -1,19 +1,51 @@
-When working with eXo Platform, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified.
-To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.
-
-This chapter will show you how to create a portal via the following topics:
-
-* [Create your extension project|#DEV.CreateYourOwnPortal.CreateExtensionProject]
-* [Structure of portal, pages and menus|#DEV.CreateYourOwnPortal.StructureOfPortalPages&Menus]
-* [Add/Remove a language|#DEV.CreateYourOwnPortal.AddOrRemoveLanguages]
-* [Create custom look and feel|#DEV.CreateYourOwnPortal.CreateCustomLookAndFeel]
-** [Structure stylesheet|#DEV.CreateYourOwnPortal.StructureStylesheet]
-** [Configure skin in eXo Platform|#DEV.CreateYourOwnPortal.ConfigureSkinInPlatform]
-** [Configure skin in WCM|#DEV.CreateYourOwnPortal.ConfigureSkinInWCM]
-** [Create and apply Global stylesheet|#DEV.CreateYourOwnPortal.CreateAndApplyGloabalStylesheet]
-** [Sharedlayout.xml|#DEV.CreateYourOwnPortal.Sharedlayout]
-** [Customize the Admin bar|#DEV.CreateYourOwnPortal.CustomizeAdminbar]
-* [Add JavaScript to your portal|#DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal]
+{docbook}
+<abstract>
+<para>When working with eXo Platform, it is important not to modify the source code. This will ensure compatibility with future upgrades, and support will be simplified. To customize your portal, you need to create an extension project by providing your own artifacts as a set of wars/jars/ears.</para>
+<para>This chapter will show you how to create a portal via the following topics:</para>
+<itemizedlist>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.CreateExtensionProject">Create your extension project</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.Create_default_portal">Define a default portal</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.StructureOfPortalPages&amp;Menus">Structure of portal, pages and menus</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.EnableDisableDriveCreation">Enable/Disable a drive creation during the portal creation</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.AddOrRemoveLanguages">Add/Remove a language</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.CreateCustomLookAndFeel">Create a custom look and feel</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal">Add JavaScript to your portal</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.CreateYourOwnPortal.AddJavaScriptToYourPortal.Create_custom_templates_for_pages">Create custom templates for pages</link>
+	</para>
+  </listitem>
+</itemizedlist>
+</abstract>
+{docbook}
 
 h1. Create your extension project {anchor:id=DEV.CreateYourOwnPortal.CreateExtensionProject}
 

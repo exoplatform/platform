@@ -1,13 +1,51 @@
-This chapter currently focuses on how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another eXo Platform servers through these topics:
-
-* [Copy a site's content folder with its version history|#DEV.Cookbook.CopySitesContentFolderWithVersionHistory].
-* [Copy navigation nodes of sites|#DEV.Cookbook.CopyNavigationNodesOfSites].
-* [Copy templates of node types templates|#DEV.Cookbook.CopyTemplateOfNodeType].
-* [Copy the WCM template|#DEV.Cookbook.CopyWCMTemplates].
-* [Copy a Taxonomy tree|#DEV.Cookbook.CopyTaxonomyTree].
-* [Copy metadata templates|#DEV.Cookbook.CopyMetadataTemplates].
-* [Copy queries|#DEV.Cookbook.CopyQueries].
-* [Copy scripts|#DEV.Cookbook.CopyScripts].
-* [Copy drive configurations|#DEV.Cookbook.CopyDriveConfigurations].
-* [Copy gadgets|#DEV.Cookbook.CopyGadgets].
-* [Restart the server|#DEV.Cookbook.RestartServer].
+{docbook}
+<abstract>
+<para>This chapter currently focuses on how to copy a work done on the eXo Platform server, such as creating navigations, node types and templates, to another eXo Platform servers through these topics:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopySitesContentFolderWithVersionHistory">Copy a site's content folder with its version history</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyNavigationNodesOfSites">Copy navigation nodes of sites</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyTemplateOfNodeType">Copy templates of node types templates</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyWCMTemplates">Copy the WCM template</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyTaxonomyTree">Copy a Taxonomy tree</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyMetadataTemplates">Copy metadata templates</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyQueries">Copy queries</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyScripts">Copy scripts</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyDriveConfigurations">Copy drive configurations</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.CopyGadgets">Copy gadgets</link></para>
+      </listitem>
+      <listitem>
+        <para>
+          <link linkend="DEV.Cookbook.RestartServer">Restart the server</link></para>
+      </listitem>
+    </itemizedlist>
+</abstract>
+{docbook}

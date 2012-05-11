@@ -1,17 +1,51 @@
-eXo Platform provides you with 2 options to create the content for your new extension:
+{docbook}
+<abstract>
+<para>This chapters represents issues related to creating a new content manually via the following topics:</para>
+<itemizedlist>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.NodeType">Node type</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.WCMTemplate">WCM template</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.DocumentType">Document type</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.DialogSyntax">Dialog Syntax</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.Taxonomy">Taxonomy</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.ManageTemplateService">Manage Template service</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithContent.NavigationByContent">Manage Navigation By Content</link>
+	</para>
+  </listitem>
+</itemizedlist>
+</abstract>
+{docbook}
 
+{note}
+eXo Platform provides you with 2 options to create the content for your new extension:
 * Create new content manually.
 * Import an existing content into your extension.
-
-This chapters represents issues related to creating a new content manually via the following topics:
-
-* [Node type|#DEV.WorkWithContent.NodeType]
-* [WCM template|#DEV.WorkWithContent.WCMTemplate]
-* [Document type|#DEV.WorkWithContent.DocumentType]
-* [Dialog Syntax|#DEV.WorkWithContent.DialogSyntax]
-* [Taxonomy|#DEV.WorkWithContent.Taxonomy]
-* [Manage Template service|#DEV.WorkWithContent.ManageTemplateService]
-* [Manage Navigation By Content|#DEV.WorkWithContent.NavigationByContent]
+{note}
 
 h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
@@ -520,14 +554,5 @@ With init-parameters as:
 h1. Manage Navigation By Content {anchor:id=DEV.WorkWithContent.NavigationByContent}
 
 *Navigation By Content* is a feature which allows users to browse content of each page easily. With this feature, users experiencing eXo Platform 3.5 can navigate from a page to another or browse site content inside one page directly from a contextual menu.
-
-In this part, you will have opportunity to learn how to manage *Navigation By Content* through the following topics:
-
-* [Actual content navigation|#DEV.WorkWithContent.NavigationByContent.ContentNavigation]
-* [Add content to the navigation|#DEV.WorkWithContent.NavigationByContent.Add_content_to_the_navigation]
-* [Actions on Navigation By Content|#DEV.WorkWithContent.NavigationByContent.ActionsNavigationByContent]
-* [Examples of creating data for Navigation By Content|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples]
-** [Create a Product page|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.CreateNewProductPage]
-** [Develop your own Product content|#DEV.WorkWithContent.NavigationByContent.CreateDataForNavigationByContentExamples.DevelopProductContent]
 
 {include:document=navigation_by_content_feature.wiki|syntax=confluence/1.0}
