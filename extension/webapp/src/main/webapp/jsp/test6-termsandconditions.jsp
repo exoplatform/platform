@@ -28,7 +28,6 @@
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
-  String lang = request.getLocale().getLanguage();
 
   ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
@@ -41,7 +40,7 @@
 <!DOCTYPE html 
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>eXo Subscription Agreement</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

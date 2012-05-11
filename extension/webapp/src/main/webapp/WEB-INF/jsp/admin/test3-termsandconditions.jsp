@@ -281,8 +281,6 @@ copy style from here (dont use css line up , they exiting on product)
 
 <body>
   <!--begin popup terms conditions-->
-  <div class="MaskLayer"  style="position:absolute;width:100%;height:100%;background:#000;z-index:4;left:0;top:0;opacity:0.7;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)'; filter: alpha(opacity=70); ">
-  </div><!--set again height use javasript (get height screen resolution)-->
     <div class="TermsConditions UIPopupWindow">
       <div class="OverflowContainer ">        
         <h5 class="PopupTitle">Terms and Conditions Agreement</h5>

@@ -25,7 +25,6 @@
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page import="org.exoplatform.web.login.InitiateLoginServlet"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
-<%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
   String lang = request.getLocale().getLanguage();

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+
 /**
  * Servlet responsible of the first display of Terms&Conditions
  * @author Clement
@@ -15,19 +18,53 @@ import javax.servlet.http.HttpServletResponse;
 public class TermsAndConditionsViewServlet extends HttpServlet {
   private static final long serialVersionUID = 6467955354840693802L;
   
+  private static Log logger = ExoLogger.getLogger(TermsAndConditionsFilter.class);
+  
   protected final static String INITIAL_URI_PARAM = "tacURI";
   private final static String TC_JSP_RESOURCE = "/WEB-INF/jsp/admin/termsandconditions.jsp";
   private final static String INITIAL_URI_ATTRIBUTE = "org.gatein.portal.login.initial_uri";
+
+  private final static String TC_JSP_RESOURCE_TEST1 = "/WEB-INF/jsp/admin/test1-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST2 = "/WEB-INF/jsp/admin/test2-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST3 = "/WEB-INF/jsp/admin/test3-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST4 = "/WEB-INF/jsp/admin/test4-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST5 = "/WEB-INF/jsp/admin/test5-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST6 = "/WEB-INF/jsp/admin/test6-termsandconditions.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     String initialURI = request.getParameter(INITIAL_URI_PARAM);
+    
+    String sTestNumber = request.getParameter("t");
+    int testNumber = -1;
+    try {
+      testNumber = Integer.valueOf(sTestNumber);
+      if(testNumber < 1 || testNumber > 6) {
+        testNumber = -1;
+      }
+    }
+    catch(Exception e) {
+      logger.error("Problem with parameter: t", e);
+    }
 
     // Include JSP page
     try {
       request.setAttribute(INITIAL_URI_ATTRIBUTE, initialURI);
-      getServletContext().getRequestDispatcher(TC_JSP_RESOURCE).include(request, response);
+      
+      String jspResource = TC_JSP_RESOURCE;
+      if(testNumber != -1) {
+        switch(testNumber) {
+          case 1: jspResource = TC_JSP_RESOURCE_TEST1;break;
+          case 2: jspResource = TC_JSP_RESOURCE_TEST2;break;
+          case 3: jspResource = TC_JSP_RESOURCE_TEST3;break;
+          case 4: jspResource = TC_JSP_RESOURCE_TEST4;break;
+          case 5: jspResource = TC_JSP_RESOURCE_TEST5;break;
+          case 6: jspResource = TC_JSP_RESOURCE_TEST6;break;
+          default: break;
+        }
+      }
+      getServletContext().getRequestDispatcher(jspResource).include(request, response);
     }
     finally {
       request.removeAttribute(INITIAL_URI_ATTRIBUTE);

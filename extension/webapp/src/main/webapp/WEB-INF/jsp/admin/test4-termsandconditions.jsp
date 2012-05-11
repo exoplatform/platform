@@ -26,22 +26,10 @@
 <%@ page import="org.exoplatform.web.login.InitiateLoginServlet"%>
 <%@ page import="org.gatein.common.text.EntityEncoder"%>
 <%@ page language="java" %>
-<%
-  String contextPath = request.getContextPath() ;
-  String lang = request.getLocale().getLanguage();
-
-  ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
-  ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
-
-  String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
-
-  response.setContentType("text/html; charset=UTF-8");
-  response.setCharacterEncoding("UTF-8"); 
-%>
 <!DOCTYPE html 
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>eXo Subscription Agreement</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -1941,11 +1929,7 @@ copy style from here (dont use css line up , they exiting on product)
             
           </div>
           <div class="BottomBox ClearFix">
-            <form name="tcForm" action="<%= contextPath + "/terms-and-conditions-action"%>" method="post" style="margin: 0px;">
-            
-            <% if (uri != null) { %>
-            <input type="hidden" name="tacURI" value="<%=uri%>" />
-            <% } %>
+            <form name="tcForm" action="/terms-and-conditions-action" method="post" style="margin: 0px;">
             
             <div class="UIAction FR">
               <a class="ActionButton LightBlueStyle inactive" id="continueButton"  href="javascript:void(0)"  onclick="validate();">Continue</a>
