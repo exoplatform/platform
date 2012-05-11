@@ -43,6 +43,7 @@
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
   <head>
+    <!--/WEB-INF/jsp/admin/termsandconditions.jsp-->
     <title>eXo Subscription Agreement</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />

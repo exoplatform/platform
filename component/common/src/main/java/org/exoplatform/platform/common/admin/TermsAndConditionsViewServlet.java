@@ -33,14 +33,14 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
   private final static String TC_JSP_RESOURCE_TEST5 = "/WEB-INF/jsp/admin/test5-termsandconditions.jsp";
   private final static String TC_JSP_RESOURCE_TEST6 = "/WEB-INF/jsp/admin/test6-termsandconditions.jsp";
 
-  private final static String TC_JSP_RESOURCE_TEST7 = "/jsp/admin/termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST7 = "/jsp/termsandconditions.jsp";
   
-  private final static String TC_JSP_RESOURCE_TEST11 = "/jsp/admin/test1-termsandconditions.jsp";
-  private final static String TC_JSP_RESOURCE_TEST12 = "/jsp/admin/test2-termsandconditions.jsp";
-  private final static String TC_JSP_RESOURCE_TEST13 = "/jsp/admin/test3-termsandconditions.jsp";
-  private final static String TC_JSP_RESOURCE_TEST14 = "/jsp/admin/test4-termsandconditions.jsp";
-  private final static String TC_JSP_RESOURCE_TEST15 = "/jsp/admin/test5-termsandconditions.jsp";
-  private final static String TC_JSP_RESOURCE_TEST16 = "/jsp/admin/test6-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST11 = "/jsp/test1-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST12 = "/jsp/test2-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST13 = "/jsp/test3-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST14 = "/jsp/test4-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST15 = "/jsp/test5-termsandconditions.jsp";
+  private final static String TC_JSP_RESOURCE_TEST16 = "/jsp/test6-termsandconditions.jsp";
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,7 +51,7 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
     int testNumber = -1;
     try {
       testNumber = Integer.valueOf(sTestNumber);
-      if(testNumber < 0 || testNumber > 6) {
+      if(testNumber < 0 || testNumber > 16) {
         testNumber = -1;
       }
     }
