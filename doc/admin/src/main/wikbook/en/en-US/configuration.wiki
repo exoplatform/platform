@@ -482,14 +482,53 @@ In order to run properly the chat server needs several ports to be opened in the
 | 9090 && 9091 | Admin Console (http) | The port used for respectively the unsecured and secured Openfire Admin Console access. |
 | 3478 & 3479 | STUN service | The port used for the service that ensures connectivity between entities when behind a NAT. |
 
-h1. OpenOffice server {anchor:id=ADM.Configuration.OpenOffice_server}
+h1. Office server {anchor:id=ADM.Configuration.Office_server}
+eXo Platform allows users to view various types of documents directly in the *Content Explorer* through the office server. To do so, the office application must be available in your local device first.
 
-eXo Platform allows users to view documents of various types directly on the content explorer through the OpenOffice server. For rendering MS Office files and Open Office files in eXo Platform, JODConverter is used to convert these types to PDF then eXo Platform will render these PDF files. 
-To use this feature, OpenOffice service should be available on your local device first. Next, start the OpenOffice server by running the command below:
+Then, *JODConverter* will use the [default values|#default_values] below to start the office server.
 
-{screen}soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard{screen}
+Default values are customized by adding paremeters below in the _configuration.properties_ file:
 
-Please refer to: [http://www.artofsolving.com|http://www.artofsolving.com] for using JODCONVERTER.
+{code}
+# JODConverter 3.0
+#wcm.jodconverter.portnumbers=8100, 8101, 8102, 8103, 8104
+#wcm.jodconverter.officehome=/usr/lib/libreoffice
+#wcm.jodconverter.taskqueuetimeout=30000
+#wcm.jodconverter.taskexecutiontimeout=120000
+#wcm.jodconverter.maxtasksperprocess=200
+#wcm.jodconverter.retrytimeout=120000
+{code}
+
+{anchor:id=default_values}
+||Key || Default values || Description ||
+|wcm.jodconverter.portnumbers |2002|List of ports, separated by commas, those used by each JODConverter processing thread. Number of office instances is equal to number of ports. |
+|wcm.jodconverter.officehome|See [here|#Office_home] | Absolute path of office home on the current local device. It means that office needs to be installed in the local device before using it. |
+|wcm.jodconverter.taskqueuetimeout |30000 | Maximum living time of tasks in the conversation queue. Task will be removed from this queue if waiting time is longer than _taskQueueTimeout_. |
+|wcm.jodconverter.taskexecutiontimeout |120000 |If a task has been executing within an soffice process for longer than this period, soffice process will be terminated and restarted. |
+|wcm.jodconverter.maxtasksperprocess |200 | To ensure that potential memory leaks do not accumulate and affect performance, the JodConverter will restart an soffice process after a given number of tasks have been performed. |
+|wcm.jodconverter.retrytimeout|120000 |Interval time to try to restart the office services after an unexpected crash. |
+
+*The default office home* {anchor:id="Office_home"}
+* *Linux*
+{code}
+"/opt/openoffice.org3"
+"/opt/libreoffice"
+"/usr/lib/openoffice"
+"/usr/lib/libreoffice"
+{code}
+
+* *Windows*
+{code}
+"<SYSTEM_PROGRAMFILES>/OpenOffice.org 3"
+"<SYSTEM_PROGRAMFILES>/LibreOffice 3"
+{code}
+
+* *Mac*
+{code}
+"/Applications/OpenOffice.org.app/Contents"
+"/Applications/LibreOffice.app/Contents"
+{code}
+ 
 
 h1. Log-in {anchor:id=ADM.Configuration.Logging}
 
