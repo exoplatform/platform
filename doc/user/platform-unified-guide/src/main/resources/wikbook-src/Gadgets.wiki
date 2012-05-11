@@ -1,12 +1,12 @@
-eXo Platform provides a gadget package that contains many useful gadgets. They can be categorized into:
-* [Engagement gadgets|#GadgetUserguide.AngagementGadgets]
-* [Audit gadgets|#GadgetUserguide.AuditGadgets]
-* [Collab gadgets|#GadgetUserguide.CollabGadgets]
-* [Management and Monitoring gadgets|#GadgetUserguide.ManagementMOnitoringGadget]
-
 h1. Engagement gadgets {anchor:id=GadgetUserguide.AngagementGadgets}
 *Engagement* gadgets include gadgets designed to aid users in engagement activities and events.
 These gadgets analyze the existing communications and community engagement in your organization, then show what is going on by providing statistics.
+
+eXo Platform currently provides 3 types of *Engagement* gadget as follows:
+* [Latest Forum Posts|#GadgetUserguide.AngagementGadgets.LatestForumPosts]
+* [Top Voted Topics|#GadgetUserguide.AngagementGadgets.TopVotedTopics]
+* [Forum Statistics|#GadgetUserguide.AngagementGadgets.ForumStatistics]
+* [Friend Suggestions|#GadgetUserguide.EngagementGadgets.FriendSuggestions]
 h2. Latest Forum Posts  {anchor:id=GadgetUserguide.AngagementGadgets.LatestForumPosts}
 
 The *Latest Forum Posts* gadget shows the latest posts in Forum. You can decide the specified number of the latest posts to be shown. This gadget helps you always stay updated with what is going on in the forum.
@@ -113,63 +113,18 @@ The *Friend Suggestions* gadget will suggest you to connect with people that hav
 
 To send the invitation to connect with the suggested people right on this gadget, simply click *Send invitation* under their usernames.
 
-h1. Audit gadgets {anchor:id=GadgetUserguide.AuditGadgets}
-h2. Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
-
-The *Login History* gadget records user login history and provides statistics.
-
-!images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-You can look up a specific user by entering his username in the *User* field and click *Find*. 
-
-Click *Reset* to clear the *User* field and return the default list of users who have signed in.
-
-* Click the *Statistics* and *History* links to view the global statistics and global history respectively.
-* Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
-!images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-* Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login history.
-
-!images/Login_history_history.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-h1. Collab gadgets {anchor:id=GadgetUserguide.CollabGadgets}
-The *Collab* gadgets include gadgets designed for collaborative activities. 
-
-h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget}
-
-The *eXo Calendar* gadget displays a mini calendar and allows you to quickly add an event.
-
-!images/eXo_Calendar_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-There are three tabs in this gadget, including *Appearance*, *Quick add*, and *Refresh*.
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Appearance
-</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-!images/eXo_Calendar_gadget_appearance.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *save*. Only the event in the calendar of your choice will be displayed. 
-{docbook}
-<citetitle>
-<para><emphasis role="bold">
-Quick add
-</emphasis>
-</para>
-</citetitle>
-{docbook} 
-You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then selecting *add*.
-
-!images/eXo_Calendar_gadget_quickadd.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
-
-
 h1. Management and Monitoring Gadgets {anchor:id=GadgetUserguide.ManagementMOnitoringGadget}
 
 The *Management and Monitoring* gadgets include gadgets designed for providing the overall vision of the system. These gadgets monitor the system and provide the current system performance statistics which are especially useful for the system administrators and developers.
 
+eXo Platform provides 7 types of *Management and Monitoring* gadget as follows:
+* [Memory Charts|#GadgetUserguide.ManagementMonitoringGadget.MemoryCharts]
+* [Cache Levels|#GadgetUserguide.ManagementMonitoringGadget.CacheLevels]
+* [Applications Statistics|#GadgetUserguide.ManagementMonitoringGadget.ApplicationStatistics]
+* [All Template Statistics|#GadgetUserguide.ManagementMonitoringGadget.AllTemplateStatistics]
+* [10 Slowest Templates|#GadgetUserguide.ManagementMonitoringGadget.10SlowestTemplates]
+* [Services Management|#GadgetUserguide.ManagementMonitoringGadget.ServiceManagement]
+* [eXo Scripting Console|#GadgetUserguide.ManagementMonitoringGadget.GroovyConsole]
 h2. Memory Charts {anchor:id=GadgetUserguide.ManagementMonitoringGadget.MemoryCharts}
 
 The *Memory Charts* gadget provides the chart of memory used during runtime.
@@ -284,4 +239,53 @@ The eXo Scripting Console gadget is better viewed on the entire screen. You shou
 * Click !images/GroovyConsoleColor.png|scalefit="1" width="8mm"! to change the font color.
 * Click !images/GroovyConsoleHelp.png|scalefit="1" width="8mm"! to view the Groovy Console Help.
 
+h1. Audit & Collab gadgets {anchor:id=GadgetUserguide.AuditGadgets.CollabGadgets}
+eXo Platform currently provides:
+* One type of *Audit* gadget that is named [Login History|#GadgetUserguide.AuditGadgets.UserLoginHistory].
+* One type of *Collab* gadget that is named [eXo Calendar Gadget|#GadgetUserguide.CollabGadgets.Calendar_gadget].
+h2. Login History {anchor:id=GadgetUserguide.AuditGadgets.UserLoginHistory}
+Under the group of Audit gadgets, *Login History* records user login history and provides statistics.
 
+!images/Login_history_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
+You can look up a specific user by entering his username in the *User* field and click *Find*. 
+
+Click *Reset* to clear the *User* field and return the default list of users who have signed in.
+
+* Click the *Statistics* and *History* links to view the global statistics and global history respectively.
+* Click !images/Calendar_weekly_chart_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login statistics.
+!images/Login_history_statistic.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+* Click !images/Calendar_weekly_list_icon.png|scalefit="1" width="4mm"! corresponding to the user to view his login history.
+
+!images/Login_history_history.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
+h2. eXo Calendar Gadget {anchor:id=GadgetUserguide.CollabGadgets.Calendar_gadget}
+Under the group of *Collab* gadgets which are designed for collaborative activities, the *eXo Calendar* gadget displays a mini calendar and allows you to quickly add an event.
+
+!images/eXo_Calendar_gadget.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
+There are three tabs in this gadget, including *Appearance*, *Quick add*, and *Refresh*.
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Appearance
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+!images/eXo_Calendar_gadget_appearance.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
+
+If you have more than one personal calendar, you can select which calendar to display. Select the calendars from the list, then click *save*. Only the event in the calendar of your choice will be displayed. 
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Quick add
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+You can add a new event to your personal calendar in this gadget by simply entering the date, time and description, then selecting *add*.
+
+!images/eXo_Calendar_gadget_quickadd.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!

@@ -1,6 +1,3 @@
-h1. Introduction{anchor:id=Platform_User_Guide.Introduction}
-{include:document="Introduction.wiki"}
-
 h1. Get Started{anchor:id=Platform_User_Guide.Get_started}
 {include:document="Tutorials.wiki"}
 h2. Glossary{anchor:id=Platform_User_Guide.Get_started.Glossary}

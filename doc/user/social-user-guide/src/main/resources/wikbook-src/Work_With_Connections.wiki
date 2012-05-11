@@ -16,14 +16,6 @@ This page consists of the following tabs:
 
 * *Requests Sent*: lists users to whom you have sent connection requests. You can also click *Cancel Request* to revoke your request.
 
-Depending each accessed tab, you can perform different actions:
-* [Search for contacts|#search_contacts].
-* [View profiles of contacts|#view_profile_of_contacts].
-* [Send connection requests|#Send_connection_requests].
-* [Revoke a connection request|#Revoke_connection_request].
-* [Accept/Deny a connection request|#Accept_deny_request].
-* [Disconnect from your contacts|#Disconect].
-
 h1. Search for contacts {anchor:id=search_contacts}
 
 This function allows you to find your desired contact quickly by searching by name, and/or searching by role (by position, and/or work skills), and searching by alphabets.

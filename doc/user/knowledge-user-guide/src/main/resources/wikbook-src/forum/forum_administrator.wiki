@@ -14,7 +14,7 @@ Administrator has the global role.
 * Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
 * Forum user guide for [Moderators|#Forum_user_guide.Moderator]
 
-h2.  Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
+h2. Set up the Forum portlet {anchor:id=Forum_user_guide.Forum_Administrator.Set_up_Forums_portlet}
 
 After adding the application to your *Space*, you have to configure the portlet settings to make it work in your desired way.
 
@@ -30,12 +30,14 @@ The *Page Manager* page will be displayed.
 
 !images/admin_forum_edit_forum_page.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*3.* Hover your cursor over the *Forum* portlet, then click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the quick toolbar.
-
-The settings form allows you to configure the *Forum* portlet in various aspects.
+*3.* Hover your cursor over the *Forum* portlet, then click !images/edit_icon3.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the quick toolbar to open the *Edit Mode*.
 
 !images/admin_forum_edit_mode.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
+This form allows you to configure the *Forum* portlet in various aspects, including:
+* [Specify the category scoping|#Forum_Administrator.Set_up_Forums.Specify_category_scoping]
+* [Enable/Disable Forum components|#Forum_Administrator.Set_up_Forums.Enable-Disable_Forum-components]
+* [Enable/Disable a bookmarkable Forum URL|#Forum_Administrator.Set_up_Forums.Enable-Disable_bookmarkable_Forum_URLs]
 h3. Specify the category scoping {anchor:id=Forum_Administrator.Set_up_Forums.Specify_category_scoping}
 
 In the *Scoping* tab, you can show/hide categories and forums in the *Forum* portlet by selecting or deselecting their respective checkboxes.
@@ -77,11 +79,15 @@ This feature defines how the links are generated in the *Forum* portlet. You can
 
 * Using Ajax, the links will be Javascript based and generate Ajax calls. This makes your browsing faster because the whole page is not reloaded.
 
-
 h2. Manage categories {anchor:id=Forum_user_guide.Forum_Administrator.Manage_categories}
 Only administrators can do categories-related management tasks. To manage forums better, the administrators usually build a good forum structure using categories. So, a category is a set of forums containing all discussions about the same subject. See the following diagram to learn about one typical *Forum* structure.
 
 !images/forum_portlet_structure.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
+
+Managing categories can be performed through the following specific actions:
+* [Add a new category|#Forum_Administrator.Manage_categories.Add_categories]
+* [Edit a category|#Forum_Administrator.Manage_categories.Edit_categories]
+* [Delete a category|#Forum_Administrator.Manage_categories.Delete_categories]
 
 h3. Add a new category {anchor:id=Forum_Administrator.Manage_categories.Add_categories}
 Only when you are assigned as an *administrator*, you can do this function. Normally, one category is created as public and it allows everyone to access without any restrictions. Meanwhile, one [restricted category|#Manage_categories.Add_categories.Add_restricted_categories] only allows specific users/groups/memberships to access. Also, you can assign moderators to your category and specify a set of permissions for members in the category.
@@ -148,10 +154,11 @@ When a category is removed, all its forums are also removed.
 {docbook}
 
 h2.  Manage forums {anchor:id=Forum_user_guide.Forum_Administrator.Manage_forums}
+Managing forums can be performed through the following actions:
+* [Add a new forum|#Forum_Administrator.Manage_forums.Add_forums]
+* [Delete a forum|#Forum_Administrator.Manage_forums.Delete_forums]
 
 h3. Add a new forum {anchor:id=Forum_Administrator.Manage_forums.Add_forums}
-When creating a new  forum, you can also configure the forum notification settings and specify the permissions for members in that forum.
-
 
 {docbook}
 <citetitle>
@@ -160,7 +167,6 @@ When creating a new  forum, you can also configure the forum notification settin
 </para>
 </citetitle>
 {docbook}
-
 
 *1.* Go into the category to which you want to add a new forum.
 
@@ -184,7 +190,14 @@ Optionally, you can:
 
 The administrators and moderators of a forum may want to get updated of what is new in forums under their management. This can be done when creating a new forum.
 
-h4. Configure the moderation settings {anchor:id=Forum_Administrator.Manage_forums.Add_forums.Configure_moderation_settings}
+{docbook}
+<citetitle>
+<para xml:id="Forum_Administrator.Manage_forums.Add_forums.Configure_moderation_settings">
+    <emphasis role="bold">Configure the moderation settings</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 When creating a forum, you can set moderation-related options.
 
 *1.* Select the *Moderation Options* tab in the *Forum* form.
@@ -202,7 +215,6 @@ When creating a forum, you can set moderation-related options.
 |*Email addresses to notify when there is a new topic*|Enter the list of email addresses which will get the notification if any new topic is created.This field will be filled automatically if the *Auto-fill the moderator's email* is checked .|
 |*Moderate Topics*{anchor:id="admin_moderate_topics"}|By default, new topics must be always approved and visible to everyone. If this option is selected, new topics will be pending for approval before being viewable.|
 
-
 h3. Delete a forum {anchor:id=Forum_Administrator.Manage_forums.Delete_forums}
 Only administrators can perform this action. When a forum is removed, all of its topics will then be deleted.
 
@@ -217,48 +229,47 @@ To take this action, click !images/users_icon.png|width="13mm" fo:scalefit="1" h
 
 !images/admin_forum_user_management.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-Now, you can search for specific users to edit their profiles or remove them from *Forum*.
+Here, by clicking !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the relevant user, you can do the following management actions:
+* [Promote a user|#Forum_Administrator.Manage_Users.Promote_users]
+* [Modify user's forum settings|#Forum_Administrator.Manage_Users.Modify_users_forum_settings]
+* [Ban users|#Forum_Administrator.Manage_Users.Ban_users]
+
+{note}
+You can first search for your desired users to do the management actions quickly.
+{note}
 
 h3. Promote a user {anchor:id=Forum_Administrator.Manage_Users.Promote_users}
 
-The administrator can edit profiles of members and promote any users to an administrator or a moderator.
-
-*1.* Click !images/users_icon.png|width="13mm" fo:scalefit="1" html:scalefit="0"! on the *Action* bar. The *User Management* form will be displayed.
-
-*2.* Click !images/edit_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! corresponding to the user you want to promote. The profile of this user will be displayed right below the users list.
-
 !images/admin_forum_user_management_profile_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-To promote the user, you have to edit the *Moderator* fields in *Profile* tab.
+In the *Profile* tab, you can promote your selected user to an administrator or a moderator by editing the following fields:
 
 ||Field||Description||
-|*Screen Name*|The name displayed in *Forum*.|
-|*User Title*|The title representing the role of user, by default. However, you can enter anything you want.|
 |*Forum Administrator*|Grant the Administrator role to a selected user or not. The Administration role of the default administrator cannot be edited in the *User Management* form.|
 |*Moderator of Categories*|The list of categories moderated by the selected user. Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a category.|
 |*Moderator of Forums*|The list of forums moderated by the selected user. Click !images/Plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select a forum.|
 
-h3. Modify user's forum settings {anchor:id=Forum_Administrator.Manage_Users.Modify_users_forum_settings}
-You can modify the forum settings that users had set in their *User settings*.
+Also, you can modify the user's profile in the following fields:
 
-Go to the *Settings* tab in the *User Management* form.
+||Field||Description||
+|*Screen Name*|The name displayed in *Forum*.|
+|*User Title*|The title representing the role of user, by default. However, you can enter anything you want.|
+
+h3. Modify user's forum settings {anchor:id=Forum_Administrator.Manage_Users.Modify_users_forum_settings}
+You can modify the forum settings set by your selected user by going to the *Settings* tab in the *User Management* form.
 
 !images/admin_forum_user_management_settings_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-Now you can modify the forum settings that the selected user has set in their *User settings*. See [User settings|#Forum_user_guide.Forum_regular_user.User_settings] for the detailed descriptions in the *User Settings* form.
+For the detailed descriptions in the *User Settings* form, see [User settings|#Forum_user_guide.Forum_regular_user.User_settings].
 
 h3. Ban users {anchor:id=Forum_Administrator.Manage_Users.Ban_users}
-There are other methods to ban users from the *Forum* application or specific forums and categories.
-In case you know the username of the user who violated your forum policies, you can search and ban this user quickly.
-
-In the *User Management* form, go to the *Ban User* tab.
+This function is to ban users from the *Forum* application or specific forums and categories. To do so, go to the *Ban User* tab and tick the *Banned* checkbox.
 
 !images/admin_forum_user_management_banuser_tab.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 *Details:*
 
 ||Field||Description||
-|*Banned*|Ban one user or not.|
 |*Duration*|The interval during which the user will be banned. This field is only edited when you ban this user in the 'Banned' field. In the ban duration, the banned user only can view forums and topics but he/she cannot post replies or send messages.|
 |*Reason*|The reason for banning this user.|
 |*Ban Count*|The ban times of the user.|
@@ -281,16 +292,15 @@ All of administrative tasks can be reached via the menu that appears after click
 
 !images/admin_forum_administration_tasks.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-In this section, you are going to learn how to perform all of these administrative tasks and customizations:
+The administrative tasks include the following actions:
 * [Set up Sort Settings|#Forum_Administrator.Administrative_tasks.Set_up_sort_settings]
 * [Define censored keywords|#Forum_Administrator.Administrative_tasks.Define_censored_keywords]
-* [Customize email notification template|#Forum_Administrator.Administrative_tasks.Customize_email_template]
-* [Customize BBCode|#Forum_Administrator.Administrative_tasks.Customize_BBcodes]
-* [Customize the topic types|#Forum_Administrator.Administrative_tasks.Create_topic_types]
+* [Customize an email notification template|#Forum_Administrator.Administrative_tasks.Customize_email_template]
+* [Customize a BBCode|#Forum_Administrator.Administrative_tasks.Customize_BBcodes]
 * [Set up auto-pruning|#Forum_Administrator.Administrative_tasks.Set_up_auto-prune]
+* [Create a topic type|#Forum_Administrator.Administrative_tasks.Create_topic_types]
 * [Ban IPs|#Forum_Administrator.Administrative_tasks.Ban_IPs]
 * [Back up a category/forum|#Forum_Administrator.Administrative_tasks.Back_up_categories_forums]
-
 
 h3. Set up Sort Settings {anchor:id=Forum_Administrator.Administrative_tasks.Set_up_sort_settings}
 Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar, then click *Sort Settings* from the drop-down menu. The *Sort Settings* form opens. 
@@ -302,7 +312,6 @@ Now, you can set properties for how forums and topics are sorted in *Forum*.
 * *Direction*: Sort forums in the Ascending or Descending order.
 * *Sort Topics by*: Sort topics by name, lock status, creation date, modification date, date of last post, post count, view count, attachments count.
 * *Direction*: Sort topics in the Ascending or Descending order.
-
 
 h3. Define censored keywords {anchor:id=Forum_Administrator.Administrative_tasks.Define_censored_keywords}
 Censored keywords are those which are specified as inappropriate in the *Forum* application. If any topics or posts contain censored keywords, they will be hidden until being verified by Administrators or Moderators. Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="0"! on the *Forum Administration* bar and click *Censor Keywords* from the drop-down menu. The *Censor Keyword* form will be displayed.
@@ -391,10 +400,10 @@ Click !images/Aministration_btn.png|width="20mm" fo:scalefit="1" html:scalefit="
 
 Here, you can do the following actions:
 
-* [Add a new BBCode|#Administrative_tasks.Customize_BBCodes.Add_new_BBCodes].
-* [Edit a BBCode|#Administrative_tasks.Customize_BBCodes.Edit_BBCodes].
-* [Delete a BBCode|#Administrative_tasks.Customize_BBCodes.Delete_BBCodes].
-* [Activate/Deactivate a BBCode|#Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes].
+* [Add a new BBCode|#Administrative_tasks.Customize_BBCodes.Add_new_BBCodes]
+* [Edit a BBCode|#Administrative_tasks.Customize_BBCodes.Edit_BBCodes]
+* [Delete a BBCode|#Administrative_tasks.Customize_BBCodes.Delete_BBCodes]
+* [Activate/Deactivate a BBCode|#Administrative_tasks.Customize_BBCodes.Activate_Deactivate_BBCodes]
 
 h4. Add a new BBCode {anchor:id=Administrative_tasks.Customize_BBCodes.Add_new_BBCodes}
 
@@ -525,6 +534,12 @@ To filter banned IPs, enter a part of the IPs address into filter textbox, all I
 
 h3. Back up a category & forum {anchor:id=Forum_Administrator.Administrative_tasks.Back_up_categories_forums}
 The *Export* function is a best way to back up data in the *Forum* application. This function allows you to export categories and forums in the *Forum* application into the .zip or .xml file. When a category/forum is exported, all of its forum, topics, posts and properties are also exported. This exported file can be used to import into the *Forum* application.
+
+Backing up a category & forum includes the following actions:
+* [Export a category|#Administrative_tasks.Backup_categories_forums.Export_categories]
+* [Export a forum|#Administrative_tasks.Backup_categories_forums.Export_forums]
+* [Import a category|#Administrative_tasks.Backup_categories_forums.Import_categories]
+* [Import a forum|#Administrative_tasks.Backup_categories_forums.Import_forums]
 
 h4. Export a category {anchor:id=Administrative_tasks.Backup_categories_forums.Export_categories}
 

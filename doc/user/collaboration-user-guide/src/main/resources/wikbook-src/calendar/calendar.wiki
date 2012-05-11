@@ -515,16 +515,9 @@ The *Preview* form will appear.
 At the *Preview* form, if the event includes attachments, you can download them by directly clicking its title. If the attachment is an image, you can also click *View* to preview it.
 
 h2. Create a new event {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_event"}
-
-The *Calendar* application provides 2 ways to add a new event.
-
-* [Quick add an event|#Quick_add_events] allows you to create the most basic event details.
-* [Add a detailed event|#Add_detailed_events] allows you to create events with many options:
-** [Create a recurring event|#Create_recurring_event]. 
-** [Create a reminder for upcoming events|#Create_event_reminder].
-** [Add participants to an event|#Invite_people_to_event].
-** [View the availability time of participants|#View_time_availability].
-
+You can create a new event through either of 2 ways:
+* [Quick add an event|#Quick_add_events]
+* [Add a detailed event|#Add_detailed_events]
 h3. Quick add an event {anchor:id="Quick_add_events"}
 
 *1.* Open the *Quick Add Event* form via either of 4 ways:
@@ -618,7 +611,14 @@ You will see the event updated in your Activity Stream of your Space or Group Sp
 
 The event will be updated in your *Activity Stream* with its brief information, such as description, location, start time and end time. You can even deny or accept participating in this event directly in *Activity Stream* without going to the *Calendar* application.
 
-h4. Create a recurring event {anchor:id="Create_recurring_event"}
+{docbook}
+<citetitle>
+<para xml:id="Create_recurring_event">
+<emphasis role="bold">Create a recurring event</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 In the *Detail* tab, tick the *Repeat* checkbox to open the *Repeating event* form.
 
 !images/Repeat_event_form.png|align="center" width="100mm"  fo:scalefit="1" html:scalefit="0"!
@@ -639,7 +639,14 @@ For example, if you set *Weekly* in the *Repeat* option and *5* in the *Repeat e
 * *After \[X] occurrences:* Your repeating event will end after X occurrences.
 * *By this date:* Your repeating event will end before your specified date. Point your cursor over the textbox and select the date from the drop-down calendar.
 
-h4. Create a reminder for upcoming events {anchor:id="Create_event_reminder"}
+{docbook}
+<citetitle>
+<para xml:id="Create_event_reminder">
+<emphasis role="bold">Create a reminder for upcoming events</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 The *Calendar* application provides 2 options for reminding users who will take part in events. A reminder includes the summary information of the event, such as title, time and location. To use this feature, go to the *Reminders* tab. 
 
 {docbook}
@@ -679,7 +686,14 @@ Or, use the *Search* function to search for your expected email addresses. Also,
 
 The list of your selected email addresses are displayed right below the *Also send reminders to* field of the *Reminders* tab.
 
-h4. Add participants to an event {anchor:id="Invite_people_to_event"}
+{docbook}
+<citetitle>
+<para xml:id="Invite_people_to_event">
+<emphasis role="bold">Add participants to an event</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 If you want to invite people to attend an event, go to the *Participants* tab. This tab contains options to add participants and to send invitation mails.
 
 !images/add_edit_event_participant_tab.png|align="center" width="120mm"  fo:scalefit="1" html:scalefit="0"!
@@ -722,7 +736,13 @@ The participants will receive an invitation mail, for example with the following
 * *Yes*: Accept attending at the event without importing it into the calendar.
 * *No*: Refuse to attend at the event.
 
-h4. View the availability time of participants {anchor:id="View_time_availability"}
+{docbook}
+<citetitle>
+<para xml:id="View_time_availability">
+<emphasis role="bold">View the availability time of participants</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 !images/add_edit_event_schedule.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -958,9 +978,8 @@ At the *Preview* form, if the task includes attachments, you can download them b
 h2. Create a new task {anchor:id="CSUser_guide.How_to_use_Calendar.Create_new_task"}
 You have 2 ways to add a new task:
 
-* *Quick Add Task*: allows you to create the most basic event details.
-
-* *Add Detailed Task*: allows you to create events with advanced details.
+* [Quick add|#CSUser_guide.How_to_use_Calendar.Quick_add_task]: allows you to create the most basic event details.
+* [Detailed add|#CSUser_guide.How_to_use_Calendar.Add_detailed_task]: allows you to create events with advanced details.
 
 h3. Quick add a task {anchor:id="CSUser_guide.How_to_use_Calendar.Quick_add_task"}
 
@@ -1021,10 +1040,20 @@ h3. Add a detailed task {anchor:id="CSUser_guide.How_to_use_Calendar.Add_detaile
 
 *ii* In the *Reminders* tab, you can create one notification to remind you of your task. For more details, see the [Create a reminder|#Create_task_reminder] section.
 
-h4. Assign a task delegation {anchor:id="Assign_task_delegation"}
+{docbook}
+<para xml:id="Assign_task_delegation">
+<citetitle><emphasis role="bold">Assign a task delegation</emphasis></citetitle>
+</para>
+{docbook}
+
 This function is done in the the *Detail* tab. To delegate a task to users, simply enter their names manually, or click !images/plus_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to select users from the *Select Users* form.
 
-h4. Create a reminder {anchor:id="Create_task_reminder"}
+{docbook}
+<para xml:id="Create_task_reminder">
+<citetitle><emphasis role="bold">Create a reminder</emphasis></citetitle>
+</para>
+{docbook}
+
 The reminder function is used to remind users of their tasks. A reminder includes the summary information of the task, such as title, time, and place where the task will happen.
 
 This function is done in the *Reminders* tab. To create a reminder for a task, see the [Create a reminder for upcoming events|#Create_event_reminder] section for more details. 
@@ -1147,16 +1176,15 @@ Delete a task in the Month view
 h1. Search for events/tasks {anchor:id="CSUser_guide.How_to_use_Calendar.Search_for_events_tasks}
 This function allows finding existing events/tasks according to specific search conditions easily. There are 2 search types: *Quick search* and *Advanced search*.
 
-h2. Quick search {anchor:id="CSUser_guide.How_to_use_Calendar.Quick_search}
-This function allows you to do a quick search with specific keywords in all your events/tasks. All events/tasks having the text matching with your search term will be returned.
-
 {docbook}
 <citetitle>
-<para>
+<para xml:id="CSUser_guide.How_to_use_Calendar.Quick_search">
 <emphasis role="bold">Perform a quick search</emphasis>
 </para>
 </citetitle>
 {docbook}
+
+This function allows you to do a quick search with specific keywords in all your events/tasks. All events/tasks having the text matching with your search term will be returned.
 
 *1.* Enter a word in the *Search* field at the right corner of the toolbar.
 
@@ -1164,16 +1192,15 @@ This function allows you to do a quick search with specific keywords in all your
 
 *2.* Click !images/search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to perform your search.
 
-h2. Advanced Search {anchor:id="CSUser_guide.How_to_use_Calendar.Advanced_search}
-Advanced Search allows you to make a search with multiple criteria.
-
 {docbook}
 <citetitle>
-<para>
+<para xml:id="CSUser_guide.How_to_use_Calendar.Advanced_search">
 <emphasis role="bold">Perform an advanced search</emphasis>
 </para>
 </citetitle>
 {docbook}
+
+This function allows you to make a search with multiple criteria.
 
 *1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box.
 
@@ -1202,7 +1229,6 @@ Advanced Search allows you to make a search with multiple criteria.
     </para>
 </note>
 {docbook}
-
 
 h1. More actions {anchor:id="CSUser_guide.How_to_use_Calendar.More_actions}
 h2. Generate RSS {anchor:id="CSUser_guide.How_to_use_Calendar.Generate_rss}
@@ -1282,6 +1308,10 @@ In the *Calendar* application, you can change default values for its settings.
 
 h2. Manage categories {anchor:id="CSUser_guide.How_to_use_Calendar.Manage_categories}
 Categories are used to classify events and tasks. For example, you could use a 'Meeting' category for all meetings with your colleagues or customers in your company. By default, Calendar provides 5 available categories: Calls, Meeting, Holiday, Clients, Anniversary. You can add and view events/tasks in default categories. In addition, you also can edit, delete default categories or create new categories by yourself.
+
+Managing categories can be performed via the following actions:
+* [Add a new category|#CSUser_guide.How_to_use_Calendar.Add_new_category]
+* [Edit/Delete a category|#CSUser_guide.How_to_use_Calendar.Edit_delete_category]
 
 h3. Add a new category {anchor:id="CSUser_guide.How_to_use_Calendar.Add_new_category}
 

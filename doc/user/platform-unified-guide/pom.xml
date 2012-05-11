@@ -253,6 +253,7 @@
               <destinationFileName>index.xml</destinationFileName>
               <beforeBookBodyXML><![CDATA[
                  <xi:include href="bookinfo.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+                 <xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
            ]]></beforeBookBodyXML>
 		    <syntaxId>confluence/1.0</syntaxId>
             </configuration>
@@ -280,66 +281,130 @@
 <xi:include href="gatein/modules/account/Account_and_Password_Retrieval.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
 				</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Add a user</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Add a user</title>
-<xi:include href="gatein/modules/portal/Add_user.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage users</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage users</title>
-<xi:include href="gatein/modules/portal/Manage_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage groups</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage groups</title>
-<xi:include href="gatein/modules/portal/Manage_groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage memberships</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage memberships</title>
-<xi:include href="gatein/modules/portal/Manage_memberships.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage permissions</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage permissions</title>
-<xi:include href="gatein/modules/portal/Manage_Permission.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
-      <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage sites</title>]]></replacetoken>
-        <replacevalue><![CDATA[<title>Manage sites</title>
-<xi:include href="gatein/modules/portal/Manage_Portals.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-			</replace>
 
-      <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage navigation nodes</title>]]></replacetoken>
-        <replacevalue><![CDATA[<title>Manage navigation nodes</title>
-<xi:include href="gatein/modules/portal/Manage_Navigation_Nodes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-			</replace>
-       <replace file="${docbook.source}/index.xml">
-       <replacetoken><![CDATA[<title>Manage pages</title>]]></replacetoken>
-				  <replacevalue><![CDATA[<title>Manage pages</title>
-<xi:include href="gatein/modules/portal/Manage_Pages.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="gatein/modules/portal/Manage_Page_Navigation.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
-				</replace>
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Add_user">
+      <title>Add a user</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Add_user.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Add_user.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-User_Management-Add_a_user">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Add_user">]]></replacevalue>
+		</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_users">
+      <title>Manage users</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_users.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-User_Management-Manage_users">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_users">]]></replacevalue>
+		</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_groups">
+      <title>Manage groups</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_groups.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_groups.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-User_Management-Manage_groups">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_groups">]]></replacevalue>
+		</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_memberships">
+      <title>Manage memberships</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_memberships.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_memberships.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-User_Management-Manage_memberships">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Organization.Manage_memberships">]]></replacevalue>
+		</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Permission">
+      <title>Manage permissions</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_Permission.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_Permission.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Manage_Permissions">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Permission">]]></replacevalue>
+		</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_sites">
+      <title>Manage sites</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_Portals.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+ </replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_Portals.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Manage_Portals">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_sites">]]></replacevalue>
+   </replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes">
+      <title>Manage navigation nodes</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_Navigation_Nodes.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+ </replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_Navigation_Nodes.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Manage_Navigation_Nodes">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Navigation_Nodes">]]></replacevalue>
+   </replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Pages">
+      <title>Manage pages</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="gatein/modules/portal/Manage_Pages.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/gatein/modules/portal/Manage_Pages.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Manage_Pages">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Manage_Your_Portals.Manage_Pages">]]></replacevalue>
+		</replace>
+
        <replace file="${docbook.source}/index.xml">
        <replacetoken><![CDATA[<title>Inside a portal</title>]]></replacetoken>
 				  <replacevalue><![CDATA[<title>Inside a portal</title>
 <xi:include href="gatein/modules/gadgetsAdmin/Manage_Portlets_and_Gadgets.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 <xi:include href="gatein/modules/portletsUser/Dashboard_Portlet.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />]]></replacevalue>
 				</replace>
-        <replace file="${docbook.source}/index.xml">
-           <replacetoken><![CDATA[<title>Structure content</title>]]></replacetoken>
-           <replacevalue><![CDATA[<title>Structure content</title>
-           <xi:include href="ecms/modules/Basics/SitesExplorer/introduction_content_structure.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/SitesExplorer/Access_Sites_Explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/SitesExplorer/Drives.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/SitesExplorer/Views.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/SitesExplorer/Actions.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Basics/SitesExplorer/Folders_and_Documents.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-<xi:include href="ecms/modules/Advanced/Administration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Organize_Content.Structure_Content">
+      <title>Structure content</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="ecms/modules/Basics/SitesExplorer/Structure_content.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
-         </replace>
+		</replace>
+
+   <replace file="${docbook.source}/ecms/modules/Basics/SitesExplorer/Structure_content.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Structure_content">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Organize_Content.Structure_Content">]]></replacevalue>
+		</replace>
 
          <replace file="${docbook.source}/index.xml">
 				  <replacetoken><![CDATA[<title>Manage content</title>]]></replacetoken>
@@ -358,12 +423,20 @@
 <xi:include href="ecms/modules/Basics/Print.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 ]]></replacevalue>
             </replace>
-           <replace file="${docbook.source}/index.xml">
-           <replacetoken><![CDATA[<title>Manage newsletters</title>]]></replacetoken>
-           <replacevalue><![CDATA[<title>Manage newsletters</title>
-				  <xi:include href="ecms/modules/Basics/Newsletters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
-         ]]></replacevalue>
-				</replace>
+
+ <replace file="${docbook.source}/index.xml">
+   <replacetoken><![CDATA[<section id="Platform_User_Guide.Organize_Content.Newsletter">
+      <title>Manage newsletters</title>
+    </section>]]></replacetoken>
+   <replacevalue><![CDATA[<xi:include href="ecms/modules/Basics/Newsletters.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+]]></replacevalue>
+		</replace>
+
+   <replace file="${docbook.source}/ecms/modules/Basics/Newsletters.xml">
+   <replacetoken><![CDATA[<section id="sect-User_Guide-Newsletters">]]></replacetoken>
+   <replacevalue><![CDATA[<section id="Platform_User_Guide.Organize_Content.Newsletter">]]></replacevalue>
+		</replace>
+
               </target>
             </configuration>
             <goals>

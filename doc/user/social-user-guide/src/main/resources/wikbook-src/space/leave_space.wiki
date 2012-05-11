@@ -66,11 +66,11 @@ To view one detailed page of a space, you must become its member first. Then, do
 
 !images/Space_name_link.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-The detailed page of the space displays information about the space. The functions you can perform depending on your granted permissions or whether you are the space's creator or not.
+The detailed page of the space displays information about the space. The functions you can perform depend on your granted permissions or whether you are the space's creator or not.
 
 As a normal user, you can:
 
-* [Ask for joining the public space or leave the space|#Soc_User_Guide.Space_Management.Join_Space].
+* [Ask for joining the public space or leaving the space|#Soc_User_Guide.Space_Management.Join_Space].
 
 * [Accept or deny to join a space|#Soc_User_Guide.Space_Management.Edit_Space.Manage_Members.Accept_Mem].
 

@@ -9,11 +9,11 @@ Moderators in *Forum* are responsible for managing content of posts and replies 
 </para>
 {docbook}
 
-* Forum user guide for [Regular users|#Forum_user_guide.Regular_user]
-* Forum user guide for [Administrators|#Forum_user_guide.Forum_Administrator]
+* Actions for [Regular users|#Forum_user_guide.Regular_user]
+* Actions for [Administrators|#Forum_user_guide.Forum_Administrator]
 
 h2. Moderate forums {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_forums}
-Moderators can manage all the forums inside their assigned category. If you are a moderator of any category, you can do the following actions:
+Moderators can manage all the forums inside their assigned categories. If you are a moderator of any category, you can do the following actions:
 
 * [Edit a forum|#Forum_Moderator.Moderate_forums.Edit_forums]
 * [Lock/Unlock a forum|#Forum_Moderator.Moderate_forums.Lock-unlock_forums]
@@ -60,7 +60,7 @@ A list of existing categories will appear. Select a destination category to	whic
 !images/move_forum_form.png|align="center" width="70mm" fo:scalefit="1" html:scalefit="0"!
 
 h2. Moderate topics {anchor:id=Forum_user_guide.Forum_Moderator.Moderate_topics}
-The followings are actions that a moderator can execute on topics:
+Topics are moderated via the following actions:
 
 * [Approve a topic|#Forum_Moderator.Moderate_topics.Approve_topics]
 * [Edit a topic|#Forum_Moderator.Moderate_topics.Edit_topics]
@@ -247,8 +247,8 @@ Next, click !images/Moderation_btn.png|width="20mm" fo:scalefit="1" html:scalefi
 The followings are actions that a moderator can perform on a post:
 
 * [Approve a post|#Forum_Moderator.Moderate_posts.Approve_posts]
-* [Move a post|#Forum_Moderator.Moderate_posts.Move_posts]
 * [Delete a post|#Forum_Moderator.Moderate_posts.Delete_posts]
+* [Move a post|#Forum_Moderator.Moderate_posts.Move_posts]
 * [Hide a post|#Forum_Moderator.Moderate_posts.Hide_posts]
 * [Show a post|#Forum_Moderator.Moderate_posts.Show_posts]
 * [Uncensor a post|#Forum_Moderator.Moderate_posts.Uncensor_posts]

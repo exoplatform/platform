@@ -70,7 +70,7 @@ After the contacts have accepted your requests, you will receive the confirmatio
 
 After adding your contacts successfully, the added contacts will be shown in your friend list.
 
-h2. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
+h1. Remove a contact {anchor:id="CSUser_guide.How_to_use_Chat.Remove_contact"}
 This action is to remove a contact from your friend list.
 
 *1.* Click !images/contact_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! on the Chatbar to show your friend list.
