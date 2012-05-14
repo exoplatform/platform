@@ -42,11 +42,10 @@
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
-  <head>
-    <!--/WEB-INF/jsp/admin/termsandconditions.jsp-->
-    <title>eXo Subscription Agreement</title>
+  <head><title>eXo Subscription Agreement</title>
+    <title>Welcome to eXo Platform 3.5</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon"  href="/platform-extension/favicon.ico" />
     
 <style type="text/css">  
 html {
@@ -282,8 +281,7 @@ copy style from here (dont use css line up , they exiting on product)
 
 <body>
   <!--begin popup terms conditions-->
-  <div class="MaskLayer"  style="position:absolute;width:100%;height:100%;background:#000;z-index:4;left:0;top:0;opacity:0.7;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)'; filter: alpha(opacity=70); ">
-  </div><!--set again height use javasript (get height screen resolution)-->
+  <div class="MaskLayer"  style="position:absolute;width:100%;height:100%;background:#000;z-index:4;left:0;top:0;opacity:0.7;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=70)'; filter: alpha(opacity=70); "></div><!--set again height use javasript (get height screen resolution)-->
     <div class="TermsConditions UIPopupWindow">
       <div class="OverflowContainer ">        
         <h5 class="PopupTitle">Terms and Conditions Agreement</h5>
