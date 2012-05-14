@@ -45,7 +45,7 @@
   <head><title>eXo Subscription Agreement</title>
     <title>Welcome to eXo Platform 3.5</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" type="image/x-icon"  href="/platform-extension/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     
 <style type="text/css">  
 html {
