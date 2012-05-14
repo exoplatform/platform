@@ -26,7 +26,12 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
 
     // Include JSP page
     try {
-      request.setAttribute(INITIAL_URI_ATTRIBUTE, initialURI);
+      request.setAttribute(INITIAL_URI_ATTRIBUTE, initialURI);    
+      
+      // Very important, see PLF-3227. If contentType is not set, with acceptance, this doesn't work, 
+      // HTML is not executed, it is considered as a text and displayed into a <pre> tag
+      response.setContentType("text/html; charset=UTF-8");
+      
       getServletContext().getRequestDispatcher(TC_JSP_RESOURCE).include(request, response);
     }
     finally {
