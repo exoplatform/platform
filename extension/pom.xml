@@ -10,10 +10,10 @@
   <packaging>pom</packaging>
   <name>eXo Platform - Extension</name>
   <modules>
-    <module>config</module>
+    <!--module>config</module-->
     <module>webapp</module>
-    <module>resources</module>
+    <!--module>resources</module>
     <module>portlets</module>
-    <module>ear</module>
+    <module>ear</module-->
   </modules>
 </project>
