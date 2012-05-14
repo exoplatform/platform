@@ -4,18 +4,18 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.5.4-TC-SNAPSHOT</version>
+    <version>3.5.4-SNAPSHOT</version>
   </parent>
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.doc</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Docs</name>
-  <!--modules>
+  <modules>
     <module>admin</module>
     <module>developer</module>
     <module>refguide</module>
     <module>user</module>
     <module>introduction</module>
     <module>bundle</module>
-  </modules-->
+  </modules>
 </project>

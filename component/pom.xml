@@ -4,18 +4,18 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.5.4-TC-SNAPSHOT</version>
+    <version>3.5.4-SNAPSHOT</version>
   </parent>
   <artifactId>exo.platform.component</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Component</name>
   <modules>
     <module>common</module>
-	<!--module>edition</module>
+	<module>edition</module>
     <module>gadgets</module>
 	<module>upgrade</module>
 	<module>organization</module>
 	<module>webui</module>
-	<module>jmxclient</module-->
+	<module>jmxclient</module>
   </modules>
 </project>

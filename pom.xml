@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>org.exoplatform.platform</groupId>
 	<artifactId>exo.platform.parent</artifactId>
-	<version>3.5.4-TC-SNAPSHOT</version>
+	<version>3.5.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>eXo Platform</name>
 	<description>Parent POM for platform projects.</description>
@@ -226,12 +226,12 @@
 	<modules>
 		<module>component</module>
 		<module>extension</module>
-		<!--module>server</module>
+		<module>server</module>
 		<module>samples</module>
 		<module>trial</module>
 		<module>exo-gadget-pack</module>
-		<module>doc</module-->
+		<module>doc</module>
 		<module>packaging</module>
-		<!--module>testsuite</module-->
+		<module>testsuite</module>
 	</modules>
 </project>
