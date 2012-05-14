@@ -10,12 +10,14 @@
   <artifactId>exo.platform.doc</artifactId>
   <packaging>pom</packaging>
   <name>eXo Platform - Docs</name>
-  <modules>
+  
+  <!--modules>
     <module>admin</module>
     <module>developer</module>
     <module>refguide</module>
     <module>user</module>
     <module>introduction</module>
     <module>bundle</module>
-  </modules>
+  </modules-->
+  
 </project>

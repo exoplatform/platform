@@ -74,6 +74,14 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
           case 5: jspResource = TC_JSP_RESOURCE_TEST5;break;
           case 6: jspResource = TC_JSP_RESOURCE_TEST6;break;
           case 7: jspResource = TC_JSP_RESOURCE_TEST7;break;
+          case 8: 
+            jspResource = TC_JSP_RESOURCE_TEST0;
+            response.setContentType("text/html; charset=UTF-8");
+            break;
+          case 9: 
+            jspResource = TC_JSP_RESOURCE_TEST7;
+            response.setContentType("text/html; charset=UTF-8");
+            break;
           case 11: jspResource = TC_JSP_RESOURCE_TEST11;break;
           case 12: jspResource = TC_JSP_RESOURCE_TEST12;break;
           case 13: jspResource = TC_JSP_RESOURCE_TEST13;break;
@@ -85,9 +93,8 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
       }
       
       // TODO delete: log to verify update into acceptance
-      logger.info("ACCEPTANCE TEST: [jsp loaded is:" + jspResource + "]");
+      logger.info("ACCEPTANCE TEST: [test=" + testNumber + "] [jsp loaded is:" + jspResource + "]");
       
-      response.setContentType("text/html; charset=UTF-8");
       getServletContext().getRequestDispatcher(jspResource).include(request, response);
     }
     finally {
