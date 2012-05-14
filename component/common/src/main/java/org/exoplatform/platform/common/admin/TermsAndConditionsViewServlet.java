@@ -56,7 +56,7 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
       }
     }
     catch(Exception e) {
-      logger.error("Problem with parameter: t", e);
+      logger.error("Problem with parameter: t" + e.getMessage());
     }
 
     // Include JSP page
@@ -83,6 +83,11 @@ public class TermsAndConditionsViewServlet extends HttpServlet {
           default: break;
         }
       }
+      
+      // TODO delete: log to verify update into acceptance
+      logger.info("ACCEPTANCE TEST: [jsp loaded is:" + jspResource + "]");
+      
+      response.setContentType("text/html; charset=UTF-8");
       getServletContext().getRequestDispatcher(jspResource).include(request, response);
     }
     finally {
