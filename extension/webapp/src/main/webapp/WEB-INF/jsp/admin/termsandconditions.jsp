@@ -28,24 +28,26 @@
 <%@ page language="java" %>
 <%
   String contextPath = request.getContextPath() ;
-	String lang = request.getLocale().getLanguage();
+  String lang = request.getLocale().getLanguage();
 
   ResourceBundleService service = (ResourceBundleService) PortalContainer.getCurrentInstance(session.getServletContext()).getComponentInstanceOfType(ResourceBundleService.class);
   ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
 
   String uri = (String)request.getAttribute("org.gatein.portal.login.initial_uri");
 
-  response.setCharacterEncoding("UTF-8"); 
   response.setContentType("text/html; charset=UTF-8");
+  response.setCharacterEncoding("UTF-8"); 
 %>
 <!DOCTYPE html 
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=lang%>" lang="<%=lang%>">
   <head><title>eXo Subscription Agreement</title>
-  <style type="text/css">
-  
-  
+    <title>Welcome to eXo Platform 3.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
+    
+<style type="text/css">  
 html {
   margin: 0px; padding: 0px;
 }
