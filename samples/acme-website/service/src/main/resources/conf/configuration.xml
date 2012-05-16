@@ -24,7 +24,7 @@
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>acme-portal</string>
+									<string>acme-website</string>
 								</value>
 							</collection>
 						</field>					
