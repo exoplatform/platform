@@ -27,7 +27,7 @@ h1. Change the JAAS realm {anchor:id=ADM.Security.Change_JAAS_real}
 
 eXo Platform relies on JAAS for propagating the user identity and roles to the different applications deployed on the server.
 
-The JAAS realm is used by all eXo Platform applications and even propagated to the JCR for [Access Control|http://docs.jboss.org/exojcr/1.12.5-GA/developer/en-US/html_single/#JCR.AccessControl].
+The JAAS realm is used by all eXo Platform applications and even propagated to the JCR for [Access Control|../../reference/html/JCR.AccessControl.html].
 
 By default, eXo Platform uses the JAAS realm named "gatein-domain". If your IT operation rules require you to use another JAAS realm, you will need to modify several files so that eXo Platform can work on your JAAS realm.
 

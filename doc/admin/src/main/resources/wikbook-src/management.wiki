@@ -256,9 +256,9 @@ FriendlyService is to make URIs more friendly.
 
 
 ||Operation||Description||
-|{{addFriendly(friendlyUri, unfriendlyUri)}}|Add a new Frienly Uri to the list with two parameters: friendlyUri and unfrienlyUri. The value entered in the *friendlyUri* field replaces that of the *unfriendlyUri* field.|
+|{{addFriendly(friendlyUri, unfriendlyUri)}}|Add a new Friendly Uri to the list with two parameters: friendlyUri and unfriendlyUri. The value entered in the *friendlyUri* field replaces that of the *unfriendlyUri* field.|
 |{{removeFriendly(friendlyUri)}}|Remove a friendly URI from the list by entering that Uri into the *friendlyUri* field.|
-|{{isEnabled}}|Check if the service is enabled or not. If the value is returned as "True", the service is enabled. If "False", the serive is disabled.|
+|{{isEnabled}}|Check if the service is enabled or not. If the value is returned as "True", the service is enabled. If "False", the service is disabled.|
 |{{setEnabled(isEnabled)}}|Set the service as activated or deactivated by entering "True" or "False" respectively into the *isEnabled* field.|
 |{{getServletName}}|Return the name of servlet referenced in the service.|
 |{{getFriendlies}}|Return the list of registered friendly URIs.|
