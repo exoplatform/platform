@@ -175,7 +175,7 @@
                 <value-param>
                     <name>autoCreatedDrive</name>
                     <description>A drive will be automatically created during the portal creation.</description>
-                    <value>false</value>
+                    <value>true</value>
                 </value-param>
                 <values-param>
                     <name>targetDrives</name>
