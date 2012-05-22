@@ -31,13 +31,29 @@ The *Wiki* content is organized as a page tree in which each page may contain ma
 </para>
 {docbook}
 
-Space is a set of pages, so the space partitioning means they are independent trees. This separation enables *Wiki* to provide knowledge spaces for different groups.
+Space is a set of pages, so the spaces partitioning means that spaces are independent trees. This separation enables *Wiki* to provide knowledge spaces for different groups.
 
 There are 3 space types:
 
-* *Portal wiki*: wiki for the current portal site.
-* *Group wiki*: wiki available for members of a group.
-* *User wiki*: wiki for personal pages.
+* *Portal wiki*: The global wiki of a portal. 
+
+A portal wiki is published for every user who can access that portal. 
+
+* *Group wiki*: The wiki of a space. 
+
+A group wiki can be understood as a space wiki. The wiki application of a space works as a group wiki for that space ({{"/Spaces/name\_of\_space"}} group). The group wiki can be accessed by members of that group. 
+
+For example: 
+
+!images/group_wiki.png|width="150mm" align="center" fo:scalefix="1" html:scalefix="0"!
+
+* *User wiki*: The wiki of an individual user.
+
+Every user has his own wiki. The URL to an user wiki is in the following format:  {{.../wiki/user/name\_of\_user}}.
+
+For example:
+
+!images/user_wiki.png|width="150mm" align="center" fo:scalefix="1" html:scalefix="0"!
 
 {docbook}
 <note>
