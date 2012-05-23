@@ -611,6 +611,3 @@ target/
 
 # Misc
 *.swp
-
-/packaging/tomcat/target_uptodate
-/packaging/tomcat/target_working
