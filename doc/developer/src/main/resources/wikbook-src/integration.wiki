@@ -86,7 +86,7 @@ h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 
 h2. Single-Sign-On (SSO) {anchor:id=DEV.SystemIntegration.SingleSignON}
 
-When logging into the portal, you can gain access to many systems through portlets using a single identity. However, in many cases, the portal infrastructure must be integrated with other SSO-enabled systems. There are many different Identity Management solutions available. The GateIn documentation gives detailed configuration for different SSO implementation. For more details, see [SSO - Single Sign On|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#chap-Reference_Guide-SSO_Single_Sign_On].
+When logging into the portal, you can gain access to many systems through portlets using a single identity. However, in many cases, the portal infrastructure must be integrated with other SSO-enabled systems. There are many different Identity Management solutions available. The GateIn documentation gives detailed configuration for different SSO implementation. For more details, see [SSO - Single Sign On|../../../reference/html/chap-Reference_Guide-SSO_Single_Sign_On.html].
 
 h2. Central Authentication Service (CAS) {anchor:id=DEV.SystemIntegration.CenterAuthenticationService}
 
@@ -97,7 +97,7 @@ The CAS integration consists of two steps:
 * Installing or configuring the CAS server.
 * Setting up the portal to use the CAS server.
 
-For more information on CAS configuration, see [here|http://docs.jboss.com/gatein/portal/3.1.0-FINAL/reference-guide/en-US/html_single/index.html#sect-Reference_Guide-Single_Sign_On-CAS_Central_Authentication_Service].
+For more information on CAS configuration, see [here|../../../reference/html/sect-Reference_Guide-Single_Sign_On-CAS_Central_Authentication_Service.html].
 
 
 h2. Kerberos SSO on Active Directory {anchor:id=DEV.SystemIntegration.KerberosSSOOnActiveDirectory}
@@ -247,7 +247,7 @@ The predefined users are specified in the *membershipType* field of the Organiza
 
 h2. Organization API {anchor:id=DEV.SystemIntegration.OrganizationAPI}
 
-The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for five components. For more details, see the [Organization API|../../../reference/html/bk02ch06.html#sect-Reference_Guide-APIs-Organization_API] section.
+The _exo.platform.services.organization_ package has five main components: user, user profile, group, membership type and membership. There is an additional component that serves as an entry point into Organization API - _OrganizationService_ component which provides handling functionality for five components. For more details, see the [Organization API|../../../reference/html/sect-Reference_Guide-APIs-Organization_API.html] section.
 
 h1. LDAP Integration {anchor:id=DEV.SystemIntegration.LDAPIntegration}
 If you have an existing LDAP server, the eXo predefined settings will likely not match your directory structure. eXo LDAP organization service implementation was written with flexibility in mind and can certainly be configured to meet your requirements.

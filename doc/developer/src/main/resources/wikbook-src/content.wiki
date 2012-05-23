@@ -51,7 +51,7 @@ h1. Node type {anchor:id=DEV.WorkWithContent.NodeType}
 
 To create a content for your extension, you first need to define a node type which represents the document type in the JCR. There are 2 ways to define your node type:
 
-* Via the *Content Administration* portlet. For more details on how to create a note type via the *Content Administration* portlet, see the *[Manage node types|../../../user-guide/html/ch05.html#sect-User_Guide-Content_Types-Manage_Node_Types]* in the [eXo Platform 3.5 user guide|../../../user-guide/html/index.html].
+* Via the *Content Administration* portlet. For more details on how to create a note type via the *Content Administration* portlet, see the *[Manage node types|../../../user-guide/html/sect-User_Guide-Content_Types-Manage_Node_Types.html]* in the eXo Platform 3.5 user guide.
 * Via the .xml configuration files by creating a _nodetypes-configuration.xml_ file in your extension as below.
 
 {code:xml}
@@ -356,7 +356,7 @@ uicomponent.addSelectBoxField("mimetype", mimetype) ;
 
 As usual, the value will be stored at the relative path defined by the jcrPath directive argument.
 
-For more examples on how to create WCM templates, refer to the [WCM Templates|../../../reference/html/bk03ch04.html#CONTref.InsideWCMTemplates] section.
+For more examples on how to create WCM templates, refer to the [WCM Templates|../../../reference/html/CONTref.InsideWCMTemplates.html] section.
 
 h3. Advanced dynamic select box {anchor:id=DEV.WorkWithContent.AdvancedDynamicSelectBox}
 
@@ -499,7 +499,7 @@ With init-parameters as:
   </value-param>
   <object-param>
     <name>template.configuration</name>
-    <description>configuration for the localtion of templates to inject in jcr</description>
+    <description>configuration for the location of templates to inject in jcr</description>
     <object type="org.exoplatform.services.cms.templates.impl.TemplateConfig">
       <field name="nodeTypes">
         <collection type="java.util.ArrayList">
