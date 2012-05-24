@@ -33,6 +33,7 @@
         <%
           def currentPageData = uicomponent.getCurrentPageData();
           def i=currentPageData.size()-1;
+		  if(i!=-1){
           def viewNode = currentPageData.get(i);
 
           def isShowTitle = uicomponent.isShowField(UICLVPortlet.PREFERENCE_SHOW_TITLE);
@@ -83,7 +84,7 @@
             }%>
           </div>
         <%}%>
-  <%}%>
+  <%}}%>
 
   <div class="CaptionFunc ClearFix">
       <% String labelRefreshAction = _ctx.appRes("UICLVPresentation.action.refresh");
