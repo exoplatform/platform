@@ -1,6 +1,5 @@
 eXo Platform is packaged as a deployable enterprise archive defined by the Java EE specification, and as a configuration directory.
 
-
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 
 The easiest way to install eXo Platform is to take the default bundle.
@@ -11,110 +10,109 @@ h2. Startup {anchor:id=ADM.Installation.Tomcat_Bundle_Startup}
 eXo Platform leverages the application server on which it is deployed. 
 This means, to start and stop eXo Platform, you only need to start and stop your application with the default commands.
 
-* On Linux and OS X:   {screen}$TOMCAT_HOME/start_eXo.sh{screen}
-* On Windows:          {screen}%TOMCAT_HOME%\\start_eXo.bat{screen}
+* On Linux and OS X:   {code}$TOMCAT_HOME/start_eXo.sh{code}
+* On Windows:          {code}%TOMCAT_HOME%\\start_eXo.bat{code}
 
 The server has started when you see the following message in your log/console:
-{screen}
+{code}
 INFO: Server startup in 353590 ms
-{screen}
+{code}
 
 h2. Shutdown {anchor:id=ADM.INstallation.Tomcat_Bundle_Shutdown}
 
-* On Linux and OS X: {screen}$TOMCAT_HOME/stop_eXo.sh{screen}
-* On Windows:        {screen}%TOMCAT_HOME%\\stop_eXo.bat {screen}
+* On Linux and OS X: {code}$TOMCAT_HOME/stop_eXo.sh{code}
+* On Windows:        {code}%TOMCAT_HOME%\\stop_eXo.bat {code}
 
 If you have a similar message when you try to stop Tomcat:
-{screen}Tomcat did not stop in time. PID file was not removed.{screen}
-then you must stop the tomcat process by a Ctrl+C or kill -9 command. To perform a kill automatically, you can type:
-{screen}stop_eXo.sh -force{screen} instead. It is available only on Linux and OS X systems.
+{code}Tomcat did not stop in time. PID file was not removed.{code}
+Then, you must stop the tomcat process by a Ctrl+C or kill \-9 command. To perform a kill automatically, instead, you can type:
+{code}stop_eXo.sh -force{code}
+ This command is available only on the Linux and OS X systems.
 
 
 The server has stopped when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO: Stopping Coyote HTTP/1.1 on http-8080
-{screen}
-
+{code}
 
 h2. Startup scripts {anchor:id=ADM.Installation.JBoss_EARS_Startup_scripts}
 
-eXo comes with several builtin startup scripts:
-* {{start{{{_}}}eXo.sh}}: start eXo on Linux and OS X 
-* {{start{{{_}}}eXo.bat}}: start eXo on Windows
-* bin/gatein-dev.sh: start eXo on Linux and OS X in developer mode 
-* bin/gatein-dev.bat: start eXo on Windows in developer mode 
-
+eXo Platform comes with several built-in startup scripts:
+* {{start{{{_}}}eXo.sh}}: start eXo Platform on Linux and OS X.
+* {{start{{{_}}}eXo.bat}}: start eXo Platform on Windows.
+* bin/gatein-dev.sh: start eXo Platform on Linux and OS X in developer mode.
+* bin/gatein-dev.bat: start eXo Platform on Windows in developer mode.
 
 h3. Normal Mode {anchor:id=ADM.Installation.Normal_Mode}
 
-{{start{{{_}}}eXo}} scripts launch eXo with the following JVM options:
-{screen}
+{{start{{{_}}}eXo}} scripts launch eXo Platform with the following JVM options:
+{code}
 -Xms256m 
 -Xmx1024m 
 -XX:MaxPermSize=256m 
 -Djava.security.auth.login.config=../conf/jaas.conf  
 -Dexo.conf.dir.name=gatein/conf 
 -Dexo.profiles=default
-{screen}
+{code}
 
-|| {{-Xms}} | Minimal heap size (defaults to 256 MB) |
-|| {{-Xmx}} | Maximal Heap Size of (defaults to 1 GB)  |
-|| {{-Djava.security.auth.login.config | path to the JAAS security file where the security domains are and JAAS authentication modules are declared |
-|| {{-Dexo.conf.dir.name}} | path where eXo will start looking at configuration.properties and configuration.xml |
-|| {{-Dexo.profiles}} | the list of comma-separated exo profiles to activate |
+| {{-Xms}} | Minimal heap size (defaults to 256 MB). |
+| {{-Xmx}} | Maximal Heap Size of (defaults to 1 GB).  |
+| {{-Djava.security.auth.login.config |The path to the JAAS security file where the security domains are and JAAS authentication modules are declared. |
+| {{-Dexo.conf.dir.name}} |The path where eXo Platform will start looking at configuration.properties and configuration.xml. |
+| {{-Dexo.profiles}} | The list of comma-separated exo profiles to activate. |
 
 This is enough to start and run a demo, but you will need to adjust these values for a production setup.
 
 h3. Developer mode {anchor:id=ADM.Installation.Developer_mode}
 
-{{gatein-dev}} scripts launch eXo in developer mode with a few more JVM options.
-{screen}
+{{gatein-dev}} scripts launch eXo Platform in developer mode with a few more JVM options.
+{code}
 -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n 
 -Dcom.sun.management.jmxremote 
 -Dorg.exoplatform.container.configuration.debug 
 -Dexo.product.developing=true 
-{screen}
+{code}
 
-
-|| {{-Dcom.sun.management.jmxremote}} | activates the JMX remoting |
-|| {{-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n}} | enables remote debugging |
-|| {{-Dorg.exoplatform.container.configuration.debug}} | the container will log to the console what xml files it loads |
-|| {{-Dexo.product.developing=true}} | deactivates javascript and css merging for easier debugging |
+| {{-Dcom.sun.management.jmxremote}} | Activates the JMX remoting. |
+| {{-Xdebug \-Xrunjdwp:transport=dt_socket,address=8000, server=y,suspend=n}} | Enable remote debugging. |
+| {{-Dorg.exoplatform.container.configuration.debug}} | The container will log to the console what .xml files it loads. |
+| {{-Dexo.product.developing=true}} | Deactivate JavaScript and CSS merging for easier debugging. |
 
 
 h1. Install the JBoss EARs {anchor:id=ADM.Installation.Install_JBoss_EARS}
 
-We provide EARs packages to deploy in your existing JBoss application server. They are located in the folder {{bin/jboss5-eap-ears/}}.
+eXo Platform provides EARs packages to deploy in your existing JBoss application server. They are located in the {{bin/jboss5-eap-ears/}} folder.
 
 To install eXo Platform on JBoss, follow these steps:
 
-*1.* Copy files in {{jboss-root/server/default/deploy}}
-- gatein-ds.xml
-- gatein.ear (it must remain a folder named gatein.ear)
-- starter-gatein.ear
-- acme-website.ear
-- office-portal.ear
-- platform-extension.ear
-- exo-collaboration.ear
-- exo-social-extension.ear
-- gatein-exo-ks.ear
-- gatein-wcm-extension-plf.ear
-- gatein-workflow-extension-plf.ear
+*1.* Copy these files in {{jboss-root/server/default/deploy}}.
+* gatein-ds.xml
+* gatein.ear (it must remain a folder named gatein.ear)
+* starter-gatein.ear
+* acme-website.ear
+* office-portal.ear
+* platform-extension.ear
+* exo-collaboration.ear
+* exo-social-extension.ear
+* gatein-exo-ks.ear
+* gatein-wcm-extension-plf.ear
+* gatein-workflow-extension-plf.ear
 
-*2.* Create a folder {{jboss-root/server/default/conf/gatein}}
+*2.* Create a folder {{jboss-root/server/default/conf/gatein}}.
 
 Copy these files:
-- configuration.properties
-- configuration.xml
+* configuration.properties
+* configuration.xml
 
-*3.* Copy these files in {{jboss-root/bin}}
-- exokey.pem
-- oauthkey.pem
+*3.* Copy these files in {{jboss-root/bin}}.
+* exokey.pem
+* oauthkey.pem
 
-*4.* Configure JVM parameters {anchor:id=ADM.Installation.Configure_JVM_Parameters}
+*4.* Configure JVM parameters. {anchor:id=ADM.Installation.Configure_JVM_Parameters}
 
 On *Linux*, add these lines at the end of {{jboss-root/bin/run.conf}}:
+
 {code}
 # Platform environment variables
 EXO_PROFILES="-Dexo.profiles=default"
@@ -125,20 +123,21 @@ JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
 On *Windows*, add these lines at the end of {{jboss-root/bin/run.conf.bat}}:
+
 {code}
 rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
 set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
-set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
+set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y, suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
 set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
 set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
-- You can use another implementation of SAX by changing the class names in the {noformat}EXO_XML{noformat} variable, for example: {{com.sun.xml.internal.stream.XMLOutputFactoryImpl}}
-- To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} in the {noformat}JAVA_OPTS{noformat} variable
+* You can use another implementation of SAX by changing the class names in the {noformat}EXO_XML{noformat} variable, for example: {{com.sun.xml.internal.stream.XMLOutputFactoryImpl}}.
+* To debug the application, simply add {noformat}$REMOTE_DEBUG{noformat} in the {noformat}JAVA_OPTS{noformat} variable.
 
-*5.* Add eXo logging categories in {{jboss-root/server/default/conf/jboss-log4j.xml}}
+*5.* Add eXo logging categories to {{jboss-root/server/default/conf/jboss-log4j.xml}}.
 {code:xml}
    <!-- Limit the JSR170 categories -->
    <category name="exo.jcr">
@@ -150,49 +149,48 @@ set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
    </category>
 {code}
 
-*6.* Start up {anchor:id=ADM.Installation.JBoss_EARS_Startup}
+*6.* Start up. {anchor:id=ADM.Installation.JBoss_EARS_Startup}
 
-* On Linux and OS X:   {screen}$JBOSS_HOME/bin/run.sh{screen}
-* On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
+* On Linux and OS X:   {code}$JBOSS_HOME/bin/run.sh{code}
+* On Windows:          {code}%JBOSS_HOME%\\bin\\run.bat{code}
 
 The server has started when you see the following message in your log/console:
-{screen}
+{code}
 INFO [org.jboss.bootstrap.microcontainer.ServerImpl] (main) JBoss (Microcontainer) [5.0.1 (build: ...)] Started in 3m:29s:259ms
-{screen}
+{code}
 
-*7.* Shut down {anchor:id=ADM.Installation.JBoss_EARS_Shutdown}
+*7.* Shut down. {anchor:id=ADM.Installation.JBoss_EARS_Shutdown}
 
-* On Linux and OS X: {screen}$JBOSS_HOME/bin/shutdown.sh{screen}
-* On Windows:        {screen}%JBOSS_HOME%\\bin\\shutdown.bat {screen}
+* On Linux and OS X: {code}$JBOSS_HOME/bin/shutdown.sh{code}
+* On Windows:        {code}%JBOSS_HOME%\\bin\\shutdown.bat {code}
 
 The server has stopped when you see the following message in your log/console:
 
-{screen}
+{code}
 INFO  [org.jboss.bootstrap.microcontainer.ServerImpl] (JBoss Shutdown Hook) Shutdown complete
-{screen}
-
+{code}
 
 h1. eXo Profiles {anchor:id=ADM.Installation.eXo_profiles}
  
-
-eXo comes with different runtime profile, that you can use if you want to customize what modules you want to enable/disable in you eXo instance.
+eXo Platform comes with different runtime profiles that you can use if you want to customize what modules you want to enable/disable in you eXo instance.
 
 {{start{{{_}}}eXo}} commands accept a comma-separated list of profiles.  The following profiles are supported : 
 
 || Profile || Description ||
-|| {{collaboration}} | enables eXo Collaboration module |
-|| {{knowledge}} | enables eXo Knowledge module |
-|| {{social}} | enables eXo Social module |
-|| {{workflow}} | enables the Workflow add-on within the eXo Content module |
+| {{collaboration}} | Enable eXo Collaboration module. |
+| {{knowledge}} | Enable eXo Knowledge module. |
+| {{social}} | Enables eXo Social module. |
+| {{workflow}} | Enable the Workflow add-on within the eXo Content module. |
 
 Additionally, you can use these composite profiles: 
 || Profile || Description ||
-|| {{minimal}} | contains GateIn + WCM  |
-|| {{default}} | contains all except workflow (gatein,ide,wcm,collaboration,social,knowledge)  |
-|| {{all}} | all available modules  |
+| {{minimal}} | Contain GateIn + WCM.  |
+| {{default}} | Contain all except workflow (GateIn,IDE, WCM, Collaboration, Social, and Knowledge).  |
+| {{all}} | All available modules.  |
 
 For example: 
-{screen}
+{code}
 ./start_eXo.sh default,workflow #  start all modules including workflow
 ./start_eXo.sh collaboration,knowledge #  start exo with gatein,wcm, collaboration and knowledge enabled
-./start_eXo.sh minimal,social # start with social, gatein and wcm{screen}
+./start_eXo.sh minimal,social # start with social, gatein and wcm
+{code}

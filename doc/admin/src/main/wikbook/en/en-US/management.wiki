@@ -21,7 +21,7 @@ h2. REST interface {anchor:id=ADM.Management.REST_interface}
 
 The built-in REST Management Provider of eXo Platform makes some of the MBeans operations accessible as REST endpoints. Administrators can handle the system simply with a browser without performing any complex configurations.
 
-Only members of the platform/administrators group are given permission to work on the REST management. The authentication requires you to login by your own account.
+Only members of the platform/administrators group are given permission to work on the REST management. The authentication requires you to log in by your own account.
 
 The base URL to access the REST endpoints is [http://localhost:8080/rest/management], with the last one followed by the parameter parsed in the managed resource's @RESTEndpoint annotation, leading slash then targeted operation. Consider the SkinService, which is annotated @RESTEndpoint("skinservice"); the full URL to access JMX 'getSkinList' method through the REST request is [http://localhost:8080/rest/management/skinservice/getSkinList].
 			
@@ -89,18 +89,18 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.services.jcr.impl.core.lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
+|{{org.exoplatform.services.jcr.impl.core. lock.LockManagerImpl}}|Cache lockData by the lockToken. {example}Cache lockData by the internal identifier of node.{example}|
 
 
 * eXo Content
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.ecm.REST.viewer.PDFViewerRESTService}}|Cache data of PDF files by the ObjectKey object.|
-|{{org.exoplatform.services.cms.drives.ManageDriveService}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
-|{{org.exoplatform.services.cms.scripts.impl.ScriptService}}|Cache all Groovy script files by the script name.|
-|{{org.exoplatform.services.cms.templates.TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript.text.TemplateService.|
-|{{org.exoplatform.services.wcm.webcontent.InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
+|{{org.exoplatform.ecm.REST.viewer. PDFViewerRESTService}}|Cache data of PDF files by the ObjectKey object.|
+|{{org.exoplatform.services.cms.drives. ManageDriveService}}|Cache all drives of Sites Explorer by the drive group name (String constant).|
+|{{org.exoplatform.services.cms.scripts.impl. ScriptService}}|Cache all Groovy script files by the script name.|
+|{{org.exoplatform.services.cms.templates. TemplateService}}|Cache all Groovy templates by the mechanism of org.exoplatform.groovyscript.text.TemplateService.|
+|{{org.exoplatform.services.wcm.webcontent. InitialWebContentPlugin}}|Cache all artifact data by sourcePath of deploymentDescriptor. These data are reused when a new portal is deployed.|
 |{{wcm.composer}}|Cache published contents by the hash generated from path, version, remoteUser, language, recursive, orderBy, orderType, primaryType of cached nodes in eXo Content.|
 
 
@@ -108,14 +108,14 @@ h3. Cache instances {anchor:id=ADM.Management.Cache_instances}
 
 
 ||Cache Name||Description||
-|{{org.exoplatform.social.core.manager.ActivityManageractivityCache}}|Cache an activity by its id.|
-|{{org.exoplatform.social.core.manager.ActivityManageractivityListCache}}|Cache the list of all activities by identityId and their segments.|
-|{{org.exoplatform.social.core.manager.ActivityManagercommentsCache}}|Cache all comments of an activity by its id.|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityCache}}|Cache an identity by its globalId.|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityCacheById}}|Cache an identity by its uuid. {example}Cache an identity by providerId:remoteId.{example}|
-|{{org.exoplatform.social.core.manager.IdentityManageridentityListCache}}|Cache the list of identities by identityProvider.|
-|{{org.exoplatform.social.core.manager.RelationshipManagerrelationshipIdCache}}|Cache the relationship by its id.|
-|{{org.exoplatform.social.core.manager.RelationshipManagerrelationshipListCache}}|Cache the list of relationships by identityId.|
+|{{org.exoplatform.social.core.manager. ActivityManageractivityCache}}|Cache an activity by its Id.|
+|{{org.exoplatform.social.core.manager. ActivityManageractivityListCache}}|Cache the list of all activities by identityId and their segments.|
+|{{org.exoplatform.social.core.manager. ActivityManagercommentsCache}}|Cache all comments of an activity by its Id.|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityCache}}|Cache an identity by its globalId.|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityCacheById}}|Cache an identity by its UUID. {example}Cache an identity by providerId:remoteId.{example}|
+|{{org.exoplatform.social.core.manager. IdentityManageridentityListCache}}|Cache the list of identities by identityProvider.|
+|{{org.exoplatform.social.core.manager. RelationshipManagerrelationshipIdCache}}|Cache the relationship by its Id.|
+|{{org.exoplatform.social.core.manager. RelationshipManagerrelationshipListCache}}|Cache the list of relationships by identityId.|
 
 
 h3. CacheManager {anchor:id=ADM.Management.Chache_manager}
@@ -131,7 +131,7 @@ The CacheManager management view enables you to control different caches.
 
 h3. PicketLinkIDMCacheService {anchor:id=ADM.Management.PicketLinkIDMCacheServer}
 
-PicketLinkIDMCacheService is the default implementation for the organization model. 
+PicketLinkIDMCacheService is the default implementation for the organization model.
 
 * The JMX name template of PicketLinkIDMCacheService MBeans: {{exo:portal="portal",service=PicketLinkIDMCacheService,name=plidmcache}}.
 
@@ -208,11 +208,11 @@ h3. WCMService {anchor:id=ADM.Management.WCMService}
 {note}
 WCMComposer, FriendlyService, and WCMService can be controlled through the following paths of relevant REST services:  
 
-* http://localhost:8080/rest/management/wcmcomposerservice/.
+http://localhost:8080/rest/management/wcmcomposerservice/.
 
-* http://localhost:8080/rest/management/friendlyservice/.
+http://localhost:8080/rest/management/friendlyservice/.
 
-* http://localhost:8080/rest/management/wcmservice/.
+http://localhost:8080/rest/management/wcmservice/.
 {note}
 
 h2. JCR management view {anchor:id=ADM.Management.JCR_management_view}
@@ -373,9 +373,9 @@ eXo Platform provides the following TokenStore instances:
 
 
 ||Token Name||Description||
-|{{gadget-token}}|Store tokens of the Oauth gadget into the JCR node, such as *org.exoplatform.portal.gadget.core.GadgetTokenInfoService*.|
-|{{jcr-token}}|Store common tokens into the JCR node, such as *org.exoplatform.web.security.security.CookieTokenService*, and  *org.exoplatform.web.security.security.RemindPasswordTokenService*.|
-|{{memory-token}}|Store temporary tokens into the transient memory, such as *org.exoplatform.web.security.security.TransientTokenService*.|
+|{{gadget-token}}|Store tokens of the Oauth gadget into the JCR node, such as *org.exoplatform.portal.gadget.core. GadgetTokenInfoService*.|
+|{{jcr-token}}|Store common tokens into the JCR node, such as *org.exoplatform.web.security.security. CookieTokenService*, and  *org.exoplatform.web.security.security. RemindPasswordTokenService*.|
+|{{memory-token}}|Store temporary tokens into the transient memory, such as *org.exoplatform.web.security.security. TransientTokenService*.|
 |{{getPortalList}}|Return the list of identifiers of all loaded portals.|
 
 
@@ -435,7 +435,7 @@ With the Forum Service management view, you can view ADMIN rules, statistics, su
 
 ||Attribute||Description||
 |{{AdminRules}}|The list of rules defining administrators.|
-|{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including org.exoplatform.ks.common.user.BusinessProfileContactProvider, org.exoplatform.ks.common.user.DefaultContactProvider, and org.exoplatform.ks.common.user.PersonalProfileContactProvider.|
+|{{ContactProvider}}|The string containing the specific ContactProvider implementation name which provides user profile to the forum, including org.exoplatform.ks.common.user. BusinessProfileContactProvider, org.exoplatform.ks.common.user. DefaultContactProvider, and org.exoplatform.ks.common.user. PersonalProfileContactProvider.|
 |{{MailServiceConfig}}|The string containing the configuration of the Mail service used for the notifications in eXo Knowledge.|
 |{{OnlineUsers}}|The list of currently online users.|
 
@@ -524,7 +524,7 @@ h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the Forum export file is stored, for example *war:/data/forum/data-full-forum.zip*.|
+|{{getLocation}}|Return the location where the Forum export file is stored, for example *war:/data/forum/data-full-forum.zip.|
 
 h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 
@@ -536,7 +536,7 @@ h4. InitialDataPlugin {anchor:id=ADM.Management.InitialDataPlugin}
 
 
 ||Operation||Description||
-|{{getLocation}}|Return the location where the FAQ export file is stored, for example *war:/data/Technical-FAQ.zip*.|
+|{{getLocation}}|Return the location where the FAQ export file is stored, for example *war:/data/Technical-FAQ.zip.|
 |{{isForceXML}}|Indicate if the data loaded from the FAQ export file should override any data found in the existing database.|
 
 h3. Storage {anchor:id=ADM.Management.Storage}

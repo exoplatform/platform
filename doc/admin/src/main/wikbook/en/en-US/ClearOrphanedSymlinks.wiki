@@ -1,4 +1,3 @@
-
 Since ECMS 2.1.6/PLF 3.0.6, the _ClearOrphanSymlinksJob_ service is used as a CRON job to periodically clear WCM orphan symlinks that do not point to any target nodes at a specific time or date.
 
 By defaut, the value of the _ClearOrphanSymlinksCronJob_ parameter is "{noformat}0 0/20 * * * ?{noformat}". It means that orphan symlinks are cleared every 20 minutes.
@@ -6,10 +5,10 @@ By defaut, the value of the _ClearOrphanSymlinksCronJob_ parameter is "{noformat
 In which:
 
 * *Asterisk* {noformat}(*){noformat}: indicates that the CRON expression will match for all values of the field.  
-* *Slash* {noformat}(/){noformat}: is used to describe increments of ranges (e.g. 0/20 means that every 20 minutes).
-* *Question mark* (?): is used to omit the specification of a value for the day-of-month and day-of-week fields (e.g. every day in a week).
+* *Slash* {noformat}(/){noformat}: is used to describe increments of ranges (for example: 0/20 means that every 20 minutes).
+* *Question mark* (?): is used to omit the specification of a value for the day-of-month and day-of-week fields (for example, every day in a week).
 
-You can schedule the job by adding _wcm.linkjob.cron.expression_ in the _configuration.properties_ file. 
+You can schedule the job by adding _wcm.linkjob.cron.expression_ in the _configuration.properties_ file.
 
 Example:
 
