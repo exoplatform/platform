@@ -89,14 +89,14 @@ public class IntranetSpace {
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
   }
-
+  
   
   public String getCreatedTimeAgo() {
-	return createdTimeAgo;
+    return createdTimeAgo;
   }
 
   public void setCreatedTimeAgo(String createdTimeAgo) {
-	this.createdTimeAgo = createdTimeAgo;
+    this.createdTimeAgo = createdTimeAgo;
   }
 
   public String getUrl() {
