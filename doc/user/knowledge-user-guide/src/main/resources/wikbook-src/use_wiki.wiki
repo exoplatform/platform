@@ -1,6 +1,5 @@
-h1. Overview {anchor:id=KSuser.Wiki.Wiki_Overview}
-This section provides you a guide to use all *Wiki* features and configure the *Wiki* application to make it work in your desired way. Before going further, you should know some basic concepts about *Wiki*.
-After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* homepage will appear as below:
+This section provides you with instructions on how to use all *Wiki* features and configure the *Wiki* application to make it work in your desired way.
+Before going further, you should know some basic concepts about *Wiki* through [accessing the *Wiki* application|#KSuser.access_knowledge]. You will be directed to the *Wiki* homepage as below:
 
 !images/wiki_overview.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -14,10 +13,24 @@ After [accessing the *Wiki* application|#KSuser.access_knowledge], the *Wiki* ho
 |!images/no6.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The page content.|
 |!images/7.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The page information. Click *View Change* to see changes in the latest versions. Click *Attachment(s)* and *Revisions* links to open the *Attachments* details pane and the *Revisions* pane respectively. These two panes can be collapsed by clicking the relevant links again. |
 
-h2. The page hierarchy in Wiki {anchor:id=KSuser.Wiki_Overview.Page_hierarchy}
-*Wiki* content is organized as a page tree in which each page may contain many sub-pages. The hierarchy is reflected on UI by the *Breadcrumb* and the page tree in the left pane. When a page is added, it is always defined as a sub-page to the current one. You can have wikis for portals, wikis for groups or users.
+{docbook}
+<para xml:id="KSuser.Wiki_Overview.Page_hierarchy">
+<citetitle>
+<emphasis role="bold">Page hierarchy in Wiki</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-h2. Wiki Spaces {anchor:id=KSuser.Wiki_Overview.Wiki_spaces}
+The *Wiki* content is organized as a page tree in which each page may contain many sub-pages. The hierarchy is reflected on UI by the *Breadcrumb* and the page tree in the left pane. When a page is added, it is always defined as a sub-page to the current one. You can have wikis for portals, wikis for groups or users.
+
+{docbook}
+<para xml:id="KSuser.Wiki_Overview.Wiki_spaces">
+<citetitle>
+<emphasis role="bold">Wiki Spaces</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 Space is a set of pages, so the space partitioning means they are independent trees. This separation enables *Wiki* to provide knowledge spaces for different groups.
 
 There are 3 space types:
@@ -40,15 +53,6 @@ There are 3 space types:
 
 h1. Work with Wiki pages {anchor:id=KSuser.Work_with_Wiki_pages}
 Pages are places where information in *Wiki* is stored and shared. Pages are stored within a space. Actions that a user can perform on a specific wiki page depends on permissions assigned by the administrator. See the [Page Permissions|#KSuser.Wiki_Administration.Page_permissions] for detailed permissions.
-
-In a page, you can:
-
-* [Create a page with the simple markup language or the Rich Text editor|#KSuser.Work_with_Wiki_pages.Create_pages].
-* [Edit a page|#KSuser.Work_with_Wiki_pages.Edit_pages].
-* [Delete a page|#KSuser.Work_with_Wiki_pages.Delete_pages].
-* [Move a page to another location|#KSuser.Work_with_Wiki_pages.Move_pages].
-* [Watch a page|#KSuser.Work_with_Wiki_pages.Watch_pages].
-* [View page information|#KSuser.Work_with_Wiki_pages.View_page_info].
 
 h2. Create a page {anchor:id=KSuser.Work_with_Wiki_pages.Create_pages}
 There are two ways to create a page:
@@ -286,14 +290,6 @@ Watching a page allows you to receive a notification message about any changes i
 h1. Work with attachments {anchor:id=KSuser.Work_with_attachment}
 Attachments are any files enclosed with your pages. The attachments may be images, documents, presentation or multimedia files.
 
-In this section, you will know how to:
-
-* [View all attachments of a page|#KSuser.Work_with_attachment.View_attachments].
-* [Add an attachment|#KSuser.Work_with_attachment.Add_attachment].
-* [Delete an attachment|#KSuser.Work_with_attachment.Delete_attachment].
-* [Download an attachment|#KSuser.Work_with_attachment.Download_attachment].
-
-
 h2. View all attachments of a page {anchor:id=KSuser.Work_with_attachment.View_attachments}
 
 *1.* Open the page you want to view attachments.
@@ -306,25 +302,9 @@ The *Attachment* pane of that page will appear:
 
 !images/Wiki_attachments_list.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<citetitle>
-<para xml:id="KSuser.Work_with_attachment.Delete_attachment">
-    <emphasis role="bold">Delete an attachment</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-Simply click !images/Wiki_attachment_delete_icon.png| width="3mm" fo:scalefit="1" html:scalefit="0"! corresponding to the attachment.
-
-{docbook}
-<citetitle>
-<para xml:id="KSuser.Work_with_attachment.Download_attachment">
-    <emphasis role="bold">Download an attachment</emphasis>
-</para>
-</citetitle>
-{docbook}
-
-Simply click the attachment name.
+Here, you can:
+* Download an attachment by simply clicking the attachment name.
+* Delete an attachment by simply clicking !images/Wiki_attachment_delete_icon.png| width="3mm" fo:scalefit="1" html:scalefit="0"!.
 
 h2. Add an attachment to a page {anchor:id=KSuser.Work_with_attachment.Add_attachment}
 There are two ways to add an attachment to a page:
@@ -481,12 +461,6 @@ Each version includes the following information:
 * Date and time when changes are made.
 * Summary (if any).
 
-In the *Page History page*, you can:
-
-* [View versions of a page|#KSuser.Work_with_page_version.View_versions].
-* [Compare page versions|#KSuser.Work_with_page_version.Compare_versions].
-* [Restore a page version to the current version|#KSuser.Work_with_page_version.Restore_page_version].
-
 {docbook}
 <note>
     <para>
@@ -501,13 +475,11 @@ To view a specific version of a page, just click a version label in the *Page Hi
 !images/wiki_view_version.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
 At a version of the page, you can do the following actions:
-
-||Item|| Description||
-|!images/no1.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|Compare the current version with the selected one.|
-|!images/no2.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|Replace the current version with the selected version.|
-|!images/no3.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|Go to the *Page History* page.|
-| *Prev* |View content of the previous version.|
-| *Next* |View content of the next version.|
+* Compare the current version with the selected one !images/no1.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+* Replace the current version with the selected version !images/no2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+* Go to the *Page History* page !images/no3.png|width="4mm" fo:scalefit="1" html:scalefit="0"!.
+* View content of the previous version by selecting *Prev*.
+* View content of the next version by selecting *Next*.
 
 h2. Compare page versions {anchor:id=KSuser.Work_with_page_version.Compare_versions}
 
@@ -570,14 +542,19 @@ Any wiki page should be accessed by a friendly URL. For example:
 * Personal wiki page URL: http://hostname/portal/classic/wiki/user/john/Sandbox.
 
 h1. Search {anchor:id=KSuser.Wiki.Search}
-In *Wiki*, you can search spaces, or pages in a space and attached files. There are two types of search in *Wiki*:
-
+In *Wiki*, you can search for spaces, or pages in a space, or attached files via either of 2 types:
 * [Quick Search|#KSuser.Wiki.Search.Quick_search]
 * [Advanced Search|#KSuser.Wiki.Advanced_Search]
 
-h2. Quick Search {anchor:id=KSuser.Wiki.Search.Quick_search}
+{docbook}
+<para xml:id="KSuser.Wiki.Search.Quick_search">
+<citetitle>
+<emphasis role="bold">Quick Search</emphasis>
+</citetitle>
+</para>
+{docbook}
 
-*1.* Enter a key word in the search box.
+*1.* Enter a keyword into the search box.
 
 !images/wiki_quick_search.png|align="center" width="170" fo:scalefit="1" html:scalefit="0"!
 
@@ -591,8 +568,15 @@ If you are in the portal wiki, your quick search will be performed on all wiki s
 </note>
 {docbook}
 
-h2. Advanced Search {anchor:id=KSuser.Wiki.Advanced_Search}
-The Advanced Search function allows you to search with a key word in a specific space. This mode helps you limit the search results.
+{docbook}
+<para xml:id="KSuser.Wiki.Advanced_Search">
+<citetitle>
+<emphasis role="bold">Advanced Search</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+The Advanced Search function allows you to search with a keyword in a specific space. This mode helps you limit the search results.
 
 *1.* Enter a key term into the search box, then hit the *Enter* key.
 
@@ -600,7 +584,7 @@ The search results are displayed like the illustration below.
 
 !images/wiki_advanced_search_result.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
-If no results matched with the key words, the search screen informs "*there is no search result...!*"
+If no results matched with the keywords, the search screen informs "*there is no search result...!*"
 
 *2.* Click !images/down_arrow_icon.png| width="4mm" fo:scalefit="1" html:scalefit="0"! to select a space from the drop-down menu to define a scale where to search for the entered word.
 
@@ -683,12 +667,14 @@ The *Space Settings* page appear.
 
 Now, you can:
 
-* [Manage permissions on spaces and pages|#KSuser.Wiki_Administration.Manage_permissions].
-* [Manage page templates|#KSuser.Wiki_Administration.Manage_page_tempplate].
+* [Manage permissions on spaces and pages|#KSuser.Wiki_Administration.Manage_permissions]
+* [Manage a page template|#KSuser.Wiki_Administration.Manage_page_tempplate]
 
 h2. Manage Permissions {anchor:id=KSuser.Wiki_Administration.Manage_permissions}
 *Wiki* gives you the choice to make a space or an individual page to be open or restricted to specific users, groups or memberships.
-There are two levels of permissions in *Wiki*: Space Permissions and Page Permissions.
+There are two levels of permissions in *Wiki*: 
+* [Space Permissions|#KSuser.Wiki_Administration.Manage_permissions.Space_Permission]
+* [Page Permissions|#KSuser.Wiki_Administration.Page_permissions]
 
 h3. Space Permissions  {anchor:id=KSuser.Wiki_Administration.Manage_permissions.Space_Permission}
 Each space may have its own permissions. Space permissions determine which actions a user can do within the space. A permission can be assigned to any users, groups or memberships.
@@ -705,7 +691,9 @@ There are some permissions on a space as follows:
 |*Admin Pages*|Specify who have the administration rights on pages of this space.|
 |*Admin Space*|Specify who can administrate the space permissions and settings|
 
-In the *Space Permissions* form, you can add or remove the space permissions of the users, groups and memberships.
+In the *Space Permissions* form, you can:
+* [Add space permissions of the users, groups and memberships|#KSuser.Wiki_Administration.Add_space_permissions].
+* [Delete space permissions of the users, groups and memberships|#KSuser.Wiki_Administration.Delete_space_permissions].
 
 h4. Add space permissions {anchor:id=KSuser.Wiki_Administration.Add_space_permissions}
 In the *Space Permissions* form, you can add permissions for individual users, groups of users or memberships.
@@ -763,12 +751,11 @@ In the *Space Settings* form, select the *Template* tab and the form to manage t
 
 !images/wiki_setting_template.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*Details:*
-||Item ||Description ||
-|!images/no1.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|[Search for a template|#KSuser.Wiki_Administration.Search_templates].|
-|!images/no2.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|[Create a new template|#KSuser.Wiki_Administration.Add_templates].|
-|!images/no3.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|[Edit a template|#KSuser.Wiki_Administration.Edit_templates].|
-|!images/no4.png| width="4mm" fo:scalefit="1" html:scalefit="0"!|[Delete a template|#KSuser.Wiki_Administration.Delete_templates].|
+Here, you can:
+* [Search for a template|#KSuser.Wiki_Administration.Search_templates]!images/no1.png|width="4mm" fo:scalefit="1" html:scalefit="0"! 
+* [Create a new template|#KSuser.Wiki_Administration.Add_templates]!images/no2.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
+* [Edit a template|#KSuser.Wiki_Administration.Edit_templates]!images/no3.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
+* [Delete a template|#KSuser.Wiki_Administration.Delete_templates]!images/no4.png|width="4mm" fo:scalefit="1" html:scalefit="0"!
 
 h4. Search for a template {anchor:id=KSuser.Wiki_Administration.Search_templates}
 

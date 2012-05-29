@@ -95,9 +95,16 @@ To learn more about the JBoss security configuration, refer to [JBoss Web Docs|h
 
 h2. Common changes {anchor:id=ADM.Security.Common_Changes}
 
-Finally, you need to do some common changes on both app servers.
+Finally, you need to do some common changes on both app servers as follows:
 
-h3. configuration.properties {anchor:id=ADM.Security.Configuration.properties}
+{docbook}
+<para xml:id="ADM.Security.Configuration.properties">
+<citetitle>
+<emphasis role="bold">configuration.properties</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 First, change the JAAS realm to match your own security constraints and then identify the entry named _exo.security.domain_ inside the _configuration.properties_ file.
 
 {code}
@@ -109,8 +116,13 @@ exo.security.domain=gatein-domain
 Internally, eXo Platform uses this setting to set a new variable named "portal.container.realm" that is then used in the Kernel configuration files, such as _platform-extension/WEB-INF/conf/platform/repository-configuration.xml_.
 {note}
 
-
-h3. portal.war {anchor:id=ADM.Security.Portal.war}
+{docbook}
+<para xml:id="ADM.Security.Portal.war">
+<citetitle>
+<emphasis role="bold">portal.war</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 
@@ -124,7 +136,13 @@ Inside _portal.war_, you should declare the Realm name in the _web.xml_ file:
 </login-config>
 {code}
 
-h3. rest.war {anchor:id=ADM.Security.rest.war}
+{docbook}
+<para xml:id="ADM.Security.rest.war">
+<citetitle>
+<emphasis role="bold">rest.war</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 You also need to modify _rest.war_ to provide secured REST services properly.
 
@@ -141,8 +159,14 @@ This change is very important, allowing you to secure the file downloads via WEB
 
 h1. Gadget proxy configuration {anchor:id=ADM.Security.Gadget_proxy_configuration}
 
+h2. Overview {anchor:id=ADM.Security.Gadget_proxy_configuration.Overview}
 In eXo Platform, you could allow gadgets to load remote resources. However, this could be a potential security risk, as it will make the Gadget deployed as an open web proxy.
-This implies configuring _ProxyFilterService_.
+So, you can set up the anonymous proxy to accept or deny certain hosts via configuring the _ProxyFilterService_.
+
+h2. Configure the ProxyFilterServie {anchor:id=ADM.Security.Gadget_proxy_configuration.Configuration}
+By default, the proxy is closed to any host except the domain on which the gadget server is installed.
+
+To modify the filtering of domain names, modify the _portal.war/WEB-INF/conf/common/common-configuration.xml_ file.
 
 The default configuration is set as below:
 
@@ -155,27 +179,24 @@ The default configuration is set as below:
       <!-- The white list -->
       <name>white-list</name>
       <!-- Accept anything not black listed -->
-      <value>*</value>
+      <value></value>
     </values-param>
     <values-param>
       <name>black-list</name>
-      <value>*.evil.org</value>
+      <value></value>
     </values-param>
   </init-params>
 </component>
 {code}
 
-This configuration can be added into _<GATEIN\_CONF\_DIR>/portal/<PORTAL\_CONTAINER\_NAME>/configuration.xml_.
-* _<GATEIN\_CONF\_DIR>_ = _TOMCAT\_HOME/gatein/conf/_ if you are using Tomcat and _JBOSS\_HOME/server/<PROFILE>/conf/gatein/_ if you are using JBoss.
-* _<PORTAL\_CONTAINER\_NAME>_ = the name of the used portal container that is set to _portal_ by default.
 
-h2. How does it work {anchor:id=ADM.Security.Gadget_proxy_configuration.How_does_it_work}
+h2. How does it work? {anchor:id=ADM.Security.Gadget_proxy_configuration.How_does_it_work}
 
-The proxy service allows accessing any site which matches the _white-list_ domains, unless it belongs to the _black-list_.
-If the site is not defined in neither the white list nor black list, access will be denied.
+The proxy service will deny access to any domain that is in the blacklist. If the domain name does not match any of the blacklist, the proxy filter will verify if the domain name is on the white list.
+If the domain name is not defined in either the white list or black list, access will be denied.
 Multiple values can be added for each list and wildcards can also be used.
 
-The following is an example of the Gadget Proxy configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
+The following is an example of a valid configuration: {anchor:id=ADM.Configuration.Gadget_proxy_configuration.Example}
 
 {code:xml}
 <component>

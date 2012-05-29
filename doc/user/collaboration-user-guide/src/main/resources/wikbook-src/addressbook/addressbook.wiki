@@ -186,12 +186,12 @@ To add a new tag quickly, click <emphasis role="bold">Add</emphasis> in the <emp
 {docbook}
 
 
-h2. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
+h1. Edit a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Edit_tag"}
 *1.* Right-click a tag in the tag area, then select *Edit* from the drop-down menu.
 
 *2.* Make changes in the *Edit Tag* form, then click *Save* to accept your changes.
 
-h2. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
+h1. Delete a tag {anchor:id="CSUser_guide.How_to_use_Address_book.Delete_tag"}
 *1.* Right-click a tag you want to delete, then click *Delete* from the drop-down menu.
 
 *2.* Click *OK* in the confirmation to accept your deletion.
@@ -514,18 +514,19 @@ The shared users/groups will be updated in the Shared Users/Groups table of the 
 
 h1. Search for contacts {anchor:id="CSUser_guide.How_to_use_Address_book.Search_for_contacts"}
 
-This function allows you to find contacts easily and quickly via two search modes: [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search] and [Advanced search|#CSUser_guide.How_to_use_Address_book.Advanced_search].
-
-h2. Quick search {anchor:id="CSUser_guide.How_to_use_Address_book.Quick_search"}
-This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching your search term will be displayed in the *Search Result* dialog.
+This function allows you to find contacts easily and quickly via 2 types:
+* [Quick search|#CSUser_guide.How_to_use_Address_book.Quick_search]
+* [Advanced search|#CSUser_guide.How_to_use_Address_book.Advanced_search]
 
 {docbook}
 <citetitle>
-<para>
-<emphasis role="bold">Do a quick search for contacts</emphasis>
+<para xml:id="CSUser_guide.How_to_use_Address_book.Quick_search">
+<emphasis role="bold">Do a quick search</emphasis>
 </para>
 </citetitle>
 {docbook}
+
+This function allows you to do a quick search with specific keywords in all your contacts. All contacts having the text matching your search term will be displayed in the *Search Result* dialog.
 
 *1.* Enter your search term in the *Search* textbox in the left pane.
 
@@ -533,7 +534,14 @@ This function allows you to do a quick search with specific keywords in all your
 
 Your search results will be displayed in the right *Search Result* pane.
 
-h2. Advanced search {anchor:id="CSUser_guide.How_to_use_Address_book.Advanced_search"} 
+{docbook}
+<citetitle>
+<para xml:id="CSUser_guide.How_to_use_Address_book.Advanced_search">
+<emphasis role="bold">Do an advanced search</emphasis>
+</para>
+</citetitle>
+{docbook}
+
 With this mode, you can refine your search by using a variety of criteria. Your search results will be limited as follows:
 
 *1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box to open the *Advanced Search* form.

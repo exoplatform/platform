@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+   <UIAdminToolbarPortlet>
+		<action>
+			<AddPage>Aggiungi Pagina</AddPage>
+			<EditNavigation>Navigazione</EditNavigation>
+			<Content>Contenuto</Content>
+			<Editor>Modifica</Editor>
+			<Page>Pagina</Page>
+			<Site>Sito</Site>
+			<Layout>Layout</Layout>
+			<ManagePages>Gestisci Pagine</ManagePages>
+		 	<GroupSite>Sito di Gruppo</GroupSite>
+			<Properties>SEO</Properties>
+		</action>
+		<ManageSites>Gestisci siti</ManageSites>
+		<ManageGroupSites>Gestisci siti di gruppo</ManageGroupSites>
+   </UIAdminToolbarPortlet>
+
+  <UISEOForm>
+    <label>	  
+      <description>Descrizione: </description>
+      <keywords>Parole Chiave: </keywords>
+      <language>Lingua: </language>
+      <robots>Robots: </robots>
+      <sitemap>Mappa del sito: </sitemap>
+      <sitemapvisible>Visibile nella mappa del sito</sitemapvisible>
+	  <isInherited>Ereditato dalla pagina padre</isInherited>
+      <priority>Priorità: </priority>
+      <frequency>Ferequenza: </frequency>  
+      <option>
+        <Always>Sempre</Always>
+        <Hourly>Ogni ora</Hourly>
+        <Daily>Giornalmente</Daily>
+        <Weekly>Settimanalmente</Weekly>
+        <Monthly>Mensilmente</Monthly>
+        <Yearly>Annualmente</Yearly>
+        <Never>Mai</Never>
+      </option> 
+    </label>
+    <tip>
+		<priority>Intervallo valori validi da 0.0 a 1.0</priority>
+	</tip>	 	  
+    <action>
+      <Save>Salva</Save>
+      <Cancel>Annulla</Cancel>
+    </action>
+    <msg>
+      <repository-exception>Un errore inaspettato! Impossibile salvare i meta dati della pagina.</repository-exception>	
+    </msg>
+	<help> 
+		<priority>
+		    Priorità di questo URL realativo ad altri URL del vostro sito.
+		    Intervallo valori validi da 0.0 a 1.0.
+		    Questo valore non influisce su come le sue pagine sono comparate alle pagine di altri siti - permette solo a
+		    motori di ricerca di sapere quale pagina ritiene la più importante per i crawlers.
+		    Priorità default di una pagina è 0.5.
+		</priority>
+	</help>	  
+  </UISEOForm>
+  <UISEOPopupWindow>
+  	<title>
+      <UISEOForm>Gestione SEO</UISEOForm>
+  	</title>
+  </UISEOPopupWindow>    
+  <UISEOToolbarForm>
+  	<title>
+      <seo>Gestione SEO</seo>
+  	</title>
+  </UISEOToolbarForm>  
+  <FloatNumberValidator>
+    <msg>
+      <Invalid-number>Il campo Priorità contiene un valore float non valido. Intervallo di valori validi è da 0.0 a 1.0.</Invalid-number>
+    </msg>
+  </FloatNumberValidator>
+  
+</bundle>

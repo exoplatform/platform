@@ -13,15 +13,15 @@
 			</value-param>
 			<value-param>
 				<name>KeyContent</name>
-				<value>Platform 3.0.0-GA - 30 days Trial</value>
+				<value>Platform 3.5 - 30 days evaluation</value>
 			</value-param>
 			<value-param>
 				<name>registrationFormUrl</name>
-				<value>http://www.exoplatform.com/company/public/website/services/buy-now</value>
+				<value>http://www.exoplatform.com/exo-platform-35-subscribtions</value>
 			</value-param>
 			<value-param>
 				<name>extendFormUrl</name>
-				<value>http://www.exoplatform.com/company/public/website/platform/extended-evaluation-request</value>
+				<value>http://www.exoplatform.com/extend-your-evaluation</value>
 			</value-param>
 			<value-param>
 				<name>pingBackUrl</name>

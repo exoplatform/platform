@@ -1,27 +1,4 @@
 h1. Platform skin elements  {anchor:id=DEV.CreateYourOwnPortal.PageSkinElemnets}
-h2. Overview
-
-* line 1
-* line 2
-** line 3
-*** line 4
-* line 1
-* line 2
-
-{note}
-* line 1
-* line 2
-{note}
-
-{tip}
-* line 1
-* line 2
-{tip}
-
-{warning}
-* line 1
-* line 2
-{warning}
 
 Platform provides support for skinning the entire portal User Interface (UI) including your own portlets. Skins are designed to help you pack and reuse common graphic resources.
 
@@ -207,7 +184,7 @@ The extension mechanism of eXo Platform 3.5 enables the skin definition to be re
 
 h1. Create new skins {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins}
 
-h2. Create a new skin web archive
+h2. Create a new skin web archive {anchor:id=DEV.CreateYourOwnPortal.CreateNewSkins.WebArchive}
 {docbook}
 <para xml:id="DEV.CreateYourOwnPortal.CreateNewPortalSkins">
 <citetitle>
@@ -561,8 +538,6 @@ The reason is, when you have a look in the file system: _/groovy/portal/webui/co
 
 So, in the *table* element (which represents the outer container), there are many *td* elements, each of which has the *class* attribute that equals to the *id* of the corresponding child component plus the "TDContainer" string literal.
 
-To learn more, see [Customize portal and page's style|#customize-portal-and-page-style].
-
 h2. Customize page's layouts {anchor:id=DEV.CreateYourOwnPortal.CustomizePageLayout}
 
 {note}
@@ -588,7 +563,13 @@ This section is related to the configuration. You can see a sample [here.|http:/
 <!-- ... -->
 {code}
 
-h2. Customize the Admin bar
+h2. Customize the Admin bar {anchor:id=DEV.CreateYourOwnPortal.CustomizeAdminBar}
+This section shows you how to customize the *Admin* bar via the following topics:
+* [sharedlayout.xml|#DEV.CreateYourOwnPortal.Sharedlayout]
+* [Remove a content from the Admin bar|#DEV.CreateYourOwnPortal.RemoveAdminbarContent]
+* [Add a content to the Admin bar|#DEV.CreateYourOwnPortal.AddAdminbarContent]
+* [Change the color scheme|#DEV.CreateYourOwnPortal.ChangeColorScheme]
+
 h3. sharedlayout.xml    {anchor:id=DEV.CreateYourOwnPortal.Sharedlayout}
 The *Admin* bar is a special container composed of portlets and defined in _WEB-INF/conf/portal/portal/sharedlayout.xml_.
 
@@ -621,7 +602,7 @@ The _sharedlayout.xml_ file configures the current displayed portlets on the *Ad
  ...
 {code}
 
-h3. Add a content to the Admin bar {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
+h3. Add content to the Admin bar {anchor:id=DEV.CreateYourOwnPortal.AddAdminbarContent}
 
 *Add a portlet to the Admin bar to logout user*
 
@@ -719,7 +700,7 @@ The CSS code below shows how to modify the Admin bar to look like this:
 {code}
 
 
-h1. Configure skin in WCM
+h1. Configure skin in WCM {anchor:id=DEV.CreateYourOwnPortal.ConfigureSkinInWCM}
 
 This tutorial will help you to create a new layout and skin, and give some best practices when creating a new layout and skin for your portal and page.
 Instructions described here are based on the following assumptions:

@@ -24,15 +24,9 @@ Go to the *My Connections* page first, then select the *My Profile* tab in the l
 
 !images/Ways_enter_profile.png|align="center" width="50mm" fo:scalefit="1" html:scalefit="0"!
 
-The *My Profile* page is displayed as below. {anchor:id="My_Profile_form"}
+The *My Profile* page is displayed that allows you to [edit your information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], [upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar], or [update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position]. {anchor:id="My_Profile_form"}
 
 !images/Profile_page.png|align="center" width="140mm" fo:scalefit="1" html:scalefit="0"!
-
-From here, you can:
-
-* [Edit your information|#Soc_User_Guide.Get_Started.User_Profile.Edit_Information], including basic information, contact details, and experiences.
-* [Upload your profile avatar|#Soc_User_Guide.Get_Started.User_Profile.Upload_Avatar].
-* [Update your current position|#Soc_User_Guide.Get_Started.User_Profile.Update_Current_Position].
 
 h1. Edit your information {anchor:id=Soc_User_Guide.Get_Started.User_Profile.Edit_Information}
 

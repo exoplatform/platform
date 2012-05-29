@@ -24,6 +24,13 @@ If you are already in a category that you moderate, you can perform all actions 
 
 !images/Category_menu.png|align="center" width="120mm" fo:scalefit="1" html:scalefit="0"!
 
+Managing categories includes the following specific actions:
+* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
+* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
+* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
+* [Move a category|#KSuser.Answer_Moderator.Move_categories]
+* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
+
 {docbook}
 <para>
 <prompt>
@@ -33,11 +40,6 @@ If you are already in a category that you moderate, you can perform all actions 
 {docbook}
 
 * [View details of Answers|#Answer_user_guide.View_details]
-* [Add a new category|#KSuser.Answer_Moderator.Add_categories]
-* [Edit category properties|#KSuser.Answer_Moderator.Edit_category]
-* [Delete a category|#KSuser.Answer_Moderator.Delete_categories]
-* [Move a category|#KSuser.Answer_Moderator.Move_categories]
-* [Export/Import a category|#KSuser.Answer_Moderator.Export&import_categories]
 
 h3. Add a new category {anchor:id=KSuser.Answer_Moderator.Add_categories}
 

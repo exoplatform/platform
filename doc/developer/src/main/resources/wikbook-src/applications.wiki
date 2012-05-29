@@ -1,12 +1,38 @@
-Applications play an important role in each eXo service, so it is necessary for you to further understand about them.
-
-In this chapter, you will know how to integrate an application into your portal, and how to develop your own application:
-* [Integrate an application|#DEV.WorkWithApplications.ApplicationIntegration]
-* [Develop your own application|#DEV.WorkWithApplications.DevelopYourOwnApplications]
-** [Gadget vs Portlet|#DEV.WorkWithContent.GadgetvsPortlet]
-** [Develop a gadget for eXo Platform|#DEV.WorkWithApplications.DevelopAGadgetForPlatform]
-** [Portlet Bridges|#DEV.WorkWithApplications.PortletBridges]
-
+{docbook}
+<abstract>
+<para>Applications play an important role in each eXo service, so it is necessary for you to further understand about them.</para>
+<para>In this chapter, you will know how to integrate an application into your portal, and how to develop your own application:</para>
+<itemizedlist>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithApplications.ApplicationIntegration">Integrate an application</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.WorkWithApplications.DevelopYourOwnApplications">Develop your own application</link>
+	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.WorkWithContent.GadgetvsPortlet">Gadget vs Portlet</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.WorkWithApplications.DevelopAGadgetForPlatform">Develop a gadget for eXo Platform</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.WorkWithApplications.PortletBridges">Portlet Bridges</link>
+		</para>
+	  </listitem>
+	</itemizedlist>
+  </listitem>
+</itemizedlist>
+</abstract>
+{docbook}
 
 h1. Integrate an application {anchor:id=DEV.WorkWithApplications.ApplicationIntegration}
 
@@ -79,15 +105,7 @@ In this part, it is assumed that developers have already known how to write a ga
 To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/bk02ch05.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../../../developer-guide/html/ide-user-guide/index.html] sections.
 {note}
 
-h3. Get the consistent look and feel
-
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">Resources</emphasis>
-</para>
-</citetitle>
-{docbook}
+h3. Resources {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.Resource}
 
 To achieve the consistent look and feel, you have to collect the common features of all gadgets as much as possible and put in a place where it can be shared for all gadgets. You will use exo-gadget-resources for this purpose. 
 It is a _.war_ file that contains commonly used static resources (stylesheets, images, JavaScript libraries, and more) available for all gadgets in eXo Platform at runtime: 
@@ -140,13 +158,8 @@ The utilities scripts:
 
 * _utils/pretty.date.js_: Calculate the difference from a point of time in the past to the present and display "4 months 3 weeks ago", for example.
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">Apply for a gadget</emphasis>
-</para>
-</citetitle>
-{docbook}
+
+h3. Apply for a gadget {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.ApplyForGadget}
 
 A gadget should use static resources available in _exo-gadget-resources_ instead of including them in their own package. This helps reduce packaging size, avoid duplication (considering that every gadget includes a version of jQuery is in its own package) and take advantages of automatic skin changing/updating when the resources of _exo-gadget-resources_ are updated to the new eXo Platform skin. To make it work, the applied gadget must use the CSS classes defined in _gadget-common.css_ (at least for the gadget title) like the sample gadget below:
 
@@ -268,13 +281,7 @@ The following gadget gives the demo of a user settings screen which uses eXo Pla
 
 !images/setting_demo_form.png|align="center" width="100mm" fo:scalefit="1" html:scalefit="0"!
 
-{docbook}
-<citetitle>
-<para>
-<emphasis role="bold">Customize the gadget thumbnail</emphasis>
-</para>
-</citetitle>
-{docbook}
+h3. Customize the gadget thumbnail {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.CustomizeGadgetThumnail}
 
 The gadget thumbnails are displayed in the *Page Editor* window when you edit a page. The thumbnail image size needs to be consistent for all gadgets in the list. 
 The current size (in eXo Platform 3.5) is 80 x 80px, so you should select an image of this size in PNG (preferred), JPG or GIF format for your gadget thumbnail. 

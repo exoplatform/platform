@@ -23,9 +23,6 @@ This guide is a complete reference for customization points, and available APIs,
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org.gatein.doc/master.xml"/>
 <!-- WCM -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org.exoplatform.ecms/exo-ecms-docs-refguide.xml"/>
-<!-- xCMIS developer and admin guides -->
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org.exoplatform.xcmis.dev/index.xml"/>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org.exoplatform.xcmis.admin/index.xml"/>
 
 <!-- Collaboration -->
    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org.exoplatform.cs/exo.cs.docs.refguide.xml"/>

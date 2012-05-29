@@ -1,22 +1,6 @@
-This section aims at helping readers further understand about the eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more. In this section, the sub-topics will be covered:
-
-*[Kernel|#DEV.eXoArchitecturePremer.Kernel]*
-
-* [Containers|#DEV.eXoArchitecturePremer.Containers]
-* [Services|#DEV.eXoArchitecturePremer.Services]
-* [Service configuration|#DEV.eXoArchitecturePremer.ServiceConfiguration]
-* [Plugins|#DEV.eXoArchitecturePremer.Plugins]
-* [Configuration loading sequence|#ADM.eXoArchitecturePremer.ConfigureLoadingSequence]
-
-*[GateIn extensions|#DEV.eXoArchitecturePremer.GateInExtensions]*
-
-* [Default Portal Container|#DEV.eXoArchitecturePremer.defaultPortalContainer]
-* [Register Extension|#DEV.eXoArchitecturePremer.RegisterExtension]
-
-*[Java Content Repository|#DEV.eXoArchitecturePremer.JavaContentRepository]*
-
-* [Repositories and workspaces|#DEV.eXoArchitecturePremer.Repositories&Workspaces]
-* [Tree structure: working with nodes and properties|#DEV.eXoArchitecturePremer.WorkingWithNodes&Properties]
+{note}
+This section aims at helping readers further understand about the eXo architecture, including Kernel, GateIn extensions and Java Content Repository via concepts, services, configuration, and more.
+{note}
 
 h1. Kernel {anchor:id=DEV.eXoArchitecturePremer.Kernel}
 
@@ -69,13 +53,16 @@ For example, in the _/lib_ folder, you can find services for the following datab
 * exo.kernel.component.cache-x.y.z.jar
 * exo.core.component.organization.ldap-x.y.z.jar
 
-
 h2. Service configuration {anchor:id=DEV.eXoArchitecturePremer.ServiceConfiguration}
 
 To declare a service, you must add the *.xml* configuration file to a specific place. This file can be in the jar file, in a webapp or in the external configuration directory. If you write a new component for the eXo Container, you should always provide a default configuration in your jar file. This default configuration must be in the /conf/portal/configuration.xml file in your jar.
 
 A configuration file can specify several services, so there can be several services in one jar file.
 
+This section is divided into the following sub-topics:
+* [Kernel XML Schema|#DEV.eXoArchitecturePremer.KernalXMLSchema]
+* [Components|#DEV.eXoArchitecturePremer.Components]
+* [Parameters|#DEV.eXoArchitecturePremer.Parameters]
 h3. Kernel XML Schema {anchor:id=DEV.eXoArchitecturePremer.KernalXMLSchema}
 
 Containers configuration files must comply with the kernel configuration grammar. Thus, all configurations will contain an XSD declaration like this:
@@ -114,12 +101,10 @@ h3. Parameters {anchor:id=DEV.eXoArchitecturePremer.Parameters}
 
 You can provide initial parameters for your service by defining them in the configuration file. The followings are different parameters:
 
-* value-param
-* properties-param
-* object-param
-* collection
-* map
-* native-array
+* [Value-param|#DEV.eXoArchitecturePremer.Value-param]
+* [Object-param|#DEV.eXoArchitecturePremer.Object-param]
+* Properties-param
+* [Rest of parameter types|#DEV.eXoArchitecturePremer.RestOfParameterTypes]
 
 h4. Value-param {anchor:id=DEV.eXoArchitecturePremer.Value-param}
 

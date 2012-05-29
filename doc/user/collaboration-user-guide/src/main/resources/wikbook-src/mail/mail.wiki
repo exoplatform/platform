@@ -171,15 +171,6 @@ If you want to read an email, simply click your preferred mail in the mails list
 
 !images/read_email.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-When reading an email, you can:
-
-* [Download an attached file|#Download_attached_files]
-* [View all headers of a message|#View_all_headers]
-* [Mark a message as read|#Mark_as_read], [or unread|#Mark_as_unread]
-* [Star a message|#Star_a_message]
-* [Report a message as spam|#Report_message_as_spam]
-* [Delete a message|#Delete_a_message]
-
 h2. Download an attached file {anchor:id=Download_attached_files}
 If your received mail contains any attached file, you can see their details, such as file name, type, and size right in the *Attachments* pane of the currently opened message.
 
@@ -187,7 +178,13 @@ If your received mail contains any attached file, you can see their details, suc
 
 Click !images/Download_button.png|width="15mm" fo:scalefit="1" html:scalefit="0"! to download an attachment to your local system. If the uploaded file is image, you can also click !images/Preview_button.png|width="10mm" fo:scalefit="1" html:scalefit="0"! to preview the image without downloading.
 
-h3. Download and save attachments to server {anchor:id=Download_attachments_to_server}
+{docbook}
+<citetitle>
+<para xml:id="Download_attachments_to_server">
+<emphasis role="bold">Download and save attachments to server</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Open the mail with attachments.
 
@@ -523,20 +520,6 @@ Also, you can
 
 *3.* Click *Add* to add your selected email addresses to the *To* box, or *Replace* to replace the current email addresses in the *To* field with your newly selected ones.
 
-{docbook}
-<para>
-    <prompt>
-          <emphasis role="bold">See also</emphasis>
-    </prompt>
- </para>
-{docbook}
-
-* [Attach a file to a message|#Attach_attachment_to_message]
-* [Change the message signature|#Change_signature_to_message]
-* [Save a message as draft|#Save_message_as_draft]
-* [Set a priority level|#Set_priority_level]
-* [Change message preferences|#Change_message_preferences]
-
 h2. Attach a file to a message {anchor:id="Attach_attachment_to_message"}
 *1.* Click !images/attach_local_file_icon.png|width="17mm" fo:scalefit="1" html:scalefit="0"! in the *Compose New Message* form to open the *Attach Files* window.
 
@@ -555,7 +538,13 @@ You will see your uploaded files in the *Attachments* area of the *Compose New M
 * Click !images/Download_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! to download or see if your uploaded file is correct or not without browsing the file on your device.
 * Click !images/add_mail_acount_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the attached file to remove it from your message.
 
-h3. Attach a server file {anchor:id=Attach_server_file}
+{docbook}
+<citetitle>
+<para xml:id="Attach_server_file">
+<emphasis role="bold">Attach a server file</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 This function is only featured in eXo Platform 3.5, allowing you to browse and attach one file from your server as follows.
 
@@ -743,7 +732,7 @@ The *Import Message* form will appear.
 {docbook}
 
 h1. Categorize messages by folders/tags/filters {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters}
-h2. Folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
+h2. Categorize by folder {anchor:id="CSUser_guide.How_to_use_Mail.Categorize_messages_by_folders_tags_filters.Folder}
 
 Folders help you manage your messages more easily and flexibly. Once your new mail account is created successfully, five default folders, including *Inbox, Drafts, Sent, Spam, Trash*, will be automatically generated. You cannot delete, rename or move these folders.
 
@@ -757,6 +746,10 @@ Folders help you manage your messages more easily and flexibly. Once your new ma
 |*Spam*|Store all messages suspected of being unwanted messages.|
 |*Trash*|Store temporarily deleted messages.|
 |*Personal Folders*|Store folders which are created by yourself.|
+
+Categorizing by folders can be performed via:
+* [Create a new folder|#Create_new_folder]
+* [Manage Personal Folders|#Manage_Personal_Folders]
 
 h3. Create a new folder {anchor:id="Create_new_folder"}
 
@@ -793,13 +786,25 @@ All above actions are only for folders/sub-folders under the <emphasis role="bol
 </note>
 {docbook}
 
-h4. Create a sub-folder {anchor:id="Create_subfolder"}
+{docbook}
+<citetitle>
+<para xml:id="Create_subfolder">
+<emphasis role="bold">Create a sub-folder</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Select *New Subfolder* from the drop-down menu.
 
 *2.* Follow steps as stated in the [Create a new folder|#Create_new_folder] section.
 
-h4. Rename a folder {anchor:id="Rename_folder"}
+{docbook}
+<citetitle>
+<para xml:id="Rename_folder">
+<emphasis role="bold">Rename a folder</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Select *Rename* from the drop-down menu.
 
@@ -807,19 +812,40 @@ h4. Rename a folder {anchor:id="Rename_folder"}
 
 *3.* Click *Save* to finish your removal.
 
-h4. Remove a folder {anchor:id="Remove_folder}
+{docbook}
+<citetitle>
+<para xml:id="Remove_folder">
+<emphasis role="bold">Remove a folder</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 *1.* Select *Remove* from the drop-down menu.
 
 *2.* Click *OK* in the confirmation message to accept your deletion.
 
-h4. Mark a folder as read {anchor:id="Mark_folder_as_read}
+{docbook}
+<citetitle>
+<para xml:id="Mark_folder_as_read">
+<emphasis role="bold">Mark a folder as read</emphasis>
+</para>
+</citetitle>
+{docbook}
 
 This function is to mark all mails of a personal folder as read by clicking *Mark all as read* from the drop-down menu.
 
-h2. Tag {anchor:id="Tag"}
+h2. Categorize by tag {anchor:id="Tag"}
 
 Tags are used as labels for filtering or categorizing messages from different folders. You can add more than one tag to a message. Using tags makes easy for you to find messages independently from the folder where they are stored.
+
+You can categorize by tags through the following actions:
+
+* [Create a tag|#Create_tag]
+* [Assign a tag to a message|#Assign_tag]
+* [Edit a tag|#Edit_tag]
+* [Remove a tag|#Remove_tag]
+* [Empty a tag|#Empty_tag]
+* [Change the tag color|#Change_tag_color]
 
 h3. Create a tag {anchor:id="Create_tag"}
 
@@ -922,7 +948,7 @@ Right-click the tag in the *Tags* pane, then select your desired color from the 
 
 !images/tags_color.png|align="center" width="40mm" fo:scalefit="1" html:scalefit="0"!
 
-h2. Filter {anchor:id="Filter"}
+h2. Categorize by filter {anchor:id="Filter"}
 
 By default, the messages list shows all of your received messages in your inbox but you can filter to specify which message to be displayed.
 
@@ -937,6 +963,12 @@ You can filter messages according to the following criteria:
 * *With Attachments*: Only show messages with attachments.
 
 * *View All*: Show all types of messages.
+
+You can categorize by filter through the following actions:
+
+* [Create a filter|#Create_filter]
+* [Edit a filter|#Edit_filter]
+* [Delete a filter|#Delete_filter]
 
 h3. Create a filter {anchor:id="Create_filter"}
 There are 2 ways to create a new filter:
@@ -1023,7 +1055,14 @@ h3. Delete a filter {anchor:id="Delete_filter"}
 h1. Search for messages {anchor:id="Search_messages}
 The *Mail* application supports two search modes: [Quick search|#Mail_Quick_search] or [Advanced search|#Mail_Advanced_search].
 
-h2. Quick search {anchor:id="Mail_Quick_search"}
+{docbook}
+<para xml:id="Mail_Quick_search">
+<citetitle>
+<emphasis role="bold">Quick search</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 Quick search allows you to conduct a search with specific keywords in all of your messages. All messages from the different folders that match with your search term will be displayed.
 
 *1.* Enter your search term into the search box in the left pane.
@@ -1034,7 +1073,6 @@ Quick search allows you to conduct a search with specific keywords in all of you
 
 !images/Mail_quick_search_result.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-
 {docbook}
 <note>
     <para>By default, the <emphasis role="bold">Quick Search</emphasis> function of the <emphasis role="bold">Mail</emphasis> application does not retrieve messages of the <emphasis role="bold">Spam</emphasis> and <emphasis role="bold">Trash</emphasis> folders. To do <emphasis role="bold">Quick Search</emphasis> on these folders, simply select these folders before searching.
@@ -1042,7 +1080,14 @@ Quick search allows you to conduct a search with specific keywords in all of you
 </note>
 {docbook}
 
-h2. Advanced search {anchor:id="Mail_Advanced_search"}
+{docbook}
+<para xml:id="Mail_Advanced_search">
+<citetitle>
+<emphasis role="bold">Advanced search</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 The Advanced Search allows you to specify criteria to narrow your search results.
 
 *1.* Click !images/Advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! in the left pane to open the *Advanced Search* form.

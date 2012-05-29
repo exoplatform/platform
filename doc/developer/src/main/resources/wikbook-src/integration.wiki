@@ -1,16 +1,86 @@
-This chapter will show you how to integrate eXo Platform 3.5 into your information system through the specific topics below:
-* [Authentication|#DEV.SystemIntegration.Authentication]
-** [Single-Sign-On (SSO)|#DEV.SystemIntegration.SingleSignON]
-** [Kerberos SSO on Active Directory|#DEV.SystemIntegration.KerberosSSOOnActiveDirectory]
-* [Users integration|#DEV.SystemIntegration.UserIntegration]
-** [Organization Service|#DEV.SystemIntegration.OrganizationService]
-** [Memberships, Groups and Users|#DEV.SystemIntegration.MembershipsGroupsAndUsers]
-** [Organization API|#DEV.SystemIntegration.OrganizationAPI]
-* [LDAP Integration |#DEV.SystemIntegration.LDAPIntegration]
-** [Connection Settings|#DEV.SystemIntegration.ConnectionSettings]
-** [Active Directory sample configuration |#DEV.SystemIntegration.ActiveDirectorySampleConfiguration]
-** [Active Directory sample configuration |#DEV.SystemIntegration.ActiveDirectorySampleConfiguration]
-* [Email|#DEV.SystemIntegration.Email]
+{docbook}
+<abstract>
+<para>This chapter will show you how to integrate eXo Platform 3.5 into your information system through the specific topics below:</para>
+<itemizedlist>
+  <listitem>
+	<para>
+	  <link linkend="DEV.SystemIntegration.Authentication">Authentication</link>
+	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.SingleSignON">Single-Sign-On (SSO)</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.CenterAuthenticationService">Central Authentication Service (CAS)</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.KerberosSSOOnActiveDirectory">Kerberos SSO on Active Directory</link>
+		</para>
+	  </listitem>
+	</itemizedlist>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.SystemIntegration.UserIntegration">Users integration</link>
+	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.OrganizationService">Organization Service</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.MembershipsGroupsAndUsers">Memberships, Groups and Users</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.OrganizationAPI">Organization API</link>
+		</para>
+	  </listitem>
+	</itemizedlist>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.SystemIntegration.LDAPIntegration">LDAP Integration</link>
+	</para>
+	<itemizedlist>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.ConnectionSettings">Connection Settings</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.OrganizationServiceConfiguration">Organization Service Configuration</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.ActiveDirectorySampleConfiguration">Active Directory sample configuration</link>
+		</para>
+	  </listitem>
+	  <listitem>
+		<para>
+		  <link linkend="DEV.SystemIntegration.PicketlinkIDM">Picketlink IDM</link>
+		</para>
+	  </listitem>
+	</itemizedlist>
+  </listitem>
+  <listitem>
+	<para>
+	  <link linkend="DEV.SystemIntegration.Email">Email</link>
+	</para>
+  </listitem>
+</itemizedlist>
+</abstract>
+{docbook}
 
 h1. Authentication {anchor:id=DEV.SystemIntegration.Authentication}
 
@@ -274,7 +344,17 @@ In Core, the ldapDescriptionAttr key is present but not consistently used everyw
 Other parameters are discussed in the following sections.
 
 h3. Users {anchor:id=DEV.SystemIntegration.Users}
-h4. Main parameters {anchor:id=DEV.SystemIntegration.MainParameters}
+
+{docbook}
+<para xml:id="DEV.SystemIntegration.MainParameters">
+<citetitle>
+<emphasis role="bold">
+Main parameters
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 Here are the main parameters to map eXo users to your directory:
 
 {code:xml}
@@ -331,7 +411,16 @@ uid=marry,cn=users,ou=portal,dc=exoplatform,dc=org
   ...
 {code}
 
-h4. User mapping {anchor:id=DEV.SystemIntegration.UserMapping}
+{docbook}
+<para xml:id="DEV.SystemIntegration.UserMapping">
+<citetitle>
+<emphasis role="bold">
+User mapping
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
 The following parameters maps LDAP attributes to eXo User Java objects attributes.
 
 {code:xml}
