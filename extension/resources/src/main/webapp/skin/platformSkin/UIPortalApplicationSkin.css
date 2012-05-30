@@ -41,7 +41,15 @@ a {
 }
 
 *+html .UIVote .VoteResultContainer {
-	width: 300px;
+	width: 290px;
+}
+
+*+html .UIVote .VoteRatingInfo {
+	margin-top: 10px;
+} 
+
+*+html .UITableColumnContainer .UIPopupWindow .PopupContent {
+	height: auto  !important;
 }
 
 .UIWorkingWorkspace .UIPageBody {
