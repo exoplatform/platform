@@ -985,6 +985,21 @@
                       </field>
                     </object>
                   </value>
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>SuggestedSpaces</string></field>
+                      <field name="categoryName"><string>social</string></field>
+                      <field name="displayName"><string>Suggested Spaces Gadget</string></field>
+                      <field name="description"><string>Suggested Spaces Gadget</string></field>
+                      <field name="type"><string>gadget</string></field>
+                      <field name="contentId"><string>SuggestedSpaces</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/users</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
                 </collection>
               </field>
             </object>
