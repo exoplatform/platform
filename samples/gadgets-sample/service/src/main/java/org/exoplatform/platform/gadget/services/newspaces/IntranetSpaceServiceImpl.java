@@ -65,29 +65,27 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
    * @throws Exception
    */
   public IntranetSpaceServiceImpl(RepositoryService repoService) throws Exception{
-	this._repoService = repoService;
-	  
+    this._repoService = repoService;
   }
 
   private Node getSpaceHome() throws Exception {
-	  
     if(this._repoService != null){
-		SessionProvider sProvider = SessionProvider.createSystemProvider();
-		
-		try {
-			Session session = this.getSession(sProvider);
-			Node rootNode = session.getRootNode();
-			if(rootNode.hasNode(SPACE_HOME))
-			{
-				return rootNode.getNode(SPACE_HOME);
-			}
-		}
-		catch (Exception e) {
-			LOG.error("Can not get get SpaceHome", e);
-			sProvider.close();
-		}
+        SessionProvider sProvider = SessionProvider.createSystemProvider();
+        
+        try {
+            Session session = this.getSession(sProvider);
+            Node rootNode = session.getRootNode();
+            if(rootNode.hasNode(SPACE_HOME))
+            {
+                return rootNode.getNode(SPACE_HOME);
+            }
+        }
+        catch (Exception e) {
+            LOG.error("Can not get get SpaceHome", e);
+            sProvider.close();
+        }
     }
-	return null;
+    return null;
   }
 
   /**
@@ -96,21 +94,21 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
    */
   public List<IntranetSpace> getLatestCreatedSpace(int maxday, String language, List<String> allGroupAndMembershipOfUser) {
     //check permission
-	if(allGroupAndMembershipOfUser==null || allGroupAndMembershipOfUser.size() ==0){
-		return new ArrayList<IntranetSpace>();
-	}
-	
+    if(allGroupAndMembershipOfUser==null || allGroupAndMembershipOfUser.size() ==0){
+        return new ArrayList<IntranetSpace>();
+    }
+    
     if (maxday <=0) maxday = 10;
     String userName = (allGroupAndMembershipOfUser!=null && allGroupAndMembershipOfUser.size()>0)? allGroupAndMembershipOfUser.get(0):null;
     
     List<IntranetSpace> listSpaces = new ArrayList<IntranetSpace>();
-	SessionProvider sProvider = SessionProvider.createSystemProvider();
-	
+    SessionProvider sProvider = SessionProvider.createSystemProvider();
+    
     try {
 
       Node spaceHomeNode = getSpaceHome();
       if(spaceHomeNode ==null){
-    	  return listSpaces;
+          return listSpaces;
       }
       
       Calendar pastTime = Calendar.getInstance();
@@ -196,44 +194,44 @@ public class IntranetSpaceServiceImpl implements IntranetSpaceService {
   
   public List<IntranetSpace> requestToJoinOpenSpace(String spaceUrl,String userId)
   {
-	  if(userId == null){
-		  return new ArrayList<IntranetSpace>();
-	  }
+      if(userId == null){
+          return new ArrayList<IntranetSpace>();
+      }
 
-	  try {
-		  PortalContainer portalContainer = PortalContainer.getInstance();
-		  SpaceService spaceService = (SpaceService) portalContainer.getComponentInstanceOfType(SpaceService.class);
-		  Space space = spaceService.getSpaceByUrl(spaceUrl);
-		  if (space != null) {
-			  if (spaceService.isInvitedUser(space, userId)) {
-				  spaceService.addMember(space, userId);
-			  }
-			  else if(!spaceService.isMember(space, userId)){
-				  spaceService.addPendingUser( space, userId); 
-			  }
-		  }
+      try {
+          PortalContainer portalContainer = PortalContainer.getInstance();
+          SpaceService spaceService = (SpaceService) portalContainer.getComponentInstanceOfType(SpaceService.class);
+          Space space = spaceService.getSpaceByUrl(spaceUrl);
+          if (space != null) {
+              if (spaceService.isInvitedUser(space, userId)) {
+                  spaceService.addMember(space, userId);
+              }
+              else if(!spaceService.isMember(space, userId)){
+                  spaceService.addPendingUser( space, userId); 
+              }
+          }
 
-		  //return space if success
-		  Space result = spaceService.getSpaceByUrl(spaceUrl); 
-		  if(spaceService.isMember(result, userId)){
-			  IntranetSpace intranetSpaceBean = new IntranetSpace();
-			  intranetSpaceBean.setUrl(result.getUrl());
-			  intranetSpaceBean.setDisplayName(result.getDisplayName());
-			  intranetSpaceBean.setIsMember(true);
-			  List<IntranetSpace> listIntranetSpace = new ArrayList<IntranetSpace>();
-			  listIntranetSpace.add(intranetSpaceBean);
-			  return listIntranetSpace;
-		  }
-	  } catch (Exception e) {
-		  LOG.warn("Can not join space " + spaceUrl ,e);
-	  }
-	  
-	  return new ArrayList<IntranetSpace>();
+          //return space if success
+          Space result = spaceService.getSpaceByUrl(spaceUrl); 
+          if(spaceService.isMember(result, userId)){
+              IntranetSpace intranetSpaceBean = new IntranetSpace();
+              intranetSpaceBean.setUrl(result.getUrl());
+              intranetSpaceBean.setDisplayName(result.getDisplayName());
+              intranetSpaceBean.setIsMember(true);
+              List<IntranetSpace> listIntranetSpace = new ArrayList<IntranetSpace>();
+              listIntranetSpace.add(intranetSpaceBean);
+              return listIntranetSpace;
+          }
+      } catch (Exception e) {
+          LOG.warn("Can not join space " + spaceUrl ,e);
+      }
+      
+      return new ArrayList<IntranetSpace>();
   }
   
   private Session getSession(SessionProvider sessionProvider) throws Exception {
-	ManageableRepository currentRepo = this._repoService.getCurrentRepository();
-	return sessionProvider.getSession(SOCIAL_WORKSPACE, currentRepo);
+    ManageableRepository currentRepo = this._repoService.getCurrentRepository();
+    return sessionProvider.getSession(SOCIAL_WORKSPACE, currentRepo);
   }
  
   

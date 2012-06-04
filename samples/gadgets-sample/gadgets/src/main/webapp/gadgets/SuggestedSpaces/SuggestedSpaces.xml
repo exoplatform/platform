@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs 
-  title="New Spaces"
+  title="Suggested Spaces"
   author="Do Thanh Tung"
   author_email="tungdt@exoplatform.com"
   thumbnail="./skin/images/SpaceLogoDefault_61x61.gif"
@@ -24,10 +24,10 @@
   
   <Content type="html">
     <![CDATA[     
-    <link type="text/css" rel="stylesheet" href="./skin/newspaces.css"/>
+    <link type="text/css" rel="stylesheet" href="./skin/SuggestedSpaces.css"/>
     <link type="text/css" rel="stylesheet" href="/exo-gadget-resources/skin/exo-gadget/gadget-common.css" />
     
-    <script type="text/javascript" src="./script/newSpaces.js"></script>
+    <script type="text/javascript" src="./script/SuggestedSpaces.js"></script>
     <script type="text/javascript" src="./script/date.format.js"></script>
     <script language="javascript" type="text/javascript" src="/exo-gadget-resources/script/jquery/1.6.2/jquery.min.js"></script>
        

@@ -86,8 +86,15 @@ public class NewSpaceRestService implements ResourceContainer {
      {
        listIntranetSpace = intranetSpaceService.getLatestCreatedSpace(maxtime, language, allGroupAndMembershipOfUser);
        for (IntranetSpace space : listIntranetSpace) {
-           if(space.getIsMember() || space.getIsInvitedUser() || space.getIsPendingUser()){
+           //if(space.getIsMember() || space.getIsInvitedUser() || space.getIsPendingUser()){
+           if(space.getIsMember() ==true)
+           {
+               continue;
+           }
+           
+           if(space.getIsInvitedUser() || space.getIsPendingUser()){
              listResponseIntranetSpace.add(space);
+               
            }
            else if((space.getVisibility().equalsIgnoreCase(NewSpaceRestService.VISIBILITY_PRIVATE)) && 
                ((space.getRegistration().equalsIgnoreCase(NewSpaceRestService.REGISTRATION_OPEN)) || (space.getRegistration().equalsIgnoreCase(NewSpaceRestService.REGISTRATION_VALIDATION)))){
@@ -127,7 +134,7 @@ public class NewSpaceRestService implements ResourceContainer {
      
      try
      {
-    	 listResponseIntranetSpace = intranetSpaceService.requestToJoinOpenSpace(spaceUrl, this.getUserId());
+         listResponseIntranetSpace = intranetSpaceService.requestToJoinOpenSpace(spaceUrl, this.getUserId());
      }
      catch (Exception e)
      {
@@ -158,7 +165,7 @@ public class NewSpaceRestService implements ResourceContainer {
      try {
        Identity identity = ConversationState.getCurrent().getIdentity();
        if(identity.getGroups() == null || identity.getGroups().size() == 0){
-    	   return listOfUser;
+           return listOfUser;
        }
        listOfUser.add(identity.getUserId());
        Set<String> list = new HashSet<String>();
@@ -178,12 +185,12 @@ public class NewSpaceRestService implements ResourceContainer {
    
    private String getUserId()
    {
-	   Identity identity = ConversationState.getCurrent().getIdentity();
-	   if(identity.getGroups() == null || identity.getGroups().size() == 0)
-	   {
-		   return null;
-	   }
-	   return identity.getUserId();
+       Identity identity = ConversationState.getCurrent().getIdentity();
+       if(identity.getGroups() == null || identity.getGroups().size() == 0)
+       {
+           return null;
+       }
+       return identity.getUserId();
    }
    
 

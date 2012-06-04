@@ -1,4 +1,7 @@
-    function eXoNewSpaceGadget(){      
+    function eXoNewSpaceGadget(){   
+      this.viewer = null;
+      this.context = null;
+      this.restUrl = null;
     } ;
 
     eXoNewSpaceGadget.prototype.truncText = function(str, nMaxChars) {
@@ -21,12 +24,12 @@
       }
     }
         
-    eXoNewSpaceGadget.prototype.setSpaceUrl = function(){
+    eXoNewSpaceGadget.prototype.setAllSpaceUrl = function(context){
       var spaceURL = "";
-      if(typeof(parent.eXo) != "undefined") {
-        spaceURL = parent.eXo.env.server.context + "/" + parent.eXo.env.portal.accessMode + "/" + parent.eXo.env.portal.portalName + "/all-spaces";
+      if(typeof(context) != "undefined") {
+        spaceURL = context + "/intranet/all-spaces";
       } else {
-        spaceURL = "/portal/intranet/all-spaces";
+        spaceURL = eXoNewSpaceGadget.context + "/intranet/all-spaces";
       }
       var a = document.getElementById("ShowAll");
       a.href = spaceURL;
@@ -36,27 +39,57 @@
       eXoNewSpaceGadget.getData();
     }
 
-    eXoNewSpaceGadget.prototype.createServiceRequestUrl = function(){
+    eXoNewSpaceGadget.prototype.createServiceRequestUrl = function(restUrl){
       var prefs = eXoNewSpaceGadget.getPrefs();
       var serviceUrl = window.location.protocol + "//" + window.location.host;
       var lang = new gadgets.Prefs().getLang();
-      if(typeof(parent.eXo) != "undefined") {
-        serviceUrl += parent.eXo.env.server.context + "/" + parent.eXo.env.portal.rest + "/intranetNewSpaceService/space/latestCreatedSpace/" + prefs.maxtime + "/" + lang;
+      if(typeof(restUrl) != "undefined") {
+        serviceUrl = restUrl + "/intranetNewSpaceService/space/latestCreatedSpace/" + prefs.maxtime + "/" + lang;
       } else {
         serviceUrl += "/portal/rest/intranetNewSpaceService/space/latestCreatedSpace/"  + prefs.maxtime + "/" + lang;
       }
       return serviceUrl;
     }
          
-    eXoNewSpaceGadget.prototype.getData = function(){           
-      var url = eXoNewSpaceGadget.createServiceRequestUrl();
-      eXoNewSpaceGadget.ajaxAsyncGetRequest(url,eXoNewSpaceGadget.render);
-      if(typeof(requestInterval) == "undefined") requestInterval = setInterval(eXoNewSpaceGadget.getData,300000);
+    //Get data function
+    eXoNewSpaceGadget.prototype.getData = function(){     
+ 
+      var req = opensocial.newDataRequest();
+    var opts = {};
+    
+    opts[opensocial.DataRequest.PeopleRequestFields.PROFILE_DETAILS] = [
+        opensocial.Person.Field.PROFILE_URL,
+        "portalName",
+        "restContext",
+        "host"];
+  
+    req.add(req.newFetchPersonRequest("VIEWER", opts), 'viewer');
+    req.send(onLoad);
+  
+    function onLoad(data) {
+      if (!data.hadError()) {
+        this.viewer = data.get('viewer').getData();
+        var profile_url =  this.viewer.getField(opensocial.Person.Field.PROFILE_URL);
+        var userId = profile_url.substr(profile_url.lastIndexOf('/') + 1);
+        var hostName = this.viewer.getField('hostName');
+        var portalName = this.viewer.getField('portalName');
+        var restContext = this.viewer.getField('restContextName');
+        eXoNewSpaceGadget.context = hostName + "/" + portalName;
+        
+        eXoNewSpaceGadget.restUrl = hostName + "/" + portalName + "/" + restContext;
+        
+        eXoNewSpaceGadget.setAllSpaceUrl(eXoNewSpaceGadget.context);
+        
+        var url = eXoNewSpaceGadget.createServiceRequestUrl(eXoNewSpaceGadget.restUrl);
+        eXoNewSpaceGadget.ajaxAsyncGetRequest (url,eXoNewSpaceGadget.render);
+        
+        if(typeof(requestInterval) == "undefined") requestInterval = setInterval(eXoNewSpaceGadget.getData,300000);
+      }
+     }
     }      
 
-    eXoNewSpaceGadget.prototype.render =  function(obj){
-
-      eXoNewSpaceGadget.setSpaceUrl();
+    //Render data
+    eXoNewSpaceGadget.prototype.render =  function(obj, status, params){
       var spaceList = new Array();
       data = obj;
 
@@ -78,8 +111,8 @@
       var prefs = eXoNewSpaceGadget.getPrefs();
       var html = '';
       var len = spaceList.length;
-      var portalURL = window.location.protocol + "//" + window.location.host + "/portal/private/intranet/";
-      var avatarURL = window.location.protocol + "//" + window.location.host + "/portal";
+      var portalURL = eXoNewSpaceGadget.context + "/private/intranet/";
+      var avatarURL = eXoNewSpaceGadget.context;
 
       for(var i = 0 ; i < len; i++){  
         var item = spaceList[i];
@@ -88,7 +121,7 @@
         //switch link to for each space_type
         if(item.isMember){
            // spaceURL =  portalURL + item.url;
-              spaceURL = window.location.protocol + "//" + window.location.host + "/portal/g/:spaces:" + item.url + "/" + item.url;
+              spaceURL = eXoNewSpaceGadget.context + "/g/:spaces:" + item.url + "/" + item.url;
         }
         else if(item.isInvitedUser){
             spaceURL = portalURL + 'invitationSpace';
@@ -127,14 +160,13 @@
         }
         else{
           html += '<div><a class="spaceItemLink" target="_parent" title="' + item.description +  '" href=\"'+ spaceURL + '\">' + item.displayName +'</a></div>';
-    	}
+      }
     
         html += '<div class = "ClearFix">';
         //var cratedDate = new Date(item.createdDate.time);
         //var createdDateStr = (cratedDate.format("yyyy/mm/dd"));
-        var createdTimeAgo = item.createdTimeAgo;
+        //var createdTimeAgo = item.createdTimeAgo;
         html += '<div class = "itemDetail">' + eXoNewSpaceGadget.truncText (item.description, 100)  + '</div>';
-        html += '<div class = "itemDetail-italic">' + gadgets.Prefs().getMsg("Created") + " " +createdTimeAgo + '</div>';
         html += '</div>';
         html += '</div>';
         
@@ -149,14 +181,14 @@
       gadgets.window.adjustHeight($("#NewSpaces-Gadget").get(0).offsetHeight);
     }
       
-    eXoNewSpaceGadget.prototype.ajaxAsyncGetRequest = function(url, callback) {
-      $.getJSON(url, callback);
+    eXoNewSpaceGadget.prototype.ajaxAsyncGetRequest = function(url, callback ) {
+      $.getJSON(url,callback);
       return;    
     }
     
     eXoNewSpaceGadget.prototype.requestToJoinSpace = function(spaceUrl)
     {
-      var serviceUrl = "/portal/rest/intranetNewSpaceService/space/requestJoinSpace/"  + spaceUrl;
+      var serviceUrl = eXoNewSpaceGadget.restUrl + "/intranetNewSpaceService/space/requestJoinSpace/"  + spaceUrl;
       $.getJSON(serviceUrl, eXoNewSpaceGadget.requestToJoinSpaceProcess);  //callback is requestToJoinSpaceProcess
       return;   
     }
@@ -175,7 +207,7 @@
       });
       
       //if data== empty, the request to join space was failure
-      //todo: render list new spaces again
+      //render list new spaces again
       if(!data || spaceList.length == 0){
         eXoNewSpaceGadget.onLoadHander();
         return;
@@ -184,12 +216,10 @@
       //if data != empty, else the request to join space was successfully
       //redirect to the space
       var item = spaceList[0];
-      //switch link to for each space_type
       if(item.isMember){
-         spaceURL = window.location.protocol + "//" + window.location.host + "/portal/g/:spaces:" + item.url + "/" + item.url;
+         spaceURL = eXoNewSpaceGadget.context + "/g/:spaces:" + item.url + "/" + item.url;
          parent.document.location=spaceURL;
       }
-      
     }
         
     eXoNewSpaceGadget.prototype.notify = function(){

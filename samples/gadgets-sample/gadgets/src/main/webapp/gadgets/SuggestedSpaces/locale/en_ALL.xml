@@ -1,24 +1,25 @@
 <?xmfl version='1.0' encoding='UTF-8'?>
 <messagebundle>
   <msg name="title">
-    Nouveaux espaces
-  </msg> 
+    Suggested spaces
+  </msg>
   <msg name="Created">
-    Environ
+    About
   </msg>
   <msg name="maxtime">
-    Afficher les nouveaux espaces
+    Display new Spaces in recently days
   </msg>
   <msg name="no_space">
-    Aucun espace n'a été créé récemment
+    No new Space has been created recently
   </msg>  
   <msg name="showAll">
-    Montrer tout
+    Show all
   </msg>
   <msg name="join">
-    Joindre
+    Join
   </msg>
   <msg name="join_title">
-    Rejoindre l'espace
+    Request to join space
   </msg>
 </messagebundle>
+

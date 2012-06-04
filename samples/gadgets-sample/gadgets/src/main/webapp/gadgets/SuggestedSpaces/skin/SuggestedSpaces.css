@@ -26,6 +26,8 @@
 }
 .UIGadgetThemes .itemDetail {
  padding-left: 10px;
+ color: lightgray;
+ font-size: 11px;
 }
 .UIGadgetThemes .itemDetail-italic {
  padding-left: 10px;
