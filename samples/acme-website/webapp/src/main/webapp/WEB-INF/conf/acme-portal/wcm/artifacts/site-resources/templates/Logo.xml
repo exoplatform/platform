@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:xcmis="http://www.exoplatform.com/jcr/xcmis/1.0" xmlns:lr="http://www.exoplatform.org/liveroom/1.0" xmlns:tkn="http://www.gatein.org/jcr/token/1.0/" xmlns:webdav="http://www.exoplatform.org/jcr/webdav" xmlns:rh="www.vn.vnn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gtn="http://www.gatein.org/jcr/gatein/1.0/" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:wsrp="http://www.gatein.org/jcr/wsrp/1.0/" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:jos="http://www.exoplatform.com/jcr-services/organization-service/1.0/" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:metadata="http://www.exoplatform.com/jcr/metadata/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:app="http://www.gatein.org/jcr/application-registry/1.0/" xmlns:Re="http://www.exoplatform.com/jcr/Re/1.1/" xmlns:cmis="http://www.exoplatform.com/jcr/cmis/1.0" xmlns:lgn="http://www.gatein.org/jcr/autologin/1.0/" xmlns:mop="http://www.gatein.org/jcr/mop/1.0/" xmlns:fn_old="http://www.w3.org/2004/10/xpath-functions" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:publication="http://www.exoplatform.com/jcr/publication/1.1/" xmlns:exo="http://www.exoplatform.com/jcr/exo/1.0" xmlns:Fwd="http://www.exoplatform.com/jcr/Fwd/1.1/" xmlns:pc="http://www.gatein.org/jcr/pc/1.0/" xmlns:rma="http://www.rma.com/jcr/" xmlns:kfx="http://www.exoplatform.com/jcr/kfx/1.1/" xmlns:portlet="http://www.gatein.org/jcr/portlet/1.0/" xmlns:rep="internal" sv:name="Logo">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>exo:webContent</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+    <sv:value>exo:modify</sv:value>
+    <sv:value>exo:owneable</sv:value>
+    <sv:value>exo:sortable</sv:value>
+    <sv:value>exo:datetime</sv:value>
+    <sv:value>exo:linkable</sv:value>
+    <sv:value>mix:votable</sv:value>
+    <sv:value>mix:commentable</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:uuid" sv:type="String">
+    <sv:value>58c5598fc0a8028d004473a8e41016f3</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:dateCreated" sv:type="Date">
+    <sv:value>2010-09-28T15:35:50.234+01:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:dateModified" sv:type="Date">
+    <sv:value>2010-09-28T15:36:48.109+01:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:index" sv:type="Long">
+    <sv:value>1000</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+    <sv:value>2010-09-28T15:36:48.109+01:00</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:lastModifier" sv:type="String">
+    <sv:value>root</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:links" sv:type="String"/>
+  <sv:property sv:name="exo:name" sv:type="String">
+    <sv:value>Logo</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:owner" sv:type="String">
+    <sv:value>root</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:title" sv:type="String">
+    <sv:value>ACME Logo</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:voteTotal" sv:type="Long">
+    <sv:value>0</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+    <sv:value>0</sv:value>
+  </sv:property>
+  <sv:property sv:name="exo:votingRate" sv:type="Double">
+    <sv:value>0.0</sv:value>
+  </sv:property>
+  <sv:property sv:name="jcr:created" sv:type="Date">
+    <sv:value>2010-09-28T15:35:50.031+01:00</sv:value>
+  </sv:property>
+  <sv:node sv:name="js">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>exo:jsFolder</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>exo:owneable</sv:value>
+      <sv:value>mix:votable</sv:value>
+      <sv:value>mix:commentable</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:owner" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotal" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:votingRate" sv:type="Double">
+      <sv:value>0.0</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:created" sv:type="Date">
+      <sv:value>2010-09-28T15:35:50.031+01:00</sv:value>
+    </sv:property>
+    <sv:node sv:name="default.js">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:file</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:modify</sv:value>
+        <sv:value>exo:jsFile</sv:value>
+        <sv:value>exo:owneable</sv:value>
+        <sv:value>exo:sortable</sv:value>
+        <sv:value>exo:datetime</sv:value>
+        <sv:value>mix:votable</sv:value>
+        <sv:value>mix:commentable</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>58c55ae7c0a8028d019dc177753d8287</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:active" sv:type="Boolean">
+        <sv:value>true</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateCreated" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.390+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateModified" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.390+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:index" sv:type="Long">
+        <sv:value>1000</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+        <sv:value>2010-09-28T15:36:48.109+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:lastModifier" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:name" sv:type="String">
+        <sv:value>default.js</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:presentationType" sv:type="String">
+        <sv:value>exo:jsFile</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:priority" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotal" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:votingRate" sv:type="Double">
+        <sv:value>0.0</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:created" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.375+01:00</sv:value>
+      </sv:property>
+      <sv:node sv:name="jcr:content">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>nt:resource</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+          <sv:value>exo:owneable</sv:value>
+          <sv:value>exo:datetime</sv:value>
+          <sv:value>dc:elementSet</sv:value>
+          <sv:value>mix:votable</sv:value>
+          <sv:value>mix:commentable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>58c55af6c0a8028d0195cd5a85ba0f7d</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateCreated" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.390+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateModified" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.390+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:internalUse" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:owner" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotal" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:votingRate" sv:type="Double">
+          <sv:value>0.0</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:data" sv:type="Binary">
+          <sv:value/>
+        </sv:property>
+        <sv:property sv:name="jcr:encoding" sv:type="String">
+          <sv:value>UTF-8</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:lastModified" sv:type="Date">
+          <sv:value>2010-09-28T15:36:48.093+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mimeType" sv:type="String">
+          <sv:value>application/x-javascript</sv:value>
+        </sv:property>
+      </sv:node>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="css">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>exo:cssFolder</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>exo:owneable</sv:value>
+      <sv:value>mix:votable</sv:value>
+      <sv:value>mix:commentable</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:owner" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotal" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:votingRate" sv:type="Double">
+      <sv:value>0.0</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:created" sv:type="Date">
+      <sv:value>2010-09-28T15:35:50.031+01:00</sv:value>
+    </sv:property>
+    <sv:node sv:name="default.css">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:file</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:modify</sv:value>
+        <sv:value>exo:cssFile</sv:value>
+        <sv:value>exo:owneable</sv:value>
+        <sv:value>exo:sortable</sv:value>
+        <sv:value>exo:datetime</sv:value>
+        <sv:value>mix:votable</sv:value>
+        <sv:value>mix:commentable</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>58c55ac7c0a8028d0034d50f1a3fc63f</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:active" sv:type="Boolean">
+        <sv:value>true</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateCreated" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.343+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateModified" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.343+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:index" sv:type="Long">
+        <sv:value>1000</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+        <sv:value>2010-09-28T15:36:48.093+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:lastModifier" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:name" sv:type="String">
+        <sv:value>default.css</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:presentationType" sv:type="String">
+        <sv:value>exo:cssFile</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:priority" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotal" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:votingRate" sv:type="Double">
+        <sv:value>0.0</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:created" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.343+01:00</sv:value>
+      </sv:property>
+      <sv:node sv:name="jcr:content">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>nt:resource</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+          <sv:value>exo:owneable</sv:value>
+          <sv:value>exo:datetime</sv:value>
+          <sv:value>dc:elementSet</sv:value>
+          <sv:value>mix:votable</sv:value>
+          <sv:value>mix:commentable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>58c55ac7c0a8028d012fcb7149098bb5</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateCreated" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.359+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateModified" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.359+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:internalUse" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:owner" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotal" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:votingRate" sv:type="Double">
+          <sv:value>0.0</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:data" sv:type="Binary">
+          <sv:value>LlRleHRCYW5uZXJ7CiAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgZm9udC1zaXplOiAyMHB4OwogIGZvbnQtZmFtaWx5OiBBcmlhbCBCbGFjazsKICBjb2xvcjogd2hpdGU7Cn0=</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:encoding" sv:type="String">
+          <sv:value>UTF-8</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:lastModified" sv:type="Date">
+          <sv:value>2010-09-28T15:36:48.078+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mimeType" sv:type="String">
+          <sv:value>text/css</sv:value>
+        </sv:property>
+      </sv:node>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="medias">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>exo:multimediaFolder</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>exo:owneable</sv:value>
+      <sv:value>mix:votable</sv:value>
+      <sv:value>mix:commentable</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:owner" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotal" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:votingRate" sv:type="Double">
+      <sv:value>0.0</sv:value>
+    </sv:property>
+    <sv:node sv:name="images">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:folder</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:pictureFolder</sv:value>
+        <sv:value>exo:owneable</sv:value>
+        <sv:value>mix:votable</sv:value>
+        <sv:value>mix:commentable</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotal" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:votingRate" sv:type="Double">
+        <sv:value>0.0</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:created" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.031+01:00</sv:value>
+      </sv:property>
+      <sv:node sv:name="illustration">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>nt:file</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+          <sv:value>exo:modify</sv:value>
+          <sv:value>exo:owneable</sv:value>
+          <sv:value>exo:sortable</sv:value>
+          <sv:value>exo:datetime</sv:value>
+          <sv:value>mix:referenceable</sv:value>
+          <sv:value>mix:votable</sv:value>
+          <sv:value>mix:commentable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>58c55ad7c0a8028d00935ba9dbbe984f</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateCreated" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.359+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateModified" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.359+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:index" sv:type="Long">
+          <sv:value>1000</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+          <sv:value>2010-09-28T15:36:48.093+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:lastModifier" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:name" sv:type="String">
+          <sv:value>illustration</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:owner" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotal" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:votingRate" sv:type="Double">
+          <sv:value>0.0</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:created" sv:type="Date">
+          <sv:value>2010-09-28T15:35:50.359+01:00</sv:value>
+        </sv:property>
+        <sv:node sv:name="jcr:content">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>nt:resource</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+            <sv:value>exo:owneable</sv:value>
+            <sv:value>exo:datetime</sv:value>
+            <sv:value>dc:elementSet</sv:value>
+            <sv:value>mix:votable</sv:value>
+            <sv:value>mix:commentable</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>58c55ae7c0a8028d00702d9747b94c69</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:dateCreated" sv:type="Date">
+            <sv:value>2010-09-28T15:35:50.375+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:dateModified" sv:type="Date">
+            <sv:value>2010-09-28T15:35:50.375+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:internalUse" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:owner" sv:type="String">
+            <sv:value>root</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:voteTotal" sv:type="Long">
+            <sv:value>0</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+            <sv:value>0</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:votingRate" sv:type="Double">
+            <sv:value>0.0</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:data" sv:type="Binary">
+            <sv:value/>
+          </sv:property>
+          <sv:property sv:name="jcr:encoding" sv:type="String">
+            <sv:value>UTF-8</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:lastModified" sv:type="Date">
+            <sv:value>2010-09-28T15:36:48.093+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mimeType" sv:type="String">
+            <sv:value/>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+      <sv:node sv:name="Logo.png">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>nt:file</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+          <sv:value>exo:modify</sv:value>
+          <sv:value>exo:owneable</sv:value>
+          <sv:value>exo:datetime</sv:value>
+          <sv:value>mix:i18n</sv:value>
+          <sv:value>mix:votable</sv:value>
+          <sv:value>mix:commentable</sv:value>
+          <sv:value>mix:referenceable</sv:value>
+          <sv:value>exo:rss-enable</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:uuid" sv:type="String">
+          <sv:value>58c6c796c0a8028d007ee04ec089503d</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateCreated" sv:type="Date">
+          <sv:value>2010-08-02T04:25:07.426+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:dateModified" sv:type="Date">
+          <sv:value>2010-08-02T04:25:07.426+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:language" sv:type="String">
+          <sv:value>en</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+          <sv:value>2010-08-02T04:25:07.519+01:00</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:lastModifier" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:owner" sv:type="String">
+          <sv:value>root</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:title" sv:type="String">
+          <sv:value>Logo.png</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotal" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+          <sv:value>0</sv:value>
+        </sv:property>
+        <sv:property sv:name="exo:votingRate" sv:type="Double">
+          <sv:value>0.0</sv:value>
+        </sv:property>
+        <sv:property sv:name="jcr:created" sv:type="Date">
+          <sv:value>2010-08-02T04:25:07.410+01:00</sv:value>
+        </sv:property>
+        <sv:node sv:name="jcr:content">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>nt:resource</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+            <sv:value>exo:owneable</sv:value>
+            <sv:value>exo:datetime</sv:value>
+            <sv:value>dc:elementSet</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:uuid" sv:type="String">
+            <sv:value>58c6c7a6c0a8028d0168ebea4b1a1dbd</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:dateCreated" sv:type="Date">
+            <sv:value>2010-08-02T04:25:07.426+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:dateModified" sv:type="Date">
+            <sv:value>2010-08-02T04:25:07.426+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:internalUse" sv:type="Boolean">
+            <sv:value>false</sv:value>
+          </sv:property>
+          <sv:property sv:name="exo:owner" sv:type="String">
+            <sv:value>root</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:data" sv:type="Binary">
+            <sv:value>iVBORw0KGgoAAAANSUhEUgAAAMsAAAAzCAYAAAA5OvxHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTBERDdCMTUwM0E1MTFFMTk4ODY4QTBDNUZBNUNGQjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTBERDdCMTYwM0E1MTFFMTk4ODY4QTBDNUZBNUNGQjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMEREN0IxMzAzQTUxMUUxOTg4NjhBMEM1RkE1Q0ZCNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMEREN0IxNDAzQTUxMUUxOTg4NjhBMEM1RkE1Q0ZCNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrFCEE4AABx7SURBVHja7F0JeE5X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</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:encoding" sv:type="String">
+            <sv:value>UTF-8</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:lastModified" sv:type="Date">
+            <sv:value>2010-08-02T04:25:07.410+01:00</sv:value>
+          </sv:property>
+          <sv:property sv:name="jcr:mimeType" sv:type="String">
+            <sv:value>image/png</sv:value>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+    </sv:node>
+    <sv:node sv:name="videos">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:folder</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:videoFolder</sv:value>
+        <sv:value>exo:owneable</sv:value>
+        <sv:value>mix:votable</sv:value>
+        <sv:value>mix:commentable</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotal" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:votingRate" sv:type="Double">
+        <sv:value>0.0</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:created" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.046+01:00</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="audio">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:folder</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:musicFolder</sv:value>
+        <sv:value>exo:owneable</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:created" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.046+01:00</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+  <sv:node sv:name="documents">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>nt:unstructured</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>exo:documentFolder</sv:value>
+      <sv:value>exo:owneable</sv:value>
+      <sv:value>mix:votable</sv:value>
+      <sv:value>mix:commentable</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:owner" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotal" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:votingRate" sv:type="Double">
+      <sv:value>0.0</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="default.html">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>nt:file</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>exo:modify</sv:value>
+      <sv:value>exo:owneable</sv:value>
+      <sv:value>exo:sortable</sv:value>
+      <sv:value>exo:datetime</sv:value>
+      <sv:value>exo:htmlFile</sv:value>
+      <sv:value>mix:votable</sv:value>
+      <sv:value>mix:commentable</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>58c55a5ac0a8028d0012a007850e92bf</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:dateCreated" sv:type="Date">
+      <sv:value>2010-09-28T15:35:50.234+01:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:dateModified" sv:type="Date">
+      <sv:value>2010-09-28T15:35:50.234+01:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:index" sv:type="Long">
+      <sv:value>1000</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:lastModifiedDate" sv:type="Date">
+      <sv:value>2010-09-28T15:36:48.078+01:00</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:lastModifier" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:name" sv:type="String">
+      <sv:value>default.html</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:owner" sv:type="String">
+      <sv:value>root</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotal" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+      <sv:value>0</sv:value>
+    </sv:property>
+    <sv:property sv:name="exo:votingRate" sv:type="Double">
+      <sv:value>0.0</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:created" sv:type="Date">
+      <sv:value>2010-09-28T15:35:50.234+01:00</sv:value>
+    </sv:property>
+    <sv:node sv:name="jcr:content">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>nt:resource</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
+        <sv:value>exo:owneable</sv:value>
+        <sv:value>exo:datetime</sv:value>
+        <sv:value>dc:elementSet</sv:value>
+        <sv:value>mix:votable</sv:value>
+        <sv:value>mix:commentable</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:uuid" sv:type="String">
+        <sv:value>58c55a6ac0a8028d00a906ca63eb4cf0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateCreated" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.250+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:dateModified" sv:type="Date">
+        <sv:value>2010-09-28T15:35:50.250+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:internalUse" sv:type="Boolean">
+        <sv:value>false</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:owner" sv:type="String">
+        <sv:value>root</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotal" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:voteTotalOfLang" sv:type="Long">
+        <sv:value>0</sv:value>
+      </sv:property>
+      <sv:property sv:name="exo:votingRate" sv:type="Double">
+        <sv:value>0.0</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:data" sv:type="Binary">
+        <sv:value>PHA+Cgk8YSBjbGFzcz0iTG9nbyIgaHJlZj0iIj48aW1nIGFsdD0iIiBzcmM9Ii9wb3J0YWwvcmVzdC9qY3IvcmVwb3NpdG9yeS9jb2xsYWJvcmF0aW9uL3NpdGVzJTIwY29udGVudC9saXZlL3twb3J0YWxOYW1lfS93ZWIlMjBjb250ZW50cy9zaXRlIGFydGlmYWN0cy9Mb2dvL21lZGlhcy9pbWFnZXMvTG9nby5wbmciIC8+PC9hPjwvcD4=</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:encoding" sv:type="String">
+        <sv:value>UTF-8</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:lastModified" sv:type="Date">
+        <sv:value>2010-09-28T15:36:48.078+01:00</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mimeType" sv:type="String">
+        <sv:value>text/html</sv:value>
+      </sv:property>
+    </sv:node>
+  </sv:node>
+</sv:node>
