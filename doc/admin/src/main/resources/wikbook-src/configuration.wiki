@@ -790,28 +790,29 @@ To run the chat server properly, several ports must be opened in the firewall.
 h1. Office server {anchor:id=ADM.Configuration.Office_server}
 eXo Platform allows users to view various types of documents directly in the *Sites Explorer* through the office server. To do so, the office application must be available in your local device first.
 
-Then, *JobConverter* will use the [default values|#default_values] below to start the office server.
+Then, *JODConverter* will use the [default values|#default_values] below to start the office server.
 
 You can customize the default values by adding the properties below in the _configuration.properties_ file:
 
 {code}
 # JODConverter 3.0
-#jodconverter.portNumbers=8100, 8101, 8102, 8103, 8104
-#jodconverter.officeHome=/usr/lib/libreoffice
-#jodconverter.taskQueueTimeout=30000
-#jodconverter.taskExecutionTimeout=120000
-#jodconverter.maxTasksPerProcess=200
-#jodconverter.retryTimeout=120000
+wcm.jodconverter.portnumbers=8100,8101,8102,8103,8104
+wcm.jodconverter.officehome=/usr/lib/libreoffice
+wcm.jodconverter.taskqueuetimeout=30000
+wcm.jodconverter.taskexecutiontimeout=120000
+wcm.jodconverter.maxtasksperprocess=200
+wcm.jodconverter.retrytimeout=120000
 {code}
 
 
 ||Key || Default value{anchor:default_values} || Description ||
-|jodconverter.portNumbers |2002|The number of ports to connect with the office server. You can add more ports, separated by commas. The number of office instances will match with the number of ports. |
-|jodconverter.officeHome|See [here|#Office_home] |The absolute path to the office home on the current local device. It means that the office needs to be installed in the local device before using it. |
-|jodconverter.taskQueueTimeout |30000 |The maximum living time of a task in the conversation queue. The task will be removed out of the queue if the waiting time is longer than _taskQueueTimeout_. |
-|jodconverter.taskExecutionTimeout |120000 |The maximum time to process a task. If the processing time of a task is longer than _taskExecutionTimeout_, this task will be aborted and the next task is processed. |
-|jodconverter.maxTasksPerProcess |200 |The maximum number of tasks are processed. |
-|jodconverter.retryTimeout|120000 |The interval time to try to restart the office services in case they unexpectedly stop. |
+|wcm.jodconverter.portnumbers |2002|List of ports, separated by commas, those used by each JODConverter processing thread. The number of office instances is equal to the number of ports. |
+|wcm.jodconverter.officehome|See [here|#Office_home] |The absolute path to the office home on the current local device. It means that the office needs to be installed in the local device before using it. |
+|wcm.jodconverter.taskqueuetimeout |30000 |The maximum living time of a task in the conversation queue. The task will be removed out of the queue if the waiting time is longer than _taskQueueTimeout_. |
+|wcm.jodconverter.taskexecutiontimeout |120000 |The maximum time to process a task. If the processing time of a task is longer than _taskExecutionTimeout_, this task will be aborted and the next task is processed. |
+|wcm.jodconverter.maxtasksperprocess |200 |The maximum number of tasks are processed. |
+|wcm.jodconverter.retrytimeout|120000 |The interval time to try to restart the office services after an unexpected crash. |
+
 
 *The default office home* {anchor:id="Office_home"}
 * *Linux*
