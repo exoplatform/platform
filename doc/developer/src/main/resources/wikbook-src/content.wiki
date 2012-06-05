@@ -24,6 +24,11 @@
   </listitem>
   <listitem>
 	<para>
+	  <link linkend="DEV.WorkWithContent.CKEditor">Customize CKEditor</link>
+	</para>
+  </listitem>
+  <listitem>
+	<para>
 	  <link linkend="DEV.WorkWithContent.Taxonomy">Taxonomy</link>
 	</para>
   </listitem>
@@ -439,6 +444,10 @@ public interface ComponentSelector {
 h3. Multi-valued widget {anchor:id=DEV.WorkWithContent.Multi-valueWidget}
 
 A widget can have multiple values if you add the argument "multiValues=true" to the directive.
+
+h1. Customize CKEditor  {anchor:id=DEV.WorkWithContent.CKEditor}
+
+{include:document=CKEditor.wiki|syntax=confluence/1.0}
 
 h1. Taxonomy {anchor:id=DEV.WorkWithContent.Taxonomy}
 
