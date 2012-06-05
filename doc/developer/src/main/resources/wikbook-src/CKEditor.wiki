@@ -109,11 +109,21 @@ You can change the CKEditor skin by adjusting a single configuration option. In 
 By default, CKEditor has 3 skins for users to select: *v2*, *kama*, and *office2003*. They are placed in the _/webapps/eXoStaticResources/ckeditor/skins_ folder.
 
 h2. Toolbar     {anchor:id=DEV.WorkWithContent.CKEditor.Toolbar}
-h3. Toolbar Definition      {anchor:id=DEV.WorkWithContent.CKEditor.ToolbarDefinition}
+
+{docbook}
+<para xml:id="DEV.WorkWithContent.CKEditor.ToolbarDefinition">
+<citetitle>
+<emphasis role="bold">
+Toolbar Definition
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 CKEditor is a full-featured WYSIWYG editor, but not all of its options are needed in all cases. Therefore, the toolbar customization is one of the most common and required tasks when dealing with CKEditor.
 
-A toolbar definition is a JavaScript array that contains the elements to be displayed in all toolbar rows available in the editor. In eXo Platform, the toolbar definition is placed in the _/webapps/eXoStaticResources/eXoConfig.js_ file. The following code snippet contains the default CKEditor toolbar set in eXo Platform.
+*Toolbar Definition* is a JavaScript array which contains the elements to be displayed in all toolbar rows available in the editor. In eXo Platform, the toolbar definition is placed in the _/webapps/eXoStaticResources/eXoConfig.js_ file. The following code snippet contains the default CKEditor toolbar set in eXo Platform.
+
 {code:java}
 config.toolbar_Default = [
      ['Source','Templates'],
@@ -129,9 +139,19 @@ config.toolbar_Default = [
      ['Style','Format','Font','FontSize']
 ] ;
 {code}
-h3. Add a new toolbar in eXo Platform {anchor:id=DEV.WorkWithContent.CKEditor.AddNewToolbar}
+
+{docbook}
+<para xml:id="DEV.WorkWithContent.CKEditor.AddNewToolbar">
+<citetitle>
+<emphasis role="bold">
+Add a new toolbar in eXo Platform
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 * To add a new toolbar in eXo Platform, open the _/webapps/eXoStaticResources/eXoConfig.js_ configuration file of CKEditor, then add the following code snippet to it.
+
 {code:java}
 config.toolbar_MyToolbar =
 [
@@ -157,6 +177,7 @@ For example, to show  the new toolbar on the content field of HTML file, you nee
         uicomponent.addRichtextField("contentHtml", fieldSummary) ;
 {code}
 By adding a new HTML file, you will see the new toolbar (MyToolbar) on the content field:
+
 !images/MyToolbar.png|align="center" width="150mm" scalefit:fo="1" scalefit:html="0"!
 
 h2. How to create a plugin for CKEditor {anchor:id=DEV.WorkWithContent.CKEditor.CreatePluginForCKEditor}
@@ -172,6 +193,7 @@ Also, you will need a toolbar icon for the plugin by adding an _images_ folder a
 *3.* Modify the _plugin.js_ file in which you will write the behavior.
 
 The following is the code used to create a simple plugin named _timestamp_:
+
 {code:java}
 CKEDITOR.plugins.add( 'timestamp',
 {
@@ -195,7 +217,7 @@ CKEDITOR.plugins.add( 'timestamp',
 } );
 {code}
 
-To use the created plugin, plug it to the CKEditor by using the following code:
+To use the created plugin, plug it to CKEditor by using the following code:
 
 {code:java}
  (function() {CKEDITOR.plugins.addExternal('timestamp',CKEDITOR.eXoPath+'eXoPlugins/timestamp/','plugin.js');})();
