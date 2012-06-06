@@ -19,6 +19,7 @@ package org.exoplatform.platform.organization.integration;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
@@ -26,51 +27,53 @@ import org.exoplatform.services.organization.UserEventListener;
  * This Listener is invoked when a User is updated/added. Its purpose is to
  * ensure that OrganizationServiceIntegration don't apply Organization
  * Model Data listeners twice.
- * 
+ *
  * @author Boubaker KHANFIR
  */
 public class NewUserListener extends UserEventListener {
 
-  private RepositoryService repositoryService;
+    private RepositoryService repositoryService;
+    private DataDistributionManager dataDistributionManager;
 
-  public NewUserListener(RepositoryService repositoryService) throws Exception {
-    this.repositoryService = repositoryService;
-  }
+    public NewUserListener(DataDistributionManager dataDistributionManager, RepositoryService repositoryService) throws Exception {
+        this.repositoryService = repositoryService;
+        this.dataDistributionManager = dataDistributionManager;
+    }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postSave(User user, boolean isNew) throws Exception {
-    if (!isNew) {
-      return;
+    /**
+     * {@inheritDoc}
+     */
+    public void postSave(User user, boolean isNew) throws Exception {
+        if (!isNew) {
+            return;
+        }
+        Session session = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (!Util.hasUserFolder(dataDistributionManager, session, user.getUserName())) {
+                Util.createUserFolder(dataDistributionManager, session, user.getUserName());
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (!Util.hasUserFolder(session, user.getUserName())) {
-        Util.createUserFolder(session, user.getUserName());
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
-    }
-  }
 
-  /**
-   * {@inheritDoc}
-   */
-  public void postDelete(User user) throws Exception {
-    Session session = null;
-    try {
-      session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
-      if (Util.hasUserFolder(session, user.getUserName())) {
-        Util.deleteUserFolder(session, user.getUserName());
-      }
-    } finally {
-      if (session != null) {
-        session.logout();
-      }
+    /**
+     * {@inheritDoc}
+     */
+    public void postDelete(User user) throws Exception {
+        Session session = null;
+        try {
+            session = repositoryService.getCurrentRepository().getSystemSession(Util.WORKSPACE);
+            if (Util.hasUserFolder(dataDistributionManager, session, user.getUserName())) {
+                Util.deleteUserFolder(dataDistributionManager, session, user.getUserName());
+            }
+        } finally {
+            if (session != null) {
+                session.logout();
+            }
+        }
     }
-  }
 }

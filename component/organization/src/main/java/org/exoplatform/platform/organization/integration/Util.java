@@ -17,326 +17,402 @@
 package org.exoplatform.platform.organization.integration;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionManager;
+import org.exoplatform.services.jcr.ext.distribution.DataDistributionMode;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.impl.GroupImpl;
 import org.exoplatform.services.organization.impl.MembershipImpl;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.XppDriver;
+
 public class Util {
 
-  private static final Log LOG = ExoLogger.getLogger(Util.class);
+    final public static String MEMBERSHIPS_LIST_NODE_NAME = "list";
+    final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
+    final public static String MEMBERSHIP_SEPARATOR = "---";
+    final public static String ORGANIZATION_INITIALIZATIONS = "integration_data";
+    final public static String USERS_FOLDER = "usersData";
+    final public static String GROUPS_FOLDER = "groupsData";
+    final public static String MEMBERSHIPS_FOLDER = "membershipsData";
+    final public static String PROFILES_FOLDER = "profilesData";
 
-  final public static String SPECIAL_CHARACTER_REPLACEMENT = "___";
-  final public static String MEMBERSHIP_SEPARATOR = "---";
-  final public static String ORGANIZATION_INITIALIZATIONS = "OrganizationIntegrationService";
-  final public static String USERS_FOLDER = "users";
-  final public static String GROUPS_FOLDER = "groups";
-  final public static String MEMBERSHIPS_FOLDER = "memberships";
-  final public static String PROFILES_FOLDER = "profiles";
+    public static String WORKSPACE = "collaboration";
+    public static String HOME_PATH = "/";
 
-  public static String WORKSPACE = "collaboration";
-  public static String HOME_PATH = "/";
-
-  public static void init(Session session) throws Exception {
-    Node homePathNode = null;
-    try {
-      homePathNode = (Node) session.getItem(HOME_PATH);
-    } catch (Exception e) {
-      LOG.error("Problem during recovery of item ", e);
-    }
-    if (homePathNode == null) {
-      homePathNode = createFolder(session.getRootNode(), HOME_PATH);
-    }
-    Node organizationInitializersHomePathNode = null;
-    if (!homePathNode.hasNode(ORGANIZATION_INITIALIZATIONS)) {
-      organizationInitializersHomePathNode = createFolder(homePathNode, ORGANIZATION_INITIALIZATIONS);
-    } else {
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(USERS_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, USERS_FOLDER);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(GROUPS_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, GROUPS_FOLDER);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(MEMBERSHIPS_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, MEMBERSHIPS_FOLDER);
-    }
-    if (!organizationInitializersHomePathNode.hasNode(PROFILES_FOLDER)) {
-      createFolder(organizationInitializersHomePathNode, PROFILES_FOLDER);
-    }
-    session.save();
-  }
-
-  public static Node getUsersFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    return organizationInitializersHomePathNode.getNode(USERS_FOLDER);
-  }
-
-  public static Node getGroupsFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    return organizationInitializersHomePathNode.getNode(GROUPS_FOLDER);
-  }
-
-  public static Node getMembershipsFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    return organizationInitializersHomePathNode.getNode(MEMBERSHIPS_FOLDER);
-  }
-
-  public static Node getProfilesFolder(Session session) throws Exception {
-    Node organizationInitializersHomePathNode = null;
-    try {
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    } catch (Exception e) {
-      init(session);
-      Node homePathNode = (Node) session.getItem(HOME_PATH);
-      organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
-    }
-    return organizationInitializersHomePathNode.getNode(PROFILES_FOLDER);
-  }
-
-  public static boolean hasUserFolder(Session session, String username) throws Exception {
-    return getUsersFolder(session).hasNode(username);
-  }
-
-  public static boolean hasProfileFolder(Session session, String username) throws Exception {
-    return getProfilesFolder(session).hasNode(username);
-  }
-
-  public static boolean hasMembershipFolder(Session session, Membership membership) throws Exception {
-    boolean hasNode = Util.getMembershipsFolder(session).hasNode(
-        membership.getGroupId().replace("/", Util.SPECIAL_CHARACTER_REPLACEMENT) + Util.MEMBERSHIP_SEPARATOR
-            + membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
-            + Util.MEMBERSHIP_SEPARATOR + membership.getUserName());
-    return hasNode;
-  }
-
-  public static boolean hasGroupFolder(Session session, String groupId) throws Exception {
-    return getGroupsFolder(session).hasNode(groupId.replace("/", SPECIAL_CHARACTER_REPLACEMENT).trim());
-  }
-
-  public static void createUserFolder(Session session, String username) throws Exception {
-    createFolder(getUsersFolder(session), username);
-    session.save();
-  }
-
-  public static void createProfileFolder(Session session, String username) throws Exception {
-    createFolder(getProfilesFolder(session), username);
-    session.save();
-  }
-
-  public static void createMembershipFolder(Session session, Membership membership) throws Exception {
-    createFolder(getMembershipsFolder(session), membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT)
-        + MEMBERSHIP_SEPARATOR + membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT)
-        + MEMBERSHIP_SEPARATOR + membership.getUserName());
-    createFolder(
-        getGroupNode(session, membership.getGroupId()),
-        membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getUserName());
-    createFolder(getUserNode(session, membership.getUserName()),
-        membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT));
-    session.save();
-  }
-
-  public static Node getUserNode(Session session, String username) throws PathNotFoundException, RepositoryException, Exception {
-    return getUsersFolder(session).getNode(username);
-  }
-
-  public static void createGroupFolder(Session session, String groupId) throws Exception {
-    createFolder(getGroupsFolder(session), groupId.replace("/", SPECIAL_CHARACTER_REPLACEMENT).trim());
-    session.save();
-  }
-
-  public static void deleteUserFolder(Session session, String username) throws Exception {
-    getUsersFolder(session).getNode(username).remove();
-    session.save();
-  }
-
-  public static void deleteProfileFolder(Session session, String username) throws Exception {
-    getProfilesFolder(session).getNode(username).remove();
-    session.save();
-  }
-
-  public static void deleteMembershipFolder(Session session, Membership membership) throws Exception {
-    getMembershipsFolder(session).getNode(
-        membership.getGroupId().replace("/", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getMembershipType().replace("*", SPECIAL_CHARACTER_REPLACEMENT) + MEMBERSHIP_SEPARATOR
-            + membership.getUserName()).remove();
-
-    String membershipGroupFolderName = membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
-        + Util.MEMBERSHIP_SEPARATOR + membership.getUserName();
-    if (hasGroupFolder(session, membership.getGroupId())
-        && getGroupNode(session, membership.getGroupId()).hasNode(membershipGroupFolderName)) {
-      getGroupNode(session, membership.getGroupId()).getNode(membershipGroupFolderName).remove();
+    public static XStream xstreamList_ = null;
+    static {
+        xstreamList_ = new XStream(new XppDriver());
+        xstreamList_.alias(MEMBERSHIPS_LIST_NODE_NAME, HashSet.class);
     }
 
-    String membershipUserFolderName = membership.getMembershipType().replace("*", Util.SPECIAL_CHARACTER_REPLACEMENT)
-        + Util.MEMBERSHIP_SEPARATOR + membership.getGroupId().replace("/", Util.SPECIAL_CHARACTER_REPLACEMENT);
-    if (hasUserFolder(session, membership.getUserName())
-        && getUserNode(session, membership.getUserName()).hasNode(membershipUserFolderName)) {
-
-      getUserNode(session, membership.getUserName()).getNode(membershipUserFolderName).remove();
+    public static void init(Session session) throws Exception {
+        Node homePathNode = null;
+        try {
+            homePathNode = (Node) session.getItem(HOME_PATH);
+        } catch (PathNotFoundException e) {
+            homePathNode = createFolder(session.getRootNode(), HOME_PATH);
+        }
+        Node organizationInitializersHomePathNode = null;
+        if (!homePathNode.hasNode(ORGANIZATION_INITIALIZATIONS)) {
+            organizationInitializersHomePathNode = createFolder(homePathNode, ORGANIZATION_INITIALIZATIONS);
+        } else {
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(USERS_FOLDER)) {
+            Node usersNode = createFolder(organizationInitializersHomePathNode, USERS_FOLDER);
+            saveListActivation(usersNode, new HashSet<String>(), true);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(GROUPS_FOLDER)) {
+            Node groupsNode = createFolder(organizationInitializersHomePathNode, GROUPS_FOLDER);
+            saveListActivation(groupsNode, new HashSet<String>(), true);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(MEMBERSHIPS_FOLDER)) {
+            createFolder(organizationInitializersHomePathNode, MEMBERSHIPS_FOLDER);
+        }
+        if (!organizationInitializersHomePathNode.hasNode(PROFILES_FOLDER)) {
+            createFolder(organizationInitializersHomePathNode, PROFILES_FOLDER);
+        }
+        session.save();
     }
-    session.save();
-  }
 
-  public static void deleteGroupFolder(Session session, String groupId) throws Exception {
-    getGroupNode(session, groupId).remove();
-    session.save();
-  }
-
-  public static Node getGroupNode(Session session, String groupId) throws PathNotFoundException, RepositoryException, Exception {
-    return getGroupsFolder(session).getNode(groupId.replace("/", SPECIAL_CHARACTER_REPLACEMENT));
-  }
-
-  private static Node createFolder(Node parentNode, String name) throws Exception {
-    Node orgIntServNode = parentNode.addNode(name, "nt:folder");
-    parentNode.getSession().save();
-    //TODO : Exceptions are not handled correctly
-    if(orgIntServNode.canAddMixin("exo:hiddenable")){
-        orgIntServNode.addMixin("exo:hiddenable");
+    public static Node getUsersFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(USERS_FOLDER);
     }
-    orgIntServNode.getSession().save();
-    return orgIntServNode;
-  }
 
-  public static List<String> getActivatedUsers(Session session) throws Exception {
-    List<String> activatedUsernames = new ArrayList<String>();
-    NodeIterator usersFolderIterator = getUsersFolder(session).getNodes();
-    while (usersFolderIterator.hasNext()) {
-      Node userFolder = usersFolderIterator.nextNode();
-      activatedUsernames.add(userFolder.getName());
+    public static Node getGroupsFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(GROUPS_FOLDER);
     }
-    return activatedUsernames;
-  }
 
-  public static List<String> getActivatedGroups(Session session) throws Exception {
-    List<String> activatedGroups = new ArrayList<String>();
-    NodeIterator groupsFolderIterator = getGroupsFolder(session).getNodes();
-    while (groupsFolderIterator.hasNext()) {
-      Node groupFolder = groupsFolderIterator.nextNode();
-      String groupId = groupFolder.getName().replace(SPECIAL_CHARACTER_REPLACEMENT, "/");
-      activatedGroups.add(groupId);
+    public static Node getMembershipsFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(MEMBERSHIPS_FOLDER);
     }
-    return activatedGroups;
-  }
 
-  public static List<Membership> getActivatedMembershipsRelatedToGroup(Session session, String groupId) throws Exception {
-    List<Membership> activatedMemberships = new ArrayList<Membership>();
-    NodeIterator membershipNodesIterator = getGroupNode(session, groupId).getNodes();
-    while (membershipNodesIterator.hasNext()) {
-      Node membershipNode = membershipNodesIterator.nextNode();
-      String membershipId = membershipNode.getName();
-      String[] membershipElements = membershipId.split(MEMBERSHIP_SEPARATOR);
-
-      String membershipType = membershipElements[0].replace(SPECIAL_CHARACTER_REPLACEMENT, "*");
-      String username = membershipElements[1];
-
-      MembershipImpl membership = new MembershipImpl();
-      membership.setGroupId(groupId);
-      membership.setMembershipType(membershipType);
-      membership.setUserName(username);
-      membership.setId(computeId(membership));
-
-      activatedMemberships.add(membership);
+    public static Node getProfilesFolder(Session session) throws Exception {
+        Node organizationInitializersHomePathNode = null;
+        try {
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        } catch (Exception e) {
+            init(session);
+            Node homePathNode = (Node) session.getItem(HOME_PATH);
+            organizationInitializersHomePathNode = homePathNode.getNode(ORGANIZATION_INITIALIZATIONS);
+        }
+        return organizationInitializersHomePathNode.getNode(PROFILES_FOLDER);
     }
-    return activatedMemberships;
-  }
 
-  public static List<Group> getActivatedChildrenGroup(Session session, String parentGroupId) throws Exception {
-    List<Group> activatedGroups = new ArrayList<Group>();
-    NodeIterator groupsNodesIterator = getGroupsFolder(session).getNodes();
-    while (groupsNodesIterator.hasNext()) {
-      Node groupNode = groupsNodesIterator.nextNode();
-
-      String groupId = groupNode.getName();
-      groupId = groupId.replace(SPECIAL_CHARACTER_REPLACEMENT, "/");
-      if (!groupId.contains(parentGroupId) || groupId.equals(parentGroupId)) {
-        continue;
-      }
-
-      GroupImpl group = new GroupImpl();
-      group.setId(groupId);
-      group.setGroupName(groupId);
-
-      activatedGroups.add(group);
+    public static boolean hasUserFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws RepositoryException, Exception {
+        try {
+            distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getUsersFolder(session), username);
+        } catch (PathNotFoundException exception) {
+            return false;
+        }
+        return true;
     }
-    return activatedGroups;
-  }
 
-  public static List<Membership> getActivatedMembershipsRelatedToUser(Session session, String username) throws Exception {
-    List<Membership> activatedMemberships = new ArrayList<Membership>();
-    NodeIterator membershipNodesIterator = getUserNode(session, username).getNodes();
-    while (membershipNodesIterator.hasNext()) {
-      Node membershipNode = membershipNodesIterator.nextNode();
-      String membershipId = membershipNode.getName();
-      String[] membershipElements = membershipId.split(MEMBERSHIP_SEPARATOR);
-
-      String membershipType = membershipElements[0].replace(SPECIAL_CHARACTER_REPLACEMENT, "*");
-      String groupId = membershipElements[1].replace(SPECIAL_CHARACTER_REPLACEMENT, "/");
-
-      MembershipImpl membership = new MembershipImpl();
-      membership.setGroupId(groupId);
-      membership.setMembershipType(membershipType);
-      membership.setUserName(username);
-      membership.setId(computeId(membership));
-
-      activatedMemberships.add(membership);
+    public static boolean hasProfileFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws RepositoryException, Exception {
+        try {
+            distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getProfilesFolder(session),
+                    username);
+        } catch (PathNotFoundException exception) {
+            return false;
+        }
+        return true;
     }
-    return activatedMemberships;
-  }
 
-  public static String computeId(Membership membership) {
-    StringBuffer id = new StringBuffer();
+    public static boolean hasMembershipFolder(DataDistributionManager distributionManager, Session session, Membership membership)
+            throws RepositoryException, Exception {
+        try {
+            String dataId = getMembershipFolderName(membership);
+            distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getMembershipsFolder(session),
+                    dataId);
+        } catch (PathNotFoundException exception) {
+            return false;
+        }
+        return true;
+    }
 
-    if (membership.getMembershipType() != null) {
-      id.append(membership.getMembershipType());
+    public static boolean hasGroupFolder(DataDistributionManager distributionManager, Session session, String groupId)
+            throws RepositoryException, Exception {
+        try {
+            distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getGroupsFolder(session),
+                    getGroupFolderName(groupId));
+        } catch (PathNotFoundException exception) {
+            return false;
+        }
+        return true;
     }
-    id.append(":");
-    if (membership.getUserName() != null) {
-      id.append(membership.getUserName());
+
+    public static void createUserFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws Exception {
+        Node usersNode = getUsersFolder(session);
+        Set<String> users = getListActivation(usersNode);
+        users.add(username);
+        saveListActivation(usersNode, users, false);
+
+        Node userNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(usersNode,
+                username);
+        saveListActivation(userNode, new HashSet<String>(), true);
+        session.save();
     }
-    id.append(":");
-    if (membership.getGroupId() != null) {
-      id.append(membership.getGroupId());
+
+    public static void createProfileFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws Exception {
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(getProfilesFolder(session),
+                username);
     }
-    return id.toString();
-  }
+
+    public static void createMembershipFolder(DataDistributionManager distributionManager, Session session, Membership membership)
+            throws Exception {
+        String dataId = getMembershipFolderName(membership);
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(
+                getMembershipsFolder(session), dataId);
+
+        String membershipId = computeMembershipId(membership);
+
+        Node groupNode = getGroupNode(distributionManager, session, membership.getGroupId());
+        Set<String> groupMembershipList = getListActivation(groupNode);
+        groupMembershipList.add(membershipId);
+        saveListActivation(groupNode, groupMembershipList, false);
+
+        Node userNode = getUserNode(distributionManager, session, membership.getUserName());
+        Set<String> userMembershipList = getListActivation(userNode);
+        userMembershipList.add(membershipId);
+        saveListActivation(userNode, userMembershipList, false);
+
+        session.save();
+    }
+
+    public static void createGroupFolder(DataDistributionManager distributionManager, Session session, String groupId)
+            throws Exception {
+        Node groupsNode = getGroupsFolder(session);
+        Set<String> groups = getListActivation(groupsNode);
+        groups.add(groupId);
+        saveListActivation(groupsNode, groups, false);
+
+        Node groupNode = distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getOrCreateDataNode(groupsNode,
+                getGroupFolderName(groupId));
+        saveListActivation(groupNode, new HashSet<String>(), true);
+        session.save();
+    }
+
+    public static Node getUserNode(DataDistributionManager distributionManager, Session session, String username) throws Exception {
+        return distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getUsersFolder(session),
+                username);
+    }
+
+    public static Node getGroupNode(DataDistributionManager distributionManager, Session session, String groupId) throws Exception {
+        return distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).getDataNode(getGroupsFolder(session),
+                getGroupFolderName(groupId));
+    }
+
+    public static void deleteUserFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws Exception {
+        Node usersNode = getUsersFolder(session);
+        Set<String> users = getListActivation(usersNode);
+        users.remove(username);
+        saveListActivation(usersNode, users, false);
+
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).removeDataNode(usersNode, username);
+    }
+
+    public static void deleteProfileFolder(DataDistributionManager distributionManager, Session session, String username)
+            throws Exception {
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).removeDataNode(getProfilesFolder(session),
+                username);
+    }
+
+    public static void deleteGroupFolder(DataDistributionManager distributionManager, Session session, String groupId)
+            throws Exception {
+        Node groupsNode = getGroupsFolder(session);
+        Set<String> groups = getListActivation(groupsNode);
+        groups.remove(groupId);
+        saveListActivation(groupsNode, groups, false);
+
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).removeDataNode(groupsNode,
+                getGroupFolderName(groupId));
+    }
+
+    public static void deleteMembershipFolder(DataDistributionManager distributionManager, Session session, Membership membership)
+            throws Exception {
+        String dataId = getMembershipFolderName(membership);
+        distributionManager.getDataDistributionType(DataDistributionMode.OPTIMIZED).removeDataNode(getMembershipsFolder(session),
+                dataId);
+
+        String membershipId = computeMembershipId(membership);
+
+        if (hasGroupFolder(distributionManager, session, membership.getGroupId())) {
+            Node groupNode = getGroupNode(distributionManager, session, membership.getGroupId());
+            Set<String> groupMembershipList = getListActivation(groupNode);
+            groupMembershipList.remove(membershipId);
+            saveListActivation(groupNode, groupMembershipList, false);
+        }
+
+        if (hasUserFolder(distributionManager, session, membership.getUserName())) {
+            Node userNode = getUserNode(distributionManager, session, membership.getUserName());
+            Set<String> userMembershipList = getListActivation(userNode);
+            userMembershipList.remove(membershipId);
+            saveListActivation(userNode, userMembershipList, false);
+        }
+
+        session.save();
+    }
+
+    public static Set<String> getActivatedUsers(Session session) throws Exception {
+        return getListActivation(getUsersFolder(session));
+    }
+
+    public static Set<String> getActivatedGroups(Session session) throws Exception {
+        return getListActivation(getGroupsFolder(session));
+    }
+
+    public static List<Group> getActivatedChildrenGroup(Session session, String parentGroupId) throws Exception {
+        List<Group> activatedChildrenGroups = new ArrayList<Group>();
+        Set<String> activatedGroups = getActivatedGroups(session);
+        for (String groupId : activatedGroups) {
+            if (groupId.startsWith(parentGroupId) && !groupId.equals(parentGroupId)) {
+                GroupImpl group = new GroupImpl();
+                group.setId(groupId);
+                group.setGroupName(groupId);
+
+                activatedChildrenGroups.add(group);
+            }
+        }
+        return activatedChildrenGroups;
+    }
+
+    public static List<Membership> getActivatedMembershipsRelatedToGroup(DataDistributionManager distributionManager,
+                                                                         Session session, String groupId) throws Exception {
+        Set<String> memberships = getListActivation(getGroupNode(distributionManager, session, groupId));
+        List<Membership> activatedMemberships = new ArrayList<Membership>();
+        for (String membershipId : memberships) {
+            activatedMemberships.add(computeMembershipFromId(membershipId));
+        }
+        return activatedMemberships;
+    }
+
+    public static List<Membership> getActivatedMembershipsRelatedToUser(DataDistributionManager distributionManager,
+                                                                        Session session, String username) throws Exception {
+        Set<String> memberships = getListActivation(getUserNode(distributionManager, session, username));
+        List<Membership> activatedMemberships = new ArrayList<Membership>();
+        for (String membershipId : memberships) {
+            activatedMemberships.add(computeMembershipFromId(membershipId));
+        }
+        return activatedMemberships;
+    }
+
+    private static Membership computeMembershipFromId(String membershipId) {
+        String[] membershipElements = membershipId.split(":");
+
+        String membershipType = membershipElements[0];
+        String username = membershipElements[1];
+        String groupId = membershipElements[2];
+
+        MembershipImpl membership = new MembershipImpl();
+        membership.setGroupId(groupId);
+        membership.setMembershipType(membershipType);
+        membership.setUserName(username);
+        membership.setId(membershipId);
+        return membership;
+    }
+
+    public static String computeMembershipId(Membership membership) {
+        StringBuffer id = new StringBuffer();
+
+        if (membership.getMembershipType() != null) {
+            id.append(membership.getMembershipType());
+        }
+        id.append(":");
+        if (membership.getUserName() != null) {
+            id.append(membership.getUserName());
+        }
+        id.append(":");
+        if (membership.getGroupId() != null) {
+            id.append(membership.getGroupId());
+        }
+        return id.toString();
+    }
+
+    private static Node createFolder(Node parentNode, String name) throws Exception {
+        Node orgIntServNode = parentNode.addNode(name, "nt:unstructured");
+        parentNode.save();
+        if (orgIntServNode.canAddMixin("exo:hiddenable")) {
+            orgIntServNode.addMixin("exo:hiddenable");
+        }
+        orgIntServNode.save();
+        return orgIntServNode;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Set<String> getListActivation(Node parentNode) throws Exception {
+        String xml = parentNode.getProperty(MEMBERSHIPS_LIST_NODE_NAME + "/jcr:data").getString();
+        return (Set<String>) xstreamList_.fromXML(xml);
+    }
+
+    private static synchronized void saveListActivation(Node parentNode, Set<String> list, boolean isNew) throws Exception {
+        String content = xstreamList_.toXML(list);
+        Node fileNode = null;
+        if (isNew) {
+            fileNode = parentNode.addNode(MEMBERSHIPS_LIST_NODE_NAME, "nt:resource");
+        } else {
+            fileNode = parentNode.getNode(MEMBERSHIPS_LIST_NODE_NAME);
+        }
+        fileNode.setProperty("jcr:data", content);
+        fileNode.setProperty("jcr:mimeType", "text/xml");
+        fileNode.setProperty("jcr:lastModified", Calendar.getInstance());
+        parentNode.save();
+    }
+
+    private static String getMembershipFolderName(Membership membership) {
+        String dataId = membership.getId();
+        if (dataId == null || dataId.isEmpty()) {
+            dataId = membership.getUserName() + membership.getGroupId() + membership.getMembershipType();
+        }
+        return "" + dataId.hashCode();
+    }
+
+    private static String getGroupFolderName(String groupId) {
+        return "" + groupId.hashCode();
+    }
 
 }
