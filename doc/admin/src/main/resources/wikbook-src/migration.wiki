@@ -182,14 +182,12 @@ commons.upgrade.Upgrade-Navigations.enable=true
 #Space home page template plugin, it is required
 commons.upgrade.Upgrade-Spaces-Home-page.enable=true
 
-#This Configuration is optional. If you do not want to re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false and commons.upgrade.Upgrade-WCM-Contents.enable=true
+##This Configuration is optional. If you do not want to re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false
+commons.upgrade.Upgrade-WCM-Contents.enable=true
 
 ## indicates the desired execution order (names of upgrade plugins separated with commas ",")
-commons.upgrade.plugins.order=Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,
-FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,
-UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,
-SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin
- 
+commons.upgrade.plugins.order=Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin 
+
 ## Proceed to the upgrade if it is the first time you run this service
 commons.upgrade.proceedIfFirstRun=true
 {code}
