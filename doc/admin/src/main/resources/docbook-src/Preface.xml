@@ -27,17 +27,12 @@
 </listitem>
 <listitem>
 <para>
+<link linkend="ADM.Deployment">Deployment</link>: How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.
+</para>
+</listitem>
+<listitem>
+<para>
 <link linkend="ADM.Management">Management</link>: Introduction to eXo Platform management, knowledge of eXo Platform management views.
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Security">Security</link>: Changes related to the JAAS realm.
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Backup">Backup</link>: Backup of database and file systems for the JCR index and value storage.
 </para>
 </listitem>
 <listitem>
@@ -47,7 +42,7 @@
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Deployment">Deployment</link>: How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.
+<link linkend="ADM.Integration">Organization Integration</link>: Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
 </para>
 </listitem>
 <listitem>
@@ -57,7 +52,12 @@
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration">Organization Integration</link>: Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
+<link linkend="ADM.Backup">Backup and Restore</link>: Backup of database and file systems for the JCR index and value storage.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Security">Security</link>: Changes related to the JAAS realm.
 </para>
 </listitem>
 </itemizedlist>

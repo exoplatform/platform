@@ -1,0 +1,61 @@
+This guide describes how to get started with eXo Platform 3.5, especially for:
+* *System Administrators* who want to use, deploy and manage the eXo Platform system in their enterprises.
+* *Developers* who want to know how to leverage eXo Platform in their customer projects.
+
+{docbook}
+<abstract>
+<para>Through the guide, you can do many administrative tasks when implementing eXo Platform 3.5. The administration of eXo Platform 3.5 is categorized into the following main topics:</para>
+<itemizedlist>
+<listitem>
+<para>
+<link linkend="ADM.Introduction">Introduction</link>: The overview of the administrator guide, and its intended readers.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Installation_and_Startup">Installation and Startup</link>: Knowledge of how to install the Tomcat bundle and JBoss EARs and information of eXo Platform profiles.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Configuration">Configuration</link>: Understanding of configuration related to eXo Platform, database, cache, users and gadget proxy, file system paths, mail server, WebDAV Cache Control, Chat Server, OpenOffice Server, Log-in, JCR.|
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Deployment">Deployment</link>: How-Tos of removing sample applications, deploying a custom extension, setting up Apache Front-end and configuring the session timeout for the web server.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Management">Management</link>: Introduction to eXo Platform management, knowledge of eXo Platform management views.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Clustering">Clustering</link>: Changes related to clustering, which are necessary for eXo Platform to work in the cluster mode.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration">Organization Integration</link>: Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Migration">Migration</link>: Step-by-step instructions for migrating eXo Platform from 3.0 to 3.5.
+</para>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Backup">Backup & Restore</link>: Backup of database and file systems for the JCR index and value storage.
+</para>
+</listitem
+<listitem>
+<para>
+<link linkend="ADM.Security">Security</link>: Changes related to the JAAS realm.
+</para>
+</listitem>
+</itemizedlist>
+</abstract>
+{docbook}

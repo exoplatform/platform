@@ -30,18 +30,31 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 
 h1. System requirements {anchor:id=ADM.Installation.System_requirements}
 To run eXo Platform 3.5, your system is required to meet the following specifications or higher.
-
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Hardware</emphasis>
+</para>
+</citetitle>
+{docbook}
 * CPU: 2GHz
 * Memory: 2GB of RAM
 * Disk: 200MB
-* OS: Windows, Linux or Mac OS X
-* Java 6 (Set the JAVA_HOME environment variable)
-* Browser: Firefox 3.5, 3.6 and 4 or Internet Explorer 7, 8 and 9
 
+{docbook}
+<citetitle>
+<para><emphasis role="bold">
+Software
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+* OS: Windows, Linux or Mac OS X
+* Browser: Firefox 3.5, 3.6 and 4 or Internet Explorer 7, 8 and 9
+* Java 6 (Set the JAVA_HOME environment variable)
 The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
-
 The easiest way to install eXo Platform is to use the Tomcat bundle. This is a ready-made package on top of the Tomcat 6 application server. First, you need to download and extract the package named _eXo-Platform-tomcat-3.5.x.zip_ on your server.
 
 {docbook}
