@@ -25,7 +25,7 @@ The eXo Platform migration from 3.0 to 3.5 is performed automatically when the s
 
 h1. What needs to be migrated? {anchor:id=ADM.Migration.What_needs_to_be_migrated}
 
-There are many changes between eXo Platform 3.0 and eXo Platform 3.5, including data type structure (JCR node type), pre-defined data, templates and gadgets:
+There are many changes between eXo Platform 3.0 and eXo Platform 3.5, including data type structure (JCR node-type), pre-defined data, templates, gadget:
 
 * Social data: model, and space templates.
 * Knowledge data: data of Forums, Wiki and Answers.
@@ -63,7 +63,7 @@ Step 1. Prepare an environment.
 
 *i.* With Tomcat bundle, copy 2 folders "index" and "value" from _$PLF-3.0-TOMCAT\_HOME/gatein/data/jcr_ to _$PLF-3.5-TOMCAT\_HOME/gatein/data/jcr_. With Jboss bundle, copy 2 folders "index" and "value" from _$PLF-3.0-JBOSS\_HOME/gatein/jcr_ to _$PLF-3.5-JBOSS\_HOME/server/default/data/gatein/jcr_.
 
-*ii.* With Tomcat bundle, configure the database connections in the _$PLATFORM-3.5-TOMCAT\_HOME/conf/server.xml_ file to point to the eXo Platform 3.0 database. 
+*ii.* With Tomcat bundle, configure the database connections in the _$PLATFORM-3.5-TOMCAT-HOME/conf/server.xml_ file to point to the eXo Platform 3.0 database. 
 
 For example, if your eXo Platform 3.0 runs on mySQL database, you need to configure the _server.xml_ file as below:
 
@@ -111,6 +111,7 @@ With Jboss bundle, configure the _$PLF-3.5-JBOSS\_HOME/server/default/deploy/gat
       <idle-timeout-minutes>0</idle-timeout-minutes>
       <prepared-statement-cache-size>32</prepared-statement-cache-size>
    </no-tx-datasource>
+</datasources>
 {code}
 
 *iii.* Delete the _JCR\_CONFIG_ table in the JCR database: "jdbc\:mysql\://${{{ {db.host} }}}:${{{ {db.port} }}}/${{{ {db.jcr.name} }}}"
@@ -120,20 +121,20 @@ With Jboss bundle, configure the _$PLF-3.5-JBOSS\_HOME/server/default/deploy/gat
 <para>
 <citetitle>
 <emphasis role="bold">
-Step 2. Configure to migrate the eXo Platform data from 3.0 to 3.5.
+Step 2. Configure to migrate Platform data from 3.0 to 3.5.
 </emphasis>
 </citetitle>
 </para>
 {docbook}
 
-*1.* Add the following code to the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file.
+*1.* Add the following code to the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file.
 
 {code}
 ############
 # Upgrades #
 ############
 # JCR user directories structure migration configuration
-# This configuration is optional, if you do not want to run it, you set use-old-user-distribution=true and run-jcr-user-directories-migrate=false
+# This configuration is optional, if you do not want run it, you need put use-old-user-distribution=true and run-jcr-user-directories-migrate=false
 use-old-user-distribution=false
 run-jcr-user-directories-migrate=true
 
@@ -148,7 +149,7 @@ gatein.jcr.transaction.timeout=10000
 #Gadget upgrade plugin, it is required
 commons.upgrade.Upgrade-Gadgets.enable=true
 
-#ECMS upgrade plugin, all are required
+#ECMS upgrade plugin, you are required
 commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true
 commons.upgrade.FavoriteActionUpgradePlugin.enable=true
 commons.upgrade.ThumbnailNodeTypeUpgradePlugin.enable=true
@@ -176,22 +177,22 @@ commons.upgrade.UpgradeWikiPlugin.enable=true
 commons.upgrade.UpgradeAnswerPlugin.enable=true
 
 #Portal navigation upgrade plugin
-#This Configuration is optional. If you do not want to migrate your portal/groups navigation, set commons.upgrade.Upgrade-Navigations.enable=false
+#This Configuration is optional. If you do not want migrate your portal/groups navigation, set commons.upgrade.Upgrade-Navigations.enable=false
 commons.upgrade.Upgrade-Navigations.enable=true
 
 #Space home page template plugin, it is required
 commons.upgrade.Upgrade-Spaces-Home-page.enable=true
 
-#This Configuration is optional. If you do not want to re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false and commons.upgrade.Upgrade-WCM-Contents.enable=true
+#This Configuration is optional. If you do not want re-import the contents, set commons.upgrade.Upgrade-WCM-Contents.enable=false
+commons.upgrade.Upgrade-WCM-Contents.enable=true
 
 ## indicates the desired execution order (names of upgrade plugins separated with commas ",")
-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugin
- 
-## Proceed to the upgrade if it is the first time you run this service
+commons.upgrade.plugins.order=Upgrade-Spaces-Home-page,Upgrade-Gadgets,Upgrade-Navigations,Upgrade-WCM-Contents,UpgradeVotingNodeTypePlugin,FavoriteActionUpgradePlugin,ThumbnailNodeTypeUpgradePlugin,UpgradeToMOSPlugin,UpgradeTemplatePlugin,UpgradeAnswerPlugin,UpgradeWikiPlugin,UpgradeForumPlugin,UpgradeCalendarPlugin,NodeTypeTemplateUpgradePlugin,QueryUpgradePlugin,ScriptUpgradePlugin,SiteExplorerTemplateUpgradePlugin,WCMTemplateUpgradePlugin,UserViewUpgradePlugincommons.upgrade.plugins.order=UpgradeNamespaceJosPlugin 
+## Proceed to the upgrade if it's the first time you run this service
 commons.upgrade.proceedIfFirstRun=true
 {code}
 
-*2.* Add the following code to the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. 
+*2.* Add the following code to the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file. 
 
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -217,8 +218,8 @@ commons.upgrade.proceedIfFirstRun=true
   </component>
 
   <!-- Configuration for migration Portal/groups navigation-->
-  <!-- This Configuration is optional. If you do not want to migrate your portal/groups navigation, remove this session -->
-  <!-- If there are some portals in your Platform, you need to configure for each portal-->
+  <!-- This Configuration is optional. If you do not want migrate your portal/groups navigation, remove this session -->
+  <!-- If there are some portals in your Platform, you need configure for each portal-->
   <external-component-plugins>
     <!-- The full qualified name of the UserPortalConfigService -->
     <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
@@ -346,7 +347,7 @@ commons.upgrade.proceedIfFirstRun=true
   </external-component-plugins>
 
   <!-- Configuration for re-import WCM content from webapp (.war files) file-->
-  <!-- You can define the .war file that you want to re-import content-->
+  <!-- You can define the .war file that you want re-import content-->
   <external-component-plugins>
     <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
     <!-- ECMS-Contents upgrade plugin-->
@@ -439,7 +440,7 @@ commons.upgrade.proceedIfFirstRun=true
     </component-plugin>
 
     <!-- Configuration for Gadget upgrade plugin-->
-    <!-- In can define "what are the gadget which you want to update" in this configuration-->
+    <!-- In can define "what are the gadget those you want update" in this configuration-->
     <component-plugin>
       <name>Upgrade-Gadgets</name>
       <set-method>addUpgradePlugin</set-method>
@@ -622,7 +623,7 @@ If this file has not been existing, you need to create it first.
 
 *3.* Increase the JCR session time-out and JVM Xmx if you have a lot of data in eXo Platform 3.0. For example, in your current eXo Platform 3.0, there are about 200 users, 2 Gigabytes in the _gatein/data/jcr/values_ folder, and 1 Gigabyte in the _mySQL_ data, you will need to:
 
-*i.* Configure the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file by adding the following configuration.
+*i.* Configure the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_ file by adding the following configuration.
 
 {code}
 gatein.jcr.transaction.timeout=10000
@@ -654,7 +655,7 @@ Step 4. Finish your migration.
 
 *1.* Stop server and remove the migration configurations through the following sub-steps:
 
-*i.* Disable all migration plugins in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_):
+*i.* Disable all migration plugin in file _$PLF-3.5-TOMCATHOME/gatein/conf/configuration.properties_ (or _$PLF-3.5-JBOSSHOME/server/default/conf/gatein/configuration.properties_):
 
 {code}
 ############
@@ -714,7 +715,7 @@ commons.upgrade.proceedIfFirstRun=true
 
 *ii.* Delete configurations that were added before the migration in _$PLF-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file.
 
-If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file with the content as below:
+If you do not run the JCR user directories structure migration, you need to keep the _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/portal/portal/configuration.xml_ or _$PLF-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.xml_ file with the content as below:
 
 {code:xml}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -739,13 +740,13 @@ If you do not run the JCR user directories structure migration, you need to keep
 
 h1. Upgrade plugins details {anchor:id=ADM.Migration.Upgrade_plugins_details}
 
-{note}
+{info}
 eXo Platform 3.5's Upgrade Framework is used to migrate existing data from eXo Platform 3.0 to 3.5.
-{note}
+{info}
 
 A plugin is a _.jar_ file which is used for performing a specific task, especially for modifying the old data so that they are matched or compatible with the new structure. 
 
-Plugins can be enabled/disabled via _$PLATFORM-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_. Meanwhile some of them are mandatory and must be always enabled; the others are optional and can be disabled. Also, plugins should also be disabled if you do not use certain features, such as Collaboration, Knowledge, Social, in your project.
+Plugins can be enabled/disabled via _$PLATFORM-3.5-TOMCAT-HOME/gatein/conf/configuration.properties_, some of which are mandatory and must be always enabled; meanwhile the others are optional and can be disabled. Plugins should also be disabled if you do not use certain features, such as Collaboration, Knowledge, Social, in your project.
 
 To enable or disable a plugin, set the "enable" properties to "true" or "false" respectively, for example:
 
@@ -755,9 +756,10 @@ commons.upgrade.UpgradeVotingNodeTypePlugin.enable=true
 
 When not specified, the plugins will be enabled by default.
 
-This section shows a list of eXo Platform 3.5 upgrade plugins.
 
-h2. Mandatory plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Mandatory_plugins}
+h2. List of eXo Platform 3.5 Upgrade plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins}
+
+h3. Mandatory plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Mandatory_plugins}
 
 These following plugins are required for upgrading to eXo Platform 3.5's new data structure, templates, skin and services.
 
@@ -771,9 +773,9 @@ Content data tructure
 </para>
 {docbook}
 
-* _commons.upgrade.UpgradeVotingNodeTypePlugin_: Ppgrade voting node type.
-* _commons.upgrade.FavoriteActionUpgradePlugin_: Ppgrade favorite action.
-* _commons.upgrade.ThumbnailNodeTypeUpgradePlugin_: Ppgrade thumbnail node type.
+* _commons.upgrade.UpgradeVotingNodeTypePlugin_: upgrade voting node type.
+* _commons.upgrade.FavoriteActionUpgradePlugin_: upgrade favorite action.
+* _commons.upgrade.ThumbnailNodeTypeUpgradePlugin_: upgrade thumbnail node type.
 
 
 {docbook}
@@ -795,12 +797,12 @@ They are:
 * _commons.upgrade.UserViewUpgradePlugin_
 
 {note}
-By default, all the ECMS templates will be automatically migrated. In case you want to migrate a specific template manually, you need to specify your desired template in the _configuration.properties_ file.	
+By default, all the ECMS templates will be automatically migrated. In case you want to migrate a specific template manually, you need to specify your desired template in the configuration.properties file.	
 {note}
 
-* With _commons.upgrade.NodeTypeTemplateUpgradePlugin_: Upgrade ecms node type template. 
+* With _commons.upgrade.NodeTypeTemplateUpgradePlugin_: upgrade ecms node-type template. 
 
-Specify the node type templates which you do not want to upgrade with the following syntax:
+Specify the node type templates those you do not want to upgrade with the following syntax:
 {code}
 unchanged-nodetype-templates=<node name list>
 {code}
@@ -809,9 +811,9 @@ For example:
 unchanged-nodetype-templates=nt:file, exo:article
 {code}
 
-* With _commons.upgrade.QueryUpgradePlugin_: Upgrade pre-defined queries.
+* With _commons.upgrade.QueryUpgradePlugin_: upgrade pre-defined queries.
 
-Specify the pre-defined queries which you do not want to upgrade with the following syntax: 
+Specify the pre-defined queries those you do not want to upgrade with the following syntax: 
 
 {code}
 unchanged-queries=<query name list>
@@ -821,9 +823,9 @@ For example:
 unchanged-queries=Created Documents
 {code}
 
-* With _commons.upgrade.ScriptUpgradePlugin_: Upgrade pre-defined scripts.
+* With _commons.upgrade.ScriptUpgradePlugin_: upgrade pre-defined scripts.
 
-Specify the pre-defined scripts which you do not want to upgrade with the following syntax:
+Specify the pre-defined scripts those you do not want to upgrade with the following syntax:
 
 {code}
 unchanged-scripts=<script name list>
@@ -835,7 +837,7 @@ For example:
 unchanged-scripts=action/AddMetadataScript.groovy, action/AddTaxonomyActionScript.groovy
 {code}
 
-* With _commons.upgrade.SiteExplorerTemplateUpgradePlugin_: Upgrade site-explorer-templates.
+* With _commons.upgrade.SiteExplorerTemplateUpgradePlugin_: upgrade site-explorer-templates.
 
 Specify templates of *Sites Explorer* with the following syntax:
 
@@ -848,7 +850,7 @@ unchanged-site-explorer-templates=ThumbnailsView, ContentView
 {code}
 
 
-* With _commons.upgrade.UserViewUpgradePlugin_: Upgrade user view templates of *Sites Explorer*. 
+* With _commons.upgrade.UserViewUpgradePlugin_: upgrade user view templates of Sites Explorer. 
 
 Specify views of *Sites Explorer* with the following syntax:
 {code}
@@ -860,7 +862,9 @@ unchanged-site-explorer-views=anonymous-view
 {code}
 
 
-Use the following templates to specify the templates of the *Content List Viewer* and *Search* portlets:
+* With _commons.upgrade.WCMTemplateUpgradePlugin_: Upgrade Content-list-viewer and Search portlets templates.
+
+Specify the templates of _Content-list-viewer_ and _Search_ portlets with the following templates:
 
 {code}
 unchanged-clv-templates=<template name list>
@@ -1103,7 +1107,7 @@ Gadgets
 {code}
 
 
-h2. Optional plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Optional_plugins}
+h3. Optional plugins {anchor:id=ADM.Migration.Upgrade_plugins_details.List_plugins.Optional_plugins}
 
 {docbook}
 <para>
@@ -1230,9 +1234,9 @@ JCR user directory structure
 {docbook}
 
 
-This plugin is built-in in JCR that provides an option for migrating old JCR users directory structure to new JCR users directory structure. This allows you to improve performance when having a lot of users in database.
+This plugin is built-in in JCR, it provides an option for migrating old JCR users directory structure to new JCR users directory structure which will help to improve performance when having a lot of users in database.
 
-For example, the table below shows the difference in response time of eXo Platform 3.5 (new user directory structure) against eXo Platform 3.0 (old user directory structure) while performing some actions:
+For example: the table below shows the difference in response time of Platform 3.5 (new user directory structure) against Platform 3.0 (old user directory structure) while performing some actions:
 
 || Number of users || Type Account & Login || Load Intranet Welcome Page || Load /portal/rest/jcr/repository/collaboration/Users || Load User Private JCR Folder ||
 | 500 | 13.61% | \-20.83% | \-30.12% | 14.29% |
@@ -1240,24 +1244,26 @@ For example, the table below shows the difference in response time of eXo Platfo
 | 2000 | 0.20% | \-29.63% | \-93.89% | \-1.37% |
 | 5000 | \-4.30% | \-33.93% | \-95.45% | \-10.67% |
 
-Formula: (_Platform 3.5 value_ - _Platform 3.0 value_) * 100 / _Platform 3.0 value_ (negative value means better).
+(Formula: (_Platform 3.5 value_ - _Platform 3.0 value_) * 100 / _Platform 3.0 value_, negative value means better)
+(Formula: (PLF350value - PLF307value) * 100 / PLF307value, negative value means better)
 
-It can be seen that with a larger number of users, the new user directory structure performs faster than the old one, especially when accessing the user directory directly.
+It can be seen that with larger number of users, the new user directory structure performs faster than the old one, especially when accessing the user directory directly.
 
-To enable the migration, set these 2 flags in the _$PLF-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ file (or _$PLF\-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) as below:
+To enable migration, set these 2 flags in the _$PLF-3.5-TOMCATHOME/gatein/conf/configuration.properties_ file (or _$PLF\-3.5-JBOSSHOME/server/default/conf/gatein/configuration.properties_) as below:
 
 {code}
 use-old-user-distribution=false
 run-jcr-user-directories-migrate=true
 {code}
 
-JCR user directory structure migration will take much time, so you need to increase the JCR session time-out.
-Measure the amount of data in your current eXo Platform 3.0 and use a right session time-out. For example, if there are 1000 users in current eXo Platform 3.0, you should set configuration in the _$PLF\-3.5-TOMCAT\_HOME/gatein/conf/configuration.properties_ (or _$PLF\-3.5-JBOSS\_HOME/server/default/conf/gatein/configuration.properties_) file as below:
+JCR user directory structure migration will take much time, so that you need to increase the JCR session time-out.
+Measure the amount of data in your current Platform 3.0 and use a right session time-out. For example, if there are 1000 users in current Platform 3.0, we should set configuration in file _$PLF\-3.5-TOMCATHOME/gatein/conf/configuration.properties_ (or _$PLF\-3.5-JBOSSHOME/server/default/conf/gatein/configuration.properties_) like below:
 
 {code}
 gatein.jcr.transaction.timeout=10000
 {code}
 
-The time you need to migrate the JCR user directories structure depends on the amount of eXo Platform user data and your system speed.
-This migration also consumes memory, so you need to make sure to have enough resource on your server and configure enough memory to update the Xmx Java option (in the _$PLF3.5-TOMCAT\_HOME/bin/setenv.sh or $PLF-3.5-JBOSS\_HOME/bin/run.conf_ file) before running. 
+How long does it take to migrate JCR user directories structure? It is depended on the amount of Platform user data and your system speed.
+This migration also consumes memory, make sure that you have enough resource on your server and configure enough memory update Xmx Java option (in _$PLF3.5-TOMCATHOME/bin/setenv.sh or $PLF-3.5-JBOSSHOME/bin/run.conf_ file) before running. 
 For example, you can use 6 Gigabyte RAM to migrate 5000 users.
+
