@@ -11,17 +11,12 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Cluster_setup">Set up the eXo Platform cluster</link>
-</para>
-<itemizedlist>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Shared_file_system">Shared file system</link>
+<link linkend="ADM.Clustering.Prerequisites">Prerequisites</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Setup_Platform_cluster">Set up eXo Platform cluster</link>
+<link linkend="ADM.Clustering.Deployment">Deployment</link>
 </para>
 </listitem>
 <listitem>
@@ -31,14 +26,7 @@ This chapter covers the following topics:
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Local_JCR_Index">Local JCR index in cluster</link>
-</para>
-</listitem>
-</itemizedlist>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Clustering.Clustering_FAQ">FAQs of clustering</link>
+<link linkend="ADM.Clustering.Troubleshooting">Troubleshooting</link>
 </para>
 </listitem>
 </itemizedlist>
@@ -46,145 +34,391 @@ This chapter covers the following topics:
 {docbook}
 
 h1. About clustering in eXo Platform {anchor:id=ADM.Clustering.About_Platform_Clustering}
-Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes.
-The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers.
-Thanks to adding more nodes to the cluster, eXo Platform's performance can be much improved.
-A cluster is a set of nodes which is managed together and participate in the workload management. Installing eXo Platform in the cluster mode is considered in the following main cases:
-* Load Balancing: when a single server node is not enough for handling the load.
-* High Availability: if one of nodes is failed, the rest of nodes in the cluster can assume the workload of the system. It means that no access is interrupted.
+Clustering allows eXo Platfrom users to run various portal instances on several parallel servers which are also called nodes. The load is distributed across different servers, so the portal is still accessible via other cluster nodes in case of any failed servers. 
+Thanks to adding more nodes to the cluster, eXo Platform's performance can be much improved. A cluster is a set of nodes which is managed together and participate in the workload management. Installing eXo Platform in the cluster mode is considered in the following main cases:
 
-These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes.
+* Load Balancing: when a single server node is not enough for handling the load.
+
+* High Availability: if one of nodes is failed, the rest of nodes in the cluster can assume the workload of the system. Thus, no access is interrupted.
+
+These characteristics should be handled by the overall architecture of your system. The Load Balancing is typically achieved by a front server or device that distributes the request to the cluster nodes. 
 Also, the High Availability on the data layer can be typically achieved using the native replication implemented by Relation Database Management System (RDBMS) or Shared File Systems, such as SAN and NAS.
 
-h1. Set up the eXo Platform cluster {anchor:id=ADM.Clustering.Cluster_setup}
+h1. Prerequisites {anchor:id=ADM.Clustering.Prerequisites}
 
-h2. Shared file system {anchor:id=ADM.Clustering.Shared_file_system}
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Shared file system
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
 In eXo Platform, the persistence mostly relies on JCR, which is a middleware between the eXo Platform applications (including the Portal) and the database. Hence, this component must be configured to work in the cluster mode.
 
 The embedded JCR server requires a portion of its state to be shared on a file system shared among the cluster nodes:
+
 * The values storage.
+
 * The index (in case of shared index usage).
-{note}
-Since Platform 3.5, a local JCR index can be used on each node of the cluster. It is a new feature and it needs a special configuration in Platform (described below). 
 
 {note}
+Since eXo Platform 3.5, a local JCR index can be used on each node of the cluster. It is a new feature and it needs a special configuration in eXo Platform.
+{note}
 
-All nodes must have the read/write access to the shared file system.
-{info}It is strongly recommended that you use a mount point on a SAN.{info}
+* All nodes must have the read/write access to the shared file system.
 
-h2. Set up eXo Platform cluster {anchor:id=ADM.Clustering.Setup_Platform_cluster}
-The following steps describe a typical setup of Platform cluster:
-* Switch to a _cluster_ configuration.
-This step is done in the _configuration.properties_ file. This _configuration.properties_ file must be set in the same way on all the cluster nodes.
-First, point the _exo.shared.dir_ variable to a directory shared between cluster nodes.
+{note}
+It is strongly recommended that you use a mount point on a SAN.
+{note}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Shared Database
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* A shared Database management system (Orcale, MySQL, Postgresql).
+
+* A connector to connect eXo Platform with relational database management system (RDBMS).
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Use profile all to run cluster on JBoss
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Profile {{all}} has enough configuration for cluster.
+
+h1. Deployment  {anchor:id=ADM.Clustering.Deployment}
+ 
+h2. Configure shared files and shared databases  {anchor:id=ADM.Clustering.Configure_shared_file_database}
+
+h3. Configure shared files  {anchor:id=ADM.Clustering.ConfigureSharedFileDatabase.ConfigureSharedFiles}
+
+Configure the folowing configuration file:
+
+*For Tomcat server*: _$TOMCAT\_HOME/gatein/conf/configuration.properties_
+
+*For JBoss server*: _$JBOSS\_HOME/server/all/conf/gatein/configuration.properties_
+
+In this file, the _exo.shared.dir_ points to shared files location.
+
+By default:
+
+* Path for any JCR data:
+
+_gatein.jcr.data.dir=${gatein.data.dir}/jcr_
+
+* Path for file data inserted in JCR:
+
+_gatein.jcr.storage.data.dir=${gatein.data.dir}/values_
+
+* Path for the jcr index:
+
+_gatein.jcr.index.data.dir=${gatein.data.dir}/index_
+
+h3. Configure datasources in server.xml {anchor:id=ADM.Clustering.ConfigureSharedFileDatabase.ConfigureDatasourceInServer.xml}
+
+The datasources are configured in the following file:
+
+* For Tomcat server: _$TOMCAT\_HOME/conf/server.xml_.
+
+* For JBoss server: _$JBOSS\_HOME/server/all/gatein-ds.xml_.
+
+Customize (overwrite old configuration if existed) the configuration database url, connector class, and username, corresponding userpassword
+
+For example: 
+*gatein-ds.xml*
 {code}
-exo.shared.dir=/PATH/TO/SHARED/FS
+<jndi-name>gatein-idm_portal</jndi-name>
+      <connection-url>$CONNECTION_URI/gatein_IDM</connection-url>
+      <driver-class>$DRIVER_CONNNECTOR</driver-class>
+      <user-name>$USERNAME</user-name>
+      <password>$PASSWORD</password>
+ 
+                ..............
+      <jndi-name>gatein-jcr_portal</jndi-name>
+      <connection-url>$CONNECTION_URI/gatein_JCR</connection-url>
+      <driver-class>$DRIVER_CONNNECTOR</driver-class>
+      <user-name>$USERNAME</user-name>
+      <password>$PASSWORD</password>
 {code}
-The path is shared, so all nodes will need the _read/write_ access to this path.
-Then, switch the JCR to the cluster mode.
+
+In which:
+* _$CONNECTION\_URI_: URI to the connect to database.
+* _$DRIVER\_CONNNECTOR_: Name of the connector (depends on database type).
+* _$USERNAME_: Username to connect to database. 
+* _$PASSWORD_: Password of corresponding $USERNAME.
+
+{note}
+Make sure that your database server accepts remote connections.
+{note}
+
+h2. Configure Tomcat nodes  {anchor:id=ADM.Clustering.ConfigureSharedFileDatabase.ConfigureTomcatNode}
+
+Follow these steps to configure Tomcat nodes:
+
+*1.* Configure the _conf/server.xml_ file to point to database.
+
+Make sure that username="exodb", password="exotest", driverClassName="org.postgresql.Driver" for postgreSQL or driverClassName="com.mysql.jdbc.Driver" for mySQL and on url is the address of database server by replacing "192.168.3.29" by the address of database server.
+
+* For PostgreSQL
+
 {code}
+<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="128" maxIdle="32" maxWait="10000"
+               removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
+               username="exodb" password="exotest" driverClassName="org.postgresql.Driver"
+               url="jdbc:postgresql://192.168.3.29/gatein_JCR"/>
+
+ <!-- eXo IDM Datasource for portal -->
+   <Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="128" maxIdle="32" maxWait="10000"
+               removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
+               username="exodb" password="exotest" driverClassName="org.postgresql.Driver"
+               url="jdbc:postgresql://192.168.3.29/gatein_IDM"/>
+{code}
+
+* For MySQL
+{code}
+<Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="128" maxIdle="32" maxWait="10000"
+               removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
+               username="exodb" password="exotest" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://192.168.3.29:3306/gatein_JCR"/>
+
+ <!-- eXo IDM Datasource for portal -->
+   <Resource name="exo-idm_portal" auth="Container" type="javax.sql.DataSource"
+               maxActive="128" maxIdle="32" maxWait="10000"
+               removeAbandoned="true" removeAbandonedTimeout="10" logAbandoned="true" minEvictableIdleTimeMillis="60000"
+               username="exodb" password="exotest" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://192.168.3.29:3306/gatein_IDM"/>
+{code}
+
+*2.* Drop [the postgresql connector|http://storage.exoplatform.vn/plf/mq/TestCampaign/ReferenceBinaries/DB%20Connector/postgresql-8.4-702.jdbc4.jar] or the [MySQL connector|http://storage.exoplatform.vn/plf/mq/TestCampaign/ReferenceBinaries/DB%20Connector/mysql-connector-java-5.1.18-bin.jar] to _tomcat/lib_.
+
+*3.* Configure the _gatein/conf/configuration.properties_ file.
+
+Define the storage address of JCR data (e.g. /tmp/jcrdata). Make sure that eXo Platform have the permission to write on this folder:
+
+{code}
+exo.shared.dir=/tmp/jcrdata
 gatein.jcr.config.type=cluster
+Replace eXo profiles on start_eXo.sh
 {code}
-In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
-* Switch to the _cluster_ profile.
-You need to indicate the _cluster_ kernel profile to eXo Platform. This can be done by editing the startup script in the _bin/gatein.sh_ folder as below:
-{code}
-EXO_PROFILES="-Dexo.profiles=default,cluster"
-{code}
-or use the _start\_eXo.sh_ script with such parameters:
-{code}
-./start_eXo.sh default,cluster
-{code}
-* Do the initial startup.
-For the initial startup of your JCR cluster, you should only start a single node. This node will initialize the internal JCR database and create the system workspace. Once the initial node is definitely started, you can start the other nodes.
-{note}
-This constraint is only for the initial start. 
-As above, you can start the cluster in any order, but it should be started fully from the single node. After that, others can start in any order or in parallel.
-{note}
-* Start up and shut down.
-{note}
-Always start the cluster from a single node, as on initial startup, and then start all others in any order or in parallel.
-Nodes of the cluster will automatically try to join others at startup. Once they have discovered each other, they will synchronize their state.
-During the synchronization, the node is not ready to serve requests.
-{note}
-h2. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
 
-The cluster mode is preconfigured to work out of the box. The eXo Platform clustering fully relies on the JBossCache replication which  uses JGroups internally.
-The default configuration of JBossCache lies in _exo.portal.component.common-x.x.x.jar_.
-Since eXo Platform 3.5, the JCR's JBossCache configuration is externalized to the {{gatein.conf.dir}} configuration folder:
-* _jcr_ - folder with cache configuration for JCR
-* _cache_ - folder with cache configuration for eXo Cache 
-* _idm_ - folder with cache configuration for PicketLink IDM organization service 
-* _jgroups_ - folder with JGroups configuration used in all caches
+Replace
+
+{code}
+EXO_PROFILES="-Dexo.profiles=default"
+{code}
+
+by
+
+{code}
+EXO_PROFILES="-Dexo.profiles=cluster,default -Djava.net.preferIPv4Stack=true"
+{code}
+
+*4. Configure each node*
+
+Configure the _conf/server.xml_ file.
+
+{note}
+Make sure there is no confliction between 2 servers (ports to shutdown, HTTP and AJP).
+and jvm node name with corresponding AJP is defined on mod/_jk.
+{note}
+
+* Add jvmroute to node 1:
+
+{code}
+<Engine name="Catalina" defaultHost="localhost" jvmRoute="plfnode1">
+{code}
+
+* Add jvmroute to node 2:
+
+{code}
+<Engine name="Catalina" defaultHost="localhost" jvmRoute="plfnode2">
+{code}
+
+*5. Start node*
+
+You can start node 1 and node 2 with the following command:
+
+{code}
+./start_eXo.sh
+{code}
+
+h1. Advanced configuration {anchor:id=ADM.Clustering.Advanced_configuration}
+
+h2. JBoss cache {anchor:id=ADM.Clustering.Jboss_cache}
+
+The cluster mode is preconfigured to work out of the box. The eXo Platform clustering fully relies on the JBossCache replication which uses JGroups internally. 
+The default configuration of JBossCache lies in _exo.portal.component.common-x.x.x.jar_. 
+Since eXo Platform 3.5, the JCR's JBossCache configuration is externalized to the _gatein.conf.dir_ configuration folder:
+
+* jcr: folder with cache configuration for JCR.
+* cache: folder with cache configuration for eXo Cache.
+* idm: folder with cache configuration for PicketLink IDM organization service.
+* jgroups: folder with JGroups configuration used in all caches.
+
+*Externalization configuration*:
+
+* JCR cache configuration
+{code}
+gatein.jcr.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
+gatein.jcr.cache.expiration.time=15m
+{code}
+
+* JCR Locks configuration:
+{code}
+gatein.jcr.lock.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
+{code}
+* JCR Index configuration:
+
+{code}
+gatein.jcr.index.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/indexer-config.xml
+{code}
+
+* JGroups configuration:
+
+{code}
+gatein.jgroups.jmxstatistics.enable=true
+{code}
+
+* for eXo Cache and IDM org-service (in cluster _cache-config.xml_ files):
+
+{code}
+gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
+{code}
+
+* for JCR:
+{code}
+gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
+{code}
+
+By default, the nodes discovery is based on UDP, in which *JGroups* is responsible for the nodes identification through the UDP transport. 
+The administrator can change the configuration of detection and ports in the _jgroups-udp.xml_ file.
 
 {note}
 The advanced configuration is optional and is not required in general cases. It is recommended to do an advanced configuration only in case of a need.
 {note}
 
-h3. JBossCache {anchor:id=ADM.Clustering.Advanced_configuration.JBossCache}
+h2. Local JCR index in cluster {anchor:id=ADM.Clustering.Local_JCR_index_in_cluster}
 
-The JBossCache configuration is done in the _configuration.properties_ file using following properties:
+{note}
+JCR clustering with local index on each node is a new feature. Find more information about *Indexing in clustered environment* in the JCR reference documentation.
+{note}
+
+If the cluster is used with the local JCR index on each node, apply the following changes to the steps described above:
+
+* Configure index data to a local directory on each node:
+
 {code}
-# JCR cache configuration
-gatein.jcr.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/cache-config.xml
-gatein.jcr.cache.expiration.time=15m
-
-# JCR Locks configuration
-gatein.jcr.lock.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/lock-config.xml
-
-# JCR Index configuration
-gatein.jcr.index.cache.config=file:${gatein.conf.dir}/jcr/jbosscache/${gatein.jcr.config.type}/indexer-config.xml
-
-# JGroups configuration
-gatein.jgroups.jmxstatistics.enable=true
-# for eXo Cache and IDM org-service (in cluster cache-config.xml files)
-gatein.jgroups.config=${gatein.conf.dir}/jgroups/jgroups-udp.xml
-# for JCR
-gatein.jcr.jgroups.config=file:${gatein.jgroups.config}
+gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX
 {code}
 
-By default, the nodes discovery is based on _UDP_, in which *JGroups* is responsible for the nodes identification through the UDP transport. The administrator can change the configuration of detection and ports in _jgroups-udp.xml_.
+* Run the cluster with the additional profile named {{"cluster-index-local"}} by adding the following profile to the startup script in the _bin/gatein.sh_ file;
 
-h3. Shared file system {anchor:id=ADM.Clustering.Advanced_configuration.Shared_file_system}
+{code}
+EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"
+{code}
 
-Optionally, if you need separate physical storage for JCR indexes and value storage files, it is possible to configure related paths, each to a separate shared file system:
+* Or, by using the following command with the additional profile:
+
+{code}
+./start_eXo.sh default,cluster,cluster-index-local
+{code}
+
+h1. Set up eXo Platform cluster {anchor:id=ADM.Clustering.Setup_Platform_cluster}
+
+The following steps describe a typical setup of eXo Platform cluster:
+
+*Step 1.* Switch to the {{cluster}} configuration.
+
+This step is done in the _configuration.properties_ file:
+
+*For Tomcat server*: $TOMCAT_HOME/gatein/conf/configuration.properties (tomcat server).
+
+*For JBoss server*: $JBOSS_HOME/server/all/conf/gatein/configuration.properties (jboss server).
+
+This file must be set in the same way on all the cluster nodes. First, point the _exo.shared.dir_ variable to a directory shared between cluster nodes.
+{code}
+exo.shared.dir=/PATH/TO/SHARED/FS
+{code}
+
+The path is shared, so all nodes will need the read/write access to this path. Then, switch the JCR to the cluster mode.
+
+{code}
+gatein.jcr.config.type=cluster
+{code}
+
+In this step, JCR enables the automatic network replication and discovery between other cluster nodes.
+
+*Step 2.* Switch to the {{cluster}} profile.
+
+You need to indicate the cluster kernel profile to eXo Platform. This can be done by editing the startup script in the _bin/gatein.sh_ folder as below:
+{code}
+EXO_PROFILES="-Dexo.profiles=default,cluster"
+{code}
+
+or use the _start\_eXo.sh_ script with such parameters:
+
+{code}
+./start_eXo.sh default,cluster
+{code}
+
+*Step 3.* Do the initial startup.
+
+For the initial startup of your JCR cluster, you should only start a single node. This node will initialize the internal JCR database and create the system workspace. Once the initial node is definitely started, you can start the other nodes.
+
+{note}
+This constraint is only for the initial start. As above, you can start the cluster in any order, but it should be started fully from the single node. After that, others can start in any order or in parallel.
+{note}
+
+*Step 4.* Start up and shut down.
+{note}
+Always start the cluster from a single node, as on initial startup, and then start all others in any order or in parallel. Nodes of the cluster will automatically try to join others at startup. Once they have discovered each other, they will synchronize their state. During the synchronization, the node is not ready to serve requests.
+{note}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Shared file system
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Optionally, if you need to separate physical storage for JCR indexes and value storage files, it is possible to configure related paths, each to a separate shared file system:
 {code}
 gatein.jcr.storage.data.dir=/PATH/TO/SHARED/VALUES_FS/values
 gatein.jcr.index.data.dir=/PATH/TO/SHARED/INDEX_FS/index
 {code}
 
-h2. Local JCR index in cluster {anchor:id="ADM.Clustering.Local_JCR_Index"}
-
-{note}
-JCR clustering with local index on each node is a new feature. Find more information about _Indexing in clustered environment_ in JCR reference documentation.
-{note}
-
-If the cluster is used with the local JCR index on each node, apply the following changes to the steps described above:
-* configure index data to a local directory on each node:
-{code}
-gatein.jcr.index.data.dir=/PATH/TO/LOCAL/INDEX
-{code}
-* run the cluster with the additional profile named "{{cluster-index-local}}" by adding the following profile to the startup script in the _bin/gatein.sh_ file;
-{code}
-EXO_PROFILES="-Dexo.profiles=default,cluster,cluster-index-local"
-{code}
-Or, by using the following command with this additional profile.
-{code}
-./start_eXo.sh default,cluster,cluster-index-local
-{code}
-
-h1. FAQs of clustering {anchor:id=ADM.Clustering.Clustering_FAQ}
+h1. Troubleshooting {anchor:id=ADM.Clustering.Troubleshooting}
 
 {docbook}
-<citetitle>
 <para>
+<citetitle>
 <emphasis role="bold">
-Q1. How to migrate from local to the cluster mode?
+Migrate from local to the cluster mode
 </emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
+
 If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
 
 *1.* Update the configuration to the cluster mode as explained above on your main server.
@@ -195,41 +429,39 @@ If you intend to migrate your production system from local (non-cluster) to the 
 
 *4.* Start the cluster.
 
-
 {docbook}
-<citetitle>
 <para>
+<citetitle>
 <emphasis role="bold">
-Q2. Why is startup failed with the "Port value out of range" error?
+"Port value out of range" error
 </emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-On Linux, your startup is failed if you encounter the following error:
 
+On Linux, your startup is failed if you encounter the following error:
 {code}
 [INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
+Cause: This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
 {code}
 
-This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
-
+* Solution:
 You need to verify:
+** The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
 
-* The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
-
-* The host name is NOT defined as localhost or 127.0.0.1.
-
+** The host name is NOT defined as localhost or 127.0.0.1.
 
 {docbook}
-<citetitle>
 <para>
+<citetitle>
 <emphasis role="bold">
-Q3. How to solve the "failed sending message to null" error?
+"Failed sending message to null" error
 </emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-If you encounter the following error when starting up in the cluster mode on Linux:
+
+You may encounter the following error when starting up in the cluster mode on Linux:
 
 {code}
 Dec 15, 2010 6:11:31 PM org.jgroups.protocols.TP down
@@ -238,19 +470,22 @@ java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
 {code}
 
 Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to JVM parameters:
-{code} -Djava.net.preferIPv4Stack=true {code}
+
+{code}
+-Djava.net.preferIPv4Stack=true 
+{code}
 
 {docbook}
-<citetitle>
 <para>
+<citetitle>
 <emphasis role="bold">
-Q3. How to hide JGroups protocol warnings in the log?
+JGroups protocol warnings in the log
 </emphasis>
-</para>
 </citetitle>
+</para>
 {docbook}
-In cluster mode several Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport.
-And in case of used by default UDP transport it might cause a side effect - lot of warnings, like these below:
+
+In cluster mode several eXo Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport. And in case of used by default UDP transport it might cause a side effect - lot of warnings displayed in the log, like these below:
 
 {code}
 WARNING: discarded message from different group "gatein-idm-api-cluster" (our group is "gatein-idm-store-cluster"). Sender was 192.168.1.55:54232
@@ -259,20 +494,72 @@ WARNING: discarded message from different group "gatein-idm-store-cluster" (our 
 Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
 {code}
 
-To hide such warnings need configure the Application Server logger in appropriate way:
-* Apache Tomcat, in {{{${CATALINA_HOME}/conf/logging.properties}}} add following lines
+* Solution: Hide the warning.
+
+To hide such warnings, you need to configure the Application Server logger in appropriate way: For Apache Tomcat, add the following lines into the _$/conf/logging.properties_ file:
+
 {code}
 org.jgroups.level = SEVERE
 org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
 {code}
-* JBoss Application Server, for server profile _all_, add in {{{${jboss_server}/server/all/conf/jboss-log4j.xml}}} following
+
+For the JBoss Application Server and server profile {{all}}, add the following lines into the _$/server/all/conf/jboss-log4j.xml_ file:
+
 {code}
   <category name="org.jgroups.protocols.UDP">
     <priority value="ERROR"/>
   </category>
-{code}
+{code}  
 
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Cannot connect to RDMS
+</emphasis>
+</citetitle>
+</para>
+{docbook}
 
+There are 3 main reasons that may cause this problem:
 
+*Lack of connector in lib*.
 
+* Solution: Add missing connectors (_jar_) downloaded from internet.
+
+*Wrong database address parameters*.
+
+* Solution: Correct database parameters.
+
+*Username cannot access from distance*.
+
+* Solution: Configure database for accepting remote access.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Cannot find index data
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* Cause: Indexing data and database are not matched.
+
+* Solution: Remove indexing data and database if possible.
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Replication time out
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+* Description: Replication Timeout console on running eXo Platform in cluster mode with multi-instances.
+
+* Workaround: Increase Replication Timeout in the _cache-config.xml_ file of the JBossCache.
 
