@@ -217,8 +217,6 @@ However, the REST View managements of Cache instances and CacheManager are not c
 
 h2. Content management view {anchor:id=ADM.Management.eXo_Content_management_view}
 
-The Content application provides a management view for three following services:
-
 h3. WCMComposer {anchor:id=ADM.Management.WCMComposer}
 
 WCMComposer is responsible for assembling pages, and is key for serving pages efficiently. 
@@ -595,7 +593,7 @@ h4. BBCodePlugin {anchor:id=ADM.Management.BBCidePlugin}
 
 h4. ForumInitialDataPlugin {anchor:id=ADM.Management.ForumInitialDataPlugin}
 
-* The JMX name template of ForumInitialDataPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name={Name}_.
+* The JMX name template of ForumInitialDataPlugin MBeans: _exo\:portal="portal",service=forum,view=plugins,name={{{{Name}}}}_.
 
 ||Attribute||Description||
 |{{Location}}|The location where the Forum export file is stored.|
