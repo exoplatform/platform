@@ -34,7 +34,7 @@ eXo Platform comes with two sample portals that show the capabilities of the pro
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
-h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme/SocialIntranet}
+h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme_SocialIntranet}
 
 Both Acme website and Acme Social Intranet are sample extensions demonstrating the intranet that you can implement with eXo Platform.
 
