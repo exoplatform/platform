@@ -217,30 +217,48 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 </para>
 </citetitle>
 {docbook}
-*1.* Copy the following files to _jboss-root/server/default/deploy_.
+*1.* Copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default_ to _jboss-root/server/default/deploy_ (your server):
 
-- gatein-ds.xml
 - gatein.ear
-- gatein-wsrp-extension-$version.ear
-- starter-gatein-$version.ear
-- exo-wcm-extension-$version.ear
-- exo-workflow-extension-$version.ear
-- exo-collaboration-extension-$version.ear
-- exo-knowledge-extension-$version.ear
-- exo-social-extension-$version.ear
-- exo-platform-extension-$version.ear
-- exo-social-intranet-$version.ear
 - exo-acme-website-$version.ear
+- exo-collaboration-extension-$version.ear
 - exo-default-portal-$version.ear
 - exo-gadget-pack-$version.ear
+- exo-knowledge-extension-$version.ear
+- exo-platform-extension-$version.ears/server/default
+- exo-social-extension-$version.ear
+- exo-social-intranet-$version.ear
+- exo-wcm-extension-$version.ear
+- exo-webos-extension-$version.ear
+- exo-workflow-extension-$version.ear
+- gatein-ds.xml
+- gatein-wsrp-extension-$version.ear
+- starter-gatein-$version.ear
 
-*2.* Create the _jboss-root/server/default/conf/gatein_ folder, then copy these files to this folder.
+*2.* Create a folder named "gatein" in _jboss-root/server/default/conf_, then copy the following files and folders from _eXo-Platform-jboss-3.5.x/ears/server/default/conf/gatein_ to this folder:
 
+- cache
+- idm
+- jcr
+- jgroups
+- portal
 - configuration.properties
-
 - configuration.xml
+- controller.xml
+- portlet.xml
 
-*3.* Copy the _oauthkey.pem_ file to _jboss-root/server/default/conf/gatein/gadgets_.
+*3.* Copy the "data" folder from _eXo-Platform-jboss-3.5.x/ears/server/default/_ to _jboss-root/server/default/_:
+
+Your current folder structure should look like: 
+
+{code}
+$jboss-root
+- server
+--- default
+------ data
+-------- gadgets
+---------- oauthkey.pem
+{code}
 
 *4.* Configure the JVM parameters.
 
@@ -250,9 +268,13 @@ eXo Platform provides EARs packages to deploy in your existing JBoss application
 # Platform environment variables
 EXO_PROFILES="-Dexo.profiles=default"
 EXO_OPTS="-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
+IDE_OPTS="-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
+# Declare this variable in JAVA_OPTS to run in debug mode
 REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
-EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
-JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
+# Here you can define your preferred xml parser - choose one or the other, or none
+# EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
+EXO_XML="-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
+JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $IDE_OPTS $EXO_PROFILES $EXO_XML"
 {code}
 
 * On *Windows*, add these lines to the end of _jboss-root/bin/run.conf.bat_:
@@ -261,9 +283,12 @@ JAVA_OPTS="$JAVA_OPTS $EXO_OPTS $EXO_PROFILES $EXO_XML"
 rem # Platform environment variables
 set "EXO_PROFILES=-Dexo.profiles=default"
 set "EXO_OPTS=-Dexo.product.developing=false -Dexo.conf.dir.name=gatein -Dgatein.data.dir=../gatein"
+set "IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib"
 set "REMOTE_DEBUG=-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dcom.sun.management.jmxremote -Dorg.exoplatform.container.configuration.debug"
-set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
-set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %EXO_PROFILES% %EXO_XML%"
+rem # Here you can define your preferred xml parser - choose one or the other, or none
+rem set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.stream.ZephyrWriterFactory -Djavax.xml.stream.XMLInputFactory=com.sun.xml.stream.ZephyrParserFactory -Djavax.xml.stream.XMLEventFactory=com.sun.xml.stream.events.ZephyrEventFactory"
+set "EXO_XML=-Djavax.xml.stream.XMLOutputFactory=com.sun.xml.internal.stream.XMLOutputFactoryImpl -Djavax.xml.stream.XMLInputFactory=com.sun.xml.internal.stream.XMLInputFactoryImpl -Djavax.xml.stream.XMLEventFactory=com.sun.xml.internal.stream.events.XMLEventsFactoryImpl"
+set "JAVA_OPTS=%JAVA_OPTS% %EXO_OPTS% %IDE_OPTS% %EXO_PROFILES% %EXO_XML%"
 {code}
 
 *Adapt to your needs:*
