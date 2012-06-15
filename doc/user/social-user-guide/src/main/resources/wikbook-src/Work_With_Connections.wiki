@@ -66,17 +66,9 @@ Click *Connect* to send your connection request.
 
 *The second way*
 
-[Access the profile page of the contact|#view_profile_of_contacts] to whom you want to send a connection request, then click *Invite to connect* at the right corner of the profile page.
+[Access the profile page of the contact|#view_profile_of_contacts] to whom you want to send a connection request, then click *Connect* at the right corner of the profile page.
 
 !images/Invite-to-connect.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
-
-{docbook}
-<note>
-<para>
-If you follow the first way, the <emphasis role="bold">Connect</emphasis> text will become <emphasis role="bold">Cancel Request</emphasis>. Meanwhile, if you follow the second way, the <emphasis role="bold">Invite to connect</emphasis> text will be turned into <emphasis role="bold">Revoke</emphasis>.
-</para>
-</note>
-{docbook}
 
 
 h1. Revoke a connection request {anchor:id=Revoke_connection_request}
@@ -90,7 +82,7 @@ Click *Cancel Request* to revoke the connection request.
 
 *The second way*
 
-[Access the profile page of the contact|#view_profile_of_contacts] to whom you sent a connection request, then click *Revoke* at the right corner of the profile page.
+[Access the profile page of the contact|#view_profile_of_contacts] to whom you sent a connection request, then click *Cancel Request* at the right corner of the profile page.
 
 !images/Revoke_request.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
@@ -111,9 +103,10 @@ Select the *Requests Received* tab to see the list of all connection requests se
 
 !images/my_invitations_homepage.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
-*2.* Click the contact name in the list to go his/her profile page.
-* Select *Connect* to accept the request.
-* Click *Deny* to deny the request.
+*2.* Click the contact name in the list to go to his/her profile page.
+
+*3.*  Click *Confirm* or *Ignore* to accept or deny the request respectively.
+
 
 h1. Disconnect from your contacts {anchor:id=Disconect}
 
@@ -127,6 +120,6 @@ Click *Remove Connection* to remove your established connection.
 
 *The second way*
 
-[Accessing the profile page of the contact|#view_profile_of_contacts] who is your connection, then click the *Disconnect* link at the right corner of the profile page.
+[Accessing the profile page of the contact|#view_profile_of_contacts] who is your connection, then click the *Remove Connection* link at the right corner of the profile page.
 
 !images/Disconnect_in_profile.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
