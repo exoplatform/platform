@@ -49,11 +49,14 @@
       <!-- This parameter indicates one of the three cases when you update the content of the resource by PUT command.
         In case of "create-version", PUT command creates the new version of the resource if this resource  exists.
         In case of "replace" - if the resource  exists, PUT command updates the content of the resource and  its last modification date.
-        In case of "add", the PUT command tries to create the new resource with the same name (if the parent node allows same-name siblings).-->
+        In case of "add", the PUT command tries to create the new resource with the same name (if the parent node allows same-name siblings).
+        In case of "update", if the resource  exists, PUT command updates the content of the resource and  its last modification date.
+      -->
 
       <value-param>
         <name>update-policy</name>
-        <value>create-version</value>
+        <value>update</value>
+        <!--value>create-version</value-->
         <!--value>replace</value -->
         <!-- value>add</value -->
       </value-param>
@@ -65,8 +68,8 @@
       -->
       <value-param>
         <name>auto-version</name>
-        <value>checkout-checkin</value>
-        <!--value>checkout</value -->
+        <!--value>checkout-checkin</value-->
+        <value>checkout</value>
       </value-param>
 
       <!--
