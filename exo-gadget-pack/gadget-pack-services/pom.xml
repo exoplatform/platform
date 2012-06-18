@@ -56,19 +56,19 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
-      <artifactId>exo.social.component.common</artifactId>
+      <artifactId>social-component-common</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
-      <artifactId>exo.social.component.core</artifactId>
+      <artifactId>social-component-core</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
-      <artifactId>exo.social.component.service</artifactId>
+      <artifactId>social-component-service</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>

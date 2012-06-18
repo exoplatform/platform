@@ -12,7 +12,7 @@
   <dependencies>
 	<dependency>
 		<groupId>org.exoplatform.commons</groupId>
-		<artifactId>exo.platform.commons.webui.ext</artifactId>
+		<artifactId>commons-webui-ext</artifactId>
 		<version>${org.exoplatform.commons.version}</version>
 		<scope>provided</scope>
 	</dependency>
@@ -30,31 +30,31 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.webos</groupId>
-      <artifactId>exo.webos.webui.webos</artifactId>
+      <artifactId>webos-webui</artifactId>
       <version>${org.exoplatform.webos.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
 	  <groupId>org.exoplatform.social</groupId>
-	  <artifactId>exo.social.component.webui</artifactId>
+	  <artifactId>social-component-webui</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.social</groupId>
-      <artifactId>exo.social.component.core</artifactId>
+      <artifactId>social-component-core</artifactId>
       <version>${org.exoplatform.social.version}</version>
       <scope>provided</scope>
     </dependency>
 	<dependency>
 		<groupId>org.exoplatform.ecms</groupId>
-		<artifactId>exo-ecms-core-webui</artifactId>
+		<artifactId>ecms-core-webui</artifactId>
 		<version>${org.exoplatform.ecms.version}</version>
 		<scope>provided</scope>
 	</dependency>
 	<dependency>
 		<groupId>org.exoplatform.ecms</groupId>
-		<artifactId>exo-ecms-core-webui-seo</artifactId>
+		<artifactId>ecms-core-webui-seo</artifactId>
 		<version>${org.exoplatform.ecms.version}</version>
 		<scope>provided</scope>
 	</dependency>

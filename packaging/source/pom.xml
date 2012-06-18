@@ -45,15 +45,15 @@
 				</artifactItem>
                                 <artifactItem>
 					<groupId>org.exoplatform.social</groupId>
-					<artifactId>social-project</artifactId>
+					<artifactId>social</artifactId>
 					<version>${org.exoplatform.social.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
 				</artifactItem>
                                 <artifactItem>
-					<groupId>org.exoplatform.cs</groupId>
-					<artifactId>cs</artifactId>
+					<groupId>org.exoplatform.calendar</groupId>
+					<artifactId>calendar</artifactId>
 					<version>${org.exoplatform.cs.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
@@ -69,7 +69,7 @@
 				</artifactItem>                               
                                 <artifactItem>
 					<groupId>org.exoplatform.commons</groupId>
-					<artifactId>exo.platform.commons</artifactId>
+					<artifactId>commons</artifactId>
 					<version>${org.exoplatform.commons.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>

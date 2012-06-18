@@ -74,8 +74,8 @@
 									<outputDirectory>${project.build.directory}/jbossepp/addons/binaries</outputDirectory>
 									<artifactItems>
 										<artifactItem>
-											<groupId>org.exoplatform.cs</groupId>
-											<artifactId>exo.cs.extension.ear</artifactId>
+											<groupId>org.exoplatform.calendar</groupId>
+											<artifactId>calendar-extension-ear</artifactId>
 											<version>${org.exoplatform.cs.version}</version>
 											<type>ear</type>
 											<destFileName>exo-collaboration-extension-${org.exoplatform.cs.version}.ear</destFileName>
@@ -96,14 +96,14 @@
 										</artifactItem>
 										<artifactItem>
 											<groupId>org.exoplatform.social</groupId>
-											<artifactId>exo.social.extension.ear</artifactId>
+											<artifactId>social-extension-ear</artifactId>
 											<version>${org.exoplatform.social.version}</version>
 											<type>ear</type>
 											<destFileName>exo-social-extension-${org.exoplatform.social.version}.ear</destFileName>
 										</artifactItem>
 										<artifactItem>
 										  <groupId>org.exoplatform.webos</groupId>
-										  <artifactId>exo.webos.packaging.ear</artifactId>
+										  <artifactId>webos-packaging-ear</artifactId>
 										  <version>${org.exoplatform.webos.version}</version>
 										  <destFileName>exo-webos-extension-${org.exoplatform.webos.version}.ear</destFileName>
 										  <type>ear</type>

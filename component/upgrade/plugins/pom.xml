@@ -60,7 +60,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.ecms</groupId>
-			<artifactId>exo-ecms-core-services</artifactId>
+			<artifactId>ecms-core-services</artifactId>
 			<version>${org.exoplatform.ecms.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
@@ -73,30 +73,30 @@
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>exo.platform.commons.component</artifactId>
+			<artifactId>commons-component-common</artifactId>
 			<version>${org.exoplatform.commons.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>exo.platform.commons.component.product</artifactId>
+			<artifactId>commons-component-product</artifactId>
 			<version>${org.exoplatform.commons.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.commons</groupId>
-			<artifactId>exo.platform.commons.component.upgrade</artifactId>
+			<artifactId>commons-component-upgrade</artifactId>
 			<version>${org.exoplatform.commons.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.social</groupId>
-			<artifactId>exo.social.component.common</artifactId>
+			<artifactId>social-component-common</artifactId>
 			<version>${org.exoplatform.social.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.exoplatform.social</groupId>
-			<artifactId>exo.social.component.core</artifactId>
+			<artifactId>social-component-core</artifactId>
 			<version>${org.exoplatform.social.version}</version>
 		</dependency>
 		<dependency>

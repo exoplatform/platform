@@ -110,7 +110,7 @@
                     <!-- ecms -->
                     <artifactItem>
                       <groupId>org.exoplatform.ecms</groupId>
-                      <artifactId>exo-ecms-docs-userguide</artifactId>
+                      <artifactId>ecms-docs-userguide</artifactId>
                       <version>${org.exoplatform.ecms.version}</version>
                       <classifier>sources</classifier>
                       <outputDirectory>${docbook.source}/ecms/</outputDirectory>

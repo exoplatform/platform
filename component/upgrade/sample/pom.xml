@@ -12,7 +12,7 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.component.product</artifactId>
+      <artifactId>commons-component-product</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>provided</scope>
     </dependency>
@@ -30,13 +30,13 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
-      <artifactId>exo.platform.commons.component.upgrade</artifactId>
+      <artifactId>commons-component-upgrade</artifactId>
       <version>${org.exoplatform.commons.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>exo-ecms-core-services</artifactId>
+      <artifactId>ecms-core-services</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
       <exclusions>
