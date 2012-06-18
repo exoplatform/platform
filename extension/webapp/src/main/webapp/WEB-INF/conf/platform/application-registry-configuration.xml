@@ -608,7 +608,7 @@
                       </field>
                     </object>
                   </value>
-                  <value>
+                  <!--value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="categoryName">
                         <string>tools</string>
@@ -636,7 +636,7 @@
                         <string>Google Translate</string>
                       </field>
                     </object>
-                  </value>
+                  </value-->
                   <value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>messageslist</string></field>
