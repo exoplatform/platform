@@ -70,7 +70,7 @@ eXo Platform indicates to one Portal application in this context, which is set b
 Information provided in this chapter only describes the backup of the single-portal Platform. The backup can be repeated for each portal in your system. 
 Only two types of JCR files are important in the backup: index and value storages. 
 
-The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database and has no meaning for backup. For more details, see the [eXo JCR configuration|../../reference/html/ch-exo-jcr-configuration.html] section. 
+The _gatein.jcr.data.dir_ folder (_$gatein.data.dir/jcr_ by default) also contains the _swap_ sub-folder. The _swap_ folder is used for temporary files in case BLOBs are stored in the database and has no meaning for backup. For more details, see the [eXo JCR configuration|../../reference/html/JCR.eXoJCRconfiguration.html] section. 
 {note}
 
 To learn more about the basic principles of eXo Platform backup and how to create your backup implementation, see the following *Backup Planning* example:
@@ -146,7 +146,7 @@ Examples of the script implementation are out of the scope of this guide.
 h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 
 
-*1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Chapter 2. Installation and Startup|#ADM.Installation_and_Startup].
+*1.* Stop the whole eXo Platform instance by using the shell command: _stop\_eXo_. To see more details, see the [Installation and Startup|#ADM.Installation_and_Startup] chapter.
 
 *2.* Run the backup procedure, including:
 
@@ -161,7 +161,7 @@ h1. Back up eXo Platform {anchor:id=ADM.Backup.Perform_backup}
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start the backup to the steps described in [Chapter 7. Clustering.|#ADM.Clustering]
+In case of the eXo Platform clustering, start the backup to the steps described in the [Clustering|#ADM.Clustering] chapter.
 {note}
 
 h1. Restore {anchor:id=ADM.Backup.Perform_restore} 
@@ -170,7 +170,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 
 *1.* Unarchive the backup files from the backup storage to the temporary location.
 
-*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the [Chapter 2. Installation and Startup|#ADM.Installation_and_Startup].
+*2.* Stop the whole eXo Platform instance by using the shell command {{{stop_eXo}}}. To see more details, see the [Installation and Startup|#ADM.Installation_and_Startup] chapter.
 
 *3.* Run the restoring procedure to restore from the backup local files for:
 
@@ -183,7 +183,7 @@ Restoring from the backup can be used in several cases, such as failure, or site
 *4.* Start the eXo Platform server.
 
 {note}
-In case of the eXo Platform clustering, start restoring to the steps described in [Chapter 7. Clustering.|#ADM.Clustering]
+In case of the eXo Platform clustering, start restoring to the steps described in the [Clustering|#ADM.Clustering] chapter.
 {note}
  
 h1. Third-party tools {anchor:id=ADM.Backup.Third_party_tools}

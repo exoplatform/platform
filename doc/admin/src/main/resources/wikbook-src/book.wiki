@@ -14,7 +14,7 @@ h1. Security {anchor:id=ADM.Security}
 
 {include:document=security.wiki|syntax=confluence/1.0}
 
-h1. Backup {anchor:id=ADM.Backup}
+h1. Backup and Restore {anchor:id=ADM.Backup}
 
 {include:document=backup.wiki|syntax=confluence/1.0}
 

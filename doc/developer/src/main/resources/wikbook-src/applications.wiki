@@ -82,7 +82,7 @@ Here is an example of the portlet configuration in the _pages.xml_ file:
 | {{show-info-bar}} | Show the top bar with the portlet title. |
 | {{show-application-state}} | Show the collapse/expand icons. |
 | {{show-application-mode}} | Show the change portlet mode icon. |
-| {{preferences}} | Contain a list of _preferences_ specific to each portlet. Each _preference_ has a _name_ and a _value_. You can also lock it by setting the _read-only_ element to "true". To learn more, refer to [eXo JCR and Extension Services Reference|../../../reference/html/index.html]. |
+| {{preferences}} | Contain a list of _preferences_ specific to each portlet. Each _preference_ has a _name_ and a _value_. You can also lock it by setting the _read-only_ element to "true". To learn more, refer to [eXo JCR and Extension Services Reference|../../../reference/html/JCRReferenceGuide.html]. |
 
 
 h1. Develop your own application {anchor:id=DEV.WorkWithApplications.DevelopYourOwnApplications}
@@ -92,7 +92,7 @@ h2. Gadget vs Portlet {anchor:id=DEV.WorkWithContent.GadgetvsPortlet}
 It is important to understand distinctions between gadgets and portlets. Portlets are user interface components that provide fragments of markup code from the server side, while gadgets generate dynamic web content on the client side. With Gadgets, small applications can be built quickly, and mashed up on the client side using the lightweight Web-Oriented Architecture (WOA) technologies, like REST or RSS.
 
 {note}
-For more information on how to develop gadgets and portlets, see the [Portlet development|../../../reference/html/bk02ch04.html] and [Gadget development|../../../reference/html/bk02ch05.html] sections.
+For more information on how to develop gadgets and portlets, see the [Portlet development|../../../reference/html/chap-Reference_Guide-Portlet_development.html] and [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] sections.
 {note}
 
 h2. Develop a gadget for eXo Platform {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform}
@@ -102,7 +102,7 @@ In this part, it is assumed that developers have already known how to write a ga
 
 {note}
 
-To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/bk02ch05.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../../../developer-guide/html/ide-user-guide/index.html] sections.
+To get more information on how to develop gadgets, see the [Gadget development|../../../reference/html/chap-Reference_Guide-Gadget_development.html] and [Develop gadgets via a powerful web-based IDE of eXo Platform|../ide-user-guide/IDEdev.GoogleGadgetOperation.CreateGoogleGadget.html] sections.
 {note}
 
 h3. Resources {anchor:id=DEV.WorkWithApplications.DevelopAGadgetForPlatform.Resource}

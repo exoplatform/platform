@@ -17,6 +17,8 @@ function getProduct(version) {
   product.workflowJbpmVersion = "${org.jbpm.jbpm3}";
   product.workflowBonitaVersion = "${bonita.version}";
 
+  //com.sun.xml.stream
+  product.sunXmlStreamVersion = "${version.sun.xml.stream}";
 
   var kernel = Module.GetModule("kernel") ;
   var core = Module.GetModule("core") ;
@@ -191,6 +193,7 @@ function getProduct(version) {
 
   product.addDependencies(new Project("commons-httpclient", "commons-httpclient", "jar", "3.1"));
   product.addDependencies(new Project("findbugs", "annotations", "jar", "1.0.0"));
+  product.addDependencies(new Project("com.sun.xml.stream", "sjsxp", "jar", product.sunXmlStreamVersion));
 
   product.module = portal ;
   product.dependencyModule = [kernel, core, ws, eXoJcr, cs, ks, social, workflow, dms, wcm];
