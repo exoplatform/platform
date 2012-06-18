@@ -592,7 +592,8 @@
                         </collection>
                       </field>
                     </object>
-                  </value><value>
+                  </value>
+                  <!--value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>Currency</string></field>
                       <field name="categoryName"><string>tools</string></field>
@@ -606,7 +607,8 @@
                         </collection>
                       </field>
                     </object>
-                  </value><value>
+                  </value-->
+                  <value>
                     <object type="org.exoplatform.application.registry.Application">
                       <field name="applicationName"><string>FavoriteDocument</string></field>
                       <field name="categoryName"><string>tools</string></field>
