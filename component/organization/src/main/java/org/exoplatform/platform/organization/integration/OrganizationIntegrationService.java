@@ -160,7 +160,7 @@ public class OrganizationIntegrationService implements Startable {
         LOG.warn("'workspace' init param is empty, use default value: " + Util.WORKSPACE);
       }
       if (initParams.containsKey("synchronizeGroups")) {
-        synchronizeGroups = Boolean.getBoolean(initParams.getValueParam("synchronizeGroups").getValue());
+        synchronizeGroups = Boolean.parseBoolean(initParams.getValueParam("synchronizeGroups").getValue());
       } else {
         LOG.warn("'synchronizeGroups' init param is empty, use default value: false");
       }
