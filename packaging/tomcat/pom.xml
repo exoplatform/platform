@@ -403,6 +403,7 @@
       <scope>provided</scope>
       <type>war</type>
     </dependency>
+
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-webapp-portlet</artifactId>
@@ -945,6 +946,13 @@
       <scope>provided</scope>
       <type>jar</type>
     </dependency>
+      <dependency>
+          <groupId>org.exoplatform.wiki</groupId>
+          <artifactId>wiki-extension-webapp</artifactId>
+          <version>${org.exoplatform.wiki.version}</version>
+          <scope>provided</scope>
+          <type>war</type>
+      </dependency>
     <dependency>
         <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum-component-rendering</artifactId>
