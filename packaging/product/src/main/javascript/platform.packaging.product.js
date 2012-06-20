@@ -19,7 +19,6 @@ function getProduct(version) {
   var portal = Module.GetModule("portal", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
   var platform = Module.GetModule("platform", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
   var calendar = Module.GetModule("calendar", {portal:portal, ws:ws});
-  var ks = Module.GetModule("ks", {portal:portal, ws:ws});
   var FORUM = Module.GetModule("forum", {portal:portal, ws:ws});
   var wiki = Module.GetModule("wiki", {portal:portal, ws:ws});
   var social = Module.GetModule("social", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr, portal:portal});
