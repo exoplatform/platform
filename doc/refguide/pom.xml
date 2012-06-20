@@ -107,7 +107,7 @@
                     <artifactItem>
                       <groupId>org.exoplatform.calendar</groupId>
                       <artifactId>calendar-docs-refguide</artifactId>
-                      <version>${org.exoplatform.cs.version}</version>
+                      <version>${org.exoplatform.calendar.version}</version>
                       <type>zip</type>
                       <outputDirectory>${docbook.source}</outputDirectory>
                       <includes>**</includes>

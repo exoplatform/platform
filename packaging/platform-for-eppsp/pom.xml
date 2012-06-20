@@ -76,23 +76,16 @@
 										<artifactItem>
 											<groupId>org.exoplatform.calendar</groupId>
 											<artifactId>calendar-extension-ear</artifactId>
-											<version>${org.exoplatform.cs.version}</version>
+											<version>${org.exoplatform.calendar.version}</version>
 											<type>ear</type>
-											<destFileName>exo-collaboration-extension-${org.exoplatform.cs.version}.ear</destFileName>
+											<destFileName>exo-collaboration-extension-${org.exoplatform.calendar.version}.ear</destFileName>
 										</artifactItem>
 										<artifactItem>
-											<groupId>org.exoplatform.ecms</groupId>
-											<artifactId>exo-ecms-packaging-workflow-ear</artifactId>
-											<version>${org.exoplatform.ecms.version}</version>
+											<groupId>org.exoplatform.forum</groupId>
+											<artifactId>forum-extension-ear</artifactId>
+											<version>${org.exoplatform.forum.version}</version>
 											<type>ear</type>
-											<destFileName>exo-workflow-extension-${org.exoplatform.ecms.version}.ear</destFileName>
-										</artifactItem>
-										<artifactItem>
-											<groupId>org.exoplatform.ks</groupId>
-											<artifactId>exo.ks.extension.ear</artifactId>
-											<version>${org.exoplatform.ks.version}</version>
-											<type>ear</type>
-											<destFileName>exo-knowledge-extension-${org.exoplatform.ks.version}.ear</destFileName>
+											<destFileName>exo-forum-extension-${org.exoplatform.forum.version}.ear</destFileName>
 										</artifactItem>
 										<artifactItem>
 											<groupId>org.exoplatform.social</groupId>

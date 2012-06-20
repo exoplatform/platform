@@ -33,19 +33,21 @@ function getModule(params)
    var webosVersion = "${org.exoplatform.webos.version}";
    var integVersion = "${org.exoplatform.integ.version}";
    var socialVersion = "${org.exoplatform.social.version}";
-   var csVersion = "${org.exoplatform.cs.version}";
-   var ksVersion = "${org.exoplatform.ks.version}";
+   var calendarVersion = "${org.exoplatform.calendar.version}";
+   var forumVersion = "${org.exoplatform.forum.version}";
+   var wikiVersion = "${org.exoplatform.wiki.version}";
 
-   // fck editor required for KS & CS
-   module.fck = new Project("org.exoplatform.commons", "exo.platform.commons.fck", "war", commonsVersion);
+
+   // fck editor required for WIKI, FORUM & CALENDAR
+   module.fck = new Project("org.exoplatform.commons", "commons-fck", "war", commonsVersion);
    module.fck.deployName = "fck";
    
-   // cometd required by KS & CS
-   module.cometd = new Project("org.exoplatform.commons", "exo.platform.commons.comet.webapp", "war", commonsVersion).
+   // cometd required by WIKI,FORUM & CALENDAR
+   module.cometd = new Project("org.exoplatform.commons", "commons-comet-webapp", "war", commonsVersion).
    addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
    addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
    addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.comet.service", "jar", commonsVersion));
+   addDependency(new Project("org.exoplatform.commons", "commons-comet-service", "jar", commonsVersion));
    module.cometd.deployName = "cometd";
 	
    // main portal container config	
@@ -72,16 +74,16 @@ function getModule(params)
    // platform commons
    module.component = {};
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.upgrade", "jar", commonsVersion)).
-   addDependency(new Project("org.exoplatform.commons", "exo.platform.commons.component.product", "jar", commonsVersion));
+   addDependency(new Project("org.exoplatform.commons", "commons-component-upgrade", "jar", commonsVersion)).
+   addDependency(new Project("org.exoplatform.commons", "commons-component-product", "jar", commonsVersion));
 
    module.common = {};
-   module.common.webui = new Project("org.exoplatform.commons", "exo.platform.commons.webui", "jar", commonsVersion);
+   module.common.webui = new Project("org.exoplatform.commons", "commons-webui-component", "jar", commonsVersion);
 
-   module.common.resources = new Project("org.exoplatform.commons", "exo.platform.commons.resources", "war", commonsVersion);
+   module.common.resources = new Project("org.exoplatform.commons", "commons-webui-resources", "war", commonsVersion);
    module.common.resources.deployName = "CommonsResources";
 
-   module.common.extension = new Project("org.exoplatform.commons", "exo.platform.commons.extension.webapp", "war", commonsVersion);
+   module.common.extension = new Project("org.exoplatform.commons", "commons-extension-webapp", "war", commonsVersion);
    module.common.extension.deployName = "commons-extension";
 
    module.patch = {};
@@ -150,15 +152,15 @@ function getModule(params)
    module.webos = {};
    
    module.webos.webosadmin =
-       new Project("org.exoplatform.webos", "exo.webos.portlet.webosadmin", "war", webosVersion);
+       new Project("org.exoplatform.webos", "webos-portlet-webosadmin", "war", webosVersion);
    module.webos.webosadmin.deployName = "webosadmin";
    module.webos.webosResources =
-       new Project("org.exoplatform.webos", "exo.webos.web.webosResources", "war", webosVersion);
+       new Project("org.exoplatform.webos", "webos-webosResources", "war", webosVersion);
    module.webos.webosResources.deployName = "webosResources";   
    module.webos.ext =
-       new Project("org.exoplatform.webos", "exo.webos.extension.war", "war", webosVersion).
-        addDependency(new Project("org.exoplatform.webos", "exo.webos.component.web", "jar", webosVersion)).
-        addDependency(new Project("org.exoplatform.webos", "exo.webos.webui.webos", "jar", webosVersion)).
+       new Project("org.exoplatform.webos", "webos-extension-war", "war", webosVersion).
+        addDependency(new Project("org.exoplatform.webos", "webos-component-web", "jar", webosVersion)).
+        addDependency(new Project("org.exoplatform.webos", "webos-webui", "jar", webosVersion)).
         addDependency(module.webos.webosadmin).
         addDependency(module.webos.webosResources);
    module.webos.ext.deployName = "webos-ext";
@@ -192,22 +194,23 @@ function getModule(params)
    // integration project
    module.integ = {};
    module.integ.ecmsSocial = new Project("org.exoplatform.integration", "integ-ecms-social", "jar", integVersion).
-   addDependency(new Project("org.exoplatform.integration", "integ-ks-social", "jar", integVersion)).
-   addDependency(new Project("org.exoplatform.integration", "integ-cs-social", "jar", integVersion)).
+   addDependency(new Project("org.exoplatform.integration", "integ-forum-social", "jar", integVersion)).
+   addDependency(new Project("org.exoplatform.integration", "integ-calendar-social", "jar", integVersion)).
    addDependency(new Project("org.exoplatform.integration", "integ-social-ecms", "jar", integVersion));
 
    // upgrade plugins
    module.upgrade = {};
    module.upgrade.platform = new Project("org.exoplatform.platform","exo.platform.upgrade.plugins","jar", module.version).
-   addDependency(new Project("org.exoplatform.commons","exo.platform.commons.component.upgrade","jar", commonsVersion)).
-   addDependency(new Project("org.exoplatform.social","exo.social.extras.migration","jar", socialVersion)).
-   addDependency(new Project("org.exoplatform.social","exo.social.extras.updater","jar", socialVersion)).
-   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-voting-nodetype","jar", ecmsVersion)).
-   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-thumbnails","jar", ecmsVersion)).
-   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-favorite","jar", ecmsVersion)).
-   addDependency(new Project("org.exoplatform.ecms","exo-ecms-upgrade-templates","jar", ecmsVersion)).
-   addDependency(new Project("org.exoplatform.cs","exo.cs.component.upgrade","jar", csVersion)).
-   addDependency(new Project("org.exoplatform.ks","exo.ks.component.upgrade","jar", ksVersion));
-   
+   addDependency(new Project("org.exoplatform.commons","commons-component-upgrade","jar", commonsVersion)).
+   addDependency(new Project("org.exoplatform.social","social-extras-migration","jar", socialVersion)).
+   addDependency(new Project("org.exoplatform.social","social-extras-updater","jar", socialVersion)).
+   addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-voting-nodetype","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-thumbnails","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-favorite","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.ecms","ecms-upgrade-templates","jar", ecmsVersion)).
+   addDependency(new Project("org.exoplatform.calendar","calendar-upgrade","jar", calendarVersion)).
+   addDependency(new Project("org.exoplatform.wiki","wiki-upgrade","jar", wikiVersion)).
+   addDependency(new Project("org.exoplatform.forum","forum-component-upgrade","jar", forumVersion));
+
    return module;
 }

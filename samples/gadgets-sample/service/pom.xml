@@ -29,9 +29,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.ks</groupId>
-      <artifactId>exo.ks.eXoApplication.forum.service</artifactId>
-      <version>${org.exoplatform.ks.version}</version>
+      <groupId>org.exoplatform.forum</groupId>
+      <artifactId> forum-forum-service</artifactId>
+      <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

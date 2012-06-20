@@ -29,7 +29,7 @@
                <artifactItems>
                                 <artifactItem>
 					<groupId>org.exoplatform.ecms</groupId>
-					<artifactId>exo-ecms</artifactId>
+					<artifactId>ecms</artifactId>
 					<version>${org.exoplatform.ecms.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
@@ -54,15 +54,15 @@
                                 <artifactItem>
 					<groupId>org.exoplatform.calendar</groupId>
 					<artifactId>calendar</artifactId>
-					<version>${org.exoplatform.cs.version}</version>
+					<version>${org.exoplatform.calendar.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>
 				</artifactItem>
                                 <artifactItem>
-					<groupId>org.exoplatform.ks</groupId>
-					<artifactId>ks</artifactId>
-					<version>${org.exoplatform.ks.version}</version>
+					<groupId>org.exoplatform.wiki</groupId>
+					<artifactId>wiki</artifactId>
+					<version>${org.exoplatform.wiki.version}</version>
 					<type>zip</type>
                                         <outputDirectory>${project.build.directory}/source</outputDirectory>
 					<classifier>source-release</classifier>

@@ -808,7 +808,7 @@
     </dependency>
     <dependency>
         <groupId>org.exoplatform.integration</groupId>
-        <artifactId>integ-cs-social</artifactId>
+        <artifactId>integ-calendar-social</artifactId>
         <version>${org.exoplatform.integ.version}</version>
         <type>jar</type>
     </dependency>
@@ -933,12 +933,17 @@
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
       <artifactId>calendar-upgrade</artifactId>
-      <version>${org.exoplatform.cs.version}</version>
+      <version>${org.exoplatform.calendar.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.wik</groupId>
+      <groupId>org.exoplatform.wiki</groupId>
       <artifactId>wiki-upgrade</artifactId>
       <version>${org.exoplatform.wiki.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.exoplatform.forum</groupId>
+        <artifactId>forum-component-uprade</artifactId>
+        <version>${org.exoplatform.forum.version}</version>
     </dependency>
     <!-- WAI portal template-->
     <dependency>

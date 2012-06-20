@@ -8,14 +8,8 @@ function getProduct(version) {
   product.portalwar = "portal.war" ;
   product.codeRepo = "platform" ;//module in modules/portal/module.js
   product.serverPluginVersion = "${org.exoplatform.portal.version}"; // was project.version
-  product.useWorkflow = true;
+  product.useWorkflow = false;
   product.useContentvalidation = true;
-
-  // all WCM ext. have the same version number
-  product.workflowVersion = "${org.exoplatform.ecms.version}" ;
-  product.contentvalidationVersion = "${org.exoplatform.ecms.version}";
-  product.workflowJbpmVersion = "${org.jbpm.jbpm3}";
-  product.workflowBonitaVersion = "${bonita.version}";
 
 
   var kernel = Module.GetModule("kernel") ;
@@ -24,12 +18,12 @@ function getProduct(version) {
   var eXoJcr = Module.GetModule("jcr", {kernel : kernel, core : core, ws : ws}) ;
   var portal = Module.GetModule("portal", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
   var platform = Module.GetModule("platform", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr});
-  var cs = Module.GetModule("cs", {portal:portal, ws:ws});
+  var calendar = Module.GetModule("calendar", {portal:portal, ws:ws});
   var ks = Module.GetModule("ks", {portal:portal, ws:ws});
-  var social = Module.GetModule("social", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr, portal:portal}); 
-  var workflow = Module.GetModule("workflow", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
-  var dms = Module.GetModule("dms", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
-  var wcm = Module.GetModule("wcm", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal, dms : dms});
+  var FORUM = Module.GetModule("forum", {portal:portal, ws:ws});
+  var wiki = Module.GetModule("wiki", {portal:portal, ws:ws});
+  var social = Module.GetModule("social", {kernel : kernel, ws:ws, core : core, eXoJcr : eXoJcr, portal:portal});
+  var ecms = Module.GetModule("ecms", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
 
   
   /* COMMON - GATEIN */
@@ -85,58 +79,55 @@ function getProduct(version) {
   product.addDependencies(platform.gadgetpack.gadgets);
 
   /* ECMS */
-  product.addDependencies(workflow.web.eXoWorkflowResources);
-  product.addDependencies(workflow.web.eXoStaticResources) ;
-  product.addDependencies(workflow.portlet.workflow);
-  product.addDependencies(workflow.extension.webapp);
 
-  product.addDependencies(dms.web.eXoDMSResources);
-  product.addDependencies(dms.portlet.ecmadmin);
-  product.addDependencies(dms.portlet.ecmexplorer);
-  product.addDependencies(dms.portlet.ecmbrowsecontent);
-  product.addDependencies(dms.gadgets);
-
-  product.addDependencies(wcm.core.war);
-  product.addDependencies(wcm.extension.war);
-  product.addDependencies(wcm.portlet.webpresentation);
-  product.addDependencies(wcm.portlet.websearches); 
-  product.addDependencies(wcm.portlet.newsletter); 
-  product.addDependencies(wcm.portlet.formgenerator);
-  product.addDependencies(wcm.portlet.seo);
-  product.addDependencies(wcm.web.eXoWCMResources) ;
-  product.addDependencies(wcm.web.eXoStaticResources) ;
-  product.addDependencies(wcm.authoring.war);
-  product.addDependencies(wcm.waitemplate.war);
+    product.addDependencies(ecms.web.eXoDMSResources) ;
+    product.addDependencies(ecms.portlet.ecmadmin);
+    product.addDependencies(ecms.portlet.ecmexplorer);
+    product.addDependencies(ecms.gadgets);
+    product.addDependencies(ecms.core.war);
+    product.addDependencies(ecms.extension.war);
+    product.addDependencies(ecms.portlet.webpresentation);
+    product.addDependencies(ecms.portlet.websearches);
+    product.addDependencies(ecms.portlet.seo);
+    product.addDependencies(ecms.web.eXoWCMResources) ;
+    product.addDependencies(ecms.web.eXoStaticResources) ;
+    product.addDependencies(ecms.waitemplate.war);
+    product.addDependencies(ecms.authoring.war);
   
   // rest-ecmdemo.war not deployed
 
-  /* CS* */
-  product.addDependencies(cs.eXoApplication.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
-  product.addDependencies(cs.eXoApplication.contact); // exo.cs.eXoApplication.contact.service-2.0.0-SNAPSHOT.jar + contact.war
-  product.addDependencies(cs.eXoApplication.common);
-  product.addDependencies(cs.eXoApplication.mail); // exo.cs.eXoApplication.mail.service-2.0.0-SNAPSHOT.jar + mail.war
-  product.addDependencies(cs.eXoApplication.chat); // exo.cs.eXoApplication.chat.service-2.0.0-SNAPSHOT.jar + chat.war + exo.cs.eXoApplication.organization.client.openfire-2.0.0-SNAPSHOT.jar + exo.cs.eXoApplication.organization.service-2.0.0-SNAPSHOT.jar
-  product.addDependencies(cs.eXoApplication.chatbar); // chatbar.war
-  product.addDependencies(cs.eXoApplication.content); // exo.cs.eXoApplication.content.service-2.0.0-SNAPSHOT.jar
-  product.addDependencies(cs.web.csResources); // csResources.war
-  product.addDependencies(cs.web.webservice); // exo.cs.web.webservice-2.0.0-SNAPSHOT.jar
-  product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
+  /* CALENDARcalendar* */
+    product.addDependencies(calendar.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
+    product.addDependencies(calendar.common);
+    product.addDependencies(calendar.web.resources);
+    product.addDependencies(calendar.web.webservice); // exo.cs.web.webservice-2.0.0-SNAPSHOT.jar
+    product.addDependencies(calendar.commons.extension);
    
 
-  /* KS */
-  
-  product.addDependencies(ks.component.common); // exo.ks.component.common-2.0.0-GA.jar
-  product.addDependencies(ks.component.rendering); // exo.ks.component.rendering-2.0.0-GA.jar
-  product.addDependencies(ks.component.bbcode); // exo.ks.component.bbcode-2.0.0-GA.jar
-  product.addDependencies(ks.eXoApplication.common); // exo.ks.eXoApplication.common-2.0.0-GA.jar
-  product.addDependencies(ks.eXoApplication.faq); // exo.ks.eXoApplication.faq.service-2.0.0-GA.jar + faq.war
-  product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
-  product.addDependencies(ks.web.ksResources); // ksResources.war
-  product.addDependencies(ks.extension.webapp); // ks-extension.war
-   
-  product.addDependencies(ks.eXoApplication.poll); // poll.war	
-  product.addDependencies(ks.eXoApplication.wiki); // wiki.war
-  
+  /* FORUM */
+
+    //cometd (requried for FORUM)
+    product.addDependencies(FORUM.comet.cometd);
+    product.addDependencies(FORUM.webuiExt);
+    product.addDependencies(FORUM.component.upgrade);
+    product.addDependencies(FORUM.component.common);
+    product.addDependencies(FORUM.component.rendering);
+    product.addDependencies(FORUM.component.bbcode);
+    product.addDependencies(FORUM.extension.webapp);
+    product.addDependencies(FORUM.commons.extension);//commons-extension in platform
+    product.addDependencies(FORUM.application.common);
+    product.addDependencies(FORUM.application.forumGadgets);
+    product.addDependencies(FORUM.answer);
+    product.addDependencies(FORUM.forum);
+    product.addDependencies(FORUM.poll);
+    product.addDependencies(FORUM.web.forumResources);
+
+  /* WIKI */
+    product.addDependencies(wiki.upgrade);
+    product.addDependencies(wiki.rendering);
+    product.addDependencies(wiki.wiki);
+    product.addDependencies(wiki.extension.webapp);
+    product.addDependencies(wiki.commons.extension);
 
   /* SOCIAL */
   product.addDependencies(social.component.common); // # exo.social.component.common-1.0.0-GA.jar
@@ -182,18 +173,18 @@ function getProduct(version) {
   product.removeDependency(new Project("org.codehaus.swizzle", "swizzle-jira", "jar", "1.6.1"));
   
   /* remove extensions config . We don't need them because PLF declares a global container config in exo.platform.config */
-  product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-ecmdemo-config", "jar", wcm.version));
-  product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-wcm-config", "jar", wcm.version));
-  product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-workflow-config", "jar", wcm.version));
-  product.removeDependency(new Project("org.exoplatform.social", "exo.social.extension.config", "jar", social.version));
-  product.removeDependency(new Project("org.exoplatform.ks", "exo.ks.extension.config", "jar", ks.version));
-  product.removeDependency(new Project("org.exoplatform.cs", "exo.cs.extension.config", "jar", cs.version));
+  product.removeDependency(new Project("org.exoplatform.ecms", "ecms-packaging-ecmdemo-config", "jar", ecms.version));
+  product.removeDependency(new Project("org.exoplatform.ecms", "ecms-packaging-wcm-config", "jar", ecms.version));
+  product.removeDependency(new Project("org.exoplatform.social", "social-extension-config", "jar", social.version));
+  product.removeDependency(new Project("org.exoplatform.forum", "forum-extension-config", "jar", ks.version));
+  product.removeDependency(new Project("org.exoplatform.forum", "forum-extension-config", "jar", FORUM.version));
+  product.removeDependency(new Project("org.exoplatform.calendar", "calendar-extension-config", "jar", calendar.version));
 
   product.addDependencies(new Project("commons-httpclient", "commons-httpclient", "jar", "3.1"));
   product.addDependencies(new Project("findbugs", "annotations", "jar", "1.0.0"));
 
   product.module = portal ;
-  product.dependencyModule = [kernel, core, ws, eXoJcr, cs, ks, social, workflow, dms, wcm];
+  product.dependencyModule = [kernel, core, ws, eXoJcr, calendar, FORUM, wiki, social, ecms];
 
   // Use new version of commons-logging override Product.preDeploy()
   product.preDeploy = function() { 
