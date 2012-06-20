@@ -1800,7 +1800,9 @@
                 <argument>exobuild</argument>
                 <argument>--product=platform</argument>
                 <argument>--deploy=tomcat</argument>
-                <argument>--enable-workflow=${exo.workflow.engine}</argument>
+                  <!--
+                <argument>enable-workflow=${exo.workflow.engine}</argument>
+                -->
               </arguments>
             </configuration>
             <goals>

@@ -9,7 +9,7 @@ function getProduct(version) {
   product.codeRepo = "platform" ;//module in modules/portal/module.js
   product.serverPluginVersion = "${org.exoplatform.portal.version}"; // was project.version
   product.useWorkflow = false;
-  product.useContentvalidation = true;
+  product.useContentvalidation = false;
 
 
   var kernel = Module.GetModule("kernel") ;
