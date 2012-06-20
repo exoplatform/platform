@@ -117,14 +117,14 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
-      <artifactId>calendar-packaging-module</artifactId>
+      <artifactId>calendar.packaging.module</artifactId>
       <version>${org.exoplatform.calendar.version}</version>
       <scope>provided</scope>
       <type>js</type>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
-      <artifactId>calendar-packaging-product</artifactId>
+      <artifactId>calendar.packaging.product</artifactId>
       <version>${org.exoplatform.calendar.version}</version>
       <scope>provided</scope>
       <type>js</type>
@@ -161,7 +161,7 @@
     <!-- ECMS -->
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-upgrade-voting-nodetypes</artifactId>
+      <artifactId>ecms-upgrade-voting-nodetype</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
     </dependency>
@@ -660,7 +660,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
-      <artifactId>forum.component.bbcode</artifactId>
+      <artifactId>forum-component-bbcode</artifactId>
       <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
       <type>jar</type>
@@ -1052,7 +1052,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-ext-authoring-servicess</artifactId>
+      <artifactId>ecms-ext-authoring-services</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
       <type>jar</type>
@@ -1165,7 +1165,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.ecms</groupId>
-      <artifactId>ecms-ext-authoring-webuis</artifactId>
+      <artifactId>ecms-ext-authoring-webui</artifactId>
       <version>${org.exoplatform.ecms.version}</version>
       <scope>provided</scope>
       <type>jar</type>
