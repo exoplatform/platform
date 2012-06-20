@@ -90,7 +90,7 @@
 		<ecs.version>1.4.2</ecs.version>
 		<!--dependencies which org.xwiki.platform:xwiki-core-properties depends on-->
 		<javax.validation.version>1.0.0.GA</javax.validation.version>
-		<hibernate-validator.version>4.0.0.GA</hibernate-validator.version>
+		<hibernate-validator.version>4.2.0.Final</hibernate-validator.version>
 		<!-- End wiki properties -->
 		<guava.version>r07</guava.version>
 		<httpcomponents.httpclient.version>4.0</httpcomponents.httpclient.version>
