@@ -103,7 +103,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
-      <artifactId>portal.packaging.product</artifactId>
+      <artifactId>forum.packaging.product</artifactId>
       <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
       <type>js</type>
@@ -234,7 +234,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
-      <artifactId>forum.packaging.assembly</artifactId>
+      <artifactId>forum-packaging-assembly</artifactId>
       <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
       <type>pom</type>
@@ -940,7 +940,7 @@
     </dependency>
     <dependency>
         <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forum-component-rendering</artifactId>
+        <artifactId>forum-component-rendering</artifactId>
         <version>${org.exoplatform.forum.version}</version>
         <scope>provided</scope>
         <type>jar</type>
