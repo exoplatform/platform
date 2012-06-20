@@ -122,11 +122,13 @@ function getProduct(version) {
     product.addDependencies(FORUM.web.forumResources);
 
   /* WIKI */
+
     product.addDependencies(wiki.upgrade);
     product.addDependencies(wiki.rendering);
     product.addDependencies(wiki.wiki);
     product.addDependencies(wiki.extension.webapp);
     product.addDependencies(wiki.commons.extension);
+
 
   /* SOCIAL */
   product.addDependencies(social.component.common); // # exo.social.component.common-1.0.0-GA.jar
@@ -175,7 +177,7 @@ function getProduct(version) {
   product.removeDependency(new Project("org.exoplatform.ecms", "ecms-packaging-ecmdemo-config", "jar", ecms.version));
   product.removeDependency(new Project("org.exoplatform.ecms", "ecms-packaging-wcm-config", "jar", ecms.version));
   product.removeDependency(new Project("org.exoplatform.social", "social-extension-config", "jar", social.version));
-  product.removeDependency(new Project("org.exoplatform.forum", "forum-extension-config", "jar", ks.version));
+  product.removeDependency(new Project("org.exoplatform.forum", "forum-extension-config", "jar", FORUM.version));
   product.removeDependency(new Project("org.exoplatform.forum", "forum-extension-config", "jar", FORUM.version));
   product.removeDependency(new Project("org.exoplatform.calendar", "calendar-extension-config", "jar", calendar.version));
 

@@ -81,7 +81,7 @@
       <scope>provided</scope>
       <type>zip</type>
     </dependency>
-    <!-- KS -->
+    <!-- WIKI -->
     <dependency>
       <groupId>org.exoplatform.wiki</groupId>
       <artifactId>wiki-upgrade</artifactId>
@@ -94,6 +94,20 @@
         <version>${org.exoplatform.forum.version}</version>
         <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>org.exoplatform.wiki</groupId>
+          <artifactId>wiki.packaging.module</artifactId>
+          <version>${org.exoplatform.wiki.version}</version>
+          <scope>provided</scope>
+          <type>js</type>
+      </dependency>
+      <dependency>
+          <groupId>org.exoplatform.wiki</groupId>
+          <artifactId>wiki.packaging.product</artifactId>
+          <version>${org.exoplatform.wiki.version}</version>
+          <scope>provided</scope>
+          <type>js</type>
+      </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
       <artifactId>forum.packaging.module</artifactId>
@@ -103,12 +117,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
-      <artifactId>portal.packaging.product</artifactId>
+      <artifactId>forum.packaging.product</artifactId>
       <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
       <type>js</type>
     </dependency>
-    <!-- CS -->
+    <!-- CALENDAR -->
     <dependency>
       <groupId>org.exoplatform.calendar</groupId>
       <artifactId>calendar-upgrade</artifactId>
