@@ -898,7 +898,7 @@
     </dependency>
     <dependency>
         <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-extension</artifactId>
+        <artifactId>forum-extension-webapp</artifactId>
         <version>${org.exoplatform.forum.version}</version>
         <scope>provided</scope>
         <type>war</type>
