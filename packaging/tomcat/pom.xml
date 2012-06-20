@@ -103,7 +103,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
-      <artifactId>forum.packaging.product</artifactId>
+      <artifactId>portal.packaging.product</artifactId>
       <version>${org.exoplatform.forum.version}</version>
       <scope>provided</scope>
       <type>js</type>
