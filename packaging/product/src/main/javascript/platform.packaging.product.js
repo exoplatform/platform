@@ -95,7 +95,7 @@ function getProduct(version) {
   
   // rest-ecmdemo.war not deployed
 
-  /* CALENDARcalendar* */
+  /* CALENDAR */
     product.addDependencies(calendar.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
     product.addDependencies(calendar.common);
     product.addDependencies(calendar.web.resources);
