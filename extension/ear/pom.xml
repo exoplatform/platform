@@ -942,7 +942,7 @@
     </dependency>
     <dependency>
         <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-uprade</artifactId>
+        <artifactId>forum-component-upgrade</artifactId>
         <version>${org.exoplatform.forum.version}</version>
     </dependency>
     <!-- WAI portal template-->
