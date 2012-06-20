@@ -24,6 +24,11 @@ eXo Platform is packaged as a deployable enterprise archive defined by the Java 
 <link linkend="ADM.Installation.eXo_profiles">Profiles of eXo Platform</link>
 </para>
 </listitem>
+<listitem>
+<para>
+<link linkend="ADM.Installation.Troubleshootings">Troubleshootings</link>
+</para>
+</listitem>
 </itemizedlist>
 </abstract>
 {docbook}
@@ -52,7 +57,66 @@ Software
 * OS: Windows, Linux or Mac OS X
 * Browser: Firefox 3.5, 3.6 and 4 or Internet Explorer 7, 8 and 9
 * Java 6 (Set the JAVA_HOME environment variable)
+
+{note}
 The eXo server will run on the 8080 portal, so make sure this port is not currently in use.
+{note}
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Set the JAVA_HOME environment variable on Windows
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+*Locate the Java Runtime Environment installation directory:*
+{note}
+If you already know the installation path for the Java Runtime Environment, skip this step. 
+{note}
+
+If the installation path for the Java Runtime Environment is not changed during installation, the installation directory will be under _C:\Program Files\Java_. Using Explorer, open the directory C:\Program Files\Java.
+
+*Set the JAVA\_HOME Variable:*
+
+Once you have identified the JRE installation path, do as follows:
+{docbook}
+<para>
+<emphasis role="bold">1</emphasis>. Right-click the <emphasis role="bold">My Computer</emphasis> icon on your desktop and select <emphasis role="bold">Properties</emphasis>.
+</para>
+{docbook}
+
+*2*. Click the *Advanced* tab. On Windows 7, click *Advanced system settings*, then click the *Advanced* tab.
+
+*3*. Click *Environment Variables*.
+
+*4*. Click *New* in the *System Variable* section.
+
+*5*. Enter the variable name as "JAVA\_HOME" and variable value: _C:/Program Files/Java/JDK1.6_
+
+*6*. Enter the variable value as the installation path for the Java Development Kit. If your Java installation directory has a space in its path name, you should use the shortened path name in the environment variable instead.
+		
+{docbook}
+<para>
+<emphasis role="bold">7</emphasis>. Click <emphasis role="bold">OK</emphasis>, then <emphasis role="bold">Apply Changes</emphasis>.
+</para>
+{docbook}		
+		
+
+{docbook}
+<para>
+<citetitle>
+<emphasis role="bold">
+Set the JAVA_HOME environment variable on Unix or Linux
+</emphasis>
+</citetitle>
+</para>
+{docbook}
+
+Setting JAVA\_HOME on Unix or Linux environment is simpler and straight forward. You just need to export
+JAVA\_HOME variable and its value, then you can refer its value in any shell script.
 
 h1. Install the Tomcat bundle {anchor:id=ADM.Installation.Install_Tomcat_Bundle}
 The easiest way to install eXo Platform is to use the Tomcat bundle. This is a ready-made package on top of the Tomcat 6 application server. First, you need to download and extract the package named _eXo-Platform-tomcat-3.5.x.zip_ on your server.
@@ -316,6 +380,7 @@ is set via the following element in the _Context_ element in the _server/default
 <SessionCookie path="/" />
 {code}
 Session cookies are now scoped to the context by default.
+
 *7.* Start up the server.
 
 * On Linux and OS X:  
@@ -414,3 +479,49 @@ For example:
 {code}
 .\\start_eXo.bat -debug [profiles]
 {code}
+
+h1. Troubleshootings {anchor:id=ADM.Installation.Troubleshootings}
+
+In the installation process, the following issue may occur:
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Too many open files error
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*Cause*: On Linux environments, the ulimit limits the system-wide resource used. When running eXo Platform, you got the error message about "Too many open files" because the ulimit had limited the opened files.
+
+*Solution*: By default, the number of open files is limited to "1024". You should execute the command "ulimit \-n 8196" as root before starting the server to avoid this issue.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Address already in use
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*Cause*: eXo Platform runs on port 8080 and this port was already used by another instance.
+
+*Solution*: Verify what instance is using port 8080, then shutdown it or switch to another port.
+
+{docbook}
+<citetitle>
+<para>
+<emphasis role="bold">
+Out of heap memory
+</emphasis>
+</para>
+</citetitle>
+{docbook}
+
+*Cause*: Not enough Java memory.
+
+*Solution*: In the normal mode, the _start\_eXo_ scripts launch eXo Platform with the following Java Memory options: \-Xms256m \-Xmx1024m. To fix the problem, increase the Java memory option in the _setenv.sh_ file to \-Xms512m \-Xmx1024m.
