@@ -37,6 +37,7 @@
 											<outputDirectory>${project.build.directory}/jbosseap</outputDirectory>
 										</artifactItem>
 										<!-- extracts the docs webapp-->
+                                        <!--
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
 											<artifactId>exo.platform.doc.bundle</artifactId>
@@ -44,6 +45,7 @@
 											<type>zip</type>
 											<outputDirectory>${project.build.directory}/docs</outputDirectory>
 										</artifactItem>
+										-->
 										<artifactItem>
 											<groupId>org.exoplatform.platform</groupId>
 											<artifactId>exo.platform.sample.default-website.ear</artifactId>

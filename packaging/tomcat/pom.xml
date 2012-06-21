@@ -1842,6 +1842,7 @@
                   <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
               </execution>
+              <!--
               <execution>
                 <id>package-chatserver</id>
                 <phase>package</phase>
@@ -1854,6 +1855,7 @@
                   </descriptors>
                 </configuration>
               </execution>
+              -->
             </executions>
           </plugin>
         </plugins>
