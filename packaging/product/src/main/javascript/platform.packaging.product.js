@@ -127,7 +127,6 @@ function getProduct(version) {
     product.addDependencies(wiki.rendering);
     product.addDependencies(wiki.wiki);
     product.addDependencies(wiki.extension.webapp);
-    product.addDependencies(wiki.commons.extension);
 
 
   /* SOCIAL */
