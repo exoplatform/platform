@@ -105,15 +105,10 @@ function getProduct(version) {
 
   /* FORUM */
 
-    //cometd (requried for FORUM)
-    product.addDependencies(FORUM.comet.cometd);
-    product.addDependencies(FORUM.webuiExt);
-    product.addDependencies(FORUM.component.upgrade);
     product.addDependencies(FORUM.component.common);
     product.addDependencies(FORUM.component.rendering);
     product.addDependencies(FORUM.component.bbcode);
     product.addDependencies(FORUM.extension.webapp);
-    product.addDependencies(FORUM.commons.extension);//commons-extension in platform
     product.addDependencies(FORUM.application.common);
     product.addDependencies(FORUM.application.forumGadgets);
     product.addDependencies(FORUM.answer);
