@@ -23,7 +23,7 @@ rem Sets some variables
 set LOG_OPTS=-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog
 set SECURITY_OPTS=-Djava.security.auth.login.config=%CATALINA_HOME%\conf\jaas.conf
 set EXO_OPTS=-Dexo.conf.dir.name=gatein\conf
-set IDE_OPTS=-Djavasrc=$JAVA_HOME/src.zip -Djre.lib=$JAVA_HOME/jre/lib
+set IDE_OPTS=-Djavasrc=%JAVA_HOME%\src.zip -Djre.lib=%JAVA_HOME%\jre\lib
 
 set res=false
 if "%EXO_PROFILES%" == "" set res=true
