@@ -38,7 +38,6 @@ public class SpaceAccessService {
     }
   };
 
-  private static final ThreadLocal<ChromatticSession> session = new ThreadLocal<ChromatticSession>();
   private ChromatticLifeCycle lifeCycle;
   private NodeHierarchyCreator nodeHierarchyCreator;
   private Executor executor;
@@ -161,10 +160,7 @@ public class SpaceAccessService {
   }
 
   public ChromatticSession getSession() {
-    if (session.get() == null) {
-      session.set(lifeCycle.getChromattic().openSession());
-    }
-    return session.get();
+    return lifeCycle.getChromattic().openSession();
   }
 
 }
