@@ -437,8 +437,8 @@ public class OrganizationIntegrationService implements Startable {
   /**
    * Apply all users OrganizationService listeners
    * 
-   * @param username
-   *          The user name
+   * @param eventType
+   *          ADDED/UPDATED/DELETED
    */
   @Managed
   @ManagedDescription("invoke all users listeners")
@@ -731,7 +731,7 @@ public class OrganizationIntegrationService implements Startable {
       }
       case ADDED:
       case UPDATED: {
-        boolean isNew = EventType.ADDED.equals(eventType);
+        boolean isNew = EventType.ADDED.equals(event);
         Session session = null;
         try {
           List<Membership> memberships = null;
