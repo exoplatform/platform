@@ -676,13 +676,11 @@ The *Calendar* application provides 2 options for reminding users who will take 
 </citetitle>
 {docbook}
 
-*1.* Click !images/Add_more_button1.png|width="12mm" fo:scalefit="1" html:scalefit="0"! to open the *Select an Email* form.
+*1.* Click !images/Add_more_button1.png|width="12mm" fo:scalefit="1" html:scalefit="0"! to open the *Select Users* form. This form shows a list of users and their emails.
 
-*2.* Tick checkboxes corresponding to email addresses you want to select;
+*2.* Tick checkboxes corresponding to email addresses you want to select. You can also search for users of a specified group or search for users by their user names, last names, first names and email names.
 
-Or, use the *Search* function to search for your expected email addresses. Also, to narrow your search results, select the address book where you want to perform your search from the *Address Books* drop-down menu. 
-
-*3.* Click the *Add* button to add your selected emails, or click the *Replace* button to replace existing emails with your selected emails.
+*3.* Click the *Add* button to add your selected emails.
 
 The list of your selected email addresses are displayed right below the *Also send reminders to* field of the *Reminders* tab.
 
@@ -708,7 +706,7 @@ If you want to invite people to attend an event, go to the *Participants* tab. T
 
 Here, you can select contacts from your Address Book or users who have registered in the system as follows:
 
-*i.* Click !images/address_book_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! or !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"! respectively.
+*i.* Click !images/user_selector_icon.png|width="3mm" fo:scalefit="1" html:scalefit="0"!.
 
 *ii.* Select your desired contacts/users by ticking the checkboxes, or do the *Search* function to find out your contacts/users quickly. Then, click *Add* to add your selected contacts/users to the *Participants* pane.
 
