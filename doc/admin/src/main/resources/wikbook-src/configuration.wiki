@@ -399,7 +399,7 @@ You may want to rename the data source as follows:
 
 *i.* Open and edit the configuration.properties path.
 
-In this step, indicate to eXo name of the data sources.
+In this step, indicate to eXo name of the data sources. Optionaly point to a database schema name using {{{gatein.idm.datasource.schema}}} property.
 
 {code}
 # JNDI name of the datasource that will be used by eXo JCR
@@ -407,7 +407,10 @@ gatein.jcr.datasource.name=java:/comp/env/exojcr
 ...
 # JNDI Name of the IDM datasource
 gatein.idm.datasource.name=java:/comp/env/exo-idm
-{code}               
+
+# Optional database schema for use with IDM tables (empty by default), uncomment this line to specify required schema name
+#gatein.idm.datasource.schema=EXO1
+{code}
 
 {note}
 eXo Platform automatically appends the portal container name ("\_\portal" by default) to these values before performing a JNDI lookup.
@@ -1065,6 +1068,8 @@ gatein.portlet.config=${gatein.conf.dir}/portlet.xml
 # portal name will be appended to this name before the JNDI lookup
 # example : java:/comp/env/exo-idm in "portal" portal will result in a JNDI lookup on context : java:/comp/env/exo-idm_portal 
 gatein.idm.datasource.name=java:exo-idm
+# Optional database schema for use with IDM tables (empty by default), uncomment this line to specify required schema name
+#gatein.idm.datasource.schema=EXO1
 
 # IDM 
 gatein.portal.idm.createuserportal=false
