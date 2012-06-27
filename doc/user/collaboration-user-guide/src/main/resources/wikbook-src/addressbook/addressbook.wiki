@@ -544,7 +544,7 @@ Your search results will be displayed in the right *Search Result* pane.
 
 With this mode, you can refine your search by using a variety of criteria. Your search results will be limited as follows:
 
-*1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box to open the *Advanced Search* form.
+*1.* Click !images/Advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box to open the *Advanced Search* form.
 
 *2.* Define your search criteria. You can set the search criteria by: Text, Full Name, First Name, Last Name, Nick Name, Job Title, Email and Gender.
 

@@ -114,7 +114,7 @@ If you are a member of _\*:/organization/management/executive-board_ group, you 
 
 *2.* Click the *Manage* function in the *Action* column that corresponds to a task which you want to evaluate. The *Task Management* form will appear.
 
-!images/evaluate_payraise.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/Workflow/evaluate_payraise.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 *3.* Select one of the followings.
 
