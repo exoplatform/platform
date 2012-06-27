@@ -88,7 +88,7 @@ h3. Delete a category {anchor:id=KSuser.Answer_Moderator.Delete_categories}
 
 *1.* Follow one of the approaches described in the [Manage categories|#KSuser.Answer_Moderator.Manage_categories] section.
 
-*2.* Select !images/Delete_Category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
+*2.* Select !images/Delete_category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"! from the drop-down menu.
 
 *3.* Click *OK* in the confirmation message to accept your deletion.
 
@@ -97,7 +97,7 @@ h3. Move a category {anchor:id=KSuser.Answer_Moderator.Move_categories}
 
 *1.* Follow one of the approaches described in [Manage categories|#KSuser.Answer_Moderator.Manage_categories] to open the drop-down menu.
 
-*2.* Select !images/Move_Category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"!.
+*2.* Select !images/Move_category_btn.png|width="15mm" fo:scalefit="1" html:scalefit="0"!.
 
 *3.* Select the destination category from the list.
 

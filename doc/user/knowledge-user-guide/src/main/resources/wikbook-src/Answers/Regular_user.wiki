@@ -515,7 +515,7 @@ The *Search Results* window will open with all matching categories and questions
 |!images/Answered_question_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The question has been answered.|
 |!images/unanswered_question_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The question has not been answered.|
 |!images/category_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|The category containing your entered keywords.|
-|!images/watch_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to go into a question or a category.|
+|!images/Watch_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"!|Click this icon to go into a question or a category.|
 
 {docbook}
 <para>
