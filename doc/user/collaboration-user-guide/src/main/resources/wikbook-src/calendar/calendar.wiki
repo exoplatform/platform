@@ -1202,7 +1202,7 @@ This function allows you to do a quick search with specific keywords in all your
 
 This function allows you to make a search with multiple criteria.
 
-*1.* Click !images/advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box.
+*1.* Click !images/Advanced_search_icon.png|width="4mm" fo:scalefit="1" html:scalefit="0"! next to the search box.
 
 *2.* Define your search criteria in the *Advanced Search* form.
 
