@@ -225,7 +225,7 @@ Select the *X-Ray* content and see the newly implemented content using new visua
 
 * Coverflow section:
 
-!images/navigation_by_content_feature/Coverflow.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
+!images/navigation_by_content_feature/coverflow.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 * Related documents:
 
