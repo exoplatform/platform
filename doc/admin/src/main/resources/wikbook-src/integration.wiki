@@ -79,19 +79,19 @@ h2. Activate the service {anchor:id=ADM.Integration.Integrate_organizational_mod
 Out of the box, eXo Platform is configured to leverage the IDM database. If you want to integrate eXo Platform with a user directory, you will
 need to synchronize this remote directory by activating a Kernel component named _OrganizationIntegrationService_.
 
-There are two typical ways to achieve this:
+There are 2 typical ways to achieve this:
 
-* *The first way*: By directly adding the entry below to the _gatein/portal/portal/configuration.xml_ file:
+* *The first way*: Directly add the entry below to the _gatein/portal/portal/configuration.xml_ file:
 {code:xml}
 <import>war:/conf/platform/organization-integration-configuration.xml</import>
 {code}
 
-* *The second way*: By adding this entry to the _WEB-INF/conf/configuration.xml_ file through a custom extension:
+* *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension:
 {code:xml}
 <import>war:/conf/platform/organization-integration-configuration.xml</import>
 {code}
 
-Next, you can use one of the methods described below to synchronize your directory with eXo Platform.
+Next, you can start synchronizing your directory with eXo Platform.
 
 h2. Sync at startup {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
 
