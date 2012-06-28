@@ -1,6 +1,10 @@
 {docbook}
 <abstract>
-<para>This chapter aims at instructing you how to upgrade eXo Platform from 3.0 to 3.5, especially when your system is an extension of eXo Platform 3.0 with many customizations related to configurations, components and added features.</para>
+<para>Upgrading eXo Platform from 3.0 to 3.5 is generally a two-steps procedure:</para>
+<para><emphasis role="bold">1</emphasis>. Upgrading the project extensions.</para>
+<para><emphasis role="bold">2</emphasis>. Upgrading the project and the product data.</para>
+<para>This chapter aims at instructing you how to archive the first step: Upgrading your project extensions.</para>
+<para>Besides this, since upgrading data can be strongly dependent on both of your deployments and environments, you should contact <ulink url="http://support.exoplatform.com/">eXo Support</ulink> to bootstrap the second step of your procedure.</para>
 <para>The following topics are covered:</para>
 <itemizedlist>
   <listitem>
