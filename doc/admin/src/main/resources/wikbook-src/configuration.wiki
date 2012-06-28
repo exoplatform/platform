@@ -429,10 +429,11 @@ Q1. How to configure eXo Platform to connect to other database systems?
 </emphasis>
 </para>
 </citetitle>
+
 {docbook}
 
 
-Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the folders:
+Configuring eXo Platform to connect to other database can be done easily. eXo Platform provides sample configuration files in the following folders:
 
 * *eXo Platform-3.5.x.zip/conf/db/*
 ** mysql
@@ -441,9 +442,9 @@ Configuring eXo Platform to connect to other database can be done easily. eXo Pl
 
 In each folder, you will find two sample xml files: _gatein-ds.xml_ for JBoss and _server.xml_ for Tomcat.
 
-Each file contains 2 preconfigured datasources. For example (JCR datasource in _mysql/server.xml_):
+Each file contains 2 preconfigured data sources. For example: JCR data source in _mysql/server.xml_:
 
-{code}
+{code:xml}
 <Resource name="exo-jcr_portal" auth="Container" type="javax.sql.DataSource"
           maxActive="128" maxIdle="32" maxWait="10000"
           testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1" 
@@ -455,13 +456,13 @@ You simply replace the variables with the expected values:
 
 || Variables || Expected values ||
 | db.username | The username that connects to the database. |
-| db.password | The password for the above user. |
+| db.password | The password for the above username. |
 | db.host | The hostname or IP address of the DB server. |
 | db.port | The port to connect to the DB. |
 | db.jcr.name | The DB name for the JCR datasource. |
 | db.idm.name | The DB name for the IDM datasource. |
 
-Please remember to add the JDBC connector JAR in the classpath of your application server.
+Please remember to add the JDBC connector JAR to the classpath of your application server.
 
 You can download the official JDBC connector JARs from the following websites:
 
@@ -487,11 +488,11 @@ at org.hibernate.impl.AbstractSessionImpl.errorIfClosed(AbstractSessionImpl.java
 at org.hibernate.impl.SessionImpl.getTransaction(SessionImpl.java:1342)
 {code}
 
-To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the parameters *testWhileIdle*, *timeBetweenEvictionRunsMillis* and *validationQuery*.
+To avoid this, you can use DBCP to monitor the idle connections and drop them when they are invalid, with the *testWhileIdle*, *timeBetweenEvictionRunsMillis*, and *validationQuery* parameters.
 
 The validation query is specific to your RDBMS. For example, on MySQL, you would use:
 
-{code}
+{code:java}
 testWhileIdle="true" timeBetweenEvictionRunsMillis="30000" validationQuery="SELECT 1"
 {code}
 
@@ -501,9 +502,9 @@ In which:
 * *timeBetweenEvictionRunsMillis* defines the time interval between two checks in milliseconds (5 minutes in the example).
 * *validationQuery* provides a simple SQL command to validate the connection to the RDBMS.
 
-You can add these parameters to the data source configuration file of your application server, for example: conf/server.xml on Tomcat.
+You can add these parameters to the data source configuration file of your application server, for example, _conf/server.xml_ on Tomcat.
 
-For more details on the configuration, or some examples on other RDBMS and applications servers, please refer to:
+For more details on the configuration, or some examples on other RDBMS and applications servers, please refer to the following websites:
 
 * http://markmail.org/message/a3bszoyqbvi5qer4
 * http://stackoverflow.com/questions/15949/javatomcat-dying-databse-connection
@@ -519,8 +520,8 @@ Q3. How to enable managed DataSource?
 </para>
 </citetitle>
 {docbook}
-When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file
-{code}
+When you want to use a managed data source (which is the case under JBoss), set "true" for the {{gatein.jcr.datasource.managed}} property in the {{configuration.properties}} file.
+{code:java}
 # indicates if the jcr datasource is using managed transactions. 
 # false by default. 
 gatein.jcr.datasource.managed=true
@@ -593,7 +594,7 @@ gatein.jcr.workspace.system=system
 h1. Transaction Service {anchor:id=ADM.Configuration.JCR_TransactionService}
 
 JCR transaction default timeout configured for 7 mins (420 sec) by default. If your application runs longer transactions, you might need a bigger timeout.
-{code}
+{code:java}
 # JCR Transaction Service
 # TransactionService default timeout (in seconds), set it to one hour here:
 gatein.jcr.transaction.timeout=3600
@@ -611,7 +612,7 @@ gatein/conf/configuration.properties_ if you are using Tomcat).
 
 The relevant section looks like:
 
-{code}
+{code:java}
 #EMail
 # Domain name: Help for sending links from email notifications. The default domain name is http://localhost:8080.
 gatein.email.domain.url=http://localhost:8080
@@ -646,7 +647,7 @@ To see more details, refer to [JavaMail API documentation|http://java.sun.com/pr
 
 For Knowledge, you have to modify the following properties to the configuration file _/gatein/conf/configuration.properties_ to make sure that this mail service works with the authenticated SMTP systems:
 
-{code}
+{code:java}
 gatein.email.domain.url=http://localhost:8080
 gatein.email.smtp.from=noreply@exoplatform.com
 {code}

@@ -185,7 +185,7 @@ Q1. How to migrate from local to the cluster mode?
 </para>
 </citetitle>
 {docbook}
-If you intend to migrate your production system from local (non-cluster) to the cluster mode, follow these steps:
+If you intend to migrate your production system from the local (non-cluster) to the cluster mode, follow these steps:
 
 *1.* Update the configuration to the cluster mode as explained above on your main server.
 
@@ -211,13 +211,13 @@ On Linux, your startup is failed if you encounter the following error:
 [INFO] Caused by: java.lang.IllegalArgumentException: Port value out of range: 65536
 {code}
 
-This problem happens under specific circumstances when JGroups-the networking library behind the clustering attempts to detect the IP to use for communication with other nodes.
+This problem happens under specific circumstances when the JGroups networking library behind the clustering attempts to detect the IP to communicate with other nodes.
 
 You need to verify:
 
-* The host name is a valid IP address, served by one of the network devices, such as eth0, eth1.
+* The host name is a valid IP address, served by one of the network devices, such as _eth0_, and _eth1_.
 
-* The host name is NOT defined as localhost or 127.0.0.1.
+* The host name is NOT defined as _localhost_ or 127.0.0.1.
 
 
 {docbook}
@@ -237,7 +237,7 @@ SEVERE: failed sending message to null (44 bytes)
 java.lang.Exception: dest=/228.10.10.10:45588 (47 bytes)
 {code}
 
-Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to JVM parameters:
+Be aware that clustering on Linux only works with IPv4. Therefore, when using a cluster under Linux, add the following property to the JVM parameters:
 {code} -Djava.net.preferIPv4Stack=true {code}
 
 {docbook}
@@ -249,8 +249,8 @@ Q3. How to hide JGroups protocol warnings in the log?
 </para>
 </citetitle>
 {docbook}
-In cluster mode several Platform subsystems, such as JCR, various caches, organization service, use shared JGroups transport.
-And in case of used by default UDP transport it might cause a side effect - lot of warnings, like these below:
+In the cluster mode, several eXo Platform subsystems, such as JCR, various caches, and organization service use shared JGroups transport;
+and in case of being used by the default UDP transport, it might cause a side effect (a lot of warnings) like these below:
 
 {code}
 WARNING: discarded message from different group "gatein-idm-api-cluster" (our group is "gatein-idm-store-cluster"). Sender was 192.168.1.55:54232
@@ -259,14 +259,14 @@ WARNING: discarded message from different group "gatein-idm-store-cluster" (our 
 Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
 {code}
 
-To hide such warnings need configure the Application Server logger in appropriate way:
-* Apache Tomcat, in {{{${CATALINA_HOME}/conf/logging.properties}}} add following lines
-{code}
+To hide such warnings, need to configure the Application Server logger in an appropriate way:
+* Apache Tomcat: add the following lines to in the _{{{${CATALINA_HOME}/conf/logging.properties}}}_ file:
+{code:java}
 org.jgroups.level = SEVERE
 org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
 {code}
-* JBoss Application Server, for server profile _all_, add in {{{${jboss_server}/server/all/conf/jboss-log4j.xml}}} following
-{code}
+* JBoss Application Server: for the "_all_" server profile, add the following lines to the _{{{${jboss_server}/server/all/conf/jboss-log4j.xml}}}_ file:
+{code:xml}
   <category name="org.jgroups.protocols.UDP">
     <priority value="ERROR"/>
   </category>
