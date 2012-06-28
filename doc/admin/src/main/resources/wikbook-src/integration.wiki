@@ -10,47 +10,47 @@ By default, the integration with an enteprise directory is done via picketlink I
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Terminology">Terminology</link>
+<link linkend="ADM.Integration.Terminology">Terminology</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model">Sync Platform with an existing Directory</link>
+<link linkend="ADM.Integration.Sync_eXoPLF_with_existing_directory">Synchronize eXo Platform with an existing directory</link>
 </para>
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Platform_startup">Sync at startup</link>
+<link linkend="ADM.Integration.Sync_at_startup">Sync at startup</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.User_login">Sync at login time</link>
+<link linkend="ADM.Integration.Syn_at_logtime">Sync at login time</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Manual_sync">Sync on demand</link>
+<link linkend="ADM.Integration.Sync_on_demand">Sync on demand</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync">Scheduled/Periodic sync</link>
-</para>
-</listitem>
-<listitem>
-<para>
-<link linkend="ADM.Organization.Lagacy_Organization_Config">Use Legacy Organization Models</link>
+<link linkend="ADM.Integration.Scheduled_periodic_sync">Scheduled/Periodic sync</link>
 </para>
 </listitem>
 </itemizedlist>
+</listitem>
+<listitem>
+<para>
+<link linkend="ADM.Integration.Use_Lagacy_Organization_Models">Use Legacy Organization Models</link>
+</para>
 </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
 
 
-h1. Terminology {anchor:id=ADM.Integration.Integrate_organizational_model.Terminology}
+h1. Terminology {anchor:id=ADM.Integration.Terminology}
 Before learning about how to integrate the organizational model, you should be aware of the following terms:
 
 * *Organizational data* are information of users, user profiles, groups, memberships and membership types.
@@ -63,14 +63,14 @@ Before learning about how to integrate the organizational model, you should be a
 
 * *Listener* is a part of eXo Platform organization management. When an organizational element is added, a set of listeners is triggered to integrate it into eXo Platform. For example, when a user is added to eXo Platform, there is a listener which will add its private and public drives.
 
-h1. Sync Platform with an existing Directory {anchor:id=ADM.Integration.Integrate_organizational_model}
+h1. Synchronize eXo Platform with an existing directory {anchor:id=ADM.Integration.Sync_eXoPLF_with_existing_directory}
 
 When an external organizational data source (LDAP server, MS ActiveDirectory) is used, eXo Platform must be notified of any changes on organizational entities, including addition, deletion and update. These changes are reflected in the backend settings of eXo Platform. 
-These notifications are performed thanks to several means provided by eXo Platform. Pick up one of the following use cases related to your needs.
+These notifications are performed thanks to several means provided by eXo Platform.
 
-Pick up one of the following use cases of integration execution related to your needs. {anchor:id=ADM.Integration.Integrate_organizational_model.Integration_execution_use_cases}
+Pick up one of the following use cases of integration execution related to your needs. {anchor:id=ADM.Integration..Integration_execution_use_cases}
 
-h2. Sync at startup {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
+h2. Sync at startup {anchor:id=ADM.Integration.Sync_at_startup}
 
 At the start-up of eXo Platform, all groups are synchronized. This means that the groups which have been added/deleted will be integrated. This operation is mandatory because some of eXo Platform features require some system groups to be integrated, such as the system group of Social *spaces*.
 
@@ -89,11 +89,11 @@ In case you want to disable groups synchronization at start-up, and proceed manu
 </component>
 {code}
 
-h2. Sync at login time {anchor:id=ADM.Integration.Integrate_organizational_model.User_login}
+h2. Sync at login time {anchor:id=ADM.Integration.Syn_at_logtime}
 
 Once users have logged in, their profile, memberships and related groups will be auto-synchronized. Also, administrators can activate the synchronization process manually without depending on the users' login. (See the next sections for more details).
 
-h2. Sync on demand {anchor:id=ADM.Integration.Integrate_organizational_model.Manual_sync}
+h2. Sync on demand {anchor:id=ADM.Integration.Sync_on_demand}
 
 You could enforce the integration of some _organizational elements_ via REST or JMX. See the operations you can perform in the following table.
 
@@ -109,7 +109,7 @@ You could enforce the integration of some _organizational elements_ via REST or 
 For invokeAllListeners, invokeGroupsListeners and invokeUsersListeners, it may take few hours if the organizational data source contains thousands of users.
 {note}
 
-h2. Scheduled/Periodic sync {anchor:id=ADM.Integration.Integrate_organizational_model.Scheduled_periodic_sync}
+h2. Scheduled/Periodic sync {anchor:id=ADM.Integration.Scheduled_periodic_sync}
 
 You can select the periodic integration of the whole _organizational elements_ which are not integrated yet. This feature is not activated automatically in the eXo Platform distribution. To do so, you will have to add this configuration: 
 
@@ -137,7 +137,7 @@ You can select the periodic integration of the whole _organizational elements_ w
 
 You need to modify the *expression* property value to change the period according to the [CRON Expression documentation|http://www.quartz-scheduler.org/docs/tutorial/TutorialLesson06.html]. The value presented above means that this job is executed at 23:45:00 everyday.
 
-h3. Use REST {anchor:id=ADM.Integration.Integrate_organizational_model.Use_REST}
+h3. Use REST {anchor:id=ADM.Integration.Use_REST}
 
 The organization integration management API is also exposed as REST.
 You need to login as an administrator first, then use one of those links:
@@ -178,7 +178,7 @@ You can also request for synchronizing all groups.
 
 * _/portal/rest/management/orgsync/syncAll_: This will synchronize all groups and users.
 
-h3. Use JMX {anchor:id=ADM.Integration.Integrate_organizational_model.Use_JMX}
+h3. Use JMX {anchor:id=ADM.Integration.Use_JMX}
 
 To access the Integration Service features via JMX, you can use JMX-compliant monitoring tools, such as [JConsole|http://download.oracle.com/javase/6/docs/technotes/guides/management/jconsole.html].
 The name of the MBean is: exo:portal="portal",service=extensions,name=OrganizationIntegrationService,type=platform.
@@ -186,7 +186,7 @@ The name of the MBean is: exo:portal="portal",service=extensions,name=Organizati
 !images/integration/jmx_console.png|align="center" width="150mm" fo:scalefit="1" html:scalefit="0"!
 
 
-h1. Use Legacy Organization Models {anchor:id=ADM.Organization.Lagacy_Organization_Config}
+h1. Use Legacy Organization Models {anchor:id=ADM.Integration.Use_Lagacy_Organization_Models}
 
 If you used one of those Organization Data Models.
 * LDAP Organization Service
