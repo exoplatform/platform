@@ -52,11 +52,6 @@
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Migration">Migration</link>: Step-by-step instructions for migrating eXo Platform from 3.0 to 3.5.
-</para>
-</listitem>
-<listitem>
-<para>
 <link linkend="ADM.Integration">Organization Integration</link>: Instructions on how to connect eXo Platform to a populated data source, such as LDAP server, MS ActiveDirectory, or Database.
 </para>
 </listitem>
