@@ -6,35 +6,35 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.How_to_remove_sample_application">Remove sample applications</link>
+<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample applications</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Deploy_custom_extension">Deploy a custom extension</link>
+<link linkend="ADM.Deployment.Deploy_custom_extension">Deploy a custom extension</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Setup_Apache_Frontend">Set up Apache front-end</link>
+<link linkend="ADM.Deployment.Setup_Apache_Frontend">Set up Apache front-end</link>
 </para>
 </listitem>
 <listitem>
 <para>
-<link linkend="ADM.Clustering.Configure_session_time-out_for_web_server">Configure the session timeout for the web server</link>
+<link linkend="ADM.Deployment.Configure_session_time-out_for_web_server">Configure the session timeout for the web server</link>
 </para>
 </listitem>
 </itemizedlist>
 </abstract>
 {docbook}
 
-h1. Remove sample portals {anchor:id=ADM.Clustering.How_to_remove_sample_application}
+h1. Remove sample portals {anchor:id=ADM.Deployment.How_to_remove_sample_application}
 
 eXo Platform comes with two sample portals that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample portals. In some cases, you usually want to remove them before deploying your system in production.
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
-h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Clustering.Remove_Acme_SocialIntranet}
+h2. Remove Acme website/Acme Social Intranet {anchor:id=ADM.Deployment.Remove_Acme_SocialIntranet}
 
 Both Acme website and Acme Social Intranet are sample extensions demonstrating the intranet that you can implement with eXo Platform.
 
@@ -61,7 +61,7 @@ Remove the Acme website/Acme Social Intranet
 
 *3.* Restart the server.
 
-h2. Remove Crash {anchor:id=ADM.Clustering.Remove_crash}
+h2. Remove Crash {anchor:id=ADM.Deployment.Remove_crash}
 
 Crash is a complementary tool for development and maintenance. As it opens telnet and SSH sockets, it is highly recommended that you remove Crash for your production deployments. Crash is in the _crash.war_ file in _tomcat/webapps_.
 
@@ -81,7 +81,7 @@ Remove a Crash
 
 *3.* Restart the server.
 
-h1. Deploy a custom extension {anchor:id=ADM.Clustering.Deploy_custom_extension}
+h1. Deploy a custom extension {anchor:id=ADM.Deployment.Deploy_custom_extension}
 
 Extensions are packaged as the Java EE web applications and packaged as the normal .war files. To deploy the custom extension, you may do as for any other web apps.
 
@@ -93,7 +93,7 @@ This is the case for the sample applications bundled by default.
 
 There are several ways to control the loading order of webapps in Tomcat. Please refer to [Tomcat's Deployer How To|http://tomcat.apache.org/tomcat-6.0-doc/deployer-howto.html#A_word_on_Contexts].
 
-h1. Set up Apache front-end {anchor:id=ADM.Clustering.Setup_Apache_Frontend}
+h1. Set up Apache front-end {anchor:id=ADM.Deployment.Setup_Apache_Frontend}
 
 It may be necessary to use the HTTP server as a front-end for Tomcat. For example, you may want to keep more than one application server on the same host, and/or you want to access these app servers with the separate DNS names, without adding a port to the URL.
 
@@ -103,7 +103,7 @@ There are two methods that allow you to "_glue_" Apache HTTP Daemon and Tomcat a
 
 - via the [Apache JServ Protocol|http://tomcat.apache.org/connectors-doc/ajp/ajpv13a.html] using [Tomcat connector|http://tomcat.apache.org/connectors-doc/] or [HTTPD AJP proxy module|http://httpd.apache.org/docs/2.2/mod/mod_proxy_ajp.html].
 
-h2. Base configuration for Apache {anchor:id=ADM.Clustering.Base_Configuration_for_Apache}
+h2. Base configuration for Apache {anchor:id=ADM.Deployment.Base_Configuration_for_Apache}
 
 First, you need to configure a new virtual host in Apache HTTPD for the application server. This is the simplest example of a virtual host:
 
@@ -115,7 +115,7 @@ First, you need to configure a new virtual host in Apache HTTPD for the applicat
 {code}
 You can find more information on the Apache HTTP daemon host [here|http://httpd.apache.org/docs/2.2/vhosts/].
 
-h2. Connect via HTTP protocol (Apache mod{{{_}}}proxy) {anchor:id=ADM.Clustering.Connection_via_HTTP_protocol}
+h2. Connect via HTTP protocol (Apache mod{{{_}}}proxy) {anchor:id=ADM.Deployment.Connection_via_HTTP_protocol}
 
 With the _glue_ method, it is necessary to configure the Apache HTTP daemon to work as the *reverse* proxy, which will redirect the client's requests to the app server's HTTP connector.
 
@@ -148,7 +148,7 @@ So, the configuration of a virtual host looks like the following:
 For more detail on *mod{{{_}}}proxy*, refer to this [documentation|http://httpd.apache.org/docs/2.2/mod/mod_proxy.html].
 
 
-h2. Connect via AJP protocol {anchor:id=ADM.Clustering.Connection_via_AJP_protocol}
+h2. Connect via AJP protocol {anchor:id=ADM.Deployment.Connection_via_AJP_protocol}
 
 As described above, the 'glue' method can be implemented via one of the following ways:
 
@@ -160,7 +160,7 @@ With the first method, you only need the HTTP daemon and application server, but
 
 With the second method, you can obtain more settings, but you will need to download and install additional modules for the HTTP Daemon that are not included in the default package.
 
-h3. AJP proxy module {anchor:id=ADM.Clustering.AJP_proxy_module}
+h3. AJP proxy module {anchor:id=ADM.Deployment.AJP_proxy_module}
 
 Make sure that _mod\_proxy\_ajp.so_ is included in the list of loadable modules.
 Add the following to your virtual host configuration setting:
@@ -180,7 +180,7 @@ You can find the full list of virtual host configurations here:
 </VirtualHost>
 {code}
 
-h3. Apache Tomcat's AJP connector {anchor:id=ADM.Clustering.Apache_Tomcat's_AJP_connector}
+h3. Apache Tomcat's AJP connector {anchor:id=ADM.Deployment.Apache_Tomcat's_AJP_connector}
 
 *1.* Download AJP connector module [here|http://apache.vc.ukrtel.net/tomcat/tomcat-connectors/jk/binaries/].
 
@@ -242,7 +242,7 @@ In the example above, you can change _WORKER\_NAME_ to any value.
 </VirtualHost>
 {code}
 
-h1. Configure the session timeout for the web server {anchor:id=ADM.Clustering.Configure_session_time-out_for_web_server}
+h1. Configure the session timeout for the web server {anchor:id=ADM.Deployment.Configure_session_time-out_for_web_server}
 
 The session timeout defines the validation period of a session.
 In the portal environment, such as eXo Platform, it is highly recommended that all web applications have the same session timeout value.
@@ -258,7 +258,7 @@ The session timeout is configurable individually for each web application in the
 </session-config>
 {code}
 
-h2. Tomcat server {anchor:id=ADM.Clustering.TomcatServer}
+h2. Tomcat server {anchor:id=ADM.Deployment.TomcatServer}
 
 In the Tomcat bundle, this file is located at _$TOMCAT\_HOME/conf/web.xml_.
 
@@ -280,7 +280,7 @@ Configure the session timeout of Server Tomcat
 
 *4.* Save and then restart the server by the _gatein.sh_ command.
 
-h2. JBoss server {anchor:id=ADM.Clustering.JBossServer}
+h2. JBoss server {anchor:id=ADM.Deployment.JBossServer}
 
 In the JBoss server, this file is located at _$Jboss\_home/server/default/deployers/jbossweb.deployer/web.xml_.
 
