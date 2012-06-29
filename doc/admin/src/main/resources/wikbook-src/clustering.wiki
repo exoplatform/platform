@@ -260,7 +260,7 @@ Dec 16, 2011 4:46:10 PM org.jgroups.protocols.TP passMessageUp
 {code}
 
 To hide such warnings, need to configure the Application Server logger in an appropriate way:
-* Apache Tomcat: add the following lines to in the _{{{${CATALINA_HOME}/conf/logging.properties}}}_ file:
+* Apache Tomcat: add the following lines to the _{{{${CATALINA_HOME}/conf/logging.properties}}}_ file:
 {code:java}
 org.jgroups.level = SEVERE
 org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.FileHandler
@@ -271,8 +271,3 @@ org.jgroups.handlers = java.util.logging.ConsoleHandler,6gatein.org.apache.juli.
     <priority value="ERROR"/>
   </category>
 {code}
-
-
-
-
-
