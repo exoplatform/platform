@@ -20,6 +20,11 @@ By default, the integration with an enteprise directory is done via picketlink I
 <itemizedlist>
 <listitem>
 <para>
+<link linkend="ADM.Integration.Integrate_organizational_model.Activate_Service">Activate the service</link>
+</para>
+</listitem>
+<listitem>
+<para>
 <link linkend="ADM.Integration.Integrate_organizational_model.Platform_startup">Sync at startup</link>
 </para>
 </listitem>
@@ -69,6 +74,26 @@ When an external organizational data source (LDAP server, MS ActiveDirectory) is
 These notifications are performed thanks to several means provided by eXo Platform. Pick up one of the following use cases related to your needs.
 
 Pick up one of the following use cases of integration execution related to your needs. {anchor:id=ADM.Integration.Integrate_organizational_model.Integration_execution_use_cases}
+
+h2. Activate the service {anchor:id=ADM.Integration.Integrate_organizational_model.Activate_Service}
+Out of the box, eXo Platform is configured to leverage the IDM database. If you want to integrate eXo Platform with a user directory, you will
+need to synchronize this remote directory by activating a Kernel component named _OrganizationIntegrationService_.
+
+There are 2 typical ways to achieve this:
+
+* *The first way*: Directly add the entry below to the _configuration.xml_ file:
+** For Tomcat: _$TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_
+** For JBoss: _$JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_
+{code:xml}
+<import>war:/conf/platform/organization-integration-configuration.xml</import>
+{code}
+
+* *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat:
+{code:xml}
+<import>war:/conf/platform/organization-integration-configuration.xml</import>
+{code}
+
+Next, you can start synchronizing your directory with eXo Platform by using one of the methods described below.
 
 h2. Sync at startup {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
 
