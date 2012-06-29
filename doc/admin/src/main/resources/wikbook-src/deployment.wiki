@@ -6,7 +6,7 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample applications</link>
+<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample sites</link>
 </para>
 </listitem>
 <listitem>
@@ -28,9 +28,9 @@ This chapter covers the following topics:
 </abstract>
 {docbook}
 
-h1. Remove sample portals {anchor:id=ADM.Deployment.How_to_remove_sample_application}
+h1. Remove sample sites {anchor:id=ADM.Deployment.How_to_remove_sample_application}
 
-eXo Platform comes with two sample portals that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample portals. In some cases, you usually want to remove them before deploying your system in production.
+eXo Platform comes with two sample sites that show the capabilities of the product. However, once implementing your own extensions, you may not need these sample sites. In some cases, you usually want to remove them before deploying your system in production.
 
 The following instructions are used in cases where the hsqldb embedded database configuration is used.
 
