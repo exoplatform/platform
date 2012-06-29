@@ -1019,14 +1019,14 @@ h1. Users configuration {anchor:id=ADM.Configuration.Users_configuration}
 
 h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configuration}
 
-Super user is a special user who has full privileges and can do anything. However, only one user account may be declared as the super user.
-By default, the super user is set to the "_root_" user. The "_root_" user is preconfigured as below:
+Super-user is a special user who has full privileges and can do anything. However, only one user account may be declared as the super-user.
+By default, the super-user is set to the "_root_" user. The "_root_" user is preconfigured as below:
 * Account details: Root, Root, root@localhost.
 * Memberships: _member\:/organization/management/executive-board_, _\*:/platform/administrators_, _\*:/platform/users_, _\*:/platform/web-contributors_, _\*:/organization/employees_.
 * All permissions on folders and other users.
-* Permission to use some unlocked features in eXo Platform.
+* Permission to use some locked features in eXo Platform.
 
-For example, if you want to set a user account as the super user, you can configure it as follows:
+For example, if you want to set a user account as the super-user, you can configure it as follows:
 {note}
 You must do this configuration before the first boot of eXo Platform.
 {note}
@@ -1037,11 +1037,13 @@ You must do this configuration before the first boot of eXo Platform.
 exo.super.user=root
 {code}
 
-*2.* Make sure the user whom you want to set as the "super user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
+*2.* Make sure the user whom you want to set as the "super-user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
 
 *3.* Remove the "root" user declaration defined in the _organization-configuration.xml_ file:
-* For Tomcat: _$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/organization-configuration.xml_
-* For JBoss: _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
+* For Tomcat: 
+_$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/organization-configuration.xml_
+* For JBoss: 
+_$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
 
 {code:xml}
 <field name="user">
@@ -1074,16 +1076,18 @@ exo.super.user=root
 {code}
 
 *4.* Add some privileges to your user into the _organization-configuration.xml_ file.
-* For Tomcat: _$TOMCAT\_HOME/webapps/acme-website/WEB-INF/conf/acme-portal/organization/organization-configuration.xml_
-* For JBoss: _$JBOSS_HOME/default/deploy/exo-acme-website-$PLF_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
+* For Tomcat: 
+_$TOMCAT\_HOME/webapps/acme-website/WEB-INF/conf/acme-portal/organization/organization-configuration.xml_
+* For JBoss: 
+_$JBOSS\_HOME/default/deploy/exo-acme-website-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
 
-*For example*:
-* Set the "demo" user as a super user.
+*For example:*
+* Set the "demo" user as a super-user.
 {code:java}
 # Super User declaration
 exo.super.user=demo
 {code}
-* And assign some privileges to the "demo" user:
+* Assign some privileges to the "demo" user:
 {code:xml}
 <value>
     <object type="org.exoplatform.services.organization.OrganizationConfig$User">
