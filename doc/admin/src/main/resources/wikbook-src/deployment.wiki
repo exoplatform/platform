@@ -6,7 +6,7 @@ This chapter covers the following topics:
 <itemizedlist>
 <listitem>
 <para>
-<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample applications</link>
+<link linkend="ADM.Deployment.How_to_remove_sample_application">Remove sample sites</link>
 </para>
 </listitem>
 <listitem>
