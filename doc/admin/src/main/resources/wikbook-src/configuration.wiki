@@ -1019,9 +1019,95 @@ h1. Users configuration {anchor:id=ADM.Configuration.Users_configuration}
 
 h2. Super-user configuration {anchor:id=ADM.Configuration.Super_user_configuration}
 
-In eXo Platform, the user "root" is defined as the super-admin by default.
-You could override this configuration by modifying the system property named _exo.super.user_ defined in configuration.properties.
+Super user is a special user who has full privileges and can do anything. However, only one user account may be declared as the super user.
+By default, the super user is set to the "_root_" user. The "_root_" user is preconfigured as below:
+* Account details: Root, Root, root@localhost.
+* Memberships: _member\:/organization/management/executive-board_, _\*:/platform/administrators_, _\*:/platform/users_, _\*:/platform/web-contributors_, _\*:/organization/employees_.
+* All permissions on folders and other users.
+* Permission to use some unlocked features in eXo Platform.
 
+For example, if you want to set a user account as the super user, you can configure it as follows:
+{note}
+You must do this configuration before the first boot of eXo Platform.
+{note}
+
+*1.* Modify the system property named _exo.super.user_ defined in _configuration.properties_ before starting eXo platform.
+{code:java}
+# Super User declaration
+exo.super.user=root
+{code}
+
+*2.* Make sure the user whom you want to set as the "super user" already exists into your configuration. By default, the users including "john", "demo", "james" and "mary" are created.
+
+*3.* Remove the "root" user declaration defined in the _organization-configuration.xml_ file:
+* For Tomcat: _$TOMCAT\_HOME/webapps/platform-extension/WEB-INF/conf/organization/organization-configuration.xml_
+* For JBoss: _$JBOSS\_HOME/default/deploy/exo-platform-extension-$PLF\_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
+
+{code:xml}
+<field name="user">
+  <collection type="java.util.ArrayList">
+    <value>
+      <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+        <field name="userName">
+          <string>${exo.super.user}</string>
+        </field>
+        <field name="password">
+          <string>gtn</string>
+        </field>
+        <field name="firstName">
+          <string>Root</string>
+        </field>
+        <field name="lastName">
+          <string>Root</string>
+        </field>
+        <field name="email">
+          <string>root@localhost</string>
+        </field>
+        <field name="groups">
+          <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees
+          </string>
+        </field>
+      </object>
+    </value>
+  </collection>
+</field>
+{code}
+
+*4.* Add some privileges to your user into the _organization-configuration.xml_ file.
+* For Tomcat: _$TOMCAT\_HOME/webapps/acme-website/WEB-INF/conf/acme-portal/organization/organization-configuration.xml_
+* For JBoss: _$JBOSS_HOME/default/deploy/exo-acme-website-$PLF_Version.ear/WEB-INF/conf/organization/organization-configuration.xml_
+
+*For example*:
+* Set the "demo" user as a super user.
+{code:java}
+# Super User declaration
+exo.super.user=demo
+{code}
+* And assign some privileges to the "demo" user:
+{code:xml}
+<value>
+    <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+      <field name="userName">
+        <string>demo</string>
+      </field>
+      <field name="password">
+        <string>gtn</string>
+      </field>
+      <field name="firstName">
+        <string>Jack</string>
+      </field>
+      <field name="lastName">
+        <string>Miller</string>
+      </field>
+      <field name="email">
+        <string>jack.miller@acme.exoplatform.com</string>
+      </field>
+      <field name="groups">
+        <string>*:/platform/administrators,*:/platform/users,*:/platform/web-contributors,*:/organization/employees</string>
+      </field>
+    </object>
+</value>
+{code}
 h2. Default users list definition of eXo Platform {anchor:id=ADM.Configuration.eXo_Platform_default_users_list_definition}
 
 In eXo Platform, the default users, excluding Super-admin user, are defined in "Acme WebSite" and "Office Intranet" extensions. By deleting those extensions, the users "john", "demo", "james" and "mary" will not be created.
