@@ -81,17 +81,19 @@ need to synchronize this remote directory by activating a Kernel component named
 
 There are 2 typical ways to achieve this:
 
-* *The first way*: Directly add the entry below to the _gatein/portal/portal/configuration.xml_ file:
+* *The first way*: Directly add the entry below to the _configuration.xml_ file:
+** For Tomcat: _$TOMCAT\_HOME/gatein/conf/portal/portal/configuration.xml_
+** For JBoss: _$JBOSS\_HOME/server/default/conf/gatein/portal/portal/configuration.xml_
 {code:xml}
 <import>war:/conf/platform/organization-integration-configuration.xml</import>
 {code}
 
-* *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension:
+* *The second way*: Add the entry below to the _WEB-INF/conf/configuration.xml_ file through a custom extension. The path to the file is independent on JBoss and Tomcat:
 {code:xml}
 <import>war:/conf/platform/organization-integration-configuration.xml</import>
 {code}
 
-Next, you can start synchronizing your directory with eXo Platform.
+Next, you can start synchronizing your directory with eXo Platform by using one of the methods described below.
 
 h2. Sync at startup {anchor:id=ADM.Integration.Integrate_organizational_model.Platform_startup}
 
