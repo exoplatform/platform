@@ -1,11 +1,9 @@
 {docbook}
 <abstract>
-<para>Upgrading eXo Platform from 3.0 to 3.5 is generally a two-steps procedure:</para>
-<para><emphasis role="bold">1</emphasis>. Upgrading the project extensions.</para>
-<para><emphasis role="bold">2</emphasis>. Upgrading the project and the product data.</para>
-<para>This chapter aims at instructing you how to archive the first step: Upgrading your project extensions.</para>
-<para>Besides this, since upgrading data can be strongly dependent on both of your deployments and environments, you should contact <ulink url="http://support.exoplatform.com/">eXo Support</ulink> to bootstrap the second step of your procedure.</para>
-<para>The following topics are covered:</para>
+<para>Upgrading eXo Platform from 3.0 to 3.5 is generally a procedure which includes 2 steps:</para>
+<para xml:id="Step1_UpgradeProjectExtensions"><emphasis role="bold">Step 1.</emphasis> Upgrade the project extensions.</para>
+<para xml:id="Step2_UpgradeProject_ProductData"><emphasis role="bold">Step 2.</emphasis> Upgrade the project and the product data.</para>
+<para>This chapter aims at instructing you how to archive <link linkend="Step1_UpgradeProjectExtensions">Step 1</link> via the following topics:</para>
 <itemizedlist>
   <listitem>
 	<para>
@@ -45,6 +43,10 @@
 </itemizedlist>
 </abstract>
 {docbook}
+
+{note}
+Upgrading data can be strongly dependent on both your deployments and environments, so it is recommended that you contact [http://support.exoplatform.com|eXo Support] to bootstrap the [Step 2|#Step2_UpgradeProject_ProductData].
+{note}
 h1. Prerequisites {anchor:id=DEV.Upgrade.Prerequisites}
 
 Before upgrading, you first need to understand how to create a project which is based on eXo Platform 3.5. For more details, refer to [Create Your Own Portal|#DEV.CreatingYourOwnPortal].
